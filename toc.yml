@@ -1,0 +1,14 @@
+- name: TO BE REPLACED
+  href: index.md 
+- name: 智能合约
+  items:
+    - name: 介绍
+      href: SmartContract/introduction.md
+    - name: 如何开始
+      href: SmartContract/getting-started.md
+    - name: 教程
+      href: SmartContract/tutorial.md
+    - name: 白皮书
+      href: SmartContract/white-paper.md
+    - name: API参考
+      href: SmartContract/api.md
