@@ -1,14 +1,71 @@
-- name: TO BE REPLACED
+- name: 介绍
   href: index.md 
-- name: 智能合约
+- name: 开始学习
+  href: getting-started.md
+- name: 白皮书
+  href: white-paper.md
+- name: 小蚁节点
+  href: node/introduction.md
   items:
     - name: 介绍
-      href: SmartContract/introduction.md
-    - name: 如何开始
-      href: SmartContract/getting-started.md
-    - name: 教程
-      href: SmartContract/tutorial.md
-    - name: 白皮书
-      href: SmartContract/white-paper.md
+      href: node/introduction.md
+    - name: 如何安装
+      href: node/setup.md
+    - name: 测试网
+      href: node/testnet.md
+    - name: CLI命令参考
+      href: node/cli.md
+    - name: 私链搭建
+      href: node/private-chain.md
     - name: API参考
-      href: SmartContract/api.md
+      href: node/api.md
+    - name: 网络协议
+      href: node/network-protocol.md
+- name: 智能合约
+  href: sc/introduction.md
+  items:
+    - name: 介绍
+      href: sc/introduction.md
+    - name: 如何开始
+      href: sc/getting-started.md
+    - name: 教程
+      href: sc/tutorial.md
+    - name: 测试
+      href: sc/test.md
+    - name: 白皮书
+      href: sc/white-paper.md
+    - name: API参考
+      href: sc/api.md
+      items:
+        - name: AntShares
+          href: sc/api/AntShares.md
+          items:
+          - name: Account
+            href: sc/api/AntShares/Account.md
+          - name: Asset
+            href: sc/api/AntShares/Asset.md
+          - name: Block
+            href: sc/api/AntShares/Block.md
+          - name: Blockchain
+            href: sc/api/AntShares/Blockchain.md
+          - name: Enrollment
+            href: sc/api/AntShares/Enrollment.md
+          - name: Header
+            href: sc/api/AntShares/Header.md
+          - name: Storage
+            href: sc/api/AntShares/Storage.md
+          - name: StorageContex
+            href: sc/api/AntShares/StorageContex.md
+          - name: Transaction
+            href: sc/api/AntShares/Transaction.md
+          - name: TransactionAttribute
+            href: sc/api/AntShares/TransactionAttribute.md
+          - name: TransactionInput
+            href: sc/api/AntShares/TransactionInput.md
+          - name: TransactionOutput
+            href: sc/api/AntShares/TransactionOutput.md
+        - name: System
+          href: sc/api/System.md
+          items:
+          - name: ExecutionEngine
+            href: sc/api/System/ExecutionEngine.md
