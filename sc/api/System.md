@@ -1,8 +1,4 @@
 # System 命名空间
 
-## 类
-
-|                                          | 类                                        | 说明   |
-| ---------------------------------------- | ---------------------------------------- | ---- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [ExecutionEngine](System/ExecutionEngine.md) |      |
+System 命名空间是智能合约执行引擎提供的 API，提供了访问访问该智能合约的执行环境的方法。
 
