@@ -36,6 +36,11 @@
       href: sc/white-paper.md
     - name: API参考
       href: sc/api.md
+      items: 
+      - name: AntShares
+        href: sc/api/AntShares.md
+      - name: System
+        href: sc/api/System.md
     - name: 框架
       href: sc/fw.md
       items: 
