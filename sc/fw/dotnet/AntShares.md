@@ -6,25 +6,28 @@ AntShares命名空间是小蚁区块链所提供的API，提供了访问区块�
 
 2、持久化存储区。部署在小蚁上的每一个应用合约都有一块仅可由该合约本身来存取的存储空间，可以用来存取合约中的数据。
 
+注：本文中标记 `new` 和 `已弃用` 的地方是 2.0 版本相对 1.6 版本的更改之处。
+
 ## 类
 
-|                                          | 类                                        | 说明                    |
-| ---------------------------------------- | ---------------------------------------- | --------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](AntShares/Account.md)          | 表示账户的类，提供了查询余额的方法     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](AntShares/Asset.md)              | 用来表示资产的数据结构           |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](AntShares/Block.md)              | 表示区块的类，提供了查询区块中交易的方法  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](AntShares/Blockchain.md)    | 该类提供了访问区块链数据的一系列方法    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](AntShares/Enrollment.md)    | 用来表示记账人报名交易的数据结构      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](AntShares/Header.md)            | 用来表示区块头的数据结构          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](AntShares/Storage.md)          | 提供了持久化存储区的插入、查询、删除的方法 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](AntShares/Transaction.md)  | 用来表示交易的基类             |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](AntShares/TransactionAttribute.md) | 用来表示交易特性的数据结构         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](AntShares/TransactionInput.md) | 用来表示交易输入的数据结构         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](AntShares/TransactionOutput.md) | 用来表示交易输出的数据结构         |
+|                                          | 类                                        | 说明                     |
+| ---------------------------------------- | ---------------------------------------- | ---------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](AntShares/Account.md)          | 表示账户的类，提供了查询余额的方法      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](AntShares/Asset.md)              | 用来表示资产的数据结构            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](AntShares/Block.md)              | 表示区块的类，提供了查询区块中交易的方法   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](AntShares/Blockchain.md)    | 该类提供了访问区块链数据的一系列方法     |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](AntShares/Enrollment.md)    | 用来表示记账人报名交易的数据结构       |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](AntShares/Header.md)            | 用来表示区块头的数据结构           |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](AntShares/Storage.md)          | 提供了持久化存储区的插入、查询、删除的方法  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | StorageContext                           | `new` 用来表示私有存储区存储上下文的类 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](AntShares/Transaction.md)  | 用来表示交易的基类              |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](AntShares/TransactionAttribute.md) | 用来表示交易特性的数据结构          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](AntShares/TransactionInput.md) | 用来表示交易输入的数据结构          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](AntShares/TransactionOutput.md) | 用来表示交易输出的数据结构          |
 
 ## 枚举
 
-|                                          | 枚举                                       | 说明                |
-| ---------------------------------------- | ---------------------------------------- | ----------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContex](AntShares/StorageContex.md) | 用来表示私有存储区存储上下文的枚举 |
+|                                          | 枚举                                       | 说明                      |
+| ---------------------------------------- | ---------------------------------------- | ----------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContex](AntShares/StorageContex.md) | `已弃用` 用来表示私有存储区存储上下文的枚举 |
 
