@@ -19,6 +19,29 @@
       href: node/private-chain.md
     - name: API参考
       href: node/API.md
+      items:
+      - name: getbalance
+        href: node/api/getbalance.md
+      - name: getbestblockhash
+        href: node/api/getbestblockhash.md
+      - name: getblock
+        href: node/api/getblock2.md
+      - name: getblockcount
+        href: node/api/getblockcount.md
+      - name: getblockhash
+        href: node/api/getblockhash.md
+      - name: getconnectioncount
+        href: node/api/getconnectioncount.md
+      - name: getrawmempool
+        href: node/api/getrawmempool.md
+      - name: getrawtransaction
+        href: node/api/getrawtransaction.md
+      - name: gettxout
+        href: node/api/gettxout.md
+      - name: sendrawtransaction
+        href: node/api/sendrawtransaction.md
+      - name: sendtoaddress
+        href: node/api/sendtoaddress.md
     - name: 网络协议
       href: node/network-protocol.md
 - name: 智能合约
