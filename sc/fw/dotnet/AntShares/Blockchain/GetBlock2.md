@@ -1,6 +1,6 @@
-# Blockchain.GetHeader 方法 (uint)
+# Blockchain.GetBlock 方法 (uint)
 
-通过区块高度，查找区块头。
+通过区块高度，查找区块。
 
 命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
 
@@ -9,18 +9,26 @@
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.Header GetHeader(uint height)
+public static extern AntShares.SmartContract.Framework.Services.AntShares.Block GetBlock(uint height)
 ```
 
 参数：区块高度（区块索引），无符号整型。
 
-返回值：区块头，Header 类型。
+返回值：区块，[Block](../Block.md) 类型。
 
 ## 示例
 
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        Block bl = Blockchain.GetBlock(997027);
+    }
+}
 ```
 
-```
+
 
 
 

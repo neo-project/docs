@@ -24,4 +24,8 @@ public class Header : IScriptContainer
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Timestamp](Header/Timestamp.md)         | 获得区块的时间戳                   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Version](Header/Version.md)             | 获得区块版本号                    |
 
+## 构造方法
 
+通过 [Blockchain.GetHeader(byte[])](Blockchain/GetHeader.md) 来构造 Header 对象。
+
+通过 [Blockchain.GetHeader(uint)](Blockchain/GetHeader2.md) 来构造 Header 对象。

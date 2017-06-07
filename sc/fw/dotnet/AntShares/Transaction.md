@@ -27,3 +27,7 @@ public class Transaction : IScriptContainer
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetInputs()](Transaction/GetInputs.md)  | 查询当前交易的所有交易输入（[TransactionIntput](TransactionInput.md)） |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetOutputs()](Transaction/GetOutputs.md) | 查询当前交易的所有交易输出（[TransactionOutput](TransactionOutput.md)） |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetReferences()](Transaction/GetReferences.md) | 查询当前交易的所有输入所引用的交易输出                      |
+
+## 构造方法
+
+通过 [Blockchain.GetTransaction(byte[])](Blockchain/GetTransaction.md) 来构造 Transaction 对象。

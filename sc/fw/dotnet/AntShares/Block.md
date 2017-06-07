@@ -20,3 +20,8 @@ public class Block : Header
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionCount()](Block/GetTransactionCount.md) | 获得当前区块中交易的数量 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactions()](Block/GetTransactions.md) | 获得当前区块中所有的交易 |
 
+## 构造方法
+
+通过 [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md) 来构造 Block 对象。
+
+通过 [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md) 来构造 Block 对象。

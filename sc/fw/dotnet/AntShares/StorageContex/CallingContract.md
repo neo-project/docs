@@ -2,6 +2,9 @@
 
 调用者的存储上下文。
 
+> [!Caution]
+> 注：在 2.0 版本中已经弃用。
+
 命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
 
 程序集：AntShares.SmartContract.Framework

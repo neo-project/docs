@@ -18,8 +18,24 @@ public static extern AntShares.SmartContract.Framework.Services.AntShares.Accoun
 
 ## 示例
 
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        byte[] scriptHash = { 36, 23, 241, 177, 228, 54, 109, 223, 27, 237, 139, 54, 207, 38, 132, 101, 172, 3, 10, 73 };
+        Account acc = Blockchain.GetAccount(scriptHash);
+    }
+}
 ```
 
+其中 script hash 可以在外部事先获得，也可以作为参数传入智能合约。下面是在外部代码中调用 SDK 将地址转成 script hash。
+
+```c#
+static void Main(string[] args)
+{
+    byte[] scriptHash = AntShares.Wallets.Wallet.ToScriptHash("AK4if54jXjSiJBs6jkfZjxAastauJtjjse").ToArray();
+}
 ```
 
 

@@ -20,3 +20,6 @@ public class TransactionOutput : IApiInterface
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](TransactionOutput/ScriptHash.md) | 获得脚本散列 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Value](TransactionOutput/Value.md)      | 获得交易金额 |
 
+## 构造方法
+
+通过 Transaction 对象的 [GetOutputs()](Transaction/GetOutputs.md) 方法来构造 TransactionOutput 对象。

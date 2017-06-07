@@ -25,3 +25,6 @@ public class Account
 | ---------------------------------------- | ---------------------------------------- | ------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBalance(byte[])](Account/GetBalance.md) | 通过资产ID获得该账户中这种资产的余额 |
 
+## 构造方法
+
+通过 [Blockchain.GetAccount(byte[])](Blockchain/GetAccount.md) 来构造 Account 对象。

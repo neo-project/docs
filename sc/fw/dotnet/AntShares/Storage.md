@@ -9,8 +9,14 @@
 ## 语法
 
 ```c#
-public class Storage 
+public static class Storage
 ```
+
+## 属性
+
+|                                          | 名称                                       | 说明         |
+| ---------------------------------------- | ---------------------------------------- | ---------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [CurrentContext](Storage/CurrentContext.md) | 获取当前存储区上下文 |
 
 ## 方法
 
@@ -25,3 +31,6 @@ public class Storage
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, byte[])](Storage/Put3.md) | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, string)](Storage/Put4.md) | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 
+# 构造方法
+
+Storage 类是静态类，无需构造方法。
