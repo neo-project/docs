@@ -10,12 +10,12 @@
 
 |      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| 程序   | [www.antshares.org/download](https://www.antshares.org/download) 或 [github.com/antshares/antsharescore/releases](https://github.com/antshares/antsharescore/releases) | [github.com/antshares/antsharescore/releases](https://github.com/antshares/antsharescore/releases) |
-| 源代码  | [github.com/antshares/antsharescore](https://github.com/antshares/antsharescore) | [github.com/antshares/antsharescore](https://github.com/antshares/antsharescore) |
+| 程序   | [官网](https://www.antshares.org/download) 或 [Github](https://github.com/antshares/antsharescore/releases) | [Github](https://github.com/antshares/antsharescore/releases) |
+| 源代码  | [Github](https://github.com/antshares/antsharescore) | [Github](https://github.com/antshares/antsharescore) |
 
 ## GUI节点与CLI节点功能比较
 
-|           | AntSharesCore-GUI | AntSharesCore-CLI |
+|           | GUI | CLI |
 | --------- | ----------------- | ----------------- |
 | 图形界面      | ✅                 |                   |
 | 命令行界面     |                   | ✅                 |
@@ -47,7 +47,7 @@
 
 |                | 主网（Main Net） | 测试网（Test Net） |
 | -------------- | ------------ | ------------- |
-| JSON-RPC HTTPS | 10331        | 20331         |
-| JSON-RPC HTTP  | 10332        | 20332         |
-| P2P TCP        | 10333        | 20333         |
-| P2P WebSockets | 10334        | 20334         |
+| JSON-RPC via HTTPS | 10331        | 20331         |
+| JSON-RPC via HTTP  | 10332        | 20332         |
+| P2P via TCP        | 10333        | 20333         |
+| P2P via WebSocket  | 10334        | 20334         |

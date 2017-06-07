@@ -4,7 +4,7 @@ typora-root-url: ..\..
 
 # 如何用C#编写小蚁智能合约
 
-目前小蚁智能合约可以使用 C# 语言来开发（未来还会支持 Java、Go、C/C++、Python、JavaScript 等编程语言）
+目前小蚁智能合约推荐使用 C# 语言来开发（此外还支持 Java、Kotlin、Go、C/C++、Python、JavaScript 等编程语言）
 
 此部分包含简短的教程，可指导你配置小蚁智能合约的 C# 开发环境，并使你了解如何创建智能合约项目，以及如何编译。 
 
@@ -19,7 +19,7 @@ typora-root-url: ..\..
 
 下载及安装方法：
 
-[Visual Studio 下载地址](https://www.visualstudio.com)
+[Visual Studio 下载地址](https://www.visualstudio.com/products/visual-studio-community-vs)
 
 安装过程很简单，直接按照提示一步一步操作即可，需要注意的是在安装时需要勾选 `.NET Core 跨平台开发` ，安装大概需要十几分钟或几十分钟。
 
