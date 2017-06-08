@@ -92,12 +92,5 @@ send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtX
 | 命令              | 功能说明 |
 | --------------- | ---- |
 | start consensus | 启动共识 |
-启动共识的前提是该钱包有共识的权限，如果自己部署的私有链可以在 `protocol.json` 中设置共识人的公钥，公有链的话可以通过投票选举获得共识的权限。
+启动共识的前提是该钱包有共识的权限，在小蚁主网上可以通过投票选举获得共识的权限，如果自己部署的私有链可以在 `protocol.json` 中设置共识人的公钥，详情可参考 [私链搭建](private-chain.md)。
 
-------
-
-### 📖该文档正在编辑中
-
-该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/AntShares/AntShares/wiki/) 上查看其它文档，或者来我们的 [小蚁官方网站](http://www.antshares.org) 逛逛。
-
-小蚁是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/AntShares/docs](https://github.com/AntShares/docs) ，感谢您的付出。
