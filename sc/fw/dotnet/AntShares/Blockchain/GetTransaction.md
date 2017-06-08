@@ -14,7 +14,7 @@ public static extern AntShares.SmartContract.Framework.Services.AntShares.Transa
 
 参数：交易ID（交易散列），32字节的字节数组。
 
-返回值：交易，Transaction 类型。
+返回值：交易，[Transaction](../Transaction.md) 类型。
 
 ## 示例
 

@@ -14,7 +14,7 @@ public static extern AntShares.SmartContract.Framework.Services.AntShares.Asset 
 
 参数：资产ID，32字节的字节数组。
 
-返回值：资产，Asset 类型。
+返回值：资产，[Asset](../Asset.md) 类型。
 
 ## 示例
 

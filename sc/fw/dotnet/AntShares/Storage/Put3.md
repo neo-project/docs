@@ -23,8 +23,16 @@ public extern void Put(AntShares.SmartContract.Framework.Services.AntShares.Stor
 
 ## 示例
 
-```
-
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        string key = "key";
+        byte[] value = new byte[] { 1 };
+        Storage.Put(Storage.CurrentContext, key, value);
+    }
+}
 ```
 
 

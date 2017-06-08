@@ -16,10 +16,17 @@ public extern int GetTransactionCount()
 
 ## 示例
 
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        Block block = Blockchain.GetBlock(997027);
+        int txCount = block.GetTransactionCount();
+    }
+}
 ```
 
-```
 
 
-
-[返回上级](../Account.md)
+[返回上级](../Block.md)

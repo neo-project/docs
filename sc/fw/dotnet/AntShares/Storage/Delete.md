@@ -21,8 +21,14 @@ public extern void Delete(AntShares.SmartContract.Framework.Services.AntShares.S
 
 ## 示例
 
-```
-
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        Storage.Delete(Storage.CurrentContext, new byte[] { 0 });
+    }
+}
 ```
 
 

@@ -12,9 +12,9 @@
 public static extern AntShares.SmartContract.Framework.Services.AntShares.Account GetAccount(byte[] script_hash)
 ```
 
-参数：脚本散列，20字节的字节数组。
+参数：脚本散列，20 字节的字节数组。
 
-返回值：账户，Account 类型。
+返回值：账户，[Account](../Account.md) 类型。
 
 ## 示例
 
