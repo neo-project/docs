@@ -20,3 +20,7 @@ public class TransactionInput : IApiInterface
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](TransactionInput/PrevHash.md) | 所引用的交易的交易散列            |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevIndex](TransactionInput/PrevIndex.md) | 所引用的交易输出在其全部交易输出列表中的索引 |
+
+## 构造方法
+
+通过 Transaction 对象的 [GetInputs()](Transaction/GetInputs.md) 方法来构造 TransactionInput 对象。

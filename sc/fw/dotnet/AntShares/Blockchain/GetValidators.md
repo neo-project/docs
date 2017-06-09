@@ -16,8 +16,14 @@ public static extern byte[][] GetValidators()
 
 ## 示例
 
-```
-
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        byte[][] validators = Blockchain.GetValidators();
+    }
+}
 ```
 
 

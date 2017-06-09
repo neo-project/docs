@@ -1,4 +1,4 @@
-# Account.Script 属性
+# Contract.Script 属性
 
 获得该合约账户的脚本散列。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public extern byte[] Script { get; }
+public byte[] Script { get; }
 ```
 
 属性值：脚本散列，长度20字节的字节数组。

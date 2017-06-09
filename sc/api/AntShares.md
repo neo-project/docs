@@ -102,7 +102,7 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | AntShares.Blockchain.CreateContract    | `new` 发布智能合约                     |
 | AntShares.Account.SetVotes             | 设置该合约账户投给其它人的的投票信息               |
 | AntShares.Asset.Renew                  | `new` 为资产续费                      |
-| AntShares.Contract.Destroy             | `new` 销毁资产                       |
+| AntShares.Contract.Destroy             | `new` 销毁合约                       |
 | AntShares.Storage.Put                  | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 | AntShares.Storage.Delete               | 删除操作，在持久化存储区中通过 key 删除对应的 value  |
 

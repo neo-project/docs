@@ -11,19 +11,26 @@
 ## 语法
 
 ```c#
-public static extern byte[] RegisterValidator(byte[] pubkey)
+public static extern object RegisterValidator(byte[] pubkey)
 ```
 
 参数：
 
 pubkey：公钥，长度为33的字节数组。
 
-返回值：传入的公钥。
+返回值：object 类型，这是为将来智能合约扩展所留的接口，暂时无意义。
 
 ## 示例
 
-```
-
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        byte[] pubKey = new byte[] { 2, 123, 48, 51, 62, 13, 14, 101, 82, 174, 109, 29, 169, 249, 64, 159, 85, 30, 53, 238, 151, 25, 48, 94, 148, 93, 196, 220, 186, 153, 132, 86, 202 };
+        var result = Blockchain.RegisterValidator(pubKey);
+    }
+}
 ```
 
 

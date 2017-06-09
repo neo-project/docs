@@ -21,8 +21,14 @@ public extern byte[] Get(AntShares.SmartContract.Framework.Services.AntShares.St
 
 ## 示例
 
-```
-
+```c#
+public class Contract1 : FunctionCode
+{
+    public static void Main()
+    {
+        byte[] value = Storage.Get(Storage.CurrentContext, new byte[] { 0 });
+    }
+}
 ```
 
 

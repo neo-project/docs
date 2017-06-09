@@ -1,6 +1,10 @@
-# StorageContex 枚举
+# StorageContex 类
 
-用来表示私有存储区存储上下文的枚举。
+用来表示私有存储区存储上下文的类。
+
+在智能合约中可以通过 Storage.CurrentContext 获得自己的存储区上下文，之后可以将该对象作为实参传给其它合约（即完成授权），由其它合约来执行对该合约上下文的存储区的读写操作。
+
+注：此处与 1.6 版本有所不同。
 
 命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
 
@@ -9,14 +13,9 @@
 ## 语法
 
 ```c#
-public enum StorageContext : byte
+public class StorageContext
 ```
 
-## 枚举
+## 构造方法
 
-|                                          | 名称                                       | 说明                     |
-| ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContex/CallingContract.md) | 调用者的存储上下文              |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContex/Current.md)      | 当前合约的存储上下文             |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContex/EntryContract.md) | 合约入口点（合约调用链的起始点）的存储上下文 |
-
+通过 [Storage.CurrentContext](Storage/CurrentContext.md) 属性来构造 StorageContext 对象。

@@ -25,3 +25,14 @@ public class Asset
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Owner](Asset/Owner.md)         | 获得该资产的所有人（公钥）                         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | 获得该资产的精度（最小分割数量），单位为小数点之后的位数          |
 
+## 方法
+
+|                                          | 名称                            | 说明          |
+| ---------------------------------------- | ----------------------------- | ----------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Renew(byte)](Asset/Renew.md) | `new` 为资产续费 |
+
+## 构造方法
+
+通过 [Blockchain.GetAsset(byte[])](Blockchain/GetAsset.md) 方法来构造 Asset 对象。
+
+通过 [Blockchain.CreateAsset(byte, string, long, byte, byte[], byte[], byte[])](Blockchain/CreateAsset.md) 方法来在区块链上创建新的资产，并返回 Asset 对象。

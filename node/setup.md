@@ -17,7 +17,7 @@
 | Docker                            | ✅                 |
 
 > [!Note]
-> 目前小蚁节点在 Mac OS 下不能正常运行，之后会加入对 Mac OS 的支持，敬请期待
+> 目前小蚁节点在 Mac OS 下不能正常运行，之后会加入对 Mac OS 的支持，敬请期待。
 
 ## 运行环境
 
@@ -35,19 +35,19 @@
 > 其它发行版的 Linux 下的 .NET Core 安装方法可以参考 [.NET Core 安装教程](https://www.microsoft.com/net/core#linuxredhat)
 
 
-```shell
+```
 subscription-manager repos --enable=rhel-7-server-dotnet-rpms
 yum install scl-utils
 ```
 
-```shell
+```
 yum install rh-dotnetcore11
 scl enable rh-dotnetcore11 bash
 ```
 
 安装完成后，可以运行以下命令来检测 .NET Core 环境是否安装成功 。
 
-```shell
+```
 dotnet new console -o hwapp
 cd hwapp
 dotnet restore
@@ -59,7 +59,7 @@ dotnet run
 
 ## 小蚁节点的安装
 
-1、在Github上下载 [AntSharesCore-CLI](https://github.com/antshares/antsharescore/releases) 程序包并解压。
+1、在 Github 上下载 [AntSharesCore-CLI](https://github.com/antshares/antsharescore/releases) 程序包并解压。
 
 > [!Note]
 > 如果你试图直接在 Github 上下载并编译 AntSharesCore-CLI 源码，你会发现编译后运行 `dotnet AntSharesDaemon.dll` 会报错，这时你需要将 libleveldb.dll 和  sqlite3.dll 复制到 AntSharesDaemon.dll 同一目录下。这两个文件可以在第一步的程序包中下载。
@@ -70,7 +70,7 @@ dotnet run
 dotnet AntSharesDaemon.dll
 ```
 
-AntSharesCore-CLI提供了一系列供外部访问的 API，如果想启动节点的同时开启 API 的话，可以运行下面的代码。
+AntSharesCore-CLI 提供了一系列供外部访问的 API，如果想启动节点的同时开启 API 的话，可以运行下面的代码。
 ```
 dotnet AntSharesDaemon.dll /rpc
 ```

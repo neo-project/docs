@@ -16,18 +16,18 @@
 
 打开 [Visual Studio 旧版本下载页面](https://www.visualstudio.com/zh-hans/vs/older-downloads/) 点击 `立即免费加入`
 
-   ![](http://docs.antshares.org/images/2017-05-10_13-46-45.jpg)
+   ![](~/images/2017-05-10_13-46-45.jpg)
 
 使用自己的微软账号登录后，进入 Visual Studio Dev Essentials 后在导航菜单点击 `下载`
 
-   ![](http://docs.antshares.org/images/2017-05-10_13-47-10.jpg)
+   ![](~/images/2017-05-10_13-47-10.jpg)
 
 在搜索框中输入 Visual Studio Community 2015 with Update 3，然后在搜索结果中选择好版本、语言等，点击右侧的 `下载` 按钮
-   ![](http://docs.antshares.org/images/2017-05-10_13-45-48.jpg)
+   ![](~/images/2017-05-10_13-45-48.jpg)
 
 安装方法与普通软件基本相同，安装过程中无须选择额外功能，仅安装 VS2015 核心部分即可
 
-   ![](http://docs.antshares.org/images/2017-05-10_9-48-54.jpg)
+   ![](~/images/2017-05-10_9-48-54.jpg)
 
 ### 2. NET Core tools Preview 2 for Visual Studio 2015
 
@@ -37,7 +37,7 @@
 
 下载并安装 NET Core tools Preview 2 for Visual Studio 2015
 
-   ![](http://docs.antshares.org/images/2017-05-10_15-38-46.jpg)
+   ![](~/images/2017-05-10_15-38-46.jpg)
 
 ### 3. AntShares.SmartContract 插件
 
@@ -45,7 +45,7 @@
 
 打开 Visual Studio 2015，打开 `工具`， `扩展和更新` ，在左侧点击 `联机` ，搜索 AntShares，安装 AntShares.SmartContract 插件（该过程需要联网）
 
-   ![](http://docs.antshares.org/images/2017-05-10_15-50-48.jpg)
+   ![](~/images/2017-05-10_15-50-48.jpg)
 
 ### 4. AntShares.Compiler.MSIL
 
@@ -53,7 +53,7 @@
 
 在 Github 上下载 [AntShares.VM](https://github.com/AntShares/AntShares.VM) 项目，用 Visual Studio 2015 打开该解决方案，编译其中的 AntShares.Compiler.MSIL 项目，如图
 
-   ![](http://docs.antshares.org/images/2017-05-10_18-22-39.jpg)
+   ![](~/images/2017-05-10_18-22-39.jpg)
 
 编译成功后，会在 bin\Debug\netcoreapp1.0\win10-x64 目录下生成 AntShares.Compiler.MSIL.exe 文件
    > [!Note]
@@ -65,42 +65,42 @@
 
 打开 `计算机属性` （或者依次打开控制面板，系统和安全，系统），打开 `高级系统设置` ，选择 `高级` 选项卡，点击 `环境变量` 按钮，如图
 
-   ![](http://docs.antshares.org/images/2017-05-10_18-37-05.jpg)
+   ![](~/images/2017-05-10_18-37-05.jpg)
 
 
 然后选择 Path, 点击 `编辑` 
 
-   ![](http://docs.antshares.org/images/2017-05-10_18-46-05.jpg)
+   ![](~/images/2017-05-10_18-46-05.jpg)
 
 在弹出来的窗口中点击”新建“输入 AntShares.Compiler.MSIL.exe 所在的目录，点击 `确定` ，`确定` 
 
-   ![](http://docs.antshares.org/images/2017-05-10_18-48-11.jpg)
+   ![](~/images/2017-05-10_18-48-11.jpg)
 
 添加完 path 后，运行 cmd 测试一下，输入 antshares.compiler.msil 后，没有报错，输出如图所示即表示环境变量配置成功
 
-   ![](http://docs.antshares.org/images/2017-05-10_18-52-10.jpg)
+   ![](~/images/2017-05-10_18-52-10.jpg)
 
 ## 创建项目
 
 以上四步安装配置成功后，即可在 Visual Studio 2015 中创建小蚁智能合约项目，如图
 
-![](http://docs.antshares.org/images/2017-05-10_16-08-48.jpg)
+![](~/images/2017-05-10_16-08-48.jpg)
 
 创建项目好后，会自动生成一个 c# 文件，默认的类继承于 FunctionCode，如图 
 
-![](http://docs.antshares.org/images/2017-05-10_16-25-09.jpg)
+![](~/images/2017-05-10_16-25-09.jpg)
 
 - 注：如果出现了如下图所示的现象，是因为项目中的 AntShares.SmartContract.Framework 没有成功还原，可以通过以下方式还原 NuGet 包（该过程无需联网）
 
-![](http://docs.antshares.org/images/2017-05-10_16-27-40.jpg)
+![](~/images/2017-05-10_16-27-40.jpg)
 
 ​	在解决方案资源管理器中，选择解决方案，右键，单击 `还原 NuGet 包` 
 
-![](http://docs.antshares.org/images/2017-05-10_16-28-39.jpg)
+![](~/images/2017-05-10_16-28-39.jpg)
 
 ​	然后打开项目的引用，点击 `AntShares.SmartContract.Framework`  即可。少数情况下仍然无法还原 Nuget 包怎么办？请重启 Visual Studio 2015 或者直接尝试生成解决方案。
 
-![](http://docs.antshares.org/images/2017-05-10_16-31-55.jpg)
+![](~/images/2017-05-10_16-31-55.jpg)
 
 ## 编译项目
 
@@ -118,7 +118,7 @@ public class Contract1 : FunctionCode
 
 然后编译成功，你会在 `bin/Debug` 目录下看到生成的 `SmartContract1.avm` 文件，该文件即是生成的小蚁智能合约文件。
 
-![](http://docs.antshares.org/images/2017-05-11_13-21-21.jpg)
+![](~/images/2017-05-11_13-21-21.jpg)
 
    > [!Note]
    > 如果你生成后，没有输出上图的结果，没关系，你也可以直接输入命令将 dll 编译成 avm 文件

@@ -53,6 +53,9 @@
       href: sc/getting-started.md
     - name: 教程
       href: sc/tutorial.md
+      items: 
+      - name: 参数和返回值
+        href: sc/tutorial/Parameter.md
     - name: 测试
       href: sc/test.md
     - name: 白皮书

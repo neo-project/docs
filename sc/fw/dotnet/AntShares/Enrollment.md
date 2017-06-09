@@ -2,6 +2,9 @@
 
 用来表示记账人报名交易的数据结构。
 
+> [!Caution]
+> 注：在 2.0 版本中已经弃用。
+
 命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
 
 程序集：AntShares.SmartContract.Framework

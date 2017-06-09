@@ -30,3 +30,6 @@ public static class Blockchain
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetValidators()](Blockchain/GetValidators.md) | `new` 获得共识人的公钥       |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [RegisterValidator(byte[])](Blockchain/RegisterValidator.md) | `new` 报名成为共识人        |
 
+# 构造方法
+
+BlockChain 类是静态类，无需构造方法。
