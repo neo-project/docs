@@ -56,8 +56,16 @@
     - name: 教程
       href: sc/tutorial.md
       items: 
-      - name: 参数和返回值
-        href: sc/tutorial/Parameter.md
+      - name: 基础知识
+        href: sc/tutorial.md
+      - name: Hello World
+        href: sc/tutorial/HelloWorld.md
+      - name: Lock（锁仓合约）
+        href: sc/tutorial/Lock.md
+      - name: Domain（域名系统）
+        href: sc/tutorial/Domain.md
+      - name: 合约调用
+        href: sc/tutorial/call.md
     - name: 测试
       href: sc/test.md
     - name: 白皮书
