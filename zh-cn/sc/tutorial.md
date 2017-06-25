@@ -115,47 +115,11 @@ public static bool Verify()
 
 该合约的返回值永远为 false，表示这个合约里的资产无人能使用（可以理解为烧钱或销毁一笔资产），比如里面可以存储一些已注销的公司的股权。
 
-下面是一些简单的继承自 FunctionCode 的智能合约
+更多示例请查看：
 
-#### Hello World
+[Hello World](tutorial/HelloWorld.md)
 
-```c#
-public class HelloWorld : FunctionCode
-{
-    public static void Main()
-    {
-        Storage.Put(StorageContext.Current, "Hello", "World");
-    }
-}
-```
-这是一个将 "Hello World"  存储到小蚁智能合约的私有存储区的代码。
+[Lock（锁仓合约）](tutorial/Lock.md)
 
-Storage.Put() 和 Storage.Get() 是互操作服务层中提供的 API。使用 Storage.Put() 需要指定三个参数，第一个参数指定的是持久化存储区的上下文，第二个参数是 Key，第三个参数是 Value。
+[Domain（域名系统）](tutorial/Domain.md)
 
-小蚁的每个智能合约在创建的时候都可选地启用一个私有存储区，存储区是 key-value。
-
-#### Lock（锁仓合约）
-
-```c#
-public class Lock : FunctionCode
-{
-    public static bool Main(uint timestamp, byte[] pubkey, byte[] signature)
-    {
-        Header header = Blockchain.GetHeader(Blockchain.GetHeight());
-        if (timestamp > header.Timestamp) return false;
-        return VerifySignature(pubkey, signature);
-    }
-}
-```
-
-该合约实现了一个这样的功能：指定一个时间戳（timestamp），当区块链系统的时间到达该指定的时间之前，任何人也不能从该合约中将资金取出，当区块链系统的时间过了指定的时间后，合约持有者可以将资金取出。
-
-------
-
-
-
-### 📖该文档正在编辑中
-
-该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/AntShares/AntShares/wiki/) 上查看其它文档，或者来我们的 [小蚁官方网站](http://www.antshares.org) 逛逛。
-
-小蚁是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/AntShares/docs](https://github.com/AntShares/docs) ，感谢您的付出。
