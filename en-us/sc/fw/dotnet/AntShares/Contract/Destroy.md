@@ -9,7 +9,7 @@ Assembly: AntShares.SmartContract.Framework
 ## syntax
 
 ```c#
-public static extern void Destroy ()
+public static extern void Destroy()
 ```
 
 ## example
@@ -17,13 +17,13 @@ public static extern void Destroy ()
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         Var height = Blockchain.GetHeight ();
-         Var block = Blockchain.GetBlock (height);
-         If (block.Timestamp> 1514736000) // Beijing time 2018-1-1
+         var height = Blockchain.GetHeight();
+         var block = Blockchain.GetBlock(height);
+         if (block.Timestamp > 1514736000) // Beijing time 2018-1-1
          {
-             AntShares.SmartContract.Framework.Services.AntShares.Contract.Destroy ();
+             AntShares.SmartContract.Framework.Services.AntShares.Contract.Destroy();
          }
      }
 }
