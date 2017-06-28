@@ -8,24 +8,24 @@ For example, you create the following smart contract, the contract is inherited 
 
 
 ```c#
-Using AntShares.SmartContract.Framework;
-Using AntShares.SmartContract.Framework.Services.AntShares;
+using AntShares.SmartContract.Framework;
+using AntShares.SmartContract.Framework.Services.AntShares;
 
-Namespace AntShares.SmartContract
+namespace AntShares.SmartContract
 {
     public class Test1: FunctionCode
     {
         public static int Main (int a, int b, int c)
         {
-            If (a> b)
-                Return a * sum (b, c);
-            Else
-                Return sum (a, b) * c;
+            if (a> b)
+                return a * sum (b, c);
+            else
+                return sum (a, b) * c;
         }
 
         public static int sum (int a, int b)
         {
-            Return a + b;
+            return a + b;
         }
     }
 }
@@ -39,35 +39,35 @@ First create a C# console project with Visual Studio. Then add a reference to `A
 > These two files can be obtained by compiling [AntShares](https://github.com/antshares/antshares) and [AntShares.VM](https://github.com/AntShares/AntShares.VM).
 
 ```c#
-Using System;
-Using System.IO;
-Using System.Linq;
-Using AntShares;
-Using AntShares.VM;
-Using AntShares.Cryptography;
+using System;
+using System.IO;
+using System.Linq;
+using AntShares;
+using AntShares.VM;
+using AntShares.Cryptography;
 
-Namespace ConsoleApplication1
+namespace ConsoleApplication1
 {
-    Class program
+    class program
     {
-        Static void Main (string[] args)
+        static void Main(string[] args)
         {
-            Var engine = new ExecutionEngine (null, Crypto.Default);
-            Engine.LoadScript (File.ReadAllBytes (@ "C: \ ... \ Test1.avm"));
-            
-            Using (ScriptBuilder sb = new ScriptBuilder ())
+            var engine = new ExecutionEngine(null, Crypto.Default);
+            engine.LoadScript(File.ReadAllBytes(@ "C: \ ... \ Test1.avm"));
+
+            using (ScriptBuilder sb = new ScriptBuilder())
             {
-                Sb.EmitPush (2); // corresponds to the parameter c
-                Sb.EmitPush (4); // corresponds to the parameter b
-                Sb.EmitPush (3); // corresponds to the parameter a
-                Engine.LoadScript (sb.ToArray ());
+                sb.EmitPush(2); // corresponds to the parameter c
+                sb.EmitPush(4); // corresponds to the parameter b
+                sb.EmitPush(3); // corresponds to the parameter a
+                engine.LoadScript(sb.ToArray());
             }
 
-            Engine.Execute (); // start execution
+            engine.Execute(); // start execution
 
-            Var result = engine.EvaluationStack.Peek (). GetBigInteger (); // set the return value here
-            Console.WriteLine ($ "result {result}");
-            Console.ReadLine ();
+            var result = engine.EvaluationStack.Peek().GetBigInteger(); // set the return value here
+            Console.WriteLine($"result {result}");
+            Console.ReadLine();
         }
     }
 }
@@ -78,11 +78,11 @@ Output: Execution result 14, in line with expectations
 Note: If you use the above code to pass the way, pay attention to the top of the stack corresponding to the first parameter, for the convenience of the parameters can also pass the code into the following code.
 
 ```c#
-Using (ScriptBuilder sb = new ScriptBuilder ())
+using (ScriptBuilder sb = new ScriptBuilder())
 {
-    Int[] parameter = {3, 4, 2};
-    Parameter.Reverse (). ToList (). ForEach (p => sb.EmitPush (p));
-    Engine.LoadScript (sb.ToArray ());
+    int[] parameter = {3, 4, 2};
+    parameter.Reverse().ToList().ForEach(p => sb.EmitPush(p));
+    engine.LoadScript(sb.ToArray());
 }
 ```
 If the return value of the smart contract is not of type int, is bool or other type, you need to set `engine.EvaluationStack.Peek (). GetBigInteger ()` to other values, as shown in Figure
