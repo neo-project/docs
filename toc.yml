@@ -3,3 +3,6 @@
 - name: 中文
   href: zh-cn/
   homepage: zh-cn/index.md
+- name: English
+  href: en-us/
+  homepage: en-us/index.md
