@@ -35,3 +35,18 @@
     }
 ```
 
+如智能合约定义为：
+
+```c#
+public class Lock : FunctionCode
+{
+    public static bool Main(int a, bool b, byte[] pubkey, byte[] signature)
+    {
+        //略……
+    }
+}
+```
+
+通过上表可查到，int 为 2，bool 为 1，公钥字节数组为 6，签名字节数组为 0。
+
+在PC版客户端发布智能合约填写参数时，每个参数用两位16进制字符表示，所以上面的智能合约的形参列表表示为：02010600，返回值为：01。
