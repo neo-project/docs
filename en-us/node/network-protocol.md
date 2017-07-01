@@ -1,7 +1,10 @@
-Antshares adopts a P2P network structure, in which nodes can communicate with each other through TCP/IP protocol. In this structure, there are two different types of nodes: peer node and validating node (referred to as Bookkeepers in the Antshares Whitepaper). Peer node can broadcast, receive and transfer transactions or blocks, while validating node can create blocks.
+# Network Protocol
 
 
-The network protocol of Antshares is roughly similar to bitcoin’s, however, data structure such as blocks or transactions is quite different.
+Antshares adopts a P2P network structure, in which nodes can communicate with each other through TCP/IP protocol. In this structure, there are two different types of nodes: peer nodes and validating nodes (referred to as Bookkeepers in the Antshares Whitepaper). Peer nodes can broadcast, receive and transfer transactions or blocks, while validating node can create blocks.
+
+
+The network protocol of AntShares is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different.
 
 Convention
 ----
@@ -14,7 +17,7 @@ Convention
 
    Two different hash functions are used in Antshares: SHA256 and RIPEMD160. SHA256 is used to generate a long hash value, and RIPEMD160 is used to generate a short hash value. In general, we get an object's hash value by using hash function twice. For example, we use SHA256 twice when we want to generate block's or transaction's hash value. When generating a contract address, we will use SHA256 function first and then use RIPEMD160.
 
-   In addition, the block will also use a hash structure called Merkle Tree. It computes the hash of each transaction and combines one another then hash again, repeats this process until there is only one root hash (Merkle Root).
+   In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one another then hash again, repeats this process until there is only one root hash (Merkle Root).
 
 1. Variable Length Type
 
@@ -45,7 +48,7 @@ Data Type
 
 1. Block Chain
 
-   Block chain is a kind of logical structure, which is connected in series with a one-way linked list. It is used to store the data of the whole network, such as transactions or assets.
+   The block chain is a kind of logical structure, which is connected in series with a one-way linked list. It is used to store the data of the whole network, such as transactions or assets.
 
 1. Block
 
@@ -86,6 +89,7 @@ Data Type
    |Size|Field|DataType|Description|
    |---|---|---|---|
    |1|Type|uint8|type of transaction|
+   |1|Version|uint8|Trading version, currently 0|
    |?|-|-|Data specific to transaction types|
    |?*?|Attributes|tx_attr[]|Additional features that the transaction has|
    |34*?|Inputs|tx_in[]|input|
@@ -100,10 +104,10 @@ Data Type
    |0x01|IssueTransaction|500\|0|inssuance of asset|
    |0x02|ClaimTransaction|0|assign ant coins|
    |0x20|EnrollmentTransaction|1000|enrollment for validator|
-   |0x24|VotingTransaction|10|vote for validator|
    |0x40|RegisterTransaction|10000|assets register|
    |0x80|ContractTransaction|0|contract transaction|
-   |0xb0|AgencyTransaction|0|agency transaction|
+   |0xd0|PublishTransaction|500 * n|(Not usuable) Special Transactions for Smart Contracts|
+   |0xd1|InvocationTransaction|0|Special transcations for calling smart contracts|
 
    Each type of transaction, in addition to the public field, also has its own exclusive field. The following will describe these exclusive fields in detail.
 
@@ -111,9 +115,7 @@ Data Type
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
-      |-|-|-|public filed of transaction|
       |4|Nonce|uint32|random number|
-      |-|-|-|public filed of transaction|
 
       The first transaction in each block must be MinerTransaction. It is used to reward all transaction fees of the current block to the validator.
 
@@ -121,11 +123,7 @@ Data Type
 
    + IssueTransaction
 
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |-|-|-|public filed of transaction|
-      |4|Nonce|uint32|random number|
-      |-|-|-|public filed of transaction|
+      There are no special fields for an issue transaction.
 
       Asset managers can create the assets that have been registered in Antshares' block chain through IssueTransaction, and sent them to any address.
 
@@ -137,17 +135,13 @@ Data Type
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
-      |-|-|-|public filed of transaction|
       |34*?|Claims|tx_in[]|ant shares for distribution|
-      |-|-|-|public filed of transaction|
 
    + EnrollmentTransaction
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
-      |-|-|-|public filed of transaction|
       |33|PublicKey|ec_point|public key of validator|
-      |-|-|-|public filed of transaction|
 
       The transaction represents an enrollment form, which indicates that the sponsor of the transaction would like to sign up as a validator.
 
@@ -155,116 +149,38 @@ Data Type
 
       The way to cancel the registration is: spend the deposit on the address of the PublicKey.
 
-   + VotingTransaction
-
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |-|-|-|public filed of transaction|
-      |32*?|Enrollments|uint256[]|List of the hash values on the enrollment form|
-      |-|-|-|public filed of transaction|
-
-      This transaction represents a vote, which indicates that the sponsor wants to vote on one or more of the registered validator candidates. It can be voted to 1024 candidates at maximum and one people at minmum. The weight of the vote is equal to the number of AntShares in this transaction.
-
    + RegisterTransaction
 
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |-|-|-|public filed of transaction|
-      |1|AssetType|uint8|asset type|
-      |?|Name|varstr|asset name|
-      |8|Amount|int64|amount|
-      |33|Issuer|ec_point|public key of issuer|
-      |20|Admin|uint160|hash value of issuer's contract|
-      |-|-|-|public filed of transaction|
+      > [!Warning]
+      Has been deactived and replaced by AntShares.Blockchain.CreateAsset for the smart contract.
 
-      If you want to create a new asset in the blockchain of Antshares, you need to register the asset.
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
 
-      Following are some types of asset that you may choose:
-
-      |Value|Name|Description|
-      |---|---|---|
-      |0x00|AntShare|ant share|
-      |0x01|AntCoin|ant coin|
-      |0x10|Share|equity/share|
-      |0x20|Currency|currency|
-      |0x40|Token|custom asset|
-
-      Each type of asset has its own specific limits.
-
-      AntShares and AntCoins are the system's built-in assets, so they cannot be created except for creating them in Genesis block (i.e., the block whose height is 0).
-
-      When creating the equity-like assets, total amount should be limited and transactions need to be signed by both the sender and the receiver.
-
-      When creating the currencies assets, total amount cannot be limited.
-
-      Custom assets have no limits.
-
-      About the total amount, there are two models: limited mode and unlimited mode. When the amount is a positive number, the asset is the limited type; when the amount is equal to the -10<sup>-8</sup>, the asset is the unlimited type.
+      View [Alternative Smart Contract API](../sc/api/AntShares.md)
 
    + ContractTransaction
 
-      There is nothing special in the contract transaction.
+      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send ANS to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much ANS will be sent, and to what address).
 
-   + AgencyTransaction
+   + PublishTransaction
 
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |-|-|-|public filed of transaction|
-      |32|AssetId|uint256|asset id|
-      |32|ValueAssetId|uint256|value asset id|
-      |20|Agent|uint160|agent's contract address|
-      |?*?|Orders|order[]|order list|
-      |1|-|uint8|It's fixed to 1|
-      |36|SplitOrder|split_order|orders that partially executed|
-      |-|-|-|public filed of transaction|
+      > [!Warning]
+      Has been deactivated and replaced by AntShares.Blockchain.CreateContract for the smart contract.
 
-      ValueAssetId in the agency transaction must be the currency asset, and cannot be the same as AssetId.
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
 
-      Buying list and selling list should have at least one order each.
+      View [Alternative Smart Contract API](../sc/api/AntShares.md)
 
-      Transactions cannot contain orders that are not traded, and only can contain one order which is partially executed.
+   + Invoking a Transaction
 
-      If there is an order that partially executed then the price of this order must be the worst, which means that it's the lowest price for buying orders and highest price for selling orders.
+      | Size   | Field     | Data Type    | Description              |
+      | ---- | ------ | ------- | --------------- |
+      | -    | -      | -       | Public fields for transactions         |
+      | ?    | Script | uint8[] | Invoked by smart contract     |
+      | 8    | Gas    | int64   | Costs required to run the smart contract |
+      | -    | -      | -       | Publics fields for transactions         |
 
-      For buying order, it can be executed at the price that is lower than the price specified by client. For selling order, it can be executed at the price that is higher than the price specified by client.
-
-      Amount is accurate ot 10<sup>-4</sup>，price is accurate to10<sup>-4</sup>.
-
-      Order's Data Structure：
-
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |32|AssetId|uint256|asset id|
-      |32|ValueAssetId|uint256|value asset id|
-      |20|Agent|uint160|agent's contract address|
-      |8|Amount|int64|amount|
-      |8|Price|int64|price|
-      |20|Client|uint160|client's contract address|
-      |34*?|Inputs|tx_in[]|inputs|
-      |?*?|Scripts|script[]|script list which is used to validate this order|
-
-      If an order is transferred along with the transaction, since it already contains information such as assets, currency, agents and so on, it can be compressed into the following format:
-
-
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |8|Amount|int64|amount|
-      |8|Price|int64|price|
-      |20|Client|uint160|client's contract address|
-      |34*?|Inputs|tx_in[]|inputs|
-      |?*?|Scripts|script[]|script list which is used to validate this order|
-
-      Data structure of order that being partially executed is like:
-      
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |8|Amount|int64|amount|
-      |8|Price|int64|price|
-      |20|Client|uint160|client's contract address|
-
-      For all kinds of orders, if the amount is positive, it means buying, if the amount is negative, it means selling.
-
-1. Transaction Feature
+1. Transaction Attributes
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -272,15 +188,16 @@ Data Type
    |0\|1|length|uint8|length of data(Specific circumstances will be omitted)|
    |length|Data|uint8[length]|external data|
 
-   Sometimes the transaction will contain some data for external use, these data will be placed in the transaction feature field.
+   Sometimes the transaction will contain some data for external use, these data will be placed in the transaction attributes field.
 
-   Each transaction feature has different usages:
+   Each transaction attribute has different usages:
 
    |Value|Name|Description|
    |---|---|---|
    |0x00|ContractHash|hash value of contract|
    |0x02-0x03|ECDH02-ECDH03|public key for ECDH key exchange|
    |0x20|Script|additional validation of transactions|
+   |0x30|Vote|For voting
    |0x80|CertUrl|url address of certificate|
    |0x81|DescriptionUrl|url address of description|
    |0x90|Description|brief description|
@@ -356,6 +273,8 @@ According to different orders Payload has different detailed format, see below:
    |4|Nonce|uint32|it's used to distinguish the node from public IP|
    |?|UserAgent|varstr|client ID|
    |4|StartHeight|uint32|height of block chain|
+   |1|Relay|bool|Whether to receive and forward
+
 
    When a node receives a connection request, it declares its version immediately. There will be no other communication until both sides are getting versions of each other.
 
@@ -451,3 +370,8 @@ According to different orders Payload has different detailed format, see below:
    |?|Transaction|tx|transaction|
 
    Sending a transaction to a node to respond getdata message.
+   
+   |Size|field|data type|description|
+   |----|---------|--------- |----------------- |
+   |32 *?|HashStart|uint256[]|node is known as the latest block hash|
+   |32|hashStop|uint256|request the last block|
