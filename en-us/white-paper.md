@@ -194,7 +194,7 @@ Ants built-in KYC (user identity) and AML (anti-money laundering) interface prog
 
 ### System assets and fees
 
-There are two built-in system assets: AntShares and AntCoins. AntShares represent the ownership of the blockchain, which is used for electoral accounting, to obtain AntCoins dividend, etc. AntCoins represents the right to use the blockchain, and used to pay fees of various systems on the chain.
+There are two built-in system assets: AntShares and AntCoins. AntShares represent the ownership of the blockchain, which is used for electoral accounting, to obtain AntCoins dividends, etc. AntCoins represents the right to use the blockchain, and are used to pay fees of various systems on the chain.
 
 #### System cost
 
@@ -208,7 +208,7 @@ When writing a transaction to the blockchain, the transaction generally requires
 
 * Additional charges for holders of AntShares
 
-Additional service charges refer to the cost of using AntShares blockchain to complete certain advanced functions and is paid with AntCoins. The types of transactions that currently require additional service charges are: asset creation, candidate registrant registration. Additional premiums will be required for future upgrades such as asset changes, asset write-offs, and asset freeze.
+Additional service charges refer to the cost of using AntShares blockchain to complete certain advanced functions and is paid with AntCoins. The types of transactions that currently require additional service charges are: asset creation, candidate registration. Additional premiums will be required for future upgrades such as asset changes, asset write-offs, and asset freeze.
 
 Additional service charges will be recorded according to the proportion of AntShares held immediately to the address of AntShares holders. AntShares holders can claim the coins registered in their names at anytime.
 

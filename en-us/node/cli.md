@@ -27,8 +27,8 @@ Command | Function Description | Remarks |
 | ---------------------------------------- | -------- ------------------------ | ------ |
 Create wallet \ <path> | create wallet file |
 Open wallet \ <path> | open wallet file
-Rebuild wallet index | need to open wallet
-List all the accounts in the wallet | need to open the wallet
+Rebuild wallet index | | need to open wallet
+List all the accounts in the wallet | | need to open the wallet
 | List asset | list all assets in the wallet | need to open the wallet
 List key | List all public keys in your wallet | Need to open wallet
 Create address [n = 1] | create address/batch create address | need to open wallet |
