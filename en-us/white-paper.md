@@ -261,7 +261,7 @@ In the first year (Block No. 0-No. 2,000,000), each block will generate 8 ANC; I
 
 According to this curve, 16% of ANC will be created in the first year, 52% will be created by the 4th year, 80% of the ANC by the 8th year..
 
-These small coins will be distributed proportionally to corresponding ANS addresses. AntShare holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 AntShares per block for about 460.8 AntCoins a day.
+These small coins will be distributed proportionally to corresponding ANS addresses. AntShare holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 AntCoins per block for about 460.8 AntCoins a day.
 
 ## Technology Architecture
 
