@@ -233,7 +233,7 @@ A total of 100 million ANC will be produced, representing the right to use the c
 
 The main purpose of AntCoins are:
 
-* Pay the paymentfees of the AntShares blockchain
+* Pay the payment fees of the AntShares blockchain
 * Pay an additional service fee for the small block area chain
 * As a deposit for the deposit of the candidate
 
