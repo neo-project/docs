@@ -134,7 +134,9 @@ expected iterations as a function of the fraction of non-honest nodes.
 	 	
     - **If Invalidated Proposal**
     
-	  If the proposal is invalid, the **Congressman** increments their view `k + 1`.
+	  If the proposal is invalid, the **Congressman** broadcasts:
+	    <!-- -->
+	        <ChangeView, h,k,i,k+1>
 
 7. After receiving `s` 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
 
