@@ -125,11 +125,9 @@ The practical implementation of PBFT in AntShares using an interative consensus 
     - **if Validated proposal:**
 
     If the proposal is valid, the **Congressman** broadcasts:
-	
-	    ```
-        <prepareResponse, h, k, i, [block]sigi>
-	    ```
-	
+	    <!-- -->
+            <prepareResponse, h, k, i, [block]sigi>
+	 	
     - **If Invalidated Proposal**
     
 	If the proposal is invalid, the **Congressman** increments their view `k + 1`.
@@ -144,7 +142,7 @@ The practical implementation of PBFT in AntShares using an interative consensus 
   
 **Note:**
  
- If after 2^(k+1) * t seconds on the same view without consensus:
+ If after $$2^{k+1} * t $$ seconds on the same view without consensus:
   - **Consensus Node** broadcasts:
 
 	<!-- -->
@@ -165,6 +163,6 @@ The practical implementation of PBFT in AntShares using an interative consensus 
 	
 
 ## References
-1. [original_Byzantine](http://www-inst.eecs.berkeley.edu/~cs162/fa12/hand-outs/Original_Byzantine.pdf)
-2. [PBFT](https://kelehers.me/others/pbftByzantine.pdf)
-3. [A Byzantine Faul Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
+1. [The Byzantine Generals Problem](http://www-inst.eecs.berkeley.edu/~cs162/fa12/hand-outs/Original_Byzantine.pdf)
+2. [Practical Byzantine Fault Tolerance](https://kelehers.me/others/pbftByzantine.pdf)
+3. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
