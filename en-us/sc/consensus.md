@@ -142,7 +142,7 @@ The practical implementation of PBFT in AntShares using an interative consensus 
   
 **Note:**
  
- If after $$2^{k+1} * t $$ seconds on the same view without consensus:
+ If after   (![timeout](assets/consensus.timeout.png) )  seconds on the same view without consensus:
   - **Consensus Node** broadcasts:
 
 	<!-- -->
