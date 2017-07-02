@@ -111,18 +111,18 @@ The practical implementation of PBFT in AntShares using an interative consensus 
 
 3. initialize view
 
-  identify speaker of the house
+4. identify speaker of the house
 	
   **Wait** `t`
 	
-  **Speaker** broadcasts the proposal :
+5. **Speaker** broadcasts the proposal :
 
     ```
     <prepareRequest, h, k, p, bloc, [block]sigp>
     ```
 
-  **Congressmen** receives proposal and validates:
-  1. Validate Proposal
+6. **Congressmen** receives proposal and validates:
+  6.1 Validate Proposal
     - is data format consistant with system rules?
     - is transaction already on blockchain?
     - are contract scripts correctly executed?
