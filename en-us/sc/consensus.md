@@ -38,7 +38,7 @@ The practical implementation of PBFT in AntShares using an interative consensus 
 
 
 ### 5.1 - Roles
-In AntShares, there are two primary roles that nodes can inherit:
+**In AntShares, there are two primary roles that nodes can inherit:**
 
 1. **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
 
@@ -54,7 +54,7 @@ In AntShares, there are two primary roles that nodes can inherit:
 
 ### 5.2 - Definitions
 
-Within the algorithm, we define the following:
+**Within the algorithm, we define the following:**
 
   - `t` (Seconds) This is the atomic unit of time allocated for block generation.
 
@@ -100,8 +100,10 @@ Within the algorithm, we define the following:
 
 
 5. At least `s` **Consensus Nodes** are in same state (`h`,`k`)
+
 	
 ### 5.3 - Algorithm
+**The algorithgm works as follows:**
 
 1. a consensus node broadcasts a transaction to entire network with sender's signatures
 
@@ -129,9 +131,9 @@ Within the algorithm, we define the following:
 	
   2. **if Validated proposal:**
 	
-	```
+	
     <prepareResponse, h, k, i, [block]sigi>
-	```
+	
 	
 	**If Invalidated Proposal**
 	
