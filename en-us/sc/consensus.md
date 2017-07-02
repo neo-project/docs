@@ -9,7 +9,7 @@ name: Consensus
 
 * **Proof of Work** `PoW` - A schema which uses compute utility to handle fault tolerance.
 
-* **Byzantine Fault** `BF` - A failure in which a node continues to operate in a non-honest manner.
+* **Byzantine Fault** `BF` - A failure in which a node remains functional, but operates in a non-honest manner.
 
 * **Practical Byzantine Fault Tolerance** `PBFT` - A cosensus algorithm implemented within the AntShares block chain to garantee fault tolerance.
 
@@ -19,23 +19,24 @@ name: Consensus
 
 ## 3 - Background
 
-One of the fundamental differences between blockchains is how they can garantee fault tolerance due to either defects or malicious intent.
+One of the fundamental differences between blockchains is how they can guarantee fault tolerance due to defective, non-honest activity on the network.
 
-Traditional methods implemented using PoW can provide this garantee as long as a majority of the networks computational power is honest.
+Traditional methods implemented using PoW can provide this garantee as long as a majority of the network's computational power is honest
 However, because of this schema's dependency on compute, the mechanism can be very resource intensive (computational power costs energy and requires hardware).
 These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
 
-**Describe conventional PoS mechanic**
+**(Describe conventional PoS mechanic)**
 
 AntShares implements a PoS schema using Practical Byzantine Fault Tolerance which protects the network from Byzantine faults using minimal resources.
 This solution provides a profound solution to performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
 
 ## 4 - Theory
 
-**Outline Byzantine Generals Problem**
+**(Outline Byzantine Generals Problem)**
 
 ## 5 - Practical Implementation
-The practical implementation of PBFT in AntShares using an interative consensus method to garantee that consensus is reached.  The iterations required is dependent on the number of faulty nodes in the system as:
+The practical implementation of PBFT in AntShares uses an iterative consensus method to garantee that consensus is reached.  The performance of the algorithm is dependent on the fration of non-honest nodes in the system.  The chart below depicts the
+expected iterations as a function of the fraction of non-honest nodes.
 
 **{insert equation and plot}**
 
@@ -84,7 +85,7 @@ The practical implementation of PBFT in AntShares using an interative consensus 
 
 ### 5.3 - Requirements
 
-**In AntShares, we have five primary requirements for consensus fault tolerance using PBFT:**
+**In AntShares, we have five primary requirements for consensus fault tolerance:**
 
 1. `s` **Congressmen** must reach a consensus about a transaction before a block can be committed.
 
@@ -98,7 +99,7 @@ The practical implementation of PBFT in AntShares using an interative consensus 
 4. If the generated block is honest, all honest **Bookkeepers** are in agreement with the honest **Congressmen**.
 
 
-5. At least `s` **Consensus Nodes** are in same state (`h`,`k`)
+5. At least `s` **Consensus Nodes** are in same state (`h`,`k`) to begin a conensus activity
 
 	
 ### 5.3 - Algorithm
