@@ -122,6 +122,7 @@ The practical implementation of PBFT in AntShares using an interative consensus 
     ```
 
 6. **Congressmen** receives proposal and validates:
+
   6.1 Validate Proposal
     - is data format consistant with system rules?
     - is transaction already on blockchain?
@@ -129,15 +130,15 @@ The practical implementation of PBFT in AntShares using an interative consensus 
     - does the transaction only contain a single spend?	
 	
 	
-  2. **if Validated proposal:**
+    - **if Validated proposal:**
 	
 	
     <prepareResponse, h, k, i, [block]sigi>
 	
 	
-	**If Invalidated Proposal**
+	- **If Invalidated Proposal**
 	
-	  Increment `k`
+    Increment `k`
 		
   3. After receiving `s` responses, a **Congressman** reaches a consensus and publishes a block.
 	when a node receives a full block, delete currently held transaction data, begin new concensus round
