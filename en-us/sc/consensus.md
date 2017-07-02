@@ -89,19 +89,15 @@ Within the algorithm, we define the following:
 
 1. `s` **Congressmen** must reach a consensus about a transaction before a block can be committed.
 
-  ---
 
 2. Dishonest **Consensus Nodes** must not be able to persuade the honest consensus nodes of faulty transactions. 
 
-  ---
 
 3. `s` **Bookkeepers** must reach consensus about the block produced by the consensus activity	
 
-  ---
   
 4. If the generated block is honest, all honest **Bookkeepers** are in agreement with the honest **Congressmen**.
 
-  ---
 
 5. At least `s` **Consensus Nodes** are in same state (`h`,`k`)
 	
