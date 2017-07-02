@@ -119,48 +119,45 @@ The practical implementation of PBFT in AntShares using an interative consensus 
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
+6. **Congressmen** receive proposal and validates:
 
-6. **Congressmen** receives proposal and validates:
+    - Is data format consistant with system rules?
+    - Is transaction already on blockchain?
+    - Are the contract scripts correctly executed?
+    - Does the transaction only contain a single spend?	
 
-  - **Validate:**
+    - **if Validated proposal:**
 
-    1) Is data format consistant with system rules?
-    2) Is transaction already on blockchain?
-    3) Are the contract scripts correctly executed?
-    4) Does the transaction only contain a single spend?	
-
-	
-  - **if Validated proposal:**
-  
     If the proposal is valid, the **Congressman** broadcasts:
 	
-	```
-    <prepareResponse, h, k, i, [block]sigi>
-	```
+	    ```
+        <prepareResponse, h, k, i, [block]sigi>
+	    ```
 	
-  - **If Invalidated Proposal**
+    - **If Invalidated Proposal**
     
-	If the proposal is invalid, the **Congressman** increments their view.
+	If the proposal is invalid, the **Congressman** increments their view `k + 1`.
 
-    ```
-    Increment `k`
-	```
+7. After receiving `s` 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
+
+8. At least `s` **Bookkeepers** sign the published block.
+
+8. When a **Consensus Node** receives a full block, purge current view data, begin new concensus round. `k = 0`
+ 
+--- 
+  
+**Note:**
+ 
+ If after 2^(k+1) * t seconds on the same view without consensus:
+  - **Consensus Node** broadcasts:
+
+	<!-- -->
+	    <ChangeView, h,k,i,k+1>
+		
+  - Once a **Consensus Node** receives at least `s` broadcasts denoting the same change of view, it increments the view, triggering a new round of consensus.
 	
-  3. After receiving `s` 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
-	when a **Consensus Node** receives a full block, delete currently held transaction data, begin new concensus round
 	
-generate new block and bookkeepers sign (requires s signatures)
-reset(v = 0)
- 
- 
- 
- after 2^(v+1) * t, if not consensus:
-	node(i) sends <ChangeView, h,k,i,k+1>
-	one a node receives at least s identical changeview (k) signals, it increments the view and consensus begins
-	
-	Let $ $
- 
- 
+## Example 
  
  
 # Questions:
@@ -168,10 +165,8 @@ reset(v = 0)
   - How calculate `n`
   - Bookkeepers?
   - synchronicity
+  - penalization (?)
 	
-
-	
-## Example
 
 ## References
 1. [original_Byzantine](http://www-inst.eecs.berkeley.edu/~cs162/fa12/hand-outs/Original_Byzantine.pdf)
