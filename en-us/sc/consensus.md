@@ -18,18 +18,21 @@ name: Consensus
 ## 2 - Introduction
 
 ## 3 - Background
-One of the fundamental differences between blockchains how they can garantee fault tolerance due to either defects or malicious intent.
+
+One of the fundamental differences between blockchains is how they can garantee fault tolerance due to either defects or malicious intent.
+
 Traditional methods implemented using PoW can provide this garantee as long as a majority of the networks computational power is honest.
-Because of this schema's dependency on compute, the mechanism can be very resource intensive (computational power costs energy and requires hardware).
-These dependencies expose a PoW network to a number of limitations, specifically the barrier ...
+However, because of this schema's dependency on compute, the mechanism can be very resource intensive (computational power costs energy and requires hardware).
+These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
 
-AntShares implements a proof of work schema using Practical Byzantine Fault Tolerance which protects the network from Byzantine faults using minimal resources.
+**Describe conventional PoS mechanic**
 
- 
+AntShares implements a PoS schema using Practical Byzantine Fault Tolerance which protects the network from Byzantine faults using minimal resources.
+This solution provides a profound solution to performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
+
 ## 4 - Theory
-synchronicity
 
-
+**Outline Byzantine Generals Problem**
 
 ## 5 - Practical Implementation
 The practical implementation of PBFT in AntShares using an interative consensus method to garantee that consensus is reached.  The iterations required is dependent on the number of faulty nodes in the system as:
