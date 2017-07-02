@@ -129,7 +129,8 @@ expected iterations as a function of the fraction of non-honest nodes.
     - **if Validated proposal:**
 
     If the proposal is valid, the **Congressman** broadcasts:
-	    <!-- -->
+
+        <!-- -->
             <prepareResponse, h, k, i, [block]sigi>
 	 	
     - **If Invalidated Proposal**
