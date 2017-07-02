@@ -126,15 +126,11 @@ expected iterations as a function of the fraction of non-honest nodes.
     - Are the contract scripts correctly executed?
     - Does the transaction only contain a single spend?	
 
-    - **if Validated proposal:**
-
-      If the proposal is valid, the **Congressman** broadcasts:
+    - **if Validated Proposal Broadcast:**
 	    <!-- -->
 	        <prepareResponse, h, k, i, [block]sigi>
 	 	
-    - **If Invalidated Proposal**
-    
-	  If the proposal is invalid, the **Congressman** broadcasts:
+    - **If Invalidated Proposal Broadcast:**
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 
