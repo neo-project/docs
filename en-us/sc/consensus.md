@@ -58,35 +58,27 @@ Within the algorithm, we define the following:
 
   - `t` (Seconds) This is the atomic unit of time allocated for block generation.
 
-    ---
 	
   - `n` (Number) The number of active **Consensus Nodes**
-  
-    ---
+ 
 	
   - `f` (Number) The minimum threshold of faulty **Consensus Nodes** within the system. (n -1) / 3
   
-    ---
 	
   - `h` : The current block height during the consensus activity
 
-    ---
 	
   - `i` : **Consensus Node** index
   
-    ---
   
   - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a consensus round.
 
-    ---
-  
+
   - `k` : The index of the view.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
 
-    ---
   
   - `p` : Index of the **Consensus Node** elected as the **Speaker**.  p = (h - k) mod (n)
   
-    ---
 
   - `s` (Number) The safe consensus threshold.  Below this threshold, the network is exposed to fault.  s = (n - f)
 
