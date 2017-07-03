@@ -42,7 +42,7 @@ P2P and WebSocket information see [Node/Introduction](introduction.md)。
 | [getrawmempool](api/getrawmempool.md)    |                                         | Get a list of unrecognized transactions in memory            |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | Returns the corresponding transaction information based on the specified hash value         |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | Returns the corresponding transaction output (change) information based on the specified hash and index |          |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Broadcast transmission                       |          |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Broadcast a transaction over the network. See the [network protocol](network-protocol.md) documentation.                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | Transfer to specified address                     | Need to open the wallet   |
 | submitblock                              | \<hex>                                  | Submit new blocks                      | Needs to be a consensus node |
 

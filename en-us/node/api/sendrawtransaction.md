@@ -1,6 +1,6 @@
 # Sendrawtransaction method
 
-Broadcasting.
+This method broadcasts a transaction over the AntShares network. There are many kinds of transactions, as specified in the network protocol [documentation](../network-protocol.md). 
 
 ## Parameter Description
 

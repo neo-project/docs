@@ -12,7 +12,7 @@ This is an open source community project, you can contribute to the development 
 
 #### What is AntShares?
 
-AntShares is a smart asset platform and the first open source public chain project in China. Smart assets are the combination of smart blockchain contracts and digital assets. Making registering, distributing and trading digital assets more intelligent.
+AntShares is a smart asset platform and the first open source public chain project in China. Smart assets are the combination of smart blockchain contracts and digital assets, and make registering, distributing, and trading digital assets more intelligent.
 
 👉 Digital assets are assets stored in the form of electronic data with blockchain technology to achieve features such as decentralization, trustless, traceability, transparency and so on. The AntShare blockchain supports a variety of digital assets, allowing users to register, distribute, freely trade and circulate assets. Digital certificates can solve the issue of trust on the blockchain. Through digital certificates,user-issued assets can also enjoy the protection of the law. For business scenarios with complex logic, users can use smart contracts to enhance the functionality of assets, or create asset-independent business logic.
 
