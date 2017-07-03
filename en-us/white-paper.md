@@ -1,8 +1,8 @@
 # AntShares White Paper 1.1
 
-📖 The documentation is a work in progress. You can view other documents on [Github wiki](https://github.com/AntShares/AntShares/wiki/) or visit our [official website](Http://www.antshares.org).
+📖 This documentation is a work in progress. You can view other documents on the [Github wiki](https://github.com/AntShares/AntShares/wiki/) or visit our [official website](Http://www.antshares.org).
 
-This is an open source community project, you can contribute to the development of the documentation, [github.com/AntShares/docs](https://github.com/AntShares/docs), thanks for visiting.
+This is an open source community project. You can contribute to the development of the documentation at [github.com/AntShares/docs](https://github.com/AntShares/docs). Thanks for visiting.
 
 ------
 
@@ -12,23 +12,23 @@ This is an open source community project, you can contribute to the development 
 
 #### What is AntShares?
 
-AntShares is a smart asset platform and the first open source public chain project in China. Smart assets are the combination of smart blockchain contracts and digital assets. Making registering, distributing and trading digital assets more intelligent.
+AntShares is a smart asset platform and the first open source public blockchain project in China. Smart assets are the combination of smart blockchain contracts and digital assets, making registering, distributing and trading digital assets more intelligent.
 
-👉 Digital assets are assets stored in the form of electronic data with blockchain technology to achieve features such as decentralization, trustless, traceability, transparency and so on. The AntShare blockchain supports a variety of digital assets, allowing users to register, distribute, freely trade and circulate assets. Digital certificates can solve the issue of trust on the blockchain. Through digital certificates,user-issued assets can also enjoy the protection of the law. For business scenarios with complex logic, users can use smart contracts to enhance the functionality of assets, or create asset-independent business logic.
+👉 Digital assets are assets stored in the form of electronic data with blockchain technology to achieve features such as decentralization, trustless, traceability, transparency and so on. The AntShares blockchain supports a variety of digital assets, allowing users to register, distribute, freely trade and circulate assets. Digital certificates can solve the issue of trust on the blockchain. Through digital certificates, user-issued assets can also enjoy the protection of the law. For business scenarios with complex logic, users can use smart contracts to enhance the functionality of assets, or create asset-independent business logic.
 
-👉 The Smart Contract was first proposed by the cryptologist Nick Szabo in 1993, almost the same age as the Internet. According to Nick Szabo's definition: When a pre-programmed condition is met, the smart contract executes the corresponding contract terms. Blockchain technology gives us a decentralized, immutable, highly reliable system in which smart contracts are very useful. AntShares has Turing-complete smart contract capabilities, which are executed in the AntShares Virtual Machine (AVM) and has many advantages such as being deterministic having termination, resource control, concurrency, fragmentation and scalability.
+👉 The Smart Contract was first proposed by the cryptologist Nick Szabo in 1993, and is almost the same age as the Internet. According to Szabo's definition: When a pre-programmed condition is met, the smart contract executes the corresponding contract terms. Blockchain technology gives us a decentralized, immutable, highly reliable system in which smart contracts are very useful. AntShares has Turing-complete smart contract capabilities, which are executed in the AntShares Virtual Machine (AVM), and has many advantages such as being deterministic, having termination, resource control, concurrency, fragmentation and scalability.
 
-AntShares combines a range of technologies such as point-to-point network, Byzantine Fault Tolerance, digital certificates, smart contracts, superconducting transactions, cross-chain interoperability protocols, allowing you to manage your smart assets quickly, efficiently, safely and legally.
+AntShares combines a range of technologies such as point-to-point network, Byzantine Fault Tolerance, digital certificates, smart contracts, superconducting transactions, and cross-chain interoperability protocols, allowing you to manage your smart assets quickly, efficiently, safely and legally.
 
 #### What is a blockchain?
 
-The term blockchain originates from Bitcoin. In his bitcoin white-paper, Satoshi Nakamoto proposed the term _chain of blocks_ while in his following release of the original bitcoin program, the folder keeping transaction records was named _blockchain_. Originally, blockchain merely refers to the historical transaction data of bitcoin. The majority of the subsequent crypto-currencies named their folder of transaction data as blockchain as well, so this term began to refer to the historical transaction data of crypto-currencies.
+The term blockchain originates from Bitcoin. In his bitcoin whitepaper, Satoshi Nakamoto proposed the term _chain of blocks_ while in his following release of the original Bitcoin program, the folder keeping transaction records was named _blockchain_. Originally, blockchain merely referred to the historical transaction data of bitcoin. The majority of the subsequent cryptocurrencies named their folder of transaction data as blockchain as well, so this term began to refer to the historical transaction data of cryptocurrencies.
 
-Since 2015, mainstream financial players started to look into systems like Bitcoin, Ethereum and Ripple. These financial institutions took a separate view on the underlying technology and the upper-level business of systems like bitcoin. They have been calling the combination of these underlying technologies as the _blockchain technology_. Blockchain technology is the combination of cryptography, network topology, consensus algorithm and game theory. With technical modules like Proof of Work, Proof of Stake, Smart Contract, Lighting Network and Side Chain.
+Since 2015, mainstream financial players have started to look into systems like Bitcoin, Ethereum and Ripple. These financial institutions have taken a separate view on the underlying technology and the upper-level business of systems like Bitcoin. They have been calling the combination of these underlying technologies _blockchain technology_. Blockchain technology is the combination of cryptography, network topology, consensus algorithm and game theory. With technical modules like Proof of Work, Proof of Stake, Smart Contract, Lighting Network and Side Chain.
 
-#### The core of the Blockchain
+#### The Core of the Blockchain
 
-We believe that the heart of blockchains is how to achieve a **distributed consensus** - that is, in the absence of a central body or a network with multiple centers, how each node processes all transactions that occur within the network and achieve a common consensus. This consensus includes elements such as the content, validity, and chronological order of the transactions.
+We believe that what's at the heart of blockchains is how to achieve a **distributed consensus** - that is, in the absence of a central body or a network with multiple centers, how each node processes all transactions that occur within the network to achieve a common consensus. This consensus includes elements such as the content, validity, and chronological order of the transactions.
 
 * **Effectively reaching a distributed consensus of transactions using the digital signature of the contents**
 
@@ -46,25 +46,29 @@ Due to the high network latency in point-to-point networks, the order of transac
     * UNL / Quorum Slice: Ripple, Stellar
     * Byzantine Fault Tolerance: AntShares, Hyperledger Fabric
 
-* **Achieving Distributed consensus on historical data through hashing algorithms**
+* **Achieving distributed consensus on historical data through hashing algorithms**
 
+<<<<<<< HEAD
 The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, any node does not need to rely on a central organization to verify the validity of all the historical transactions in order to reach a consensus.
+=======
+The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, nodes do not need to rely on the central organization to verify the validity of all the historical transactions and to reach a consensus.
+>>>>>>> 96765e61b2544614d4eb6cbbc81498c1fb8d9aef
 
 * **Achieving a distributed consensus on the results of the "smart contract"**
 
-Nick Szabo presented the concept of Smart Contract in 1993, much earlier than the emergence of blockchains. The script system of Bitcoin is the first basic realization of the concept. Ethereum built upon that foundation to achieve a more flexible Turing complete smart contract platform. In addition, Hyperledger has also implemented a container-based smart contract (which is called a chaincode).
+Nick Szabo presented the concept of Smart Contract in 1993, much earlier than the emergence of blockchains. The script system of Bitcoin was the first basic realization of the concept. Ethereum built upon that foundation to achieve a more flexible Turing complete smart contract platform. In addition, Hyperledger has also implemented a container-based smart contract (which is called a chaincode).
 
-We believe that the smart contracts on the blockchain is about reaching another distributed consensus of calculated results using affirmed data as inputs such as transaction content, validity, order, history and so on.
+We believe that the smart contracts on the blockchain are about reaching another distributed consensus of calculated results using affirmed data as inputs such as transaction content, validity, order, history and so on.
 
-In addition to the above consensus details, the blockchain technology also includes lightning network, side chain, cross-chain transactions, hidden address (Stealth Address), confidential transactions, etc. Not limited only to the distributed consensus technology.
+In addition to the above consensus details, the blockchain technology also includes lightning network, side chain, cross-chain transactions, hidden address (Stealth Address), confidential transactions, etc. and is not limited only to the distributed consensus technology.
 
 ### Design goals
 
-The mission of the AntShares is "Everyone's digital assets". Bitcoin and other blockchains hope to build a parallel to the real world financial system. AntShares want to build a financial system that can bridge the gap to real world assets. At the same time, the AntShare target audience is the mainstream Internet users, not just liberals, geeks and developers. In order to achieve this vision, AntShares need to use different designs on the base level.
+The mission of the AntShares is "Digital Assets for Everyone". Bitcoin and other blockchains hope to build a parallel to the real world financial system. AntShares wants to build a financial system that can bridge the gap to real world assets. At the same time, the AntShares target audience consists of mainstream Internet users, not just liberals, geeks and developers. In order to achieve this vision, AntShares needs to use different designs on the base level.
 
 #### Compliance with the Physical World
 
-* **Replace the token with electronic contract**
+* **Replace the token with an electronic contract**
 
 The practice of digitizing assets in the blockchain world is called "tokenization". That is, the user issues a custom token and declares that the tokens represent an asset. Then this token can be traded and exchanged similarly to a Bitcoin.
 
@@ -72,11 +76,11 @@ However, there are many flaws in the legalization of the token. The circulation 
 
 * **Account Authentication**
 
-Real name identity information is the basis of a large number of real world assets. In most cases the legal contract (legally binding contract) also requires real-name signature. When the legal conditions of the exchange or transaction participants have real name requirements, the user should have the ability to prove their true identity. At the same time, the disclosure of such information should be controlled by the user. A third party outside of the transaction should not receive user identity information. At the same time identity authentication is only an option, not mandatory. When the transaction participants do not require each other's real name, the users does not need to do authentication.
+Real name identity information is the basis of a large number of real world assets. In most cases the legal contract (legally binding contract) also requires real-name signature. When the legal conditions of the exchange or transaction participants have real name requirements, the user should have the ability to prove their true identity. At the same time, the disclosure of such information should be controlled by the user. A third party outside of the transaction should not receive user identity information. At the same time, identity authentication is only an option, not mandatory. If the transaction participants do not require each other's real names, the users do not need to authenticate.
 
-AntShares uses digital certificates to implement user authentication. Users (individuals or organizations) can apply for a digital certificate from the certificate authority (CA) to prove the correspondence between the public key and the identity they control. AntShares does not specify a CA, but instead, the transaction participants choose a self-approved CA. For example, a Chinese user may choose either of the 38 CA agencies certified by the Ministry of Industry and Information, or may choose a company that is registered on the exchange to be the CA to verify and distribute the certificate.
+AntShares uses digital certificates to implement user authentication. Users (individuals or organizations) can apply for a digital certificate from the certificate authority (CA) to prove the correspondence between the public key and the identity they control. AntShares does not specify a CA, but instead the transaction participants choose a self-approved CA. For example, a Chinese user may choose any of the 38 CA agencies certified by the Ministry of Industry and Information, or may choose a company that is registered on the exchange to be the CA to verify and distribute the certificate.
 
-Unlike the X.509 digital certificate implementation scheme, AntShares plans to use the blockchain to maintain the certificate revocation list and gradually form a set of digital certificate system and identity authentication scheme based on the blockchain technology.
+Unlike the X.509 digital certificate implementation scheme, AntShares plans to use the blockchain to maintain the certificate revocation list and gradually form a set of digital certificate systems and identity authentication schemes based on blockchain technology.
 
 #### Fulfilling the needs of financial transactions
 
