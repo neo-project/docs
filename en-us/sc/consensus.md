@@ -7,7 +7,7 @@ name: Consensus
 
 * **Proof of Stake** `PoS`  A schema which uses network consensus to handle fault tolerance.
 
-* **Proof of Work** `PoW` - A schema which uses compute utility to handle fault tolerance.
+* **Proof of Work** `PoW` - A schema which uses computing power to handle fault tolerance.
 
 * **Byzantine Fault** `BF` - A failure in which a node remains functional, but operates in a non-honest manner.
 
@@ -35,10 +35,11 @@ This solution provides a profound solution to performance and scalability issues
 **(Outline Byzantine Generals Problem)**
 
 ## 5 - Practical Implementation
-The practical implementation of PBFT in AntShares uses an iterative consensus method to garantee that consensus is reached.  The performance of the algorithm is dependent on the fration of non-honest nodes in the system.  The chart below depicts the
-expected iterations as a function of the fraction of non-honest nodes.
+The practical implementation of PBFT in AntShares uses an iterative consensus method to garantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of non-honest nodes in the system.  The chart below depicts the
+expected iterations as a function of the fraction of non-honest nodes.  Note that the plot doesn't extend below 66.66% node honesty.  Below this point, there is a 'No-Man's Land' where a consensus is unreachable until reaching 33.33% Consensus Node honesty.
+Below this critical point, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
 
-**{insert equation and plot}**
+<img src="assets/consensus.iterations.png" width="800">
 
 
 ### 5.1 - Roles
@@ -80,7 +81,7 @@ expected iterations as a function of the fraction of non-honest nodes.
   - `p` : Index of the **Consensus Node** elected as the **Speaker**.  p = (h - k) mod (n)
   
 
-  - `s` (Number) The safe consensus threshold.  Below this threshold, the network is exposed to fault.  s = (n - f)
+  - `s` (Number) The safe consensus threshold.  Below this threshold, the network is exposed to fault.  s = ((n - 1) - f)
 
 
 ### 5.3 - Requirements
