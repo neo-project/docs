@@ -48,11 +48,7 @@ Due to the high network latency in point-to-point networks, the order of transac
 
 * **Achieving distributed consensus on historical data through hashing algorithms**
 
-<<<<<<< HEAD
 The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, any node does not need to rely on a central organization to verify the validity of all the historical transactions in order to reach a consensus.
-=======
-The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, nodes do not need to rely on the central organization to verify the validity of all the historical transactions and to reach a consensus.
->>>>>>> 96765e61b2544614d4eb6cbbc81498c1fb8d9aef
 
 * **Achieving a distributed consensus on the results of the "smart contract"**
 
@@ -100,11 +96,11 @@ It is generally believed that the "single bookkeeping" model is more usable, tha
 
 It can be said that the "single bookkeeping" model has chosen anonymity, to achieve no need for any node trust, but at the expense of consistency and finality; the joint accounting model chose consistency and finality, but the identity of the billing nodes is required in order to obtain weak trust of the other nodes
 
-* **Use Fiat currency as currency**
+* **Use fiat currency as currency**
 
-There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currency is a good exchange medium, users can, through Bitcoin, engage is global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by Fiat currency, but it is not very successful and has a narrow range of applications.
+There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currency is a good exchange medium, users can, through Bitcoin, engage is global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by fiat currency, but it is not very successful and has a narrow range of applications.
 
-AntShares will use Fiat as its internal currency.
+AntShares will use fiat as its internal currency.
 
 * **Node division and specialization**
 
