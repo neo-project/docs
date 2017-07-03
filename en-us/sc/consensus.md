@@ -35,9 +35,8 @@ AntShares implements a PoS schema using Practical Byzantine Fault Tolerance whic
 
 ## 5 - Practical Implementation
 
-The practical implementation of PBFT in AntShares uses an iterative consensus method to garantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of 
--honest nodes in the system.  The chart below depicts the
-expected iterations as a function of the fraction of dishonest nodes.  Note that the plot doesn't extend below 66.66% node honesty.  Below this point, there is a 'No-Man's Land' where a consensus is unreachable until reaching 33.33% Consensus Node honesty.
+The practical implementation of PBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the
+expected iterations as a function of the fraction of dishonest nodes.  Note that the plot doesn't extend below 66.66% node honesty. Below this point, there is a 'No-Man's Land' where a consensus is unreachable until reaching 33.33% **Consensus Node** honesty.
 Below this critical point, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
 
 
@@ -125,7 +124,7 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
-6. **Congressmen** receive proposal and validate:
+6. The **Congressmen** receive the proposal and validate:
 
     - Is the data format consistent with the system rules?
     - Is the transaction already on the blockchain?
