@@ -4,6 +4,8 @@ The TestNet is designed to be developed, commissioned and tested by the user. Te
 
 All the block data of the test network is independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the AntShares's mainnet online operation.
 
+If you are a developer, you can ask for coins on the TestNet here: https://www.antshares.org/Testnet/Create 
+
 ## Test the characteristics of the network
 
 1. Asset registration, asset distribution, contract execution, etc. will not consume real money.

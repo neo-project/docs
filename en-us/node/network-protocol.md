@@ -1,373 +1,377 @@
-# Network protocol
+# Network Protocol
 
-In the network structure, AntShares use point to point network structure, using TCP protocol for communication.
 
-There are two kinds of node types in the network, namely, ordinary nodes and consensus nodes. Ordinary nodes can broadcast, receive and forward transactions, blocks, etc. Consensus nodes can create blocks. Refer to [this text](setup.md) for installation and deployment of nodes.
+Antshares adopts a P2P network structure, in which nodes can communicate with each other through TCP/IP protocol. In this structure, there are two different types of nodes: peer nodes and validating nodes (referred to as Bookkeepers in the Antshares Whitepaper). Peer nodes can broadcast, receive and transfer transactions or blocks, while validating node can create blocks.
 
-The agreement protocol of AntShares is very similar to Bitocin protocol, but they differ in terms of the data structure of the block, transaction and so on.
 
-Agreement
+The network protocol of AntShares is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different.
 
-### Byte order
+Convention
+----
 
-All integer types in AntShares system are encoded using Little Endian, and only the IP address and port number are encoded using Big Endian.
+1. Byte Order
 
-### Hashing
+    All integer types of Antshares are Little Endian except for IP address and port number, these 2 are Big Endian.
 
-Two different hash functions are used in the AntShares system: SHA256 and RIPEMD160. The former is used to generate longer hash values, while the latter is used to generate shorter hash values. Usually, generating the hash value of an object, will require the use two hash functions. For example, to generate a block or transaction hash, the SHA256 hash value has to be calcaluated twice. While generating a contract address, the first calculation be to calculate the script SHA256 hash, which is then followed by the calculation of the script RIPEMD160 hash.
+1. Hash
 
-In addition, the block will also use a hash tree (Merkle Tree) structure. The transcation hash of every action is combined and used in the calculation of another hash, where the above process is repeated until only one Root remains (Merkle Root).
+   Two different hash functions are used in Antshares: SHA256 and RIPEMD160. SHA256 is used to generate a long hash value, and RIPEMD160 is used to generate a short hash value. In general, we get an object's hash value by using hash function twice. For example, we use SHA256 twice when we want to generate block's or transaction's hash value. When generating a contract address, we will use SHA256 function first and then use RIPEMD160.
 
-### Variable type
+   In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one another then hash again, repeats this process until there is only one root hash (Merkle Root).
 
-Varint: Variable length integer, can be encoded according to the value of the expression to save space.
+1. Variable Length Type
 
-| Value | length | format |
-| ------------- | ---- | ------------- |
-| <0xfd | 1 | uint8 |
-| <= 0xffff | 3 | 0xfd + uint16 |
-| <= 0xffffffff | 5 | 0xfe + uint32 |
-| 0xffffffff | 9 | 0xff + uint64 |
+   + variant：variable length integer, can be encoded to save space according to the value typed.
 
-Varstr: Variable-length string consisting of a variable-length followed string. The string is encoded with UTF8.
+      |Value|Length|Format|
+      |---|---|---|
+      |< 0xfd|1|uint8|
+      |<= 0xffff|3|0xfd + uint16|
+      |<= 0xffffffff|5|0xfe + uint32|
+      |> 0xffffffff|9|0xff + uint64|
 
-| Size | field | data type | description |
-| ------ | ------ | ------------- | ------------- |
-| | Length | varint | The length of the string, in bytes
-| Length | string | uint8 [length] | The string itself |
+   + varstr：variable length string, consisting of variable length integer followed by strings. String encoded by UTF8.
 
-Array: An array of elements that consists of a variable length, followed by an element sequence.
+      |Size|Field|DataType|Description|
+      |---|---|---|---|
+      |?|length|variant|The length of a string in bytes|
+      |length|string|uint8[length]|string itself|
 
-### Fixed constants
+   + array：The array consists of a variable length integer followed by a sequence of elements.
 
-The amount of money, price and other data in the AntShares system, the unified use of 64-bit fixed-point, the decimal precision of up to 10 <sup> -8 </ sup>, can be expressed in the range: [- 2 <sup> 63 </10 <sup> 8 </ sup>, +2 <sup> 63 </ sup>/10 <sup> 8 </ sup>]
+1. Fixed-point Number
 
-Data structure
+   Data in Antshares such as amount or price are 64 bit fixed-point number and the precision of decimal part is 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
+
+Data Type
 -------
 
-### Blockchain
+1. Block Chain
 
-A blockchain is a logical structure that connects blocks in the form of unidirectional lists for storing transactions, assets, and so on.
+   The block chain is a kind of logical structure, which is connected in series with a one-way linked list. It is used to store the data of the whole network, such as transactions or assets.
 
-### blocks
+1. Block
 
-| Size | field | data type | description |
-| - | ------------- | ------- | --------------------- |
-| 4 | Version | uint32 | Block version, currently 0 |
-| 32 | PrevBlock | uint256 | The hash value of the previous block |
-| 32 | MerkleRoot | uint256 | The root of the transaction list
-| 4 | Timestamp | uint32 | timestamp
-| 4 | Index | uint32 | Block Height (Block Index) = Block Number - 1 |
-ConsensusData | uint64 | Consensus Data (Consensus Node Generates Pseudorandom Number) |
-| 20 | NextConsensus | uint160 | The hash value of the accounting contract for the next block
-| 1 | - | uint8 | fixed to 1 |
-Script | script | script used to verify the block
-Transactions | tx[] | Transaction List |
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |4|Version|uint32|version of the block which is 0 for now|
+   |32|PrevBlock|uint256|hash value of the previous block|
+   |32|MerkleRoot|uint256|root hash of a transaction list|
+   |4|Timestamp|uint32|time stamp|
+   |4|Height|uint32|height of block|
+   |8|Nonce|uint64|random number|
+   |20|NextMiner|uint160|contract address of next miner|
+   |1|-|uint8|It's fixed to 1|
+   |?|Script|script|Script used to validate the block|
+   |?*?|Transactions|tx[]|transactions list|
 
-When calculating the hash of the block, the entire block is not counted, but only the first seven fields of the header are used: Version, PrevBlock, MerkleRoot, Timestamp, Height, Nonce, NextMiner. Since MerkleRoot already contains the hash value for all transactions, any modification to the transaction also changes the hash value of the block.
+   When calculating the hash value of the block, instead of calculating the entire block, only first seven fields in the block head will be calculated, which are version, PrevBlock, MerkleRoot, timestamp, and height, the nonce, NextMiner. Since MerkleRoot already contains the hash value of all transactions, the modification of transaction will influence the hash value of the block.
 
-The data structure of the block header is as follows:
+   Data structure of block head:
 
-| Size | field | data type | description |
-| - | ------------- | ------- | --------------------- |
-| 4 | Version | uint32 | block version, currently 0 |
-| 32 | PrevBlock | uint256 | The hash value of the previous block |
-| 32 | MerkleRoot | uint256 | The root of the transaction list
-| 4 | Timestamp | uint32 | timestamp
-| 4 | Index | uint32 | Block Height (Block Index) = Block Number - 1 |
-ConsensusData | uint64 | Consensus Data (Consensus Node Generates Pseudorandom Number) |
-| 20 | NextConsensus | uint160 | The hash value of the accounting contract for the next block
-| 1 | - | uint8 | fixed to 1 |
-Script | script | script used to verify the block
-| 1 | - | uint8 | fixed to 0 |
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |4|Version|uint32|version of the block which is 0 for now|
+   |32|PrevBlock|uint256|hash value of the previous block|
+   |32|MerkleRoot|uint256|root hash of a transaction list|
+   |4|Timestamp|uint32|time stamp|
+   |4|Height|uint32|height of block|
+   |8|Nonce|uint64|random number|
+   |20|NextMiner|uint160|contract address of next miner|
+   |1|-|uint8|It's fixed to 1|
+   |?|Script|script|Script used to validate the block|
+   |1|-|uint8|It's fixed to 0|
 
-The timestamp of each block must be later than the timestamp of the previous block. Generally, the timestamps of the two blocks differ by about 15 seconds, but there are exceptions to this rule. The height of the block must be equivalent to the height of the previous block, plus one.
+   The time stamp of each block must be later than previous block's time stamp. Generally the difference of two block's time stamp is about 15 seconds and imprecision is allowed. The height of the block must be exactly equal to the height of the previous block plus 1.
 
-### trade
+1. Transaction
 
-| Size | field | data type | description |
-| - | ---------- | --------- | ------------ |
-| 1 | Type | uint8 | Transaction Type |
-| 1 | Version | uint8 | Trading version, currently 0 |
-| | | - | - | Data specific to transaction type
-Attributes | tx_attr[] | Extra attributes of the transaction
-| 34 *? | Inputs | tx_in[] | Input |
-| 60 *? | Outputs | tx_out[] | Output |
-Scripts | script[] | Scripts used to validate the transaction
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |1|Type|uint8|type of transaction|
+   |1|Version|uint8|Trading version, currently 0|
+   |?|-|-|Data specific to transaction types|
+   |?*?|Attributes|tx_attr[]|Additional features that the transaction has|
+   |34*?|Inputs|tx_in[]|input|
+   |60*?|Outputs|tx_out[]|output|
+   |?*?|Scripts|script[]|List of scripts used to validate the transaction|
 
-All transactions in the AntShares system are recorded in transaction units. There are several types of transactions:
+   All processes in Antshares system are recorded in transactions. There are several types of transactions:
 
-| Value | name | system cost | description |
-| ---- | --------------------- | -------- | ---------------------- |
-| 0x00 | MinerTransaction | 0 | Transactions for allocating byte fees |
-| 0x01 | IssueTransaction | 500 \ | 0 | Transactions for Distributing Assets
-| 0x02 | ClaimTransaction | 0 | Transactions for the distribution of AntShares coins
-| 0x20 | EnrollmentTransaction | 1000 | (Not usable) Special transaction for registration as a consensus candidate |
-| 0x40 | RegisterTransaction | 10000 \ | 0 | (Not usable) Transactions for asset registration
-| 0x80 | ContractTransaction | 0 | Contract transaction, which is the most commonly used transaction type
-| 0xd0 | PublishTransaction | 500 * n | (Not usuable) Special Transactions for Smart Contracts |
-| 0xd1 | InvocationTransaction | 0 | Special transcations for calling smart contracts |
+   |Value|Name|System Fee|Description|
+   |---|---|---|---|
+   |0x00|MinerTransaction|0|assign byte fees|
+   |0x01|IssueTransaction|500\|0|inssuance of asset|
+   |0x02|ClaimTransaction|0|assign ant coins|
+   |0x20|EnrollmentTransaction|1000|enrollment for validator|
+   |0x40|RegisterTransaction|10000|assets register|
+   |0x80|ContractTransaction|0|contract transaction|
+   |0xd0|PublishTransaction|500 * n|(Not usuable) Special Transactions for Smart Contracts|
+   |0xd1|InvocationTransaction|0|Special transcations for calling smart contracts|
 
-Each type of transaction has its own unique field in addition to the public field of the transaction. The exclusive fields for different types of transactions are described in detail below.
+   Each type of transaction, in addition to the public field, also has its own exclusive field. The following will describe these exclusive fields in detail.
 
-** MinerTransaction **
+   + MinerTransaction
 
-| Size | field | data type | description |
-| ---- | ----- | ------ | ------- |
-| | | | | | | Public fields for transactions
-4 | Nonce | uint32 | Random number |
-| | | | | | | Public fields for transactions
+      |Size|Field|DataType|Description|
+      |---|---|---|---|
+      |4|Nonce|uint32|random number|
 
-The first transaction for each block must be MinerTransaction. It is used to reward the book-keeper nodes with all the transaction fees in the current block.
+      The first transaction in each block must be MinerTransaction. It is used to reward all transaction fees of the current block to the validator.
 
-The random number in the transaction is used to prevent hash conflicts.
+      Random number in the transaction is used to avoid hash collision.
 
-** IssueTransaction **
+   + IssueTransaction
 
-There are no special fields for the asset issue transaction.
+      There are no special fields for an issue transaction.
 
-The asset manager can create an asset that has been registered in an asset chain and send it to any address through an asset issue transaction.
+      Asset managers can create the assets that have been registered in Antshares' block chain through IssueTransaction, and sent them to any address.
 
-In particular, if the issue of assets is AntShares, then the deal will be free to send.
+      In particular, if the assets which being issued are AntShares, then the transaction will be sent free.
 
-** ClaimTransaction **
+      Random number in the transaction is used to avoid hash collision.
 
-| Size | field | data type | description |
-| ---- | ------ | ------- | -------- |
-| | | | | | | Public fields for transactions
-34 * | | Claims | tx_in[] | For the distribution of AntShares shares
-| | | | | | | Public fields for transactions
+   + ClaimTransaction
 
-** EnrollmentTransaction **
+      |Size|Field|DataType|Description|
+      |---|---|---|---|
+      |34*?|Claims|tx_in[]|ant shares for distribution|
 
-> [!Warning]
-Has been deactivated and replaced by the AntShares.Blockchain.RegisterValidator of the smart contract.
+   + EnrollmentTransaction
 
-View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/RegisterValidator.md)
+      |Size|Field|DataType|Description|
+      |---|---|---|---|
+      |33|PublicKey|ec_point|public key of validator|
 
-View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      The transaction represents an enrollment form, which indicates that the sponsor of the transaction would like to sign up as a validator.
 
-** RegisterTransaction **
+      The way to sign up is: to construct an EnrollmentTransaction type of transaction, and send a deposit to the address of the PublicKey.
 
-> [!Warning]
-Has been deactived and replaced by AntShares.Blockchain.CreateAsset for the smart contract.
+      The way to cancel the registration is: spend the deposit on the address of the PublicKey.
 
-View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
+   + RegisterTransaction
 
-View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      > [!Warning]
+      Has been deactived and replaced by AntShares.Blockchain.CreateAsset for the smart contract.
 
-** ContractTransaction **
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
 
-There is no special field for a contract transaction.
+      View [Alternative Smart Contract API](../sc/api/AntShares.md)
 
-** PublishTransaction **
+   + ContractTransaction
 
-> [!Warning]
-Has been deactivated and replaced by AntShares.Blockchain.CreateContract for the smart contract.
+      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send ANS to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much ANS will be sent, and to what address).
 
-View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
+   + PublishTransaction
 
-View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      > [!Warning]
+      Has been deactivated and replaced by AntShares.Blockchain.CreateContract for the smart contract.
 
-** Invoking a Transaction **
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
 
+      View [Alternative Smart Contract API](../sc/api/AntShares.md)
 
-| Size   | Field     | Data Type    | Description              |
-| ---- | ------ | ------- | --------------- |
-| -    | -      | -       | Public fields for transactions         |
-| ?    | Script | uint8[] | Invoked by smart contract     |
-| 8    | Gas    | int64   | Costs required to run the smart contract |
-| -    | -      | -       | Publics fields for transactions         |
+   + Invoking a Transaction
 
+      | Size   | Field     | Data Type    | Description              |
+      | ---- | ------ | ------- | --------------- |
+      | -    | -      | -       | Public fields for transactions         |
+      | ?    | Script | uint8[] | Invoked by smart contract     |
+      | 8    | Gas    | int64   | Costs required to run the smart contract |
+      | -    | -      | -       | Publics fields for transactions         |
 
-### Trading characteristics
+1. Transaction Attributes
 
-| Size | field | data type | description |
-| ------ | ------ | ------------- | -------------- |
-| 1 | Usage | uint8 | Use |
-| 0 | | 1 | length | uint8 | data length (Omitted in certain cases)
-| Length | Data | uint8 [length] | Application-specific external data |
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |1|Usage|uint8|usage|
+   |0\|1|length|uint8|length of data(Specific circumstances will be omitted)|
+   |length|Data|uint8[length]|external data|
 
-Occasionally, the transaction will need to contain some data for external use. This data will be placed in the transaction characteristics of the field.
+   Sometimes the transaction will contain some data for external use, these data will be placed in the transaction attributes field.
 
-Each transaction feature can have different uses:
+   Each transaction attribute has different usages:
 
-| Value | name | description |
-| --------- | --------------- | --------------- |
-| 0x00 | ContractHash | Hash value of external contract
-| 0x02-0x03 | ECDH02-ECDH03 | Public key for ECDH key exchange |
-| 0x20 | Script | For additional verification of the transaction
-| 0x30 | Vote | For voting
-| 0x80 | CertUrl | Certificate Address |
-| 0x81 | DescriptionUrl | External presentation information address |
-| 0x90 | Description | Short introductory information |
-| 0xa1-0xaf | Hash1-Hash15 | Used to store custom hash values ​​|
-| 0xf0-0xff | Remark-Remark15 | Remarks |
+   |Value|Name|Description|
+   |---|---|---|
+   |0x00|ContractHash|hash value of contract|
+   |0x02-0x03|ECDH02-ECDH03|public key for ECDH key exchange|
+   |0x20|Script|additional validation of transactions|
+   |0x30|Vote|For voting
+   |0x80|CertUrl|url address of certificate|
+   |0x81|DescriptionUrl|url address of description|
+   |0x90|Description|brief description|
+   |0xa1-0xaf|Hash1-Hash15|used to store custom hash values|
+   |0xf0-0xff|Remark-Remark15|remarks|
 
-For ContractHash, ECDH series, Vote, Hash, the data length is fixed to 32 bytes,and the length field is omitted;
+   For ContractHash, ECDH series, Hash series, data length is fixed to 32 bytes and length field is omitted;
 
-For Script, you must explicitly give the data length, and the length can not exceed 65535;
+   For CertUrl, DescriptionUrl, Description, Remark series, the data length must be clearly defined, and the length should not exceed 255;
 
-For CertUrl, DescriptionUrl, Description, Remark, you must specify the length of the data, and the length can not exceed 255.
+1. Input of Transaction
 
-### Transaction input
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |32|PrevHash|uint256|previous transaction's hash|
+   |2|PrevIndex|uint16|previous transaction's index|
 
-| Size | field | data type | description |
-| ---- | --------- | ------- | --------- |
-| 32 | PrevHash | uint256 | Reference to the hash value of the transaction |
-| 2 | PrevIndex | uint16 | Index that references the transaction output
+1. Output of Transaction
 
-### Transaction output
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |32|AssetId|uint256|asset id|
+   |8|Value|int64|value|
+   |20|ScriptHash|uint160|address of remittee|
 
-| Size | field | data type | description |
-| ---- | ---------- | ------- | ---- |
-| 32 | AssetId | uint256 | Asset Number |
-8 | Value | int64 | Amount |
-| 20 | ScriptHash | uint160 | Payment address |
+   Each transaction could have outputs up to 65536. 
 
-Each transaction can only contain up to 65536 outputs.
+1. Validation Script
 
-### Verify the script
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |?|StackScript|uint8[]|stack script code|
+   |?|RedeemScript|uint8[]|contract script code|
 
-| Size | field | data type | description |
-| ---- | ------------ | ------- | ------ |
-| StackScript | uint8[] | Stack script code |
-RedeemScript | uint8[] | Contract script code |
+   Stack script can only be used for the PUSH operations, which is used to push data like signatures into the stack. The script interpreter will execute the stack script code first, and then execute the contract script code.
 
-The stack script can only contain push operations instructions that are used to pass parameters (such as signatures) to contract scripts. The script interpreter will execute the stack script code first, and then, execute the contract script code.
+   In a transaction, the hash value of the contract script code must be consistent with the transaction output, which is part of the validation. The later section will describe the execution process of the script in detail.
 
-In a transaction, the hash value of the contract script code must be consistent with the transaction output, which is part of the verification process. The process of script execution will be described in detail later.
-
-Network message
+Network Message
 -------
 
-All network messages are sent through the following message structure:
+All network messages are sent in this structure:
 
-| Size | field | data type | description |
-| ------ | -------- | ------------- | ----------- |
-| 4 | Magic | uint32 | Protocol identification number |
-| 12 | Command | char [12] | Command |
-| 4 | length | uint32 | Payload length |
-4 | Checksum | uint32 | Checksum |
-| Length | Payload | uint8 [length] | Message content |
+|Size|Field|DataType|Description|
+|---|---|---|---|
+|4|Magic|uint32|protocol id|
+|12|Command|char[12]|command|
+|4|length|uint32|length of payload|
+|4|Checksum|uint32|checksum|
+|length|Payload|uint8[length]|content of message|
 
 Defined Magic value:
 
-| Value | description |
-| ---------- | ---- |
-| 0x00746e41 | Official Website |
-| 0x74746e41 | Test Network |
+|Value|Description|
+|---|---|
+|0x00746e41|production mode|
+|0x74746e41|test mode|
 
-Command using utf8 encoding, length of 12 bytes, and fill the extra part using 0.
+Command is utf8 code, of which the length is 12 bytes, the extra part is filled with 0.
 
-Checksum is the first 4 bytes of the Payload, which has undergone two SHA256 hash.
+Checksum is the first 4 bytes of the value that two times SHA256 hash of the Payload.
 
-Payload varies depending on the order of the different formats, see below.
+According to different orders Payload has different detailed format, see below:
 
-### Version
+1. version
 
-| Size | field | data type | description |
-| - | ----------- | ------ | --------------- |
-| 4 | Version | uint32 | Protocol version, currently 0 |
-| 8 | Services | uint64 | The services provided by the node are currently 1 |
-4 | Timestamp | uint32 | Current time |
-| 2 | Port | uint16 | The port that is listening, or 0, if it is not listening
-| 4 | Nonce | uint32 | Nodes for distinguishing the same public network
-UserAgent | varstr | Client ID
-| 4 | StartHeight | uint32 | Block Chain Height |
-| 1 | Relay | bool | Whether to receive and forward
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |4|Version|uint32|version of protocol, 0 for now|
+   |8|Services|uint64|The service provided by the node is currently 1|
+   |4|Timestamp|uint32|current time|
+   |2|Port|uint16|port that the server is listening on, it's 0 if not used.|
+   |4|Nonce|uint32|it's used to distinguish the node from public IP|
+   |?|UserAgent|varstr|client ID|
+   |4|StartHeight|uint32|height of block chain|
+   |1|Relay|bool|Whether to receive and forward
 
-When a node receives a connection request, it immediately declares its version. There will be no other communication before both parties are aware of each other's version.
 
-### Verack
+   When a node receives a connection request, it declares its version immediately. There will be no other communication until both sides are getting versions of each other.
 
-Once the node receives the version message, it immediately responds to a verack as a reply.
+1. verack
 
-There is no payload for this message.
+   When a node receives the version message, it replies to a verack as a response immediately.
 
-## Getaddr
+   This message has no payload.
 
-Requests a new list of active nodes, in order to increase the number of its own connections.
+1. getaddr
 
-There is no payload for this message.
+   Make requests to a node for a batch of new active nodes in order to increase the number of connections.
 
-### Addr
+   This message has no payload.
 
-| Size | field | data type | description |
-| - | ----------- | ---------- | ---------- |
-| 30 *? | AddressList | net_addr[] | Addresses of other nodes on the network |
+1. addr
 
-After the node receives the getaddr message, it returns an addr message as a reply to provide information about the known node on the network.
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |30*?|AddressList|net_addr[]|other nodes' address in network|
 
-### Getheaders
+   After receiving the getaddr message, the node returns an addr message as response and provides information about the known nodes on the network.
 
-| Size | field | data type | description |
-| ---- | --------- | --------- | ----------------- |
-| 32 *? | HashStart | uint256[] | Node is known as the latest block hash
-| 32 | HashStop | uint256 | Request the last block of the hash |
+1. getheaders
 
-Requests a header package containing up to 2000 blocks with the number HashStart to HashStop to a node. To get the resulting block hash, you need to resend the getheaders message. This message is used to quickly download blockchain that does not contain related transactions.
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |32*?|HashStart|uint256[]|hash of latest block that node requests|
+   |32|HashStop|uint256|hash of last block that node requests|
 
-### Headers
+   Make requests to a node for at most 2000 blocks’ header packages that contain HashStart to HashStop. To get the block hash after that, you need to resend the getheaders message. This message is used to quickly download the blockchain which does not contain the transactions.
 
-| Size | field | data type | description |
-| ---- | ------- | -------- | ---- |
-Headers | header[] | Block header |
+1. headers
 
-After the node receives the getheaders message, it returns a headers message as the response, providing the requested block header.
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |?*?|Headers|header[]|head of the block|
 
-### Getblocks
+   After receiving the getheaders message, the node returns a header message as response and provides information about the known nodes on the network.
 
-| Size | field | data type | description |
-| ---- | --------- | --------- | ----------------- |
-| 32 *? | HashStart | uint256[] | Node is known as the latest block hash
-| 32 | HashStop | uint256 | Request the last block of the hash |
+1. getblocks
 
-Requests a inv message containing a number from the HashStart to the HashStop block list to a node. If HashStart to HashStop block more than 500, then cut off at 500. To get the following block hash, you need to resend the getblocks message.
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |32*?|HashStart|uint256[]|hash of latest block that node requests|
+   |32|HashStop|uint256|hash of last block that node requests|
 
-### Inv
+   Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get block hash more than that you need to resend getblocks message.
 
-| Size | field | data type | description |
-| ---- | ------ | --------- | ---- |
-| 1 | Type | uint8 | Listing Type |
-| 32 *? | Hashes | uint256[] | list |
+1. inv
 
-The node can broadcast the object information it owns, using this message. This message can be sent automatically, or it can be used to answer getblocks messages.
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |36*?|Inventories|inv_vect[]|data of inventories|
 
-The list types are the following:
+   The node can broadcast the object information it owns by this message. The message can be sent automatically or can be used to answer getbloks messages.
 
-| Value | name | description |
-| ---- | --------- | ---- |
-| 0x01 | TX | Trading |
-| 0x02 | Block | Block
-| 0xe0 | Consensus | consensus data |
+   Object information is included in the list:
 
-### Getdata
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |4|Type|uint32|type of object|
+   |32|Hash|uint256|hash of object|
 
-| Size | field | data type | description |
-| ---- | ------ | --------- | ---- |
-| 1 | Type | uint8 | Listing Type |
-| 32 *? | Hashes | uint256[] | list |
+   Object types:
 
-Requests a specified object to a node, which usually sends an inv packet and filters out the known element.
+   |Value|Name|Description|
+   |---|---|---|
+   |0x01|TX|transaction|
+   |0x02|Block|block|
+   |0xe0|Consensus|consensus data|
 
-### Block
+1. getdata
 
-| Size | field | data type | description |
-| ---- | ----- | ----- | ---- |
-Block | block | block |
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |36*?|Inventories|inv_vect[]|data of inventories|
 
-Send a block to a node that responds to the getdata message of the requested data.
+   To request a specified object from a node: It is usually sent after the inv packet is received and the known element removed.
 
-### Tx
+1. block
 
-| Size | field | data type | description |
-| ---- | ----------- | ---- | ---- |
-| ? | Transactions | tx | Transactions |
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |?|Block|block|block|
 
-Send a transaction to a node to respond to the getdata message of the requested data.
+   Sending a block to a node to respond the getdata message.
 
-| Size | field | data type | description |
-| ---- | --------- | --------- | ----------------- |
-| 32 *? | HashStart | uint256[] | node is known as the latest block hash |
-| 32 | hashStop | uint256 | request the last block |
+1. tx
+
+   |Size|Field|DataType|Description|
+   |---|---|---|---|
+   |?|Transaction|tx|transaction|
+
+   Sending a transaction to a node to respond getdata message.
+   
+   |Size|field|data type|description|
+   |----|---------|--------- |----------------- |
+   |32 *?|HashStart|uint256[]|node is known as the latest block hash|
+   |32|hashStop|uint256|request the last block|
