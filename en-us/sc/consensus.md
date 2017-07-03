@@ -13,7 +13,7 @@ name: Consensus
 
 * **Practical Byzantine Fault Tolerance** `PBFT` - A consensus algorithm implemented within the AntShares blockchain to guarantee fault tolerance.
 
-* **View** - The data set used during a consensus instance in AntShares PBFT
+* **View** `v` - The dataset used during a consensus activity in AntShares `PBFT`
 
 ## 2 - Introduction
 
@@ -56,20 +56,20 @@ expected iterations as a function of the fraction of dishonest nodes.
 
 **Within the algorithm, we define the following:**
 
-  - `t` (seconds): This is the atomic unit of time allocated for block generation.
+  - `t`: The amount of time allocated for block generation, measured in seconds.
 
 	
-  - `n`: The number of active **Consensus Nodes**
+  - `n`: The number of active **Consensus Nodes**.
  
 	
   - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
   	- f = (n - 1) / 3.
   
 	
-  - `h` : The current block height during consensus activity
+  - `h` : The current block height during consensus activity.
 
 	
-  - `i` : **Consensus Node** index
+  - `i` : **Consensus Node** index.
   
   
   - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.
@@ -78,7 +78,7 @@ expected iterations as a function of the fraction of dishonest nodes.
   - `k` : The index of the view `v`.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
 
   
-  - `p` : Index of the **Consensus Node** elected as the **Speaker**.  
+  - `p` : Index of the **Consensus Node** elected as the **Speaker**. 
   	- p = (h - k) mod (n)
   
 
