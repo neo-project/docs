@@ -64,6 +64,8 @@
         href: sc/tutorial/Lock.md
       - name: Domain（域名系统）
         href: sc/tutorial/Domain.md
+      - name: 参数和返回值
+        href: sc/tutorial/Parameter.md
       - name: 合约调用
         href: sc/tutorial/call.md
     - name: 测试

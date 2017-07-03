@@ -2,7 +2,7 @@
 
 Used to represent the data structure of the transaction input.
 
-In a UTXO system, the input of a transaction must come from the output of another transaction that existed before. ([PrevHash](TransactionInput/PrevHash.md)), and the output of all the output of the previous transaction ([PrevIndex]([PrevHash.md)), and the output of the previous transaction, TransactionInput/PrevIndex.md)).
+In a UTXO system, the input of a transaction must come from the output of another transaction that existed before. ([PrevHash](TransactionInput/PrevHash.md)), and the output of all the output of the previous transaction ([PrevIndex](PrevHash.md)), and the output of the previous transaction, TransactionInput/PrevIndex.md)).
 
 Namespace: [AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
 
