@@ -5,7 +5,7 @@ name: Consensus
 
 ## 1 - List of Terms
 
-* **Proof of Stake** `PoS`  A type of algorithm which uses network consensus to handle fault tolerance.
+* **Proof of Stake** `PoS` - A type of algorithm which uses network consensus to handle fault tolerance.
 
 * **Proof of Work** `PoW` - A type of algorithm which uses compute utility to handle fault tolerance.
 
