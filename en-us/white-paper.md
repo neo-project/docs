@@ -48,7 +48,7 @@ Due to the high network latency in point-to-point networks, the order of transac
 
 * **Achieving Distributed consensus on historical data through hashing algorithms**
 
-The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, any node do not need to rely on the central organization, to verify the validity of all the historical transactions, to reach a consensus.
+The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, any node does not need to rely on a central organization to verify the validity of all the historical transactions in order to reach a consensus.
 
 * **Achieving a distributed consensus on the results of the "smart contract"**
 
@@ -194,7 +194,7 @@ Ants built-in KYC (user identity) and AML (anti-money laundering) interface prog
 
 ### System assets and fees
 
-There are two built-in system assets: AntShares and AntCoins. AntShares represent the ownership of the blockchain, which is used for electoral accounting, to obtain AntCoins dividend, etc. AntCoins represents the right to use the blockchain, and used to pay fees of various systems on the chain.
+There are two built-in system assets: AntShares and AntCoins. AntShares represent the ownership of the blockchain, which is used for electoral accounting, to obtain AntCoins dividends, etc. AntCoins represents the right to use the blockchain, and are used to pay fees of various systems on the chain.
 
 #### System cost
 
@@ -208,7 +208,7 @@ When writing a transaction to the blockchain, the transaction generally requires
 
 * Additional charges for holders of AntShares
 
-Additional service charges refer to the cost of using AntShares blockchain to complete certain advanced functions and is paid with AntCoins. The types of transactions that currently require additional service charges are: asset creation, candidate registrant registration. Additional premiums will be required for future upgrades such as asset changes, asset write-offs, and asset freeze.
+Additional service charges refer to the cost of using AntShares blockchain to complete certain advanced functions and is paid with AntCoins. The types of transactions that currently require additional service charges are: asset creation, candidate registration. Additional premiums will be required for future upgrades such as asset changes, asset write-offs, and asset freeze.
 
 Additional service charges will be recorded according to the proportion of AntShares held immediately to the address of AntShares holders. AntShares holders can claim the coins registered in their names at anytime.
 
@@ -216,7 +216,7 @@ Additional service charges will be recorded according to the proportion of AntSh
 
 AntShares, abbreviated as ANS.
 
-A total of 100 million copies of AntShares, representing the ownership of the chain. 100 million will be created in the Genesis Block and distributed accordingly. The total amount of AntShares shares is constant at 100 million and can not be increased. The smallest unit of the AntShares is 1 AntShares and can not be divided.
+A total of 100 million AntShares, representing the ownership of the chain. 100 million will be created in the Genesis Block and distributed accordingly. The total amount of AntShares shares are constant at 100 million and can not be increased. The smallest unit of the AntShares is 1 AntShares and can not be divided.
 
 The main use of AntShares shares:
 
@@ -229,11 +229,11 @@ The main use of AntShares shares:
 
 AntCoins, abbreviated as ANC.
 
-A total of 100 million copies of ANC will be produced, representing the right to use the chain. The AntCoin will be generated with the formation of each new block, in accordance with a decreasing rate of generation, it will take around 22 years for the amount of ANC to grow from 9 to 100 million.
+A total of 100 million ANC will be produced, representing the right to use the chain. The AntCoin will be generated with the formation of each new block, in accordance with a decreasing rate of generation, it will take around 22 years for the amount of ANC to grow from 9 to 100 million.
 
-The main purpose of the AntShares is:
+The main purpose of AntCoins are:
 
-* Pay the fee for the payment of the AntShares blockchain
+* Pay the payment fees of the AntShares blockchain
 * Pay an additional service fee for the small block area chain
 * As a deposit for the deposit of the candidate
 
@@ -241,11 +241,11 @@ The main purpose of the AntShares is:
 
 #### The distribution mechanism of AntShares
 
-100% of the total amount of AntShares shares in the creation of a block was created. Before the creation of the creation of AntShares team will be in accordance with certain rules on the distribution of AntShares shares.
+100% of the total amount of AntShares shares in the creation of a block was created. Before the creation of AntShares the team set certain rules on the distribution of AntShares shares.
 
-About 10% of the AntShares shares were allocated to the early supporters of the AntShares in June 2014, earning $ 600,000 in seed funding. Of which 400,000 yuan by a number of individuals by 5 million overall valuation of investment, 200,000 yuan by the venture capital institutions Ra Li capital by 10 million yuan overall valuation of investment. Individual contributors also provide all kinds of support in full time or part-time free of charge.
+About 10% of the AntShares shares were allocated to the early supporters of AntShares in June 2014, earning $600,000 in seed funding. Of which 400,000 yuan by a number of individuals after a 5 million overall valuation of investment and 200,000 yuan by the venture capital institutions Ra Li capital after a 10 million yuan overall valuation of investment. Individual contributors also provide all kinds of support in full time or part-time free of charge.
 
-Approximately 17% of the AntShares shares were completed in October 2015 for ICO 1 assigned to the participants, earning more than 2100 bits. Of which about 1,200 bits are from individual investors and about 900 are from one institutional investor.
+Approximately 17% of the AntShares shares were completed in October 2015 for ICO 1 and assigned to the participants, earning more than 2100 bits. Of which about 1,200 bits are from individual investors and about 900 are from a single institutional investor.
 
 Approximately 23% of the AntShares will be allocated to participants in ICO 2 launched in August 2016. The ICO does not set the price and ceiling, but the design of the return mechanism, see ICO rules.
 
@@ -255,13 +255,13 @@ Early supporters, ICO 1 participants, and the AntShares shares assigned by ICO 2
 
 #### The release mechanism of AntShares
 
-AntCoins is produced with the generation of each new block. The initial amount of AntCoins is zero and it grows until the total limit of 100 million after about 22 years. The interval between each block of the AntShares is about 15 seconds, about 2 millions blocks are generated in a year.
+AntCoins are produced with the generation of each new block. The initial amount of AntCoins is zero and it grows until the total limit of 100 million after about 22 years. The interval between each AntShares block is about 15 seconds, about 2 millions blocks are generated in a year.
 
-In the first year (Block No. 0-No. 2,000,000), each block will generate 8 ANC; In the second year (Block No. 2,000,000-No. 4,000,000), each block will generate 7 ANC; the amount of ANC generated decreases by 1 each year till year 8 where each block generates only 1 ANC. From there forward, the rate is kept constant until about 22 years at the 44 million block, the total amount of ANC reaches 100 million, at which ANC will stop being generated.
+In the first year (Block No. 0-No. 2,000,000), each block will generate 8 ANC; In the second year (Block No. 2,000,000-No. 4,000,000), each block will generate 7 ANC; the amount of ANC generated decreases by 1 each year till year 8 where each block generates only 1 ANC. From then on, the rate is kept constant until about 22 years at the 44 million block, the total amount of ANC reaches 100 million, at which point ANC will stop being generated.
 
-According to this curve, 16% of ANC will be created in the first year, 52% will be created by the 4th year, 80% of the ANC by the 8th year..
+According to this curve, 16% of ANC will be created in the first year, 52% will be created by the end of the 4th year, 72% of the ANC by the end of the 8th year..
 
-These small coins will be distributed proportionally to corresponding ANS addresses. AntShare holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 AntShares per block for about $ 460.8 a day.
+These small coins will be distributed proportionally to corresponding ANS addresses. AntShare holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 AntCoins per block for about 460.8 AntCoins a day.
 
 ## Technology Architecture
 
@@ -271,7 +271,7 @@ These small coins will be distributed proportionally to corresponding ANS addres
 
 Private key: A 256-bit hash generated by the user to be kept and not exposed. The private key is the proof of ownership of the user account and the ownership of the asset in the account.
 
-Public key: Each private key comes with a matching public key. The public key in the AntShares is generated by the private key through the ECC (Elliptic Curve Cryptography) curve algorithm. The algorithm used by AntShares are secp256r1 and SM2 (Chinese commercial cryptographic algorithm).
+Public key: Each private key comes with a matching public key. Public keys in AntShares are generated by the private key through the ECC (Elliptic Curve Cryptography) curve algorithm. The algorithm used by AntShares are secp256r1 and SM2 (Chinese commercial cryptographic algorithm).
 
 #### Script, address
 

@@ -24,17 +24,17 @@ The following is a description of all the commands, the order of the brackets ``
 ## 2. Wallet operation
 
 Command | Function Description | Remarks |
-| ---------------------------------------- | -------- ------------------------ | ------ |
-Create wallet \ <path> | create wallet file |
-Open wallet \ <path> | open wallet file
-Rebuild wallet index | need to open wallet
-List all the accounts in the wallet | need to open the wallet
-| List asset | list all assets in the wallet | need to open the wallet
-List key | List all public keys in your wallet | Need to open wallet
-Create address [n = 1] | create address/batch create address | need to open wallet |
-| Import key \ <wif \ | path> | import private key/bulk import of private keys | need to open wallet |
-Export key \ [address] [path] | export private key | need to open wallet |
-Send to the specified address transfer parameters are: asset ID, the other party address, transfer amount, fee | need to open the wallet |
+| ---------------------------------------- | -------------------------------- | ------ |
+| create wallet \<path> | Create wallet file |
+| open wallet \<path> | Open wallet file |
+| rebuild wallet index | | Need to open wallet |
+| list all the accounts in the wallet | | Need to open wallet |
+| list asset | List all assets in the wallet | Need to open wallet |
+| list key | List all public keys in your wallet | Need to open wallet |
+| create address [n = 1] | Create address/batch create address | Need to open wallet |
+| import key \<wif\|path> | Import private key/bulk import of private keys | Need to open wallet |
+| export key \[address] [path] | Export private key | Need to open wallet |
+| send \<id\|alias> \<address> \<value> [fee=0]| Send to the specified address |Need to open wallet |
 
 The following commands is explained in detail:
 
