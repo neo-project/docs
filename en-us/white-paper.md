@@ -96,11 +96,11 @@ It is generally believed that the "single bookkeeping" model is more usable, tha
 
 It can be said that the "single bookkeeping" model has chosen anonymity, to achieve no need for any node trust, but at the expense of consistency and finality; the joint accounting model chose consistency and finality, but the identity of the billing nodes is required in order to obtain weak trust of the other nodes
 
-* **Use Fiat currency as currency**
+* **Use fiat currency as currency**
 
-There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currency is a good exchange medium, users can, through Bitcoin, engage is global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by Fiat currency, but it is not very successful and has a narrow range of applications.
+There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currency is a good exchange medium, users can, through Bitcoin, engage is global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by fiat currency, but it is not very successful and has a narrow range of applications.
 
-AntShares will use Fiat as its internal currency.
+AntShares will use fiat as its internal currency.
 
 * **Node division and specialization**
 
