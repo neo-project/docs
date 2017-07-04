@@ -48,11 +48,7 @@ Due to the high network latency in point-to-point networks, the order of transac
 
 * **Achieving distributed consensus on historical data through hashing algorithms**
 
-<<<<<<< HEAD
 The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, any node does not need to rely on a central organization to verify the validity of all the historical transactions in order to reach a consensus.
-=======
-The blockchain system typically constructs a chain structure by referencing the hash value of the previous block (hash) to achieve an effect similar to "riding a seam". Any tampering on a single transaction will result in the failure of the bound digital signature; any tampering of the order of the transaction will cause a change in the hash value of the block, causing the "saddle" to fail. Therefore, nodes do not need to rely on the central organization to verify the validity of all the historical transactions and to reach a consensus.
->>>>>>> 96765e61b2544614d4eb6cbbc81498c1fb8d9aef
 
 * **Achieving a distributed consensus on the results of the "smart contract"**
 
