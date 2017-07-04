@@ -1,10 +1,10 @@
 - name: Home
   Href: index.md
-- name: Getting learning
+- name: Getting Started
   Href: getting-started.md
-- name: white-paper
+- name: Whitepaper
   Href: white-paper.md
-- name: AntShares node
+- name: AntShares Node
   Href: node/introduction.md
   Items:
     - name: Introduction
@@ -13,13 +13,13 @@
       Href: node/setup.md
     - name: Graphical User Interface
       Href: node/gui.md
-    - name: Test network
+    - name: Test Network
       Href: node/testnet.md
-    - name: CLI command reference
+    - name: CLI Command Reference
       Href: node/cli.md
-    - name: Private chain
+    - name: Private Chain
       Href: node/private-chain.md
-    - name: API reference
+    - name: API Reference
       Href: node/API.md
       Items:
       - name: getbalance
@@ -46,12 +46,12 @@
         Href: node/api/sendtoaddress.md
     - name: network protocol
       Href: node/network-protocol.md
-- name: Smart contract
+- name: Smart Contract
   Href: sc/introduction.md
   Items:
     - name: Introduction
       Href: sc/introduction.md
-    - name: Getting started
+    - name: Getting Started
       Href: sc/getting-started.md
     - name: Tutorial
       Href: sc/tutorial.md
@@ -60,17 +60,17 @@
         Href: sc/tutorial.md
       - name: Hello World
         Href: sc/tutorial/HelloWorld.md
-      - name: Lock (lock)
+      - name: Lock
         Href: sc/tutorial/Lock.md
       - name: Domain (Domain Name System)
         Href: sc/tutorial/Domain.md
-      - name: Contract call
+      - name: Contract Call
         Href: sc/tutorial/call.md
     - name: Test
       Href: sc/test.md
-    - name: White-paper
+    - name: Whitepaper
       Href: sc/white-paper.md
-    - name: API reference
+    - name: API Reference
       Href: sc/api.md
       Items:
       - name: AntShares
