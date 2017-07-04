@@ -1,6 +1,6 @@
 # 智能合约的单元测试
 
-阅读上一篇文档后，我们已经可以用 C# 在 Visual Studio 2015 中编写智能合约了。当编写好了一段智能合约后，我们怎样才能进行单元测试呢。
+阅读上一篇文档后，我们已经可以用 C# 在 Visual Studio 2017 中编写智能合约了。当编写好了一段智能合约后，我们怎样才能进行单元测试呢。
 
 ## 编写单元测试
 
@@ -33,10 +33,7 @@ namespace AntShares.SmartContract
 
 编译通过后，生成该合约的 `Test1.avm` 文件。我们可以创建单元测试项目，对 `Test1.avm` 进行测试。
 
-首先用 Visual Studio 创建一个 C# 控制台项目，添加对 AntShares.dll 和 AntShares.VM.dll 的引用。
-
-> [!Note]
-> 这两个文件可以通过编译 [AntShares](https://github.com/antshares/antshares) 和 [AntShares.VM](https://github.com/AntShares/AntShares.VM) 获得。
+首先用 Visual Studio 创建一个 C# 控制台项目，设置 .net framework 版本中 4.6.2 或以上，并且在 Nuget 中添加对 AntShares.dll 和 AntShares.VM.dll 的引用。
 
 ```c#
 using System;
@@ -88,6 +85,8 @@ using (ScriptBuilder sb = new ScriptBuilder())
 如果智能合约的返回值不是 int 类型，是 bool 或者其它类型，需要将 `engine.EvaluationStack.Peek().GetBigInteger()` 设置为其它值，如图
 
 ![](http://docs.antshares.org/images/2017-05-16_15-39-07.jpg)
+
+注：该测试方法不适用于互操作服务及存储数据的测试。
 
 ------
 

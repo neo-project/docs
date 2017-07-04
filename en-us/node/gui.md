@@ -232,11 +232,43 @@ The remarks for the transcation can be found on the broswer.
 
 ![image](http://docs.antshares.org/images/gui/V.png)
 
+<a  id="offline"></a>
+
 ## Advanced
 
-### Extractation of AntShares
+### Offline synchronous packet
 
-AntCoins are generated with each new block, and will be recorded to the address of holders AntShares. (The number within the brackets of the balance of assets, is the number of AntCoins to be claimed) At any time, the AntShares stock holder can initiate a claim, to redeem these AntCoins to the corresponding address of the AntShares. At the moment, only the PC version of the client, has the ability to execute the function of extracting AntCoins.
+**Download**
+
+You can download it here [https://www.antshares.org/client/chain.acc.zip](https://www.antshares.org/client/chain.acc.zip "chain.acc.zip") 
+
+When you enter the URL, you will download a packet like this. ![](~/images/gui/2017-07-04_11-59-35.png)
+
+**Add**
+
+Unzip the packet and put it in the folder, as shown in the figure below: 
+
+![](~/images/gui/2017-07-04_12-06-35.png)
+
+**Sync**
+
+Open the client,and you will see that the client is in sync with the super fast speed. As shown in the figure below:  
+
+![](~/images/gui/2017-07-04_12-07-35.png)
+
+**Complete**
+
+When synchronized to a certain degree, the file (chain.acc) will disappear and the synchronization speed will slow down. As shown in the figure below: 
+
+![](~/images/gui/2017-07-04_12-08-35.png)
+
+
+
+
+
+### Extractation of AntCoin
+
+AntCoin are generated with each new block, and will be recorded to the address of holders AntShares. (The number within the brackets of the balance of assets, is the number of AntCoins to be claimed) At any time, the AntShares stock holder can initiate a claim, to redeem these AntCoins to the corresponding address of the AntShares. At the moment, only the PC version of the client, has the ability to execute the function of extracting AntCoins.
 
 The specific steps are:
 
