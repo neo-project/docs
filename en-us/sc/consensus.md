@@ -62,7 +62,7 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
  
 	
   - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
-  	- f = (n - 1) / 3.
+  	- `f = (n - 1) / 3`
   
 	
   - `h` : The current block height during consensus activity.
@@ -78,7 +78,7 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
 
   
   - `p` : Index of the **Consensus Node** elected as the **Speaker**. 
-  	- p = (h - k) mod (n)
+  	- `p = (h - k) mod (n)`
   
 
   - `s`: The safe consensus threshold.  Below this threshold, the network is exposed to fault.  
@@ -89,11 +89,11 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
 
 **Within AntShares, there are three primary requirements for consensus fault tolerance:**
 
-1. `s` number of **Congressmen** must reach a consensus about a transaction before a block can be committed.
+1. `s` **Congressmen** must reach a consensus about a transaction before a block can be committed.
 
 2. Dishonest **Consensus Nodes** must not be able to persuade the honest consensus nodes of faulty transactions. 
 
-3. At least `s` **Consensus Nodes** are in same state (`h`,`k`) to begin a consensus activity
+3. At least `s` **Congressmen** are in same state (`h`,`k`) to begin a consensus activity
 
 
 	
