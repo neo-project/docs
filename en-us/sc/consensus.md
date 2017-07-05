@@ -46,9 +46,9 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
 ### 5.1 - Roles
 **In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.**
 
-  **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
-  - **Speaker** `(One)` - The speaker is analogous to the general in section 4.  They are responsible for transmitting a block proposal to the system.
-  - **Congressman** `(Multiple)` - Congressman nodes are analogous to lieutenants in section 4. They are responsible for reaching a consensus on the transaction.
+  <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
+  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The speaker is analogous to the general in section 4.  They are responsible for transmitting a block proposal to the system.
+  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Congressman** `(Multiple)` - Congressman nodes are analogous to lieutenants in section 4. They are responsible for reaching a consensus on the transaction.
   
 
 ### 5.2 - Definitions
@@ -167,5 +167,5 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
 ## References
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](https://kelehers.me/others/pbftByzantine.pdf)
-3. [The Byzantine Generals Problem](http://www-inst.eecs.berkeley.edu/~cs162/fa12/hand-outs/Original_Byzantine.pdf)
+3. [The Byzantine Generals Problem](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 
