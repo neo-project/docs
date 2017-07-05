@@ -27,10 +27,10 @@ Request text:
 
 ```json
 {
-  "Jsonrpc": "2.0",
-  "Method": "sendtoaddress",
-  "Params": ["025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4", "AK4if54jXjSiJBs6jkfZjxAastauJtjjse", 1],
-  "Id": 1
+  "jsonrpc": "2.0",
+  "method": "sendtoaddress",
+  "params": ["025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4", "AK4if54jXjSiJBs6jkfZjxAastauJtjjse", 1],
+  "id": 1
 }
 ```
 
@@ -38,9 +38,9 @@ Response text:
 
 ```json
 {
-  "Jsonrpc": "2.0",
-  "Id": 1,
-  "Result": {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
     "Txid": "fbd69da6996cc0896691a35cba2d3b2e429205a12307cd2bdea5fbdf78dc9925"
     "Size": 262,
     "Type": "ContractTransaction",
