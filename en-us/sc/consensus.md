@@ -44,7 +44,7 @@ Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count
 
 <img src="assets/consensus.iterations.png" width="800">
 
-**Figure 1:** Monto-Carlo Simulation of the dBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 20000 Simulated Blocks with random honest node selection}
+**Figure 1:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 20000 Simulated Blocks with random honest node selection}
 
 
 
