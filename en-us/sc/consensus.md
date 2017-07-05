@@ -35,12 +35,16 @@ AntShares implements a PoS schema using Delegated Byzantine Fault Tolerance whic
 
 ## 5 - Practical Implementation
 
-The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the
-expected iterations as a function of the fraction of dishonest nodes.  Note that the plot doesn't extend below 66.66% node honesty. Below this point, there is a 'No-Man's Land' where a consensus is unreachable until reaching 33.33% **Consensus Node** honesty.
-Below this critical point, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
+The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the expected iterations as a function of the fraction of dishonest nodes.  
+
+Notice a primary difference in the plot results compared to the expected theoretical results described in the original Byzantine Generals Problem.  In DBFT, we are able to extend consensus down to only requiring a simple majority (rather than the 66% required in the original BGP algorithm).  Because of the public ledger mechanic of the blockchain, the General(**Speaker**) is unable to send different messages to each Lieutenant(**Congressman**).  This allows the voting nodes to assume that they have all received the same message.  This feature also reduces the expected view iterations at every honesty level due to the reduced requirement on consensus.
+
+Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count is infinite because a consensus cannot be reached without a majority.  We will call this area "No-Man's Land". Below this critical point, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
 
 
 <img src="assets/consensus.iterations.png" width="800">
+**Figure 1:** Monto-Carlo Simulation of the dBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 20000 Simulated Blocks with random honest node selection}
+
 
 
 ### 5.1 - Roles
@@ -62,7 +66,7 @@ Below this critical point, dishonest nodes (assuming they are aligned in consens
  
 	
   - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
-  	- `f = (n - 1) / 3`
+  	- `f = (n - 1) / 2`
   
 	
   - `h` : The current block height during consensus activity.
