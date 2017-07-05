@@ -6,7 +6,7 @@
 
 该版本客户端的适应系统有： win7 sp1 / win8 / win10。
 
-客户端本身无需安装，下载后直接双击 AntSharesUI.exe 打开即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们技术人员联系来解决问题。
+客户端本身无需安装，进入[客户端页面](https://www.antshares.org/Download)，下载后直接双击 AntSharesUI.exe，打开即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们技术人员联系来解决问题。
 
 > [!Note]
 > Windows10 之前版本的系统需要安装 [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) 。
