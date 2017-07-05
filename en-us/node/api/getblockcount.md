@@ -8,10 +8,10 @@ Request text:
 
 ```json
 {
-   "Jsonrpc": "2.0",
-   "Method": "getblockcount",
-   "Params":[],
-   "Id": 1
+   "jsonrpc": "2.0",
+   "method": "getblockcount",
+   "params":[],
+   "id": 1
 }
 ```
 
@@ -19,8 +19,8 @@ Response text:
 
 ```json
 {
-   "Jsonrpc": "2.0",
-   "Id": 1,
-   "Result": 991991
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": 991991
 }
 ```

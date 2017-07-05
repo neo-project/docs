@@ -21,10 +21,10 @@ Request text:
 
 ```json
 {
-  "Jsonrpc": "2.0",
-  "Method": "getbalance",
-  "Params": ["025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4"],
-  "Id": 1
+  "jsonrpc": "2.0",
+  "method": "getbalance",
+  "params": ["025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4"],
+  "id": 1
 }
 ```
 
@@ -32,9 +32,9 @@ Response text:
 
 ```json
 {
-  "Jsonrpc": "2.0",
-  "Id": 1,
-  "Result": {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
     "Balance": "1.01",
     "Confirmed": "1.01"
   }
