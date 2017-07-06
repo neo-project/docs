@@ -29,7 +29,6 @@ One of the fundamental differences between blockchains is how they can guarantee
 
 Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
 
-PoS mechanics 
 AntShares implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(ANS holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
 
 
@@ -45,15 +44,15 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
 ### **Honest Speaker**
 
-  <img src="assets/n3.png" width="300"> 
+  <p align="center"><img src="assets/n3.png" width="300"> </p>
   
-  **Figure 1:** An n = 3 example with a dishonest **Congressman**.
+  <p align="center">**Figure 1:** An n = 3 example with a dishonest **Congressman**. </p>
   
   In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
   
-  <img src="assets/n4.png" width="400">
+  <p align="center"><img src="assets/n4.png" width="400"></p>
   
-  **Figure 2:** An n = 4 example with a dishonest **Congressman**.
+  <p align="center">**Figure 2:** An n = 4 example with a dishonest **Congressman**.</p>
   
   In **Figure 2**, we have a two loyal **Congressmen** (66%).  All **Congressmen** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Congressman**.  Based on the consensus of the two honest **Congressmen**, we are able to determine that either the **Speaker** or right **Congressman** is dishonest in the system.
   
@@ -62,15 +61,15 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
   
 ### **Dishonest Speaker** 
   
-  <img src="assets/g3.png" width="300">
+  <p align="center"><img src="assets/g3.png" width="300"></p>
   
-   **Figure 3:** An n = 3 example with a dishonest **Speaker**.
+   <p align="center">**Figure 3:** An n = 3 example with a dishonest **Speaker**.</p>
   
   In the case of a dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
   
-  <img src="assets/g4.png" width="400">
+  <p align="center"><img src="assets/g4.png" width="400"></p>
   
-   **Figure 4:** An n = 4 example with a dishonest **Speaker**.
+  <p align="center">**Figure 4:** An n = 4 example with a dishonest **Speaker**.</p>
   
   In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
   
@@ -141,7 +140,7 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
 
-  <img src="assets/consensus1.png" width="450">
+   <p align="center"><img src="assets/consensus1.png" width="450"></p>
   
 2. **Consensus Nodes** log transaction data into local memory.
 
@@ -149,7 +148,7 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 
 4. The **Speaker** is identified.
 
-	<img src="assets/consensus2.png" width="450">
+	 <p align="center"><img src="assets/consensus2.png" width="450"></p>
 	
   **Wait** `t` seconds
 	
@@ -157,7 +156,7 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
-	<img src="assets/consensus3.png" width="450">
+	 <p align="center"><img src="assets/consensus3.png" width="450"></p>
 	
 6. The **Congressmen** receive the proposal and validate:
 
@@ -174,13 +173,13 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 			
-  <img src="assets/consensus4.png" width="500">
+   <p align="center"><img src="assets/consensus4.png" width="500"></p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
 
 8. The **Congressmen** sign the block.
 
-  <img src="assets/consensus5.png" width="500">
+   <p align="center"><img src="assets/consensus5.png" width="500"></p>
   
 8. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
 	- `k = 0`
