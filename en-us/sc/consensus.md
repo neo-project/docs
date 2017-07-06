@@ -46,13 +46,13 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
   <p align="center"><img src="assets/n3.png" width="300"> </p>
   
-  <p align="center">**Figure 1:** An n = 3 example with a dishonest **Congressman**. </p>
+  <p align="center"> **Figure 1:** An n = 3 example with a dishonest **Congressman**. </p>
   
   In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
   
   <p align="center"><img src="assets/n4.png" width="400"></p>
   
-  <p align="center">**Figure 2:** An n = 4 example with a dishonest **Congressman**.</p>
+  <p align="center"> **Figure 2:** An n = 4 example with a dishonest **Congressman**. </p>
   
   In **Figure 2**, we have a two loyal **Congressmen** (66%).  All **Congressmen** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Congressman**.  Based on the consensus of the two honest **Congressmen**, we are able to determine that either the **Speaker** or right **Congressman** is dishonest in the system.
   
@@ -63,23 +63,23 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
   
   <p align="center"><img src="assets/g3.png" width="300"></p>
   
-   <p align="center">**Figure 3:** An n = 3 example with a dishonest **Speaker**.</p>
+   <p align="center"> **Figure 3:** An n = 3 example with a dishonest **Speaker**. </p>
   
-  In the case of a dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
+  In the case of **Figute 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
   
   <p align="center"><img src="assets/g4.png" width="400"></p>
   
-  <p align="center">**Figure 4:** An n = 4 example with a dishonest **Speaker**.</p>
+  <p align="center"> **Figure 4:** An n = 4 example with a dishonest **Speaker**. </p>
   
   In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
   
 
 ## 5 - Practical Implementation
 
-The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the
+The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
 
-Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
+Note that the **Figure 5** does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
 
 
 <img src="assets/consensus.iterations.png" width="800">
@@ -141,6 +141,9 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
 
    <p align="center"><img src="assets/consensus1.png" width="450"></p>
+   
+    <p align="center"> **Figure 6: **A **Consensus Node** receives a transaction and broadcasts it to the system. </p>
+   
   
 2. **Consensus Nodes** log transaction data into local memory.
 
@@ -149,6 +152,8 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 4. The **Speaker** is identified.
 
 	 <p align="center"><img src="assets/consensus2.png" width="450"></p>
+	 
+	 <p align="center"> **Figure 7:** A **Speaker** has been identified and the view has been set. </p>
 	
   **Wait** `t` seconds
 	
@@ -158,6 +163,8 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 
 	 <p align="center"><img src="assets/consensus3.png" width="450"></p>
 	
+	 <p align="center"> **Figure 8**: The **Speaker** mints a block proposal for review by the **Congressmen**. </p>
+	 
 6. The **Congressmen** receive the proposal and validate:
 
     - Is the data format consistent with the system rules?
@@ -174,12 +181,16 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 	        <ChangeView, h,k,i,k+1>
 			
    <p align="center"><img src="assets/consensus4.png" width="500"></p>
+   
+   <p align="center"> **Figure 9**: The **Congressmen** review the block proposal respond. </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
 
 8. The **Congressmen** sign the block.
 
    <p align="center"><img src="assets/consensus5.png" width="500"></p>
+   
+   <p align="center"> **Figure 10**: A consensus is reached and the approving **Congressmen** sign the block, binding it to the chain. </p>
   
 8. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
 	- `k = 0`
@@ -200,8 +211,8 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 
 	
 
-## References
+## 6 - References
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
-2. [Practical Byzantine Fault Tolerance](https://kelehers.me/others/pbftByzantine.pdf)
+2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
