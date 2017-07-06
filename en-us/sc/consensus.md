@@ -44,9 +44,7 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
 ### **Honest Speaker**
 
-  <p align="center"><img src="assets/n3.png" width="300"> </p>
-  
-  <p align="center"> **Figure 1:** An n = 3 example with a dishonest **Congressman**. </p>
+  <p align="center"><img src="assets/n3.png" width="300"><br> **Figure 1:** An n = 3 example with a dishonest **Congressman**.</p>
   
   In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
   
