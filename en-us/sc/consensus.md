@@ -44,13 +44,11 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
 ### **Honest Speaker**
 
-  <p align="center"><img src="assets/n3.png" width="300"><br> **Figure 1:** An n = 3 example with a dishonest **Congressman**.</p>
+  <p align="center"><img src="assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Congressman</b>.</p>
   
   In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
   
-  <p align="center"><img src="assets/n4.png" width="400"></p>
-  
-  <p align="center"> **Figure 2:** An n = 4 example with a dishonest **Congressman**. </p>
+  <p align="center"><img src="assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Congressman</b>.</p>
   
   In **Figure 2**, we have a two loyal **Congressmen** (66%).  All **Congressmen** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Congressman**.  Based on the consensus of the two honest **Congressmen**, we are able to determine that either the **Speaker** or right **Congressman** is dishonest in the system.
   
@@ -59,15 +57,11 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
   
 ### **Dishonest Speaker** 
   
-  <p align="center"><img src="assets/g3.png" width="300"></p>
-  
-   <p align="center"> **Figure 3:** An n = 3 example with a dishonest **Speaker**. </p>
+  <p align="center"><img src="assets/g3.png" width="300"><br> <b>Figure 3:</b> An n = 3 example with a dishonest <b>Speaker</b>. </p>
   
   In the case of **Figute 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
   
-  <p align="center"><img src="assets/g4.png" width="400"></p>
-  
-  <p align="center"> **Figure 4:** An n = 4 example with a dishonest **Speaker**. </p>
+  <p align="center"><img src="assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
   
   In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
   
@@ -138,9 +132,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
 
-   <p align="center"><img src="assets/consensus1.png" width="450"></p>
-   
-    <p align="center"> **Figure 6: **A **Consensus Node** receives a transaction and broadcasts it to the system. </p>
+   <p align="center"><img src="assets/consensus1.png" width="450"><br> <b>Figure 6:</b> A <b>Consensus Node</b> receives a transaction and broadcasts it to the system. </p>
    
   
 2. **Consensus Nodes** log transaction data into local memory.
@@ -149,9 +141,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 4. The **Speaker** is identified.
 
-	 <p align="center"><img src="assets/consensus2.png" width="450"></p>
-	 
-	 <p align="center"> **Figure 7:** A **Speaker** has been identified and the view has been set. </p>
+	 <p align="center"><img src="assets/consensus2.png" width="450"><br> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set. </p>
 	
   **Wait** `t` seconds
 	
@@ -159,9 +149,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
-	 <p align="center"><img src="assets/consensus3.png" width="450"></p>
-	
-	 <p align="center"> **Figure 8**: The **Speaker** mints a block proposal for review by the **Congressmen**. </p>
+	 <p align="center"><img src="assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Congressmen</b>. </p>
 	 
 6. The **Congressmen** receive the proposal and validate:
 
@@ -178,17 +166,13 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 			
-   <p align="center"><img src="assets/consensus4.png" width="500"></p>
-   
-   <p align="center"> **Figure 9**: The **Congressmen** review the block proposal respond. </p>
+   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal respond. </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
 
 8. The **Congressmen** sign the block.
 
-   <p align="center"><img src="assets/consensus5.png" width="500"></p>
-   
-   <p align="center"> **Figure 10**: A consensus is reached and the approving **Congressmen** sign the block, binding it to the chain. </p>
+   <p align="center"><img src="assets/consensus5.png" width="500"><br> <b>Figure 10:</b> A consensus is reached and the approving <b>Congressmen</b> sign the block, binding it to the chain. </p>
   
 8. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
 	- `k = 0`
