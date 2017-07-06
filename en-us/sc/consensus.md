@@ -15,22 +15,30 @@ name: Consensus
 
 * **View** `v` - The dataset used during a consensus activity in AntShares `DBFT`
 
-## 2 - Introduction
+## 2 - Roles
+**In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**
 
+  <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
+  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
+  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Congressman** `(Multiple)` - **Congressmen** are responsible for reaching a consensus on the transaction.
+  
+  
+## 3 - Introduction
 
 One of the fundamental differences between blockchains is how they can guarantee fault tolerance given defective, non-honest activity on the network.
 
-Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
+Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
 
 PoS mechanics 
 AntShares implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(ANS holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
 
 
-## 3 - Theory
+
+## 4 - Theory
 
 The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Congressmen** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Congressmen** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Congressmen** identify if the **Speaker** is honest and what the actual command was as a group.
 
-For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 4.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
+For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
 
 For the sake of discussion, we will describe a couple scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanic is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
 
@@ -67,7 +75,7 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
   In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
   
 
-## 4 - Practical Implementation
+## 5 - Practical Implementation
 
 The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
@@ -77,17 +85,10 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 
 <img src="assets/consensus.iterations.png" width="800">
 
-**Figure 1:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
+**Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
 
-### 4.1 - Roles
-**In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.**
 
-  <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
-  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
-  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Congressman** `(Multiple)` - **Congressmen** are responsible for reaching a consensus on the transaction.
-  
-
-### 4.2 - Definitions
+### 5.1 - Definitions
 
 **Within the algorithm, we define the following:**
 
@@ -123,7 +124,7 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
   	- `s = ((n - 1) - f)`
 
 
-### 4.3 - Requirements
+### 5.2 - Requirements
 
 **Within AntShares, there are three primary requirements for consensus fault tolerance:**
 
@@ -135,7 +136,7 @@ Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Bet
 
 
 	
-### 4.4 - Algorithm
+### 5.3 - Algorithm
 **The algorithm works as follows:**
 
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
