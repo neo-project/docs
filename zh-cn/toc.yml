@@ -66,6 +66,8 @@
         href: sc/tutorial/Domain.md
       - name: 参数和返回值
         href: sc/tutorial/Parameter.md
+      - name: 鉴权合约示例教程
+        href: sc/tutorial/verify.md
       - name: 合约调用
         href: sc/tutorial/call.md
     - name: 测试
