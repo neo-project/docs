@@ -59,7 +59,7 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
   
   <p align="center"><img src="assets/g3.png" width="300"><br> <b>Figure 3:</b> An n = 3 example with a dishonest <b>Speaker</b>. </p>
   
-  In the case of **Figute 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
+  In the case of **Figure 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
   
   <p align="center"><img src="assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
   
