@@ -166,7 +166,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 			
-   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal respond. </p>
+   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal and respond. </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
 
