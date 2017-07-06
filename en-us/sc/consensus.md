@@ -17,57 +17,90 @@ name: Consensus
 
 ## 2 - Introduction
 
-## 3 - Background
-
 
 One of the fundamental differences between blockchains is how they can guarantee fault tolerance given defective, non-honest activity on the network.
 
 Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
 
-**(Describe conventional PoS mechanic)**
+PoS mechanics 
+AntShares implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(ANS holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
 
-AntShares implements a PoS schema using Delegated Byzantine Fault Tolerance which protects the network from Byzantine faults using minimal resources.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
+
+## 3 - Theory
+
+The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Congressmen** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Congressmen** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Congressmen** identify if the **Speaker** is honest and what the actual command was as a group.
+
+For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 4.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
+
+For the sake of discussion, we will describe a couple scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanic is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
 
 
-## 4 - Theory
+### **Honest Speaker**
 
-**(Outline Byzantine Generals Problem)**
+  <img src="assets/n3.png" width="300"> 
+  
+  **Figure 1:** An n = 3 example with a dishonest **Congressman**.
+  
+  In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
+  
+  <img src="assets/n4.png" width="400">
+  
+  **Figure 2:** An n = 4 example with a dishonest **Congressman**.
+  
+  In **Figure 2**, we have a two loyal **Congressmen** (66%).  All **Congressmen** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Congressman**.  Based on the consensus of the two honest **Congressmen**, we are able to determine that either the **Speaker** or right **Congressman** is dishonest in the system.
+  
+  
+  
+  
+### **Dishonest Speaker** 
+  
+  <img src="assets/g3.png" width="300">
+  
+   **Figure 3:** An n = 3 example with a dishonest **Speaker**.
+  
+  In the case of a dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
+  
+  <img src="assets/g4.png" width="400">
+  
+   **Figure 4:** An n = 4 example with a dishonest **Speaker**.
+  
+  In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
+  
 
-## 5 - Practical Implementation
+## 4 - Practical Implementation
 
-The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the expected iterations as a function of the fraction of dishonest nodes.  
+The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. The chart below depicts the
+expected iterations as a function of the fraction of dishonest nodes.  
 
-Notice a primary difference in the plot results compared to the expected theoretical results described in the original Byzantine Generals Problem.  In DBFT, we are able to extend consensus down to only requiring a simple majority (rather than the 66% required in the original BGP algorithm).  Because of the public ledger mechanic of the blockchain, the General(**Speaker**) is unable to send different messages to each Lieutenant(**Congressman**).  This allows the voting nodes to assume that they have all received the same message.  This feature also reduces the expected view iterations and time to consensus for each view at every honesty level due to the reduced requirement on consensus.
-
-Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count is infinite because a consensus cannot be reached without a majority.  We will call this area "No-Man's Land". Below this critical point, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
+Note that the plot does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
 
 
 <img src="assets/consensus.iterations.png" width="800">
 
-**Figure 1:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 20000 Simulated Blocks with random honest node selection}
+**Figure 1:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
 
-
-
-### 5.1 - Roles
+### 4.1 - Roles
 **In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.**
 
   <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
-  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The speaker is analogous to the general in section 4.  They are responsible for transmitting a block proposal to the system.
-  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Congressman** `(Multiple)` - Congressman nodes are analogous to lieutenants in section 4. They are responsible for reaching a consensus on the transaction.
+  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
+  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Congressman** `(Multiple)` - **Congressmen** are responsible for reaching a consensus on the transaction.
   
 
-### 5.2 - Definitions
+### 4.2 - Definitions
 
 **Within the algorithm, we define the following:**
 
   - `t`: The amount of time allocated for block generation, measured in seconds.
+    - Currently: `t = 15 seconds`
+	-  This value can be used to roughly approximate the duration of a single view iteration as the consensus activity and communication events are fast relative to this time constant.
 
 	
   - `n`: The number of active **Consensus Nodes**.
  
 	
   - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
-  	- `f = (n - 1) / 2`
+  	- `f = (n - 1) / 3`
   
 	
   - `h` : The current block height during consensus activity.
@@ -82,7 +115,7 @@ Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count
   - `k` : The index of the view `v`.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
 
   
-  - `p` : Index of the **Consensus Node** elected as the **Speaker**. 
+  - `p` : Index of the **Consensus Node** elected as the **Speaker**.  This calculation mechanism for this index rotates through **Consensus Nodes** to prevent a single node from acting as a dicator within the system. 
   	- `p = (h - k) mod (n)`
   
 
@@ -90,7 +123,7 @@ Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count
   	- `s = ((n - 1) - f)`
 
 
-### 5.3 - Requirements
+### 4.3 - Requirements
 
 **Within AntShares, there are three primary requirements for consensus fault tolerance:**
 
@@ -102,7 +135,7 @@ Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count
 
 
 	
-### 5.3 - Algorithm
+### 4.4 - Algorithm
 **The algorithm works as follows:**
 
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
@@ -163,14 +196,12 @@ Note that the plot doesn't extend to <= 50% node honesty. At 50%, the view count
 		
   - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.
 	
-	
-## Example 
- 
+
 
 	
 
 ## References
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](https://kelehers.me/others/pbftByzantine.pdf)
-3. [The Byzantine Generals Problem](http://pmg.csail.mit.edu/papers/osdi99.pdf)
+3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
