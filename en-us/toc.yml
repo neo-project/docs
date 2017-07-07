@@ -44,8 +44,10 @@
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
-    - name: network protocol
+    - name: Network Protocol
       href: node/network-protocol.md
+    - name: Consensus
+      href: node/consensus.md
 - name: Smart Contract
   href: sc/introduction.md
   items:
@@ -115,3 +117,5 @@
             items:
             - name: ExecutionEngine
               href: sc/fw/dotnet/System/ExecutionEngine.md
+- name: Contributors
+  href: contributors.md

@@ -1,7 +1,4 @@
----
-name: Consensus
-
----
+# Consensus
 
 ## 1 - List of Terms
 
