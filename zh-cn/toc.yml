@@ -68,6 +68,8 @@
         href: sc/tutorial/Parameter.md
       - name: 鉴权合约示例教程
         href: sc/tutorial/verify.md
+      - name: 锁仓合约的部署
+        href: sc/tutorial/Lock2.md
       - name: 合约调用
         href: sc/tutorial/call.md
     - name: 测试
