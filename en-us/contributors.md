@@ -4,3 +4,4 @@
 - Ethan Fast < ejhfast@gmail.com >
 - Joshua Lowenthal < cplusconcepts@gmail.com >
 - lllwvlvwlll < lllwvlvwlll@gmail.com >
+- Alan Fong < anfn@umich.edu >
