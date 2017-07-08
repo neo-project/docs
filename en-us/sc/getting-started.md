@@ -48,13 +48,15 @@ After the release is successful, the AntShares.Compiler.MSIL.exe file is generat
 
 We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
 
-Windows 10 and Windows 8
+**Windows 10 and Windows 8:**
+
   In Search, search for and then select: System (Control Panel)
   Click the Advanced system settings link.
   Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
   In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
 
-Windows 7
+**Windows 7:**
+
   From the desktop, right click the Computer icon.
   Choose Properties from the context menu.
   Click the Advanced system settings link.
