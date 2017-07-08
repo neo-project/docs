@@ -23,7 +23,7 @@ Download and install:
 
 The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, the installation takes about ten minutes or up to an hour.
 
-![image](en-us\sc\assets\1 - Install .NET Core cross-platform development toolset.png)
+![1 - install net core cross-platform development toolset](https://user-images.githubusercontent.com/11667494/27986881-93686178-63d3-11e7-94d3-da98a6d4ae87.png)
 
 ### 2.AntShares.SmartContract plugin
 
