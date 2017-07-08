@@ -13,11 +13,11 @@
 * **View** `v` - The dataset used during a consensus activity in AntShares `DBFT`
 
 ## 2 - Roles
-**In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**
+**In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**.
 
   <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
   - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
-  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Congressman** `(Multiple)` - **Congressmen** are responsible for reaching a consensus on the transaction.
+  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **Delegate** `(Multiple)` - **Delegates** are responsible for reaching a consensus on the transaction.
   
   
 ## 3 - Introduction
@@ -32,7 +32,7 @@ AntShares implements a Delegated Byzantine Fault Tolerance consensus algorithm w
 
 ## 4 - Theory
 
-The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Congressmen** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Congressmen** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Congressmen** identify if the **Speaker** is honest and what the actual command was as a group.
+The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
 
 For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
 
@@ -41,13 +41,13 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
 ### **Honest Speaker**
 
-  <p align="center"><img src="assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Congressman</b>.</p>
+  <p align="center"><img src="assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Delegate</b>.</p>
   
-  In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
+  In **Figure 1**, we have a single loyal **Delegate** (50%).  Both **Delegates** received the same message from the honest **Speaker**.  However, because a **Delegate** is dishonest, the honest Delegate can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Delegate**.  Because of this, the **Delegate** must abstain from a vote, changing the view.
   
-  <p align="center"><img src="assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Congressman</b>.</p>
+  <p align="center"><img src="assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Delegate</b>.</p>
   
-  In **Figure 2**, we have a two loyal **Congressmen** (66%).  All **Congressmen** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Congressman**.  Based on the consensus of the two honest **Congressmen**, we are able to determine that either the **Speaker** or right **Congressman** is dishonest in the system.
+  In **Figure 2**, we have a two loyal **Delegates** (66%).  All **Delegates** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Delegate**.  Based on the consensus of the two honest **Delegates**, we are able to determine that either the **Speaker** or right **Delegate** is dishonest in the system.
   
   
   
@@ -56,11 +56,11 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
   
   <p align="center"><img src="assets/g3.png" width="300"><br> <b>Figure 3:</b> An n = 3 example with a dishonest <b>Speaker</b>. </p>
   
-  In the case of **Figure 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
+  In the case of **Figure 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Delegate** is able to determine which node is dishonest.
   
   <p align="center"><img src="assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
   
-  In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
+  In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Delegates**, it would have been validated without the need for a view change.
   
 
 ## 5 - Practical Implementation
@@ -98,7 +98,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
   - `i` : **Consensus Node** index.
   
   
-  - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.  This includes the vote (`prepareResponse` or `ChangeView`) issued by all congressmen.
+  - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.  This includes the vote (`prepareResponse` or `ChangeView`) issued by all Delegates.
 
 
   - `k` : The index of the view `v`.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
@@ -116,11 +116,11 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 **Within AntShares, there are three primary requirements for consensus fault tolerance:**
 
-1. `s` **Congressmen** must reach a consensus about a transaction before a block can be committed.
+1. `s` **Delegates** must reach a consensus about a transaction before a block can be committed.
 
 2. Dishonest **Consensus Nodes** must not be able to persuade the honest consensus nodes of faulty transactions. 
 
-3. At least `s` **Congressmen** are in same state (`h`,`k`) to begin a consensus activity
+3. At least `s` **Delegates** are in same state (`h`,`k`) to begin a consensus activity
 
 
 	
@@ -146,9 +146,9 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
-	 <p align="center"><img src="assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Congressmen</b>. </p>
+	 <p align="center"><img src="assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
 	 
-6. The **Congressmen** receive the proposal and validate:
+6. The **Delegates** receive the proposal and validate:
 
     - Is the data format consistent with the system rules?
     - Is the transaction already on the blockchain?
@@ -163,13 +163,13 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 			
-   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal and respond. </p>
+   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Delegates</b> review the block proposal and respond. </p>
 
-7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
+7. After receiving `s` number of 'prepareResponse' broadcasts, a **Delegate** reaches a consensus and publishes a block.
 
-8. The **Congressmen** sign the block.
+8. The **Delegates** sign the block.
 
-   <p align="center"><img src="assets/consensus5.png" width="500"><br> <b>Figure 10:</b> A consensus is reached and the approving <b>Congressmen</b> sign the block, binding it to the chain. </p>
+   <p align="center"><img src="assets/consensus5.png" width="500"><br> <b>Figure 10:</b> A consensus is reached and the approving <b>Delegates</b> sign the block, binding it to the chain. </p>
   
 8. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
 	- `k = 0`
