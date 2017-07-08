@@ -21,7 +21,7 @@ Download and install:
 
 [Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-The installation process is very simple, follow the operation prompts step-by-step, it should be noted that the need to check the installation of `.NET Core cross-platform development`, the installation takes about ten minutes or up to an hour.
+The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, the installation takes about ten minutes or up to an hour.
 
 ![image](http://docs.antshares.org/images/2017-06-02_18-18-13.jpg)
 
