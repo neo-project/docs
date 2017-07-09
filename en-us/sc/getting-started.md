@@ -23,7 +23,7 @@ Download and install:
 
 The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open AntShares.VM project in step #3. The installation takes about ten minutes or up to an hour.
 
-![install net core cross-platform development toolset](https://user-images.githubusercontent.com/11667494/27986881-93686178-63d3-11e7-94d3-da98a6d4ae87.png)
+![install net core cross-platform development toolset](en-us\sc\assets\1 - Install .NET Core cross-platform development toolset.png)
 
 ### 2.AntShares.SmartContract plugin
 
@@ -31,7 +31,7 @@ Installation method:
 
 Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search AntShares in the search box on the top right corner of the window, download the AntShares.SmartContract plugin (this step requires internet access).
 
-![download and install antshares smart contract plugin](https://user-images.githubusercontent.com/11667494/27987125-ffda7f46-63d6-11e7-90f1-014bdf1e2230.png)
+![download and install antshares smart contract plugin](en-us\sc\assets\1.1 - Download and Install AntShares Smart Contract plugin.png)
 
 ### 3. AntShares.Compiler.MSIL
 
@@ -39,7 +39,7 @@ Installation and configuration steps:
 
 Download the [AntShares.VM](https://github.com/AntShares/AntShares.VM) project on Github, open the solution with Visual Studio 2017, publish the AntShares.Compiler.MSIL project,
 
-![publish antshares compiler msil project](https://user-images.githubusercontent.com/11667494/27987180-5a166fce-63d7-11e7-9ea9-33e42e0b9bcf.png)
+![publish antshares compiler msil project](en-us\sc\assets\2 - Publish AntShares.Compiler.MSIL project.png)
 
 ![publish and profile settings](https://user-images.githubusercontent.com/11667494/27987197-92ae8e0c-63d7-11e7-8e3f-eafe399e882d.png)
 
