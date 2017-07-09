@@ -23,7 +23,7 @@ Download and install:
 
 The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open AntShares.VM project in step #3. The installation takes about ten minutes or up to an hour.
 
-![install net core cross-platform development toolset](en-us\sc\assets\1 - Install .NET Core cross-platform development toolset.png)
+![install net core cross-platform development toolset] (en-us\sc\assets\1 - Install .NET Core cross-platform development toolset.png)
 
 ### 2.AntShares.SmartContract plugin
 
@@ -31,7 +31,7 @@ Installation method:
 
 Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search AntShares in the search box on the top right corner of the window, download the AntShares.SmartContract plugin (this step requires internet access).
 
-![download and install antshares smart contract plugin](en-us\sc\assets\1.1 - Download and Install AntShares Smart Contract plugin.png)
+![download and install antshares smart contract plugin] (en-us\sc\assets\1.1 - Download and Install AntShares Smart Contract plugin.png)
 
 ### 3. AntShares.Compiler.MSIL
 
@@ -41,7 +41,7 @@ Download the [AntShares.VM](https://github.com/AntShares/AntShares.VM) project o
 
 ![publish antshares compiler msil project](en-us\sc\assets\2 - Publish AntShares.Compiler.MSIL project.png)
 
-![publish and profile settings](https://user-images.githubusercontent.com/11667494/27987197-92ae8e0c-63d7-11e7-8e3f-eafe399e882d.png)
+![publish and profile settings](en-us\sc\assets\3 - Publish and Profile Settings.png)
 
 
 After the release is successful, the AntShares.Compiler.MSIL.exe file is generated in `bin\Release\PublishOutput`.
@@ -63,7 +63,7 @@ We now need to add this directory to our execution path. The PATH is the system 
   Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
   In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
 
-![edit environmental variables](https://user-images.githubusercontent.com/11667494/27987255-800867a4-63d8-11e7-9e3c-d5c2aed1c4bc.png)
+![edit environmental variables](en-us\sc\assets\3.2 - Edit Environmental variables.png)
 
 Now run Command or PowerShell, and enter Antshares.Compiler.Msil. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
 
