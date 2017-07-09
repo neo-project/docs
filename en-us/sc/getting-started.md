@@ -23,7 +23,7 @@ Download and install:
 
 The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open AntShares.VM project in step #3. The installation takes about ten minutes or up to an hour.
 
-![install net core cross-platform development toolset] (en-us\sc\assets\1 - Install .NET Core cross-platform development toolset.png)
+![install net core cross-platform development toolset](en-us\sc\assets\1 - Install .NET Core cross-platform development toolset.png)
 
 ### 2.AntShares.SmartContract plugin
 
@@ -31,7 +31,7 @@ Installation method:
 
 Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search AntShares in the search box on the top right corner of the window, download the AntShares.SmartContract plugin (this step requires internet access).
 
-![download and install antshares smart contract plugin] (en-us\sc\assets\1.1 - Download and Install AntShares Smart Contract plugin.png)
+![download and install antshares smart contract plugin](en-us\sc\assets\1.1 - Download and Install AntShares Smart Contract plugin.png)
 
 ### 3. AntShares.Compiler.MSIL
 
@@ -67,7 +67,7 @@ We now need to add this directory to our execution path. The PATH is the system 
 
 Now run Command or PowerShell, and enter Antshares.Compiler.Msil. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
 
-![powershell enviornment variabled updated correctly](https://user-images.githubusercontent.com/11667494/27987294-697e9494-63d9-11e7-9116-ab19298a59cc.png)
+![powershell enviornment variabled updated correctly](en-us\sc\assets\3.3 PowerShell Enviornment Variabled updated correctly.png)
 
 
 NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
@@ -76,11 +76,11 @@ NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.
 
 After the above installation configuration is successful, you can create an AntShares.SmartContract.Template project in Visual Studio 2017.
 
-![new smart contract project](https://user-images.githubusercontent.com/11667494/27987305-8cbbc60c-63d9-11e7-9258-c377283cb0c1.png)
+![new smart contract project](en-us\sc\assets\4 - New Smart Contract Project.png)
 
 Once you create a project, it will automatically generate a C# file, the default class inherited from the FunctionCode, as shown in the following:
 
-![4 1 smart contract function code](https://user-images.githubusercontent.com/11667494/27987327-efad1d88-63d9-11e7-83e9-f6b511a02909.png)
+![4 1 smart contract function code](en-us\sc\assets\4.1 Smart Contract Function code.png)
 
 
 ## Compile the Project
@@ -99,7 +99,7 @@ public class Contract1: FunctionCode
 
 After you compiled it successfully, you will see` SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the AntShares smart contract.
 
-![compile smart contract](https://user-images.githubusercontent.com/11667494/27987338-20fbfd82-63da-11e7-8866-af04519f0483.png)
+![compile smart contract](en-us\sc\assets\5 - Compile Smart Contract.png)
 
 
 Now that you have completed the configuration of the AntShares smart contract development environment, please refer to the [AntShares smart contract tutorial](tutorial.md)
