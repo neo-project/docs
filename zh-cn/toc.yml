@@ -100,6 +100,8 @@
               href: sc/fw/dotnet/AntShares/Block.md
             - name: Blockchain
               href: sc/fw/dotnet/AntShares/Blockchain.md
+            - name: Contract
+              href: sc/fw/dotnet/AntShares/Contract.md
             - name: Enrollment
               href: sc/fw/dotnet/AntShares/Enrollment.md
             - name: Header
@@ -118,6 +120,8 @@
               href: sc/fw/dotnet/AntShares/TransactionInput.md
             - name: TransactionOutput
               href: sc/fw/dotnet/AntShares/TransactionOutput.md
+            - name: Validator
+              href: sc/fw/dotnet/AntShares/Validator.md
           - name: System
             href: sc/fw/dotnet/System.md
             items:
