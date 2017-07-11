@@ -1,14 +1,8 @@
 # AntShares 命名空间
 
-AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。这些 API 分为两类。
-
-1、只读 API，合约程序可以通过 API 来访问到整个区块链上的所有数据，包括完整的区块和交易，以及他们的每一个字段。
-
-2、读写 API。智能合约可以通过此类 API 修改合约的状态，如读写持久化存储区等。
+AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。
 
 注：本文中标记 `new` 和 `已弃用` 的地方是 2.0 版本相对 1.6 版本的更改之处。
-
-## 只读 API
 
 从区块链查询数据的 API：
 
@@ -84,26 +78,38 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | ---------------------------- | -------- |
 | AntShares.Contract.GetScript | 获得该合约的脚本 |
 
-合约类 API：
+存储类 API：
 
 | API                          | 说明                              |
 | ---------------------------- | ------------------------------- |
 | AntShares.Storage.GetContext | `new` 获取当前存储区上下文                |
 | AntShares.Storage.Get        | 查询操作，在持久化存储区中通过 key 查询对应的 value |
 
-## 读写 API
+运行时相关的 API：
+
+
+| API                            | 说明                                |
+| ------------------------------ | --------------------------------- |
+| AntShares.Runtime.CheckWitness | `new` 验证调用该智能合约的交易/区块是否验证过所需的脚本散列 |
+| AntShares.Runtime.Notify       | `new` 在智能合约中向执行该智能合约的客户端发送通知      |
+| AntShares.Runtime.Log          | `new` 在智能合约中向执行该智能合约的客户端发送日志      |
+
+
+参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
 
 此类 API 会对智能合约的状态进行修改
 
-| API                                    | 说明                               |
-| -------------------------------------- | -------------------------------- |
-| AntShares.Blockchain.RegisterValidator | `new` 报名成为共识人                    |
-| AntShares.Blockchain.CreateAsset       | `new` 注册一种资产                     |
-| AntShares.Blockchain.CreateContract    | `new` 发布智能合约                     |
-| AntShares.Account.SetVotes             | 设置该合约账户投给其它人的的投票信息               |
-| AntShares.Asset.Renew                  | `new` 为资产续费                      |
-| AntShares.Contract.Destroy             | `new` 销毁合约                       |
-| AntShares.Storage.Put                  | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
-| AntShares.Storage.Delete               | 删除操作，在持久化存储区中通过 key 删除对应的 value  |
+| API                                  | 说明                               |
+| ------------------------------------ | -------------------------------- |
+| AntShares.Account.SetVotes           | 设置该合约账户投给其它人的的投票信息               |
+| AntShares.Validator.Register         | `new` 报名成为共识人                    |
+| AntShares.Asset.Create               | `new` 注册一种资产                     |
+| AntShares.Asset.Renew                | `new` 为资产续费                      |
+| AntShares.Contract.Create            | `new` 发布智能合约                     |
+| AntShares.Contract.Migrate           | `new` 迁移/更新智能合约                  |
+| AntShares.Contract.Destroy           | `new` 销毁合约                       |
+| AntShares.Contract.GetStorageContext | `new` 获得合约的存储上下文                 |
+| AntShares.Storage.Put                | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
+| AntShares.Storage.Delete             | 删除操作，在持久化存储区中通过 key 删除对应的 value  |
 
-
+参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateMachine.cs 文件。

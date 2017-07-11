@@ -1,4 +1,4 @@
-# CreateContract 方法 (byte[], byte[], byte, bool, string, string, string, string, string)
+# Contract.Create 方法 (byte[], byte[], byte, bool, string, string, string, string, string)
 
 在智能合约中调用此方法可以发布一个新的智能合约。
 
@@ -62,4 +62,4 @@ public class Contract1 : FunctionCode
 
 
 
-[返回上级](../Blockchain.md)
+[返回上级](../Contract.md)

@@ -16,4 +16,4 @@ public byte[] Script { get; }
 
 
 
-[返回上级](../Account.md)
+[返回上级](../Contract.md)

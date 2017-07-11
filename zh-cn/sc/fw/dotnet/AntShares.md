@@ -19,12 +19,14 @@ AntShares命名空间是小蚁区块链所提供的API，提供了访问区块�
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](AntShares/Contract.md)        | 表示合约的类                 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](AntShares/Enrollment.md)    | `已弃用`用来表示记账人报名交易的数据结构  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](AntShares/Header.md)            | 用来表示区块头的数据结构           |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](AntShares/Runtime.md)          | `new` 提供智能合约运行时的一些方法   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](AntShares/Storage.md)          | 提供了持久化存储区的插入、查询、删除的方法  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContex](AntShares/StorageContex.md) | `new` 用来表示私有存储区存储上下文的类 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](AntShares/Transaction.md)  | 用来表示交易的基类              |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](AntShares/TransactionAttribute.md) | 用来表示交易特性的数据结构          |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](AntShares/TransactionInput.md) | 用来表示交易输入的数据结构          |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](AntShares/TransactionOutput.md) | 用来表示交易输出的数据结构          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](AntShares/Validator.md)      | `new` 提供共识节点的一些方法      |
 
 ## 枚举
 
