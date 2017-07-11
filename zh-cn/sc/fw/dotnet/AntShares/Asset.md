@@ -38,4 +38,4 @@ public class Asset
 
 通过 [Blockchain.GetAsset(byte[])](Blockchain/GetAsset.md) 方法来构造 Asset 对象。
 
-通过 [Blockchain.CreateAsset(byte, string, long, byte, byte[], byte[], byte[])](Blockchain/CreateAsset.md) 方法来在区块链上创建新的资产，并返回 Asset 对象。
+通过 [Asset.Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) 方法来在区块链上创建新的资产，并返回 Asset 对象。
