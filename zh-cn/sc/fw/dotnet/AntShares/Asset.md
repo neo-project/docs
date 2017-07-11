@@ -6,6 +6,8 @@
 
 程序集：AntShares.SmartContract.Framework
 
+注：本文中标记 `new` 和 `已弃用` 的地方是 2.0 版本相对 1.6 版本的更改之处。
+
 ## 语法
 
 ```c#
@@ -27,9 +29,10 @@ public class Asset
 
 ## 方法
 
-|                                          | 名称                            | 说明          |
-| ---------------------------------------- | ----------------------------- | ----------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Renew(byte)](Asset/Renew.md) | `new` 为资产续费 |
+|                                          | 名称                                       | 说明                |
+| ---------------------------------------- | ---------------------------------------- | ----------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) | `new` 在小蚁区块链上注册资产 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Renew(byte)](Asset/Renew.md)            | `new` 为资产续费       |
 
 ## 构造方法
 

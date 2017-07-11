@@ -6,6 +6,8 @@
 
 程序集：AntShares.SmartContract.Framework
 
+注：本文中标记 `new` 和 `已弃用` 的地方是 2.0 版本相对 1.6 版本的更改之处。
+
 ## 语法
 
 ```c#
@@ -16,8 +18,6 @@ public static class Blockchain
 
 |                                          | 名称                                       | 说明                   |
 | ---------------------------------------- | ---------------------------------------- | -------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [CreateAsset(byte, string, long, byte, byte[], byte[], byte[])](Blockchain/CreateAsset.md) | `new` 注册一种资产         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [CreateContract(byte[], byte[], byte, bool, string, string, string, string, string)](Blockchain/CreateContract.md) | `new` 发布智能合约         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAccount(byte[])](Blockchain/GetAccount.md) | 根据合约脚本的散列来获得一个账户（地址） |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAsset(byte[])](Blockchain/GetAsset.md) | 根据资产 ID 查找资产         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(byte[])](Blockchain/GetBlock.md) | 通过区块 hash ，查找区块      |
@@ -28,7 +28,6 @@ public static class Blockchain
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetHeight()](Blockchain/GetHeight.md)   | 获得当前区块高度             |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(byte[])](Blockchain/GetTransaction.md) | 通过交易 ID 查找交易         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetValidators()](Blockchain/GetValidators.md) | `new` 获得共识人的公钥       |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [RegisterValidator(byte[])](Blockchain/RegisterValidator.md) | `new` 报名成为共识人        |
 
 # 构造方法
 

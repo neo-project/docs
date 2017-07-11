@@ -31,4 +31,4 @@ public class Contract1 : FunctionCode
 
 
 
-[返回上级](../Account.md)
+[返回上级](../Contract.md)
