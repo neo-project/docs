@@ -118,6 +118,8 @@
               href: sc/fw/dotnet/AntShares/TransactionInput.md
             - name: TransactionOutput
               href: sc/fw/dotnet/AntShares/TransactionOutput.md
+            - name: Validator
+              href: sc/fw/dotnet/AntShares/Validator.md
           - name: System
             href: sc/fw/dotnet/System.md
             items:
