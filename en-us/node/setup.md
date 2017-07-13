@@ -1,6 +1,6 @@
 # Installation of AntShares node deployment
 
-The above article describes two clients for nodes in the AntShares network. One is [AntSharesCore-CLI](https://github.com/AntShares/AntSharesCore/releases) (for the developer use - the command line client), and the other is [AntSharesCore-GUI](https://www.antshares.org/download) (the graphical interface client - for the advanced user)
+The above article describes two clients for nodes in the AntShares network. One is [AntSharesCore-CLI](https://github.com/neo-project/neo-gui/releases) (for the developer use - the command line client), and the other is [AntSharesCore-GUI](https://www.antshares.org/download) (the graphical interface client - for the advanced user)
 
 The deployment consensus node uses the `AntSharesCore-CLI`, a cross-platform program that runs in Windows, Linux and Docker.
 
@@ -50,8 +50,8 @@ After the installation is complete, you can run the following command to check w
 ```
 Dotnet new console -o hwapp
 Cd hwapp
-Dotnet restore
-Dotnet run
+dotnet restore
+dotnet run
 ```
 
 If you see the final output "Hello World!", The .Net Core installation is successful.
@@ -59,7 +59,7 @@ If you see the final output "Hello World!", The .Net Core installation is succes
 
 ## Installation of AntShares node
 
-1. Download the [AntSharesCore-CLI](https://github.com/antshares/antsharescore/releases) package on Github and unzip it.
+1. Download the [AntSharesCore-CLI](https://github.com/neo-project/neo-gui/releases) package on Github and unzip it.
 
 > [!Note]
 > If you try to download and compile the AntSharesCore-CLI source directly on Github, you will find that `dotnet AntSharesDaemon.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as AntSharesDaemon.dll under. These two files can be downloaded in the first step of the package.
@@ -67,11 +67,11 @@ If you see the final output "Hello World!", The .Net Core installation is succes
 2, open the command line, navigate to the program where the directory, enter the following code to start the AntShares node.
 
 ```
-Dotnet AntSharesDaemon.dll
+dotnet AntSharesDaemon.dll
 ```
 
 AntSharesCore-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can run the following code.
 ```
-Dotnet AntSharesDaemon.dll/rpc
+dotnet AntSharesDaemon.dll /rpc
 ```
 3, if you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334# Installation of AntShares nodes
