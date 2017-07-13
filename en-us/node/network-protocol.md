@@ -4,7 +4,7 @@
 Antshares adopts a P2P network structure, in which nodes can communicate with each other through TCP/IP protocol. In this structure, there are two different types of nodes: peer nodes and validating nodes (referred to as Bookkeepers in the Antshares Whitepaper). Peer nodes can broadcast, receive and transfer transactions or blocks, while validating node can create blocks.
 
 
-The network protocol of AntShares is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different.
+The network protocol of AntShares is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different
 
 Convention
 ----
@@ -17,11 +17,11 @@ Convention
 
    Two different hash functions are used in Antshares: SHA256 and RIPEMD160. SHA256 is used to generate a long hash value, and RIPEMD160 is used to generate a short hash value. In general, we get an object's hash value by using hash function twice. For example, we use SHA256 twice when we want to generate block's or transaction's hash value. When generating a contract address, we will use SHA256 function first and then use RIPEMD160.
 
-   In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one another then hash again, repeats this process until there is only one root hash (Merkle Root).
+   In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines them with one another then computes the hash again. It repeats this process until there is only one root hash (Merkle Root).
 
 1. Variable Length Type
 
-   + variant：variable length integer, can be encoded to save space according to the value typed.
+   + variant：variable length integer. It can be encoded to save space according to the value type.
 
       |Value|Length|Format|
       |---|---|---|
@@ -30,25 +30,25 @@ Convention
       |<= 0xffffffff|5|0xfe + uint32|
       |> 0xffffffff|9|0xff + uint64|
 
-   + varstr：variable length string, consisting of variable length integer followed by strings. String encoded by UTF8.
+   + varstr：variable length string, consisting of variable length integer followed by strings encoded by UTF8.
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
       |?|length|variant|The length of a string in bytes|
       |length|string|uint8[length]|string itself|
 
-   + array：The array consists of a variable length integer followed by a sequence of elements.
+   + array：An array consists of a variable length integer followed by a sequence of elements.
 
 1. Fixed-point Number
 
-   Data in Antshares such as amount or price are 64 bit fixed-point number and the precision of decimal part is 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
+   Data in Antshares such as amount or price are 64 bit fixed-point numbers and the precision of decimal part is 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
 Data Type
 -------
 
 1. Block Chain
 
-   The block chain is a kind of logical structure, which is connected in series with a one-way linked list. It is used to store the data of the whole network, such as transactions or assets.
+   The block chain is a kind of logical structure, which is connected in series with a one-way linked list. It is used to store the data of the whole network such as transactions or assets.
 
 1. Block
 
@@ -65,7 +65,7 @@ Data Type
    |?|Script|script|Script used to validate the block|
    |?*?|Transactions|tx[]|transactions list|
 
-   When calculating the hash value of the block, instead of calculating the entire block, only first seven fields in the block head will be calculated, which are version, PrevBlock, MerkleRoot, timestamp, and height, the nonce, NextMiner. Since MerkleRoot already contains the hash value of all transactions, the modification of transaction will influence the hash value of the block.
+   When calculating the hash value of a block, instead of calculating it for the entire block, only first seven fields in the block head will be included. These fields are: Version, PrevBlock, MerkleRoot, Timestamp, Height, Nonce, and NextMiner. Since MerkleRoot already contains the hash value of all transactions, the modification of transaction will influence the hash value of the block.
 
    Data structure of block head:
 
@@ -82,7 +82,7 @@ Data Type
    |?|Script|script|Script used to validate the block|
    |1|-|uint8|It's fixed to 0|
 
-   The time stamp of each block must be later than previous block's time stamp. Generally the difference of two block's time stamp is about 15 seconds and imprecision is allowed. The height of the block must be exactly equal to the height of the previous block plus 1.
+   The time stamp of each block must be later than previous block's time stamp. Generally the difference of two blocks' time stamps is about 15 seconds and imprecision is allowed. The height of the block must be exactly equal to the height of the previous block plus 1.
 
 1. Transaction
 
@@ -109,7 +109,7 @@ Data Type
    |0xd0|PublishTransaction|500 * n|(Not usuable) Special Transactions for Smart Contracts|
    |0xd1|InvocationTransaction|0|Special transcations for calling smart contracts|
 
-   Each type of transaction, in addition to the public field, also has its own exclusive field. The following will describe these exclusive fields in detail.
+   Each type of transaction, in addition to the public fields, also has its own exclusive field. The following will describe these exclusive fields in detail.
 
    + MinerTransaction
 
@@ -119,17 +119,17 @@ Data Type
 
       The first transaction in each block must be MinerTransaction. It is used to reward all transaction fees of the current block to the validator.
 
-      Random number in the transaction is used to avoid hash collision.
+      Random number is used in the transaction to avoid hash collision.
 
    + IssueTransaction
 
       There are no special fields for an issue transaction.
 
-      Asset managers can create the assets that have been registered in Antshares' block chain through IssueTransaction, and sent them to any address.
+      Asset managers can create the assets that have been registered in Antshares' block chain through IssueTransaction, and send them to any address.
 
-      In particular, if the assets which being issued are AntShares, then the transaction will be sent free.
+      In particular, if the assets being issued are AntShares, then the transaction will be sent free.
 
-      Random number in the transaction is used to avoid hash collision.
+      Random number is used in the transaction to avoid hash collision.
 
    + ClaimTransaction
 
@@ -160,7 +160,7 @@ Data Type
 
    + ContractTransaction
 
-      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send ANS to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much ANS will be sent, and to what address).
+      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send ANS to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much ANS will be sent, and to which address).
 
    + PublishTransaction
 
@@ -188,9 +188,9 @@ Data Type
    |0\|1|length|uint8|length of data(Specific circumstances will be omitted)|
    |length|Data|uint8[length]|external data|
 
-   Sometimes the transaction will contain some data for external use, these data will be placed in the transaction attributes field.
+   Sometimes the transactions contain some data for external use. These data will be placed in the transaction attributes field.
 
-   Each transaction attribute has different usages:
+   Each transaction attribute has a different use:
 
    |Value|Name|Description|
    |---|---|---|
@@ -204,9 +204,9 @@ Data Type
    |0xa1-0xaf|Hash1-Hash15|used to store custom hash values|
    |0xf0-0xff|Remark-Remark15|remarks|
 
-   For ContractHash, ECDH series, Hash series, data length is fixed to 32 bytes and length field is omitted;
+   For ContractHash, ECDH series, and Hash series the data length is fixed to 32 bytes and length field is omitted;
 
-   For CertUrl, DescriptionUrl, Description, Remark series, the data length must be clearly defined, and the length should not exceed 255;
+   For CertUrl, DescriptionUrl, Description, Remark series the data length must be clearly defined, and the length should not exceed 255;
 
 1. Input of Transaction
 
@@ -223,7 +223,7 @@ Data Type
    |8|Value|int64|value|
    |20|ScriptHash|uint160|address of remittee|
 
-   Each transaction could have outputs up to 65536. 
+   Each transaction could have an output up to 65536. 
 
 1. Validation Script
 
@@ -232,9 +232,9 @@ Data Type
    |?|StackScript|uint8[]|stack script code|
    |?|RedeemScript|uint8[]|contract script code|
 
-   Stack script can only be used for the PUSH operations, which is used to push data like signatures into the stack. The script interpreter will execute the stack script code first, and then execute the contract script code.
+   Stack script can only be used for PUSH operations, which is used to push data, like signatures, into the stack. The script interpreter will execute the stack script code first followed by the contract script code.
 
-   In a transaction, the hash value of the contract script code must be consistent with the transaction output, which is part of the validation. The later section will describe the execution process of the script in detail.
+   In a transaction, the hash value of the contract script code must be consistent with the transaction output, which is part of the validation. A later section will describe the execution process of the script in detail.
 
 Network Message
 -------
@@ -256,9 +256,9 @@ Defined Magic value:
 |0x00746e41|production mode|
 |0x74746e41|test mode|
 
-Command is utf8 code, of which the length is 12 bytes, the extra part is filled with 0.
+Command is a utf8 code of length 12 bytes, the extra part is padded with 0.
 
-Checksum is the first 4 bytes of the value that two times SHA256 hash of the Payload.
+Checksum is the first 4 bytes of the value that is two times SHA256 hash of the Payload.
 
 According to different orders Payload has different detailed format, see below:
 
@@ -276,17 +276,17 @@ According to different orders Payload has different detailed format, see below:
    |1|Relay|bool|Whether to receive and forward
 
 
-   When a node receives a connection request, it declares its version immediately. There will be no other communication until both sides are getting versions of each other.
+   When a node receives a connection request, it declares its version immediately. Thereis no further communication until both sides have exchanged their versions.
 
 1. verack
 
-   When a node receives the version message, it replies to a verack as a response immediately.
+   When a node receives the version message, it responds with a verack immediately.
 
    This message has no payload.
 
 1. getaddr
 
-   Make requests to a node for a batch of new active nodes in order to increase the number of connections.
+   This is used to make requests to a node for a batch of new active nodes in order to increase the number of connections.
 
    This message has no payload.
 
@@ -296,7 +296,7 @@ According to different orders Payload has different detailed format, see below:
    |---|---|---|---|
    |30*?|AddressList|net_addr[]|other nodes' address in network|
 
-   After receiving the getaddr message, the node returns an addr message as response and provides information about the known nodes on the network.
+   After receiving the getaddr message, the node returns an addr message as a response and provides information about the known nodes on the network.
 
 1. getheaders
 
@@ -313,7 +313,7 @@ According to different orders Payload has different detailed format, see below:
    |---|---|---|---|
    |?*?|Headers|header[]|head of the block|
 
-   After receiving the getheaders message, the node returns a header message as response and provides information about the known nodes on the network.
+   After receiving the getheaders message, the node responds with a header message and provides information about the known nodes on the network.
 
 1. getblocks
 
@@ -322,7 +322,7 @@ According to different orders Payload has different detailed format, see below:
    |32*?|HashStart|uint256[]|hash of latest block that node requests|
    |32|HashStop|uint256|hash of last block that node requests|
 
-   Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get block hash more than that you need to resend getblocks message.
+   Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get more block hash than that, you need to resend getblocks message.
 
 1. inv
 
@@ -330,7 +330,7 @@ According to different orders Payload has different detailed format, see below:
    |---|---|---|---|
    |36*?|Inventories|inv_vect[]|data of inventories|
 
-   The node can broadcast the object information it owns by this message. The message can be sent automatically or can be used to answer getbloks messages.
+   This message can be used by the node to broadcast the object information it owns. The message can be sent automatically or can be used to answer getblocks requests.
 
    Object information is included in the list:
 
@@ -353,7 +353,7 @@ According to different orders Payload has different detailed format, see below:
    |---|---|---|---|
    |36*?|Inventories|inv_vect[]|data of inventories|
 
-   To request a specified object from a node: It is usually sent after the inv packet is received and the known element removed.
+   To request a specified object from a node: It is usually sent after the inv packet is received and the known element is removed.
 
 1. block
 
@@ -361,7 +361,7 @@ According to different orders Payload has different detailed format, see below:
    |---|---|---|---|
    |?|Block|block|block|
 
-   Sending a block to a node to respond the getdata message.
+   Sending a block to a node to respond to the getdata message.
 
 1. tx
 
@@ -369,7 +369,7 @@ According to different orders Payload has different detailed format, see below:
    |---|---|---|---|
    |?|Transaction|tx|transaction|
 
-   Sending a transaction to a node to respond getdata message.
+   Sending a transaction to a node to respond to getdata message.
    
    |Size|field|data type|description|
    |----|---------|--------- |----------------- |
