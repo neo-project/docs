@@ -37,7 +37,7 @@ typora-root-url: ..\..
 
 安装和配置方法：
 
-在 Github 上下载 [AntShares.VM](https://github.com/AntShares/AntShares.VM) 项目，用 Visual Studio 2017 打开该解决方案，发布其中的 AntShares.Compiler.MSIL 项目，如图
+在 Github 上下载 [AntShares.VM](https://github.com/neo-project/neo-vm) 项目，用 Visual Studio 2017 打开该解决方案，发布其中的 AntShares.Compiler.MSIL 项目，如图
 
 ![](~/images/2017-06-02_18-21-53.jpg)
 

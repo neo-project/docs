@@ -22,8 +22,8 @@ Reference: [introduction of AntShares node](introduction.md).
 
 |      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [official website](https://www.antshares.org/download) or [Github](https://github.com/antshares/antsharescore/releases) | [Github](https://github.com/AntShares/antsharescore/releases) |
-Source code | [Github](https://github.com/antshares/antsharescore) | [Github](https://github.com/antshares/antsharescore) |
+| Releases | [official website](https://www.antshares.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
+Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
 
 ## Method of switching to test network
 

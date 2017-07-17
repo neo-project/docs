@@ -1,6 +1,6 @@
 # 小蚁节点的安装部署
 
-上文介绍了小蚁的全节点有两个客户端，一个是 [AntSharesCore-CLI](https://github.com/AntShares/AntSharesCore/releases)（为开发者提供的命令行客户端），一个是 [AntSharesCore-GUI](https://www.antshares.org/download)（为高级用户提供的图形界面的客户端）
+上文介绍了小蚁的全节点有两个客户端，一个是 [AntSharesCore-CLI](https://github.com/neo-project/neo-gui/releases)（为开发者提供的命令行客户端），一个是 [AntSharesCore-GUI](https://www.antshares.org/download)（为高级用户提供的图形界面的客户端）
 
 部署共识节点所用的是 `AntSharesCore-CLI` ，这是一个跨平台的程序，可以在 Windows、Linux 和 Docker 中运行
 
@@ -59,7 +59,7 @@ dotnet run
 
 ## 小蚁节点的安装
 
-1、在 Github 上下载 [AntSharesCore-CLI](https://github.com/antshares/antsharescore/releases) 程序包并解压。
+1、在 Github 上下载 [AntSharesCore-CLI](https://github.com/neo-project/neo-gui/releases) 程序包并解压。
 
 > [!Note]
 > 如果你试图直接在 Github 上下载并编译 AntSharesCore-CLI 源码，你会发现编译后运行 `dotnet AntSharesDaemon.dll` 会报错，这时你需要将 libleveldb.dll 和  sqlite3.dll 复制到 AntSharesDaemon.dll 同一目录下。这两个文件可以在第一步的程序包中下载。
