@@ -36,7 +36,7 @@ After compiling, generate the contract's `Test1.avm` file. We can create a unit 
 First create a C# Console App (.Net Framework) project with Visual Studio, with .NET Framework 4.6.2 or later. Then add a reference to `AntShares.dll` and `AntShares.VM.dll`.
 
 > [!Note]
-> These two files can be obtained by compiling [AntShares](https://github.com/antshares/antshares) and [AntShares.VM](https://github.com/AntShares/AntShares.VM).
+> These two files can be obtained by compiling [AntShares](https://github.com/neo-project/neo) and [AntShares.VM](https://github.com/neo-project/neo-vm).
 
 > Alternatively, you can just add NuGet packages "AntShares" and "AntShares.VM" to your project. You can do that by right-clicking the contract project on the Solution Explorer, go to Browse, search antshares and install the required packages.
 
@@ -95,6 +95,6 @@ If the return value of the smart contract is not of type int, but is bool or oth
 
 ### 📖 The document is being edited
 
-The document is being edited and we will complete it as soon as possible. You can view other documents on [Github wiki](https://github.com/AntShares/AntShares/wiki/) or come to our [Antshares official website](http://www.antshares.org) and look around.
+The document is being edited and we will complete it as soon as possible. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or come to our [Antshares official website](http://www.antshares.org) and look around.
 
-Antshares is a community open source project, if you are interested, you can also contribute to the developer documents by creating Pull requests on GitHub, the documents for the project can be found at [github.com/AntShares/docs](https://github.com/AntShares/docs), thank you for your contribution.
+Antshares is a community open source project, if you are interested, you can also contribute to the developer documents by creating Pull requests on GitHub, the documents for the project can be found at [github.com/AntShares/docs](https://github.com/neo-project/docs), thank you for your contribution.

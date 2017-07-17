@@ -10,8 +10,8 @@
 
 |      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| 程序   | [官网](https://www.antshares.org/download) 或 [Github](https://github.com/antshares/antsharescore/releases) | [Github](https://github.com/antshares/antsharescore/releases) |
-| 源代码  | [Github](https://github.com/antshares/antsharescore) | [Github](https://github.com/antshares/antsharescore) |
+| 程序   | [官网](https://www.antshares.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
+| 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
 
 ## GUI节点与CLI节点功能比较
 
