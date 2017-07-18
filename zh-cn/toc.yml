@@ -1,9 +1,7 @@
-﻿- name: 介绍
-  href: index.md 
+﻿- name: 白皮书
+  href: index.md
 - name: 开始学习
   href: getting-started.md
-- name: 白皮书
-  href: white-paper.md
 - name: 小蚁节点
   href: node/introduction.md
   items:
