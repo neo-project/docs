@@ -25,7 +25,7 @@ public class Contract
 |                                          | 名称                                       | 说明              |
 | ---------------------------------------- | ---------------------------------------- | --------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `new` 发布智能合约    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Contract.Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `new` 迁移/更新智能合约 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `new` 迁移/更新智能合约 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `new` 销毁智能合约    |
 
 ## 构造方法

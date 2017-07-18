@@ -1,4 +1,4 @@
-- name: 介绍
+﻿- name: 介绍
   href: index.md 
 - name: 开始学习
   href: getting-started.md
@@ -46,6 +46,8 @@
         href: node/api/sendtoaddress.md
     - name: 网络协议
       href: node/network-protocol.md
+    - name: 共识机制
+      href: node/consensus.md
 - name: 智能合约
   href: sc/introduction.md
   items:
