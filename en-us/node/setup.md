@@ -36,20 +36,20 @@ The following shows how .NET Core is installed in Red Hat Enterprise Linux 7 Ser
 
 
 ```
-Subscription-manager repos --enable = rhel-7-server-dotnet-rpms
-Yum install scl-utils
+subscription-manager repos --enable = rhel-7-server-dotnet-rpms
+yum install scl-utils
 ```
 
 ```
-Yum install rh-dotnetcore11
-Scl enable rh-dotnetcore11 bash
+yum install rh-dotnetcore11
+scl enable rh-dotnetcore11 bash
 ```
 
 After the installation is complete, you can run the following command to check whether the .NET Core environment was installed successfully.
 
 ```
-Dotnet new console -o hwapp
-Cd hwapp
+dotnet new console -o hwapp
+cd hwapp
 dotnet restore
 dotnet run
 ```
