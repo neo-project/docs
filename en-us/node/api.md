@@ -1,6 +1,6 @@
 # API Reference
 
-Each node in the AntSharesCore-CLI provides an API interface for obtaining block-chain data from a node, making it easy to develop block-chain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) and the underlying protocl uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
+Each node in the AntSharesCore-CLI provides an API interface for obtaining block-chain data from a node, making it easy to develop block-chain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
 
 `dotnet AntSharesDaemon.dll /rpc`
 
@@ -112,4 +112,3 @@ You can use the Chrome extension in Postman to facilitate the test (Installation
 ## Other
 
 [C# JSON-RPC Command List](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
-
