@@ -10,7 +10,11 @@ We will first explore the various commands listed in the command line. In the co
 
 ![image](http://docs.antshares.org/images/2017-05-17_12-30-05.jpg)
 
-The following is a description of all the commands, the order of the brackets ``<> ```is the parameter, square brackets`[] `is optional parameters, and the symbol` | `displays the fill parameters can be any of any type, the equal sign `=` indicates the default value of the optional parameter without input.`
+The following is a description of all the commands and the order of the brackets.
+Angular brackets ``<>`` are used for parameters, 
+Square brackets`[]` for optional parameters,
+The symbol`|`displays the fill parameters that can be any of any type, 
+The equal sign `=` indicates the default value of the optional parameter without input.
 
 ## 1. Console Instructions
 
@@ -36,11 +40,13 @@ Command | Function Description | Remarks |
 | export key \[address] [path] | Export private key | Need to open wallet |
 | send \<id\|alias> \<address> \<value> [fee=0]| Send to the specified address |Need to open wallet |
 
-The following commands is explained in detail:
+The following commands are explained in detail:
 
 👉 `rebuild index`
 
-Rebuild the wallet index. Why is it necessary to rebuild the wallet index?
+Rebuild the wallet index. 
+
+Why is it necessary to rebuild the wallet index?
 
 There is a field in the wallet that records the height of the current wallet sync block. For each new one, the wallet client synchronizes the blocks and updates the assets and transactions in the wallet. Assuming that the currently recorded block height is 100, then you execute the import key command to import the private key, and the wallet still calculates your asset from the block height of 100. If the imported address has some transactions when the block height is less than 100, the transactions and the corresponding assets will not be reflected in the purse, so the wallet index should be rebuilt, forcing the wallet to calculate your assets from the block height of 0.
 
