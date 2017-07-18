@@ -95,7 +95,9 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | AntShares.Runtime.Log          | `new` 在智能合约中向执行该智能合约的客户端发送日志      |
 
 
-参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
+参考：以上 API 的源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
+
+------
 
 此类 API 会对智能合约的状态进行修改
 
@@ -112,4 +114,4 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | AntShares.Storage.Put                | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 | AntShares.Storage.Delete             | 删除操作，在持久化存储区中通过 key 删除对应的 value  |
 
-参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateMachine.cs 文件。
+参考：以上 API 的源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateMachine.cs 文件。
