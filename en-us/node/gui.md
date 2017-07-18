@@ -105,7 +105,7 @@ After importing the address of the other party as the monitoring address, you wi
 
 ![image](http://docs.antshares.org/images/gui/d.png)
 
-(4) Click `OK ', and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the aseets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
+(4) Click `OK ', and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the assets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
 
 ### Open the wallet database
 (1) Everytime the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows: 
@@ -187,7 +187,7 @@ It should be noted that the data format should be strictly in accordance with th
 
 #### Remarks
 
-This function is used to record the information of the transaction on the AntShares block-chain. Currently, [small block blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transcation.
+This function is used to record the information of the transaction on the AntShares block-chain. Currently, [small block blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transaction.
 
 ![image](http://docs.antshares.org/images/gui/o.png)
 
@@ -195,7 +195,7 @@ At the moment, there is no requirement for the message format.
 
 ![image](http://docs.antshares.org/images/gui/p.png)
 
-The remarks for the transcation can be found on the broswer.
+The remarks for the transacation can be found on the browser.
 
 ![image](http://docs.antshares.org/images/gui/Oo.png)
 
@@ -203,7 +203,7 @@ The remarks for the transcation can be found on the broswer.
 
 #### Initiating a deal
 
-(1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recepient.
+(1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recipient.
 
 ![image](http://docs.antshares.org/images/gui/Q.png)
 
@@ -217,18 +217,18 @@ The remarks for the transcation can be found on the broswer.
 
 ![image](http://docs.antshares.org/images/gui/S.png)
 
-(2) This causes the other party's transcation request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
+(2) This causes the other party's transaction request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
 
 ![image](http://docs.antshares.org/images/gui/T.png)
 
 (3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](# sign). <a id="sign"> </a>
 
 ### Signature
-(1) This causes the transcation sent by the other party to be pasted within the input box. Click on 'sign', and the output data will be generated. At the same time, the `broadcast ' button will be displayed.
+(1) This causes the transaction sent by the other party to be pasted within the input box. Click on 'sign', and the output data will be generated. At the same time, the 'broadcast' button will be displayed.
 
 ![image](http://docs.antshares.org/images/gui/U.png)
 
-(2) Click on `broadcast ', and the transaction will be sent. This deal is complete, when there is confirmation of the successful transaction. 
+(2) Click on 'broadcast', and the transaction will be sent. This deal is complete when there is confirmation of the successful transaction. 
 
 ![image](http://docs.antshares.org/images/gui/V.png)
 
