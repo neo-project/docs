@@ -8,20 +8,20 @@ We currently recommend C# for developing smart contracts (though we support or p
 
 This section contains a short tutorial that guides you in configuring the C# development environment for AntShares smart contracts and gives you an idea of ​​how to create a smart contract project and how to compile it.
 
-   > [!Note] 
+   > [!Note]
    > At present, all the projects have been upgraded to the Visual Studio 2017 version, if you want to use Visual Studio 2015 to create intelligent contracts can refer to [how to use C # to write ants intelligent contract for VS2015](getting-started-2015.md)
 
 ## Development Tools
 
 ### 1. Visual Studio 2017
 
-If you have already installed Visual Studio 2017 on your computer and checked for .NET .NET Cross-Platform Development at the time of installation, you can skip this section.
+If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
 
 Download and install:
 
 [Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-The installation process is very simple, follow the operation prompts step-by-step, it should be noted that the need to check the installation of `.NET Core cross-platform development`, the installation takes about ten minutes or up to an hour.
+The installation process is very simple, follow the operation prompts step-by-step. It should be noted that the need to check the installation of `.NET Core cross-platform development`, the installation takes about ten minutes or up to an hour.
 
 ![image](http://docs.antshares.org/images/2017-06-02_18-18-13.jpg)
 
