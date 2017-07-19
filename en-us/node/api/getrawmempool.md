@@ -27,4 +27,4 @@ Response text:
 }
 ```
 
-These are the undetermined transactions received by the node, ie zero-confirmed transactions.
+These are the undetermined transactions received by the node, i.e. zero-confirmed transactions.

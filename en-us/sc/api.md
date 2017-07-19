@@ -1,6 +1,6 @@
 # Smart Contract API Reference
 
-The API of the Empty Smart Contract expands the capabilities of the Smart Contract to access the blockchain data, manipulate the persistent store, and execute the execution environment. It is part of the Anto Virtual Machine (AVM) Interoperability Service Layer.
+The API of the Empty Smart Contract expands the capabilities of the Smart Contract to access the blockchain data, manipulate the persistent store, and execute the execution environment. It is part of the AntShares Virtual Machine (AVM) Interoperability Service Layer.
 
 For information about AVM, see [Ants Smart Contract Tutorial](tutorial.md).
 

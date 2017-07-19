@@ -1,6 +1,6 @@
 # Build a private chain with an ant node
 
-In a previous tutorial, you learned how to setup and deply a node on Windows and Linux. This tutorial will teach you how to build a private chain or alliance chain, and the steps needed to extract AntShares and AntCoins from these private chains. 
+In a previous tutorial, you learned how to setup and deploy a node on Windows and Linux. This tutorial will teach you how to build a private chain or alliance chain, and the steps needed to extract AntShares and AntCoins from these private chains.
 
 The deployment of an AntShares private chain requires at least four servers to reach a consensus, where each server corresponds to a consensus node and a dedicated AntShares wallet.
 
@@ -25,11 +25,11 @@ The installation process of the AntShares node has been described in details abo
 
 ## 3,Create a wallet
 
-First, we have created four wallet files, namely wallet1.db3 - wallet4.db3. This step can be executed in both the PC version of the wallet and the command line wallet, where the following figure is a screenshot of the the command line client.
+First, we have created four wallet files, namely wallet1.db3 - wallet4.db3. This step can be executed in both the PC version of the wallet and the command line wallet, where the following figure is a screenshot of the command line client.
 
 ![image](http://docs.antshares.org/images/2017-05-17_11-17-30.jpg)
 
-Once a wallet has been created and its corresponding public key saved, (ie. saved to a txt file), directly copy the public key or use the `list key` command in [CLI Command](cli.md) to view the public key and then copy it.
+Once a wallet has been created and its corresponding public key saved, (i.e. saved to a txt file), directly copy the public key or use the `list key` command in [CLI Command](cli.md) to view the public key and then copy it.
 
 Afterwards, copy the four wallets to the four virtual machine node directory.
 
@@ -40,7 +40,7 @@ Open the node's configuration file `protocol.json`.
 First modify the `Magic` value. Magic is used to identify the source network of the message, and specifying a different Magic ensures that different network information in the AntShares block are not sent to other networks, during transmission.
 
 > [!Note]
-> The type of Magic is uint, so note that the value you fill in is in the range [0 - 4294967295].
+> The type of Magic is unit, so note that the value you fill in is in the range [0 - 4294967295].
 
 Modify the `StandbyValidators`, and fill in the 4 public keys recorded in step 3, here.
 
@@ -124,7 +124,7 @@ Click OK. In order to rebuild the wallet index, click on the 'wallet' in the men
 
 Here we want to send the ant shares from the contract address to the normal address. To do so, open any of the four wallet, click `transaction`, `transfer` and enter the recipient address, in order to transfer 100 million AntShares to this recipient address.
 
-Then, the system will prompt "transaction structure is completed, but there is not enough signature". Copy down the code, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign`. At this time, you will notice a pop-up window that displays a `broadcast' button, which means the signing process for the transaction is completed (the minimum number of signatures required for the contract has been achieved) The transaction can now be broadcasted, click on the `broadcast'. Once the transfer transcation begins broadcasting, it will take about 15 seconds for successful remittance to the account.
+Then, the system will prompt "transaction structure is completed, but there is not enough signature". Copy down the code, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign`. At this time, you will notice a pop-up window that displays a `broadcast' button, which means the signing process for the transaction is completed (the minimum number of signatures required for the contract has been achieved) The transaction can now be broadcasted, click on the `broadcast'. Once the transfer transaction begins broadcasting, it will take about 15 seconds for successful remittance to the account.
 
 ![image](http://docs.antshares.org/images/2017-05-17_15-12-50.jpg)
 
