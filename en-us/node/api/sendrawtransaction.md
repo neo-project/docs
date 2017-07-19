@@ -1,6 +1,6 @@
 # Sendrawtransaction method
 
-This method broadcasts a transaction over the AntShares network. There are many kinds of transactions, as specified in the network protocol [documentation](../network-protocol.md). 
+This method broadcasts a transaction over the AntShares network. There are many kinds of transactions, as specified in the network protocol [documentation](../network-protocol.md).
 
 ## Parameter Description
 
@@ -31,7 +31,7 @@ Response text:
 
 Response Description:
 
-When the result is true that the current transaction broadcast success,
+When the result is true that the current transaction broadcast success.
 
 When result is false, the current transaction broadcast failure, the reasons may have a double cost, incomplete signature and so on.
 
