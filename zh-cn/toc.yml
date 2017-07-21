@@ -1,8 +1,8 @@
-﻿﻿- name: 白皮书
+﻿- name: 白皮书
   href: index.md
 - name: 开始学习
   href: getting-started.md
-- name: 小蚁节点
+- name: NEO 节点
   href: node/introduction.md
   items:
     - name: 介绍
@@ -13,11 +13,11 @@
       href: node/gui.md
     - name: 测试网
       href: node/testnet.md
-    - name: CLI命令参考
+    - name: CLI 命令参考
       href: node/cli.md
     - name: 私链搭建
       href: node/private-chain.md
-    - name: API参考
+    - name: API 参考
       href: node/API.md
       items:
       - name: getbalance
@@ -76,7 +76,7 @@
       href: sc/test.md
     - name: 白皮书
       href: sc/white-paper.md
-    - name: API参考
+    - name: API 参考
       href: sc/api.md
       items: 
       - name: AntShares
@@ -86,7 +86,7 @@
     - name: 框架
       href: sc/fw.md
       items: 
-      - name: .net框架
+      - name: .net 框架
         href: sc/fw/dotnet.md
         items:
           - name: AntShares

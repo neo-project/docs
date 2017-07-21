@@ -54,15 +54,15 @@ namespace ConsoleApplication1
             
             using (ScriptBuilder sb = new ScriptBuilder())
             {
-                sb.EmitPush(2); //对应形参c
-                sb.EmitPush(4); //对应形参b
-                sb.EmitPush(3); //对应形参a
+                sb.EmitPush(2); // 对应形参 c
+                sb.EmitPush(4); // 对应形参 b
+                sb.EmitPush(3); // 对应形参 a
                 engine.LoadScript(sb.ToArray());
             }
 
-            engine.Execute(); //开始执行
+            engine.Execute(); // 开始执行
 
-            var result = engine.EvaluationStack.Peek().GetBigInteger(); //在这里设置返回值
+            var result = engine.EvaluationStack.Peek().GetBigInteger(); // 在这里设置返回值
             Console.WriteLine($"执行结果 {result}");
             Console.ReadLine();
         }
@@ -92,6 +92,6 @@ using (ScriptBuilder sb = new ScriptBuilder())
 
 ### 📖该文档正在编辑中
 
-该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/neo-project/neo/wiki) 上查看其它文档，或者来我们的 [小蚁官方网站](http://www.antshares.org) 逛逛。
+该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/neo-project/neo/wiki) 上查看其它文档，或者来我们的 [NEO 官方网站](http://www.antshares.org) 逛逛。
 
-小蚁是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/AntShares/docs](https://github.com/neo-project/docs) ，感谢您的付出。
+NEO 是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/AntShares/docs](https://github.com/neo-project/docs) ，感谢您的付出。

@@ -6,7 +6,7 @@
 
 程序集：AntShares.SmartContract.Framework
 
-注：本文中标记 `new` 和 `已弃用` 的地方是 2.0 版本相对 1.6 版本的更改之处。
+注：本文中标记 `new` 和 ` 已弃用 ` 的地方是 2.0 版本相对 1.6 版本的更改之处。
 
 ## 语法
 
@@ -25,7 +25,7 @@ public class Contract
 |                                          | 名称                                       | 说明              |
 | ---------------------------------------- | ---------------------------------------- | --------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `new` 发布智能合约    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `new` 迁移/更新智能合约 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `new` 迁移 / 更新智能合约 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `new` 销毁智能合约    |
 
 ## 构造方法

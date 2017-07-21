@@ -59,4 +59,4 @@ public class Domain : FunctionCode
 
 上面的代码实现了对域名的查询、注册、转让、删除。
 
-详情可参考 [Storage类](../fw/dotnet/AntShares/Storage.md)。
+详情可参考 [Storage 类](../fw/dotnet/AntShares/Storage.md)。

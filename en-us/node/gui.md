@@ -171,7 +171,7 @@ This option is used to restore the address of the wallet file that was accidenta
 
 ![image](http://docs.antshares.org/images/gui/l.png)
 
-(4) Signature function see [signature](# sign).
+(4) Signature function see [signature](#sign).
 
 #### Batch transfer
 
@@ -221,7 +221,7 @@ The remarks for the transaction can be found on the browser.
 
 ![image](http://docs.antshares.org/images/gui/T.png)
 
-(3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](# sign). <a id="sign"> </a>
+(3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
 
 ### Signature
 (1) This causes the transaction sent by the other party to be pasted within the input box. Click on 'sign', and the output data will be generated. At the same time, the `broadcast ' button will be displayed.

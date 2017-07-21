@@ -1,0 +1,8 @@
+#logo.svg {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.css .hljs-at_rule, .css .hljs-important, .go .hljs-typename, .haskell .hljs-type, .hljs-keyword, .http .hljs-request, .ini .hljs-setting, .java .hljs-javadoctag, .javascript .hljs-javadoctag, .javascript .hljs-tag, .less .hljs-at_rule, .less .hljs-tag, .nginx .hljs-title, .objectivec .hljs-preprocessor, .php .hljs-phpdoc, .scss .hljs-at_rule, .scss .hljs-important, .scss .hljs-tag, .sql .hljs-built_in, .stylus .hljs-at_rule, .swift .hljs-preprocessor {
+    color: #a71d5d;
+}
