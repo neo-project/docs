@@ -15,55 +15,64 @@
 ## 2 - 规则
 **在小蚁的共识算法中，共识节点由小蚁股持有人股票选出，并对区块链中交易的有效性进行验证。过去这些节点被称作“记账人”，现在他们被称作“共识节点”**
 
-  - <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **共识节点** - 此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
-  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **议长** `(One)` - **议长** 负责向系统发送一个新的区块的提案。
-  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **议员** `(Multiple)` - **议员** are responsible for reaching a consensus on the transaction.
+  - <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **共识节点** —— 此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
+  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **议长** `（一人）` —— **议长** 负责向系统发送一个新的区块的提案。
+  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **议员** `（多人）` —— **议员** 负责对议长的提案进行投票，大于等于2/3的议员投票时，提案通过。
 
 
 ## 3 - 介绍
 
-One of the fundamental differences between blockchains is how they can guarantee fault tolerance given defective, non-honest activity on the network.
+众多区块链共识算法的根本区别是他们如何保障对系统中的故障节点、恶意节点的容错能力。
 
-Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
+传统的 PoW 方法可以提供这种容错能力，只要网络的大多数算力是诚实的。                                                         
 
-AntShares implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(ANS holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
+然而，由于这种模式依赖于大量的计算，这种机制可能会非常低效且不环保（算力消耗能源，需要硬件）。 这些依赖就是 PoW 方法的限制所在，最主要的就是扩展的成本。
 
-
-
-## 4 - Theory
-
-The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Congressmen** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Congressmen** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Congressmen** identify if the **Speaker** is honest and what the actual command was as a group.
-
-For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
-
-For the sake of discussion, we will describe a couple scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanic is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
+小蚁实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 的特点（小蚁股持有人需要对共识节点进行投票） 利用最小的资源来保障网络免受拜占庭故障的影响，同时也弥补了 PoS 的一些问题。该解决方案解决了与当前块链实现相关的性能和可扩展性问题，而不会对容错产生重大影响。
 
 
-### **Honest Speaker**
 
-  <p align="center"><img src="assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Congressman</b>.</p>
+## 4 - 理论
 
-  In **Figure 1**, we have a single loyal **Congressman** (50%).  Both **Congressmen** received the same message from the honest **Speaker**.  However, because a **Congressman** is dishonest, the honest congressman can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Congressman**.  Because of this, the **Congressman** must abstain from a vote, changing the view.
+拜占庭位于如今的土耳其的伊斯坦布尔，是东罗马帝国的首都。由于当时拜占庭罗马帝国国土辽阔，为了防御目的，因此每个军队都分隔很远，将军与将军之间只能靠信差传消息。 在战争的时候，拜占庭军队内所有将军和副官必需达成一致的共识，决定是否有赢的机会才去攻打敌人的阵营。但是，在军队内有可能存有叛徒和敌军的间谍，左右将军们的决定又扰乱整体军队的秩序。在进行共识时，结果并不代表大多数人的意见。这时候，在已知有成员谋反的情况下，其余忠诚的将军在不受叛徒的影响下如何达成一致的协议，拜占庭问题就此形成。
 
-  <p align="center"><img src="assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Congressman</b>.</p>
+为了描述 DBFT 的工作原理，我们将本节重点放在第 5 部分中的证明 66.66％ 的共识率的正确性。请记住，不诚实的节点不需要主动恶意，因为它根本不可能是按预期运作。
 
-  In **Figure 2**, we have a two loyal **Congressmen** (66%).  All **Congressmen** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Congressman**.  Based on the consensus of the two honest **Congressmen**, we are able to determine that either the **Speaker** or right **Congressman** is dishonest in the system.
+为了讨论，我们将描述一些情景。 在这些简单的例子中，我们假设每个节点沿着从 **议长** 发送过来的消息发送。 此技工也用于DBFT，对系统至关重要。 我们将仅描述功能系统与功能失效系统之间的区别。 有关更详细的说明，请参阅参考资料。
 
+
+### **诚实的议长**
+
+  <p align="center"><img src="assets/n3.png" width="300"><br>
+
+ <b>图 1：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议员</b>。</p>
+
+在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **文员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因为 **议员** 必须弃票，改变视图。
+
+  <p align="center"><img src="assets/n4.png" width="400"><br>
+
+ <b>图 2：</b> 一个 n =4 的例子中存在一个不诚实的 <b>议员</b>。</p>
+
+在图 2 中，我们有两个诚实的 **议员** (66%)。所有的 **议员** 从 **议长**  那里收到相同的消息，然后向其它 **议员** 发送消息和自己的验证结果。根据两位诚实 **议员** 的共识，我们可以确定 **议长** 或者右边的 **议员** 在系统中是不诚实的。
   
 
 
-### **Dishonest Speaker** 
+### **不诚实的议长** 
 
-  <p align="center"><img src="assets/g3.png" width="300"><br> <b>Figure 3:</b> An n = 3 example with a dishonest <b>Speaker</b>. </p>
+  <p align="center"><img src="assets/g3.png" width="300"><br> 
 
-  In the case of **Figure 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Congressman** is able to determine which node is dishonest.
+ <b>图 3：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议长</b>。</p>
 
-  <p align="center"><img src="assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
+在图 3 中，不诚实的是  **议长**，这和图 1 中描述的案例有同样的结论。**议员** 无法确定哪个节点是不诚实的。
 
-  In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
+  <p align="center"><img src="assets/g4.png" width="400"><br> 
+
+ <b>图 4：</b> 一个 n = 4 的例子中存在一个不诚实的 <b>议长</b>。</p>
+
+在图 4 所示的例子中，中间的节点和右边的节点接收的区块不可验证， This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
 
 
-## 5 - Practical Implementation
+## 5 - 实际实施
 
 The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
@@ -76,7 +85,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 **Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
 
 
-### 5.1 - Definitions
+### 5.1 - 定义
 
 **Within the algorithm, we define the following:**
 
@@ -108,7 +117,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
      - `s = ((n - 1) - f)`
 
 
-### 5.2 - Requirements
+### 5.2 - 要求
 
 **Within AntShares, there are three primary requirements for consensus fault tolerance:**
 
@@ -120,7 +129,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 
 
-### 5.3 - Algorithm
+### 5.3 - 算法
 **The algorithm works as follows:**
 
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
@@ -158,7 +167,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
         <!-- -->
             <ChangeView, h,k,i,k+1>
         ​	
-   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal and respond. </p>
+           <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal and respond. </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
 
@@ -184,7 +193,8 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 ​	
 
-## 6 - References
+## 6 - 引用
+=======
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)

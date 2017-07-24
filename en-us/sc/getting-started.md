@@ -37,7 +37,7 @@ Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on t
 
 Installation and configuration steps:
 
-Download the [AntShares.VM](https://github.com/AntShares/AntShares.VM) project on Github, open the solution with Visual Studio 2017, publish the AntShares.Compiler.MSIL project,
+Download the [AntShares.VM](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2017, publish the AntShares.Compiler.MSIL project,
 
 ![publish antshares compiler msil project](assets/publish_antshares_compiler_msil_project.png)
 

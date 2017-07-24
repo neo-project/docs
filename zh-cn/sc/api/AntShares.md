@@ -1,8 +1,8 @@
 # AntShares 命名空间
 
-AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。
+AntShares 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。
 
-注：本文中标记 `new` 和 `已弃用` 的地方是 2.0 版本相对 1.6 版本的更改之处。
+注：本文中标记 `new` 和 ` 已弃用 ` 的地方是 2.0 版本相对 1.6 版本的更改之处。
 
 从区块链查询数据的 API：
 
@@ -38,7 +38,7 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | ----------------------------------- | ---------------------------------------- |
 | AntShares.Transaction.GetHash       | 获得当前交易的 Hash                             |
 | AntShares.Transaction.GetType       | 获得当前交易的类型                                |
-| AntShares.Enrollment.GetPublicKey   | `已弃用` 已用 AntShares.Blockchain.GetValidators 替代 |
+| AntShares.Enrollment.GetPublicKey   | ` 已弃用 ` 已用 AntShares.Blockchain.GetValidators 替代 |
 | AntShares.Transaction.GetAttributes | 查询当前交易的所有属性                              |
 | AntShares.Transaction.GetInputs     | 查询当前交易的所有交易输入                            |
 | AntShares.Transaction.GetOutputs    | 查询当前交易的所有交易输出                            |
@@ -57,13 +57,13 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | ------------------------------- | ------------------- |
 | AntShares.Account.GetScriptHash | 获得该合约账户的脚本散列        |
 | AntShares.Account.GetVotes      | 获得该合约账户投给其它人的的投票信息  |
-| AntShares.Account.GetBalance    | 通过资产ID获得该账户中这种资产的余额 |
+| AntShares.Account.GetBalance    | 通过资产 ID 获得该账户中这种资产的余额 |
 
 资产类 API：
 
 | API                          | 说明                                    |
 | ---------------------------- | ------------------------------------- |
-| AntShares.Asset.GetAssetId   | 获得该资产的ID                              |
+| AntShares.Asset.GetAssetId   | 获得该资产的 ID                              |
 | AntShares.Asset.GetAssetType | 获得该资产的类别                              |
 | AntShares.Asset.GetAmount    | 获得该资产的总量                              |
 | AntShares.Asset.GetAvailable | 获得该资产的已经发行出去的数量                       |
@@ -90,12 +90,17 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 
 | API                            | 说明                                |
 | ------------------------------ | --------------------------------- |
-| AntShares.Runtime.CheckWitness | `new` 验证调用该智能合约的交易/区块是否验证过所需的脚本散列 |
+| AntShares.Runtime.CheckWitness | `new` 验证调用该智能合约的交易 / 区块是否验证过所需的脚本散列 |
 | AntShares.Runtime.Notify       | `new` 在智能合约中向执行该智能合约的客户端发送通知      |
 | AntShares.Runtime.Log          | `new` 在智能合约中向执行该智能合约的客户端发送日志      |
 
-
 参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
+
+此类 API 会对智能合约的状态进行修改
+
+参考：以上 API 的源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
+
+------
 
 此类 API 会对智能合约的状态进行修改
 
@@ -106,10 +111,10 @@ AntShares 命名空间是小蚁区块链所提供的 API，提供了访问区块
 | AntShares.Asset.Create               | `new` 注册一种资产                     |
 | AntShares.Asset.Renew                | `new` 为资产续费                      |
 | AntShares.Contract.Create            | `new` 发布智能合约                     |
-| AntShares.Contract.Migrate           | `new` 迁移/更新智能合约                  |
+| AntShares.Contract.Migrate           | `new` 迁移 / 更新智能合约                  |
 | AntShares.Contract.Destroy           | `new` 销毁合约                       |
 | AntShares.Contract.GetStorageContext | `new` 获得合约的存储上下文                 |
 | AntShares.Storage.Put                | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 | AntShares.Storage.Delete             | 删除操作，在持久化存储区中通过 key 删除对应的 value  |
 
-参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateMachine.cs 文件。
+参考：以上 API 的源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateMachine.cs 文件。

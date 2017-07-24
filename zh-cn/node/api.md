@@ -1,6 +1,6 @@
-# API参考
+# API 参考
 
-每个小蚁节点 AntSharesCore-CLI 都可选的提供了一套 API 接口，用于从节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。要启动一个提供 RPC服务的节点，可运行以下命令：
+每个 NEO 节点 AntSharesCore-CLI 都可选的提供了一套 API 接口，用于从节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。要启动一个提供 RPC 服务的节点，可运行以下命令：
 
 `dotnet AntSharesDaemon.dll /rpc`
 
@@ -19,7 +19,7 @@
 }                                          
 ```
 
-JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [小蚁节点介绍](introduction.md)。
+JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](introduction.md)。
 
 |                | 主网（Main Net） | 测试网（Test Net） |
 | -------------- | ------------ | ------------- |
@@ -44,7 +44,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | 向指定地址转账                    | 需要打开钱包   |
 | submitblock                              | \<hex>                                  | 提交新的区块                     | 需要成为共识节点 |
 
-## GET请求示例
+## GET 请求示例
 
 一次典型的 JSON-RPC GET 请求格式如下：
 
@@ -66,7 +66,7 @@ http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 }
 ```
 
-## POST请求示例
+## POST 请求示例
 
 一次典型的 JSON-RPC Post 请求的格式如下：
 

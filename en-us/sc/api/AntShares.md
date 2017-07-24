@@ -2,9 +2,9 @@
 
 The AntShares namespace is the API provided by the small-ants blockchain, providing a way to access the block-chain data and manipulate the persistent store. These APIs are divided into two categories.
 
-1, read-only API, contract procedures can be accessed through the API to the entire chain of all the data on the chain, including the complete block and transactions, as well as their every field.
+1. read-only API, contract procedures can be accessed through the API to the entire chain of all the data on the chain, including the complete block and transactions, as well as their every field.
 
-2, read and write API. Smart contracts can modify the status of contracts through such APIs, such as reading and writing persistent storage areas.
+2. read and write API. Smart contracts can modify the status of contracts through such APIs, such as reading and writing persistent storage areas.
 
 Note: The new and deprecated places in this article are the changed to version 2.0 relative to version 1.6.
 

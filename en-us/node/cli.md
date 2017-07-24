@@ -10,7 +10,11 @@ We will first explore the various commands listed in the command line. In the co
 
 ![image](http://docs.antshares.org/images/2017-05-17_12-30-05.jpg)
 
-The following is a description of all the commands, the order of the brackets ``<> ```is the parameter, square brackets`[] `is optional parameters, and the symbol` | `displays the fill parameters can be any of any type, the equal sign `=` indicates the default value of the optional parameter without input.`
+The following is a description of all the commands and the order of the brackets
+Angular brackets ``<> `` indicate a parameter,
+Square brackets`[]`is optional parameters,
+The symbol `|` displays the fill parameters that can be any of any type,
+The equal sign `=` indicates the default value of the optional parameter without an input.
 
 ## 1. Console Instructions
 
@@ -36,11 +40,12 @@ Command | Function Description | Remarks |
 | export key \[address] [path] | Export private key | Need to open wallet |
 | send \<id\|alias> \<address> \<value> [fee=0]| Send to the specified address |Need to open wallet |
 
-The following commands is explained in detail:
+The following commands are explained in detail:
 
 👉 `rebuild index`
 
-Rebuild the wallet index. Why is it necessary to rebuild the wallet index?
+This command is used to rebuild the wallet index.
+Why is it necessary to rebuild the wallet index?
 
 There is a field in the wallet that records the height of the current wallet sync block. For each new one, the wallet client synchronizes the blocks and updates the assets and transactions in the wallet. Assuming that the currently recorded block height is 100, then you execute the import key command to import the private key, and the wallet still calculates your asset from the block height of 100. If the imported address has some transactions when the block height is less than 100, the transactions and the corresponding assets will not be reflected in the purse, so the wallet index should be rebuilt, forcing the wallet to calculate your assets from the block height of 0.
 
@@ -48,11 +53,11 @@ The newly created wallet does not need to rebuild the wallet index, only the imp
 
 👉 `create address [n = 1]`
 
-You can enter create address to create a new address, you can also enter create address 100 to create 100 new addresses in batches; Batch creation of the address will be automatically exported to the address.txt file.
+This command can be used to create a new address. One can also enter 'create address 100' to create 100 new addresses in batches; Batch creation of the address will be automatically exported to the address.txt file.
 
 👉 `export key [address] [path]`
 
-You can specify which addresses to export the corresponding private keys to. You can also specify the export to the specified file. (For example, the following command is legal) The command also requires the verification of the wallet password.
+You can specify which addresses to export the corresponding private keys to. You can also specify the export to the specified file. (See below for examples). The command also requires the verification of the wallet password.
 
 Export key
 
@@ -74,7 +79,7 @@ If there is a specified file, the file is in the private key format. Refer to ex
 
 👉 `send <id | alias> <address> <value> [fee = 0]`
 
-For transfers, there are a total of four parameters. The first parameter is the asset ID, the second parameter is the payment address, the third parameter is the transfer amount, and the fourth parameter is the fee (This parameter can be left empty, the default is 0) The command needs to verify the wallet password. For example, in order to transfer 100 antshares to the address "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", I would need to enter the following command.
+For transfers, there are a total of four parameters. The first parameter is the asset ID, the second parameter is the payment address, the third parameter is the transfer amount, and the fourth parameter is the fee (This parameter can be left empty, the default is 0) The command needs to verify the wallet password. For example, in order to transfer 100 AntShares to the address "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", one would need to enter the following command.
 
 Send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
@@ -84,7 +89,7 @@ If you are not sure of the asset ID, please enter the list asset command to view
 
 Command | Function Description |
 | ---------- | ----------------------- |
-Show state | Displays the current status of blockchain synchronization 
+Show state | Displays the current status of blockchain synchronization
 Show node | Displays the address and port of connected nodes |
 Show pool | Display the transactions in the memory pool (These transactions are in the state of zero confirmation)
 ## 4. Advanced instructions
@@ -92,4 +97,4 @@ Show pool | Display the transactions in the memory pool (These transactions are 
 Command | Function Description |
 | --------------- | ---- |
 Start consensus | Begin consensus
-Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](private-chain.md) for furher details.
+Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](private-chain.md) for further details.
