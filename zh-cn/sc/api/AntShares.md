@@ -94,6 +94,9 @@ AntShares 命名空间是 NEO 区块链所提供的 API，提供了访问区块�
 | AntShares.Runtime.Notify       | `new` 在智能合约中向执行该智能合约的客户端发送通知      |
 | AntShares.Runtime.Log          | `new` 在智能合约中向执行该智能合约的客户端发送日志      |
 
+参考：源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
+
+此类 API 会对智能合约的状态进行修改
 
 参考：以上 API 的源码位于 AntShares 项目中的 src/AntShares/SmartContract/StateReader.cs 文件。
 
