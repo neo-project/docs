@@ -2,9 +2,9 @@
 
 ### 📖 The document is being edited
 
-📖 The documentation is a work in progress. You can view other documents on [Github wiki](https://github.com/AntShares/AntShares/wiki/) or visit our [official website](Http://www.antshares.org).
+📖 The documentation is a work in progress. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or visit our [official website](Http://www.antshares.org).
 
-This is an open source community project, you can contribute to the development of the documentation, [github.com/AntShares/docs](https://github.com/AntShares/docs), thanks for visiting.
+This is an open source community project, you can contribute to the development of the documentation, [github.com/AntShares/docs](https://github.com/neo-project/docs), thanks for visiting.
 
 ------
 

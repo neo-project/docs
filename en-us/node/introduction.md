@@ -12,8 +12,8 @@ Finally, this section also contains information about the AntShares [network pro
 
 |      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [Official website](https://www.antshares.org/download) or [Github](https://github.com/antshares/antsharescore/releases) | [Github](https://github.com/AntShares/antsharescore/releases) |
-Source code | [Github](https://github.com/antshares/antsharescore) | [Github](https://github.com/antshares/antsharescore) |
+| Releases | [Official website](https://www.antshares.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
+Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
 
 ## Comparison of GUI node and CLI node functions
 

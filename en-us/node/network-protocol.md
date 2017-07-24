@@ -106,8 +106,8 @@ Data Type
    |0x20|EnrollmentTransaction|1000|enrollment for validator|
    |0x40|RegisterTransaction|10000|assets register|
    |0x80|ContractTransaction|0|contract transaction|
-   |0xd0|PublishTransaction|500 * n|(Not usuable) Special Transactions for Smart Contracts|
-   |0xd1|InvocationTransaction|0|Special transcations for calling smart contracts|
+   |0xd0|PublishTransaction|500 * n|(Not usable) Special Transactions for Smart Contracts|
+   |0xd1|InvocationTransaction|0|Special transactions for calling smart contracts|
 
    Each type of transaction, in addition to the public field, also has its own exclusive field. The following will describe these exclusive fields in detail.
 
@@ -223,7 +223,7 @@ Data Type
    |8|Value|int64|value|
    |20|ScriptHash|uint160|address of remittee|
 
-   Each transaction could have outputs up to 65536. 
+   Each transaction could have outputs up to 65536.
 
 1. Validation Script
 
@@ -280,7 +280,7 @@ According to different orders Payload has different detailed format, see below:
 
 1. verack
 
-   When a node receives the version message, it replies to a verack as a response immediately.
+   When a node receives the version message, it replies with a verack immediately.
 
    This message has no payload.
 
@@ -322,7 +322,7 @@ According to different orders Payload has different detailed format, see below:
    |32*?|HashStart|uint256[]|hash of latest block that node requests|
    |32|HashStop|uint256|hash of last block that node requests|
 
-   Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get block hash more than that you need to resend getblocks message.
+   Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get block hash more than that, you need to resend getblocks message.
 
 1. inv
 
@@ -370,7 +370,7 @@ According to different orders Payload has different detailed format, see below:
    |?|Transaction|tx|transaction|
 
    Sending a transaction to a node to respond getdata message.
-   
+
    |Size|field|data type|description|
    |----|---------|--------- |----------------- |
    |32 *?|HashStart|uint256[]|node is known as the latest block hash|

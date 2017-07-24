@@ -1,8 +1,8 @@
 # AntShares White Paper 1.1
 
-📖 This documentation is a work in progress. You can view other documents on the [Github wiki](https://github.com/AntShares/AntShares/wiki/) or visit our [official website](Http://www.antshares.org).
+📖 This documentation is a work in progress. You can view other documents on the [Github wiki](https://github.com/neo-project/neo/wiki) or visit our [official website](Http://www.antshares.org).
 
-This is an open source community project. You can contribute to the development of the documentation at [github.com/AntShares/docs](https://github.com/AntShares/docs). Thanks for visiting.
+This is an open source community project. You can contribute to the development of the documentation at [github.com/neo-project/docs](https://github.com/neo-project/docs). Thanks for visiting.
 
 ------
 

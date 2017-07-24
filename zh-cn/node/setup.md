@@ -1,6 +1,6 @@
-# 小蚁节点的安装部署
+# NEO 节点的安装部署
 
-上文介绍了小蚁的全节点有两个客户端，一个是 [AntSharesCore-CLI](https://github.com/AntShares/AntSharesCore/releases)（为开发者提供的命令行客户端），一个是 [AntSharesCore-GUI](https://www.antshares.org/download)（为高级用户提供的图形界面的客户端）
+上文介绍了 NEO 的全节点有两个客户端，一个是 [AntSharesCore-CLI](https://github.com/neo-project/neo-gui/releases)（为开发者提供的命令行客户端），一个是 [AntSharesCore-GUI](https://www.antshares.org/download)（为高级用户提供的图形界面的客户端）
 
 部署共识节点所用的是 `AntSharesCore-CLI` ，这是一个跨平台的程序，可以在 Windows、Linux 和 Docker 中运行
 
@@ -17,17 +17,17 @@
 | Docker                            | ✅                 |
 
 > [!Note]
-> 目前小蚁节点在 Mac OS 下不能正常运行，之后会加入对 Mac OS 的支持，敬请期待。
+> 目前 NEO 节点在 Mac OS 下不能正常运行，之后会加入对 Mac OS 的支持，敬请期待。
 
 ## 运行环境
 
-运行小蚁节点需要安装 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，需要安装 1.0.1 或以上版本
+运行 NEO 节点需要安装 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，需要安装 1.0.1 或以上版本
 
 ### Windows 系统下的安装方法
 
 在 Windows 系统下安装  .NET Core 非常方便，直接下载运行即可。
 
-### Linux系统下的安装方法
+### Linux 系统下的安装方法
 
 下面演示的是 .NET Core 在 Red Hat Enterprise Linux 7 Server 中的安装方法：
 
@@ -57,14 +57,14 @@ dotnet run
 如果你看到最后输出 “Hello World!” 说明 .Net Core 安装成功。
 
 
-## 小蚁节点的安装
+## NEO 节点的安装
 
-1、在 Github 上下载 [AntSharesCore-CLI](https://github.com/antshares/antsharescore/releases) 程序包并解压。
+1、在 Github 上下载 [AntSharesCore-CLI](https://github.com/neo-project/neo-gui/releases) 程序包并解压。
 
 > [!Note]
 > 如果你试图直接在 Github 上下载并编译 AntSharesCore-CLI 源码，你会发现编译后运行 `dotnet AntSharesDaemon.dll` 会报错，这时你需要将 libleveldb.dll 和  sqlite3.dll 复制到 AntSharesDaemon.dll 同一目录下。这两个文件可以在第一步的程序包中下载。
 
-2、打开命令行，定位到程序所在目录，输入下面代码即可启动小蚁节点 。
+2、打开命令行，定位到程序所在目录，输入下面代码即可启动 NEO 节点 。
 
 ``` 
 dotnet AntSharesDaemon.dll

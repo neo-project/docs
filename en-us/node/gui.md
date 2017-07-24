@@ -9,7 +9,7 @@ The versions of Windows which are compatible with the client are: win7 sp1/win8/
 The client itself does not require any installation. Download and directly double-click AntSharesUI.exe to open the client. If there are any problems with the process, and the client cannot be used normally, please keep the client directory error.log file, and contact our technical staff to assist you in solving the problem.
 
 > [!Note]
-> Windows10 pre-version of the system requries installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+> Windows10 pre-version of the system requires installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
 ### Synchronize
 
@@ -55,11 +55,11 @@ A record of all transaction information associated with the account.
 
 #### Transfer
 
-Transfer of assets to a recipent address. If the asset type is an Antshare, both partities are required to confirm with their signature. Other types of asset transfer can be condcuted without confirmation for both parties.
+Transfer of assets to a recipient address. If the asset type is an Antshare, both parties are required to confirm with their signature. Other types of asset transfer can be conducted without confirmation for both parties.
 
 #### Trade
 
-Carries out online asset exchange between two parties, where both parties have to confirm before succesful exchange of assets can occur.
+Carries out online asset exchange between two parties, where both parties have to confirm before successful exchange of assets can occur.
 
 #### Signature
 
@@ -68,7 +68,7 @@ For transactions involving equity allocation and transfer of assets, the signatu
 
 #### Registered assets
 
-Creating a new user-issued asset in the AntShares block. The user can define the type, name, total, etc of the asset and specify the administrator account of the asset. The creation of assets need to consume a certain amount of AntShares as an additional service fee, the current price is 10,000 AntCoins. (Test network fee is one percent of the main network)
+Creating a new user-issued asset in the AntShares block. The user can define the type, name, total, etc. of the asset and specify the administrator account of the asset. The creation of assets need to consume a certain amount of AntShares as an additional service fee, the current price is 10,000 AntCoins. (Test network fee is one percent of the main network)
 
 #### Distribute assets
 
@@ -84,7 +84,7 @@ The holders of  AntShares can vote on the candidate accountants and determine th
 
 #### Broadcast
 
-After signing, the transaction information is broadcasted to the entire network, where confirmaton by a node, completes the transaction. At the moment, this feature only appears in the signature.
+After signing, the transaction information is broadcasted to the entire network, where confirmation by a node, completes the transaction. At the moment, this feature only appears in the signature.
 
 #### Monitor address
 
@@ -105,10 +105,10 @@ After importing the address of the other party as the monitoring address, you wi
 
 ![image](http://docs.antshares.org/images/gui/d.png)
 
-(4) Click `OK ', and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the aseets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
+(4) Click `OK ', and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the assets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
 
 ### Open the wallet database
-(1) Everytime the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows: 
+(1) Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
 
 ![image](http://docs.antshares.org/images/gui/e.png)
 
@@ -171,7 +171,7 @@ This option is used to restore the address of the wallet file that was accidenta
 
 ![image](http://docs.antshares.org/images/gui/l.png)
 
-(4) Signature function see [signature](# sign).
+(4) Signature function see [signature](#sign).
 
 #### Batch transfer
 
@@ -187,7 +187,7 @@ It should be noted that the data format should be strictly in accordance with th
 
 #### Remarks
 
-This function is used to record the information of the transaction on the AntShares block-chain. Currently, [small block blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transcation.
+This function is used to record the information of the transaction on the AntShares block-chain. Currently, [small block blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transaction.
 
 ![image](http://docs.antshares.org/images/gui/o.png)
 
@@ -195,7 +195,7 @@ At the moment, there is no requirement for the message format.
 
 ![image](http://docs.antshares.org/images/gui/p.png)
 
-The remarks for the transcation can be found on the broswer.
+The remarks for the transaction can be found on the browser.
 
 ![image](http://docs.antshares.org/images/gui/Oo.png)
 
@@ -203,7 +203,7 @@ The remarks for the transcation can be found on the broswer.
 
 #### Initiating a deal
 
-(1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recepient.
+(1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recipient.
 
 ![image](http://docs.antshares.org/images/gui/Q.png)
 
@@ -217,18 +217,18 @@ The remarks for the transcation can be found on the broswer.
 
 ![image](http://docs.antshares.org/images/gui/S.png)
 
-(2) This causes the other party's transcation request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
+(2) This causes the other party's transaction request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
 
 ![image](http://docs.antshares.org/images/gui/T.png)
 
-(3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](# sign). <a id="sign"> </a>
+(3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
 
 ### Signature
-(1) This causes the transcation sent by the other party to be pasted within the input box. Click on 'sign', and the output data will be generated. At the same time, the `broadcast ' button will be displayed.
+(1) This causes the transaction sent by the other party to be pasted within the input box. Click on 'sign', and the output data will be generated. At the same time, the `broadcast ' button will be displayed.
 
 ![image](http://docs.antshares.org/images/gui/U.png)
 
-(2) Click on `broadcast ', and the transaction will be sent. This deal is complete, when there is confirmation of the successful transaction. 
+(2) Click on `broadcast ', and the transaction will be sent. This deal is complete, when there is confirmation of the successful transaction.
 
 ![image](http://docs.antshares.org/images/gui/V.png)
 
@@ -240,25 +240,25 @@ The remarks for the transcation can be found on the broswer.
 
 **Download**
 
-You can download it here [https://www.antshares.org/client/chain.acc.zip](https://www.antshares.org/client/chain.acc.zip "chain.acc.zip") 
+You can download it here [https://www.antshares.org/client/chain.acc.zip](https://www.antshares.org/client/chain.acc.zip "chain.acc.zip")
 
 When you enter the URL, you will download a packet like this. ![](~/images/gui/2017-07-04_11-59-35.png)
 
 **Add**
 
-Unzip the packet and put it in the folder, as shown in the figure below: 
+Unzip the packet and put it in the folder, as shown in the figure below:
 
 ![](~/images/gui/2017-07-04_12-06-35.png)
 
 **Sync**
 
-Open the client,and you will see that the client is in sync with the super fast speed. As shown in the figure below:  
+Open the client, and you will see that the client is in sync with the super fast speed. As shown in the figure below:  
 
 ![](~/images/gui/2017-07-04_12-07-35.png)
 
 **Complete**
 
-When synchronized to a certain degree, the file (chain.acc) will disappear and the synchronization speed will slow down. As shown in the figure below: 
+When synchronized to a certain degree, the file (chain.acc) will disappear and the synchronization speed will slow down. As shown in the figure below:
 
 ![](~/images/gui/2017-07-04_12-08-35.png)
 
@@ -281,11 +281,11 @@ The specific steps are:
 ### Request a certificate
 
 Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
-Click `advance ', 'request certifcate', and fill in the request form according to the instructions given.
+Click `advance ', 'request certificate', and fill in the request form according to the instructions given.
 
 ![image](http://docs.antshares.org/images/gui/X.png)
 
-The generateed file will be as shown, in the following figure:
+The generated file will be as shown, in the following figure:
 
 ![image](http://docs.antshares.org/images/gui/y.png)
 
@@ -295,13 +295,13 @@ There are two types of assets, Token and Share. Using Token as an example, fill 
 
 ![image](http://docs.antshares.org/images/gui/Z.png)
 
-It should be noted that the registeration of assets require a huge amount of fees. (The main network fee is 10000 AntCoins, test network fee is 100 AntShares coins) Please exercise caution.
+It should be noted that the registration of assets require a huge amount of fees. (The main network fee is 10000 AntCoins, test network fee is 100 AntShares coins) Please exercise caution.
 
 ### Distribute assets
 
 ![image](http://docs.antshares.org/images/gui/A1.png)
 
-It should be noted that the distribution of assets require a huge amount of fees. (The main network fee is 500 AntShares coins, test network fee is 5 AntShares coins) Please exercise caution, and choose one-time distribution if possible. 
+It should be noted that the distribution of assets require a huge amount of fees. (The main network fee is 500 AntShares coins, test network fee is 5 AntShares coins) Please exercise caution, and choose one-time distribution if possible.
 
 ### Deploy Contract
 
@@ -313,11 +313,11 @@ To be added
 
 ### Election
 
-This function is used to register as a candidate for the AntShares block-chain book-kepper.
+This function is used to register as a candidate for the AntShares block-chain book-keeper.
 
 ![image](http://docs.antshares.org/images/gui/B1.png)
 
-It should be noted that the election requires a huge fee. (The main network fee is 1000 AntCoins, test network fee is 10 AntCoins) Please exercise caution. The book-keeper function is not availabe yet, please wait for further updates. 
+It should be noted that the election requires a huge fee. (The main network fee is 1000 AntCoins, test network fee is 10 AntCoins) Please exercise caution. The book-keeper function is not available yet, please wait for further updates.
 
 ### 4.8 Option
 
