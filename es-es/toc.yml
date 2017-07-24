@@ -1,0 +1,121 @@
+- name: Inicio
+  href: index.md
+- name: Primeros Pasos
+  href: getting-started.md
+- name: Whitepaper
+  href: white-paper.md
+- name: Nodo de Neo
+  href: node/introduction.md
+  items:
+    - name: Introducción
+      href: node/introduction.md
+    - name: Instalación
+      href: node/setup.md
+    - name: Interfaz Gráfico de Usuario
+      href: node/gui.md
+    - name: Rede de pruebas
+      href: node/testnet.md
+    - name: Documentación del CLI
+      href: node/cli.md
+    - name: Private Chain
+      href: node/private-chain.md
+    - name: Documentación de la API
+      href: node/API.md
+      items:
+      - name: getbalance
+        href: node/api/getbalance.md
+      - name: getbestblockhash
+        href: node/api/getbestblockhash.md
+      - name: getblock
+        href: node/api/getblock2.md
+      - name: getblockcount
+        href: node/api/getblockcount.md
+      - name: getblockhash
+        href: node/api/getblockhash.md
+      - name: getconnectioncount
+        href: node/api/getconnectioncount.md
+      - name: getrawmempool
+        href: node/api/getrawmempool.md
+      - name: getrawtransaction
+        href: node/api/getrawtransaction.md
+      - name: gettxout
+        href: node/api/gettxout.md
+      - name: sendrawtransaction
+        href: node/api/sendrawtransaction.md
+      - name: sendtoaddress
+        href: node/api/sendtoaddress.md
+    - name: Protocolo de red
+      href: node/network-protocol.md
+    - name: Consenso
+      href: node/consensus.md
+- name: Contratos Inteligentes
+  href: sc/introduction.md
+  items:
+    - name: Introducción
+      href: sc/introduction.md
+    - name: Primeros Pasos
+      href: sc/getting-started.md
+    - name: Tutorial
+      href: sc/tutorial.md
+      items:
+      - name: Basics
+        href: sc/tutorial.md
+      - name: Hello World
+        href: sc/tutorial/HelloWorld.md
+      - name: Lock
+        href: sc/tutorial/Lock.md
+      - name: Domain (Domain Name System)
+        href: sc/tutorial/Domain.md
+      - name: Contract Call
+        href: sc/tutorial/call.md
+    - name: Pruebas
+      href: sc/test.md
+    - name: Whitepaper
+      href: sc/white-paper.md
+    - name: Documentación de la API
+      href: sc/api.md
+      items:
+      - name: Neo
+        href: sc/api/antShares.md
+      - name: System
+        href: sc/api/system.md
+    - name: Framework
+      href: sc/fw.md
+      items:
+      - name: .NET framework
+        href: sc/fw/dotnet.md
+        items:
+          - name: Neo
+            href: sc/fw/dotnet/AntShares.md
+            items:
+            - name: Account
+              href: sc/fw/dotnet/AntShares/Account.md
+            - name: Asset
+              href: sc/fw/dotnet/AntShares/Asset.md
+            - name: Block
+              href: sc/fw/dotnet/AntShares/Block.md
+            - name: Blockchain
+              href: sc/fw/dotnet/AntShares/Blockchain.md
+            - name: Enrollment
+              href: sc/fw/dotnet/AntShares/Enrollment.md
+            - name: Header
+              href: sc/fw/dotnet/AntShares/Header.md
+            - name: Storage
+              href: sc/fw/dotnet/AntShares/Storage.md
+            - name: StorageContex
+              href: sc/fw/dotnet/AntShares/StorageContex.md
+            - name: Transaction
+              href: sc/fw/dotnet/AntShares/Transaction.md
+            - name: TransactionAttribute
+              href: sc/fw/dotnet/AntShares/TransactionAttribute.md
+            - name: TransactionInput
+              href: sc/fw/dotnet/AntShares/TransactionInput.md
+            - name: TransactionOutput
+              href: sc/fw/dotnet/AntShares/TransactionOutput.md
+          - name: System
+            href: sc/fw/dotnet/System.md
+            items:
+            - name: ExecutionEngine
+              href: sc/fw/dotnet/System/ExecutionEngine.md
+- name: Colaboradores
+  href: contributors.md
