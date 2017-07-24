@@ -1,6 +1,6 @@
 # Smart contract parameters and return values
 
-In the smart contract release or call, you need to specify the parameters of the smart contract, intelligent contract parameters are byte type, defined as follows.
+In the smart contract deployment or invocation, you need to specify the parameters of the smart contract. Smart contract parameters are byte types, defined as follows.
 
 ```c#
      /// <summary>
@@ -10,28 +10,41 @@ In the smart contract release or call, you need to specify the parameters of the
      {
          /// <summary>
          /// signature
-         /// </ summary>
+         /// </summary>
          Signature = 0,
          Boolean = 1,
          /// <summary>
          /// Integer
-         /// </ summary>
+         /// </summary>
          Integer = 2,
          /// <summary>
          /// 160-bit hash value
-         /// </ summary>
+         /// </summary>
          Hash160 = 3,
          /// <summary>
          /// 256-bit hash value
-         /// </ summary>
+         /// </summary>
          Hash256 = 4,
          /// <summary>
          /// byte array
-         /// </ summary>
+         /// </summary>
          ByteArray = 5,
          PublicKey = 6,
 
          Void = 0xff
      }
 ```
+For example, for the smart contract below:
 
+```c#
+public class Lock : FunctionCode
+{
+    public static bool Main(int a, bool b, byte[] pubkey, byte[] signature)
+    {
+        //more...
+    }
+}
+```
+Using the enum above, int is represented as 1, bool as 2, public key as 6 and signature as 0.
+
+When filling in parameters through the PC client, use 2 hexadecimal characters for each parameter. Thus, the arguments for the above function is written as : 02010600, return: 01.
