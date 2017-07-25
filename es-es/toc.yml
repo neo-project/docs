@@ -117,5 +117,3 @@
             items:
             - name: ExecutionEngine
               href: sc/fw/dotnet/System/ExecutionEngine.md
-- name: Colaboradores
-  href: contributors.md
