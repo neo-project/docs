@@ -1,4 +1,4 @@
-# NEO white paper
+# NEO White Paper
 
 A distributed network for the Smart Economy
 
