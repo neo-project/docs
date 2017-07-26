@@ -8,7 +8,7 @@ NEO is the use of blockchain technology and digital identity to digitize assets,
 
 ### Digital Assets
 
-Digital assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralised, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are free to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law.
+Digital assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralised, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law.
 
 NEO has two forms of digital assets: global assets and contract assets. Global assets can be recorded in the system space and can be identified by all smart contracts and clients. Contract assets are recorded in the private storage area of the smart contract and require a compatible client to recognise them. Contract assets can adhere to certain standards in order to achieve compatibility with most clients.
 
