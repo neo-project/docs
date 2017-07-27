@@ -85,7 +85,7 @@ SystemFee 是系统手续费，目前手续费如下（单位为 ANC）：
 
 启动节点：
 
-`dotnet AntSharesDaemon.dll`
+`dotnet neo-cli.dll`
 
 打开钱包：
 
