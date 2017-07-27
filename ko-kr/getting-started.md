@@ -49,7 +49,8 @@
 찾기에서 제어판을 찾은 다음에 고급 시스템 설정(Advanced system setting)을 클릭한 뒤, 환경 변수(Environment variables)를 클릭한 다음 
 경로 환경 변수 (PATH environment variable)을 찾아 고릅니다. 편집(Edit) 을 클릭합니다. 만약 경로 환경 변수 
 (PATH environment variable)가 없으면 새로 만들기 (new)를 선택합니다. 시스템 환경 변수(System Variables) 편집 창에서 
-특정 경로 환경 변수를 지정한 다음에 ok를 클릭합니다. 다른 모든 창은 ok를 누르면서 다 닫습니다. 
+특정 경로 환경 변수를 지정한 다음에 ok를 클릭합니다. 
+다른 모든 창은 ok를 누르면서 다 닫습니다. 
 
 
 **윈도우7 :**
@@ -57,7 +58,8 @@
 데스크 탑에서 컴퓨터 아이콘을 오른쪽 클릭한 다음, 등록정보(Properties)를 클릭한 뒤, 고급 시스템 설정(Advanced system setting)을 고른 뒤
 환경 변수(Environment variables)를 누릅니다. 환경 변수 부분에서 경로 환경 변수를 찾아 고른 뒤 편집(eidt)를 클릭합니다.
 만약 경로 환경 변수 (PATH environment variable)가 없으면 새로 만들기 (new)를 선택합니다. 시스템 환경 변수(System Variables) 편집 창에서 
-특정 경로 환경 변수를 지정한 다음에 ok를 클릭합니다. 다른 모든 창은 ok를 누르면서 다 닫습니다. 
+특정 경로 환경 변수를 지정한 다음에 ok를 클릭합니다. 
+다른 모든 창은 ok를 누르면서 다 닫습니다. 
 
 그림 5
 
