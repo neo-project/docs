@@ -1,4 +1,4 @@
-# How to use C # to write ants intelligent contract for VS2015
+# How to use C # to write NEOs intelligent contract for VS2015
 
 We currently recommend C# for developing smart contracts (though we support or plan to support Java, Kotlin, Go, C/C + +, Python, JavaScript and other programming languages)
 
@@ -122,7 +122,7 @@ After this compiles successfully, you will see the generated `SmartContract1.avm
 ```
 	> C: \ ... \ bin \ Debug> `neo.compiler.msil SmartContract1.dll`
 	>
-	> AntShars.Compiler.MSIL console app v1.6.4.2
+	> Neo.Compiler.MSIL console app v1.6.4.2
 	>   
 	> Find function entry point: System.Void SmartContract1.Contract1 :: Main ()
 	>   

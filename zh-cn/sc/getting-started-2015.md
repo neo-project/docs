@@ -127,7 +127,7 @@ public class Contract1 : FunctionCode
    >
    > C:\……\bin\Debug> `neo.compiler.msil SmartContract1.dll`
    >
-   > AntShars.Compiler.MSIL console app  v1.6.4.2
+   > Neo.Compiler.MSIL console app  v1.6.4.2
    >
    > 找到函数入口点:System.Void SmartContract1.Contract1::Main()
    >

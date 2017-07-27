@@ -102,7 +102,7 @@ Data Type
    |---|---|---|---|
    |0x00|MinerTransaction|0|assign byte fees|
    |0x01|IssueTransaction|500\|0|inssuance of asset|
-   |0x02|ClaimTransaction|0|assign ant coins|
+   |0x02|ClaimTransaction|0|assign GAS|
    |0x20|EnrollmentTransaction|1000|enrollment for validator|
    |0x40|RegisterTransaction|10000|assets register|
    |0x80|ContractTransaction|0|contract transaction|
@@ -135,7 +135,7 @@ Data Type
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
-      |34*?|Claims|tx_in[]|ant shares for distribution|
+      |34*?|Claims|tx_in[]|NEO for distribution|
 
    + EnrollmentTransaction
 

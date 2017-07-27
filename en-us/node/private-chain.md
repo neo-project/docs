@@ -1,4 +1,4 @@
-# Build a private chain with an ant node
+# Build a private chain with a NEO node
 
 In a previous tutorial, you learned how to setup and deploy a node on Windows and Linux. This tutorial will teach you how to build a private chain or alliance chain, and the steps needed to extract NEO and GAS from these private chains.
 
@@ -122,13 +122,13 @@ Click OK. In order to rebuild the wallet index, click on the 'wallet' in the men
 > [!Note]
 > All 4 wallets have to perform the operation of adding multi-party signature address, and rebuilding of the wallet index.
 
-Here we want to send the ant shares from the contract address to the normal address. To do so, open any of the four wallet, click `transaction`, `transfer` and enter the recipient address, in order to transfer 100 million NEO to this recipient address.
+Here we want to send the NEO from the contract address to the normal address. To do so, open any of the four wallet, click `transaction`, `transfer` and enter the recipient address, in order to transfer 100 million NEO to this recipient address.
 
 Then, the system will prompt "transaction structure is completed, but there is not enough signature". Copy down the code, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign`. At this time, you will notice a pop-up window that displays a `broadcast' button, which means the signing process for the transaction is completed (the minimum number of signatures required for the contract has been achieved) The transaction can now be broadcasted, click on the `broadcast'. Once the transfer transaction begins broadcasting, it will take about 15 seconds for successful remittance to the account.
 
 ![image](http://docs.neo.org/images/2017-05-17_15-12-50.jpg)
 
-The operation to extract the NEO coin is also similar, click `advanced`, `claim ant-coin`, `claim` as shown. (Remember all the wallets X, you will need it later)
+The operation to extract the NEO coin is also similar, click `advanced`, `claim GAS`, `claim` as shown. (Remember all the wallets X, you will need it later)
 
 ![image](http://docs.neo.org/images/2017-05-17_15-13-29.jpg)
 

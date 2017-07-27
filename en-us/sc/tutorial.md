@@ -60,7 +60,7 @@ For example, in the java JVM or. Net CLR, source code will be compiled into the 
 
    ![](http://docs.neo.org/images/2017-05-15_11-28-29.jpg)
 
-The above diagram is the system architecture diagram of the small ant virtual machine (AVM), where the deployment in the dashed box is the core of the virtual machine.
+The above diagram is the system architecture diagram of the smallNEOvirtual machine (AVM), where the deployment in the dashed box is the core of the virtual machine.
 
 #### Execute engine
 
