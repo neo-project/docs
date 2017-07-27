@@ -44,7 +44,7 @@
 
 🔹 **스마트 계약 컴파일러와 IDE 플러그인**
 
-= C#/VB.NET /F#, Visual Studio
+- C#/VB.NET /F#, Visual Studio
 
 - Java/Kotlin, Eclipse
 
