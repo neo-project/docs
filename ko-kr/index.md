@@ -1,6 +1,6 @@
 # 네오 백서 (NEO White Paper)
 
-스마트 이코노미를 위한 분산된 네트워크
+스마트 이코노미(Smart Economy)를 위한 분산된 네트워크
 
 ## 네오 설계 목표 (NEO Design Goal) : 스마트 이코노미 (Smart Economy)
 
