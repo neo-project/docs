@@ -1,4 +1,4 @@
-{{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
+﻿{{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
 
 <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
   <div class="container">
@@ -20,6 +20,9 @@
       {{#_nav}}
         <ul class="nav level{{level}} navbar-nav">
         {{!Allows only one level for nav bar}}
+          <li class="{{#active}}active{{/active}}">
+            <a href="https://neo.org/" title="官网" class="{{#active}}active{{/active}}">官网</a>
+          </li>
         {{#items}}
           <li class="{{#active}}active{{/active}}">
             {{#href}}
