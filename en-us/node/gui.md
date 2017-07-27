@@ -6,7 +6,7 @@
 
 The versions of Windows which are compatible with the client are: win7 sp1/win8/win10.
 
-The client itself does not require any installation. Download and directly double-click NeoUI.exe to open the client. If there are any problems with the process, and the client cannot be used normally, please keep the client directory error.log file, and contact our technical staff to assist you in solving the problem.
+The client itself does not require any installation. Download and directly double-click neo-gui.exe to open the client. If there are any problems with the process, and the client cannot be used normally, please keep the client directory error.log file, and contact our technical staff to assist you in solving the problem.
 
 > [!Note]
 > Windows10 pre-version of the system requires installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).

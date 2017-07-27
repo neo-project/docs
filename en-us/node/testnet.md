@@ -31,7 +31,7 @@ Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https:
 
 ![image](http://docs.neo.org/images/2017-06-08_14-16-35.png)
 
-2. Copy the contents of the program (GUI) directory `NeoUI.exe.testnet.config` into the `NeoUI.exe.config` as shown in Figure
+2. Copy the contents of the program (GUI) directory `neo-gui.exe.testnet.config` into the `neo-gui.exe.config` as shown in Figure
 
 ![image](http://docs.neo.org/images/2017-06-08_14-16-12.png)
 
