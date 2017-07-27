@@ -7,7 +7,7 @@
 
 ## 参数说明
 
-asset_id：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
+asset_id：资产 ID（资产标识符），即该资产在注册时的交易 ID。
 
 如小蚁股为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 

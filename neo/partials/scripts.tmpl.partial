@@ -15,16 +15,10 @@
 	function language(lang)
     {
 		var rgExp = /\w{2}-\w{2}/;
-		if(lang.indexOf("zh-cn") >= 0)
-		{
-			location.href = location.href.replace(rgExp, "zh-cn");
-			return;
-		}
-		if(lang.indexOf("en-us") >= 0)
-		{
-			location.href = location.href.replace(rgExp, "en-us");
-			return;
-		}
+		if (location.href.search(rgExp) >= 0)
+			location.href = location.href.replace(rgExp, lang.match(rgExp)[0]);
+		else
+			location.href = lang;
     }
 </script>
 <script>
