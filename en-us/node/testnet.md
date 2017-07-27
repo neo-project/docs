@@ -1,10 +1,10 @@
 # Test network
 
-The TestNet is designed to be developed, commissioned and tested by the user. Testing the system on the testnet incurs the network fee of testnet AntCoins (not real AntCoins)! Testnet AntShares and AntCoins can be applied free of charge, on the official website.
+The TestNet is designed to be developed, commissioned and tested by the user. Testing the system on the testnet incurs the network fee of testnet GAS (not real GAS)! Testnet NEO and GAS can be applied free of charge, on the official website.
 
-All the block data of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the AntShares's mainnet online operation.
+All the block data of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
 
-If you are a developer, you can ask for coins on the TestNet here: https://www.antshares.org/Testnet/Create
+If you are a developer, you can ask for coins on the TestNet here: https://www.neo.org/Testnet/Create
 
 ## Test the characteristics of the network
 
@@ -18,21 +18,21 @@ If you are a developer, you can ask for coins on the TestNet here: https://www.a
 
 The test network client is the same as the primary network client. By modifying the client's configuration file, the client can be switched between the primary and test networks.
 
-Reference: [introduction of AntShares node](introduction.md).
+Reference: [introduction of NEO node](introduction.md).
 
-|      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
+|      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [official website](https://www.antshares.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
+| Releases | [official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
 Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
 
 ## Method of switching to test network
 
 1. Copy the contents of the program directory under the `protocal.testnet.json` into ` protocol.json` as shown.
 
-![image](http://docs.antshares.org/images/2017-06-08_14-16-35.png)
+![image](http://docs.neo.org/images/2017-06-08_14-16-35.png)
 
-2. Copy the contents of the program (GUI) directory `AntSharesUI.exe.testnet.config` into the `AntSharesUI.exe.config` as shown in Figure
+2. Copy the contents of the program (GUI) directory `NeoUI.exe.testnet.config` into the `NeoUI.exe.config` as shown in Figure
 
-![image](http://docs.antshares.org/images/2017-06-08_14-16-12.png)
+![image](http://docs.neo.org/images/2017-06-08_14-16-12.png)
 
 Note: If the node is run on CLI, the contents of `config.testnet.json` need to be copied to` config.json`.

@@ -1,24 +1,24 @@
-# AntShares White Paper 1.1
+# NEO White Paper 1.1
 
-📖 This documentation is a work in progress. You can view other documents on the [Github wiki](https://github.com/neo-project/neo/wiki) or visit our [official website](Http://www.antshares.org).
+📖 This documentation is a work in progress. You can view other documents on the [Github wiki](https://github.com/neo-project/neo/wiki) or visit our [official website](Http://www.neo.org).
 
 This is an open source community project. You can contribute to the development of the documentation at [github.com/neo-project/docs](https://github.com/neo-project/docs). Thanks for visiting.
 
 ------
 
-## Overview of AntShares
+## Overview of NEO
 
-### AntShares and blockchains
+### NEO and blockchains
 
-#### What is AntShares?
+#### What is NEO?
 
-AntShares is a smart asset platform and the first open source public blockchain project in China. Smart assets are the combination of smart blockchain contracts and digital assets, making registering, distributing and trading digital assets more intelligent.
+NEO is a smart asset platform and the first open source public blockchain project in China. Smart assets are the combination of smart blockchain contracts and digital assets, making registering, distributing and trading digital assets more intelligent.
 
-👉 Digital assets are assets stored in the form of electronic data with blockchain technology to achieve features such as decentralization, trustless, traceability, transparency and so on. The AntShares blockchain supports a variety of digital assets, allowing users to register, distribute, freely trade and circulate assets. Digital certificates can solve the issue of trust on the blockchain. Through digital certificates, user-issued assets can also enjoy the protection of the law. For business scenarios with complex logic, users can use smart contracts to enhance the functionality of assets, or create asset-independent business logic.
+👉 Digital assets are assets stored in the form of electronic data with blockchain technology to achieve features such as decentralization, trustless, traceability, transparency and so on. The NEO blockchain supports a variety of digital assets, allowing users to register, distribute, freely trade and circulate assets. Digital certificates can solve the issue of trust on the blockchain. Through digital certificates, user-issued assets can also enjoy the protection of the law. For business scenarios with complex logic, users can use smart contracts to enhance the functionality of assets, or create asset-independent business logic.
 
-👉 The Smart Contract was first proposed by the cryptologist Nick Szabo in 1993, and is almost the same age as the Internet. According to Szabo's definition: When a pre-programmed condition is met, the smart contract executes the corresponding contract terms. Blockchain technology gives us a decentralized, immutable, highly reliable system in which smart contracts are very useful. AntShares has Turing-complete smart contract capabilities, which are executed in the AntShares Virtual Machine (AVM), and has many advantages such as being deterministic, having termination, resource control, concurrency, fragmentation and scalability.
+👉 The Smart Contract was first proposed by the cryptologist Nick Szabo in 1993, and is almost the same age as the Internet. According to Szabo's definition: When a pre-programmed condition is met, the smart contract executes the corresponding contract terms. Blockchain technology gives us a decentralized, immutable, highly reliable system in which smart contracts are very useful. NEO has Turing-complete smart contract capabilities, which are executed in the NEO Virtual Machine (AVM), and has many advantages such as being deterministic, having termination, resource control, concurrency, fragmentation and scalability.
 
-AntShares combines a range of technologies such as point-to-point network, Byzantine Fault Tolerance, digital certificates, smart contracts, superconducting transactions, and cross-chain interoperability protocols, allowing you to manage your smart assets quickly, efficiently, safely and legally.
+NEO combines a range of technologies such as point-to-point network, Byzantine Fault Tolerance, digital certificates, smart contracts, superconducting transactions, and cross-chain interoperability protocols, allowing you to manage your smart assets quickly, efficiently, safely and legally.
 
 #### What is a blockchain?
 
@@ -44,7 +44,7 @@ Due to the high network latency in point-to-point networks, the order of transac
     * Proof of Stake: PeerCoin, NXT, Ethereum (future)
     * Delegated Proof of Stake: BitShares, Crypti, Lisk
     * UNL / Quorum Slice: Ripple, Stellar
-    * Byzantine Fault Tolerance: AntShares, Hyperledger Fabric
+    * Byzantine Fault Tolerance: NEO, Hyperledger Fabric
 
 * **Achieving distributed consensus on historical data through hashing algorithms**
 
@@ -60,7 +60,7 @@ In addition to the above consensus details, the blockchain technology also inclu
 
 ### Design goals
 
-The mission of the AntShares is "Digital Assets for Everyone". Bitcoin and other blockchains hope to build a parallel to the real world financial system. AntShares wants to build a financial system that can bridge the gap to real world assets. At the same time, the AntShares target audience consists of mainstream Internet users, not just liberals, geeks and developers. In order to achieve this vision, AntShares needs to use different designs on the base level.
+The mission of the NEO is "Digital Assets for Everyone". Bitcoin and other blockchains hope to build a parallel to the real world financial system. NEO wants to build a financial system that can bridge the gap to real world assets. At the same time, the NEO target audience consists of mainstream Internet users, not just liberals, geeks and developers. In order to achieve this vision, NEO needs to use different designs on the base level.
 
 #### Compliance with the Physical World
 
@@ -68,15 +68,15 @@ The mission of the AntShares is "Digital Assets for Everyone". Bitcoin and other
 
 The practice of digitizing assets in the blockchain world is called "tokenization". That is, the user issues a custom token and declares that the tokens represent an asset. Then this token can be traded and exchanged similarly to a Bitcoin.
 
-However, there are many flaws in the legalization of the token. The circulation of the token is similar to a transfer - the token can be transferred from the sender to the recipient without the consent of the recipient. This circulation is only suitable for assets of simple rights and without obligations (like money), and not applicable to equity, claims and other assets with complex rights and obligations. In AntShares, in order to complete the transfer of assets using electronic contracts, most of the cases will require the sender and recipient to sign with their respective private keys. In some cases, asset issuers are required to participate in the signature. Using electronic contracts to record the transfer of assets on the AntShares blockchain is merely another way to transfer offline assets and does not create any new legal relation, solving the legal flaws of tokenization.
+However, there are many flaws in the legalization of the token. The circulation of the token is similar to a transfer - the token can be transferred from the sender to the recipient without the consent of the recipient. This circulation is only suitable for assets of simple rights and without obligations (like money), and not applicable to equity, claims and other assets with complex rights and obligations. In NEO, in order to complete the transfer of assets using electronic contracts, most of the cases will require the sender and recipient to sign with their respective private keys. In some cases, asset issuers are required to participate in the signature. Using electronic contracts to record the transfer of assets on the NEO blockchain is merely another way to transfer offline assets and does not create any new legal relation, solving the legal flaws of tokenization.
 
 * **Account Authentication**
 
 Real name identity information is the basis of a large number of real world assets. In most cases the legal contract (legally binding contract) also requires real-name signature. When the legal conditions of the exchange or transaction participants have real name requirements, the user should have the ability to prove their true identity. At the same time, the disclosure of such information should be controlled by the user. A third party outside of the transaction should not receive user identity information. At the same time, identity authentication is only an option, not mandatory. If the transaction participants do not require each other's real names, the users do not need to authenticate.
 
-AntShares uses digital certificates to implement user authentication. Users (individuals or organizations) can apply for a digital certificate from the certificate authority (CA) to prove the correspondence between the public key and the identity they control. AntShares does not specify a CA, but instead the transaction participants choose a self-approved CA. For example, a Chinese user may choose any of the 38 CA agencies certified by the Ministry of Industry and Information, or may choose a company that is registered on the exchange to be the CA to verify and distribute the certificate.
+NEO uses digital certificates to implement user authentication. Users (individuals or organizations) can apply for a digital certificate from the certificate authority (CA) to prove the correspondence between the public key and the identity they control. NEO does not specify a CA, but instead the transaction participants choose a self-approved CA. For example, a Chinese user may choose any of the 38 CA agencies certified by the Ministry of Industry and Information, or may choose a company that is registered on the exchange to be the CA to verify and distribute the certificate.
 
-Unlike the X.509 digital certificate implementation scheme, AntShares plans to use the blockchain to maintain the certificate revocation list and gradually form a set of digital certificate systems and identity authentication schemes based on blockchain technology.
+Unlike the X.509 digital certificate implementation scheme, NEO plans to use the blockchain to maintain the certificate revocation list and gradually form a set of digital certificate systems and identity authentication schemes based on blockchain technology.
 
 #### Fulfilling the needs of financial transactions
 
@@ -100,7 +100,7 @@ It can be said that the "single bookkeeping" model has chosen anonymity, to achi
 
 There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currency is a good exchange medium, users can, through Bitcoin, engage is global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by fiat currency, but it is not very successful and has a narrow range of applications.
 
-AntShares will use fiat as its internal currency.
+NEO will use fiat as its internal currency.
 
 * **Node division and specialization**
 
@@ -108,7 +108,7 @@ In the original design of the original Bitcoin is flatness. All nodes are involv
 
 The historical data  of the past seven years amounting to dozens of GBs has also become a storage burden. Many ordinary users are no longer willing to  store full historical data of the whole node, but instead use the web wallet, off-chain wallet and so on. Despite the various calls to run the whole node , the number of nodes continues to decline.
 
-In AntShares, our design goal is to make the whole system to have a clear division of labor. The accounting node is most important role of the AntShares blockchain, tasked by AntShare holders to produce blocks and reach a common consensus. Full nodes form the main part of the AntShare blockchain network, usually ran by companies providing external services. These nodes save the complete historical data, listen to and broadcast transactions. Ordinary users are running light nodes or act as clients. Ordinary users ,through the browser or mobile app, can access the eco-system of AntShare service providers, only to synchronize and save their own data. Since the AntShares blockchain uses a weak trust-based joint accounting system, every block contains the digital signature of the billing node. Ordinary users can check the current block without downloading full historical data. We think that this model is condusive to the realization of "everyone's digital assets," the AntShares vision.
+In NEO, our design goal is to make the whole system to have a clear division of labor. The accounting node is most important role of the NEO blockchain, tasked by NEO holders to produce blocks and reach a common consensus. Full nodes form the main part of the NEO blockchain network, usually ran by companies providing external services. These nodes save the complete historical data, listen to and broadcast transactions. Ordinary users are running light nodes or act as clients. Ordinary users ,through the browser or mobile app, can access the eco-system of NEO service providers, only to synchronize and save their own data. Since the NEO blockchain uses a weak trust-based joint accounting system, every block contains the digital signature of the billing node. Ordinary users can check the current block without downloading full historical data. We think that this model is condusive to the realization of "everyone's digital assets," the NEO vision.
 
 It should be noted that the weak trust is not the trust of a single accounting node, but trusting that the group of nodes will not collude; This is not trusting a shifting centralised body, but rather, a decentralised way of independently voting who to trust.
 
@@ -116,11 +116,11 @@ It should be noted that the weak trust is not the trust of a single accounting n
 
 * **Low latency, high throughput, pluggable**
 
-Scalability is a major factor in the fight between blockchain technology and traditional methods . In order to achieve design goals of anti-audit and trustless, Bitcoin selected Proof of Work as its consensus mechanism. However, this also brought high latency, low throughput performance problems. AntShares uses a consensus mechanism that relies on weak trust and also creating specialized accounting nodes, ensuring low latency, high throughput. The consensus mechanism of the AntShares guarantees to a large degree, the list of professional accounting nodes, thus achieving low latency and high throughput.
+Scalability is a major factor in the fight between blockchain technology and traditional methods . In order to achieve design goals of anti-audit and trustless, Bitcoin selected Proof of Work as its consensus mechanism. However, this also brought high latency, low throughput performance problems. NEO uses a consensus mechanism that relies on weak trust and also creating specialized accounting nodes, ensuring low latency, high throughput. The consensus mechanism of the NEO guarantees to a large degree, the list of professional accounting nodes, thus achieving low latency and high throughput.
 
-At present, block time of AntShares is manually limited to 15 seconds. In the future, when the latency between the billing nodes is low enough, most of the blocks are expected to be completed in 1 second. With about 100Mbit / s bandwidth and specialized hardware for cryptographic calculation, AntShares is able handle thousands of thousands of transactions per second.
+At present, block time of NEO is manually limited to 15 seconds. In the future, when the latency between the billing nodes is low enough, most of the blocks are expected to be completed in 1 second. With about 100Mbit / s bandwidth and specialized hardware for cryptographic calculation, NEO is able handle thousands of thousands of transactions per second.
 
-In addition, AntShares is designed to be modular. Users can change the consensus mechanism, ECC / hash algorithm, P2P network protocol and other modules. At the same time, by viewing AntShares as voting rights in a organization, AntShares can be easily transformed into enterprise / private chain. Business organizations can conduct proof-of-concept on the AntShares public chain and, if necessary, quickly migrate to the enterprise / private chain model; conversely, the businesses can start using AntShares in a private chain and if needed, quickly migrate onto the public chain without repercussions.
+In addition, NEO is designed to be modular. Users can change the consensus mechanism, ECC / hash algorithm, P2P network protocol and other modules. At the same time, by viewing NEO as voting rights in a organization, NEO can be easily transformed into enterprise / private chain. Business organizations can conduct proof-of-concept on the NEO public chain and, if necessary, quickly migrate to the enterprise / private chain model; conversely, the businesses can start using NEO in a private chain and if needed, quickly migrate onto the public chain without repercussions.
 
 * **Hierarchical design and superconducting transactions**
 
@@ -132,7 +132,7 @@ In order to support a variety of assets, multi-type transactions at the same tim
 
 * Due to the it existing on an exchange, the order of transactions becomes extremely important. By aligning the order book and the transaction matching at the blockchain level, the accounting node is given larger power. The accounting node can sort the trade, choose, and have the front-running capability according to its wishes.
 
-Although AntShares support the exchange of assets on the chain, the blockchain itself does not provide order book and order matching functionality. The chain is only responsible for the execution and settlement of the transaction. Our hierarchical design puts the order book and matching function on the second layer, through a mechanism called "superconducting" to achieve a complete transaction function.
+Although NEO support the exchange of assets on the chain, the blockchain itself does not provide order book and order matching functionality. The chain is only responsible for the execution and settlement of the transaction. Our hierarchical design puts the order book and matching function on the second layer, through a mechanism called "superconducting" to achieve a complete transaction function.
 
 Under the superconducting transaction, the two parties do not need to host the property to an intermediary (traditional exchange). Users only need send to the exchange an order signed with their private keys. After the exchange matches the buyer and seller orders and broadcast transactions is the transaction complete. From beginning to end, property does not leave the user's control, putting an end to the traditional moral hazard. Exchange under the superconducting trading mechanism only plays the role of information matching.
 
@@ -142,35 +142,35 @@ In the superconducting trading mechanism, because the user has absolute control,
 
 #### Crowdfunding and equity trading
 
-The AntShares blockchain can be used for crowdfunding. The company raising funds can still go through various fund-raising platforms to complete the fund-raising, but the it can utilize the immutability of AntShares blockchain publish its public documents. After the crowdfunding, the company can use the AntShares to distribute the shares to the large number of investors, avoiding cumbersome paper instruments and offline labor. The share on the chain a liquid asset, the user can carry out point-to-point equity transactions through AntShares. Compliant trading exchanges can also utilize AntShares, providing non-listed companies equity trading services. Through AntShares, start-up companies can obtain market valuation, equity liquidity,users obtain access to the exit mechanism to solve the difficult problems of exiting an crowdfunding.
+The NEO blockchain can be used for crowdfunding. The company raising funds can still go through various fund-raising platforms to complete the fund-raising, but the it can utilize the immutability of NEO blockchain publish its public documents. After the crowdfunding, the company can use the NEO to distribute the shares to the large number of investors, avoiding cumbersome paper instruments and offline labor. The share on the chain a liquid asset, the user can carry out point-to-point equity transactions through NEO. Compliant trading exchanges can also utilize NEO, providing non-listed companies equity trading services. Through NEO, start-up companies can obtain market valuation, equity liquidity,users obtain access to the exit mechanism to solve the difficult problems of exiting an crowdfunding.
 
-In addition, the AntShares can also facilitate the management of the amount of money raised through crowdfunding. In recent years, countries have introduced the relevant laws and regulations on crowdfunding. These laws and regulations tend to restrict investors in eligibility, investment and other specific provisions. For example, the JOBS Act Title III, which came into force in April 2016, provides for a maximum of $ 100,000 for a single investor's maximum annual investment share. Through the AntShares can facilitate the regulation on the total amount of limited control.
+In addition, the NEO can also facilitate the management of the amount of money raised through crowdfunding. In recent years, countries have introduced the relevant laws and regulations on crowdfunding. These laws and regulations tend to restrict investors in eligibility, investment and other specific provisions. For example, the JOBS Act Title III, which came into force in April 2016, provides for a maximum of $ 100,000 for a single investor's maximum annual investment share. Through the NEO can facilitate the regulation on the total amount of limited control.
 
 #### Employee holdings and capital structure management
 
-Companies that use the Employee Stock Ownership Plan (ESOP) and who needs cap table management can use AntShares to carry out equity management. Some of the companies in the United States have already purchased a centric service provider like eShares to carry out the electronic management of the cap table, but the centralized system has many drawbacks. For example, eShares is a single point of failure.If ever eShares service is down or blacklisted, then the equity information of companies using eShares is at stake.
+Companies that use the Employee Stock Ownership Plan (ESOP) and who needs cap table management can use NEO to carry out equity management. Some of the companies in the United States have already purchased a centric service provider like eShares to carry out the electronic management of the cap table, but the centralized system has many drawbacks. For example, eShares is a single point of failure.If ever eShares service is down or blacklisted, then the equity information of companies using eShares is at stake.
 
 Block-based technology is more economical and more secure than such a central system. There is no single point of failure, thus companies using it do not have to worry. The smart contract function gives the company a flexible to transfer control or ownership. The company can limit the equity to be held only by designated by the employees and investors, you can set the flexibility to allow the transfer of shares or the proportion of transactions. For example, you can set up to allow employees to transfer up to 10% of their own shares each year.
 
-At present, the solution for the consulting firm that provides ESOP solutions is still accomplished through paper instruments. Through AntShares, such consulting firms can provide customers with a powerful tool for digitally managing equity.
+At present, the solution for the consulting firm that provides ESOP solutions is still accomplished through paper instruments. Through NEO, such consulting firms can provide customers with a powerful tool for digitally managing equity.
 
 #### P2P loans
 
-P2P loan platform using AntShares can solve many existing problems such as information opacity, incomplete information, debt liquidity and so on.
+P2P loan platform using NEO can solve many existing problems such as information opacity, incomplete information, debt liquidity and so on.
 
 First of all, the existing model of P2P loan platform internal database is the creditor's only source of claims, in the event of hacker tampering, data corruption, platform collapse and other events, it is difficult for creditors to prove their case. In the 2015-2016, the wave of collapses of China P2P lending platform has exposed this risk. Once creditors find that out that the platforms are unavailable, they are in the situation where they are unable to prove their claims.
 
-Second, the P2P loan platform for the borrower's credit limit is often limited to the platform itself. For example, a platform, through the credit process, finds out that the borrower's repayment capacity of 100,000 yuan, then the borrower's credit limit on the platform is 10 million. But this can not prevent the borrower in the n platform for borrowing, bear n x 10 million in debt. The general ledger feature of AntShares blockchain allows the P2P loan platforms to share the borrower's credit line. This is similar to how AntShares can be used to control the amount of equity an investor can buy.
+Second, the P2P loan platform for the borrower's credit limit is often limited to the platform itself. For example, a platform, through the credit process, finds out that the borrower's repayment capacity of 100,000 yuan, then the borrower's credit limit on the platform is 10 million. But this can not prevent the borrower in the n platform for borrowing, bear n x 10 million in debt. The general ledger feature of NEO blockchain allows the P2P loan platforms to share the borrower's credit line. This is similar to how NEO can be used to control the amount of equity an investor can buy.
 
-Finally, by using AntShares to record P2P loan claims, the claims become transferable, collateral, and even programmable. Creditor's rights can not only be transferred within the platform, but also cross-platform, increasing it's liquidity. With creditor's rights becoming transferable, long-term debts become more attractive. Users buy long-term debt without worries, enjoy high interest rates, without fear of emergency. Through the transfer function of AntShares , long-term bonds can be discounted or mortgaged.
+Finally, by using NEO to record P2P loan claims, the claims become transferable, collateral, and even programmable. Creditor's rights can not only be transferred within the platform, but also cross-platform, increasing it's liquidity. With creditor's rights becoming transferable, long-term debts become more attractive. Users buy long-term debt without worries, enjoy high interest rates, without fear of emergency. Through the transfer function of NEO , long-term bonds can be discounted or mortgaged.
 
-In addition, the use of AntShares to manage the equity of the enterprises can even use the AntShares to mortgage equity or issue corporate bonds.
+In addition, the use of NEO to manage the equity of the enterprises can even use the NEO to mortgage equity or issue corporate bonds.
 
 #### Points management
 
 Airlines, operators, banks, restaurants and many other commercial institutions will issue their own points. Through a point system, companies encourage the retention of users and multiple consumption.
 
-The database of issuing organizations are data silos (information silo). Organization A can not obtain information of the points system of another organization in a trustless manner, so it is difficult to achieve points interoperability between the two. The distribution of points through the AntShares blockchain can be disclosed transparently and is credibly accessible by anyone, limiting the powers of the issuer. The user's exchange needs and the market maker's profit-making will form a variety of points in the trading market, activate the hidden potential in this system.
+The database of issuing organizations are data silos (information silo). Organization A can not obtain information of the points system of another organization in a trustless manner, so it is difficult to achieve points interoperability between the two. The distribution of points through the NEO blockchain can be disclosed transparently and is credibly accessible by anyone, limiting the powers of the issuer. The user's exchange needs and the market maker's profit-making will form a variety of points in the trading market, activate the hidden potential in this system.
 
 #### Supply chain finance
 
@@ -184,84 +184,84 @@ Digital asset functions can also be used distribute shares, financial proofs, et
 
 (To be revised)
 
-AntShares do not have a universal payment in terms of an original currency. An AntShare is not a kind of digital currency, but a blockchain agreement, [Edit: this is confusing: so there is no monetary legal dispute, not five ministries "on the prevention of bit currency risk notice" refers to the virtual currency, with banks, payment agencies]
+NEO do not have a universal payment in terms of an original currency. A NEOis not a kind of digital currency, but a blockchain agreement, [Edit: this is confusing: so there is no monetary legal dispute, not five ministries "on the prevention of bit currency risk notice" refers to the virtual currency, with banks, payment agencies]
 
 Individual users and organizations can be certified by the government-authorized CA certification body. The equity registration on the chain chain is electronically signed by a company certified by real name. The transfer and trading of the shares are made by the assignor, the assignee and the company. Before the signing of the three parties, the Company has the obligation to ensure that the transfer and transaction of the shares are in line with the provisions of the Company Law, which are required to obtain the original consent of the original shareholders, the original shareholders' right of subscription and the limitation of the number of shareholders. The nature of the equity transfer and the transaction is an electronic contract in which the parties are engaged in electronic signatures.
 
-Ants built-in KYC (user identity) and AML (anti-money laundering) interface program. Third-party payment, bank and other financial institutions can be used to comply with the agreement. Taking into account the possibility of missing the key, the AntShares also designed an asset recovery mechanism - immediately you lost an address of the corresponding private key, you can still without the help of a third party, you can retrieve the assets.
+Ants built-in KYC (user identity) and AML (anti-money laundering) interface program. Third-party payment, bank and other financial institutions can be used to comply with the agreement. Taking into account the possibility of missing the key, the NEO also designed an asset recovery mechanism - immediately you lost an address of the corresponding private key, you can still without the help of a third party, you can retrieve the assets.
 
 ## Economic model
 
 ### System assets and fees
 
-There are two built-in system assets: AntShares and AntCoins. AntShares represent the ownership of the blockchain, which is used for electoral accounting, to obtain AntCoins dividends, etc. AntCoins represents the right to use the blockchain, and are used to pay fees of various systems on the chain.
+There are two built-in system assets: NEO and GAS. NEO represent the ownership of the blockchain, which is used for electoral accounting, to obtain GAS dividends, etc. GAS represents the right to use the blockchain, and are used to pay fees of various systems on the chain.
 
 #### System cost
 
-Writing data to the blockchain requires paying a small amount of AntCoins as the system cost, which is divided into two categories:
+Writing data to the blockchain requires paying a small amount of GAS as the system cost, which is divided into two categories:
 
 * The bookkeeping fee charged by the accountant
 
-When writing a transaction to the blockchain, the transaction generally requires some AntCoins as an account fee. The accounting fee is charged by the accountant to subsidize the storage, bandwidth, and expenditure of the accounting node.
+When writing a transaction to the blockchain, the transaction generally requires some GAS as an account fee. The accounting fee is charged by the accountant to subsidize the storage, bandwidth, and expenditure of the accounting node.
 
- Whether the collection fee is collected, and how much is collected is determined by the accountants. A transaction can be free, as long as more than 2/3 of the accountants are willing to write the transaction. Therefore, organizations using AntShares in bulk can pay the bookkeepers with currency offchain, reducing the need to pay with AntCoins.
+ Whether the collection fee is collected, and how much is collected is determined by the accountants. A transaction can be free, as long as more than 2/3 of the accountants are willing to write the transaction. Therefore, organizations using NEO in bulk can pay the bookkeepers with currency offchain, reducing the need to pay with GAS.
 
-* Additional charges for holders of AntShares
+* Additional charges for holders of NEO
 
-Additional service charges refer to the cost of using AntShares blockchain to complete certain advanced functions and is paid with AntCoins. The types of transactions that currently require additional service charges are: asset creation, candidate registration. Additional premiums will be required for future upgrades such as asset changes, asset write-offs, and asset freeze.
+Additional service charges refer to the cost of using NEO blockchain to complete certain advanced functions and is paid with GAS. The types of transactions that currently require additional service charges are: asset creation, candidate registration. Additional premiums will be required for future upgrades such as asset changes, asset write-offs, and asset freeze.
 
-Additional service charges will be recorded according to the proportion of AntShares held immediately to the address of AntShares holders. AntShares holders can claim the coins registered in their names at anytime.
+Additional service charges will be recorded according to the proportion of NEO held immediately to the address of NEO holders. NEO holders can claim the coins registered in their names at anytime.
 
-#### AntShares
+#### NEO
 
-AntShares, abbreviated as ANS.
+NEO, abbreviated as ANS.
 
-A total of 100 million AntShares, representing the ownership of the chain. 100 million will be created in the Genesis Block and distributed accordingly. The total amount of AntShares shares are constant at 100 million and can not be increased. The smallest unit of the AntShares is 1 AntShares and can not be divided.
+A total of 100 million NEO, representing the ownership of the chain. 100 million will be created in the Genesis Block and distributed accordingly. The total amount of NEO shares are constant at 100 million and can not be increased. The smallest unit of the NEO is 1 NEO and can not be divided.
 
-The main use of AntShares shares:
+The main use of NEO shares:
 
 * Vote to choose the accountant
-* Get AntCoins generated by new blocks
-* Obtain additional service charges for AntCoins
-* Vote to decide the matter of the AntShares blockchain
+* Get GAS generated by new blocks
+* Obtain additional service charges for GAS
+* Vote to decide the matter of the NEO blockchain
 
-#### AntCoins
+#### GAS
 
-AntCoins, abbreviated as ANC.
+GAS, abbreviated as ANC.
 
-A total of 100 million ANC will be produced, representing the right to use the chain. The AntCoin will be generated with the formation of each new block, in accordance with a decreasing rate of generation, it will take around 22 years for the amount of ANC to grow from 9 to 100 million.
+A total of 100 million ANC will be produced, representing the right to use the chain. The GAS will be generated with the formation of each new block, in accordance with a decreasing rate of generation, it will take around 22 years for the amount of ANC to grow from 9 to 100 million.
 
-The main purpose of AntCoins are:
+The main purpose of GAS are:
 
-* Pay the payment fees of the AntShares blockchain
+* Pay the payment fees of the NEO blockchain
 * Pay an additional service fee for the small block area chain
 * As a deposit for the deposit of the candidate
 
 ### Assignment and distribution
 
-#### The distribution mechanism of AntShares
+#### The distribution mechanism of NEO
 
-100% of the total amount of AntShares shares in the creation of a block was created. Before the creation of AntShares the team set certain rules on the distribution of AntShares shares.
+100% of the total amount of NEO shares in the creation of a block was created. Before the creation of NEO the team set certain rules on the distribution of NEO shares.
 
-About 10% of the AntShares shares were allocated to the early supporters of AntShares in June 2014, earning $600,000 in seed funding. Of which 400,000 yuan by a number of individuals after a 5 million overall valuation of investment and 200,000 yuan by the venture capital institutions Ra Li capital after a 10 million yuan overall valuation of investment. Individual contributors also provide all kinds of support in full time or part-time free of charge.
+About 10% of the NEO shares were allocated to the early supporters of NEO in June 2014, earning $600,000 in seed funding. Of which 400,000 yuan by a number of individuals after a 5 million overall valuation of investment and 200,000 yuan by the venture capital institutions Ra Li capital after a 10 million yuan overall valuation of investment. Individual contributors also provide all kinds of support in full time or part-time free of charge.
 
-Approximately 17% of the AntShares shares were completed in October 2015 for ICO 1 and assigned to the participants, earning more than 2100 bits. Of which about 1,200 bits are from individual investors and about 900 are from a single institutional investor.
+Approximately 17% of the NEO shares were completed in October 2015 for ICO 1 and assigned to the participants, earning more than 2100 bits. Of which about 1,200 bits are from individual investors and about 900 are from a single institutional investor.
 
-Approximately 23% of the AntShares will be allocated to participants in ICO 2 launched in August 2016. The ICO does not set the price and ceiling, but the design of the return mechanism, see ICO rules.
+Approximately 23% of the NEO will be allocated to participants in ICO 2 launched in August 2016. The ICO does not set the price and ceiling, but the design of the return mechanism, see ICO rules.
 
-The remaining 50% of the AntShares shares held by the AntShares team, will be in the AntShares net after the use of AntShares smart contract locked for 1 year. 1-year lock-up period, this part of the AntShares will be used to maintain the long-term development of AntShares.
+The remaining 50% of the NEO shares held by the NEO team, will be in the NEO net after the use of NEO smart contract locked for 1 year. 1-year lock-up period, this part of the NEO will be used to maintain the long-term development of Neo.
 
-Early supporters, ICO 1 participants, and the AntShares shares assigned by ICO 2 participants will be available immediately after the operation of the small-ants blockchain. The small nest blockchain is expected to run in the fourth quarter of 2016.
+Early supporters, ICO 1 participants, and the NEO shares assigned by ICO 2 participants will be available immediately after the operation of the small-ants blockchain. The small nest blockchain is expected to run in the fourth quarter of 2016.
 
-#### The release mechanism of AntShares
+#### The release mechanism of NEO
 
-AntCoins are produced with the generation of each new block. The initial amount of AntCoins is zero and it grows until the total limit of 100 million after about 22 years. The interval between each AntShares block is about 15 seconds, about 2 millions blocks are generated in a year.
+GAS are produced with the generation of each new block. The initial amount of GAS is zero and it grows until the total limit of 100 million after about 22 years. The interval between each NEO block is about 15 seconds, about 2 millions blocks are generated in a year.
 
 In the first year (Block No. 0-No. 2,000,000), each block will generate 8 ANC; In the second year (Block No. 2,000,000-No. 4,000,000), each block will generate 7 ANC; the amount of ANC generated decreases by 1 each year till year 8 where each block generates only 1 ANC. From then on, the rate is kept constant until about 22 years at the 44 million block, the total amount of ANC reaches 100 million, at which point ANC will stop being generated.
 
 According to this curve, 16% of ANC will be created in the first year, 52% will be created by the end of the 4th year, 72% of the ANC by the end of the 8th year..
 
-These small coins will be distributed proportionally to corresponding ANS addresses. AntShare holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 AntCoins per block for about 460.8 AntCoins a day.
+These small coins will be distributed proportionally to corresponding ANS addresses. NEO holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 GAS per block for about 460.8 GAS a day.
 
 ## Technology Architecture
 
@@ -271,11 +271,11 @@ These small coins will be distributed proportionally to corresponding ANS addres
 
 Private key: A 256-bit hash generated by the user to be kept and not exposed. The private key is the proof of ownership of the user account and the ownership of the asset in the account.
 
-Public key: Each private key comes with a matching public key. Public keys in AntShares are generated by the private key through the ECC (Elliptic Curve Cryptography) curve algorithm. The algorithm used by AntShares are secp256r1 and SM2 (Chinese commercial cryptographic algorithm).
+Public key: Each private key comes with a matching public key. Public keys in NEO are generated by the private key through the ECC (Elliptic Curve Cryptography) curve algorithm. The algorithm used by NEO are secp256r1 and SM2 (Chinese commercial cryptographic algorithm).
 
 #### Script, address
 
-Script: AntShares uses an OP_CODE scripting system similar to Bitcoin. The OP_CODE in AntShares is a Turing-complete set of instructions. For example, the following two scripts can be used to verify multiple signatures
+Script: NEO uses an OP_CODE scripting system similar to Bitcoin. The OP_CODE in NEO is a Turing-complete set of instructions. For example, the following two scripts can be used to verify multiple signatures
 
 ```
 OP_M (public key list) OP_N OP_CHECKMULTYSIG
@@ -292,13 +292,13 @@ AM2Y8aSWh3LTwQBoZCNSVNCF9eqVt2vmVX (secp256r1 / SHA256 algorithm)
 SSYfWvN36FsWejmGXyhBtP5iKq9EGuaEPr (SM2 / SM3 algorithm)
 ```
 
-The hash algorithm supported by the AntShares is SHA256 and SM3 (Chinese commercial password algorithm)
+The hash algorithm supported by the NEO is SHA256 and SM3 (Chinese commercial password algorithm)
 
 #### Account and account address
 
 An account is a combination of a number of (1-16) public keys. The most basic account consists of a public key whose account address is its 1-of-1 multi-signature address.
 
-In more advanced designs, the account can be composed of two public keys, generated by the 2-of-2 multi-signature address for the account address. Of the two public keys, the one with the smaller value becomes the payment key the larger one becomes the query key. The query private key allows the user to read the balance of the asset and the historical transaction information that can be controlled by the account. Holding both private keys gives the user complete control over all assets in the account. Combined with AntShares' stealth addressing system, users can provide the outside world with a fixed address as a point of entry without sacrificing privacy.
+In more advanced designs, the account can be composed of two public keys, generated by the 2-of-2 multi-signature address for the account address. Of the two public keys, the one with the smaller value becomes the payment key the larger one becomes the query key. The query private key allows the user to read the balance of the asset and the historical transaction information that can be controlled by the account. Holding both private keys gives the user complete control over all assets in the account. Combined with NEO's stealth addressing system, users can provide the outside world with a fixed address as a point of entry without sacrificing privacy.
 
 In the wallet client, the private keys are used for separate functions. The interface will be similar to online banking, using one private key to login and using the payment private key to confirm transactions.
 
@@ -306,31 +306,31 @@ In the wallet client, the private keys are used for separate functions. The inte
 
 The user (person or organization) may apply for identity authentication to the CA certification authority to provide true identity information to other transaction participants in the transaction. When applying for authentication, the user provides the CA with the public key and identity documents signed with the corresponding private key. After verification, the CA issues a digital certificate to the user, which is signed by the CA, which contains the user's public key and identity information. The digital certificate proves the one-to-one correspondence between the public key and the user identity.
 
-When a user uses AntShares, the transaction is signed with the private key corresponding to the public key. The signature is in accordance with the definition of "reliable electronic signature" in China's "Electronic Signature Law" and is legally binding.
+When a user uses NEO, the transaction is signed with the private key corresponding to the public key. The signature is in accordance with the definition of "reliable electronic signature" in China's "Electronic Signature Law" and is legally binding.
 
 #### Privacy Protection
 
 There are some contradictions within blockchain regarding the need for openness and privacy, but through some cryptography techniques, we can solve the privacy protection problem.
 
-The privacy protection scheme of AntShares combines the multi-signature concealment address, the addition of homomorphic encryption and other leading cryptography techniques. Other than the direct participants of the transaction, other third parties can verify the validity of the transaction, but can not know the participant's identity and transaction amount.
+The privacy protection scheme of NEO combines the multi-signature concealment address, the addition of homomorphic encryption and other leading cryptography techniques. Other than the direct participants of the transaction, other third parties can verify the validity of the transaction, but can not know the participant's identity and transaction amount.
 
-Transaction data under multiple signatures are still publicly available, but there is no analytical linkability between each transaction. Even if the same person sent you a number of transactions, these transactions will be scattered across a number of unrelated addresses, no one other than yourself will be able to discover or prove that these addresses belong to you. AntShares builds upon the work done on BIP63 and adds in multi-sig and stealth addressing functionality, creating a multi-sig stealth address feature. This will be explained in detail in another paper.
+Transaction data under multiple signatures are still publicly available, but there is no analytical linkability between each transaction. Even if the same person sent you a number of transactions, these transactions will be scattered across a number of unrelated addresses, no one other than yourself will be able to discover or prove that these addresses belong to you. NEO builds upon the work done on BIP63 and adds in multi-sig and stealth addressing functionality, creating a multi-sig stealth address feature. This will be explained in detail in another paper.
 
-Multiple signature stealth addresses can include user identities but can not protect transaction amounts. AntShares uses additive homomorphic encryption means to hide the transaction amount, yet allowing the nodes in the network to verify the validity of the transaction. The other nodes in the network can verify that the balance of the asset in the entire network is unchanged after the transaction of an asset is completed, thus verifying the validity of the transaction without knowing the specific transaction amount.
+Multiple signature stealth addresses can include user identities but can not protect transaction amounts. NEO uses additive homomorphic encryption means to hide the transaction amount, yet allowing the nodes in the network to verify the validity of the transaction. The other nodes in the network can verify that the balance of the asset in the entire network is unchanged after the transaction of an asset is completed, thus verifying the validity of the transaction without knowing the specific transaction amount.
 
 ### Assets
 
-The assets of the AntShares block can be divided into system assets and user-issued assets. The system assets are the represent the rights in the AntShares agreement. The user's assets represent the rights of assets outside of the AntShares blockchain.
+The assets of the NEO block can be divided into system assets and user-issued assets. The system assets are the represent the rights in the NEO agreement. The user's assets represent the rights of assets outside of the NEO blockchain.
 
 #### System assets
 
-System assets include AntShares and AntCoins. AntShares represent system ownership, AntCoins represent the right to use the system. The specific form of AntShares and AntCoins has been described in the chapter "(b) the economic model" and will not be repeated.
+System assets include NEO and GAS. NEO represent system ownership, GAS represent the right to use the system. The specific form of NEO and GAS has been described in the chapter "(b) the economic model" and will not be repeated.
 
 #### User-issued assets
 
 Any user can issue assets. Assets are created and distributed in two steps. After creation, the assets are registered in the blockchain but are not actually generated to any address; after the distribution, the assets actually enter the address.
 
-Currency: The AntShares block-chain agreement introduces the external currency in the form of a gateway. Currency transfer does not require a recipient signature.
+Currency: The NEO block-chain agreement introduces the external currency in the form of a gateway. Currency transfer does not require a recipient signature.
 
 Equity Assets: Equity assets are used as shares of a representative company (or stock company stock) to issue assets. The transfer or transaction of an equity asset requires the signature of the recipient.
 
@@ -378,15 +378,15 @@ Election account: see the accounting mechanism
 
 #### Transaction fees
 
-Transaction costs are divided into accounting fees and additional service fees, are paid in AntCoins. Specific in the "(b) economic model" chapter to be explained, not repeat them.
+Transaction costs are divided into accounting fees and additional service fees, are paid in GAS. Specific in the "(b) economic model" chapter to be explained, not repeat them.
 
 ### Accounting mechanism
 
 #### Blockchain
 
-AntShares uses a block-like chain similar to Bitcoin to record data.
+NEO uses a block-like chain similar to Bitcoin to record data.
 
-The blockchain can be imagined as a book, and each block is a page of accounts in the book. Each page contains transactions for a preset period of time. The AntShares blockchain generates a block every 15 seconds. The new block is attached to the previous block and forms a chain structure. Each block contains transaction information that occurs within 15 seconds, as well as other necessary retrieval and verification information.
+The blockchain can be imagined as a book, and each block is a page of accounts in the book. Each page contains transactions for a preset period of time. The NEO blockchain generates a block every 15 seconds. The new block is attached to the previous block and forms a chain structure. Each block contains transaction information that occurs within 15 seconds, as well as other necessary retrieval and verification information.
 
 The block data structure of the small-ants block is shown as follows:
 
@@ -403,4 +403,4 @@ public class Block // block
 }
 ```
 
-For more information on the consensus mechanism, please refer to the [AntShares consensus White Paper](https://www.antshares.org/Files/66c6773b.pdf)
+For more information on the consensus mechanism, please refer to the [NEO consensus White Paper](https://www.neo.org/Files/66c6773b.pdf)

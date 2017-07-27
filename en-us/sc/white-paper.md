@@ -2,9 +2,9 @@
 
 ### 📖 The document is being edited
 
-📖 The documentation is a work in progress. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or visit our [official website](Http://www.antshares.org).
+📖 The documentation is a work in progress. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or visit our [official website](Http://www.neo.org).
 
-This is an open source community project, you can contribute to the development of the documentation, [github.com/AntShares/docs](https://github.com/neo-project/docs), thanks for visiting.
+This is an open source community project, you can contribute to the development of the documentation, [github.com/neo-project/docs](https://github.com/neo-project/docs), thanks for visiting.
 
 ------
 
@@ -29,11 +29,11 @@ Many smart contract procedures use random number functions, such as gambling con
 ### 2.1.3 data source
 
 If a program obtains data at run time and the data source provides non-deterministic data, the program may become a non-deterministic program. For example, through the search engine to get a keyword of the top 10 search results - search engines for different IP address sources may return different sort results.
-The AntShares intelligence provides two deterministic data sources:
+The NEO intelligence provides two deterministic data sources:
 1) Blockchain book
 The contract procedure can access all the data on the entire chain chain through interactive services, including complete blocks and transactions, as well as each of their fields. The data on the blocks are deterministic and consistent, so they can be accessed securely by smart contracts.
 2) Contract storage space
-Each application contract deployed on a AntShares has a storage space that can only be accessed by the contract itself, and the consensus mechanism of the small ants ensures that the storage status on each node is consistent.
+Each application contract deployed on a NEO has a storage space that can only be accessed by the contract itself, and the consensus mechanism of the small ants ensures that the storage status on each node is consistent.
 For the case of the need to access the data outside the chain, the small ants did not provide a direct way, through the transaction to the chain data sent to the chain, which converted into the above two types of data sources can be accessed by intelligent contracts.
 
 ### 2.1.4 contract call
@@ -43,7 +43,7 @@ The smart contract has the ability to call each other, but can not be recursivel
 ## 2.2 High performance
 
 The execution environment of an intelligent contract can play a very important role in the performance of the contract. When we analyze the performance of the execution environment, there are two indicators that are critical: the first is the execution speed of the instruction, and the second is the startup speed of the execution environment itself. For smart contracts, the execution speed of the execution environment is often more important than the execution of the instructions. Smart contract is a little more involved in IO operation of the logic to determine the instructions, the implementation of these instructions can easily be optimized. While the smart contract is called each time, you must start a new virtual machine/container. So the execution speed of the execution environment itself (starting a virtual machine/container) has a greater impact on the performance of the smart contract system.
-The AntShares uses the lightweight AVM (AntShares Virtual Machine) as its intelligent contract execution environment, it starts very fast, takes up resources is also very small, suitable for such as smart contract short program. The static compilation and caching of hotspot contracts can significantly improve the efficiency of virtual machines by JIT (real-time compiler) technology.
+The NEO uses the lightweight AVM (NEO Virtual Machine) as its intelligent contract execution environment, it starts very fast, takes up resources is also very small, suitable for such as smart contract short program. The static compilation and caching of hotspot contracts can significantly improve the efficiency of virtual machines by JIT (real-time compiler) technology.
 
 ## 2.3 Extensibility
 
@@ -92,7 +92,7 @@ When you need to schedule or rearrange the elements in the stack, you can tempor
 
 ## 4.2 instruction set
 
-The AntShares virtual machine provides a simple and practical instruction set for constructing an intelligent contract procedure. By function, mainly include the following categories:
+The NEO virtual machine provides a simple and practical instruction set for constructing an intelligent contract procedure. By function, mainly include the following categories:
 1) constant instruction
 2) Process control instructions
 3) stack operation instructions
@@ -101,7 +101,7 @@ The AntShares virtual machine provides a simple and practical instruction set fo
 6) arithmetic instructions
 7) cryptographic instructions
 8) Data manipulation instructions
-It is worth noting that the instruction set of the AntShares virtual machine provides a series of cryptographic instructions such as ECDSA, SHA and other algorithms to optimize the efficiency of the implementation of cryptographic algorithms in smart contracts. In addition, data manipulation instructions provide support for arrays and complex data structures directly.
+It is worth noting that the instruction set of the NEO virtual machine provides a series of cryptographic instructions such as ECDSA, SHA and other algorithms to optimize the efficiency of the implementation of cryptographic algorithms in smart contracts. In addition, data manipulation instructions provide support for arrays and complex data structures directly.
 
 ## 4.3 Interactive service layer
 
@@ -115,7 +115,7 @@ Often, the development of a smart contract is very difficult because there is no
 
 ## 5.1 C #, VB.Net, F #
 
-Developers can use almost any high-level language they are good at for the development of ants' smart contracts. The first supported languages ​​are C #, VB.Net, F #, etc., which provide compilers and plug-ins for these languages ​​for compiling high-level languages ​​into instruction sets supported by AntShares virtual machines. As the compiler will be for MSIL (Microsoft intermediate language) to compile, so theoretically any. Net language or can be translated into MSIL language can be directly directly supported.
+Developers can use almost any high-level language they are good at for the development of ants' smart contracts. The first supported languages ​​are C #, VB.Net, F #, etc., which provide compilers and plug-ins for these languages ​​for compiling high-level languages ​​into instruction sets supported by NEO virtual machines. As the compiler will be for MSIL (Microsoft intermediate language) to compile, so theoretically any. Net language or can be translated into MSIL language can be directly directly supported.
 The number of developers in these languages ​​is numerous and has a very strong integrated development environment. Developers can develop, test, debug and debug a series of development work in Visual Studio, and can also use the intelligence provided by the small ants Contract development template for quick entry.
 
 ## 5.2 Other languages
@@ -124,13 +124,13 @@ Follow-up, small ants will be based on the degree of difficulty to sub-batch dev
 1) Java
 2) C, C ++, GO
 3) Python, JavaScript
-The future will continue to add new high-level language support, so that 90% of developers do not need to learn new language can participate in the development of AntShares smart contract, and even the existing business system code can be directly transplanted to the district Block on the chain.
+The future will continue to add new high-level language support, so that 90% of developers do not need to learn new language can participate in the development of NEO smart contract, and even the existing business system code can be directly transplanted to the district Block on the chain.
 
 # 6, service
 
 ## 6.1 Block Chain Book
 
-The immovable smart contract can obtain the complete account data of the AntShares blockchain, including the complete block and the transaction, and each of their fields, at runtime, through the system functions provided by the interactive service. Specifically, you can query these data:
+The immovable smart contract can obtain the complete account data of the NEO blockchain, including the complete block and the transaction, and each of their fields, at runtime, through the system functions provided by the interactive service. Specifically, you can query these data:
 1) the height of the blockchain;
 2) Block head, block;
 3) transactions;
@@ -175,7 +175,7 @@ The small block area provides a credible execution environment for the smart con
 Digital assets on the chain chain are inherently mobile demand, and usually point-to-point transactions can not provide sufficient liquidity, so the need for the exchange to provide users with trading services. Digital assets of the exchange will generally be divided into two categories: the first is the central exchange, the user needs to recharge the digital assets to the exchange, and then on the site to order a single transaction; the second category is to the central exchange, Its trading system is built into the blockchain system, provided by the system matching services.
 Centralized exchanges can provide very high performance and diversified services, but need to have a strong credit guarantee, otherwise there will be moral hazard, such as misappropriation of user funds, Paolu and so on. Relatively, to the center of the exchange although there is no moral hazard, but the user experience is poor, performance also has a greater bottleneck. Is there a way to combine the advantages of both to provide a best of both worlds?
 Superconducting transactions can do this, it is a mechanism: users do not need to recharge, you can directly use their own assets in the chain chain to trade, the transaction settlement in the chain to complete, but the process of matching Outside the chain, by a central exchange to provide matching services. Due to the match in the chain, its efficiency can be as high as the central exchange, but the assets are still under the control of the user, the exchange can be based on the user's trading intent to carry out matching services, but can not divert funds or Paolu, no Moral Hazard.
-At present, the AntShares community has been the emergence of some use of ants intelligent contract to achieve the blockchain superconducting transactions, such as blue whale scouring.
+At present, the NEO community has been the emergence of some use of ants intelligent contract to achieve the blockchain superconducting transactions, such as blue whale scouring.
 
 ## 8.2 Smart Fund
 

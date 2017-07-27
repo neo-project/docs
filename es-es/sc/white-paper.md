@@ -1,4 +1,4 @@
-# Contratos Inteligentes AntShares 2.0 Whitepaper
+# Contratos Inteligentes NEO 2.0 Whitepaper
 
 :book: **El documento está siendo editado** y lo completaremos lo antes posible. Puedes ver otros documentos en [GitHub](https://github.com/neo-project/neo/wiki) or visitar la [web oficial](http://www.neo.org).
 
@@ -25,16 +25,16 @@ La obtención de tiempo del sistema es una función muy común que puede ser apl
 
 ### 2.1.2 Número aleatorios
 
-Muchos procedimientos de los contratos inteligentes usan funciones de números aleatorios, como contratos de juego de apuestas y otros juegos, pero la función número aleatorio es una típica función no-determinista, cada opción obtendrá resultados diferentes. En un sistema distribuido, hay muchas formas de resolver este problema: la misma semilla aleatoria puede usarse para todos los nodos de modo que la función aleatoria sea determinista, pero este método expone el resultado aleatorio entero por adelantado, lo que hace que el valor práctico del número aleatorio se reduzca en gran medida; Otro método es permitir que todos los nodos se comuniquen de una manera colaborativa para generar números aleatorios, puede utilizar algunas técnicas criptográficas para producir un número aleatorio justo, pero la desventaja es que el rendimiento es muy pobre, necesita una sobrecarga de comunicación adicional; Hay también una manera de introducir números aleatorios centralizado que proporciona números aleatorios y asegura la coherencia, pero el inconveniente de este enfoque es que es obvio que el usuario debe confiar incondicionalmente en el proveedor. Hay dos maneras de obtener un número aleatorio en AntShares: la primera es que cuando se construye cada bloque, el nodo Consenso llegue a un consenso sobre un número aleatorio y lo establezca en el campo 'Nonce' del bloque. El procedimiento del contrato puede leer este valor de cualquier bloque; el segundo es que el programa de contrato puede utilizar el valor hash del bloque como un medio de generación de números aleatorios, porque el valor hash del bloque tiene una cierta aleatoriedad, de esta manera puede obtener un números aleatorios algo más débiles.
+Muchos procedimientos de los contratos inteligentes usan funciones de números aleatorios, como contratos de juego de apuestas y otros juegos, pero la función número aleatorio es una típica función no-determinista, cada opción obtendrá resultados diferentes. En un sistema distribuido, hay muchas formas de resolver este problema: la misma semilla aleatoria puede usarse para todos los nodos de modo que la función aleatoria sea determinista, pero este método expone el resultado aleatorio entero por adelantado, lo que hace que el valor práctico del número aleatorio se reduzca en gran medida; Otro método es permitir que todos los nodos se comuniquen de una manera colaborativa para generar números aleatorios, puede utilizar algunas técnicas criptográficas para producir un número aleatorio justo, pero la desventaja es que el rendimiento es muy pobre, necesita una sobrecarga de comunicación adicional; Hay también una manera de introducir números aleatorios centralizado que proporciona números aleatorios y asegura la coherencia, pero el inconveniente de este enfoque es que es obvio que el usuario debe confiar incondicionalmente en el proveedor. Hay dos maneras de obtener un número aleatorio en NEO: la primera es que cuando se construye cada bloque, el nodo Consenso llegue a un consenso sobre un número aleatorio y lo establezca en el campo 'Nonce' del bloque. El procedimiento del contrato puede leer este valor de cualquier bloque; el segundo es que el programa de contrato puede utilizar el valor hash del bloque como un medio de generación de números aleatorios, porque el valor hash del bloque tiene una cierta aleatoriedad, de esta manera puede obtener un números aleatorios algo más débiles.
 
 
 ### 2.1.3 Origen de los datos
 
-Si un programa obtiene datos en el momento que se ejecuta y la fuente de datos proporciona datos no-deterministas, el programa puede volverse un programa no-determinista. Por ejemplo, usar un motor de búsqueda para los diez primeros resultados de una palabra – los motores de búsqueda puede responder con diferentes resultados dependiendo de la direcciones IP de origen. La inteligencia AntShares proporciona dos fuentes de datos no deterministas:
+Si un programa obtiene datos en el momento que se ejecuta y la fuente de datos proporciona datos no-deterministas, el programa puede volverse un programa no-determinista. Por ejemplo, usar un motor de búsqueda para los diez primeros resultados de una palabra – los motores de búsqueda puede responder con diferentes resultados dependiendo de la direcciones IP de origen. La inteligencia NEO proporciona dos fuentes de datos no deterministas:
 
 **1.**	Blockchain: El procedimiento de contrato puede acceder a todos los datos de toda la cadena mediante servicios interactivos, incluyendo bloques completos y transacciones, así como cada uno de sus campos. Los datos sobre los bloques son deterministas y consistentes, por lo que se puede acceder de forma segura mediante contratos inteligentes.
 
-**2.**	Espacio de almacenamiento de contrato: Cada contrato desplegado en AntShares tiene un espacio de almacenamiento que sólo puede ser accedido por ese contrato además, el mecanimso de consenso de AntShares garantiza que el estado de almacenamiento en cada nodo sea consistente. En el caso de que el contrato necesite obtener datos fuera de la cadena AntShares no proporciona una via directa. 
+**2.**	Espacio de almacenamiento de contrato: Cada contrato desplegado en NEO tiene un espacio de almacenamiento que sólo puede ser accedido por ese contrato además, el mecanimso de consenso de NEO garantiza que el estado de almacenamiento en cada nodo sea consistente. En el caso de que el contrato necesite obtener datos fuera de la cadena NEO no proporciona una via directa. 
 
 ### 2.1.4 Llamada de contrato
 
@@ -42,7 +42,7 @@ Los contratos inteligentes tienen la habilidad de llamarse entre sí, pero no pu
 
 ## 2.2 Alto Rendimiento
 
-El entorno de ejecución de un contrato inteligente puede jugar un rol muy importante en el desempeño del contrato. Cuando analizamos el performance de ejecución de un contrato hay dos indicadores críticos: la primera es la velocidad de ejecución de la instrucción y el segundo la ejecución del propio contrato. Para contratos inteligentes, la velocidad de ejecución en el es a menudo más importante que la ejecución de las instrucciones. El contrato inteligente está un poco más involucrado en la operación IO de la lógica para determinar las instrucciones, la aplicación de estas instrucciones se pueden optimizar fácilmente. Cada vez que se ejecuta un contrato inteligente se inicia la máquina virtual/contenedor, por lo tanto la ejecución  de maquina virtual tiene un mayor impacto en el rendimiento de los contratos inteligentes. AntShares utiliza una máquina virtual muy ligera, se ejecuta muy rapida y consume muy pocos recursos, ideal para la ejecución de contratos.La compilación estática y el almacenamiento en caché de los contratos mejoran significativamente la eficiencia de las máquinas virtuales mediante la tecnología JIT (compilador en tiempo real).
+El entorno de ejecución de un contrato inteligente puede jugar un rol muy importante en el desempeño del contrato. Cuando analizamos el performance de ejecución de un contrato hay dos indicadores críticos: la primera es la velocidad de ejecución de la instrucción y el segundo la ejecución del propio contrato. Para contratos inteligentes, la velocidad de ejecución en el es a menudo más importante que la ejecución de las instrucciones. El contrato inteligente está un poco más involucrado en la operación IO de la lógica para determinar las instrucciones, la aplicación de estas instrucciones se pueden optimizar fácilmente. Cada vez que se ejecuta un contrato inteligente se inicia la máquina virtual/contenedor, por lo tanto la ejecución  de maquina virtual tiene un mayor impacto en el rendimiento de los contratos inteligentes. NEO utiliza una máquina virtual muy ligera, se ejecuta muy rapida y consume muy pocos recursos, ideal para la ejecución de contratos.La compilación estática y el almacenamiento en caché de los contratos mejoran significativamente la eficiencia de las máquinas virtuales mediante la tecnología JIT (compilador en tiempo real).
 
 
 ## 2.3 Extensibilidad
@@ -77,7 +77,7 @@ La aplicación de contrato proporciona al usuario un cojunto de funciones donde 
 
 ## 4.1 Hardware virtual
 
-La máquina virtual AntShares proporciona una capa de hardware virtual para soportar la ejecución de contratos inteligentes, incluyendo:
+La máquina virtual NEO proporciona una capa de hardware virtual para soportar la ejecución de contratos inteligentes, incluyendo:
 
 **1.**	CPU: Es responsable de leer y en el orden la implementación de instrucciones en el contrato, de acuerdo a la función de instrucción del flujo de control, operaciones aritméticas, operaciones lógicas. La función del CPU puede extenderse en el futuro, la introducción de JIT (compilador en tiempo real) mejorando así la eficiencia de la instrucción de ejecución
 
@@ -90,7 +90,7 @@ La máquina virtual AntShares proporciona una capa de hardware virtual para sopo
 
 ## 4.2 Set de intrucciones
 
-La máquina virtual AntShares proporciona un set simple y práctico de instrucciones para construir un procedimiento de Smart Contract. Por función, incluye en su mayoría las siguientes categorías: 
+La máquina virtual NEO proporciona un set simple y práctico de instrucciones para construir un procedimiento de Smart Contract. Por función, incluye en su mayoría las siguientes categorías: 
 
   * Instrucción constante
   * Instrucciones de control del proceso
@@ -99,7 +99,7 @@ La máquina virtual AntShares proporciona un set simple y práctico de instrucci
   * Instrucciones lógicas
   * Instrucciones aritméticas
   * Instrucciones criptográficas
-  * Instrucciones de manipulación de datos. Cabe señalar que el conjunto de instrucciones de la máquina virtual AntShares proporciona una serie de instrucciones criptográficas como ECDSA, SHA y otros algoritmos para optimizar la eficiencia de la implementación de algoritmos criptográficos en contratos inteligentes. Además, las instrucciones de manipulación de datos proporcionan soporte para matrices y estructuras de datos complejas directamente
+  * Instrucciones de manipulación de datos. Cabe señalar que el conjunto de instrucciones de la máquina virtual NEO proporciona una serie de instrucciones criptográficas como ECDSA, SHA y otros algoritmos para optimizar la eficiencia de la implementación de algoritmos criptográficos en contratos inteligentes. Además, las instrucciones de manipulación de datos proporcionan soporte para matrices y estructuras de datos complejas directamente
 
 
 ## 4.3	Capa de servicio interactiva
@@ -114,23 +114,23 @@ A menudo, el desarrollo de un Smart Contract es muy difícil porque no hay un bu
 
 ## 5.1 C #, VB.Net, F #
 
-Los desarrolladores pueden usar casi cualquier lenguaje de alto nivel para el desarrollo de contratos inteligentes. Los primeros lenguajes soportados son C#, VB.Net, F#. Se proporciona compiladores y plug-ins para compilar estos lenguajes de alto nivel a sets de instrucciones soportados en la máquina virtual de AntShares. Como el compilador será para MSIL (lenguaje intermedio de Microsoft) teóricamente cualquier lenguaje .NET o traducido al lenguaje MSIL estará directamente soportado. El número de desarrolladores en estos lenguajes es numeroso y tiene un entorno de desarrollo integrado. Los desarrolladores pueden desarrollar, probar y depurar programas desarrollados en Visual Studio, y también pueden utilizar el plug-in SmartContract que genera una plantilla como punto de entrada al desarrollo.
+Los desarrolladores pueden usar casi cualquier lenguaje de alto nivel para el desarrollo de contratos inteligentes. Los primeros lenguajes soportados son C#, VB.Net, F#. Se proporciona compiladores y plug-ins para compilar estos lenguajes de alto nivel a sets de instrucciones soportados en la máquina virtual de NEO. Como el compilador será para MSIL (lenguaje intermedio de Microsoft) teóricamente cualquier lenguaje .NET o traducido al lenguaje MSIL estará directamente soportado. El número de desarrolladores en estos lenguajes es numeroso y tiene un entorno de desarrollo integrado. Los desarrolladores pueden desarrollar, probar y depurar programas desarrollados en Visual Studio, y también pueden utilizar el plug-in SmartContract que genera una plantilla como punto de entrada al desarrollo.
 
 ## 5.2 Otros lenguajes
 
-AntShares soportará otros compiladores de alto nivel, algunos podran ser:
+NEO soportará otros compiladores de alto nivel, algunos podran ser:
 
   * Java
   * C, C ++, GO
   * Python, JavaScript
 
-En el futuro se continuará añadiendo lenguajes de alto nivel, de esta forma casi el 90% de los desarrolladores no necesitaran aprender un nuevo lenguaje para desarrollar contratos inteligente en AntSharesract con AntShares.
+En el futuro se continuará añadiendo lenguajes de alto nivel, de esta forma casi el 90% de los desarrolladores no necesitaran aprender un nuevo lenguaje para desarrollar contratos inteligente en NEOract con Neo.
 
 # 6 Servicio.
 
 ## 6.1 Blockchain
 
-Los contratos inteligentes pueden obtener los datos completos de la blockchain de Antshares, incluyendo el bloque completo y la transacciones, así como todos sus campos en tiempo de ejecución a través de las funciones de sistema proporcionadas para interactuar con el sistemas. Específicamente, puede consultar:
+Los contratos inteligentes pueden obtener los datos completos de la blockchain de NEO, incluyendo el bloque completo y la transacciones, así como todos sus campos en tiempo de ejecución a través de las funciones de sistema proporcionadas para interactuar con el sistemas. Específicamente, puede consultar:
 
   * La altura del blockchain.
   * La cabecera del bloque y el bloque.
@@ -141,7 +141,7 @@ Los contratos inteligentes pueden obtener los datos completos de la blockchain d
 
 ## 6.2 Activos digitales
 
-Los contratos inteligentes ademas de consultar los atributos y estadisticas de los activos digitales en la blockchain también pueden crearlo en tiempos de ejecución. Los activos digitales creados con los contratos inteligentes pueden ser emitidos, transferidos y comercializados, además de poder administrarlos con cualquier monedero compatible con AntShares.
+Los contratos inteligentes ademas de consultar los atributos y estadisticas de los activos digitales en la blockchain también pueden crearlo en tiempos de ejecución. Los activos digitales creados con los contratos inteligentes pueden ser emitidos, transferidos y comercializados, además de poder administrarlos con cualquier monedero compatible con Neo.
 
 La interfaz tiene las siguientes funcionalidades:
 
@@ -171,7 +171,7 @@ El area de almacenamiento de los llamantes inter-dominio puede ofrecer bibliotec
 
 ## 7.1 Coste de desarrollo
 
-La estructura distribuida de la blockchain de AntShares proporciona una alta redundancia a nivel de almacenamiento, el uso de este capacidad no es gratis. El costo de desplegar un contrato inteligente es un pequeños bloque está fijado a 500 NeoGas, el cual es recogido por el sistema y se vuelve una ganancia para el sistema. En el futuro el coste puede basarse en la operación y se podrá ajusta el precio. Un contrato inteligente desplegado en la blockchain se puede utilizar multiples veces hasta que el contrato se destruyes por quien lo ha desplegado.
+La estructura distribuida de la blockchain de NEO proporciona una alta redundancia a nivel de almacenamiento, el uso de este capacidad no es gratis. El costo de desplegar un contrato inteligente es un pequeños bloque está fijado a 500 NeoGas, el cual es recogido por el sistema y se vuelve una ganancia para el sistema. En el futuro el coste puede basarse en la operación y se podrá ajusta el precio. Un contrato inteligente desplegado en la blockchain se puede utilizar multiples veces hasta que el contrato se destruyes por quien lo ha desplegado.
 
 ## 7.2 Tarifa de ejecución
 
@@ -191,11 +191,11 @@ Es previsible que, en el futuro por un largo período de tiempo otras blockchain
 
 ## 8.4 Maquina echo
 
-Un susurro puede ser visto como una máquina tupla conectada a un profeta (oráculo). El concepto del profeta es una entidad que puede responder a un conjunto particular de preguntas. En la blockchain, el denunciante (whistleblower) abre la puerta al mundo exterior para los contratos inteligentes lo que permite utilizar la información del mundo real como condición para la ejecución del contrato. El contrato inteligente de AntShares no proporciona la capacidad de acceder a los datos externos directamente, como el acceso a los recursos en Internet, ya que esto introduce datos no-determinista, haciendo que los nodos aparezcan inconsistentes con los resultados de la ejecución del contrato. En la blockchain de AntShares para conseguir la máquina de silbato, la necesidad de un tercero de confianza a datos externos a través de la forma de transacciones enviadas a la cadena de bloques, haciendo que esta información se convierta en parte de los datos del libro, eliminando la incertidumbre. El tercero creíble a que se refiere el artículo anterior puede ser una persona o institución de confianza de ambas partes en el contrato, o un proveedor de datos descentralizado que esté garantizado por incentivos económicos. Para lograr tal silbato.
+Un susurro puede ser visto como una máquina tupla conectada a un profeta (oráculo). El concepto del profeta es una entidad que puede responder a un conjunto particular de preguntas. En la blockchain, el denunciante (whistleblower) abre la puerta al mundo exterior para los contratos inteligentes lo que permite utilizar la información del mundo real como condición para la ejecución del contrato. El contrato inteligente de NEO no proporciona la capacidad de acceder a los datos externos directamente, como el acceso a los recursos en Internet, ya que esto introduce datos no-determinista, haciendo que los nodos aparezcan inconsistentes con los resultados de la ejecución del contrato. En la blockchain de NEO para conseguir la máquina de silbato, la necesidad de un tercero de confianza a datos externos a través de la forma de transacciones enviadas a la cadena de bloques, haciendo que esta información se convierta en parte de los datos del libro, eliminando la incertidumbre. El tercero creíble a que se refiere el artículo anterior puede ser una persona o institución de confianza de ambas partes en el contrato, o un proveedor de datos descentralizado que esté garantizado por incentivos económicos. Para lograr tal silbato.
 
 ## 8.5 Ethernet Square Series DAPP
 
-Bitcoin creó una blockchain y dinero electrónico, para crear una era de contrato electrónico. Con el pionero de contratos inteligentes de blockchain, es una gran contribución a la idea de diseño, modelo económico y realización tecnológica del sistema de contrato inteligente. Al mismo tiempo, hay muchos DAPP (aplicación distribuida) en tal plataforma, lo que tiene diferentes funciones, como acuerdos de juegos, activos digitales, oro electrónico, plataforma de juegos, plataforma de matrimonio, industria. Todos estos DAPP, teóricamente pueden ser fácilmente trasplantados a la plataforma de AntShares.
+Bitcoin creó una blockchain y dinero electrónico, para crear una era de contrato electrónico. Con el pionero de contratos inteligentes de blockchain, es una gran contribución a la idea de diseño, modelo económico y realización tecnológica del sistema de contrato inteligente. Al mismo tiempo, hay muchos DAPP (aplicación distribuida) en tal plataforma, lo que tiene diferentes funciones, como acuerdos de juegos, activos digitales, oro electrónico, plataforma de juegos, plataforma de matrimonio, industria. Todos estos DAPP, teóricamente pueden ser fácilmente trasplantados a la plataforma de Neo.
 
 # 9.	Explorar
 

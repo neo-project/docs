@@ -59,4 +59,4 @@ The contract implements a domain name transfer system, where the domain name is 
 
 The above code to achieve the domain name of the query, registration, transfer, delete.
 
-For details, refer to [Storage Class](../fw/dotnet/AntShares/Storage.md).
+For details, refer to [Storage Class](../fw/dotnet/neo/Storage.md).

@@ -6,7 +6,7 @@
 
 该版本客户端的适应系统有： win7 sp1 / win8 / win10。
 
-客户端本身无需安装，进入[客户端页面](https://www.antshares.org/Download)，下载后直接双击 AntSharesUI.exe，打开即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们技术人员联系来解决问题。
+客户端本身无需安装，进入[客户端页面](https://www.neo.org/Download)，下载后直接双击 NeoUI.exe，打开即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们技术人员联系来解决问题。
 
 > [!Note]
 > Windows10 之前版本的系统需要安装 [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) 。
@@ -35,7 +35,7 @@
 
 (1) 地址：相当于银行账户或银行卡号，用于交易时接收资产。
 
-(2) 类型：Antshares.Wallets.SignatureContract 表示该地址由一个公钥组成，是一个 1-of-1 多重签名地址。Antshares.Wallets.MultiSigContract 表示该地址由多个公钥组成，是一个 m-of-n 的多重签名地址，该地址被用于智能合约当中。 
+(2) 类型：Neo.Wallets.SignatureContract 表示该地址由一个公钥组成，是一个 1-of-1 多重签名地址。Neo.Wallets.MultiSigContract 表示该地址由多个公钥组成，是一个 m-of-n 的多重签名地址，该地址被用于智能合约当中。 
 
 (3) 私钥：一个 256 位的随机数，由用户保管且不对外公开，是用户账户使用权以及账户内资产所有权的证明。 
 
@@ -240,7 +240,7 @@ NEO 股持有者对候选记账人进行投票，根据投票结果，确定记�
 
 **下载离线同步包**
 
-离线数据包下载网址：https://www.antshares.org/client/chain.acc.zip
+离线数据包下载网址：https://www.neo.org/client/chain.acc.zip
 
 输入网址，你会下载到一个压缩包。![](~/images/gui/2017-07-04_11-59-35.png)
 
@@ -336,6 +336,6 @@ NEO 币伴随着每个新区块的生成而产生，会按照 NEO 股的持股�
 
 待补充
 
-### 关于 Antshares
+### 关于 NEO
 
 NEO 客户端的版本号。
