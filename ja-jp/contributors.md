@@ -1,4 +1,4 @@
-﻿# 投稿者
+﻿# 協力者
 
 - Chris Colomb [chriscolomb8@gmail.com](mailto:chriscolomb8@gmail.com)
 - oiertgsdetg
