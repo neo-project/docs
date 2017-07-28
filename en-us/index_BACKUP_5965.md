@@ -117,7 +117,11 @@ GAS distribution:
 
 GAS is generated with each new block. The initial total amount of GAS is zero. With the increasing rate of new block generation, the total limit of 100 million GAS will be achieved in about 22 years. The interval between each block is about 15-20 seconds, and 2 million blocks are generated in about one year.
 
+<<<<<<< HEAD
+In the first year (actually 0-200 million blocks), each block will generate 8 new GAS; in the second year (actually the first 200-400 million blocks), each new block will generate 7 GAS and so on. There will be an annual reduction of 1 GAS for the first 8 years until 1 GAS per block is reached; this will be the rate of GAS generation until about 22 years, after the 44 millionth block, GAS total will reach 100 million, thus stopping the generation of GAS from new blocks.
+=======
 The first year (actually 0-2 million blocks), each block will generate 8 new GAS; the second year (actually the first 2-4 million blocks), each new block will generate 7 GAS and so on. There is annual reduction of 1 GAS for the first 8 years until 1 GAS per block is reached; this will be the rate of GAS generation until about 22 years, after the 44 millionth block, GAS total will reach 100 million, thus stopping the generation of GAS from new blocks.
+>>>>>>> Update index.md
 
 According to this release curve, 16% of the GAS will be created in the first year, 52% of the GAS will be created in the first four years, and 80% of the GAS will be created in the first 12 years. These GAS will be distributed proportionally in accordance with the NEO holding ratio, recorded in the corresponding addresses. NEO holders can initiate a claim transaction at any time and claim these GAS tokens at their holding addresses.
 
