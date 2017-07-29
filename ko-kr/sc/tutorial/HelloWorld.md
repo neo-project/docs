@@ -1,4 +1,4 @@
-# Smart contract example - HelloWorld
+# 스마트 계약 예제 - HelloWorld
 
 ```c#
 public class HelloWorld : FunctionCode
