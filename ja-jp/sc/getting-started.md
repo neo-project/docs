@@ -9,19 +9,19 @@ typora-root-url: ..\..
 このセクションでは、AntSharesスマートコントラクトのC#開発環境を設定するための簡単なチュートリアルと、スマートコントラクトプロジェクトの作成方法とコンパイル方法を紹介します。
 
    > [!Note]
-   > 現在、Visual Studio2015を使用してインテリジェントな契約を作成するには、[VS2015のAntsのインテリジェントな契約書をC#でどのように使用するのか？](getting-started-2015.md)を参照できるように、すべてのプロジェクトがVisual Studio 2017バージョンにアップグレードされています。
+   > 現在、すべてのプロジェクトがVisual Studio 2017バージョンにアップグレードされています。Visual Studio 2015を使用してスマートコントラクトを作成するには、[VS2015でC#を使用してAntSharesスマートコントラクトを作成する方法](getting-started-2015.md)を参照して下さい。
 
 ## 開発ツール
 
 ### 1. Visual Studio 2017
 
-お使いのコンピュータにVisual Studio 2017をインストールし、インストール時に.NET .NET Cross-Platform Developmentを確認した場合は、このセクションをスキップできます。
+お使いのコンピュータにVisual Studio 2017をインストール済みであり、インストール時に「.NET Core クロスプラットフォームの開発」をチェックした場合は、このセクションをスキップできます。
 
 ダウンロードとインストール：
 
-[Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
+[Visual Studioのダウンロード](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-インストールプロセスは非常に簡単です、操作画面に従って進んで、あなたは.NET Core cross-platform developmentのインストールを確認する必要があります。そうでなければAntShares.VMプロジェクトを開くことができません。ステップ＃3のインストールには、約10分から1時間かかります。
+インストールプロセスは非常に簡単です、操作画面に従って進み、「.NET Core クロスプラットフォームの開発」のインストールをチェックする必要があります。そうでなければ、ステップ#3でAntShares.VMプロジェクトを開くことができません。インストールには、約10分から1時間かかります。
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
@@ -29,7 +29,7 @@ typora-root-url: ..\..
 
 インストール方法：
 
-Visual Studio 2017を開き、ツールを開き、拡張機能と更新をクリックし、ウィンドウの左側にある[オンライン]タブをクリックし、ウィンドウの右上にある検索ボックスでAntSharesを検索し、AntShares.SmartContractプラグインをダウンロードします（インターネットアクセスが必要です）。
+Visual Studio 2017を開き、[ツール]メニューから[拡張機能と更新プログラム]をクリック、ウィンドウの左側にある[オンライン]タブをクリック、ウィンドウの右上にある検索ボックスで AntShares を検索し、AntShares.SmartContractプラグインをダウンロードします（インターネットアクセスが必要です）。
 
 ![download and install antshares smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
 
@@ -37,27 +37,27 @@ Visual Studio 2017を開き、ツールを開き、拡張機能と更新をク�
 
 インストールと設定の手順：
 
-Githubで[AntShares.VMプロジェクト](https://github.com/neo-project/neo-vm)をダウンロードし、Visual Studio 2017でソリューションを開き、AntShares.Compiler.MSILプロジェクトを発行、
+Githubで[AntShares.VM](https://github.com/neo-project/neo-vm)プロジェクトをダウンロードし、Visual Studio 2017でソリューションを開き、AntShares.Compiler.MSILプロジェクトを「公開」します。
 
 ![publish antshares compiler msil project](assets/publish_antshares_compiler_msil_project.png)
 
 ![publish and profile settings](assets/publish_and_profile_settings.png)
 
-リリースが成功すると、AntShares.Compiler.MSIL.exeファイルが’bin\Release\PublishOutput’によって生成されます。
+発行が成功すると、AntShares.Compiler.MSIL.exeファイルが`bin\Release\PublishOutput`に生成されます。
 
 このディレクトリを実行パスに追加する必要があります。 パスは、オペレーティングシステムがコマンドラインまたはターミナルウィンドウから必要な実行ファイルを見つけるために使用するシステム変数です。
 
 **Windows 10およびWindows 8：**
 
-検索で、検索して選択します。システム（コントロールパネル）[システム設定の詳細設定]リンクをクリックします。環境変数をクリックします。 「システム変数」セクションで、パス環境変数を見つけて選択します。 [編集]をクリックします。パス環境変数が存在しない場合は、「新規」をクリックします。 「システム変数の編集（または新しいシステム変数）」ウィンドウで、パス環境変数の値を指定します。 [OK]をクリックします。 [OK]をクリックして残りのウィンドウをすべて閉じます。
+検索で、「システム」を検索して[システム（コントロールパネル）]を選択します。[システムの詳細設定]をクリックします。[環境変数]をクリックします。 「システム環境変数」セクションで、「PATH」環境変数を探して選択します。 [編集]をクリックします。「PATH」環境変数が存在しない場合は、[新規]をクリックします。 「システム変数の編集（または新しいシステム変数）」ウィンドウで、「PATH」環境変数の値を指定します。 [OK]をクリックします。 [OK]をクリックして残りのウィンドウをすべて閉じます。
 
 **Windows 7：**
 
-デスクトップの[コンピュータ]アイコンを右クリックします。コンテキストメニューから[プロパティ]を選択します。 [システム設定の詳細設定]をクリックします。環境変数をクリックします。 「システム変数」セクションで、パス環境変数を見つけて選択します。 [編集]をクリックします。 パス環境変数が存在しない場合は、「新規」をクリックします。 「システム変数の編集（または新しいシステム変数）」ウィンドウで、パス環境変数の値を指定します。 [OK]をクリックします。 [OK]をクリックして残りのウィンドウをすべて閉じます。
+デスクトップの[コンピュータ]アイコンを右クリックします。コンテキストメニューから[プロパティ]を選択します。 [システムの詳細設定]をクリックします。[環境変数]をクリックします。 「システム環境変数」セクションで、「PATH」環境変数を探して選択します。 [編集]をクリックします。 「PATH」環境変数が存在しない場合は、[新規]をクリックします。 「システム変数の編集（または新しいシステム変数）」ウィンドウで、「PATH」環境変数の値を指定します。 [OK]をクリックします。 [OK]をクリックして残りのウィンドウをすべて閉じます。
 
 ![edit environmental variables](assets/edit_environmental_variables.png)
 
-次に、CommandまたはPowerShellを実行し、Antshares.Compiler.Msilと入力します。エラーがなく、出力にバージョン番号が表示されている場合（図示）、環境変数の設定は成功しています。
+次に、コマンドプロンプトまたはPowerShellを実行し、Antshares.Compiler.Msilと入力します。エラーがなく、出力にバージョン番号が表示されている場合（図示）、環境変数の設定は成功しています。
 
 ![powershell enviornment variabled updated correctly](assets/powershell_enviornment_variabled_updated_correctly.png)
 
@@ -81,14 +81,14 @@ Githubで[AntShares.VMプロジェクト](https://github.com/neo-project/neo-vm)
 ```c#
 public class Contract1: FunctionCode
 {
-    public static void Main ()// Note that the main method to capitalize
+    public static void Main ()// C#のMainは大文字で始まります
     {
         
     }
 }
 ```
 
-正常にコンパイルすると、’bin/Debug’ディレクトリにあるSmartContract1.avmが表示されます。これはAntSharesスマートコントラクトとして生成されるファイルです。
+正常にコンパイルすると、`bin/Debug`ディレクトリにあるSmartContract1.avmが表示されます。これはAntSharesスマートコントラクトとして生成されるファイルです。
 
 ![compile smart contract](assets/compile_smart_contract.png)
 
