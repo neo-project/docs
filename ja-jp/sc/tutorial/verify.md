@@ -2,7 +2,7 @@
 
 このチュートリアルはVisual Studio 2017に基づいています。Visual Studioが2017バージョンにアップグレードされていることを確認してください。さらに、このチュートリアルはSmart Contract 2.0のデモに基づいており、[GitHub](https://github.com/AntShares/AntSharesCore/releases)から**テストネットワーク**をダウンロードして実行してください。
 
-このドキュメントを作成する時点で、最新の**テストネットワーク**クライアントダウンロードリンク：[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip).
+このドキュメントを作成する時点で、最新の**テストネットワーク**クライアント（AntSharesCore-GUI-v2.0.6390.29136）を[ダウンロード](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)して下さい。
 
 ## コントラクトスクリプトをコンパイル
 
