@@ -10,9 +10,9 @@
 
 ここでは、スマートコントラクトの基本知識がすでにあると仮定し、ウォレットを使用してアドレスに対してロック・コントラクトをデプロイする方法を示します。
 
-さらに、このチュートリアルはSmart Contract 2.0のデモに基づいています。最新の**テストネットワーククライアント**は、[GitHub] (https://github.com/neo-project/neo-gui/releases) からダウンロードしてください。
+さらに、このチュートリアルはSmart Contract 2.0のデモに基づいています。最新の**テストネットワーククライアント**は、[GitHub](https://github.com/neo-project/neo-gui/releases)からダウンロードしてください。
 
-PS：現時点の最新の**テストネットワーククライアント**のダウンロードは：[AntSharesCore-GUI-v2.0.6390.29136.zip] (https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip) 。
+PS：現時点の最新の**テストネットワーククライアント**のダウンロードは：[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)。
 
 > ※ メインネットワークがSmart Contract 2.0をまだ配備していないため、メインネットワークでは以下の操作が失敗します。その為、以下の操作は**テストネットワーク**で実行されます。
 
