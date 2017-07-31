@@ -5,7 +5,7 @@
 최신 버전의 **테스트 네트워크**를 [GitHub](https://github.com/AntShares/AntSharesCore/releases)
 에서 다운 받으시길 바랍니다. 
 
-이 문서가 작상되는 시점에 가장 최신 **테스트 네트워크**를 다운받으실 수 있는 링크는 
+이 문서가 작성되는 시점에 가장 최신 **테스트 네트워크**를 다운받으실 수 있는 링크는 
 다음과 같습니다. 
 
 [AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)
