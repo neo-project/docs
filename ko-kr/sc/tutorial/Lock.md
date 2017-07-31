@@ -1,4 +1,4 @@
-# Smart contract example - Lock (lock)
+#  스마트 계약 예제 - Lock (lock)
 
 ```c#
 public class Lock : FunctionCode
