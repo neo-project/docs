@@ -1,4 +1,4 @@
-# Smart contract example - dos (domain name system)
+# 스마트 계약 예제 - dos (domain name system)
 
 ```c#
 public class Domain : FunctionCode
