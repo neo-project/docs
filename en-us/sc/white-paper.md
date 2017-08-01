@@ -154,7 +154,7 @@ Often, the development of smart contracts is very difficult, due to the lack of 
 
 ### 5.1 C#, VB.Net, F#
 
-Developers can use NeoContract for almost any high-level language they are good at. The first batch of supported languages ​​are C #, VB.Net, F #, etc. We provide compilers and plug-ins for these languages, ​​allowing compilation of these high-level language into the instruction set, supported by NeoVM. As the compiler focus on MSIL (Microsoft intermediate language) during compilation, so theoretically, any. Net language can be translated into MSIL language, and become directly supported.
+Developers can use NeoContract for almost any high-level language they are good at. The first batch of supported languages ​​are C #, VB.Net, F #, etc. We provide compilers and plug-ins for these languages, ​​allowing compilation of these high-level language into the instruction set, supported by NeoVM. As the compiler focus on MSIL (Microsoft intermediate language) during compilation, so theoretically, any .Net language can be translated into MSIL language, and become directly supported.
 
 A huge number of developers are proficient in these languages, and the above languages have a very strong integrated development environment. Developers can develop, generate, test and debug, all within Visual Studio, where they are able to take full advantage of the smart contract development templates we provide, to gain a head start.
 
@@ -246,7 +246,7 @@ At present, within the NEO community, development of smart contracts to achieve 
 
 Smart funds based on the blockchain have the benefit of being decentralized, open and transparent, possessing a higher degree of security and freedom as compared to traditional funds. These smart funds are also cross-border and open to investors worldwide, where outstanding projects can be funded with capital from all across the world.
 
-Nest is a NeoContract-based smart fund project, which is very similar to the ThedaO project based on Ethereum, where improved securtiy measures is needed to avoid the mistakes of TheDAO (hackers).
+Nest is a NeoContract-based smart fund project, which is very similar to the TheDAO project based on Ethereum, where improved securtiy measures is needed to avoid the mistakes of TheDAO (hackers).
 
 ### 8.3 Cross-chain Interoperability
 
