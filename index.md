@@ -10,3 +10,5 @@ NEO 全部的技术文档都在这里，还有还有众多开发示例可供参�
 See the [English](en-us/index.md) documentation.
 
 Ver documentación en [español](es-es/index.md).
+
+[日本語](ja-jp/index.md)ドキュメントを参照してください。
