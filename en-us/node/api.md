@@ -1,8 +1,8 @@
 # API Reference
 
-Each node in the AntSharesCore-CLI provides an API interface for obtaining block-chain data from a node, making it easy to develop block-chain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
+Each node in the Neo-CLI provides an API interface for obtaining block-chain data from a node, making it easy to develop block-chain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
 
-`dotnet AntSharesDaemon.dll /rpc`
+`dotnet neo-cli.dll /rpc`
 
 To access the RPC server via HTTPS, you need to modify the configuration file config.json before starting the node and set the domain name, certificate, and password:
 
@@ -105,9 +105,9 @@ After sending the request, you will get the following response：
 
 You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires a scientific Internet), the following is a test screenshot:
 
-![image](http://docs.antshares.org/images/2017-05-17_17-06-20.jpg)
+![image](http://docs.neo.org/images/2017-05-17_17-06-20.jpg)
 
-![image](http://docs.antshares.org/images/2017-05-17_16-55-58.jpg)
+![image](http://docs.neo.org/images/2017-05-17_16-55-58.jpg)
 
 ## Other
 

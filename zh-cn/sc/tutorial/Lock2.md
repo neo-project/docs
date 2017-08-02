@@ -12,7 +12,7 @@
 
 另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的 ** 测试网 ** 的客户端运行。
 
-附：截止到文档编写时，最新的 ** 测试网 ** 客户端下载地址：[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)。
+附：截止到文档编写时，最新的 ** 测试网 ** 客户端下载地址：[Neo-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/Neo-GUI-v2.0.6390.29136.zip)。
 
 > [!Note]
 > 以下操作要在 ** 测试网 ** 中运行，因为主网中还没有部署智能合约 2.0，所以以下操作在主网中执行会失败。
@@ -71,10 +71,10 @@ namespace ConsoleApp1
 创建智能合约项目，编写如下的智能合约。注意，这里的合约是继承自 VerificationCode，它的用途是生成合约鉴权账户，即钱包文件中的一个合约地址。
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Lock : VerificationCode
     {

@@ -18,9 +18,9 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 参考：[NEO 节点介绍](introduction.md)。
 
-|      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
+|      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| 程序   | [官网](https://www.antshares.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
+| 程序   | [官网](https://www.neo.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
 | 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
 
 ## 切换测试网的方法
@@ -29,7 +29,7 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 ![](~/images/2017-06-08_14-16-35.png)
 
-2、将程序（GUI）目录下的 `AntSharesUI.exe.testnet.config` 里的内容复制到 `AntSharesUI.exe.config`，如图
+2、将程序（GUI）目录下的 `neo-gui.exe.testnet.config` 里的内容复制到 `neo-gui.exe.config`，如图
 
 ![](~/images/2017-06-08_14-16-12.png)
 

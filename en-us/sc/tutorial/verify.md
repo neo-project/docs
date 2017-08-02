@@ -1,8 +1,8 @@
 # Contract Authentication Tutorial
 
-This tutorial is based on Visual Studio 2017，please ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.0, please download and run the **test network** from [GitHub](https://github.com/AntShares/AntSharesCore/releases).
+This tutorial is based on Visual Studio 2017，please ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.0, please download and run the **test network** from [GitHub](https://github.com/neo-project/neo-gui/releases).
 
-At the time of writing this document, the latest **test network** client download address: [AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)。
+At the time of writing this document, the latest **test network** client download address: [Neo-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/Neo-GUI-v2.0.6390.29136.zip)。
 
 ## Compile contract script
 
