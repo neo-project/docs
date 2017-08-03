@@ -62,9 +62,9 @@
         href: sc/tutorial/HelloWorld.md
       - name: ロック (Lock)
         href: sc/tutorial/Lock.md
-      - name: ドメイン (Domain Name System)
+      - name: dos（ドメインネームシステム）
         href: sc/tutorial/Domain.md
-      - name: パラメーター
+      - name: パラメータと戻り値
         href: sc/tutorial/Parameter.md
       - name: コントラクト認証
         href: sc/tutorial/verify.md
