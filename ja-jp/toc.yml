@@ -13,7 +13,7 @@
       href: node/gui.md
     - name: テストネットワーク
       href: node/testnet.md
-    - name: CLIリファレンス
+    - name: CLI命令リファレンス
       href: node/cli.md
     - name: プライベートチェーン
       href: node/private-chain.md
@@ -44,7 +44,7 @@
         href: node/api/sendtoaddress.md
     - name: ネットワークプロトコル
       href: node/network-protocol.md
-    - name: コンセンサス
+    - name: コンセンサスメカニズム
       href: node/consensus.md
 - name: スマートコントラクト
   href: sc/introduction.md
@@ -56,11 +56,11 @@
     - name: チュートリアル
       href: sc/tutorial.md
       items:
-      - name: チュートリアル
+      - name: 基本
         href: sc/tutorial.md
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
-      - name: ロック (Lock)
+      - name: Lock (ロック・コントラクト)
         href: sc/tutorial/Lock.md
       - name: dos（ドメインネームシステム）
         href: sc/tutorial/Domain.md
