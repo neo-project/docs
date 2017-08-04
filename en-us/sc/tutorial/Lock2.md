@@ -1,4 +1,4 @@
-# Deploying a lock contract
+# Deploying a Lock Contract
 
 Read the following tutorial before reading this article:
 
@@ -98,7 +98,7 @@ The lock contract has two important variables to change, one is the public key, 
 
 After replacing the two variables, compile the contract to get a Lock.avm file.
 
-## Deploy lockout contract
+## Deploy lock Contract
 
 To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilise the C# code below to read the .avm to get the bytecode.
 
@@ -111,16 +111,16 @@ If you think writing a script for this is troublesome, the client's `Deploy Cont
 
 Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
 
-! [] (~ / Images / 2017-07-06_18-11-30.png)
+![](~/images/2017-07-06_18-11-30.png)
 
 In the client, under the `Account` tab, right click on the whitespace, select `Create Contract Add.`, `Custom`, and paste the contract script into the box:
 
-! [] (~ / Images / 2017-07-06_18-11-47.png)
+![](~/images/2017-07-06_18-11-47.png)
 
 
 Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in tthe script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
-! [] (~ / Images / 2017-07-04_12-59-35.png)
+![](~/images/2017-07-04_12-59-35.png)
 
 
 
@@ -139,7 +139,7 @@ Open a wallet with assets on **testnet** and transfer a certain amount of assets
 
 Transfer assets from your smart contract account:
 
-! [Transfer contract amount] (~ / images / 2017-07-06_18-13-00.png)
+![Transfer contract amount](~/images/2017-07-06_18-13-00.png)
 
 If the above operation is correct, the following happens when the asset is transferred:
 
