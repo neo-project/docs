@@ -12,7 +12,7 @@
 public extern AntShares.SmartContract.Framework.IScriptContainer ScriptContainer { get; }
 ```
 
-属性值：脚本容器，IScriptContainer 类型，如果你明确知道它是一笔交易触发的，则可以将其转成 [Transaction](../../AntShares/Transaction.md) 类型。
+属性值：脚本容器，IScriptContainer 类型，如果你明确知道它是一笔交易触发的，则可以将其转成 [Transaction](../../Neo/Transaction.md) 类型。
 
 
 

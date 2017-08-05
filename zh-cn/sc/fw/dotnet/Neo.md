@@ -12,25 +12,25 @@ AntShares 命名空间是 NEO 区块链所提供的 API，提供了访问区块�
 
 |                                          | 类                                        | 说明                     |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](AntShares/Account.md)          | 表示账户的类，提供了查询余额的方法      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](AntShares/Asset.md)              | 用来表示资产的数据结构            |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](AntShares/Block.md)              | 表示区块的类，提供了查询区块中交易的方法   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](AntShares/Blockchain.md)    | 该类提供了访问区块链数据的一系列方法     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](AntShares/Contract.md)        | 表示合约的类                 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](AntShares/Enrollment.md)    | ` 已弃用 ` 用来表示记账人报名交易的数据结构  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](AntShares/Header.md)            | 用来表示区块头的数据结构           |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](AntShares/Runtime.md)          | `new` 提供智能合约运行时的一些方法   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](AntShares/Storage.md)          | 提供了持久化存储区的插入、查询、删除的方法  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContex](AntShares/StorageContex.md) | `new` 用来表示私有存储区存储上下文的类 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](AntShares/Transaction.md)  | 用来表示交易的基类              |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](AntShares/TransactionAttribute.md) | 用来表示交易特性的数据结构          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](AntShares/TransactionInput.md) | 用来表示交易输入的数据结构          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](AntShares/TransactionOutput.md) | 用来表示交易输出的数据结构          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](AntShares/Validator.md)      | `new` 提供共识节点的一些方法      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](Neo/Account.md)          | 表示账户的类，提供了查询余额的方法      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](Neo/Asset.md)              | 用来表示资产的数据结构            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](Neo/Block.md)              | 表示区块的类，提供了查询区块中交易的方法   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](Neo/Blockchain.md)    | 该类提供了访问区块链数据的一系列方法     |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](Neo/Contract.md)        | 表示合约的类                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](Neo/Enrollment.md)    | ` 已弃用 ` 用来表示记账人报名交易的数据结构  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](Neo/Header.md)            | 用来表示区块头的数据结构           |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](Neo/Runtime.md)          | `new` 提供智能合约运行时的一些方法   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](Neo/Storage.md)          | 提供了持久化存储区的插入、查询、删除的方法  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContex](Neo/StorageContex.md) | `new` 用来表示私有存储区存储上下文的类 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](Neo/Transaction.md)  | 用来表示交易的基类              |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](Neo/TransactionAttribute.md) | 用来表示交易特性的数据结构          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](Neo/TransactionInput.md) | 用来表示交易输入的数据结构          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](Neo/TransactionOutput.md) | 用来表示交易输出的数据结构          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](Neo/Validator.md)      | `new` 提供共识节点的一些方法      |
 
 ## 枚举
 
 |                                          | 枚举                                       | 说明                      |
 | ---------------------------------------- | ---------------------------------------- | ----------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContex](AntShares/StorageContex2.md) | ` 已弃用 ` 用来表示私有存储区存储上下文的枚举 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContex](Neo/StorageContex2.md) | ` 已弃用 ` 用来表示私有存储区存储上下文的枚举 |
 
