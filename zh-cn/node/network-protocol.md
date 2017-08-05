@@ -146,7 +146,7 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 
 查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Validator/Register.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/Neo.md)
 
 **RegisterTransaction**
 
@@ -155,7 +155,7 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 
 查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Asset/Create.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/Neo.md)
 
 **ContractTransaction**
 
@@ -168,7 +168,7 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 
 查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Contract/Create.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/Neo.md)
 
 **InvocationTransaction**
 

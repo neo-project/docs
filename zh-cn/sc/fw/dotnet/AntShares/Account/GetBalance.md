@@ -2,7 +2,7 @@
 
 通过资产ID获得该账户中这种资产的余额。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

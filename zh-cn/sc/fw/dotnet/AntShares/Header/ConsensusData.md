@@ -2,7 +2,7 @@
 
 获得该区块的共识数据（共识节点生成的伪随机数）。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

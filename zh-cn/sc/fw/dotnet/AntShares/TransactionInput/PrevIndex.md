@@ -2,7 +2,7 @@
 
 所引用的交易输出在其全部交易输出列表中的索引。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

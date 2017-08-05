@@ -2,7 +2,7 @@
 
 获得下一个记账合约的散列值。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

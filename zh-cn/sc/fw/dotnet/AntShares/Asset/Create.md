@@ -4,7 +4,7 @@
 
 该方法是 RegistTransaction 在 2.0 版本的替代者。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

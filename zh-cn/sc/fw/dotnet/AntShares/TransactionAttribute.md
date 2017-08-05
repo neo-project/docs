@@ -2,7 +2,7 @@
 
 用来表示交易特性的数据结构。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

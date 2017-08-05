@@ -2,7 +2,7 @@
 
 表示账户的类，提供了查询余额的方法。这里的账户是指一个合约脚本的散列，也就是对应区块链中的一个地址。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

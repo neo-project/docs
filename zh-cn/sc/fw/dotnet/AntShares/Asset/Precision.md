@@ -2,7 +2,7 @@
 
 获得该资产的精度（最小分割数量），单位为小数点之后的位数。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

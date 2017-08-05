@@ -2,7 +2,7 @@
 
 提供了持久化存储区的插入、查询、删除的方法。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

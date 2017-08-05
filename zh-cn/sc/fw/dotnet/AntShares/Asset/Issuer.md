@@ -2,7 +2,7 @@
 
 获得该资产的发行人（合约地址），该发行人有权进行资产的发行。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

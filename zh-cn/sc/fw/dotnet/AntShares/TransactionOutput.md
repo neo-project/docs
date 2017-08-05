@@ -2,7 +2,7 @@
 
 用来表示交易输出的数据结构。一个交易输出有三个字段，转账的是哪种资产，转账到哪个地址，转了多少金额。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

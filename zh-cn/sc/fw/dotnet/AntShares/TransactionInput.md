@@ -4,7 +4,7 @@
 
 在 UTXO（未花费的币）系统中，某笔交易的输入必是来自于之前存在的另一笔交易的输出。确认之前的交易的输出需要两个字段，即之前的这笔交易的散列（[PrevHash](TransactionInput/PrevHash.md)），和之前这笔交易的输出所在全部输出的索引（[PrevIndex](TransactionInput/PrevIndex.md)）。 
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 

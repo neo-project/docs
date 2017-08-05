@@ -80,7 +80,7 @@
       href: sc/api.md
       items: 
       - name: AntShares
-        href: sc/api/AntShares.md
+        href: sc/api/Neo.md
       - name: System
         href: sc/api/System.md
     - name: 框架
@@ -90,7 +90,7 @@
         href: sc/fw/dotnet.md
         items:
           - name: AntShares
-            href: sc/fw/dotnet/AntShares.md
+            href: sc/fw/dotnet/Neo.md
             items:
             - name: Account
               href: sc/fw/dotnet/AntShares/Account.md

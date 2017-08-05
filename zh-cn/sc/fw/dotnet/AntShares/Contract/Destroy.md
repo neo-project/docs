@@ -2,7 +2,7 @@
 
 销毁智能合约。发布到区块链上的智能合约不能通过外部对其进行销毁，如果要销毁合约的话，需要在编写合约时编写其销毁的逻辑。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../AntShares.md)
+命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
 
 程序集：AntShares.SmartContract.Framework
 
