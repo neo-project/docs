@@ -94,11 +94,11 @@ Neo 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | Neo.Runtime.Notify       | `new` 在智能合约中向执行该智能合约的客户端发送通知      |
 | Neo.Runtime.Log          | `new` 在智能合约中向执行该智能合约的客户端发送日志      |
 
-参考：源码位于 Neo 项目中的 src/Neo/SmartContract/StateReader.cs 文件。
+参考：源码位于 Neo 项目中的 neo/neo/SmartContract/StateReader.cs 文件。
 
 此类 API 会对智能合约的状态进行修改
 
-参考：以上 API 的源码位于 Neo 项目中的 src/Neo/SmartContract/StateReader.cs 文件。
+参考：以上 API 的源码位于 Neo 项目中的 neo/neo/SmartContract/StateReader.cs 文件。
 
 ------
 
@@ -117,4 +117,4 @@ Neo 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | Neo.Storage.Put                | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 | Neo.Storage.Delete             | 删除操作，在持久化存储区中通过 key 删除对应的 value  |
 
-参考：以上 API 的源码位于 Neo 项目中的 src/Neo/SmartContract/StateMachine.cs 文件。
+参考：以上 API 的源码位于 Neo 项目中的 neo/neo/SmartContract/StateMachine.cs 文件。
