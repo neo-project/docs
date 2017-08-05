@@ -1,4 +1,4 @@
-# NEO white paper
+# NEO White Paper
 
 A distributed network for the Smart Economy
 
@@ -8,9 +8,9 @@ NEO is the use of blockchain technology and digital identity to digitize assets,
 
 ### Digital Assets
 
-Digital assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralised, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law.
+Digital assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralized, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law.
 
-NEO has two forms of digital assets: global assets and contract assets. Global assets can be recorded in the system space and can be identified by all smart contracts and clients. Contract assets are recorded in the private storage area of the smart contract and require a compatible client to recognise them. Contract assets can adhere to certain standards in order to achieve compatibility with most clients.
+NEO has two forms of digital assets: global assets and contract assets. Global assets can be recorded in the system space and can be identified by all smart contracts and clients. Contract assets are recorded in the private storage area of the smart contract and require a compatible client to recognize them. Contract assets can adhere to certain standards in order to achieve compatibility with most clients.
 
 ### Digital Identity
 
@@ -55,7 +55,7 @@ Ecosystem is the vitality of the open source community. In order to achieve the 
 
 - Python / Ruby
 
-🔹 **Decentralised Applications**
+🔹 **Decentralized Applications**
 
 - Smart fund
 
@@ -109,7 +109,7 @@ The second portion is 50 million NEO managed by the NEO Council to support NEO's
 
 🔹 15 million tokens (15% total) will be used to cross-invest in other block-chain projects, which are owned by the NEO Council and are used only for NEO projects
 
-🔹 15 million (total 15%) will be retained as contingency
+🔹 15 million (15% total) will be retained as contingency
 
 🔹 The annual use of NEO in principle shall not exceed 15 million tokens
 
@@ -117,13 +117,13 @@ GAS distribution:
 
 GAS is generated with each new block. The initial total amount of GAS is zero. With the increasing rate of new block generation, the total limit of 100 million GAS will be achieved in about 22 years. The interval between each block is about 15-20 seconds, and 2 million blocks are generated in about one year.
 
-In the first year (actually 0-200 million blocks), each block will generate 8 new GAS; in the second year (actually the first 200-400 million blocks), each new block will generate 7 GAS and so on. There will be an annual reduction of 1 GAS for the first 8 years until 1 GAS per block is reached; this will be the rate of GAS generation until about 22 years, after the 44 millionth block, GAS total will reach 100 million, thus stopping the generation of GAS from new blocks.
+Each year around 2 million blocks will be generated and the initial generation will be 8 GAS per block. There will be an annual reduction of 1 GAS per block, per year, to coincide with the passing of every 2 million blocks. The reduction will continue down to just 1 GAS per block and will be held at that rate for around 22 years. After the 44 millionth block the total GAS generated will have reached 100 million and from this point there will be no further generation of GAS from new blocks.
 
 According to this release curve, 16% of the GAS will be created in the first year, 52% of the GAS will be created in the first four years, and 80% of the GAS will be created in the first 12 years. These GAS will be distributed proportionally in accordance with the NEO holding ratio, recorded in the corresponding addresses. NEO holders can initiate a claim transaction at any time and claim these GAS tokens at their holding addresses.
 
 ### Governance mechanism
 
-Chain governance: NEO token holders are the network owners and managers, managing the network through voting in the network, using the GAS generated from NEO to utilise the functions in the network. NEO tokens can be transferred.
+Chain governance: NEO token holders are the network owners and managers, managing the network through voting in the network, using the GAS generated from NEO to utilize the functions in the network. NEO tokens can be transferred.
 
 Off-chain governance: NEO Council consists of the founding members of the NEO project, under which the management committee, technical committee and the secretariat, respectively, are responsible for strategic decision-making, technical decision-making and specific implementation. The NEO Council is responsible to the NEO community for the promotion and development of NEO ecosystem as its primary objective.
 
@@ -167,13 +167,13 @@ NeoX has been extended on existing double-stranded atomic asset exchange protoco
 
 **Cross-chain distributed transaction protocol:**
 
-Cross-chain distributed transactions mean that multiple steps of a transaction are scattered across different blockchains and that the consistency of the entire transaction is ensured. This is an extension of cross-chain asset exchange, extending the behavior of asset exchange into arbitrary behavior. In layman's terms, NeoX makes it possible for cross-chain smart contracts where a smart contract can perform different parts on multiple chains, either succeeding or reverting as a whole. This gives excellent possibilites for cross-chain collaborations and we are exploring cross-chain smart contract application scenarios.
+Cross-chain distributed transactions mean that multiple steps of a transaction are scattered across different blockchains and that the consistency of the entire transaction is ensured. This is an extension of cross-chain asset exchange, extending the behavior of asset exchange into arbitrary behavior. In layman's terms, NeoX makes it possible for cross-chain smart contracts where a smart contract can perform different parts on multiple chains, either succeeding or reverting as a whole. This gives excellent possibilities for cross-chain collaborations and we are exploring cross-chain smart contract application scenarios.
 
 ### Distributed Storage Protocol: NeoFS
 
 NeoFS is a distributed storage protocol that utilizes Distributed Hash Table technology. NeoFS indexes the data through file content (Hash) rather than file path (URI). Large files will be divided into fixed-size data blocks that are distributed and stored in many different nodes.
 
-The main problem with this type of system is the need to find a balance between redundancy and reliability. NeoFS plans to solve this contradiction by means of token incentives and the establishment of backbone nodes. Users can choose the reliability requirements of the file. Files with low reliability requirments can be stored and accessed for free or almost free. High reliability requirements will be provided by the stable and reliable backbone nodes.
+The main problem with this type of system is the need to find a balance between redundancy and reliability. NeoFS plans to solve this contradiction by means of token incentives and the establishment of backbone nodes. Users can choose the reliability requirements of the file. Files with low reliability requirements can be stored and accessed for free or almost free. High reliability requirements will be provided by the stable and reliable backbone nodes.
 
 NeoFS will serve as one of the InteropService interoperability services under the NeoContract system, enabling smart contracts to store large files on the blockchain and set access for those files. In addition, NeoFS can be combined with digital identity so that digital certificates used by digital identities can be assigned, sent, and revoked without needing a central server to manage them. In the future, the old block data can be stored in NeoFS, so that most of the full nodes can release the old data for better scalability and at the same time, ensure the integrity of historical data.
 
@@ -183,4 +183,4 @@ The emergence of quantum computers creates a major challenge to RSA and ECC-base
 
 ## Summary
 
-NEO is a distributed network that combines digital assets, digital identities and smart contracts. NEO system will also use DBFT, NeoX, NeoFS, NeoQS and many other original technology, as the infrastructure for intelligent economy in the future.
+NEO is a distributed network that combines digital assets, digital identities and smart contracts. The NEO system will use DBFT, NeoX, NeoFS, NeoQS and many other original technologies, as the infrastructure for the intelligent economy of the future.

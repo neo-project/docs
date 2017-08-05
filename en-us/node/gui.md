@@ -29,7 +29,7 @@ A wallet file stores a reference to your NEO, GAS, and account information in a 
 
 #### Account
 
-This is used to track assets in an ANS block.
+This is used to track assets in an NEO block.
 
 Account information includes: address, private key, public key, type.
 
