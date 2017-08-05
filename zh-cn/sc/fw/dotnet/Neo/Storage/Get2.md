@@ -2,14 +2,14 @@
 
 查询操作，在持久化存储区中通过 key 查询对应的 value。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public extern void Delete(AntShares.SmartContract.Framework.Services.AntShares.StorageContext context, string key)
+public extern void Delete(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key)
 ```
 
 参数：

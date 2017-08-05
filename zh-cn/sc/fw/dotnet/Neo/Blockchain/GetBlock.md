@@ -2,14 +2,14 @@
 
 通过区块高度，在区块链中查找该区块。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.Block GetBlock(byte[] hash)
+public static extern Neo.SmartContract.Framework.Services.Neo.Block GetBlock(byte[] hash)
 ```
 
 参数：区块 Hash，32字节的字节数组。

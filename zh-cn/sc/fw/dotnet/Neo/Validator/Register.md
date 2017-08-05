@@ -4,14 +4,14 @@
 
 该方法是 RegisterTransaction 在 2.0 版本的替代者。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.Validator Register(byte[] pubkey)
+public static extern Neo.SmartContract.Framework.Services.Neo.Validator Register(byte[] pubkey)
 ```
 
 参数：

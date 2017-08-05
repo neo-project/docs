@@ -2,9 +2,9 @@
 
 提供共识节点的一些方法。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 

@@ -4,14 +4,14 @@
 
 该方法是 PublishTransaction 在 2.0 版本的替代者。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.Contract CreateContract(byte[] script, byte[] parameter_list, byte return_type, bool need_storage, string name, string version, string author, string email, string description)
+public static extern Neo.SmartContract.Framework.Services.Neo.Contract CreateContract(byte[] script, byte[] parameter_list, byte return_type, bool need_storage, string name, string version, string author, string email, string description)
 ```
 
 参数：

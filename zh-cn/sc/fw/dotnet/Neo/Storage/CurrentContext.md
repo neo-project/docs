@@ -4,14 +4,14 @@
 
 注：此处与 1.6 版本有所不同。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.StorageContext CurrentContext { get; }
+public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext { get; }
 ```
 
 属性值：当前存储区上下文，[StorageContext](../StorageContex.md) 类型。

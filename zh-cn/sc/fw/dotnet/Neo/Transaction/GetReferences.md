@@ -2,14 +2,14 @@
 
 查询当前交易的所有输入所引用的交易输出。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public extern AntShares.SmartContract.Framework.Services.AntShares.TransactionOutput[] GetReferences()
+public extern Neo.SmartContract.Framework.Services.Neo.TransactionOutput[] GetReferences()
 ```
 
 返回值：当前交易的所有输入所引用的交易输出，[TransactionOutput](../TransactionOutput.md) 数组。

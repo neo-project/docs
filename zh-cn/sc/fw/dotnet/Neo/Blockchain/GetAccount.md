@@ -2,14 +2,14 @@
 
 根据合约脚本的散列来获得一个账户（地址）。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.Account GetAccount(byte[] script_hash)
+public static extern Neo.SmartContract.Framework.Services.Neo.Account GetAccount(byte[] script_hash)
 ```
 
 参数：脚本散列，20 字节的字节数组。
@@ -34,7 +34,7 @@ public class Contract1 : FunctionCode
 ```c#
 static void Main(string[] args)
 {
-    byte[] scriptHash = AntShares.Wallets.Wallet.ToScriptHash("AK4if54jXjSiJBs6jkfZjxAastauJtjjse").ToArray();
+    byte[] scriptHash = Neo.Wallets.Wallet.ToScriptHash("AK4if54jXjSiJBs6jkfZjxAastauJtjjse").ToArray();
 }
 ```
 

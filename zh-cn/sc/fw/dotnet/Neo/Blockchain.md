@@ -2,9 +2,9 @@
 
 该类提供了访问区块链数据的一系列方法。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 注：本文中标记 `new` 和 ` 已弃用 ` 的地方是 2.0 版本相对 1.6 版本的更改之处。
 

@@ -7,10 +7,10 @@
 ## 编译合约脚本
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
-using AntShares.SmartContract.Framework.Services.System;
-namespace AntShares.SmartContract
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Services.System;
+namespace Neo.SmartContract
 {
     public class Test : VerificationCode
     {

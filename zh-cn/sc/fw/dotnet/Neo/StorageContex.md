@@ -6,9 +6,9 @@
 
 注：此处与 1.6 版本有所不同。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 

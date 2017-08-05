@@ -2,9 +2,9 @@
 
 在智能合约中向执行该智能合约的客户端发送日志。该方法会触在客户端触发一个事件，事件的处理过程需要客户端配合。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 

@@ -2,14 +2,14 @@
 
 根据资产 ID，在区块链中查找该资产。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public static extern AntShares.SmartContract.Framework.Services.AntShares.Asset GetAsset(byte[] asset_id)
+public static extern Neo.SmartContract.Framework.Services.Neo.Asset GetAsset(byte[] asset_id)
 ```
 
 参数：资产ID，32字节的字节数组。
@@ -35,7 +35,7 @@ public class Contract1 : FunctionCode
 ```c#
 static void Main(string[] args)
 {
-    byte[] asset = AntShares.Helper.HexToBytes("c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b");
+    byte[] asset = Neo.Helper.HexToBytes("c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b");
 }
 ```
 

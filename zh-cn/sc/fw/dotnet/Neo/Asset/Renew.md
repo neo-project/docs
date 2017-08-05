@@ -6,9 +6,9 @@
 
 当资产到期后需要为资产进行续费。当资产未冻结时，续费是从资产到期时间开始续费，当资产已冻结时，续费是从当前时间开始续费，所以不会出现续费后仍然欠费的状态。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 

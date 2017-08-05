@@ -2,14 +2,14 @@
 
 通过索引获得当前区块中指定的交易。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public extern AntShares.SmartContract.Framework.Services.AntShares.Transaction GetTransaction(int index)
+public extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction(int index)
 ```
 
 参数：交易在区块中的索引，整型。

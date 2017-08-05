@@ -2,14 +2,14 @@
 
 获得当前区块中所有的交易。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public extern AntShares.SmartContract.Framework.Services.AntShares.Transaction[] GetTransactions()
+public extern Neo.SmartContract.Framework.Services.Neo.Transaction[] GetTransactions()
 ```
 
 返回值：交易数组，Transaction[] 类型。

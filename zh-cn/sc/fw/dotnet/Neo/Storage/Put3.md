@@ -2,14 +2,14 @@
 
 插入操作，以 key-value 的形式向持久化存储区中插入数据。
 
-命名空间：[AntShares.SmartContract.Framework.Services.AntShares](../../Neo.md)
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
-程序集：AntShares.SmartContract.Framework
+程序集：Neo.SmartContract.Framework
 
 ## 语法
 
 ```c#
-public extern void Put(AntShares.SmartContract.Framework.Services.AntShares.StorageContext context, string key, byte[] value)
+public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, byte[] value)
 ```
 
 参数：
