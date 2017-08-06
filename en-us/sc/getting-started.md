@@ -142,3 +142,5 @@ Now we get the .avm file:
 
 
 
+Now that you have completed the configuration of the AntShares smart contract development environment, please refer to the [AntShares smart contract tutorial](tutorial.md)
+
