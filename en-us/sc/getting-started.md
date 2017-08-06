@@ -25,81 +25,120 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
-### 2.AntShares.SmartContract plugin
-
-Installation method:
-
-Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search AntShares in the search box on the top right corner of the window, download the AntShares.SmartContract plugin (this step requires internet access).
-
-![download and install antshares smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
-
-### 3. AntShares.Compiler.MSIL
-
-Installation and configuration steps:
-
-Download the [AntShares.VM](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2017, publish the AntShares.Compiler.MSIL project,
-
-![publish antshares compiler msil project](assets/publish_antshares_compiler_msil_project.png)
-
-![publish and profile settings](assets/publish_and_profile_settings.png)
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
 
-After the release is successful, the AntShares.Compiler.MSIL.exe file is generated in `bin\Release\PublishOutput`.
+Create NEO Smart Contract in Visual Studio 2017
 
-We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
-
-**Windows 10 and Windows 8:**
-
-  In Search, search for and then select: System (Control Panel)
-  Click the Advanced system settings link.
-  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
-
-**Windows 7:**
-
-  From the desktop, right click the Computer icon.
-  Choose Properties from the context menu.
-  Click the Advanced system settings link.
-  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
-
-![edit environmental variables](assets/edit_environmental_variables.png)
-
-Now run Command or PowerShell, and enter Antshares.Compiler.Msil. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
-
-![powershell enviornment variabled updated correctly](assets/powershell_enviornment_variabled_updated_correctly.png)
+1. Open Visual Studio.
 
 
-NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
+2. In Team explorer Click Clone and insert the neo-compiler link: https://github.com/neo-project/neo-compiler
 
-## Create project
+![gettingstarted1](assets/getting_started_1.png)
 
-After the above installation configuration is successful, you can create an AntShares.SmartContract.Template project in Visual Studio 2017.
-
-![new smart contract project](assets/new_smart_contract_project.png)
-
-Once you create a project, it will automatically generate a C# file, the default class inherited from the FunctionCode, as shown in the following:
-
-![smart contract function code](assets/smart_contract_function_code.png)
+3. Create the Git repo by clicking Clone
 
 
-## Compile the Project
 
-Everything is now ready to add the entry method that defines the smart contract:
-
-```c#
-public class Contract1: FunctionCode
-{
-    public static void Main ()// Note that the main method to capitalize
-    {
-        
-    }
-}
-```
-
-After you compiled it successfully, you will see` SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the AntShares smart contract.
-
-![compile smart contract](assets/compile_smart_contract.png)
+4. Double click on neo-compiler.sln
 
 
-Now that you have completed the configuration of the AntShares smart contract development environment, please refer to the [AntShares smart contract tutorial](tutorial.md)
+![gettingstarted2](assets/getting_started_2.PNG)
+
+ 
+5. Click Solution explorer:
+
+
+![gettingstarted3](assets/getting_started_3.png)
+
+
+ 
+6. Right click on ’neon’ and select Publish
+
+![GitHub Logo4](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAv3AAAAJGU3M2I4ZmExLTI0YmYtNDRjYS05NDBkLTIzYmIwZWQzZGRlYw.png)
+
+ 
+7. Click on Publish.
+
+8. Check your Output window:
+
+![GitHub Logo5](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAxeAAAAJDQ2ZWE2NmEzLTNlOTYtNDQwMi1hNjA3LTJmY2Y4NDI3ZTU4NA.png)
+
+  
+9. Navigate to your directory (Target Location), where you can find neon.exe:
+
+![GitHub Logo6](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAx4AAAAJGI3YWZmMzMzLTI3MzEtNGM3Zi04NDM1LWFiNWQxZmQyYTVlNA.png)
+
+10. You have to add this directory path to the PATH environment variable:
+
+![GitHub Logo7](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAArvAAAAJGZkMDQzY2M1LTIzZDUtNDhlZi05M2FmLWI5NDMyMmU4ZmM2Mg.png)
+
+11. We can check how it works. Run cmd and type ’neon’:
+
+
+![GitHub Logo8](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAt_AAAAJDA4YmJkZjlkLWJhOGUtNDUzZS05Y2M0LWE0Y2ExN2E4YmYzZA.png)
+
+12. Now create a new project in Visual Studio 2017:
+
+	File->New->Project
+    
+![GitHub Logo9](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAzsAAAAJGVjMDY3ZmYwLTcwYjYtNGJlMi04ZTNmLTlkZTY4OTgxOTQ3Yg.png)
+
+Select Console App (.NET Core) and type ’HelloProject’ in the Name field. Then click OK.
+
+13. Right click on Dependencies:
+
+![GitHub Logo10](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAriAAAAJDlmYWEzZjgzLTU5MmQtNDA1MS1iZWUwLTI5Mjg1YTVlYzE1Mg.png)
+ 
+14. Add reference. Click Browse, and select neon.dll
+
+
+![GitHub Logo11](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA0rAAAAJDUwY2Y3ODkzLWNmMWQtNGU2NS05MDY2LTViNjkzMGM3OWI2MA.png)
+
+Add it. Then OK.
+
+15. Navigate to NuGet package manager:
+
+![GitHub Logo12](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAteAAAAJGM2OGFiM2VkLTU3YWItNDljZS1iOTVhLTY5YWNhNTdlMzEyNw.png)
+
+
+16. Click Browse and select Neo.SmartContract.Framework. Then click Install.
+ 
+![GitHub Logo13](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAwTAAAAJGJhNmM2MTdlLWZiMjgtNDU3NC1iMTVmLWQwYTFhYjM5ZGYyYQ.png)
+
+
+17. Now we can insert our Hello world code:
+
+![GitHub Logo14](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAArsAAAAJDU1ZGEyZjg2LThlMDItNGNhOC1iMGEzLWMyMzVlYzgyYzNlNQ.png)
+
+ 
+18. Build the project:
+
+
+ 
+![GitHub Logo15](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAqQAAAAJGE2NTUxYmFjLTMxNjItNGJkMC05Nzk4LWUwODJhOTVlNDA2NA.png)
+
+ 
+19. Publish:
+ 
+![GitHub Logo16](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA3eAAAAJGYxODY2NzdiLWJkN2ItNDlmNy1iZGQ4LTI3ZTc1YTY3MTBlYg.png)
+
+20.  Navigate to the directory whick contains .dll file:
+
+![GitHub Logo17](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAqYAAAAJDMwNDAzMjNmLTc3MTMtNDY3Mi05NGEyLThjY2MwNWQyZDJkMA.png)
+
+21. Compile it, type: neon HelloProject.dll
+
+![GitHub Logo18](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAwhAAAAJGVjMGQwMzg2LTBjYTYtNDg3OS1hODNmLTk2YTYyMTA0ZGU0Ng.png)
+
+![GitHub Logo19](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA0lAAAAJDg0YzYwZGQ3LTg2M2EtNDE2MC1hMzE5LTZlNTEzYWRiM2Q1NA.png)
+ 
+
+  
+Now we get the .avm file:
+![GitHub Logo20](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAArIAAAAJDZjODFmNTdjLWIzZGMtNGI0Ni1hN2UxLTY4NzhlZjA0YjA3ZQ.png)
+
+
+
