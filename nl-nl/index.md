@@ -1,31 +1,32 @@
-NEO White Paper
+# NEO White Paper
 
 Een gedistribueerd netwerk voor de Slimme Economie
 
-NEO ontwerpdoelstellingen: Slimme Economie
+## NEO ontwerpdoelstellingen: Slimme Economie
 
 NEO maakt gebruik van blockchain technologie en een digitale identiteit om activa te kunnen digitaliseren. Door middel van Smart Contracten kunnen digitale activa zichzelf beheren en hierdoor kan een slimme economie met een gedistribueerd netwerk gerealiseerd worden.
 
-Digitale Activa
+### Digitale Activa
 
 Digitale activa zijn programmeerbare activa die bestaan in de vorm van elektronische gegevens. Met blockchain technologie kan de digitalisering van activa gedecentraliseerd, vertrouwelijk, traceerbaar, zeer transparant en vrij van tussenpersonen zijn. Op de NEO blockchain kunnen gebruikers meerdere soorten activa registreren, verhandelen en circuleren. Bovendien is het bewijs van de verbinding tussen digitale en fysieke activa mogelijk via een digitale identiteit en zijn de activa die geregistreerd zijn via een gevalideerde digitale identiteit wettelijk beschermd.
 
 NEO heeft twee vormen van digitale activa: globale activa en contracten activa. Globale activa kunnen worden opgenomen in het systeem en kunnen geïdentificeerd worden door alle klanten en Smart Contracten. Contracten activa worden opgenomen in het privé-opslaggebied van het Smart Contract en vereisen dat een compatibele klant deze zou moeten kunnen herkennen. Contracten activa kunnen voldoen aan bepaalde normen/eisen om compatibiliteit met de meeste klanten te bereiken.
 
-Digitale Identiteit
+### Digitale Identiteit
 
 Digitale identiteit verwijst naar de identiteitsinformatie van individuen, organisaties en andere entiteiten die bestaan in elektronische vorm. Het oude digitale identiteitssysteem is gebaseerd op de X.509-standaard van PKI (Public Key Infrastructure). In NEO implementeren we een reeks X.509-compatibele digitale identiteitsnormen. Deze set van digitale identiteitsnormen, naast het compatibele X.509-niveau certificaatuitgiftemodel, zal ook het Web of Trust point-to-point certificaatuitgiftemodel ondersteunen. Onze identiteitsverificatie bij het afgeven of toepassen van digitale identiteiten omvat het gebruik van gezichtsfuncties, vingerafdruk, spraak, sms en andere methoden voor verificatie. Tegelijkertijd gebruiken we ook de blockchain om het Online Certificaat Status Protocol (OCSP) te vervangen, om de X.509 Certificate Revocation List (CRL) op te nemen en te beheren.
 
-Smart Contract
+### Smart Contract
 
 Het Smart Contract werd eerst voorgesteld door de cryptograaf Nick Szabo in 1994, slechts vijf jaar na de oprichting van het World Wide Web. Szabo definieert het als volgt: “Wanneer een voorgeprogrammeerde voorwaarde wordt geactiveerd, zal het Smart Contract de overeenkomstige contractvoorwaarden uitvoeren”. Blockchain-technologie biedt ons een gedecentraliseerd, fraudebestendig en een betrouwbaar systeem aan waarin Smart Contracts zeer handig zijn. NEO heeft een eigen Smart Contract systeem ontwikkeld genaamd: NeoContract.
 
 Het NeoContract Smart Contract systeem is de belangrijkste kenmerk van de integratie voor de ontwikkelaars ecosysteem. Ontwikkelaars hoeven geen nieuwe programmeertaal te leren, maar kunnen gebruik maken van C #, Java en andere algemene programmeertalen in hun vertrouwde IDE-omgevingen (Visual Studio, Eclipse, etc.) voor Smart Contract ontwikkeling, foutopsporing en verzamelwerk. NEO's Universal Lightweight Virtual Machine (NeoVM) geeft de voordelen van hoge zekerheid, hoge coördinatie en hoge schaalbaarheid. Met het NeoContract Smart Contract System kunnen miljoenen ontwikkelaars over de hele wereld snel de ontwikkeling van Smart Contracten uitvoeren. NeoContract heeft daarnaast een aparte White Paper waarin de implementatiegegevens worden beschreven.
-Applicaties en Ecosysteem
+
+### Applicaties en Ecosysteem
 
 Het ecosysteem is de levenskracht van de open source gemeenschap. Om het doel van een intelligent economisch netwerk te verwezenlijken, zal NEO zich inzetten voor (1) de ontwikkeling van het ecosysteem, (2) het verstrekken van volwassen ontwikkelings-instrumenten, (3) het verbeteren van de ontwikkeling van documenten, (4) het organiseren van opleidings- en trainingsactiviteiten en (5) het verstrekken van financiële steun. We zijn van plan om de volgende NEO-gebaseerde applicaties te ondersteunen en om beloningen aan te bieden aan ontwikkelaar om het gebruik van het ecosysteem alsmaar te kunnen verbeteren: 
 
--	Node Programma
+🔹 **Node Programma**
 
 -	Een volledig functionerend Full-node pc-programma
 
@@ -35,13 +36,13 @@ Het ecosysteem is de levenskracht van de open source gemeenschap. Om het doel va
 
 -	Hardware portemonnee
 
--	 Blockchain Explorer
+🔹 **Blockchain Explorer**
 
--	 SDK Ontwikkelingskit
+🔹 **SDK Ontwikkelingskit**
 
 -	Ondersteund Java/ Kotlin, .NET C #/ VB, JavaScript / Typescript, Python, Go
 
--	Smart Contract Compiler en IDE Plug-in
+🔹 **Smart Contract Compiler en IDE Plug-in**
 
 -	C#/ VB.Net/ F#, Visual Studio
 
@@ -53,7 +54,7 @@ Het ecosysteem is de levenskracht van de open source gemeenschap. Om het doel va
 
 -	Python/ Ruby
 
--	Gedecentraliseerde Applicaties
+🔹 **Gedecentraliseerde Applicaties**
 
 -	Smart fonds
 
@@ -79,9 +80,9 @@ Het ecosysteem is de levenskracht van de open source gemeenschap. Om het doel va
 
 -	NeoGasmarkt
 
-NEO Management Model
+## NEO Management Model
 
-Economisch Model
+### Economisch Model
 
 NEO heeft twee tokens, NEO (symbool NEO) en NeoGas (afgekort symbool GAS).
 
@@ -93,7 +94,7 @@ In het creatieblok van het NEO netwerk werd 100 miljoen NEO’s gegenereerd. GAS
 
 Het NEO netwerk zal een drempel instellen door te stemmen op GAS vrijstelling van een aantal transactie transacties en Smart Contract operaties, om de gebruikerservaring hiermee vervolgens te verbeteren. Wanneer er een groot aantal spamtransacties optreden kan NeoID worden gebruikt om transacties en Smart Contracts met gekwalificeerde identiteiten te prioriteren. Transacties en Smart Contracts zonder gekwalificeerde digitale identiteiten kunnen daarnaast prioriteit krijgen door GAS te betalen.
 
-Distributiemechanisme
+### Distributiemechanisme
 
 NEO distributie:
 
@@ -101,15 +102,15 @@ NEO's 100 miljoen tokens zijn verdeeld in twee porties. De eerste portie bestaat
 
 Het tweede portie bestaat uit 50 miljoen NEO dat beheerd wordt door de NEO raad voor NEO’s lange termijn ontwikkeling, -operatie en -onderhoud en -ecosysteem te ondersteunen. NEO heeft in deze portie een uitsluitingstermijn van 1 jaar en wordt pas geopend na 16 oktober 2017. Dit gedeelte komt niet in de uitwisselingen en is alleen voor lange termijn ondersteuning van NEO-projecten bedoeld. De plannen voor het zijn als volgt:
 
--	10 miljoen tokens (10% totaal) worden gebruikt om NEO-ontwikkelaars en leden van de NEO Raad te motiveren
+🔹 10 miljoen tokens (10% totaal) worden gebruikt om NEO-ontwikkelaars en leden van de NEO Raad te motiveren
 
--	 10 miljoen tokens (10% totaal) worden gebruikt om ontwikkelaars in het NEO-ecosysteem te motiveren
+🔹 10 miljoen tokens (10% totaal) worden gebruikt om ontwikkelaars in het NEO-ecosysteem te motiveren
 
--	15 miljoen tokens (15% totaal) worden gebruikt om te investeren in andere block-chain projecten die eigendom zijn van de NEO Council en zal uitsluitend alleen voor NEO-projecten worden gebruikt
+🔹 15 miljoen tokens (15% totaal) worden gebruikt om te investeren in andere block-chain projecten die eigendom zijn van de NEO Council en zal uitsluitend alleen voor NEO-projecten worden gebruikt
 
--	15 miljoen (totaal 15%) wordt behouden voor speciale omstandigheden
+🔹 15 miljoen (totaal 15%) wordt behouden voor speciale omstandigheden
 
--	Het jaarlijkse gebruik van NEO mag in principe niet meer bedragen dan 15 miljoen tokens
+🔹 Het jaarlijkse gebruik van NEO mag in principe niet meer bedragen dan 15 miljoen tokens
 
 GAS distributie:
 
@@ -119,15 +120,15 @@ Het eerste jaar (0-2 miljoen blokken), zal elk blok 8 nieuwe GAS genereren. Het 
 
 Volgens deze uitgiftecurve wordt in het eerste jaar 16% van de GAS gecreëerd, in de eerste vier jaar 52% en zal ten slotte 80% van de GAS in de eerste 12 jaar gecreëerd worden. Deze GAS wordt proportioneel verdeeld in overeenstemming met het aantal NEO opgenomen in de overeenkomstige adressen. NEO houders kunnen te allen tijde een claimtransactie starten om deze GAS tokens op te eisen.
 
-Bestuur mechanisme
+### Bestuur mechanisme
 
 Chain bestuur: NEO tokenhouders zijn de netwerkbezitters en beheerders die het netwerk beheren door te stemmen. Dit kan met behulp van de GAS die door NEO is gegenereerd om de functies in het netwerk te benutten. NEO tokens kunnen daarnaast ook overgedragen worden.
 
 Off-chain bestuur: Het NEO bestuur bestaat uit de oprichters van het NEO project, waarbij de directie, het technische comité en het secretariaat verantwoordelijk zijn voor strategische besluitvorming, technische besluitvorming en implementatie. Daarnaast is de NEO Raad verantwoordelijk voor de gemeenschap, waarbij de bevordering en ontwikkeling van het NEO ecosysteem centraal staat.
 
-NEO-technologie implementatie
+## NEO-technologie implementatie
 
-Consensus mechanisme: DBFT
+### Consensus mechanisme: DBFT
 
 DBFT heet de Delegated Byzantine Fault Tolerant, een Byzantijns fouttolerant consensusmechanisme dat grootschalige participatie in consensus mogelijk maakt door middel van volmachtstemming. De houder van de NEO token kan, door te stemmen, de boekhouder kiezen die hij ondersteunt. De geselecteerde groep boekhouders bereiken via het BFT-algoritme een consensus en genereren nieuwe blokken. Stemmen in het NEO netwerk kan onmiddellijk in plaats van op vaste termijn.
 
@@ -135,37 +136,39 @@ DBFT geeft een fout tolerantie van f = ⌊ (n-1) / 3 ⌋ voor een consensus syst
 
 In het NEO DBFT consensusmechanisme, dat ongeveer 15 tot 20 seconden duurt om een blok te genereren, wordt de transactie doorvoer gemeten tot ongeveer 1.000 transacties per seconde (TPS), wat een uitstekende prestatie onder de publieke chains is. Door middel van passende optimalisatie is er potentieel om 10.000 TPS te bereiken, zodat het grote commerciële toepassingen kan ondersteunen.
 
-Smart Contract System: NeoContract
+DBFT combines digital identity technology, meaning the bookkeepers can be a real name of the individual or institution. Thus, it is possible to freeze, revoke, inherit, retrieve, and effect judicial decisions on them. This facilitates the registration of compliant financial assets in the NEO network. The NEO network plans to support such operations when necessary.
+
+### Smart Contract System: NeoContract
 
 NEO's Smart Contract System bestaat uit drie delen:
 
-NeoVM - Universeel Block Chain Virtuele Machine:
+**NeoVM - Universeel Block Chain Virtuele Machine:**
 
 NeoVM is een lichte virtuele machine met veel gebruiksvriendelijkheid, waarvan de architectuur zeer dicht bij de JVM en .NET RUNTIME ligt. Het is vergelijkbaar met een virtuele CPU die opeenvolgend instructies in het contract leest en uitvoert, procescontrole uitvoert op basis van de functionaliteit van de instructie, logica, enz. Het heeft een goede opstartsnelheid en is veelzijdigheid, waardoor het zeer geschikt is voor kleine programma's zoals Smart Contracten. Deze kunnen ook worden vervoerd buiten de blockchain of geïntegreerd worden met de IDE om een optimale ontwikkelingservaring te bieden. Daarnaast kan de functionaliteit van NeoVM uitgebreid worden, zoals het invoeren van een JIT (real-time compiler) mechanisme, om de efficiëntie van de implementatie te verbeteren.
 
-InteropService - Interoperable diensten:
+**InteropService - Interoperable diensten:**
 
 InteropService wordt gebruikt om de blockchain grootboek, digitale activa, digitale identiteit, persistente opslagruimte en andere onderliggende diensten te laden. Denk hierbij aan virtuele machines die worden geleverd aan andere virtuele machines. Hierdoor kunnen Smart Contracten op looptijd toegang krijgen tot diensten om wat geavanceerde functionaliteit te behalen. NeoVM kan hiermee worden toegewezen aan een blockchain of zelfs een niet-blockchain systeem waardoor het gebruik van de Smart Contracten alsmaar wordt vergroot.
 
-DevPack - Compiler en IDE plug-in:
+**DevPack - Compiler en IDE plug-in:**
 
 DevPack bevat een op hoog niveau taalcompilator en de IDE-invoegtoepassingen. Omdat de architectuur van NeoVM zeer vergelijkbaar is met JVM en .NET Runtime, kunnen de compilers in DevPack Java byte code en .NET MSIL compileren in de instructieset van NeoVM. Java/ Kotlin, C # ontwikkelaars hoeven geen nieuwe talen te leren en zullen meteen Smart Contracten kunnen ontwikkelen in VS, Eclipse en andere bekende IDE-omgevingen. Dit vermindert de leercurve aanzienlijk voor het ontwikkelen van Smart Contracten, waardoor we gemakkelijk en snel een levendige gemeenschap rond NeoContract kunnen bouwen.
 
 NeoContract kan door middel van statische analyse een ‘call tree’ creëren voordat men een slim contract uitvoert. Via de deterministische call tree kan de NEO node het Smart Contract dynamisch fragmenteren, om theoretisch onbeperkte uitbreiding te behalen. Dit zal het "verstoppingseffect" dat wordt veroorzaakt door de statische fragmentatie van andere blockchainsystemen overkomen.
 
-Cross-chain interoperabiliteit overeenkomst: NeoX
+### Cross-chain interoperabiliteit overeenkomst: NeoX
 
 NeoX is een protocol dat interoperabiliteit tussen chains implementeert. NeoX is verdeeld in twee delen: het 'cross-chain activa uitwisselingsovereenkomst’ en het 'cross-chain gedistribueerde transactie protocol'.
 
-Cross-chain activa uitwisselingsovereenkomst:
+**Cross-chain activa uitwisselingsovereenkomst:**
 
 NeoX is uitgebreid met bestaande dubbelstrengige ‘atomaire activa’ voor uitwisselingsovereenkomsten om meerdere deelnemers in staat te stellen om activa over verschillende ketens uit te wisselen. Dit zal er ook voor zorgen dat alle stappen in het gehele transactieproces slagen of falen. Om deze functie te bereiken, gebruiken we de NeoContract functie om een contractrekening voor elke deelnemer te maken. Als andere blockchains niet compatibel zijn met NeoContract, kunnen ze compatibel zijn met NeoX zolang ze eenvoudige, Smart Contractfunctionaliteit kunnen bieden.
 
-Cross-chain gedistribueerde transactie protocol:
+**Cross-chain gedistribueerde transactie protocol:**
 
 Cross-chain gedistribueerde transacties met meerdere keten betekenen dat meerdere stappen van een transactie verspreid zijn over verschillende blockchains en dat de consistentie van de gehele transactie wordt gewaarborgd. Dit is een uitbreiding van de cross-chain activa overeenkomst, waardoor het gedrag van de uitwisseling van activa wordt uitgebreid tot willekeurig gedrag. In andere woorden, NeoX maakt Smart Contracten voor meerdere kettingen mogelijk, waarbij een slim contract verschillende onderdelen op meerdere kettingen kan uitvoeren. Deze kunnen ofwel succesvol zijn of terugkeren als deze niet aan de eisen voldoen. Dit biedt uitstekende mogelijkheden voor cross-chain collaboraties en NEO is momenteel bezig om meer mogelijkheden te creëren voor cross-chain Smart Contracten applicaties.
 
-Distributed Storage Protocol: NeoFS
+### Distributed Storage Protocol: NeoFS
 
 NeoFS is een gedistribueerd opslag protocol dat Distributed Hash Table technologie gebruikt. NeoFS indexeert de gegevens via de inhoud van het bestand (Hash) in plaats van het bestandspad (URI). Grote bestanden worden verdeeld in databases met vaste grootte die in veel verschillende nodes worden opgeslagen en verdeeld.
 
@@ -174,11 +177,11 @@ Het belangrijkste probleem met dit type systeem is de noodzaak om een evenwicht 
 NeoFS zal dienen als een InteropService-interoperabiliteitsdienst in het NeoContract-systeem, waardoor Smart Contracten grote bestanden op de blockchain kunnen opslaan en toegang tot die bestanden kunnen instellen. Daarnaast kan NeoFS gecombineerd worden met een digitale identiteit, zodat digitale certificaten die worden gebruikt door digitale identiteiten kunnen worden toegewezen, verzonden en ingetrokken worden zonder dat een centrale server nodig is om deze te beheren. In de toekomst kunnen de oude blokgegevens opgeslagen worden in NeoFS, zodat de meeste nodes de oude gegevens kunnen vrijmaken voor betere schaalbaarheid en tegelijkertijd de integriteit van de historische gegevens te waarborgen.
 
 
-Anti-quantum cryptografie mechanisme: NeoQS
+### Anti-quantum cryptografie mechanisme: NeoQS
 
 De opkomst van kwantumcomputers creëert een grote uitdaging voor RSA en ECC-gebaseerde cryptografische mechanismen. Kwantumcomputers kunnen het grote aantal ontbindingsproblemen (waarop RSA vertrouwt) en het elliptische curve discrete logaritme (waarop ECC vertrouwt) op een zeer korte tijdstip oplossen. NeoQS (Quantum Safe) is een lattice-based cryptografisch mechanisme. Momenteel hebben kwantumcomputers niet de mogelijkheid om op een snelle manier het kortste vectorprobleem (Shortest Vector Problem; SVP) en het dichtstbijzijnde vectorprobleem (Closest Vector Problem; CVP) op te lossen. Hierdoor wordt NeoQS beschouwd als het meest betrouwbare algoritme om zich tegen kwantumcomputers te verzetten.
 
-Samenvatting
+## Samenvatting
 
 NEO is een gedistribueerd netwerk dat digitale activa, digitale identiteiten en Smart Contracten combineert. Het NEO ecosysteem zal ook DBFT, NeoX, NeoFS, NeoQS en vele andere originele technologie gebruiken als infrastructuur om de intelligente economie van de toekomst vorm te geven.
 
