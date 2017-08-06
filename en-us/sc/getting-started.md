@@ -57,88 +57,88 @@ Create NEO Smart Contract in Visual Studio 2017
  
 6. Right click on ’neon’ and select Publish
 
-![GitHub Logo4](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAv3AAAAJGU3M2I4ZmExLTI0YmYtNDRjYS05NDBkLTIzYmIwZWQzZGRlYw.png)
+![gettingstarted4](assets/getting_started_4.png)
 
  
 7. Click on Publish.
 
 8. Check your Output window:
 
-![GitHub Logo5](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAxeAAAAJDQ2ZWE2NmEzLTNlOTYtNDQwMi1hNjA3LTJmY2Y4NDI3ZTU4NA.png)
+![gettingstarted5](assets/getting_started_5.png)
 
   
 9. Navigate to your directory (Target Location), where you can find neon.exe:
 
-![GitHub Logo6](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAx4AAAAJGI3YWZmMzMzLTI3MzEtNGM3Zi04NDM1LWFiNWQxZmQyYTVlNA.png)
+![gettingstarted6](assets/getting_started_6.png)
 
 10. You have to add this directory path to the PATH environment variable:
 
-![GitHub Logo7](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAArvAAAAJGZkMDQzY2M1LTIzZDUtNDhlZi05M2FmLWI5NDMyMmU4ZmM2Mg.png)
+![gettingstarted7](assets/getting_started_7.png)
 
 11. We can check how it works. Run cmd and type ’neon’:
 
 
-![GitHub Logo8](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAt_AAAAJDA4YmJkZjlkLWJhOGUtNDUzZS05Y2M0LWE0Y2ExN2E4YmYzZA.png)
+![gettingstarted8](assets/getting_started_8.png)
 
 12. Now create a new project in Visual Studio 2017:
 
 	File->New->Project
     
-![GitHub Logo9](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAzsAAAAJGVjMDY3ZmYwLTcwYjYtNGJlMi04ZTNmLTlkZTY4OTgxOTQ3Yg.png)
+![gettingstarted9](assets/getting_started_9.png)
 
 Select Console App (.NET Core) and type ’HelloProject’ in the Name field. Then click OK.
 
 13. Right click on Dependencies:
 
-![GitHub Logo10](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAriAAAAJDlmYWEzZjgzLTU5MmQtNDA1MS1iZWUwLTI5Mjg1YTVlYzE1Mg.png)
+![gettingstarted10](assets/getting_started_10.png)
  
 14. Add reference. Click Browse, and select neon.dll
 
 
-![GitHub Logo11](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA0rAAAAJDUwY2Y3ODkzLWNmMWQtNGU2NS05MDY2LTViNjkzMGM3OWI2MA.png)
+![gettingstarted11](assets/getting_started_11.png)
 
 Add it. Then OK.
 
 15. Navigate to NuGet package manager:
 
-![GitHub Logo12](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAteAAAAJGM2OGFiM2VkLTU3YWItNDljZS1iOTVhLTY5YWNhNTdlMzEyNw.png)
+![gettingstarted12](assets/getting_started_12.png)
 
 
 16. Click Browse and select Neo.SmartContract.Framework. Then click Install.
  
-![GitHub Logo13](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAwTAAAAJGJhNmM2MTdlLWZiMjgtNDU3NC1iMTVmLWQwYTFhYjM5ZGYyYQ.png)
+![gettingstarted13](assets/getting_started_13.png)
 
 
 17. Now we can insert our Hello world code:
 
-![GitHub Logo14](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAArsAAAAJDU1ZGEyZjg2LThlMDItNGNhOC1iMGEzLWMyMzVlYzgyYzNlNQ.png)
+![gettingstarted14](assets/getting_started_14.png)
 
  
 18. Build the project:
 
 
  
-![GitHub Logo15](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAqQAAAAJGE2NTUxYmFjLTMxNjItNGJkMC05Nzk4LWUwODJhOTVlNDA2NA.png)
+![gettingstarted15](assets/getting_started_15.png)
 
  
 19. Publish:
  
-![GitHub Logo16](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA3eAAAAJGYxODY2NzdiLWJkN2ItNDlmNy1iZGQ4LTI3ZTc1YTY3MTBlYg.png)
+![gettingstarted16](assets/getting_started_16.png)
 
 20.  Navigate to the directory whick contains .dll file:
 
-![GitHub Logo17](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAqYAAAAJDMwNDAzMjNmLTc3MTMtNDY3Mi05NGEyLThjY2MwNWQyZDJkMA.png)
+![gettingstarted17](assets/getting_started_17.png)
 
 21. Compile it, type: neon HelloProject.dll
 
-![GitHub Logo18](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAwhAAAAJGVjMGQwMzg2LTBjYTYtNDg3OS1hODNmLTk2YTYyMTA0ZGU0Ng.png)
+![gettingstarted18](assets/getting_started_18.png)
 
-![GitHub Logo19](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA0lAAAAJDg0YzYwZGQ3LTg2M2EtNDE2MC1hMzE5LTZlNTEzYWRiM2Q1NA.png)
+![gettingstarted19](assets/getting_started_19.png)
  
 
   
 Now we get the .avm file:
-![GitHub Logo20](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAArIAAAAJDZjODFmNTdjLWIzZGMtNGI0Ni1hN2UxLTY4NzhlZjA0YjA3ZQ.png)
+![gettingstarted20](assets/getting_started_20.png)
 
 
 
