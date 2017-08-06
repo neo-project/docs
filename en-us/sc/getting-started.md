@@ -25,116 +25,118 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
 
 
-Create NEO Smart Contract in Visual Studio 2017
+## Smart contract development process
 
-1. Open Visual Studio.
+### 1. Download and clone neo-compiler 
 
-
-2. In Team explorer Click Clone and insert the neo-compiler link: https://github.com/neo-project/neo-compiler
+In Team explorer Click Clone and insert the neo-compiler's link: https://github.com/neo-project/neo-compiler
 
 ![gettingstarted1](assets/getting_started_1.png)
 
-3. Create the Git repo by clicking Clone
+Click Clone.
 
-
-
-4. Double click on neo-compiler.sln
-
+Double click on neo-compiler.sln
 
 ![gettingstarted2](assets/getting_started_2.PNG)
-
  
-5. Click Solution explorer:
-
+Click Solution explorer:
 
 ![gettingstarted3](assets/getting_started_3.png)
 
+### 2. Neon 
 
- 
-6. Right click on ’neon’ and select Publish
+Right click on ’neon’ and select Publish
 
 ![gettingstarted4](assets/getting_started_4.png)
-
  
-7. Click on Publish.
+Click on Publish.
 
-8. Check your Output window:
+Check your Output window:
 
 ![gettingstarted5](assets/getting_started_5.png)
 
-  
-9. Navigate to your directory (Target Location), where you can find neon.exe:
+After the release is successful, the neon.exe file is generated in bin\Release\PublishOutput.
 
 ![gettingstarted6](assets/getting_started_6.png)
 
-10. You have to add this directory path to the PATH environment variable:
+We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
+
+
+**Windows 10 and Windows 8:**
+
+  In Search, search for and then select: System (Control Panel)
+  Click the Advanced system settings link.
+  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
+  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+
+**Windows 7:**
+
+  From the desktop, right click the Computer icon.
+  Choose Properties from the context menu.
+  Click the Advanced system settings link.
+  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
+  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
 
 ![gettingstarted7](assets/getting_started_7.png)
 
-11. We can check how it works. Run cmd and type ’neon’:
 
+Now run Command or PowerShell, and enter neon. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful.
 
 ![gettingstarted8](assets/getting_started_8.png)
 
-12. Now create a new project in Visual Studio 2017:
+NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
 
-	File->New->Project
+### 3. Create project 
+
+Create a new project in Visual Studio 2017: File->New->Project
+
     
 ![gettingstarted9](assets/getting_started_9.png)
 
 Select Console App (.NET Core) and type ’HelloProject’ in the Name field. Then click OK.
 
-13. Right click on Dependencies:
+Right click on Dependencies:
 
 ![gettingstarted10](assets/getting_started_10.png)
  
-14. Add reference. Click Browse, and select neon.dll
-
+Add reference. Click Browse, and select and add neon.dll
 
 ![gettingstarted11](assets/getting_started_11.png)
 
-Add it. Then OK.
 
-15. Navigate to NuGet package manager:
+Navigate to NuGet package manager:
 
 ![gettingstarted12](assets/getting_started_12.png)
 
 
-16. Click Browse and select Neo.SmartContract.Framework. Then click Install.
+Click Browse, then select and Neo.SmartContract.Framework.
  
 ![gettingstarted13](assets/getting_started_13.png)
 
 
-17. Now we can insert our Hello world code:
+We can insert our Hello world code:
 
 ![gettingstarted14](assets/getting_started_14.png)
 
- 
-18. Build the project:
+### 4. Compile project 
 
-
+Build the project, then Publish::
  
-![gettingstarted15](assets/getting_started_15.png)
-
- 
-19. Publish:
+![gettingstarted15](assets/getting_started_15.png) 
  
 ![gettingstarted16](assets/getting_started_16.png)
 
-20.  Navigate to the directory whick contains .dll file:
+Navigate to the directory whick contains .dll file:
 
 ![gettingstarted17](assets/getting_started_17.png)
 
-21. Compile it, type: neon HelloProject.dll
+To compile it, type: neon HelloProject.dll
 
 ![gettingstarted18](assets/getting_started_18.png)
 
-![gettingstarted19](assets/getting_started_19.png)
- 
+![gettingstarted19](assets/getting_started_19.png) 
 
   
 Now we get the .avm file:
