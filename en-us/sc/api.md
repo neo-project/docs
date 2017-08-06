@@ -11,4 +11,3 @@ Namespace | description |
 | ----------------------------- | ---------------------------------------- |
 | [Neo](api/neo.md) | The Neo namespace is the API provided by the NEO blockchain, providing a way to access the blockchain data and manipulate the persistent store. |
 | [System](api/system.md) | The System namespace is the API provided by the Smart Contract Execution Engine, providing access to the execution environment that accesses the smart contract. |
-
