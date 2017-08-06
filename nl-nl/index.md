@@ -136,7 +136,7 @@ DBFT geeft een fout tolerantie van f = ⌊ (n-1) / 3 ⌋ voor een consensus syst
 
 In het NEO DBFT consensusmechanisme, dat ongeveer 15 tot 20 seconden duurt om een blok te genereren, wordt de transactie doorvoer gemeten tot ongeveer 1.000 transacties per seconde (TPS), wat een uitstekende prestatie onder de publieke chains is. Door middel van passende optimalisatie is er potentieel om 10.000 TPS te bereiken, zodat het grote commerciële toepassingen kan ondersteunen.
 
-DBFT combines digital identity technology, meaning the bookkeepers can be a real name of the individual or institution. Thus, it is possible to freeze, revoke, inherit, retrieve, and effect judicial decisions on them. This facilitates the registration of compliant financial assets in the NEO network. The NEO network plans to support such operations when necessary.
+DBFT combineert digitale identiteitstechnologie, waardoor de boekhouders hun echte naam kunnen gebruiken zoals bijvoorbeeld van een instelling. Het is dus mogelijk om de boekhouders te bevriezen, hun rechten terug te nemen, goederen te laten erven en hun wettelijk aansprakelijk te stellen. Dit vergemakkelijkt de registratie van conforme financiële activa in het NEO-netwerk. Het NEO-netwerk is van plan dergelijke acties te ondersteunen indien nodig.
 
 ### Smart Contract System: NeoContract
 
