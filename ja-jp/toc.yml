@@ -1,8 +1,10 @@
 - name: NEOホワイトペーパー
   href: index.md
-- name: はじめに
-  href: sc/getting-started.md
+- name: スマートコントラクト
+  href: sc/introduction.md
   items:
+    - name: スマートコントラクトとは？
+      href: sc/introduction.md
     - name: はじめに
       href: sc/getting-started.md
     - name: チュートリアル
@@ -24,3 +26,9 @@
         href: sc/tutorial/Lock2.md
       - name: コントラクト呼び出し
         href: sc/tutorial/call.md
+    - name: ホワイトペーパー
+      href: sc/white-paper.md
+    - name: APIリファレンス
+      href: sc/api.md
+    - name: フレームワーク
+      href: sc/fw.md
