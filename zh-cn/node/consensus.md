@@ -74,7 +74,7 @@
 
 ## 5 - 实际实施
 
-The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
+The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
 
 Note that the **Figure 5** does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
@@ -119,7 +119,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 ### 5.2 - 要求
 
-**Within AntShares, there are three primary requirements for consensus fault tolerance:**
+**Within NEO, there are three primary requirements for consensus fault tolerance:**
 
 1. `s` **Congressmen** must reach a consensus about a transaction before a block can be committed.
 
@@ -194,7 +194,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 ​	
 
 ## 6 - 引用
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
+1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.neo.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 

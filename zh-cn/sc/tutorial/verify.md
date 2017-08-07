@@ -2,15 +2,15 @@
 
 本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的 ** 测试网 ** 的客户端运行。
 
-附：截止到文档编写时，最新的 ** 测试网 ** 客户端下载地址：[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)。
+附：截止到文档编写时，最新的 ** 测试网 ** 客户端下载地址：[Neo-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/Neo-GUI-v2.0.6390.29136.zip)。
 
 ## 编译合约脚本
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
-using AntShares.SmartContract.Framework.Services.System;
-namespace AntShares.SmartContract
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Services.System;
+namespace Neo.SmartContract
 {
     public class Test : VerificationCode
     {

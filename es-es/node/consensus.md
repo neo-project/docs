@@ -6,7 +6,7 @@
 * **Prueba de Funcionamiento** (PoW) - Un tipo de algoritmo que utiliza la potencia de cálculo para manejar la tolerancia ante los fallos.
 * **Fallo Bizantino** (BF) - Un fallo en el que un nodo permanece funcional, pero opera de manera deshonesta.
 * **Tolerancia Delegada ante Fallo Bizantino** (DBFT) - Un algoritmo de consenso implementado dentro de la cadena de bloque NEO para garantizar la tolerancia ante los fallos.
-* **Vista v** - El conjunto de datos utilizado durante una actividad de consenso en AntShares DBFT.
+* **Vista v** - El conjunto de datos utilizado durante una actividad de consenso en NEO DBFT.
 
 ## 2 - Roles
 
@@ -169,7 +169,7 @@ Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de hone
 	
 
 ## 6 - Referencias
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
+1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.neo.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 

@@ -12,7 +12,7 @@ Now we assume that you already have the basic knowledge of the smart contract, w
 
 In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub] (https://github.com/neo-project/neo-gui/releases).
 
-PS: At this point of time, the latest **test network client** download is: [AntSharesCore-GUI-v2.0.6390.29136.zip] (https://github.com/neo-project/neo-gui /releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip).
+PS: At this point of time, the latest **test network client** download is: [Neo GUI v2.0.1] (https://github.com/neo-project/neo-gui/releases/tag/v2.0.1).
 
 > [! Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.

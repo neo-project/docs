@@ -107,7 +107,7 @@ SystemFee 是系统手续费，目前手续费如下（单位为 ANC）：
 
 ## 5、提取 NEO 股、NEO 币
 
-安装 PC 版客户端（AntSharesCore-GUI），修改配置文件 protocol.json 使其连接到私有链中。
+安装 PC 版客户端（Neo-GUI），修改配置文件 protocol.json 使其连接到私有链中。
 
 打开钱包，如果左下角有连接数不为零，而且一直在同步区块，表示该客户端已经成功地连接到了私有链中。
 

@@ -1,6 +1,6 @@
-# AntShares smart contract tutorial
+# NEO smart contract tutorial
 
-After reading the previous tutorials, you should now be able to use C# in Visual Studio 2015 to create a smart contract project. Here we will discuss how smart contracts are executed on the AVM (AntShares virtual machine).
+After reading the previous tutorials, you should now be able to use C# in Visual Studio 2015 to create a smart contract project. Here we will discuss how smart contracts are executed on the NeoVM (Neo Virtual Machine).
 
 ## Smart contract triggers
 
@@ -50,17 +50,17 @@ public class Contract1: VerificationCode
 }
 ```
 
-## AVM virtual machine
+## NeoVM virtual machine
 
-AVM is the virtual machine that executes the AntShares smart contract code. We are talking about the concept of virtual machine in the narrow sense, not in reference to operating systems or programs that can simulate them such as Vmware or Hypter-V.
+NeoVM is the virtual machine that executes the NEO smart contract code. We are talking about the concept of virtual machine in the narrow sense, not in reference to operating systems or programs that can simulate them such as Vmware or Hypter-V.
 
 For example, in the java JVM or. Net CLR, source code will be compiled into the relevant bytecode, and then run on the corresponding virtual machine. JVM or CLR will run the bytecode which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result.
 
 ### Virtual machine architecture
 
-   ![](http://docs.antshares.org/images/2017-05-15_11-28-29.jpg)
+   ![](http://docs.neo.org/images/2017-05-15_11-28-29.jpg)
 
-The above diagram is the system architecture diagram of the small ant virtual machine (AVM), where the deployment in the dashed box is the core of the virtual machine.
+The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
 
 #### Execute engine
 

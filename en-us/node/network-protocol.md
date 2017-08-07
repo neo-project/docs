@@ -1,21 +1,21 @@
 # Network Protocol
 
 
-Antshares adopts a P2P network structure, in which nodes can communicate with each other through TCP/IP protocol. In this structure, there are two different types of nodes: peer nodes and validating nodes (referred to as Bookkeepers in the Antshares Whitepaper). Peer nodes can broadcast, receive and transfer transactions or blocks, while validating node can create blocks.
+NEO adopts a P2P network structure, in which nodes can communicate with each other through TCP/IP protocol. In this structure, there are two different types of nodes: peer nodes and validating nodes (referred to as Bookkeepers in the NEO Whitepaper). Peer nodes can broadcast, receive and transfer transactions or blocks, while validating node can create blocks.
 
 
-The network protocol of AntShares is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different.
+The network protocol of NEO is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different.
 
 Convention
 ----
 
 1. Byte Order
 
-    All integer types of Antshares are Little Endian except for IP address and port number, these 2 are Big Endian.
+    All integer types of NEO are Little Endian except for IP address and port number, these 2 are Big Endian.
 
 1. Hash
 
-   Two different hash functions are used in Antshares: SHA256 and RIPEMD160. SHA256 is used to generate a long hash value, and RIPEMD160 is used to generate a short hash value. In general, we get an object's hash value by using hash function twice. For example, we use SHA256 twice when we want to generate block's or transaction's hash value. When generating a contract address, we will use SHA256 function first and then use RIPEMD160.
+   Two different hash functions are used in NEO: SHA256 and RIPEMD160. SHA256 is used to generate a long hash value, and RIPEMD160 is used to generate a short hash value. In general, we get an object's hash value by using hash function twice. For example, we use SHA256 twice when we want to generate block's or transaction's hash value. When generating a contract address, we will use SHA256 function first and then use RIPEMD160.
 
    In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one another then hash again, repeats this process until there is only one root hash (Merkle Root).
 
@@ -41,7 +41,7 @@ Convention
 
 1. Fixed-point Number
 
-   Data in Antshares such as amount or price are 64 bit fixed-point number and the precision of decimal part is 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
+   Data in NEO such as amount or price are 64 bit fixed-point number and the precision of decimal part is 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
 Data Type
 -------
@@ -96,13 +96,13 @@ Data Type
    |60*?|Outputs|tx_out[]|output|
    |?*?|Scripts|script[]|List of scripts used to validate the transaction|
 
-   All processes in Antshares system are recorded in transactions. There are several types of transactions:
+   All processes in NEO system are recorded in transactions. There are several types of transactions:
 
    |Value|Name|System Fee|Description|
    |---|---|---|---|
    |0x00|MinerTransaction|0|assign byte fees|
    |0x01|IssueTransaction|500\|0|inssuance of asset|
-   |0x02|ClaimTransaction|0|assign ant coins|
+   |0x02|ClaimTransaction|0|assign GAS|
    |0x20|EnrollmentTransaction|1000|enrollment for validator|
    |0x40|RegisterTransaction|10000|assets register|
    |0x80|ContractTransaction|0|contract transaction|
@@ -125,9 +125,9 @@ Data Type
 
       There are no special fields for an issue transaction.
 
-      Asset managers can create the assets that have been registered in Antshares' block chain through IssueTransaction, and sent them to any address.
+      Asset managers can create the assets that have been registered in NEO's block chain through IssueTransaction, and sent them to any address.
 
-      In particular, if the assets which being issued are AntShares, then the transaction will be sent free.
+      In particular, if the assets which being issued are NEO, then the transaction will be sent free.
 
       Random number in the transaction is used to avoid hash collision.
 
@@ -135,7 +135,7 @@ Data Type
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
-      |34*?|Claims|tx_in[]|ant shares for distribution|
+      |34*?|Claims|tx_in[]|NEO for distribution|
 
    + EnrollmentTransaction
 
@@ -152,11 +152,11 @@ Data Type
    + RegisterTransaction
 
       > [!Warning]
-      Has been deactived and replaced by AntShares.Blockchain.CreateAsset for the smart contract.
+      Has been deactived and replaced by Neo.Blockchain.CreateAsset for the smart contract.
 
-      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Blockchain/CreateAsset.md)
 
-      View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      View [Alternative Smart Contract API](../sc/api/neo.md)
 
    + ContractTransaction
 
@@ -165,11 +165,11 @@ Data Type
    + PublishTransaction
 
       > [!Warning]
-      Has been deactivated and replaced by AntShares.Blockchain.CreateContract for the smart contract.
+      Has been deactivated and replaced by Neo.Blockchain.CreateContract for the smart contract.
 
-      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Blockchain/CreateContract.md)
 
-      View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      View [Alternative Smart Contract API](../sc/api/neo.md)
 
    + Invoking a Transaction
 

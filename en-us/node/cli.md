@@ -1,14 +1,14 @@
 # CLI Command Reference
 
-Open the command line, navigate to the directory where the program is located, and enter the following code to start the command line wallet (ie, the AntShares node).
+Open the command line, navigate to the directory where the program is located, and enter the following code to start the command line wallet (ie, the NEO node).
 
-`dotnet AntSharesDaemon.dll`
+`dotnet neo-cli.dll`
 
 This tutorial will introduce all the commands in the command line wallet. You can manipulate your wallet with commands for creating a wallet, importing and exporting of private key, transferring, starting a consensus, and so on.
 
 We will first explore the various commands listed in the command line. In the command line, enter `help` followed by a carriage return, and you will see a list of orders as shown.
 
-![image](http://docs.antshares.org/images/2017-05-17_12-30-05.jpg)
+![image](http://docs.neo.org/images/2017-05-17_12-30-05.jpg)
 
 The following is a description of all the commands and the order of the brackets
 Angular brackets ``<> `` indicate a parameter,
@@ -79,7 +79,7 @@ If there is a specified file, the file is in the private key format. Refer to ex
 
 👉 `send <id | alias> <address> <value> [fee = 0]`
 
-For transfers, there are a total of four parameters. The first parameter is the asset ID, the second parameter is the payment address, the third parameter is the transfer amount, and the fourth parameter is the fee (This parameter can be left empty, the default is 0) The command needs to verify the wallet password. For example, in order to transfer 100 AntShares to the address "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", one would need to enter the following command.
+For transfers, there are a total of four parameters. The first parameter is the asset ID, the second parameter is the payment address, the third parameter is the transfer amount, and the fourth parameter is the fee (This parameter can be left empty, the default is 0) The command needs to verify the wallet password. For example, in order to transfer 100 NEO to the address "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", one would need to enter the following command.
 
 Send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
