@@ -51,7 +51,7 @@ Open Visual Studio 2015, open the tool, extended and updated, click on the left 
 
 Installation and configuration methods:
 
-Download the [Neo.VM](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2015, compile the Neo.Compiler.MSIL project,
+Download the [neo-vm](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2015, compile the Neo.Compiler.MSIL project,
 
 ![image](http://docs.neo.org/images/2017-05-10_18-22-39.jpg)
 

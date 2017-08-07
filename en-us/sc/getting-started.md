@@ -25,7 +25,7 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
-### 2.Neo.SmartContract plugin
+### 2. Neo.SmartContract plugin
 
 Installation method:
 
@@ -37,7 +37,7 @@ Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on t
 
 Installation and configuration steps:
 
-Download the [Neo.VM](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2017, publish the Neo.Compiler.MSIL project,
+Download the [neo-vm](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2017, publish the Neo.Compiler.MSIL project,
 
 ![publish NEO compiler msil project](assets/publish_neo_compiler_msil_project.png)
 

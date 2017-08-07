@@ -59,7 +59,7 @@ If you see the final output "Hello World!", The .Net Core installation is succes
 
 ## Installation of NEO node
 
-1. Download the [Neo-CLI](https://github.com/neo-project/neo-gui/releases) package on Github and unzip it.
+1. Download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package on Github and unzip it.
 
 > [!Note]
 > If you try to download and compile the Neo-CLI source directly on Github, you will find that `dotnet neo-cli.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as neo-cli.dll under. These two files can be downloaded in the first step of the package.

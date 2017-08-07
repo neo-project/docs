@@ -33,10 +33,10 @@ namespace Neo.SmartContract
 
 After compiling, generate the contract's `Test1.avm` file. We can create a unit test project and test `Test1.avm`.
 
-First create a C# Console App (.Net Framework) project with Visual Studio, with .NET Framework 4.6.2 or later. Then add a reference to `Neo.dll` and `Neo.VM.dll`.
+First create a C# Console App (.Net Framework) project with Visual Studio, with .NET Framework 4.6.2 or later. Then add a reference to `Neo.dll` and `neon.dll`.
 
 > [!Note]
-> These two files can be obtained by compiling [Neo.](https://github.com/neo-project/neo) and [Neo.VM](https://github.com/neo-project/neo-vm).
+> These two files can be obtained by compiling [Neo](https://github.com/neo-project/neo) and [neo-vm](https://github.com/neo-project/neo-vm).
 
 > Alternatively, you can just add NuGet packages "NEO" and "Neo.VM" to your project. You can do that by right-clicking the contract project on the Solution Explorer, go to Browse, search NEO and install the required packages.
 
