@@ -240,7 +240,7 @@ Centralized exchanges can provide very high performance and diversified services
 
 Superconducting transactions is a mechanism that can do this; Users do not need to deposit assets, where they are able to use their own assets on the blockchain in trading. Transaction settlement complete on the blockchain, but the process of matching orders occurs off-chain, by a central exchange that provides matching services. Since the matching is conducted off-chain, its efficiency is similar to centralized exchanges, but the assets remain under the control of the user. Exchanges uses the user's trading intent to carry out matching services, with no moral hazards involved, such as misappropriation of user funds, fraud, etc.
 
-At present, within the NEO community, development of smart contracts to achieve blockchain superconducting transactions has emerged, such as blue whale scouring.
+At present, within the NEO community, development of smart contracts to achieve blockchain superconducting transactions has emerged, such as OTCGO.
 
 ### 8.2 Smart Fund
 
