@@ -71,10 +71,10 @@ namespace ConsoleApp1
 创建智能合约项目，编写如下的智能合约。注意，这里的合约是继承自 VerificationCode，它的用途是生成合约鉴权账户，即钱包文件中的一个合约地址。
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Lock : VerificationCode
     {

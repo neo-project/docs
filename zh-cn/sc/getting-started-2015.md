@@ -51,7 +51,7 @@
 
 安装和配置方法：
 
-在 Github 上下载 [AntShares.VM](https://github.com/neo-project/neo-vm) 项目，用 Visual Studio 2015 打开该解决方案，编译其中的 AntShares.Compiler.MSIL 项目，如图
+在 Github 上下载 [neo-vm](https://github.com/neo-project/neo-vm) 项目，用 Visual Studio 2015 打开该解决方案，编译其中的 AntShares.Compiler.MSIL 项目，如图
 
    ![](~/images/2017-05-10_18-22-39.jpg)
 

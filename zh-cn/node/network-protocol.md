@@ -144,18 +144,18 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 > [!Warning]
 > 已弃用，已被智能合约的 AntShares.Blockchain.RegisterValidator 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Validator/Register.md)
+查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/Neo/Validator/Register.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/Neo.md)
 
 **RegisterTransaction**
 
 > [!Warning]
 > 已弃用，已被智能合约的 AntShares.Blockchain.CreateAsset 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Asset/Create.md)
+查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/Neo/Asset/Create.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/Neo.md)
 
 **ContractTransaction**
 
@@ -166,9 +166,9 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 > [!Warning]
 > 已弃用，已被智能合约的 AntShares.Blockchain.CreateContract 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Contract/Create.md)
+查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/Neo/Contract/Create.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/Neo.md)
 
 **InvocationTransaction**
 
