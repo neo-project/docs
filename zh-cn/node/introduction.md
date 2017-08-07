@@ -10,8 +10,8 @@ NEO 有两个全节点程序，一个是给普通用户使用的，有图形界�
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| 程序   | [官网](https://www.neo.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
-| 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
+| 程序   | [官网](https://www.neo.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## GUI 节点与 CLI 节点功能比较
 

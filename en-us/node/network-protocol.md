@@ -160,7 +160,7 @@ Data Type
 
    + ContractTransaction
 
-      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send ANS to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much ANS will be sent, and to what address).
+      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send NEO to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
 
    + PublishTransaction
 

@@ -12,7 +12,7 @@
 
 さらに、このチュートリアルはSmart Contract 2.0のデモに基づいています。最新の**テストネットワーククライアント**は、[GitHub](https://github.com/neo-project/neo-gui/releases)からダウンロードしてください。
 
-PS：現時点の最新の**テストネットワーククライアント**のダウンロードは：[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)。
+PS：現時点の最新の**テストネットワーククライアント**のダウンロードは：[Neo-GUI-v2.0.1](https://github.com/neo-project/neo-gui/releases/tag/v2.0.1)。
 
 > [!注意]
 > メインネットワークがSmart Contract 2.0をまだ配備していないため、メインネットワークでは以下の操作が失敗します。その為、以下の操作は**テストネットワーク**で行います。
@@ -71,10 +71,10 @@ namespace ConsoleApp1
 スマートコントラクトプロジェクトを作成し、以下のスマートコントラクトを書いてください。 ここでのコントラクトはVerificationCodeから継承されており、その目的はコントラクト認証アカウント、つまりウォレットファイルアドレスのコントラクトを生成することです。
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Lock : VerificationCode
     {

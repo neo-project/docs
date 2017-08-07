@@ -6,14 +6,14 @@ There are two full-node programs. The first one is for ordinary users, displayed
 
 The other is meant to be used by developers, hosted within the command line interface, and provides an external API for most of the basic wallet functions. This node also helps other nodes achieve consensus with the network, and is also involved in the generation of new blocks. We call It Neo-CLI.
 
-Finally, this section also contains information about the NEO [network protocol](network-protocol.md), which provides a low level API for some transaction types that are not currently supported explicity by the CLI, such as claiming ANC or sending ANS without an open wallet. 
+Finally, this section also contains information about the NEO [network protocol](network-protocol.md), which provides a low level API for some transaction types that are not currently supported explicity by the CLI, such as claiming GAS or sending NEO without an open wallet. 
 
 ## NEO node download address
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [Official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
-Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
+| Releases | [Official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## Comparison of GUI node and CLI node functions
 

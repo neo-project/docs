@@ -1,6 +1,6 @@
 # Asset.CreateAsset 方法 (byte, string, long, byte, byte[], byte[], byte[])
 
-在智能合约中调用此方法可以注册一种在小蚁区块链上的资产。
+在智能合约中调用此方法可以注册一种在NEO区块链上的资产。
 
 该方法是 RegistTransaction 在 2.0 版本的替代者。
 

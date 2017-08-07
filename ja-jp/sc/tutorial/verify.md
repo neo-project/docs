@@ -1,8 +1,8 @@
 # コントラクト認証チュートリアル
 
-このチュートリアルはVisual Studio 2017に基づいています。Visual Studioが2017バージョンにアップグレードされていることを確認してください。さらに、このチュートリアルはSmart Contract 2.0のデモに基づいており、[GitHub](https://github.com/AntShares/AntSharesCore/releases)から**テストネットワーク**をダウンロードして実行してください。
+このチュートリアルはVisual Studio 2017に基づいています。Visual Studioが2017バージョンにアップグレードされていることを確認してください。さらに、このチュートリアルはSmart Contract 2.0のデモに基づいており、[GitHub](https://github.com/neo-project/neo-gui/releases)から**テストネットワーク**をダウンロードして実行してください。
 
-このドキュメントを作成する時点で、最新の**テストネットワーク**クライアント（AntSharesCore-GUI-v2.0.6390.29136）を[ダウンロード](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)して下さい。
+このドキュメントを作成する時点で、最新の**テストネットワーク**クライアント（Neo-GUI-v2.0.1）を[ダウンロード](https://github.com/neo-project/neo-gui/releases/tag/v2.0.1)して下さい。
 
 ## コントラクトスクリプトをコンパイル
 
@@ -23,7 +23,7 @@ namespace NEO.SmartContract
 ```
 
 > [!注意]
-> スマートコントラクトスクリプトを生成する方法がわからない場合は、[C#を使用してAntSharesスマートコントラクトを作成する方法](../getting-started.md) を参照してください。
+> スマートコントラクトスクリプトを生成する方法がわからない場合は、[C#を使用してNeoスマートコントラクトを作成する方法](../getting-started.md) を参照してください。
 
 上記のコントラクトはTest.avmにコンパイルされ、コントラクトスクリプト（Test.avmバイナリデータ）は次のようになります：52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
 

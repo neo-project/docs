@@ -39,23 +39,23 @@
 
    ![](~/images/2017-05-10_15-38-46.jpg)
 
-### 3. Neo.SmartContract 插件
+### 3. NeoContractPlugin 插件
 
 安装方法：
 
-打开 Visual Studio 2015，打开 ` 工具 `， ` 扩展和更新 ` ，在左侧点击 ` 联机 ` ，搜索 Neo，安装 Neo.SmartContract 插件（该过程需要联网）
+打开 Visual Studio 2015，打开 ` 工具 `， ` 扩展和更新 ` ，在左侧点击 ` 联机 ` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）
 
    ![](~/images/2017-05-10_15-50-48.jpg)
 
-### 4. Neo.Compiler.MSIL
+### 4. neo-compiler
 
 安装和配置方法：
 
-在 Github 上下载 [Neo.VM](https://github.com/neo-project/neo-vm) 项目，用 Visual Studio 2015 打开该解决方案，编译其中的 Neo.Compiler.MSIL 项目，如图
+在 Github 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目，用 Visual Studio 2015 打开该解决方案，编译其中的 neon 项目，如图
 
    ![](~/images/2017-05-10_18-22-39.jpg)
 
-编译成功后，会在 bin\Debug\netcoreapp1.0\win10-x64 目录下生成 Neo.Compiler.MSIL.exe 文件
+编译成功后，会在 bin\Debug\netcoreapp1.0\win10-x64 目录下生成 neon.exe 文件
    > [!Note]
    > 如果你的计算机是 32 位操作系统的，需要将 project.json 文件中的 win10-x64 更改为 win10-x86
 
@@ -72,11 +72,11 @@
 
    ![](~/images/2017-05-10_18-46-05.jpg)
 
-在弹出来的窗口中点击”新建“输入 Neo.Compiler.MSIL.exe 所在的目录，点击 ` 确定 ` ，` 确定 `
+在弹出来的窗口中点击”新建“输入 neon.exe 所在的目录，点击 ` 确定 ` ，` 确定 `
 
    ![](~/images/2017-05-10_18-48-11.jpg)
 
-添加完 path 后，运行 cmd 测试一下，输入 neo.compiler.msil 后，没有报错，输出如图所示即表示环境变量配置成功
+添加完 path 后，运行 cmd 测试一下，输入 neon.exe 后，没有报错，输出如图所示即表示环境变量配置成功
 
    ![](~/images/2017-05-10_18-52-10.jpg)
 
@@ -125,7 +125,7 @@ public class Contract1 : FunctionCode
    >
    > 打开命令提示符，定位到 Debug 目录下，输入下面高亮部分（SmartContract1.dll 是上一步所生成的 dll 的名称）。
    >
-   > C:\……\bin\Debug> `neo.compiler.msil SmartContract1.dll`
+   > C:\……\bin\Debug> `./neon SmartContract1.dll`
    >
    > Neo.Compiler.MSIL console app  v1.6.4.2
    >
@@ -140,3 +140,4 @@ public class Contract1 : FunctionCode
    > C:\……\bin\Debug>
 
 现在，你已经完成了 NEO 智能合约开发环境的配置，智能合约编写方法请参考 [NEO 智能合约教程](tutorial.md)
+

@@ -16,7 +16,7 @@ NEO es una plataforma de activos inteligentes y el primer proyecto de cadena de 
 
 :point_right: Los activos digitales son activos almacenados en forma de datos electrónicos con tecnología de cadena de bloques para obtener características como la descentralización, la confiabilidad, la trazabilidad, la transparencia, etc. La cadena de bloques de NEO soporta una variedad de activos digitales, lo que permite a los usuarios registrar, distribuir, intercambiar libremente y distribuir los activos. Los certificados digitales pueden resolver la cuestión de la confianza en la cadena de bloques. A través de los certificados digitales, los activos emitidos por los usuarios también pueden disfrutar de la protección de la ley. En escenarios empresariales con lógica compleja, los usuarios pueden utilizar los contratos inteligentes para mejorar la funcionalidad de los activos o crear una lógica empresarial independiente de los activos.
 
-:point_right: El Contrato Inteligente fue propuesto por primera vez por el criptólogo Nick Szabo en 1993, y tiene casi la misma edad que el Internet. Según la definición de Szabo: Cuando se cumple una condición preprogramada, el contrato inteligente ejecuta los términos contractuales correspondientes. La tecnología de cadena de bloques nos proporciona un sistema descentralizado, inmutable, altamente confiable en el que los contratos inteligentes son muy útiles. NEO tiene las capacidades de contrato inteligentes completas de Turing, que se ejecutan en la máquina virtual de NEO (AVM), y tiene muchas ventajas como ser determinista, tener terminación, permitir el control de recursos, la concurrencia, la fragmentación y la escalabilidad.
+:point_right: El Contrato Inteligente fue propuesto por primera vez por el criptólogo Nick Szabo en 1993, y tiene casi la misma edad que el Internet. Según la definición de Szabo: Cuando se cumple una condición preprogramada, el contrato inteligente ejecuta los términos contractuales correspondientes. La tecnología de cadena de bloques nos proporciona un sistema descentralizado, inmutable, altamente confiable en el que los contratos inteligentes son muy útiles. NEO tiene las capacidades de contrato inteligentes completas de Turing, que se ejecutan en la máquina virtual de NEO (NeoVM), y tiene muchas ventajas como ser determinista, tener terminación, permitir el control de recursos, la concurrencia, la fragmentación y la escalabilidad.
 
 NEO combina una gama de tecnologías tales como redes de punto a punto, tolerancia a los fallos bizantinos, certificados digitales, contratos inteligentes, transacciones superconductoras y protocolos de interoperabilidad entre cadenas, lo que te permite gestionar tus activos inteligentes de forma rápida, eficiente, segura y legal.
 
@@ -248,7 +248,7 @@ El principal uso de las acciones de NEO:
 
 GAS, abreviado como ANC.
 
-Un total de 100 millones de ANC se producirá, representando el derecho a utilizar la cadena. La GAS se generará con la formación de cada nuevo bloque, de acuerdo con una tasa decreciente de generación, que llevará alrededor de 22 años para que la cantidad de ANC crezca de 9 a 100 millones.
+Un total de 100 millones de GAS se producirá, representando el derecho a utilizar la cadena. La GAS se generará con la formación de cada nuevo bloque, de acuerdo con una tasa decreciente de generación, que llevará alrededor de 22 años para que la cantidad de GAS crezca de 9 a 100 millones.
 
 El objetivo principal de las GAS son:
 
@@ -276,12 +276,12 @@ Los primeros partidarios, los participantes del ICO 1 y las acciones de NEO asig
 
 Las GAS se producen con la generación de cada nuevo bloque. La cantidad inicial de GAS es cero y crecerá hasta el límite total de 100 millones después de aproximadamente 22 años. El intervalo entre cada bloque de NEO es de unos 15 segundos, aproximadamente 2 millones de bloques se generan en un año.
 
-En el primer año (Bloque No. 0 - No. 2,000,000), cada bloque generará 8 ANC; en el segundo año (Bloque No. 2.000.000 - 
-No. 4.000.000), cada bloque generará 7 ANC; la cantidad de ANC generado disminuye en 1 cada año hasta el año 8 donde cada bloque genera solo 1 ANC. A partir de entonces, la tasa se mantiene constante hasta alrededor de 22 años en el bloque de 44 millones, la cantidad total de ANC alcanza los 100 millones, momento en el que dejarán de generarse ANC.
+En el primer año (Bloque No. 0 - No. 2,000,000), cada bloque generará 8 GAS; en el segundo año (Bloque No. 2.000.000 - 
+No. 4.000.000), cada bloque generará 7 GAS; la cantidad de GAS generado disminuye en 1 cada año hasta el año 8 donde cada bloque genera solo 1 GAS. A partir de entonces, la tasa se mantiene constante hasta alrededor de 22 años en el bloque de 44 millones, la cantidad total de GAS alcanza los 100 millones, momento en el que dejarán de generarse GAS.
 
-Según esta curva, el 16% de las ANC se creará en el primer año, el 52% se creará al final del cuarto año, el 72% de las ANC al final del octavo año.
+Según esta curva, el 16% de las GAS se creará en el primer año, el 52% se creará al final del cuarto año, el 72% de las GAS al final del octavo año.
 
-Las ANC se distribuirán proporcionalmente a las direcciones ANS correspondientes. Los titulares de NEO pueden reclamar estas ANC en cualquier momento. Por ejemplo, si alguien tiene el 1% de la red completa, el usuario podrá obtener 8/100 = 0.08 GAS por bloque por aproximadamente 460.8 GAS al día.
+Las GAS se distribuirán proporcionalmente a las direcciones NEO correspondientes. Los titulares de NEO pueden reclamar estas GAS en cualquier momento. Por ejemplo, si alguien tiene el 1% de la red completa, el usuario podrá obtener 8/100 = 0.08 GAS por bloque por aproximadamente 460.8 GAS al día.
 
 
 ## Arquitectura de la tecnología

@@ -229,7 +229,7 @@ The main use of NEO shares:
 
 GAS, abbreviated as ANC.
 
-A total of 100 million ANC will be produced, representing the right to use the chain. The GAS will be generated with the formation of each new block, in accordance with a decreasing rate of generation, it will take around 22 years for the amount of ANC to grow from 9 to 100 million.
+A total of 100 million GAS will be produced, representing the right to use the chain. The GAS will be generated with the formation of each new block, in accordance with a decreasing rate of generation, it will take around 22 years for the amount of GAS to grow from 9 to 100 million.
 
 The main purpose of GAS are:
 
@@ -257,11 +257,11 @@ Early supporters, ICO 1 participants, and the NEO shares assigned by ICO 2 parti
 
 GAS are produced with the generation of each new block. The initial amount of GAS is zero and it grows until the total limit of 100 million after about 22 years. The interval between each NEO block is about 15 seconds, about 2 millions blocks are generated in a year.
 
-In the first year (Block No. 0-No. 2,000,000), each block will generate 8 ANC; In the second year (Block No. 2,000,000-No. 4,000,000), each block will generate 7 ANC; the amount of ANC generated decreases by 1 each year till year 8 where each block generates only 1 ANC. From then on, the rate is kept constant until about 22 years at the 44 million block, the total amount of ANC reaches 100 million, at which point ANC will stop being generated.
+In the first year (Block No. 0-No. 2,000,000), each block will generate 8 GAS; In the second year (Block No. 2,000,000-No. 4,000,000), each block will generate 7 GAS; the amount of GAS generated decreases by 1 each year till year 8 where each block generates only 1 GAS. From then on, the rate is kept constant until about 22 years at the 44 million block, the total amount of GAS reaches 100 million, at which point GAS will stop being generated.
 
-According to this curve, 16% of ANC will be created in the first year, 52% will be created by the end of the 4th year, 72% of the ANC by the end of the 8th year..
+According to this curve, 16% of GAS will be created in the first year, 52% will be created by the end of the 4th year, 72% of the GAS by the end of the 8th year..
 
-These small coins will be distributed proportionally to corresponding ANS addresses. NEO holders can claim these ANC anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 GAS per block for about 460.8 GAS a day.
+These small coins will be distributed proportionally to corresponding NEO addresses. NEO holders can claim these GAS anytime. For example, if someone holds 1% of the whole net, the user will be able to get 8/100 = 0.08 GAS per block for about 460.8 GAS a day.
 
 ## Technology Architecture
 

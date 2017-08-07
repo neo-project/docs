@@ -10,6 +10,6 @@ public class HelloWorld : FunctionCode
 }
 ```
 
-Storageクラスは、プライベートコントラクトストレージゾーンを操作する静的クラスです。 Storage.Put（）メソッドを使用すると、プライベートストレージ領域にkey-valueでデータを格納できます。 詳細については、[Storageクラス](../fw/dotnet/AntShares/Storage.md)を参照してください。
+Storageクラスは、プライベートコントラクトストレージゾーンを操作する静的クラスです。 Storage.Put（）メソッドを使用すると、プライベートストレージ領域にkey-valueでデータを格納できます。 詳細については、[Storageクラス](../fw/dotnet/neo/Storage.md)を参照してください。
 
 完全なコードについては[Github](https://github.com/neo-project/examples)を参照してください。

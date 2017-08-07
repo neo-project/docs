@@ -73,7 +73,7 @@ Finally modify the `SeedList`, fill in the IP address recorded in the first step
 }
 ```
 
-SystemFee is the system fee, the current fee is as follows (in units of ANC):
+SystemFee is the system fee, the current fee is as follows (in units of GAS):
 
 Registration for book-keepers - 1000, Distribution of Assets - 500 Smart Contracts 500, Register Assets - 10000
 

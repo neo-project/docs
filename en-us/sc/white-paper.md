@@ -10,7 +10,7 @@ In 2014, a teenager called Vitalik Buterin released Ethereum, which provides a c
 
 NEO blockchain is a digital asset and application platform, which provides a new smart contract system, NeoContract. At the core of the Neo platform, the network provides multiples functions such as digital asset capabilities, NeoAsset, and digital identity, NeoID, allowing users to easily engage in digital businesses, and are no longer limited to just the issuance of native tokens on the blockchain.
 
-This article will introduce featues of NeoContract and explore non-technical details. Please refer to the technical documentation for technical details: Docs.antshares.org.
+This article will introduce featues of NeoContract and explore non-technical details. Please refer to the technical documentation for technical details: docs.neo.org.
 
 ## 2. Features
 

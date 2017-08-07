@@ -21,30 +21,30 @@ Download and install:
 
 [Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open Neo.VM project in step #3. The installation takes about ten minutes or up to an hour.
+The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open neo-vm project in step #3. The installation takes about ten minutes or up to an hour.
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
-### 2. Neo.SmartContract plugin
+### 2. NeoContractPlugin
 
 Installation method:
 
-Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the Neo.SmartContract plugin (this step requires internet access).
+Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the NeoContractPlugin (this step requires internet access).
 
 ![download and install NEO smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
 
-### 3. Neo.Compiler.MSIL
+### 3. neo-compiler
 
 Installation and configuration steps:
 
-Download the [neo-vm](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2017, publish the Neo.Compiler.MSIL project,
+Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, publish the neon project,
 
 ![publish NEO compiler msil project](assets/publish_neo_compiler_msil_project.png)
 
 ![publish and profile settings](assets/publish_and_profile_settings.png)
 
 
-After the release is successful, the Neo.Compiler.MSIL.exe file is generated in `bin\Release\PublishOutput`.
+After the release is successful, the neon.exe file is generated in `bin\Release\PublishOutput`.
 
 We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
 
@@ -65,7 +65,7 @@ We now need to add this directory to our execution path. The PATH is the system 
 
 ![edit environmental variables](assets/edit_environmental_variables.png)
 
-Now run Command or PowerShell, and enter Neo.Compiler.Msil. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
+Now run Command or PowerShell, and enter neon.exe. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
 
 ![powershell enviornment variabled updated correctly](assets/powershell_enviornment_variabled_updated_correctly.png)
 
@@ -74,7 +74,7 @@ NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.
 
 ## Create project
 
-After the above installation configuration is successful, you can create an Neo.SmartContract.Template project in Visual Studio 2017.
+After the above installation configuration is successful, you can create an NeoContract project in Visual Studio 2017.
 
 ![new smart contract project](assets/new_smart_contract_project.png)
 

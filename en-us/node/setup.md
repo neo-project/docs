@@ -1,6 +1,6 @@
 # Installation of NEO node deployment
 
-The above article describes two clients for nodes in the NEO network. One is [Neo-CLI](https://github.com/neo-project/neo-gui/releases) (for the developer use - the command line client), and the other is [Neo-GUI](https://www.neo.org/download) (the graphical interface client - for the advanced user)
+The above article describes two clients for nodes in the NEO network. One is [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (for the developer use - the command line client), and the other is [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (the graphical interface client - for the advanced user)
 
 The deployment consensus node uses the `Neo-CLI`, a cross-platform program that runs in Windows, Linux and Docker.
 

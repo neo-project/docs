@@ -50,7 +50,7 @@ public class Contract1: VerificationCode
 }
 ```
 
-## NeoVM virtual machine
+## NeoVM
 
 NeoVM is the virtual machine that executes the NEO smart contract code. We are talking about the concept of virtual machine in the narrow sense, not in reference to operating systems or programs that can simulate them such as Vmware or Hypter-V.
 

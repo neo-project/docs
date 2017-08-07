@@ -76,7 +76,7 @@
       href: sc/api.md
       items:
       - name: 앤트쉐어
-        href: sc/api/antShares.md
+        href: sc/api/neo.md
       - name: 시스템
         href: sc/api/system.md
     - name: 프레임워크
@@ -86,32 +86,32 @@
         href: sc/fw/dotnet.md
         items:
           - name: 앤트쉐어
-            href: sc/fw/dotnet/AntShares.md
+            href: sc/fw/dotnet/neo.md
             items:
             - name: 계좌
-              href: sc/fw/dotnet/AntShares/Account.md
+              href: sc/fw/dotnet/neo/Account.md
             - name: 자산
-              href: sc/fw/dotnet/AntShares/Asset.md
+              href: sc/fw/dotnet/neo/Asset.md
             - name: 블록
-              href: sc/fw/dotnet/AntShares/Block.md
+              href: sc/fw/dotnet/neo/Block.md
             - name: 블록체인
-              href: sc/fw/dotnet/AntShares/Blockchain.md
+              href: sc/fw/dotnet/neo/Blockchain.md
             - name: 등록하기
-              href: sc/fw/dotnet/AntShares/Enrollment.md
+              href: sc/fw/dotnet/neo/Enrollment.md
             - name: 헤더
-              href: sc/fw/dotnet/AntShares/Header.md
+              href: sc/fw/dotnet/neo/Header.md
             - name: 저장
-              href: sc/fw/dotnet/AntShares/Storage.md
+              href: sc/fw/dotnet/neo/Storage.md
             - name: 저장 Contex
-              href: sc/fw/dotnet/AntShares/StorageContex.md
+              href: sc/fw/dotnet/neo/StorageContex.md
             - name: 전송
-              href: sc/fw/dotnet/AntShares/Transaction.md
+              href: sc/fw/dotnet/neo/Transaction.md
             - name: 전송 특성
-              href: sc/fw/dotnet/AntShares/TransactionAttribute.md
+              href: sc/fw/dotnet/neo/TransactionAttribute.md
             - name: 전성 입력
-              href: sc/fw/dotnet/AntShares/TransactionInput.md
+              href: sc/fw/dotnet/neo/TransactionInput.md
             - name: 전송 출력
-              href: sc/fw/dotnet/AntShares/TransactionOutput.md
+              href: sc/fw/dotnet/neo/TransactionOutput.md
           - name: 시스템
             href: sc/fw/dotnet/System.md
             items:

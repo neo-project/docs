@@ -71,10 +71,10 @@ After running it, the screen will display the byte array created from the public
 Create a smart contract project and write the following smart contract. Note that the contract here is inherited from VerificationCode, its purpose is to generate a contract authentication account, that is, a contract in the purse file address.
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Lock : VerificationCode
     {

@@ -21,7 +21,7 @@ public extern byte Type { get; }
 MinerTransaction = 0x00,
 //用于分发资产的特殊交易
 IssueTransaction = 0x01,
-//用于分配小蚁币的特殊交易
+//用于分配NeoGas的特殊交易
 ClaimTransaction = 0x02,
 //用于报名成为记账候选人的特殊交易
 EnrollmentTransaction = 0x20,

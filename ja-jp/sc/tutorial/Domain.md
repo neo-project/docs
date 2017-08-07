@@ -59,4 +59,4 @@ public class Domain : FunctionCode
 
 上記のコードはドメイン名のクエリ、登録、転送、削除を行います。
 
-詳細については、[Storageクラス](../fw/dotnet/AntShares/Storage.md)を参照してください。
+詳細については、[Storageクラス](../fw/dotnet/neo/Storage.md)を参照してください。

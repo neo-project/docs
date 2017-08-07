@@ -27,7 +27,7 @@ public class Contract1 : FunctionCode
 {
     public static void Main()
     {
-        //以小蚁股资产为例
+        //以NEO资产为例
         byte[] asset = { 197, 111, 51, 252, 110, 207, 205, 12, 34, 92, 74, 179, 86, 254, 229, 147, 144, 175, 133, 96, 190, 14, 147, 15, 174, 190, 116, 166, 218, 255, 124, 155 };
         Asset ass = Blockchain.GetAsset(asset);
         uint blockIndex = ass.Renew(1);
