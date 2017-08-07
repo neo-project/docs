@@ -25,28 +25,44 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
-### 2.AntShares.SmartContract plugin
-
-Installation method:
-
-Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search AntShares in the search box on the top right corner of the window, download the AntShares.SmartContract plugin (this step requires internet access).
-
-![download and install antshares smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
-
-### 3. AntShares.Compiler.MSIL
-
-Installation and configuration steps:
-
-Download the [AntShares.VM](https://github.com/neo-project/neo-vm) project on Github, open the solution with Visual Studio 2017, publish the AntShares.Compiler.MSIL project,
-
-![publish antshares compiler msil project](assets/publish_antshares_compiler_msil_project.png)
-
-![publish and profile settings](assets/publish_and_profile_settings.png)
 
 
-After the release is successful, the AntShares.Compiler.MSIL.exe file is generated in `bin\Release\PublishOutput`.
+## Smart contract development process
+
+### 1. Download and clone neo-compiler 
+
+In Team explorer Click Clone and insert the neo-compiler's link: https://github.com/neo-project/neo-compiler
+
+![gettingstarted1](assets/getting_started_1.png)
+
+Click Clone.
+
+Double click on neo-compiler.sln
+
+![gettingstarted2](assets/getting_started_2.PNG)
+ 
+Click Solution explorer:
+
+![gettingstarted3](assets/getting_started_3.png)
+
+### 2. Neon 
+
+Right click on ’neon’ and select Publish
+
+![gettingstarted4](assets/getting_started_4.png)
+ 
+Click on Publish.
+
+Check your Output window:
+
+![gettingstarted5](assets/getting_started_5.png)
+
+After the release is successful, the neon.exe file is generated in bin\Release\PublishOutput.
+
+![gettingstarted6](assets/getting_started_6.png)
 
 We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
+
 
 **Windows 10 and Windows 8:**
 
@@ -63,43 +79,70 @@ We now need to add this directory to our execution path. The PATH is the system 
   Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
   In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
 
-![edit environmental variables](assets/edit_environmental_variables.png)
+![gettingstarted7](assets/getting_started_7.png)
 
-Now run Command or PowerShell, and enter Antshares.Compiler.Msil. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
 
-![powershell enviornment variabled updated correctly](assets/powershell_enviornment_variabled_updated_correctly.png)
+Now run Command or PowerShell, and enter neon. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful.
 
+![gettingstarted8](assets/getting_started_8.png)
 
 NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
 
-## Create project
+### 3. Create project 
 
-After the above installation configuration is successful, you can create an AntShares.SmartContract.Template project in Visual Studio 2017.
+Create a new project in Visual Studio 2017: File->New->Project
 
-![new smart contract project](assets/new_smart_contract_project.png)
+    
+![gettingstarted9](assets/getting_started_9.png)
 
-Once you create a project, it will automatically generate a C# file, the default class inherited from the FunctionCode, as shown in the following:
+Select Console App (.NET Core) and type ’HelloProject’ in the Name field. Then click OK.
 
-![smart contract function code](assets/smart_contract_function_code.png)
+Right click on Dependencies:
+
+![gettingstarted10](assets/getting_started_10.png)
+ 
+Add reference. Click Browse, and select and add neon.dll
+
+![gettingstarted11](assets/getting_started_11.png)
 
 
-## Compile the Project
+Navigate to NuGet package manager:
 
-Everything is now ready to add the entry method that defines the smart contract:
+![gettingstarted12](assets/getting_started_12.png)
 
-```c#
-public class Contract1: FunctionCode
-{
-    public static void Main ()// Note that the main method to capitalize
-    {
-        
-    }
-}
-```
 
-After you compiled it successfully, you will see` SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the AntShares smart contract.
+Click Browse, then select and Neo.SmartContract.Framework.
+ 
+![gettingstarted13](assets/getting_started_13.png)
 
-![compile smart contract](assets/compile_smart_contract.png)
+
+We can insert our Hello world code:
+
+![gettingstarted14](assets/getting_started_14.png)
+
+### 4. Compile project 
+
+Build the project, then Publish::
+ 
+![gettingstarted15](assets/getting_started_15.png) 
+ 
+![gettingstarted16](assets/getting_started_16.png)
+
+Navigate to the directory whick contains .dll file:
+
+![gettingstarted17](assets/getting_started_17.png)
+
+To compile it, type: neon HelloProject.dll
+
+![gettingstarted18](assets/getting_started_18.png)
+
+![gettingstarted19](assets/getting_started_19.png) 
+
+  
+Now we get the .avm file:
+![gettingstarted20](assets/getting_started_20.png)
+
 
 
 Now that you have completed the configuration of the AntShares smart contract development environment, please refer to the [AntShares smart contract tutorial](tutorial.md)
+
