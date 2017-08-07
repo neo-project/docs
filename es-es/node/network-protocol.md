@@ -145,9 +145,9 @@ Tipo de dato
    + RegisterTransaction
 
       > [!Nota]
-      > Ha sido desactivda y reemplazada por AntShares.Blockchain.CreateAsset para el contrato inteligente.
-      > View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
-      > View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      > Ha sido desactivda y reemplazada por Neo.Blockchain.CreateAsset para el contrato inteligente.
+      > View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Blockchain/CreateAsset.md)
+      > View [Alternative Smart Contract API](../sc/api/neo.md)
 
    + ContractTransaction
 
@@ -156,9 +156,9 @@ Tipo de dato
    + PublishTransaction
 
       > [!Nota]
-      > Ha sido desactivda y reemplazada por AntShares.Blockchain.CreateContract para el contrato inteligente.
-      > Consultar [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
-      > Consultar [Alternative Smart Contract API](../sc/api/AntShares.md)
+      > Ha sido desactivda y reemplazada por Neo.Blockchain.CreateContract para el contrato inteligente.
+      > Consultar [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Blockchain/CreateContract.md)
+      > Consultar [Alternative Smart Contract API](../sc/api/neo.md)
 
    + Invoking a Transaction
 

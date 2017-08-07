@@ -1,6 +1,6 @@
 # System namespace
 
-The System namespace is the API provided by the Smart Contract Execution Engine (AVM), which provides a way to access the execution environment of the smart contract.
+The System namespace is the API provided by the Smart Contract Execution Engine (NeoVM), which provides a way to access the execution environment of the smart contract.
 
 | API | Description |
 | ---------------------------------------- | -------------------------- |

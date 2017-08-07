@@ -17,4 +17,4 @@ public class Lock : FunctionCode
 
 현재 시간은 블럭체인 시스템 내(오차는 대략 15초)에서 가장 최근 블럭에 의한 코드에서 가져옵니다. 
 상세내용은 다음을 참고하세요. 
-[Blockchain class](../fw/dotnet/AntShares/Blockchain.md), [Header class](../fw/dotnet/AntShares/Header.md)
+[Blockchain class](../fw/dotnet/neo/Blockchain.md), [Header class](../fw/dotnet/neo/Header.md)

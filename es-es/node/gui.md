@@ -470,9 +470,9 @@ El regitro de activos requiere una cantidad de NeoGas. En la red principal (Main
 
 ### Sincronización offline del Monedero
 
-Descagar los bloques de la siguiente dirección [https://www.antshares.org/client/chain.acc.zip](https://www.antshares.org/client/chain.acc.zip) 
+Descagar los bloques de la siguiente dirección [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip) 
 
->[Nota!] Pendite actualizar el enlace debido al cambio web de AntShares a NEO.
+>[Nota!] Pendite actualizar el enlace debido al cambio web de NEO a NEO.
 
 Una vez descargado asegurate que el cliente no se está ejecutando y descomprime el fichero `chain.acc.zip`en la ruta donde se encuentra el cliente PC `neo-gui`, tal y como se muestra en la imagen:
 

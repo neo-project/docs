@@ -10,7 +10,7 @@
 
 NEO 是一个基于区块链的数字资产及应用平台，它提供了一套全新的智能合约系统 NeoContract，并在系统底层提供了数字资产 NeoAsset 与数字身份 NeoID 等功能，使得人们可以非常方便地开展资产数字化业务，而不仅仅是在区块链上创建原生代币。
 
-本文将详细介绍 NeoContract 的特点与非技术细节。技术细节请参考技术文档：[Docs.antshares.org](http://docs.antshares.org)。
+本文将详细介绍 NeoContract 的特点与非技术细节。技术细节请参考技术文档：[Docs.neo.org](http://docs.neo.org)。
 
 ## 二、特点
 

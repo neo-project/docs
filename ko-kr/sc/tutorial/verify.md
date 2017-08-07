@@ -2,13 +2,13 @@
 
 이 설명서는 비주얼 스튜디오2017을 기반으로 합니다. 그러니 먼저 사용하시는 비주얼 
 스튜디오를 2017버전으로 업그레이드하세요. 그리고 스마트 계약2.0의 데모를 기준으로 하니 
-최신 버전의 **테스트 네트워크**를 [GitHub](https://github.com/AntShares/AntSharesCore/releases)
+최신 버전의 **테스트 네트워크**를 [GitHub](https://github.com/neo-project/neo-gui/releases)
 에서 다운 받으시길 바랍니다. 
 
 이 문서가 작성되는 시점에 가장 최신 **테스트 네트워크**를 다운받으실 수 있는 링크는 
 다음과 같습니다. 
 
-[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)
+[Neo-GUI-v2.0.1](https://github.com/neo-project/neo-gui/releases/tag/v2.0.1)
 
 ## 컴파일 '계약' 스크립트 (Compile Contract Script)
 

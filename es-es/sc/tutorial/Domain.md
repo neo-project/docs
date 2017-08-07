@@ -59,4 +59,4 @@ El contrato implementa un sistema de transferencia de nombre de dominio, donde e
 
 El código de arriba obtiene el nombre de dominio para consulta, registro, transferencia y eliminación.
 
-Para más detalles, ver [Storage Class](../fw/dotnet/AntShares/Storage.md).
+Para más detalles, ver [Storage Class](../fw/dotnet/neo/Storage.md).
