@@ -28,11 +28,11 @@ Het ecosysteem is de levenskracht van de open source gemeenschap. Om het doel va
 
 🔹 **Node Programma**
 
--	Een volledig functionerend Full-node pc-programma
+-	Een volledig functionerend full-node pc-programma
 
 -	Een lichte node pc-programma met een betere gebruikerservaring
 
--	Web/ Android/ iOS-cliënt die niet gesynchroniseerd hoeft te worden met de blockchain 
+-	Web / Android / iOS-cliënt die niet gesynchroniseerd hoeft te worden met de blockchain 
 
 -	Hardware portemonnee
 
@@ -40,19 +40,19 @@ Het ecosysteem is de levenskracht van de open source gemeenschap. Om het doel va
 
 🔹 **SDK Ontwikkelingskit**
 
--	Ondersteund Java/ Kotlin, .NET C #/ VB, JavaScript / Typescript, Python, Go
+-	Ondersteund Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
 🔹 **Smart Contract Compiler en IDE Plug-in**
 
--	C#/ VB.Net/ F#, Visual Studio
+-	C# / VB.Net / F#, Visual Studio
 
 -	Java/ Kotlin, Eclipse
 
--	C/ C++/ GO
+-	C / C++ / GO
 
--	JavaScript/TypeScript
+-	JavaScript / TypeScript
 
--	Python/ Ruby
+-	Python / Ruby
 
 🔹 **Gedecentraliseerde Applicaties**
 
