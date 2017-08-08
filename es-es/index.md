@@ -118,7 +118,7 @@ dBFT proporciona tolerancia a fallos de f = ⌊ (n-1) / 3 ⌋ para un sistema de
 
 
 En el mecanismo de consenso dBFT de NEO, que se toma unos 15 a 20 segundos para generar un bloque, el rendimiento de la transacción se mide hasta aproximadamente 1.000 TPS, lo cual es un excelente rendimiento entre las cadenas públicas. A través de una optimización adecuada, hay potencial para alcanzar 10.000 TPS, lo que le permite soportar aplicaciones comerciales a gran escala.
-dBFT combina la tecnología de identidad digital, lo que significa que los contadores pueden ser el nombre real de una persona o institución. Por lo tanto, es posible congelar, revocar, heredar, recuperar y efectuar decisiones judiciales sobre ellos. Esto facilita el registro de activos financieros conformes en la red NEO. La red NEO planea apoyar tales operaciones cuando sea necesario.
+dBFT combina la tecnología de identidad digital, lo que significa que los contadores pueden ser el nombre real de una persona o institución. Por lo tanto, es posible congelar, revocar, heredar, recuperar y tranferir la propiedad debido a decisiones judiciales sobre ellos. Esto facilita el registro de activos financieros conformes en la red NEO. La red NEO planea apoyar tales operaciones cuando sea necesario.
  
 ### Sistema de contrato inteligente: NeoContract
 
@@ -158,7 +158,7 @@ Las transacciones distribuidas de cadena cruzada significan que varios pasos de 
 
 NeoFS es un protocolo de almacenamiento distribuido que utiliza la tecnología Distributed Hash Table. NeoFS indexa los datos a través del contenido del archivo (Hash) en lugar de la ruta del archivo (URI). Los archivos grandes se dividirán en bloques de datos de tamaño fijo que se distribuirán y almacenarán en múltiples nodos diferentes.
 
-El principal problema con este tipo de sistema es la necesidad de encontrar un equilibrio entre redundancia y fiabilidad. NeoFS planea resolver esta contradicción mediante incentivos simbólicos y el establecimiento de un eje de nodos. Los usuarios pueden elegir los requisitos de confiabilidad del archivo. Los archivos con requisitos de baja fiabilidad pueden almacenarse y se puede acceder a ellos de forma gratuita o casi. Los requisitos de alta fiabilidad serán proporcionados por los nodos estables y fiables del eje.
+El principal problema con este tipo de sistema es la necesidad de encontrar un equilibrio entre redundancia y fiabilidad. NeoFS planea resolver esta contradicción mediante incentivos simbólicos y el establecimiento de un eje de nodos. Los usuarios pueden elegir los requisitos de confiabilidad del archivo. Los archivos con requisitos de baja fiabilidad pueden almacenarse y se puede acceder a ellos de forma gratuita o casi. Los servicios estables y confiables para archivos con requisito de alta confiabilidad serán proporcionados por los nodos backbone.
 
 NeoFS servirá como uno de los servicios de interoperabilidad de InteropService bajo el sistema NeoContract, permitiendo que los contratos inteligentes almacenen archivos grandes en la cadena de bloques y establezcan el acceso para esos archivos. Además, NeoFS se puede combinar con la identidad digital para que los certificados digitales utilizados por las identidades digitales se puedan asignar, enviar y revocar sin necesidad de un servidor central que los gestione. En el futuro, los datos de bloque antiguo se pueden almacenar en NeoFS, de modo que la mayoría de los nodos completos pueden liberar los datos antiguos para una mejor escalabilidad y, al mismo tiempo, garantizar la integridad de los datos históricos.
 
