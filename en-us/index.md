@@ -36,12 +36,11 @@ Ecosystem is the vitality of the open source community. In order to achieve the 
 
 - Hardware wallet
 
-
 🔹 **Blockchain Explorer**
 
 🔹 **SDK Development Kit**
 
-- support Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
+- Support Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
 🔹 **Smart Contract Compiler and IDE Plugin**
 
