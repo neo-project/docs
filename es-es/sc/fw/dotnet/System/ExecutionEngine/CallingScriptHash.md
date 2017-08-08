@@ -1,6 +1,6 @@
 # Propiedad ExecutionEngine.CallingScriptHash
 
-Obtiene el hash del script del solicitante del contrato inteligente.
+Devuelve el hash del script del solicitante del contrato inteligente.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 

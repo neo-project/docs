@@ -1,6 +1,6 @@
 # Método Getrawmempool 
 
-Obtiene una lista de transacciones no reconocidas en memoria.
+Devuelve la lista de transacciones no confirmadas de la memoria.
 
 ## Ejemplo de llamada
 

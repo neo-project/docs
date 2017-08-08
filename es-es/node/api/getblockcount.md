@@ -1,6 +1,6 @@
 # Método Getblockcount
 
-Devuelve el número de bloques que tiene la blockchain.
+Devuelve el numero de bloques de la cadena principal.
 
 ## Ejemplo de llamada
 

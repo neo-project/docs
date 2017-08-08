@@ -13,7 +13,7 @@
 **En el algoritmo de consenso de NEO, los nodos de consenso son elegidos por los titulares de NEO y votan sobre la validez de las transacciones. Estos nodos también se han referido como 'Bookkeepers'. En adelante, se denominarán Nodos de Consenso**
 
   <img style="vertical-align: middle" src="assets/consensus/nNode.png" width="25"> **Nodo de Consenso** - Este nodo participa en la actividad de consenso. Durante una actividad de consenso, los nodos de consenso toman turnos asumiendo los siguientes dos roles:
-  - <img style="vertical-align: middle" src="assets/consensus/speakerNode.png" width="25"> **Orador** `(Uno)` - El Orador es responsable por la transmisión de una propuesta de bloques al sistema.
+  - <img style="vertical-align: middle" src="assets/consensus/speakerNode.png" width="25"> **Orador** `(Uno)` - El Orador es responsable de la transmisión de una propuesta de bloques al sistema.
   - <img style="vertical-align: middle" src="assets/consensus/cNode.png" width="25"> **Delegado** `(Múltiples)` - Los Delegados son responsables de alcanzar un consenso respecto a la transacción.
   
 
@@ -38,11 +38,11 @@ Para el bien de la discusión, describiremos un par de escenarios. En estos ejem
 
   <p align="center"><img src="assets/consensus/n3.png" width="300"><br> <b>Figura 1:</b> Un ejemplo n = 3 con un <b>Delegado</b> deshonesto.</p>
   
-  En la **Figura 1**, tenemos un solo **Delegado** fiel (50%). Ambos **Delegados** recibieron el mismo mensaje del honesto **Orador**. Sin embargo, debido a que un **Delegado** es deshonesto, el **Delegado** honesto solo puede determinar que hay un nodo deshonesto, pero es incapaz de identificar si es el nucleador de bloque (block nucleator) (**el Orador**) o el **Delegado**. Debido a esto, el **Delegado** debe abstenerse de una votación, cambiando la vista.
+  En la **Figura 1**, tenemos un solo **Delegado** fiel (50%). Ambos **Delegados** recibieron el mismo mensaje del honesto **Orador**. Sin embargo, debido a que un **Delegado** es deshonesto, el **Delegado** honesto unicamente puede determinar que hay un nodo deshonesto, pero es incapaz de identificar si es el nucleador de bloque (block nucleator) (**el Orador**) o el **Delegado**. Debido a esto, el **Delegado** debe abstenerse de una votación, cambiando la vista.
 
  <p align="center"><img src="assets/consensus/n4.png" width="400"><br> <b>Figura 2:</b> Un ejemplo n = 4 ejemplo con un deshonesto <b>Delegado</b>.</p>
  
-En la **Figura 2**, tenemos dos **Delegados** leales (66%). Todos los **Delegados** recibieron el mismo mensaje del honesto **Orador** y enviaron su resultado de validación, junto con el mensaje recibido del Orador entre los **Delegados**. Con base en el consenso de los dos **Delegados** honesto, podemos determinar que el **Orador** o el **Delegado** de la derecha es deshonesto en el sistema.
+En la **Figura 2**, tenemos dos **Delegados** leales (66%). Todos los **Delegados** recibieron el mismo mensaje del honesto **Orador** y enviaron su resultado de validación, junto con el mensaje recibido del Orador entre los **Delegados**. Con base en el consenso de los dos **Delegados** honestos, podemos determinar que el **Orador** o el **Delegado** de la derecha es deshonesto en el sistema.
  
   
 ### **Orador deshonesto** 
@@ -53,9 +53,8 @@ En la **Figura 2**, tenemos dos **Delegados** leales (66%). Todos los **Delegado
     
   <p align="center"><img src="assets/consensus/g4.png" width="400"><br> <b>Figura 4:</b> Un ejemplo n = 4 con un <b>Orador</b> deshonesto. </p>
   
- En el ejemplo representado por la Figura 4 los bloques recibidos por el nodo central y el derecho no son validados. Esto los hace aplazar para una nueva vista que elige a un nuevo Orador porque llevan una mayoría del 66%. En este ejemplo, si el Orador deshonesto hubiese enviado datos honestos a dos de los tres Diputados, habría sido validado sin necesidad de un cambio de vista.
+ En el ejemplo representado por la Figura 4 los bloques recibidos por el nodo central y el derecho no son validados. Esto los hará esperar para una nueva vista para elegir un nuevo Orador porque llevan una mayoría del 66%. En este ejemplo, si el Orador deshonesto hubiese enviado datos honestos a dos de los tres Diputados, habría sido validado sin necesidad de un cambio de vista.
   
-
 ## 5 - Implementación Práctica
 
 La implementación práctica de DBFT en NEO usa un método de consenso iterativo para garantizar que se alcance el consenso. El desempeño del algoritmo es dependiente a la fracción de nodos honestos en el sistema. La **figura 5** muestra las iteraciones esperadas en función de la fracción de nodos deshonestos.

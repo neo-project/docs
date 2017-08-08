@@ -1,7 +1,7 @@
-# Empezando
+# Introducción
 
-Este tutorial introduce NEO en dos partes.
+La siguiente introducción contiene dos partes:
  
-1. Creación de blockchains privadas en nodos NEO e interación con la cadena de bloques a través de API / SDK. [Click aquí](node/introduction.md).
+1. Creación de una blockchain privada e interación con la cadena de bloques a través de la API/SDK. [Click aquí](node/introduction.md).
 
-2. Escribir y compilar contratos inteligentes NEO para implementarlos en la blockchain para su uso. [Click aquí](sc/introduction.md).
+2. Escribir y compilar contratos inteligentes para implementarlos en la blockchain. [Click aquí](sc/introduction.md).

@@ -1,11 +1,11 @@
 # Método Gettxout
 
-Devuelve la información de la transacción correspondiente al hash e índice especificados.
+Devuelve la información de la correspondiente transacción en función del valor hash de la transacción y del índice especificado.
 
 ## Descripción de parametros
 
-Txid: Id de transación. <br>
-N: El índice de la transación a obtener de la transación. (empieza en 0)
+Txid: id. de transación. <br>
+N: El índice de la transación a obtener dentro de la transación. (empieza en 0)
 
 ## Ejemplo de llamada
 

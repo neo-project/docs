@@ -8,7 +8,7 @@ Las version Windows compatibles con el cliente son: `Windows 7 Sp1` / `Windows 8
 
 El cliente no necesita instalación. Descárgalo y ejecútalo haciendo doble-click sobre el ejecutable `neo-gui.exe`. Si el programa no se ejecuta de forma correcta, por favor guarda el archivo `error.log` y contacta con el staff técnico para que te asista.
 
-> [!Nota]
+> [!Note]
 > Las versiones anteriores a Windows10 requiere la instalación de [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
 ### Sincronización
@@ -17,13 +17,12 @@ El cliente debe estar totalmente sincronizado antes de usarlo. En la parte infer
 
 La primera sincronización puede durar entre **24-48 horas.**
 
-> [!Nota]<br>
+> [!TIP] 
 > Posibles razones por las cuales el cliente no sincroniza:
->
-> * Un Firewall/Proxy está bloqueado la conexiones salientes. Revisa que tu equipo puede hacer conexiones a los puertos [10331-10334]
->
+> * Un Firewall/Proxy está bloqueado la conexiones salientes. Revisa que tu equipo puede hacer conexiones a los puertos 
+> [10331-10334]
 > * Antivirus/IDS está bloqueado el cliente. Revisa que el ejecutable `neo-gui.exe` está excluido.
->
+
 
 <img style="vertical-align: middle" src="assets/gui/gui_1.png">
 
@@ -34,7 +33,7 @@ La primera sincronización puede durar entre **24-48 horas.**
 El monedero guarda la información de tus monedas NEO, del NeoGas y la información de tu cuenta en un fichero de base de datos
 con extensión `.Db3`. Este fichero es muy importante y requiere que realices copia de seguridad.
 
-> [!Importante]
+> [!IMPORTANT] 
 > La perdida de este fichero resultará la perdida de todos tus activos. Por favor, asegurate de guardar este fichero de forma segura y de recordar la contraseña del monedero.
 
 #### Cuenta
@@ -55,8 +54,9 @@ La información que contiene es: dirección, tipo, clave privada y clave públic
 
 **4.** Clave pública: Cada clave privada tiene su clave pública (Nota: la clave pública y la privada se pueden visualizar, click  el botón derecho sobre la dirección.)
 
-> [!Importante]
-> De ninguna manera la clave privada debe ser expuesta a otros. En el momento que la clave privada se filtra, puede resultar la perdida de todos los activos.
+> [!IMPORTANT] 
+> De ninguna manera la clave privada debe ser expuesta a otros. En el momento que la clave privada se filtra, puede resultar
+> perdida de todos los activos.
 
 #### Activos
 
@@ -117,14 +117,15 @@ Te permite importar una dirección y monitorizarla. También te permite ver los 
 
 <img style="vertical-align: middle" src="assets/gui/gui_3.png">
 
-> [!Importante]
+> [!IMPORTANT] 
 > Asegúrate de guarda el fichero en un lugar seguro y hacer copias de seguridad
 
 3. Introduce la conseña en `Password` y repitela en `Re-Password` y click en `Confirm`. Una vez pulsado `Confirm` el monedero creará por defecto un dirección estandard.
 
 <img style="vertical-align: middle" src="assets/gui/gui_4.png">
 
-> [!Importante] Introduce una contraseña compleja y anota la contraseña en un lugar seguro.
+> [!IMPORTANT] 
+> Introduce una contraseña compleja y anota la contraseña en un lugar seguro.
 
 
 ### Abrir el fichero base de datos
@@ -142,8 +143,9 @@ Esta opción se usa para cambiar la contraseña del fichero del monedero.
 
 <img style="vertical-align: middle" src="assets/gui/gui_6.png">
 
-> [!Importante]
-> Al cambiar la contraseña recuerda volver hacer una copia de seguridad del fichero del monedero porque la anterior copia tendrá asociada la contraseña anterior.
+> [!IMPORTANT] 
+> Al cambiar la contraseña recuerda volver hacer una copia de seguridad del fichero del monedero porque la anterior copia 
+> tendrá asociada la contraseña anterior.
 
 ### Recrear los índices del monedero.
 
@@ -205,8 +207,6 @@ la cantidad, y pulsa `OK`
 
 <img style="vertical-align: middle" src="assets/gui/gui_13.png">
 
-Si a la hora de transferir nos aparece el mensaje `Transaction initiated, but the signature is incomplete` consulta el apartado [Firma](#Firma).
-
 
 #### Transferencias por lote
 
@@ -246,7 +246,7 @@ Para iniciar un acuerdo deben existir una aprobación entre las dos partes.
 
 <img style="vertical-align: middle" src="assets/gui/gui_19.png">
 
-3. Una vez cerrada nos aparecerá la ventana de `Merge tx. request`. Aqui tenemos que pegar el codigo de la otra parte, parte, que debera decidir cuanto pagará.
+3. Una vez cerrada nos aparecerá la ventana de `Merge tx. request`. Aqui tendremos que pegar el codigo de la otra parte, parte, que debera decidir cuanto pagará.
 
 <img style="vertical-align: middle" src="assets/gui/gui_20.png">
 
@@ -355,7 +355,8 @@ Los pasos especificos son los siguientes:
 
 ### Solicitar un certificado
 
->[Nota!] La funcionalidad de solicitar e importar certificado NO está soportada en la versión actual.
+> [!IMPORTANT] 
+> La funcionalidad de solicitar e importar certificado NO está soportada en la versión actual.
 
 Esta funcionalidad unicamente te permite generar el archivo para aplicación de certificado. Es necesario aplicar en una autorizad certificadora para obtener el certificado.
 
@@ -459,8 +460,8 @@ En la pestaña `Transaction History` podemos ver como se ha desplegado correctam
 
 Esta funcion se usa para registrar un candidato en la blockchain como bookkeeper. (revisar si es registrar o votar)
 
-> [!Nota]
-> La función de registrar un candidato como bookeeper no está disponible en la actual versión.
+> [!IMPORTANT] 
+> La función de elegir un candidato como bookeeper o nodo consenso no está disponible en la actual versión.
 
 Click en `Advanced` y click en `Election`
 
@@ -470,24 +471,24 @@ El regitro de activos requiere una cantidad de NeoGas. En la red principal (Main
 
 ### Sincronización offline del Monedero
 
-Descagar los bloques de la siguiente dirección [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip) 
-
->[Nota!] Pendite actualizar el enlace debido al cambio web de NEO a NEO.
+Descagar los bloques del siguiente enlace [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip) 
 
 Una vez descargado asegurate que el cliente no se está ejecutando y descomprime el fichero `chain.acc.zip`en la ruta donde se encuentra el cliente PC `neo-gui`, tal y como se muestra en la imagen:
 
 <img style="vertical-align: middle" src="assets/gui/gui_58.png">
 
->[Nota!] En el caso de no descomprimir el fichero al arrancar el cliente este lo descomprimirá y comenzará a cargar los 
->bloques para hacer la sincronización offline.
+>[!TIP] 
+> En el caso de no descomprimir el fichero al arrancar el cliente, este lo descomprimirá y comenzará a cargar los 
+> bloques para hacer la sincronización offline.
 
 Elimina el archivo Zip. NO elimines el archivo `chain.acc`, arranca el cliente PC y en ese momento empezará a sincronizar.
 Al cabo de un tiempo, el cliente estará totalmente sincronizado.
 
 <img style="vertical-align: middle" src="assets/gui/gui_59.png">
 
->[Nota!] A nivel informativo: Al acabar la sincronización de forma automática se borra el fichero `chain.acc` y la carpeta `Chain` se crea en la raiz del directorio donde se encuentra el cliente `NEO-gui`
->
+>[!TIP] 
+> A nivel informativo: Al acabar la sincronización de forma automática se borra el fichero `chain.acc` y la carpeta `Chain` se crea en la raiz del directorio donde se encuentra el cliente `NEO-gui`
+
 ><img style="vertical-align: middle" src="assets/gui/gui_60.png">
 
 ### 4.8 Opciones

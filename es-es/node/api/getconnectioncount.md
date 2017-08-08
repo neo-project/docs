@@ -1,6 +1,6 @@
 # Método Getconnectioncount
 
-Devuelve el número de conexiones que tiene el nodo especificado.
+Devuelve el número de conexiones del nodo. 
 
 ## Ejemplo de llamada
 

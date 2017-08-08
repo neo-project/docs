@@ -1,6 +1,6 @@
 # Método Getblockhash
 
-Devuelve el valor hash del bloque especificado.
+Devuelve el valor hash del bloque en función del índice especificado.   
 
 ## Descripción de parámetros.
 

@@ -1,16 +1,23 @@
 # Método Getblock2
 
-Devuelve el correspondiente bloque de información de acuerdo con el índice especificado.
+Devuelve el correspondiente bloque de información en funcion del índice especificado.
 
-## Descripción de parametros
+## Descripción de parámetros
 
 Índice: indice del bloque.
-Tamaño del bloque = Numero de bloques - 1 
+Tamaño del bloque = Número de bloques - 1 
 
-Verbose: Opcional. El valor Verbose por defecto es 0. Cuando el valor Verbose es 0, la inforación del bloque devuelta está serializada. Se representa con una cadena hexadecimal. Si nececitas información detallada, necesitas llamar al SDK para la desserialización. 
-Cuando el valor de Verbose es 1 el valor correspondiente al bloque se devuelve en una cadena en formato JSON.
+Verbose: Opcional. 
+
+El valor `Verbose` por defecto es 0. Cuando el valor es 0, la inforación del bloque devuelta está serializada. Se representa con una cadena hexadecimal. Si nececitas información detallada, necesitas llamar al SDK para la desserialización. 
+Cuando el valor de `Verbose` es 1 la información del bloque se devuelve en una cadena en formato JSON.
+
+
 
 ## Ejemplo de llamada
+
+http://node:10332?jsonrpc=2.0&method=getblock&params=[100]&id=1
+
 
 Petición:
 

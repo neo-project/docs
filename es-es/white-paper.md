@@ -1,8 +1,8 @@
 # NEO White Paper 1.1
 
-:book: **El documento está siendo editado** y lo completaremos lo antes posible. Puedes ver otros documentos en [GitHub](https://github.com/neo-project/neo/wiki) or visitar la [web oficial](http://www.neo.org).
+**El documento está siendo editado** y lo completaremos lo antes posible. Puedes ver otros documentos en [GitHub](https://github.com/neo-project/neo/wiki) or visitar la [web oficial](http://www.neo.org).
 
-Esto es un proyecto de codigo abierto. Puedes contribuir al desarrollo de la documentación en [github.com/neo-project/docs](https://github.com/neo-project/docs). Gracias por tu ayuda.
+Es un proyecto de codigo abierto. Puedes contribuir al desarrollo de la documentación en [github.com/neo-project/docs](https://github.com/neo-project/docs). Gracias por tu ayuda.
 
 --------
 
@@ -12,20 +12,20 @@ Esto es un proyecto de codigo abierto. Puedes contribuir al desarrollo de la doc
 
 #### ¿Qué es NEO?
 
-NEO es una plataforma de activos inteligentes y el primer proyecto de cadena de bloques público de código abierto en China. Los activos inteligentes son la combinación de contratos de cadenas de bloques inteligentes y activos digitales, lo que hace que el registro, la distribución y el comercio de los activos digitales sean más inteligentes.
+NEO es una plataforma de activos inteligentes y el primer proyecto de cadena de bloques público de código abierto en China. Los activos inteligentes es una combinación de contratos inteligentes y activos digitales en la cadena de bloques, lo que hace que el registro, la distribución y el comercio de los activos digitales sean más inteligentes.
 
-:point_right: Los activos digitales son activos almacenados en forma de datos electrónicos con tecnología de cadena de bloques para obtener características como la descentralización, la confiabilidad, la trazabilidad, la transparencia, etc. La cadena de bloques de NEO soporta una variedad de activos digitales, lo que permite a los usuarios registrar, distribuir, intercambiar libremente y distribuir los activos. Los certificados digitales pueden resolver la cuestión de la confianza en la cadena de bloques. A través de los certificados digitales, los activos emitidos por los usuarios también pueden disfrutar de la protección de la ley. En escenarios empresariales con lógica compleja, los usuarios pueden utilizar los contratos inteligentes para mejorar la funcionalidad de los activos o crear una lógica empresarial independiente de los activos.
+* Los activos digitales son activos almacenados en forma de datos electrónicos con tecnología de cadena de bloques para obtener características como la descentralización, la confiabilidad, la trazabilidad y la transparencia. La cadena de bloques NEO soporta una variedad de activos digitales, lo que permite a los usuarios registrar, distribuir, intercambiar libremente y distribuir los activos. Los certificados digitales pueden resolver la cuestión de la confianza en la cadena de bloques. A través de los certificados digitales, los activos emitidos por los usuarios también pueden disfrutar de la protección de la ley. En escenarios empresariales con lógica compleja, los usuarios pueden utilizar los contratos inteligentes para mejorar la funcionalidad de los activos o crear una lógica empresarial independiente de los activos.
 
-:point_right: El Contrato Inteligente fue propuesto por primera vez por el criptólogo Nick Szabo en 1993, y tiene casi la misma edad que el Internet. Según la definición de Szabo: Cuando se cumple una condición preprogramada, el contrato inteligente ejecuta los términos contractuales correspondientes. La tecnología de cadena de bloques nos proporciona un sistema descentralizado, inmutable, altamente confiable en el que los contratos inteligentes son muy útiles. NEO tiene las capacidades de contrato inteligentes completas de Turing, que se ejecutan en la máquina virtual de NEO (NeoVM), y tiene muchas ventajas como ser determinista, tener terminación, permitir el control de recursos, la concurrencia, la fragmentación y la escalabilidad.
+* El contrato inteligente fue propuesto por primera vez por el criptólogo Nick Szabo en 1993 y tiene casi la misma edad que la Internet. Según la definición de Szabo: Cuando se cumple una condición preprogramada, el contrato inteligente ejecuta los términos contractuales correspondientes. La tecnología de cadena de bloques nos proporciona un sistema descentralizado, inmutable, altamente confiable en el que los contratos inteligentes son muy útiles. NEO tiene las capacidades de contrato inteligentes completas de Turing, que se ejecutan en la máquina virtual de NEO (neo-vm) y tiene muchas ventajas como ser determinista, tener terminación, permitir el control de recursos, la concurrencia, la fragmentación y la escalabilidad.
 
-NEO combina una gama de tecnologías tales como redes de punto a punto, tolerancia a los fallos bizantinos, certificados digitales, contratos inteligentes, transacciones superconductoras y protocolos de interoperabilidad entre cadenas, lo que te permite gestionar tus activos inteligentes de forma rápida, eficiente, segura y legal.
+NEO combina una gama de tecnologías tales como redes punto a punto, tolerancia a los fallos bizantinos, certificados digitales, contratos inteligentes, transacciones superconductoras y protocolos de interoperabilidad entre cadenas, lo que te permite gestionar tus activos inteligentes de forma rápida, eficiente, segura y legal.
 
 
 #### ¿Qué es una cadena de bloques?
 
-El término cadena de bloques se originó con la Bitcoin. En su documento sobre la bitcoin, Satoshi Nakamoto propuso el término cadena de bloques mientras que en su siguiente lanzamiento del programa Bitcoin original, la carpeta que mantenía los registros de transacción se llamaba _blockchain_. Originalmente, la cadena de bloques simplemente se refería a los datos históricos de transacciones con bitcoin. La mayoría de las criptomonedas posteriores nombraron también su carpeta de datos de transacciones como _blockchain_, por lo que este término comenzó a referirse a los datos de transacciones históricas de las criptomonedas.
+El término cadena de bloques se originó con la Bitcoin. En su documento sobre la bitcoin, Satoshi Nakamoto propuso el término cadena de bloques mientras que en su siguiente versión del programa Bitcoin original, la carpeta que mantenía los registros de transacciones se llamaba _blockchain_. Originalmente, la cadena de bloques simplemente se refería a los datos históricos de transacciones. La mayoría de las criptomonedas posteriores llamaron también su carpeta de transacciones como _blockchain_, por lo que este término comenzó a referirse a los datos de transacciones históricas de las criptomonedas.
 
-Desde 2015, los principales actores financieros han comenzado a estudiar los sistemas como Bitcoin, Ethereum y Ripple. Estas instituciones financieras han tomado una visión separada con base en la tecnología subyacente y el negocio de nivel superior de sistemas como Bitcoin. Han estado llamando a la combinación de estas tecnologías subyacentes _tecnología blockchain_. Blockchain es la combinación de criptografía, la topología de red, el algoritmo de consenso y la teoría de juegos. Con módulos técnicos como Prueba de Funcionamiento, Prueba de Participación, Contrato Inteligente, Red de Iluminación (Lighting Network) y Cadena Lateral (Side Chain).
+Desde 2015 los principales actores financieros han comenzado a estudiar sistemas como Bitcoin, Ethereum y Ripple. Estas instituciones financieras han tomado una visión separada con base en la tecnología subyacente y el negocio de nivel superior de sistemas como Bitcoin. Han estado llamando a la combinación de estas tecnologías subyacentes _tecnología blockchain_. Blockchain es la combinación de criptografía, la topología de red, algoritmo de consenso y la teoría de juegos. Con módulos técnicos como Prueba de Funcionamiento, Prueba de Participación, Contrato Inteligente, Red de Iluminación (Lighting Network) y Cadena Lateral (Side Chain).
 
 
 
@@ -49,9 +49,9 @@ Debido a la alta latencia de la red en las redes punto a punto, el orden de las 
       * UNL / Porción de la Audiencia: Ripple, Stellar
       * Tolerancia a los Fallos Bizantinos (Byzantine Fault Tolerance): NEO, Hyperledger Fabric
 
-* **Alcanzar el consenso distribuido respect a los datos históricos a través de algoritmos de hashing**
+* **Alcanzar el consenso distribuido respecto a los datos históricos a través de algoritmos de hashing**
 
-El sistema de cadena de bloques construye típicamente una estructura de cadena haciendo referencia al valor de hash del bloque anterior (hash) para conseguir un efecto similar a "una costura." Cualquier manipulación en una única transacción resultará en el fallo de la firma digital vinculada; cualquier alteración en el orden de la transacción causará un cambio en el valor de hash del bloque, haciendo que el "bloque" falle. Por lo tanto, ningún nodo debe valerse de una organización central para verificar la validez de todas las transacciones históricas con el fin de llegar a un consenso.
+El sistema de cadena de bloques construye típicamente una estructura de cadena haciendo referencia al valor de hash del bloque anterior para conseguir un efecto similar a "una costura." Cualquier manipulación en una única transacción resultará un error en la firma digital vinculada; cualquier alteración en el orden de la transacción causará un cambio en el valor de hash del bloque, haciendo que el "bloque" falle. Por lo tanto, ningún nodo debe valerse de una organización central para verificar la validez de todas las transacciones históricas con el fin de llegar a un consenso.
 
 * **Alcanzar un consenso distribuido sobre los resultados del “contrato inteligente"**
 
@@ -65,7 +65,7 @@ Además de los detalles de consenso anteriores, la tecnología de cadenas de blo
 
 La misión de NEO es "Activos Digitales para Todos." Bitcoin y otras cadenas de bloques esperan constituir una alternativa paralela al sistema financiero del mundo real. NEO quiere construir un sistema financiero que pueda salvar la brecha con los activos del mundo real. Al mismo tiempo, el público objetivo de NEO se compone de usuarios de Internet, no solo liberales, geeks y desarrolladores. Para lograr esta visión, NEO necesita utilizar diferentes diseños en el nivel de base.
 
-#### Cumplimiento con el Mundo Físico
+#### Cumplimiento con el Mundo físico
 
 * **Reemplazar el token con un contrato electrónico**
 
@@ -107,11 +107,11 @@ NEO usará moneda fiduciaria como su moneda interna.
 
 * **División del nodo y especialización**
 
-En el diseño original de la Bitcoin original está la horizontalidad. Todos los nodos están involucrados en: la contabilidad (mining), el almacenamiento de datos históricos completos, las difusión de las transacciones. No hay división del trabajo. Sin embargo, en la práctica, lentamente aparecieron las especializaciones en Bitcoin. La contabilidad (mining) evolucionó a partir de la idea de "una CPU un voto" al uso de GPU, FPGA (del inglés ready-made programmable gate array) y ASIC (ASIC) de la máquina de mining. En la actualidad, los diferentes dispositivos de los dispositivos informáticos ASIC no pueden realizar el minado de forma económica. El nodo de la contabilidad se ha especializado totalmente.
+En el diseño original de la Bitcoin original está la horizontalidad. Todos los nodos están involucrados en: la contabilidad (mining), el almacenamiento de datos históricos completos, la difusión de las transacciones. No hay división del trabajo. Sin embargo, en la práctica, lentamente aparecieron las especializaciones en Bitcoin. La contabilidad (mining) evolucionó a partir de la idea de "una CPU un voto" al uso de GPU, FPGA (del inglés ready-made programmable gate array) y ASIC (ASIC) de la máquina de mining. En la actualidad, los diferentes dispositivos de los dispositivos informáticos ASIC no pueden realizar el minado de forma económica. El nodo de la contabilidad se ha especializado totalmente.
 
 Los datos históricos de los últimos siete años que ascienden a decenas de GBs también se han convertido en una carga de almacenamiento. Muchos usuarios comunes ya no están dispuestos a almacenar los datos históricos completos de todo el nodo, sino que en su lugar utilizan la cartera web, la cadena de cartera y así sucesivamente. A pesar de las diversas solicitudes para ejecutar todo el nodo, el número de nodos sigue disminuyendo.
 
-En NEO, nuestro objetivo de diseño es hacer que todo el sistema tenga una clara división del trabajo. El nodo de contabilidad tiene el rol más importante de la cadena de bloque de NEO, asignado por los titulares de NEO a la producción de bloques y para llegar a un consenso común. Los nodos completos conforman la parte principal de la red de cadenas de bloques de NEO, que suelen operar en las empresas que prestan servicios externos. Estos nodos guardan los datos históricos completos, escuchan y transmiten transacciones. Los usuarios comunes ejecutan nodos ligeros o actúan como clientes. Los usuarios comunes, a través del navegador o la aplicación móvil, pueden acceder al eco-sistema de los proveedores de servicios NEO, solo para sincronizar y guardar sus propios datos. Dado que la cadena de bloques de NEO utiliza un sistema de contabilidad conjunta débil basado en la confianza, cada bloque contiene la firma digital del nodo de facturación (billing node). Los usuarios comunes pueden comprobar el bloque actual sin descargar los datos históricos completos. Creemos que este modelo es propicio para la realización de "activos digitales para todos," la visión de Neo.
+En NEO, nuestro objetivo de diseño es hacer que todo el sistema tenga una clara división del trabajo. El nodo de contabilidad tiene el rol más importante de la cadena de bloque de NEO, asignado por los titulares de AntShare a la producción de bloques y para llegar a un consenso común. Los nodos completos conforman la parte principal de la red de cadenas de bloques de AntShare, que suelen operar en las empresas que prestan servicios externos. Estos nodos guardan los datos históricos completos, escuchan y transmiten transacciones. Los usuarios comunes ejecutan nodos ligeros o actúan como clientes. Los usuarios comunes, a través del navegador o la aplicación móvil, pueden acceder al eco-sistema de los proveedores de servicios AntShare, solo para sincronizar y guardar sus propios datos. Dado que la cadena de bloques de NEO utiliza un sistema de contabilidad conjunta débil basado en la confianza, cada bloque contiene la firma digital del nodo de facturación (billing node). Los usuarios comunes pueden comprobar el bloque actual sin descargar los datos históricos completos. Creemos que este modelo es propicio para la realización de "activos digitales para todos," la visión de NEO.
 
 Cabe señalar que la confianza débil no es la confianza de un solo nodo de contabilidad, sino que confía en que el grupo de nodos no colisionará; esto no es confiar en un cuerpo centralizado cambiante, sino más bien, una forma descentralizada de votar independientemente a quién confiar.
 
@@ -191,7 +191,7 @@ Las funciones de activos digitales también se pueden utilizar para distribuir a
 
 (Para ser revisado)
 
-NEO no tiene un pago universal en términos de una moneda original. NEO no es una especie de moneda digital, sino un acuerdo en cadena de bloques, [Editar: esto es confuso: porque no hay disputa monetaria legal, no hay cinco ministerios "en la prevención de notificación de riesgos de la bitcoin" que se refiere a la moneda virtual, con bancos, agencias de pago].
+NEO no tiene un pago universal en términos de una moneda original. AntShare no es una especie de moneda digital, sino un acuerdo en cadena de bloques, [Editar: esto es confuso: porque no hay disputa monetaria legal, no hay cinco ministerios "en la prevención de notificación de riesgos de la bitcoin" que se refiere a la moneda virtual, con bancos, agencias de pago].
 
 Los usuarios individuales y las organizaciones pueden ser certificados por el organismo de certificación autorizado por el gobierno. El registro del patrimonio en la cadena es firmado electrónicamente por una empresa certificada con un nombre real. La cesión y negociación de las acciones son realizadas por el cedente, el cesionario y la sociedad. Antes de la firma de las tres partes, la Compañía tiene la obligación de asegurar que la transferencia y la transacción de las acciones estén en consonancia con las disposiciones de la Ley de Sociedades Anónimas, que se requieren para obtener el consentimiento original de los accionistas originales, el derecho de los accionistas originales a la suscripción y la limitación del número de accionistas. La naturaleza de la transferencia de capital y la transacción es un contrato electrónico en el que las partes están involucradas en firmas electrónicas.
 
@@ -202,27 +202,27 @@ NEO ha incorporado KYC (identidad de usuario) y AML (anti-lavado de dinero). Pag
 
 ### Activos y tasas del sistema
 
-Existen dos activos integrados en el sistema: NEO y GAS. NEO representa la propiedad de la cadena de bloque, que se utiliza para la contabilidad electoral, para obtener dividendos de GAS, etc. Las GAS representan el derecho de usar la cadena de bloque, y se utilizan para pagar los honorarios de varios sistemas en la cadena.
+Existen dos activos integrados en el sistema: NEO y AntCoins. NEO representa la propiedad de la cadena de bloque, que se utiliza para la contabilidad electoral, para obtener dividendos de AntCoins, etc. Las AntCoins representan el derecho de usar la cadena de bloque, y se utilizan para pagar los honorarios de varios sistemas en la cadena.
 
 #### Coste del sistema
 
-Escribir datos en la cadena de bloqueos requiere el pago de una pequeña cantidad de GAS como costo del sistema, que se divide en dos categorías:
+Escribir datos en la cadena de bloqueos requiere el pago de una pequeña cantidad de AntCoins como costo del sistema, que se divide en dos categorías:
 
   **La cuota de contabilidad (bookkeeping) cobrada por el contador**
   
-  Cuando se escribe una transacción en la cadena de bloques, la transacción generalmente requiere algunas GAS como
+  Cuando se escribe una transacción en la cadena de bloques, la transacción generalmente requiere algunas AntCoins como
   tasa por la cuenta. La comisión contable es cargada por el contador para subsidiar el almacenamiento, el ancho de banda 
   y el gasto del nodo de contabilidad. 
   
   Si la tasa se cobra, y cuánto se cobra, es determinado por los contadores. Una transacción puede ser libre, siempre y
   cuando más de 2/3 de los contadores están dispuestos a escribir la transacción. Por lo tanto, las organizaciones que
   utilizan NEO masivamente pueden pagar a los bookkeepers con _currency offchain_, reduciendo la necesidad de
-  pagar con GAS.
+  pagar con AntCoins.
   
   **Cargos adicionales para los titulares de NEO**
 
   Los cargos por servicios adicionales se refieren al costo de usar la cadena de bloques de NEO para completar 
-  ciertas funciones avanzadas y se pagan con GAS. Los tipos de transacciones que actualmente requieren cargos 
+  ciertas funciones avanzadas y se pagan con AntCoins. Los tipos de transacciones que actualmente requieren cargos 
   por servicios adicionales son: la creación de activos, el registro de candidatos. Se requerirán tasas adicionales 
   para actualizaciones futuras, tales como cambios de activos, cancelaciones de activos y congelación de activos.
 
@@ -240,19 +240,19 @@ Un total de 100 millones de NEO, que representan la propiedad de la cadena. 100 
 El principal uso de las acciones de NEO:
 
 * Voto para elegir al contador.
-* Obtener GAS generadas por nuevos bloques.
-* Obtener cargos de servicio adicionales para GAS.
-* Votar para decidir el asunto de la cadena de bloques de Neo.
+* Obtener AntCoins generadas por nuevos bloques.
+* Obtener cargos de servicio adicionales para AntCoins.
+* Votar para decidir el asunto de la cadena de bloques de NEO.
 
-#### GAS
+#### AntCoins
 
-GAS, abreviado como ANC.
+AntCoins, abreviado como ANC.
 
-Un total de 100 millones de GAS se producirá, representando el derecho a utilizar la cadena. La GAS se generará con la formación de cada nuevo bloque, de acuerdo con una tasa decreciente de generación, que llevará alrededor de 22 años para que la cantidad de GAS crezca de 9 a 100 millones.
+Un total de 100 millones de ANC se producirá, representando el derecho a utilizar la cadena. La AntCoin se generará con la formación de cada nuevo bloque, de acuerdo con una tasa decreciente de generación, que llevará alrededor de 22 años para que la cantidad de ANC crezca de 9 a 100 millones.
 
-El objetivo principal de las GAS son:
+El objetivo principal de las AntCoins son:
 
-* Pagar los honorarios de pago de la cadena de bloques de Neo.
+* Pagar los honorarios de pago de la cadena de bloques de NEO.
 * Pagar una tarifa de servicio adicional para la cadena de la pequeña área del bloque.
 * Como depósito para el depósito del candidato.
 
@@ -260,7 +260,7 @@ El objetivo principal de las GAS son:
 
 #### El mecanismo de distribución de NEO
 
-Se creó el 100% del total de acciones de NEO en la creación de un bloque. Antes de la creación de NEO, el equipo estableció ciertas reglas sobre la distribución de las acciones de Neo.
+Se creó el 100% del total de acciones de NEO en la creación de un bloque. Antes de la creación de NEO, el equipo estableció ciertas reglas sobre la distribución de las acciones de NEO.
 
 Alrededor del 10% de las acciones de NEO fueron asignadas a los primeros partidarios de NEO en junio de 2014, ganando 600.000$ en fondos semilla. De los cuales 400.000 yuanes por un número de individuos después de una valoración general de 5 millones de inversión y 200.000 yuanes por las instituciones de capital de riesgo Ra Li capital después de una valoración general de 10 millones de yuanes de la inversión. Los contribuyentes individuales también proporcionan todo tipo de apoyo a tiempo completo o a tiempo parcial sin cargo alguno.
 
@@ -268,20 +268,20 @@ Aproximadamente el 17% de las acciones de NEO se completaron en octubre de 2015 
 
 Aproximadamente el 23% de las NEO se asignarán a los participantes en el ICO 2 lanzado en agosto de 2016. El ICO no establece el precio ni el techo, sino el diseño del mecanismo de retorno, ver las reglas de la OIC.
 
-El 50% restante de las acciones de NEO retenidas por el equipo de NEO, estará en la red de NEO después del uso del contrato inteligente de NEO bloqueado por 1 año. El período de bloqueo es de 1 año, esta parte de NEO se utilizará para mantener el desarrollo a largo plazo de Neo.
+El 50% restante de las acciones de NEO retenidas por el equipo de NEO, estará en la red de NEO después del uso del contrato inteligente de NEO bloqueado por 1 año. El período de bloqueo es de 1 año, esta parte de NEO se utilizará para mantener el desarrollo a largo plazo de NEO.
 
 Los primeros partidarios, los participantes del ICO 1 y las acciones de NEO asignadas a los participantes del ICO 2 estarán disponibles inmediatamente después de la operación de la cadena de bloque (small-ants blockchain). Se espera que la cadena de bloques de pequeñas (small nest) se ejecute en el cuarto trimestre de 2016.
 
 #### El mecanismo de lanzamiento de NEO
 
-Las GAS se producen con la generación de cada nuevo bloque. La cantidad inicial de GAS es cero y crecerá hasta el límite total de 100 millones después de aproximadamente 22 años. El intervalo entre cada bloque de NEO es de unos 15 segundos, aproximadamente 2 millones de bloques se generan en un año.
+Las AntCoins se producen con la generación de cada nuevo bloque. La cantidad inicial de AntCoins es cero y crecerá hasta el límite total de 100 millones después de aproximadamente 22 años. El intervalo entre cada bloque de NEO es de unos 15 segundos, aproximadamente 2 millones de bloques se generan en un año.
 
-En el primer año (Bloque No. 0 - No. 2,000,000), cada bloque generará 8 GAS; en el segundo año (Bloque No. 2.000.000 - 
-No. 4.000.000), cada bloque generará 7 GAS; la cantidad de GAS generado disminuye en 1 cada año hasta el año 8 donde cada bloque genera solo 1 GAS. A partir de entonces, la tasa se mantiene constante hasta alrededor de 22 años en el bloque de 44 millones, la cantidad total de GAS alcanza los 100 millones, momento en el que dejarán de generarse GAS.
+En el primer año (Bloque No. 0 - No. 2,000,000), cada bloque generará 8 ANC; en el segundo año (Bloque No. 2.000.000 - 
+No. 4.000.000), cada bloque generará 7 ANC; la cantidad de ANC generado disminuye en 1 cada año hasta el año 8 donde cada bloque genera solo 1 ANC. A partir de entonces, la tasa se mantiene constante hasta alrededor de 22 años en el bloque de 44 millones, la cantidad total de ANC alcanza los 100 millones, momento en el que dejarán de generarse ANC.
 
-Según esta curva, el 16% de las GAS se creará en el primer año, el 52% se creará al final del cuarto año, el 72% de las GAS al final del octavo año.
+Según esta curva, el 16% de las ANC se creará en el primer año, el 52% se creará al final del cuarto año, el 72% de las ANC al final del octavo año.
 
-Las GAS se distribuirán proporcionalmente a las direcciones NEO correspondientes. Los titulares de NEO pueden reclamar estas GAS en cualquier momento. Por ejemplo, si alguien tiene el 1% de la red completa, el usuario podrá obtener 8/100 = 0.08 GAS por bloque por aproximadamente 460.8 GAS al día.
+Las ANC se distribuirán proporcionalmente a las direcciones ANS correspondientes. Los titulares de AntShare pueden reclamar estas ANC en cualquier momento. Por ejemplo, si alguien tiene el 1% de la red completa, el usuario podrá obtener 8/100 = 0.08 AntCoins por bloque por aproximadamente 460.8 AntCoins al día.
 
 
 ## Arquitectura de la tecnología
@@ -344,11 +344,11 @@ Las direcciones ocultas de varias firmas pueden incluir las identidades del usua
 
 ### Activos
 
-Los activos del bloque NEO pueden dividirse en activos del sistema y activos emitidos por los usuarios. Los activos del sistema representan los derechos en el acuerdo de NEO. Los activos del usuario representan los derechos de los activos fuera de la cadena de bloques de Neo.
+Los activos del bloque NEO pueden dividirse en activos del sistema y activos emitidos por los usuarios. Los activos del sistema representan los derechos en el acuerdo de NEO. Los activos del usuario representan los derechos de los activos fuera de la cadena de bloques de NEO.
 
 #### Activos del sistema
 
-Los activos del sistema incluyen NEO y las GAS. NEO representa la propiedad del sistema, las GAS representan el derecho a utilizar el sistema. La forma específica de NEO y las GAS se ha descrito en el capítulo "(b) el modelo económico" y no se repetirá.
+Los activos del sistema incluyen NEO y las AntCoins. NEO representa la propiedad del sistema, las AntCoins representan el derecho a utilizar el sistema. La forma específica de NEO y las AntCoins se ha descrito en el capítulo "(b) el modelo económico" y no se repetirá.
 
 #### Activos emitidos por el usuario
 
@@ -402,7 +402,7 @@ Cuenta electoral: véase el mecanismo contable
 
 #### Tarifas de transacción
 
-Los costos de transacción se dividen en comisiones de contabilidad y cargos por servicios adicionales, que se pagan en GAS. Se especifican en el capítulo del "modelo económico", no se repetirán.
+Los costos de transacción se dividen en comisiones de contabilidad y cargos por servicios adicionales, que se pagan en AntCoins. Se especifican en el capítulo del "modelo económico", no se repetirán.
 
 ### Mecanismo de contabilidad
 

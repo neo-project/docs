@@ -1,10 +1,9 @@
 # La red de pruebas (TestNet)
 
-La red de pruebas está diseñada para el desarrollo. Probar el sistema en la red de pruebas tiene una tarifa de NeoGas (no NeoGas reales). Los NEOs y los NeoGas de la red de pruebas puede ser proporcionados sin cargo alguno a través de la web oficial.
+La red de pruebas está diseñada para el desarrollo. Probar el sistema en la red de pruebas tiene una tarifa de NeoGas (no NeoGas reales). Los NEOs y los NeoGas de la red de pruebas puede ser proporcionados sin cargo alguno en la siguiente Web. https://www.neo.org/Testnet/Create
+
 
 Todos los bloques de datos de la red de pruebas son independiente de la red principal (MainNet). Si desarrollas un contrato inteligente simple o intentas registrar activos, la red de pruebas deberia ser suficiente. Una vez finalizadas las pruebas, el desarrollo puede ser movido a red principal.
-
-Si eres un desarrolloador puedes pedir monedas aqui: https://www.neo.org/Testnet/Create :boom: (pending new website)
 
 ## Caracteristicas de la red de pruebas
 
@@ -27,7 +26,7 @@ Source code | [GitHub](https://github.com/neo-project/neo-gui/) | [GitHub](https
 
 ## Configurar el cliente para la red de pruebas
 
-1. Si usas el cliente GUI (NEO-gui) dentro de la carpeta donde se encuentra el ejecutable copia el contenido de `protocol.testnet.json` en `protocol.json` tal y como se muestra en la imagen.
+1. Si usas el cliente GUI `NEO-gui` dentro de la carpeta donde se encuentra el ejecutable copia el contenido de `protocol.testnet.json` en `protocol.json` tal y como se muestra en la imagen.
  
   <img style="vertical-align: middle" src="assets/testnet/testnet_1.png">
 
@@ -36,6 +35,5 @@ Source code | [GitHub](https://github.com/neo-project/neo-gui/) | [GitHub](https
   <img style="vertical-align: middle" src="assets/testnet/testnet_2.png">
 
 
-
-> [!Nota]
+> [!NOTE]
 > Si usas el cliente CLI (NEO-cli) se debe copiar el contenido del fichero **config.testnet.json** en **config.json**.
