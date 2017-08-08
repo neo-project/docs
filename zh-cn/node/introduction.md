@@ -2,16 +2,16 @@
 
 全节点（full nodes）是存储 NEO 区块链全部数据的节点，通过 P2P 的方式与区块链网络连接，在区块链网络中，所有的全节点都是平等的，既充当客户端又充当服务器。
 
-NEO 有两个全节点程序，一个是给普通用户使用的，有图形界面的，具有除共识外的所有功能的客户端，我们叫它 AntSharesCore-GUI。
+NEO 有两个全节点程序，一个是给普通用户使用的，有图形界面的，具有除共识外的所有功能的客户端，我们叫它 Neo-GUI。
 
-另一个是给开发者用来使用的，命令行界面的，具有一些钱包操作的基本功能，除此之外还会对外提供 API，还可以也其它节点达成共识，参与区块的生成，我们叫它 AntSharesCore-CLI。
+另一个是给开发者用来使用的，命令行界面的，具有一些钱包操作的基本功能，除此之外还会对外提供 API，还可以也其它节点达成共识，参与区块的生成，我们叫它 Neo-CLI。
 
 ## NEO 节点下载地址
 
-|      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
+|      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| 程序   | [官网](https://www.antshares.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-gui/releases) |
-| 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-gui) |
+| 程序   | [官网](https://www.neo.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## GUI 节点与 CLI 节点功能比较
 

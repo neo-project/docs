@@ -4,7 +4,7 @@
   href: getting-started.md
 - name: Whitepaper
   href: white-paper.md
-- name: AntShares Node
+- name: NEO Node
   href: node/introduction.md
   items:
     - name: Introduction
@@ -75,8 +75,8 @@
     - name: API Reference
       href: sc/api.md
       items:
-      - name: AntShares
-        href: sc/api/antShares.md
+      - name: NEO
+        href: sc/api/neo.md
       - name: System
         href: sc/api/system.md
     - name: Framework
@@ -85,33 +85,33 @@
       - name: .NET framework
         href: sc/fw/dotnet.md
         items:
-          - name: AntShares
-            href: sc/fw/dotnet/AntShares.md
+          - name: NEO
+            href: sc/fw/dotnet/neo.md
             items:
             - name: Account
-              href: sc/fw/dotnet/AntShares/Account.md
+              href: sc/fw/dotnet/neo/Account.md
             - name: Asset
-              href: sc/fw/dotnet/AntShares/Asset.md
+              href: sc/fw/dotnet/neo/Asset.md
             - name: Block
-              href: sc/fw/dotnet/AntShares/Block.md
+              href: sc/fw/dotnet/neo/Block.md
             - name: Blockchain
-              href: sc/fw/dotnet/AntShares/Blockchain.md
+              href: sc/fw/dotnet/neo/Blockchain.md
             - name: Enrollment
-              href: sc/fw/dotnet/AntShares/Enrollment.md
+              href: sc/fw/dotnet/neo/Enrollment.md
             - name: Header
-              href: sc/fw/dotnet/AntShares/Header.md
+              href: sc/fw/dotnet/neo/Header.md
             - name: Storage
-              href: sc/fw/dotnet/AntShares/Storage.md
+              href: sc/fw/dotnet/neo/Storage.md
             - name: StorageContex
-              href: sc/fw/dotnet/AntShares/StorageContex.md
+              href: sc/fw/dotnet/neo/StorageContex.md
             - name: Transaction
-              href: sc/fw/dotnet/AntShares/Transaction.md
+              href: sc/fw/dotnet/neo/Transaction.md
             - name: TransactionAttribute
-              href: sc/fw/dotnet/AntShares/TransactionAttribute.md
+              href: sc/fw/dotnet/neo/TransactionAttribute.md
             - name: TransactionInput
-              href: sc/fw/dotnet/AntShares/TransactionInput.md
+              href: sc/fw/dotnet/neo/TransactionInput.md
             - name: TransactionOutput
-              href: sc/fw/dotnet/AntShares/TransactionOutput.md
+              href: sc/fw/dotnet/neo/TransactionOutput.md
           - name: System
             href: sc/fw/dotnet/System.md
             items:

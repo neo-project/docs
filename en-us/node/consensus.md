@@ -8,12 +8,12 @@
 
 * **Byzantine Fault** `BF` - A failure in which a node remains functional, but operates in a dishonest manner.
 
-* **Delegated Byzantine Fault Tolerance** `DBFT` - A consensus algorithm implemented within the AntShares blockchain to guarantee fault tolerance.
+* **Delegated Byzantine Fault Tolerance** `DBFT` - A consensus algorithm implemented within the NEO blockchain to guarantee fault tolerance.
 
-* **View** `v` - The dataset used during a consensus activity in AntShares `DBFT`
+* **View** `v` - The dataset used during a consensus activity in NEO `DBFT`
 
 ## 2 - Roles
-**In the AntShares consensus algorithm, Consensus Nodes are elected by ANS holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**.
+**In the NEO consensus algorithm, Consensus Nodes are elected by NEO holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**.
 
   <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
   - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
@@ -65,7 +65,7 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
 ## 5 - Practical Implementation
 
-The practical implementation of DBFT in AntShares uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
+The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
 
 Note that the **Figure 5** does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
@@ -114,7 +114,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 
 ### 5.2 - Requirements
 
-**Within AntShares, there are three primary requirements for consensus fault tolerance:**
+**Within NEO, there are three primary requirements for consensus fault tolerance:**
 
 1. `s` **Delegates** must reach a consensus about a transaction before a block can be committed.
 
@@ -191,7 +191,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 	
 
 ## 6 - References
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.antshares.org/Files/A8A0E2.pdf)
+1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.neo.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 

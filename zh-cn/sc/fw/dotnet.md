@@ -4,16 +4,16 @@ NEO 智能合约的.net 框架是对智能合约 API 的封装，使 .net 程序
 
 ## 互操作服务层的方法
 
-以下是互操作服务层的命名空间，分别属于 AntShares.SmartContract.Framework.Services.AntShares 和 AntShares.SmartContract.Framework.Services.System 命名空间。点击进去可以了解更详细的类和方法。
+以下是互操作服务层的命名空间，分别属于 Neo.SmartContract.Framework.Services.NEO 和 Neo.SmartContract.Framework.Services.System 命名空间。点击进去可以了解更详细的类和方法。
 
 | 命名空间                             | 说明                                       |
 | -------------------------------- | ---------------------------------------- |
-| [AntShares](dotnet/antshares.md) | AntShares 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。 |
-| [System](dotnet/system.md)       | System 命名空间是智能合约执行引擎（AVM）提供的 API，提供了访问访问该智能合约的执行环境的方法。 |
+| [Neo](dotnet/neo.md) | NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。 |
+| [System](dotnet/system.md)       | System 命名空间是智能合约执行引擎（NeoVM）提供的 API，提供了访问访问该智能合约的执行环境的方法。 |
 
 ## 框架本身提供的常用方法
 
-在智能合约中除了可以调用互操作服务层中的方法，还可以调用框架本身提供的常用方法。这些方法属于 AntShares.SmartContract.Framework 命名空间，在合约中可以直接使用这些方法。
+在智能合约中除了可以调用互操作服务层中的方法，还可以调用框架本身提供的常用方法。这些方法属于 Neo.SmartContract.Framework 命名空间，在合约中可以直接使用这些方法。
 
 ### SmartContract 类提供的方法
 

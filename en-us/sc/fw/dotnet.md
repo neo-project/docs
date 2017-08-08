@@ -6,5 +6,5 @@ The .NET Framework is an encapsulation of the Smart Contract API so that .NET pr
 
 | Namespace | description |
 | --------- | ----------- |
-| [AntShares](dotnet/antshares.md) | The AntShares namespace is the API provided by the AntShares blockchain, providing a way to access the block-chain data and manipulate the persistent store. |
-| The [System](dotnet/system.md) | System namespace is the API provided by the Smart Contract Execution Engine (AVM), which provides access to the execution environment that accesses the smart contract. |
+| [Neo](dotnet/neo.md) | The NEO namespace is the API provided by the NEO blockchain, providing a way to access the block-chain data and manipulate the persistent store. |
+| The [System](dotnet/system.md) | System namespace is the API provided by the Smart Contract Execution Engine (NeoVM), which provides access to the execution environment that accesses the smart contract. |

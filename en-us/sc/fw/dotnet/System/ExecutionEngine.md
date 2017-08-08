@@ -2,9 +2,9 @@
 
 The execution engine of the virtual machine can obtain the caller and execution container of the current contract
 
-Namespace: [AntShares.SmartContract.Framework.Services.System](../System.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../System.md)
 
-Assembly: AntShares.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## syntax
 
