@@ -59,4 +59,4 @@ The contract implements a domain name system, where the domain names points to d
 
 The code above implements querying, registration, transfer and deletion of domain names.
 
-For details, refer to [Storage](../fw/dotnet/AntShares/Storage.md).
+For details, refer to [Storage](../fw/dotnet/neo/Storage.md).

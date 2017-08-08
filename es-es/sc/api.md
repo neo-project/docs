@@ -9,5 +9,5 @@ Para más información de como usar el framework para realizar llamadas facilmen
 
 Namespace | Descripción |
 | ----------------------------- | ---------------------------------------- |
-[Neo](api/AntShares.md) | El namespace AntShares es la API proporcionada por la blockchain de NEO, esta facilita el acceso a los datos de la blockchain y la manipulación del almacenamiento persistente. |
+[Neo](api/neo.md) | El namespace NEO es la API proporcionada por la blockchain de NEO, esta facilita el acceso a los datos de la blockchain y la manipulación del almacenamiento persistente. |
 | [System](api/System.md) | El namespace System es la API proporcionada por el motor de ejecución de contratos inteligentes, esta facilita el acceso al entorno de ejecución que accede al contrato inteligente. |

@@ -26,7 +26,7 @@ El plug-in NEOContract nos permitirá compilar y generar contratos inteligentes 
 
 Pasos de instalación:
 
-Abre Visual Studio 2017 y desde la barra de menú, clic en `Herramientas` y clic en `Extensiones y Actualizaciones`. Una vez que nos aparezca la ventana de Extensiones, clic en `En línea` y en el apartado de la derecha, en el campo de búsqueda, introduce `Antshares` y pulsa Enter.
+Abre Visual Studio 2017 y desde la barra de menú, clic en `Herramientas` y clic en `Extensiones y Actualizaciones`. Una vez que nos aparezca la ventana de Extensiones, clic en `En línea` y en el apartado de la derecha, en el campo de búsqueda, introduce `NEO` y pulsa Enter.
 
 Una vez finalizada la búsqueda, aparecerá `NeoContractPlugin`. Pulsa `Descargar` para iniciar la descarga del plugin.
 

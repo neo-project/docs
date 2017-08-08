@@ -65,4 +65,4 @@ public class Domain : FunctionCode
 
 상세 내용은 다음을 참조하길 바랍니다.
 
-[Storage Class](../fw/dotnet/AntShares/Storage.md).
+[Storage Class](../fw/dotnet/neo/Storage.md).

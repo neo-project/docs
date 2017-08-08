@@ -2,9 +2,9 @@
 
 Get the script hash of the entry point of the smart contract (the starting point of the contract call chain).
 
-Namespace: [AntShares.SmartContract.Framework.Services.System](../../System.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
-Assembly: AntShares.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## syntax
 

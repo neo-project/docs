@@ -1,8 +1,8 @@
-### C#을 이용해서 Antshares 스마트 계약 (smart contract)작성하는 방법
+### C#을 이용해서 Neo 스마트 계약 (smart contract)작성하는 방법
 
 스마트 계약을 개발하는 데 있어 현재 C# (Java, Kkotlin, Go, C/C++, Python, Javascript또는 다른 언어를 지원하지만) 을 추천합니다. 
 
-여기에서 Antshares 스마트 계약 작성을 위한 C# 개발 환경(development environment)을 구성하는 간단한 설명을 다룰 것이며, 
+여기에서 Neo 스마트 계약 작성을 위한 C# 개발 환경(development environment)을 구성하는 간단한 설명을 다룰 것이며, 
 개발자는 어떻게 컴파일 하는 지 그리고 어떻게 스마트 계약을 작성할 지에 대한 개념을 알 수 있습니다. 
 
  > [!Note]  
@@ -19,28 +19,28 @@
 [비주얼 스튜디오 다운로드 주소](https://www.visualstudio.com/products/visual-studio-community-vs)
 
 인스톨 과정은 매우 단순합니다. 아래 절차를 따라 하나 하나 진행하면 되며 사용자는 반드시 .NET Core Cross-platform development의 인스톨을 
-확인해야 합니다, 그렇지 않을 경우 Step#3에서 Antshares VM을 열 수 없습니다. 이 인스톨 과정은 대략 10분에서 1시간이 소요될 수 있습니다.
+확인해야 합니다, 그렇지 않을 경우 Step#3에서 NeoVM을 열 수 없습니다. 이 인스톨 과정은 대략 10분에서 1시간이 소요될 수 있습니다.
 
 ![그림 1](assets/pic1.png)
 
-### 2, AntShares. SmartContract 플러그인
+### 2. NeoContractPlugin 플러그인
 
 인스톨 방법 : 
 
-비주얼 스튜디오 2017을 실행 한 뒤, 도구(tools)를 열어, 확장 및 업데이트(Extension and Updates)를 클릭한 뒤, 온라인(Online)탭을 클릭하면 왼쪽에 창이 새로 뜨는데, 그 창의 오른쪽 위에 있는 박스에서 Antshares를 찾아 AntShares.SmartContract.plugin을 다운받습니다. (이부분에서 인터넷 연결이 필요함)
+비주얼 스튜디오 2017을 실행 한 뒤, 도구(tools)를 열어, 확장 및 업데이트(Extension and Updates)를 클릭한 뒤, 온라인(Online)탭을 클릭하면 왼쪽에 창이 새로 뜨는데, 그 창의 오른쪽 위에 있는 박스에서 Neo를 찾아 NeoContractPlugin을 다운받습니다. (이부분에서 인터넷 연결이 필요함)
 
 ![그림 2](assets/pic2.png)
 
-### 3. AntShares.Complier.MSIL
+### 3. neo-compiler
 
 설치와 설정 과정은 다음과 같습니다 : 
 
-[AntShares.VM](https://github.com/neo-project/neo-vm)을 Github에서 다운로드 한다음, 비주얼 스튜디오 2017에서  솔류션(Solution)탭을 열어 AntShares.Complier.MSIL 프로젝트를 퍼블리쉬(publish)합니다. 
+[neo-compiler](https://github.com/neo-project/neo-compiler)을 Github에서 다운로드 한다음, 비주얼 스튜디오 2017에서  솔류션(Solution)탭을 열어 neon 프로젝트를 퍼블리쉬(publish)합니다. 
 
 ![그림 3](assets/pic3.png)
 ![그림 4](assets/pic4.png)
 
-해당 릴리즈(release)가 성공적이면, 'bin\Release\PublishOutput' 에 'AntShares..Complier.MSIL.exe'가 만들어집니다. 
+해당 릴리즈(release)가 성공적이면, 'bin\Release\PublishOutput' 에 'neon.exe'가 만들어집니다. 
 
 이제 이 디렉토리를 실행 경로 (execution path)에 추가합니다. 이 경로는 각자의 컴퓨터마다 다르기 때문에 커맨드 라인이나 터미널 창을 통해 확인합니다. 
 
@@ -63,7 +63,7 @@
 
 ![그림 5](assets/pic5.png)
 
-이제 커맨드 창이나 파워 쉘을 실행단 다음, AntShares.Complier.Msil을 입력합니다. 만약 에러 메세지가 없으면 아래와 같이 버전 번호가 나타나며, 환경 변수 설정이 성공적으로 마무리 됩니다. 
+이제 커맨드 창이나 파워 쉘을 실행단 다음, neon을 입력합니다. 만약 에러 메세지가 없으면 아래와 같이 버전 번호가 나타나며, 환경 변수 설정이 성공적으로 마무리 됩니다. 
 
 ![그림 6](assets/pic6.png)
 
@@ -71,7 +71,7 @@
 
 ### 프로젝트 작성하기 (Create Project)
 
-위의 인스톨 과정을 성공적으로 마친 다음, 사용자는 비주얼 스튜디오2017을 이용하여 AntShares.SmartContract.Template 프로젝트를 작성할 수 있습니다. 
+위의 인스톨 과정을 성공적으로 마친 다음, 사용자는 비주얼 스튜디오2017을 이용하여 Neo.SmartContract.Template 프로젝트를 작성할 수 있습니다. 
 
 ![그림 7](assets/pic7.png)
 
@@ -93,11 +93,11 @@ public class Contract1: FunctionCode
 }
 ```
 
-사용자가 스마트 계약을 성공적으로 컴파일 했으면 bin/Debug 디렉토리에서 SmartContract1.avm 을 볼수 있는데, 이는 AntShares smart contract로써 생성된 파일입니다. 
+사용자가 스마트 계약을 성공적으로 컴파일 했으면 bin/Debug 디렉토리에서 SmartContract1.avm 을 볼수 있는데, 이는 Neo smart contract로써 생성된 파일입니다. 
 
 ![그림 9](assets/pic9.png)
 
-AntShares smart contract 개발 환경 설정은 모두 끝났습니다. 더 궁금한 사항은 AntShares smart contract tutorial을 참조하길 바랍니다. 
+Neo smart contract 개발 환경 설정은 모두 끝났습니다. 더 궁금한 사항은 Neo smart contract tutorial을 참조하길 바랍니다. 
 
 
 

@@ -2,14 +2,14 @@
 typora-root-url: ..\..
 ---
 
-### C#を使用してAntSharesスマートコントラクトを作成する方法
+### C#を使用してNeoスマートコントラクトを作成する方法
 
 スマートコントラクトの開発には現在C#を推奨しています（ただし、Java、Kotlin、Go、C / C ++、Python、JavaScriptなどのプログラミング言語をサポートまたは計画しています）
 
-このセクションでは、AntSharesスマートコントラクトのC#開発環境を設定するための簡単なチュートリアルと、スマートコントラクトプロジェクトの作成方法とコンパイル方法を紹介します。
+このセクションでは、NeoスマートコントラクトのC#開発環境を設定するための簡単なチュートリアルと、スマートコントラクトプロジェクトの作成方法とコンパイル方法を紹介します。
 
 >[!注意]
->現在、すべてのプロジェクトがVisual Studio 2017バージョンにアップグレードされています。Visual Studio 2015を使用してスマートコントラクトを作成するには、[VS2015でC#を使用してAntSharesスマートコントラクトを作成する方法](getting-started-2015.md)を参照して下さい。
+>現在、すべてのプロジェクトがVisual Studio 2017バージョンにアップグレードされています。Visual Studio 2015を使用してスマートコントラクトを作成するには、[VS2015でC#を使用してNeoスマートコントラクトを作成する方法](getting-started-2015.md)を参照して下さい。
 
 ## 開発ツール
 
@@ -21,29 +21,29 @@ typora-root-url: ..\..
 
 [Visual Studioのダウンロード](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-インストールプロセスは非常に簡単です、操作画面に従って進み、「.NET Core クロスプラットフォームの開発」のインストールをチェックする必要があります。そうでなければ、ステップ#3でAntShares.VMプロジェクトを開くことができません。インストールには、約10分から1時間かかります。
+インストールプロセスは非常に簡単です、操作画面に従って進み、「.NET Core クロスプラットフォームの開発」のインストールをチェックする必要があります。そうでなければ、ステップ#3でNeo.VMプロジェクトを開くことができません。インストールには、約10分から1時間かかります。
 
 ![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
 
-### 2. AntShares.SmartContractプラグイン
+### 2. NeoContractPluginプラグイン
 
 インストール方法：
 
-Visual Studio 2017を開き、[ツール]メニューから[拡張機能と更新プログラム]をクリック、ウィンドウの左側にある[オンライン]タブをクリック、ウィンドウの右上にある検索ボックスで AntShares を検索し、AntShares.SmartContractプラグインをダウンロードします（インターネットアクセスが必要です）。
+Visual Studio 2017を開き、[ツール]メニューから[拡張機能と更新プログラム]をクリック、ウィンドウの左側にある[オンライン]タブをクリック、ウィンドウの右上にある検索ボックスで Neo を検索し、NeoContractPluginプラグインをダウンロードします（インターネットアクセスが必要です）。
 
-![download and install antshares smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
+![download and install neo smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
 
-### 3. AntShares.Compiler.MSIL
+### 3. neo-compiler
 
 インストールと設定の手順：
 
-Githubで[AntShares.VM](https://github.com/neo-project/neo-vm)プロジェクトをダウンロードし、Visual Studio 2017でソリューションを開き、AntShares.Compiler.MSILプロジェクトを「公開」します。
+Githubで[neo-compiler](https://github.com/neo-project/neo-compiler)プロジェクトをダウンロードし、Visual Studio 2017でソリューションを開き、AntShares.Compiler.MSILプロジェクトを「公開」します。
 
-![publish antshares compiler msil project](assets/publish_antshares_compiler_msil_project.png)
+![publish neon project](assets/publish_antshares_compiler_msil_project.png)
 
 ![publish and profile settings](assets/publish_and_profile_settings.png)
 
-発行が成功すると、AntShares.Compiler.MSIL.exeファイルが`bin\Release\PublishOutput`に生成されます。
+発行が成功すると、neon.exeファイルが`bin\Release\PublishOutput`に生成されます。
 
 このディレクトリを実行パスに追加する必要があります。 パスは、オペレーティングシステムがコマンドラインまたはターミナルウィンドウから必要な実行ファイルを見つけるために使用するシステム変数です。
 
@@ -57,7 +57,7 @@ Githubで[AntShares.VM](https://github.com/neo-project/neo-vm)プロジェクト
 
 ![edit environmental variables](assets/edit_environmental_variables.png)
 
-次に、コマンドプロンプトまたはPowerShellを実行し、Antshares.Compiler.Msilと入力します。エラーがなく、出力にバージョン番号が表示されている場合（図示）、環境変数の設定は成功しています。
+次に、コマンドプロンプトまたはPowerShellを実行し、neonと入力します。エラーがなく、出力にバージョン番号が表示されている場合（図示）、環境変数の設定は成功しています。
 
 ![powershell enviornment variabled updated correctly](assets/powershell_enviornment_variabled_updated_correctly.png)
 
@@ -66,7 +66,7 @@ Githubで[AntShares.VM](https://github.com/neo-project/neo-vm)プロジェクト
 
 ## プロジェクトを作成
 
-上記のインストール構成が成功したら、Visual Studio 2017でAntShares.SmartContract.Templateプロジェクトを作成できます。
+上記のインストール構成が成功したら、Visual Studio 2017でNeo.SmartContract.Templateプロジェクトを作成できます。
 
 ![new smart contract project](assets/new_smart_contract_project.png)
 
@@ -88,9 +88,9 @@ public class Contract1: FunctionCode
 }
 ```
 
-正常にコンパイルすると、`bin/Debug`ディレクトリにあるSmartContract1.avmが表示されます。これはAntSharesスマートコントラクトとして生成されるファイルです。
+正常にコンパイルすると、`bin/Debug`ディレクトリにあるSmartContract1.avmが表示されます。これはNeoスマートコントラクトとして生成されるファイルです。
 
 ![compile smart contract](assets/compile_smart_contract.png)
 
-AntSharesスマートコントラクト開発環境の設定を完了したので、[AntSharesスマートコントラクトチュートリアル](tutorial.md)を参照してください。
+Neoスマートコントラクト開発環境の設定を完了したので、[Neoスマートコントラクトチュートリアル](tutorial.md)を参照してください。
 

@@ -10,6 +10,6 @@ public class HelloWorld : FunctionCode
 }
 ```
 
-Storage 类是操纵 NEO 智能合约私有化存储区的静态类，通过 Storage.Put() 方法可以向私有化存储区中以 key-value 方式存储数据，详情可参考 [Storage 类](../fw/dotnet/AntShares/Storage.md)。
+Storage 类是操纵 NEO 智能合约私有化存储区的静态类，通过 Storage.Put() 方法可以向私有化存储区中以 key-value 方式存储数据，详情可参考 [Storage 类](../fw/dotnet/neo/Storage.md)。
 
 完整代码请参考 [Github](https://github.com/neo-project/examples)。 
