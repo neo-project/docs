@@ -62,10 +62,16 @@
         href: sc/tutorial.md
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
-      - name: Lock
+      - name: Lock Contract
         href: sc/tutorial/Lock.md
       - name: Domain (Domain Name System)
         href: sc/tutorial/Domain.md
+      - name: Smart Contract Parameters and Return Values
+        href: sc/tutorial/Parameter.md
+      - name: Contract Authentication Tutorial
+        href: sc/tutorial/verify.md
+      - name: Deploying a Lock Contract
+        href: sc/tutorial/Lock2.md
       - name: Contract Call
         href: sc/tutorial/call.md
     - name: Test
