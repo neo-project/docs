@@ -1,4 +1,4 @@
-# NeoContract Whitepaper
+# NeoContract White Paper
 
 ## 1. Preface
 
