@@ -4,11 +4,11 @@ Returns the stored value, according to the contract script hash and the stored k
 
 ## Parameter Description
 
-Script_hash： Contract script hash
+Script_hash: Contract script hash
 
 ## Example
 
-Request text：
+Request text:
 
 ```json
 {
@@ -19,7 +19,7 @@ Request text：
 }
 ```
 
-Response text：
+Response text:
 
 ```json
 {

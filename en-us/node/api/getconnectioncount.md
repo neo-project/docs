@@ -19,7 +19,7 @@ Response text:
 
 ```json
 {
-   "jsonrpc": "2.0",
+   "jsonrpc": "2.0",
    "id": 1,
    "result": 10
 }

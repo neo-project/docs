@@ -8,7 +8,7 @@ Script_hash： Contract script hash
 
 ## Example
 
-Request text：
+Request text:
 
 ```json
 {
@@ -19,7 +19,7 @@ Request text：
 }
 ```
 
-Response text：
+Response text:
 
 ```json
 {

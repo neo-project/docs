@@ -8,7 +8,7 @@ Account Address: A 34-bit length string beginning with A, such as AJBENSwajTzQtw
 
 ## Example
 
-Request Text：
+Request Text:
 
 ```json
 {
@@ -19,7 +19,7 @@ Request Text：
 }
 ```
 
-Response Text：
+Response Text:
 
 ```json
 {
@@ -40,17 +40,17 @@ Response Text：
 }
 ```
 
-Response Description：
+Response Description:
 
-Script_hash： Contract scipt hash; All accounts in NEO are contract accounts
+Script_hash: Contract scipt hash; All accounts in NEO are contract accounts
 
-Frozen： Determine if the account is frozen 
+Frozen: Determine if the account is frozen 
 
-Votes： Query the amount of NEO on that address used to vote
+Votes: Query the amount of NEO on that address used to vote
 
-Balance： Balance of assets at the address
+Balance: Balance of assets at the address
 
-Asset： Asset ID
+Asset: Asset ID
 
-Value： Amount of Assets
+Value: Amount of Assets
 
