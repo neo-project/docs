@@ -1,12 +1,12 @@
 # Getblockhash method
 
-Returns the hash value of the corresponding block based on the specified index.
+Returns the hash value of the corresponding block, based on the specified index.
 
 ## Parameter Description
 
-Index: block index.
+Index: Block index (block height)
 
-## Call the example
+## Example
 
 Request text:
 

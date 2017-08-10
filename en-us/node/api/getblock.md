@@ -4,11 +4,11 @@ The corresponding block information is returned according to the specified hash 
 
 ## Parameter Description
 
-Hash: block hash value.
+Hash: Block hash value.
 
-Verbose: Optional. Verbose The default value is 0. When verbose is 0, the serialized information of the block is returned. It is represented by a hexadecimal string. If you need to get detailed information, you need to call the SDK for deserialization. Verbose is 1 when the return is the corresponding block of the details, with Json format string.
+Verbose: Optional, the default value of verbose is 0. When verbose is 0, the serialized information of the block is returned, represented by a hexadecimal string. If you need to get detailed information, you will need to use the SDK for deserialization. When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
 
-## Call the example
+## Example
 
 Request text:
 
@@ -33,7 +33,7 @@ Response text:
 
 Request text:
 
-Verbose = 1, returns the result of JSON format.
+Verbose = 1, returns the result in JSON format.
 
 ```json
 {

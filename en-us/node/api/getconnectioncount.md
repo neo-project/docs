@@ -2,7 +2,7 @@
 
 Gets the current number of connections for the node.
 
-## Call the example
+## Example
 
 Request text:
 

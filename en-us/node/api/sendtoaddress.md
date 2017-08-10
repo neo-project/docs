@@ -3,25 +3,25 @@
 Transfer to the specified address.
 
 > [!Note]
-> You need to open the wallet in the Neo-CLI node before executing this command.
+> You will need to open the wallet in the Neo-CLI node, before executing this command.
 
 ## Parameter Description
 
 Asset_id: Asset ID (asset identifier), which is the transaction ID of the RegistTransaction when the asset is registered.
 
-For NEO this is: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+For NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
-For GAS this is: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+For GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../cli.md) or in the Block Chain Browser.
 
-Address: the payment address.
+Address: Payment address
 
-Value: the amount of money transferred.
+Value: Amount transferred
 
-Fee: fee, optional parameter, default is 0.
+Fee: Fee, default value is 0 (optional parameter)
 
-## Call the example
+## Example
 
 Request text:
 
@@ -80,7 +80,7 @@ Response text:
 
 Response Description:
 
-Return the transaction details above to indicate that the transaction was sent successfully, otherwise the transaction failed to send.
+Returning of the transaction details above, indicates that the transaction was sent successfully. If not, the transaction has failed to send.
 
 If the signature is incomplete, it will return the transaction to be signed.
 

@@ -1,12 +1,12 @@
 # Sendrawtransaction method
 
-This method broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../network-protocol.md).
+Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../network-protocol.md).
 
 ## Parameter Description
 
-Hex: A hexadecimal string that has been serialized after the signed transaction in the program.
+Hex: A hexadecimal string that has been serialized, after the signed transaction in the program.
 
-## Call the example
+## Example
 
 Request text:
 
@@ -31,8 +31,8 @@ Response text:
 
 Response Description:
 
-When the result is true that the current transaction broadcast success.
+When the result is true, the current transaction has been successfully broadcasted to the network.
 
-When result is false, the current transaction broadcast failure, the reasons may have a double cost, incomplete signature and so on.
+When result is false, the current transaction has failed to broadcast. There are many reasons for this, such as double spend, incomplete signature, etc.
 
-In this example, a confirmed transaction was broadcast, because the double cost so the broadcast failed.
+In this example, a confirmed transaction was already broadcasted, so the second broadcast failed due to double spend.

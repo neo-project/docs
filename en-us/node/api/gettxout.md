@@ -1,14 +1,14 @@
 # Gettxout method
 
-Returns the corresponding transaction output (change) information based on the specified hash and index.
+Returns the corresponding transaction output information (returned change), based on the specified hash and index.
 
 ## Parameter Description
 
-Txid: transaction ID.
+Txid: Transaction ID
 
-N: the index of the transaction to be obtained in the transaction (starting from 0).
+N: The index of the transaction output to be obtained in the transaction (starts from 0)
 
-## Call the example
+## Example
 
 Request text:
 

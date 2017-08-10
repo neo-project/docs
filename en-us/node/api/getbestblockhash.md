@@ -1,8 +1,8 @@
 # Getbestblockhash method
 
-Gets the hash of the tallest segment in the main chain.
+Returns the hash of the latest block in the main chain.
 
-## Call the example
+## Example
 
 Request text:
 
@@ -27,4 +27,4 @@ Response text:
 
 Response Description:
 
-Result: the hash of the most significant block in the main chain.
+Result: The hash of the latest block in the main chain.

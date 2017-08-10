@@ -1,8 +1,8 @@
 # Getrawmempool method
 
-Obtain an unrecognized transaction list in memory.
+Obtain the list of unconfirmed transactions in memory.
 
-## Call the example
+## Example
 
 Request text:
 
@@ -27,4 +27,4 @@ Response text:
 }
 ```
 
-These are the undetermined transactions received by the node, i.e. zero-confirmed transactions.
+These are the unconfirmed transactions received by nodes, i.e. transactions with zero confirmations.
