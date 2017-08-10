@@ -42,14 +42,14 @@ Response text:
   "id": 1,
   "result": {
     "Txid": "fbd69da6996cc0896691a35cba2d3b2e429205a12307cd2bdea5fbdf78dc9925"
-    "Size": 262,
+    "Size":  262,
     "Type": "ContractTransaction",
     "Version": 0,
     "Attributes":[],
     "Vin": [
       { 
         "Txid": "19fbe968be17f4bd7b7f4ce1d27e39c5d8a857bd3507f76c653d204e1e9f8e63"
-        "Vout": 0
+        "Vout":  0
       }
     ],
     "Vout": [
@@ -71,7 +71,7 @@ Response text:
     "Scripts": [
        {
         "Invocation": "40f02345c7e90245F085d0c588433ca9e89c6df58f3636b5240288aab5f081b1c67c3cad5946890de9001fcfe8d8b748b647b116891e6f1fb2393cc2f1aba45a81"
-        "Verification": "21027b30333e0d0e6552ae6d1da9f9409f551e35ee9719305e945dc4dcba998456caac"
+        "Verification":  "21027b30333e0d0e6552ae6d1da9f9409f551e35ee9719305e945dc4dcba998456caac"
         }
      ]
   }
