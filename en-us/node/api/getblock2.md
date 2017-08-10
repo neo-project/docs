@@ -54,7 +54,7 @@ Response text:
     "Hash": "4c1e879872344349067c3b1a30781eeb4f9040d3795db7922f513f6f9660b9b2",
     "Size": 686,
     "Version": 0,
-    "Previousblockhash": "53ce15a53a184faa058be9008ece887d7f0b30a459342ce42753f73f9ed390e9"
+    "Previousblockhash": "53ce15a53a184faa058be9008ece887d7f0b30a459342ce42753f73f9ed390e9",
     "Merkleroot": "9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
     "Time": 1476834896,
     "Index": 10000,

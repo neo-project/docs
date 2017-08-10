@@ -55,7 +55,7 @@ Response text:
     "Size": 686,
     "Version": 0,
     "Previousblockhash": "282293a89587d2513ae82d5baf69a4afd68b8d2ac70e80f58246bc2ca8dfea2d",
-    "Merkleroot": "2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816"
+    "Merkleroot": "2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
     "Time": 1496721145,
     "Index": 991956,
     "Nonce": "2a551c84bd408f87",
@@ -66,7 +66,7 @@ Response text:
     },
     "Tx": [
       {
-        "Txid": "2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816"
+        "Txid": "2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
         "Size": 10,
         "Type": "MinerTransaction",
         "Version": 0,
