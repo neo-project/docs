@@ -76,9 +76,9 @@ The blockchain is a distributed ledger, that records a variety of state data, an
 
 Based on the analysis above, we can easily design "unlimited scaling" in smart contract systems. All we have to do, is to set up simple rules:
 
-**(1) A smart contract can only modify the state record of the contract that it belongs to;
+(1) A smart contract can only modify the state record of the contract that it belongs to;
 
-**(2) In the same transaction batch (block), a contract can only be ran once;
+(2) In the same transaction batch (block), a contract can only be ran once;
 
 As a result, all of the smart contracts can be processed in parallel as sequential order is irrelevant to the result. However, if a "smart contract can only modify the state record of the contract that it belongs to", it implies that the contract cannot call each other. Each contract, is an isolated island; if "In the same transaction batch (block), a contract can only be ran once", this implies that a digital asset issued with a smart contract, can only handle one transaction per block. This is a world of difference with the original design goals of "smart" contracts, which cease to be "smart". After all, our design goals include both mutual call between contracts, and multiple execution of the same call, in the same block.
 
