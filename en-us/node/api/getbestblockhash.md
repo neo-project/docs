@@ -1,6 +1,6 @@
 # Getbestblockhash method
 
-Returns the hash of the latest block in the main chain.
+Returns the hash of the tallest block in the main chain.
 
 ## Example
 
@@ -27,4 +27,4 @@ Response text:
 
 Response Description:
 
-Result: The hash of the latest block in the main chain.
+Result: The hash of the tallest block in the main chain.
