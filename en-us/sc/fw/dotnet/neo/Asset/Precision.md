@@ -1,19 +1,19 @@
 # Asset.Precision property
 
-Get the accuracy of the asset (the minimum number of divisions), the number of digits after the decimal point.
+Returns the smallest division of the asset, or the number of decimal places the asset can have.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
-```
+```c#
 public extern byte Precision {get;}
 ```
 
-Attribute value: 20 byte byte array
+Attribute value: Byte array of length 20.
 
 
 
-[Return to superior](../Asset.md)
+[Back](../Asset.md)

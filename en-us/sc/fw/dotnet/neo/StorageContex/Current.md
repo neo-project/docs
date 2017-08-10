@@ -1,4 +1,4 @@
-# StorageContex.Current enumeration
+# StorageContex.Current Enumeration
 
 The storage context of the current contract.
 
@@ -24,4 +24,4 @@ Enumeration value: 1.
 
 
 
-[Return to superior](../StorageContex.md)
+[Back](../StorageContex.md)

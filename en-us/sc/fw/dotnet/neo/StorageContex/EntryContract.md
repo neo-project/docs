@@ -1,4 +1,4 @@
-# StorageContex.EntryContract enumeration
+# StorageContex.EntryContract Enumeration
 
 The storage context of the contract entry point (the starting point of the contract invocation chain).
 
@@ -9,7 +9,7 @@ Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public enum StorageContext: byte
@@ -24,4 +24,4 @@ Enumeration value: 4.
 
 
 
-[Return to superior](../StorageContex.md)
+[Back](../StorageContex.md)

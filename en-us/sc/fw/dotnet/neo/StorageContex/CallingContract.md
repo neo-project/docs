@@ -1,4 +1,4 @@
-# StorageContex.CallingContract enumeration
+# StorageContex.CallingContract Enumeration
 
 Caller's storage context.
 
@@ -9,7 +9,7 @@ Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public enum StorageContext: byte
@@ -24,4 +24,4 @@ Enumeration value: 2.
 
 
 
-[Return to superior](../StorageContex.md)
+[Back](../StorageContex.md)

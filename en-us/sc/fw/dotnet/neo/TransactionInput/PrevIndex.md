@@ -1,19 +1,19 @@
-# TransactionInput.PrevIndex property
+# TransactionInput.PrevIndex Property
 
-The cited transaction outputs the index in its all transaction output list.
+Returns the index of this input in the output list of the previous transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern ushort PrevIndex {get;}
 ```
 
-Attribute value: index number, starting from 0, unsigned short integer.
+Attribute value: Index number starting from 0 as an unsigned short integer.
 
 
 
-[Return to superior](../TransactionInput.md)
+[Back](../TransactionInput.md)

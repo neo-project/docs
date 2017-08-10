@@ -1,19 +1,19 @@
-# Asset.AssetId property
+# Asset.AssetId Property
 
-Get the ID of the asset.
+Returns the ID of the asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] AssetId {get;}
 ```
 
-Attribute value: the asset ID of the asset, that is, the transaction ID of the RegistTransaction when the registration is registered, and the 32-byte byte array.
+Attribute value: The asset ID of the asset which is the transaction ID of the RegisterTransaction. It is a byte array of length 32.
 
 
 
-[Return to superior](../Asset.md)
+[Back](../Asset.md)

@@ -1,19 +1,19 @@
-# TransactionOutput.Value property
+# TransactionOutput.Value Property
 
-Get the amount of the transaction.
+Returns the amount in the transaction output.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern long value {get;}
 ```
 
-Attribute value: transaction amount, long integer, the value is equal to the actual amount × 10 puts.
+Attribute value: Amount as a long integer, the actual value being the returned amount multipled by 100,000,000.
 
 
 
-[Return to superior](../TransactionOutput.md)
+[Back](../TransactionOutput.md)

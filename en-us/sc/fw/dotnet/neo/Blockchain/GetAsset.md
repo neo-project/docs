@@ -1,44 +1,44 @@
-# Blockchain.GetAsset method (byte[])
+# Blockchain.GetAsset Method (byte[])
 
-Find the asset in the blockchain based on the asset ID.
+Returns an asset on the blockchain given an asset ID.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public static extern Neo.SmartContract.Framework.Services.Neo.Asset GetAsset (byte[] asset_id)
 ```
 
-Parameters: Asset ID, 32 bytes of byte array.
+Parameters: Asset ID as a byte array of length 32.
 
-Return Value: Asset, [Asset](../Asset.md) Type.
+Return Value: [Asset](../Asset.md).
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-    public static void Main ()
+    public static void Main()
     {
         // Take the NEO shares as an example
         byte[] asset = {197, 111, 51, 252, 110, 207, 205, 12, 34, 92, 74, 179, 86, 254, 229, 147, 144, 175, 133, 96, 190, 147, 15, 174, 190, 116, 166, 218, 255, 124, 155};
-        Asset ass = Blockchain.GetAsset (asset);
+        Asset ass = Blockchain.GetAsset(asset);
     }
 }
 ```
 
-Where asset can be obtained in advance from the outside, can also be passed as a parameter into the smart contract. The following is the external code in the call to the ID of the asset ID hexadecimal string into a byte array.
+The asset ID can be obtained in advance and passed in as a parameter into smart contracts. The following uses the SDK to covert the hexstring into a byte array.
 
 ```c#
-Static void Main (string[] args)
+Static void Main(string[] args)
 {
-    byte[] asset = Neo.Helper.HexToBytes ("c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b");
+    byte[] asset = Neo.Helper.HexToBytes("c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b");
 }
 ```
 
 
 
-[Return to superior](../Blockchain.md)
+[Back](../Blockchain.md)

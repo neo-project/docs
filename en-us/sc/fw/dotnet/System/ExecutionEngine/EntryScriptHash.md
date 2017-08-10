@@ -1,19 +1,19 @@
-# ExecutionEngine.EntryScriptHash property
+# ExecutionEngine.EntryScriptHash Property
 
-Get the script hash of the entry point of the smart contract (the starting point of the contract call chain).
+Returns the scripthash of the entry points of the contract(in the contract invocation chain)
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] EntryScriptHash {get;}
 ```
 
-Attribute value: script hash, 33 bytes byte array.
+Attribute value: Scripthash as a byte array of length 33.
 
 
 
-[Return to superior](../ExecutionEngine.md)
+[Back](../ExecutionEngine.md)
