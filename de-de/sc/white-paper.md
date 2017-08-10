@@ -68,8 +68,9 @@ Die Blockchain ist eine dezentralisierte Datenbank. Sie enthält eine Vielzahl v
 
 Basierend auf dieser Analyse können wir ohne Umstände unlimitierte Skalierbarkeit in Smart Contract Systeme implementieren. Dafür müssen lediglich folgende simple Regeln festgelegt werden:
 
-**(1) Ein Smart Contract kann ausschließlich die Zustandsdaten des Contracts zu dem er zugehörig ist verändern.** 
-**(2) Ein Contract kann in ein und derselben Transaktion-Batch (Block) nur einmal ausgeführt werden.**
+(1) Ein Smart Contract kann ausschließlich die Zustandsdaten des Contracts zu dem er zugehörig ist verändern.
+
+(2) Ein Contract kann in ein und derselben Transaktion-Batch (Block) nur einmal ausgeführt werden.
 
 Folglich können Smart Contracts parallel abgewickelt werden, da sequentielle Ordnung irrelevant für das Resultat ist. Durch die Bedingung „Ein Smart Contract kann ausschließlich die Zustandsdaten des Contracts zu dem er zugehörig ist verändern“ wird allerdings impliziert, dass Contracts sich nicht aufeinander beziehen können. Jeder Contract ist bildlich gesprochen eine isolierte Insel. Die Bedingung „Ein Contract kann in ein und derselben Transaktion-Batch (Block) nur einmal ausgeführt werden“ impliziert, dass ein digitales Asset das durch einen Smart Contract emittiert wird lediglich eine Transaktion pro Block handhaben kann. Dies steht allerdings in krassem Kontrast zu der ursprünglichen Ideologie von Smart Contracts. Immerhin inkludieren die designierten Ziele von NEO sowohl die mögliche Interaktion zwischen Smart Contracts als auch die mehrfache Ausführung desselben Aufrufs, im selben Block. 
 
