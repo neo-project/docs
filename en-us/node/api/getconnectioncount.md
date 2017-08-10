@@ -8,10 +8,10 @@ Request text:
 
 ```json
 {
-   "jsonrpc": "2.0",
-   "method": "getconnectioncount",
-   "params":[],
-   "id": 1
+   "jsonrpc": "2.0",
+   "method": "getconnectioncount",
+   "params":[],
+   "id": 1
 }
 ```
 
@@ -20,7 +20,7 @@ Response text:
 ```json
 {
    "jsonrpc": "2.0",
-   "id": 1,
-   "result": 10
+   "id": 1,
+   "result": 10
 }
 ```

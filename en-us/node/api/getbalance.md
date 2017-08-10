@@ -36,8 +36,8 @@ Response text:
   "id": 1,
   "result": {
   "Balance": "1.01",
-  "Confirmed": "1.01"
-  }
+  "Confirmed": "1.01"
+  }
 }
 ```
 
