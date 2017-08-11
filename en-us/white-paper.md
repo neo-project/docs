@@ -98,7 +98,7 @@ It can be said that the "single bookkeeping" model has chosen anonymity, to achi
 
 * **Use fiat currency as currency**
 
-There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currency is a good exchange medium, users can, through Bitcoin, engage is global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by fiat currency, but it is not very successful and has a narrow range of applications.
+There are three core functions of money: exchange medium, accounting units and value storage. Bitcoin and other encrypted digital currencies are a good exchange medium, users can, through Bitcoin, engage in global circulation of value. However, the general inelasticity of encrypted digital assets brings high volatility, thus failing to realize the full currency function of the accounting unit and the value store. BitShares, Nubits and other systems are trying to design a stable encrypted digital currency that is anchored by fiat currency, but it is not very successful and has a narrow range of applications.
 
 NEO will use fiat as its internal currency.
 
@@ -106,9 +106,9 @@ NEO will use fiat as its internal currency.
 
 In the original design of the original Bitcoin is flatness. All nodes are involved in: accounting (mining), storage of complete historical data, broadcasting transactions. There is no division of labor. However, in practice, specializations in Bitcoin slowly appeared. Accounting (mining) evolved from the idea of ​​the "one CPU one vote" to the use of GPU, FPGA (ready-made programmable gate array) and ASIC (ASIC) of the mining machine. At present, devices other than ASIC computing devices can not economically carry out mining. The accounting node has been fully specialized.
 
-The historical data  of the past seven years amounting to dozens of GBs has also become a storage burden. Many ordinary users are no longer willing to  store full historical data of the whole node, but instead use the web wallet, off-chain wallet and so on. Despite the various calls to run the whole node , the number of nodes continues to decline.
+The historical data  of the past seven years amounting to dozens of GBs has also become a storage burden. Many ordinary users are no longer willing to store full historical data of the whole node, but instead use the web wallet, off-chain wallet and so on. Despite the various calls to run the whole node, the number of nodes continues to decline.
 
-In NEO, our design goal is to make the whole system to have a clear division of labor. The accounting node is most important role of the NEO blockchain, tasked by NEO holders to produce blocks and reach a common consensus. Full nodes form the main part of the NEO blockchain network, usually ran by companies providing external services. These nodes save the complete historical data, listen to and broadcast transactions. Ordinary users are running light nodes or act as clients. Ordinary users ,through the browser or mobile app, can access the eco-system of NEO service providers, only to synchronize and save their own data. Since the NEO blockchain uses a weak trust-based joint accounting system, every block contains the digital signature of the billing node. Ordinary users can check the current block without downloading full historical data. We think that this model is condusive to the realization of "everyone's digital assets," the NEO vision.
+In NEO, our design goal is to make the whole system have a clear division of labor. The accounting node is the most important role of the NEO blockchain, tasked by NEO holders to produce blocks and reach a common consensus. Full nodes form the main part of the NEO blockchain network, usually ran by companies providing external services. These nodes save the complete historical data, listen to and broadcast transactions. Ordinary users are running light nodes or act as clients. Ordinary users, through the browser or mobile app, can access the eco-system of NEO service providers, only to synchronize and save their own data. Since the NEO blockchain uses a weak trust-based joint accounting system, every block contains the digital signature of the billing node. Ordinary users can check the current block without downloading full historical data. We think that this model is condusive to the realization of "everyone's digital assets," the NEO vision.
 
 It should be noted that the weak trust is not the trust of a single accounting node, but trusting that the group of nodes will not collude; This is not trusting a shifting centralised body, but rather, a decentralised way of independently voting who to trust.
 
@@ -116,23 +116,23 @@ It should be noted that the weak trust is not the trust of a single accounting n
 
 * **Low latency, high throughput, pluggable**
 
-Scalability is a major factor in the fight between blockchain technology and traditional methods . In order to achieve design goals of anti-audit and trustless, Bitcoin selected Proof of Work as its consensus mechanism. However, this also brought high latency, low throughput performance problems. NEO uses a consensus mechanism that relies on weak trust and also creating specialized accounting nodes, ensuring low latency, high throughput. The consensus mechanism of the NEO guarantees to a large degree, the list of professional accounting nodes, thus achieving low latency and high throughput.
+Scalability is a major factor in the fight between blockchain technology and traditional methods. In order to achieve design goals of anti-audit and trustless, Bitcoin selected Proof of Work as its consensus mechanism. However, this also brought high latency, low throughput performance problems. NEO uses a consensus mechanism that relies on weak trust and also creating specialized accounting nodes, ensuring low latency, high throughput. The consensus mechanism of the NEO guarantees to a large degree, the list of professional accounting nodes, thus achieving low latency and high throughput.
 
 At present, block time of NEO is manually limited to 15 seconds. In the future, when the latency between the billing nodes is low enough, most of the blocks are expected to be completed in 1 second. With about 100Mbit / s bandwidth and specialized hardware for cryptographic calculation, NEO is able handle thousands of thousands of transactions per second.
 
-In addition, NEO is designed to be modular. Users can change the consensus mechanism, ECC / hash algorithm, P2P network protocol and other modules. At the same time, by viewing NEO as voting rights in a organization, NEO can be easily transformed into enterprise / private chain. Business organizations can conduct proof-of-concept on the NEO public chain and, if necessary, quickly migrate to the enterprise / private chain model; conversely, the businesses can start using NEO in a private chain and if needed, quickly migrate onto the public chain without repercussions.
+In addition, NEO is designed to be modular. Users can change the consensus mechanism, ECC / hash algorithm, P2P network protocol and other modules. At the same time, by viewing NEO as voting rights in an organization, NEO can be easily transformed into enterprise / private chain. Business organizations can conduct proof-of-concept on the NEO public chain and, if necessary, quickly migrate to the enterprise / private chain model; conversely, the businesses can start using NEO in a private chain and if needed, quickly migrate onto the public chain without repercussions.
 
 * **Hierarchical design and superconducting transactions**
 
-In order to support a variety of assets, multi-type transactions at the same time to achieve good scalability, layered design is essential. Ripple, BitShares, NXT, etc all are blockchains of decentralized functionality but without layered design.The blockchain itself acts as the ledger and transaction matcher. In such a blockchain, pending orders, withdraw orders, matching and other operations are recorded on the blockchain. This design has many drawbacks:
+In order to support a variety of assets, multi-type transactions at the same time to achieve good scalability, layered design is essential. Ripple, BitShares, NXT, etc all are blockchains of decentralized functionality but without layered design. The blockchain itself acts as the ledger and transaction matcher. In such a blockchain, pending orders, withdraw orders, matching and other operations are recorded on the blockchain. This design has many drawbacks:
 
 * Pending orders, withdrawal orders need to wait for block confirmation, this large delay results in a poor experience
 
 * Pending orders, withdrawal orders need to pay transaction fees and also increase the storage and bandwidth consumption
 
-* Due to the it existing on an exchange, the order of transactions becomes extremely important. By aligning the order book and the transaction matching at the blockchain level, the accounting node is given larger power. The accounting node can sort the trade, choose, and have the front-running capability according to its wishes.
+* Due to it existing on an exchange, the order of transactions becomes extremely important. By aligning the order book and the transaction matching at the blockchain level, the accounting node is given larger power. The accounting node can sort the trade, choose, and have the front-running capability according to its wishes.
 
-Although NEO support the exchange of assets on the chain, the blockchain itself does not provide order book and order matching functionality. The chain is only responsible for the execution and settlement of the transaction. Our hierarchical design puts the order book and matching function on the second layer, through a mechanism called "superconducting" to achieve a complete transaction function.
+Although NEO supports the exchange of assets on the chain, the blockchain itself does not provide order book and order matching functionality. The chain is only responsible for the execution and settlement of the transaction. Our hierarchical design puts the order book and matching function on the second layer, through a mechanism called "superconducting" to achieve a complete transaction function.
 
 Under the superconducting transaction, the two parties do not need to host the property to an intermediary (traditional exchange). Users only need send to the exchange an order signed with their private keys. After the exchange matches the buyer and seller orders and broadcast transactions is the transaction complete. From beginning to end, property does not leave the user's control, putting an end to the traditional moral hazard. Exchange under the superconducting trading mechanism only plays the role of information matching.
 
@@ -142,27 +142,27 @@ In the superconducting trading mechanism, because the user has absolute control,
 
 #### Crowdfunding and equity trading
 
-The NEO blockchain can be used for crowdfunding. The company raising funds can still go through various fund-raising platforms to complete the fund-raising, but the it can utilize the immutability of NEO blockchain publish its public documents. After the crowdfunding, the company can use the NEO to distribute the shares to the large number of investors, avoiding cumbersome paper instruments and offline labor. The share on the chain a liquid asset, the user can carry out point-to-point equity transactions through NEO. Compliant trading exchanges can also utilize NEO, providing non-listed companies equity trading services. Through NEO, start-up companies can obtain market valuation, equity liquidity,users obtain access to the exit mechanism to solve the difficult problems of exiting an crowdfunding.
+The NEO blockchain can be used for crowdfunding. The company raising funds can still go through various fund-raising platforms to complete the fund-raising, but they can utilize the immutability of NEO blockchain to publish their public documents. After the crowdfunding, the company can use the NEO to distribute the shares to the large number of investors, avoiding cumbersome paper instruments and offline labor. The share on the chain a liquid asset, the user can carry out point-to-point equity transactions through NEO. Compliant trading exchanges can also utilize NEO, providing non-listed companies equity trading services. Through NEO, start-up companies can obtain market valuation, equity liquidity, and users obtain access to the exit mechanism to solve the difficult problems of exiting an crowdfunding.
 
 In addition, the NEO can also facilitate the management of the amount of money raised through crowdfunding. In recent years, countries have introduced the relevant laws and regulations on crowdfunding. These laws and regulations tend to restrict investors in eligibility, investment and other specific provisions. For example, the JOBS Act Title III, which came into force in April 2016, provides for a maximum of $ 100,000 for a single investor's maximum annual investment share. Through the NEO can facilitate the regulation on the total amount of limited control.
 
 #### Employee holdings and capital structure management
 
-Companies that use the Employee Stock Ownership Plan (ESOP) and who needs cap table management can use NEO to carry out equity management. Some of the companies in the United States have already purchased a centric service provider like eShares to carry out the electronic management of the cap table, but the centralized system has many drawbacks. For example, eShares is a single point of failure.If ever eShares service is down or blacklisted, then the equity information of companies using eShares is at stake.
+Companies that use the Employee Stock Ownership Plan (ESOP) and need cap table management can use NEO to carry out equity management. Some of the companies in the United States have already purchased a centric service provider like eShares to carry out the electronic management of the cap table, but the centralized system has many drawbacks. For example, eShares has a single point of failure. If ever eShares service is down or blacklisted, then the equity information of companies using eShares are at stake.
 
-Block-based technology is more economical and more secure than such a central system. There is no single point of failure, thus companies using it do not have to worry. The smart contract function gives the company a flexible to transfer control or ownership. The company can limit the equity to be held only by designated by the employees and investors, you can set the flexibility to allow the transfer of shares or the proportion of transactions. For example, you can set up to allow employees to transfer up to 10% of their own shares each year.
+Block-based technology is more economical and more secure than such a central system. There is no single point of failure, thus companies using it do not have to worry. The smart contract function gives the company a flexible tool to transfer control or ownership of equity. The company can limit the equity to be held only by designated by the employees and investors, you can set the flexibility to allow the transfer of shares or the proportion of transactions. For example, you can set up to allow employees to transfer up to 10% of their own shares each year.
 
 At present, the solution for the consulting firm that provides ESOP solutions is still accomplished through paper instruments. Through NEO, such consulting firms can provide customers with a powerful tool for digitally managing equity.
 
 #### P2P loans
 
-P2P loan platform using NEO can solve many existing problems such as information opacity, incomplete information, debt liquidity and so on.
+P2P loan platforms using NEO can solve many existing problems such as information opacity, incomplete information, debt liquidity and so on.
 
-First of all, the existing model of P2P loan platform internal database is the creditor's only source of claims, in the event of hacker tampering, data corruption, platform collapse and other events, it is difficult for creditors to prove their case. In the 2015-2016, the wave of collapses of China P2P lending platform has exposed this risk. Once creditors find that out that the platforms are unavailable, they are in the situation where they are unable to prove their claims.
+First of all, the existing model of P2P loan platform internal database is the creditor's only source of claims, in the event of hacker tampering, data corruption, platform collapse and other events, it is difficult for creditors to prove their case. In the 2015-2016, the wave of collapses of China's P2P lending platform has exposed this risk. Once creditors find out that the platforms are unavailable, they are in the situation where they are unable to prove their claims.
 
 Second, the P2P loan platform for the borrower's credit limit is often limited to the platform itself. For example, a platform, through the credit process, finds out that the borrower's repayment capacity of 100,000 yuan, then the borrower's credit limit on the platform is 10 million. But this can not prevent the borrower in the n platform for borrowing, bear n x 10 million in debt. The general ledger feature of NEO blockchain allows the P2P loan platforms to share the borrower's credit line. This is similar to how NEO can be used to control the amount of equity an investor can buy.
 
-Finally, by using NEO to record P2P loan claims, the claims become transferable, collateral, and even programmable. Creditor's rights can not only be transferred within the platform, but also cross-platform, increasing it's liquidity. With creditor's rights becoming transferable, long-term debts become more attractive. Users buy long-term debt without worries, enjoy high interest rates, without fear of emergency. Through the transfer function of NEO , long-term bonds can be discounted or mortgaged.
+Finally, by using NEO to record P2P loan claims, the claims become transferable, collateral, and even programmable. Creditor's rights can not only be transferred within the platform, but also cross-platform, thus increasing it's liquidity. With creditor's rights becoming transferable, long-term debts become more attractive. Users buy long-term debt without worries, enjoy high interest rates, without fear of emergency. Through the transfer function of NEO, long-term bonds can be discounted or mortgaged.
 
 In addition, the use of NEO to manage the equity of the enterprises can even use the NEO to mortgage equity or issue corporate bonds.
 
@@ -170,7 +170,7 @@ In addition, the use of NEO to manage the equity of the enterprises can even use
 
 Airlines, operators, banks, restaurants and many other commercial institutions will issue their own points. Through a point system, companies encourage the retention of users and multiple consumption.
 
-The database of issuing organizations are data silos (information silo). Organization A can not obtain information of the points system of another organization in a trustless manner, so it is difficult to achieve points interoperability between the two. The distribution of points through the NEO blockchain can be disclosed transparently and is credibly accessible by anyone, limiting the powers of the issuer. The user's exchange needs and the market maker's profit-making will form a variety of points in the trading market, activate the hidden potential in this system.
+The database of issuing organizations are data silos (information silo). Organization A can not obtain information of the points system of another organization in a trustless manner, so it is difficult to achieve points interoperability between the two. The distribution of points through the NEO blockchain can be disclosed transparently and is credibly accessible by anyone, limiting the powers of the issuer. The user's exchange needs and the market maker's profit-making will form a variety of points in the trading market, thus activating the hidden potential in this system.
 
 #### Supply chain finance
 
@@ -178,7 +178,7 @@ Supply chain finance covers a wide range of business models and links, from the 
 
 #### Others
 
-Digital asset functions can also be used distribute shares, financial proofs, etc .; digital confirmations can be used as receipts, agreements; Decentralizaion functions can be used for large-scale commodity exchanges, and foreign exchanges.
+Digital asset functions can also be used to distribute shares, financial proofs, etc.; digital confirmations can be used as receipts, agreements; Decentralizaion functions can be used for large-scale commodity exchanges, and foreign exchanges.
 
 ### Legal Status
 
@@ -194,7 +194,7 @@ Ants built-in KYC (user identity) and AML (anti-money laundering) interface prog
 
 ### System assets and fees
 
-There are two built-in system assets: NEO and GAS. NEO represent the ownership of the blockchain, which is used for electoral accounting, to obtain GAS dividends, etc. GAS represents the right to use the blockchain, and are used to pay fees of various systems on the chain.
+There are two built-in system assets: NEO and GAS. NEO represent the ownership of the blockchain, which is used for electoral accounting, to obtain GAS dividends, etc. GAS represents the right to use the blockchain, and is used to pay fees of various systems on the chain.
 
 #### System cost
 
@@ -378,7 +378,7 @@ Election account: see the accounting mechanism
 
 #### Transaction fees
 
-Transaction costs are divided into accounting fees and additional service fees, are paid in GAS. Specific in the "(b) economic model" chapter to be explained, not repeat them.
+Transaction costs are divided into accounting fees and additional service fees, and are paid in GAS. Specific in the "(b) economic model" chapter to be explained, not repeat them.
 
 ### Accounting mechanism
 
