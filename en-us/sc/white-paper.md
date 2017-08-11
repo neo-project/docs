@@ -10,7 +10,7 @@ In 2014, a teenager called Vitalik Buterin released Ethereum, which provides a c
 
 NEO blockchain is a digital asset and application platform, which provides a new smart contract system, NeoContract. At the core of the Neo platform, the network provides multiples functions such as digital asset capabilities, NeoAsset, and digital identity, NeoID, allowing users to easily engage in digital businesses, and are no longer limited to just the issuance of native tokens on the blockchain.
 
-This article will introduce featues of NeoContract and explore non-technical details. Please refer to the technical documentation for technical details: docs.neo.org.
+This article will introduce featues of NeoContract and explore non-technical details. Please refer to the technical documentation for technical details: [docs.neo.org](http://docs.neo.org).
 
 ## 2. Features
 
@@ -28,21 +28,25 @@ Obtaining system-time is a very common system function, that may be heavily appl
 
 Many smart contract programs, such as gambling contracts and small games, use random number functions. However, random number functions is a typical non-deterministic function, and each system-call will obtain different results. In a distributed system, there are many ways to solve this problem: Firstly, the same random seed can be used for all nodes, so that the return sequence of the entire random function is deterministic, but this method exposes the entire random result in advance, greatly reducing the the practical value of the random number. Another possible solution, is to let all nodes communicate in a collaborative way to generate random numbers. This can be achieved by using cryptographic techniques to produce a fair random number, but the disadvantage lies in the very poor performance, and need for additional communication overhead. A centralized random number provider can be used to generate random numbers which guarantees consistency and performance, but the drawback of this approach is obvious; Users will have to unconditionally trust the centralized number provider.
 
-There are two ways to generate a random number in NEO: 1) When each block is generated, the consensus node will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any bock, by referencing the Nonce field; 2) The contract program can use the hash value of the block as a random number generator, because the block hash value has certain inherent randomness. This method can be used to obtain a weak random number.
+There are two ways to generate a random number in NEO:
+
+1. When each block is generated, the consensus node will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any bock, by referencing the Nonce field
+
+2. The contract program can use the hash value of the block as a random number generator, because the block hash value has certain inherent randomness. This method can be used to obtain a weak random number
 
 #### 2.1.3 Data Source
 
 If a program obtains data at run-time, it might become a non-deterministic program if the data source provides non-deterministic data. For example, using different search engines to obtain the top 10 search results for a particular keyword, may yield different results, in various sort orders, if different IP addresses are used.
 
-For smart contracts, NEO provides two types of deterministic data sources:：
+For smart contracts, NEO provides two types of deterministic data sources:
 
-**(1) Blockchain Ledger**
+1. **Blockchain Ledger**
 
-The contract procedure can access all data on the entire chain chain through interoperable services, including complete blocks and transactions, and each of their fields. The data on the blocks are deterministic and consistent, so they can be securely accessed by smart contracts.
+   The contract procedure can access all data on the entire chain chain through interoperable services, including complete blocks and transactions, and each of their fields. The data on the blocks are deterministic and consistent, so they can be securely accessed by smart contracts.
 
-**(2) Contract Storage Space**
+2. **Contract Storage Space**
 
-Each contract deployed on the NEO network, has a private storage area that can only be accessed by the contract itself. NEO consensus mechanism ensures consistency of the storage status, of each node in the network.
+   Each contract deployed on the NEO network, has a private storage area that can only be accessed by the contract itself. NEO consensus mechanism ensures consistency of the storage status, of each node in the network.
 
 For situations where access to non-blockchain data is required, NEO does not provide a direct way to interact with these data. Non-blockchain data will have to be transferred to the NEO blockchain using transactions, and subsequently translated into the either of the aforementioned data sources, in order to become accessible by the smart contracts.
 
@@ -66,9 +70,9 @@ The blockchain is a distributed ledger, that records a variety of state data, an
 
 Based on the analysis above, we can easily design "unlimited scaling" in smart contract systems. All we have to do, is to set up simple rules:
 
-+(1) A smart contract can only modify the state record of the contract that it belongs to;
+ * **A smart contract can only modify the state record of the contract that it belongs to**
 
-+(2) In the same transaction batch (block), a contract can only be ran once;
+ * **In the same transaction batch (block), a contract can only be ran once**
 
 As a result, all of the smart contracts can be processed in parallel as sequential order is irrelevant to the result. However, if a "smart contract can only modify the state record of the contract that it belongs to", it implies that the contract cannot call each other. Each contract, is an isolated island; if "In the same transaction batch (block), a contract can only be ran once", this implies that a digital asset issued with a smart contract, can only handle one transaction per block. This is a world of difference with the original design goals of "smart" contracts, which cease to be "smart". After all, our design goals include both mutual call between contracts, and multiple execution of the same call, in the same block.
 
@@ -104,41 +108,34 @@ The function contract must be pre-deployed to the chain to be invoked, and remov
 
 NeoVM provides a virtual hardware layer, to support the execution of smart contracts, including:
 
-**(1) CPU**
+ * **CPU**
 
-CPU is responsible for reading and sequentially order the execution of instructions in the contract, according to the function of the instruction flow control, arithmetic operations, logic operations. The future of the CPU function can be extended, with the introduction of JIT (real-time compiler) function, thereby enhancing the efficiency instruction execution. 
+ CPU is responsible for reading and sequentially order the execution of instructions in the contract, according to the function of the instruction flow control, arithmetic operations, logic operations. The future of the CPU function can be extended, with the introduction of JIT (real-time compiler) function, thereby enhancing the efficiency instruction execution. 
 
-**(2) Call Stack**
+ * **Call Stack**
 
-The call stack is used to hold the context information of the program execution at each function call, so that it can continue to execute in the current context after the function has finished executing and returning.
+   The call stack is used to hold the context information of the program execution at each function call, so that it can continue to execute in the current context after the function has finished executing and returning.
 
-**(3) Calculate Stack**
+ * **Calculate Stack**
 
-All of NeoVM run-time data are stored in the calculation stack, when after the implementation of different instructions, the stack will be calculated on the corresponding data elements of the operation. For example, when additional instructions are executed, the two operations participating in the addition are ejected from the calculation stack, and the result of the addition is pushed to the top of the stack. Function call parameters must also be calcuated from right to left, according to the order of the stack. After the function is successfully exectued, the top of the stack fetch-function returns the value.
+   All of NeoVM run-time data are stored in the calculation stack, when after the implementation of different instructions, the stack will be calculated on the corresponding data elements of the operation. For example, when additional instructions are executed, the two operations participating in the addition are ejected from the calculation stack, and the result of the addition is pushed to the top of the stack. Function call parameters must also be calcuated from right to left, according to the order of the stack. After the function is successfully exectued, the top of the stack fetch-function returns the value.
 
-**(4) Spare Stack**
+ * **Spare Stack**
 
-When you need to schedule or rearrange elements in the stack, you can temporarily store the elements in the spare stack and retrieve them in the future.
+  When you need to schedule or rearrange elements in the stack, you can temporarily store the elements in the spare stack and retrieve them in the future.
 
 ### 4.2 Instruction set
 
 NeoVM provides a set of simple, and practical instructions for building smart contract programs. According to functions, the main categories are as follows:
 
-(1) Constant instruction
-
-(2) Process control instruction
-
-(3) Stack operation instruction
-
-(4) String instruction
-
-(5) Logic instruction
-
-(6) Arithmetic operation instruction
-
-(7) Cryptographic instruction
-
-(8) Data operation instruction
+ * Constant instruction
+ * Process control instruction
+ * Stack operation instruction
+ * String instruction
+ * Logic instruction
+ * Arithmetic operation instruction
+ * Cryptographic instruction
+ * Data operation instruction
 
 It is worth noting that the NeoVM instruction set provides a series of cryptographic instructions, such as ECDSA, SHA and other algorithms to optimize the implementation efficiency of cryptographic algorithms in smart contracts. In addition, data manipulation instructions directly support arrays and complex data structures.
 
@@ -168,9 +165,8 @@ Java is widely used, and Kotlin has recently become the official Google recommen
 
 Afterwards, NeoContract will addd support for other high-level languages, based on the degree of difficulty, in the complier development process. Some of the lanaguages that may be supported, include:
 
-(1) C, C++, GO
-
-(2) Python, JavaScript
+ * C, C++, GO
+ * Python, JavaScript
 
 In the future, we will continue to add more high-level language support. Our goal is to see more than 90% of NEO developers developing with NeoContract, without needing to learn a new language, and even possibly transfer existing business system code directly onto the blockchain.
 
@@ -180,13 +176,10 @@ In the future, we will continue to add more high-level language support. Our goa
 
 NEO Smart Contracts can obtain complete block data for the NEO blockchain, including complete blocks and transactions, and each of their fields, at runtime, through the system functions provided by the interoperable service. Specifically, you can query these data:
 
-(1) Height of the blockchain；
-
-(2) Block head, current block；
-
-(3) Transactions；
-
-(4) Type of transaction, attributes, input, output, etc；
+ * Height of the blockchain
+ * Block head, current block
+ * Transactions
+ * Type of transaction, attributes, input, output, etc
 
 Through these data, you can develop some interesting applications, such as automatic dividends, smart contracts based upon proof of workload.
 
@@ -194,25 +187,19 @@ Through these data, you can develop some interesting applications, such as autom
 
 Through the interoperable services provided by the digital asset interface, smart contracts not only can query the NEO blockchain on properties and statistics of various digital assets, but also, create new digital assets during its run-time. Digital assets created by smart contracts can be issued, transferred, traded outside of the contract. They are the same as original assets on NEO, and can be managed with any NEO-compatible, wallet software. These specific interface includes:
 
-(1) Asset attribute inquiry；
-
-(2) Asset statistics query；
-
-(3) Asset life cycle management: create, modify, destroy, etc；
-
-(4) Asset management: multi-language name, total change, precision change, changes in the adminstrator；
+ * Asset attribute inquiry
+ * Asset statistics query
+ * Asset life cycle management: create, modify, destroy, etc
+ * Asset management: multi-language name, total change, precision change, changes in the adminstrator
 
 ### 6.3 Persistence
 
 Each smart contract program deployed on the NEO blockchain, will have a private storage area that can only be read and written by the contract itself. Smart contracts have full operational permissions on the data in its own store: can be read, written, modified, deleted. The data is stored in the form of key-value pairs and provides these interfaces:
 
-(1) Traverse all the records stored；
-
-(2) Return to a specific record according to the specified key；
-
-(3) Modify or write new records according to the specified key;
-
-(4) Delete the record according to the specified key;
+ * Traverse all the records stored
+ * Return to a specific record according to the specified key
+ * Modify or write new records according to the specified key
+ * Delete the record according to the specified key
 
 In general, a contract can only read and write data from its own store, with one exception: when a contract is invoked, the invoked contract can access the caller's store through a cross-domain request, provided that the caller provides authorization. In addition, for a sub-contract that is dynamically created at the time of contract execution, the parent contract gets instant access to its store.
 
@@ -234,7 +221,10 @@ For most simple contracts, they can be executed for free, so long as the executi
 
 ### 8.1 Superconducting Transactions
 
-Digital assets on the blockchain inherently require soome form of liquidity, and usually point-to-point transactions can not provide sufficient liquidity, therefore there is a need for exchanges to provide users, with trading services. Digital assets exchanges can be broadly divided into two categories: 1) Central exchanges, where the user needs to deposit the digital assets with the exchange, and subsequent place pending orders for trading, on the website 2) Decentralized exchanges, where its trading system is built into the blockchain, and the system provides the matching services.
+Digital assets on the blockchain inherently require soome form of liquidity, and usually point-to-point transactions can not provide sufficient liquidity, therefore there is a need for exchanges to provide users, with trading services. Digital assets exchanges can be broadly divided into two categories:
+
+1. **Central exchanges**, where the user needs to deposit the digital assets with the exchange, and subsequent place pending orders for trading, on the website
+2. **Decentralized exchanges**, where its trading system is built into the blockchain, and the system provides the matching services.
 
 Centralized exchanges can provide very high performance and diversified services, but need to have a strong credit guarantee, otherwise there will be moral hazards; such as misappropriation of user funds, fraud, etc. Comparatively, decentralized exchange have no moral hazard, but the user experience is poor, and there is greater performance bottleneck. Is there a way to combine both solutions and achieve the best of both worlds?
 
