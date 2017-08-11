@@ -152,9 +152,9 @@ Data Type
    + RegisterTransaction
 
       > [!Warning]
-      Has been deactived and replaced by Neo.Blockchain.CreateAsset for the smart contract.
+      Has been deactived and replaced by Neo.Asset.Create for the smart contract.
 
-      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Blockchain/CreateAsset.md)
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Asset/Create.md)
 
       View [Alternative Smart Contract API](../sc/api/neo.md)
 
@@ -165,9 +165,9 @@ Data Type
    + PublishTransaction
 
       > [!Warning]
-      Has been deactivated and replaced by Neo.Blockchain.CreateContract for the smart contract.
+      Has been deactivated and replaced by Neo.Contract.Create for the smart contract.
 
-      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Blockchain/CreateContract.md)
+      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Contract/Create.md)
 
       View [Alternative Smart Contract API](../sc/api/neo.md)
 
