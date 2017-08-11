@@ -1,3 +1,27 @@
+# NeoContract White Paper
+
+## 1. Preface
+
+Smart contracts refer to any computer program which can automatically execute the terms of its preprogrammed contract. The idea of smart contract was first proposed by the cryptographer Nick Szabo in 1994, making it as old as the Internet itself. Due to the lack of a reliable execution environment, smart contracts have not been widely used.
+
+In 2008, a man under the name of Satoshi Nakamoto released Bitcoin, and outlined the foundational concepts of a blockchain. Within the Bitcoin blockchain, Nakamoto uses a set of scripting languages to help users gain more flexbility in controlling their personal accounts and the transfer process, which eventually became the embryonic form of a chain-based, smart contract system.
+
+In 2014, a teenager called Vitalik Buterin released Ethereum, which provides a chain-based, Turing-complete, smart contract system that can be used to create a variety of decentralized blockchain applications.
+
+NEO blockchain is a digital asset and application platform, which provides a new smart contract system, NeoContract. At the core of the Neo platform, the network provides multiples functions such as digital asset capabilities, NeoAsset, and digital identity, NeoID, allowing users to easily engage in digital businesses, and are no longer limited to just the issuance of native tokens on the blockchain.
+
+This article will introduce featues of NeoContract and explore non-technical details. Please refer to the technical documentation for technical details: docs.neo.org.
+
+## 2. Features
+
+### 2.1 Certainty
+
+If a program is running on different computers, or at different times on the same computer, the behaviour of the program is deterministic if the same input is guaranteed to produce the same output, and vice versa.
+
+Blockchain is a multi-party storage, and computational method, where the data within this distributed system is the result of reliable calculations, that cannot be tampered with. Smart contracts operates within the multi-node, distributed blockchain network. If a smart contract is non-deterministic, the results of different nodes may be inconsistent. As a result, consensus between the nodes cannnot be reached, and the network becomes stagnnant. Therefore, in the design of a smart contract system, there is a need to rule out any factors which may lead to non-deterministic behaviour.
+
+#### 2.1.1 Time
+
 Obtaining system-time is a very common system function, that may be heavily applied in certain time-sensitive contract procedures. However, obtaining system-time is a non-deterministic system function, and it is difficult to obtain a unified, precise time in a distributed system, as the results of different nodes will be inconsistent. NeoContract provides a block-based system-call that treats the entire blockchain, as a timestamp server, and obtains the timestamp whenever a new block is generated. On average, NEO network generates a new block every 15 seconds, so the contract runs at approximately the same time as the latest block-time, plus-minus 15 seconds. 
 
 #### 2.1.2 Randomness
@@ -42,9 +66,9 @@ The blockchain is a distributed ledger, that records a variety of state data, an
 
 Based on the analysis above, we can easily design "unlimited scaling" in smart contract systems. All we have to do, is to set up simple rules:
 
-**(1) A smart contract can only modify the state record of the contract that it belongs to;
++(1) A smart contract can only modify the state record of the contract that it belongs to;
 
-**(2) In the same transaction batch (block), a contract can only be ran once;
++(2) In the same transaction batch (block), a contract can only be ran once;
 
 As a result, all of the smart contracts can be processed in parallel as sequential order is irrelevant to the result. However, if a "smart contract can only modify the state record of the contract that it belongs to", it implies that the contract cannot call each other. Each contract, is an isolated island; if "In the same transaction batch (block), a contract can only be ran once", this implies that a digital asset issued with a smart contract, can only handle one transaction per block. This is a world of difference with the original design goals of "smart" contracts, which cease to be "smart". After all, our design goals include both mutual call between contracts, and multiple execution of the same call, in the same block.
 
