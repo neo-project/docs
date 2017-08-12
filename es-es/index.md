@@ -38,7 +38,7 @@ El ecosistema es la vitalidad de la comunidad de código abierto. Para lograr el
 
 **Kit de Desarrollo SDK **
 
-*** Soporta Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
+* Soporta Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
 **Compilador de Contratos Inteligentes y Plugin IDE**
 * C# / VB.Net / F#, Visual Studio
