@@ -1,19 +1,19 @@
-# Account.ScriptHash property
+# Account.ScriptHash Property
 
-Obtain the scripting hash of the contract account.
+Obtain the scripthash of the contract account.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] ScriptHash {get;}
 ```
 
-Attribute value: 20 bytes of byte array.
+Attribute value: Byte array of length 20.
 
 
 
-[Return to superior](../Account.md)
+[Back](../Account.md)

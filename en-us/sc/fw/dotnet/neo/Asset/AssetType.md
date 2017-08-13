@@ -1,6 +1,6 @@
-# Asset.AssetType property
+# Asset.AssetType Property
 
-Get the category of the asset.
+Returns the type of the asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern byte AssetType {get;}
 ```
 
-Attribute value: the enumeration value of the asset class (not the enumeration name), the enumeration of the asset class is defined as follows:
+Attribute value: The enumeration value of the asset class (not the enumeration name).
+
+The enumeration of the asset class is defined as follows:
 
 ```c#
 public enum AssetType: byte
@@ -30,5 +32,4 @@ public enum AssetType: byte
 ```
 
 
-
-[Return to superior](../Asset.md)
+[Back](../Asset.md)

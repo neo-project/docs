@@ -1,34 +1,34 @@
-# Block.GetTransaction method (int)
+# Block.GetTransaction Method (int)
 
-Obtain the transaction specified in the current block by index.
+Returns the transaction specified in the current block by index.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction (int index)
+public extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction(int index)
 ```
 
-Parameters: the index of the transaction in the block, the integer.
+Parameters: the index of the transaction in the block as an integer.
 
-Return Value: Transaction, [Transaction](../Transaction.md) Type.
+Return Value: Transaction as a [Transaction](../Transaction.md) Type.
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         Block block = Blockchain.GetBlock (997027);
-         Transaction tx = block.GetTransaction (0);
+         Block block = Blockchain.GetBlock(997027);
+         Transaction tx = block.GetTransaction(0);
      }
 }
 ```
 
 
 
-[Return to superior](../Block.md)
+[Back](../Block.md)

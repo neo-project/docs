@@ -1,9 +1,9 @@
-# System namespace
+# System Namespace
 
-The System namespace is the API provided by the Smart Contract Execution Engine (NeoVM), which provides access to the execution environment that accesses the smart contract.
+The System namespace is the API provided by the Smart Contract Execution Engine (NeoVM), which provides access to the execution environment that is executing the smart contract.
 
-## class
+## Class
 
 | | Class | Description |
 | ---------------------------------------- | ---------------------------------------- | -------------------------- |
-[ExecutionEngine](System/ExecutionEngine.md) | The execution engine of the virtual machine can get the current contract Callers and Execute Containers
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [ExecutionEngine](System/ExecutionEngine.md) | Represents the execution engine of the virtual machine, allowing access to the caller of the contract and the execution container. |

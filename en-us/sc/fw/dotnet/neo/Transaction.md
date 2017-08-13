@@ -1,12 +1,12 @@
-# Transaction class
+# Transaction Class
 
-Used to represent the base class of the transaction.
+Used to represent the base class of a transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public class Transaction: IScriptContainer
@@ -14,20 +14,20 @@ public class Transaction: IScriptContainer
 
 ## Attributes
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | --------------------------- | ------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Transaction/Hash.md) | Get Hash |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Type](Transaction/Type.md) | Get the current type of transaction    |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Transaction/Hash.md) | Returns the hash of the transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Type](Transaction/Type.md) | Returns the type of the transaction |
 
-## method
+## Methods
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-(Get/getAttributes.md) | Query all properties of the current transaction |
-(Get/WriteInputs.md) | Query all transaction inputs for the current transaction ([ TransactionIntput](TransactionInput.md)) |
-(Get/Letoutputs.md) | Query all transaction output for current transaction ([ TransactionOutput](TransactionOutput.md)) |
-[GetReferences ()](Transaction/GetReferences.md) | Query all the input of the current transaction referenced by the [...] [quote_rightRe_us] Transaction output
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAttributes()](Transaction/GetAttributes.md) | Returns all attributes of the transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetInputs()](Transaction/GetInputs.md)  | Returns all [TransactionInput](TransactionInput.md) of the transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetOutputs()](Transaction/GetOutputs.md) | Returns all [TransactionOutput](TransactionOutput.md) of the transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetReferences()](Transaction/GetReferences.md) | Returns all outputs referenced by the inputs of the transaction |
 
-## Construction method
+## Constructor
 
-Constructs a Transaction object via [Blockchain.GetTransaction (byte[])](Blockchain/GetTransaction.md).
+The Transaction object is constructed through [Blockchain.GetTransaction(byte[])](Blockchain/GetTransaction.md).

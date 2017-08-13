@@ -1,19 +1,19 @@
-# Account.Votes property
+# Account.Votes Property
 
-Get the voting information of the contract account to other people.
+Returns the information on the votes that this account has casted for others.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[][] Votes {get; set;}
 ```
 
-Attribute value: an array of public keys to which the account is cast, where the public key is a byte array of 33 bytes in length.
+Attribute value: An array of public keys of accounts voted for, where the public key is a byte array of length 33.
 
 
 
-[Return to superior](../Account.md)
+[Back](../Account.md)
