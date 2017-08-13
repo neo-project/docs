@@ -104,7 +104,7 @@ NEO will use fiat as its internal currency.
 
 * **Node division and specialization**
 
-In the original design of the original Bitcoin is flatness. All nodes are involved in: accounting (mining), storage of complete historical data, broadcasting transactions. There is no division of labor. However, in practice, specializations in Bitcoin slowly appeared. Accounting (mining) evolved from the idea of ​​the "one CPU one vote" to the use of GPU, FPGA (ready-made programmable gate array) and ASIC (ASIC) of the mining machine. At present, devices other than ASIC computing devices can not economically carry out mining. The accounting node has been fully specialized.
+In the original design of the original Bitcoin is flatness. All nodes are involved in: accounting (mining), storage of complete historical data, broadcasting transactions. There is no division of labor. However, in practice, specializations in Bitcoin slowly appeared. Accounting (mining) evolved from the idea of ​​the "one CPU one vote" to the use of GPU, FPGA (ready-made programmable gate array) and ASIC (Application-specific Integrated Circuit) of the mining machine. At present, devices other than ASIC computing devices can not economically carry out mining. The accounting node has been fully specialized.
 
 The historical data  of the past seven years amounting to dozens of GBs has also become a storage burden. Many ordinary users are no longer willing to store full historical data of the whole node, but instead use the web wallet, off-chain wallet and so on. Despite the various calls to run the whole node, the number of nodes continues to decline.
 
