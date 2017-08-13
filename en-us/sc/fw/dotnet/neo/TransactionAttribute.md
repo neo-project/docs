@@ -1,12 +1,12 @@
-# TransactionAttribute class
+# TransactionAttribute Class
 
-The data structure used to represent the transaction characteristics.
+The data structure representing the transaction attributes.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public class TransactionAttribute: IApiInterface
@@ -14,11 +14,11 @@ public class TransactionAttribute: IApiInterface
 
 ## Attributes
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | -------------------------------------- | ----------------- |
-[Data](TransactionAttribute/Data.md) | Get additional data other than the use of the transaction feature. |[][](Https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) |
-| [Usage](TransactionAttribute/Usage.md) | Get the purpose of this transaction feature |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Data](TransactionAttribute/Data.md)   | Returns data outside of the purpose of transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Usage](TransactionAttribute/Usage.md) | Returns data related to the purpose of the transaction       |
 
-## Construction method
+## Constructor
 
-The TransactionAttribute object is constructed by the [GetAttributes ()](Transaction/GetAttributes.md) method of the Transaction object.
+The TransactionAttribute object is constructed through [GetAttributes ()](Transaction/GetAttributes.md) of Translation object.

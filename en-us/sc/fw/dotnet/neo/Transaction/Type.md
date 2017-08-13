@@ -1,20 +1,20 @@
-# Transaction.Type property
+# Transaction.Type Property
 
-Get the type of current transaction.
+Returns the transaction type.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte Type {get;}
 ```
 
-Attribute value: the type of transaction, byte.
+Attribute value: Transaction type as a byte.
 
-Attribute value Description:
+Types:
 
 ```c#
 // consensus transaction, special transaction for allocating byte charges
@@ -39,4 +39,4 @@ InvocationTransaction = 0xd1
 
 
 
-[Return to superior](../Transaction.md)
+[Back](../Transaction.md)

@@ -1,19 +1,19 @@
-# TransactionOutput.AssetId property
+# TransactionOutput.AssetId Property
 
-Obtain the asset ID in the transaction output.
+Returns the asset ID of the transaction output.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] AssetId {get;}
 ```
 
-Attribute value: asset ID, 32 bytes byte array.
+Attribute value: Asset ID as a byte array of length 32.
 
 
 
-[Return to superior](../TransactionOutput.md)
+[Back](../TransactionOutput.md)

@@ -1,19 +1,19 @@
-# Asset.Issuer property
+# Asset.Issuer Property
 
-Obtain the issuer (contract address) of the asset, the issuer has the right to carry out the issuance of assets.
+Returns the issuer (contract address) of the asset. The issuer has the right to issue assets.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] Issuer {get;}
 ```
 
-Attribute value: 20 bytes of byte array.
+Attribute value: Byte array of length 20.
 
 
 
-[Return to superior](../Asset.md)
+[Back](../Asset.md)

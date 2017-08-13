@@ -26,6 +26,8 @@
         href: sc/tutorial/Lock2.md
       - name: コントラクト呼び出し
         href: sc/tutorial/call.md
+    - name: テスト
+      href: sc/test.md
     - name: ホワイトペーパー
       href: sc/white-paper.md
     - name: APIリファレンス

@@ -1,19 +1,19 @@
 # TransactionInput.PrevHash property
 
-The transaction of the quoted transaction is a hash.
+Returns the transaction hash of the referenced previous transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] Hash {get;}
 ```
 
-Attribute value: transaction hash, 32 bytes byte array.
+Attribute value: Transaction hash as a byte array of length 32.
 
 
 
-[Return to superior](../TransactionInput.md)
+[Back](../TransactionInput.md)

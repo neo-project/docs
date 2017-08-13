@@ -1,19 +1,19 @@
-# Asset.Amount property
+# Asset.Amount Property
 
-Get the total amount of the asset.
+Returns the total amount of the asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern long Amount {get;}
 ```
 
-Attribute value: the total amount of the asset, long plastic, the value equal to the actual amount × 10 puts.
+Attribute value: The total amount of the asset as a long, the value being the actual amount multipled by 10,000,000.
 
 
 
-[Return to superior](../Asset.md)
+[Back](../Asset.md)
