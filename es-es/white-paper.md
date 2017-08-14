@@ -191,7 +191,7 @@ Las funciones de activos digitales también se pueden utilizar para distribuir a
 
 (Para ser revisado)
 
-NEO no tiene un pago universal en términos de una moneda original. AntShare no es una especie de moneda digital, sino un acuerdo en cadena de bloques, [Editar: esto es confuso: porque no hay disputa monetaria legal, no hay cinco ministerios "en la prevención de notificación de riesgos de la bitcoin" que se refiere a la moneda virtual, con bancos, agencias de pago].
+NEO no tiene un pago universal en términos de una moneda original. NEO no es una especie de moneda digital, sino un acuerdo en cadena de bloques, [Editar: esto es confuso: porque no hay disputa monetaria legal, no hay cinco ministerios "en la prevención de notificación de riesgos de la bitcoin" que se refiere a la moneda virtual, con bancos, agencias de pago].
 
 Los usuarios individuales y las organizaciones pueden ser certificados por el organismo de certificación autorizado por el gobierno. El registro del patrimonio en la cadena es firmado electrónicamente por una empresa certificada con un nombre real. La cesión y negociación de las acciones son realizadas por el cedente, el cesionario y la sociedad. Antes de la firma de las tres partes, la Compañía tiene la obligación de asegurar que la transferencia y la transacción de las acciones estén en consonancia con las disposiciones de la Ley de Sociedades Anónimas, que se requieren para obtener el consentimiento original de los accionistas originales, el derecho de los accionistas originales a la suscripción y la limitación del número de accionistas. La naturaleza de la transferencia de capital y la transacción es un contrato electrónico en el que las partes están involucradas en firmas electrónicas.
 
@@ -202,27 +202,27 @@ NEO ha incorporado KYC (identidad de usuario) y AML (anti-lavado de dinero). Pag
 
 ### Activos y tasas del sistema
 
-Existen dos activos integrados en el sistema: NEO y AntCoins. NEO representa la propiedad de la cadena de bloque, que se utiliza para la contabilidad electoral, para obtener dividendos de AntCoins, etc. Las AntCoins representan el derecho de usar la cadena de bloque, y se utilizan para pagar los honorarios de varios sistemas en la cadena.
+Existen dos activos integrados en el sistema: NEO y GAS. NEO representa la propiedad de la cadena de bloque, que se utiliza para la contabilidad electoral, para obtener GAS, etc. Las GAS representan el derecho de usar la cadena de bloque, y se utilizan para pagar los honorarios de varios sistemas en la cadena.
 
 #### Coste del sistema
 
-Escribir datos en la cadena de bloqueos requiere el pago de una pequeña cantidad de AntCoins como costo del sistema, que se divide en dos categorías:
+Escribir datos en la cadena de bloqueos requiere el pago de una pequeña cantidad de GAS como costo del sistema, que se divide en dos categorías:
 
   **La cuota de contabilidad (bookkeeping) cobrada por el contador**
   
-  Cuando se escribe una transacción en la cadena de bloques, la transacción generalmente requiere algunas AntCoins como
+  Cuando se escribe una transacción en la cadena de bloques, la transacción generalmente requiere algunas GASs como
   tasa por la cuenta. La comisión contable es cargada por el contador para subsidiar el almacenamiento, el ancho de banda 
   y el gasto del nodo de contabilidad. 
   
   Si la tasa se cobra, y cuánto se cobra, es determinado por los contadores. Una transacción puede ser libre, siempre y
   cuando más de 2/3 de los contadores están dispuestos a escribir la transacción. Por lo tanto, las organizaciones que
   utilizan NEO masivamente pueden pagar a los bookkeepers con _currency offchain_, reduciendo la necesidad de
-  pagar con AntCoins.
+  pagar con GAS.
   
   **Cargos adicionales para los titulares de NEO**
 
   Los cargos por servicios adicionales se refieren al costo de usar la cadena de bloques de NEO para completar 
-  ciertas funciones avanzadas y se pagan con AntCoins. Los tipos de transacciones que actualmente requieren cargos 
+  ciertas funciones avanzadas y se pagan con GAS. Los tipos de transacciones que actualmente requieren cargos 
   por servicios adicionales son: la creación de activos, el registro de candidatos. Se requerirán tasas adicionales 
   para actualizaciones futuras, tales como cambios de activos, cancelaciones de activos y congelación de activos.
 
@@ -240,17 +240,15 @@ Un total de 100 millones de NEO, que representan la propiedad de la cadena. 100 
 El principal uso de las acciones de NEO:
 
 * Voto para elegir al contador.
-* Obtener AntCoins generadas por nuevos bloques.
-* Obtener cargos de servicio adicionales para AntCoins.
+* Obtener GAS generadas por nuevos bloques.
+* Obtener cargos de servicio adicionales para GAS.
 * Votar para decidir el asunto de la cadena de bloques de NEO.
 
-#### AntCoins
+#### GAS
 
-AntCoins, abreviado como ANC.
+Un total de 100 millones de GAS se producirá, representando el derecho a utilizar la cadena. La GAS se generará con la formación de cada nuevo bloque, de acuerdo con una tasa decreciente de generación, que llevará alrededor de 22 años para que la cantidad de GAS crezca de 9 a 100 millones.
 
-Un total de 100 millones de ANC se producirá, representando el derecho a utilizar la cadena. La AntCoin se generará con la formación de cada nuevo bloque, de acuerdo con una tasa decreciente de generación, que llevará alrededor de 22 años para que la cantidad de ANC crezca de 9 a 100 millones.
-
-El objetivo principal de las AntCoins son:
+El objetivo principal de las GAS son:
 
 * Pagar los honorarios de pago de la cadena de bloques de NEO.
 * Pagar una tarifa de servicio adicional para la cadena de la pequeña área del bloque.
@@ -274,14 +272,14 @@ Los primeros partidarios, los participantes del ICO 1 y las acciones de NEO asig
 
 #### El mecanismo de lanzamiento de NEO
 
-Las AntCoins se producen con la generación de cada nuevo bloque. La cantidad inicial de AntCoins es cero y crecerá hasta el límite total de 100 millones después de aproximadamente 22 años. El intervalo entre cada bloque de NEO es de unos 15 segundos, aproximadamente 2 millones de bloques se generan en un año.
+Las GAS se producen con la generación de cada nuevo bloque. La cantidad inicial de GAS es cero y crecerá hasta el límite total de 100 millones después de aproximadamente 22 años. El intervalo entre cada bloque de NEO es de unos 15 segundos, aproximadamente 2 millones de bloques se generan en un año.
 
 En el primer año (Bloque No. 0 - No. 2,000,000), cada bloque generará 8 ANC; en el segundo año (Bloque No. 2.000.000 - 
 No. 4.000.000), cada bloque generará 7 ANC; la cantidad de ANC generado disminuye en 1 cada año hasta el año 8 donde cada bloque genera solo 1 ANC. A partir de entonces, la tasa se mantiene constante hasta alrededor de 22 años en el bloque de 44 millones, la cantidad total de ANC alcanza los 100 millones, momento en el que dejarán de generarse ANC.
 
 Según esta curva, el 16% de las ANC se creará en el primer año, el 52% se creará al final del cuarto año, el 72% de las ANC al final del octavo año.
 
-Las ANC se distribuirán proporcionalmente a las direcciones ANS correspondientes. Los titulares de AntShare pueden reclamar estas ANC en cualquier momento. Por ejemplo, si alguien tiene el 1% de la red completa, el usuario podrá obtener 8/100 = 0.08 AntCoins por bloque por aproximadamente 460.8 AntCoins al día.
+Las ANC se distribuirán proporcionalmente a las direcciones ANS correspondientes. Los titulares de AntShare pueden reclamar estas ANC en cualquier momento. Por ejemplo, si alguien tiene el 1% de la red completa, el usuario podrá obtener 8/100 = 0.08 GAS por bloque por aproximadamente 460.8 GAS al día.
 
 
 ## Arquitectura de la tecnología
@@ -348,7 +346,7 @@ Los activos del bloque NEO pueden dividirse en activos del sistema y activos emi
 
 #### Activos del sistema
 
-Los activos del sistema incluyen NEO y las AntCoins. NEO representa la propiedad del sistema, las AntCoins representan el derecho a utilizar el sistema. La forma específica de NEO y las AntCoins se ha descrito en el capítulo "(b) el modelo económico" y no se repetirá.
+Los activos del sistema incluyen NEO y las GAS. NEO representa la propiedad del sistema, las GAS representan el derecho a utilizar el sistema. La forma específica de NEO y las GAS se ha descrito en el capítulo "(b) el modelo económico" y no se repetirá.
 
 #### Activos emitidos por el usuario
 
@@ -402,7 +400,7 @@ Cuenta electoral: véase el mecanismo contable
 
 #### Tarifas de transacción
 
-Los costos de transacción se dividen en comisiones de contabilidad y cargos por servicios adicionales, que se pagan en AntCoins. Se especifican en el capítulo del "modelo económico", no se repetirán.
+Los costos de transacción se dividen en comisiones de contabilidad y cargos por servicios adicionales, que se pagan en GAS. Se especifican en el capítulo del "modelo económico", no se repetirán.
 
 ### Mecanismo de contabilidad
 
