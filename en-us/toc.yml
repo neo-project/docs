@@ -2,8 +2,6 @@
   href: index.md
 - name: Getting Started
   href: getting-started.md
-- name: Whitepaper
-  href: white-paper.md
 - name: NEO Node
   href: node/introduction.md
   items:
