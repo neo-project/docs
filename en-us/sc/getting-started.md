@@ -15,7 +15,7 @@ This section contains a short tutorial that guides you in configuring the C# dev
 
 ### 1. Visual Studio 2017
 
-If you have already installed Visual Studio 2017 on your computer and checked for .NET .NET Cross-Platform Development at the time of installation, you can skip this section.
+If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
 
 Download and install:
 

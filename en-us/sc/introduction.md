@@ -28,4 +28,4 @@ The languages that we plan to support include:
 
 With multiple-language support, more than 90% of developers can directly participate in the development of an NEO smart contract without the need to learn a new language. Existing business system code might even be directly ported to the blockchain. We envision that this will greatly increase the overall popularity of the future blockchain.
 
-Additionally, traditional smart contracts are difficult to debug and test given lack of tool support. NEO, however, provide support for debugging at the NEO virtual machine level, allowing you to develep NEO Smart Contract 2.0 both easier and faster.
+Additionally, traditional smart contracts are difficult to debug and test given lack of tool support. NEO, however, provide support for debugging at the NEO virtual machine level, allowing you to develop NEO Smart Contract 2.0 both easier and faster.
