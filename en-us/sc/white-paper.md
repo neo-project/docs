@@ -186,7 +186,7 @@ NEO Smart Contracts can obtain complete block data for the NEO blockchain, inclu
  * Transactions
  * Type of transaction, attributes, input, output, etc.
 
-Through these data, you can develop some interesting applications, such as automatic dividends, smart contracts based upon proof of workload.
+Through these data, you can develop some interesting applications, such as automatic payouts, smart contracts based upon proof of workload.
 
 ### 6.2 Digital Assets
 
