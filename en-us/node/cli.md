@@ -89,9 +89,9 @@ If you are not sure of the asset ID, please enter the list asset command to view
 
 Command | Function Description |
 | ---------- | ----------------------- |
-Show state | Displays the current status of blockchain synchronization
-Show node | Displays the address and port of connected nodes |
-Show pool | Display the transactions in the memory pool (These transactions are in the state of zero confirmation)
+show state | Displays the current status of blockchain synchronization
+show node | Displays the address and port of connected nodes |
+show pool | Display the transactions in the memory pool (These transactions are in the state of zero confirmation)
 ## 4. Advanced instructions
 
 Command | Function Description |

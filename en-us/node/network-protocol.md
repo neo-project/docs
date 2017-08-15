@@ -262,7 +262,7 @@ Checksum is the first 4 bytes of the value that two times SHA256 hash of the Pay
 
 According to different orders Payload has different detailed format, see below:
 
-1. Version
+1. version
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -278,19 +278,19 @@ According to different orders Payload has different detailed format, see below:
 
    When a node receives a connection request, it declares its version immediately. There will be no other communication until both sides are getting versions of each other.
 
-1. Verack
+1. verack
 
    When a node receives the version message, it replies with a verack immediately.
 
    This message has no payload.
 
-1. Getaddr
+1. getaddr
 
    Make requests to a node for a batch of new active nodes in order to increase the number of connections.
 
    This message has no payload.
 
-1. Addr
+1. addr
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -298,7 +298,7 @@ According to different orders Payload has different detailed format, see below:
 
    After receiving the getaddr message, the node returns an addr message as response and provides information about the known nodes on the network.
 
-1. Getheaders
+1. getheaders
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -307,7 +307,7 @@ According to different orders Payload has different detailed format, see below:
 
    Make requests to a node for at most 2000 blocks’ header packages that contain HashStart to HashStop. To get the block hash after that, you need to resend the getheaders message. This message is used to quickly download the blockchain which does not contain the transactions.
 
-1. Headers
+1. headers
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -315,7 +315,7 @@ According to different orders Payload has different detailed format, see below:
 
    After receiving the getheaders message, the node returns a header message as response and provides information about the known nodes on the network.
 
-1. Getblocks
+1. getblocks
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -324,7 +324,7 @@ According to different orders Payload has different detailed format, see below:
 
    Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get block hash more than that, you need to resend getblocks message.
 
-1. Inv
+1. inv
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -347,7 +347,7 @@ According to different orders Payload has different detailed format, see below:
    |0x02|Block|Block|
    |0xe0|Consensus|Consensus data|
 
-1. Getdata
+1. getdata
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -355,7 +355,7 @@ According to different orders Payload has different detailed format, see below:
 
    To request a specified object from a node: It is usually sent after the inv packet is received and the known element removed.
 
-1. Block
+1. block
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -363,7 +363,7 @@ According to different orders Payload has different detailed format, see below:
 
    Sending a block to a node, to respond to the getdata message.
 
-1. Tx
+1. tx
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
