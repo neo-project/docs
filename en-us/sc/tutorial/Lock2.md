@@ -100,7 +100,7 @@ After replacing the two variables, compile the contract to get a Lock.avm file.
 
 ## Deploy lock Contract
 
-To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilise the C# code below to read the .avm to get the bytecode.
+To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilize the C# code below to read the .avm to get the bytecode.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
