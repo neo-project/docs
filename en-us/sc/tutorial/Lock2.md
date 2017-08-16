@@ -21,15 +21,15 @@ PS: At this point of time, the latest **test network client** download is: [Neo 
 
 This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
 
-! [] (~ / Images / 2017-07-04_11-59-35.png)
+![](https://github.com/neo-project/docs/blob/master/images/2017-07-04_11-59-35.png)
 
 ## Get the public key
 
 The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
 
-! [] (~ / Images / 2017-07-06_18-28-31.png)
+![](https://github.com/neo-project/docs/blob/master/images/2017-07-06_18-28-31.png)
 
-> [! Caution]
+> :warning:
 > Please note that do not divulge the private key, remember to pixelate.
 
 Here we write a local program to turn the public key into a byte array, C# code is as follows:
