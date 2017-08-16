@@ -36,10 +36,9 @@ El ecosistema es la vitalidad de la comunidad de código abierto. Para lograr el
 
 **Explorador de Cadena de Bloques**
 
+**Kit de Desarrollo SDK **
 
-*Kit de Desarrollo SDK 
-
-*** Soporta Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
+* Soporta Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
 **Compilador de Contratos Inteligentes y Plugin IDE**
 * C# / VB.Net / F#, Visual Studio
@@ -78,7 +77,7 @@ Distribución de NEO:
 
 Los 100 millones de fichas de NEO se dividen en dos partes. La primera parte es de 50 millones de fichas distribuidas proporcionalmente entre los partidarios de NEO durante la recolección de fondos. Esta parte ya ha sido distribuida.
 
-La segunda parte es de 50 millones de NEO administrada por el Consejo de NEO para sostener el desarrollo de NEO a largo plazo, su operación y mantenimiento y su ecosistema. El NEO en esta parte tiene un período de bloqueo de 1 año y se desbloqueará solo después del 16 de octubre de 2017. Esta parte no entrará en los intercambios y servirá únicamente para el apoyo a largo plazo de los proyectos de NEO.fLos planes para ello son los siguientes:
+La segunda parte es de 50 millones de NEO administrada por el Consejo de NEO para sostener el desarrollo de NEO a largo plazo, su operación y mantenimiento y su ecosistema. El NEO en esta parte tiene un período de bloqueo de 1 año y se desbloqueará solo después del 16 de octubre de 2017. Esta parte no entrará en los intercambios y servirá únicamente para el apoyo a largo plazo de los proyectos de NEO. Los planes para ello son los siguientes:
 
 * 10 millones de fichas (10% en total) se utilizarán para incentivar a los desarrolladores de NEO y miembros del Consejo de NEO.
 * 10 millones de fichas (10% en total) se utilizarán para incentivar a los desarrolladores en el ecosistema NEO.
@@ -125,9 +124,6 @@ dBFT combina la tecnología de identidad digital, lo que significa que los conta
 El sistema de contrato inteligente de NEO consta de tres partes:
 
 **NeoVM - Máquina Virtual de Cadena de Bloques Universal:**
-
-
-
 
 NeoVM es una máquina virtual ligera y de uso general cuya arquitectura es muy cercana a la JVM y al .NET Runtime, similar a una CPU virtual que lee y ejecuta instrucciones en el contrato en secuencia, realiza el control del proceso con base en la funcionalidad de las operaciones de instrucción, operaciones lógicas y así sucesivamente. Tiene una buena velocidad de arranque y versatilidad, es muy adecuado para programas pequeños como contratos inteligentes, también puede ser llevado a otros sistemas que no sean de cadena de bloques en la escena, o integrado con el IDE para proporcionar una experiencia óptima de desarrollo. La funcionalidad de NeoVM puede extenderse, como mediante la introducción de un mecanismo JIT (compilador en tiempo real), mejorando así la eficiencia de la implementación.
 

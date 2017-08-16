@@ -91,7 +91,7 @@ Runtime class API:
 
 | API                            | 说明                                |
 | ------------------------------ | --------------------------------- |
-| Neo.Runtime.CheckWitness | `New` Verifies that the calling contract has verified the required scripthashes of the transaction/block |
+| Neo.Runtime.CheckWitness | `New` Verifies that the calling contract has verified the required script hashes of the transaction/block |
 | Neo.Runtime.Notify       | `New` Notifies the client with a notification during smart contract execution      |
 | Neo.Runtime.Log          | `New` Notifies the client with a log message during smart contract execution      |
 
