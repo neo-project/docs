@@ -51,8 +51,10 @@
   items:
     - name: 介绍
       href: sc/introduction.md
-    - name: 如何开始
-      href: sc/getting-started.md
+    - name: 如何开始（C#）
+      href: sc/getting-started-c#.md
+    - name: 如何开始（Java）
+      href: sc/getting-started-java.md
     - name: 教程
       href: sc/tutorial.md
       items: 
