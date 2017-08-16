@@ -12,11 +12,11 @@ In the smart contract deployment or invocation, you need to specify the paramete
          /// Signature
          /// </summary>
          Signature = 0,
-         Boolean = 1,
+         Boolean = 2,
          /// <summary>
          /// Integer
          /// </summary>
-         Integer = 2,
+         Integer = 1,
          /// <summary>
          /// 160-bit hash value
          /// </summary>
