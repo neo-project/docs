@@ -9,7 +9,7 @@ typora-root-url: ..\..
 此部分包含简短的教程，可指导你配置 NEO 智能合约的 C# 开发环境，并使你了解如何创建智能合约项目，以及如何编译。
 
    > [!Note]
-   > 目前 NEO 的所有项目已经升级到了 Visual Studio 2017 版本，如果用你想使用 Visual Studio 2015 创建智能合约可以参考 [如何用 C# 编写 NEO 智能合约 for VS2015](getting-started-2015.md)
+   > 目前 NEO 的所有项目已经升级到了 Visual Studio 2017 版本，如果你电脑中安装的是 Visual Studio 2015，请升级。
 
 ## 开发工具
 
