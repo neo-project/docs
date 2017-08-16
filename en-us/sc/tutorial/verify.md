@@ -38,16 +38,16 @@ Create a new wallet according to the tutorial shown below:
 
 ## Obtaining the contract script
 
-There are many ways to abtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
+There are many ways to obtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
 string str = System.Text.Encoding.Default.GetString(bytes);
 ```
 
-If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to abtain the contract code:
+If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to obtain the contract code:
 
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
+Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in figure. Copy this down again.
 
 ![Obtaining the contract script](~/images/2017-07-06_11-43-46.png)
 
