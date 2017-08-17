@@ -298,8 +298,7 @@ GAS는 새로운 블록마다 생성되며, 네오 소유자들의 주소에 기
 
 ![image](http://docs.neo.org/images/gui/Z.png)
 
-유념하실 부분은 자산을 등록하는 데에는 많은 수수료가 듭니다. (메인 넷 수수료는 10000GAS이며 테스트 넷은 100NEO입니다). 주의하시길 바랍니다. 
-It should be noted that the registration of assets require a huge amount of fees. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
+유념하실 부분은 자산을 등록하는 데에는 많은 수수료가 듭니다. (메인 넷 수수료는 10000GAS이며 테스트 넷은 100NEO입니다). 주의하시길 바랍니다.
 
 ### 자산 배분 (Distribute assets)
 
