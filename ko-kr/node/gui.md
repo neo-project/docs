@@ -70,148 +70,149 @@
 
 네오 블록체인 내에 사용자가 발행한 자산을 생성할 수 있습니다. 사용자는 자산의 형태, 이름, 총량을 정의할 수 있고 해당 자산의 관리자 계정을 설정할 수 있습니다. 이런 자산을 만든 때는 수수료로 일정양의 NEO를 소모되며, 현재 가격은 10,000GAS입니다. (테스트 네트워크 요금은 메인 네트워크 요금의 1%입니다)
 
-#### Distribute assets
+#### 자산 배분 (Distribute assets)
+
+자산을 만든 사람이 정한 총 자산 한계 내에서, 사용자는 특정 주소로 자산을 발행(issue)할 수 있습니다. 자산 배분에는 스몰 코인(GAS)으로 지불되는 수수료가 필요한데, 현재 수수료는 500GAS입니다. (테스트 넷의 수수료는 메인 넷 수수료의 1%입니다.) 
 
 Within the upper limits of the total amount set by the asset creator, the asset is issued to the address specified by the issuer. Distribution of assets consumes a certain amount of small coins as an additional service fee, the current price is 500 GAS. (Test network fee is one percent of the main network)
 
-#### Election
+#### 선거 (Election)
 
-Those who want to be a NEO validator are required to register by election. Through the deposit of a certain amount of NEO, the validator qualifications can be obtained. This function is not currently supported. Please wait for further updates.
+네오 검증자(NEO validator)가 되고 싶은 사람들은 선거에 등록해야 합니다. 일정량의 보증금을 NEO로 냄으로써 검증자의 자격을 취득할 수 있습니다. 현재 이 기능은 적용되고 있지 않으며 추후 업데이트 될 것입니다.
 
-#### Vote
+#### 투표 (Vote)
 
-The holders of NEO can vote on the validator candidates and determine the validator based on the voting results. This function is not currently supported. Please wait for further updates.
+네오를 소유한 사람들은 검증자 후보들에 대한 투표권을 가지게 되며, 이 투표 결과에 따라 검증자가 결정됩니다. 현재 이 기능은 적용되고 있지 않으며 추후 업데이트 될 것입니다.
 
-#### Broadcast
+#### 광역 전송 (네트워크에 뿌리기, Broadcast)
 
-After signing, the transaction information is broadcasted to the entire network, where confirmation by a node, completes the transaction. At the moment, this feature only appears in the signature.
+서명을 완료한 후 해당 전송 정보는 전체 네트워크에 뿌려지며, 노드에 의해 확인됨으로써 전송이 완료됩니다. 그 때 이 기능은 서명을 통해 나타납니다(appear).
 
-#### Monitor address
+#### 주소 모니터 (Monitor address)
 
-After importing the address of the other party as the monitoring address, you will be able to view the assets at that address.
+상대방의 주소를 모니터링 목적으로 가져오기를 하면, 사용자는 해당 주소의 자산을 볼 수 있습니다.
 
-## Wallet
-### Create the wallet database
+## 지갑 (Wallet)
+### 지갑 데이터베이스 만들기 (Create the wallet database)
 
-(1) Click on the `wallet`, `create the wallet database`, pop-up `new wallet` page.
+(1) ‘지갑(Wallet)’을 클릭하고 ‘지갑 데이터베이스 만들기(create the wallet database)’를 클릭하면 ‘새지갑(new wallet)’페이지가 나타납니다.
 
 ![image](http://docs.neo.org/images/gui/b.png)
 
-(2) Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
+(2) ‘탐색(Browse)’를 클릭 한 후 지갑 파일이 저장될 위치를 선택합니다. 그리고 파일 이름을 정한 후 ‘저장(Save)’를 클릭합니다.
 
 ![image](http://docs.neo.org/images/gui/c.png)
 
-(3) Enter `password` and `repeat password` and save your own password.
+(3) ‘패스워드(password)’를 입력한 후 ‘패스워드 재입력(repeat password)’을 한 다음 저장하면 여러분 자신만의 패스워드가 생성됩니다. 
 
 ![image](http://docs.neo.org/images/gui/d.png)
 
-(4) Click `OK`, and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the assets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
+(4) ‘Ok’를 클릭하면 지갑이 성공적으로 생성되며, 디폴트 값으로 표준 계정도 같이 만들어 집니다. 유념하실 부분은 체인지 메커니즘의 역할 때문에, 디폴트 값으로 자산의 나머지 부분은 처음 주소로 이전됩니다. 그렇기 때문에 해당 프라이빗 키와 지갑을 백업해두어야 합니다. 
 
-### Open the wallet database
-(1) Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
+### 지갑 데이터베이스 열기 (Open the wallet database)
+(1)	매번 클라이언트가 실행될 때마다, 사용자는 ‘지갑 파일 열기(open wallet database)’를 클릭해서 지갑을 열어야 합니다. 다음 그림을 참고하세요 :
 
 ![image](http://docs.neo.org/images/gui/e.png)
 
-(2) Click `Browse 'to select the wallet (usually the default is the last open wallet), enter the password, click `OK` to enter the wallet.
-It should be noted that when the wallet displays an error, you can try to choose in the "repair mode" to open the wallet.
+(2) ‘탐색(Browse)’를 클릭하고(디폴트 값은 가장 최근에 사용한 지갑 파일입니다) 패스워드를 입력한 후 ‘Ok’를 누르면 지갑이 열립니다. 유념하실 부분은 지갑에서 에러가 표시되면 ‘리페어 모드(repair mode)’를 고르세요.
 
-### Change Password
+### 패스워드 변경 (Change Password)
 
-Can be used to modify the wallet password.
+지갑의 패스워드를 변경합니다.
 
 ![image](http://docs.neo.org/images/gui/f.png)
 
-After changing the password, please remember to re-backup wallet, because the previous backup wallet password has not changed.
+패스워드를 변경했으면 지갑을 반드시 다시 백업하시기 바랍니다. 왜냐하면 예전 백업본의 패스워드는 변경되지 않았기 때문입니다.
 
-### Rebuild the wallet index
+### 지갑 인덱스 재건 (Rebuild the wallet index)
 
-This option is used to restore errors in the client when an exception occurs. The Wallet Index may need to be rebuilt in the following cases:
+이 기능은 예외적인 경우에 지갑 파일의 에러를 고치는 것입니다. 아래 해당되는 경우, 지갑 인덱스를 재건할 필요가 있을 수 있습니다. 
 
-1. After the import of private key.
+1. 프라이빗 키를 가져오기 한 후.
 
-2. A transaction that has not been confirmed after a long time.
+2. 오랜 시간 동안 전송이 승인 안 되는 경우.
 
-3. The wallet assets show errors, and blockchain data does not match.
+3. 지갑 자산에 에러가 표시되고 블록체인 정보가 맞지 않는 경우.
 
-As the current block height is very high, rebuilding the wallet index takes about a minute or a few minutes. Please be patient.
+현재 블록 높이가 매우 높기 때문에, 지갑 인덱스를 재건하는 데는 일 분에서 수분까지 소요되니 기다리시기 바랍니다. 
 
-### Restore the account
+### 계정 복구 (Restore the account)
 
-This option is used to restore the address of the wallet file that was accidentally deleted and its assets. It should be noted that it is generally not recommended to delete the operation within the client, to avoid loss of assets.
+이 기능은 지갑 파일과 해당 자산이 삭제 되었을 때, 해당 주소를 복구하는 것입니다. 유념하실 부분은 클라이언트 내에서 작업을 삭제하지 않으셔야 자산이 사라지는 경우를 방지할 수 있습니다.
 
-## Trade
+## 거래 (Trade)
 
-### Transfer
+### 이전 (Transfer)
 
-#### Token Asset Transfer
+#### 토큰 자산 이전 (Token Asset Transfer)
 
-(1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+(1) ‘전송(transaction)’을 클릭 한 후, ‘이전(transfer)’, ‘+’, 그리고 이전 정보를 입력하세요.
 
 ![image](http://docs.neo.org/images/gui/g.png)
 
-(2) Click OK.
+(2) ‘Ok’를 클릭하세요.
 
 ![image](http://docs.neo.org/images/gui/h.png)
 
-(3) Click OK, as shown:
+(3) ‘Ok’를 클릭하면 아래처럼 나옵니다.
 
 ![image](http://docs.neo.org/images/gui/i.png)
 
-#### Equity asset transfer
+#### 자본 자산 이전 (Equity asset transfer)
 
-(1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+(1) ‘전송(transaction)’을 클릭 한 후, ‘이전(transfer)’, ‘+’, 그리고 이전 정보를 입력하세요.
 
 ![image](http://docs.neo.org/images/gui/j.png)
 
-(2) Click OK.
+(2) ‘Ok’를 클릭하세요.
 
 ![image](http://docs.neo.org/images/gui/k.png)
 
-(3) Click OK, as shown in the display, where more signatures are shown to be required:
+(3) ‘Ok’를 클릭하면 아래처럼 나오는데, 서명할 부분이 나타납니다 :
 
 ![image](http://docs.neo.org/images/gui/l.png)
 
-(4) Signature function see [signature](#sign).
+(4) 서명 기능에 대해서는 [서명](#sign)을 참고하세요.
 
-#### Batch transfer
+#### 묶음 이전 (Batch transfer)
 
-This function is used to simplify the transfer of the same asset to a different addresses.
+이 기능은 같은 자산을 여러 주소로 이전하는 데 사용됩니다. 
 
 ![image](http://docs.neo.org/images/gui/m.png)
 
-The data format is `address transfer amount` (separated by spaces).
+데이터 포맷은 ‘주소 이전 양(address transfer amount)’의 형식입니다. (빈칸으로 구분)
 
 ![image](http://docs.neo.org/images/gui/n.png)
 
-It should be noted that the data format should be strictly in accordance with the above criteria, where extra spaces is likely to lead to transfer failure.
+유념하실 부분은 데이터 포맷은 위와 같은 형식으로 엄격히 사용해야 하며 그렇지 않고 빈칸이 추가로 들어가게 되는 경우 이전(transfer)이 실패합니다.
 
-#### Remarks
+#### 리마크 (사용자가 전송 정보에 쓰는 별도 노트 같은 것, Remarks)
 
-This function is used to record the information of the transaction on the NEO block-chain. Currently, [NEO blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transaction.
+이 기능은 네오 블록 체인상에 해당 전송 정보를 기록하는 데 사용됩니다. 현재 전송 정보는 [네오 블록체인 브라우져] ](https://www.antchain.xyz/)에서 확인할 수 있습니다. 
 
 ![image](http://docs.neo.org/images/gui/o.png)
 
-At the moment, there is no requirement for the message format.
+현재 메시지 포맷에는 규칙이 없습니다.
 
 ![image](http://docs.neo.org/images/gui/p.png)
 
-The remarks for the transaction can be found on the browser.
+해당 전송에 대한 리마크는 브라우져를 통해 확인할 수 있습니다. 
 
 ![image](http://docs.neo.org/images/gui/Oo.png)
 
-### Trade
+### 거래
 
-#### Initiating a deal
+#### 거래 착수하기 (Initiating a deal)
 
-(1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recipient.
+(1) 상대방으로 보낼 자산의 상세 내용을 정하기 위해, 전송 시작 전에, 해당 자산의 거래를 할 양 측에서 전송 요청을 착수해야 합니다. 
 
 ![image](http://docs.neo.org/images/gui/Q.png)
 
-(2) Click OK to generate the transaction request. We can use the transaction request, to obtain details on the terms sent by the corresponding party.
+(2) 전송 요청을 하기 위해 ‘Ok’를 클릭합니다. 우리는 상대방에게서 오는 상세 계약 조건을 알아보기 위해 전송 요청을 사용할 수 있습니다.
 
 ![image](http://docs.neo.org/images/gui/R.png)
 
-#### Merging of the deal
+#### 거래의 합병 (Merging of the deal)
 
 (1) After closing the initiated transaction request window, it will jump to the merge transaction request interface.
 
