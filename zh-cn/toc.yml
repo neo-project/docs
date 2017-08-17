@@ -46,6 +46,8 @@
       href: node/network-protocol.md
     - name: 共识机制
       href: node/consensus.md
+    - name: 在 Azure 中部署 NEO 节点
+      href: node/azure.md
 - name: 智能合约
   href: sc/introduction.md
   items:
