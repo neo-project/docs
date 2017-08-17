@@ -214,52 +214,53 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 #### 거래의 합병 (Merging of the deal)
 
-(1) After closing the initiated transaction request window, it will jump to the merge transaction request interface.
+(1) 전송 요청 착수 창을 닫으면, 전송 요청을 합병하는 인터페이스로 이동합니다. 
 
 ![image](http://docs.neo.org/images/gui/S.png)
 
-(2) This causes the other party's transaction request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
+(2) 이 인터페이스에서는 상대방의 전송 요청을 볼 수 있습니다. 상대방의 요청이 적법(legitimacy)한 지 확인(verify)하는 확인(verification)을 클릭하세요. 상대방 요청의 적법성 여부에 따라, 여러분은 승인하거나 거절할 수 있습니다.
 
 ![image](http://docs.neo.org/images/gui/T.png)
 
-(3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
+(3) 여러분이 승인하는 경우, 양측 모두 다 서명한 뒤 전 네트워크에 뿌려집니다(broadcast). 자세한 내용은 [서명] ](#sign)을 참고하세요. <a id="sign"> </a>
 
-### Signature
-(1) This causes the transaction sent by the other party to be pasted within the input box. Click on `sign`, and the output data will be generated. At the same time, the `broadcast` button will be displayed.
+### 서명 (Signature)
+(1) 여기에는 상대방이 보낸 전송이 입력 박스에 붙여(paste)집니다. ‘서명(sign)’을 클릭하면 출력 데이터(output data)가 만들어집니다. 동시에 ‘광역전송(broadcast)’버튼이 표시됩니다.
 
 ![image](http://docs.neo.org/images/gui/U.png)
 
-(2) Click on `broadcast`, and the transaction will be sent. This deal is complete, when there is confirmation of the successful transaction.
+(2) ‘광역전송(broadcast)’버튼을 클릭하면 ‘전송(transaction)’이 보내지고, 이 거래는 마무리되고 해당 ‘전송’이 확인됩니다. 
 
 ![image](http://docs.neo.org/images/gui/V.png)
 
 <a  id="offline"></a>
 
-## Advanced
+## 고급 (Advanced)
 
-### Offline synchronous packet
+### 오프라인 싱크 패킷 (Offline synchronous packet)
 
-**Download**
+**다운로드**
 
-You can download it here [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+아래에서 다운받을 수 있습니다. 
+[https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-When you enter the URL, you will download a packet like this. ![](~/images/gui/2017-07-04_11-59-35.png)
+URL을 입력하면 이 같은 패킷을 다운받을 수 있습니다. ![](~/images/gui/2017-07-04_11-59-35.png)
 
-**Add**
+**추가 (Add)**
 
-Unzip the packet and put it in the folder, as shown in the figure below:
+패킷의 압축을 풀고(unzip) 아래 그림처럼 폴더에 넣으세요.
 
 ![](~/images/gui/2017-07-04_12-06-35.png)
 
-**Sync**
+**싱크**
 
-Open the client, and you will see that the client is in sync with the super fast speed. As shown in the figure below:  
+클라이언트를 실행하면, 여러분은 클라이언트가 빠르게 싱크하는 것을 볼 수 있습니다. 아래 그림을 참조하세요.
 
 ![](~/images/gui/2017-07-04_12-07-35.png)
 
-**Complete**
+**완료 (Complete)**
 
-When synchronized to a certain degree, the file (chain.acc) will disappear and the synchronization speed will slow down. As shown in the figure below:
+싱크가 어느 정도 이루어지면, chain.acc는 사라지고 싱크 속도는 느려집니다. 아래 그림을 참조하세요.
 
 ![](~/images/gui/2017-07-04_12-08-35.png)
 
@@ -267,77 +268,79 @@ When synchronized to a certain degree, the file (chain.acc) will disappear and t
 
 
 
-### Extractation of GAS
+### 가스 추출 (Extractation of GAS)
 
-GAS are generated with each new block, and will be recorded to the address of NEO holders. (The number within the brackets of the balance of assets, is the number of GAS to be claimed) At any time, the NEO holder can initiate a claim, to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client, has the ability to execute the function of extracting GAS.
+GAS는 새로운 블록마다 생성되며, 네오 소유자들의 주소에 기록됩니다. (자산의 잔액에 맞는 숫자로 생성됩니다) 언제라도 네오 소유자는 해당 주소의 NEO 양에 맞는 GAS를 청구할 수 있습니다. 현재는 PC버전의 클라이언트만 GAS를 생성할 수 있습니다. 
 
-The specific steps are:
+절차는 아래와 같습니다. 
 
-(1) Transfer all the NEO within the wallet using a transfer operation. ( It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
+(1) 모든 NEO를 지갑으로 이전(transfer)합니다. (NEO를 현재 지갑으로 바로 보낼 수 있습니다) GAS 요청이 확정되면, GAS를 출금할 수 있습니다. (이 과정에 대한 상세 기술적인 내용은 백서를 참조하시기 바랍니다)
 
-(2) Click `Advanced`, `Claim GAS`, `Claim All`.
+(2) ‘고급(advanced)’, ‘가스 요청(Claim GAS), ‘모두 요청(Claim All)’ 순서로 클릭합니다.
 
 ![image](http://docs.neo.org/images/gui/W.png)
 
-### Request a certificate
+### 인증서 요청 (Request a certificate)
 
-Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
-Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
+이 기능은 단지 인증서 신청(application) 파일만 생성합니다. 사용자는 관련된 디지털 인증 기관에 가서 인증서를 신청해야 합니다. 
+
+‘고급(Advnaced)’, ‘인증서 요청(Request certificate)’을 클릭하시고 아래에 나오는 것 같이 양식을 채워 넣으세요.
 
 ![image](http://docs.neo.org/images/gui/X.png)
 
-The generated file will be as shown, in the following figure:
+아래 그림처럼 생성된 파일이 나타납니다.
 
 ![image](http://docs.neo.org/images/gui/y.png)
 
-### Registered assets
+### 등록 자산 (Registered assets)
 
-There are two types of assets, Token and Share. Using Token as an example, fill in the following:
+두 가지의 자산이 있습니다. 토큰 그리고 할당. 아래 예는 토큰의 경우입니다. 
 
 ![image](http://docs.neo.org/images/gui/Z.png)
 
+유념하실 부분은 자산을 등록하는 데에는 많은 수수료가 듭니다. (메인 넷 수수료는 10000GAS이며 테스트 넷은 100NEO입니다). 주의하시길 바랍니다. 
 It should be noted that the registration of assets require a huge amount of fees. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
 
-### Distribute assets
+### 자산 배분 (Distribute assets)
 
 ![image](http://docs.neo.org/images/gui/A1.png)
 
-It should be noted that the distribution of assets require a huge amount of fees. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
+자산 배분에는 많은 수수료가 필요합니다. (메인 네트워크 수수료는 500NEO, 테스트 네트워크는 5 NEO) 이점을 유념하셔서 가급적이면 한번에 배분하시길 바랍니다.
 
-### Deploy Contract
+### 계약 전개 (Deploy Contract)
 
-To be added
+추가 예정
 
-### Invoke Contract
+### 계약 발동 (Invoke Contract)
 
-To be added
+추가 예정
 
-### Election
+### 선거 (Election)
 
-This function is used to register as a candidate for the NEO blockchain validator.
+이 기능은 네오 블록체인 검증자(validator) 후보로 등록하는 데 사용됩니다. 
 
 ![image](http://docs.neo.org/images/gui/B1.png)
 
-It should be noted that the election requires a huge fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
+선거에는 고액의 수수료가 필요합니다. (메인 네트워크 수수료는 1000GAS, 테스트 네트워크는 10GAS) 이점 유념하시기 바라며, 아직 이 기능은 사용 가능하지 않습니다. 추후 업데이트될 예정입니다. 
 
-### 4.8 Option
+### 4.8 부가기능 (Option)
 
-No content yet.
+아직 없음.
 
-## Help
+## 도움말 (Help)
 
-### View help
+### 도움말 보기 (View help)
 
-No content yet.
+아직 없음
 
-### Official website
+### 공식 웹 사이트 (Official website)
 
-Click will jump to the NEO official website.
+클릭하시면 네오 공식 웹 사이트로 이동합니다. 
 
-### Developers tools
+### 개발자 툴 (Developers tools)
 
-To be added
+추가 예정
 
-### About NEO
+### 네오에 대해 (About NEO)
 
-The version number of the NEO client.
+네오 클라이언트의 현재 버전이 나타납니다.
