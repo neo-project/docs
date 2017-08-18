@@ -83,7 +83,7 @@ Desde el entorno de desarrollo Eclipse, click en `File`, click en `New` y click 
 
 <img style="vertical-align: middle" src="assets/getting-started-java/java_ide_eclipse_1.png">
 
-En las propiedades del proyecto Java, indica el nombre (en nuestro ejemplo HelloWorld) y click en `Finish`
+En las propiedades del proyecto Java, indica el nombre (en nuestro ejemplo HelloWorld) y click en `Next`
 
 <img style="vertical-align: middle" src="assets/getting-started-java/java_ide_eclipse_2.png">
 
