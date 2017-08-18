@@ -17,7 +17,7 @@ Para implementar una blockchain privada NEO se necesitan un mínimo de cuatro se
 
 Para fines demostrativos, he creado cuatro servidores virtuales en Azure, el tamaño es `Standard_DS1 v2` (1 core, con 3.5 GB RAM). Puedes desplegar la blockchain privada en una LAN o en máquinas virtuales.
 
-<img style="vertical-align: middle" src="/assets/privatechain_1.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_1.png">
 
 > [!IMPORTANT] 
 >Despues de crear las máquinas virtuales abre los puertos 10331-10334 en el firewall de CentOS `firewalld` y establece nuevas reglas de entrada para los puertos 10331-10334.
@@ -25,7 +25,7 @@ Para fines demostrativos, he creado cuatro servidores virtuales en Azure, el tam
 
 > [!NOTE]
 > Si creas una maquina virtual en un entorno cloud, logeate en el panel de administración de la máquinas virtuales y configura los grupos de seguridad.
->
+
 > En Azure la configuración es: `network interface` `network security group` `inbound security rules` `add` y añade los puertos 10331-10334.
 ><img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_2.png">
 
@@ -33,7 +33,29 @@ Una vez que las máquina virtual han sido creadas anota las direcciones IP para 
 
 ## 2. Instalación de un nodo NEO
 
-El proceso de instalación de un nodo NEO ha sido descrito anteriormente. Por favor, consulta las instrucciones de instalación [Setup](setup.md).
+El proceso de instalación es el siguiente. También lo puedes consultar [aquí](setup.md)
+
+**Instalación de .NET Core**
+
+```
+sudo yum update
+sudo yum install epel-release unzip wget
+
+sudo yum install leveldb-devel libunwind libicu -y
+sudo curl -sSL -o dotnet.tar.gz https://aka.ms/dotnet-sdk-2.0.0-linux-x64
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+sudo ln -s /opt/dotnet/dotnet /usr/local/bin
+```
+
+**Instalación de NEO-cli**
+
+```
+sudo wget https://github.com/neo-project/neo-cli/releases/download/v2.1.0/neo-cli-centos.7-x64.zip
+sudo mkdir -p /opt/neo-cli && sudo unzip neo-cli-centos.7-x64.zip -d /opt/neo-cli
+cd /opt/neo-cli/neo
+sudo dotnet neo-cli.dll
+```
+
 
 ## 3. Crear monederos
 
@@ -139,8 +161,8 @@ Introduce las cuatro claves publicas apuntadas en el paso 4. Para eso, introduce
 **Paso a paso:** 
 
  * Abrir el monedero `privatechain2.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
-  * Abrir el monedero `privatechain3.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
-  * Abrir el monedero `privatechain4.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas
+ * Abrir el monedero `privatechain3.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
+ * Abrir el monedero `privatechain4.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
 
 Una vez introducidas las claves publicas, abre nuevamente el monedero `privatechain1.db3` y recrea los indices, click en la barra del menu `Wallet` y click en `Rebuild Index`. 
 
@@ -203,103 +225,3 @@ Una vez recreado los indices veremos los NeoGas.
 
 <img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_26.png">
 
-
-## 6. Instalación de NeoScan (Opcional)
-
-NeoScan es un explorador blockchain para NEO. Ha sido diseñado y creado por la comunidad de desarrollo **City of Zion** que promueve el desarrollo de la plataforma. Puedes encontrar más información aquí, [City of Zion](http://cityofzion.io/)
-
-> [!NOTE] NeoScan NO es parte del proyecto NEO. En caso de incidencia o colaboracion dirígite a la comunidad de desarrollo 
-> **City of Zion.**
-
-# Pasos de instalación
-
-1. Descarga e instala la distribución Linux [Ubuntu 16.04.2 LTS](http://releases.ubuntu.com/16.04/)
-2. Una vez instalada sigue los siguiente pasos de instalación:
-  
-  **Erlang**
-  ```
-  sudo wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb 
-  sudo dpkg -i erlang-solutions_1.0_all.deb
-  sudo apt-get update
-  sudo apt-get install make ssh unzip
-  sudo apt-get install esl-erlang elixir
-  sudo mix local.hex
-  ```
-  
-  **NodeJS**
-  ```
-  sudo curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-  sudo apt-get update
-  sudo apt-get install nodejs
-  ```
-  
-  **Postgres**
-  ```
-  sudo apt-get install postgresql postgresql-client
-  ```
-  
-  **Establecer la contraseña del usuario "postgres"**
-  
-  _por defecto NEOScan usa en Postgres como usuario y password **'postgres/postgres'**. Puedes cambiar la contraseña en el fichero `dev.exs` en la siguiente ruta: **'/neo-scan/apps/neoscan/config/dev.exs'**_
-  ```
-  sudo postgres psql
-  \password postgres
-  ...
-  \q
-  ```
-  
-  **Phoenix**
-  ```
-  sudo mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-  ```
-  
-  **Descargar NeoScan**
-  ```
-  sudo wget https://github.com/CityOfZion/neo-scan/archive/master.zip
-  sudo unzip master.zip -d /
-  sudo mv /neo-scan-master/ /opt/neo-scan
-  ```
- 
- **Configuración de NeoScan**
-  
-  ```
- cd /opt/neo-scan
- sudo mix deps.get
- sudo mix ecto.create
- sudo mix ecto.migrate
- cd /opt/neo-scan/apps/neoscan_web/assets
- sudo npm install
- ```
- 
- **Configuración de la ips de los nodos de nuestra blockchain privada**
- 
- _Asegúrate que han arrancado los nodos con la opción rpc: **'neo-gui.dll /rpc'** edita el fichero `http.ex` y configura las 4 ips de los nodos_
- 
- ```
- vi /opt/neo-scan/apps/neoscan_sync/lib/neoscan_sync/HttpCalls/http.ex
- ```
- 
- ```
- def url(index \\ 0) do
-     %{
-       0 => "http://privatechain1.neolab.local:10332",
-       1 => "http://privatechain2.neolab.local:10332",
-       2 => "http://privatechain3.neolab.local:10332",
-       3 => "http://privatechain4.neolab.local:10332",
-     }
-    |> Map.get(index)
-  end
- ```
-  
-**Arrancamos Phoenix**
-
-```
-cd /opt/neo-scan
-sudo mix phx.server
-```
- 
-**NeoScan**
-
-Desde el navegador web, accedemos a la ip del servidor y al puerto 4000, en mi ejemplo: http://neoscan.neolab.local:4000
-
-<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_27.png">

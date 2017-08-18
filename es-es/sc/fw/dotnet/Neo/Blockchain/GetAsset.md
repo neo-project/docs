@@ -1,6 +1,6 @@
 # Método Blockchain.GetAsset(byte[])
 
-Busca en la blockchain un activo basado en su ID y lo devuelve.
+Devuelve un activo en funcion del id proporcionado.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../Neo.md)
 
@@ -30,7 +30,7 @@ public class Contract1: FunctionCode
 }
 ```
 
-Dónde el activo se puede obtener previamente desde afuera, también se puede pasar como parámetro dentro del contrato inteligente. eL siguiente ejemplo muestra como obterner el activo en forma de array de bytes pasando el ID de este en formato de cadena hexadecimal mediantes una llamada a código externo.
+Dónde el activo se puede obtener previamente desde afuera, también se puede pasar como parámetro dentro del contrato inteligente. El siguiente ejemplo muestra como obterner el activo en forma de array de bytes pasando el Id. de este en formato de cadena hexadecimal mediantes una llamada a código externo.
 
 ```c#
 Static void Main (string[] args)

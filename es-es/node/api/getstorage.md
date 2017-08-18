@@ -1,6 +1,6 @@
 # Método Getstorage
 
-Devuelve el valor del almacenamiento en funcion al script hash y clave especificado.  
+Devuelve el valor del almacenamiento en funcion al script hash y clave especificada.  
 
 ## Descripción de los parámetros
 

@@ -17,12 +17,11 @@ Para implementar una blockchain privada NEO se necesitan un mínimo de cuatro se
 
 Para fines demostrativos, he creado cuatro servidores virtuales en Azure, el tamaño es `Standard_DS1 v2` (1 core, con 3.5 GB RAM). Puedes desplegar la blockchain privada en una LAN o en máquinas virtuales.
 
-<img style="vertical-align: middle" src="/assets/privatechain_1.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_1.png">
 
-> [!IMPORTANT] 
->Despues de crear las máquinas virtuales, abre los puertos 10331-10334, accede a la configuración `firewall` `advanced setting` >`inbound rules`, para establecer nuevas reglas y añade los puertos 10331-10334.
+[!IMPORTANT] Despues de crear las máquinas virtuales, abre los puertos 10331-10334, accede a la configuración `firewall` `advanced setting` `inbound rules`, para establecer nuevas reglas y añade los puertos 10331-10334.
 
-> [!NOTE]
+> [!Note]
 > Si creas una maquina virtual en un entorno cloud, logeate en el panel de administración de la máquinas virtuales y configura los grupos de seguridad.
 >
 > En Azure la configuración es: `network interface` `network security group` `inbound security rules` `add` y añade los puertos 10331-10334.
@@ -38,7 +37,7 @@ El proceso de instalación de un nodo NEO ha sido descrito anteriormente. Por fa
 
 Primero hemos creados cuatro ficheros de monedero llamados `privatechain1.db3 - privatechain4.db3.` Este paso puede ser creado tanto con la versión de PC `NEO-gui` como con la versión de línea de comandos `NEO-cli`. La siguiente imagen es usando el cliente `NEO-cli`.
 
-<img style="vertical-align: middle" src="/assets/privatechain_3.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_3.png">
 
 Una vez que los monederos han sido creados y su correspondiente clave publica guardada, cópiala en el portapapeles o guárdala en un fichero txt, o usa el comando `list key` vía [CLI Command](cli.md)
 
@@ -114,11 +113,11 @@ Ejecutar consenso:<br>
 
 Si la operación anterior se ha ejecutado de forma correcta el proceso consenso se ejecutará en los cuatro nodos, tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="/assets/privatechain_8.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_8.png">
 
 En la siguiente imagen se muestra como 1 nodo han sido apagado y todavia se consigue consenso:
 
-<img style="vertical-align: middle" src="/assets/privatechain_9.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_9.png">
 
 ## 5. Extraer NEO y NeoGas
 
@@ -134,7 +133,7 @@ Abre el fichero del monedero `privatechain1.db3` click derecho sobre la direcci�
 
 Introduce las cuatro claves publicas apuntadas en el paso 4. Para eso, introduce la clave y pulsa el simbolo `[+]` **Una vez introducida las 4 claves publicas**, modifica el parametro número mínimo de firmas `Min.Sig.Num` a 3, siendo `(número de nodos consensos/2 + 1)`, tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="/assets/privatechain_12.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_12.png">
 
 >[!IMPORTANT]
 > Debe hacer la misma operación anterior en los 4 monederos: crear un cuenta contrato multi-firma y añadir las 4 claves 
@@ -143,8 +142,8 @@ Introduce las cuatro claves publicas apuntadas en el paso 4. Para eso, introduce
 **Paso a paso:** 
 
  * Abrir el monedero `privatechain2.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
-  * Abrir el monedero `privatechain3.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
-  * Abrir el monedero `privatechain4.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas
+ * Abrir el monedero `privatechain3.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
+ * Abrir el monedero `privatechain4.db3` click en `Create Contract Add` click en `Multi-Signature` y añade las 4 claves publicas.
 
 Una vez introducidas las claves publicas, abre nuevamente el monedero `privatechain1.db3` y recrea los indices, click en la barra del menu `Wallet` y click en `Rebuild Index`. 
 
@@ -152,7 +151,7 @@ Una vez introducidas las claves publicas, abre nuevamente el monedero `privatech
 
 Una vez recreados los índices aparecerá la dirección de contrato con 100 millones de NEOs.
 
-<img style="vertical-align: middle" src="/assets/privatechain_14.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_14.png">
 
 Una vez realizado el paso anterior debemos transferir los NEO de la dirección de contrato a la dirección normal. Para eso, abre cualquiera de los cuatro monederos. (En mi ejemplo, abriré el primer monedero `privatechain1.db3`)
 
@@ -178,11 +177,11 @@ Nuevamente abre otro monedero distinto, en mi ejemplo el fichero `privatechain3.
 
 La operación puede tardar unos 15 segundos para ver la tranferencia realizada. Una vez esperado ese tiempo abre el fichero del monedero `privatechain1.db3` para ver las monedas recibidas en la cuenta normal.
 
-<img style="vertical-align: middle" src="/assets/privatechain_20.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_20.png">
 
 La operación para extraer los NeoGas es similar. Abre el primer fichero monedero `privatechain1.db3` y click en el barra de `Advanced` y click en `NeoGas Claim`,
 
-<img style="vertical-align: middle" src="/assets/privatechain_21.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_21.png">
 
 Click en `Claim All`
 
@@ -205,105 +204,4 @@ La operación puede tardar unos 15 segundos para ver la tranferencia realizada. 
 
 Una vez recreado los indices veremos los NeoGas.
 
-<img style="vertical-align: middle" src="/assets/privatechain_26.png">
-
-
-## 6. Instalación de NeoScan (Opcional)
-
-NeoScan es un explorador blockchain para NEO. Ha sido diseñado y creado por la comunidad de desarrollo **City of Zion** que promueve el desarrollo de la plataforma. Puedes encontrar más información aquí, [City of Zion](http://cityofzion.io/)
-
-> [!NOTE] NeoScan NO es parte del proyecto NEO. En caso de incidencia o colaboracion dirígite a la comunidad de desarrollo 
-> **City of Zion.**
-
-# Pasos de instalación
-
-1. Descarga e instala la distribución Linux [Ubuntu 16.04.2 LTS](http://releases.ubuntu.com/16.04/)
-2. Una vez instalada sigue los siguiente pasos de instalación:
-  
-  **Erlang**
-  ```
-  sudo wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb 
-  sudo dpkg -i erlang-solutions_1.0_all.deb
-  sudo apt-get update
-  sudo apt-get install make ssh unzip
-  sudo apt-get install esl-erlang elixir
-  sudo mix local.hex
-  ```
-  
-  **NodeJS**
-  ```
-  sudo curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-  sudo apt-get update
-  sudo apt-get install nodejs
-  ```
-  
-  **Postgres**
-  ```
-  sudo apt-get install postgresql postgresql-client
-  ```
-  
-  **Establecer la contraseña del usuario "postgres"**
-  
-  _por defecto NEOScan usa en Postgres como usuario y password **'postgres/postgres'**. Puedes cambiar la contraseña en el fichero `dev.exs` en la siguiente ruta: **'/neo-scan/apps/neoscan/config/dev.exs'**_
-  ```
-  sudo postgres psql
-  \password postgres
-  ...
-  \q
-  ```
-  
-  **Phoenix**
-  ```
-  sudo mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-  ```
-  
-  **Descargar NeoScan**
-  ```
-  sudo wget https://github.com/CityOfZion/neo-scan/archive/master.zip
-  sudo unzip master.zip -d /
-  sudo mv /neo-scan-master/ /opt/neo-scan
-  ```
- 
- **Configuración de NeoScan**
-  
-  ```
- cd /opt/neo-scan
- sudo mix deps.get
- sudo mix ecto.create
- sudo mix ecto.migrate
- cd /opt/neo-scan/apps/neoscan_web/assets
- sudo npm install
- ```
- 
- **Configuración de la ips de los nodos de nuestra blockchain privada**
- 
- _Asegúrate que han arrancado los nodos con la opción rpc: **'neo-gui.dll /rpc'** edita el fichero `http.ex` y configura las 4 ips de los nodos_
- 
- ```
- vi /opt/neo-scan/apps/neoscan_sync/lib/neoscan_sync/HttpCalls/http.ex
- ```
- 
- ```
- def url(index \\ 0) do
-     %{
-       0 => "http://privatechain1.neolab.local:10332",
-       1 => "http://privatechain2.neolab.local:10332",
-       2 => "http://privatechain3.neolab.local:10332",
-       3 => "http://privatechain4.neolab.local:10332",
-     }
-    |> Map.get(index)
-  end
- ```
-  
-**Arrancamos Phoenix**
-
-```
-cd /opt/neo-scan
-sudo mix phx.server
-```
- 
-**NeoScan**
-
-Desde el navegador web, accedemos a la ip del servidor y al puerto 4000, en mi ejemplo: http://neoscan.neolab.local:4000
-
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_27.png">
+<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_26.png">
