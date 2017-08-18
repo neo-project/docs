@@ -4,7 +4,7 @@
 
 테스트 넷 상의 모든 블록체인들은 메인 넷과 관련이 없습니다. 만약 여러분이 간단한 스마트 계약을 개발하거나, 자신을 등록코자 할 경우 테스트 넷 상에서 충분히 진행할 수 있습니다. 테스트가 완료된 후, 메인 넷으로 옮겨 온라인에서 실행할 수 있습니다. 
 
-개발자 분들은 테스트 넷 상의 GAS를 (여기)(https://www.neo.org/Testnet/Create)서 신청하세요
+개발자 분들은 테스트 넷 상의 GAS를 (여기)(https://www.neo.org/Testnet/Create) 서 신청하세요
 
 If you are a developer, you can ask for GAS on the TestNet here: https://www.neo.org/Testnet/Create
 
