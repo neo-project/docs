@@ -24,7 +24,7 @@ If you are a developer, you can ask for GAS on the TestNet here: https://www.neo
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [공식 웹 사이트](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| 배포 | [공식 웹 사이트](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | 소스코드 | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## 테스트 네트워크 변경 방법 (Method of switching to test network)
