@@ -1,7 +1,10 @@
 
 ### Crear un Contrato Inteligente NEO con C#
 
-Esta sección contiene un pequeño tutorial que guía al desarrollador a través de la configuración del entorno de desarrollo en C# y le ofrece una idea de cómo crear un proyecto para crear contrato inteligente y cómo compilarlo.
+Esta sección contiene un pequeño tutorial que guía al desarrollador la configuración del entorno de desarrollo en C# y le ofrece una idea de cómo crear un proyecto para crear y compilar un contrato inteligente.
+
+
+
 
 > [!NOTE]
 > Actualmente todos los proyectos han sido actualizados a la versión Visual Studio 2017. 
