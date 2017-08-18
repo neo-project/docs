@@ -63,7 +63,7 @@
    |?*?|transaction|tx[]|전송 리스트|
 
    블록의 해쉬 값을 계산할 때, 전체 블록을 계산하는 대신, 블록 헤드의 처음 일곱 필드만 계산되는 게 이 필드들은 버전, PrevBlock, MerkleRoot, Timestamp, 그리고 높이, nonce, Nextminer입니다. MerkleRoot는 이미 모든 전송의 해쉬 값을 포함하고 있으며, 전송의 변경은 블록의 해쉬 값에 영향을 줍니다.  
-When calculating the hash value of the block, instead of calculating the entire block, only first seven fields in the block head will be calculated, which are version, PrevBlock, MerkleRoot, timestamp, and height, the nonce, NextMiner. Since MerkleRoot already contains the hash value of all transactions, the modification of transaction will influence the hash value of the block.
+
 
    블록 헤드의 데이터 구조:
 
