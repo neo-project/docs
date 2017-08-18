@@ -19,6 +19,10 @@
       href: node/private-chain-Windows.md
     - name: Crear una Blockchain Privada en CentOS
       href: node/private-chain-Centos.md
+    - name: Crear una Blockchain Privada en RedHat
+      href: node/private-chain-RedHat.md
+    - name: Crear una Blockchain Privada en Ubuntu
+      href: node/private-chain-Ubuntu.md
     - name: Documentación de la API
       href: node/API.md
       items:
@@ -71,9 +75,11 @@
   items:
     - name: Introducción
       href: sc/introduction.md
-    - name: Crear contratos inteligentes con C#
+    - name: Crear contratos en Java
+      href: sc/getting-started-java.md
+    - name: Crear contratos en C#
       href: sc/getting-started-csharp.md
-    - name: Crear contratos inteligentes con VBNet
+    - name: Crear contratos en VBNet
       href: sc/getting-started-vbnet.md
     - name: Tutorial
       href: sc/tutorial.md

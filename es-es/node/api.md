@@ -116,7 +116,7 @@ Puedes usar la extensión de Chrome **Postman** para facilitar las pruebas. La i
 
 <img style="vertical-align: middle" src="assets/api/api_2.png">
 
-<img style="vertical-align: middle" src="/assets/api_3.jpg">
+<img style="vertical-align: middle" src="assets/api/api_3.png">
 
 
 ## Otros

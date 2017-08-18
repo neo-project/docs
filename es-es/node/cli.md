@@ -13,7 +13,7 @@ Una vez ejecutado aparecerá el interprete de comandos de NEO, desde aquí puede
 
 Exploraremos primero los distintos comandos disponibles en la línea de comandos. Introduce `help` seguido de enter y aparecerá la siguiente lista:
 
-<img style="vertical-align: middle" src="/assets/cli_2.png">
+<img style="vertical-align: middle" src="assets/cli/cli_2.png">
 
 Los paréntesis `<>` es el parámetro. <br>
 Los corchetes `[]` son parámetros opcionales. <br>
@@ -37,10 +37,12 @@ Comando | Descripción de la función | Comentario |
 | ---------------------------------------- | -------------------------------- | ------ |
 | create wallet \<path> | Crea el fichero del monedero. |
 | open wallet \<path> | Abre el fichero del monedero. |
+| update wallet <path> | Actualiza el monedero |
 | rebuild wallet index | Reconstruye los índices del monedero. | Necesita abrir el monedero. |
 | list address | Lista todas las cuentas del monedero. | | Necesita abrir el monedero. |
 | list asset | Lista todos los activos del monedero. | Necesita abrir el monedero. |
 | list key | Lista todas las claves publicas del monedero. | Necesita abrir el monedero. |
+| show utxo [id|alias] | Lista las transacciones en función del id o del alias | Necesita abrir el monedero.
 | show gas | Muestra el NeoGas. | Necesita abrir el monedero. |
 | claim gas | Reclama el NeoGas disponible. | Necesita abrir el monedero. |
 | create address [n = 1] | Crea una dirección/Crea direcciones de forma automática. | Necesita abrir el monedero. |
@@ -157,9 +159,13 @@ Comando | Descripción de la función  |
 `show node` | Muestra los puertos y los nodos conectados. |
 `show pool` | Muestra las transacciones en el pool de memoria. |
 
+
+
 ## 4. Comandos avanzados
 
 Comando  | Descripción de la función |
 | --------------- | ---- |
 `start consensus` | Inicia consenso.
 Para iniciar un consenso el monedero tiene que tener autoridad consenso, la autoridad de consenso en la red principal (MainNet) se obtiene a través de voto. Si se despliega una blockchain privada, la claves publicas se pueden configurar en el fichero `protocol.json`. Consulta la creación de blockchain privadas aqui [Private chain](private-chain-Windows.md)
+`export blocks [path=chain.acc]` | Exporta los bloques a un fichero de salida |
+`refresh policy` | Refresca la política.

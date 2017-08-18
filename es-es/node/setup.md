@@ -36,30 +36,42 @@ A continuación se muestra como instalar .NET Core en distribuciones Linux:
 > Para la instalación de .NET Core en otras distribuciones Linux consulta el siguiente enlace [.NET Core Linux](https://www.microsoft.com/net/core#linuxredhat) 
 
 **CentOS**
-```
-sudo yum install libunwind libicu
-curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848821
-sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-
-sudo ln -s /opt/dotnet/dotnet /usr/local/bin
-```
-
-**Red Hat Enterprise Linux 7 Server:**
 
 ```
-subscription-manager repos --enable = rhel-7-server-dotnet-rpms
-yum install scl-utils
+sudo yum update
+sudo yum install epel-release unzip wget -y
 
-yum install rh-dotnetcore11
+sudo yum install leveldb-devel libunwind libicu -y 
+sudo curl -sSL -o dotnet.tar.gz https://aka.ms/dotnet-sdk-2.0.0-linux-x64
+mkdir -p ~/dotnet && tar zxf dotnet.tar.gz -C ~/dotnet
+export PATH=$PATH:$HOME/dotnet
+```
+
+**Red Hat 7**
+
+```
+yum install wget unzip -y
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh epel-release-latest-7*.rpm
+
+yum install leveldb leveldb-devel libunwind libicu -y
+
+subscription-manager repos --enable=rhel-7-server-dotnet-rpms
+yum install scl-utils -y
 scl enable rh-dotnetcore11 bash
+echo "source scl_source enable rh-dotnetcore11" >> ~/.bashrc
 ```
 
-**Ubuntu,Mint**
+**Ubuntu**
 
 ```
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys B02C46DF417A0893
 sudo apt-get update
+sudo apt-get install libleveldb-dev libleveldb1v5 libicu-dev wget unzip -y
+
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
+
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0 -y
 ```
 
 Una vez que la instalación se ha completado, ejecuta el siguiente comando para comprobar que el entorno .NET Core se ha instalado de forma correcta.
@@ -80,8 +92,6 @@ Si muestra la salida **"Hello World!"** la instalación de .NET Core ha sido rea
 > [!NOTE]
 > Si intentas descargar y compilar el código de NEO-cli de Github, encontraras que `dotnet neo-cli.dll` se ejecuta de forma incorrecta tras compilarlo. Necesitas copiar `libleveldb.dll` y `sqlite3.dll` en el mismo directorio donde se encuentra el fichero `neo-cli.dll`. Estos dos ficheros se pueden descargar previo a descargar del cliente.
 ><img style="vertical-align: middle" src="assets/setup/setup_1.png">
-
-
 2. Desde la línea de comandos, ir al directorio del programa, y ejecuta el siguiente comando para arrancar el nodo NEO. 
 
 ```
