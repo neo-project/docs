@@ -28,11 +28,11 @@ Source code | [GitHub](https://github.com/neo-project/neo-gui/) | [GitHub](https
 
 1. Si usas el cliente GUI `NEO-gui` dentro de la carpeta donde se encuentra el ejecutable copia el contenido de `protocol.testnet.json` en `protocol.json` tal y como se muestra en la imagen.
  
-  <img style="vertical-align: middle" src="assets/testnet/testnet_1.png">
+  <img style="vertical-align: middle" src="/assets/testnet_1.png">
 
 2. Y dentro de la carpeta donde se encuentra el ejecutable copia el contenido de `neo-gui.exe.testnet.config` en `neo-gui.exe.config`.
 
-  <img style="vertical-align: middle" src="assets/testnet/testnet_2.png">
+  <img style="vertical-align: middle" src="/assets/testnet_2.png">
 
 
 > [!NOTE]

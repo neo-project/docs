@@ -27,11 +27,11 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 1、将程序目录下的 `protocal.testnet.json` 里的内容复制到 `protocol.json`，如图。
 
-![](~/images/2017-06-08_14-16-35.png)
+![](/assets/testnet_1.png)
 
 2、将程序（GUI）目录下的 `neo-gui.exe.testnet.config` 里的内容复制到 `neo-gui.exe.config`，如图
 
-![](~/images/2017-06-08_14-16-12.png)
+![](/assets/testnet_2.png)
 
 注：如果是 CLI 节点，需要将 `config.testnet.json` 里的内容复制到 `config.json`。
 

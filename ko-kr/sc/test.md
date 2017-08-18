@@ -92,7 +92,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 
 만약 위 스마트 계역의 리턴 값이 정수가 아니고 ‘bool’이나 다른 형태인 경우, 사용자는 그림에 나오는 것 같이 `engine.EvaluationStack.Peek (). GetBigInteger ()`를 다른 값으로 설정해야 합니다.
 
-[](Http://docs.neo.org/images/2017-05-16_15-39-07.jpg)
+[](/assets/test_1.jpg)
 
 ------
 

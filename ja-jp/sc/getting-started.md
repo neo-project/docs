@@ -23,7 +23,7 @@ typora-root-url: ..\..
 
 インストールプロセスは非常に簡単です、操作画面に従って進み、「.NET Core クロスプラットフォームの開発」のインストールをチェックする必要があります。そうでなければ、ステップ#3でNeo.VMプロジェクトを開くことができません。インストールには、約10分から1時間かかります。
 
-![install net core cross-platform development toolset](assets/install_core_cross_platform_development_toolset.png)
+![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
 ### 2. NeoContractPluginプラグイン
 
@@ -31,7 +31,7 @@ typora-root-url: ..\..
 
 Visual Studio 2017を開き、[ツール]メニューから[拡張機能と更新プログラム]をクリック、ウィンドウの左側にある[オンライン]タブをクリック、ウィンドウの右上にある検索ボックスで Neo を検索し、NeoContractPluginプラグインをダウンロードします（インターネットアクセスが必要です）。
 
-![download and install neo smart contract plugin](assets/download_and_install_smart_contract_plugin.png)
+![download and install neo smart contract plugin](/assets/download_and_install_smart_contract_plugin.png)
 
 ### 3. neo-compiler
 
@@ -39,9 +39,9 @@ Visual Studio 2017を開き、[ツール]メニューから[拡張機能と更�
 
 Githubで[neo-compiler](https://github.com/neo-project/neo-compiler)プロジェクトをダウンロードし、Visual Studio 2017でソリューションを開き、AntShares.Compiler.MSILプロジェクトを「公開」します。
 
-![publish neon project](assets/publish_antshares_compiler_msil_project.png)
+![publish neon project](/assets/publish_neo_compiler_msil_project.png)
 
-![publish and profile settings](assets/publish_and_profile_settings.png)
+![publish and profile settings](/assets/publish_and_profile_settings.png)
 
 発行が成功すると、neon.exeファイルが`bin\Release\PublishOutput`に生成されます。
 
@@ -55,11 +55,11 @@ Githubで[neo-compiler](https://github.com/neo-project/neo-compiler)プロジェ
 
 デスクトップの[コンピュータ]アイコンを右クリックします。コンテキストメニューから[プロパティ]を選択します。 [システムの詳細設定]をクリックします。[環境変数]をクリックします。 「システム環境変数」セクションで、「PATH」環境変数を探して選択します。 [編集]をクリックします。 「PATH」環境変数が存在しない場合は、[新規]をクリックします。 「システム変数の編集（または新しいシステム変数）」ウィンドウで、「PATH」環境変数の値を指定します。 [OK]をクリックします。 [OK]をクリックして残りのウィンドウをすべて閉じます。
 
-![edit environmental variables](assets/edit_environmental_variables.png)
+![edit environmental variables](/assets/edit_environmental_variables.png)
 
 次に、コマンドプロンプトまたはPowerShellを実行し、neonと入力します。エラーがなく、出力にバージョン番号が表示されている場合（図示）、環境変数の設定は成功しています。
 
-![powershell enviornment variabled updated correctly](assets/powershell_enviornment_variabled_updated_correctly.png)
+![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
 
 注意してください。 Windows 7 SP1のユーザーは「未処理の例外：System.DllNotFoundException：DLL 'api-ms-win-core-console-l2-1-0.dll'を読み込めません：指定されたモジュールが見つかりませんでした」というエラーが発生する可能性があります。必要な 'api-ms-win-core-console-l2-1-0.dll'ファイルはWindows 8以降のバージョンにのみ存在します。このエラーは、 'api-ms-win-core-console-l2-1-0.dll'のコピーを取得し、それをC:\Windows\System32ディレクトリに置くことで解決できます。
@@ -68,11 +68,11 @@ Githubで[neo-compiler](https://github.com/neo-project/neo-compiler)プロジェ
 
 上記のインストール構成が成功したら、Visual Studio 2017でNeo.SmartContract.Templateプロジェクトを作成できます。
 
-![new smart contract project](assets/new_smart_contract_project.png)
+![new smart contract project](/assets/new_smart_contract_project.png)
 
 プロジェクトを作成すると、次のように、FunctionCodeから継承されたデフォルトのクラスであるC#ファイルが自動的に生成されます。
 
-![smart contract function code](assets/smart_contract_function_code.png)
+![smart contract function code](/assets/smart_contract_function_code.png)
 
 ## プロジェクトをコンパイルする
 
@@ -90,7 +90,7 @@ public class Contract1: FunctionCode
 
 正常にコンパイルすると、`bin/Debug`ディレクトリにあるSmartContract1.avmが表示されます。これはNeoスマートコントラクトとして生成されるファイルです。
 
-![compile smart contract](assets/compile_smart_contract.png)
+![compile smart contract](/assets/compile_smart_contract.png)
 
 Neoスマートコントラクト開発環境の設定を完了したので、[Neoスマートコントラクトチュートリアル](tutorial.md)を参照してください。
 

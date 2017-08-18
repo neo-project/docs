@@ -17,7 +17,7 @@ Para implementar una blockchain privada NEO se necesitan un mínimo de cuatro se
 
 Para fines demostrativos, he creado cuatro servidores virtuales en Azure, el tamaño es `Standard_DS1 v2` (1 core, con 3.5 GB RAM). Puedes desplegar la blockchain privada en una LAN o en máquinas virtuales.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_1.png">
+<img style="vertical-align: middle" src="/assets/privatechain_1.png">
 
 > [!IMPORTANT] 
 >Despues de crear las máquinas virtuales abre los puertos 10331-10334 en el firewall de CentOS `firewalld` y establece nuevas reglas de entrada para los puertos 10331-10334.
@@ -27,7 +27,7 @@ Para fines demostrativos, he creado cuatro servidores virtuales en Azure, el tam
 > Si creas una maquina virtual en un entorno cloud, logeate en el panel de administración de la máquinas virtuales y configura los grupos de seguridad.
 >
 > En Azure la configuración es: `network interface` `network security group` `inbound security rules` `add` y añade los puertos 10331-10334.
-><img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_2.png">
+><img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_2.png">
 
 Una vez que las máquina virtual han sido creadas anota las direcciones IP para su uso posterior.
 
@@ -39,7 +39,7 @@ El proceso de instalación de un nodo NEO ha sido descrito anteriormente. Por fa
 
 Primero hemos creados cuatro ficheros de monedero llamados `privatechain1.db3 - privatechain4.db3.` Este paso puede ser creado tanto con la versión de PC `NEO-gui` como con la versión de línea de comandos `NEO-cli`. La siguiente imagen es usando el cliente `NEO-cli`.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_3.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_3.png">
 
 Una vez que los monederos han sido creados y su correspondiente clave publica guardada, cópiala en el portapapeles o guárdala en un fichero txt, o usa el comando `list key` vía [CLI Command](cli.md)
 
@@ -106,14 +106,14 @@ Ejecutar consenso:<br>
 
 ## Ejecución paso a paso en los cuatro nodos
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_4.png">
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_5.png">
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_6.png">
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_7.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_4.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_5.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_6.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_7.png">
 
 Si la operación anterior se ha ejecutado de forma correcta el proceso consenso se ejecutará en los cuatro nodos, tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_8.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_8.png">
 
 
 ## 5. Extraer NEO y NeoGas
@@ -122,15 +122,15 @@ Instala la versión cliente PC `NEO-gui` y modifica el fichero de configuración
 
 Ejecuta el cliente PC; Para comprobar que nos hemos conectado correctamente a la blockchain privada en la parte inferior izquierda el tamaño de bloque `Height` no es cero y el número conexiones `Connected` corresponde al numero de nodos en nuestra blockchain privada, en nuestro ejemplo 4 nodos.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_10.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_10.png">
 
 Abre el fichero del monedero `privatechain1.db3` click derecho sobre la dirección y click en `Create Contract Add.` y click en `Multi-Signature.` 
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_11.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_11.png">
 
 Introduce las cuatro claves publicas apuntadas en el paso 4. Para eso, introduce la clave y pulsa el simbolo `[+]` **Una vez introducida las 4 claves publicas**, modifica el parametro número mínimo de firmas `Min.Sig.Num` a 3, siendo `(número de nodos consensos/2 + 1)`, tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_12.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_12.png">
 
 >[!IMPORTANT]
 > Debe hacer la misma operación anterior en los 4 monederos: crear un cuenta contrato multi-firma y añadir las 4 claves 
@@ -144,64 +144,64 @@ Introduce las cuatro claves publicas apuntadas en el paso 4. Para eso, introduce
 
 Una vez introducidas las claves publicas, abre nuevamente el monedero `privatechain1.db3` y recrea los indices, click en la barra del menu `Wallet` y click en `Rebuild Index`. 
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_13.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_13.png">
 
 Una vez recreados los índices aparecerá la dirección de contrato con 100 millones de NEOs.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_14.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_14.png">
 
 Una vez realizado el paso anterior debemos transferir los NEO de la dirección de contrato a la dirección normal. Para eso, abre cualquiera de los cuatro monederos. (En mi ejemplo, abriré el primer monedero `privatechain1.db3`)
 
 Click en la barra del menu `Transaction` y click en `Transfer` e introduce la dirección de la cuenta estandard para transferir los 100 millones de NEOs a esa dirección. Click en OK.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_15.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_15.png">
 
 El sistema mostrará el siguiente mensaje `Transaction initiated, but the signature is incompleted`. 
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_16.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_16.png">
 
 Copia el codigo. Click en `Copy` y abre otro monedero distinto, en mi ejemplo el fichero `privatechain2.db3`, click en la barra del menu `Transaction` y click en `Signature`
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_17.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_17.png">
 
 Pega el codigo que anteriormente has copiado. Click `Signature` y vuelte a copiar el codigo de salida `Output`, click en `Copy`
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_18.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_18.png">
 
 Nuevamente abre otro monedero distinto, en mi ejemplo el fichero `privatechain3.db3`, click en la barra del menu `Transaction` y click en `Signature` y pega el codigo anteriormente copiado y click en `Signature`. En este momento aparecerá un botón `Broadcast` que significa que la transación se ha completado (Se ha alcanzado el número mínimo de firmas requerido para el contrato). En este momento la transación puede ser emitida. Click en `Broadcast`. 
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_19.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_19.png">
 
 La operación puede tardar unos 15 segundos para ver la tranferencia realizada. Una vez esperado ese tiempo abre el fichero del monedero `privatechain1.db3` para ver las monedas recibidas en la cuenta normal.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_20.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_20.png">
 
 La operación para extraer los NeoGas es similar. Abre el primer fichero monedero `privatechain1.db3` y click en el barra de `Advanced` y click en `NeoGas Claim`,
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_21.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_21.png">
 
 Click en `Claim All`
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_22.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_22.png">
 
 Una vez pulsado del botón `Claim All`. Nos aparecerá el siguiente mensaje:
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_23.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_23.png">
 
 La operación es similar a la de transferir NEOs. Copia el codigo de firma incompleta, abre el fichero del segundo monedero `privatechain2.db3` click en la barra de menu y click en `Transaction` y `Signature` y pega el codigo anteriormente copiado.
 Una vez copiado, copia el codigo de salida `Output`. Abre otro monedero, en mi caso `privatechain3.db3` click en la barra del menu `Transaction` y click en `Signature` y pega el codigo anteriormente copiado y click en `Signature`.
 
 Una vez copiado aparecerá el botón de Broadcast `Broadcast` y la transación puede ser emitida. Click en `Broadcast`.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_24.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_24.png">
 
 La operación puede tardar unos 15 segundos para ver la tranferencia realizada. Una vez esperado ese tiempo abre el fichero del monedero `privatechain1.db3` y recrea los indices del monedero.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_25.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_25.png">
 
 Una vez recreado los indices veremos los NeoGas.
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_26.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_26.png">
 
 
 ## 6. Instalación de NeoScan (Opcional)
@@ -302,4 +302,4 @@ sudo mix phx.server
 
 Desde el navegador web, accedemos a la ip del servidor y al puerto 4000, en mi ejemplo: http://neoscan.neolab.local:4000
 
-<img style="vertical-align: middle" src="assets/privatechain-centos//privatechain_27.png">
+<img style="vertical-align: middle" src="assets/privatechain-centos/privatechain_27.png">

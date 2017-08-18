@@ -8,7 +8,7 @@ The deployment of an NEO private chain requires at least four servers to reach a
 
 The deployment of an NEO private chain requires at least four servers to reach a consensus, where each server corresponds to a consensus node. For demonstration purposes, I have created four Windows virtual machines on Azure, the size is Standard DS1 v2 (1 core, 3.5 GB RAM). You will be able to deploy private chains on a LAN or virtual machine.
 
-![image](http://docs.neo.org/images/2017-05-17_15-18-43.jpg)
+![image](/assets/privatechain_1.png)
 
 After creating, to open 10331-10334 port, the specific method for the system in the `firewall` `advanced setting` `inbound rules`, to establish new rules, and then add port 10331-10334.
 
@@ -27,7 +27,7 @@ The installation process of the NEO node has been described in details above. Pl
 
 First, we have created four wallet files, namely wallet1.db3 - wallet4.db3. This step can be executed in both the PC version of the wallet and the command line wallet, where the following figure is a screenshot of the command line client.
 
-![image](http://docs.neo.org/images/2017-05-17_11-17-30.jpg)
+![image](/assets/privatechain_3.png)
 
 Once a wallet has been created and its corresponding public key saved, (i.e. saved to a txt file), directly copy the public key or use the `list key` command in [CLI Command](cli.md) to view the public key, and then copy it.
 
@@ -97,11 +97,11 @@ Note: Not all nodes are to open wallet1, each node should open its own correspon
 
 If the above operation is successful, then the four nodes will begin a consensus process, as shown
 
-![image](http://docs.neo.org/images/2017-05-17_14-58-10.jpg)
+![image](/assets/privatechain_8.png)
 
 4 nodes can still achieve consensus, even if one machine is turned off, as shown:
 
-![image](http://docs.neo.org/images/2017-05-17_14-57-51.jpg)
+![image](/assets/privatechain_9.png)
 
 
 
@@ -113,11 +113,11 @@ Open the wallet. If the lower left corner of the connection number is non-zero, 
 
 Open the wallet wallet1.db3 in the PC client, add the multi-party signature address, enter the four public keys in protocol.json, set the minimum number of signatures to 3 (the number of consensus nodes/2 + 1), as shown.
 
-![image](http://docs.neo.org/images/2017-05-17_15-08-39.jpg)
+![image](/assets/privatechain_12.png)
 
 Click OK. In order to rebuild the wallet index, click on the 'wallet' in the menu bar, and then you will see the contract address has 100 million NEO shares.
 
-![image](http://docs.neo.org/images/2017-05-17_15-10-14.jpg)
+![image](/assets/privatechain_14.png)
 
 > [!Note]
 > All 4 wallets have to perform the operation of adding multi-party signature address, and rebuilding of the wallet index.
@@ -126,13 +126,13 @@ Here we want to send the NEO from the contract address to the normal address. To
 
 Then, the system will prompt "transaction structure is completed, but there is not enough signature". Copy down the code, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign`. At this time, you will notice a pop-up window that displays a `broadcast` button, which means the signing process for the transaction is completed (the minimum number of signatures required for the contract has been achieved) The transaction can now be broadcasted, click on the `broadcast`. Once the transfer transaction begins broadcasting, it will take about 15 seconds for successful remittance to the account.
 
-![image](http://docs.neo.org/images/2017-05-17_15-12-50.jpg)
+![image](/assets/privatechain_20.png)
 
 The operation to extract the GAS is also similar, click `Advanced`, `Claim GAS`, `Claim` as shown. (Remember the wallet address, you will need it later)
 
-![image](http://docs.neo.org/images/2017-05-17_15-13-29.jpg)
+![image](/assets/privatechain_21.png)
 
 The next operation is similar to the transfer of the NEO. Copy down the code that has insufficient signatures, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign` and `broadcast` to broadcast the transaction of claiming GAS. Once the claim transaction begins broadcasting, it will take about 15 seconds for successful remittance to the account.
 After the successful extraction, the GAS will enter the first standard address of the wallet (ie the top wallet address) where you initiate the extraction of the GAS, as shown.
 
-![image](http://docs.neo.org/images/2017-05-17_15-15-45.jpg)
+![image](/assets/privatechain_26.png)

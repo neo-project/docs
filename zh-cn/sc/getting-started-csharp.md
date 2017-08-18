@@ -23,7 +23,7 @@ typora-root-url: ..\..
 
 安装过程很简单，直接按照提示一步一步操作即可，需要注意的是在安装时需要勾选 `.NET Core 跨平台开发 ` ，安装大概需要十几分钟或几十分钟。
 
-![](~/images/2017-06-02_18-18-13.jpg)
+![](assets/install_core_cross_platform_development_toolset.jpg)
 
 ### 2. NeoContractPlugin 插件
 
@@ -31,7 +31,7 @@ typora-root-url: ..\..
 
 打开 Visual Studio 2017，打开 ` 工具 `， ` 扩展和更新 ` ，在左侧点击 ` 联机 ` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）
 
-![](~/images/2017-06-02_18-28-37.jpg)
+![](assets/download_and_install_smart_contract_plugin.jpg)
 
 ### 3. neo-compiler
 
@@ -39,9 +39,9 @@ typora-root-url: ..\..
 
 在 Github 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目，用 Visual Studio 2017 打开该解决方案，发布其中的 neon 项目，如图
 
-![](~/images/2017-06-02_18-21-53.jpg)
+![](assets/publish_neo_compiler_msil_project.jpg)
 
-![](~/images/2017-06-02_18-37-44.jpg)
+![](assets/publish_and_profile_settings.jpg)
 
 发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件
 
@@ -51,30 +51,30 @@ typora-root-url: ..\..
 
 按 Windows + S 键，输入“环境变量”，选择“编辑账户的环境变量”回车
 
-![](~/images/2017-06-07_12-07-03.png)
+![](assets/2017-06-07_12-07-03.png)
 
 
 然后选择 Path, 点击 ` 编辑 `
 
-![](~/images/2017-06-07_11-35-28.png)
+![](assets/2017-06-07_11-35-28.png)
 
 在弹出来的窗口中点击”新建“输入 neon.exe 所在的目录，点击 ` 确定 ` ，` 确定 `
 
-![](~/images/2017-06-07_11-29-16.png)
+![](assets/2017-06-07_11-29-16.png)
 
 添加完 path 后，运行 CMD 或者 PowerShell 测试一下，输入 neon.exe 后，没有报错，输出如图所示的版本号的提示信息即表示环境变量配置成功
 
-![](~/images/2017-06-07_11-48-23.png)
+![](assets/powershell_enviornment_variabled_updated_correctly.png)
 
 ## 创建项目
 
 以上四步安装配置成功后，即可在 Visual Studio 2017 中创建 NEO 智能合约项目，如图
 
-![](~/images/2017-06-07_11-51-20.png)
+![](assets/new_smart_contract_project.png)
 
 创建项目好后，会自动生成一个 c# 文件，默认的类继承于 FunctionCode，如图
 
-![](~/images/2017-06-07_11-55-41.png)
+![](/assets/smart_contract_function_code.png)
 
 ## 编译项目
 
@@ -92,7 +92,7 @@ public class Contract1 : FunctionCode
 
 然后编译成功，你会在 `bin/Debug` 目录下看到生成的 `SmartContract1.avm` 文件，该文件即是生成的 NEO 智能合约文件。
 
-![](~/images/2017-05-11_13-21-21.jpg)
+![](assets/compile_smart_contract.jpg)
 
 现在，你已经完成了 NEO 智能合约开发环境的配置，智能合约编写方法请参考 [NEO 智能合约教程](tutorial.md)
 

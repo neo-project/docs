@@ -58,7 +58,7 @@ For example, in the java JVM or. Net CLR, source code will be compiled into the 
 
 ### Virtual machine architecture
 
-   ![](http://docs.neo.org/images/2017-05-15_11-28-29.jpg)
+   ![](/assets/neo-vm.jpg)
 
 The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
 

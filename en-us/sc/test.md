@@ -89,7 +89,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 If the return value of the smart contract is not of type int, but is bool or other type, you need to set `engine.EvaluationStack.Peek (). GetBigInteger ()` to other values, as shown in Figure
 
-[](Http://docs.neo.org/images/2017-05-16_15-39-07.jpg)
+[](/assets/test_1.jpg)
 
 ------
 

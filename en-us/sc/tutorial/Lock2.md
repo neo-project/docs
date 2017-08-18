@@ -21,13 +21,13 @@ PS: At this point of time, the latest **test network client** download is: [Neo 
 
 This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
 
-! [] (~ / Images / 2017-07-04_11-59-35.png)
+! [] (/assets/lock2_1.png)
 
 ## Get the public key
 
 The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
 
-! [] (~ / Images / 2017-07-06_18-28-31.png)
+! [] (/assets/lock2_2.png)
 
 > [! Caution]
 > Please note that do not divulge the private key, remember to pixelate.
@@ -111,16 +111,16 @@ If you think writing a script for this is troublesome, the client's `Deploy Cont
 
 Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
 
-![](~/images/2017-07-06_18-11-30.png)
+![](/assets/lock2_5.png)
 
 In the client, under the `Account` tab, right click on the whitespace, select `Create Contract Add.`, `Custom`, and paste the contract script into the box:
 
-![](~/images/2017-07-06_18-11-47.png)
+![](/assets/lock2_7.png)
 
 
 Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in tthe script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
-![](~/images/2017-07-04_12-59-35.png)
+![](/assets/lock2_8.png)
 
 
 
@@ -139,7 +139,7 @@ Open a wallet with assets on **testnet** and transfer a certain amount of assets
 
 Transfer assets from your smart contract account:
 
-![Transfer contract amount](~/images/2017-07-06_18-13-00.png)
+![Transfer contract amount](/assets/lock2_11.png)
 
 If the above operation is correct, the following happens when the asset is transferred:
 

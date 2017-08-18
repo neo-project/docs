@@ -15,7 +15,7 @@ The client itself does not require any installation. Download and directly doubl
 
 The client must be fully synchronized before use. That is, the client interface on both sides of the lower left corner, maintains the same value, with a steady increase in speed.
 
-![image](http://docs.neo.org/images/gui/a.png)
+![image](/assets/gui_1.png)
 
 ### Glossary
 
@@ -95,22 +95,22 @@ After importing the address of the other party as the monitoring address, you wi
 
 (1) Click on the `wallet`, `create the wallet database`, pop-up `new wallet` page.
 
-![image](http://docs.neo.org/images/gui/b.png)
+![image](/assets/gui_2.png)
 
 (2) Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
 
-![image](http://docs.neo.org/images/gui/c.png)
+![image](/es-es/node/assets/gui/gui_3.png)
 
 (3) Enter `password` and `repeat password` and save your own password.
 
-![image](http://docs.neo.org/images/gui/d.png)
+![image](/assets/gui_4.png)
 
 (4) Click `OK`, and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the assets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
 
 ### Open the wallet database
 (1) Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
 
-![image](http://docs.neo.org/images/gui/e.png)
+![image](/assets/gui_5.png)
 
 (2) Click `Browse 'to select the wallet (usually the default is the last open wallet), enter the password, click `OK` to enter the wallet.
 It should be noted that when the wallet displays an error, you can try to choose in the "repair mode" to open the wallet.
@@ -119,7 +119,7 @@ It should be noted that when the wallet displays an error, you can try to choose
 
 Can be used to modify the wallet password.
 
-![image](http://docs.neo.org/images/gui/f.png)
+![image](/assets/gui_6.png)
 
 After changing the password, please remember to re-backup wallet, because the previous backup wallet password has not changed.
 
@@ -147,29 +147,29 @@ This option is used to restore the address of the wallet file that was accidenta
 
 (1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
 
-![image](http://docs.neo.org/images/gui/g.png)
+![image](/assets/gui_10.png)
 
 (2) Click OK.
 
-![image](http://docs.neo.org/images/gui/h.png)
+![image](/assets/gui_11.png)
 
 (3) Click OK, as shown:
 
-![image](http://docs.neo.org/images/gui/i.png)
+![image](/zh-cn/node/assets/i.png)
 
 #### Equity asset transfer
 
 (1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
 
-![image](http://docs.neo.org/images/gui/j.png)
+![image](/zh-cn/node/assets/j.png)
 
 (2) Click OK.
 
-![image](http://docs.neo.org/images/gui/k.png)
+![image](/zh-cn/node/assets/k.png)
 
 (3) Click OK, as shown in the display, where more signatures are shown to be required:
 
-![image](http://docs.neo.org/images/gui/l.png)
+![image](/zh-cn/node/assets/l.png)
 
 (4) Signature function see [signature](#sign).
 
@@ -177,11 +177,11 @@ This option is used to restore the address of the wallet file that was accidenta
 
 This function is used to simplify the transfer of the same asset to a different addresses.
 
-![image](http://docs.neo.org/images/gui/m.png)
+![image](/assets/gui_14.png)
 
 The data format is `address transfer amount` (separated by spaces).
 
-![image](http://docs.neo.org/images/gui/n.png)
+![image](/assets/gui_15.png)
 
 It should be noted that the data format should be strictly in accordance with the above criteria, where extra spaces is likely to lead to transfer failure.
 
@@ -189,15 +189,15 @@ It should be noted that the data format should be strictly in accordance with th
 
 This function is used to record the information of the transaction on the NEO block-chain. Currently, [NEO blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transaction.
 
-![image](http://docs.neo.org/images/gui/o.png)
+![image](/zh-cn/node/assets/o.png)
 
 At the moment, there is no requirement for the message format.
 
-![image](http://docs.neo.org/images/gui/p.png)
+![image](/zh-cn/node/assets/p.png)
 
 The remarks for the transaction can be found on the browser.
 
-![image](http://docs.neo.org/images/gui/Oo.png)
+![image](/zh-cn/node/assets/oo.png)
 
 ### Trade
 
@@ -205,32 +205,32 @@ The remarks for the transaction can be found on the browser.
 
 (1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recipient.
 
-![image](http://docs.neo.org/images/gui/Q.png)
+![image](/assets/gui_18.png)
 
 (2) Click OK to generate the transaction request. We can use the transaction request, to obtain details on the terms sent by the corresponding party.
 
-![image](http://docs.neo.org/images/gui/R.png)
+![image](/assets/gui_19.png)
 
 #### Merging of the deal
 
 (1) After closing the initiated transaction request window, it will jump to the merge transaction request interface.
 
-![image](http://docs.neo.org/images/gui/S.png)
+![image](/assets/gui_20.png)
 
 (2) This causes the other party's transaction request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
 
-![image](http://docs.neo.org/images/gui/T.png)
+![image](/assets/gui_24.png)
 
 (3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
 
 ### Signature
 (1) This causes the transaction sent by the other party to be pasted within the input box. Click on `sign`, and the output data will be generated. At the same time, the `broadcast` button will be displayed.
 
-![image](http://docs.neo.org/images/gui/U.png)
+![image](/zh-cn/node/assets/u.png)
 
 (2) Click on `broadcast`, and the transaction will be sent. This deal is complete, when there is confirmation of the successful transaction.
 
-![image](http://docs.neo.org/images/gui/V.png)
+![image](/assets/gui_30.png)
 
 <a  id="offline"></a>
 
@@ -242,25 +242,25 @@ The remarks for the transaction can be found on the browser.
 
 You can download it here [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-When you enter the URL, you will download a packet like this. ![](~/images/gui/2017-07-04_11-59-35.png)
+When you enter the URL, you will download a packet like this. ![](/assets/chain.acc.zip.png)
 
 **Add**
 
 Unzip the packet and put it in the folder, as shown in the figure below:
 
-![](~/images/gui/2017-07-04_12-06-35.png)
+![](/assets/gui_58.png)
 
 **Sync**
 
 Open the client, and you will see that the client is in sync with the super fast speed. As shown in the figure below:  
 
-![](~/images/gui/2017-07-04_12-07-35.png)
+![](/assets/gui_59.png)
 
 **Complete**
 
 When synchronized to a certain degree, the file (chain.acc) will disappear and the synchronization speed will slow down. As shown in the figure below:
 
-![](~/images/gui/2017-07-04_12-08-35.png)
+![](/assets/gui_60.png)
 
 
 
@@ -276,30 +276,30 @@ The specific steps are:
 
 (2) Click `Advanced`, `Claim GAS`, `Claim All`.
 
-![image](http://docs.neo.org/images/gui/W.png)
+![image](/assets/gui_37.png)
 
 ### Request a certificate
 
 Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
 Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
 
-![image](http://docs.neo.org/images/gui/X.png)
+![image](/assets/gui_39.png)
 
 The generated file will be as shown, in the following figure:
 
-![image](http://docs.neo.org/images/gui/y.png)
+![image](/zh-cn/node/assets/y.png)
 
 ### Registered assets
 
 There are two types of assets, Token and Share. Using Token as an example, fill in the following:
 
-![image](http://docs.neo.org/images/gui/Z.png)
+![image](/assets/gui_43.png)
 
 It should be noted that the registration of assets require a huge amount of fees. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
 
 ### Distribute assets
 
-![image](http://docs.neo.org/images/gui/A1.png)
+![image](/assets/gui_46.png)
 
 It should be noted that the distribution of assets require a huge amount of fees. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
 
@@ -315,7 +315,7 @@ To be added
 
 This function is used to register as a candidate for the NEO blockchain validator.
 
-![image](http://docs.neo.org/images/gui/B1.png)
+![image](/assets/gui_57.png)
 
 It should be noted that the election requires a huge fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
 

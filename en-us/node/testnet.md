@@ -29,10 +29,10 @@ Reference: [Introduction of NEO node](introduction.md).
 
 1. Copy the contents of the program directory under the `protocal.testnet.json` into ` protocol.json` as shown.
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-35.png)
+![image](/assets/testnet_1.png)
 
 2. Copy the contents of the program (GUI) directory `neo-gui.exe.testnet.config` into the `neo-gui.exe.config` as shown in Figure
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-12.png)
+![image](/assets/testnet_2.png)
 
 Note: If the node is run on CLI, the contents of `config.testnet.json` need to be copied to` config.json`.

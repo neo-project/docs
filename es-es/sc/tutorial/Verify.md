@@ -36,7 +36,7 @@ Crea un nuevo monedero, siguiendo los siguientes pasos:
 
 1. Click en `Wallet`, click en `New Wallet Database`. Una vez pulsado aparecerá la ventana `New Wallet` y click en `Browser`
 
-<img style="vertical-align: middle" src="assets/verify/verify_1.png">
+<img style="vertical-align: middle" src="/assets/verify_1.png">
 
 2. Seleciona una ubicación donde crear el fichero. Escribe el nombre del fichero y click en `Guardar`.
 
@@ -127,18 +127,18 @@ Si no quieres obtener el script del contrato vía código se puede obtener a tra
 
 En la parte `Code`, nos aparecera el script del contrato.
 
-<img style="vertical-align: middle" src="assets/verify/verify_5.png">
+<img style="vertical-align: middle" src="/assets/verify_5.png">
 
 
 ## Crear una dirrección de contrato
 
 Una vez creado el monedero, click en con el botón derecho, y click en `Create Contract. Add` y click en `Custom`
 
-<img style="vertical-align: middle" src="assets/verify/verify_6.png">
+<img style="vertical-align: middle" src="/assets/verify_6.png">
 
 Asocia la dirección de contrato con la clave pública de tu cuenta estandard y completa los parámetros. Debido a que nuestro contrato tiene parámetros del tipo `Signature`, debes introducir `00` en al apartado `Parameter List`. Para más detalles, consulta el documento [Parámetros](Parameter.md), e introduce el script del contrato en el apartado `Code`.
 
-<img style="vertical-align: middle" src="assets/verify/verify_7.png">
+<img style="vertical-align: middle" src="/assets/verify_7.png">
 
 La razón por la cual se debe asociar la dirección contrato a una cuenta estándar es para enlazar la pareja de claves pública-privada, de esta forma, cuando el contrato necesite firmase se realizará de forma automática con la clave privada que tiene asociada de la cuenta.
 
@@ -158,13 +158,13 @@ A continuación se muestra una prueba de verificación/autenticación de cuenta 
 
 Tranfiere una cantidad de activos a la cuenta contrato:
 
-<img style="vertical-align: middle" src="assets/verify/verify_9.png">
+<img style="vertical-align: middle" src="/assets/verify_9.png">
 
 ### Transfiere activos desde la cuenta contrato a otra cuenta
 
 Tranfiere una cantidad de activos desde la cuenta contrato a otra cuenta.
 
-<img style="vertical-align: middle" src="assets/verify/verify_10.png">
+<img style="vertical-align: middle" src="/assets/verify_10.png">
 
 Una vez transferido, vemos como se ha realizado la transacción.
 

@@ -13,7 +13,7 @@ Una vez ejecutado aparecerá el interprete de comandos de NEO, desde aquí puede
 
 Exploraremos primero los distintos comandos disponibles en la línea de comandos. Introduce `help` seguido de enter y aparecerá la siguiente lista:
 
-<img style="vertical-align: middle" src="assets/cli/cli_2.png">
+<img style="vertical-align: middle" src="/assets/cli_2.png">
 
 Los paréntesis `<>` es el parámetro. <br>
 Los corchetes `[]` son parámetros opcionales. <br>

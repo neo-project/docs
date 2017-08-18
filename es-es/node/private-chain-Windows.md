@@ -17,7 +17,7 @@ Para implementar una blockchain privada NEO se necesitan un mínimo de cuatro se
 
 Para fines demostrativos, he creado cuatro servidores virtuales en Azure, el tamaño es `Standard_DS1 v2` (1 core, con 3.5 GB RAM). Puedes desplegar la blockchain privada en una LAN o en máquinas virtuales.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_1.png">
+<img style="vertical-align: middle" src="/assets/privatechain_1.png">
 
 > [!IMPORTANT] 
 >Despues de crear las máquinas virtuales, abre los puertos 10331-10334, accede a la configuración `firewall` `advanced setting` >`inbound rules`, para establecer nuevas reglas y añade los puertos 10331-10334.
@@ -38,7 +38,7 @@ El proceso de instalación de un nodo NEO ha sido descrito anteriormente. Por fa
 
 Primero hemos creados cuatro ficheros de monedero llamados `privatechain1.db3 - privatechain4.db3.` Este paso puede ser creado tanto con la versión de PC `NEO-gui` como con la versión de línea de comandos `NEO-cli`. La siguiente imagen es usando el cliente `NEO-cli`.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_3.png">
+<img style="vertical-align: middle" src="/assets/privatechain_3.png">
 
 Una vez que los monederos han sido creados y su correspondiente clave publica guardada, cópiala en el portapapeles o guárdala en un fichero txt, o usa el comando `list key` vía [CLI Command](cli.md)
 
@@ -114,11 +114,11 @@ Ejecutar consenso:<br>
 
 Si la operación anterior se ha ejecutado de forma correcta el proceso consenso se ejecutará en los cuatro nodos, tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_8.png">
+<img style="vertical-align: middle" src="/assets/privatechain_8.png">
 
 En la siguiente imagen se muestra como 1 nodo han sido apagado y todavia se consigue consenso:
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_9.png">
+<img style="vertical-align: middle" src="/assets/privatechain_9.png">
 
 ## 5. Extraer NEO y NeoGas
 
@@ -134,7 +134,7 @@ Abre el fichero del monedero `privatechain1.db3` click derecho sobre la direcci�
 
 Introduce las cuatro claves publicas apuntadas en el paso 4. Para eso, introduce la clave y pulsa el simbolo `[+]` **Una vez introducida las 4 claves publicas**, modifica el parametro número mínimo de firmas `Min.Sig.Num` a 3, siendo `(número de nodos consensos/2 + 1)`, tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_12.png">
+<img style="vertical-align: middle" src="/assets/privatechain_12.png">
 
 >[!IMPORTANT]
 > Debe hacer la misma operación anterior en los 4 monederos: crear un cuenta contrato multi-firma y añadir las 4 claves 
@@ -152,7 +152,7 @@ Una vez introducidas las claves publicas, abre nuevamente el monedero `privatech
 
 Una vez recreados los índices aparecerá la dirección de contrato con 100 millones de NEOs.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_14.png">
+<img style="vertical-align: middle" src="/assets/privatechain_14.png">
 
 Una vez realizado el paso anterior debemos transferir los NEO de la dirección de contrato a la dirección normal. Para eso, abre cualquiera de los cuatro monederos. (En mi ejemplo, abriré el primer monedero `privatechain1.db3`)
 
@@ -178,11 +178,11 @@ Nuevamente abre otro monedero distinto, en mi ejemplo el fichero `privatechain3.
 
 La operación puede tardar unos 15 segundos para ver la tranferencia realizada. Una vez esperado ese tiempo abre el fichero del monedero `privatechain1.db3` para ver las monedas recibidas en la cuenta normal.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_20.png">
+<img style="vertical-align: middle" src="/assets/privatechain_20.png">
 
 La operación para extraer los NeoGas es similar. Abre el primer fichero monedero `privatechain1.db3` y click en el barra de `Advanced` y click en `NeoGas Claim`,
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_21.png">
+<img style="vertical-align: middle" src="/assets/privatechain_21.png">
 
 Click en `Claim All`
 
@@ -205,7 +205,7 @@ La operación puede tardar unos 15 segundos para ver la tranferencia realizada. 
 
 Una vez recreado los indices veremos los NeoGas.
 
-<img style="vertical-align: middle" src="assets/privatechain-windows/privatechain_26.png">
+<img style="vertical-align: middle" src="/assets/privatechain_26.png">
 
 
 ## 6. Instalación de NeoScan (Opcional)
