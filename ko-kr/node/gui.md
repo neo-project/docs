@@ -15,7 +15,7 @@
 
 클라이언트 사용 전에 반드시 전체 싱크가 되어야 합니다. 클라이언트 왼쪽 하단 부분에 있는 숫자가 블록의 싱크 상태를 나타냅니다. 앞/뒤가 같아져야 합니다.
 
-![image](http://docs.neo.org/images/gui/a.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_1.png)
 
 ### 용어집(Glossary)
 
@@ -74,8 +74,6 @@
 
 자산을 만든 사람이 정한 총 자산 한계 내에서, 사용자는 특정 주소로 자산을 발행(issue)할 수 있습니다. 자산 배분에는 스몰 코인(GAS)으로 지불되는 수수료가 필요한데, 현재 수수료는 500GAS입니다. (테스트 넷의 수수료는 메인 넷 수수료의 1%입니다.) 
 
-Within the upper limits of the total amount set by the asset creator, the asset is issued to the address specified by the issuer. Distribution of assets consumes a certain amount of small coins as an additional service fee, the current price is 500 GAS. (Test network fee is one percent of the main network)
-
 #### 선거 (Election)
 
 네오 검증자(NEO validator)가 되고 싶은 사람들은 선거에 등록해야 합니다. 일정량의 보증금을 NEO로 냄으로써 검증자의 자격을 취득할 수 있습니다. 현재 이 기능은 적용되고 있지 않으며 추후 업데이트 될 것입니다.
@@ -97,22 +95,22 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 (1) ‘지갑(Wallet)’을 클릭하고 ‘지갑 데이터베이스 만들기(create the wallet database)’를 클릭하면 ‘새지갑(new wallet)’페이지가 나타납니다.
 
-![image](http://docs.neo.org/images/gui/b.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_2.png)
 
 (2) ‘탐색(Browse)’를 클릭 한 후 지갑 파일이 저장될 위치를 선택합니다. 그리고 파일 이름을 정한 후 ‘저장(Save)’를 클릭합니다.
 
-![image](http://docs.neo.org/images/gui/c.png)
+![image](https://github.com/neo-project/docs/blob/master/es-es/node/assets/gui/gui_3.png)
 
 (3) ‘패스워드(password)’를 입력한 후 ‘패스워드 재입력(repeat password)’을 한 다음 저장하면 여러분 자신만의 패스워드가 생성됩니다. 
 
-![image](http://docs.neo.org/images/gui/d.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_4.png)
 
 (4) ‘Ok’를 클릭하면 지갑이 성공적으로 생성되며, 디폴트 값으로 표준 계정도 같이 만들어 집니다. 유념하실 부분은 체인지 메커니즘의 역할 때문에, 디폴트 값으로 자산의 나머지 부분은 처음 주소로 이전됩니다. 그렇기 때문에 해당 프라이빗 키와 지갑을 백업해두어야 합니다. 
 
 ### 지갑 데이터베이스 열기 (Open the wallet database)
 (1)	매번 클라이언트가 실행될 때마다, 사용자는 ‘지갑 파일 열기(open wallet database)’를 클릭해서 지갑을 열어야 합니다. 다음 그림을 참고하세요 :
 
-![image](http://docs.neo.org/images/gui/e.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_5.png)
 
 (2) ‘탐색(Browse)’를 클릭하고(디폴트 값은 가장 최근에 사용한 지갑 파일입니다) 패스워드를 입력한 후 ‘Ok’를 누르면 지갑이 열립니다. 유념하실 부분은 지갑에서 에러가 표시되면 ‘리페어 모드(repair mode)’를 고르세요.
 
@@ -120,7 +118,7 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 지갑의 패스워드를 변경합니다.
 
-![image](http://docs.neo.org/images/gui/f.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_6.png)
 
 패스워드를 변경했으면 지갑을 반드시 다시 백업하시기 바랍니다. 왜냐하면 예전 백업본의 패스워드는 변경되지 않았기 때문입니다.
 
@@ -148,29 +146,29 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 (1) ‘전송(transaction)’을 클릭 한 후, ‘이전(transfer)’, ‘+’, 그리고 이전 정보를 입력하세요.
 
-![image](http://docs.neo.org/images/gui/g.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_10.png)
 
 (2) ‘Ok’를 클릭하세요.
 
-![image](http://docs.neo.org/images/gui/h.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_11.png)
 
 (3) ‘Ok’를 클릭하면 아래처럼 나옵니다.
 
-![image](http://docs.neo.org/images/gui/i.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/i.png)
 
 #### 자본 자산 이전 (Equity asset transfer)
 
 (1) ‘전송(transaction)’을 클릭 한 후, ‘이전(transfer)’, ‘+’, 그리고 이전 정보를 입력하세요.
 
-![image](http://docs.neo.org/images/gui/j.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/j.png)
 
 (2) ‘Ok’를 클릭하세요.
 
-![image](http://docs.neo.org/images/gui/k.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/k.png)
 
 (3) ‘Ok’를 클릭하면 아래처럼 나오는데, 서명할 부분이 나타납니다 :
 
-![image](http://docs.neo.org/images/gui/l.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/l.png)
 
 (4) 서명 기능에 대해서는 [서명](#sign)을 참고하세요.
 
@@ -178,27 +176,27 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 이 기능은 같은 자산을 여러 주소로 이전하는 데 사용됩니다. 
 
-![image](http://docs.neo.org/images/gui/m.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_14.png)
 
 데이터 포맷은 ‘주소 이전 양(address transfer amount)’의 형식입니다. (빈칸으로 구분)
 
-![image](http://docs.neo.org/images/gui/n.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_15.png)
 
 유념하실 부분은 데이터 포맷은 위와 같은 형식으로 엄격히 사용해야 하며 그렇지 않고 빈칸이 추가로 들어가게 되는 경우 이전(transfer)이 실패합니다.
 
 #### 리마크 (사용자가 전송 정보에 쓰는 별도 노트 같은 것, Remarks)
 
-이 기능은 네오 블록 체인상에 해당 전송 정보를 기록하는 데 사용됩니다. 현재 전송 정보는 [네오 블록체인 브라우져] ](https://www.antchain.xyz/)에서 확인할 수 있습니다. 
+이 기능은 네오 블록 체인상에 해당 전송 정보를 기록하는 데 사용됩니다. 현재 전송 정보는 [네오 블록체인 브라우져] ](https://www.antchain.xyz/)  에서 확인할 수 있습니다. 
 
-![image](http://docs.neo.org/images/gui/o.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/o.png)
 
 현재 메시지 포맷에는 규칙이 없습니다.
 
-![image](http://docs.neo.org/images/gui/p.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/p.png)
 
 해당 전송에 대한 리마크는 브라우져를 통해 확인할 수 있습니다. 
 
-![image](http://docs.neo.org/images/gui/Oo.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/oo.png)
 
 ### 거래
 
@@ -206,32 +204,32 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 (1) 상대방으로 보낼 자산의 상세 내용을 정하기 위해, 전송 시작 전에, 해당 자산의 거래를 할 양 측에서 전송 요청을 착수해야 합니다. 
 
-![image](http://docs.neo.org/images/gui/Q.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_18.png)
 
 (2) 전송 요청을 하기 위해 ‘Ok’를 클릭합니다. 우리는 상대방에게서 오는 상세 계약 조건을 알아보기 위해 전송 요청을 사용할 수 있습니다.
 
-![image](http://docs.neo.org/images/gui/R.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_19.png)
 
 #### 거래의 합병 (Merging of the deal)
 
 (1) 전송 요청 착수 창을 닫으면, 전송 요청을 합병하는 인터페이스로 이동합니다. 
 
-![image](http://docs.neo.org/images/gui/S.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_20.png)
 
 (2) 이 인터페이스에서는 상대방의 전송 요청을 볼 수 있습니다. 상대방의 요청이 적법(legitimacy)한 지 확인(verify)하는 확인(verification)을 클릭하세요. 상대방 요청의 적법성 여부에 따라, 여러분은 승인하거나 거절할 수 있습니다.
 
-![image](http://docs.neo.org/images/gui/T.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_24.png)
 
 (3) 여러분이 승인하는 경우, 양측 모두 다 서명한 뒤 전 네트워크에 뿌려집니다(broadcast). 자세한 내용은 [서명] ](#sign)을 참고하세요. <a id="sign"> </a>
 
 ### 서명 (Signature)
 (1) 여기에는 상대방이 보낸 전송이 입력 박스에 붙여(paste)집니다. ‘서명(sign)’을 클릭하면 출력 데이터(output data)가 만들어집니다. 동시에 ‘광역전송(broadcast)’버튼이 표시됩니다.
 
-![image](http://docs.neo.org/images/gui/U.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/u.png)
 
 (2) ‘광역전송(broadcast)’버튼을 클릭하면 ‘전송(transaction)’이 보내지고, 이 거래는 마무리되고 해당 ‘전송’이 확인됩니다. 
 
-![image](http://docs.neo.org/images/gui/V.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_30.png)
 
 <a  id="offline"></a>
 
@@ -244,25 +242,25 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 아래에서 다운받을 수 있습니다. 
 [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-URL을 입력하면 이 같은 패킷을 다운받을 수 있습니다. ![](~/images/gui/2017-07-04_11-59-35.png)
+URL을 입력하면 이 같은 패킷을 다운받을 수 있습니다. ![](/assets/chain.acc.zip.png)
 
 **추가 (Add)**
 
 패킷의 압축을 풀고(unzip) 아래 그림처럼 폴더에 넣으세요.
 
-![](~/images/gui/2017-07-04_12-06-35.png)
+![](https://github.com/neo-project/docs/blob/master/assets/gui_58.png)
 
 **싱크**
 
 클라이언트를 실행하면, 여러분은 클라이언트가 빠르게 싱크하는 것을 볼 수 있습니다. 아래 그림을 참조하세요.
 
-![](~/images/gui/2017-07-04_12-07-35.png)
+![](https://github.com/neo-project/docs/blob/master/assets/gui_59.png)
 
 **완료 (Complete)**
 
 싱크가 어느 정도 이루어지면, chain.acc는 사라지고 싱크 속도는 느려집니다. 아래 그림을 참조하세요.
 
-![](~/images/gui/2017-07-04_12-08-35.png)
+![](https://github.com/neo-project/docs/blob/master/assets/gui_60.png)
 
 
 
@@ -278,7 +276,7 @@ GAS는 새로운 블록마다 생성되며, 네오 소유자들의 주소에 기
 
 (2) ‘고급(advanced)’, ‘가스 요청(Claim GAS), ‘모두 요청(Claim All)’ 순서로 클릭합니다.
 
-![image](http://docs.neo.org/images/gui/W.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_37.png)
 
 ### 인증서 요청 (Request a certificate)
 
@@ -286,23 +284,23 @@ GAS는 새로운 블록마다 생성되며, 네오 소유자들의 주소에 기
 
 ‘고급(Advnaced)’, ‘인증서 요청(Request certificate)’을 클릭하시고 아래에 나오는 것 같이 양식을 채워 넣으세요.
 
-![image](http://docs.neo.org/images/gui/X.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_39.png)
 
 아래 그림처럼 생성된 파일이 나타납니다.
 
-![image](http://docs.neo.org/images/gui/y.png)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/y.png)
 
 ### 등록 자산 (Registered assets)
 
 두 가지의 자산이 있습니다. 토큰 그리고 할당. 아래 예는 토큰의 경우입니다. 
 
-![image](http://docs.neo.org/images/gui/Z.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_43.png)
 
 유념하실 부분은 자산을 등록하는 데에는 많은 수수료가 듭니다. (메인 넷 수수료는 10000GAS이며 테스트 넷은 100NEO입니다). 주의하시길 바랍니다.
 
 ### 자산 배분 (Distribute assets)
 
-![image](http://docs.neo.org/images/gui/A1.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_46.png)
 
 자산 배분에는 많은 수수료가 필요합니다. (메인 네트워크 수수료는 500NEO, 테스트 네트워크는 5 NEO) 이점을 유념하셔서 가급적이면 한번에 배분하시길 바랍니다.
 
@@ -318,7 +316,7 @@ GAS는 새로운 블록마다 생성되며, 네오 소유자들의 주소에 기
 
 이 기능은 네오 블록체인 검증자(validator) 후보로 등록하는 데 사용됩니다. 
 
-![image](http://docs.neo.org/images/gui/B1.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/gui_57.png)
 
 선거에는 고액의 수수료가 필요합니다. (메인 네트워크 수수료는 1000GAS, 테스트 네트워크는 10GAS) 이점 유념하시기 바라며, 아직 이 기능은 사용 가능하지 않습니다. 추후 업데이트될 예정입니다. 
 
