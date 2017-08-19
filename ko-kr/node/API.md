@@ -109,6 +109,6 @@ Body 요청：
 (크롬의 익스텐션을 설치하기 위해선 인터넷 연결이 필요합니다)
 아래는 테스트의 스크린 샷입니다. 
 
-![image](/zh-cn/node/assets/api_2.jpg)
+![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/api_2.jpg)
 
-![image](/assets/api_3.jpg)
+![image](https://github.com/neo-project/docs/blob/master/assets/api_3.jpg)
