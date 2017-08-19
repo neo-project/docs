@@ -31,10 +31,10 @@ If you are a developer, you can ask for GAS on the TestNet here: https://www.neo
 
 1. 아래 나오는 것처럼 `protocal.testnet.json` 폴더 아래 있는 프로그램 폴더의 내용물들을 복사 해서 ` protocol.json`아래 붙여넣기 합니다. 
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-35.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/testnet_1.png)
 
 2. 그림에 나오는 것처럼 `neo-gui.exe.testnet.config`폴더에 있는 내용물들을 복사헤서 `neo-gui.exe.config`에 붙여넣기 합니다. 
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-12.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/testnet_2.png)
 
 주의 : 노드가 CLI로 실행 중이면, `config.testnet.json` 의 내용물을 ` config.json`.에 복사해 넣습니다. 
