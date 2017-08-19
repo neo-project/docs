@@ -8,7 +8,7 @@
 
 먼저 커맨드 라인내의 여러 가지 명령어(command)들에 대해 알아보겠습니다. 커맨드 라인에서 ‘help’를 치고 리턴을 누르시면, 아래 화면과 같이 명령어들이 나옵니다. 
 
-![image](/assets/cli_2.png)
+![image](https://github.com/neo-project/docs/blob/master/assets/cli_2.png)
 
 아래는 모든 명령어와 괄호에 대한 규칙을 설명합니다 : 
 홑화살 괄호`<>`는 파라미터(parameter)를 가리킵니다.
