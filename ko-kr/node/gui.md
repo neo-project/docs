@@ -242,7 +242,7 @@
 아래에서 다운받을 수 있습니다. 
 [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-URL을 입력하면 이 같은 패킷을 다운받을 수 있습니다. ![](/assets/chain.acc.zip.png)
+URL을 입력하면 이 같은 패킷을 다운받을 수 있습니다. ![](https://github.com/YTkim7/docs/blob/master/ko-kr/node/assets/chain.acc.zip.png)
 
 **추가 (Add)**
 
