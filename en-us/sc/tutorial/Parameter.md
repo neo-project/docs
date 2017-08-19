@@ -45,6 +45,6 @@ public class Lock : FunctionCode
     }
 }
 ```
-Using the enum above, int is represented as 1, bool as 2, public key as 6 and signature as 0.
+Using the enum above, int is represented as 2, bool as 1, public key as 6 and signature as 0.
 
 When filling in parameters through the PC client, use 2 hexadecimal characters for each parameter. Thus, the arguments for the above function is written as : 02010600, return: 01.
