@@ -186,7 +186,7 @@
 
 #### 리마크 (사용자가 전송 정보에 쓰는 별도 노트 같은 것, Remarks)
 
-이 기능은 네오 블록 체인상에 해당 전송 정보를 기록하는 데 사용됩니다. 현재 전송 정보는 [네오 블록체인 브라우져] ](https://www.antchain.xyz/)  에서 확인할 수 있습니다. 
+이 기능은 네오 블록 체인상에 해당 전송 정보를 기록하는 데 사용됩니다. 현재 전송 정보는 [네오 블록체인 브라우져](https://www.antchain.xyz/)  에서 확인할 수 있습니다. 
 
 ![image](https://github.com/neo-project/docs/blob/master/zh-cn/node/assets/o.png)
 
