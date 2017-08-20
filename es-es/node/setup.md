@@ -28,39 +28,80 @@ Ejecutar el nodo NEO requiere la instalación de [.NET Core Runtime](https://www
 
 La instalación de .NET Core Runtime en un sistema Windows es muy sencilla, simplemente descárgalo y ejecútalo.
 
+### Instalación en un entorno Windows
+
+La instalación de .NET Core Runtime en un sistema Windows es muy sencilla, simplemente descárgalo y ejecútalo.
+
+
+```
+Descarga el paquete .NET Core y sigue los pasos de instalación
+https://download.microsoft.com/download/0/F/D/0FD852A4-7EA1-4E2A-983A-0484AC19B92C/dotnet-sdk-2.0.0-win-x64.exe
+
+```
+
 ### Instalación en un entorno Linux
 
 A continuación se muestra como instalar .NET Core en distribuciones Linux:
 
 > [!NOTE]
-> Para la instalación de .NET Core en otras distribuciones Linux consulta el siguiente enlace [.NET Core Linux](https://www.microsoft.com/net/core#linuxredhat) 
+> Para la instalación de .NET Core en otras distribuciones consulta el siguiente enlace [.NET Core Linux](https://www.microsoft.com/net/core#linuxredhat) 
 
 **CentOS**
-```
-sudo yum install libunwind libicu
-curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?linkid=848821
-sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
-
-sudo ln -s /opt/dotnet/dotnet /usr/local/bin
-```
-
-**Red Hat Enterprise Linux 7 Server:**
 
 ```
-subscription-manager repos --enable = rhel-7-server-dotnet-rpms
-yum install scl-utils
+sudo yum update
+sudo yum install epel-release unzip wget -y
 
-yum install rh-dotnetcore11
+sudo yum install leveldb-devel libunwind libicu -y 
+sudo curl -sSL -o dotnet.tar.gz https://aka.ms/dotnet-sdk-2.0.0-linux-x64
+mkdir -p ~/dotnet && tar zxf dotnet.tar.gz -C ~/dotnet
+export PATH=$PATH:$HOME/dotnet
+
+sudo wget https://github.com/neo-project/neo-cli/releases/download/v2.1.0/neo-cli-centos.7-x64.zip
+sudo mkdir -p /opt/neo-cli && sudo unzip neo-cli-centos.7-x64.zip -d /opt/neo-cli
+cd /opt/neo-cli/neo
+sudo dotnet neo-cli.dll
+```
+
+
+**Red Hat 7**
+
+```
+yum install wget unzip -y
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh epel-release-latest-7*.rpm
+
+yum install leveldb leveldb-devel libunwind libicu -y
+
+subscription-manager repos --enable=rhel-7-server-dotnet-rpms
+yum install scl-utils -y
 scl enable rh-dotnetcore11 bash
+echo "source scl_source enable rh-dotnetcore11" >> ~/.bashrc
+
+wget https://github.com/neo-project/neo-cli/releases/download/v2.1.0/neo-cli-rhel.7.2-x64.zip
+unzip neo-cli-rhel.7.2-x64.zip -d /opt/
+cd /opt/neo-cli/
+dotnet neo-cli.dll
+
 ```
 
-**Ubuntu,Mint**
+**Ubuntu**
 
 ```
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys B02C46DF417A0893
 sudo apt-get update
+sudo apt-get install libleveldb-dev libleveldb1v5 libicu-dev wget unzip -y
+
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
+
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0 -y
+
+sudo wget https://github.com/neo-project/neo-cli/releases/download/v2.1.0/neo-cli-ubuntu.16.04-x64.zip
+sudo unzip neo-cli-ubuntu.16.04-x64.zip -d /opt/
+cd /opt/neo-cli/
+sudo dotnet neo-cli.dll
 ```
+
 
 Una vez que la instalación se ha completado, ejecuta el siguiente comando para comprobar que el entorno .NET Core se ha instalado de forma correcta.
 

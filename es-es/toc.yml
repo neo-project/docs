@@ -15,10 +15,8 @@
       href: node/testnet.md
     - name: Documentación del CLI
       href: node/cli.md
-    - name: Crear una Blockchain Privada en Windows
-      href: node/private-chain-Windows.md
-    - name: Crear una Blockchain Privada en CentOS
-      href: node/private-chain-Centos.md
+    - name: Crear una Blockchain Privada
+      href: node/private-chain.md
     - name: Documentación de la API
       href: node/API.md
       items:
