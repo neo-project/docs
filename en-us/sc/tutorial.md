@@ -27,7 +27,7 @@ public class Contract1: FunctionCode
 {
     public static void Main ()// Note that the main method to capitalize
     {
-    // The Smart Contract inherited from FunctionCode can be compiled and posted to the block chain for use by other users
+        // The Smart Contract inherited from FunctionCode can be compiled and posted to the block chain for use by other users
     }
 }
 ```
@@ -45,7 +45,7 @@ public class Contract1: VerificationCode
 {
     public static bool Verify ()
     {
-    Return true;
+        return true;
     }
 }
 ```
@@ -91,7 +91,7 @@ Here are some simple inheritance from VerificationCode's smart contract
 ```c#
 public static bool Verify ()
 {
-Return true;
+    return true;
 }
 ```
 
@@ -102,7 +102,7 @@ There is a function of deleting an asset in the client's e-wallet client. When y
 ```c#
 public static bool Verify ()
 {
-Return false
+    return false
 }
 ```
 
