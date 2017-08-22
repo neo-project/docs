@@ -27,18 +27,29 @@
 | ---------------------------------------- | --------------------------------- | ------ |
 | create wallet \<path>                    | 创建钱包文件                            |        |
 | open wallet \<path>                      | 打开钱包文件                            |        |
+| upgrade wallet \<path>                   | 升级旧版钱包文件                          |        |
 | rebuild index                            | 重建钱包索引                            | 需要打开钱包 |
 | list address                             | 列出钱包中的所有账户                        | 需要打开钱包 |
 | list asset                               | 列出钱包中的所有资产                        | 需要打开钱包 |
 | list key                                 | 列出钱包中的所有公钥                        | 需要打开钱包 |
+| show utxo [id\|alias]                    | 列出钱包中指定资产的 UTXO                   | 需要打开钱包 |
 | show gas                                 | 列出钱包中的所有可提取及不可提取的 GAS             | 需要打开钱包 |
 | claim gas                                | 提取钱包中的所有可提取的 GAS                  | 需要打开钱包 |
-| create address [n=1]                     | 创建地址/批量创建地址                       | 需要打开钱包 |
-| import key \<wif\|path>                  | 导入私钥/批量导入私钥                       | 需要打开钱包 |
+| create address [n=1]                     | 创建地址 / 批量创建地址                       | 需要打开钱包 |
+| import key \<wif\|path>                  | 导入私钥 / 批量导入私钥                       | 需要打开钱包 |
 | export key \[address] [path]             | 导出私钥                              | 需要打开钱包 |
-| send \<id\|alias> \<address> \<value> [fee=0] | 向指定地址转账 参数分别为：资产 ID，对方地址，转账金额，手续费 | 需要打开钱包 |
+| send \<id\|alias> \<address> \<value>\|all [fee=0] | 向指定地址转账 参数分别为：资产 ID，对方地址，转账金额，手续费 | 需要打开钱包 |
 
 以下命令可能需要详细解释一下：
+
+👉 `upgrade wallet <path>` 
+
+升级旧版钱包文件
+
+```
+neo>upgrade wallet cli.db3
+Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3
+```
 
 👉 `rebuild index` 
 
@@ -49,6 +60,22 @@
 假如由于种种原因，钱包中的某笔交易未确认，这时资产已经从钱包中扣除，但并未经过整个区块链网络的确认。如果想删掉这笔未确认的交易使钱包中的资产正常显示也需要重建钱包索引。
 
 新创建的钱包不用重建钱包索引，只有要导入私钥或者钱包中资产显示异常时才需要重建钱包索引。
+
+👉 `show utxo [id|alias]`
+
+列出钱包中指定资产的 UTXO，示例如入输出如下所示：
+
+```
+neo>show utxo neo
+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:2
+total: 1 UTXOs
+neo>show utxo gas
+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:1
+total: 1 UTXOs
+neo>show utxo 025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4
+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:0
+total: 1 UTXOs
+```
 
 👉 `show gas` 
 
@@ -101,25 +128,30 @@ import key key.txt
 
 如果是指定文件的话，文件里的私钥格式请参考 export key key.txt 的输出。
 
-👉 `send <id|alias> <address> <value> [fee=0]`
+👉 `send <id|alias> <address> <value>|all [fee=0]`
 
-转账，一共有 4 个参数，第一个参数是资产 ID，第二个参数是收款地址，第三个参数是转账金额，第四个参数是手续费（这个参数可不填，默认为0）。该命令需要验证钱包密码。假如我想转 100NEO 股转到这个地址“AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b”，我需要输入以下命令。
+转账，一共有 4 个参数，第一个参数是资产 ID，第二个参数是收款地址，第三个参数是转账金额（当输入 all 即为钱包中该资产的全部数量），第四个参数是手续费（这个参数可不填，默认为0）。该命令需要验证钱包密码。假如我想转 100 NEO 转到这个地址“AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b”，我需要输入以下命令。
 
 send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
+
+因为第二个参数除了资产 ID，还可以填写资产缩写，如 neo，gas，所以以上命令可以写成：
+
+send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
 不知道资产 ID 怎么办？请输入 list asset 命令查看钱包中的所有资产。
 
 ## 3、 查看节点信息
 
-| 命令         | 功能说明                    |
-| ---------- | ----------------------- |
-| show state | 显示当前区块链同步状态             |
-| show node  | 显示当前已连接的节点地址和端口         |
-| show pool  | 显示内存池中的交易（这些交易处于零确认的状态） |
+| 命令                             | 功能说明                    |
+| ------------------------------ | ----------------------- |
+| show state                     | 显示当前区块链同步状态             |
+| show node                      | 显示当前已连接的节点地址和端口         |
+| show pool                      | 显示内存池中的交易（这些交易处于零确认的状态） |
+| export blocks [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步  |
 ## 4、 高级指令
 
 | 命令              | 功能说明 |
 | --------------- | ---- |
 | start consensus | 启动共识 |
-启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链可以在 `protocol.json` 中设置共识人的公钥，详情可参考 [私链搭建](private-chain.md)。
+启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](private-chain.md)。
 
