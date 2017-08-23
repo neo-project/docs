@@ -1,3 +1,4 @@
+# NEO node introduction
 Nodes that store all of the blockchain are called “full-nodes”. They are connected to the blockchain through a P2P network. All the nodes in the blockchain network are equal, they act both as a client interface and as a server.
 
 There are two full-node programs. The first one is Neo-GUI, it has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. The second one is Neo-CLI, it provides an external API for basic wallet functions and is intended for NEO developers. It will also help other nodes achieve consensus with the network and will be involved in generating new blocks.
