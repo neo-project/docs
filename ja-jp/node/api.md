@@ -2,7 +2,7 @@
 
 Neo-CLI内の各ノードは、ノードからブロックチェーンデータを得るためにAPIを提供し、ブロックチェーンアプリケーション開発を容易にします。そのインターフェースは[JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html)を経由して提供され、基盤となるプロトコルはHTTP/HTTPSを通信に使用します。RPCサービスを提供するノードを開始するためには、下記のコマンドを実行します。
 
-'dotnet neo-cli.dll /rpc'
+`dotnet neo-cli.dll /rpc`
 
 HTTPS経由でRPCサーバにアクセスするため、ノードを開始する前にコンフィグレーションファイルconfig.jsonの変更が必要で、ドメイン名、証明書、パスワードを設定します。
 
