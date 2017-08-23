@@ -1,8 +1,8 @@
 # NEO Namespace
 
-NEO Namespace contains the API provided by the Neo blockchain, providing methods to query the blockchain and manipulate the persistent store.
+The NEO Namespace contains an API provided by the NEO blockchain. Methods of the API allow querying the blockchain and manipulation of the persistent store.
 
-Note: `New` and `Deprecated` tags are denote changes in version 2.0 as compared to version 1.6.
+Note: `New` and `Deprecated` tags denote changes between version 1.6 and version 2.0.
 
 ## Read-only API
 
@@ -100,7 +100,6 @@ Note: The source code can be found under `NEO` in the `src/neo/SmartContract/Sta
 ## Read/Write API
 
 This type of API will modify the status of the smart contract
-
 
 | API | Description |
 | ------------------------------ | -------------------------------- |
