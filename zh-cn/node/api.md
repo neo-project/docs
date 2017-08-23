@@ -38,11 +38,12 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblock](api/getblock2.md)             | \<index> [verbose=0]                     | 根据指定的索引，返回对应的区块信息            |          |
 | [getblockcount](api/getblockcount.md)    |                                          | 获取主链中区块的数量                   |          |
 | [getblockhash](api/getblockhash.md)      | \<index>                                 | 根据指定的索引，返回对应区块的散列值           |          |
+| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 根据指定的索引，返回截止到该区块前的系统手续费      |          |
 | [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |          |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |          |
 | [getrawmempool](api/getrawmempool.md)    |                                          | 获取内存中未确认的交易列表                |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |          |
-| [getstorage](api/tetstorage.md)          | \<script_hash>  \<key>                   | 根据合约脚本散列和存储的 key，返回存储的 value |          |
+| [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | 根据合约脚本散列和存储的 key，返回存储的 value |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                             | 根据指定的散列和索引，返回对应的交易输出（零钱）信息   |          |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | 向指定地址转账                      | 需要打开钱包   |
@@ -50,6 +51,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getnewaddress](api/getnewaddress.md)    |                                          | 创建一个新的地址                     | 需要打开钱包   |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 导出指定地址的私钥                    | 需要打开钱包   |
 | submitblock                              | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
+| [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 NEO 地址            |          |
+| [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
 
 ## GET 请求示例
 
