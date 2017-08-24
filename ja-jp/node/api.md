@@ -46,7 +46,7 @@ P2PとWebSocketに関する情報は[Node/Introduction](introduction.md)を参�
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | 指定のアドレスに送信する。                     | ウォレットを開いている必要がある。   |
 | submitblock                              | \<hex>                                  | 新たなブロックをサブミットする。                      | コンセンサスノードである必要がある。 |
 
-## GET request example
+## GETリクエスト例
 
 代表的なJSON-RPC GETリクエストフォーマットは次のようになります。
 
@@ -68,7 +68,7 @@ http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 }
 ```
 
-## POST request example
+## POSTリクエスト例
 
 代表的なJSON-RPC Postリクエストは次のようになります。
 
@@ -101,7 +101,7 @@ Request Body：
 }
 ```
 
-## Test tools
+## テストツール
 
 Postmanのクロム拡張機能を用いてテストを容易にできます(クロム拡張機能のインストールにはインターネット接続が必要です)。下記はテストのスクリーンショットです。
 
@@ -109,7 +109,7 @@ Postmanのクロム拡張機能を用いてテストを容易にできます(ク
 
 ![image](http://docs.neo.org/images/2017-05-17_16-55-58.jpg)
 
-## Other
+## その他
 
 [C# JSON-RPC Command List](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
 
