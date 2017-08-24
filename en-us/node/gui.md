@@ -4,16 +4,16 @@
 
 ### Introduction
 
-The versions of Windows which are compatible with the client are: Win7 sp1 / Win8 / Win10.
+The neo-gui client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 
-The client itself does not require any installation. Download and directly double-click neo-gui.exe to open the client. If there are any problems with the process, and the client cannot be used normally, please keep the client directory error.log file, and contact our technical staff to assist you in solving the problem.
+The client itself does not require any installation. Download and extract the files to a location of your choice, then double-click neo-gui.exe to open the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
 
 > [!Note]
 > Windows10 pre-version of the system requires installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
 ### Synchronize
 
-The client must be fully synchronized before use. That is, the client interface on both sides of the lower left corner, maintains the same value, with a steady increase in speed.
+The client must be fully synchronized before use. The bottom left hand corner indicates the number of blocks synchronized and the total number of blocks in the network (see example below).  These numbers will update regularly.
 
 ![image](/assets/gui_1.png)
 
@@ -21,15 +21,15 @@ The client must be fully synchronized before use. That is, the client interface 
 
 #### Wallet
 
-A wallet file stores a reference to your NEO, GAS, and account information in a database with .Db3, as the suffix name. This file is very important and requires a secure backup.
+A wallet file stores a reference to your NEO, GAS, and account information in a database with .db3 extension. This file is very important and must be backed up securely.
 
 > [!Important]
 >
-> Loss of either the wallet file or wallet password, will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
+> Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
 
 #### Account
 
-This is used to track assets in an NEO block.
+This is used to track assets in a NEO block.
 
 Account information includes: Address, private key, public key, type.
 
@@ -43,7 +43,7 @@ Account information includes: Address, private key, public key, type.
 
 > [!Important]
 >
-> At no point should the private key be disclosed to others. Once the private key is leaked, it may result in the loss of your assets.
+> At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
 
 #### Assets
 
@@ -59,12 +59,12 @@ Transfer of assets to a recipient address. If the asset type is NEO, both partie
 
 #### Trade
 
-Carries out online asset exchange between two parties, where both parties have to confirm before successful exchange of assets can occur.
+Carries out online asset exchange between two parties, where both parties have to confirm before the successful exchange of assets can occur.
 
 #### Signature
 
 Signing of information, is to signify confirmation of the information by the signer.
-For transactions involving equity allocation and transfer of assets, the signature is required proof of consent by the parties involved.
+For transactions involving equity allocation and transfer of assets, the signature is required as proof of consent by the parties involved.
 
 #### Registered assets
 
@@ -76,11 +76,11 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 #### Election
 
-Those who want to be a NEO validator are required to register by election. Through the deposit of a certain amount of NEO, the validator qualifications can be obtained. This function is not currently supported. Please wait for further updates.
+Those who want to be a NEO validator are required to register by election. Through the deposit of a certain amount of NEO, validator qualifications may be obtained. This function is not currently supported. Please wait for further updates.
 
 #### Vote
 
-The holders of NEO can vote on the validator candidates and determine the validator based on the voting results. This function is not currently supported. Please wait for further updates.
+Holders of NEO can vote on the validator candidates and this voting mechanism will determine if a validator is selected. This function is not currently supported. Please wait for further updates.
 
 #### Broadcast
 
@@ -105,7 +105,7 @@ After importing the address of the other party as the monitoring address, you wi
 
 ![image](/assets/gui_4.png)
 
-(4) Click `OK`, and the wallet will be successfully created, which will come with a standard account, by default. It should be noted that, due to the role of change mechanism, the remainder of the assets will be transferred to the first address, by default. Thus, there is a need to back up the corresponding private key and wallet.
+(4) Click `OK` and the wallet will be successfully created, which by default will come with a standard account. It should be noted that due to the role of change mechanism, the remainder of the assets will be transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
 
 ### Open the wallet database
 (1) Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
@@ -113,7 +113,7 @@ After importing the address of the other party as the monitoring address, you wi
 ![image](/assets/gui_5.png)
 
 (2) Click `Browse 'to select the wallet (usually the default is the last open wallet), enter the password, click `OK` to enter the wallet.
-It should be noted that when the wallet displays an error, you can try to choose in the "repair mode" to open the wallet.
+It should be noted that when the wallet displays an error, you can try to choose "repair mode" to open the wallet.
 
 ### Change Password
 
@@ -121,19 +121,19 @@ Can be used to modify the wallet password.
 
 ![image](/assets/gui_6.png)
 
-After changing the password, please remember to re-backup wallet, because the previous backup wallet password has not changed.
+After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
 
 ### Rebuild the wallet index
 
 This option is used to restore errors in the client when an exception occurs. The Wallet Index may need to be rebuilt in the following cases:
 
-1. After the import of private key.
+1. After the import of a private key.
 
 2. A transaction that has not been confirmed after a long time.
 
-3. The wallet assets show errors, and blockchain data does not match.
+3. The wallet assets show errors and blockchain data does not match.
 
-As the current block height is very high, rebuilding the wallet index takes about a minute or a few minutes. Please be patient.
+As the current block height is very high, rebuilding the wallet index can take several minutes. Please be patient.
 
 ### Restore the account
 
@@ -153,7 +153,7 @@ This option is used to restore the address of the wallet file that was accidenta
 
 ![image](/assets/gui_11.png)
 
-(3) Click OK, as shown:
+(3) Click OK.
 
 ![image](/zh-cn/node/assets/i.png)
 
@@ -183,19 +183,19 @@ The data format is `address transfer amount` (separated by spaces).
 
 ![image](/assets/gui_15.png)
 
-It should be noted that the data format should be strictly in accordance with the above criteria, where extra spaces is likely to lead to transfer failure.
+It should be noted that the data format should be entered in accordance with the above criteria as extra spaces are likely to lead to transfer failure.
 
 #### Remarks
 
-This function is used to record the information of the transaction on the NEO block-chain. Currently, [NEO blockchain browser](https://www.antchain.xyz/) can be used to discover corresponding information for that transaction.
+This function is used to record the information of the transaction on the NEO block-chain. The [NEO blockchain browser](https://www.antchain.xyz/) can be used to locate transaction information.
 
 ![image](/zh-cn/node/assets/o.png)
 
-At the moment, there is no requirement for the message format.
+At the moment there is no requirement for the message format.
 
 ![image](/zh-cn/node/assets/p.png)
 
-The remarks for the transaction can be found on the browser.
+The remarks for the transaction can be found on the [NEO blockchain browser](https://www.antchain.xyz/)
 
 ![image](/zh-cn/node/assets/oo.png)
 
@@ -203,32 +203,32 @@ The remarks for the transaction can be found on the browser.
 
 #### Initiating a deal
 
-(1) This transaction requires both parties to initiate a transaction request, in order to determine the asset details being sent to the corresponding recipient.
+(1) This transaction requires both parties to initiate a transaction request in order to determine the asset details being sent to the corresponding recipient.
 
 ![image](/assets/gui_18.png)
 
-(2) Click OK to generate the transaction request. We can use the transaction request, to obtain details on the terms sent by the corresponding party.
+(2) Click OK to generate the transaction request. We can use the transaction request to obtain details on the terms sent by the corresponding party.
 
 ![image](/assets/gui_19.png)
 
 #### Merging of the deal
 
-(1) After closing the initiated transaction request window, it will jump to the merge transaction request interface.
+(1) After closing the initiated transaction request window you will be shown the merge transaction request interface.
 
 ![image](/assets/gui_20.png)
 
-(2) This causes the other party's transaction request to be displayed on the interface. Click on verification, to verify the legitimacy of the other party's request. Depending the legitimacy of the request, one can either choose to accept or refuse.
+(2) This causes the other party's transaction request to be displayed. To verify the legitimacy of the other party's request, click verify. Depending the legitimacy of the request, one can either choose to accept or refuse.
 
 ![image](/assets/gui_24.png)
 
-(3) If you choose to accept, then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
+(3) If you choose to accept then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
 
 ### Signature
 (1) This causes the transaction sent by the other party to be pasted within the input box. Click on `sign`, and the output data will be generated. At the same time, the `broadcast` button will be displayed.
 
 ![image](/zh-cn/node/assets/u.png)
 
-(2) Click on `broadcast`, and the transaction will be sent. This deal is complete, when there is confirmation of the successful transaction.
+(2) Click on `broadcast`, and the transaction will be sent. This transaction is now complete and a transaction ID (TXID) will be shown once the transaction is successful.
 
 ![image](/assets/gui_30.png)
 
@@ -236,29 +236,29 @@ The remarks for the transaction can be found on the browser.
 
 ## Advanced
 
-### Offline synchronous packet
+### Download Synchronize data offline
+
+In order to speed up network synchronzation you can download a copy of the blockchain up to a certain blockheight.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
 
 **Download**
 
-You can download it here [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
-
-When you enter the URL, you will download a packet like this. ![](/assets/chain.acc.zip.png)
+To begin, download the file located at [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
 **Add**
 
-Unzip the packet and put it in the folder, as shown in the figure below:
+Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
 
 ![](/assets/gui_58.png)
 
 **Sync**
 
-Open the client, and you will see that the client is in sync with the super fast speed. As shown in the figure below:  
+After re-opening the neo-gui client you will see that the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. As shown in the figure below:  
 
 ![](/assets/gui_59.png)
 
 **Complete**
 
-When synchronized to a certain degree, the file (chain.acc) will disappear and the synchronization speed will slow down. As shown in the figure below:
+When synchronized to a certain point, the file (chain.acc) will be deleted and synchronization from the NEO network will continue. As shown in the figure below:
 
 ![](/assets/gui_60.png)
 
@@ -266,13 +266,13 @@ When synchronized to a certain degree, the file (chain.acc) will disappear and t
 
 
 
-### Extractation of GAS
+### Extraction of GAS
 
-GAS are generated with each new block, and will be recorded to the address of NEO holders. (The number within the brackets of the balance of assets, is the number of GAS to be claimed) At any time, the NEO holder can initiate a claim, to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client, has the ability to execute the function of extracting GAS.
+GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
 
 The specific steps are:
 
-(1) Transfer all the NEO within the wallet using a transfer operation. ( It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
+(1) Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
 
 (2) Click `Advanced`, `Claim GAS`, `Claim All`.
 
@@ -285,7 +285,7 @@ Click `Advanced`, `Request certificate`, and fill in the request form according 
 
 ![image](/assets/gui_39.png)
 
-The generated file will be as shown, in the following figure:
+The generated file will be as shown in the following figure:
 
 ![image](/zh-cn/node/assets/y.png)
 
@@ -295,13 +295,13 @@ There are two types of assets, Token and Share. Using Token as an example, fill 
 
 ![image](/assets/gui_43.png)
 
-It should be noted that the registration of assets require a huge amount of fees. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
+It should be noted that the registration of assets incurs a significant fee. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
 
 ### Distribute assets
 
 ![image](/assets/gui_46.png)
 
-It should be noted that the distribution of assets require a huge amount of fees. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
+It should be noted that the distribution of assets incurs a significant fee. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
 
 ### Deploy Contract
 
@@ -313,11 +313,11 @@ To be added
 
 ### Election
 
-This function is used to register as a candidate for the NEO blockchain validator.
+This function is used to register as a NEO blockchain validator candidate.
 
 ![image](/assets/gui_57.png)
 
-It should be noted that the election requires a huge fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
+It should be noted that the election incurs a significant fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
 
 ### 4.8 Option
 
@@ -331,7 +331,7 @@ No content yet.
 
 ### Official website
 
-Click will jump to the NEO official website.
+The official NEO website is located at: https://neo.org/
 
 ### Developers tools
 
