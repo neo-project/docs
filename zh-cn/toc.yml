@@ -40,6 +40,8 @@
         href: node/api/getblockhash.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
+      - name: getcontractstate
+        href: node/api/getcontractstate.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
@@ -61,7 +63,12 @@
     - name: 网络协议
       href: node/network-protocol.md
     - name: 共识机制
-      href: node/consensus.md
+      href: node/consensus/whitepaper.md
+      items:
+        - name: 共识机制白皮书
+          href: node/consensus/whitepaper.md
+        - name: 共识机制图解
+          href: node/consensus/consensus.md
 - name: 智能合约
   href: sc/introduction.md
   items:
