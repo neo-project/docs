@@ -20,6 +20,8 @@
     - name: Documentación de la API
       href: node/API.md
       items:
+        - name: dumpprivkey
+          href: node/api/dumpprivkey.md
         - name: getaccountstate
           href: node/api/getaccountstate.md
         - name: getassetstate
@@ -42,6 +44,8 @@
           href: node/api/getconnectioncount.md
         - name: getcontractstate
           href: node/api/getcontractstate.md
+        - name: getnewaddress
+          href: node/api/getnewaddress.md
         - name: getpeers
           href: node/api/getpeers.md
         - name: getrawmempool
@@ -52,6 +56,8 @@
           href: node/api/getstorage.md
         - name: gettxout
           href: node/api/gettxout.md
+        - name: sendmany
+          href: node/api/sendmany.md
         - name: sendrawtransaction
           href: node/api/sendrawtransaction.md
         - name: sendtoaddress
