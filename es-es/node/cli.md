@@ -48,7 +48,7 @@ Comando | Descripción de la función | Comentario |
 | create address [n = 1] | Crea una dirección/Crea direcciones de forma automática. | Necesita abrir el monedero. |
 | import key \<wif\|path> | Importa la clave privada/importa claves privadas de forma masiva. | Necesita abrir el monedero. |
 | export key \[address] [path] | Exporta la clave privada. | Necesita abrir el monedero. |
-| send \<id\|alias> \<address> \<value> [fee=0]| Transfiere a la dirección especificada. | Necesita abrir el monedero. |
+| send \<id\|alias|all> \<address> \<value> [fee=0]| Transfiere a la dirección especificada o a todas las direcciones. | Necesita abrir el monedero. |
 
 Los siguientes comandos se explican en detalle:
 
@@ -68,6 +68,14 @@ Los siguientes comandos se explican en detalle:
 
 `neo> open wallet mywallet` <br>
 `password:******` <br>
+
+**Actualiza el fichero del monedero**
+
+:point_right: `update wallet <path>`
+
+`neo>upgrade wallet cli.db3`<br>
+`Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3`<br>
+
 
 **Recontruye los indices del fichero del monedero**
  
@@ -135,9 +143,24 @@ Si se especifica un fichero, el fichero debe estar en formato de clave privada. 
 :point_right: `claim gas` <br>
 `Tranaction Suceeded: 7e6230add40ff61ba978bbacad8054e96caf709e2793b8a83db84c86e7ae7ee1`
 
-**Transfiere a la dirección especificada**
+**Muestra las transacciones UTXO en función del id o alias de una transacción
+:point_right: `show utxo [id|alias]` <br>
 
-:point_right: `send <id | alias> <address> <value> [fee = 0]`
++```
++neo>show utxo neo
++8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:2
++total: 1 UTXOs
++neo>show utxo gas
++8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:1
++total: 1 UTXOs
++neo>show utxo 025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4
++8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:0
++total: 1 UTXOs
++```
+
+**Transfiere a la dirección especificada o a todas las direcciones del monedero**
+
+:point_right: `send <id | alias | all> <address> <value> [fee = 0]`
 
 Para transferir hay un total de cuatro paramentos: El primer parámetro es el id. de activo, el segundo parámetro es la dirección de pago, el tercer parámetro es la cantidad a transferir y el cuarto parámetro es la tarifa. (Este parámetro se puede dejar en blanco, por defecto es 0). <br><br>
 
@@ -150,6 +173,7 @@ Para poder tranferir hay que introducir la contraseña del monedero. Por ejemplo
 `send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100`
 
 Si no estas seguro del ID del activo, ejecuta el comando `list asset` para mostrar la lista de todos los activos del monedero.
+
 
 ## 3. Ver la información del nodo
 
@@ -166,6 +190,6 @@ Comando | Descripción de la función  |
 Comando  | Descripción de la función |
 | --------------- | ---- |
 `start consensus` | Inicia consenso.
-Para iniciar un consenso el monedero tiene que tener autoridad consenso, la autoridad de consenso en la red principal (MainNet) se obtiene a través de voto. Si se despliega una blockchain privada, la claves publicas se pueden configurar en el fichero `protocol.json`. Consulta la creación de blockchain privadas aqui [Private chain](private-chain-Windows.md)
+Para iniciar un consenso el monedero tiene que tener autoridad consenso, la autoridad de consenso en la red principal (MainNet) se obtiene a través de voto. Si se despliega una blockchain privada, la claves publicas se pueden configurar en el fichero `protocol.json`. Consulta la creación de blockchain privadas aqui [Private chain](private-chain.md)
 `export blocks [path=chain.acc]` | Exporta los bloques a un fichero de salida |
 `refresh policy` | Refresca la política.

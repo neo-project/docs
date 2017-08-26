@@ -42,7 +42,7 @@ A continuación, copia los cuatro monederos en los directorios donde se encuentr
 
 > [!NOTE]
 > El tipo de Magic es uint, el valor a introducir debe ser del rango. [0 - 4294967295].
- 
+
   Modifica el valor `StandbyValidators`. Hay que introducir las 4 claves publicas anotadas en el paso 3.
   Finalmente mofificar el valor `SeedList`, introduce las direcciones IPs de los nodos, el número de puerto se mantiene sin cambios.
   
@@ -80,6 +80,9 @@ El valor `SystemList` es la tarifa del sistema. La tarifa se paga en NeoGas. Pue
 
 > [!IMPORTANT] Una vez modificado el fichero **protocol.json** sustitúyelo en los 4 nodos, en el directorio donde se encuentra 
 > el cliente NEO-cli
+
+> [TIP]
+> Antes de ejecutar **por primera vez** la blockchain privada asegúrate que eliminar, si existe, la carpeta "Chain" y el fichero "peers.dat"
 
 Una vez sustituido el fichero de configuración en los cuatro nodos, introduce los siguiente comandos para ejecutar el cliente CLI, abrir el monedero y ejecutar el conseso. Revisa la línea de comandos aquí [CLI Command Reference](cli.md).
 
