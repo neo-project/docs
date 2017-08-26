@@ -16,9 +16,7 @@ public static class Blockchain
 
 | | Nombre | Descripción |
 | ---------------------------------------- | ---------------------------------------- | -------------------- |
-[CreateAsset (byte, string, long, byte, byte-array, byte-array, byte-array, byte-array)](Blockchain/CreateAsset.md)| Crea un activo.|
-[CreateContract (byte-array, byte-array, byte, bool, string, string, string , String)](Blockchain/CreateContract.md)| Publica un contrato inteligente.|
-[GetAccount (byte-array](Blockchain/GetAccount.md) | Devuelve la cuenta (dirección) en base al hash del script del contrato.
+|GetAccount (byte-array](Blockchain/GetAccount.md) | Devuelve la cuenta (dirección) en base al hash del script del contrato.
 [GetAsset (byte-array](Blockchain/GetAsset.md) | Busca un asset en base un id. de activo.|
 [GetBlock (byte-array)](Blockchain/GetBlock.md) | Devuelve el bloque en función de un valor hash especificado.
 [GetBlock (uint)](Blockchain/GetBlock2.md) | Busca el bloque por tamaño. (height) |
