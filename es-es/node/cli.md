@@ -143,20 +143,20 @@ Si se especifica un fichero, el fichero debe estar en formato de clave privada. 
 :point_right: `claim gas` <br>
 `Tranaction Suceeded: 7e6230add40ff61ba978bbacad8054e96caf709e2793b8a83db84c86e7ae7ee1`
 
-**Muestra las transacciones UTXO en función del id o alias de una transacción
+**Muestra las transacciones UTXO en función del id o alias de una transacción**
+
 :point_right: `show utxo [id|alias]` <br>
 
-+```
-+neo>show utxo neo
-+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:2
-+total: 1 UTXOs
-+neo>show utxo gas
-+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:1
-+total: 1 UTXOs
-+neo>show utxo 025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4
-+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:0
-+total: 1 UTXOs
-+```
+`neo>show utxo neo`<br>
+`8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:2`<br>
+`total: 1 UTXOs`<br>
+`neo>show utxo gas`<br>
+`8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:1`<br>
+`total: 1 UTXOs`<br>
+`neo>show utxo 025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4`<br>
+`8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:0`<br>
+`total: 1 UTXOs`<br>
+
 
 **Transfiere a la dirección especificada o a todas las direcciones del monedero**
 
