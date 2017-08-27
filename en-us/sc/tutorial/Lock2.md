@@ -12,10 +12,13 @@ Now we assume that you already have the basic knowledge of the smart contract, w
 
 In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub] (https://github.com/neo-project/neo-gui/releases).
 
-PS: At this point of time, the latest **test network client** download is: [Neo GUI v2.0.1] (https://github.com/neo-project/neo-gui/releases/tag/v2.0.1).
+PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0] (https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
 > [! Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
+> In order to use the test net you have to make two changes in the config files:
+1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Be default, config.json and protocol.json are idential to the Mainnet versions.
+2. You need to copy the code from the testnet files into the config.json and protocol.json files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste config.testnet.json into config.json, and protocol.testnet.json into protocol.json.
 
 ## Create a wallet
 
@@ -30,7 +33,7 @@ The newly created wallet will automatically generate a standard account, right-c
 ! [] (/assets/lock2_2.png)
 
 > [! Caution]
-> Please note that do not divulge the private key, remember to pixelate.
+> Please note: do not divulge the private key, remember to pixelate.
 
 Here we write a local program to turn the public key into a byte array, C# code is as follows:
 
@@ -118,7 +121,7 @@ In the client, under the `Account` tab, right click on the whitespace, select `C
 ![](/assets/lock2_7.png)
 
 
-Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in tthe script code as shown earlier. Once done, we will see the contract address as shown in the figure.
+Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
 ![](/assets/lock2_8.png)
 
@@ -147,4 +150,4 @@ When the current time is less than the lockout time, the transfer will not be co
 
 After clicking `Rebuild Index`, after about 5 minutes, the unacknowledged transfer will disappear and the assets will return to the previous state.
 
-In the current time is greater than the lock time, the transfer will be successful.
+If the current time is greater than the lock time, the transfer will be successful.
