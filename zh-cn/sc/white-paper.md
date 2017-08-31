@@ -1,4 +1,4 @@
-# NeoContract 白皮书预览
+# NeoContract 白皮书
 
 ## 一、前言
 

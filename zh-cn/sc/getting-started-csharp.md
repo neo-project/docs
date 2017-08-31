@@ -90,7 +90,7 @@ public class Contract1 : FunctionCode
 }
 ```
 
-然后编译成功，你会在 `bin/Debug` 目录下看到生成的 `SmartContract1.avm` 文件，该文件即是生成的 NEO 智能合约文件。
+然后编译成功，你会在 `bin/Debug` 目录下看到生成的 `NeoContract1.avm` 文件，该文件即是生成的 NEO 智能合约文件。
 
 ![](assets/compile_smart_contract.jpg)
 

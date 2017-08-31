@@ -1,8 +1,8 @@
 # 鉴权合约示例教程
 
-本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的 ** 测试网 ** 的客户端运行。
+本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的客户端运行。
 
-附：截止到文档编写时，最新的 ** 测试网 ** 客户端下载地址：[Neo-GUI-v2.0.1](https://github.com/neo-project/neo-gui/releases/tag/v2.0.1)。
+附：截止到文档编写时，最新的客户端下载地址：[Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases)。
 
 ## 编译合约脚本
 
@@ -23,7 +23,7 @@ namespace Neo.SmartContract
 ```
 
 > [!Note]
-> 若不清楚如何编写生成智能合约脚本，请参考 [如何用 c# 编写智能合约](../getting-started.md)
+> 若不清楚如何编写生成智能合约脚本，请参考 [如何用 c# 编写智能合约](../getting-started-csharp.md)
 >
 
 以上合约编译后会生成 Test.avm 文件，其合约脚本（Test.avm 的二进制数据）为：52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
