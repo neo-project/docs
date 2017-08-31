@@ -21,7 +21,7 @@ NEOのネットワークプロトコルは、おおよそビットコインの�
 
 1. 可変長の型
 
-+ Variant: 可変長の整数は、入力された値に従ってスペースを節約するためにエンコードされます。
+   + Variant: 可変長の整数は、入力された値に従ってスペースを節約するためにエンコードされます。
 
    |値|長さ|フォーマット|
    |---|---|---|
@@ -30,14 +30,14 @@ NEOのネットワークプロトコルは、おおよそビットコインの�
    |<= 0xffffffff|5|0xfe + uint32|
    |> 0xffffffff|9|0xff + uint64|
 
-+ Varstr: 可変長の文字列で、可変長の整数とそれに続く文字列で構成されます。文字列はUTF8でエンコードされます。
+   + Varstr: 可変長の文字列で、可変長の整数とそれに続く文字列で構成されます。文字列はUTF8でエンコードされます。
 
    |サイズ|フィールド|データの型|説明|
    |---|---|---|---|
    |?|length|variant|バイト単位の文字列の長さ|
    |length|string|uint8[length]|文字列そのもの|
 
-+ Array: 配列は可変長の整数とそれに続く一連の要素で構成します。
+   + Array: 配列は可変長の整数とそれに続く一連の要素で構成します。
 
 1. 固定少数点数
 
@@ -151,12 +151,12 @@ NEOのネットワークプロトコルは、おおよそビットコインの�
 
    + RegisterTransaction
 
-   > [!警告]
-   スマートコントラクトのため、無効化され、Neo.Asset.Createに置き換えられました。
+      > [!警告]
+      スマートコントラクトのため、無効化され、Neo.Asset.Createに置き換えられました。
 
-   [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Asset/Create.md)を参照してください。
+      [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Asset/Create.md)を参照してください。
 
-   [Alternative Smart Contract API](../sc/api/neo.md)を参照してください。
+      [Alternative Smart Contract API](../sc/api/neo.md)を参照してください。
 
    + ContractTransaction
 
@@ -164,12 +164,12 @@ NEOのネットワークプロトコルは、おおよそビットコインの�
 
    + PublishTransaction
 
-   > [!警告]
-   スマートコントラクトのため、無効化され、Neo.Contract.Createに置き換えられました。
+      > [!警告]
+      スマートコントラクトのため、無効化され、Neo.Contract.Createに置き換えられました。
 
-   [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Contract/Create.md)を参照してください。
+      [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Contract/Create.md)を参照してください。
 
-   [Alternative Smart Contract API](../sc/api/neo.md)を参照してください。
+      [Alternative Smart Contract API](../sc/api/neo.md)を参照してください。
 
    + Invoking a Transaction
 
