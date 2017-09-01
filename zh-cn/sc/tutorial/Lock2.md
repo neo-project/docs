@@ -2,7 +2,7 @@
 
 阅读本文前先要阅读有以下教程：
 
-[如何用 C# 编写 NEO 智能合约](../getting-started.md)
+[如何用 C# 编写 NEO 智能合约](../getting-started-csharp.md)
 
 [NEO 智能合约教程](../tutorial.md)
 
@@ -10,12 +10,9 @@
 
 现在我们假设你已经有了智能合约的基础知识，下面我们来实践下如何在钱包中部署一个锁仓的智能合约地址。
 
-另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的 ** 测试网 ** 的客户端运行。
+另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的客户端运行。
 
-附：截止到文档编写时，最新的 ** 测试网 ** 客户端下载地址：[Neo-GUI-v2.0.1](https://github.com/neo-project/neo-gui/releases/tag/v2.0.1)。
-
-> [!Note]
-> 以下操作要在 ** 测试网 ** 中运行，因为主网中还没有部署智能合约 2.0，所以以下操作在主网中执行会失败。
+附：截止到文档编写时，最新的客户端下载地址：[Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases)。
 
 ## 创建钱包
 
