@@ -81,7 +81,7 @@ El valor `SystemList` es la tarifa del sistema. La tarifa se paga en NeoGas. Pue
 > [!IMPORTANT] Una vez modificado el fichero **protocol.json** sustitúyelo en los 4 nodos, en el directorio donde se encuentra 
 > el cliente NEO-cli
 
-> [TIP]
+> [!TIP]
 > Antes de ejecutar **por primera vez** la blockchain privada asegúrate que eliminar, si existe, la carpeta "Chain" y el fichero "peers.dat"
 
 Una vez sustituido el fichero de configuración en los cuatro nodos, introduce los siguiente comandos para ejecutar el cliente CLI, abrir el monedero y ejecutar el conseso. Revisa la línea de comandos aquí [CLI Command Reference](cli.md).
