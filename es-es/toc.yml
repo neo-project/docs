@@ -75,6 +75,8 @@
   items:
     - name: Introducción
       href: sc/introduction.md
+    - name: Crear contratos inteligentes con Java
+      href: sc/getting-started-java.md
     - name: Crear contratos inteligentes con C#
       href: sc/getting-started-csharp.md
     - name: Crear contratos inteligentes con VBNet
@@ -144,6 +146,10 @@
               href: sc/fw/dotnet/Neo/TransactionInput.md
             - name: TransactionOutput
               href: sc/fw/dotnet/Neo/TransactionOutput.md
+            - name: TriggerType
+              href: sc/fw/dotnet/Neo/TriggerType.md
+			      - name: Runtime
+              href: sc/fw/dotnet/Neo/Runtime.md
           - name: System
             href: sc/fw/dotnet/System.md
             items:
