@@ -1,6 +1,6 @@
 # Runtime.Trigger 属性
 
-获得该智能合约的触发条件（鉴权合约 or 应用合约）。
+获得该智能合约的触发器类型（鉴权合约 or 应用合约）。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
