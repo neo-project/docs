@@ -9,7 +9,7 @@ The following resources are used in this tutorial and can be helful references w
 
 1. [Lock2](Lock2.md)
 2. [Parameter](Parameter.md)
-3. [Woolong NEP5 Smart Contract](https://github.com/lllwvlvwlll/Woolong/blob/token/NEP5/Woolong/Woolong.cs)
+3. [Woolong NEP5 Smart Contract](assets/examples/Woolong/Woolong/Woolong.cs)
 4. [Developer GUI](https://github.com/CityOfZion/neo-gui-developer)
 5. [Neo API](../api/neo.md)
 6. [NEP5 Token Standard](https://github.com/neo-project/proposals/nep-5.mediawiki)
@@ -70,9 +70,17 @@ To invoke a smart contract on the NEO blockchain, you will need the smart contra
 
   **For example, invoking the following:**
   * `6e616d65` when calling the Woolong, will return 'Woolong'.
+    ```csharp
+    if (method == "name") return name;
+    ```  
   * `73796d626f6c` will return 'WNG'.
+    ```csharp
+     if (method == "symbol") return symbol;
+    ```  
   * `62616c616e63654f66, 5fe459481de7b82f0636542ffe5445072f9357a1261515d6d3173c07c762743b` will return the current balance of Woolong that lllwvlvwll holds on the testnet.
-  
+    ```csharp
+    if (method == "balanceOf") return Storage.Get(Storage.CurrentContext, (byte[]) args[0]);
+    ```
   
 8. Click **OK** to close the parameter input window.
 9. Click the **Invoke** button to invoke the smart contract.
