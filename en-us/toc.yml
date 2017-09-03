@@ -74,6 +74,8 @@
         href: sc/tutorial/Lock2.md
       - name: Contract Call
         href: sc/tutorial/call.md
+      - name: Deploying and Invoking
+        href: sc/tutorial/deploy-invoke.md      
     - name: Test
       href: sc/test.md
     - name: Whitepaper
