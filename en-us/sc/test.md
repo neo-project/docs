@@ -8,10 +8,10 @@ For example, you create the following smart contract, the contract is inherited 
 
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Test1: FunctionCode
     {
@@ -33,20 +33,20 @@ namespace AntShares.SmartContract
 
 After compiling, generate the contract's `Test1.avm` file. We can create a unit test project and test `Test1.avm`.
 
-First create a C# Console App (.Net Framework) project with Visual Studio, with .NET Framework 4.6.2 or later. Then add a reference to `AntShares.dll` and `AntShares.VM.dll`.
+First create a C# Console App (.Net Framework) project with Visual Studio, with .NET Framework 4.6.2 or later. Then add a reference to `Neo.dll` and `neon.dll`.
 
 > [!Note]
-> These two files can be obtained by compiling [AntShares](https://github.com/neo-project/neo) and [AntShares.VM](https://github.com/neo-project/neo-vm).
+> These two files can be obtained by compiling [Neo](https://github.com/neo-project/neo) and [neo-vm](https://github.com/neo-project/neo-vm).
 
-> Alternatively, you can just add NuGet packages "AntShares" and "AntShares.VM" to your project. You can do that by right-clicking the contract project on the Solution Explorer, go to Browse, search antshares and install the required packages.
+> Alternatively, you can just add NuGet packages "NEO" and "Neo.VM" to your project. You can do that by right-clicking the contract project on the Solution Explorer, go to Browse, search NEO and install the required packages.
 
 ```c#
 using System;
 using System.IO;
 using System.Linq;
-using AntShares;
-using AntShares.VM;
-using AntShares.Cryptography;
+using Neo;
+using Neo.VM;
+using Neo.Cryptography;
 
 namespace ConsoleApplication1
 {
@@ -89,12 +89,12 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 If the return value of the smart contract is not of type int, but is bool or other type, you need to set `engine.EvaluationStack.Peek (). GetBigInteger ()` to other values, as shown in Figure
 
-[](Http://docs.antshares.org/images/2017-05-16_15-39-07.jpg)
+[](/assets/test_1.jpg)
 
 ------
 
 ### 📖 The document is being edited
 
-The document is being edited and we will complete it as soon as possible. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or come to our [Antshares official website](http://www.antshares.org) and look around.
+The document is being edited and we will complete it as soon as possible. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or come to our [NEO official website](http://www.neo.org) and look around.
 
-Antshares is a community open source project, if you are interested, you can also contribute to the developer documents by creating Pull requests on GitHub, the documents for the project can be found at [github.com/AntShares/docs](https://github.com/neo-project/docs), thank you for your contribution.
+NEO is a community open source project, if you are interested, you can also contribute to the developer documents by creating Pull requests on GitHub, the documents for the project can be found at [github.com/neo-project/docs](https://github.com/neo-project/docs), thank you for your contribution.

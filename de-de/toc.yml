@@ -1,0 +1,13 @@
+- name: Home
+  href: index.md
+- name: Erste Schritte
+  href: getting-started.md
+- name: Smart Contract
+  href: sc/introduction.md
+  items:
+    - name: Einführung
+      href: sc/introduction.md
+    - name: Erste Schritte
+      href: sc/getting-started.md
+    - name: White Paper
+      href: sc/white-paper.md

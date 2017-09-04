@@ -8,10 +8,10 @@
 
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Test1 : FunctionCode
     {
@@ -33,15 +33,15 @@ namespace AntShares.SmartContract
 
 编译通过后，生成该合约的 `Test1.avm` 文件。我们可以创建单元测试项目，对 `Test1.avm` 进行测试。
 
-首先用 Visual Studio 创建一个 C# 控制台项目，设置 .net framework 版本中 4.6.2 或以上，并且在 Nuget 中添加对 AntShares.dll 和 AntShares.VM.dll 的引用。
+首先用 Visual Studio 创建一个 C# 控制台项目，设置 .net framework 版本中 4.6.2 或以上，并且在 Nuget 中添加对 Neo.dll 和 Neo.VM.dll 的引用。
 
 ```c#
 using System;
 using System.IO;
 using System.Linq;
-using AntShares;
-using AntShares.VM;
-using AntShares.Cryptography;
+using Neo;
+using Neo.VM;
+using Neo.Cryptography;
 
 namespace ConsoleApplication1
 {
@@ -84,7 +84,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 如果智能合约的返回值不是 int 类型，是 bool 或者其它类型，需要将 `engine.EvaluationStack.Peek().GetBigInteger()` 设置为其它值，如图
 
-![](http://docs.antshares.org/images/2017-05-16_15-39-07.jpg)
+![](/assets/test_1.jpg)
 
 注：该测试方法不适用于互操作服务及存储数据的测试。
 
@@ -92,6 +92,6 @@ using (ScriptBuilder sb = new ScriptBuilder())
 
 ### 📖该文档正在编辑中
 
-该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/neo-project/neo/wiki) 上查看其它文档，或者来我们的 [NEO 官方网站](http://www.antshares.org) 逛逛。
+该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/neo-project/neo/wiki) 上查看其它文档，或者来我们的 [NEO 官方网站](http://www.neo.org) 逛逛。
 
-NEO 是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/AntShares/docs](https://github.com/neo-project/docs) ，感谢您的付出。
+NEO 是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/neo-project/docs](https://github.com/neo-project/docs) ，感谢您的付出。

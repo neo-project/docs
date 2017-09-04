@@ -1,8 +1,14 @@
 # Método Getbestblockhash
 
-Obtiene el valor hash del segmento más alto de la blockchain.
+Devuelve el hash del bloque más alto de la cadena principal.
 
 ## Ejemplo de llamada:
+
+**GET:**
+
+http://node:10332?jsonrpc=2.0&method=getbestblockhash&params=[]&id=1
+
+**POST:**
 
 Petición
 
@@ -27,4 +33,4 @@ Respuesta:
 
 ## Descripción de la respuesta:
 
-Resultado: El valor hash el bloque más significativos de la blockchain.
+Resultado: El valor hash del bloque más significativo de la cadena principal.

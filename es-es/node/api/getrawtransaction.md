@@ -1,18 +1,19 @@
 # Método Getrawtransaction
 
-Devuelve la correspondiente transación basada en el valor hash especificado.
+Devuelve la información de la correspondiente transacción en función del valor hash de la transacción especificado. 
 
 ## Descripción de parámetros
 
-Txid: ID de transación
+Txid: id. de transacción.
 
-Verbose: Opcional. El valor Verbose por defecto es 0. Cuando el valor Verbose es 0, la inforación del bloque devuelta está serializada. Se representa con una cadena hexadecimal. Si nececitas información detallada, necesitas llamar al SDK para la desserialización. 
-Cuando el valor de Verbose es 1 el valor correspondiente al bloque se devuelve en una cadena en formato JSON.
+Verbose: Opcional.
+
+El valor Verbose por defecto es 0. Cuando el valor es 0, la inforación del bloque devuelta está serializada. Se representa con una cadena hexadecimal. Si nececitas información detallada, necesitas llamar al SDK para la desserialización. Cuando el valor de Verbose es 1 la información del bloque se devuelve en una cadena en formato JSON.
 
 
 ## Ejemplo de llamada
 
-http://node.net:10332?jsonrpc=2.0&method=getrawtransaction&params=["863f530b60f17f71dbdc7d8f7d1d177ef705ce5656a3ad349957e4e00923731e",1]&id=1
+http://node:10332?jsonrpc=2.0&method=getrawtransaction&params=["863f530b60f17f71dbdc7d8f7d1d177ef705ce5656a3ad349957e4e00923731e",1]&id=1
 
 Petición:
 

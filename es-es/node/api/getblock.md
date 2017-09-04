@@ -1,17 +1,24 @@
 # Método Getblock
 
-El correspondiente bloque de información devuelto de acuerdo con el valor hash especificado.
+Información del bloque en funcion del bloque-hash especificado.
 
-## Descripción de los parametros
+## Descripción de los parámetros
 
 Hash: valor hash del bloque.
 
-Verbose: Opcional. El valor Verbose por defecto es 0. Cuando el valor Verbose es 0, la inforación del bloque devuelta está serializada. Se representa con una cadena hexadecimal. Si nececitas información detallada, necesitas llamar al SDK para la desserialización. 
-Cuando el valor de Verbose es 1 el valor correspondiente al bloque se devuelve en una cadena en formato JSON.
+Verbose: Opcional. 
+
+El valor `Verbose` por defecto es 0. Cuando el valor es 0, la inforación del bloque devuelta está serializada. Se representa con una cadena hexadecimal. Si nececitas información detallada, necesitas llamar al SDK para la desserialización. 
+Cuando el valor de `Verbose` es 1 la información del bloque se devuelve en una cadena en formato JSON.
 
 
 
 ## Ejemplo de llamada
+
+
+http://node:10332?jsonrpc=2.0&method=getblock&params=["6dde330d59df9f7364e3f1f5431e6505e3c486e481a61c9ece66d6a804064e44"]&id=1
+
+
 
 Petición
 

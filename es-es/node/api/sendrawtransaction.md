@@ -1,10 +1,10 @@
 # Método Sendrawtransaction
 
-Este método transmite una transación a través de la red NEO. Existen muchos tipos de transacciones tal y como se espeficica en la documentación del [protocolo de red](../network-protocol.md). 
+Este método transmite una transación a través de la red NEO. Existen muchos tipos de transacciones tal y como se especifica en la documentación del [protocolo de red](../network-protocol.md). 
 
 ## Descripción de parametros
 
-Hex: Una cadena hexadecimal que ha sido serializada despues de firmar la transación en el programa
+Hex: tx. hexadecimal que ha sido serializada después de firmar la transacción.
 
 ## Ejemplo de llamada
 
@@ -31,7 +31,8 @@ Llamada:
 
 ## Descripción de la respuesta
 
-Cuando el valor es TRUE la actual transación ha sido transmitida con exito. Cuando es valor es FALSE, la actual transación ha fallado. La razón puede ser un doble costo, una firma incompleta, etc.
+Cuando el valor es TRUE la actual transacción ha sido transmitida con éxito. Cuando es valor es FALSE, la actual transacción ha fallado. La razón puede ser un doble costo, una firma incompleta, etc.
 
-En este ejemplo la transación fue transmitida, debido al doble costo la trasmisicón dio fallo.
+En este ejemplo la transacción fue transmitida, pero debido al doble-costo la transmisión se produjo un error.
+
 

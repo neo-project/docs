@@ -1,6 +1,9 @@
 # Ejemplo de contrato inteligente - HelloWorld
 
 ```c#
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+
 public class HelloWorld : FunctionCode
 {
     public static void Main()
@@ -10,6 +13,7 @@ public class HelloWorld : FunctionCode
 }
 ```
 
-Storage es una clase estática que manipula la parte privada del almacenamiento de contratos. El método Storage.Put() permite guardar datos en formato clave-valor en el área de almacenamiento privado. Para más detalles, ver [Storage class](../fw/dotnet/AntShares/Storage.md).
+La clase Storage es una clase estática que manipula el almacenamiento privado del contratos. El método `Storage.Put()` permite almacenar datos en el área de almacenamiento privada en formato clave-valor. Para más detalles, consultar [Storage class](../fw/dotnet/Neo/Storage.md).
 
-Por favor, ir a [Github](https://github.com/AntShares/AntShares.SmartContract.Contracts) para ver el código completo.
+
+

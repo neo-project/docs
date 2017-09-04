@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.IScriptContainer ScriptContainer {get;}
 ```
 
-Valor del atributo: contenedor de script, del tipo IScriptContainer, si se conoce que esto es una transacción desencadenada se puede convertir al tipo [Transaction](../../AntShares/Transaction.md).
+Valor del atributo: contenedor de script, del tipo IScriptContainer, si se conoce que esto es una transacción desencadenada se puede convertir al tipo [Transaction](../../Neo/Transaction.md).
 
 
 

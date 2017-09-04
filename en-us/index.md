@@ -1,4 +1,4 @@
-# NEO white paper
+# NEO White Paper
 
 A distributed network for the Smart Economy
 
@@ -36,12 +36,11 @@ Ecosystem is the vitality of the open source community. In order to achieve the 
 
 - Hardware wallet
 
-
 🔹 **Blockchain Explorer**
 
 🔹 **SDK Development Kit**
 
-- support Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
+- Support Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
 🔹 **Smart Contract Compiler and IDE Plugin**
 
@@ -117,7 +116,7 @@ GAS distribution:
 
 GAS is generated with each new block. The initial total amount of GAS is zero. With the increasing rate of new block generation, the total limit of 100 million GAS will be achieved in about 22 years. The interval between each block is about 15-20 seconds, and 2 million blocks are generated in about one year.
 
-In the first year (actually 0-200 million blocks), each block will generate 8 new GAS; in the second year (actually the first 200-400 million blocks), each new block will generate 7 GAS and so on. There will be an annual reduction of 1 GAS for the first 8 years until 1 GAS per block is reached; this will be the rate of GAS generation until about 22 years, after the 44 millionth block, GAS total will reach 100 million, thus stopping the generation of GAS from new blocks.
+Each year around 2 million blocks will be generated and the initial generation will be 8 GAS per block. There will be an annual reduction of 1 GAS per block, per year, to coincide with the passing of every 2 million blocks. The reduction will continue down to just 1 GAS per block and will be held at that rate for around 22 years. After the 44 millionth block the total GAS generated will have reached 100 million and from this point there will be no further generation of GAS from new blocks.
 
 According to this release curve, 16% of the GAS will be created in the first year, 52% of the GAS will be created in the first four years, and 80% of the GAS will be created in the first 12 years. These GAS will be distributed proportionally in accordance with the NEO holding ratio, recorded in the corresponding addresses. NEO holders can initiate a claim transaction at any time and claim these GAS tokens at their holding addresses.
 

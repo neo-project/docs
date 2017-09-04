@@ -1,23 +1,25 @@
 # Protocolo de red
 
-NEO tiene una estructura de red P2P, donde cada nodo se comunica con otro a través del protocolo TCP/IP. En esta estructura existen dos tipos de nodos: Nodos pares y Nodos de validación (referidos como Bookkeepers en el Whitepaper de NEO o nodos consenso). Los Nodos pares pueden transmitir, recibir y transferir transaciones o bloques, mientras que los nodos de validación pueden crear blques.
+NEO tiene una estructura de red punto-a-punto, donde cada nodo se comunica con otro a través del protocolo TCP/IP. En esta estructura existen dos tipos de nodos: Nodos pares y Nodos de validación (en ocasiones referidos como _Bookkeepers_ o nodos consenso). Los Nodos pares pueden transmitir, recibir y transferir transacciones o bloques, mientras que los nodos de validación pueden crear bloques.
 
-El protocolo de red de NEO es muy similar al de Bitcoin, sin embargo la estructura de datos como la de las transaciones son muy diferentes.
+El protocolo de red de NEO es muy similar al de Bitcoin, sin embargo, la estructura de datos como la de las transacciones son muy diferentes.
 
 Convención
 ----------
 
 1. Orden de los Bytes
 
-Todos los tipos enteros de NEO son Little Endian excepto para la dirección IP y el numero de puerto, estos dos son Big Endian.
+Todos los tipos enteros de NEO son Little Endian excepto para la dirección IP y el número del puerto, estos dos son Big Endian.
 
 2. Hash
 
-NEO usa dos funciones hash diferentes: SHA256 y RIPEMD160. SHA256 se usa para generar un valor hash largo y RIPEMD160 para generar un valor hash corto. En general, obtenemos el valor hash de un objeto utilizando la función hash dos veces. Por ejemplo, usamos SHA256 dos veces cuando queremos generar el valor de hash del bloque o de la transacción. Al generar una dirección de contrato, utilizaremos la función SHA256 primero y luego usaremos RIPEMD160.
+NEO usa dos funciones hash diferentes: SHA256 y RIPEMD160. 
+
+SHA256 se usa para generar un valor hash largo. RIPEMD160 para generar un valor hash corto. Normalmente obtenemos el valor hash de un objeto utilizando la función hash dos veces. Por ejemplo, usamos SHA256 dos veces cuando queremos generar el valor de hash del bloque o de la transacción. Al generar una dirección de contrato, utilizaremos la función SHA256 primero y luego usaremos RIPEMD160.
 
 Además, el bloque también usará una estructura de hash llamada Merkle Tree. Calcula el hash de cada transacción y se combina entre sí, luego realiza el hash de nuevo, repitiendo este proceso hasta que haya sólo un hash raíz (Merkle Root).
  
-3. Tipos de longitug variable
+3. Tipos de longitud variable
 
    + variant： entero de longitud variable, puede ser codificada para salvar espacio de acuerdo con el valor.
 
@@ -39,30 +41,29 @@ Además, el bloque también usará una estructura de hash llamada Merkle Tree. C
 
 1. Número de tamaño-fijo
 
-   Datos en NEO como cantidad o precio son número de tamaño-fijo de 64 bits y la precisión decimal es 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
+   Datos en NEO como cantidad o precio son número de tamaño-fijo de 64 bits y la precisión decimal es 10<sup>-8</sup>，rango：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
 Tipo de dato
 ------------
 
-1. Block Chain
+**Blockchain**
 
-   La blockchain es un tipo de estructura logica donde que está conectada en serie en una lista enlazada (linked list). Se utiliza para almacenar los datos de toda la red, como transaciones o activos.
-   
-   
-1. Block
+  La blockchain es un tipo de estructura lógica donde que está conectada en serie en una lista enlazada (linked list). Se utiliza para almacenar los datos de toda la red, como transacciones o activos.
+      
+**Block**
 
    |Tamaño|Campo|Tipo de Dato|Descripción|
    |---|---|---|---|
-   |4|Version|uint32|version del bloque el cual es 0 por ahora|
+   |4|Version|uint32|version del bloque, actualmente 0|
    |32|PrevBlock|uint256|valor hash del bloque anterior|
-   |32|MerkleRoot|uint256|hash raiz de una lista de transacion|
+   |32|MerkleRoot|uint256|hash raiz de una lista de transacción|
    |4|Timestamp|uint32|time-stamp|
    |4|Height|uint32|tamaño de bloque|
    |8|Nonce|uint64|número aleatorio|
    |20|NextMiner|uint160|Dirección del contrato del siguiente minero|
    |1|-|uint8|Fijada a valor 1|
    |?|Script|script|Script usado para validar el bloque|
-   |?*?|Transactions|tx[]|Lista transacion|
+   |?*?|Transactions|tx[]|Lista transacción|
 
    Cuando se calcula el valor hash del bloque, en lugar de calcular el bloque entero, sólo se calcularán los siete primeros campos de la cabecera del bloque, que son la versión, PrevBlock, MerkleRoot, timestamp, Height, el nonce, NextMiner. Dado que MerkleRoot ya contiene el valor hash de todas las transacciones, la modificación de transacción influirá en el valor hash del bloque.
  
@@ -70,7 +71,7 @@ Tipo de dato
 
    |Tamaño|Campo|Tipo de Dato|Descripción|
    |---|---|---|---|
-   |4|Version|uint32|version del bloque el cual es 0 por ahora|
+   |4|Version|uint32|version del bloque, actualmente 0|
    |32|PrevBlock|uint256|valor hash del bloque anterior|
    |32|MerkleRoot|uint256|hash raiz de una lista de transacion|
    |4|Timestamp|uint32|time-stamp|
@@ -83,7 +84,7 @@ Tipo de dato
  
    El timestamp de cada bloque debe ser posterior al timestamp. Generalmente la diferencia del timestamp de dos bloques es de unos 15 segundos y la imprecisión está permitida. El tamaño del bloque debe ser exactamente igual al tamaño del bloque anterior más 1.
 
-1. Transacción
+**Transacción**
 
    |Tamaño|Campo|Tipo de Dato|Descripción|
    |---|---|---|---|
@@ -95,7 +96,7 @@ Tipo de dato
    |60*?|Outputs|tx_out[]|salida|
    |?*?|Scripts|script[]|Lista de scripts utilizados para validar la transacción|
 
-   Todos los procesos en el sistema NEO están guardados en transaciones. Existen varios tipos de transaciones:
+   Todos los procesos en el sistema NEO están guardados en transacciones. Existen varios tipos de transacciones:
 
    |Valor|Nombre|Tarifa del sistema|Descripción|
    |---|---|---|---|
@@ -108,35 +109,31 @@ Tipo de dato
    |0xd0|PublishTransaction|500 * n|(No usable) Transacciones especiales para contratos inteligentes|
    |0xd1|InvocationTransaction|0|Transacciones especiales para la llamada de contratos inteligentes|
 
-   Cada tipo de transacción, además del campo público, también tiene su propio campo exclusivo. A continuación se describen estos campos exclusivos en detalle.
+Cada tipo de transacción, además del campo público, también tiene su propio campo exclusivo. A continuación se describen estos campos exclusivos en detalle.
 
-     + MinerTransaction
-
-      |Tamaño|Campo|Tipo de Dato|Descripción|
-      |---|---|---|---|
-      |4|Nonce|uint32|numero aleatorio|
-
-    La primera transacción en cada bloque debe ser MinerTransaction. Se utiliza para recompensar todas tarifas de transacción del bloque actual al validador.
-     El número aleatorio es para evitar colisiones hash.
+   + MinerTransaction
+     
+   |Tamaño|Campo|Tipo de Dato|Descripción|
+   |---|---|---|---|
+   |4|Nonce|uint32|numero aleatorio|
+  
+La primera transacción en cada bloque debe ser MinerTransaction. Se utiliza para recompensar todas tarifas de transacción del bloque actual al validador. El número aleatorio es para evitar colisiones hash.
       
    + IssueTransaction
 
       No hay especial campo para un issue transaction.
 
-      Los gestores de activos pueden crear los activos que se han registrado en la cadena de bloque de NEO a través de IssueTransaction y los han enviado a cualquier dirección.
-
-      En particular, si los activos que se emiten son NEOs, entonces la transacción será enviada gratis.
-      El número aleatorio en la transación es para evitar colisiones hash.
+Los gestores de activos pueden crear los activos que se han registrado en la cadena de bloque de NEO a través de IssueTransaction y los han enviado a cualquier dirección. En particular, si los activos que se emiten son NEOs la transacción será enviada gratis.
  
    + ClaimTransaction
 
-      |Size|Field|DataType|Description|
+      |Tamaño|Campo|Tipo de Dato|Descripción|
       |---|---|---|---|
       |34*?|Claims|tx_in[]|NEOs para la distribución|
 
    + EnrollmentTransaction
 
-      |Size|Field|DataType|Description|
+      |Tamaño|Campo|Tipo de Dato|Descripción|
       |---|---|---|---|
       |33|PublicKey|ec_point|clave publica del validador|
 
@@ -144,23 +141,23 @@ Tipo de dato
       
    + RegisterTransaction
 
-      > [!Nota]
-      > Ha sido desactivda y reemplazada por AntShares.Blockchain.CreateAsset para el contrato inteligente.
-      > View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
-      > View [Alternative Smart Contract API](../sc/api/AntShares.md)
+      > [!Note]
+      > Ha sido desactivada y reemplazada por Neo.Asset.Create para el contrato inteligente.
+      > View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/Neo/Asset/Create.md)
+      > View [Alternative Smart Contract API](../sc/api/Neo.md)
 
    + ContractTransaction
 
-      No hay atributos especiales para una transacción de contrato. Este es un tipo de transacción muy común ya que permite que un monedero envíe NEO a otro. Los campos de transacción `inputs` y` outputs` serán importantes para esta transacción (por ejemplo, para contrlar cuánto NEO será enviado y a qué dirección).
+      No hay atributos especiales para una transacción de contrato. Este es un tipo de transacción muy común ya que permite que un monedero envíe NEO a otro. Los campos de transacción `inputs` y` outputs` serán importantes para esta transacción (por ejemplo, para controlar cuánto NEO será enviado y a qué dirección).
 
    + PublishTransaction
 
-      > [!Nota]
-      > Ha sido desactivda y reemplazada por AntShares.Blockchain.CreateContract para el contrato inteligente.
-      > Consultar [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
-      > Consultar [Alternative Smart Contract API](../sc/api/AntShares.md)
+      > [!Note]
+      > Ha sido desactivda y reemplazada por Neo.Contract.Create para el contrato inteligente.
+      > Consultar [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/Neo/Contract/Create.md)
+      > Consultar [Alternative Smart Contract API](../sc/api/Neo.md)
 
-   + Invoking a Transaction
+   + Invocar una transacción
 
       | Tamaño | Campo | Tipo de dato | Descripción |
       | ---- | ------ | ------- | --------------- |
@@ -169,7 +166,7 @@ Tipo de dato
       | 8    | Gas    | int64   | Coste en NeoGas necesario para ejecutar un contrato inteligente |
       | -    | -      | -       | Campo publicos para transaciones         |
 
-1. Transaction Attributes
+1. Atributor de una transacción
 
    | Tamaño | Campo | Tipo de dato | Descripción |
    |---|---|---|---|
@@ -177,7 +174,7 @@ Tipo de dato
    |0\|1|length|uint8|longitud de dato(Especificos circustancias será omitido)|
    |length|Data|uint8[length]|datos externos|
 
-   A veces la transacción contendrá algunos datos para uso externo, estos datos se colocarán en el campo de atributos de transacción.
+   A veces la transacción contendrá algunos datos para uso externo, estos datos se colocarán en el campo atributos de la transacción.
 
    Cada atributo de transacción tiene diferentes usos:
 
@@ -193,17 +190,17 @@ Tipo de dato
    |0xa1-0xaf|Hash1-Hash15|usado para almacenar valores hash personalizados|
    |0xf0-0xff|Remark-Remark15|notas|
 
-   Para ContractHash, ECDH series, Hash series, la longituda de datos está fijada a 32 bytes y la longitud del campo omitida;
+   Para ContractHash, ECDH series, Hash series, la longitud de datos está fijada a 32 bytes y la longitud del campo omitida;
    Para CertUrl, DescriptionUrl, Description, Remark series, la longitud de datos debe estar bien definida, esta longitud no deberá exceder 255;
 
-1. Input of Transaction
+1. Entrada de la transacción
 
    |Tamaño|Campo|Tipo de dato|Descripción|
    |---|---|---|---|
    |32|PrevHash|uint256|hash de la anterior transación|
    |2|PrevIndex|uint16|indice de la transación anterior|
 
-1. Output of Transaction
+1. Salida de la transacción
 
    |Tamaño|Campo|Tipo de dato|Descripción|
    |---|---|---|---|
@@ -213,7 +210,7 @@ Tipo de dato
 
    Cada transacción podría tener salidas hasta 65536.
 
-1. Validation Script
+1. Script de validación
 
    |Tamaño|Campo|Tipo de dato|Descripción|
    |---|---|---|---|
@@ -280,8 +277,9 @@ Dependiendo del tipo de ordernes el payload tiene diferente formato, ver a conti
    |---|---|---|---|
    |30*?|AddressList|net_addr[]|la dirección de otros nodos en la red|
 
-   Despues de recibir el mensaje getaddr message, the node returns an addr message as response and provides information about the known nodes on the network.
-
+   Despues de recibir el mensaje getaddr, el nodo devuelve un 'addr message' como respueta y proporciona información sobre los nodos conocidos en la red.
+   
+    
 1. getheaders
 
    |Tamaño|Campo|Tipo de dato|Descripción|

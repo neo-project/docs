@@ -1,6 +1,6 @@
 # 시작하기 (Getting Started)
 
-이 설명서는 앤트쉐어(Antshares) 개발을 두 개의 부분으로 나눠서 설명합니다. 
+이 설명서는 앤트쉐어(Neo) 개발을 두 개의 부분으로 나눠서 설명합니다. 
 
 1. 앤트쉐어 노드에 기반한 개인 체인 (Private Chain) 만들기와 API/SDK 를 총한 블록체인과 상호작용
    [여기를 클릭](node/introduction.md)

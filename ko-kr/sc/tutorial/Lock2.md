@@ -15,7 +15,7 @@
 에서 최신 버젼의 **테스트 네트워크 클라이언트**를 다운 받으시길 바랍니다. 
 
 추신 : 현재 시점에서 가장 최신 버젼의 **테스트 네트워크 클라이언트**의 위치는 다음과 같습니다 : 
-[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/neo-project/neo-gui/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip).
+[Neo-GUI-v2.0.1](https://github.com/neo-project/neo-gui/releases/tag/v2.0.1).
 
 > [!노트]
 
@@ -27,7 +27,7 @@
 이 과정은 매우 간단합니다. PC버젼의 클라이언트를 열어서 '지갑'(wallet)을 클릭한 다음 '지갑 데이터베이스'를 클릭하세요,
 그런 다음 지갑 저장 장소를 선택하시고 지갑 이름과 암호를 설정하시길 바랍니다. 
 
-![그림 락2-1](~ / Images / 2017-07-04_11-59-35.png)
+![그림 락2-1](/assets/lock2_1.png)
 
 ## 퍼블릭 키 (Public Key) 얻기 
 
@@ -35,7 +35,7 @@
 아래에서 나오는 것처럼 두번째 줄에서 퍼블릭 키를 복사하세요
 
 
-![그림 락2-2](~ / Images / 2017-07-06_18-28-31.png)
+![그림 락2-2](/assets/lock2_2.png)
 
 
 
@@ -87,10 +87,10 @@ namespace ConsoleApp1
 
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
 
-namespace AntShares.SmartContract
+namespace Neo.SmartContract
 {
     public class Lock : VerificationCode
     {
@@ -137,7 +137,7 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 클릭하세요. 먼저 만들어진 'Lock.avm'파일을 고르세요. 그림에 나오는 것 처럼 코드 박스에 계약 스크립트가 나오는 것을
 볼 수 있습니다. 이걸 다시 복사하세요.
 
-! [그림 락2-3] (~ / Images / 2017-07-06_18-11-30.png)
+! [그림 락2-3] (/assets/lock2_5.png)
 
 
 클라이언트의 계정 (Account) 탭을 아래에 있는 빈공간을 오른쪽 클릭한다음 '계약 추가 생성'(Create Contract Add), 
@@ -145,7 +145,7 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 
 
 
-! [그림 락2-4] (~ / Images / 2017-07-06_18-11-47.png)
+! [그림 락2-4] (/assets/lock2_7.png)
 
 여기서 하나의 조합 계정을 골라야 합니다.(좀 더 자세히 말하면. 퍼블릭/개인 키들을 조합할 필요가 있습니다.)
 이 조합이 의미는 만약 해당 스마트 계약이 서명 실행을 필요로 하면 클라이언트는 서명하기 위해 조합 된
@@ -155,7 +155,7 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 [Parameter](Parameter.md). 먼저 나왔던 스크립트 코드를 채워넣으세요. 이 과정을 하고 나면, 아래 그림에서 처럼 
 해당 계약 주소를 볼 수 있을 것입니다. 
 
-! [그림 락2-5] (~ / Images / 2017-07-04_12-59-35.png)
+! [그림 락2-5] (/assets/lock2_8.png)
 
 
 ## 테스트
@@ -181,7 +181,7 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 
 여러분의 스마트 계약 계좌에서 자산을 전송하세요. 
 
-! [그림 락2-5] (~ / images / 2017-07-06_18-13-00.png)
+! [그림 락2-5] (/assets/lock2_11.png)
 
 만약 위의 과정이 정확하면 자산이 전송되었을 때 아래처럼 나타납니다. 
 

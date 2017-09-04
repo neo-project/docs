@@ -1,10 +1,10 @@
-# Pruebas unitarias de Contratos Inteligentes
+# Pruebas unitarias en contratos inteligentes
 
-Después de leer la documentación previa, hemos habilitado el uso de C# en Visual Studio 2017 para crear contratos inteligentes. ¿Cómo podemos realizar pruebas unitarias después de crear un contrato inteligente?
+Pruebas unitarias en contratos inteligentes.
 
 ## Crear pruebas unitarias
 
-Por ejemplo, crea el siguiente contrato inteligente, este hereda de FunctionCode, contiene tres parámetros y devuelve un valor de tipo int.
+A modo de ejemplo, vamos a crear el siguiente contrato inteligente (este hereda de FunctionCode). El contrato tiene tres parámetros y devuelve un valor de tipo int.
 
 
 ```c#
@@ -31,14 +31,13 @@ namespace Neo.SmartContract
 }
 ```
 
-Después de compilar, se genera el fichero de contrato `Test1.avm`. Ahora podemos crear un proyecto de prueba unitaria y probar `Test1.avm`.
+Después de compilar, se genera el fichero de contrato, en mi ejemplo `Test1.avm`. Ahora podemos crear un proyecto de prueba unitaria y probar `Test1.avm`.
 
 Primero, crea un proyecto de aplicación de consola en C# (.Net Framework) desde Visual Studio, para .NET Framework 4.6.2 o superior, después añade la referencia a `Neo.dll` y `Neo.VM.dll`.
 
-> [!Nota]
+> [!NOTE]
 > Esos dos ficheros se pueden obtener al compilar [Neo](https://github.com/neo-project/neo) y [Neo.VM](https://github.com/neo-project/neo-vm).
-
-> Alternativamente, puedes añadir añadir al proyecto los paquetes "Neo" y "Neo.VM" desde NuGet. Para realizar esto haz clic con el botón derecho sobre el proyecto del contrato en el Explorador de Soluciones, ves al Buscador y buscar neo e instala los paquetes necesarios.
+> Tambien se puede añadir añadir al proyecto los paquetes "Neo" y "Neo.VM" desde NuGet. Para eso, clic con el botón derecho sobre el proyecto del contrato en el `Explorador de Soluciones`, ves al Buscador y busca Neo e instala los paquetes necesarios.
 
 ```c#
 using System;
@@ -75,9 +74,11 @@ namespace ConsoleApplication1
 }
 ```
 
-Resultado de la compilación: Resultado de la ejecución 14, lo esperado
+El resultado de la compilación es: 14, lo esperado
 
-Nota: Si usas el código de arriba para pasar los parámetros, presta atención a la parte superior de la pila correspondiente al primer parámetro, para mayor comodidad también puedes pasarlos mediante el siguiente código.
+> [!NOTE]
+> Si usas el código de arriba para pasar los parámetros presta atención a la parte superior de la pila correspondiente 
+> al primer parámetro, para mayor comodidad también puedes pasarlos mediante el siguiente código.
 
 ```c#
 using (ScriptBuilder sb = new ScriptBuilder())
@@ -87,14 +88,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
     engine.LoadScript(sb.ToArray());
 }
 ```
-Si el valor de retorno del contrato inteligente no es de tipo int, pero es de tipo bool u otro tipo, necesitas cambiar `engine.EvaluationStack.Peek (). GetBigInteger ()` para que retorne otros valores tal y como se muestra en la imagen
+Si el valor de retorno del contrato inteligente no es de tipo int, pero es de tipo bool u otro tipo, necesitas cambiar `engine.EvaluationStack.Peek().GetBigInteger ()` para que retorne otros valores tal y como se muestra en la imagen
 
-![](http://docs.antshares.org/images/2017-05-16_15-39-07.jpg)
+<img style="vertical-align: middle" src="/assets/test_1.jpg">
 
-------
-
-### 📖 El documento está siendo editado
-
-El documento está siendo editado y lo completaremos lo antes posible. Puedes ver otros documentos en la [wiki de Github](https://github.com/neo-project/neo/wiki/) o visita nuestro [sitio web oficial](http://www.neo.org) y echa un vistazo.
-
-Neo es un proyecto de código abierto, si estás interesado, puedes contribuir en la documentación del desarrollo creando una solicitud Pull en GitHub, la documentación del proyecto se puede encontrar en [github.com/neo-project/docs](https://github.com/neo-project/docs), gracias por tu ayuda.

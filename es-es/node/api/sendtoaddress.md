@@ -2,14 +2,12 @@
 
 Transfiere a la dirección indicada.
 
->[!Nota]<br>
->El monedero debe estar abierto en el cliente CLI, `NEO-cli` antes de ejecutar este comando.
+> [!NOTE] El monedero debe estar abierto en el cliente CLI, `NEO-cli` antes de ejecutar este comando.
 
 
 ## Descripción de parametros.
 
-
-Asset_id: El id del activo. Corresponde al Id de transacción de RegistTransaction cuando se registra un activo.
+Asset_id: id. del activo, corresponde al id. de la transacción (RegistTransaction) cuando se registra un activo.
 
 Los activos que vienen en el sistema son:
 
@@ -19,7 +17,7 @@ Los activos que vienen en el sistema son:
 El resto de activos IDs se pueden obtener a traves del comando `list asset` en el cliente CLI [CLI Command](../cli.md) o a través del explorador Blockchain.
 
 Dirección: La dirección de pago.<br>
-Valor: La cantidad de dinero a transferir. <br>
+Valor: La cantidad a transferir. <br>
 Tarifa: Tarifa, parametro opcional. Por defecto es 0.
 
 ## Ejemplo de llamada

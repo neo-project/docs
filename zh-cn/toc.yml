@@ -20,39 +20,70 @@
     - name: API 参考
       href: node/API.md
       items:
+      - name: getaccountstate
+        href: node/api/getaccountstate.md
+      - name: getassetstate
+        href: node/api/getassetstate.md
       - name: getbalance
         href: node/api/getbalance.md
       - name: getbestblockhash
         href: node/api/getbestblockhash.md
       - name: getblock
+        href: node/api/getblock.md
+      - name: getblock
         href: node/api/getblock2.md
       - name: getblockcount
         href: node/api/getblockcount.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getblockhash
         href: node/api/getblockhash.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
+      - name: getcontractstate
+        href: node/api/getcontractstate.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
         href: node/api/getrawtransaction.md
+      - name: getstorage
+        href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
+      - name: dumpprivkey
+        href: node/api/dumpprivkey.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
+      - name: getpeers
+        href: node/api/getpeers.md
     - name: 网络协议
       href: node/network-protocol.md
     - name: 共识机制
-      href: node/consensus.md
+      href: node/consensus/whitepaper.md
+      items:
+        - name: 共识机制白皮书
+          href: node/consensus/whitepaper.md
+        - name: 共识机制图解
+          href: node/consensus/consensus.md
 - name: 智能合约
   href: sc/introduction.md
   items:
     - name: 介绍
       href: sc/introduction.md
-    - name: 如何开始
-      href: sc/getting-started.md
+    - name: 如何开始（C#）
+      href: sc/getting-started-csharp.md
+    - name: 如何开始（C#）for macOS
+      href: sc/getting-started-csharp-mac.md
+    - name: 如何开始（Java）
+      href: sc/getting-started-java.md
     - name: 教程
       href: sc/tutorial.md
       items: 
@@ -79,8 +110,8 @@
     - name: API 参考
       href: sc/api.md
       items: 
-      - name: AntShares
-        href: sc/api/AntShares.md
+      - name: NEO
+        href: sc/api/neo.md
       - name: System
         href: sc/api/System.md
     - name: 框架
@@ -89,39 +120,41 @@
       - name: .net 框架
         href: sc/fw/dotnet.md
         items:
-          - name: AntShares
-            href: sc/fw/dotnet/AntShares.md
+          - name: NEO
+            href: sc/fw/dotnet/neo.md
             items:
             - name: Account
-              href: sc/fw/dotnet/AntShares/Account.md
+              href: sc/fw/dotnet/neo/Account.md
             - name: Asset
-              href: sc/fw/dotnet/AntShares/Asset.md
+              href: sc/fw/dotnet/neo/Asset.md
             - name: Block
-              href: sc/fw/dotnet/AntShares/Block.md
+              href: sc/fw/dotnet/neo/Block.md
             - name: Blockchain
-              href: sc/fw/dotnet/AntShares/Blockchain.md
+              href: sc/fw/dotnet/neo/Blockchain.md
             - name: Contract
-              href: sc/fw/dotnet/AntShares/Contract.md
+              href: sc/fw/dotnet/neo/Contract.md
             - name: Enrollment
-              href: sc/fw/dotnet/AntShares/Enrollment.md
+              href: sc/fw/dotnet/neo/Enrollment.md
             - name: Header
-              href: sc/fw/dotnet/AntShares/Header.md
+              href: sc/fw/dotnet/neo/Header.md
             - name: Runtime
-              href: sc/fw/dotnet/AntShares/Runtime.md
+              href: sc/fw/dotnet/neo/Runtime.md
             - name: Storage
-              href: sc/fw/dotnet/AntShares/Storage.md
+              href: sc/fw/dotnet/neo/Storage.md
             - name: StorageContex
-              href: sc/fw/dotnet/AntShares/StorageContex.md
+              href: sc/fw/dotnet/neo/StorageContex.md
             - name: Transaction
-              href: sc/fw/dotnet/AntShares/Transaction.md
+              href: sc/fw/dotnet/neo/Transaction.md
             - name: TransactionAttribute
-              href: sc/fw/dotnet/AntShares/TransactionAttribute.md
+              href: sc/fw/dotnet/neo/TransactionAttribute.md
             - name: TransactionInput
-              href: sc/fw/dotnet/AntShares/TransactionInput.md
+              href: sc/fw/dotnet/neo/TransactionInput.md
             - name: TransactionOutput
-              href: sc/fw/dotnet/AntShares/TransactionOutput.md
+              href: sc/fw/dotnet/neo/TransactionOutput.md
+            - name: TriggerType
+              href: sc/fw/dotnet/neo/TriggerType.md
             - name: Validator
-              href: sc/fw/dotnet/AntShares/Validator.md
+              href: sc/fw/dotnet/neo/Validator.md
           - name: System
             href: sc/fw/dotnet/System.md
             items:

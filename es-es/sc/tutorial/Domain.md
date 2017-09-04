@@ -1,6 +1,9 @@
-# Ejemplo de contrato inteligente - dos (sistema de nombre de dominio)
+# Ejemplo de contrato inteligente - DNS (sistema de nombre de dominio)
 
 ```c#
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+
 public class Domain : FunctionCode
 {
     public static object Main(string operation, params object[] args)
@@ -54,9 +57,8 @@ public class Domain : FunctionCode
     }
 }
 ```
+El contrato implementa un sistema de nombres de dominio, donde los nombres de dominio hacen referencia a los datos de la blockchain. No son los verdaderos nombres de dominio en Internet.
 
-El contrato implementa un sistema de transferencia de nombre de dominio, donde el nombre del dominio es el dato en el sistema de la blockchain y no el nombre de dominio real en internet..
+El código anterior obtiene el nombre de dominio, lo consulta, registra, transfiere y también lo elimina.
 
-El código de arriba obtiene el nombre de dominio para consulta, registro, transferencia y eliminación.
-
-Para más detalles, ver [Storage Class](../fw/dotnet/AntShares/Storage.md).
+Para más detalles, ver [Storage Class](../fw/dotnet/Neo/Storage.md).

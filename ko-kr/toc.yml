@@ -1,0 +1,38 @@
+- name: 홈
+  href: index.md
+- name: 시작하기
+  href: getting-started.md
+- name: 스마트 계약
+  href: sc/introduction.md
+  items:
+    - name: 소개
+      href: sc/introduction.md
+    - name: 시작하기
+      href: sc/getting-started.md
+    - name: 설명서
+      href: sc/tutorial.md
+      items:
+      - name: 기본
+        href: sc/tutorial.md
+      - name: 헬로우 월드
+        href: sc/tutorial/HelloWorld.md
+      - name: 자물쇠
+        href: sc/tutorial/Lock.md
+      - name: 도메인 (도메인 이름 체계)
+        href: sc/tutorial/Domain.md
+      - name: 스마트 계약 파라미터와 리턴 값
+        href: sc/tutorial/Parameter.md
+      - name: 계약 입증 설명서
+        href: sc/tutorial/verify.md
+      - name: 자물쇠 계약 전개하기
+        href: sc/tutorial/Lock2.md
+      - name: 계약 호출
+        href: sc/tutorial/call.md
+    - name: 테스트
+      href: sc/test.md
+    - name: 백서
+      href: sc/white-paper.md
+    - name: API 참조
+      href: sc/api.md
+    - name: 프레임워크
+      href: sc/fw.md

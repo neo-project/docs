@@ -1,6 +1,6 @@
 # Propiedad ExecutionEngine.EntryScriptHash
 
-Obtiene el hash del script del punto de entrada del contrato inteligente.
+Devuelve el hash del script del punto de entrada del contrato inteligente.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 

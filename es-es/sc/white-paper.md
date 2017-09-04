@@ -1,209 +1,255 @@
-# Contratos Inteligentes AntShares 2.0 Whitepaper
 
-:book: **El documento está siendo editado** y lo completaremos lo antes posible. Puedes ver otros documentos en [GitHub](https://github.com/neo-project/neo/wiki) or visitar la [web oficial](http://www.neo.org).
+# Documento Técnico del NeoContract 
 
-Esto es un proyecto de codigo abierto. Puedes contribuir al desarrollo de la documentación en [github.com/neo-project/docs](https://github.com/neo-project/docs). Gracias por tu ayuda.
+## 1. Prefacio
+
+Los contratos inteligentes se refieren a cualquier programa de computadora que pueda ejecutar automáticamente los términos de su contrato preprogramado. La idea del contrato inteligente fue propuesta por primera vez por el criptógrafo Nick Szabo en 1994, por lo que es tan antigua como la propia Internet. Debido a la falta de un entorno de ejecución fiable, los contratos inteligentes no han sido utilizados ampliamente.
+
+En 2008, un hombre bajo el nombre de Satoshi Nakamoto lanzó Bitcoin, y esbozó los conceptos fundamentales de una cadena de bloques. Dentro de la cadena de bloque Bitcoin, Nakamoto utiliza un conjunto de lenguajes de scripting para ayudar a los usuarios a obtener más flexibilidad en el control de sus cuentas personales y el proceso de transferencia, que finalmente se convirtió en la forma embrionaria de un sistema de contrato inteligente.
+
+En 2014, un adolescente llamado Vitalik Buterin dio a conocer Ethereum, que proporciona un sistema de contrato basado en la cadena, Turing-complete, inteligente que se puede utilizar para crear una variedad de aplicaciones descentralizadas de cadena de bloques.
+
+La cadena de bloques NEO es una plataforma de activos y aplicaciones digitales, que proporciona un nuevo sistema de contrato inteligente, NeoContract. En el núcleo de la plataforma Neo, la red ofrece múltiples funciones como capacidades de activos digitales, NeoAsset e identidad digital, NeoID, permitiendo a los usuarios participar fácilmente en negocios digitales y no se limitan a la simple emisión de fichas nativas en la red de la cadena de bloques.
+
+Este artículo presentará las características del Neo Contract y explorará los detalles no técnicos. Consulta la documentación técnica para obtener detalles técnicos, consulta [aquí](http://docs.neo.org)
+
+## 2. Características
+### 2.1 Certeza
+
+Si un programa se ejecuta en equipos diferentes o en diferentes horas en el mismo equipo, el comportamiento del programa es determinista si se garantiza que la misma entrada debe producir la misma salida y viceversa.
 
 
-------
-
-## 1. Introducción
-
-Un contrato inteligente es una serie de compromisos definidos de forma digital, incluyendo el acuerdo que el emisor puede realizar en esos compromisos. La tecnología blockchain nos aporta un sistema descentralizado, no manipulable y altamente confiable en el cual los contratos inteligentes son muy útiles. El contrato inteligente es una de las características más importantes del blockchain y también es la razón principal por la cual la blockchain puede llamarse tecnología disruptiva. Esta tecnologia esta haciendo que nuestra estructura social cambie con cada día que pasa.
-
-
-## 2. Las características
-
-### 2.1 Seguridad
-
-Si un programa se está ejecutando en una computadora diferente, o en momentos diferentes en la misma computadora, la misma entrada puede garantizar producir la misma salida, entonces el comportamiento del programa es determinista y viceversa, es no determinista. Blockchain es un almacenamiento múltiple de diferentes partes, un método de computación de partes múltiples para lograr que los datos que no pueden ser modificados con cálculos confiables de los resultados de sistemas distribuidos, un contrato inteligente estará en una red de blockchain para ejecutarse en múltiples nodos. Si un contrato inteligente es no determinista, entonces los resultados de diferentes nodos pueden ser inconsistentes, lo que resulta un consenso al que no se puede llegar, la red cae en estancamiento. Por lo tanto, en el diseño de un contrato inteligente, la necesidad de descartar todo puede conducir a factores no deterministas.
+La cadena de bloques es un almacenamiento multipartito y un método computacional, donde los datos dentro de este sistema distribuido son el resultado de cálculos fiables, que no pueden ser manipulados. Los contratos inteligentes operan dentro de la red de cadenas de bloques, distribuida en los multi-nodos. Si un contrato inteligente no es determinista, los resultados de los diferentes nodos pueden ser inconsistentes. Como resultado, el consenso entre los nodos no puede ser alcanzado, y la red se estanca. Por lo tanto, en el diseño de un sistema de contrato inteligente, es necesario descartar cualquier factor que pueda conducir a un comportamiento no determinista.
 
 ### 2.1.1 Tiempo
 
-La obtención de tiempo del sistema es una función muy común que puede ser aplicada en algunos procedimientos de contratos sensibles al tiempo. Pero la adquisición del tiempo es una función del sistema no determinista, los resultados de diferentes acciones de los nodos serán inconsistentes, en el sistema distribuido es difícil obtener un tiempo preciso unificado. Por lo tanto, el contrato de AnsShares sólo proporciona un bloque de sistema basado en la marca de tiempo de bloque, que toma toda la blockchain como un servidor de marca de tiempo y obtiene la marca de tiempo cuando se construye cualquiera de los bloques. Dado que el NeoGas se en un intervalo cada 15 segundos, el contrato se ejecuta aproximadamente al mismo tiempo que el último tiempo del bloque, más 15 segundos.
+La obtención de la hora del sistema es una función del sistema muy común, que puede ser aplicada en gran medida en ciertos procedimientos contractuales sensibles al tiempo. Sin embargo, la obtención del tiempo del sistema es una función del sistema no determinista, y es difícil obtener un tiempo unificado y preciso en un sistema distribuido, ya que los resultados de los diferentes nodos serán inconsistentes. El NeoContract proporciona una llamada de sistema basada en bloques que trata la cadena de bloques por completo, como un servidor de marca de tiempo y obtiene la marca de tiempo cada vez que se genera un bloque nuevo. En promedio, la red NEO genera un bloque nuevo cada 15 segundos, por lo que el contrato se ejecuta aproximadamente al mismo tiempo que el último tiempo de bloque, más o menos 15 segundos.
 
+### 2.1.2 Aleatoriedad
 
-### 2.1.2 Número aleatorios
+Muchos programas de contratos inteligentes, tales como contratos de juegos de azar y juegos pequeños, utilizan funciones de números aleatorios. Sin embargo, las funciones de números aleatorios son una función típica no determinista, y cada llamada al sistema obtendrá resultados diferentes. En un sistema distribuido, hay muchas maneras de resolver este problema: En primer lugar, la misma semilla aleatoria se puede utilizar para todos los nodos, de modo que la secuencia de retorno de toda la función aleatoria sea determinista, pero este método expone todo el resultado aleatorio por adelantado, reduciendo en gran medida el valor práctico del número aleatorio. Otra posible solución es permitir que todos los nodos se comuniquen de manera colaborativa para generar números aleatorios. Esto puede lograrse utilizando técnicas criptográficas para producir un número aleatorio determinado, pero la desventaja radica en el rendimiento que es muy pobre y la necesidad de una sobrecarga de comunicación adicional. Un proveedor de números aleatorios centralizado puede utilizarse para generar números aleatorios que garantice la coherencia y el rendimiento, pero el inconveniente de este enfoque es obvio; Los usuarios tendrán que confiar incondicionalmente en el proveedor centralizado de números.
 
-Muchos procedimientos de los contratos inteligentes usan funciones de números aleatorios, como contratos de juego de apuestas y otros juegos, pero la función número aleatorio es una típica función no-determinista, cada opción obtendrá resultados diferentes. En un sistema distribuido, hay muchas formas de resolver este problema: la misma semilla aleatoria puede usarse para todos los nodos de modo que la función aleatoria sea determinista, pero este método expone el resultado aleatorio entero por adelantado, lo que hace que el valor práctico del número aleatorio se reduzca en gran medida; Otro método es permitir que todos los nodos se comuniquen de una manera colaborativa para generar números aleatorios, puede utilizar algunas técnicas criptográficas para producir un número aleatorio justo, pero la desventaja es que el rendimiento es muy pobre, necesita una sobrecarga de comunicación adicional; Hay también una manera de introducir números aleatorios centralizado que proporciona números aleatorios y asegura la coherencia, pero el inconveniente de este enfoque es que es obvio que el usuario debe confiar incondicionalmente en el proveedor. Hay dos maneras de obtener un número aleatorio en AntShares: la primera es que cuando se construye cada bloque, el nodo Consenso llegue a un consenso sobre un número aleatorio y lo establezca en el campo 'Nonce' del bloque. El procedimiento del contrato puede leer este valor de cualquier bloque; el segundo es que el programa de contrato puede utilizar el valor hash del bloque como un medio de generación de números aleatorios, porque el valor hash del bloque tiene una cierta aleatoriedad, de esta manera puede obtener un números aleatorios algo más débiles.
+Hay dos maneras de generar un número aleatorio en NEO:
 
+1. Cuando se genera cada bloque, el nodo consenso alcanzará un consenso sobre un número aleatorio y lo llenará en el campo Nonce del nuevo bloque. El programa de contrato puede obtener fácilmente el número aleatorio de cualquier bloque, haciendo referencia al campo Nonce; 
+2. El programa de contrato puede utilizar el valor hash del bloque como un generador de números aleatorios, porque el valor hash del bloque tiene cierta aleatoriedad que le es inherente. Este método puede usarse para obtener un número aleatorio débil.
 
-### 2.1.3 Origen de los datos
+#### 2.1.3 Fuente de datos
 
-Si un programa obtiene datos en el momento que se ejecuta y la fuente de datos proporciona datos no-deterministas, el programa puede volverse un programa no-determinista. Por ejemplo, usar un motor de búsqueda para los diez primeros resultados de una palabra – los motores de búsqueda puede responder con diferentes resultados dependiendo de la direcciones IP de origen. La inteligencia AntShares proporciona dos fuentes de datos no deterministas:
+Si un programa obtiene datos en tiempo de ejecución, puede convertirse en un programa no determinista si el origen de datos proporciona datos que no son determinísticos. Por ejemplo, al utilizar diferentes motores de búsqueda para obtener los 10 primeros resultados de búsqueda de una palabra clave en particular, esto puede producir diferentes resultados, en varios órdenes de clasificación, si se utilizan direcciones IP diferentes.
 
-**1.**	Blockchain: El procedimiento de contrato puede acceder a todos los datos de toda la cadena mediante servicios interactivos, incluyendo bloques completos y transacciones, así como cada uno de sus campos. Los datos sobre los bloques son deterministas y consistentes, por lo que se puede acceder de forma segura mediante contratos inteligentes.
+Para los contratos inteligentes, NEO proporciona dos tipos de fuentes de datos deterministas:
 
-**2.**	Espacio de almacenamiento de contrato: Cada contrato desplegado en AntShares tiene un espacio de almacenamiento que sólo puede ser accedido por ese contrato además, el mecanimso de consenso de AntShares garantiza que el estado de almacenamiento en cada nodo sea consistente. En el caso de que el contrato necesite obtener datos fuera de la cadena AntShares no proporciona una via directa. 
+* Libro Mayor de Cadena de Bloques
 
-### 2.1.4 Llamada de contrato
+El procedimiento de contrato puede acceder a todos los datos de toda la cadena de bloques a través de servicios interoperables, incluyendo bloques completos y transacciones, y cada uno de sus campos. Los datos sobre los bloques son deterministas y consistentes, por lo que se puede acceder con seguridad a través de los contratos inteligentes.
 
-Los contratos inteligentes tienen la habilidad de llamarse entre sí, pero no pueden llamarse de forma recursiva. La recursión puede lograrse dentro del contrato, pero no puede sobrepasar los límites del contrato actual. Además, la relación de la llamada entre contratos debe ser estática, es decir, el contrato a llamar no puede ser especificado en el momento de ejecución. Esto permite que el comportamiento del programa se determine completamente antes de que pueda ejecutarse y la llamada al contrato puede determinarse completamente antes de ejecutarse. Hay que tener en cuenta lo anterior en caso que se quiera realizar un particionamiento dinamico para ejecutar contratos de forma paralela.
+* Espacio de almacenamiento de contrato
 
-## 2.2 Alto Rendimiento
+Cada contrato desplegado en la red NEO, tiene un área de almacenamiento privado a la que solo se puede acceder a través del contrato mismo. El mecanismo de consenso de NEO garantiza la coherencia del estado de almacenamiento, de cada nodo en la red.
+Para situaciones en las que se requiere acceso a datos de cadena no bloqueada, NEO no proporciona una forma directa de interactuar con estos datos. Los datos que no sean de una cadena de bloque tendrán que ser transferidos a la cadena de bloques NEO usando transacciones, y posteriormente traducidos a cualquiera de las fuentes de datos antes mencionadas, para ser accesibles a través de los contratos inteligentes.
 
-El entorno de ejecución de un contrato inteligente puede jugar un rol muy importante en el desempeño del contrato. Cuando analizamos el performance de ejecución de un contrato hay dos indicadores críticos: la primera es la velocidad de ejecución de la instrucción y el segundo la ejecución del propio contrato. Para contratos inteligentes, la velocidad de ejecución en el es a menudo más importante que la ejecución de las instrucciones. El contrato inteligente está un poco más involucrado en la operación IO de la lógica para determinar las instrucciones, la aplicación de estas instrucciones se pueden optimizar fácilmente. Cada vez que se ejecuta un contrato inteligente se inicia la máquina virtual/contenedor, por lo tanto la ejecución  de maquina virtual tiene un mayor impacto en el rendimiento de los contratos inteligentes. AntShares utiliza una máquina virtual muy ligera, se ejecuta muy rapida y consume muy pocos recursos, ideal para la ejecución de contratos.La compilación estática y el almacenamiento en caché de los contratos mejoran significativamente la eficiencia de las máquinas virtuales mediante la tecnología JIT (compilador en tiempo real).
+#### 2.1.4 Llamada de contrato
 
+Los contratos inteligentes en NeoContract tienen la capacidad de llamarse entre sí, pero no se llaman recursivamente. La recursión se puede lograr dentro del contrato, pero no puede cruzar los límites del contrato actual. Además, la relación de llamada entre contratos debe ser estática: no se puede especificar el destino en tiempo de ejecución. Esto permite que el comportamiento del programa sea determinado completamente antes de la ejecución y que su relación de llamada sea definida completamente antes de permitir su ejecución. Con base en esto, varios contratos pueden ser divididos dinámicamente para lograr la ejecución paralela.
 
-## 2.3 Extensibilidad
+### 2.2 Alto rendimiento
 
-### 2.3.1 Concurrencia alta y particionamiento dinámico
+El entorno de ejecución de un contrato inteligente desempeña un papel integral en su desempeño. Cuando analizamos el rendimiento de cualquier entorno de ejecución, hay dos indicadores principales que son críticos: 
 
-Cuando se hablamos  de la escalabilidad de un sistema, exiten dos tipos: la escabilidad vertical y la escabilidad horizontal. La escabilidad vertical es la capacidad de optimizar el flujo de proceso para que el sistema pueda aprovechar al máximo la capacidad del equipo existente, la capacidad de procesamiento del sistema dependera del límite hardware. Cuando tenemos que expandir el sistema, si hay una manera de transformar el sistema serial en un sistema paralelo, entonces teóricamente sólo necesitamos aumentar el número de dispositivos, puede obtener escalabilidad casi ilimitada, este enfoque es la expansión horizontal. ¿Tenemos la posibilidad de expansión ilimitada cuando consideramos extender el sistema de cadena de bloque? En otras palabras, ¿puede la cadena de bloque manejar la situación en paralelo? La cadena de bloques es un libro grande distribuido, que registra una variedad de datos de estado, pero también registra las reglas de cómo estos cambios, el contrato inteligente se utiliza para registrar las reglas del portador. Si la cadena de cadena puede manejar el negocio en paralelo depende de si múltiples contratos inteligentes pueden ejecutarse simultáneamente, es decir, si la ejecución del contrato es ordenada. Básicamente, si los contratos no interactúan entre sí, o si el contrato no modifica los mismos datos de estado al mismo tiempo, su ejecución es secuencial y se puede ejecutar simultáneamente, de lo contrario sólo se puede ejecutar en serie, no se puede escalar horizontalmente. Con base en el análisis anterior, podemos diseñar fácilmente una "expansión ilimitada" del sistema de contrato inteligente. Sólo es necesario especificar:
+1. Velocidad de ejecución de la instrucción.
+2. Velocidad de arranque del propio entorno de ejecución. 
 
-1.	Un contrato inteligente sólo puede modificar el status del contrato si el mismo pertenece al registro; 
-2.	en la misma tanda de transacción (bloque) un contrato sólo puede ejecutarse una vez; Como resultado, todos los Smart Contract son irrelevantes al orden y pueden manejarse en paralelo. Sin embargo, si un "contrato inteligente sólo puede modificar el estado del contrato pertenece a su propio registro", significa que el contrato no puede llamarse entre sí, cada contrato es una isla; Si "es un bloque, un contrato sólo se puede ejecutar una vez" Significa que un activo digital emitido con un contrato inteligente sólo puede manejar un acuerdo en un bloque. Esto es obvio y "inteligente" el diseño original de la palabra es muy diferente. Después de todo, la llamada mutua entre el contrato, el mismo bloque en una serie de llamadas del mismo contrato, es que queremos los objetivos de diseño. Afortunadamente, la relación de llamada entre el contrato inteligente de las hormigas es estática y no puede especificar el destino de la llamada en tiempo de ejecución. Esto permite que el comportamiento del programa se determine completamente antes de que se pueda ejecutar, y su relación de llamada puede determinarse completamente antes de ejecutarse. Exigimos que cada contrato indique explícitamente qué contratos es probable que sean invocados para que el entorno operativo pueda calcular el árbol de llamadas completo antes de ejecutar el procedimiento del contrato y particionar la ejecución del contrato basado en el árbol de llamadas. Los contratos que pueden modificar el mismo registro de estado se ejecutan en serie en la misma partición y las particiones y particiones se pueden ejecutar simultáneamente.
+Para los contratos inteligentes, el entorno de ejecución es a menudo más importante que la velocidad de ejecución de la instrucción. Los contratos inteligentes están más involucrados en la operación IO de la lógica, para determinar las instrucciones, en la que la implementación de estas instrucciones se puede optimizar fácilmente. Cada vez que se llama al contrato inteligente, tiene que iniciar una nueva máquina virtual / contenedor. Por lo tanto, la velocidad de ejecución del propio entorno (inicio de una máquina virtual / contenedor) tiene un impacto importante en el rendimiento del sistema de contrato inteligente.
 
+NEO utiliza una NeoVM ligera (NEO Virtual Machine) como su entorno para la ejecución de contratos inteligentes, que tiene un arranque muy rápido y ocupa muy pocos recursos, perfecto para programas cortos como contratos inteligentes. El uso de la compilación y el almacenamiento en caché de contratos inteligentes de hotspot con JIT (compilador en tiempo real) puede mejorar significativamente la eficiencia de las máquinas virtuales.
 
-### 2.3.2 Acoplamiento bajo
+### 2.3 Escalabilidad
 
-El acoplamiento es la medida de dos o más entidades que dependen de la otra. El sistema de ejecución de los contratos inteligentes usa un diseño de bajo acoplamiento que se ejecuta en la máquina virtual ) y se comunica con el exterior a través de una capa interactiva de servicio. Por lo tanto, para actualizar las funciones de los contratos inteligentes bastará con aumentar las API en el capa de servicio.
+#### 2.3.1 Alta concurrencia y partición dinámic
 
-# 3. Tipo de contrato
+Cuando se discute la escalabilidad de un sistema, esto involucra dos áreas principales: la escala vertical y escala horizontal. El escalado vertical se refiere a la optimización del flujo de trabajo de procesamiento, permitiendo al sistema aprovechar al máximo la capacidad del equipo existente. Con este enfoque, los límites del sistema se alcanzan fácilmente, ya que la capacidad de procesamiento en serie se basa en el límite de hardware de un solo dispositivo. Cuando necesitamos escalar el sistema, ¿hay una manera de transformar el sistema en serie en un sistema paralelo? Teóricamente, simplemente habría que aumentar el número de dispositivos, y se podría alcanzar una escalabilidad casi ilimitada. ¿Podríamos conseguir escalamiento ilimitado en redes de cadenas de bloques distribuidas? En otras palabras, ¿puede una cadena de bloques ejecutar programas en paralelo?
 
-## 3.1 Verificación del contrato
+La cadena de bloques es un libro distribuido, que registra una variedad de datos de estado, y también las reglas que gobiernan los cambios en el estado de estos datos. Los contratos inteligentes se utilizan como vehículos, para registrar estas reglas. Las cadenas de bloques pueden procesar programas en paralelo, solo si, múltiples contratos inteligentes se pueden ejecutar simultáneamente y de una manera no secuencial. Básicamente, si los contratos no interactúan entre sí, o si el contrato no modifica los mismos datos de estado, al mismo tiempo, su ejecución no es secuencial y se puede ejecutar simultáneamente. De lo contrario, solo puede ejecutarse en serie, siguiendo un orden secuencial, y la red no puede escalar horizontalmente.
 
-El propósito de la verificación del contrato es verificar la propiedad de los activos en la cuenta del contrato. Cuando una transacción debe ser transferida a un activo en una cuenta, el contrato de verificación correspondiente a esa cuenta debe ejecutarse. Un contrato de validación puede aceptar un conjunto de parámetros (usualmente una firma digital u otros criterios) y devuelve un valor booleano después de la verificación para indicar al sistema si la verificación tuvo éxito. El usuario puede pre-desplegar el contrato de verificación a la cadena o publicar el contenido del contrato directamente en la transacción durante el proceso de transferencia. Si el contrato se despliega a la cadena por adelantado, el contrato puede ser utilizado no sólo como un contrato de verificación, sino también por otro contrato. Usted puede llamar a la "auto-destrucción" de la función del sistema para eliminar la cadena cuando se ha desplegado del contrato, se elimina y, a continuación, ya no se puede utilizar.
+Con base en el análisis anterior, podemos diseñar fácilmente un "escalamiento ilimitado" en sistemas de contratos inteligentes. Todo lo que tenemos que hacer es establecer reglas sencillas:
 
-## 3.2 Funcion del contrato
+* Un contrato inteligente solo puede modificar el registro del estado del contrato al que pertenece;
+* En la misma transacción lote (bloque), un contrato solo se puede ejecutar una vez;
 
-La función de contrato se usa para proporcionar algunas funciones públicas o comunes para llamar otros contratos. Hace que el código del Smart Contract pueda ser reutilizado, para que los desarrolladores puedan escribir lógica de negocios más compleja. El contrato de la función debe ser pre-desplegado a la cadena para ser llamado y retirado de la cadena por "autodestrucción" de la función del sistema.
+Como resultado, todos los contratos inteligentes pueden procesarse en paralelo ya que el orden secuencial es irrelevante para el resultado. Sin embargo, si un "contrato inteligente solo puede modificar el registro del estado del contrato al que pertenece", implica que el contrato no puede llamarse entre sí. Cada contrato, es una isla aislada; si "En el mismo lote de transacción (bloque), un contrato solo se puede ejecutar una vez", esto implica que un activo digital emitido con un contrato inteligente, solo puede manejar una transacción por bloque. Este es un mundo de diferencia con los objetivos de diseño originales de los contratos "inteligentes," que dejarían entonces de ser "inteligentes." Después de todo, nuestros objetivos de diseño incluyen tanto la llamada mutua entre contratos, como la ejecución múltiple de la misma llamada, en el mismo bloque.
 
-## 3.3 Aplicacion del contrato
+Afortunadamente, los contratos inteligentes en NEO tienen una relación de llamada estática y no se puede especificar el destino de la llamada en tiempo de ejecución. Esto permite que el comportamiento del programa sea determinado completamente antes de la ejecución y que su relación de llamada se defina completamente antes de permitir su ejecución. Exigimos que cada contrato indique explícitamente los contratos que probablemente se invocarán, de modo que el entorno operativo pueda calcular el árbol completo de llamadas antes de ejecutar el procedimiento del contrato y la ejecución de particiones de los contratos, en función del árbol de llamadas. Los contratos que pueden modificar su propio registro de estado, se ejecutan de forma secuencial dentro de la misma partición, con lo que se pueden ejecutar diferentes particiones en paralelo.
 
-La aplicación de contrato proporciona al usuario un cojunto de funciones donde no solo puede guardar el estado de ejecución sino que tambien le permite llamar a otros. Puedes llamar a la funcion "Self-Destruction" para borrar el bloque que se ha desplegado con el contrato.
+#### 2.3.2 Bajo Acoplamiento
 
-# 4 Máquina Virtual
+El acoplamiento es una medida de la dependencia entre dos o más entidades. El sistema NeoContract utiliza un diseño de bajo acoplamiento bajo, que se ejecuta en el NeoVM y se comunica con los datos de la cadena no bloqueada a través de la capa de servicio interoperable. Como resultado, la mayoría de las actualizaciones a las funciones de los contratos inteligentes se puede lograr mediante el aumento de la API de servicios interoperables.
 
-## 4.1 Hardware virtual
+## 3. Uso del Contrato
 
-La máquina virtual AntShares proporciona una capa de hardware virtual para soportar la ejecución de contratos inteligentes, incluyendo:
 
-**1.**	CPU: Es responsable de leer y en el orden la implementación de instrucciones en el contrato, de acuerdo a la función de instrucción del flujo de control, operaciones aritméticas, operaciones lógicas. La función del CPU puede extenderse en el futuro, la introducción de JIT (compilador en tiempo real) mejorando así la eficiencia de la instrucción de ejecución
 
-**2.**	Llamada de stack: Se usa para contener la información de contexto de la ejecución del programa en cada llamada de ejecución, para que pueda continuar la ejecución en el contexto actual después que la función complete y regrese.
+### 3.1 Verificación de Contratos
 
-**3.**	Calcular el stack: Todos los datos en el tiempo de ejecución en la Ant virtual y la máquina virtual son almacenados en el stack de cálculo, y cuando diferentes instrucciones se ejecutan, los elementos de datos en el stack de cálculo son manipulados de forma apropiada. Por ejemplo. Cuando la instrucción de adición se ejecuta, los dos operadores que participan en la adición son expulsados del stack de cálculo, y el resultado de la adición es empujado al tope del stack. Los parámetros de la función de llamada también deben ser presionados de derecha a izquierda en el orden del stack, la función puede completarse desde el tope del stack con una función de retorno de valor
+A diferencia del sistema de cuentas de clave pública utilizado en Bitcoin, el sistema de cuentas de NEO utiliza el sistema de cuentas de contrato. Cada cuenta en NEO corresponde a un contrato de verificación y el valor hash del contrato de verificación es la dirección de la cuenta; la lógica del programa del contrato de verificación controla la propiedad de la cuenta. Al transferir desde una cuenta, primero se debe ejecutar el contrato de verificación para esa cuenta. Un contrato de validación puede aceptar un conjunto de parámetros (generalmente una firma digital u otros criterios) y devolver un valor booleano después de la verificación, indicando el éxito de la verificación al sistema.
 
-**4.**	Standby Stack: cuando necesite programar o reacomodar los elementos en el stack, puede almacenar temporalmente los elementos en el stack en stack standby y recuperarlos luego en el futuro.
+El usuario puede implementar previamente el contrato de verificación en la cadena de bloques o publicar el contenido del contrato directamente en la transacción durante el proceso de transferencia.
 
+### 3.2 Contrato de Aplicación
 
-## 4.2 Set de intrucciones
+El contrato de aplicación se activa mediante una transacción especial, que puede acceder y modificar el estado global del sistema y el estado privado del contrato (área de almacenamiento) en tiempo de ejecución. Por ejemplo, se puede crear un activo digital global en un contrato, votar, guardar datos e incluso crear dinámicamente un nuevo contrato cuando se ejecuta el contrato.
+#La ejecución del contrato de aplicación requiere el cobro por instrucción. Cuando la comisión de transacción se consume, el contrato fallará y detendrá la ejecución, y todos los cambios de estado se revertirán. El éxito del contrato no afecta la validez de la transacción.
 
-La máquina virtual AntShares proporciona un set simple y práctico de instrucciones para construir un procedimiento de Smart Contract. Por función, incluye en su mayoría las siguientes categorías: 
+### 3.3 Contrato de Función 
 
-  * Instrucción constante
-  * Instrucciones de control del proceso
-  * Pila instrucciones de funcionamiento
-  * Instrucciones de la secuencia
-  * Instrucciones lógicas
-  * Instrucciones aritméticas
-  * Instrucciones criptográficas
-  * Instrucciones de manipulación de datos. Cabe señalar que el conjunto de instrucciones de la máquina virtual AntShares proporciona una serie de instrucciones criptográficas como ECDSA, SHA y otros algoritmos para optimizar la eficiencia de la implementación de algoritmos criptográficos en contratos inteligentes. Además, las instrucciones de manipulación de datos proporcionan soporte para matrices y estructuras de datos complejas directamente
+El contrato de función se utiliza para proporcionar algunas funciones públicas o comúnmente utilizadas, que pueden ser llamadas por otros contratos. El código de contrato inteligente puede reutilizarse, de modo que los desarrolladores puedan escribir una lógica de negocio cada vez más compleja. Cada contrato de función, cuando se implementa, puede elegir tener un área de almacenamiento privado cuyos datos se lean o se escriban en los datos de un contrato futuro, logrando la persistencia del estado.
 
+El contrato de función debe ser pre-desplegado a la cadena a ser invocada y retirado de la cadena por una función "autodestructiva" del sistema, ya que no se utilizará y su almacenamiento privado será destruido. Los datos del contrato anterior se pueden migrar automáticamente a otro subcontrato antes de que ser destruidos, utilizando herramientas de migración de contrato.
 
-## 4.3	Capa de servicio interactiva
+## 4. Máquina Virtual 
 
-La máquina virtual donde el Smart contract es ejecutado es un ambiente de sandbox que requiere una capa de servicio interactiva cuando el contrato necesita accesar a datos fuera del sandbox o cuando se persiste el tiempo de ejecución de datos, lo que proporciona el Smart Contract para la máquina virtual, el medio de comunicación externa. En la capa de servicio interactiva, una serie de funciones del sistema y servicios se exponen a procedimientos de Smart Contract. Se puede accesar al contrato como una función ordinaria. Todas las funciones son concurridas, así que no hay que preocuparse por el problema de escalabilidad.
+### 4.1 Hardware virtual
 
-## 4.4 Debugging function
+NeoVM proporciona una capa de hardware virtual, para apoyar la ejecución de contratos inteligentes, incluyendo:
 
-A menudo, el desarrollo de un Smart Contract es muy difícil porque no hay un buen método de debugging y prueba. Las hormigas pequeñas en el nivel de la máquina virtual proporciona el apoyo de la función de depuración del programa, puede establecer el punto de interrupción en el código de contrato, también puede ejecución de un solo paso, un solo proceso. Gracias al diseño de acoplamiento bajo entre la máquina virtual y la cadena de bloques, es fácil integrar la máquina virtual de hormigas directamente con los distintos IDE para proporcionar un entorno de prueba que sea consistente con el entorno de producción final
+**CPU**
 
-# 5 Lenguajes de alto-nivel
+El CPU es responsable de leer y ordenar secuencialmente la ejecución de instrucciones en el contrato, de acuerdo con la función del control de flujo de instrucciones, las operaciones aritméticas y las operaciones lógicas. El futuro de la función de la CPU se puede ampliar, con la introducción de la función JIT (compilador en tiempo real), mejorando así la eficiencia de la ejecución de la instrucción.
+**Pila de llamadas**
 
-## 5.1 C #, VB.Net, F #
+La pila de llamadas se utiliza para contener la información de contexto de la ejecución del programa en cada llamada de función, de modo que pueda continuar ejecutándose en el contexto actual después de que la función haya terminado de ejecutar y devolver.
 
-Los desarrolladores pueden usar casi cualquier lenguaje de alto nivel para el desarrollo de contratos inteligentes. Los primeros lenguajes soportados son C#, VB.Net, F#. Se proporciona compiladores y plug-ins para compilar estos lenguajes de alto nivel a sets de instrucciones soportados en la máquina virtual de AntShares. Como el compilador será para MSIL (lenguaje intermedio de Microsoft) teóricamente cualquier lenguaje .NET o traducido al lenguaje MSIL estará directamente soportado. El número de desarrolladores en estos lenguajes es numeroso y tiene un entorno de desarrollo integrado. Los desarrolladores pueden desarrollar, probar y depurar programas desarrollados en Visual Studio, y también pueden utilizar el plug-in SmartContract que genera una plantilla como punto de entrada al desarrollo.
+**Pila de Cálculo**
 
-## 5.2 Otros lenguajes
+Todos los datos de tiempo de ejecución de NeoVM se almacenan en la pila de cálculo, cuando después de la implementación de diferentes instrucciones, la pila es calculada en los elementos de datos correspondientes a la operación. Por ejemplo, cuando se ejecutan instrucciones adicionales, las dos operaciones que participan en la adición se expulsan de la pila de cálculo y el resultado de la adición se empuja a la parte superior de la pila. Los parámetros de llamada de función también deben calcularse de derecha a izquierda, según el orden de la pila. Después de que la función se ejecute correctamente, la parte superior de la función de recuperación de la pila devuelve el valor.
 
-AntShares soportará otros compiladores de alto nivel, algunos podran ser:
+**Pila de repuesto**
 
-  * Java
-  * C, C ++, GO
-  * Python, JavaScript
+Cuando se necesita programar o reorganizar elementos en la pila, se puede almacenar temporalmente los elementos en la pila de repuesto y recuperarlos en el futuro.
 
-En el futuro se continuará añadiendo lenguajes de alto nivel, de esta forma casi el 90% de los desarrolladores no necesitaran aprender un nuevo lenguaje para desarrollar contratos inteligente en AntSharesract con AntShares.
+### 4.2 Conjunto de instrucciones
 
-# 6 Servicio.
+NeoVM proporciona un conjunto de instrucciones sencillas y prácticas para la construcción de programas de contrato inteligentes. Según las funciones, las principales categorías son las siguientes:
 
-## 6.1 Blockchain
+* Instrucción constante.
+* Instrucción de control de procesos.
+* Instrucciones de funcionamiento de la pila.
+* Instrucción de cuerdas.
+* Instrucción lógica.
+* Instrucción de operación aritmética.
+* Instrucción criptográfica.
+* Instrucción de operación de datos.
 
-Los contratos inteligentes pueden obtener los datos completos de la blockchain de Antshares, incluyendo el bloque completo y la transacciones, así como todos sus campos en tiempo de ejecución a través de las funciones de sistema proporcionadas para interactuar con el sistemas. Específicamente, puede consultar:
+Cabe señalar que el conjunto de instrucciones de NeoVM proporciona una serie de instrucciones criptográficas, como ECDSA, SHA y otros algoritmos para optimizar la eficiencia de implementación de algoritmos criptográficos en contratos inteligentes. Además, las instrucciones de manipulación de datos soportan directamente arreglos y estructuras de datos complejas.
 
-  * La altura del blockchain.
-  * La cabecera del bloque y el bloque.
-  * Las transacciones.
-  * El tipo de transacciones, atributos, entradas, salidas, etc. A través de estos datos se pueden desarrollar algunas
-  aplicaciones interesantes, como dividendos automáticos basados en la carga de trabajo de contratos inteligentes y mucho más.
+### 4.3 Capa de servicio interoperable
 
+La máquina virtual en la que se ejecuta el contrato inteligente es un entorno limitado que requiere una capa de servicio interoperable en los momentos en los que sea necesario acceder a datos fuera del área de seguridad o mantener los datos de tiempo de ejecución persistentes. Dentro de la capa de servicio interoperable, NEO contract puede abrir una serie de funciones del sistema y los servicios con el programa de contrato inteligente, y estos contratos pueden ser llamados y se puede acceder a ellos, como con las funciones ordinarias. Todas las funciones del sistema se llevan a cabo simultáneamente, por lo que no hay necesidad de preocuparse por la escalabilidad.
 
-## 6.2 Activos digitales
+### 4.4 Función de depuración
 
-Los contratos inteligentes ademas de consultar los atributos y estadisticas de los activos digitales en la blockchain también pueden crearlo en tiempos de ejecución. Los activos digitales creados con los contratos inteligentes pueden ser emitidos, transferidos y comercializados, además de poder administrarlos con cualquier monedero compatible con AntShares.
+A menudo, el desarrollo de contratos inteligentes es muy difícil, debido a la falta de buenos métodos de depuración y pruebas. NeoV proporciona soporte de depuración de programas a nivel de máquina virtual, donde se puede establecer el punto de interrupción en el código de contrato, o de un solo paso, la ejecución de un solo proceso. Gracias al diseño de bajo acoplamiento entre la máquina virtual y la cadena de bloques, es fácil integrar NeoVM directamente con varios IDE, para proporcionar un entorno de prueba que sea consistente con el entorno de producción final.
 
-La interfaz tiene las siguientes funcionalidades:
+## 5. Lenguaje de Alto Nivel
 
-  * Consultar atributos de los activos.
-  * Consultar estadísticas.
-  * Gestión del ciclo de vida de los activos: crear, modificar, destruir, etc. 
-  * Gestión de activos: nombre en varios idiomas, cambio, cambios de precisión, cambios en el administrador.
+### 5.1 C #, VB.Net, F#
+Los desarrolladores pueden usar NeoContract en casi cualquier lenguaje de alto nivel en el que sean buenos. El primer lote de lenguajes soportados es C #, VB.Net, F #, etc. Ofrecemos compiladores y complementos en estos lenguajes de alto nivel en el conjunto de instrucciones, soportado por la NeoVM. Dado que el compilador se enfoca en MSIL (Lenguaje intermedio de Microsoft) durante la compilación, teóricamente, cualquier lenguaje .Net puede ser traducido al lenguaje MSIL, y convertirse en uno soportado directamente.
 
+Un gran número de desarrolladores son proficientes en estos lenguajes, y los lenguajes anteriores tienen un entorno de desarrollo integrado muy fuerte. Los desarrolladores pueden desarrollar, generar, probar y depurar, todo dentro de Visual Studio, donde podrán aprovechar al máximo las plantillas de desarrollo de contratos inteligentes que ofrecemos, para obtener una ventaja.
 
-## 6.3 Persistencia
+### 5.2 Java, Kotlin
 
-Al desplegar un contrato inteligente estos disponen de un área de almacenamiento donde únicamente el contrato puede leer y escribir. Los contratos inteligentes tienes permisos completos en su propia área: pueden leer, escribir, modificar y borrar. Los datos almacenados estan en la forma clave-valor.
+Java y Kotlin forman el segundo lote de lenguajes soportados, donde proporcionamos compiladores y plugins IDE para estos lenguajes, para ayudar a los desarrolladores a usar el lenguaje basado en JVM para desarrollar las aplicaciones del Contrato Inteligente de NEO.
 
-La interfaz tiene la siguientes funcionalidad:
+Java es ampliamente utilizado, y Kotlin se ha convertido recientemente en el oficial recomendado por Google, como lenguaje de desarrollo de Android. Creemos que el apoyo a estos lenguajes ayudará a aumentar drásticamente el número de desarrolladores de contratos inteligentes de NEO.
 
-  * Consultar todos los registros almacenados.
-  * Devolver un registro específico de acuerdo con la clave especificada.
-  * Modificar o escribir nuevos registros de acuerdo con la clave especificada.
-  * Eliminar el registro de acuerdo con la clave especificada. 
-  
-En general, un contrato sólo puede leer y escribir datos de su propio almacenamiento con una excepción: cuando se llama (InvokeContract) un contrato. El contrato llamado puede acceder al almacenamiento del contrato llamante a través de una llamada de inter-dominio (cross-domain). 
+### 5.3 Otros lenguajes
 
-El area de almacenamiento de los llamantes inter-dominio puede ofrecer bibliotecas más complejas proporcionando más funcionalidades a los contratos invocados.
+Posteriormente, NeoContract agregará soporte para otros lenguajes de alto nivel, basados en el grado de dificultad, en el proceso de desarrollo del compilador. Algunos de los lenguajes que pueden ser soportados incluyen:
 
+* C, C + +, GO
+* Python, JavaScript
 
-# 7 Costes
+En el futuro, continuaremos agregando más soporte de lenguajes de alto nivel. Nuestro objetivo es ver más del 90% de los desarrolladores de NEO desarrollando con NeoContract, sin necesidad de aprender un nuevo lenguaje, e incluso posiblemente transferir el código existente del sistema empresarial directamente a la cadena de bloqueo.
 
-## 7.1 Coste de desarrollo
+## 6. Servicio
 
-La estructura distribuida de la blockchain de AntShares proporciona una alta redundancia a nivel de almacenamiento, el uso de este capacidad no es gratis. El costo de desplegar un contrato inteligente es un pequeños bloque está fijado a 500 NeoGas, el cual es recogido por el sistema y se vuelve una ganancia para el sistema. En el futuro el coste puede basarse en la operación y se podrá ajusta el precio. Un contrato inteligente desplegado en la blockchain se puede utilizar multiples veces hasta que el contrato se destruyes por quien lo ha desplegado.
+### 6.1 Libro Mayor de Cadena de Bloques
 
-## 7.2 Tarifa de ejecución
+NEO Smart Contracts puede obtener datos completos de bloque para la cadena de bloqueo NEO, incluyendo bloques completos y transacciones, y cada uno de sus campos, en tiempo de ejecución, a través de las funciones del sistema proporcionadas por el servicio interoperable. Específicamente, se pueden consultar estos datos:
 
-La ejecución de contratos inteligentes consume recursos de computación en los nodos, por lo que el usuario debe pagar por estos costes. El coste es determinado por los recursos de computación de cada ejecución y la unidad de precios es NeoGas, que es cobrado por el nodo de consenso. Si la implementación no tuviera coste de ejecución esto podria ser aprovechado por ataques maliciosos para consumir toda la red de computación.
+* Altura de la cadena de bloques;
+* Bloque principal, bloque actual;
+* Transacciones;
+* Tipo de transacción, atributos, entrada, salida, etc;
 
-# 8 La aplicación.
+A través de estos datos, se pueden desarrollar algunas aplicaciones interesantes, tales como dividendos automáticos, contratos inteligentes basados en la prueba de carga de trabajo.
 
-## 8.1 Transacción superconductora
+### 6.2 Activos digitales
 
-Los activos digitales en la blockchain son inherentemente demandandos y por lo general las transacciones punto a punto no pueden proporcionar suficiente liquidez, por eso la necesidad de proporcionar a los usuarios servicios de intercambio comerciales. Los activos digitales del intercambio se dividen en dos categorías: el primero es el intercambio central, el usuario necesita recargar los activos digitales en el intercambiador (Exchange) y luego solicitarlos en una sola transacción; La segunda categoría es proporcionar un sistem el central de intercambio.
+A través de los servicios interoperables proporcionados por la interfaz de activos digitales, los contratos inteligentes no solo pueden consultar la cadena de bloques de NEO en términos de las propiedades y estadísticas de diversos activos digitales, sino también crear nuevos activos digitales durante su tiempo de ejecución. Los activos digitales creados por contratos inteligentes pueden ser emitidos, transferidos o negociados fuera del contrato. Son los mismos que los activos originales de NEO y se pueden gestionar con cualquier software compatible con NEO. 
 
-## 8.2 Financiación inteligente
+Esta interfaz específica incluye:
 
-## 8.3 8.3	Cross chain interoperability
+* Consulta de atributos de activos.
+* Consulta de estadísticas de activos.
+* Gestión del ciclo de vida de los activos: crear, modificar, destruir, etc.
+* Gestión de activos: nombre multi-lenguaje, cambio total, cambio de precisión, cambios en el administrador;
 
-Es previsible que, en el futuro por un largo período de tiempo otras blockchain, blockchains aliadas y blockchain privada coexistiran. A través del mecanismo de interoperabilidad entre blockchain numerosos blockchains aislados se podran unir entre sí, de modo que el valor de las diferentes blockchain intercambiarse entre sí para formar un valor real en Internet. Los contratos inteligentes tienen soporte para la interoperabilidad entre blockchains, no sólo para el intercambio de activos sino también para ejecutar transacciones y contratos distribuidos entre diferentes blockchains y asegurar su consistencia.
+### 6.3 Persistencia
 
-## 8.4 Maquina echo
+Cada programa de contrato inteligente desplegado en la cadena NEO, tendrá un área de almacenamiento privada que solo podrá ser leída y escrita por el propio contrato. Los contratos inteligentes tienen permisos operativos completos sobre los datos en su propio almacén: los pueden leer, escribir, modificar, eliminar. 
 
-Un susurro puede ser visto como una máquina tupla conectada a un profeta (oráculo). El concepto del profeta es una entidad que puede responder a un conjunto particular de preguntas. En la blockchain, el denunciante (whistleblower) abre la puerta al mundo exterior para los contratos inteligentes lo que permite utilizar la información del mundo real como condición para la ejecución del contrato. El contrato inteligente de AntShares no proporciona la capacidad de acceder a los datos externos directamente, como el acceso a los recursos en Internet, ya que esto introduce datos no-determinista, haciendo que los nodos aparezcan inconsistentes con los resultados de la ejecución del contrato. En la blockchain de AntShares para conseguir la máquina de silbato, la necesidad de un tercero de confianza a datos externos a través de la forma de transacciones enviadas a la cadena de bloques, haciendo que esta información se convierta en parte de los datos del libro, eliminando la incertidumbre. El tercero creíble a que se refiere el artículo anterior puede ser una persona o institución de confianza de ambas partes en el contrato, o un proveedor de datos descentralizado que esté garantizado por incentivos económicos. Para lograr tal silbato.
+Los datos se almacenan en forma de pares clave-valor y proporcionan estas interfaces:
 
-## 8.5 Ethernet Square Series DAPP
+* Recorrer todos los registros almacenados;
+* Regresar a un registro específico de acuerdo con la clave especificada;
+* Modificar o escribir nuevos registros de acuerdo con la clave especificada;
+* Eliminar el registro de acuerdo con la clave especificada;
 
-Bitcoin creó una blockchain y dinero electrónico, para crear una era de contrato electrónico. Con el pionero de contratos inteligentes de blockchain, es una gran contribución a la idea de diseño, modelo económico y realización tecnológica del sistema de contrato inteligente. Al mismo tiempo, hay muchos DAPP (aplicación distribuida) en tal plataforma, lo que tiene diferentes funciones, como acuerdos de juegos, activos digitales, oro electrónico, plataforma de juegos, plataforma de matrimonio, industria. Todos estos DAPP, teóricamente pueden ser fácilmente trasplantados a la plataforma de AntShares.
+En general, un contrato solo puede leer y escribir datos en su propio almacén, con una excepción: cuando se invoca un contrato, el contrato invocado puede acceder al almacén de la persona que lo llama mediante una solicitud entre dominios, siempre que la persona que llama proporcione la autorización. Además, para un subcontrato que se cree dinámicamente en el momento de la ejecución del contrato, el contrato principal obtiene acceso instantáneo a su almacén.
 
-# 9.	Explorar
+Las solicitudes entre dominios permiten a NeoContract implementar herramientas complejas de biblioteca, que proporcionan herramientas de gestión de datos altamente escalables para las personas que llaman.
 
-## 9.1 Control de versión
+## 7. Tarifas
 
-Los contratos inteligentes deben implementarse en la blockchain antes de que puedan distribuirse. Una vez que el código de contrato se implementa, no se puede modificar porque el comportamiento del programa debe ser determinado por el usuario antes de ejecutarse. Si el código del contrato puede ser arbitrariamente modificado o actualizado, está obligado a traer algún riesgo moral.
+### 7.1 Cuota de implementación
+La arquitectura distribuida de NEO proporciona una alta redundancia en la capacidad de almacenamiento, y el uso de esta capacidad no es gratuito. La implementación de un contrato inteligente en la red NEO requiere una tarifa, actualmente fijada en 500GAS, que es recolectada por el sistema y registrada como una ganancia del sistema. Las comisiones futuras se ajustarán de acuerdo con el costo real de operación en el sistema. El contrato inteligente desplegado en la cadena de bloques se puede utilizar varias veces, hasta que el contrato sea destruido por quien lo implementó.
 
-## 9.2	Acceso de recursos IPFS
+### 7.2 Cuota de implementación
 
-En el presente, los contratos inteligentes en el sistema solo puede accesar a los datos en su propia área de almacenamiento, en el futuro se puede necesitar un almacenamiento compartido público entre el contrato, el área de almacenamiento a través de la tabla para recuperar el archivo, y almacenamiento distribuido en los nodos.Pudiera ser implementado a través de DHT (Distributed hash table) o IPFS (InterPlanetary File System)
+NEO proporciona un entorno de ejecución confiable para contratos inteligentes y la ejecución de contratos requiere el consumo de recursos informáticos para cada nodo, por lo que los usuarios deben pagar por la ejecución de los contratos inteligentes. La tarifa está determinada por los recursos computacionales consumidos con cada ejecución, y el precio unitario también está en GAS. Si la implementación del contrato inteligente fracasa debido a la falta de GAS, el costo de consumo no será devuelto, y esto impedirá ataques maliciosos en el consumo de energía de la red.
+Para la mayoría de los contratos simples, se pueden ejecutar de forma gratuita, siempre y cuando los costos de ejecución permanezcan bajo 10 GAS, lo que reduce enormemente los costos para el usuario.
 
+## 8. Escenarios de Aplicación
+
+### 8.1 Transacciones Superconductoras
+
+Los activos digitales en la cadena de bloque requieren inherentemente alguna forma de liquidez, y usualmente las transacciones punto a punto no pueden proporcionar la liquidez suficiente, por lo tanto existe la necesidad de intercambios para proveer los servicios comerciales a los usuarios. Los intercambios de activos digitales se pueden dividir en dos categorías: 1) Intercambios centrales, en los que el usuario debe depositar los activos digitales con el intercambio, y subsecuentemente colocar los pedidos pendientes de negociación, en el sitio web. 2) Intercambios descentralizados, donde el sistema de comercio se basa en la cadena de bloques, y el sistema proporciona los servicios de coincidencia.
+
+Los intercambios centralizados pueden proporcionar un rendimiento muy alto y servicios diversificados, pero necesitan tener una garantía de crédito fuerte, de lo contrario habrá riesgos morales; Como la apropiación indebida de fondos de usuarios, el fraude, etc. Comparativamente, el intercambio descentralizado no tiene ningún riesgo moral, pero la experiencia del usuario es pobre y hay un cuello de botella de mayor rendimiento. ¿Hay una manera de combinar ambas soluciones y lograr obtener lo mejor de ambos mundos?
+
+Las transacciones superconductoras son un mecanismo que puede hacer esto; los usuarios no necesitan depositar activos, donde sean capaces de utilizar sus propios activos en la cadena de bloque en el comercio. La liquidación de transacciones ocurre completamente en la cadena de bloques, pero el proceso de emparejar las órdenes se produce fuera de la cadena, por un intercambio central que proporciona servicios de coincidencia. Dado que la coincidencia se lleva a cabo fuera de la cadena, su eficiencia es similar a los intercambios centralizados, pero los activos permanecen bajo el control del usuario. Los intercambios aprovechan la intención comercial del usuario para llevar a cabo servicios de coincidencia, sin riesgos morales involucrados, tales como malversación de fondos de usuarios, fraude, etc.
+En la actualidad, dentro de la comunidad de NEO, ha surgido el desarrollo de contratos inteligentes para lograr transacciones superconductoras de cadenas de bloques, tales como OTCGO.
+
+### 8.2 Fondo Inteligente
+
+Los fondos inteligentes basados en la cadena de bloques tienen el beneficio de ser descentralizados, abiertos y transparentes, con un mayor grado de seguridad y libertad en comparación con los fondos tradicionales. Estos fondos inteligentes también son transfronterizos y están abiertos a inversionistas en todo el mundo, donde proyectos excepcionales pueden ser financiados con capital de todo el mundo.
+Nest es un proyecto de fondos inteligentes basado en NeoContract, que es muy similar al proyecto TheDAO basado en Ethereum, donde se necesitan mejores medidas de seguridad para evitar los errores de TheDAO (hackers).
+
+### 8.3 Interoperabilidad entre cadenas
+
+En el futuro previsible, habrá un gran número de cadenas públicas, miles de cadenas de alianzas o cadenas privadas en existencia en todo el mundo. Estos sistemas de cadena de bloques aislados son islas de valor e información, que no son interoperables entre sí. A través del mecanismo de interoperabilidad entre cadenas, se pueden enlazar numerosas cadenas de bloques aisladas, de modo que los valores en cadenas de bloques diferentes se pueden intercambiar entre sí, para lograr aprovechar el verdadero valor de Internet.
+NeoContract proporciona soporte para la implementación de la interoperabilidad entre cadenas, garantizando consistencia en el intercambio de activos entre cadenas, transacciones distribuidas entre cadenas y ejecución de contratos inteligentes en diferentes bloques.
+
+### 8.4 Máquinas Oráculo
+
+El concepto de los oráculos en el pensamiento popular, radica en la capacidad de una entidad sobrenatural que es capaz de responder a un conjunto particular de preguntas. En la cadena de bloques, las máquinas oráculo abren la puerta al mundo exterior para los contratos inteligentes, lo que hace posible que los contratos inteligentes utilicen la información del mundo real, como condiciones para la ejecución del contrato.
+
+NeoContract no proporciona la capacidad de acceder directamente a datos externos, como el acceso a recursos en Internet, porque esto introducirá un comportamiento no determinista, resultando en inconsistencias entre nodos durante la ejecución del contrato. La implementación de la máquina oráculo en NeoContract requiere que los datos externos sean enviados a la cadena de bloques por un tercero de confianza, integrando estas entradas de datos como parte del libro mayor de la cadena de bloques, eliminando así el no determinismo.
+
+El tercero creíble mencionado anteriormente, puede ser una persona o institución que sea de confianza para ambas partes en el contrato, o un proveedor de datos descentralizado que esté garantizado por incentivos económicos. De esta manera, NeoContract puede ser utilizado en la implementación de tales máquinas Oráculo.
+
+### 8.5 Ethereum DAPP
+
+Bitcoin creó la era de las cadenas de bloques y el efectivo electrónico, y Ethereum creó la era de los contratos inteligentes. Ethereum, los pioneros del contrato inteligente en la cadena de bloque, ha hecho grandes contribuciones a la idea de diseño, el modelo económico y la realización tecnológica de un sistema de contrato inteligente. Al mismo tiempo, la plataforma Ethereum ha visto un gran número de DAPP (aplicaciones distribuidas), donde algunas de estas funcionalidades incluyen, acuerdos de juego, activos digitales, oro electrónico, plataforma de juego, seguro médico, plataforma matrimonial, con uso generalizado en muchas industrias. En teoría, todos estos DAPPs, pueden ser fácilmente trasplantados a la plataforma NeoContract, como una aplicación NEO.
