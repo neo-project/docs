@@ -148,7 +148,7 @@
               href: sc/fw/dotnet/Neo/TransactionOutput.md
             - name: TriggerType
               href: sc/fw/dotnet/Neo/TriggerType.md
-		    - name: Runtime
+            - name: Runtime
               href: sc/fw/dotnet/Neo/Runtime.md
           - name: System
             href: sc/fw/dotnet/System.md
