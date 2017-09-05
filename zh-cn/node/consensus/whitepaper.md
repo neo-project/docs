@@ -99,5 +99,5 @@
 
 [4] Bracha G, Toueg S. Asynchronous consensus and broadcast protocols[J]. Journal of the ACM (JACM), 1985, 32(4): 824-840. 
 
-[5] 范捷, 易乐天, 舒继武. 拜占庭系统技术研究综述 [J]. 软件学报, 2013, 6: 012. 
+[5] 范捷, 易乐天, 舒继武. 拜占庭系统技术研究综述[J]. 软件学报, 2013, 6: 012. 
 
