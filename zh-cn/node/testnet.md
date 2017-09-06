@@ -25,15 +25,17 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 ## 切换测试网的方法
 
-1、将程序（GUI）目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图
+1、将程序目录下的 `protocal.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图。
 
 ![](/assets/testnet_1_v2.png)
 
-注：旧版客户端此步是将 `neo-gui.testnet.config` 里的内容复制到 `neo-gui.exe.config`（替换原有配置文件）。
-
-2、将程序目录下的 `protocal.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图。
+2、将程序（GUI）目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图
 
 ![](/assets/testnet_2_v2.png)
+
+注：旧版客户端此步是将 `neo-gui.testnet.config` 里的内容复制到 `neo-gui.exe.config`（替换原有配置文件）。
+
+
 
 
 
