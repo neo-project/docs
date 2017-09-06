@@ -18,22 +18,26 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 参考：[NEO 节点介绍](introduction.md)。
 
-|      | Neo-GUI                        | Neo-CLI                        |
+|      | neo-gui                                  | neo-cli                                  |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| 程序   | [官网](https://www.neo.org/download) 或 [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| 程序   | [下载地址](https://github.com/neo-project/neo-gui/releases) | [下载地址](https://github.com/neo-project/neo-cli/releases) |
 | 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## 切换测试网的方法
 
-1、将程序目录下的 `protocal.testnet.json` 里的内容复制到 `protocol.json`，如图。
+1、将程序目录下的 `protocal.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图。
 
-![](/assets/testnet_1.png)
+![](/assets/testnet_1_v2.png)
 
-2、将程序（GUI）目录下的 `neo-gui.exe.testnet.config` 里的内容复制到 `neo-gui.exe.config`，如图
+2、将程序（GUI）目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图
 
-![](/assets/testnet_2.png)
+![](/assets/testnet_2_v2.png)
 
-注：如果是 CLI 节点，需要将 `config.testnet.json` 里的内容复制到 `config.json`。
+注：旧版客户端此步是将 `neo-gui.testnet.config` 里的内容复制到 `neo-gui.exe.config`（替换原有配置文件）。
+
+
+
+
 
 
 
