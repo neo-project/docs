@@ -2,9 +2,9 @@
 
 .NET FrameworkはスマートコントラクトAPIのカプセル化であるため、.NETプログラマは、.NETのクラス、メソッド、およびプロパティを直接使用してAPIと対話し、ブロックチェーンデータ、ストレージデータなどを取得できます。
 
-## インターオペラビリティレイヤメソッド
+## インターオペラビリティ（相互運用性）レイヤーメソッド
 
-インターオペラビリティレイヤの名前空間は、`Neo.SmartContract.Framework.Services.NEO`および`Neo.SmartContract.Framework.Services.System`に分けられます。詳細についてはリンクをクリックしてください。
+インターオペラビリティレイヤーの名前空間は、`Neo.SmartContract.Framework.Services.NEO`および`Neo.SmartContract.Framework.Services.System`に分けられます。詳細についてはリンクをクリックしてください。
 
 | 名前空間 | 説明 |
 | --------- | ----------- |
