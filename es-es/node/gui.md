@@ -400,7 +400,7 @@ Si la transacción se ha realizado bien, nos aparecerá una ventana con el Id. d
 Click en `Advanced` y click en `Asset Distribution`. En el apartado `Asset Id` insertamos el Id. de la transacción anterior.
 y click en el símbolo `[+]`
 
-<img style="vertical-align: middle" src="/assets/gui_46.png">
+<img style="vertical-align: middle" src="assets/gui_46.png">
 
 En `Pay To` indicamos la dirección donde vamos a distribuir los activos y la cantidad a distribuir. 
 Click en `Ok`y click en `Confirm`
@@ -465,7 +465,7 @@ Esta funcion se usa para registrar un candidato en la blockchain como bookkeeper
 
 Click en `Advanced` y click en `Election`
 
-<img style="vertical-align: middle" src="assets/gui_57.png">
+<img style="vertical-align: middle" src="/assets/gui_57.png">
 
 El regitro de activos requiere una cantidad de NeoGas. En la red principal (MainNet) la tarifa es 1000 NeoGas y en la red de pruebas (TestNet) de 10 NeoGas.
 
