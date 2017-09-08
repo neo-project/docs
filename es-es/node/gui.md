@@ -370,7 +370,7 @@ Click en `Ok`y le indicamos donde guardar el archivo.
 
 Una vez generado el archivo aplicaremos el fichero en una entidad certificadores para que nos emitan el certificado. Una vez emitido importaremos el certificado en el almacén **Personal**.
 
-<img style="vertical-align: middle" src="assets/gui/gui_41.png">
+/<img style="vertical-align: middle" src="assets/gui/gui_41.png">
 
 Una vez importado, click en la dirección con el botón derecho, click en `Import` y click en `Import from Certificate`, selecionamos el certificado y click en `Ok`.
 
@@ -400,7 +400,7 @@ Si la transacción se ha realizado bien, nos aparecerá una ventana con el Id. d
 Click en `Advanced` y click en `Asset Distribution`. En el apartado `Asset Id` insertamos el Id. de la transacción anterior.
 y click en el símbolo `[+]`
 
-<img style="vertical-align: middle" src="assets/gui_46.png">
+<img style="vertical-align: middle" src="/assets/gui_46.png">
 
 En `Pay To` indicamos la dirección donde vamos a distribuir los activos y la cantidad a distribuir. 
 Click en `Ok`y click en `Confirm`
