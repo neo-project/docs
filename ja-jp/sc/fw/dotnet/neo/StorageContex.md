@@ -18,4 +18,4 @@ public class StorageContext
 
 ## コンストラクタ
 
-StorageContracxオブジェクトは、[Storage.CurrentContext](Storage/CurrentContext.md)を通じてコンストラクトされます。
+StorageContextオブジェクトは、[Storage.CurrentContext](Storage/CurrentContext.md)を通じてコンストラクトされます。
