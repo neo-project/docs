@@ -26,13 +26,14 @@ Source code | [GitHub](https://github.com/neo-project/neo-gui/) | [GitHub](https
 
 ## Configurar el cliente para la red de pruebas
 
-1. Si usas el cliente GUI `NEO-gui` dentro de la carpeta donde se encuentra el ejecutable copia el contenido de `config.testnet.json` en `config.json`  tal y como se muestra en la imagen.
+1. Si usas el cliente GUI `NEO-gui` dentro de la carpeta donde se encuentra el ejecutable copia el contenido de
+`protocol.testnet.json` en `protocol.json` tal y como se muestra en la imagen.
  
-s  <img style="vertical-align: middle" src="/assets/testnet_1.png">
+  <img style="vertical-align: middle" src="/assets/testnet_1_v2.png">
 
-2. Y el contenido de `protocol.testnet.json` en `protocol.json`
+2. Y el contenido de `config.testnet.json` en `config.json`
 
-  <img style="vertical-align: middle" src="/assets/testnet_2.png">
+  <img style="vertical-align: middle" src="/assets/testnet_2_v2.png">
 
 
 > [!NOTE]
