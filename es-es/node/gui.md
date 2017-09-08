@@ -465,7 +465,7 @@ Esta funcion se usa para registrar un candidato en la blockchain como bookkeeper
 
 Click en `Advanced` y click en `Election`
 
-<img style="vertical-align: middle" src="assets/gui/gui_57.png">
+<img style="vertical-align: middle" src="assets/gui_57.png">
 
 El regitro de activos requiere una cantidad de NeoGas. En la red principal (MainNet) la tarifa es 1000 NeoGas y en la red de pruebas (TestNet) de 10 NeoGas.
 
