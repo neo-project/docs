@@ -14,7 +14,7 @@ In addition, this tutorial is based on the demo of Smart Contract 2.0. Please do
 
 PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
-> [! Note]
+> [!Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
 > In order to use the test net you have to make two changes in the config files:
 1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Be default, config.json and protocol.json are idential to the Mainnet versions.
@@ -32,8 +32,8 @@ The newly created wallet will automatically generate a standard account, right-c
 
 ![](/assets/lock2_2.png)
 
-> [! Caution]
-> Please note: do not divulge the private key, remember to pixelate.
+> [!Caution]
+> Please note: Do not divulge your private key.
 
 Here we write a local program to turn the public key into a byte array, C# code is as follows:
 
