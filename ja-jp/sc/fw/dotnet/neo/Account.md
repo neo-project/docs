@@ -1,8 +1,8 @@
 # Account クラス
 
-アカウントを表すクラスで、バランスを問い合わせるメソッドを提供します。ここのアカウントは、ブロックチェーン上のアドレスに対応するコントラクトスクリプトのハッシュを参照します。
+アカウントを表すクラスで、残高を問い合わせるメソッドを提供します。ここのアカウントは、ブロックチェーン上のアドレスに対応するコントラクトスクリプトのハッシュを参照します。
 
-名前空間: N[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+名前空間: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 アセンブリ: Neo.SmartContract.Framework
 
