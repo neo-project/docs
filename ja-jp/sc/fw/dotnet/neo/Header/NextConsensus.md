@@ -1,4 +1,4 @@
-# Header.NextConsensusプロパティ
+# Header.NextConsensus プロパティ
 
 次のブックキーパーのコントラクトのハッシュ値を返します。
 
