@@ -12,7 +12,7 @@
 public extern Neo.SmartContract.Framework.Services.Neo.Transaction[] GetTransactions()
 ```
 
-戻り値: Transaction[]型の、Transactionの配列.
+戻り値: Transaction[]型の、Transactionの配列。
 
 ## 例
 
