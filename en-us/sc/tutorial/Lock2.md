@@ -2,17 +2,17 @@
 
 Read the following tutorial before reading this article:
 
-[How to write NEO smart contract with C#] (../ getting-started.md)
+[How to write NEO smart contract with C#](../getting-started-csharp.md)
 
-[NEO Smart Contract Tutorial] (../ tutorial.md)
+[NEO Smart Contract Tutorial](../tutorial.md)
 
-[Smart contract example - Lock (lock)] (Lock.md)
+[Smart contract example - Lock (lock)](Lock.md)
 
 Now we assume that you already have the basic knowledge of the smart contract, we will show how to deploy a lock contract to an address using the wallet.
 
-In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub] (https://github.com/neo-project/neo-gui/releases).
+In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub](https://github.com/neo-project/neo-gui/releases).
 
-PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0] (https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
+PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
 > [! Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
@@ -24,13 +24,13 @@ PS: At this point in time, the latest **test network client** download is: [Neo 
 
 This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
 
-! [] (/assets/lock2_1.png)
+![](/assets/lock2_1.png)
 
 ## Get the public key
 
 The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
 
-! [] (/assets/lock2_2.png)
+![](/assets/lock2_2.png)
 
 > [! Caution]
 > Please note: do not divulge the private key, remember to pixelate.
@@ -45,7 +45,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             // 这里替换为上一步复制的公钥
-            byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa"); 
+            byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa");
             foreach (var item in b)
             {
                 Console.Write($"{item}, ");
@@ -97,7 +97,7 @@ The lock contract has two important variables to change, one is the public key, 
 
 1. In the contract code, paste the previous copy of the public key byte array
 
-2. Change the lock time in the sample code, which is a Unix timestamp. Calculate it yourself, you may want to use an online tool. [Unix timestamp online conversion] (https://unixtime.51240.com/).
+2. Change the lock time in the sample code, which is a Unix timestamp. Calculate it yourself, you may want to use an online tool. [Unix timestamp online conversion](https://unixtime.51240.com/).
 
 After replacing the two variables, compile the contract to get a Lock.avm file.
 
