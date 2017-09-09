@@ -12,7 +12,7 @@
 public extern long Available {get;}
 ```
 
-属性値: long integer型の発行されたアセット数です。
+属性値: long型の発行されたアセット数です。
 
 
 
