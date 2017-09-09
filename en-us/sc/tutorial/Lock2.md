@@ -33,7 +33,7 @@ The newly created wallet will automatically generate a standard account, right-c
 ![](/assets/lock2_2.png)
 
 > [!Caution]
-> Please note: do not divulge the private key, remember to pixelate.
+> Please note: Do not divulge your private key.
 
 Here we write a local program to turn the public key into a byte array, C# code is as follows:
 
