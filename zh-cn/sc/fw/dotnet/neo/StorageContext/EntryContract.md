@@ -1,4 +1,4 @@
-# StorageContex.EntryContract 枚举
+# StorageContext.EntryContract 枚举
 
 合约入口点（合约调用链的起始点）的存储上下文。
 
@@ -24,4 +24,4 @@ public enum StorageContext : byte
 
 
 
-[返回上级](../StorageContex.md)
+[返回上级](../StorageContext.md)
