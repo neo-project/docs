@@ -1,4 +1,4 @@
-# StorageContex.EntryContract Enumeration
+# StorageContext.EntryContract Enumeration
 
 The storage context of the contract entry point (the starting point of the contract invocation chain).
 
@@ -24,4 +24,4 @@ Enumeration value: 4.
 
 
 
-[Back](../StorageContex.md)
+[Back](../StorageContext.md)
