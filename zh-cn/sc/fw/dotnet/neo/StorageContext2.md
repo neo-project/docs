@@ -1,4 +1,4 @@
-# StorageContex 枚举
+# StorageContext 枚举
 
 用来表示私有存储区存储上下文的枚举。
 
