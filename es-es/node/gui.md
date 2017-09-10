@@ -370,7 +370,7 @@ Click en `Ok`y le indicamos donde guardar el archivo.
 
 Una vez generado el archivo aplicaremos el fichero en una entidad certificadores para que nos emitan el certificado. Una vez emitido importaremos el certificado en el almacén **Personal**.
 
-<img style="vertical-align: middle" src="assets/gui/gui_41.png">
+/<img style="vertical-align: middle" src="assets/gui/gui_41.png">
 
 Una vez importado, click en la dirección con el botón derecho, click en `Import` y click en `Import from Certificate`, selecionamos el certificado y click en `Ok`.
 
@@ -465,7 +465,7 @@ Esta funcion se usa para registrar un candidato en la blockchain como bookkeeper
 
 Click en `Advanced` y click en `Election`
 
-<img style="vertical-align: middle" src="assets/gui/gui_57.png">
+<img style="vertical-align: middle" src="/assets/gui_57.png">
 
 El regitro de activos requiere una cantidad de NeoGas. En la red principal (MainNet) la tarifa es 1000 NeoGas y en la red de pruebas (TestNet) de 10 NeoGas.
 
@@ -473,21 +473,11 @@ El regitro de activos requiere una cantidad de NeoGas. En la red principal (Main
 
 Descagar los bloques del siguiente enlace [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip) 
 
-Una vez descargado asegurate que el cliente no se está ejecutando y descomprime el fichero `chain.acc.zip`en la ruta donde se encuentra el cliente PC `neo-gui`, tal y como se muestra en la imagen:
+Una vez descargado asegurate que el cliente no se está ejecutando y deja el fichero en la raiz del directorio donde se encuentra el ejecutable `Neo-gui.exe`. Al iniciar el cliente, el cliente descromprimirá el fichero zip y comenzará a cargar los bloques.
 
-<img style="vertical-align: middle" src="/assets/gui_58.png">
+><img style="vertical-align: middle" src="/assets/gui_58.png">
 
->[!TIP] 
-> En el caso de no descomprimir el fichero al arrancar el cliente, este lo descomprimirá y comenzará a cargar los 
-> bloques para hacer la sincronización offline.
-
-Elimina el archivo Zip. NO elimines el archivo `chain.acc`, arranca el cliente PC y en ese momento empezará a sincronizar.
-Al cabo de un tiempo, el cliente estará totalmente sincronizado.
-
-<img style="vertical-align: middle" src="/assets/gui_59.png">
-
->[!TIP] 
-> A nivel informativo: Al acabar la sincronización de forma automática se borra el fichero `chain.acc` y la carpeta `Chain` se crea en la raiz del directorio donde se encuentra el cliente `NEO-gui`
+Una vez cargado los bloques el programa eliminará el fichero zip.
 
 ><img style="vertical-align: middle" src="/assets/gui_60.png">
 
