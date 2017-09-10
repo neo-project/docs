@@ -1,4 +1,4 @@
-# StorageContex クラス
+# StorageContext クラス
 
 永続化ストアのストレージコンテキストを表すクラスです。
 
