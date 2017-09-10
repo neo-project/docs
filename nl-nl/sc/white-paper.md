@@ -2,15 +2,15 @@
 
 ## 1. Voorwoord
 
-Smart contracts verwijzen naar elk computerprogramma die de voorwaarden van het voorgeprogrammeerde contract automatisch kunnen uitvoeren. Het idee van een smart contract werd in 1994 voor het eerst voorgesteld, wat bijna net zo oud is als het internet zelf, door de cryptograaf Nick Szabo. Door het gebrek aan een betrouwbare uitvoeringsomgeving konden smart contracts niet grootschalig toegepast worden.
+Smart contracts verwijzen naar alle computerprogramma's die de voorwaarden van het voorgeprogrammeerde contract automatisch kan uitvoeren. Het idee van een smart contract werd in 1994 voor het eerst voorgesteld, wat bijna net zo oud is als het internet zelf, door cryptograaf Nick Szabo. Door het gebrek aan een betrouwbare uitvoeringsomgeving konden smart contracts niet grootschalig toegepast worden.
 
-In 2008 introduceerde een man onder de naam Satoshi Nakamoto het concept Bitcoin en legde de basisconcepten van een blockchain uit. Binnen de Bitcoin blockchain gebruikt Nakamoto een aantal script talen om gebruikers te helpen meer flexibiliteit te krijgen bij het beheren van hun persoonlijke accounts en bij hun overdrachtsproces. Dit bloeide uiteindelijk op tot een ‘chain-based’ smart contract systeem.
+In 2008 introduceerde een man, onder de naam Satoshi Nakamoto, het concept van Bitcoin en legde de basisconcepten van een blockchain uit. Binnen de Bitcoin blockchain gebruikt Nakamoto een aantal scripting talen om gebruikers te helpen meer flexibiliteit te krijgen bij het beheren van hun persoonlijke accounts en bij hun overdrachtsproces. Dit bloeide uiteindelijk op tot een ‘chain-based’ smart contract systeem.
 
-Vervolgens publiceerde een tiener in 2013 genaamd Vitalik Buterin Ethereum. Ethereum is een chain-based, turing complete smart contract systeem. Dit systeem kan gebruikt worden om verschillende gedecentraliseerde blockchain applicaties op te ontwikkelen.
+Vervolgens publiceerde een tiener in 2013, genaamd Vitalik Buterin, Ethereum. Ethereum is een chain-based, turing complete smart contract systeem. Dit systeem kan gebruikt worden om er verschillende gedecentraliseerde blockchain applicaties op te ontwikkelen.
 
-Het NEO blockchain is een digitaal activa- en applicatieplatform dat een nieuw smart contract systeem aanbiedt, genaamd NeoContract. Het platform biedt het netwerk veelzijdige functies aan zoals digitale activa (NeoAsset) en een digitale identiteit (NeoID). Hiermee kunnen gebruikers gemakkelijk digitaal handelen en zijn ze niet meer beperkt tot alleen de uitgifte van de originele tokens op de blockchain.
+De NEO blockchain is een digitaal activa- en applicatieplatform dat een nieuw smart contract systeem aanbiedt, genaamd NeoContract. Het platform biedt het netwerk veelzijdige functies aan zoals digitale activa (NeoAsset) en een digitale identiteit (NeoID). Hiermee kunnen gebruikers gemakkelijk digitaal handelen en zijn ze niet meer beperkt tot alleen de uitgifte van de originele tokens op de blockchain.
 
-Dit artikel zal kenmerken van het NeoContract introduceren en niet-technische details verkennen. Voor mee informatie over de technische documentatie zie: docs.neo.org.
+Dit artikel zal kenmerken van het NeoContract introduceren en niet-technische details verkennen. Voor meer informatie over de technische documentatie zie: docs.neo.org
 
 ## 2. Kenmerken
 
@@ -26,7 +26,7 @@ Het verkrijgen van systeemtijd is een zeer voorkomende systeemfunctie die in bep
 
 #### 2.1.2 Willekeurigheid
 
-Veel smart contractprogramma's, zoals bijvoorbeeld gokcontracten, gebruiken willekeurige nummerfuncties. Echter, willekeurige nummerfuncties zijn typische niet-deterministische functies en elke systeemoproep zal verschillende resultaten opleveren. In een gedistribueerd systeem zijn er vele manieren om dit probleem op te lossen. Eerst kan dezelfde willekeurige ‘seed’ voor alle knooppunten gebruikt worden, zodat de terugkeersequentie van de volledige willekeurige functie deterministisch is. Deze methode stelt het hele willekeurig resultaat vooraf bloot, waardoor de praktische waarde van het willekeurig getal sterk wordt verminderd. Een andere mogelijke oplossing is om alle knooppunten op een samenwerkende manier te laten communiceren om willekeurige getallen te genereren. Dit kan worden bereikt door gebruik te maken van cryptografische technieken om een ​​eerlijk willekeurig aantal te produceren, maar het nadeel hiervan ligt in de zeer slechte prestatie en de behoefte aan extra communicatie. Daarnaast kan een gecentraliseerde willekeurige nummeraanbieder worden gebruikt om willekeurige getallen te genereren die consistentie en prestatie garanderen. Het nadeel van deze aanpak is echter dat gebruikers de gecentraliseerde nummeraanbieder onvoorwaardelijk moeten vertrouwen.
+Veel smart contractprogramma's, zoals bijvoorbeeld gokcontracten, gebruiken willekeurige nummerfuncties. Echter, willekeurige nummerfuncties zijn typische niet-deterministische functies en elke systeemoproep zal verschillende resultaten opleveren. In een gedistribueerd systeem zijn er vele manieren om dit probleem op te lossen. Eerst kan dezelfde willekeurige ‘seed’ voor alle knooppunten gebruikt worden, zodat de terugkeersequentie van de volledige willekeurige functie deterministisch is. Deze methode stelt het hele willekeurig resultaat vooraf bloot, waardoor de praktische waarde van het willekeurig getal sterk wordt verminderd. Een andere mogelijke oplossing is om alle knooppunten op een samenwerkende manier te laten communiceren om willekeurige getallen te genereren. Dit kan worden bereikt door gebruik te maken van cryptografische technieken om een eerlijk willekeurig aantal te produceren, maar het nadeel hiervan ligt in de zeer slechte prestatie en de behoefte aan extra communicatie. Daarnaast kan een gecentraliseerde willekeurige nummeraanbieder worden gebruikt om willekeurige getallen te genereren die consistentie en prestatie garanderen. Het nadeel van deze aanpak is echter dat gebruikers de gecentraliseerde nummeraanbieder onvoorwaardelijk moeten vertrouwen.
 
 Neo biedt hierbij twee deterministische gegevensbronnen aan:
 
@@ -38,7 +38,7 @@ De contractprocedure heeft toegang tot alle gegevens over de gehele keten via de
 2) Contract storage space
 Elk applicatiecontract dat op NEO wordt ingezet heeft een opslagruimte die alleen door het contract zelf toegankelijk is. Het consensusmechanisme van de kleine NEO's zorgt ervoor dat de opslagstatus op elk knooppunt consistent blijft. Om toegang te krijgen tot de gegevens buiten de keten hebben de kleine NEO's geen directe weg. Echter, door middel van de transacties die naar de keten worden gestuurd kunnen de twee soorten gegevensbronnen die bovenaan zijn vermeld omgezet worden, door middel van intelligente contracten.
 
-2Het contractprogramma kan de hashwaarde van het blok gebruiken als een willekeurige getallengenerator, omdat de blok hash-waarde over bepaald willekeurigheid beschikt. De laatste methode kan gebruikt worden om een zwak willekeurig getal te verkrijgen
+Het contractprogramma kan de hashwaarde van het blok gebruiken als een willekeurige getallengenerator, omdat de blok hash-waarde over bepaald willekeurigheid beschikt. De laatste methode kan gebruikt worden om een zwak willekeurig getal te verkrijgen
 
 #### 2.1.3 Data Bron
 
@@ -52,9 +52,9 @@ De contractprocedure heeft toegang tot alle gegevens over de gehele chain via de
 
 **(2) Contract Storage Space**
 
-Elk contract dat op het NEO netwerk wordt ingezet heeft een eigen opslagruimte die alleen door het contract zelf toegankelijk is. Het NEO consensus mechanisme zorgt vervolgens voor consistentie van de opslagstatus van elk knooppunt in het netwerk.
+Elk contract dat op het NEO netwerk wordt ingezet heeft een eigen opslagruimte die alleen voor het contract zelf toegankelijk is. Het NEO consensus mechanisme zorgt vervolgens voor consistentie van de opslagstatus van elk knooppunt in het netwerk.
 
-Voor situaties waar toegang tot data buiten de blockchain vereist is biedt NEO geen directe manier om met deze gegevens te communiceren. Deze data moeten als eerst via transacties overgebracht worden naar de NEO blockchain en vervolgens worden vertaald in de gegevensbronnen om door de smart contracts toegankelijk gemaakt te kunnen worden.
+Voor situaties waar toegang tot data buiten de blockchain vereist is, biedt NEO geen directe manier om met deze gegevens te communiceren. Deze data moet als eerst via transacties overgebracht worden naar de NEO blockchain en vervolgens worden vertaald in de gegevensbronnen om voor de smart contracts toegankelijk gemaakt te kunnen worden.
 
 #### 2.1.4 Contractoproep
 
@@ -62,9 +62,14 @@ Smart contracts in NeoContract hebben de mogelijkheid om elkaar op te roepen. Di
 
 ### 2.2 Hoge Prestaties
 
-De uitvoeringsomgeving speelt een integrale rol in de uitvoering van een smart contract. Wanneer we de prestaties van ieder uitvoeringsomgeving analyseren zijn er twee indicatoren die met name belangrijk zijn: 1) de uitvoersnelheid van de instructie en 2) de startsnelheid van de uitvoeringsomgeving zelf. Voor smart contracts is de uitvoeringsomgeving vaak belangrijker dan de snelheid van de instructie uitvoering. Slimme contracten zijn meer betrokken bij de logica van de IO-operators. Hiermee kan bepaald worden waar de implementatie van de instructies gemakkelijk kan worden geoptimaliseerd. Elke keer dat het smart contract wordt gebeld moet het een nieuwe virtuele machine / container opstarten. Daarom heeft de uitvoeringssnelheid van de omgeving zelf (het starten van een virtuele machine / container) een grotere invloed op de prestaties van het smart contractsysteem.
+De uitvoeringsomgeving speelt een integrale rol in de uitvoering van een smart contract. Wanneer we de prestaties van ieder uitvoeringsomgeving analyseren zijn er twee indicatoren die met name belangrijk zijn:
 
-NEO maakt gebruik van een lichtgewicht NeoVM (NEO Virtual Machine) als smart uitvoering van de contractomgeving. Deze start snel op, neemt weinig middelen op en is hiermee ideaal voor kleine programma's zoals smart contracten. Met behulp van de compilatie en caching van hotspot smart contracts met JIT (real-time compiler) kan de efficiëntie van virtuele machines aanzienlijk worden verbeterd.
+1. De uitvoersnelheid van de instructie.
+2. De startsnelheid van de uitvoeringsomgeving zelf.
+
+Voor smart contracts is de uitvoeringsomgeving vaak belangrijker dan de snelheid van de instructie uitvoering. Slimme contracten zijn meer betrokken bij de logica van de IO-operators. Hiermee kan bepaald worden waar de implementatie van de instructies gemakkelijk kan worden geoptimaliseerd. Elke keer dat het smart contract wordt gebeld moet het een nieuwe virtuele machine / container opstarten. Daarom heeft de uitvoeringssnelheid van de omgeving zelf (het starten van een virtuele machine / container) een grotere invloed op de prestaties van het smart contractsysteem.
+
+NEO maakt gebruik van een lichtgewicht NeoVM (NEO Virtual Machine) als smart uitvoering van de contractomgeving. Deze start snel op, neemt weinig middelen op, en is hiermee ideaal voor kleine programma's zoals smart contracten. Met behulp van de compilatie en caching van hotspot smart contracts met JIT (real-time compiler), kan de efficiëntie van virtuele machines aanzienlijk worden verbeterd.
 
 ### 2.3 Schaalbaarheid
 
@@ -72,15 +77,21 @@ NEO maakt gebruik van een lichtgewicht NeoVM (NEO Virtual Machine) als smart uit
 
 Bij het bespreken van de schaalbaarheid van een systeem gaat het met name om twee onderdelen: de verticale schaal en de horizontale schaal. De verticale schaal heeft betrekking op de optimalisatie van het werkstroomproces. Deze kan invloed hebben op het optimaal gebruik van de bestaande apparatuurcapaciteit. Hiermee kunnen de grenzen van het systeem gemakkelijk worden bereikt, omdat de serie-gebaseerde verwerkingscapaciteit is gebaseerd op de hardwaregrens van één apparaat. De vraag is nu of er een manier is om het systeem om te zetten in een parallel systeem wanneer we het systeem moeten gaan schalen. Dit is uiteraard mogelijk. Theoretisch zullen we alleen het aantal apparaten moeten verhogen, waardoor we bijna onbeperkt schaalbaarheid kunnen bereiken. Vervolgens is de vraag of we mogelijk onbeperkt schaalbaarheid in een verdeeld blockchain-netwerk kunnen bereiken. Met andere woorden, kan de blockchain parallelle programma's uitvoeren?
 
-De blockchain is een gedistribueerd grootboek die verschillende gegevens registreert samen met de regels voor de veranderingen van deze gegevens. Smart contracts worden gebruikt als vervoerders om deze regels vast te leggen. Blockchains kunnen parallelle programma's verwerken alleen als meerdere smart contracts gelijktijdig en op een niet-opeenvolgende manier kunnen worden uitgevoerd. In principe is dit als (1) contracten niet met elkaar communiceren, (2) als het contract niet dezelfde gegevens wijzigt, (3) als de uitvoering niet achter elkaar loopt en (4) als de contracten tegelijkertijd kunnen lopen. Anders kunnen deze alleen in series uitgevoerd worden en kan het netwerk niet horizontaal schalen.
+De blockchain is een gedistribueerd grootboek die verschillende gegevens registreert samen met de regels voor de veranderingen van deze gegevens. Smart contracts worden gebruikt als vervoerders om deze regels vast te leggen. Blockchains kunnen parallelle programma's verwerken alleen als meerdere smart contracts gelijktijdig en op een niet-opeenvolgende manier kunnen worden uitgevoerd. In principe is dit als:
+
+1. Contracten niet met elkaar communiceren.
+2. Als het contract niet dezelfde gegevens wijzigt.
+3. Als de uitvoering niet achter elkaar loopt.
+4. Als de contracten tegelijkertijd kunnen lopen.
+
+Anders kunnen deze alleen in series uitgevoerd worden en kan het netwerk niet horizontaal schalen.
 
 Op basis van de bovenstaande analyse kunnen we eenvoudig een “onbeperkt uitbreiding” ontwerpen voor het smart contract systeem. Het enige wat we moeten doen is eenvoudige regels opzetten:
 
-(1) Een smart contract kan alleen het status wijzigen van het contract waaraan het behoort;
+* Een smart contract kan alleen het status wijzigen van het contract waaraan het behoort.
+* In dezelfde transactieblok kan een contract slechts één keer worden uitgevoerd.
 
-(2) In dezelfde transactieblok kan een contract slechts één keer worden uitgevoerd;
-
-Als gevolg hiervan kunnen alle smart contracts parallel worden uitgevoerd, aangezien opeenvolgende volgordes irrelevant zijn voor het resultaat. Echter, als voor een smart contract alleen het status van het contract waaraan het behoort gewijzigd kan worden, betekent dit dat de contracten elkaar niet kunnen oproepen. Elk contract is een geïsoleerd eiland, waarbij dezelfde transactieblok slechts één keer uitgevoerd kan worden. Dit betekent dat een digitaal activa dat verwerkt is door een smart contract slechts één transactie per blok kan verwerken. Dit is een wereld van verschil met de oorspronkelijke ontwerpdoelstellingen van "smart" contracts, waarbij ze eigenlijk ophouden om smart te zijn. Onze ontwerpdoelstellingen omvatten immers dat in hetzelfde blok meerdere en wederzijdse oproepen tussen contracten mogelijk is.
+Als gevolg hiervan kunnen alle smart contracts parallel worden uitgevoerd, aangezien opeenvolgende volgordes irrelevant zijn voor het resultaat. Echter, als voor een smart contract alleen de status van het contract waaraan het behoort gewijzigd kan worden, betekent dit dat de contracten elkaar niet kunnen oproepen. Elk contract is een geïsoleerd eiland, waarbij dezelfde transactieblok slechts één keer uitgevoerd kan worden. Dit betekent dat een digitaal activa dat verwerkt is door een smart contract slechts één transactie per blok kan verwerken. Dit is een wereld van verschil met de oorspronkelijke ontwerpdoelstellingen van "smart" contracts, waarbij ze eigenlijk ophouden om smart te zijn. Onze ontwerpdoelstellingen omvatten immers dat in hetzelfde blok meerdere en wederzijdse oproepen tussen contracten mogelijk is.
 
 Gelukkig hebben smart contracts in NEO een statische oproeprelatie, en kan tijdens de doorlooptijd de oproep doelstelling niet gespecificeerd worden. Dit stelt het gedrag van het programma volledig voor de uitvoering vast en zorgt ervoor dat de oproeprelatie volledig gedefinieerd is voordat het kan worden uitgevoerd. Wij vereisen dat elk contract expliciet duidt op de contracten die waarschijnlijk zullen worden opgeroepen, zodat de werkomgeving de volledige oproep boom kan berekenen voordat de contractprocedure wordt uitgevoerd. Dit maakt ook mogelijk voor een verdeling van de uitvoering van de contracten op basis van de oproep boom. Contracten die de status van het verslag kunnen aanpassen worden op een opeenvolgende manier uitgevoerd in dezelfde partitie, waardoor verschillende partities parallel uitgevoerd kunnen worden.
 
@@ -88,7 +99,7 @@ Gelukkig hebben smart contracts in NEO een statische oproeprelatie, en kan tijde
 
 Een koppeling is een meetinstrument om de afhankelijkheid tussen twee of meer entiteiten te berekenen. Het NeoContract systeem maakt gebruik van een lage koppelingsontwerp dat wordt uitgevoerd in de NeoVM en communiceert met de gegevens die niet in de blockchain bevinden via de interoperabele servicelaag. Als gevolg hiervan kan het merendeel van de upgrades naar de smart contractfuncties worden behaald door de application programming interface (API) van interoperabele diensten te verhogen.
 
-## 3. Contract Use
+## 3. Contract Gebruik
 
 ### 3.1 Contract Verificatie
 
