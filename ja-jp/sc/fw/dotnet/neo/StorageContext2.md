@@ -1,4 +1,4 @@
-# StorageContex 列挙型
+# StorageContext 列挙型
 
 プライベートストアのストレージコンテキストの列挙型（enum）を表すのに使用します。
 
