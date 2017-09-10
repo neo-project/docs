@@ -1,4 +1,4 @@
-# StorageContex.CallingContract 枚举
+# StorageContext.CallingContract 枚举
 
 调用者的存储上下文。
 
@@ -24,4 +24,4 @@ public enum StorageContext : byte
 
 
 
-[返回上级](../StorageContex.md)
+[返回上级](../StorageContext.md)
