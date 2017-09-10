@@ -1,4 +1,4 @@
-# StorageContex.CallingContract Enumeration
+# StorageContext.CallingContract Enumeration
 
 Caller's storage context.
 
