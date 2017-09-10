@@ -14,7 +14,7 @@ public extern void Delete(Neo.SmartContract.Framework.Services.Neo.StorageContex
 
 パラメータ:
 
-Context: [StorageContext](../StorageContex.md)型の、ストレージコンテキスト。
+Context: [StorageContext](../StorageContext.md)型の、ストレージコンテキスト。
 
 Key: バイト配列のキー。
 
