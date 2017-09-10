@@ -14,7 +14,7 @@
 public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext {get;}
 ```
 
-属性値: StorageContext型の現在のストレージコンテキスト。
+属性値: [StorageContext](../StorageContext.md)型の現在のストレージコンテキスト。
 
 
 
