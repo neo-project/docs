@@ -17,23 +17,23 @@ public extern byte Type {get;}
 タイプ:
 
 ```c#
-// consensus transaction, special transaction for allocating byte charges
+// コンセンサストランザクション、バイトチャージ割当のための特別トランザクション
 MinerTransaction = 0x00,
-//Special transactions for the distribution of assets
+// アセット分配のための特別トランザクション
 IssueTransaction = 0x01,
-// special deals for the distribution of small coins
+// GAS配布のための特別トランザクション
 ClaimTransaction = 0x02,
-//Special transaction for registration as a book of candidates
+// バリデーター候補者としての登録のための特別トランザクション
 EnrollmentTransaction = 0x20,
-//Special transactions for asset registration
+// アセット登録のための特別トランザクション
 RegisterTransaction = 0x40,
-// contract transaction, which is the most commonly used deal
+// 最も一般的に使用されるコントラクトトランザクション
 ContractTransaction = 0x80,
-// commissioned by the transaction
+// トランザクション委託
 AgencyTransaction = 0xb0,
-// issue a deal with a smart contract
+// スマートコントラクトトランザクション
 PublishTransaction = 0xd0,
-// Invoke smart contract transactions
+// スマートコントラクトトランザクションの呼び出し
 InvocationTransaction = 0xd1
 ```
 
