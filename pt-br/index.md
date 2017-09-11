@@ -33,29 +33,53 @@ O ecossistema é a vitalidade da comunidade de código aberto. Para alcançar o 
 •	Um programa de nó completo para PC totalmente operacional
 
 •	Um programa de nó de luz para PC com uma melhor experiência ao usuário
+
 •	Web / Android / iOS clientes que não precisam sincronizar com a cadeia de blocos
+
 •	Carteira de Hardware
+
 🔹 Explorador de cadeia Blockchain
+
 🔹 Kit SDK de Desenvolvimento 
+
 •	Suporte Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
+
 🔹 Compilador de Contratos Inteligentes e Plugin ID
+
 •	C# / VB.Net / F#, Studio Visual
+
 •	Java / Kotlin, Eclipse
+
 •	C / C++ / GO
+
 •	JavaScript / TypeScript
+
 •	Python / Ruby
+
 🔹 Aplicações Decentralizadas
+
 •	Fundo inteligente
+
 •	Contrato-inteligente com assistência IA
+
 •	Network social
+
 •	Provedores de tokens automáticos de liquidez.
+
 •	Intercambio decentralizado.
+
 •	Protocolo de comunicação segura.
+
 •	Mercado de intercambio de dados.
+
 •	Mercado de intercambio de propriedade intelectual
+
 •	Previsão do mercado
+
 •	Mercado de publicidade
+
 •	Mercado Hashpower
+
 •	Mercado NeoGas
 
 ## Modelo da Gestão NEO
