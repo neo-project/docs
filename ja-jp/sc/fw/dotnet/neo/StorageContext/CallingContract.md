@@ -1,4 +1,4 @@
-# StorageContext.CallingContract 列挙
+# StorageContext.CallingContract 列挙値
 
 呼び出し元のストレージコンテキストです。
 
@@ -20,7 +20,7 @@ public enum StorageContext: byte
 }
 ```
 
-列挙型の値: 2。
+列挙値: 2
 
 
 
