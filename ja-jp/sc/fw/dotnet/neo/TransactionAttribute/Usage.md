@@ -1,4 +1,4 @@
-# TransactionAttribute.Usageプロパティ
+# TransactionAttribute.Usage プロパティ
 
 トランザクションの目的を返します。
 
@@ -17,21 +17,21 @@ public extern byte Usage {get;}
 パーポス:
 
 ```c#
-// The hash value of the external contract
+// 外部契約のハッシュ値
 ContractHash = 0x00,
-// The public key for ECDH key exchange, the first byte of the public key is 0x02
+// ECDH鍵交換のための公開鍵、公開鍵の先頭バイトは0x02
 ECDH02 = 0x02,
-// The public key for ECDH key exchange, the first byte of the public key is 0x03
+// ECDH鍵交換のための公開鍵、公開鍵の先頭バイトは0x03
 ECDH03 = 0x03,
-// for additional verification of the transaction
+// トランザクションの追加承認用
 Script = 0x20,
-// vote information
+// 投票情報
 Vote = 0x30,
-// Transaction description URL
+// トランザクションの説明URL
 DescriptionUrl = 0x81,
-//Description
+// 説明
 Description = 0x90,
-// can be used to do the data stored in Hash
+// ハッシュデータの操作に使用可能
 Hash1 = 0xa1,
 Hash2 = 0xa2,
 Hash3 = 0xa3,
@@ -47,7 +47,7 @@ Hash12 = 0xac,
 Hash13 = 0xad,
 Hash14 = 0xae,
 Hash15 = 0xaf,
-// Transaction Notes
+// トランザクション備考
 Remark = 0xf0,
 Remark1 = 0xf1,
 Remark2 = 0xf2,
