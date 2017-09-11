@@ -5,7 +5,8 @@
 ## 参数说明
 
 script_hash: 合约脚本散列。
-value: 存储区的键。（需要转化为hex string）
+
+key: 存储区的键。（需要转化为hex string）
 
 ## 调用示例
 
