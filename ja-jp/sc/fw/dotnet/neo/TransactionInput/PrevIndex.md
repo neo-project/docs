@@ -1,6 +1,6 @@
 # TransactionInput.PrevIndex プロパティ
 
-直前のトランザクションの出力リストにこの入力のインデックスを返します。
+前のトランザクションの出力リスト内の、この入力のインデックス番号を返します。
 
 名前空間: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
