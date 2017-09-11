@@ -82,7 +82,7 @@ In addition, the interoperable service layer also provides a persistent storage 
 
 A smart contract can programmed to charge a certain fee, divided into deployment costs and implementation costs.
 
-Deployment costs refer to the need for a developer to deploy a smart contract to the chain to pay a fee for the block chain system (currently 500 small coins). With execution costs, the user will pay a fee for the execution of the smart contract (for free).
+Deployment costs refer to the need for a developer to deploy a smart contract to the chain to pay a fee for the block chain system (currently 500 GAS). With execution costs, the user will pay a fee for the execution of the smart contract (for free).
 
 ## A simple smart contract
 
