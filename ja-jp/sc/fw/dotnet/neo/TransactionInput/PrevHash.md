@@ -1,6 +1,6 @@
 # TransactionInput.PrevHash プロパティ
 
-参照されている前のトランザクションのトランザクションハッシュを返します。
+この入力を出力した前のトランザクションのハッシュを返します。
 
 名前空間: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
