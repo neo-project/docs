@@ -1,4 +1,4 @@
-# StorageContex.CallingContract Enumeration
+# StorageContext.CallingContract Enumeration
 
 Caller's storage context.
 
@@ -24,4 +24,4 @@ Enumeration value: 2.
 
 
 
-[Back](../StorageContex.md)
+[Back](../StorageContext.md)

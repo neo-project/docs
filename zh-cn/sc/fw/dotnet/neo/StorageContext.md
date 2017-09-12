@@ -1,4 +1,4 @@
-# StorageContex 类
+# StorageContext 类
 
 用来表示私有存储区存储上下文的类。
 

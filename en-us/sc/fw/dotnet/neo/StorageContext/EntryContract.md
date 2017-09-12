@@ -1,6 +1,6 @@
-# StorageContex.Current Enumeration
+# StorageContext.EntryContract Enumeration
 
-The storage context of the current contract.
+The storage context of the contract entry point (the starting point of the contract invocation chain).
 
 > [!Caution]
 > Note: deprecated in version 2.0.
@@ -9,7 +9,7 @@ Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public enum StorageContext: byte
@@ -20,8 +20,8 @@ public enum StorageContext: byte
 }
 ```
 
-Enumeration value: 1.
+Enumeration value: 4.
 
 
 
-[Back](../StorageContex.md)
+[Back](../StorageContext.md)

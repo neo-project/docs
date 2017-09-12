@@ -1,4 +1,4 @@
-# StorageContex.Current 枚举
+# StorageContext.Current 枚举
 
 当前合约的存储上下文。
 
@@ -24,4 +24,4 @@ public enum StorageContext : byte
 
 
 
-[返回上级](../StorageContex.md)
+[返回上级](../StorageContext.md)
