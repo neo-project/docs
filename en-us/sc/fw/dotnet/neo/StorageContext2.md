@@ -19,6 +19,6 @@ public enum StorageContext: byte
 
 | | Name | Description |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContex/CallingContract.md) | Caller's Storage Context |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContex/Current.md) | The storage context of the current contract |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContex/EntryContract.md) | Contract entry point (the starting point of the contract call chain) |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContext/CallingContract.md) | Caller's Storage Context |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContext/Current.md) | The storage context of the current contract |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContext/EntryContract.md) | Contract entry point (the starting point of the contract call chain) |
