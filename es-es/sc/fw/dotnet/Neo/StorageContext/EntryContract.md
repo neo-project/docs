@@ -1,4 +1,4 @@
-# Enumeración StorageContex.EntryContract
+# Enumeración StorageContext.EntryContract
 
 El contexto del almacenamiento del punto de entrada del contrato.
 
@@ -23,4 +23,4 @@ Enumeración valor: 4
 
 
 
-[Volver arriba](../StorageContex.md)
+[Volver arriba](../StorageContext.md)
