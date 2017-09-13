@@ -1,4 +1,4 @@
-## Enumeración EStorageContex.CallingContract
+## Enumeración EStorageContext.CallingContract
 
 Llamada contexto del almacenamiento.
 
