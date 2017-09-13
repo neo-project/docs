@@ -28,25 +28,32 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 ## 命令列表
 
-| 方法                                      | 参数                                   | 说明                         | 备注       |
-| ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
-| [getaccountstate](api/getaccountstate.md)|  \<address>                             | 根据账户地址，查询账户资产信息            |             |
-| [getassetstate](api/getassetstate.md)    |  \<asset_id>                                | 根据指定的资产编号，查询资产信息            |             |
-| [getbalance](api/getbalance.md)          | \<asset_id>                             | 根据指定的资产编号，返回钱包中对应资产的余额信息   | 需要打开钱包   |
-| [getbestblockhash](api/getbestblockhash.md) |                                      | 获取主链中高度最大的区块的散列            |          |
-| [getblock](api/getblock.md)              | \<hash> [verbose=0]                     | 根据指定的散列值，返回对应的区块信息         |          |
-| [getblock](api/getblock2.md)             | \<index> [verbose=0]                    | 根据指定的索引，返回对应的区块信息          |          |
-| [getblockcount](api/getblockcount.md)    |                                         | 获取主链中区块的数量                 |          |
-| [getblockhash](api/getblockhash.md)      | \<index>                                | 根据指定的索引，返回对应区块的散列值         |          |
-| [getconnectioncount](api/getconnectioncount.md) |                                  | 获取节点当前的连接数                 |          |
-| [getcontractstate](api/getcontractstate.md) |  \<script_hash>                      | 根据合约脚本散列，查询合约信息                 |          |
-| [getrawmempool](api/getrawmempool.md)    |                                         | 获取内存中未确认的交易列表              |          |
-| [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                | 根据指定的散列值，返回对应的交易信息         |          |
-| [getstorage](api/tetstorage.md)    | \<script_hash>  \<key>                        | 根据合约脚本散列和存储的 key，返回存储的 value               |          |
-| [gettxout](api/gettxout.md)              | \<txid> \<n>                            | 根据指定的散列和索引，返回对应的交易输出（零钱）信息 |          |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                           | 广播交易                       |          |
-| [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | 向指定地址转账                    | 需要打开钱包   |
-| submitblock                              | \<hex>                                  | 提交新的区块                     | 需要成为共识节点 |
+| 方法                                       | 参数                                       | 说明                           | 备注       |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
+| [getaccountstate](api/getaccountstate.md) | \<address>                               | 根据账户地址，查询账户资产信息              |          |
+| [getassetstate](api/getassetstate.md)    | \<asset_id>                              | 根据指定的资产编号，查询资产信息             |          |
+| [getbalance](api/getbalance.md)          | \<asset_id>                              | 根据指定的资产编号，返回钱包中对应资产的余额信息     | 需要打开钱包   |
+| [getbestblockhash](api/getbestblockhash.md) |                                          | 获取主链中高度最大的区块的散列              |          |
+| [getblock](api/getblock.md)              | \<hash> [verbose=0]                      | 根据指定的散列值，返回对应的区块信息           |          |
+| [getblock](api/getblock2.md)             | \<index> [verbose=0]                     | 根据指定的索引，返回对应的区块信息            |          |
+| [getblockcount](api/getblockcount.md)    |                                          | 获取主链中区块的数量                   |          |
+| [getblockhash](api/getblockhash.md)      | \<index>                                 | 根据指定的索引，返回对应区块的散列值           |          |
+| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 根据指定的索引，返回截止到该区块前的系统手续费      |          |
+| [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |          |
+| [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |          |
+| [getrawmempool](api/getrawmempool.md)    |                                          | 获取内存中未确认的交易列表                |          |
+| [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |          |
+| [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | 根据合约脚本散列和存储的 key，返回存储的 value |          |
+| [gettxout](api/gettxout.md)              | \<txid> \<n>                             | 根据指定的散列和索引，返回对应的交易输出（零钱）信息   |          |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |          |
+| [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | 向指定地址转账                      | 需要打开钱包   |
+| [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | 批量转账命令                       | 需要打开钱包   |
+| [getnewaddress](api/getnewaddress.md)    |                                          | 创建一个新的地址                     | 需要打开钱包   |
+| [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 导出指定地址的私钥                    | 需要打开钱包   |
+| submitblock                              | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
+| [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 NEO 地址            |          |
+| [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
+
 
 ## GET 请求示例
 
@@ -107,9 +114,9 @@ http://somewebsite.com:10332
 
 你可以用 Chrome 扩展程序中的 Postman 来方便地进行测试（安装 Chrome 扩展程序需要科学上网），下面是测试截图
 
-![](~/images/2017-05-17_17-06-20.jpg)
+![](assets/api_2.jpg)
 
-![](~/images/2017-05-17_16-55-58.jpg)
+![](/assets/api_3.jpg)
 
 ## 其它
 

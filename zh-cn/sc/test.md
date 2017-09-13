@@ -84,7 +84,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 如果智能合约的返回值不是 int 类型，是 bool 或者其它类型，需要将 `engine.EvaluationStack.Peek().GetBigInteger()` 设置为其它值，如图
 
-![](http://docs.neo.org/images/2017-05-16_15-39-07.jpg)
+![](/assets/test_1.jpg)
 
 注：该测试方法不适用于互操作服务及存储数据的测试。
 

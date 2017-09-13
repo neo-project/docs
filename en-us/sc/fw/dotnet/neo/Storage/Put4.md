@@ -14,7 +14,7 @@ public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext c
 
 Parameters:
 
-Context: Storage context as a [StorageContext](../StorageContex.md).
+Context: Storage context as a [StorageContext](../StorageContext.md).
 
 Key: Key as a string.
 

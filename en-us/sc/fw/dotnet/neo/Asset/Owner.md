@@ -1,6 +1,6 @@
 # Asset.Owner Property
 
-Returns the public key of the owner of the asset .
+Returns the public key of the owner of the asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

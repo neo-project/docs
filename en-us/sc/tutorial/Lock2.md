@@ -2,35 +2,38 @@
 
 Read the following tutorial before reading this article:
 
-[How to write NEO smart contract with C#] (../ getting-started.md)
+[How to write NEO smart contract with C#](../getting-started-csharp.md)
 
-[NEO Smart Contract Tutorial] (../ tutorial.md)
+[NEO Smart Contract Tutorial](../tutorial.md)
 
-[Smart contract example - Lock (lock)] (Lock.md)
+[Smart contract example - Lock (lock)](Lock.md)
 
 Now we assume that you already have the basic knowledge of the smart contract, we will show how to deploy a lock contract to an address using the wallet.
 
-In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub] (https://github.com/neo-project/neo-gui/releases).
+In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub](https://github.com/neo-project/neo-gui/releases).
 
-PS: At this point of time, the latest **test network client** download is: [Neo GUI v2.0.1] (https://github.com/neo-project/neo-gui/releases/tag/v2.0.1).
+PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
-> [! Note]
+> [!Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
+> In order to use the test net you have to make two changes in the config files:
+1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Be default, config.json and protocol.json are idential to the Mainnet versions.
+2. You need to copy the code from the testnet files into the config.json and protocol.json files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste config.testnet.json into config.json, and protocol.testnet.json into protocol.json.
 
 ## Create a wallet
 
 This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
 
-! [] (~ / Images / 2017-07-04_11-59-35.png)
+![](/assets/lock2_1.png)
 
 ## Get the public key
 
 The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
 
-! [] (~ / Images / 2017-07-06_18-28-31.png)
+![](/assets/lock2_2.png)
 
-> [! Caution]
-> Please note that do not divulge the private key, remember to pixelate.
+> [!Caution]
+> Please note: Do not divulge your private key.
 
 Here we write a local program to turn the public key into a byte array, C# code is as follows:
 
@@ -42,7 +45,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             // 这里替换为上一步复制的公钥
-            byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa"); 
+            byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa");
             foreach (var item in b)
             {
                 Console.Write($"{item}, ");
@@ -94,13 +97,13 @@ The lock contract has two important variables to change, one is the public key, 
 
 1. In the contract code, paste the previous copy of the public key byte array
 
-2. Change the lock time in the sample code, which is a Unix timestamp. Calculate it yourself, you may want to use an online tool. [Unix timestamp online conversion] (https://unixtime.51240.com/).
+2. Change the lock time in the sample code, which is a Unix timestamp. Calculate it yourself, you may want to use an online tool. [Unix timestamp online conversion](https://unixtime.51240.com/).
 
 After replacing the two variables, compile the contract to get a Lock.avm file.
 
 ## Deploy lock Contract
 
-To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilise the C# code below to read the .avm to get the bytecode.
+To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilize the C# code below to read the .avm to get the bytecode.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
@@ -111,16 +114,16 @@ If you think writing a script for this is troublesome, the client's `Deploy Cont
 
 Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
 
-![](~/images/2017-07-06_18-11-30.png)
+![](/assets/lock2_5.png)
 
 In the client, under the `Account` tab, right click on the whitespace, select `Create Contract Add.`, `Custom`, and paste the contract script into the box:
 
-![](~/images/2017-07-06_18-11-47.png)
+![](/assets/lock2_7.png)
 
 
-Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in tthe script code as shown earlier. Once done, we will see the contract address as shown in the figure.
+Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
-![](~/images/2017-07-04_12-59-35.png)
+![](/assets/lock2_8.png)
 
 
 
@@ -139,7 +142,7 @@ Open a wallet with assets on **testnet** and transfer a certain amount of assets
 
 Transfer assets from your smart contract account:
 
-![Transfer contract amount](~/images/2017-07-06_18-13-00.png)
+![Transfer contract amount](/assets/lock2_11.png)
 
 If the above operation is correct, the following happens when the asset is transferred:
 
@@ -147,4 +150,4 @@ When the current time is less than the lockout time, the transfer will not be co
 
 After clicking `Rebuild Index`, after about 5 minutes, the unacknowledged transfer will disappear and the assets will return to the previous state.
 
-In the current time is greater than the lock time, the transfer will be successful.
+If the current time is greater than the lock time, the transfer will be successful.

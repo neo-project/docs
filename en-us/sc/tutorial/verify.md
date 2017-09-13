@@ -34,34 +34,34 @@ You will learn how to abtain the contract script for an `.avm` file later in thi
 
 Create a new wallet according to the tutorial shown below:
 
-![Create a wallet](~/images/w1.jpeg)
+![Create a wallet](/assets/verify_1.png)
 
 ## Obtaining the contract script
 
-There are many ways to abtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
+There are many ways to obtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
 string str = System.Text.Encoding.Default.GetString(bytes);
 ```
 
-If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to abtain the contract code:
+If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to obtain the contract code:
 
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
+Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in figure. Copy this down again.
 
-![Obtaining the contract script](~/images/2017-07-06_11-43-46.png)
+![Obtaining the contract script](/assets/verify_5.png)
 
 ## Create a contract address
 
 After creating your own wallet, click the right mouse button, and create a contract address with your generated contract script:
 
-![Create a contract address](~/images/w2.jpeg)
+![Create a contract address](/assets/verify_6.png)
 
 Bind the contract address to your account and fill in the corresponding parameters. Because our contract has a parameter for signature, you have to fill in `00` in `Parameter List` (for details, please see [Parameter](Parameter.md)), and then enter the contract script from previous step in the `Code` box. 
 
 The reason to associate an account is to bind a contract with a public-private key pair, so when the contract needs to be signed, the client will automatically sign with the private key of the bound account. 
 
-![Create a contract address](~/images/w3.jpeg)
+![Create a contract address](/assets/verify_7.png)
 
 After clicking `OK`, the smart contract authentication account is created successfully.
 
@@ -77,13 +77,13 @@ The following is a test of the smart contract authentication account, when trans
 
 Transfer a set amount of assets into your contract account:
 
-![Transfer asset to contract address](~/images/w4.jpeg)
+![Transfer asset to contract address](/assets/verify_9.png)
 
 ### Transfer contract assets
 
 Transfer assets out from your smart contract account:
 
-![Transfer the contract amount](~/images/w5.jpeg)
+![Transfer the contract amount](/assets/verify_10.png)
 
 
 

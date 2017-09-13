@@ -8,7 +8,7 @@ This tutorial will introduce all the commands in the command line wallet. You ca
 
 We will first explore the various commands listed in the command line. In the command line, enter `help` followed by a return command, and you will see a list of commands as shown.
 
-![image](http://docs.neo.org/images/2017-05-17_12-30-05.jpg)
+![image](/assets/cli_2.png)
 
 The following is a description of all the commands and the order of the brackets:
 Angular brackets ``<> `` indicate a parameter.

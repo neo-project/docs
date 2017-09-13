@@ -14,7 +14,7 @@ public extern void Delete(Neo.SmartContract.Framework.Services.Neo.StorageContex
 
 Parameters:
 
-Context: Storage context as a [StorageContext](../StorageContex.md).
+Context: Storage context as a [StorageContext](../StorageContext.md).
 
 Key: Key as a byte array.
 

@@ -15,9 +15,9 @@
 ## 2 – 역할(Roles)
 **네오 컨센서스 알고리즘 에서, 컨센서스 노드는 네오 소유자들에 전송의 타당성에 대한 투표를통해 선출됩니다. 이런 컨센서스 노드들을 ‘북키퍼’(bookkeeper)라고 합니다. 앞으로 이들을 컨센서스 노드라고 하겠습니다.**
 
-  <img style="vertical-align: middle" src="assets/nNode.png" width="25"> **컨센서스 노드** - 이 노드는 컨센서스 활동에 참여하고 있습니다.  컨센서스 활동 중, 컨센서스 노드들은 아래 두 역할을 차례로 수행합니다:
-  - <img style="vertical-align: middle" src="assets/speakerNode.png" width="25"> **발표자** `(하나)` - 해당 **발표자**는 시스템에 제시 안 블록(block proposal) 전송에 책임이 있습니다.
-  - <img style="vertical-align: middle" src="assets/cNode.png" width="25"> **대리인** `(다수의)` - **대리인**들은 해당 전송에 대한 컨센서스 도달에 책임이 있습니다.
+  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **컨센서스 노드** - 이 노드는 컨센서스 활동에 참여하고 있습니다.  컨센서스 활동 중, 컨센서스 노드들은 아래 두 역할을 차례로 수행합니다:
+  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **발표자** `(하나)` - 해당 **발표자**는 시스템에 제시 안 블록(block proposal) 전송에 책임이 있습니다.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **대리인** `(다수의)` - **대리인**들은 해당 전송에 대한 컨센서스 도달에 책임이 있습니다.
   
   
 ## 3 – 소개(Introduction)
@@ -38,21 +38,21 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 
 ### **정직한 발표자(Honest Speaker)**
 
-  <p align="center"><img src="assets/n3.png" width="300"><br> <b>그림 1:</b> n = 3 거짓 <b>대리인</b>.</p>
+  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>그림 1:</b> n = 3 거짓 <b>대리인</b>.</p>
 
  **그림 1**에서 우리는 하나의 충실한 **대리인**이 있습니다.(50%) 양측 **대리인**모두 정직한 **발표자**로부터 같은 메시지를 받았습니다. 그러나 한 **대리인**이 거짓이기 때문에 정직한 대리인은 단지 거짓 노드가 있다는 것만 알 수 있지, 해당 블록이 **발표자**에게서 오는 지 거짓 대리인에게서 오는 지 알 수 없습니다. 이렇기 때문에 그 **대리인**은 투표에서 제외되어야 하며, **뷰**(dataset)를 바꿔야 합니다.
   
-  <p align="center"><img src="assets/n4.png" width="400"><br> <b>그림 2:</b> n = 4 거짓 <b>대리인</b>.</p>
+  <p align="center"><img src="/assets/n4.png" width="400"><br> <b>그림 2:</b> n = 4 거짓 <b>대리인</b>.</p>
   
  **그림 2**에서, 우리는 두 명의 충실한 대리인이 있습니다.(66%) 모든 **대리인**들이 정직한 **발표자**로 부터 같은 메시지를 받았으며 그들이 그 발표자에게 받은 메시지와 같이 그들의 검증 결과를 보냅니다. 두 정직한 **대리인**들의 동의(consensus)에 기반해서 우리는 **발표자**가 맞는 지 아니면 **대리인**이 거짓인 지 알 수 있습니다.
   
 ### **거짓 발표자(Dishonest Speaker)** 
   
-  <p align="center"><img src="assets/g3.png" width="300"><br> <b>그림 3:</b> n = 3 거짓 <b>발표자</b>. </p>
+  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>그림 3:</b> n = 3 거짓 <b>발표자</b>. </p>
   
  **그림 3**에서, 거짓 발표자에 대해, 우리는 **그림 1**에서 묘사한 것과 같은 동일한 결과를 얻습니다. 어느 **대리인**도 해당 노드가 거짓인지 판단할 수 없습니다.  
   
-  <p align="center"><img src="assets/g4.png" width="400"><br> <b>그림 4:</b> n = 4 거짓 <b>발표자</b>. </p>
+  <p align="center"><img src="/assets/g4.png" width="400"><br> <b>그림 4:</b> n = 4 거짓 <b>발표자</b>. </p>
   
  **그림 4**에서 처럼, 가운데와 오른쪽 노드에서 받은 블록은 검증되지 않습니다. 그들은 66%를 확보해야 하기 때문에, 새로운 **발표자**를 뽑는 **뷰**가 나올 때까지 연기하게 됩니다. 이 예에서, 만약 거짓 **발표자**가 세 명의 **대리인**중 두 명에게 정직한 데이터를 보냈다고 한다면, **뷰**를 변경할 필요 없이 그 데이터는 검증될 수 있습니다.   
 
@@ -64,7 +64,7 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 **그림 5**는 **컨센서스 노드**의 정직성(honesty)이 66.66%이하인 경우에는 해당되지 않습니다. 이 지점과 33% 정직성 사이에는 컨센서스가 달성될 수 없는 무인지대가 있습니다. **컨센서스 노드** 정직성이 33.33%이하에선 거짓 노드들이 그들 사이에서 컨센서스를 달성할 수 있으며(그 노드들이 서로 일치한다면) 그 시스템에서 새로운 진실(truth)이 될 수 있습니다.
 
 
-<img src="assets/consensus.iterations.png" width="800">
+<img src="/assets/consensus.iterations.png" width="800">
 
 **그림 5** DBFT알고리즘의 몬테 카를로(Monte-Carlo) 시뮬레이션을 통해 컨센서스에 이를 때까지 필요한 반복수에 대한 설명(100 노드; 정직한 노드 에서 무작위로 뽑은 100,000개의 시뮬레이트 된 블록)
 
@@ -122,7 +122,7 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 
 1. 하나의 **컨센서스 노드**는 전체 네트워크에 송신자의 서명을 포함한 전송을 보냅니다.
 
-   <p align="center"><img src="assets/consensus1.png" width="450"><br> <b>그림 6:</b> 하나의 <b>컨센서스 노드는</b> 전송을 받아 시스템 전체에 보냅니다. </p>
+   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>그림 6:</b> 하나의 <b>컨센서스 노드는</b> 전송을 받아 시스템 전체에 보냅니다. </p>
    
   
 2. **컨센서스 노드**는 전송 데이터를 로컬 메모리에 기록합니다.
@@ -131,7 +131,7 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 
 4. 해당 **발표자**가 확인됩니다.
 
-	 <p align="center"><img src="assets/consensus2.png" width="450"><br> <b>그림 7:</b> A <b>발표자</b>가 확인되고 뷰가 정해집니다. </p>
+	 <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>그림 7:</b> A <b>발표자</b>가 확인되고 뷰가 정해집니다. </p>
 	
   `t` 초 동안 **기다립니다**.
 	
@@ -139,7 +139,7 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
-	 <p align="center"><img src="assets/consensus3.png" width="450"><br> <b>그림 8:</b> 해당 <b>발표자는</b> 제시 안에 대한 블록을 만들어 내고<b>대리인</b>그것을 검토합니다. </p>
+	 <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>그림 8:</b> 해당 <b>발표자는</b> 제시 안에 대한 블록을 만들어 내고<b>대리인</b>그것을 검토합니다. </p>
 	 
 6. 해당 **대리인**들은 그 제시 안을 받아 검증합니다 :
 
@@ -156,13 +156,13 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 			
-   <p align="center"><img src="assets/consensus4.png" width="500"><br> <b>그림 9:</b> 해당 <b>대리인</b>들이 제시 안 블록을 검토하고 대응합니다. </p>
+   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>그림 9:</b> 해당 <b>대리인</b>들이 제시 안 블록을 검토하고 대응합니다. </p>
 
 7. ‘s’수에 해당하는 'prepareResponse' 전송에 대해 수신한 후에, 하나의 **대리인**은 컨센서스를 이루고 블록을 발행(publish)합니다.
 
 8. 해당 **대리인**들은 그 블록을 서명합니다.
 
-   <p align="center"><img src="assets/consensus5.png" width="500"><br> <b>그림 10:</b> 컨센서스가 이루어 졌고 동의하는 <b>대리인</b>들이 그 블록을 서명하고 체인에 결속시킵니다. </p>
+   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>그림 10:</b> 컨센서스가 이루어 졌고 동의하는 <b>대리인</b>들이 그 블록을 서명하고 체인에 결속시킵니다. </p>
   
 8. **컨센서스 노드**가 풀 블록을 수신하면, 현재 **뷰**데이터는 소거되고 새 라운드의 컨센서스가 시작됩니다.
 	- `k = 0`
@@ -171,7 +171,7 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
   
 **주의:**
  
- 만약 컨센서스 없이 같은 **뷰**상에서 (![timeout](assets/consensus.timeout.png) )  초가 지나면:
+ 만약 컨센서스 없이 같은 **뷰**상에서 (![timeout](/assets/consensus.timeout.png) )  초가 지나면:
   - **컨센서스 노드** 아래를 시스템에 뿌립니다(broadcast):
 
 	<!-- -->

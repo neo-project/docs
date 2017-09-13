@@ -13,7 +13,7 @@ public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext c
 ```
 
 参数：
-​	context：存储上下文，[StorageContext](../StorageContex.md) 类型。
+​	context：存储上下文，[StorageContext](../StorageContext.md) 类型。
 
 ​	key：键，字符串。
 

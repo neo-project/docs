@@ -89,7 +89,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 スマートコントラクトの戻り値がint型ではなく、boolまたは他の型の場合、 図に示すように、`engine.EvaluationStack.Peek().GetBigInteger()`を他の値に変更する必要があります。
 
-[](Http://docs.neo.org/images/2017-05-16_15-39-07.jpg)
+[](/assets/test_1.jpg)
 
 ------
 

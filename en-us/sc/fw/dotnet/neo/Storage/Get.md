@@ -14,7 +14,7 @@ public extern byte[] Get(Neo.SmartContract.Framework.Services.Neo.StorageContext
 
 Parameters:
 
-Context: Storage context as a [StorageContext](../StorageContex.md).
+Context: Storage context as a [StorageContext](../StorageContext.md).
 
 Key: Key as a byte array.
 

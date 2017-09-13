@@ -105,9 +105,9 @@ After sending the request, you will get the following response：
 
 You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection), the following is a test screenshot:
 
-![image](http://docs.neo.org/images/2017-05-17_17-06-20.jpg)
+![image](/zh-cn/node/assets/api_2.jpg)
 
-![image](http://docs.neo.org/images/2017-05-17_16-55-58.jpg)
+![image](/assets/api_3.jpg)
 
 ## Other
 

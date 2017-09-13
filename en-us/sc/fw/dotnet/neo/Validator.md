@@ -14,7 +14,7 @@ public class Validator
 
 ## Methods
 
-|                                          | 名称                                       | 说明          |
+|                                          | Name                                       | Description          |
 | ---------------------------------------- | ---------------------------------------- | ----------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Validator.Register(byte[])](Validator/Register.md) | Register as a bookkeeper |
 
