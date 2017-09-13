@@ -136,8 +136,8 @@
               href: sc/fw/dotnet/Neo/Header.md
             - name: Storage
               href: sc/fw/dotnet/Neo/Storage.md
-            - name: StorageContex
-              href: sc/fw/dotnet/Neo/StorageContex.md
+            - name: StorageContext
+              href: sc/fw/dotnet/Neo/StorageContext.md
             - name: Transaction
               href: sc/fw/dotnet/Neo/Transaction.md
             - name: TransactionAttribute
