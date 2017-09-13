@@ -1,4 +1,4 @@
-# Enumeración StorageContex.Current
+# Enumeración StorageContext.Current
 
 El contexto del almacenamiento del actual contrato.
 
