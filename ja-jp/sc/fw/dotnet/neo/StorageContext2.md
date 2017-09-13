@@ -19,6 +19,6 @@ public enum StorageContext: byte
 
 | | 名前 | 説明 |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContex/CallingContract.md) | 呼び出し元のストレージコンテキスト |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContex/Current.md) | 現在のコントラクトのストレージコンテキスト |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContex/EntryContract.md) | コントラクトのエントリーポイント（コントラクトコールチェーンの開始ポイント） |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContext/CallingContract.md) | 呼び出し元のストレージコンテキスト |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContext/Current.md) | 現在のコントラクトのストレージコンテキスト |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContext/EntryContract.md) | コントラクトのエントリーポイント（コントラクトコールチェーンの開始ポイント） |
