@@ -1,4 +1,4 @@
-# Clase StorageContex
+# Clase StorageContext
 
 La clase se usa para representar un contexto privado dentro del almacenamiento.
 

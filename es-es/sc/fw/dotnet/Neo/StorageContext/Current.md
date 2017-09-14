@@ -1,6 +1,7 @@
-# Enumeración StorageContex.EntryContract
+# Enumeración StorageContext.Current
 
-El contexto del almacenamiento del punto de entrada del contrato.
+El contexto del almacenamiento del actual contrato.
+
 
 > [!Caution] Obsoleta en version 2.0.
 
@@ -19,8 +20,8 @@ public enum StorageContext: byte
 }
 ```
 
-Enumeración valor: 4
+Enumeración valor: 1
 
 
 
-[Volver arriba](../StorageContex.md)
+[Volver arriba](../StorageContext.md)

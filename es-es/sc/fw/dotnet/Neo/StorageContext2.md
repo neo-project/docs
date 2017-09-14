@@ -1,4 +1,4 @@
-# Enumeración StorageContex
+# Enumeración StorageContext
 
 Usado para representar la enumeración en el contexto privado dentro del almacenamiento.
 
@@ -18,7 +18,7 @@ public enum StorageContext: byte
 
 | | Nombre | Descripción |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-[CallsContract](StorageContex/CallingContract.md) | Llamada al contexto del almacenamiento. |
-[Current](StorageContex/Current.md) | El contexto del almacenamiento del actual contrato. |
-[EntryContract](StorageContex/EntryContract.md) | Punto de entrada del contrato. |
+[CallsContract](StorageContext/CallingContract.md) | Llamada al contexto del almacenamiento. |
+[Current](StorageContext/Current.md) | El contexto del almacenamiento del actual contrato. |
+[EntryContract](StorageContext/EntryContract.md) | Punto de entrada del contrato. |
 

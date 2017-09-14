@@ -19,7 +19,7 @@ public enum StorageContext : byte
 
 |                                          | 名称                                       | 说明                     |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContex/CallingContract.md) | 调用者的存储上下文              |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContex/Current.md)      | 当前合约的存储上下文             |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContex/EntryContract.md) | 合约入口点（合约调用链的起始点）的存储上下文 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContext/CallingContract.md) | 调用者的存储上下文              |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContext/Current.md)      | 当前合约的存储上下文             |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContext/EntryContract.md) | 合约入口点（合约调用链的起始点）的存储上下文 |
 
