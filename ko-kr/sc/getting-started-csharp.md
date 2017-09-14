@@ -82,7 +82,7 @@ typora-root-url: ..\..
 
 프로젝트를 작성하면 자동적으로 C#파일을 생성합니다. 디폴트 클래스는 아래에서 나오는 것 처럼 기능코드(function code)에서 상속됩니다 : 
 
-![스마트 계약 기능 코드](/assets/smart_contract_function_code.png)
+![스마트 계약 기능 코드](https://github.com/YTkim7/docs/blob/master/ko-kr/sc/assets/smart_contract_function_code.png?raw=true)
 
 
 ## 프로젝트 컴파일 하기 (Compile the Project)
