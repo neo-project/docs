@@ -1,23 +1,23 @@
 # 智能合约 .net 框架
 
-小蚁智能合约的.net框架是对智能合约 API 的封装，使 .net 程序员可以直接使用 .net 中的类、方法、属性来方便地与 API 交互，进而获得区块链账本数据、操作持久化存储区等。
+NEO 智能合约的.net 框架是对智能合约 API 的封装，使 .net 程序员可以直接使用 .net 中的类、方法、属性来方便地与 API 交互，进而获得区块链账本数据、操作持久化存储区等。
 
 ## 互操作服务层的方法
 
-以下是互操作服务层的命名空间，分别属于 AntShares.SmartContract.Framework.Services.AntShares 和 AntShares.SmartContract.Framework.Services.System 命名空间。点击进去可以了解更详细的类和方法。
+以下是互操作服务层的命名空间，分别属于 Neo.SmartContract.Framework.Services.NEO 和 Neo.SmartContract.Framework.Services.System 命名空间。点击进去可以了解更详细的类和方法。
 
 | 命名空间                             | 说明                                       |
 | -------------------------------- | ---------------------------------------- |
-| [AntShares](dotnet/antshares.md) | AntShares命名空间是小蚁区块链所提供的API，提供了访问区块链账本数据的和操作持久化存储区的方法。 |
-| [System](dotnet/system.md)       | System命名空间是智能合约执行引擎（AVM）提供的API，提供了访问访问该智能合约的执行环境的方法。 |
+| [Neo](dotnet/neo.md) | NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。 |
+| [System](dotnet/system.md)       | System 命名空间是智能合约执行引擎（NeoVM）提供的 API，提供了访问访问该智能合约的执行环境的方法。 |
 
 ## 框架本身提供的常用方法
 
-在智能合约中除了可以调用互操作服务层中的方法，还可以调用框架本身提供的常用方法。这些方法属于 AntShares.SmartContract.Framework 命名空间，在合约中可以直接使用这些方法。
+在智能合约中除了可以调用互操作服务层中的方法，还可以调用框架本身提供的常用方法。这些方法属于 Neo.SmartContract.Framework 命名空间，在合约中可以直接使用这些方法。
 
 ### SmartContract 类提供的方法
 
-在 [小蚁智能合约教程](../tutorial.md) 中，我们了解到智能合约是继承于 FunctionCode 或 VerificationCode 类的。而这两个类都继承于 SmartContract 类，SmartContract 类提供了一些一些散列算法以及验签方法等。
+在 [NEO 智能合约教程](../tutorial.md) 中，我们了解到智能合约是继承于 FunctionCode 或 VerificationCode 类的。而这两个类都继承于 SmartContract 类，SmartContract 类提供了一些一些散列算法以及验签方法等。
 
 |                                          | 名称                                       | 说明                                       |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -29,7 +29,7 @@
 
 ### byte 数组的扩展方法
 
-下面的这些方法是智能合约 .net 框架中的 Helper 类提供给 byte 数组的一些 `扩展方法`。
+下面的这些方法是智能合约 .net 框架中的 Helper 类提供给 byte 数组的一些 ` 扩展方法 `。
 
 |                                          | 名称                           | 说明                                   |
 | ---------------------------------------- | ---------------------------- | ------------------------------------ |

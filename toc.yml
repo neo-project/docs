@@ -1,8 +1,14 @@
-- name: 官网
-  href: http://www.antshares.org
 - name: 中文
   href: zh-cn/
-  homepage: zh-cn/index.md
 - name: English
   href: en-us/
-  homepage: en-us/index.md
+- name: Español
+  href: es-es/
+- name: 日本語
+  href: ja-jp/
+- name: 한국어
+  href: ko-kr/
+- name: Deutsche
+  href: de-de/
+- name: Nederlandse
+  href: nl-nl/

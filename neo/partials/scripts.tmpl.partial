@@ -1,0 +1,33 @@
+﻿{{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
+
+<script type="text/javascript" src="{{_rel}}styles/docfx.vendor.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/docfx.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/main.js"></script>
+<script type="text/javascript" src="{{_rel}}styles/prettify.js"></script>
+<script>
+	$(window).load(function(){
+	     $("pre .lang-c\\#").addClass("prettyprint");
+         $("pre .lang-json").addClass("prettyprint");
+		 $("pre .lang-java").addClass("prettyprint");
+		 $("pre .lang-javascript").addClass("prettyprint");
+	     prettyPrint();
+	})
+	function language(lang)
+    {
+		var rgExp = /\w{2}-\w{2}/;
+		if (location.href.search(rgExp) >= 0)
+			location.href = location.href.replace(rgExp, lang.match(rgExp)[0]);
+		else
+			location.href = lang;
+    }
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fc5adfdac47bf428fed06528cbbf8776";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+

@@ -1,21 +1,21 @@
 # 网络协议
 
-在网络结构上，小蚁采用点对点网络结构，并使用 TCP 协议进行通讯。
+在网络结构上，NEO 采用点对点网络结构，并使用 TCP 协议进行通讯。
 
 网络中存在两种节点类型，分别是普通节点和共识节点。普通节点可以广播、接收和转发交易、区块等，而共识节点可以创建区块。节点的安装和部署请参考 [此文](setup.md)。
 
-小蚁的网络协议规范与比特币的协议大致类似，但在区块、交易等的数据结构上有很大的不同。
+NEO 的网络协议规范与比特币的协议大致类似，但在区块、交易等的数据结构上有很大的不同。
 
 约定
 ----
 
 ### 字节序
 
-小蚁系统中所有的整数类型都是采用小端序 (Little Endian) 编码，只有 IP 地址和端口号采用大端序 (Big Endian) 编码。
+NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码，只有 IP 地址和端口号采用大端序 (Big Endian) 编码。
 
 ### 散列
 
-小蚁系统中会用到2种不同的散列函数：SHA256 和 RIPEMD160。前者用于生成较长的散列值，而后者用于生成较短的散列值。通常生成一个对象的散列值时，会运用两次散列函数，例如要生成区块或交易的散列时，会计算两次 SHA256；生成合约地址时，会先计算脚本的 SHA256 散列，然后再计算上一个散列的 RIPEMD160 散列。
+NEO 系统中会用到 2 种不同的散列函数：SHA256 和 RIPEMD160。前者用于生成较长的散列值，而后者用于生成较短的散列值。通常生成一个对象的散列值时，会运用两次散列函数，例如要生成区块或交易的散列时，会计算两次 SHA256；生成合约地址时，会先计算脚本的 SHA256 散列，然后再计算上一个散列的 RIPEMD160 散列。
 
 此外，区块中还会用到一种散列树 (Merkle Tree) 的结构，它将每一笔交易的散列两两相接后再计算一次散列，并重复以上过程直到只剩下一个根散列 (Merkle Root)。
 
@@ -41,7 +41,7 @@ array：数组，由一个变长整数后接元素序列构成。
 
 ### 定点数
 
-小蚁系统中的金额、价格等数据，统一采用 64 位定点数，小数部分精确到 10<sup>-8</sup>，可表示的范围是：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
+NEO 系统中的金额、价格等数据，统一采用 64 位定点数，小数部分精确到 10<sup>-8</sup>，可表示的范围是：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
 数据结构
 -------
@@ -82,7 +82,7 @@ array：数组，由一个变长整数后接元素序列构成。
 | ?    | Script        | script  | 用于验证该区块的脚本            |
 | 1    | -             | uint8   | 固定为 0                 |
 
-每个区块的时间戳必须晚于前一个区块的时间戳，一般两个区块的时间戳相差15秒左右，但是也允许出现不精确的情况。区块的高度值必须恰好等于前一个区块的高度值加一。
+每个区块的时间戳必须晚于前一个区块的时间戳，一般两个区块的时间戳相差 15 秒左右，但是也允许出现不精确的情况。区块的高度值必须恰好等于前一个区块的高度值加一。
 
 ### 交易
 
@@ -96,13 +96,13 @@ array：数组，由一个变长整数后接元素序列构成。
 | 60*? | Outputs    | tx_out[]  | 输出           |
 | ?*?  | Scripts    | script[]  | 用于验证该交易的脚本列表 |
 
-小蚁系统中的一切事务都以交易为单位进行记录。交易有以下几种类型：
+NEO 系统中的一切事务都以交易为单位进行记录。交易有以下几种类型：
 
 | 值    | 名称                    | 系统费用     | 说明                     |
 | ---- | --------------------- | -------- | ---------------------- |
 | 0x00 | MinerTransaction      | 0        | 用于分配字节费的交易             |
 | 0x01 | IssueTransaction      | 500\|0   | 用于分发资产的交易              |
-| 0x02 | ClaimTransaction      | 0        | 用于分配小蚁币的交易             |
+| 0x02 | ClaimTransaction      | 0        | 用于分配 NeoGas 的交易             |
 | 0x20 | EnrollmentTransaction | 1000     | (已弃用) 用于报名成为共识候选人的特殊交易 |
 | 0x40 | RegisterTransaction   | 10000\|0 | (已弃用) 用于资产登记的交易        |
 | 0x80 | ContractTransaction   | 0        | 合约交易，这是最常用的一种交易        |
@@ -119,7 +119,7 @@ array：数组，由一个变长整数后接元素序列构成。
 | 4    | Nonce | uint32 | 随机数     |
 | -    | -     | -      | 交易的公共字段 |
 
-每一个区块的第一笔交易必然是MinerTransaction。它用于将当前区块中所有的交易手续费奖励给记账人。
+每一个区块的第一笔交易必然是 MinerTransaction。它用于将当前区块中所有的交易手续费奖励给记账人。
 
 交易中的随机数用于防止出现散列冲突。
 
@@ -127,35 +127,35 @@ array：数组，由一个变长整数后接元素序列构成。
 
 资产发行交易没有额外的特殊字段。
 
-资产管理员可以通过资产发行交易，将已经登记过的资产在小蚁区块链上制造出来，并发送到任意地址。
+资产管理员可以通过资产发行交易，将已经登记过的资产在 NEO 区块链上制造出来，并发送到任意地址。
 
-特别的，如果发行的资产是小蚁股，那么这笔交易将可以免费发送。
+特别的，如果发行的资产是 NEO，那么这笔交易将可以免费发送。
 
 **ClaimTransaction**
 
 | 尺寸   | 字段     | 数据类型    | 说明       |
 | ---- | ------ | ------- | -------- |
 | -    | -      | -       | 交易的公共字段  |
-| 34*? | Claims | tx_in[] | 用于分配的小蚁股 |
+| 34*? | Claims | tx_in[] | 用于分配的 NEO |
 | -    | -      | -       | 交易的公共字段  |
 
 **EnrollmentTransaction**
 
 > [!Warning]
-> 已弃用，已被智能合约的 AntShares.Blockchain.RegisterValidator 所替代。
+> 已弃用，已被智能合约的 Neo.Blockchain.RegisterValidator 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Blockchain/RegisterValidator.md)
+查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/neo/Validator/Register.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/neo.md)
 
 **RegisterTransaction**
 
 > [!Warning]
-> 已弃用，已被智能合约的 AntShares.Blockchain.CreateAsset 所替代。
+> 已弃用，已被智能合约的 Neo.Blockchain.CreateAsset 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Blockchain/CreateAsset.md)
+查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/neo/Asset/Create.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/neo.md)
 
 **ContractTransaction**
 
@@ -164,11 +164,11 @@ array：数组，由一个变长整数后接元素序列构成。
 **PublishTransaction**
 
 > [!Warning]
-> 已弃用，已被智能合约的 AntShares.Blockchain.CreateContract 所替代。
+> 已弃用，已被智能合约的 Neo.Blockchain.CreateContract 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/AntShares/Blockchain/CreateContract.md)
+查看 [替代的 .NET 智能合约框架](../sc/fw/dotnet/neo/Contract/Create.md)
 
-查看 [替代智能合约 API ](../sc/api/AntShares.md)
+查看 [替代智能合约 API ](../sc/api/neo.md)
 
 **InvocationTransaction**
 
@@ -252,7 +252,7 @@ array：数组，由一个变长整数后接元素序列构成。
 | 4      | Checksum | uint32        | 校验和         |
 | length | Payload  | uint8[length] | 消息内容        |
 
-已定义的Magic值：
+已定义的 Magic 值：
 
 | 值          | 说明   |
 | ---------- | ---- |
@@ -324,7 +324,7 @@ Payload 根据不同的命令有不同的详细格式，见下文。
 | 32*? | HashStart | uint256[] | 节点已知的最新 block 散列  |
 | 32   | HashStop  | uint256   | 请求的最后一个 block 的散列 |
 
-向一个节点请求包含编号从 HashStart 到 HashStop 的 block 列表的 inv 消息。若 HashStart 到 HashStop 的 block 数超过 500，则在 500 处截止。欲获取后面的block散列，需要重新发送 getblocks 消息。
+向一个节点请求包含编号从 HashStart 到 HashStop 的 block 列表的 inv 消息。若 HashStart 到 HashStop 的 block 数超过 500，则在 500 处截止。欲获取后面的 block 散列，需要重新发送 getblocks 消息。
 
 ### inv
 

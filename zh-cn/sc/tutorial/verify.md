@@ -1,16 +1,16 @@
 # 鉴权合约示例教程
 
-本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/AntShares/AntSharesCore/releases) 中下载最新的**测试网**的客户端运行。
+本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.0 的演示，请从 [GitHub](https://github.com/neo-project/neo-gui/releases) 中下载最新的客户端运行。
 
-附：截止到文档编写时，最新的**测试网**客户端下载地址：[AntSharesCore-GUI-v2.0.6390.29136.zip](https://github.com/AntShares/AntSharesCore/releases/download/v2.0.0-preview2-04/AntSharesCore-GUI-v2.0.6390.29136.zip)。
+附：截止到文档编写时，最新的客户端下载地址：[Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases)。
 
 ## 编译合约脚本
 
 ```c#
-using AntShares.SmartContract.Framework;
-using AntShares.SmartContract.Framework.Services.AntShares;
-using AntShares.SmartContract.Framework.Services.System;
-namespace AntShares.SmartContract
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Services.System;
+namespace Neo.SmartContract
 {
     public class Test : VerificationCode
     {
@@ -23,7 +23,7 @@ namespace AntShares.SmartContract
 ```
 
 > [!Note]
-> 若不清楚如何编写生成智能合约脚本，请参考 [如何用c#编写智能合约](../getting-started.md)
+> 若不清楚如何编写生成智能合约脚本，请参考 [如何用 c# 编写智能合约](../getting-started-csharp.md)
 >
 
 以上合约编译后会生成 Test.avm 文件，其合约脚本（Test.avm 的二进制数据）为：52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
@@ -34,7 +34,7 @@ namespace AntShares.SmartContract
 
 按照如下图所示的教程创建一个新的钱包：
 
-![创建钱包](~/images/w1.jpeg)
+![创建钱包](assets/verify_1.jpeg)
 
 ## 获得合约脚本
 
@@ -45,25 +45,25 @@ byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
 string str = System.Text.Encoding.Default.GetString(bytes);
 ```
 
-如果觉得写代码获取合约脚本比较麻烦，客户端的 `部署合约` 中提供了简单的获取合约代码的方法：
+如果觉得写代码获取合约脚本比较麻烦，客户端的 ` 部署合约 ` 中提供了简单的获取合约代码的方法：
 
-在 PC 版客户端中点击 `高级`，`部署合约`，在右下角点击 `加载`，选择编译后的 Test.avm 文件，在 `代码` 框中就看到了合约的脚本了，如图。将其复制下来下一步会用到。
+在 PC 版客户端中点击 ` 高级 `，` 部署合约 `，在右下角点击 ` 加载 `，选择编译后的 Test.avm 文件，在 ` 代码 ` 框中就看到了合约的脚本了，如图。将其复制下来下一步会用到。
 
-![获得合约脚本](~/images/2017-07-06_11-43-46.png)
+![获得合约脚本](assets/verify_5.png)
 
 ## 创建合约地址
 
 创建完自己的钱包后，点击鼠标右键，运用你生成的合约脚本创建合约地址：
 
-![创建合约地址](~/images/w2.jpeg)
+![创建合约地址](assets/verify_6.jpeg)
 
-绑定合约地址到自己的账户，并填入相应的参数。因为我们的合约中有一个签名的参数，所以在 `形参列表` 中要填写 00 （关于参数填写可以参考 [此文](Parameter.md)。），并在 `脚本代码` 中填写上一步复制的合约脚本代码。
+绑定合约地址到自己的账户，并填入相应的参数。因为我们的合约中有一个签名的参数，所以在 ` 形参列表 ` 中要填写 00 （关于参数填写可以参考 [此文](Parameter.md)。），并在 ` 脚本代码 ` 中填写上一步复制的合约脚本代码。
 
 关联账户的作用是将一个合约与一个公私钥对进行绑定，当合约中需要签名时，客户端会自动用绑定的账户的私钥进行签名，这里随便选择一个公钥即可。
 
-![创建合约地址](~/images/w3.jpeg)
+![创建合约地址](assets/verify_7.jpeg)
 
-点击 `确定` 后，智能合约鉴权账户创建成功。
+点击 ` 确定 ` 后，智能合约鉴权账户创建成功。
 
 ## 测试
 
@@ -76,13 +76,13 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 
 转一定数量的资产到你的合约账户：
 
-![转账到合约地址](~/images/w4.jpeg)
+![转账到合约地址](assets/verify_9.jpeg)
 
 ### 转出合约资产
 
 从你的智能合约账户中转出资产：
 
-![转出合约金额](~/images/w5.jpeg)
+![转出合约金额](assets/verify_10.jpeg)
 
 
 

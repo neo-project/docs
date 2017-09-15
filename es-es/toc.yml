@@ -1,0 +1,157 @@
+- name: Inicio
+  href: index.md
+- name: Introducción
+  href: getting-started.md
+- name: NEO
+  href: node/introduction.md
+  items:
+    - name: Introducción
+      href: node/introduction.md
+    - name: Instalación
+      href: node/setup.md
+    - name: Interfaz Gráfico de Usuario (GUI)
+      href: node/gui.md
+    - name: Red de Pruebas - TestNet
+      href: node/testnet.md
+    - name: Documentación del CLI
+      href: node/cli.md
+    - name: Crear una Blockchain Privada
+      href: node/private-chain.md
+    - name: Documentación de la API
+      href: node/API.md
+      items:
+        - name: dumpprivkey
+          href: node/api/dumpprivkey.md
+        - name: getaccountstate
+          href: node/api/getaccountstate.md
+        - name: getassetstate
+          href: node/api/getassetstate.md
+        - name: getbalance
+          href: node/api/getbalance.md
+        - name: getbestblockhash
+          href: node/api/getbestblockhash.md
+        - name: getblock
+          href: node/api/getblock.md
+        - name: getblock2
+          href: node/api/getblock2.md
+        - name: getblockcount
+          href: node/api/getblockcount.md
+        - name: getblockhash
+          href: node/api/getblockhash.md
+        - name: getblocksysfee
+          href: node/api/getblocksysfee.md
+        - name: getconnectioncount
+          href: node/api/getconnectioncount.md
+        - name: getcontractstate
+          href: node/api/getcontractstate.md
+        - name: getnewaddress
+          href: node/api/getnewaddress.md
+        - name: getpeers
+          href: node/api/getpeers.md
+        - name: getrawmempool
+          href: node/api/getrawmempool.md
+        - name: getrawtransaction
+          href: node/api/getrawtransaction.md
+        - name: getstorage
+          href: node/api/getstorage.md
+        - name: gettxout
+          href: node/api/gettxout.md
+        - name: sendmany
+          href: node/api/sendmany.md
+        - name: sendrawtransaction
+          href: node/api/sendrawtransaction.md
+        - name: sendtoaddress
+          href: node/api/sendtoaddress.md
+        - name: submitblock
+          href: node/api/submitblock.md
+        - name: validateaddress
+          href: node/api/validateaddress.md
+    - name: Protocolo de Red
+      href: node/network-protocol.md
+    - name: Algoritmo de Consenso
+      href: node/consensus.md
+- name: Contratos Inteligentes
+  href: sc/introduction.md
+  items:
+    - name: Introducción
+      href: sc/introduction.md
+    - name: Crear contratos inteligentes con Java
+      href: sc/getting-started-java.md
+    - name: Crear contratos inteligentes con C#
+      href: sc/getting-started-csharp.md
+    - name: Crear contratos inteligentes con VBNet
+      href: sc/getting-started-vbnet.md
+    - name: Tutorial
+      href: sc/tutorial.md
+      items:
+      - name: Basico
+        href: sc/tutorial.md
+      - name: Hola Mundo
+        href: sc/tutorial/HelloWorld.md
+      - name: Lock
+        href: sc/tutorial/Lock.md
+      - name: Lock2
+        href: sc/tutorial/Lock2.md
+      - name: Dominio (Sistema de Nombres de Dominio)
+        href: sc/tutorial/Domain.md
+      - name: Llamada a contrato
+        href: sc/tutorial/call.md
+      - name: Parámetros
+        href: sc/tutorial/Parameter.md
+      - name: Verificacion
+        href: sc/tutorial/Verify.md
+      - name: Desplegar e Invocar
+        href: sc/tutorial/deploy-invoke.md
+    - name: Pruebas Unitarias
+      href: sc/test.md
+    - name: Whitepaper
+      href: sc/white-paper.md
+    - name: Documentación de la API
+      href: sc/api.md
+      items:
+      - name: Neo
+        href: sc/api/Neo.md
+      - name: System
+        href: sc/api/System.md
+    - name: Framework
+      href: sc/fw.md
+      items:
+      - name: .NET framework
+        href: sc/fw/dotnet.md
+        items:
+          - name: Neo
+            href: sc/fw/dotnet/Neo.md
+            items:
+            - name: Account
+              href: sc/fw/dotnet/Neo/Account.md
+            - name: Asset
+              href: sc/fw/dotnet/Neo/Asset.md
+            - name: Block
+              href: sc/fw/dotnet/Neo/Block.md
+            - name: Blockchain
+              href: sc/fw/dotnet/Neo/Blockchain.md
+            - name: Enrollment
+              href: sc/fw/dotnet/Neo/Enrollment.md
+            - name: Header
+              href: sc/fw/dotnet/Neo/Header.md
+            - name: Storage
+              href: sc/fw/dotnet/Neo/Storage.md
+            - name: StorageContext
+              href: sc/fw/dotnet/Neo/StorageContext.md
+            - name: Transaction
+              href: sc/fw/dotnet/Neo/Transaction.md
+            - name: TransactionAttribute
+              href: sc/fw/dotnet/Neo/TransactionAttribute.md
+            - name: TransactionInput
+              href: sc/fw/dotnet/Neo/TransactionInput.md
+            - name: TransactionOutput
+              href: sc/fw/dotnet/Neo/TransactionOutput.md
+            - name: TriggerType
+              href: sc/fw/dotnet/Neo/TriggerType.md
+            - name: Runtime
+              href: sc/fw/dotnet/Neo/Runtime.md
+          - name: System
+            href: sc/fw/dotnet/System.md
+            items:
+            - name: ExecutionEngine
+              href: sc/fw/dotnet/System/ExecutionEngine.md

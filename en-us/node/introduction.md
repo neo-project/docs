@@ -1,19 +1,16 @@
-# AntShares node introduction
+# NEO node introduction
+Nodes that store all of the blockchain are called “full-nodes”. They are connected to the blockchain through a P2P network. All the nodes in the blockchain network are equal, they act both as a client interface and as a server.
 
-Full nodes are nodes that store all of the blockchain data. The nodes are connected to the blockchain, through a P2P network. In the blockchain network, all the nodes are equal, where it acts both as a client interface, and as a server.
+There are two full-node programs. The first one is Neo-GUI, it has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. The second one is Neo-CLI, it provides an external API for basic wallet functions and is intended for NEO developers. It will also help other nodes achieve consensus with the network and will be involved in generating new blocks.
 
-There are two full-node programs. The first one is for ordinary users, displayed with a graphical user interface and all the basic functions of a user-client. We call it AntSharesCore-GUI.
+The NEO [network protocol](network-protocol.md) will provide a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
 
-The other is meant to be used by developers, hosted within the command line interface, and provides an external API for most of the basic wallet functions. This node also helps other nodes achieve consensus with the network, and is also involved in the generation of new blocks. We call It AntSharesCore-CLI.
+## NEO node download address
 
-Finally, this section also contains information about the AntShares [network protocol](network-protocol.md), which provides a low level API for some transaction types that are not currently supported explicity by the CLI, such as claiming ANC or sending ANS without an open wallet. 
-
-## AntShares node download address
-
-|      | AntSharesCore-GUI                        | AntSharesCore-CLI                        |
+|      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [Official website](https://www.antshares.org/download) or [Github](https://github.com/antshares/antsharescore/releases) | [Github](https://github.com/AntShares/antsharescore/releases) |
-Source code | [Github](https://github.com/antshares/antsharescore) | [Github](https://github.com/antshares/antsharescore) |
+| Releases | [Official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## Comparison of GUI node and CLI node functions
 
@@ -38,7 +35,7 @@ Source code | [Github](https://github.com/antshares/antsharescore) | [Github](ht
 | Voting | ✅    |      |
 | Register assets | ✅    |      |
 | Distribution of assets | ✅    |      |
-| Extraction of AntShares | ✅    |      |
+| Extraction of NEO | ✅    |      |
 | Batch Generation Address  |      | ✅    |
 | JSON-RPC |      | ✅    |
 | The consensus of the participating blocks |      | ✅    |
