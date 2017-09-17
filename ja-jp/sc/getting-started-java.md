@@ -16,7 +16,7 @@ typora-root-url: ..\..
 3. JVMコードをAVMコードに変換するneoj(C#)コンパイラをビルドします。(Windowsではneoj.exe)
 4. neojを使って.classファイルをコンパイルします。(.avm)
 5. NEO Node GUIをダウンロードして、NEOのテストネットワークに接続します。
-6. .avmスクリプトを展開してスマートコントラクトをネットワークに発行します。
+6. .avmスクリプトをデプロイしてスマートコントラクトをネットワークに発行します。
 7. .avmスクリプトを呼び出してスマートコントラクトを実行します。
 
 ### 詳細な手順
@@ -25,7 +25,7 @@ typora-root-url: ..\..
 
 これらの手順を実施する最も効果的な方法は、必要なすべてのツールをダウンロードしてコンパイルすることです。
 
-1. NEOのノードGUIをダウンロードします。これを執筆した時点では、BETA開発のGUIを使用することをおすすめします。追加の役立つデバッグ機能があるためです。[CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer)は、テストネットにデフォルトのプリセットを持っており、完全に同期するまで(最大で数時間)待つ必要があります。
+1. NEOのノードGUIをダウンロードします。これを執筆した時点では、ベータ版のデベロッパーGUIを使用することをおすすめします。便利な追加のデバッグ機能があるためです。[CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer)は、テストネットにデフォルトでプリセットされており、完全に同期するまで(最大で数時間)待つ必要があります。
 2. NEOフレームワークライブラリのJARをダウンロードします。現在の最新バージョンはこちらです。[Antshares.SmartContract.Framework JAR](https://github.com/neo-project/neo-compiler/blob/master/neoj/AntShares.SmartContract.Framework.jar)
 3. JavaのIDE、例えばIntelliJあるいはEclipseをダウンロードします。(オプションですがおすすめです。)
 4. C#のIDEをダウンロードします。現在、neojコンパイラは広く配布するリリースフォーマットでないため、手動でビルドする必要があります。無料のVisual Studio2017を入手することをおすすめします。
@@ -34,13 +34,13 @@ typora-root-url: ..\..
 
 ### 1. Visual Studio 2017
 
-既にVisual Studio 2017をPCにインストールし、インストール時に.NETクロスプラットフォーム開発を確認した場合は、このセクションをスキップできます。
+既にVisual Studio 2017をPCにインストールし、インストール時に.NETクロスプラットフォーム開発をチェックした場合は、このセクションをスキップできます。
 
 ダウンロードとインストール：
 
 [Visual Studioのダウンロード](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-インストールプロセスは非常に簡単ですが、一つ一つ操作のプロンプトに従い、注意しながら`.NET Core cross-platform development`をインストールする必要があります。そうでなければ、neo-vmプロジェクトをステップ3で開くことが出来ません。インストールには10分から1時間ほどかかります。
+インストールプロセスは非常に簡単ですが、注意しながら一つ一つの操作をプロンプトに従い`.NET Core cross-platform development`をインストールする必要があります。そうでなければ、neo-vmプロジェクトをステップ3で開くことが出来ません。インストールには10分から1時間ほどかかります。
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
@@ -83,8 +83,6 @@ neojコンパイラを発行します（JavaバイトコードからAVMバイト
 
 AntShares.SmartContract.Framework.jar（NEOコンパイラプロジェクト）を外部ライブラリとして追加する必要があります。
 
-上記のインストールが完了したら、(例えばEclipseまたはIntelliJを使用して)Javaプロジェクトを作成することができます。
-
 
 ## プロジェクトのコンパイル
 
@@ -104,9 +102,9 @@ public class HelloWorld extends FunctionCode{
 }
 ```
 
-outフォルダに`HelloWorld.class`があるプロジェクトをビルドします。
+プロジェクトをビルドすると、outフォルダに`HelloWorld.class`が出力されます。
 
-そして、neojを使用してcmd.exeを実行し、次のコマンドを実行します。
+続いて、neojを使用します。cmd.exeを実行し、次のコマンドを実行します。
 > neoj.exe HelloWorld.class
 
 成功すると、スマートコントラクトのバイトコードとして使用できるHelloWorld.avmが作成されます。
@@ -115,4 +113,4 @@ outフォルダに`HelloWorld.class`があるプロジェクトをビルドし�
 
 ## スマートコントラクトのデプロイ
 
-この段階に入ると、スマートコントラクトを書くのは、どの言語を使用しても手順は同じです。このチュートリアルに従ってください: [ロック・コントラクトのデプロイ](http://docs.neo.org/ja-jp/sc/tutorial/Lock2.html)
+この段階まで来れば、スマートコントラクトを書くのは、どの言語を使用しても手順は同じです。このチュートリアルに従ってください: [ロック・コントラクトのデプロイ](http://docs.neo.org/ja-jp/sc/tutorial/Lock2.html)
