@@ -64,6 +64,8 @@
     - name: はじめに（C#）
       href: sc/getting-started-csharp.md
     - name: チュートリアル
+      href: sc/getting-started-csharp.md
+    - name: はじめに（Java）
       href: sc/tutorial.md
       items: 
       - name: 基本
@@ -82,12 +84,19 @@
         href: sc/tutorial/Lock2.md
       - name: コントラクト呼び出し
         href: sc/tutorial/call.md
+      - name: コントラクトのデプロイ
+        href: sc/tutorial/deploy-invoke.md 
     - name: テスト
       href: sc/test.md
     - name: ホワイトペーパー
       href: sc/white-paper.md
     - name: APIリファレンス
       href: sc/api.md
+      items:
+      - name: NEO
+        href: sc/api/neo.md
+      - name: System
+        href: sc/api/system.md
     - name: フレームワーク
       href: sc/fw.md
       items: 
@@ -132,3 +141,5 @@
             items:
             - name: ExecutionEngine
               href: sc/fw/dotnet/System/ExecutionEngine.md
+    - name: システムの手数料
+      href: sc/systemfees.md
