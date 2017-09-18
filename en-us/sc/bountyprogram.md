@@ -3,8 +3,8 @@
 NEO Council will offer rewards to developers and hackers that identify weaknesses in the source code. The rewards are distributed according to the table below. **Bugs must be reported following the correct procedure to be eligible for reward**
 
 ## How to report
-Send email to bounty@neo.org.
-Including a bug fix will make you eligible for bonus reward.
+Send email to bounty@neo.org.  
+Including a bug fix (patched code) will make you eligible for bonus reward.
 
 ## Bug classification
 
@@ -20,7 +20,6 @@ Medium - Possible or likely to occur
 Low    - Unlikely or rarely to occur  
 
 
-## Matrix
 <table>
   <tr>
     <th colspan="2" rowspan="2"></th>
@@ -62,5 +61,10 @@ Low    - Unlikely or rarely to occur
 |Medium           | XXX NEO  |
 |Minor            | XXX NEO  |
 |Trivial          | XXX NEO  |
+
+
+## Bonus rewards  
+All bug reports that include a bug fix (patched code) will get a 20%-100% bonus reward based on the complexity of the solution.
+
 
 
