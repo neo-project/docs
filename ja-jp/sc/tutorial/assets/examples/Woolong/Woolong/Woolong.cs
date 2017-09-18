@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using System.Numerics;
@@ -21,7 +21,7 @@ namespace Woolong
         ///   呼び出されるNEP5のメソッド。
         /// </param>
         /// <param name="args">
-        ///   NEP5の関数で使用されるオプションの入力パラメータです。
+        ///   NEP5の関数で使用されるオプションの入力パラメータ。
         /// </param>
 
         public static object Main(string method, params object[] args)
@@ -48,7 +48,7 @@ namespace Woolong
            
             if (method == "balanceOf") return Storage.Get(Storage.CurrentContext, (byte[]) args[0]);
 
-            //オリジネーターが正直であることを確認します。
+            //呼び出し元が正直であることを検証
             if (!Runtime.CheckWitness((byte[]) args[0])) return false;
             
             if (method == "transfer") return Transfer((byte[]) args[0], (byte[]) args[1], BytesToInt((byte[]) args[2]));
@@ -70,7 +70,7 @@ namespace Woolong
         }
 
         /// <summary>
-        ///   1つの供給源でトークンをデプロイします。
+        ///   1の供給量でトークンをデプロイします。
         /// </summary>
         /// <param name="lllwvlvwlll">
         ///   私のアカウントです…
@@ -89,20 +89,20 @@ namespace Woolong
         ///   残高を他のアカウントへ転送します。
         /// </summary>
         /// <param name="originator">
-        ///   コントラクトの呼び出し元です。
+        ///   コントラクトの呼び出し元
         /// </param>
         /// <param name="to">
-        ///   転送先のアカウントです。
+        ///   転送先のアカウント
         /// </param>
         /// <param name="amount">
-        ///   転送量です。
+        ///   転送量
         /// </param>
         /// <returns>
-        ///   トランザクションが成功したかどうか？
+        ///   トランザクションの成功可否
         /// </returns>
         private static bool Transfer(byte[] originator, byte[] to, BigInteger amount)
         {           
-            //送信元と送信先のアカウントの値を取得する。
+            //送信元と送信先のアカウントの値を取得
             var originatorValue = Storage.Get(Storage.CurrentContext, originator);
             var targetValue = Storage.Get(Storage.CurrentContext, to);
             
@@ -110,7 +110,7 @@ namespace Woolong
             BigInteger nOriginatorValue = BytesToInt(originatorValue) - amount;
             BigInteger nTargetValue = BytesToInt(targetValue) + amount;
             
-            //トランザクションが有効な場合、続行する。
+            //トランザクションが有効な場合は続行
             if (nOriginatorValue >= 0 &&
                 amount >= 0)
             {
