@@ -10,23 +10,18 @@ namespace Woolong
     {
 
         /// <summary>
-        ///   This is the NEP5 example token: Woolong.
-        ///   It will generate 1 new Woolong every time the contract is invoked.
+        ///   これはNEP5トークンの例です: Woolong
+        ///   コントラクトが呼び出されるたびに1つのWoolongを生成します。
         /// 
-        ///   Note the parameter list below:
-        ///   Parameter List: 05
-        ///   Return List: 05
-        ///
-        ///   参数：05
-        ///   返回值：05
+        ///   以下のパラメータリストに注意してください:
+        ///   パラメータリスト: 05
+        ///   戻り値リスト: 05
         /// </summary>
         /// <param name="method">
-        ///   The NEP5 Method being invoked.
-        ///   所调用的 NEP5 方法
+        ///   呼び出されるNEP5のメソッド。
         /// </param>
         /// <param name="args">
-        ///   Optional input parameters used by the NEP5 functions.
-        ///   NEP5 方法的参数
+        ///   NEP5の関数で使用されるオプションの入力パラメータです。
         /// </param>
 
         public static object Main(string method, params object[] args)
@@ -53,8 +48,7 @@ namespace Woolong
            
             if (method == "balanceOf") return Storage.Get(Storage.CurrentContext, (byte[]) args[0]);
 
-            //Verify that the originator is honest.
-            //确认交易者诚实
+            //オリジネーターが正直であることを確認します。
             if (!Runtime.CheckWitness((byte[]) args[0])) return false;
             
             if (method == "transfer") return Transfer((byte[]) args[0], (byte[]) args[1], BytesToInt((byte[]) args[2]));
@@ -64,7 +58,7 @@ namespace Woolong
 
 
         /// <summary>
-        ///   Generate 1 Woolong every time the contract is invoked.
+        ///   コントラクトが呼び出されるたびに1つのWoolongを生成します。
         /// </summary>
         private static void Grow(byte[] lllwvlvwlll)
         {          
@@ -76,10 +70,10 @@ namespace Woolong
         }
 
         /// <summary>
-        ///    Deploy the token with 1 supply
+        ///   1つの供給源でトークンをデプロイします。
         /// </summary>
         /// <param name="lllwvlvwlll">
-        ///    My account...
+        ///   私のアカウントです…
         /// </param>
         /// <returns></returns>
         private static bool Deploy(byte[] lllwvlvwlll)
@@ -92,29 +86,23 @@ namespace Woolong
         
         
         /// <summary>
-        ///   Transfer a balance to another account.
-        ///   转帐
+        ///   残高を他のアカウントへ転送します。
         /// </summary>
         /// <param name="originator">
-        ///   The contract invoker.
-        ///   合约调用者的公钥
+        ///   コントラクトの呼び出し元です。
         /// </param>
         /// <param name="to">
-        ///   The account to transfer to.
-        ///   转帐目标
+        ///   転送先のアカウントです。
         /// </param>
         /// <param name="amount">
-        ///   The amount to transfer.
-        ///   转账数量
+        ///   転送量です。
         /// </param>
         /// <returns>
-        ///   Transaction Successful?
-        ///   交易是否成功，布尔值
+        ///   トランザクションが成功したかどうか？
         /// </returns>
         private static bool Transfer(byte[] originator, byte[] to, BigInteger amount)
         {           
-            //Get the account value of the source and destination accounts.
-            //获取源和目标账户的余额
+            //送信元と送信先のアカウントの値を取得する。
             var originatorValue = Storage.Get(Storage.CurrentContext, originator);
             var targetValue = Storage.Get(Storage.CurrentContext, to);
             
@@ -122,7 +110,7 @@ namespace Woolong
             BigInteger nOriginatorValue = BytesToInt(originatorValue) - amount;
             BigInteger nTargetValue = BytesToInt(targetValue) + amount;
             
-            //If the transaction is valid, proceed.
+            //トランザクションが有効な場合、続行する。
             //如果交易有效，继续
             if (nOriginatorValue >= 0 &&
                 amount >= 0)
