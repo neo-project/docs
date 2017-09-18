@@ -2,11 +2,11 @@
 
 NEO Council will offer rewards to developers and hackers that identify weaknesses in the source code. The rewards are distributed according to the table below. **Bugs must be reported following the correct procedure to be eligible for reward**
 
-## How to report
+### How to report
 Send email to bounty@neo.org.
 Including a bug fix will make you eligible for bonus reward.
 
-## Bug classification
+### Bug classification
 
 **Impact**
 High   - System crash. Interruption of core services. All users affected.
@@ -19,19 +19,19 @@ Medium - Possible or likely to occur
 Low    - Unlikely or rarely to occur
 
 
-## Matrix
+### Matrix
 
-                |          Probability         |          
-                |------------------------------|
-                | High     | Medium  |  Low    |
--------|--------|----------|---------|---------|
-       | High   | Critical | Major   | Medium  |
-Impact | Medium | Major    | Medium  | Minor   |
-       | Low    | Medium   | Minor   | Trivial |
--------|--------|----------|---------|---------|
++                |          Probability         |          
++                |------------------------------|
++                | High     | Medium  |  Low    |
++-------|--------|----------|---------|---------|
++       | High   | Critical | Major   | Medium  |
++Impact | Medium | Major    | Medium  | Minor   |
++       | Low    | Medium   | Minor   | Trivial |
++-------|--------|----------|---------|---------|
 
 
-## Bounty rewards
+### Bounty rewards
 
 Critical - XXX NEO
 Major    - XXX NEO
