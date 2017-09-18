@@ -111,7 +111,6 @@ namespace Woolong
             BigInteger nTargetValue = BytesToInt(targetValue) + amount;
             
             //トランザクションが有効な場合、続行する。
-            //如果交易有效，继续
             if (nOriginatorValue >= 0 &&
                 amount >= 0)
             {
