@@ -29,14 +29,14 @@
 | Transaction.GetReferences             | 0.2           |
 | Account.SetVotes                      | 1             |
 | Validator.Register                    | 1000          |
-| Asset.Create（システムアセット）         | 5000          |
-| Asset.Renew （システムアセット）[毎年]    | 5000          |
+| Asset.Create（システムアセット）        | 5000          |
+| Asset.Renew（システムアセット）[毎年]  | 5000          |
 | Contract.Create                       | 500           |
 | Contract.Migrate                      | 500           |
 | Storage.Get                           | 0.1           |
 | Storage.Put [per KB]                  | 1             |
 | Storage.Delete                        | 0.1           |
-| (デフォルト)                            | 0.001         |
+| (デフォルト)                           | 0.001         |
 
 ### 命令の手数料
 
@@ -51,5 +51,5 @@
 | OpCode.HASH160                        | 0.02          |
 | OpCode.HASH256                        | 0.02          |
 | OpCode.CHECKSIG                       | 0.1           |
-| OpCode.CHECKMULTISIG [署名あたり]       | 0.1           |
-| (デフォルト)                            | 0.001         |
+| OpCode.CHECKMULTISIG [署名あたり]      | 0.1           |
+| (デフォルト)                           | 0.001         |
