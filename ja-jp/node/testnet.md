@@ -29,10 +29,10 @@
 
 1. 図に示すように、プログラムディレクトリprotocol.testnet.jsonの内容をprotocol.jsonにコピーします。
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-35.png)
+![image](/assets/testnet_1.png)
 
 2. 図に示すように、プログラム(GUI)ディレクトリneo-gui.exe.testnet.configの内容をneo-gui.exe.configにコピーします。
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-12.png)
+![image](/assets/testnet_2.png)
 
 注意：ノードがCLI上で実行されている場合、`config.testnet.json`の内容を`config.json`にコピーする必要があります。
