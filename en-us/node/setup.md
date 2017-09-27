@@ -32,7 +32,7 @@ In the Windows system, installation of . NET Core is very convenient, you can di
 The following shows how .NET Core is installed in Red Hat Enterprise Linux 7 Server:
 
 > [!Note]
-> Other distributions of the Linux kernel installation method, please refer to [.NET Core installation tutorial](https://www.snetnet/core#linuxredhat)
+> Other distributions of the Linux kernel installation method, please refer to [.NET Core installation tutorial](https://www.microsoft.com/net/core)
 
 
 ```
