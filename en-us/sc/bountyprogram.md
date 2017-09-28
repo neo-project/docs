@@ -3,9 +3,9 @@
 NEO Council will offer rewards to developers and hackers that identify weaknesses in the source code. The rewards are distributed according to the table below. **Bugs must be reported following the correct procedure to be eligible for reward**
 
 ## How to report 
-Keep the vulnerability or bug private. Do not disclose publicly. 
-Send email to bounty@neo.org including the information below. 
-Including a bug fix (patched code) will make you eligible for bonus reward. 
+Keep the vulnerability or bug private. Do not disclose publicly.  
+Send email to bounty@neo.org including the information below.  
+Including a bug fix (patched code) will make you eligible for bonus reward.   
 
 **Information to include in email:**  
 Reported by: [Name + email]  
