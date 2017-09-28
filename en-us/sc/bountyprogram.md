@@ -7,14 +7,14 @@ Keep the vulnerability or bug private. Do not disclose publicly.
 Send email to bounty@neo.org including the information below. 
 Including a bug fix (patched code) will make you eligible for bonus reward. 
 
-**Information to include in email:** 
-Reported by: [Name + email] 
-Date found: [YYYY-MM-DD] 
-Type of vulnerability: 
-Explanation how it can be abused: 
-Example (how to reproduce): 
-Solution (if known): 
-Other relevant information 
+**Information to include in email:**  
+Reported by: [Name + email]  
+Date found: [YYYY-MM-DD]  
+Type of vulnerability:  
+Explanation how it can be abused:  
+Example (how to reproduce):  
+Solution (if known):  
+Other relevant information  
  
  
 ## Bug classification
