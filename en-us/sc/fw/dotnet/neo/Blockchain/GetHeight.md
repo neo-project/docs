@@ -1,31 +1,31 @@
-# Blockchain.GetHeight method ()
+# Blockchain.GetHeight Method ()
 
-Gets the current block height of the blockchain. Block height = block index = number of blocks - 1.
+Returns the current block height of the blockchain. Block height = block index = number of blocks - 1.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public static extern uint GetHeight ()
+public static extern uint GetHeight()
 ```
 
-Return Value: Block height, unsigned integer.
+Return Value: Block height as an unsigned integer.
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
      public static void Main ()
      {
-         Uint height = Blockchain.GetHeight ();
+         Uint height = Blockchain.GetHeight();
      }
 }
 ```
 
 
 
-[Return to superior](../Blockchain.md)
+[Back](../Blockchain.md)

@@ -27,7 +27,7 @@ public class Contract1: FunctionCode
 {
     public static void Main ()// Note that the main method to capitalize
     {
-    // The Smart Contract inherited from FunctionCode can be compiled and posted to the block chain for use by other users
+        // The Smart Contract inherited from FunctionCode can be compiled and posted to the block chain for use by other users
     }
 }
 ```
@@ -45,7 +45,7 @@ public class Contract1: VerificationCode
 {
     public static bool Verify ()
     {
-    Return true;
+        return true;
     }
 }
 ```
@@ -58,7 +58,7 @@ For example, in the java JVM or. Net CLR, source code will be compiled into the 
 
 ### Virtual machine architecture
 
-   ![](http://docs.neo.org/images/2017-05-15_11-28-29.jpg)
+   ![](/assets/neo-vm.jpg)
 
 The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
 
@@ -82,7 +82,7 @@ In addition, the interoperable service layer also provides a persistent storage 
 
 A smart contract can programmed to charge a certain fee, divided into deployment costs and implementation costs.
 
-Deployment costs refer to the need for a developer to deploy a smart contract to the chain chain to pay a fee for the block chain system (currently 500 small coins). With execution costs, the user will pay a fee for the execution of the smart contract (for free).
+Deployment costs refer to the need for a developer to deploy a smart contract to the chain to pay a fee for the block chain system (currently 500 GAS). With execution costs, the user will pay a fee for the execution of the smart contract (for free).
 
 ## A simple smart contract
 
@@ -91,7 +91,7 @@ Here are some simple inheritance from VerificationCode's smart contract
 ```c#
 public static bool Verify ()
 {
-Return true;
+    return true;
 }
 ```
 
@@ -102,7 +102,7 @@ There is a function of deleting an asset in the client's e-wallet client. When y
 ```c#
 public static bool Verify ()
 {
-Return false
+    return false
 }
 ```
 

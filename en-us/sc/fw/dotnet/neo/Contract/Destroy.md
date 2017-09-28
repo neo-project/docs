@@ -1,18 +1,18 @@
-# Contract.Destroy method ()
+# Contract.Destroy Method ()
 
-Destruction of smart contracts. The smart contract issued to the chain can not be destroyed by the outside, and if the contract is to be destroyed, it needs to write the logic of its destruction when writing the contract.
+Destruction of smart contracts. The smart contract published to the blockchain cannot be destroyed from outside, thus if the contract needs to be destryed, the logic needs to be written during development.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public static extern void Destroy()
 ```
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
@@ -31,4 +31,4 @@ public class Contract1: FunctionCode
 
 
 
-[Return to superior](../Account.md)
+[Back](../Account.md)

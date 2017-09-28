@@ -1,20 +1,20 @@
-# TransactionAttribute.Usage property
+# TransactionAttribute.Usage Property
 
-To obtain the purpose of the transaction.
+Returns the purpose of the transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte Usage {get;}
 ```
 
-Attribute value: the purpose of the transaction, the byte array.
+Attribute value: The purpose of the transaction as a byte array.
 
-Attribute value Description:
+Purposes:
 
 ```c#
 // The hash value of the external contract

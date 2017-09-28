@@ -12,9 +12,9 @@
 
 **En el algoritmo de consenso de NEO, los nodos de consenso son elegidos por los titulares de NEO y votan sobre la validez de las transacciones. Estos nodos también se han referido como 'Bookkeepers'. En adelante, se denominarán Nodos de Consenso**
 
-  <img style="vertical-align: middle" src="assets/consensus/nNode.png" width="25"> **Nodo de Consenso** - Este nodo participa en la actividad de consenso. Durante una actividad de consenso, los nodos de consenso toman turnos asumiendo los siguientes dos roles:
-  - <img style="vertical-align: middle" src="assets/consensus/speakerNode.png" width="25"> **Orador** `(Uno)` - El Orador es responsable de la transmisión de una propuesta de bloques al sistema.
-  - <img style="vertical-align: middle" src="assets/consensus/cNode.png" width="25"> **Delegado** `(Múltiples)` - Los Delegados son responsables de alcanzar un consenso respecto a la transacción.
+  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Nodo de Consenso** - Este nodo participa en la actividad de consenso. Durante una actividad de consenso, los nodos de consenso toman turnos asumiendo los siguientes dos roles:
+  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Orador** `(Uno)` - El Orador es responsable de la transmisión de una propuesta de bloques al sistema.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegado** `(Múltiples)` - Los Delegados son responsables de alcanzar un consenso respecto a la transacción.
   
 
 ## 3 - Introduction
@@ -36,22 +36,22 @@ Para el bien de la discusión, describiremos un par de escenarios. En estos ejem
 
 ### **Orador honesto**
 
-  <p align="center"><img src="assets/consensus/n3.png" width="300"><br> <b>Figura 1:</b> Un ejemplo n = 3 con un <b>Delegado</b> deshonesto.</p>
+  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figura 1:</b> Un ejemplo n = 3 con un <b>Delegado</b> deshonesto.</p>
   
   En la **Figura 1**, tenemos un solo **Delegado** fiel (50%). Ambos **Delegados** recibieron el mismo mensaje del honesto **Orador**. Sin embargo, debido a que un **Delegado** es deshonesto, el **Delegado** honesto unicamente puede determinar que hay un nodo deshonesto, pero es incapaz de identificar si es el nucleador de bloque (block nucleator) (**el Orador**) o el **Delegado**. Debido a esto, el **Delegado** debe abstenerse de una votación, cambiando la vista.
 
- <p align="center"><img src="assets/consensus/n4.png" width="400"><br> <b>Figura 2:</b> Un ejemplo n = 4 ejemplo con un deshonesto <b>Delegado</b>.</p>
+ <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figura 2:</b> Un ejemplo n = 4 ejemplo con un deshonesto <b>Delegado</b>.</p>
  
 En la **Figura 2**, tenemos dos **Delegados** leales (66%). Todos los **Delegados** recibieron el mismo mensaje del honesto **Orador** y enviaron su resultado de validación, junto con el mensaje recibido del Orador entre los **Delegados**. Con base en el consenso de los dos **Delegados** honestos, podemos determinar que el **Orador** o el **Delegado** de la derecha es deshonesto en el sistema.
  
   
 ### **Orador deshonesto** 
   
-  <p align="center"><img src="assets/consensus/g3.png" width="300"><br> <b>Figura 3:</b> Un ejemplo n = 3 con un <b>Orador</b> deshonesto.</p>
+  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figura 3:</b> Un ejemplo n = 3 con un <b>Orador</b> deshonesto.</p>
   
   En el caso de la **Figura 3**, el **Orador** deshonesto, tenemos una conclusión idéntica a la que se muestra en la Figura 1. Ni siquiera el **Delegado** puede determinar qué nodo es deshonesto.
     
-  <p align="center"><img src="assets/consensus/g4.png" width="400"><br> <b>Figura 4:</b> Un ejemplo n = 4 con un <b>Orador</b> deshonesto. </p>
+  <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figura 4:</b> Un ejemplo n = 4 con un <b>Orador</b> deshonesto. </p>
   
  En el ejemplo representado por la Figura 4 los bloques recibidos por el nodo central y el derecho no son validados. Esto los hará esperar para una nueva vista para elegir un nuevo Orador porque llevan una mayoría del 66%. En este ejemplo, si el Orador deshonesto hubiese enviado datos honestos a dos de los tres Diputados, habría sido validado sin necesidad de un cambio de vista.
   
@@ -61,7 +61,7 @@ La implementación práctica de DBFT en NEO usa un método de consenso iterativo
 
 Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de honestidad del **Nodo de Consenso**. Entre este punto crítico y la honestidad del nodo de consenso del 33%, hay una "tierra de nadie" donde el consenso es inalcanzable. Por debajo del 33,33% la honestidad del nodo de consenso, los nodos deshonestos (suponiendo que están alineados en el consenso) son capaces de llegar a un consenso y convertirse en el nuevo punto de verdad en el sistema.
 
-<img src="assets/consensus/consensus.iterations.png" width="800">
+<img src="/assets/consensus.iterations.png" width="800">
 
 **Figura 5:** Simulación montecarlos del algoritmo DBFT algorithm representando las iteraciones necesarias para llegar a un consensos. {100 Nodos; 100,000 Bloques simulados con seleción aleataria de nodos honestos.}
 
@@ -110,7 +110,7 @@ Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de hone
 
 1. Un **Nodo consenso** transmite una transacción a toda la red con la firma del remitente.
 
-   <p align="center"><img src="assets/consensus/consensus1.png" width="450"><br> <b>Figura 6:</b> Un <b>Nodo consenso</b> recibe una transacción y la transmite al sistema. </p>
+   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figura 6:</b> Un <b>Nodo consenso</b> recibe una transacción y la transmite al sistema. </p>
     
 2. **Nodo consenso** cargan los datos de la transacción en memoria local.
 
@@ -118,7 +118,7 @@ Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de hone
 
 4. Se identifica el **Orador**.
 
-	 <p align="center"><img src="assets/consensus/consensus2.png" width="450"><br> <b>Figura 7:</b> Un <b>Orador</b> ha sido identificado y la vista ha sido establecida. </p>
+	 <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>Figura 7:</b> Un <b>Orador</b> ha sido identificado y la vista ha sido establecida. </p>
 	
   **Espera** `t` segundos
 	
@@ -126,7 +126,7 @@ Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de hone
     <!-- -->
         <prepareRequest, h, k, p, bloque, [bloque]sigp>
 
-	 <p align="center"><img src="assets/consensus/consensus3.png" width="450"><br> <b>Figure 8:</b> El <b>Orador</b> presenta una propuesta de bloque para su revisión por los <b>Delegados</b>. </p>
+	 <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> El <b>Orador</b> presenta una propuesta de bloque para su revisión por los <b>Delegados</b>. </p>
 	 
 6. Los **Delegados** reciben la propuesta y la validan:
 
@@ -143,13 +143,13 @@ Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de hone
 	    <!-- -->
 	        <ChangeView, h,k,i,k+1>
 			
-   <p align="center"><img src="assets/consensus/consensus4.png" width="500"><br> <b>Figura 9:</b> Los <b>Delegado</b> revisan la propuesta de bloque y responden. </p>
+   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figura 9:</b> Los <b>Delegado</b> revisan la propuesta de bloque y responden. </p>
 
 7. Después de recibir `s` numeros de 'prepareResponse' de transmisiones, un **Delegado** llega a un consenso y publica el bloque.
 
 8. El **Delegado** firma el bloque.
 
-   <p align="center"><img src="assets/consensus/consensus5.png" width="500"><br> <b>Figura 10:</b> Se llega a un consenso y se aprueba a los <b>Delegados</b> para firmar el bloque, vinculándolo a la cadena. </p>
+   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figura 10:</b> Se llega a un consenso y se aprueba a los <b>Delegados</b> para firmar el bloque, vinculándolo a la cadena. </p>
   
 8. Cuando un **Nodo Consenso** recibe un bloque completo, la actual de la actual data se purga, y una nueva ronda de consenso comienzaa.
 	- `k = 0`
@@ -158,7 +158,7 @@ Tenga en cuenta que la **Figura 5** no se extiende por debajo del 66,66% de hone
   
 **Nota:**
  
- Si después (![timeout](assets/consensus/consensus.timeout.png) ) segundos en la misma vista sin conseso:
+ Si después (![timeout](/assets/consensus.timeout.png) ) segundos en la misma vista sin conseso:
   - El **Nodo Consenso** transmite:
 
 	<!-- -->

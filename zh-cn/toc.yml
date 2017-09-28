@@ -20,39 +20,70 @@
     - name: API 参考
       href: node/API.md
       items:
+      - name: getaccountstate
+        href: node/api/getaccountstate.md
+      - name: getassetstate
+        href: node/api/getassetstate.md
       - name: getbalance
         href: node/api/getbalance.md
       - name: getbestblockhash
         href: node/api/getbestblockhash.md
       - name: getblock
+        href: node/api/getblock.md
+      - name: getblock
         href: node/api/getblock2.md
       - name: getblockcount
         href: node/api/getblockcount.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getblockhash
         href: node/api/getblockhash.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
+      - name: getcontractstate
+        href: node/api/getcontractstate.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
         href: node/api/getrawtransaction.md
+      - name: getstorage
+        href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
+      - name: dumpprivkey
+        href: node/api/dumpprivkey.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
+      - name: getpeers
+        href: node/api/getpeers.md
     - name: 网络协议
       href: node/network-protocol.md
     - name: 共识机制
-      href: node/consensus.md
+      href: node/consensus/whitepaper.md
+      items:
+        - name: 共识机制白皮书
+          href: node/consensus/whitepaper.md
+        - name: 共识机制图解
+          href: node/consensus/consensus.md
 - name: 智能合约
   href: sc/introduction.md
   items:
     - name: 介绍
       href: sc/introduction.md
-    - name: 如何开始
-      href: sc/getting-started.md
+    - name: 如何开始（C#）
+      href: sc/getting-started-csharp.md
+    - name: 如何开始（C#）for macOS
+      href: sc/getting-started-csharp-mac.md
+    - name: 如何开始（Java）
+      href: sc/getting-started-java.md
     - name: 教程
       href: sc/tutorial.md
       items: 
@@ -110,8 +141,8 @@
               href: sc/fw/dotnet/neo/Runtime.md
             - name: Storage
               href: sc/fw/dotnet/neo/Storage.md
-            - name: StorageContex
-              href: sc/fw/dotnet/neo/StorageContex.md
+            - name: StorageContext
+              href: sc/fw/dotnet/neo/StorageContext.md
             - name: Transaction
               href: sc/fw/dotnet/neo/Transaction.md
             - name: TransactionAttribute
@@ -120,6 +151,8 @@
               href: sc/fw/dotnet/neo/TransactionInput.md
             - name: TransactionOutput
               href: sc/fw/dotnet/neo/TransactionOutput.md
+            - name: TriggerType
+              href: sc/fw/dotnet/neo/TriggerType.md
             - name: Validator
               href: sc/fw/dotnet/neo/Validator.md
           - name: System

@@ -1,7 +1,7 @@
 # Contract Call
 
 ```c#
-[AppCall]("XXXXXXXXXX") // ScriptHash
+[AppCall("XXXXXXXXXX")] // ScriptHash
 public static extern int AnotherContract (string arg);
 
 public static void Main ()

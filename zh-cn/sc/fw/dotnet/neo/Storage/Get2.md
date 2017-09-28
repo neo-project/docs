@@ -13,7 +13,7 @@ public extern void Delete(Neo.SmartContract.Framework.Services.Neo.StorageContex
 ```
 
 参数：
-​	context：存储上下文，[StorageContext](../StorageContex.md) 类型。
+​	context：存储上下文，[StorageContext](../StorageContext.md) 类型。
 
 ​	key：键，string 类型。
 

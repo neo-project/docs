@@ -1,19 +1,19 @@
-# ExecutionEngine.CallingScriptHash property
+# ExecutionEngine.CallingScriptHash Property
 
-Obtain the script hash of the caller of the smart contract.
+Returns the scripthash of the caller of the contract.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] CallingScriptHash {get;}
 ```
 
-Attribute value: script hash, 33 bytes byte array.
+Attribute value: Scripthash as a byte array of length 33.
 
 
 
-[Return to superior](../ExecutionEngine.md)
+[Back](../ExecutionEngine.md)

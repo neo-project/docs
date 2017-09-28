@@ -1,19 +1,19 @@
-# Asset.Owner property
+# Asset.Owner Property
 
-Get the owner of the asset (public key).
+Returns the public key of the owner of the asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] Owner {get;}
 ```
 
-Attribute value: 33 byte byte array
+Attribute value: Byte array of length 33
 
 
 
-[Return to superior](../Asset.md)
+[Back](../Asset.md)

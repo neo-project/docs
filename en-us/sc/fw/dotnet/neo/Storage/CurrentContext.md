@@ -1,6 +1,6 @@
-# Storage.CurrentContext property
+# Storage.CurrentContext Property
 
-Gets the current store context. After obtaining the store context, the object can be passed as an argument to other contracts (that is, the authorization), and the read and write operations to the storage area of the contract context are performed by other contracts.
+Returns the current store context. After obtaining the store context, the object can be passed as an argument to other contracts (as a way of authorization), allowing other contracts to perform read/write operations on the persistent store of the current contract.
 
 Note: This is different from the 1.6 version.
 
@@ -8,14 +8,14 @@ Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext {get;}
 ```
 
-Attribute value: current storage context, [StorageContext](../StorageContex.md) type.
+Attribute value: Current storage context as a [StorageContext](../StorageContext.md).
 
 
 
-[Return to superior](../Storage.md)
+[Back](../Storage.md)

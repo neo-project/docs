@@ -2,8 +2,6 @@
   href: index.md
 - name: Getting Started
   href: getting-started.md
-- name: Whitepaper
-  href: white-paper.md
 - name: NEO Node
   href: node/introduction.md
   items:
@@ -53,8 +51,10 @@
   items:
     - name: Introduction
       href: sc/introduction.md
-    - name: Getting Started
-      href: sc/getting-started.md
+    - name: Getting Started (C#)
+      href: sc/getting-started-csharp.md
+    - name: Getting Started (Java)
+      href: sc/getting-started-java.md
     - name: Tutorial
       href: sc/tutorial.md
       items:
@@ -62,12 +62,20 @@
         href: sc/tutorial.md
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
-      - name: Lock
+      - name: Lock Contract
         href: sc/tutorial/Lock.md
       - name: Domain (Domain Name System)
         href: sc/tutorial/Domain.md
+      - name: Smart Contract Parameters and Return Values
+        href: sc/tutorial/Parameter.md
+      - name: Contract Authentication Tutorial
+        href: sc/tutorial/verify.md
+      - name: Deploying a Lock Contract
+        href: sc/tutorial/Lock2.md
       - name: Contract Call
         href: sc/tutorial/call.md
+      - name: Deploying and Invoking
+        href: sc/tutorial/deploy-invoke.md      
     - name: Test
       href: sc/test.md
     - name: Whitepaper
@@ -102,8 +110,8 @@
               href: sc/fw/dotnet/neo/Header.md
             - name: Storage
               href: sc/fw/dotnet/neo/Storage.md
-            - name: StorageContex
-              href: sc/fw/dotnet/neo/StorageContex.md
+            - name: StorageContext
+              href: sc/fw/dotnet/neo/StorageContext.md
             - name: Transaction
               href: sc/fw/dotnet/neo/Transaction.md
             - name: TransactionAttribute
