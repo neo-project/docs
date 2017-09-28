@@ -111,7 +111,7 @@ This type of API will modify the status of the smart contract
 | Neo.Contract.Migrate           | `New` Migrate/Renew a smart contract |
 | Neo.Contract.Destroy           | `New` Destroy a smart contract |
 | Neo.Contract.GetStorageContext | `New` Get the storage context of the contract |
-| Neo.Storage.Put                | Inserts a value into the persisten store based off the given key |
-| Neo.Storage.Delete             | Deletes a value from the persisten store based off the given key |
+| Neo.Storage.Put                | Inserts a value into the persistent store based off the given key |
+| Neo.Storage.Delete             | Deletes a value from the persistent store based off the given key |
 
 Note: The source code for the above API can be found under `NEO` in the `src/neo/SmartContract/StateMachine.cs` file.
