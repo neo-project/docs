@@ -1,6 +1,6 @@
 # Bounty program
 
-NEO Council will offer rewards to developers and hackers that identify weaknesses in the source code. The rewards are distributed according to the table below. **Bugs must be reported following the correct procedure to be eligible for reward**
+NEO Council will offer rewards to developers and hackers that identify weaknesses in the source code. The rewards are distributed according to the table below. **Bugs must be reported following the correct procedure to be eligible for reward.** Already known bugs are not eligible for reward.
 
 ## How to report 
 Keep the vulnerability or bug private. Do not disclose publicly.  
