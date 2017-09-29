@@ -55,7 +55,7 @@ Type de données
 1. Les bloque
 	
 	|Taille|Champs|Type de donnée|Description|
-    |---|---|---|---|
+    	|---|---|---|---|
 	|4|Version|uint32|Version du bloque qui est 0 actuellement|
 	|32|PrevBlock|uint256|Valeur de hashage du précédent bloque|
 	|32|MerkleRoot|uint256|Hash du root d'une liste de transactions|
@@ -338,9 +338,9 @@ Selon les ordres, Payload a différents formats détaillés :
 	|4|Type|uint32|Type de l'objet|
 	|32|Hash|uint256|Hash de l'objet|
 
-	Object types:
+	Type d'objets:
 
-	|Taille|Champs|Type de donnée|Description|
+	|Valeur|Nom|Description|
 	|---|---|---|
 	|0x01|TX|Transaction|
 	|0x02|Block|Bloque|
@@ -372,5 +372,5 @@ Selon les ordres, Payload a différents formats détaillés :
 
 	|Taille|Champs|Type de donnée|Description|
 	|----|---------|--------- |----------------- |
-	|32 *?|HashStart|uint256[]|Noeud qui est connu comme le hash du bloque le plus ancien|
+	|32*?|HashStart|uint256[]|Noeud qui est connu comme le hash du bloque le plus ancien|
 	|32|hashStop|uint256|Dmande le dernier bloque|
