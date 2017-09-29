@@ -15,7 +15,7 @@ Convention
 	
 1. Hash
 
-	Deux différents types de fonction de hashage sont utilisés dans NEO: SHA256 et RIPEMD160. SHA256 est utilisé dans la génération de longue valeur de hashage et RIPEMD160 est utilisé pour de courte valeur de hashage.
+	Deux différents types de fonction de hashage sont utilisés dans NEO : SHA256 et RIPEMD160. SHA256 est utilisé dans la génération de longue valeur de hashage et RIPEMD160 est utilisé pour de courte valeur de hashage.
 	
 	En général, nous obtenons une valeur hashage d'un objet en utilisant deux fois une fonction de hashage. Par exemple, nous utilisons SHA256 deux fois quant il s'agit de générer la valeur de hashage d'un bloque ou d'une transaction. Lors de la génération d'une adresse de contrat, nous allons utiliser une fonction SHA256 en premier lieu et ensuite utiliser RIPEMD160.
 	
