@@ -69,36 +69,36 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 
 **Dans l'algorithme, nous définissons les variables suivantes :**
 
-	- `t`: Le temps alloué à la génération d'un bloque, mesuré en secondes/
-		- Actuellement: `t = 15 secondes`
-			- Cette valeur peut être utilisée pour approximer grossièrement la durée de l'itération d'une vue tels que l'activité de consensus et les évènements de communication sont relativement aussi rapide que cette constante de temps.
+- `t`: Le temps alloué à la génération d'un bloque, mesuré en secondes/
+	- Actuellement: `t = 15 secondes`
+		- Cette valeur peut être utilisée pour approximer grossièrement la durée de l'itération d'une vue tels que l'activité de consensus et les évènements de communication sont relativement aussi rapide que cette constante de temps.
 			
 	
-	- `n` : Le nombre de **noeuds de consensus** actifs.
+- `n` : Le nombre de **noeuds de consensus** actifs.
 	
 	
-	- `f` : Le seuil minimum de **noeuds de consensus** fautifs dans le système.
-		- `f = (n -1) / 3`
+- `f` : Le seuil minimum de **noeuds de consensus** fautifs dans le système.
+	- `f = (n -1) / 3`
 		
 		
-	- `h` : La taille du bloque actuel pendant l'activité de consensus.
+- `h` : La taille du bloque actuel pendant l'activité de consensus.
 	
 	
-	- `i` : L'index des **noeuds de consensus**
+- `i` : L'index des **noeuds de consensus**
 	
 	
-	- `v` : La vue d'un **noeud de consensus**. Cette vue contient l'information agrégé que le noeud a reçu pendant un tour de consensus. Cela inclut le vote (`prepareResponse` ou `ChangeView`) publié par l'ensemble des **délégués**.
+- `v` : La vue d'un **noeud de consensus**. Cette vue contient l'information agrégé que le noeud a reçu pendant un tour de consensus. Cela inclut le vote (`prepareResponse` ou `ChangeView`) publié par l'ensemble des **délégués**.
 	
 	
-	- `k` : L'index de la vue `v`. Une activité de consensus peut avoir besoin de plusieurs tours. En cas d'échec de consensus, `k` est incrémenté et un nouveau tour commence.
+- `k` : L'index de la vue `v`. Une activité de consensus peut avoir besoin de plusieurs tours. En cas d'échec de consensus, `k` est incrémenté et un nouveau tour commence.
 	
 	
-	- `p` : L'index des **noeuds de consensus** élu comme **orateur**. Ce mécanisme de calcul pour cet index permet l'alternance des **noeuds de consensus** pour empêcher qu'un unique noeud commence à agir tel un dictateur dans le système.
-		- `p = (h - k) mod (n)`
+- `p` : L'index des **noeuds de consensus** élu comme **orateur**. Ce mécanisme de calcul pour cet index permet l'alternance des **noeuds de consensus** pour empêcher qu'un unique noeud commence à agir tel un dictateur dans le système.
+	- `p = (h - k) mod (n)`
 		
 	
-	- `s` : Le seuil de sécurité du consensus. En dessous de ce seuil, le réseau est exposé à l'erreur.
-		- `s = ((n - 1) - f)`
+- `s` : Le seuil de sécurité du consensus. En dessous de ce seuil, le réseau est exposé à l'erreur.
+	- `s = ((n - 1) - f)`
 		
 ### 5.2 Prérequis
 
@@ -127,11 +127,11 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
   <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>Figure 7:</b> Un <b>orateur</b> a été identifié et la vue a été initialisée. </p>
 
   
-	**Attendre** `t` secondes
+**Attendre** `t` secondes
   
 5. L'**orateur** diffuse la proposition :
-	<!-- -->
-		<prepareRequest, h, k, p, block, [block]sigp>
+  <!-- -->
+	<prepareRequest, h, k, p, block, [block]sigp>
 		
 		<p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> L'<b>orateur</b> présente une proposition de bloque qui va être passée en revue par les <b>délégués</b>. </p>
 		
@@ -141,16 +141,16 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 	- si la transaction n'est pas déjà dans la blockchain;
 	- si le script de contrat a été correctement éxécuté;
 	- si la transaction ne contient qu'une seule dépense (par exemple, est-ce que la transaction évite un scénario de double-dépense).
-	
-	* **Si la proposition est validée :**
-			<!-- -->
-				<prepareResponse, h, k, i, [block]sigi>
+
+  **Si la proposition est validée :**
+    <!-- -->
+      <prepareResponse, h, k, i, [block]sigi>
 				
-	* **Si la proposition est refusée :**
-			<!-- -->
-				<ChangeView, h,k,i,k+1>
+  **Si la proposition est refusée :**
+  <!-- -->
+    <ChangeView, h,k,i,k+1>
 				
-	<p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> Les <b>délégués</b> passe en revue la proposition et répondent. </p>
+  <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> Les <b>délégués</b> passe en revue la proposition et répondent. </p>
 	
 7. Après avoir reçu `s` nombre de messages broadcast "prepareResponse", un **délégué** atteint le consensus et décide de publier un bloque.
 
@@ -159,17 +159,17 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
    <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figure 10:</b> Un consensus est atteint et les <b>délégués</b> donnant leur approbation signent le bloque, l'accrochant à la chaîne. </p>
    
 9. Quand un **noeud de consensus** reçoit un bloque complet, les données de la vue courrante sont purgés et un nouveau tour de consensus est commencé.
-		- `k = 0`
+  - `k = 0`
 		
 ---
 
 **Note :**
 
 Si après   (![timeout](/assets/consensus.timeout.png) )  secondes dans la même vue sans consensus :
-	- Un **noeud de consensus** diffuse :
+  - Un **noeud de consensus** diffuse :
 	
-			<!-- -->
-				<ChangeView, h,k,i,k+1>
+  <!-- -->
+    <ChangeView, h,k,i,k+1>
 				
 	- Une fois qu'un **noeud de consensus** reçoit au moins `s` nombre de message broadcast indiquant un changement de vue, cela incrémente la vue `v`, enclenchant un nouveau tour de consensus.
 	
