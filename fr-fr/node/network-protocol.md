@@ -1,4 +1,4 @@
-# Protocol réseau
+# Protocol du réseau
 
 
 NEO adopte une structure réseau P2P dans lequel les noeuds peuvent communiquer entre eux au travers du protocol TCP/IP. Dans cette structure, il y a deux différents types de noeuds: les noeuds pairs et les noeuds de validation (dit les Bookkeepers dans le livre blanc de NEO). Les noeuds pairs peuvent diffuser, recevoir et transférer des transactions ou des bloques pendant que les noeuds de validation peuvent quant à eux créer des noeuds.
