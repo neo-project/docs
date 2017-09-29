@@ -52,7 +52,7 @@ Type de données
 
 	La blockchain est un type de structure logique qui est connecté en série avec une liste liée a sens unique (one-way linked list). Elle est utilisée pour stocker des données tels que des transactions ou des actifs dans le réseau entier.
 	
-1. Les bloque
+1. Les bloques
 	
 	|Taille|Champs|Type de donnée|Description|
     	|---|---|---|---|
