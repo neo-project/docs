@@ -125,5 +125,7 @@
             items:
             - name: ExecutionEngine
               href: sc/fw/dotnet/System/ExecutionEngine.md
+    - name: System Fees
+      href: sc/systemfees.md
 - name: Contributors
   href: contributors.md
