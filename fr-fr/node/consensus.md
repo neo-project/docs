@@ -171,7 +171,7 @@ Si après   (![timeout](/assets/consensus.timeout.png) )  secondes dans la même
   <!-- -->
     <ChangeView, h,k,i,k+1>
 				
-	- Une fois qu'un **noeud de consensus** reçoit au moins `s` nombre de message broadcast indiquant un changement de vue, cela incrémente la vue `v`, enclenchant un nouveau tour de consensus.
+  - Une fois qu'un **noeud de consensus** reçoit au moins `s` nombre de message broadcast indiquant un changement de vue, cela incrémente la vue `v`, enclenchant un nouveau tour de consensus.
 	
 ## 6 - Références
 
