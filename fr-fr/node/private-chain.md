@@ -141,7 +141,7 @@ Ensuite, le système va indiquer que la structure est complète mais qu'il n'y a
 
 L'opération pour extraire le GAS est similaire, cliquez sur `Advanced`, `Claim GAS`, `Claim` comme indiqué en dessous. (Retenez l'adresse du porte-feuille, vous en aurez besoin plus tard)
 
-![image](/assets/privatechain_20.png)
+![image](/assets/privatechain_21.png)
 
 La prochaine opération est similaire au transfert des NEOs. Copiez le code qui a un nombre insuffisant de signatures, ouvrez le second porte-feuille, cliquez sur `Transaction`, puis `Transfer` et collez le code. Faites de même avec le troisième porte-feuille. Cliquez sur `Broadcast` pour diffuser la transaction pour réclamer le GAS. Cette action prendra également 15 secondes pour être un succès.
 Après l'extraction, le GAS va entrer dans la première adresse standard du porte feuille d'où l'extraction de GAS a été initiée.
