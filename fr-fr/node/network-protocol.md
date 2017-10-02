@@ -371,4 +371,4 @@ Selon les ordres, Payload a différents formats détaillés :
      |Taille|Champs|Type de donnée|Description|
      |----|---------|--------- |----------------- |
      |32*?|HashStart|uint256[]|Noeud qui est connu comme le hash du bloc le plus ancien|
-     |32|hashStop|uint256|Dmande le dernier bloc|
+     |32|hashStop|uint256|Demande le dernier bloc|
