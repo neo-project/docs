@@ -64,14 +64,17 @@ Low    - Unlikely or rarely to occur
 
 
 ## Bounty rewards  
-
+  
+Rewards will be paid in NEO corresponding to the value below.
+  
+  
 | Classification  | Bounty   |
 |-----------------|---------:|
-|Critical         | XXX NEO  |
-|Major            | XXX NEO  |
-|Medium           | XXX NEO  |
-|Minor            | XXX NEO  |
-|Trivial          | XXX NEO  |
+|Critical         | XXX USD  |
+|Major            | XXX USD  |
+|Medium           | XXX USD  |
+|Minor            | XXX USD  |
+|Trivial          | XXX USD  |
 
 
 ## Bonus rewards  
