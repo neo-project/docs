@@ -23,19 +23,19 @@ Convention
 
      + Variant : entier (integer) de longueur variable, peut être encodé pour sauver de l'espace en fonction de la valeur écrite.
 		
-          |Valeur|Longueur|Format|
-	  |---|---|---|
-          |< 0xfd|1|uint8|
-          |<= 0xffff|3|0xfd + uint16|
-	  |<= 0xffffffff|5|0xfe + uint32|
-	  |> 0xffffffff|9|0xff + uint64|
+     |Valeur|Longueur|Format|
+     |---|---|---|
+     |< 0xfd|1|uint8|
+     |<= 0xffff|3|0xfd + uint16|
+     |<= 0xffffffff|5|0xfe + uint32|
+     |> 0xffffffff|9|0xff + uint64|
 		
      + Varstr : chaîne de caractères (string) de longueur variable, consistant en entier de longueur variable suivi par des chaînes de caractères. Elles sont encodées en UTF-8.
 	
-          |Taille|Champs|Type de données|Description|
-	  |---|---|---|---|
-	  |?|length|variant|La longueur de la chaîne en octets|
-	  |length|string|uint8[length]|La chaine en elle-même|
+     |Taille|Champs|Type de données|Description|
+     |---|---|---|---|
+     |?|length|variant|La longueur de la chaîne en octets|
+     |length|string|uint8[length]|La chaine en elle-même|
 		
      + Array : Le tableau (array) consiste en un entier de longueur variable suivis par une séquence d'éléments.
 	
