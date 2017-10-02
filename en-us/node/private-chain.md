@@ -124,15 +124,16 @@ Click OK. In order to rebuild the wallet index, click on the 'wallet' in the men
 
 Here we want to send the NEO from the contract address to the normal address. To do so, open any of the four wallet, click `transaction`, `transfer` and enter the recipient address, in order to transfer 100 million NEO to this recipient address.
 
-Then, the system will prompt "transaction structure is completed, but there is not enough signature". Copy down the code, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign`. At this time, you will notice a pop-up window that displays a `broadcast` button, which means the signing process for the transaction is completed (the minimum number of signatures required for the contract has been achieved) The transaction can now be broadcasted, click on the `broadcast`. Once the transfer transaction begins broadcasting, it will take about 15 seconds for successful remittance to the account.
+The system will then notify you that there have not been enough signatures to complete the transaction. Copy the code to your clipboard, open the second wallet, click `transaction`, `signature` and paste the code that you have just copied. Click `signature` and copy the code. Open the third wallet, click `transaction`, `signature` and paste the code that you have just copied. Click the `signature` button. At this time you will notice a pop-up window that displays a `broadcast` button in the lower left corner, which means all the signatures required to send the transaction have been collected. Click `broadcast`. Once the transfer transaction begins broadcasting it will take about 15 seconds for successful remittance to the account.
 
 ![image](/assets/privatechain_20.png)
 
-The operation to extract the GAS is also similar, click `Advanced`, `Claim GAS`, `Claim` as shown. (Remember the wallet address, you will need it later)
+The operation to extract the GAS is also similar. Click `Advanced`, `Claim GAS`, `Claim` as shown. Remember the wallet address, you will need it later.
 
 ![image](/assets/privatechain_21.png)
 
-The next operation is similar to the transfer of the NEO. Copy down the code that has insufficient signatures, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `sign`, and copy the code down, open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `sign` and `broadcast` to broadcast the transaction of claiming GAS. Once the claim transaction begins broadcasting, it will take about 15 seconds for successful remittance to the account.
-After the successful extraction, the GAS will enter the first standard address of the wallet (ie the top wallet address) where you initiate the extraction of the GAS, as shown.
+The next operation is similar to the transfer of the NEO. Copy down the code that has insufficient signatures, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `signature`, and copy the code down. Open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `signature` and then `broadcast` to broadcast the transaction to claim your GAS. Once the claim transaction begins broadcasting it will take about 15 seconds for successful remittance to the account.
+
+After successful extraction the GAS will enter the first standard address of the wallet (i.e. the top wallet address) where you initiated the extraction of the GAS, as shown.
 
 ![image](/assets/privatechain_26.png)
