@@ -2,7 +2,7 @@
 
 Les noeuds qui stockent la blockchain entière sont appelés "full-nodes" (noeuds complet). Ils sont connectés à la blockchain à traves un réseau P2P. Chacun des noeuds dans le réseau de la blockchain sont égaux et agissent aussi bien comme une interface client que comme un serveur.
 
-Il existe deux types de programme "full-node". Le premier détient toutes les fonctionnalités de bases d'un client utilisateur en plus d'avoir une interface graphique, c'est le Neo-GUI. Celui-ci est destiné à être utilisé par les utilisateurs de NEO. Le second s'appelle Neo-CLI, il permet l'utilisation d'une API externe pour les fonctionnalités basiques d'un porte feuille et est, lui, plus destiné à être utilisé par les developpeurs. Ce dernier permettra, par ailleurs, aider les autres noeuds à accomplir le consensus dans le réseau et sera impliqué dans la création des nouveaux bloques.
+Il existe deux types de programme "full-node". Le premier détient toutes les fonctionnalités de bases d'un client utilisateur en plus d'avoir une interface graphique, c'est le Neo-GUI. Celui-ci est destiné à être utilisé par les utilisateurs de NEO. Le second s'appelle Neo-CLI, il permet l'utilisation d'une API externe pour les fonctionnalités basiques d'un porte feuille et est, lui, plus destiné à être utilisé par les developpeurs. Ce dernier permettra, par ailleurs, aider les autres noeuds à accomplir le consensus dans le réseau et sera impliqué dans la création des nouveaux blocs.
 
 Le [protocol réseau](network-protocol.md) de NEO fournira une API de bas niveau pour quelques transactions types qui ne sont pas encore supportées par le CLI tels que la réclamation du GAS ou l'envoi de NEO sans un porte-feuille (wallet) ouvert.
 
@@ -39,7 +39,7 @@ Le [protocol réseau](network-protocol.md) de NEO fournira une API de bas niveau
 | Extraction de NEO | ✅    |      |
 | Génération d'adresses en lot  |      | ✅    |
 | JSON-RPC |      | ✅    |
-| Participation dans le consensus des bloques |      | ✅    |
+| Participation dans le consensus des blocs |      | ✅    |
 
 ## Description des ports
 
