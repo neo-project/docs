@@ -143,8 +143,8 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 	- si la transaction ne contient qu'une seule dépense (par exemple, est-ce que la transaction évite un scénario de double-dépense).
 
   **Si la proposition est validée :**
-    <!-- -->
-      <prepareResponse, h, k, i, [block]sigi>
+  <!-- -->
+    <prepareResponse, h, k, i, [block]sigi>
 				
   **Si la proposition est refusée :**
   <!-- -->
