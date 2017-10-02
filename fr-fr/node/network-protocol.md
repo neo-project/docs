@@ -1,10 +1,10 @@
 # Protocol du réseau
 
 
-NEO adopte une structure réseau P2P dans lequel les noeuds peuvent communiquer entre eux au travers du protocol TCP/IP. Dans cette structure, il y a deux différents types de noeuds: les noeuds pairs et les noeuds de validation (dit les Bookkeepers dans le livre blanc de NEO). Les noeuds pairs peuvent diffuser, recevoir et transférer des transactions ou des bloques pendant que les noeuds de validation peuvent quant à eux créer des noeuds.
+NEO adopte une structure réseau P2P dans lequel les noeuds peuvent communiquer entre eux au travers du protocol TCP/IP. Dans cette structure, il y a deux différents types de noeuds: les noeuds pairs et les noeuds de validation (dit les Bookkeepers dans le livre blanc de NEO). Les noeuds pairs peuvent diffuser, recevoir et transférer des transactions ou des blocs pendant que les noeuds de validation peuvent quant à eux créer des noeuds.
 
 
-Le protocol réseau de NEO est, en étant large, assez similaire à celui du Bitcoin. Cependant, les structures de données tels que les bloques ou les transactions sont, quelque peu, différents.
+Le protocol réseau de NEO est, en étant large, assez similaire à celui du Bitcoin. Cependant, les structures de données tels que les blocs ou les transactions sont, quelque peu, différents.
 
 Convention
 ----
@@ -17,9 +17,9 @@ Convention
 
 	Deux différents types de fonction de hashage sont utilisés dans NEO : SHA256 et RIPEMD160. SHA256 est utilisé dans la génération de longue valeur de hashage et RIPEMD160 est utilisé pour de courte valeur de hashage.
 	
-	En général, nous obtenons une valeur hashage d'un objet en utilisant deux fois une fonction de hashage. Par exemple, nous utilisons SHA256 deux fois quant il s'agit de générer la valeur de hashage d'un bloque ou d'une transaction. Lors de la génération d'une adresse de contrat, nous allons utiliser une fonction SHA256 en premier lieu et ensuite utiliser RIPEMD160.
+	En général, nous obtenons une valeur hashage d'un objet en utilisant deux fois une fonction de hashage. Par exemple, nous utilisons SHA256 deux fois quant il s'agit de générer la valeur de hashage d'un bloc ou d'une transaction. Lors de la génération d'une adresse de contrat, nous allons utiliser une fonction SHA256 en premier lieu et ensuite utiliser RIPEMD160.
 	
-	Par ailleurs, le bloque utilisera également une structure de hash appelé : arbre de Merkel. Le principe est le suivant : on va calculer le hash de chaque transaction et les combiner un à un pour les hasher à nouveau. Le processus sera répeté jusqu'à ce que l'ont trouve le hash de la racine (racine de Merkel - Merkel Root).
+	Par ailleurs, le bloc utilisera également une structure de hash appelé : arbre de Merkel. Le principe est le suivant : on va calculer le hash de chaque transaction et les combiner un à un pour les hasher à nouveau. Le processus sera répeté jusqu'à ce que l'ont trouve le hash de la racine (racine de Merkel - Merkel Root).
 	
 1. Type de longueur variable
 
@@ -52,39 +52,39 @@ Type de données
 
 	La blockchain est un type de structure logique qui est connecté en série avec une liste liée a sens unique (one-way linked list). Elle est utilisée pour stocker des données tels que des transactions ou des actifs dans le réseau entier.
 	
-1. Les bloques
+1. Les blocs
 	
 	|Taille|Champs|Type de donnée|Description|
     	|---|---|---|---|
-	|4|Version|uint32|Version du bloque qui est 0 actuellement|
-	|32|PrevBlock|uint256|Valeur de hashage du précédent bloque|
+	|4|Version|uint32|Version du bloc qui est 0 actuellement|
+	|32|PrevBlock|uint256|Valeur de hashage du précédent bloc|
 	|32|MerkleRoot|uint256|Hash du root d'une liste de transactions|
 	|4|Timestamp|uint32|Horodatage|
-	|4|Height|uint32|Taille du bloque|
+	|4|Height|uint32|Taille du bloc|
 	|8|Nonce|uint64|Nombre aléatoire|
 	|20|NextMiner|uint160|Adresse de contact du prochain mineur|
 	|1|-|uint8|Fixé à 1|
-	|?|Script|script|Script utilisé pour valider le bloque|
+	|?|Script|script|Script utilisé pour valider le bloc|
 	|?*?|Transactions|tx[]|Liste de transactions|
    
-	Lors du calcul de la valeur de hashage d'un bloque, au lieu de calculer le bloque en entier, seuls les sept premiers champs dans l'en-tête du bloque sera calculé c'est-à-dire Version, PrevBlock, MerkleRoot, Timestamp, Height, Nonce, NextMiner. En effet, puisque MarkelRoot contient déjà la valeur de hashage de toutes les transactions, la modification d'une transaction aura quand même une influence sur la valeur de hashage du bloque.
+	Lors du calcul de la valeur de hashage d'un bloc, au lieu de calculer le bloc en entier, seuls les sept premiers champs dans l'en-tête du bloc sera calculé c'est-à-dire Version, PrevBlock, MerkleRoot, Timestamp, Height, Nonce, NextMiner. En effet, puisque MarkelRoot contient déjà la valeur de hashage de toutes les transactions, la modification d'une transaction aura quand même une influence sur la valeur de hashage du bloc.
    
-	Structure de donnée du bloque de tête :
+	Structure de donnée du bloc de tête :
 
 	|Taille|Champs|Type de donnée|Description|
 	|---|---|---|---|
-	|4|Version|uint32|Version du bloque qui est 0 actuellement|
-	|32|PrevBlock|uint256|Valeur de hashage du précédent bloque|
+	|4|Version|uint32|Version du bloc qui est 0 actuellement|
+	|32|PrevBlock|uint256|Valeur de hashage du précédent bloc|
 	|32|MerkleRoot|uint256|Hash du root d'une liste de transactions|
 	|4|Timestamp|uint32|Horodatage|
-	|4|Height|uint32|Taille du bloque|
+	|4|Height|uint32|Taille du bloc|
 	|8|Nonce|uint64|Nombre aléatoire|
 	|20|NextMiner|uint160|Adresse de contact du prochain mineur|
 	|1|-|uint8|Fixé à 1|
-	|?|Script|script|Script utilisé pour valider le bloque|
+	|?|Script|script|Script utilisé pour valider le bloc|
 	|1|-|uint8|Fixé à 0|
 	
-	L'horodatage de chaque bloque doit être supérieur à celui du bloque précédent. Généralement, la différence de temps entre deux bloques est d'environ 15 secondes, quelques imprécisions sont acceptées. La taille du bloque doit être exactement égale à la taille du bloque précédent plus un.
+	L'horodatage de chaque bloc doit être supérieur à celui du bloc précédent. Généralement, la différence de temps entre deux blocs est d'environ 15 secondes, quelques imprécisions sont acceptées. La taille du bloc doit être exactement égale à la taille du bloc précédent plus un.
 	
 1. Transactions
 
@@ -119,7 +119,7 @@ Type de données
 		|---|---|---|---|
 		|4|Nonce|uint32|Nombre aléatoire|
 		
-		La première transaction de chaque bloque doit être une MinerTransaction. Elle est utilisée pour donner au validateur toutes les taxes de transactions du bloque courant.
+		La première transaction de chaque bloc doit être une MinerTransaction. Elle est utilisée pour donner au validateur toutes les taxes de transactions du bloc courant.
 		
 		Le nombre aléatoire dans la transaction est utilisé pour éviter une collision de hashage.
 		
@@ -301,16 +301,16 @@ Selon les ordres, Payload a différents formats détaillés :
 
 	|Taille|Champs|Type de donnée|Description|
 	|---|---|---|---|
-	|32*?|HashStart|uint256[]|Hash du bloque le plus ancien que le noeud a demandé|
-	|32|HashStop|uint256|Hash du dernier bloque que le noeud a demandé|
+	|32*?|HashStart|uint256[]|Hash du bloc le plus ancien que le noeud a demandé|
+	|32|HashStop|uint256|Hash du dernier bloc que le noeud a demandé|
 	
-	Fait des requètes à un noeud qui à plus de 2000 paquets d'en-tête de bloques qui contiennent HashStart et HashStop. Pour avoir le hash du bloque d'après, il faut renvoyer un message getheaders. Ce message est utilisé pour rapidement télécharger la blockchain qui ne contient pas de transactions.
+	Fait des requètes à un noeud qui à plus de 2000 paquets d'en-tête de blocs qui contiennent HashStart et HashStop. Pour avoir le hash du bloc d'après, il faut renvoyer un message getheaders. Ce message est utilisé pour rapidement télécharger la blockchain qui ne contient pas de transactions.
 	
 1. headers
 
 	|Taille|Champs|Type de donnée|Description|
 	|---|---|---|---|
-	|?*?|Headers|header[]|En-tête du bloque|
+	|?*?|Headers|header[]|En-tête du bloc|
 	
 	Après avoir reçu le message getheaders, le noeud renvoit un message header comme réponse et fournit les informations concernant les noeuds connu du réseau.
 	
@@ -318,10 +318,10 @@ Selon les ordres, Payload a différents formats détaillés :
 
 	|Taille|Champs|Type de donnée|Description|
 	|---|---|---|---|
-	|32*?|HashStart|uint256[]|Hash du bloque le plus ancien que le noeud a demandé|
-	|32|HashStop|uint256|Hash du dernier bloque que le noeud a demandé|
+	|32*?|HashStart|uint256[]|Hash du bloc le plus ancien que le noeud a demandé|
+	|32|HashStop|uint256|Hash du dernier bloc que le noeud a demandé|
 	
-	Fait des requètes à un noeuds dans l'optique de recevoir des messages inv qui commenceront de HashStart à HashStop. Le nombre de bloques qui commence de HashStart à HashStop peut aller jusque 500. Si il faut avoir plus de bloques que cela, il faut renvoyer un message getblocks.
+	Fait des requètes à un noeuds dans l'optique de recevoir des messages inv qui commenceront de HashStart à HashStop. Le nombre de blocs qui commence de HashStart à HashStop peut aller jusque 500. Si il faut avoir plus de blocs que cela, il faut renvoyer un message getblocks.
 	
 1. inv
 
@@ -343,7 +343,7 @@ Selon les ordres, Payload a différents formats détaillés :
 	|Valeur|Nom|Description|
 	|---|---|---|
 	|0x01|TX|Transaction|
-	|0x02|Block|Bloque|
+	|0x02|Block|bloc|
 	|0xe0|Consensus|Données de consensus|
 	
 1. getdata
@@ -358,9 +358,9 @@ Selon les ordres, Payload a différents formats détaillés :
 
 	|Taille|Champs|Type de donnée|Description|
 	|---|---|---|---|
-	|?|Block|block|Bloque|
+	|?|Block|block|bloc|
 	
-	Envoie un bloque à un noeud pour répondre à un message getdata.
+	Envoie un bloc à un noeud pour répondre à un message getdata.
 	
 1. tx
 
@@ -372,5 +372,5 @@ Selon les ordres, Payload a différents formats détaillés :
 
 	|Taille|Champs|Type de donnée|Description|
 	|----|---------|--------- |----------------- |
-	|32*?|HashStart|uint256[]|Noeud qui est connu comme le hash du bloque le plus ancien|
-	|32|hashStop|uint256|Dmande le dernier bloque|
+	|32*?|HashStart|uint256[]|Noeud qui est connu comme le hash du bloc le plus ancien|
+	|32|hashStop|uint256|Dmande le dernier bloc|
