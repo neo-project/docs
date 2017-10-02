@@ -25,8 +25,8 @@ Convention
 		
           |Valeur|Longueur|Format|
 	  |---|---|---|
-	  |< 0xfd|1|uint8|
-	  |<= 0xffff|3|0xfd + uint16|
+          |< 0xfd|1|uint8|
+          |<= 0xffff|3|0xfd + uint16|
 	  |<= 0xffffffff|5|0xfe + uint32|
 	  |> 0xffffffff|9|0xff + uint64|
 		
@@ -113,9 +113,9 @@ Type de données
 	
      + MinerTransaction
 	
-          |Taille|Champs|Type de données|Description|
-	  |---|---|---|---|
-	  |4|Nonce|uint32|Nombre aléatoire|
+     |Taille|Champs|Type de données|Description|
+     |---|---|---|---|
+     |4|Nonce|uint32|Nombre aléatoire|
 		
      La première transaction de chaque bloc doit être une MinerTransaction. Elle est utilisée pour donner au validateur toutes les taxes de transactions du bloc courant.
 		
@@ -131,15 +131,15 @@ Type de données
    
      + ClaimTransaction
 	
-          |Taille|Champs|Type de données|Description|
-	  |---|---|---|---|
-	  |34*?|Claims|tx_in[]|NEOs pour la distribution|
+     |Taille|Champs|Type de données|Description|
+     |---|---|---|---|
+     |34*?|Claims|tx_in[]|NEOs pour la distribution|
 		
      + EnrollmentTransaction
 
-          |Size|Field|DataType|Description|
-	  |---|---|---|---|
-	  |33|PublicKey|ec_point|Clé publique du validateur|
+     |Size|Field|DataType|Description|
+     |---|---|---|---|
+     |33|PublicKey|ec_point|Clé publique du validateur|
 		
      Cette transaction représente un formulaire d'inscription qui indique que le promoteur de la transaction voudrait s'inscrire en tant que validateur.
 		
@@ -171,12 +171,12 @@ Type de données
 		
      + Invoquer une transaction
 	
-          | Taille   | Champs     | Type de donnée    | Description              |
-	  | ---- | ------ | ------- | --------------- |
-	  | -    | -      | -       | Champs publiques pour les transactions        |
-	  | ?    | Script | uint8[] | Invoqué par un contrat intelligent     |
-	  | 8    | Gas    | int64   | Coût requis pour lancer le contrat intelligent |
-	  | -    | -      | -       | Champs publiques pour les transactions         |
+     | Taille   | Champs     | Type de donnée    | Description              |
+     | ---- | ------ | ------- | --------------- |
+     | -    | -      | -       | Champs publiques pour les transactions        |
+     | ?    | Script | uint8[] | Invoqué par un contrat intelligent     |
+     | 8    | Gas    | int64   | Coût requis pour lancer le contrat intelligent |
+     | -    | -      | -       | Champs publiques pour les transactions         |
 		
 1. Attributs d'une transaction
 
