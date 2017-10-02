@@ -16,7 +16,7 @@
 **Dans l'algoritme du consensus de NEO, les noeuds de consensus sont élu par les détenteurs de NEO et vote la validité des transactions. Ces noeuds sont également nommés "Bookkeepers". Dans les lignes suivantes, ces noeuds seront désignés comme "Noeuds de Consensus".**
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Noeuds de Consensus** - Ces noeuds participent aux activités de consensus. Pendant une activité de consensus, les noeuds de consensus vont assumer les deux rôles suivant tour à tour :
-  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Orateur** `(Un)` - L'**Orateur** est responsable de la transmission d'une proposition de bloque dans le système.
+  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Orateur** `(Un)` - L'**Orateur** est responsable de la transmission d'une proposition de bloc dans le système.
   - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Délégué** `(Multiples)` - Les **Délégués** ont la responsabilité d'aboutir à un consensus sur la transaction.
   
 ## 3 - Introduction
@@ -39,7 +39,7 @@ Pour les besoins de la discussion, nous allons décrire différents scénario. D
 
   <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figure 1:</b> Un exemple avec n = 3 et un <b>délégué</b> malhonnête.</p>
   
-Dans la **figure 1**, nous avons seulement un seul **délégué** loyal (50%). Les deux **délégués** reçoive le même message d'un **orateur** honnête. Cependant, comme un des deux est malhonnête, celui qui est honnête peut seulement déterminer qu'il y a un noeud malhonnête mais il n'est pas dans la capacité de savoir si c'est le nucléateur du bloque (l'**orateur) ou le **délégué**. A cause de cela, ce **délégué** doit s'abstenir de vote, changeant la vue.
+Dans la **figure 1**, nous avons seulement un seul **délégué** loyal (50%). Les deux **délégués** reçoive le même message d'un **orateur** honnête. Cependant, comme un des deux est malhonnête, celui qui est honnête peut seulement déterminer qu'il y a un noeud malhonnête mais il n'est pas dans la capacité de savoir si c'est le nucléateur du bloc (l'**orateur) ou le **délégué**. A cause de cela, ce **délégué** doit s'abstenir de vote, changeant la vue.
 
   <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> Un exemple avec n = 4 et un <b>délégué</b> malhonnête.</p>
 
@@ -53,7 +53,7 @@ Dans le cas de la **figure 3** avec un **orateur**, nous avons une fin identique
 
   <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figure 4:</b> Un exemple avec n = 4 et un <b>orateur</b> malhonnête. </p>
 
-Dans l'exemple exposé par la **figure 4**, les bloques reçus par le noeud du milieu et celui à droite ne sont pas validable. Cela les incite à changer de vue et à élire un nouvel **orateur** parce qu'ils détiennent une majorité à 66%. Dans cet exemple, si l'**orateur** malhonnêteavait envoyé des données correctes à deux des trois **délégués**, cela aurait été validé sans le besoin de changer de vue.
+Dans l'exemple exposé par la **figure 4**, les blocs reçus par le noeud du milieu et celui à droite ne sont pas validable. Cela les incite à changer de vue et à élire un nouvel **orateur** parce qu'ils détiennent une majorité à 66%. Dans cet exemple, si l'**orateur** malhonnêteavait envoyé des données correctes à deux des trois **délégués**, cela aurait été validé sans le besoin de changer de vue.
 
 ## 5 - Implémentation pratique
 
@@ -63,13 +63,13 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 
 <img src="/assets/consensus.iterations.png" width="800">
 
-**Figure 5 :** La méthode de simulation de Monte-Carlo du dBFT représente le nombre d'itération requis pour atteindre un consensus. {100 noeuds; 100,000 bloques simulés avec une séléction aléatoire de noeuds honnête}
+**Figure 5 :** La méthode de simulation de Monte-Carlo du dBFT représente le nombre d'itération requis pour atteindre un consensus. {100 noeuds; 100,000 blocs simulés avec une séléction aléatoire de noeuds honnête}
 
 ### 5.1 - Définitions
 
 **Dans l'algorithme, nous définissons les variables suivantes :**
 
-- `t`: Le temps alloué à la génération d'un bloque, mesuré en secondes/
+- `t`: Le temps alloué à la génération d'un bloc, mesuré en secondes/
 	- Actuellement: `t = 15 secondes`
 		- Cette valeur peut être utilisée pour approximer grossièrement la durée de l'itération d'une vue tels que l'activité de consensus et les évènements de communication sont relativement aussi rapide que cette constante de temps.
 			
@@ -81,7 +81,7 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 	- `f = (n -1) / 3`
 		
 		
-- `h` : La taille du bloque actuel pendant l'activité de consensus.
+- `h` : La taille du bloc actuel pendant l'activité de consensus.
 	
 	
 - `i` : L'index des **noeuds de consensus**
@@ -104,7 +104,7 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 
 **Dans le système NEO, il existe trois prérequis pour avoir une tolérance à l'erreur du consensus :**
 
-1. `s` **délégués** doivent atteindre un consensus sur une transaction avant qu'un bloque puis être réalisé.
+1. `s` **délégués** doivent atteindre un consensus sur une transaction avant qu'un bloc puis être réalisé.
 
 2. Les **noeuds de consensus** malhonnêtes ne doivent pas être capable de convaincre les **noeuds de consenus** honnêtes de transactions fautives.
 
@@ -131,9 +131,9 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
   
 5. L'**orateur** diffuse la proposition :
   <!-- -->
-	<prepareRequest, h, k, p, block, [block]sigp>
-		
-		<p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> L'<b>orateur</b> présente une proposition de bloque qui va être passée en revue par les <b>délégués</b>. </p>
+    <prepareRequest, h, k, p, block, [block]sigp>
+    
+  <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> L'<b>orateur</b> présente une proposition de bloc qui va être passée en revue par les <b>délégués</b>. </p>
 		
 6. Les **délégués** reçoivent la proposition et valident :
 
@@ -143,8 +143,8 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 	- si la transaction ne contient qu'une seule dépense (par exemple, est-ce que la transaction évite un scénario de double-dépense).
 
   **Si la proposition est validée :**
-    <!-- -->
-      <prepareResponse, h, k, i, [block]sigi>
+  <!-- -->
+    <prepareResponse, h, k, i, [block]sigi>
 				
   **Si la proposition est refusée :**
   <!-- -->
@@ -152,13 +152,13 @@ Il faut savoir que la **figure 5** ne va pas en dessous de 66,66% de **noeuds de
 				
   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> Les <b>délégués</b> passe en revue la proposition et répondent. </p>
 	
-7. Après avoir reçu `s` nombre de messages broadcast "prepareResponse", un **délégué** atteint le consensus et décide de publier un bloque.
+7. Après avoir reçu `s` nombre de messages broadcast "prepareResponse", un **délégué** atteint le consensus et décide de publier un bloc.
 
-8. Les **délégués** signent le bloque.
+8. Les **délégués** signent le bloc.
 
-   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figure 10:</b> Un consensus est atteint et les <b>délégués</b> donnant leur approbation signent le bloque, l'accrochant à la chaîne. </p>
+   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figure 10:</b> Un consensus est atteint et les <b>délégués</b> donnant leur approbation signent le bloc, l'accrochant à la chaîne. </p>
    
-9. Quand un **noeud de consensus** reçoit un bloque complet, les données de la vue courrante sont purgés et un nouveau tour de consensus est commencé.
+9. Quand un **noeud de consensus** reçoit un bloc complet, les données de la vue courrante sont purgés et un nouveau tour de consensus est commencé.
   - `k = 0`
 		
 ---
@@ -171,7 +171,7 @@ Si après   (![timeout](/assets/consensus.timeout.png) )  secondes dans la même
   <!-- -->
     <ChangeView, h,k,i,k+1>
 				
-	- Une fois qu'un **noeud de consensus** reçoit au moins `s` nombre de message broadcast indiquant un changement de vue, cela incrémente la vue `v`, enclenchant un nouveau tour de consensus.
+  - Une fois qu'un **noeud de consensus** reçoit au moins `s` nombre de message broadcast indiquant un changement de vue, cela incrémente la vue `v`, enclenchant un nouveau tour de consensus.
 	
 ## 6 - Références
 
