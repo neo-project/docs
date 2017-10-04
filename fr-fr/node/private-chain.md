@@ -135,7 +135,7 @@ Vous verrez ensuite que l'adresse de contrat possède 100 million de NEO shares.
 
 Ici nous voulons envoyer des NEOs de l'adresse de contrat vers une adresse normale. Pour se faire, ouvrez n'importe lequels des quatres porte-feuilles, cliquez sur `Transaction`, puis `Transfer`et entrez l'adresse du bénéficiaire dans le but de transférer les 100 MILLIONS de NEO.
 
-Ensuite, le système va indiquer que la structure est complète mais qu'il n'y a pas encore assez de signatures. Copiez le code, ouvrez le second porte-feuille, cliquez sur `Transaction`, puis `Transfer` et collez le code que vous avez juste copié. Cliquez sur `Sign` et copiez à nouveau le code et faites de même avec le code que vous venez de copier. Cliquez sur `Sign`. A ce moment, un pop-up va apparaître montrant un bouton `Broadcast` ce qui signifie que le processus de signature est fini (le nombre minimum de signatures requises pour le contrat a été atteint). La transaction peut maintenant être diffusé. Cliquez sur `Broadcast`. Cela va prendre environ 15 secondes pour que la transaction soit totalement faite.
+Ensuite, le système va indiquer qu'il n'y a pas encore assez de signatures pour complêter la transaction. Copiez le code, ouvrez le second porte-feuille, cliquez sur `Transaction`, puis `Transfer` et collez le code que vous avez juste copié. Cliquez sur `Sign` et copiez à nouveau le code et faites de même avec le code que vous venez de copier. Cliquez sur `Sign`. A ce moment, un pop-up va apparaître montrant un bouton `Broadcast` ce qui signifie que le processus de signature est fini (le nombre minimum de signatures requises pour le contrat a été atteint). La transaction peut maintenant être diffusé. Cliquez sur `Broadcast`. Cela va prendre environ 15 secondes pour que la transaction soit totalement faite.
 
 ![image](/assets/privatechain_20.png)
 
@@ -143,7 +143,7 @@ L'opération pour extraire le GAS est similaire, cliquez sur `Advanced`, `Claim 
 
 ![image](/assets/privatechain_21.png)
 
-La prochaine opération est similaire au transfert des NEOs. Copiez le code qui a un nombre insuffisant de signatures, ouvrez le second porte-feuille, cliquez sur `Transaction`, puis `Transfer` et collez le code. Faites de même avec le troisième porte-feuille. Cliquez sur `Broadcast` pour diffuser la transaction pour réclamer le GAS. Cette action prendra également 15 secondes pour être un succès.
+La prochaine opération est similaire au transfert des NEOs. Copiez le code, ouvrez le second porte-feuille, cliquez sur `Transaction`, puis `Transfer` et collez le code. Faites de même avec le troisième porte-feuille. Cliquez sur `Broadcast` pour diffuser la transaction pour réclamer le GAS. Cette action prendra également 15 secondes pour être un succès.
 Après l'extraction, le GAS va entrer dans la première adresse standard du porte feuille d'où l'extraction de GAS a été initiée.
 
 ![image](/assets/privatechain_26.png)
