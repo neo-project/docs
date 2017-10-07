@@ -17,3 +17,5 @@
       href: node/testnet.md
     - name: CLI Commands
       href: node/cli.md
+    - name: Private Chain
+      href: node/private-chain.md
