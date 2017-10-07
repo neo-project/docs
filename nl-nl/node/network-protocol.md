@@ -202,174 +202,173 @@ Data Type
    |0xa1-0xaf|Hash1-Hash15| Om aangepaste hashwaardes op te slaan|
    |0xf0-0xff|Remark-Remark15|Opmerkingen|
 
-   For ContractHash, ECDH series, Hash series, data length is fixed to 32 bytes and length field is omitted;
+   Voor ContractHash, ECDH series en Hash series is de data-lengte altijd 32 bytes en het lengte-veld weggelaten;
 
-   For CertUrl, DescriptionUrl, Description, Remark series, the data length must be clearly defined, and the length should not exceed 255;
+   Voor CertUrl, DescriptionUrl, Description en Remark series moet de data-lengte duidelijk worden vernoemd, waarbij de lengte niet groter mag zijn dan 255;
 
 1. Input of Transaction
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |32|PrevHash|uint256|Previous transaction's hash|
-   |2|PrevIndex|uint16|Previous transaction's index|
+   |32|PrevHash|uint256|Vorige transactie's hash|
+   |2|PrevIndex|uint16|Vorige transactie's index|
 
 1. Output of Transaction
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |32|AssetId|uint256|Asset id|
-   |8|Value|int64|Value|
-   |20|ScriptHash|uint160|Address of remittee|
+   |32|AssetId|uint256|Asset-ID|
+   |8|Value|int64|Waarde|
+   |20|ScriptHash|uint160|Addres van remittee|
 
-   Each transaction can have outputs up to 65536.
+   Elke transactie kan outputs hebben tot 65536.
 
 1. Validation Script
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
    |?|StackScript|uint8[]|Stack script code|
    |?|RedeemScript|uint8[]|Contract script code|
 
-   Stack script can only be used for the PUSH operations, which is used to push data like signatures into the stack. The script interpreter will execute the stack script code first, and then execute the contract script code.
+   Stack script kunnen alleen worden gebruikt voor PUSH-acties, welke worden gebruikt om signatures aan de stack toe te voegen. De script interpreter zal de stack script code eerst uitvoeren, daarna de contract script code.
 
-   In a transaction, the hash value of the contract script code must be consistent with the transaction output, which is part of the validation. The later section will describe the execution process of the script in detail.
+   In een transactie moet de hashwaarde van de contract script code consistent zijn met de transactie-output, wat onderdeel is van de validatie. Een latere sectie zal de uitvoering van het script in detail toelichten.
 
 Network Message
 -------
 
-All network messages are sent in this structure:
+Alle netwerkberichten worden volgens deze structuur gezonden:
 
-|Size|Field|DataType|Description|
+| Grootte  | Veld    | Data Type     | Omschrijving         |
 |---|---|---|---|
-|4|Magic|uint32|Protocol ID|
+|4|Magic|uint32|Protocol-ID|
 |12|Command|char[12]|Command|
-|4|length|uint32|Length of payload|
+|4|length|uint32|Lengte van inhoud (Payload)|
 |4|Checksum|uint32|Checksum|
-|length|Payload|uint8[length]|Content of message|
+|length|Payload|uint8[length]|Inhoud of message|
 
 Defined Magic value:
 
-|Value|Description|
+|Waarde|Omschrijving|
 |---|---|
-|0x00746e41|Production mode|
-|0x74746e41|Test mode|
+|0x00746e41|Productie-modus|
+|0x74746e41|Testmodus|
 
-Command is utf8 code, of which the length is 12 bytes, the extra part is filled with 0.
+Command is in UTF8 code met als lengte 12 bytes; het extra deel is gevuld met 0.
 
-Checksum is the first 4 bytes of the value that two times SHA256 hash of the Payload.
+Checksum is de eerste 4 bytes van de waarde van tweemaal de SHA256 hash van de Payload.
 
-According to different orders Payload has different detailed format, see below:
+Afhankelijk van verschillende orders heeft de Payload een ander format, zie hieronder:
 
 1. version
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |4|Version|uint32|Version of protocol, 0 for now|
-   |8|Services|uint64|The service provided by the node is currently 1|
-   |4|Timestamp|uint32|Current time|
-   |2|Port|uint16|Port that the server is listening on, it's 0 if not used.|
-   |4|Nonce|uint32|It's used to distinguish the node from public IP|
-   |?|UserAgent|varstr|Client ID|
-   |4|StartHeight|uint32|Height of block chain|
-   |1|Relay|bool|Whether to receive and forward
+   |4|Version|uint32|Versie van protocol, momenteel 0|
+   |8|Services|uint64|De verleende dienst door de node, momenteel 1|
+   |4|Timestamp|uint32|Huidige tijd|
+   |2|Port|uint16|Port waarop de server luistert (0 wanneer buiten gebruik)|
+   |4|Nonce|uint32|Om onderscheid te maken tussen de node en openbare IP|
+   |?|UserAgent|varstr|Client-ID|
+   |4|StartHeight|uint32|Hoogte van de blockchain|
+   |1|Relay|bool| Of ontvangen moet worden / doorgestuurd moet worden
 
-
-   When a node receives a connection request, it declares its version immediately. There will be no other communication until both sides are getting versions of each other.
+   Als een node een verbindingsaanvraag ontvangt, meldt het meteen de versie. De communicatie gaat pas verder wanneer beide partijen de versie van elkaar hebben ontvangen.
 
 1. verack
 
-   When a node receives the version message, it replies with a verack immediately.
-
-   This message has no payload.
+   Als een node het versiebericht ontvangt, reageert het meteen met een verack.
+   
+   Dit bericht heeft geen payload.
 
 1. getaddr
 
-   Make requests to a node for a batch of new active nodes in order to increase the number of connections.
+   Maak een aanvraag naar een node voor een batch van nieuwe actieve nodes om het aantal connecties te vergroten.
 
-   This message has no payload.
+   Dit bericht heeft geen payload.
 
 1. addr
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |30*?|AddressList|net_addr[]|Other nodes' address in network|
+   |30*?|AddressList|net_addr[]|Adres van andere node in het netwerk|
 
-   After receiving the getaddr message, the node returns an addr message as response and provides information about the known nodes on the network.
+   Na het ontvangen van het getaddr bericht, reageert de node met een addr bericht en geeft de node informatie van andere bekende nodes op het netwerk.
 
 1. getheaders
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |32*?|HashStart|uint256[]|Hash of latest block that node requests|
-   |32|HashStop|uint256|Hash of last block that node requests|
+   |32\*?|HashStart|uint256[]|Hash van het laatste block die de node aanvraagt|
+   |32|HashStop|uint256|Hash van het laatste block die de node aanvraagt|
 
-   Make requests to a node for at most 2000 blocks’ header packages that contain HashStart to HashStop. To get the block hash after that, you need to resend the getheaders message. This message is used to quickly download the blockchain which does not contain the transactions.
+   Vraag een node voor de header pakketen van maximaal 2000 blocks, welke HashStart tot HashStop bevatten. Om hierna de block-hash te krijgen, moet het getheaders-bericht opnieuw worden gestuurd. Dit bericht wordt meestal gebruikt om snel de blockchain zonder transacties te downloaden.
 
 1. headers
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |?*?|Headers|header[]|Head of the block|
+   |?\*?|Headers|header[]|Head of the block|
 
-   After receiving the getheaders message, the node returns a header message as response and provides information about the known nodes on the network.
+   Na het ontvangen van het getheaders-bericht, stuurt de node een header-bericht als reactie en geeft hierbij informatie van andere bekende nodes op het netwerk.
 
 1. getblocks
 
-   |Size|Field|DataType|Description|
+   | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |32*?|HashStart|uint256[]|Hash of latest block that node requests|
-   |32|HashStop|uint256|Hash of last block that node requests|
+   |32*?|HashStart|uint256[]|Hash van het laatste block die de node aanvraagt|
+   |32|HashStop|uint256|Hash van het laatste block die de node aanvraagt|
 
-   Make requests to a node for inv message which starts from HashStart to HashStop. The number of blocks which starts from HashStart to HashStop is up to 500. If you want to get block hash more than that, you need to resend getblocks message.
+   Een aanvraag voor een node voor een inv-bericht welke gaat van HashStart tot HashStop. De hoeveelheid blocks welke starten van HashStart tot HashStop is maximaal 500. Als je meer block-hash-waardes dan dat wil ontvangen, dient het getblocks-bericht opnieuw te worden gestuurd.
 
 1. inv
 
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |36*?|Inventories|inv_vect[]|Data of inventories|
+   |36*?|Inventories|inv_vect[]|Data van inventarissen|
 
-   The node can broadcast the object information it owns by this message. The message can be sent automatically or can be used to answer getblocks messages.
+   De node kan de informatie van het object welke het bezit uitzenden door middel van dit bericht. Het bericht kan automatisch worden gestuurd, of om getblocks-berichten te beantwoorden.
 
-   Object information is included in the list:
+   De object-informatie is ingesloten in de lijst:
 
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |4|Type|uint32|Type of object|
-   |32|Hash|uint256|Hash of object|
+   |4|Type|uint32|Type object|
+   |32|Hash|uint256|Hash van object|
 
    Object types:
 
-   |Value|Name|Description|
+   |Waarde|Naam|Omschrijving|
    |---|---|---|
-   |0x01|TX|Transaction|
+   |0x01|TX|Transactie|
    |0x02|Block|Block|
-   |0xe0|Consensus|Consensus data|
+   |0xe0|Consensus|Consensus-data|
 
 1. getdata
 
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |36*?|Inventories|inv_vect[]|Data of inventories|
+   |36*?|Inventories|inv_vect[]|Data van inventarissen|
 
-   To request a specified object from a node: It is usually sent after the inv packet is received and the known element removed.
+   Om een specifiek object van een node aan te vragen, wordt getdata meestal na het ontvangen van het inv-pakket gestuurd met het bekende element verwijderd.
 
 1. block
 
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
    |?|Block|block|Block|
 
-   Sending a block to a node, to respond to the getdata message.
+   Het sturen van een block naar een node, om te antwoorden op het getdata-bericht.
 
 1. tx
 
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |?|Transaction|tx|Transaction|
+   |?|Transaction|tx|Transactie|
 
-   Sending a transaction to a node, to respond to the getdata message.
+   Het sturen van een transactie naar een node, om te antwoorden op een getdata-bericht.
 
-   |Size|field|data type|description|
+   |Grootte|Veld|DataType|Omschrijving|
    |----|---------|--------- |----------------- |
-   |32 *?|HashStart|uint256[]|Node is known as the latest block hash|
-   |32|hashStop|uint256|Request the last block|
+   |32\*?|HashStart|uint256[]|De node is bekend als laatste block hash|
+   |32|hashStop|uint256|Het laatste block aanvragen|
