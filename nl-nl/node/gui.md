@@ -304,7 +304,7 @@ Er zijn twee types assets: Tokens en Shares. We gebruiken hier Tokens als voorbe
 
 ![image](/assets/gui_43.png)
 
-> [!Note!]
+> [!Note]
 > Het registreren van een asset vereist het betalen van een significante hoeveelheid GAS of NEO (op het hoofdnetwerk 10.000 GAS, op het testnetwerk 100 NEO). Dit kan niet ongedaan worden gemaakt.
 
 ### Asset Distribution
