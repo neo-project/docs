@@ -21,5 +21,8 @@
       href: node/private-chain.md
     - name: API Referentie
       href: node/api.md
+      items:
+        - name: getbalance
+          href: node/api/getbalance.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
