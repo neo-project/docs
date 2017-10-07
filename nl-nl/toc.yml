@@ -6,3 +6,6 @@
   href: node/introduction.md
 - name: Bijdragers
   href: contributors.md
+  items:
+    - name: Introduction
+      href: node/introduction.md
