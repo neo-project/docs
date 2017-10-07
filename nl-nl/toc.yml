@@ -11,3 +11,5 @@
       href: node/introduction.md
     - name: Installatie
       href: node/setup.md
+    - name: Graphical User Interface
+      href: node/gui.md
