@@ -1,7 +1,7 @@
 # NEO Node Introductie
 Nodes die de gehele blockchain bijhouden heten "*full-nodes*". Ze zijn verbonden met de blockchain door middel van een P2P netwerk. Alle nodes binnen het blockchain-netwerk zijn gelijk; ze fungeren tegelijkertijd als een client interface en als server.
 
-Er zijn twee full-node programma's. Het eerste is NEO-GUI; deze heeft alle basisfuncties van een gebruikers-interface, inclusief een grafische interface, en is bedoeld voor NEO-gebruikers. Het tweede is NEO-CLI, welke een externe API verschaft voor basale wallet-functies en welke bedoeld is voor NEO-ontwikkelaars. Deze zal ook andere nodes helpen bij het bereiken van een consensus binnen het netwerk, en is betrokken bij het genereren van nieuwe blocks.
+Er zijn twee full-node programma's. Het eerste is Neo-GUI; deze heeft alle basisfuncties van een gebruikers-interface, inclusief een grafische interface, en is bedoeld voor NEO-gebruikers. Het tweede is Neo-CLI, welke een externe API verschaft voor basale wallet-functies en welke bedoeld is voor NEO-ontwikkelaars. Deze zal ook andere nodes helpen bij het bereiken van een consensus binnen het netwerk, en is betrokken bij het genereren van nieuwe blocks.
 
 Het NEO [netwerkprotocol](network-protocol.md) verstrekt een simpele API voor enkele transactietypes die momenteel nog niet worden ondersteund door de CLI, zoals het claimen van GAS of het zenden van NEO zonder een geopende wallet.
 
