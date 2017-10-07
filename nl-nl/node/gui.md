@@ -1,4 +1,4 @@
-# Instructies voor Gebruik van de Client
+# Gebruik van de Neo-GUI-Client
 
 ## Overzicht
 
@@ -91,53 +91,61 @@ Na het tekenen van een transactie, wordt deze verzonden naar het gehele netwerk 
 Het is mogelijk een adres van een andere partij te importeren, waarna het mogelijk is de assets van dat adres te zien.
 
 ## Wallet
-### Create the wallet database
+### New Wallet Database
 
-(1) Click on the `wallet`, `create the wallet database`, pop-up `new wallet` page.
+(1) Klik op de  `wallet`, `New Wallet Database`. De `new wallet` pop-up zal verschijnen.
 
 ![image](/assets/gui_2.png)
 
-(2) Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
+(2) Klik op `browse` om de opslaglocatie van het wallet-bestand te selecteren, geef het bestand een naam en klik op `Save`.
 
 ![image](/es-es/node/assets/gui/gui_3.png)
 
-(3) Enter `password` and `repeat password` and save your own password.
+(3) Vul het wachtwoord in onder `password` en `repeat password` en bewaar deze zorgvuldig.
 
 ![image](/assets/gui_4.png)
 
-(4) Click `OK` and the wallet will be successfully created, which by default will come with a standard account. It should be noted that due to the role of change mechanism, the remainder of the assets will be transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
+(4) Klik op `OK` om de wallet aan te maken. Deze bevat standaard een standaard account. 
 
-### Open the wallet database
-(1) Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
+> [!Opmerking]
+> Wanneer er 'wisselgeld' wordt gegeven, zullen de overgebleven assets standaard worden overgezet naar het eerste adres. Om deze reden wordt het aanbevolen om de bijbehorende private key en wallet te bewaren.
+
+### Open Wallet Database
+(1) Elke keer dat de client wordt geopend, dient te worden geklikt op `Open Wallet Database` om te selecteren welke wallet geopend moet worden (zie afbeelding hieronder).
 
 ![image](/assets/gui_5.png)
 
-(2) Click `Browse 'to select the wallet (usually the default is the last open wallet), enter the password, click `OK` to enter the wallet.
-It should be noted that when the wallet displays an error, you can try to choose "repair mode" to open the wallet.
+(2) Klik op `browse` om de wallet te selecteren (standaard is de laatst geopende wallet geselecteerd), voer het wachtwoord in en klik op `OK` om de wallet te openen.
+
+> [!Opmerking]
+> Wanneer de wallet een foutmelding geeft, kan dit mogelijk worden opgelost door de wallet te openen met behulp van de 'repair mode'.
 
 ### Change Password
 
-Can be used to modify the wallet password.
+Dit kan worden gebruikt om het wachtwoord van de wallet te wijzigen.
 
 ![image](/assets/gui_6.png)
 
-After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
+Nadat het wachtwoord is veranderd, is het van belang een nieuwe backup te maken van de wallet, aangezien oudere versies niet het nieuwe wachtwoord zullen bevatten.
 
 ### Rebuild the wallet index
 
-This option is used to restore errors in the client when an exception occurs. The Wallet Index may need to be rebuilt in the following cases:
+Deze functie bestaat om de client te herstellen wanneer een fout ontstaat. Het kan nodig zijn de Wallet Index opnieuw op te bouwen in de volgende situaties:
 
-1. After the import of a private key.
+1. Na het importeren van een private key.
 
-2. A transaction that has not been confirmed after a long time.
+2. Bij een transactie die na lange tijd nog niet bevestigd is.
 
-3. The wallet assets show errors and blockchain data does not match.
+3. Wanneer de wallet assets of de  blockchain data niet kloppen.
 
-As the current block height is very high, rebuilding the wallet index can take several minutes. Please be patient.
+Als de block-hoogte hoog is, kan het opnieuw bouwen van de Wallet Index verscheidene minuten duren. Wees a.u.b. geduldig.
 
 ### Restore the account
 
-This option is used to restore the address of the wallet file that was accidentally deleted and its assets. It should be noted that it is generally not recommended to delete the operation within the client, to avoid loss of assets.
+Deze functie bestaat om het adres van een wallet-bestand te herstellen wanneer deze per ongelijk is verwijderd. 
+
+> [!Opmerking]
+> Het wordt afgeraden om een handeling vanuit de client te verwijderen, om verlies van assets te voorkomen.
 
 ## Trade
 
@@ -145,15 +153,15 @@ This option is used to restore the address of the wallet file that was accidenta
 
 #### Token Asset Transfer
 
-(1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+(1) Klik op `Transaction`, `Transfer`, `+` en voer de transactie-informatie in.
 
-![image](/assets/gui_10.png)
+![image](/en-us/assets/gui_10.png)
 
-(2) Click OK.
+(2) Klik op `OK`.
 
 ![image](/assets/gui_11.png)
 
-(3) Click OK.
+(3) Klik op `OK`.
 
 ![image](/zh-cn/node/assets/i.png)
 
