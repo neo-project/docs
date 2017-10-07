@@ -61,146 +61,146 @@ Data Type
    |20|NextMiner|uint160|Contract-addres van de volgende miner|
    |1|-|uint8| Staat vast op 1 |
    |?|Script|script| Het gebruikte validatiescript voor de block|
-   |?*?|Transactions|tx[]|Lijst van transacties|
+   |?\*? |Transactions|tx[]|Lijst van transacties|
 
-   When calculating the hash value of the block, instead of calculating the entire block, only first seven fields in the block head will be calculated, which are version, PrevBlock, MerkleRoot, timestamp, and height, the nonce, NextMiner. Since MerkleRoot already contains the hash value of all transactions, the modification of transaction will influence the hash value of the block.
+   Bij het berekenen van de hashwaarde van een block worden alleen de eerste zeven velden in het block berekend, in plaats van het gehele block. Dit zijn: version, PrevBlock, MerkleRoot, timestamp, height, nonce en NextMiner. Aangezien MerkleRoot al de hashwaarde van alle transacties bevat, zal aanpassing van een transactie de hashwaarde van het block veranderen.
+   
+   Datastructuur van de block head:
 
-   Data structure of block head:
-
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |4|Version|uint32|Version of the block which is 0 for now|
-   |32|PrevBlock|uint256|Hash value of the previous block|
-   |32|MerkleRoot|uint256|Root hash of a transaction list|
-   |4|Timestamp|uint32|Time-stamp|
-   |4|Height|uint32|Height of block|
-   |8|Nonce|uint64|Random number|
-   |20|NextMiner|uint160|Contract address of next miner|
-   |1|-|uint8|It's fixed to 1|
-   |?|Script|script|Script used to validate the block|
-   |1|-|uint8|It's fixed to 0|
+   |4|Version|uint32|Versie van het block welke nu 0 is|
+   |32|PrevBlock|uint256|Hashwaarde van het vorige blok|
+   |32|MerkleRoot|uint256|Root-hash van een lijst van transacties|
+   |4|Timestamp|uint32|Tijdsaanduiding|
+   |4|Height|uint32|Blockhoogte|
+   |8|Nonce|uint64|Willekeurig getal|
+   |20|NextMiner|uint160|Contract-addres van de volgende miner|
+   |1|-|uint8|Staat vast op 1|
+   |?|Script|script|Het gebruikte validatiescript voor de block|
+   |1|-|uint8|Staat vast op 0|
 
-   The time-stamp of each block must be later than previous block's time stamp. Generally the difference of two block's time stamp is about 15 seconds and imprecision is allowed. The height of the block must be exactly equal to the height of the previous block plus 1.
-
+   De tijdsaanduiding op elk block moet later zijn dan die van het block ervoor. Normaal gesproken is het verschil ongeveer 15 seconden. De tijdsaanduiding hoeft niet tot op de milliseconde te kloppen. De hoogte van de blockchain moet exact gelijk zijn als die van de block hiervoor plus een.
+   
 1. Transaction
 
-   |Size|Field|DataType|Description|
+   |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |1|Type|uint8|Type of transaction|
-   |1|Version|uint8|Trading version, currently 0|
-   |?|-|-|Data specific to transaction types|
-   |?*?|Attributes|tx_attr[]|Additional features that the transaction has|
-   |34*?|Inputs|tx_in[]|Input|
-   |60*?|Outputs|tx_out[]|Output|
-   |?*?|Scripts|script[]|List of scripts used to validate the transaction|
+   |1|Type|uint8|Type van de transactie|
+   |1|Version|uint8|Trading version, momenteel 0|
+   |?|-|-|Type-specifieke data|
+   |?\*?|Attributes|tx_attr[]|Aanvullende transactie-eigenschappen|
+   |34\*?|Inputs|tx_in[]|Input|
+   |60\*?|Outputs|tx_out[]|Output|
+   |?\*?|Scripts|script[]|Lijst van validatiescripts voor de transactie|
 
-   All processes in NEO system are recorded as transactions. There are several types of transactions:
+   Alle processen in het NEO-systeem worden opgeslagen als transactie. Er zijn verschillende typen transacties:
 
-   |Value|Name|System Fee|Description|
+   |Waarde|Naam|System Fee|Omschrijving|
    |---|---|---|---|
-   |0x00|MinerTransaction|0|Assign byte fees|
-   |0x01|IssueTransaction|500\|0|Inssuance of asset|
-   |0x02|ClaimTransaction|0|Assign GAS|
-   |0x20|EnrollmentTransaction|1000|Enrollment for validator|
-   |0x40|RegisterTransaction|10000|Assets register|
-   |0x80|ContractTransaction|0|Contract transaction|
-   |0xd0|PublishTransaction|500 * n|(Not usable) Special Transactions for Smart Contracts|
-   |0xd1|InvocationTransaction|0|Special transactions for calling Smart Contracts|
+   |0x00|MinerTransaction|0|Byte-fees toeschrijven|
+   |0x01|IssueTransaction|500\|0|Een asset toeschrijven|
+   |0x02|ClaimTransaction|0|GAS toe-eigenen|
+   |0x20|EnrollmentTransaction|1000|Meedingen voor positie als validator|
+   |0x40|RegisterTransaction|10000|Asset registreren|
+   |0x80|ContractTransaction|0|Contract transactie|
+   |0xd0|PublishTransaction|500 * n|(Niet functioneel) Speciale transacties voor Smart Contracts|
+   |0xd1|InvocationTransaction|0|Speciale transacties voor het beroep doen op Smart Contracts|
 
-   Each type of transaction, in addition to the public field, also has its own exclusive field. The following will describe these exclusive fields in detail.
+   Elk type transactie heeft naast een publiek veld ook een eigen veld:
 
    + MinerTransaction
 
-      |Size|Field|DataType|Description|
+      |Grootte|Veld|DataType|Omschrijving|
       |---|---|---|---|
-      |4|Nonce|uint32|random number|
+      |4|Nonce|uint32|Willekeurig getal|
 
-      The first transaction in each block must be MinerTransaction. It is used to reward all transaction fees of the current block to the validator.
-
-      Random number in the transaction is used to avoid hash collision.
+      De eerste transactie in elk block moet een MinerTransaction zijn. Deze worden gebruikt om alle transactie-feest toe te schrijven aan de validator.
+      
+      Er wordt gebruik gemaakt van een willekeurig getal in de transactie om het botsen van hashwaardes te voorkomen.
 
    + IssueTransaction
 
-      There are no special fields for an issue transaction.
-
-      Asset managers can create the assets that have been registered in NEO's block chain through IssueTransaction, and sent them to any address.
-
-      In particular, if the assets which being issued are NEO, then the transaction will be sent free.
-
-      Random number in the transaction is used to avoid hash collision.
+      Er zijn geen speciale velden voor een issue transactie.
+      
+      Asset-beheerders kunnen de assets aanmaken die zijn geregistreerd in NEO's blockchain door middel van IsueTransaction, en ze vervolgens naar een adres sturen.
+      
+      Als de verstuurde asset NEO is, zal de transactie gratis worden uitgevoerd.
+      
+      Er wordt gebruik gemaakt van een willekeurig getal in de transactie om het botsen van hashwaardes te voorkomen.
 
    + ClaimTransaction
 
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |34*?|Claims|tx_in[]|NEO for distribution|
+      |Grootte|Veld  |DataType| Omschrijving       |
+      |-------|------|------- |--------------------|
+      |34*?   |Claims|tx_in[] |NEO voor distributie|
 
    + EnrollmentTransaction
 
-      |Size|Field|DataType|Description|
-      |---|---|---|---|
-      |33|PublicKey|ec_point|public key of validator|
+      |Grootte| Veld    |DataType| Omschrijving              |
+      |-------|---------|--------|---------------------------|
+      |33     |PublicKey|ec_point|public key van de validator|
 
-      The transaction represents an enrollment form, which indicates that the sponsor of the transaction would like to sign up as a validator.
-
-      The way to sign up is: To construct an EnrollmentTransaction type of transaction, and send a deposit to the address of the PublicKey.
-
-      The way to cancel the registration is: Spend the deposit on the address of the PublicKey.
+      De transactie vertegenwoordigt een inschrijvingsformulier, welke aangeeft dat de sponsor van de transactie zich wil aanmelden als validator.
+      
+      Inschrijven gaat als volgt: creëer een EnrollmentTransaction-type transactie en stuur een storting naar het adres van de PublicKey.
+      
+      Om de registratie te annuleren, dient de storting te worden uitgegeven vanuit de PublicKey.
 
    + RegisterTransaction
 
       > [!Warning]
-      Has been deactived and replaced by Neo.Asset.Create for the smart contract.
+      Is gedeactiveerd en vervangen door Neo.Asset.Create voor Smart Contracts
 
-      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Asset/Create.md)
+      Bekijk het [Alternatieve .NET Smart Contract Framework](../sc/fw/dotnet/neo/Asset/Create.md)
 
-      View [Alternative Smart Contract API](../sc/api/neo.md)
+      Bekijk de [Alternatieve Smart Contract API](../sc/api/neo.md)
 
    + ContractTransaction
 
-      There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send NEO to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
+      Er zijn geen speciale attributen voor een contract transactie. Dit is een veel voorkomend type transactie, aangezien het de mogelijkheid biedt om NEO van een wallet naar een andere wallet te sturen. De `inputs` en `outputs` transactie-velden zijn meestal belangrijk bij deze transacties (bijvoorbeeld, om bij te houden hoeveel NEO wordt uitgegeven en aan welk adres).
 
    + PublishTransaction
 
       > [!Warning]
-      Has been deactivated and replaced by Neo.Contract.Create for the smart contract.
+      Is gedeactiveerd en vervangen door Neo.Contract.Create voor Smart Contracts
 
-      View [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/neo/Contract/Create.md)
+      Bekijk het [Alternatieve .NET Smart Contract Framework](../sc/fw/dotnet/neo/Contract/Create.md)
 
-      View [Alternative Smart Contract API](../sc/api/neo.md)
+      Bekijk de [Alternatieve Smart Contract API](../sc/api/neo.md)
 
    + Invoking a Transaction
 
-      | Size   | Field     | Data Type    | Description              |
-      | ---- | ------ | ------- | --------------- |
-      | -    | -      | -       | Public fields for transactions         |
-      | ?    | Script | uint8[] | Invoked by smart contract     |
-      | 8    | Gas    | int64   | Costs required to run the smart contract |
-      | -    | -      | -       | Publics fields for transactions         |
+      | Grootte   | Veld     | Data Type    | Omschrijving                                        |
+      | --------- | -------- | ------------ | --------------------------------------------------- |
+      | -         | -        | -            | Openbare velden voor transacties                    |
+      | ?         | Script   | uint8[]      | Opgeroepen door Smart Contracts                     |
+      | 8         | Gas      | int64        | Vereiste kosten om het Smart Contract uit te voeren |
+      | -         | -        | -            | Openbare velden voor transacties                    |
 
 1. Transaction Attributes
 
-   |Size|Field|DataType|Description|
-   |---|---|---|---|
-   |1|Usage|uint8|Usage|
-   |0\|1|length|uint8|Length of data(Specific circumstances will be omitted)|
-   |length|Data|uint8[length]|External data|
+   | Grootte  | Veld    | Data Type     | Omschrijving                                                     |
+   |----------|---------|---------------|------------------------------------------------------------------|
+   | 1        | Usage   | uint8         | Gebruik                                                          |
+   |          | length  | uint8         | Lengte van de data (specifieke omstandigheden worden weggelaten) |
+   | length   | Data    | uint8[length] | Externe data                                                     |
 
-   Sometimes the transaction will contain some data for external use, these data will be placed in the transaction attributes field.
+   Soms bevat een transactie data voor extern gebruik; deze data wordt geplaatst in de transaction attributes velden.
 
-   Each transaction attribute has different usages:
+   Elke transaction attribute heeft een doel:
 
-   |Value|Name|Description|
+   |Waarde|Naam|Omschrijving|
    |---|---|---|
-   |0x00|ContractHash|Hash value of contract|
-   |0x02-0x03|ECDH02-ECDH03|Public key for ECDH key exchange|
-   |0x20|Script|Additional validation of transactions|
-   |0x30|Vote|For voting
-   |0x80|CertUrl|Url address of certificate|
-   |0x81|DescriptionUrl|Url address of description|
-   |0x90|Description|Brief description|
-   |0xa1-0xaf|Hash1-Hash15|Used to store custom hash values|
-   |0xf0-0xff|Remark-Remark15|Remarks|
+   |0x00|ContractHash| Hashwaarde van contract|
+   |0x02-0x03|ECDH02-ECDH03|Public key voor ECDH key exchange|
+   |0x20|Script|Aanvullende validatie van transacties|
+   |0x30|Vote|Om te stemmen|
+   |0x80|CertUrl|Url addres van een certificate|
+   |0x81|DescriptionUrl|Url addres van een omschrijving|
+   |0x90|Description|Korte omschrijving|
+   |0xa1-0xaf|Hash1-Hash15| Om aangepaste hashwaardes op te slaan|
+   |0xf0-0xff|Remark-Remark15|Opmerkingen|
 
    For ContractHash, ECDH series, Hash series, data length is fixed to 32 bytes and length field is omitted;
 
