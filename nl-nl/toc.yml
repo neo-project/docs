@@ -2,5 +2,7 @@
   href: index.md
 - name: Eerste Opzet
   href: getting-started.md
+- name: NEO Node
+  href: node/introduction.md
 - name: Bijdragers
   href: contributors.md
