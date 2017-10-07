@@ -36,5 +36,7 @@
           href: node/api/getconnectioncount.md
         - name: getrawmempool
           href: node/api/getrawmempool.md
+        - name: getrawtransaction
+          href: node/api/getrawtransaction.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
