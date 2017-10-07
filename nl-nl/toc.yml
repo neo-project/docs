@@ -32,5 +32,7 @@
           href: node/api/getblockcount.md
         - name: getblockhash
           href: node/api/getblockhash.md
+        - name: getconnectioncount
+          href: node/api/getconnectioncount.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
