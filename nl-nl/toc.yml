@@ -13,3 +13,6 @@
       href: node/setup.md
     - name: Graphical User Interface
       href: node/gui.md
+    - name: TestNet
+      href: node/testnet.md
+    
