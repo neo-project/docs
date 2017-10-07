@@ -46,3 +46,5 @@
           href: node/api/sendtoadress.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
+    - name: Consensus
+      href: node/consensus.md
