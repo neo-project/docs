@@ -21,18 +21,18 @@ De deployment consensus node maakt gebruik van de `Neo-CLI`. Dit programma kan w
 
 ## De Ontwikkelomgeving Uitvoeren
 
-Running of an NEO node requires installation of [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), version 1.0.1 or above.
+Het runnen van een NEO-node vereist dat [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) geïnstalleerd is (minstens versie 1.0.1).
 
-### Windows system installation method
+### Installatie op Windows
 
-In the Windows system, installation of . NET Core is very convenient, you can directly download and run.
+In een Windows-systeem is de installatie van .NET Core erg eenvoudig; download het programma en het is gelijk klaar voor gebruik.
 
-### Linux system installation method
+### Installatie op Linux
 
-The following shows how .NET Core is installed in Red Hat Enterprise Linux 7 Server:
+.NET Core kan als volgt worden geïnstalleerd in een Red Hat Enterprise Linux 7 Server:
 
-> [!Note]
-> Other distributions of the Linux kernel installation method, please refer to [.NET Core installation tutorial](https://www.snetnet/core#linuxredhat)
+> [!Opmerking]
+> Kijk voor andere versies van Linux in de [.NET Core Installation Tutorial](https://www.snetnet/core#linuxredhat).
 
 
 ```
@@ -45,7 +45,7 @@ yum install rh-dotnetcore11
 scl enable rh-dotnetcore11 bash
 ```
 
-After the installation is complete, you can run the following command to check whether the .NET Core environment was installed successfully.
+Nadat de installatie is voltooid, kunnen de volgende commands uitvoeren om na te gaan of de .NET Core -omgeving succesvol is geïnstalleerd.
 
 ```
 dotnet new console -o hwapp
@@ -54,24 +54,26 @@ dotnet restore
 dotnet run
 ```
 
-If you see the final output "Hello World!", The .Net Core installation is successful.
+Wanneer de laatste output "Hello World!" is, is de installatie van .Net Core geslaagd.
 
+## Installatie van de NEO Node
 
-## Installation of NEO node
+1. Download het [Neo-CLI-pakket](https://github.com/neo-project/neo-cli/releases) van Github en pak het uit.
 
-1. Download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package on Github and unzip it.
+> [!Opmerking]
+> Wanneer geprobeerd wordt de Neo-CLI direct te downloaden en compilen op GitHub, zal `dotnet neo-cli.dll` niet correct kunnen worden uitgevoerd. Dit vereist dat libleveldb.dll en sqlite3.dll naar dezelfde map worden gekopieerd als neo-cli.dll. Deze twee bestanden kunnen in de eerste fase van het pakket worden gedownload.
 
-> [!Note]
-> If you try to download and compile the Neo-CLI source directly on Github, you will find that `dotnet neo-cli.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as neo-cli.dll under. These two files can be downloaded in the first step of the package.
-
-2. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
+2. Open de command line, navigeer naar de map van het programma en voer de volgende code in om de NEO-node te starten:
 
 ```
 dotnet neo-cli.dll
 ```
 
-Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can run the following code.
+De Neo-CLI verschaft een reek aan API's voor externe toegang. Als de node moet worden opgestart tijdens het openen van de API, dan kan de volgende code worden uitgevoerd:
+
 ```
 dotnet neo-cli.dll /rpc
 ```
-3. If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
+
+3. Wanneer een extern programma toegang nodig heeft tot de API van de node, moet de firewall-port worden geopend: `10331-10334`, `20331-20334`.
+
