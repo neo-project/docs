@@ -26,5 +26,7 @@
           href: node/api/getbalance.md
         - name: getbestblockhash
           href: node/api/getbestblockhash.md
+        - name: getblock
+          href: node/api/getblock.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
