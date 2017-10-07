@@ -8,7 +8,7 @@ De Neo-GUI client is compatible met de volgende versies van Windows: Windows 7 (
 
 De client zelf heeft geen installatie nodig. Download de zip, pak deze uit en dubbelklik op neo-gui.exe om de client te openen. Wanneer hierbij problemen zijn en de client niet normaal kan worden gebruikt, bewaar dan het error.log bestand, welke zich in dezelfde map bevindt als neo-gui, en stuur deze naar ons technisch personeel voor hulp.
 
-> [!Opmerking]
+> [!Note]
 > Bij de voorloperversie van Windows 10 dient [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) te worden geïnstalleerd.
 
 ### Synchroniseren
@@ -23,7 +23,7 @@ De client moet volledig gesynchroniseerd zijn voordat deze gebruikt kan worden. 
 
 Een wallet-bestand bewaart een verwijzing naar de NEO, het GAS en de account-informatie in een database met een .db3-extensie. Dit bestand is zeer belangrijk; een goede backup wordt aanbevolen.
 
-> [!Belangrijk]
+> [!Important]
 >
 > Het verliezen van het wallet-bestand of -wachtwoord zal resulteren in verlies van de bijbehorende assets. Sla het wallet-bestand veilig op en onthoud het wachtwoord!
 
@@ -41,7 +41,7 @@ De account-informatie bevat: adress, private key, public key, type.
 
 (4) Public key (*openbare sleutel*): elke private key heeft een bijbehorende public key. De private en public keys kunnen worden gezien door met de rechter muisknop op het adres te klikken in de Neo-GUI.
 
-> [!Belangrijk]
+> [!Important]
 >
 > De private key dient nooit bekend te worden gemaakt aan anderen. Wanneer dit wel wordt gedaan, kan dit resulteren in verlies van assets.
 
@@ -107,17 +107,18 @@ Het is mogelijk een adres van een andere partij te importeren, waarna het mogeli
 
 (4) Klik op `OK` om de wallet aan te maken. Deze bevat standaard een standaard account. 
 
-> [!Opmerking]
+> [!Note]
 > Wanneer er 'wisselgeld' wordt gegeven, zullen de overgebleven assets standaard worden overgezet naar het eerste adres. Om deze reden wordt het aanbevolen om de bijbehorende private key en wallet te bewaren.
 
 ### Open Wallet Database
+
 (1) Elke keer dat de client wordt geopend, dient te worden geklikt op `Open Wallet Database` om te selecteren welke wallet geopend moet worden (zie afbeelding hieronder).
 
 ![image](/assets/gui_5.png)
 
 (2) Klik op `browse` om de wallet te selecteren (standaard is de laatst geopende wallet geselecteerd), voer het wachtwoord in en klik op `OK` om de wallet te openen.
 
-> [!Opmerking]
+> [!Note]
 > Wanneer de wallet een foutmelding geeft, kan dit mogelijk worden opgelost door de wallet te openen met behulp van de 'repair mode'.
 
 ### Change Password
@@ -155,7 +156,7 @@ Deze functie bestaat om het adres van een wallet-bestand te herstellen wanneer d
 
 (1) Klik op `Transaction`, `Transfer`, `+` en voer de transactie-informatie in.
 
-![image](/en-us/assets/gui_10.png)
+![image](/assets/gui_10.png)
 
 (2) Klik op `OK`.
 
@@ -167,76 +168,78 @@ Deze functie bestaat om het adres van een wallet-bestand te herstellen wanneer d
 
 #### Equity asset transfer
 
-(1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+(1) Klik op `Transaction`, `Transfer`, `+` en voer de transactie-informatie in.
 
 ![image](/zh-cn/node/assets/j.png)
 
-(2) Click OK.
+(2) Klik op `OK`.
 
 ![image](/zh-cn/node/assets/k.png)
 
-(3) Click OK, as shown in the display, where more signatures are shown to be required:
+(3) Klik op `OK` zoals in de afbeelding hieronder, waar een signature nodig is.
 
 ![image](/zh-cn/node/assets/l.png)
 
-(4) Signature function see [signature](#sign).
+(4) Zie voor de signature-functie [signature](#sign).
 
 #### Batch transfer
 
-This function is used to simplify the transfer of the same asset to a different addresses.
+Deze functie wordt gebruik om transacties van een bepaalde asset naar verschillende adressen makkelijker te maken.
 
 ![image](/assets/gui_14.png)
 
-The data format is `address transfer amount` (separated by spaces).
+Het data-format is `adres transfer hoeveelheid` (gescheiden door spaties). 
 
 ![image](/assets/gui_15.png)
 
-It should be noted that the data format should be entered in accordance with the above criteria as extra spaces are likely to lead to transfer failure.
+> [!Note]
+> Het data-format zoals dat hierboven is aangegeven dient strikt te worden gevolgd, aangezien extra spaties meestal leiden tot het mislukken van de transactie.
 
 #### Remarks
 
-This function is used to record the information of the transaction on the NEO block-chain. The [NEO blockchain browser](https://www.antchain.xyz/) can be used to locate transaction information.
+Deze functie wordt gebruikt om een omschrijving van transacties op de blockchain op te slaan. De [NEO blockchain verkenner](https://www.antchain.xyz) kan worden gebruikt om transactie-informatie op te zoeken.
 
 ![image](/zh-cn/node/assets/o.png)
 
-At the moment there is no requirement for the message format.
+Op het moment zijn er nog geen eisen voor de format van het bericht.
 
 ![image](/zh-cn/node/assets/p.png)
 
-The remarks for the transaction can be found on the [NEO blockchain browser](https://www.antchain.xyz/)
+De omschrijving van de transactie kan op de hierboven genoemde verkenner worden gelezen.
 
 ![image](/zh-cn/node/assets/oo.png)
 
 ### Trade
 
-#### Initiating a deal
+#### Een Uitwisseling Opzetten
 
-(1) This transaction requires both parties to initiate a transaction request in order to determine the asset details being sent to the corresponding recipient.
+(1) Deze transactie vereist dat beide partijen een transactie-aanvraag opzetten om de details van de asset die wordt gezonden te bepalen, evenals de ontvanger.
 
 ![image](/assets/gui_18.png)
 
-(2) Click OK to generate the transaction request. We can use the transaction request to obtain details on the terms sent by the corresponding party.
+(2) Klik op `initiate` om de transactie-aanvraag te genereren. Deze kan worden gebruikt om de voorwaarden van de transactie te ontvangen.
 
 ![image](/assets/gui_19.png)
 
-#### Merging of the deal
+#### Combineren van de Uitwisseling
 
-(1) After closing the initiated transaction request window you will be shown the merge transaction request interface.
+(1) Na het afronden van de transactie-aanvraag, zal een pop-up verschijnen voor het samenvgoegen van de transacties.
 
 ![image](/assets/gui_20.png)
 
-(2) This causes the other party's transaction request to be displayed. To verify the legitimacy of the other party's request, click verify. Depending the legitimacy of the request, one can either choose to accept or refuse.
+(2) Dit zorgt ervoor dat de transactie van de andere partij wordt getoond. Om de geldigheid van de aanvraag van de andere partij na te gaan, klik op `validate`. In het daarop volgende venster kan de aanvraag van de andere partij worden geaccepteerd met `accept` en geweigerd met `refuse`.
 
 ![image](/assets/gui_24.png)
 
-(3) If you choose to accept then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
+(3) Als beide partijen akkoord zijn en op `accept` hebben geklikt, dienen beide partijen te tekenen en te broadcasten. Zie voor de details hiervan de signature-sectie hieronder.
 
+<a id="sign"> </a>
 ### Signature
-(1) This causes the transaction sent by the other party to be pasted within the input box. Click on `sign`, and the output data will be generated. At the same time, the `broadcast` button will be displayed.
+(1) Dit zorgt ervoor dat de transactie van de andere partij wordt gekopiëerd naar de input-box. Klik op `sign` om de output-data te genereren. Hierbij zal de `broadcast`-knop verschijnen.
 
 ![image](/zh-cn/node/assets/u.png)
 
-(2) Click on `broadcast`, and the transaction will be sent. This transaction is now complete and a transaction ID (TXID) will be shown once the transaction is successful.
+(2) Klik op `broadcast` om de transactie te zenden. Deze transactie is nu compleet. Een transactie ID (TXID) zal worden getoond wanneer de transactie succesvol is.
 
 ![image](/assets/gui_30.png)
 
@@ -244,107 +247,110 @@ The remarks for the transaction can be found on the [NEO blockchain browser](htt
 
 ## Advanced
 
-### Download Synchronize data offline
+### Blockchain Data Downloaden
 
-In order to speed up network synchronzation you can download a copy of the blockchain up to a certain blockheight.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
+Om de netwerksynchronisatie te versnellen, kan een kopie van de blockchain tot een bepaalde block-hoogte worden gedownload. Dit zorgt ervoor dat de client alleen de blocks die daarna zijn toegevoegd hoeft te downloaden, in plaats van de hele blockchain.
 
-**Download**
+**Downloaden**
 
-To begin, download the file located at [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+Download het bestand van [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip").
 
-**Add**
+**Openen**
 
-Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
+Sluit de Neo-GUI-client en open chain.acc.zip. Pak het chain.acc bestand uit in de Neo-GUI map zoals in de afbeelding hieronder.
 
 ![](/assets/gui_58.png)
 
-**Sync**
+**Synchroniseren**
 
-After re-opening the neo-gui client you will see that the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. As shown in the figure below:  
+Open hierna de Neo-GUI-client. Deze zal tot een bepaalde block-hoogte gesynchroniseerd zijn en verder gaan vanaf dit punt. 
 
 ![](/assets/gui_59.png)
 
-**Complete**
+**Voltooien**
 
-When synchronized to a certain point, the file (chain.acc) will be deleted and synchronization from the NEO network will continue. As shown in the figure below:
+Wanneer de blockchain tot een bepaalde block-hoogte is gesynchroniseerd, zal het bestand (chain.acc) worden verwijderd, waarna synchronisatie zal doorgaan vanuit het NEO-netwerk.
 
 ![](/assets/gui_60.png)
 
+### Aanmaak van GAS
 
+GAS wordt aangemaakt met elk nieuw blok en wordt verdeeld over de adressen van NEO-bezitters. Het getal binnen de blokhaken dat te zien is in het tabblad `Asset` is de hoeveelheid GAS die kan worden geclaimd. De NEO-bezitter kan op elk gewenst moment ervoor kiezen om deze GAS-claim te vervullen en het GAS te sturen naar het corresponderende NEO-adres. Op het moment heeft alleen de PC-versie van de client de mogelijkheid om GAS te claimen.
 
+De specifieke stappen zijn als volgt:
 
+(1) Transfer alle NEO in de wallet door middel van een transactie-uitvoering naar het huidige adres. Wanneer de claim voltooid is, kan het GAS worden opgenomen. Zie voor een meer technische uitleg van dit proces de White Paper.
 
-### Extraction of GAS
-
-GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
-
-The specific steps are:
-
-(1) Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
-
-(2) Click `Advanced`, `Claim GAS`, `Claim All`.
+(2) Klik op `Advanced`, `Claim GAS`, `Claim All`.
 
 ![image](/assets/gui_37.png)
 
-### Request a certificate
+### Request certificate
 
-Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
-Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
+> [!Note]
+> Deze functie kan alleen een certificaat-aanvraag aanmaken; de gebruiker dient alsnog een verzoek in te dienen bij de relevante authoriteit om het certificaat daadwerkelijk te bemachtigen.
+
+Klik op `Advanced`, `Request Certificate` en vul de gevraagde informatie in.
 
 ![image](/assets/gui_39.png)
 
-The generated file will be as shown in the following figure:
+het gegenereerde bestand zal er als volgt uitzien:
 
 ![image](/zh-cn/node/assets/y.png)
 
-### Registered assets
+### Asset Registration
 
-There are two types of assets, Token and Share. Using Token as an example, fill in the following:
+Er zijn twee types assets: Tokens en Shares. We gebruiken hier Tokens als voorbeeld. Voer de gevraagde informatie in:
 
 ![image](/assets/gui_43.png)
 
-It should be noted that the registration of assets incurs a significant fee. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
+> [!Note!]
+> Het registreren van een asset vereist het betalen van een significante hoeveelheid GAS of NEO (op het hoofdnetwerk 10.000 GAS, op het testnetwerk 100 NEO). Dit kan niet ongedaan worden gemaakt.
 
-### Distribute assets
+### Asset Distribution
 
 ![image](/assets/gui_46.png)
 
-It should be noted that the distribution of assets incurs a significant fee. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
+> [!Note]
+> Het verstrekken van een asset vereist het betalen van een significante hoeveelheid GAS of NEO (op het hoofdnetwerk 500 NEO, op het testnetwerk 5 NEO). Dit kan niet ongedaan worden gemaakt. Het wordt aangeraden de verstrekking in één keer te doen.
 
 ### Deploy Contract
 
-To be added
+Wordt later toegevoegd.
 
 ### Invoke Contract
 
-To be added
+Wordt later toegevoegd.
 
 ### Election
 
-This function is used to register as a NEO blockchain validator candidate.
+Met deze functie kan men zich opgeven als NEO Blockchain Validator-kandidaat.
 
 ![image](/assets/gui_57.png)
+
+> [!Note]
+> Het deelnemen aan de verkiezing vereist het betalen van een significante hoeveelheid GAS of NEO (op het hoofdnetwerk 1.000 GAS, op het testnetwerk 10 GAS). Dit kan niet ongedaan worden gemaakt. Deze functie is nog niet beschikbaar.
 
 It should be noted that the election incurs a significant fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
 
 ### 4.8 Option
 
-No content yet.
+Wordt later toegevoegd.
 
 ## Help
 
 ### View help
 
-No content yet.
+Wordt later toegevoegd.
 
 ### Official website
 
-The official NEO website is located at: https://neo.org/
+De officiële NEO-website is https://neo.org/.
 
 ### Developers tools
 
-To be added
+Wordt later toegevoegd.
 
 ### About NEO
 
-The version number of the NEO client.
+Het versie-nummer van de NEO-client.
