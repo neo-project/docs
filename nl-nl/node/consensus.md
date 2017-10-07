@@ -15,23 +15,21 @@
 ## 2 - Rollen
 **In het NEO consensus-algoritme worden Consensus Nodes verkozen door NEO-bezitters. Deze stemmen op de validiteit van transacties. Deze nodes worden soms ook 'Bookkeepers (boekhouders)' genoemd. Vanaf dit punt zullen ze worden genoemd als Consensus Nodes**.
 
-
-
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - Deze node dingt mee in de consensus-activiteit. Tijdens consensus-activiteit wiselen consensus-nodes de volgende twee rollen af:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker (spreker)** `(Eén)` - De **Speaker** is verantwoordelijk voor het doorgeven van een block-voorstel aan het systeem.
   - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate (afgevaardigde)** `(Meerdere)` - **Delegates** zijn verantwoordelijk voor het bereiken van een consensus m.b.t. de transactie.  
   
 ## 3 - Introductie
 
-One of the fundamental differences between blockchains is how they can guarantee fault tolerance given defective, non-honest activity on the network.
+Een van de fundamentele verschillen tussen blockchains is hoe ze fouttolerantie (*fault tolerance*) kunnen garanderen bij defecte, niet-eerlijke activiteit op het netwerk.
 
-Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
+Traditionele methodes gebruiken PoW en kunnen dit verschaffen, mits de meerderheid van de rekenkracht van het netwerk eerlijk is. Echter, door de rekenkracht-gerichte opbouw van dit model kan het mechanisme zeer inefficiënt zijn (rekenkracht kost energie en vereist geavanceerde hardware). Deze afhankelijkheid stelt een PoW-netwerk bloot aan een aantal limitaties, waarvan de voornaamste de kost van opschalen is.
 
-NEO implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(NEO holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
+NEO implementeerd een Delegated Byzantine Fault Tolerance consensus-algoritme dat gebruik maakt van enkele PoS-achtige kenmerken (NEO-bezitters stemmen op **Consensus Nodes**), welke het netwerk beschermen van Byzantine faults terwijl ze gebruik maken van minimale middelen, maar zonder sommige van de problemen van PoS. Deze oplossing richt zich op de prestatie- en schalingsproblemen die worden geassocieerd met huidige blockchain-implementaties, zonder dat dit ten koste gaat van de fouttolerantie.
 
+## 4 - Theorie
 
-
-## 4 - Theory
+Het *Byzantine Generals Problem* is een klassiek probleem in gedistribueerde berekeningen. Het probleem definieert een aantal **Delegates** die gezamenlijk een consensus moeten bereiken over het resultaat van de aanvraag van een **Speaker**. In dit systeem moet voorzichtig worden gehandeld; het is mogelijk dat de **Speaker** 
 
 The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
 
