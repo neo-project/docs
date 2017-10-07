@@ -28,5 +28,7 @@
           href: node/api/getbestblockhash.md
         - name: getblock
           href: node/api/getblock.md
+        - name: getblockcount
+          href: node/api/getblockcount.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
