@@ -9,3 +9,5 @@
   items:
     - name: Introduction
       href: node/introduction.md
+    - name: Installatie
+      href: node/setup.md
