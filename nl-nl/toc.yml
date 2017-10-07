@@ -19,3 +19,5 @@
       href: node/cli.md
     - name: Private Chain
       href: node/private-chain.md
+    - name: Netwerkprotocol
+      href: node/network-protocol.md
