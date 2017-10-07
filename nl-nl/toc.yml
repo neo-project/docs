@@ -40,5 +40,7 @@
           href: node/api/getrawtransaction.md
         - name: gettxout
           href: node/api/gettxout.md
+        - name: sendrawtransaction
+          href: node/api/sendrawtransaction.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
