@@ -53,5 +53,5 @@
     items:
       - name: Introduction
         href: sc/introduction.md
-      - name: Getting Started
+      - name: Getting Started (C#)
         href: sc/getting-started-csharp.md
