@@ -48,3 +48,7 @@
       href: node/network-protocol.md
     - name: Consensus
       href: node/consensus.md
+  - name: Smart Contract
+    href: sc/introduction.md
+    items:
+      
