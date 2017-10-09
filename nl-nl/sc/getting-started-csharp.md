@@ -49,17 +49,17 @@ Nu moet deze map worden toegevoegd aan het path dat wordt uitgevoerd. Het PATH i
 
 **Windows 10 en Windows 8:**
   
-  Klik op Zoeken, zoek naar 'geavanceerde systeeminstellingen weergeven' en open deze (Engels: advanced system settings).
-  Klik op Omgevingsvariabelen (Environment Variables). Zoek in de sectie systeemvariabelen naar de PATH variabele en selecteer deze; klik op Bewerken (Edit). Als de PATH omgevingsvariabele niet bestaat, klik dan op Nieuw.
-  Geef in het Omgevingsvariabele bewerken (of nieuw-) -venster de waarde voor de PATH omgevingsvariabele op en klik op OK. Sluit alle vensters door op OK te drukken.
+- Klik op Zoeken, zoek naar 'geavanceerde systeeminstellingen weergeven' en open deze (Engels: advanced system settings).
+- Klik op Omgevingsvariabelen (Environment Variables). Zoek in de sectie systeemvariabelen naar de PATH variabele en selecteer deze; klik op Bewerken (Edit). Als de PATH omgevingsvariabele niet bestaat, klik dan op Nieuw.
+- Geef in het Omgevingsvariabele bewerken (of nieuw-) -venster de waarde voor de PATH omgevingsvariabele op en klik op OK. Sluit alle vensters door op OK te drukken.
   
 **Windows 7:**
 
-  Klik met de rechter muisknop op het computer-logo vanaf het bureaublad.
-  Klik op eigenschappen (Properties).
-  Klik op geavanceerde systeeminstellingen (Advanced system settings).
-  Klik op omgevingsvariabelen (Environment Variables). Zoek in de sectie systeemvariabelen naar de PATH variabele en selecteer deze; klik op Bewerken (Edit). Als de PATH omgevingsvariabele niet bestaat, klik dan op Nieuw.
-  Geef in het Omgevingsvariabele bewerken (of nieuw-) -venster de waarde voor de PATH omgevingsvariabele op en klik op OK. Sluit alle vensters door op OK te drukken.
+- Klik met de rechter muisknop op het computer-logo vanaf het bureaublad.
+- Klik op eigenschappen (Properties).
+- Klik op geavanceerde systeeminstellingen (Advanced system settings).
+- Klik op omgevingsvariabelen (Environment Variables). Zoek in de sectie systeemvariabelen naar de PATH variabele en selecteer deze; klik op Bewerken (Edit). Als de PATH omgevingsvariabele niet bestaat, klik dan op Nieuw.
+- Geef in het Omgevingsvariabele bewerken (of nieuw-) -venster de waarde voor de PATH omgevingsvariabele op en klik op OK. Sluit alle vensters door op OK te drukken.
 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
