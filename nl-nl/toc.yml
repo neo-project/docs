@@ -51,7 +51,9 @@
   - name: Smart Contract
     href: sc/introduction.md
     items:
-      - name: Introduction
+      - name: Introductie
         href: sc/introduction.md
-      - name: Getting Started (C#)
+      - name: Voorbereiding (C#)
         href: sc/getting-started-csharp.md
+      - name: Voorbereiding (Java)
+        href: sc/getting-started-java.md
