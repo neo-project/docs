@@ -57,3 +57,10 @@
         href: sc/getting-started-csharp.md
       - name: Voorbereiding (Java)
         href: sc/getting-started-java.md
+      - name: Handleiding
+        href: sc/tutorial.md
+        items:
+          - name: Basis
+            href: sc/tutorial.md
+          - name: Hello World
+            href: sc/tutorial/HelloWorld.md
