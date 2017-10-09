@@ -66,5 +66,5 @@
             href: sc/tutorial/HelloWorld.md
           - name: Lock Contract
             href: sc/tutorial/Lock.md
-          - name: Domain (Domeinnaamsysteem)
+          - name: Domeinen (Domain Name System)
             href: sc/tutorial/Domain.md
