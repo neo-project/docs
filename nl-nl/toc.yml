@@ -51,4 +51,6 @@
   - name: Smart Contract
     href: sc/introduction.md
     items:
-      
+      - name: Introduction
+        href: sc/introduction.md
+      - name: 
