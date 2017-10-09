@@ -1,4 +1,4 @@
-# Een Lock Contract Deployen
+# Lock Contract Deployen
 
 Lees de volgende handleidingen voor het lezen van deze pagina:
 - [NEO smart contracts schrijven met C#](../getting-started-csharp.md)
