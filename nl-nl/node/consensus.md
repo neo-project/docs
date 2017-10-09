@@ -12,12 +12,14 @@
 
 * **View** `v` - De dataset welke wordt gebruikt tijdens consensus-activiteit in NEO `DBFT`.
 
+
 ## 2 - Rollen
 **In het NEO consensus-algoritme worden Consensus Nodes verkozen door NEO-bezitters. Deze stemmen op de validiteit van transacties. Deze nodes worden soms ook 'Bookkeepers (boekhouders)' genoemd. Vanaf dit punt zullen ze worden genoemd als Consensus Nodes**.
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - Deze node dingt mee in de consensus-activiteit. Tijdens consensus-activiteit wiselen consensus-nodes de volgende twee rollen af:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker (spreker)** `(Eén)` - De **Speaker** is verantwoordelijk voor het doorgeven van een block-voorstel aan het systeem.
   - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate (afgevaardigde)** `(Meerdere)` - **Delegates** zijn verantwoordelijk voor het bereiken van een consensus m.b.t. de transactie.  
+  
   
 ## 3 - Introductie
 
@@ -27,85 +29,82 @@ Traditionele methodes gebruiken PoW en kunnen dit verschaffen, mits de meerderhe
 
 NEO implementeerd een Delegated Byzantine Fault Tolerance consensus-algoritme dat gebruik maakt van enkele PoS-achtige kenmerken (NEO-bezitters stemmen op **Consensus Nodes**), welke het netwerk beschermen van Byzantine faults terwijl ze gebruik maken van minimale middelen, maar zonder sommige van de problemen van PoS. Deze oplossing richt zich op de prestatie- en schalingsproblemen die worden geassocieerd met huidige blockchain-implementaties, zonder dat dit ten koste gaat van de fouttolerantie.
 
+
 ## 4 - Theorie
 
-Het *Byzantine Generals Problem* is een klassiek probleem in gedistribueerde berekeningen. Het probleem definieert een aantal **Delegates** die gezamenlijk een consensus moeten bereiken over het resultaat van de aanvraag van een **Speaker**. In dit systeem moet voorzichtig worden gehandeld; het is mogelijk dat de **Speaker** 
+Het *Byzantine Generals Problem* is een klassiek probleem in gedistribueerde berekeningen. Het probleem definieert een aantal **Delegates** die gezamenlijk een consensus moeten bereiken over het resultaat van de aanvraag van een **Speaker**. In dit systeem moet voorzichtig worden gehandeld; het is mogelijk dat de **Speaker** oneerlijk is, of een of meer van de **Delegates**. Als een node oneerlijk is, kan deze inconsistente berichten sturen naar alle ontvangers. Dit wordt gezien als de meest desastreuze situatie. Als oplossing moeten de **Delegates** bepalen of de **Speaker** eerlijk is en wat de aanvraag was voor de totale groep.
 
-The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
+Om te demonstreren hoe DBFT werkt, richt dit deel zich voornamelijk op het onderbouwen van de 66,66% consensus-ratio die wordt gebruikt in Sectie 5. Onthoud hierbij dat een 'oneerlijke' node niet per se bewust oneerlijk is; het is mogelijk dat de node simpelweg niet functioneert zoals men dat wil.
 
-For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
-
-For the sake of discussion, we will describe a couple scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanic is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
+Hieronder volgt een aantal scenario's om DBFT te bespreken. In deze voorbeelden wordt aangenomen dat alle nodes het bericht doorsturen dat ze ontvangen van de **Speaker**. Dit komt overeen met het mechanisme van DBFT en is een belangrijk aspect van het systeem. Alleen het verschil tussen een functionerend en niet-functionerend systeem zal worden toegelicht; lees voor een meer uitgebreide uitleg de gebruikte bronnen.
 
 
-### **Honest Speaker**
+### **Erlijke Speaker**
 
-  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Delegate</b>.</p>
+  <p align="center"><img src="/assets/n3.png" width="300"><br>
+	<b>Figuur 1:</b> Een n = 3 voorbeeld met een oneerlijke <b>Delegate</b>.
+  </p>
   
-  In **Figure 1**, we have a single loyal **Delegate** (50%).  Both **Delegates** received the same message from the honest **Speaker**.  However, because a **Delegate** is dishonest, the honest Delegate can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Delegate**.  Because of this, the **Delegate** must abstain from a vote, changing the view.
+  In **Figuur 1** is sprake van één eerlijke **Delegate** (50%). Beide **Delegates** ontvangen het zelfde bericht van de eerlijke **Speaker**. Aangezien een van de **Delegates** oneerlijk is, kan de eerlijke **Delegate** alleen vaststellen dat er een oneerlijke node is; het is voor de eerlijke **Delegate** echter onmogelijk om te bepalen of de **Speaker** of de **Delegate** eerlijk is. Hierdoor moet de eerlijke **Delegate** zich onthouden van een stem, waardoor de situatie veranderd.
   
-  <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Delegate</b>.</p>
+  <p align="center"><img src="/assets/n4.png" width="400"><br>
+    <b>Figuur 2:</b> Een n = 4 voorbeeld met een oneerlijke <b>Delegate</b>.
+  </p>
   
-  In **Figure 2**, we have a two loyal **Delegates** (66%).  All **Delegates** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Delegate**.  Based on the consensus of the two honest **Delegates**, we are able to determine that either the **Speaker** or right **Delegate** is dishonest in the system.
+  In **Figuur 2** is sprake van twee eerlijke **Delegates** (66%). Alle **Delegates** ontvangen het zelfde bericht van de eerlijke **Speaker** en sturen het resultaat van hun bevestiging samen met het ontvangen bericht naar de andere mede-**Delegates**. Gebaseerd op de consensus van de twee eerlijke **Delegates**, kunnen we vaststellen dat de **Speaker** óf de overgebleven **Delegate** oneerlijk is.
   
   
+### **Oneerlijke Speaker** 
   
+  <p align="center"><img src="/assets/g3.png" width="300"><br>
+    <b>Figuur 3:</b> Een n = 3 voorbeeld met een oneerlijke <b>Speaker</b>.
+  </p>
   
-### **Dishonest Speaker** 
+  In het geval van de situatie in **Figuur 3**, waar sprake is van een oneerlijke **Speaker**, is de uitkomst van de situatie gelijk aan die in **Figuur 1**; de **Delegates** kunnen niet bepalen welke node oneerlijk is.
   
-  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figure 3:</b> An n = 3 example with a dishonest <b>Speaker</b>. </p>
+  <p align="center"><img src="/assets/g4.png" width="400"><br>
+    <b>Figuur 4:</b> Een n = 4 voorbeeld met een oneerlijke <b>Speaker</b>.
+  </p>
   
-  In the case of **Figure 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Delegate** is able to determine which node is dishonest.
-  
-  <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
-  
-  In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Delegates**, it would have been validated without the need for a view change.
+  In het geval van de situatie in **Figuur 4** kunnen de blocks die zijn ontvangen door de middelste en rechter node niet bevestigd worden. Hierdoor kiezen de nodes voor een nieuwe **Speaker**, aangezien er dan wel sprake zou zijn van een 66%-meerderheid. Als in dit geval de oneerlijke **Speaker** gelijke oneerlijke data naar alle drie de **Delegates** had gestuurd, dan zou deze gevalideerd zijn zonder dat er een nieuwe **Speaker** zou worden aangesteld.
   
 
-## 5 - Practical Implementation
+## 5 - Praktische Implementatie
 
-The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
-expected iterations as a function of the fraction of dishonest nodes.  
+De praktische implementatie van DBFT in NEO maakt gebruik van een herhalende consensusmethode die garandeerd dat een consensus wordt bereikt. Het presteren van het algoritme hangt af van het deel van eerlijke nodes in het systeem. **Figuur 5** toont het verwachte aantal maal dat het proces moet worden doorlopen om een consensus te bereiken als functie van het deel van de nodes dat oneerlijk is.
 
-Note that the **Figure 5** does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
-
+**Figuur 5** gaat niet tot onder de 66.66% **Consensus Node**-eerlijkheid. Tussen dit kritische punt en 33% **Consensus Node**-eerlijkheid bevindt zich een 'niemandsland' waar een consensus niet kan worden bereikt. Onder de 33.33% **Consensus Node**-eerlijkheid kunnen de oneerlijke nodes samen een consensus bereiken (ervan uitgaande dat ze samenwerken en dus gelijke valse informatie verspreiden), waardoor het bericht van de oneerlijke nodes als waarheid wordt aangenomen.
 
 <img src="/assets/consensus.iterations.png" width="800">
 
-**Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
+**Figuur 5:** Monto-Carlo-Simulatie van het DBFT algoritme dat het aantal herhalingen toont om consensus te bereiken als functie van de eerlijkheid van de nodes. {100 Nodes; 100,000 gesimuleerde blocks met een willekeurige selectie eerlijke nodes}
 
 
-### 5.1 - Definitions
+### 5.1 - Definities
 
-**Within the algorithm, we define the following:**
+**Binnen het algoritme worden de volgende definities aangehouden:**
 
-  - `t`: The amount of time allocated for block generation, measured in seconds.
-    - Currently: `t = 15 seconds`
-	-  This value can be used to roughly approximate the duration of a single view iteration as the consensus activity and communication events are fast relative to this time constant.
-
+  - `t` : de tijd die is toegewezen aan blockgeneratie, gemeten in seconden.
+    - Op dit moment: `t = 15 seconden`
+  - Deze waarde kan worden gebruikt om grofweg de duur van een herhaling van het algoritme te benaderen, aangezien de consensus-activiteit en -communicatie snel zijn ten opzichte van deze constante.
 	
-  - `n`: The number of active **Consensus Nodes**.
- 
-	
-  - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
-  	- `f = (n - 1) / 3`
+  - `n` : de hoeveelheid actieve **Consensus Nodes**.
   
-	
-  - `h` : The current block height during consensus activity.
-
-	
-  - `i` : **Consensus Node** index.
+  - `f` : de ondergrens van defecte **Consensus Nodes** binnnen het systeem. (*de f komt van 'faulty' = defect*)
+    - `f = (n - 1) / 3`
+    
+  - `h` : de blockhoogte op het moment van de consensus-activiteit.
   
+  - `i` : de **Consensus Node** index.
   
-  - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.  This includes the vote (`prepareResponse` or `ChangeView`) issued by all Delegates.
-
-
-  - `k` : The index of the view `v`.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
-
+  - `v` : het perspectief van een **Consensus Node**. Het perspectief van een node bevat alle verzamelde informatie die de node heeft ontvangen tijdens een ronde van consensus-activiteit. Dit bevat ook de stem (`prepareResponse` of `ChangeView`) die wordt uitgezonden door alle **Delegates**. (*de v komt van 'view' = blik, perspectief*)
   
-  - `p` : Index of the **Consensus Node** elected as the **Speaker**.  This calculation mechanism for this index rotates through **Consensus Nodes** to prevent a single node from acting as a dicator within the system. 
-  	- `p = (h - k) mod (n)`
+  - `k` : de index van het perspectief `v`. Een consensus-activiteit kan meerdere rondes vereisen. Wanneer consensus niet bereikt wordt, neemt `k` met 1 toe en wordt opnieuw geprobeerd tot een consensus te komen.
   
+  - `p` : de index van de **Speaker Consensus Node**. Deze berekening rouleert door alle **Consensus Nodes** in het systeem om te voorkomen dat een node als 'dictator' in het systeem kan fungeren.
+    - `p = (h - k) mod (n)`
+  
+    
 
   - `s`: The safe consensus threshold.  Below this threshold, the network is exposed to fault.  
   	- `s = ((n - 1) - f)`
