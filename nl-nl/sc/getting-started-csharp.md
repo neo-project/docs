@@ -6,7 +6,7 @@ typora-root-url: ..\..
 
 Op dit moment wordt C# aanbevolen voor het schrijven van smart contracts (hoewel ook Java, Kotlin, Go, C/C++, Python, JavaScript en andere programmeertalen ondersteund worden of zullen worden).
 
-Deze pagina legt kort uit hoe de C# ontwikkelomgeving moet worden geconfigureerd voor NEO smart contracts en geeft een idee hoe een smart contract opgebouwd en gecompiled kan worden.
+Deze pagina legt kort uit hoe de C# ontwikkelomgeving moet worden geconfigureerd voor NEO smart contracts en geeft een idee hoe een smart contract opgebouwd en gecompileerd kan worden.
 
 > [!Note]
 > Momenteel worden alle projecten uitgevoerd in de Visual Studio 2017 versie; zie voor het gebruiken van Visual Studio 2015 [deze link](getting-started-2015.md).
@@ -81,7 +81,7 @@ Als het project is aangemaakt, genereert het automatisch een C# bestand (de stan
 
 ![smart contract function code](/assets/smart_contract_function_code.png)
 
-## Het Project Compilen
+## Het Project Compileren
 
 Het is nu mogelijk om de entry methode toe te voegen die smart contracts definiëert:
 
@@ -95,7 +95,7 @@ public class Contract1: SmartContract
 }
 ```
 
-Nadat deze gecompiled is, zal `SmartContract.avm` in de `bin/Debug`-map verschijnen. Dit is het bestand dat wordt gegenereerd als het NEO smart contract.
+Nadat deze gecompileerd is, zal `SmartContract.avm` in de `bin/Debug`-map verschijnen. Dit is het bestand dat wordt gegenereerd als het NEO smart contract.
 
 ![compile smart contract](/assets/compile_smart_contract.png)
 
