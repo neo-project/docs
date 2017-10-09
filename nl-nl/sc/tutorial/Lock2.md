@@ -1,41 +1,36 @@
 # Een Lock Contract Deployen
 
-Read the following tutorial before reading this article:
+Lees de volgende handleidingen voor het lezen van deze pagina:
+- [NEO smart contracts schrijven met C#](../getting-started-csharp.md)
+- [NEO Smart Contract handleiding](../tutorial.md)
+- [Smart contract voorbeeld - lock](Lock.md)
 
-[How to write NEO smart contract with C#](../getting-started-csharp.md)
+We gaan er nu vanuit dat je inmiddels basiskennis hebt opgedaan over smart contracts. Nu zullen we laten zien hoe een lock-contract naar een adres te deployen is met behulp van de wallet.
 
-[NEO Smart Contract Tutorial](../tutorial.md)
-
-[Smart contract example - Lock (lock)](Lock.md)
-
-Now we assume that you already have the basic knowledge of the smart contract, we will show how to deploy a lock contract to an address using the wallet.
-
-In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub](https://github.com/neo-project/neo-gui/releases).
-
-PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
+Deze tutorial is gebaseerd op de demo van Smart Contract 2.0. Download de laatste **testnetwerk client** van [GitHub](https://github.com/neo-project/neo-gui/releases) (op dit moment is [dit](https://github.com/neo-project/neo-gui/releases/tag/v2.3.2) de meest recente versie).
 
 > [!Note]
-> The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
-> In order to use the test net you have to make two changes in the config files:
-1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Be default, config.json and protocol.json are idential to the Mainnet versions.
-2. You need to copy the code from the testnet files into the config.json and protocol.json files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste config.testnet.json into config.json, and protocol.testnet.json into protocol.json.
+> De volgende handelingen zullen plaatsvinden op het **testnetwerk**, aangezien het hoofdnetwerk nog niet werkt met Smart Contract 2.0.
+> Om het TestNet te gebruiken, moeten twee aanpassingen worden gemaakt in de configuratiebestanden:
+1. Pak de Neo-GUI client uit.
+2. Kopiëer de inhoud van de bestanden met `testnet` in de naam naar de gelijknamige bestanden zonder `testnet` (maar ook zonder `mainnet`!). Bijvoorbeeld: van `config.testnet.json` naar `config.json`.
 
-## Create a wallet
+## Wallet aanmaken
 
-This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
+Deze stap is simpel: open de PC-versie van de client, klik op `wallet`, `create the wallet database`, kies de opslaglocatie voor de wallet en kies een naam en wachtwoord.
 
 ![](/assets/lock2_1.png)
 
-## Get the public key
+## Public Key
 
-The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
+De nieuwe wallet zal automatisch een standaard account hebben gegenereerd. Klik met de rechter muisknop op de account, bekijk de private key en kopiëer deze van de tweede regel, zoals in de afbeelding hieronder:
 
 ![](/assets/lock2_2.png)
 
 > [!Caution]
-> Please note: Do not divulge your private key.
+> Let op: houd je private key voor jezelf! Deze dient niet met anderen gedeeld te worden.
 
-Here we write a local program to turn the public key into a byte array, C# code is as follows:
+We schrijven een programma om de public key om te zetten in een byte-array met behulp van C#:
 
 ```c#
 namespace ConsoleApp1
@@ -44,7 +39,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // 这里替换为上一步复制的公钥
+            // Vervang de lange code hieronder met de gekopiëerde private key
             byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa");
             foreach (var item in b)
             {
@@ -67,11 +62,11 @@ namespace ConsoleApp1
 }
 ```
 
-After running it, the screen will display the byte array created from the public key. Copy this down as we will be using it later.
+Als dit is uitgevoerd, geeft het programma een byte-array. Kopiëer deze en sla deze op; deze gebruiken we in een latere stap.
 
-## Write a smart contract
+## Schrijf een smart contract
 
-Create a smart contract project and write the following smart contract. Note that the contract here is inherited from VerificationCode, its purpose is to generate a contract authentication account, that is, a contract in the purse file address.
+Maak een smart contract project aan en schrijf het volgende smart contract:
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -93,61 +88,44 @@ namespace Neo.SmartContract
 }
 ```
 
-The lock contract has two important variables to change, one is the public key, the second is the lock time.
+Het contract hierboven is gebaseerd op VerificationCode, met als doel het creëren van een contract-authenticatie-account, oftewel: een contract in het wallet-adres.
 
-1. In the contract code, paste the previous copy of the public key byte array
+Het lock-contract heeft twee belangrijke variabelen die aangepast kunnen worden: de public key en het tijdslot (lock time).
 
-2. Change the lock time in the sample code, which is a Unix timestamp. Calculate it yourself, you may want to use an online tool. [Unix timestamp online conversion](https://unixtime.51240.com/).
+1. Plak in de code van het contract de gekopiëerde pulic key byte-array.
 
-After replacing the two variables, compile the contract to get a Lock.avm file.
+2. Verander het tijdslot in de voorbeeldcode (een Unix-tijdstempel). Bereken deze zelf, bijvoorbeeld met behulp van een [website](https://unixtime.51240.com/).
+
+Nadat de twee variabelen zijn aangepast, compileer dan het contract om een Lock.avm-bestand te krijgen.
 
 ## Deploy lock Contract
 
-To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilize the C# code below to read the .avm to get the bytecode.
-
-```c#
-byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
-string str = System.Text.Encoding.Default.GetString(bytes);
-```
-
-If you think writing a script for this is troublesome, the client's `Deploy Contract` function has a simple way to obtain the bytecode:
-
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
-
-![](/assets/lock2_5.png)
-
-In the client, under the `Account` tab, right click on the whitespace, select `Create Contract Add.`, `Custom`, and paste the contract script into the box:
-
-![](/assets/lock2_7.png)
+Om het contract te deployen, moet eerst het contract script verkregen worden. Lees hiervoor [deze handleiding](verify.md).
 
 
-Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
+## Testen
 
-![](/assets/lock2_8.png)
+Hieronder volgt een test van de smart contract authenticatie-account. Als assets uit een smart contract-account worden overgemaakt, zullen de consensus nodes het contract uitvoeren bij het valideren van de transactie. Als het contract succesvol gevalideerd is (`return true`), dan is de transactie bevestigd. Tot het resultaat `true` ontvangen is, zal de transactie de status 'onbevestigd' hebben. Als test worden eerst wat assets naar de contract-authenticatie-account overgemaakt, en vervolgens weer overgemaakt vanuit de account.
 
+> [!Note]
+> Om zeker te zijn van de geldigheid van de test is het van belang dat er geen andere assets in de wallet aanwezig zijn, anders kan het onbekend zijn of de asset vanuit de standaard-account was overgemaakt, of vanuit de contract-account (tenzij je het 'change search'-algoritme van de client kent en er zeker van kan zijn dat de transactie wordt uitgevoerd vanuit het smart contract-adres).
 
+### Asset overmaken naar contract address
 
-## Test
+Maak een bepaalde hoeveelheid assets over naar de contract-account:
 
-The following is a test of the smart contract authentication account. When transferring assets from an smart contract authentication account, the consensus node will execute the smart contract when verifying the transaction. If the contract validation is successful (the result is true), the transaction is confirmed. Otherwise the transaction will always be unconfirmed. Our testing method will be to first transfer some assets into the account address, then transfer it out.
+![Transfer asset to contract address](/assets/verify_9.png)
 
-> [! Note]
-> In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, else you may not know if the assets is coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
+### Assets overmaken vanuit contract address
 
-### Transfer assets to contract address
-
-Open a wallet with assets on **testnet** and transfer a certain amount of assets to the contract account.
-
-### Transfer assets out of contract address
-
-Transfer assets from your smart contract account:
+Maak een bepaalde hoeveelheid assets over vanuit de contract-account:
 
 ![Transfer contract amount](/assets/lock2_11.png)
 
-If the above operation is correct, the following happens when the asset is transferred:
+Als bovenstaande handelingen juist worden uitgevoerd, gebeurt het volgende als de asset wordt overgemaakt:
 
-When the current time is less than the lockout time, the transfer will not be confirmed, ie the transfer will fail.
+Als de huidige tijd eerder is dan de lockout time, zal de transactie niet bevestigd worden en dus mislukken
 
-After clicking `Rebuild Index`, after about 5 minutes, the unacknowledged transfer will disappear and the assets will return to the previous state.
+Na klikken op `Rebuild Index` zal na ongeveer 5 minuten de afgewezen transactie verdwijnen en zullen de assets terugkeren naar hun vorige staat.
 
-If the current time is greater than the lock time, the transfer will be successful.
+Als de huidige tijd later is dan de lock time, zal de transactie succesvol zijn.
