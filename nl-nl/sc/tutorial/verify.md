@@ -34,7 +34,7 @@ Later in de handleiding wordt uitgelegd hoe het contract script voor een `.avm`-
 
 Maak een nieuwe wallet aan volgens de handleiding hieronder:
 
-[Create a wallet](/assets/verify_1.png).
+![Create a wallet](/assets/verify_1.png).
 
 ## Het contract script verkrijgen
 
