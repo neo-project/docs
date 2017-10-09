@@ -97,98 +97,96 @@ De praktische implementatie van DBFT in NEO maakt gebruik van een herhalende con
   
   - `i` : de **Consensus Node** index.
   
-  - `v` : het perspectief van een **Consensus Node**. Het perspectief van een node bevat alle verzamelde informatie die de node heeft ontvangen tijdens een ronde van consensus-activiteit. Dit bevat ook de stem (`prepareResponse` of `ChangeView`) die wordt uitgezonden door alle **Delegates**. (*de v komt van 'view' = blik, perspectief*)
+  - `v` : het beeld van een **Consensus Node**. Het beeld van een node bevat alle verzamelde informatie die de node heeft ontvangen tijdens een ronde van consensus-activiteit. Dit bevat ook de stem (`prepareResponse` of `ChangeView`) die wordt uitgezonden door alle **Delegates**. (*de v komt van 'view' = blik, beeld*)
   
-  - `k` : de index van het perspectief `v`. Een consensus-activiteit kan meerdere rondes vereisen. Wanneer consensus niet bereikt wordt, neemt `k` met 1 toe en wordt opnieuw geprobeerd tot een consensus te komen.
+  - `k` : de index van het beeld `v`. Een consensus-activiteit kan meerdere rondes vereisen. Wanneer consensus niet bereikt wordt, neemt `k` met 1 toe en wordt opnieuw geprobeerd tot een consensus te komen.
   
   - `p` : de index van de **Speaker Consensus Node**. Deze berekening rouleert door alle **Consensus Nodes** in het systeem om te voorkomen dat een node als 'dictator' in het systeem kan fungeren.
     - `p = (h - k) mod (n)`
   
-    
-
-  - `s`: The safe consensus threshold.  Below this threshold, the network is exposed to fault.  
+  - `s` : de drempelwaarde voor veilige consensus. Onder deze waarde loopt het netwerk gevaar.
   	- `s = ((n - 1) - f)`
+	
 
+### 5.2 - Vereisten
 
-### 5.2 - Requirements
+**Binnen NEO zijn er drie primaire vereisten voor het behalen van consensus-fouttolerantie:**
 
-**Within NEO, there are three primary requirements for consensus fault tolerance:**
+1. `s` **Delegates** moeten tot een consensus komen m.b.t. een transactie voordat het block wordt vrijgegeven.
 
-1. `s` **Delegates** must reach a consensus about a transaction before a block can be committed.
+2. Oneerlijke **Consensus Nodes** moeten niet de mogelijkheid hebben de eerlijke nodes te overtuigen van oneerlijke transacties.
 
-2. Dishonest **Consensus Nodes** must not be able to persuade the honest consensus nodes of faulty transactions. 
-
-3. At least `s` **Delegates** are in same state (`h`,`k`) to begin a consensus activity
-
+3. Op zijn minst `s` **Delegates** moeten in dezelfde status zijn (`h`,`k`) om consensus-activiteit te starten.
 
 	
-### 5.3 - Algorithm
-**The algorithm works as follows:**
+### 5.3 - Algoritme
+**Het algoritme werkt als volgt:**
 
-1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
+1. Een **Consensus Node** zendt een transactie met de signatures van de zender uit naar het gehele netwerk.
 
-   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figure 6:</b> A <b>Consensus Node</b> receives a transaction and broadcasts it to the system. </p>
-   
-  
-2. **Consensus Nodes** log transaction data into local memory.
+   <p align="center"><img src="/assets/consensus1.png" width="450"><br>
+     <b>Figuur 6:</b> Een <b>Consensus Node</b> ontvangt een transactie en zendt deze uit naar het systeem. 
+   </p>
+     
+2. De **Consensus Nodes** slaan de transactiedata op in de lokale opslag.
 
-3. The first view `v` of the consensus activity is initialized.
+3. Het eerste beeld `v` van de consensus-activiteit wordt opgestart.
 
-4. The **Speaker** is identified.
+4. De **Speaker** wordt aangesteld.
 
-	 <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set. </p>
+  <p align="center"><img src="/assets/consensus2.png" width="450"><br>
+		<b>Figuur 7:</b> Een <b>Speaker</b> is aangesteld en het beeld is bepaald.
+	</p>
 	
-  **Wait** `t` seconds
+  **Wacht** `t` seconden.
 	
-5. The **Speaker** broadcasts the proposal :
-    <!-- -->
-        <prepareRequest, h, k, p, bloc, [block]sigp>
+5. De **Speaker** zendt het voorstel uit:
 
-	 <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
+The **Speaker** broadcasts the proposal :
+	`<prepareRequest, h, k, p, bloc, [block]sigp>`
+	<p align="center"><img src="/assets/consensus3.png" width="450"><br>
+		<b>Figuur 8:</b> De <b>Speaker</b> maakt een block-voorstel wat beoordeeld dient te worden door de <b>Delegates</b>.
+	</p>
 	 
-6. The **Delegates** receive the proposal and validate:
+6. De **Delegates** ontvangen het voorstel en bevestigen:
 
-    - Is the data format consistent with the system rules?
-    - Is the transaction already on the blockchain?
-    - Are the contract scripts correctly executed?
-    - Does the transaction only contain a single spend?	(i.e. does the transaction avoid a double spend scenario?)
+	- Klopt het data-format volgens de regels van het systeem?
+	- Is de transactie reeds op de blockchain?
+	- Zijn de contract-scripts juist uitgevoerd?
+	- Komen er geen dubbele uitgaven in voor?
 
-    - **If Validated Proposal Broadcast:**
-	    <!-- -->
-	        <prepareResponse, h, k, i, [block]sigi>
-	 	
-    - **If Invalidated Proposal Broadcast:**
-	    <!-- -->
-	        <ChangeView, h,k,i,k+1>
+- **If Validated Proposal Broadcast** (*bij goedkeuren*):
+			`<prepareResponse, h, k, i, [block]sigi>`
+	
+- **If Invalidated Proposal Broadcast** (*bij afkeuren*):
+			`<ChangeView, h,k,i,k+1>`
 			
-   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Delegates</b> review the block proposal and respond. </p>
+<p align="center"><img src="/assets/consensus4.png" width="500"><br>
+	<b>Figuur 9:</b> De <b>Delegates</b> beoordelen het block-voorstel en reageren hierop.
+</p>
 
-7. After receiving `s` number of 'prepareResponse' broadcasts, a **Delegate** reaches a consensus and publishes a block.
+7. Na het ontvangen van `s` aantal 'prepareResponse' uitzendingen, bereikt een **Delegate** een consensus en geeft het een block vrij.
 
-8. The **Delegates** sign the block.
+8. De **Delegates** signeren het block als blijk van bevestiging.
 
-   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figure 10:</b> A consensus is reached and the approving <b>Delegates</b> sign the block, binding it to the chain. </p>
+<p align="center"><img src="/assets/consensus5.png" width="500"><br>
+	<b>Figuur 10:</b> Een consensus is bereikt en de bevestigende <b>Delegates</b> ondertekenen het block, waardoor het in de blockchain wordt vastgelegd.
+</p>
   
-8. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
+8. Als een **Consensus Node** een vol block ontvangt, wordt de data van het huidige beeld (`v`) verwijderd en begint een nieuwe ronde van de consensus-activiteit.
 	- `k = 0`
  
 --- 
   
-**Note:**
+**Opmerking:**
  
- If after   (![timeout](/assets/consensus.timeout.png) )  seconds on the same view without consensus:
-  - **Consensus Node** broadcasts:
-
-	<!-- -->
-	    <ChangeView, h,k,i,k+1>
-		
-  - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.
+ - Als een node na (![timeout](/assets/consensus.timeout.png) ) seconden nog steeds op 1 beeld zit zonder consensus, dan zendt de node uit: </br>
+		`<ChangeView, h,k,i,k+1>`
+	
+ - Op het moment dat een **Consensus Node** op zijn minst `s` aantal uitzendingen heeft ontvangen die bij het zelfde beeld horen, dan vergroot het de waarde `v` (beeld), waardoor een nieuwe ronde van consensus-activiteit begint.
 	
 
-
-	
-
-## 6 - References
+## 6 - Bronnen
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.neo.org/Files/A8A0E2.pdf)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
