@@ -68,3 +68,12 @@
             href: sc/tutorial/Lock.md
           - name: Domeinen (Domain Name System)
             href: sc/tutorial/Domain.md
+          - name: Smart Contract Parameters en Return Values
+            href: sc/tutorial/Parameter.md
+          - name: Contract Authenticatie Handleiding
+            href: sc/tutorial/verify.md
+          - name: Lock Contract Deployen
+            href: Lock2.md
+          - name: Contract Call
+            href: call.md
+          
