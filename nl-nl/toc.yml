@@ -80,4 +80,17 @@
         href: sc/tutorial/deploy-invoke.md
     - name: Testen
       href: sc/test.md
-      
+    - name: Neo Contract White Paper
+      href: sc/white-paper.md
+    - name: API Uitleg
+      href: sc/api.md
+      items:
+      - name: NEO
+        href: sc/api/neo.md
+      - name: System
+        href: sc/api/system.md
+    - name: Framework
+      href: sc/fw.md
+      items:
+      - name: .NET Framework
+        href: sc/fw/dotnet.md
