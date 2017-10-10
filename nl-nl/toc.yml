@@ -73,7 +73,8 @@
           - name: Contract Authenticatie Handleiding
             href: sc/tutorial/verify.md
           - name: Lock Contract Deployen
-            href: Lock2.md
+            href: sc/tutorial/Lock2.md
           - name: Contract Call
-            href: call.md
-          
+            href: sc/tutorial/call.md
+          - name: Deploy en Invoke
+            href: sc/tutorial/deploy-invoke.md
