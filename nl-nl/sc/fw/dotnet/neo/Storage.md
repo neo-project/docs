@@ -1,6 +1,6 @@
 # Storage Class
 
-Provides a set of methods to insert, query, and delete data in the persistent store.
+Geeft een set van methods om data in de opslag in te voegen, op te vragen en te verwijderen.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -12,25 +12,25 @@ Assembly: Neo.SmartContract.Framework
 public static class Storage
 ```
 
-## Attributes
+## Eigenschappen
 
-| | Name | Description |
+| | Naam | Omschrijving |
 | ---------------------------------------- | ---------------------------------------- | ---------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [CurrentContext](Storage/CurrentContext.md) | Returns the current context of the store |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [CurrentContext](Storage/CurrentContext.md) | Geeft als `return` de huidige opslaglocatie |
 
 ## Methods
 
-| | Name | Description |
+| | Naam | Omschrijving |
 | ---------------------------------------- | ---------------------------------------- | -------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, byte[])](Storage/Delete.md) | Deletes a value from the persistent store based on the given key |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, string)](Storage/Delete2.md) | Deletes a value from the persistent store based on the given key |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Get(StorageContext, byte[])](Storage/Get.md) | Returns a value from the persistent store based on the given key |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Get(StorageContext, string)](Storage/Get2.md) | Returns a value from the persistent store based on the given key |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, byte[], byte[])](Storage/Put.md) | Inserts a given value to the given key in the persistent store |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, byte[], string)](Storage/Put2.md) | Inserts a given value to the given key in the persistent store |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, byte[])](Storage/Put3.md) | Inserts a given value to the given key in the persistent store |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, string)](Storage/Put4.md) | Inserts a given value to the given key in the persistent store |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, byte[])](Storage/Delete.md) | Verwijder een waarde uit de opslag a.d.h.v. een gegeven key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, string)](Storage/Delete2.md) | Verwijder een waarde uit de opslag a.d.h.v. een gegeven key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Get(StorageContext, byte[])](Storage/Get.md) | Geeft als `return` een waarde uit de opslag a.d.h.v. een gegeven key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Get(StorageContext, string)](Storage/Get2.md) | Geeft als `return` een waarde uit de opslag a.d.h.v. een gegeven key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, byte[], byte[])](Storage/Put.md) | Voegt een gegeven waarde toe aan de gegeven key in de opslag |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, byte[], string)](Storage/Put2.md) | Voegt een gegeven waarde toe aan de gegeven key in de opslag |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, byte[])](Storage/Put3.md) | Voegt een gegeven waarde toe aan de gegeven key in de opslag |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, string)](Storage/Put4.md) | Voegt een gegeven waarde toe aan de gegeven key in de opslag |
 
 ## Constructor
 
-The Storage class is a static class and does not require a constructor.
+De Storage class is een statische class en heeft geen constructor nodig.
