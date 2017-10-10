@@ -4,6 +4,7 @@
 
 Deze handleiding zal het deployen (*beschikbaar maken*) en invoken (*aanroepen*) van smart contracts op de NEO blockchain d.m.v. de desktop-GUI behandelen. Deze handleiding is basaal opgezet en is van toepassing voor alle contracttypes, inclusief NEP5-tokens. Deze handleiding gaat ervan uit dat het contract al is gecompileerd tot een `.avm`-bestand. Als dit niet het geval is, loop dan a.u.b. eerst de andere handleidingen door. Een gecompileerde versie van het contract, en de broncode die in deze handleiding worden gebruikt, zijn bijgevoegd. 
 
+
 ## 2 - Nuttige Downloads
 
 De volgende middelen worden in deze handleiding gebruikt en kunnen handig zijn bij het ontwikkelen van een smart contract:
@@ -15,6 +16,7 @@ De volgende middelen worden in deze handleiding gebruikt en kunnen handig zijn b
 5. [Neo API](../api/neo.md)
 6. [NEP5 Token Standard](https://github.com/neo-project/proposals/pull/4)
 
+
 ## 3 - SC Code
 
 Dit document zal enkel voorbeeldcode van het Woolong-voorbeeld gebruiken. Voor de grap zal dit contract 1 Woolong genereren elke keer dat het wordt aangeroepen. 
@@ -23,6 +25,7 @@ Het voorbeeld is beschikbaar gemaakt op het TestNet en kan worden opgeroepen m.b
 ​    
 	dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f
 ​	
+
 
 ## 4 - Smart Contract met Parameters Deployen
 
@@ -49,44 +52,43 @@ Populate the **Metadata** fields referencing the [Parameter](Parameter.md) docum
 
 6. Klik op **Deploy**.
 
+
 ## 5 - Het Smart Contract Bekijken
 
 1. Klik, in het hoofdvenster van de NEO wallet, met de rechter muisknop op het adres en kies **Create Contract Add. > Custom**.
 2. Selecteerd de account die je gekoppeld wilt hebben aan het contract m.b.v. het **Related Account**-dropdown menu.
 3. Vul de **Parameter List** in met de waardes die in stap 4 zijn gebruikt.
-4. Vul het **Script** veld in
-Populate the **Script** field with the value provided in Step 3 of **Deploy Smart Contract w/ Parameters**.
-5. Click **Confirm** to load the contract into the wallet window.
+4. Vul het **Script** veld in met de waarde uit het **Code** veld (die in een eerdere stap gekopiëerd is).
+5. Klik op **Confirm** om het contract toe te voegen aan het wallet-scherm.
 
 
-## 6 - Invoking the Smart Contract
+## 6 - Het Smart Contract Invoken
 
-To invoke a smart contract on the NEO blockchain, you will need the smart contract script hash. 
-1. To acquire the contract hash, right click on the contract account populated in the address window as a result of the **Watching the Smart Contract** window.
-2. Select **View Contract** to open a window containing information about the smart contract.  Copy the value in the **Script Hash** field.
-3. Click on the **Advanced** menu option and select **Invoke Contract**.
-4. Populate the **Script Hash** field with the value copied in Step 2.  As an example, you can invoke the Woolong using the script hash in **Section 3**
-5. The Smart Contract information should automatically populate in the remaining **Invoke Function** fields.
-6. To populate the input parameters, click on the **...** button next the the Parameters field to open the parameter population menu.
-7. Select the parameters on the left field and populate the variable values in the lower right field.
+Om een smart contract aan te roepen op de NEO blockchain, heb je de smart contract script-hash nodig.
+1. Om deze te vinden, klik je met de rechter muisknop op de contractaccount die in de vorige stappen is aangemaakt.
+2. Selecteer **View Contract** om een venster te openen met informatie over het smart contract. Kopiëer de waarde in het **Script Hash**-veld.
+3. Klik op de **Advanced** menuoptie en selecteer **Invoke Contract**.
+4. Vul het **Script Hash**-veld in met de in stap 2 gekopiëerde waarde. In het geval van deze handleiding gebruiken we dus de hash die onder kopje 3 is genoteerd.
+5. De smart contract informatie zou automatisch moeten worden ingevuld in de overgebleven **Invoke Function**-velden.
+6. Om de input parameters in te vullen, klik je op de **...**-knop naast het Parameters-veld om het parametermenu te openen.
+7. Selecteer de parameters in het linker veld en vul de variabelen rechtsonder in.
 
-  **For example, invoking the following:**
-  * `6e616d65` when calling the Woolong, will return 'Woolong'.
+  **Bijvoorbeeld, bij het aanroepen van het volgende:**
+  * `6e616d65` bij het callen van Woolong, geeft als return 'Woolong'.
     ```csharp
     if (method == "name") return name;
     ```
-  * `73796d626f6c` will return 'WNG'.
+  * `73796d626f6c` geeft als return 'WNG'.
     ```csharp
      if (method == "symbol") return symbol;
     ```
-  * `62616c616e63654f66, 5fe459481de7b82f0636542ffe5445072f9357a1261515d6d3173c07c762743b` will return the current balance of Woolong that lllwvlvwll holds on the testnet.
+  * `62616c616e63654f66, 5fe459481de7b82f0636542ffe5445072f9357a1261515d6d3173c07c762743b` geeft als return het huidige saldo van Woolong dat lllwvlvwll heeft op het TestNet.
     ```csharp
     if (method == "balanceOf") return Storage.Get(Storage.CurrentContext, (byte[]) args[0]);
     ```
 
-8. Click **OK** to close the parameter input window.
-9. Click the **Invoke** button to invoke the smart contract.
+8. Klik op **OK** om het parametervenster te sluiten.
+9. Klik op **Invoke** om het smart contract op te roepen (te invoken).
 
-**Note:** The current standard desktop GUI does not support viewing returns.  Using the developer GUI is recommended when executing the events.
-
- 
+> [!Note]
+> De huidige standaard desktop-applicatie kan geen `returns` tonen. Gebruik hierom de developer GUI. 
