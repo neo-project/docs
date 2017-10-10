@@ -4,8 +4,6 @@
   href: getting-started.md
 - name: NEO Node
   href: node/introduction.md
-- name: Auteurs
-  href: contributors.md
   items:
     - name: Introduction
       href: node/introduction.md
@@ -22,35 +20,35 @@
     - name: API Referentie
       href: node/api.md
       items:
-        - name: getbalance
-          href: node/api/getbalance.md
-        - name: getbestblockhash
-          href: node/api/getbestblockhash.md
-        - name: getblock
-          href: node/api/getblock.md
-        - name: getblockcount
-          href: node/api/getblockcount.md
-        - name: getblockhash
-          href: node/api/getblockhash.md
-        - name: getconnectioncount
-          href: node/api/getconnectioncount.md
-        - name: getrawmempool
-          href: node/api/getrawmempool.md
-        - name: getrawtransaction
-          href: node/api/getrawtransaction.md
-        - name: gettxout
-          href: node/api/gettxout.md
-        - name: sendrawtransaction
-          href: node/api/sendrawtransaction.md
-        - name: sendtoadress
-          href: node/api/sendtoadress.md
+      - name: getbalance
+        href: node/api/getbalance.md
+      - name: getbestblockhash
+        href: node/api/getbestblockhash.md
+      - name: getblock
+        href: node/api/getblock.md
+      - name: getblockcount
+        href: node/api/getblockcount.md
+      - name: getblockhash
+        href: node/api/getblockhash.md
+      - name: getconnectioncount
+        href: node/api/getconnectioncount.md
+      - name: getrawmempool
+        href: node/api/getrawmempool.md
+      - name: getrawtransaction
+        href: node/api/getrawtransaction.md
+      - name: gettxout
+        href: node/api/gettxout.md
+      - name: sendrawtransaction
+        href: node/api/sendrawtransaction.md
+      - name: sendtoadress
+        href: node/api/sendtoadress.md
     - name: Netwerkprotocol
       href: node/network-protocol.md
     - name: Consensus
       href: node/consensus.md
-  - name: Smart Contract
-    href: sc/introduction.md
-    items:
+- name: Smart Contract
+  href: sc/introduction.md
+  items:
     - name: Introductie
       href: sc/introduction.md
     - name: Voorbereiding (C#)
@@ -94,3 +92,25 @@
       items:
       - name: .NET Framework
         href: sc/fw/dotnet.md
+        items:
+          - name: NEO
+            href: sc/fw/dotnet/neo.md
+            items:
+            - name: Account
+              href: sc/fw/dotnet/neo/Account.md
+            - name: Asset
+              href: sc/fw/dotnet/neo/Asset.md
+            - name: Block
+              href: sc/fw/dotnet/neo/Block.md
+            - name: Blockchain
+              href: sc/fw/dotnet/neo/Blockchain.md
+            - name: Enrollment
+              href: sc/fw/dotnet/neo/Enrollment.md
+            - name: Header
+              href: sc/fw/dotnet/neo/Header.md
+            - name: Storage
+              href: sc/fw/dotnet/neo/Storage.md
+            - name: StorageContext
+              href: sc/fw/dotnet/neo/StorageContext.md
+- name: Auteurs
+  href: contributors.md
