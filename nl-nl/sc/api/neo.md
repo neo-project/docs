@@ -3,7 +3,7 @@
 De NEO Namespace bevat een API die wordt verschaft door de NEO blockchain. Gebruik van de API maakt het mogelijk om data van de blockchain op te vragen en persistente opslag aan te passen.
 
 > [!Note]
-> `Nieww` en `Verouderd` geeft veranderingen tussen versies 1.6 en 2.0 aan.
+> `Nieuw` en `Verouderd` geeft veranderingen tussen versies 1.6 en 2.0 aan.
 
 ## Alleen-lezen API
 
