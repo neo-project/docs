@@ -1,38 +1,39 @@
-# Smart Contract .NET framework
+# Smart Contract .NET Framework
 
-The .NET Framework is an encapsulation of the Smart Contract API so that .NET programmers can use the classes, methods, and properties of .NET directly to interact with the API to obtain blockchain data, storage data and so on.
+Het .NET Framework is een inkapseling van de Smart Contract API, zodat .NET-programmeurs de classes, methods en properties van .NET direct kunnen laten werken met de API om blockchaindata, opslagdata et cetera te verkrijgen.
 
 ## Interoperability Layer Methods
 
-The namespace for interoperability layer is divided into `Neo.SmartContract.Framework.Services.NEO` and `Neo.SmartContract.Framework.Services.System`. Click on the links for more details. 
+De namespace voor de interoperability layer is onderverdeeld in `Neo.SmartContract.Framework.Services.NEO` en `Neo.SmartContract.Framework.Services.System`. Klik op de links voor meer details. 
 
-| Namespace | description |
-| --------- | ----------- |
-| [Neo](dotnet/neo.md) | The NEO namespace is the API provided by the NEO blockchain, providing a way to access the blockchain data and manipulate the persistent store. |
-| [System](dotnet/system.md) | System namespace is the API provided by the Smart Contract Execution Engine (NeoVM), which provides access to the execution environment. |
+| Namespace                          | Omschrijving     	                                                      |
+| :--------------------------------- | :-------------------------------------------------------- |
+| [Neo](dotnet/neo.md)               | De NEO Namespace is de API die wordt verschaft door de NEO blockchain, waardoor toegang tot blockchaindata en het manipuleren van de opslag mogelijk zijn |
+| [System](dotnet/system.md)         | De System namespace is de API die wordt verschaft door de Smart Contract Execution Engine (NeoVM), waardoor toegang tot de uitvoeringsomgeving van smart contracts mogelijk is. |
 
 ## Framework Methods
 
-In addition to calling methods from the Interoperability layer, smart contracts can also call methods provided by the framework. These methods are found within `Neo.SmartContract.Framework` and can be called directly by smart contracts.
+Naast het aanroepen van methods vanuit de Interoperability layer, kunnen smart contracts ook methods aanroepen van het framework. Deze methods zijn te vinden in `Neo.SmartContract.Framework` en kunnen direct aangeroepen worden door smart contracts.
 
 ### SmartContract Class Methods
 
-In the [NEO Smart Contract Tutorial](../tutorial.md), we observe that our contracts inherit from either `FunctionCode` or `VerificationCode`. These two classes inherit from the `SmartContract` class which provides us with the hash algorithms and signature methods.
+In de [NEO Smart Contract Handleiding](../tutorial.md) is te zien dat contracten hun basis danken aan `FunctionCode` of `VerificationCode`. Deze twee classes zijn gebaseerd op de `SmartContract` class; deze geeft ons hash-algoritmes en signature methods.
 
-|                                                        | Name                                             | Description                                             |
-| ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | Hashes the input bytes using SHA1                       |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | Hashes the input bytes using SHA256                     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | Hashes the input bytes using SHA256, followed by RIPEMD160|
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | Hashes the input bytes twice using SHA256               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | Verifies the signature using the given pubkey           |
+|                                                        | Naam                                             | Omschrijving                                             |
+|: ------------------------------------------------------ |: ------------------------------------------------ |: ------------------------------------------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                  | Hasht de input bytes met SHA1                       |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])       	      | Hasht de input bytes met SHA256                     |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[]) 	      | Hasht de input bytes met SHA256, gevolgd door RIPEMD160|
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])          | Hasht de input bytes tweemaal met SHA256               |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | Verifiëert de signature a.d.h.v. de gegeven public key           |
+
 
 ### Byte Array Helper Methods
 
-The methods below are helper methods for byte arrays provided by the .NET framework's Helper class.
+De onderstaande methods zijn helper methods voor byte-arrays en worden mogelijk gemaakt door de .NET Framework Helper class.
 
-|                                                        | Name                         | Description                                                      |
+|                                                        | Naam                         | Omschrijving                                                      |
 | ------------------------------------------------------ | ---------------------------- | ---------------------------------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Concatenate 2 byte arrays                                        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Returns a portion of the byte array, params: index, count        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | Returns the left-most X bytes from the byte array，params: count |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Schakelt 2 byte arrays aaneen                                        |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Geeft als return een deel van de byte-array, met als parameters: index, count        |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | Geeft als return X-aantal linker bytes van de byte-array, met als parameter: count |
