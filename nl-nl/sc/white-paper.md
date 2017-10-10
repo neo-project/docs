@@ -62,37 +62,36 @@ De uitvoerings-omgeving van een smart contract speelt een belangrijke rol in die
 1. De snelheid waarmee instructies worden uitgevoerd
 2. De snelheid waarmee de uitvoerings-omgeving opstart
 
+Voor smart contracts is vaak de omgeving waar het in wordt uitgevoerd belangrijker dan het optimaliseren van de instructies in het smart contract. Smart contracts zijn meer betrokken bij het input/output-deel; de instructies zijn makkelijk te optimaliseren. Echter, elke keer dat een smart contract wordt aangeroepen, moet er wel een nieuwe virtual machine worden opgestart. Daarom is de snelheid van de virtual machine zelf veel belangrijker voor het smart contract-systeem.
 
+NEO maakt gebruik van een lichtgewicht NeoVM (NEO Virtual Machine) als primair uitvoeringscentrum voor smart contracts. Deze start zeer snel op en verbruikt weinig middelen, wat het ideaal maakt voor korte programma's zoals smart contracts. Als gebruik wordt gemaakt van een JIT (live compileerder) voor het cachen van belangrijke smart contracts, kan de efficiëntie van de virtual machines significant worden verhoogd.
 
-For smart contracts, the execution environment is often more important than the speed of execution of the instruction. Smart contracts are more involved in IO operation of the logic, to determine the instructions, where the implementation of these instructions can easily be optimized. Every time the smart contract is called, it must start up a new virtual machine / container. Therefore, the execution speed of the environment itself (starting a virtual machine / container) has greater impact on the performance of the smart contract system. 
+### 2.3 Uitbreidbaarheid (Scalability)
 
-NEO uses a lightweight NeoVM (NEO Virtual Machine) as its smart contract execution environment, which has a very fast start up and takes up very little resources, perfect for short programs like smart contracts. Using the compilation and caching of hotspot smart contracts with JIT (real-time compiler) can significantly improve the efficiency of virtual machines.
+#### 2.3.1 Hoge concurrency en dynamische partitioning
 
-### 2.3 Scalability
+Bij het bespreken van de uitbreidbaarheid van een systeem, zijn twee hoofdzaken van belang: de verticale en horizontale uitbreidbaarheid. Verticaal duidt op de optimalisatie van de workflow van het uitvoeren van opdrachten, zodat optimaal gebruik wordt gemaakt van de middelen die beschikbaar zijn (zoals rekenkracht). Verticaal loop je snel tegen grenzen aan, aangezien de rekencapaciteit van een enkel apparaat processen slechts één voor één kan afhandelen. Idealiter wil je een systeem hebben dat het seriële systeem ombouwt tot parallel-werkend systeem (horizontale uitbreiding). Theoretisch gezien is het alleen nodig om de hoeveelheid verbonden apparaten te vergroten om praktisch eindeloze uitbreidbaarheid te behalen. Kan een blockchain programma's parallel uitvoeren?
 
-#### 2.3.1 High concurrency and dynamic partitioning
+De blockchain is een gedistribueerde ledger (grootboek) welke een reeks aan data bij houdt, inclusief de regels voor het aanpassen van deze data. Smart contracts worden gebruikt als dragers van deze regels. Blockchains kunnen programma's enkel parallel uitvoeren als meerdere smart contracts parallel (niet-sequentiëel) kunnen worden uitgevoerd. Simpel gezegd: als contracten niet onderling contact hebben, of als ze niet dezelfde data proberen aan te passen op het zelfde moment, is hun uitvoering niet-sequentiëel en kunnen ze tegelijk worden uitgevoerd. Als niet aan deze voorwaarden wordt voldaan, kunnen ze alleen in sequentie worden uitgevoerd en kan het netwerk niet horizontaal uitbreiden.
 
-When discussing the scalability of a system, it involves two main areas: Vertical scaling and horizontal scaling. Vertical scaling refers to the optimization of the processing workflow, allowing the system to take full advantage of existing equipment capacity. With this approach, limits of the system are easily reached, as series-based processing capacity is based on the hardware limit of a single device. When we need to scale the system, is there a way to transform the series system into a parallel system? Theoretically, we will only need to increase the number of devices, and we will be able to achieve almost unlimited scalability. Could we possibly achieve unlimited scaling in distributed blockchain networks? In other words, can the blockchain execute programs in parallel?
+Aan de hand van de analyse hierboven kan 'onbeperkte uitbreidbaarheid' in smart contract-systemen makkelijk ontworpen worden. Het enige wat nodig is, is een set van simpele regels:
 
-The blockchain is a distributed ledger, that records a variety of state data and the rules governing the changes in state of these data. Smart contracts are used as carriers, to record these rules. Blockchains can process programs in parallel, only if, multiple smart contracts can be executed concurrently and in a non-sequential manner. Basically, if contracts do not interact with each other, or if the contract does not modify the same state data, at the same time, their execution is non-sequential and can be executed concurrently. Otherwise, it can only execute in series, following a sequential order, and the network is unable to scale horizontally.
+ * **Een smart contract mag alleen de staat van data aanpassen van het contract waar het onder valt**
+ * **In een batch transacties (een block) kan een contract slechts éénmaal uitgevoerd worden**
 
-Based on the analysis above, we can easily design "unlimited scaling" in smart contract systems. All we must do is to set up simple rules:
+Als resultaat kunnen de smart contracts parallel worden uitgevoerd, aangezien de volgorde niet uitmaakt. Echter, de eerste regel stelt dat contracten niet een beroep kunnen doen op elkaar. Elk contract is dan een geïsoleerd eiland. De tweede regel impliceert dat er slechts één transactie per block kan worden verhandeld als deze is gedistribueerd met een smart contract. Dit staat recht tegenover het oorspronkelijke idee achter smart contracts; van 'slimme contracten' is hier geen sprake meer. We willen niet alleen dat contracten elkaar kunnen oproepen, maar ook dat ze meermaals kunnen worden uitgevoerd in een block.
 
- * **A smart contract can only modify the state record of the contract that it belongs to**
+Gelukkig hebben smart contracts in NEO een statische call-relatie. Dit zorgt ervoor dat het gedrag van het programma van tevoren al te voorspellen is, inclusief call-relaties, voordat het wordt uitgevoerd. Voordat een contract wordt uitgevoerd, moet een contract expliciet aangeven welke contracten waarschijnlijk aangesproken zullen worden, zodat de uitvoeringsomgeving van tevoren al alle mogelijke relaties kan berekenen. Aan de hand van het resultaat van de 'call-tree' van elk contract, worden de smart contracts onderverdeeld in groepen. Contracten kunnen dezelfde data aanpassen en worden binnen een groep sequentiëel uitgevoerd, terwijl meerdere groepen parallel worden uitgevoerd.
 
- * **In the same transaction batch (block), a contract can only be running once**
+#### 2.3.2 Lage graad van koppeling (coupling)
 
-As a result, all the smart contracts can be processed in parallel as sequential order is irrelevant to the result. However, if a "smart contract can only modify the state record of the contract that it belongs to", it implies that the contract cannot call each other. Each contract, is an isolated island; if "In the same transaction batch (block), a contract can only be running once", this implies that a digital asset issued with a smart contract, can only handle one transaction per block. This is a world of difference with the original design goals of "smart" contracts, which cease to be "smart". After all, our design goals include both mutual call between contracts, and multiple execution of the same call, in the same block.
+Coupling is de maat van afhankelijk tussen twee of meer entiteiten. NeoContract maakt gebruik van een opzet waarbij de mate van coupling zo laag mogelijk is. Hierdoor kunnen de meeste smart contract functies, nadat ze op de blockchain zijn gezet, makkelijk worden aangepast door middel van API's van services tussen de blockchain en de rest van de wereld.
 
-Fortunately, smart contracts in NEO have a static call relationship, and the call target cannot be specified at run time. This allows the behavior of the program to be fully determined before execution, and its call relationship to be fully defined before it can run. We require that each contract explicitly indicate the contracts which are likely to be invoked, so that the operating environment can calculate the complete call tree before running the contract procedure, and partition execution of the contracts, based on the call tree. Contracts that may modify the same state record, are executed in a sequential manner within the same partition, whereby different partitions can then be executed in parallel.
+## 3. Contract Gebruik
 
-#### 2.3.2 Low coupling
+### 3.1 Contract Verificatie
 
-Coupling is a measure of the dependency between two or more entities. NeoContract system uses a low-coupling design, which is executed in the NeoVM, and communicates with the non-blockchain data through the interoperable service layer. As a result, most upgrades to smart contract functions can be achieved by increasing the API of interoperable services.
-
-## 3. Contract Use
-
-### 3.1 Contract Verification
+In tegenstelling tot het public-key account-systeem van Bitcoin maakt NEO's account systeem gebruik van het contract-account-systeem. Elke account in NEO komt overeen met een verificatiecontract, waarbij de hash-waarde van het verificatiecontract het account-adres is.
 
 Unlike the public-key account system used in Bitcoin, NEO's account system uses the contract account system. Each account in the NEO corresponds to a verification contract, and the hash value of the verification contract, is the account address; The program logic of the verification contract controls the ownership of the account. When transferring from an account, you firstly need to execute the verification contract for that account. A validation contract can accept a set of parameters (usually a digital signature or other criteria), and return a boolean value after verification, indicating the success of the verification to the system.
 
