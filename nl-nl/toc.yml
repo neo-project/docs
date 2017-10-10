@@ -51,30 +51,33 @@
   - name: Smart Contract
     href: sc/introduction.md
     items:
-      - name: Introductie
-        href: sc/introduction.md
-      - name: Voorbereiding (C#)
-        href: sc/getting-started-csharp.md
-      - name: Voorbereiding (Java)
-        href: sc/getting-started-java.md
-      - name: Handleiding
+    - name: Introductie
+      href: sc/introduction.md
+    - name: Voorbereiding (C#)
+      href: sc/getting-started-csharp.md
+    - name: Voorbereiding (Java)
+      href: sc/getting-started-java.md
+    - name: Handleiding
+      href: sc/tutorial.md
+      items:
+      - name: Basis
         href: sc/tutorial.md
-        items:
-          - name: Basis
-            href: sc/tutorial.md
-          - name: Hello World
-            href: sc/tutorial/HelloWorld.md
-          - name: Lock Contract
-            href: sc/tutorial/Lock.md
-          - name: Domeinen (Domain Name System)
-            href: sc/tutorial/Domain.md
-          - name: Smart Contract Parameters en Return Values
-            href: sc/tutorial/Parameter.md
-          - name: Contract Authenticatie Handleiding
-            href: sc/tutorial/verify.md
-          - name: Lock Contract Deployen
-            href: sc/tutorial/Lock2.md
-          - name: Contract Call
-            href: sc/tutorial/call.md
-          - name: Deploy en Invoke
-            href: sc/tutorial/deploy-invoke.md
+      - name: Hello World
+        href: sc/tutorial/HelloWorld.md
+      - name: Lock Contract
+        href: sc/tutorial/Lock.md
+      - name: Domeinen (Domain Name System)
+        href: sc/tutorial/Domain.md
+      - name: Smart Contract Parameters en Return Values
+        href: sc/tutorial/Parameter.md
+      - name: Contract Authenticatie Handleiding
+        href: sc/tutorial/verify.md
+      - name: Lock Contract Deployen
+        href: sc/tutorial/Lock2.md
+      - name: Contract Call
+        href: sc/tutorial/call.md
+      - name: Deploy en Invoke
+        href: sc/tutorial/deploy-invoke.md
+    - name: Testen
+      href: sc/test.md
+      
