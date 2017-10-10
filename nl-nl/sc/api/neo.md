@@ -9,16 +9,16 @@ De NEO Namespace bevat een API die wordt verschaft door de NEO blockchain. Gebru
 
 Blockchain Query API:
 
-| API                           | Omschrijving                                            |
-| :---------------------------- | :------------------------------------------------------ |
-| Neo.Blockchain.GetHeight      | Krijg de huidige blockhoogte                            |
-| Neo.Blockchain.GetHeader      | Vind block header a.d.h.v. blockhoogte of blockhash     |
-| Neo.Blockchain.GetBlock       | Find block by block Height or block Hash                |
-| Neo.Blockchain.GetTransaction | Find transaction via transaction ID                     |
-| Neo.Blockchain.GetAccount     | Get an account based on the scripthash of the contract  |
-| Neo.Blockchain.GetValidators  | `New` Get the public key of the consensus node          |
-| Neo.Blockchain.GetAsset       | Get asset based on asset ID                             |
-| Neo.Blockchain.GetContract    | `New` Get contract content based on contract hash       |
+| API                           | Omschrijving                                             |
+| :---------------------------- | :------------------------------------------------------  |
+| Neo.Blockchain.GetHeight      | Krijg de huidige blockhoogte                             |
+| Neo.Blockchain.GetHeader      | Vind block header a.d.h.v. blockhoogte of blockhash      |
+| Neo.Blockchain.GetBlock       | Vind block a.d.h.v. blockhoogte of blockhash             |
+| Neo.Blockchain.GetTransaction | Vind transactie via transactie-ID                        |
+| Neo.Blockchain.GetAccount     | Krijg een account a.d.h.v. de scripthash van het contract|
+| Neo.Blockchain.GetValidators  | `Nieuw` Krijg de public key van de consensus node        |
+| Neo.Blockchain.GetAsset       | Krijg een asset a.d.h.v. asset ID                        |
+| Neo.Blockchain.GetContract    | `Nieuw` Krijg contractinhoud a.d.h.v. contracthash       |
 
 Block class API:
 
@@ -71,48 +71,50 @@ Asset class API:
 | Neo.Asset.GetAmount    | Krijg de totale hoeveelheid van een asset
 | Neo.Asset.GetAvailable | Krijg de gedistribueerde hoeveelheid van een asset 
 | Neo.Asset.GetPrecision | Krijg de nauwkeurigheid van een asset (het aantal getallen achter de komma)              
-| Neo.Asset.GetOwner     | Get the owner of the asset (public key) 
-| Neo.Asset.GetAdmin     | Obtain the administrator (contract address) of the asset 
-| Neo.Asset.GetIssuer    | Obtain the issuer (contract address) of the asset 
+| Neo.Asset.GetOwner     | Krijg de eigenaar van een asset (a.d.h.v. public key)
+| Neo.Asset.GetAdmin     | Krijg de administrator (contract adres) van een asset
+| Neo.Asset.GetIssuer    | Krijg de verstrekker (contract adres) van een asset 
 
 Contract class API:
 
-| API | Description |
-| :--------------------- | :------- |
-| Neo.Contract.GetScript | Get the scripthash of the contract |
+| API                    | Omschrijving                         |
+| :--------------------- | :----------------------------------- |
+| Neo.Contract.GetScript | Krijg de scripthash van het contract |
 
 Storage class API:
 
-| API | Description |
-| :--------------------- | :------------------------------ |
-| Neo.Storage.GetContext | `New` Get the current store context |
-| Neo.Storage.Get        | Returns the value in the persistent store based off the key given |
+| API                    | Omschrijving                                                             |
+| :--------------------- | :----------------------------------------------------------------------- |
+| Neo.Storage.GetContext | `Nieuw` Krijg de huidige opslagcontext                                   |
+| Neo.Storage.Get        | Geeft als return de waarde in persistente opslag a.d.h.v. de gegeven key |
 
 Runtime class API:
 
-| API | Description |
+| API                      | Omschrijving         |
 | :----------------------- | :-------------------------------- |
-| Neo.Runtime.CheckWitness | `New` Verifies that the calling contract has verified the required script hashes of the transaction/block |
-| Neo.Runtime.Notify       | `New` Notifies the client with a notification during smart contract execution      |
-| Neo.Runtime.Log          | `New` Notifies the client with a log message during smart contract execution      |
+| Neo.Runtime.CheckWitness | `Nieuw` Bevestigd dat het contract dat een aanvraag doet de benodigde script hashes van de transactie/het block heeft geverifiëerd 
+| Neo.Runtime.Notify       | `Nieuw` Toont een notificatie in de client wanneer het smart contract wordt uitgevoerd |
+| Neo.Runtime.Log          | `Nieuw` Toont een log-bericht wanneer het smart contract wordt uitgevoerd|
 
-Note: The source code can be found under `NEO` in the `src/neo/SmartContract/StateReader.cs` file.
+> [!Note]
+> De broncode kan worden gevonden onder `NEO` in `src/neo/SmartContract/StateReader.cs`.
 
 ## Read/Write API
 
-This type of API will modify the status of the smart contract
+Dit type API past de status van het smart contract aan.
 
-| API | Description |
+| API                            | Omschrijving |
 | :----------------------------- | :------------------------------- |
-| Neo.Account.SetVotes           | Set the voting information of this account |
-| Neo.Validator.Register         | `New` Register as a bookkeeper |
-| Neo.Asset.Create               | `New` Register a new asset |
-| Neo.Asset.Renew                | `New` Renew an asset |
-| Neo.Contract.Create            | `New` Publish a smart contract |
-| Neo.Contract.Migrate           | `New` Migrate/Renew a smart contract |
-| Neo.Contract.Destroy           | `New` Destroy a smart contract |
-| Neo.Contract.GetStorageContext | `New` Get the storage context of the contract |
-| Neo.Storage.Put                | Inserts a value into the persistent store based off the given key |
-| Neo.Storage.Delete             | Deletes a value from the persistent store based off the given key |
+| Neo.Account.SetVotes           | Verandert de stem-informatie van deze account
+| Neo.Validator.Register         | `Nieuw` Aanmelden als Bookkeeper node
+| Neo.Asset.Create               | `Nieuw` Registreer een nieuwe asset
+| Neo.Asset.Renew                | `Nieuw` Vernieuw een asset |
+| Neo.Contract.Create            | `Nieuw` Publiceer een smart contract |
+| Neo.Contract.Migrate           | `Nieuw` Migreer of vernieuw een smart contract |
+| Neo.Contract.Destroy           | `Nieuw` Vernietig een smart contract |
+| Neo.Contract.GetStorageContext | `Nieuw` Krijg de opslag-context van het contract |
+| Neo.Storage.Put                | Voert een waarde toe aan de persistente opslag a.d.h.v. een gegeven key |
+| Neo.Storage.Delete             | Verwijderd een waarde van de persistente opslag a.d.h.v. een gegeven key |
 
-Note: The source code for the above API can be found under `NEO` in the `src/neo/SmartContract/StateMachine.cs` file.
+> [!Note]
+> De broncode voor bovenstaande API kan worden gevonden onder `NEO` in `src/neo/SmartContract/StateMachine.cs`.
