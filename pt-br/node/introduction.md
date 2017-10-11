@@ -20,7 +20,7 @@ O [protocolo de rede NEO](network-protocol.md) irá prover uma API de baixo nív
 | Interface com linha de comando |      | ✅    |
 | Criação de carteira | ✅    | ✅    |
 | Carteira aberta | ✅    | ✅  |
-| Reconstrução do índice da carteira | ✅    | ✅    |
+| Reconstrução de índice de carteira | ✅    | ✅    |
 | Visualização de todos pares de chaves | ✅    | ✅    |
 | Importa/Exporta pares de chaves | ✅    | ✅    |
 | Visualização de todos endereços | ✅    | ✅    |
@@ -28,7 +28,7 @@ O [protocolo de rede NEO](network-protocol.md) irá prover uma API de baixo nív
 | Criação de endereços | ✅    | ✅    |
 | Transferências | ✅    | ✅    |
 | Transações (troca de ativo)  | ✅    |      |
-| Criação de *smart contract* de multiplas partes | ✅    |      |
+| Criação de *smart contract* multilateral | ✅    |      |
 | Criação de *smart contract* customizado | ✅    |      |
 | Assinatura | ✅    |      |
 | Nó de Consenso | ✅    |      |
