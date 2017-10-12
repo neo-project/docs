@@ -5,7 +5,7 @@
 - name: NEO Node
   href: node/introduction.md
   items:
-    - name: Introduction
+    - name: Introductie
       href: node/introduction.md
     - name: Installatie
       href: node/setup.md
@@ -112,5 +112,20 @@
               href: sc/fw/dotnet/neo/Storage.md
             - name: StorageContext
               href: sc/fw/dotnet/neo/StorageContext.md
+            - name: Transaction
+              href: sc/fw/dotnet/neo/Transaction.md
+            - name: TransactionAttribute
+              href: sc/fw/dotnet/neo/TransactionAttribute.md
+            - name: TransactionInput
+              href: sc/fw/dotnet/neo/TransactionInput.md
+            - name: TransactionOutput
+              href: sc/fw/dotnet/neo/TransactionOutput.md
+          - name: System
+            href: sc/fw/dotnet/System.md
+            items:
+            - name: ExecutionEngine
+              href: sc/fw/dotnet/System/ExecutionEngine.md
+    - name: Systeemkosten
+      href: sc/systemfees.md
 - name: Auteurs
   href: contributors.md
