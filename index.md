@@ -18,3 +18,5 @@ Ver documentación en [Español](es-es/index.md).
 [Deutsche](de-de/index.md) dokumentation ansehen.
 
 Zie de [Nederlandse](nl-nl/index.md) documentatie.
+
+Acesse documentação em português (brasileiro) [aqui](pt-br/index.md).
