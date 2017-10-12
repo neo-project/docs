@@ -1,6 +1,6 @@
 # Instalação e implementação do nó NEO
 
-Para a implementação do Nó é necessário o [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (Interface de linha de comando - para utilização por desenvolvedores), um software multi-plataforma que roda em Windows, Linux e Docker.
+Para a implementação do Nó é necessário o [Neo-CLI](https://github.com/neo-project/neo-cli/releases), um software multi-plataforma que roda em Windows, Linux e Docker.
 
 
 |                                   | Neo-CLI |
@@ -17,13 +17,15 @@ Para a implementação do Nó é necessário o [Neo-CLI](https://github.com/neo-
 
 
 
-## Preparando o ambiente do Nó NEO
+## Pré-requisitos do sistema
 
-Para executar um nó NEO é necessário instalar o [Runtime .NET Core](https://www.microsoft.com/net/download/core#/runtime) versão 1.0.1 ou acima. 
+Para rodar um nó NEO é necessário instalar o [Runtime .NET Core](https://www.microsoft.com/net/download/core#/runtime) versão 1.0.1 ou acima. 
+
 
 ### Instalação **.Net Core** para Windows:
 
 Em sistemas Windows, basta fazer o download do arquivo executável (*.exe*) no link acima e executá-lo seguindo as instruções de instalação. 
+
 
 ### Instalação **.Net Core** para Linux:
 
@@ -58,7 +60,7 @@ Se você ver a mensagem final "Hello World!", é porque o .NET Core foi instalad
 
 1. Faça o download do pacote [Neo-CLI](https://github.com/neo-project/neo-cli/releases) e extraia o conteúdo em uma pasta a sua escolha.
 
-> ![Nota]
+> :memo:
 > Se você tentar fazer o download e compilar o código fonte do Neo-CLI diretamente do Github, você verá que o comando `dotnet neo-cli.dll` não funcionará corretamente após a compilação e você precisará copiar os arquivos `libleveldb.dll` e `sqlite3.dll` para o mesmo diretório em que estiver neo-cli.dll. Estes dois arquivos podem ser baixados no primeiro passo do pacote.
 
 2. Abra o cmd do windows, navegue até o diretório em que os arquivos do Neo-CLI foram extraídos e execute o seguinte comando para rodar o nó NEO:
@@ -67,7 +69,7 @@ Se você ver a mensagem final "Hello World!", é porque o .NET Core foi instalad
 dotnet neo-cli.dll
 ```
 
-> :memo: Nota
+> :memo:
 > Se você estiver utilizando o Windows 7, pode ser necessário realizar [esta atualização](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot). Reinicie seu computador em seguida.
 
 
