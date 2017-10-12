@@ -1,6 +1,12 @@
-# Instalação e implementação do nó NEO
+# Interfaces
 
-Para a implementação do Nó é necessário o [Neo-CLI](https://github.com/neo-project/neo-cli/releases), um software multi-plataforma que roda em Windows, Linux e Docker.
+O NEO conta com o [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (interface de linha de comando) e com o [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (interface gráfica de usuário).
+
+O uso do Neo-GUI não requer instalação e é melhor descrito na sua [documentação](node/gui.md).
+
+# Instalação e implementação de Nó
+
+Para a implementação de um Nó *full* é necessário o [Neo-CLI](https://github.com/neo-project/neo-cli/releases), um software multi-plataforma que roda em Windows, Linux e Docker.
 
 
 |                                   | Neo-CLI |
