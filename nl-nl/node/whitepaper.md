@@ -34,8 +34,6 @@ De integriteit en echtheid van de informatieoverdracht worden verzekerd door mid
 
 ​Ons algoritme maakt veiligheid en gebruik mogelijk. Zolang het defecte aantal nodes niet groter is dan `⌊ (𝑛−1) / 3 ⌋`, is de functionaliteit en stabilitiet van het systeem gewaarborgd. In deze formule staat `n = |R|` voor het totale aantal nodes in de consensusactiviteit waarbij `R` staat voor de verzameling consensusnodes. In `𝑓 = ⌊ (𝑛−1) / 3 ⌋` staat `f` voor het maximum aantal defecte nodes dat een systeem aankan. Dit betreft consensusnodes, aangezien normale (Ordinary) nodes niet deelnemen aan de consensusactiviteit.
 
-
-
 All consensus nodes are required to maintain a state table to record current consensus status. The data set used for a consensus from its beginning to its end is called a View. If consensus cannot be reached within the current View, a View Change will be required. We identify each View with a number v, starting from 0 and it may increase till achieving the consensus.
 
 ​We identify each consensus node with a number, starting from 0, the last node is numbered n − 1. For each round of consensus making, a node will play speaker of the house while other nodes play congressmen. The speaker’s number p will be determined by the following algorithm: Hypothetically the current block height is h, then 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, p’s value range will be  0 ≤ 𝑝 < 𝑛 .
@@ -116,5 +114,6 @@ In the worst case scenario, |𝐹| = 𝑓​ , i.e. the number of malicious node
 
 [4] Bracha G, Toueg S. Asynchronous consensus and broadcast protocols[J]. Journal of the ACM (JACM), 1985, 32(4): 824-840. 
 
-[5] 范捷, 易乐天, 舒继武. 拜占庭系统技术研究综述[J]. 软件学报, 2013, 6: 012. 
+[5] 范捷, 易乐天, 舒继武. 拜占庭系统技术研究综述[J]. 软件学报, 2013, 6: 012.  
+    (FAN JIE, YI Le-tian, SHU Ji-Wu. Analyse van Byzantine System Technology [J]. Journal of Software, 2013, 6: 012)
 
