@@ -79,19 +79,19 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
 
     #### Criando a conta contrato
 
-    * Clique com o botão direito sobre a conta em sua carteira (a que foi auto-gerada na criação da carteira), em `Create Contract Add.` e em `Multi-Signature...`
+    - Clique com o botão direito sobre a conta em sua carteira (a que foi auto-gerada na criação da carteira), em `Create Contract Add.` e em `Multi-Signature...`
  
- <p align="center"> <img src="/assets/testnet_5.png"> </p>
+    <p align="center"> <img src="/assets/testnet_5.png"> </p>
  
-    * No campo `Min. Sig. Num.` coloque `1`
+    - No campo `Min. Sig. Num.` coloque `1`
   
-    * Na area `Public Key list` adicione as duas chaves públicas: a que foi recebida do NEO por e-mail e a sua (utilizada nos passos da sessão anterior) e clique em `Confirm`
+    - Na area `Public Key list` adicione as duas chaves públicas: a que foi recebida do NEO por e-mail e a sua (utilizada nos passos da sessão anterior) e clique em `Confirm`
  
- <p align="center"> <img src="/assets/testnet_6.png"> </p>
+    <p align="center"> <img src="/assets/testnet_6.png"> </p>
  
-    * Após a confirmação, em cerca de 5 minutos, os NEO e GAS solicitados vão estar disponíveis
+    - Após a confirmação, em cerca de 5 minutos, os NEO e GAS solicitados vão estar disponíveis
  
- <p align="center"> <img src="/assets/testnet_7.png"> </p>
+    <p align="center"> <img src="/assets/testnet_7.png"> </p>
   
  
 11. Agora você pode transferir os NEO e GAS da conta contrato para a conta referência da carteira
