@@ -154,23 +154,24 @@ Para alterar sua senha, baster clicar em `Wallet` e `Change Password...`
 
 Esta opção é utilizada para restauração da carteira quando algum erro ocorre. 
 
-<p align="center"> ![image](/pt-br/assets/gui_7.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui_7.png"> </p>
 
 Os índices da carteira podem ter de serem refeitos nos seguintes casos:
 
 1. Após importar uma chave privada
-
 2. Uma transação não ter sido confirmada depois de muito tempo
-
 3. Os ativos da carteira possuirem erros, não coincidindo com os dados na *blockchain*
 
 Como a altura, isto é, a quantidade de blocos, da *blockchain* é grande, refazer os índices da carteira pode demorar vários minutos. Seja paciente!
+
+
 
 ### `Restore Accounts...` - Restaurar contas 
 
 Esta opção é utilizada para restaurar o endereço e os ativos da carteira a partir do seu arquivo database no caso de acidentalmente serem deletados. Vale ressaltar que não é recomendado realizar operações de `delete` através do Neo-GUI para evitar a perda de ativos.
 
-<p align="center"> ![image](/pt-br/assets/gui_8.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui_8.png"> </p>
+
 
 
 ## `Transaction` - Transações
@@ -222,6 +223,8 @@ Esta opção é utilizada para restaurar o endereço e os ativos da carteira a p
 3. Após a transação ser adicionada à lista de destinatários, clique em `OK` para realizar todas as transferências.
 
 <p align="center"> <img src="/pt-br/assets/gui_16.png"> </p>
+
+
 
 
 #### Observações (*Remarks)
@@ -371,29 +374,27 @@ A qualquer momento o usuário portador de NEO pode solicitar o resgate dos GAS p
 Para o resgate de GAS, os passos são:
 
 1. Transfira todos os NEO da carteira através de uma operação de transferência. É possível transferir os NEO diretamente ao mesmo endereço atual. 
-      * Se você for em `Advanced` na barra superior e clicar em `NeoGas Claim...`, a janela de resgate abrirá com o botão de resgate de GAS `Claim All` em cinza, desativado; Não é possível resgatar os GAS sem antes realizar uma transferência dos NEO.
+      - Se você for em `Advanced` na barra superior e clicar em `NeoGas Claim...`, a janela de resgate abrirá com o botão de resgate de GAS `Claim All` em cinza, desativado; Não é possível resgatar os GAS sem antes realizar uma transferência dos NEO.
       
-      En nuestro ejemplo **vamos a transferir 
-      los NEOs directamentea a la misma cuenta para poder reclamar los NeoGas.**
+      
+  <p align="center"> <img src="/pt-br/assets/gui_35.png"> </p>
+      
+2. No menu `Trasanction`, clique em `Transfer...` e realize uma transferência de todos os NEO, nesse exemplo, para a mesma conta, como mostrado na imagem
       <br>
       
-      <p align="center"> <img src="/pt-br/assets/gui_35.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_36.png"> </p>
       
-      * No menu `Trasanction`, clique em `Transfer...` e realize uma transferência de todos os NEO, nesse exemplo, para a mesma conta, como mostrado na imagem
-      <br>
+3. Uma vez realizada a transferência, volte a `Advanced`, clique em `NeoGas Claim...` e agora clique em `Claim All` 
       
-      <p align="center"> <img src="/pt-br/assets/gui_36.png"> </p>
-      
-      * Uma vez realizada a transferência, volte a `Advanced`, clique em `NeoGas Claim...` e agora clique em `Claim All` 
-      
-      <p align="center"> <img src="/pt-br/assets/gui_37.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_37.png"> </p>
       
       
-      * Após realizado o resgate, os GAS ficam disponíveis e podem ser vistos no endereço
+4. Após realizado o resgate, os GAS ficam disponíveis e podem ser vistos no endereço
       <br>
       <p align="center"> <img src="/pt-br/assets/gui_38.png"> </p>
       
 
+<br><br>
 ### `Request Certificate...` - Solicitar um certificado
 
 > [!IMPORTANT] 
@@ -401,11 +402,11 @@ Para o resgate de GAS, os passos são:
 
 Esta funcionalidade permite unicamente gerar o arquivo de de solicitação de certificado. O usuário ainda precisará recorrer a uma autoridade certificadora para solicitar o certificado.
 
-  1. Vá em `Advanced`, clique em `Request Certificate` e preencha os campos
+  1. Vá em `Advanced`, clique em `Request Certificate...` e preencha os campos
 
   <p align="center"> <img src="/pt-br/assets/gui_39.png"> </p>
 
-  2. Clique em `Ok` e defina onde o arquivo será salvo
+  2. Clique em `OK` e defina onde o arquivo será salvo
 
   <p align="center"> <img src="/pt-br/assets/gui_40.png"> </p>
 
@@ -413,7 +414,7 @@ Esta funcionalidade permite unicamente gerar o arquivo de de solicitação de ce
 
   <p align="center"> <img src="/pt-br/assets/gui_41.png"> </p>
 
-  4. Após importado, clique no endereço com o botão direito do mouse, vá em `Import` e clique em `Import from Certificate` para selecionar o certificado; clique `Ok`
+  4. Após importado, clique no endereço com o botão direito do mouse, vá em `Import` e clique em `Import from Certificate` para selecionar o certificado; clique `OK`
 
   <p align="center"> <img src="/pt-br/assets/gui_42.png"> </p>
 
