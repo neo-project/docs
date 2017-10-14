@@ -34,10 +34,9 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
   - `protocol.testnet.json` e `config.testnet.json` são cópias que armazenam a configuração para utilizar a rede de teste 
   - da mesma forma, `protocol.mainnet.json` e `config.mainnet.json` são cópias que guardam as informações necessárias para utilizar a rede principal
 
-<p align="center">
-<img style="vertical-align: middle" src="/assets/testnet_1_v2.png">
-<img style="vertical-align: middle" src="/assets/testnet_2_v2.png">
-</p>
+<p align="center"> <img src="/assets/testnet_1_v2.png"> </p>
+
+<p align="center"> <img src="/assets/testnet_2_v2.png"> </p>
 
 #### Para utilizar a rede de testes:
 1. Substitua o conteúdo do arquivo `protocol.json` pelo conteúdo presente no arquivo `protocol.testnet.json`  
@@ -62,9 +61,7 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
 
 5. Clique com o botão direito do mouse sobre a conta referência, clique em `View Private Key` e copie a chave pública (conteúdo do campo *Public Key:*) como mostra a imagem abaixo
 
-<p align="center">
-  <img src="assets/testnet_3.png">
-</p>
+<p align="center"> <img src="/assets/testnet_3.png"> </p>
   
 6. Entre no [website da Rede de Teste](https://neo.org/en-us/Testnet/Create) para solicitar os NEO/GAS
 
@@ -73,9 +70,7 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
 
 8. No campo `NEO PUBLIC KEY` insira a chave pública que foi copiada no passo **5.** 
 
-<p align="center">
- <img src="assets/testnet_4.png">
-</p>
+<p align="center"> <img src="/assets/testnet_4.png"> </p>
  
 9. Após preencher o formulário, clique em `Submit Application`
 
@@ -84,25 +79,19 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
 
 ### Criando a conta contrato
 
-  10.1. Clique com o botão direito sobre a conta em sua carteira (a que foi auto-gerada na criação da carteira), em `Create Contract Add.` e em `Multi-Signature...`
+     10.1. Clique com o botão direito sobre a conta em sua carteira (a que foi auto-gerada na criação da carteira), em `Create Contract Add.` e em `Multi-Signature...`
  
- <p align="center">
-  <img src="assets/testnet_5.png">
- </p>
+ <p align="center"> <img src="/assets/testnet_5.png"> </p>
  
-  10.2. No campo `Min. Sig. Num.` coloque `1`
+     10.2. No campo `Min. Sig. Num.` coloque `1`
+  
+     10.3. Na area `Public Key list` adicione as duas chaves públicas: a que foi recebida do NEO por e-mail e a sua (utilizada nos passos da sessão anterior) e clique em `Confirm`
  
-  10.3. Na area `Public Key list` adicione as duas chaves públicas: a que foi recebida do NEO por e-mail e a sua (utilizada nos passos da sessão anterior) e clique em `Confirm`
+ <p align="center"> <img src="/assets/testnet_6.png"> </p>
  
- <p align="center">
-  <img src="assets/testnet_6.png">
- </p>
+     10.4. Após a confirmação, em cerca de 5 minutos, os NEO e GAS solicitados vão estar disponíveis
  
-  10.4. Após a confirmação, em cerca de 5 minutos, os NEO e GAS solicitados vão estar disponíveis
- 
- <p align="center">
-  <img src="assets/testnet_7.png">
- </p>
+ <p align="center"> <img src="/assets/testnet_7.png"> </p>
   
  
 11. Agora você pode transferir os NEO e GAS da conta contrato para a conta referência da carteira
