@@ -18,70 +18,83 @@ Em sua primeira inicialização, o Neo-GUI irá alertá-lo para realizar a insta
 
 O programa precisa estar sincronizado antes do uso. No canto inferior esquerdo vemos o número de blocos sincronizados e o número total de blocos na rede (veja a imagem abaixo). Estes números serão atualizados regularmente.
 
-![image](/pt-br/assets/gui_1.png)
+  <p align="center"> <img src="/pt-br/assets/gui_1.png"> </p>
+
+
+### Download e sincronização offline
+
+Para acelerar o processo de sincronização da *blockchain*, você pode baixar o arquivo da *blockchain* completa mais recente diretamente do [site da NEO](https://www.neo.org/client/chain.acc.zip) 
+
+Após finalizar o download, confirme que o Neo-GUI não esteja sendo executado e mova o arquivo `chain.acc.zip` para o diretório em que se encontra o executável `Neo-gui.exe`. Agora, ao iniciar o Neo-GUI, o software irá descompactar o arquivo `.zip` e carregar os blocos salvos.
+
+  <p align="center"> <img src="/pt-br/assets/gui_58.png"> </p>
+
+Uma vez que os blocos tenham sido carregados, o programa vai excluir o arquivo zip.
+
+  <p align="center"> <img src="/pt-br/assets/gui_60.png"> </p>
+
 
 ### Glossário
 
-#### Carteira
+
+#### _**Wallet**_ ( Carteira )
 
 Um arquivo de Carteira é um arquivo de banco de dados com extensão `.db3` que armazena uma referência aos seus NEO e GAS e à informação de sua conta. Este arquivo é muito importante e precisa ter uma cópia de segurança salva e segura.
 
-> [!Important]
->
+> [!IMPORTANT]
 > A perda, tanto do arquivo da carteira, quanto da senha da carteira, implicará na perda de seus ativos! Por favor, garanta que o arquivo de carteira seja seguramente armazenado e tenha uma cópia de segurança, e lembre de sua senha.
 
-#### Conta
+#### _**Account**_ ( Conta )
 
-Sua conta é usada para rastrear ativos na *blockchain*.
+A conta é usada para rastrear ativos na *blockchain*.
 
 Informações da conta incluem: endereço, chave privada, chave pública e tipo.
 
-1. Endereço: é a informação utilizada na realização de transações. Pode ser entendido como equivalente ao número de uma conta em um banco ou ao número de um cartão de crédito.
+  - **Endereço**: é a informação utilizada na realização de transações. Pode ser entendido como equivalente ao número de uma conta em um banco ou ao número de um cartão de crédito.
 
-2. Tipos: 
-  `Neo.Wallets.SignatureContract`: Significa que o endereço consiste de uma chave pública e tem relação de assinatura 1-pra-1. 
-  `Neo.Wallets.MultiSigContract`: Indica que o endereço possui múltiplas chaves públicas e tem relação de múltiplas assinaturas m-pra-n, o qual é usado para *smart contracts*.
+  - **Tipos**: 
+    `Neo.Wallets.SignatureContract`: Significa que o endereço consiste de uma chave pública e tem relação de assinatura 1-pra-1. 
+    `Neo.Wallets.MultiSigContract`: Indica que o endereço possui múltiplas chaves públicas e tem relação de múltiplas assinaturas m-pra-n, o qual é usado para *smart contracts*.
 
-3. Chave privada: É um número randômico de 256 bits, mantido pelo usuário e não informado publicamente. Esta chave representa o proprietário da conta e dos ativos na conta.
+  - **Chave privada**: É um número randômico de 256 bits, mantido pelo usuário e não informado publicamente. Esta chave representa o proprietário da conta e dos ativos na conta.
 
-4. Chave pública: Cada chave privada tem uma chave pública correspondente (obs: apesar da informação da chave pública e da chave privada, poder ser vista através do endereço da conta, o número da chave privada em si, **não pode**).
+  - **Chave pública**: Cada chave privada tem uma chave pública correspondente (obs: apesar da informação da chave pública e da chave privada, poder ser vista através do endereço da conta, o número da chave privada em si, **não pode**).
 
-> [!Important]
->
+> [!IMPORTANT]
 > De forma alguma a chave privada deve ser divulgada a terceiros, ou você corre o risco de perder sua carteira e todos seus ativos.
 
 
-#### Ativos
+#### _**Asset**_ ( Ativo )
 
 Os ativos da conta. Informações dos ativos de uma conta incluem: ativos (NEO, GAS ou outros ativos criados por usuários), tipo, balanço e usuário emissor.
 
-#### Registro de Transação
+#### _**Transaction Record/History**_ ( Registro/Histórico de Transações )
 
-Um registro de todas as transações associadas à conta.
+Registro de todas as transações associadas à conta e suas informações.
 
-#### Transferência
+#### _**Transfer**_ ( Transferência )
 
 Transferência de um ativo para um endereço de destino. Se o tipo do ativo for NEO, todas partes devem confirmar a transferência com suas assinaturas. Outros tipos de ativos podem ser transferidos sem a confirmação de todas as partes.
 
-#### Troca
+#### _**Trade**_ ( Troca/Acordo )
 
-Intercâmbio de ativos entre duas partes, onde é necessária a confirmação de ambas as partes para a troca ser realizada.
+Intercâmbio de ativos entre duas partes, onde são necessárias as confirmações de ambas as partes para a troca ser realizada.
 
-#### Reconhecer firma
+#### _**Signature**_ ( Signatário/Reconhecer firma )
 
 Reconhecimento de firma significa reconhecer, ou confirmar, as informações do contrato pelo signatário.
 Para transações envolvendo alocação de capital e transferência de ativos, o reconhecimento é necessário como prova de consentimento das partes envolvidas.
 
-#### Registro de ativo
+#### _**Registered Asset**_ ( Ativo Registrado )
 
-Criação um novo ativo emitido por um usuário na rede NEO. O usuário pode definir tipo, nome, total, etc, do ativo e especificar a conta de quem administrará o ativo. A criação de ativos pode ter custo em NEO e GAS como tarifa de serviço. Obs: A tarifa na rede de teste é menor e GAS na rede teste para fins de desenvolvimento podem ser solicitados.
+Um novo ativo criado por um usuário na rede NEO. O usuário pode definir tipo, nome, total, etc, do ativo e especificar a conta de quem administrará o ativo. A criação de ativos pode ter custo em NEO e GAS como tarifa de serviço. 
 
-#### Distribuição de ativos
+#### _**Asset Distribution**_ ( Distribuição de Ativo )
 
 Dentro do limite máximo definido pelo criador, o ativo é emitido ao endereço especificado pelo emissor.
 A distribuição de ativos consome certa quantidade de GAS como tarifa de serviço. Obs: A tarifa na rede de teste é menor e GAS na rede teste para fins de desenvolvimento podem ser solicitados.
 
-#### Eleição
+#### _**Election**_ ( Eleição )
 
 Os validadores da rede, ou Nós de consenso, são definidos por eleição. Para participar da escolha (eleição) deve ser pagar certa quantia de NEO e as qualificações dos candidatos são avaliadas. Atualmente ainda não há suporte para este mecanismo.
 
@@ -89,53 +102,55 @@ Os validadores da rede, ou Nós de consenso, são definidos por eleição. Para 
 
 Portadores de NEO podem votar nos candidatos a Nó de Consenso e através desse mecanismo de eleição é definido se algum candidato será selecionado. 
 
-#### Transmissão
+#### _**Broadcast**_ ( Transmissão )
 
-Após reconhecida, a transação é transmitida por toda a rede e a confirmação por um Nó de Consenso (através do mecanismo dBFT) valida e completa a transação. Atualmente apenas o modo de reconhecimento de firma suporta este modelo.
+Após reconhecida pelo signatário, a transação é transmitida por toda a rede e a confirmação por um Nó de Consenso (através do mecanismo dBFT) valida e completa a transação. Atualmente apenas o modo de signatário suporta este modelo.
 
 #### Monitor de endereço
 
 Após importar um endereço de outra parte, você estará apto a monitar (ver) os ativos daquele endereço.
 
-## Carteira
-### Criar o banco de dados da carteira
+
+## `Wallet` - Carteira
+### `New Wallet database...` - Criar o banco de dados da carteira
 
 1. No canto superior esquerdo clique em `Wallet` >> `New Wallet database...`
 
-<p align="center"> ![image](/pt-br/assets/gui_2.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui_2.png"> </p>
 
 2. Clique em `Browse` e na janela pop-up que abriu, selecione o diretório para armazenar e o nome que terá o arquivo `.db3` da carteira. Clique `Save`
 
-<p align="center"> ![image](/pt-br/assets/gui/gui_3.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui/gui_3.png"> </p>
 
 3. Defina uma senha de sua escolha em `Password`, confirme a mesma em `Re-Password` e clique `confirm` para finalizar o processo de criação
 
-<p align="center"> ![image](/pt-br/assets/gui_4.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui_4.png"> </p>
 
 > [!IMPORTANT] 
 > Esta senha não deverá ser perdida ou esquecida. Anote-a em lugar seguro.
 
 
-### Abrir a carteira (banco de dados)
+### `Open Wallet database...` - Abrir carteira (banco de dados)
 
 Cada vez que o Neo-GUI é aberto, é necessário re-abrir a carteira manualmente.
 
 1. Clique em `Wallet` >> `Open Wallet Database...` e selecione o arquivo `.db3` da sua carteira
 
-<p align="center"> ![image](/pt-br/assets/gui_5.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui_5.png"> </p>
 
 Se eventualmente o arquivo da carteira apresentar erros, tente marcar a opção `repair mode` ao abrir a carteira.
 
-### Alteração de senha
+
+### `Change Passaword...` - Alteração de senha
 
 Para alterar sua senha, baster clicar em `Wallet` e `Change Password...`
 
-<p align="center"> ![image](/pt-br/assets/gui_6.png) </p>
+<p align="center"> <img src="/pt-br/assets/gui_6.png"> </p>
 
 > [!IMPORTANT]
 > Após alterar a senha, não se esqueça de salvar uma nova cópia de segurança, uma vez as versões anteriores do arquivo database da carteira não contém a nova senha.
 
-### Refazer os índices da carteira
+### `Rebuild index` - Refazer os índices da carteira
 
 Esta opção é utilizada para restauração da carteira quando algum erro ocorre. 
 
@@ -151,15 +166,16 @@ Os índices da carteira podem ter de serem refeitos nos seguintes casos:
 
 Como a altura, isto é, a quantidade de blocos, da *blockchain* é grande, refazer os índices da carteira pode demorar vários minutos. Seja paciente!
 
-### Restaurar conta 
+### `Restore Accounts...` - Restaurar contas 
 
 Esta opção é utilizada para restaurar o endereço e os ativos da carteira a partir do seu arquivo database no caso de acidentalmente serem deletados. Vale ressaltar que não é recomendado realizar operações de `delete` através do Neo-GUI para evitar a perda de ativos.
 
 <p align="center"> ![image](/pt-br/assets/gui_8.png) </p>
 
-## Comércio
 
-### Transferência
+## `Transaction` - Transações
+
+### `Transafer...`- Transferência
 
 #### Transferência de tokens
 
@@ -169,10 +185,10 @@ Esta opção é utilizada para restaurar o endereço e os ativos da carteira a p
 
 
 2. Clique em `[+]` 
-  - No campo `Asset` selecione o token que deseja transferir (`NeoGas` na imagem ilustrativa)
-  - No campo `Pay to` insira o endereço de destino dos tokens
-  - No campo `Amount` insira a quantidade que será transferida
-  - Clique `OK`
+   - No campo `Asset` selecione o token que deseja transferir (`NeoGas` na imagem ilustrativa)
+   - No campo `Pay to` insira o endereço de destino dos tokens
+   - No campo `Amount` insira a quantidade que será transferida
+   - Clique `OK`
 
 <p align="center"> <img src="/pt-br/assets/gui_10.png"> </p>
 
@@ -208,7 +224,7 @@ Esta opção é utilizada para restaurar o endereço e os ativos da carteira a p
 <p align="center"> <img src="/pt-br/assets/gui_16.png"> </p>
 
 
-#### Observações
+#### Observações (*Remarks)
 
 É possível adicionar observações e comentários para serem registrados na *blockchain* juntamente com a transação. Basta clicar no ícone no canto inferior direito da janela da lista de destinatários, como mostrado na imagem abaixo. 
 
@@ -222,7 +238,7 @@ Atualmente, pode-se utilizar o [NeoScan](https://neoscan.io) para visualizar est
 
 
 
-### Transações (X)
+### `Transaction(X)...` - Transação Cruzada/Acordo
 
 #### Iniciar um acordo
 
@@ -235,24 +251,24 @@ O contexto do nosso exemplo será entre duas partes, A e B:
 
 #### Parte envolvida **A**
 
-A.1. Clique em `Transaction` e em `Transactions(X)...` 
-     - No campo `Pay To` insira o endereço da outra parte do acordo (**B**)
-     - Clique em `[+]`
-     - Na janela `Payment` escolha o tipo de ativo em `Asset` (no nosso exemplo, "MyToken")
-     - No campo `Amount`  insira a quantia (no nosso exemplo a quantia é 5) 
-     - Clique em `initiate`
+1. Clique em `Transaction` e em `Transactions(X)...` 
+   - No campo `Pay To` insira o endereço da outra parte do acordo (**B**)
+   - Clique em `[+]`
+   - Na janela `Payment` escolha o tipo de ativo em `Asset` (no nosso exemplo, "MyToken")
+   - No campo `Amount`  insira a quantia (no nosso exemplo a quantia é 5) 
+   - Clique em `initiate`
 
-<p align="center"> <img src="/pt-br/assets/gui_18.png"> </p>
-
-
-A.2. Quando a janela de requisição de acordo `Trade Request` abrir, clique em `copy` e feche a janela clicando em `close`
-
-<p align="center"> <img src="/pt-br/assets/gui_19.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_18.png"> </p>
 
 
-A.3. Agora na aba `merge tx. request` da janela **Transaction**, temos que inserir o código da outra parte envolvida no acordo (**B**).
+2. Quando a janela de requisição de acordo `Trade Request` abrir, clique em `copy` e feche a janela clicando em `close`
 
-<p align="center"> <img src="/pt-br/assets/gui_20.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_19.png"> </p>
+
+
+3. Agora na aba `merge tx. request` da janela **Transaction**, temos que inserir o código da outra parte envolvida no acordo (**B**).
+
+  <p align="center"> <img src="/pt-br/assets/gui_20.png"> </p>
 
 
 
@@ -260,87 +276,91 @@ A.3. Agora na aba `merge tx. request` da janela **Transaction**, temos que inser
 
 A parte **B** deve realizar os mesmos passos, preenchendo a solicitação com sua contrapartida, nesse exemplo, de **1 NEO**.
 
-B.1. Clique em `Transaction` e em `Transactions(X)...` 
-     - No campo `Pay To`, o endereço de **A** deve ser nserido 
-     - Clique em `[+]` 
-     - Na janela **Payment**, no campo `Asset`, escolha o tipo de ativo (nesse exemplo, a contrapartida de **B** é em **NEO**) 
-     - No campo `Amount`, insira a quantia (nesse exemplo, a quantia da contrapartida de **B** é de **1** NEO)
-     - Clique em `Initiate`
+1. Clique em `Transaction` e em `Transactions(X)...` 
+   - No campo `Pay To`, o endereço de **A** deve ser nserido 
+   - Clique em `[+]` 
+   - Na janela **Payment**, no campo `Asset`, escolha o tipo de ativo (nesse exemplo, a contrapartida de **B** é em **NEO**) 
+   - No campo `Amount`, insira a quantia (nesse exemplo, a quantia da contrapartida de **B** é de **1** NEO)
+   - Clique em `Initiate`
 
 <p align="center"> <img src="/pt-br/assets/gui_21.png"> </p>
 
 
-B.2. Quando a janela de requisição de acordo `Trade Request` abrir, clique em `copy` e feche a janela clicando em `close`
+2. Quando a janela de requisição de acordo `Trade Request` abrir, clique em `copy` e feche a janela clicando em `close`
 
 <p align="center"> <img src="/pt-br/assets/gui_22.png"> </p>
 
 
 #### Parte envolvida **A**
 
-A.4. O código da requisição de **B** deve, então, ser inserido na aba **merge tx. request** no campo **counterparty request** e confirmado no botão `validate`
+4. O código da requisição de **B** deve, então, ser inserido na aba **merge tx. request** no campo **counterparty request** e confirmado no botão `validate`
 
-<p align="center"> <img src="/pt-br/assets/gui_23.png"> </p>
-
-A.5. Na janela de verificação `Transaction Verification` você pode cancelar a requisição se alguma informação estiver incorreta, ou, como no nosso exemplo, confirmar clicando em `Accept`
-
-<p align="center"> <img src="/pt-br/assets/gui_24.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_23.png"> </p>
 
 
-A.6. Após confirmada a informação de requisição, clique em `Merge`
+5. Na janela de verificação `Transaction Verification` você pode cancelar a requisição se alguma informação estiver incorreta, ou, como no nosso exemplo, confirmar clicando em `Accept`
 
-<p align="center"> <img src="/pt-br/assets/gui_25.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_24.png"> </p>
 
 
-A.7. Agora, copie o código da janela **Need Signature** e envie para a outra parte envolvida, **B**, que deverá utilizá-lo para reconhecer a requisição do seu lado (como **A** fez nos passos anteriores)
+6. Após confirmada a informação de requisição, clique em `Merge`
 
-<p align="center"> <img src="/pt-br/assets/gui_26.png">
+  <p align="center"> <img src="/pt-br/assets/gui_25.png"> </p>
+
+
+7. Agora, copie o código da janela **Need Signature** e envie para a outra parte envolvida, **B**, que deverá utilizá-lo para reconhecer a requisição do seu lado (como **A** fez nos passos anteriores)
+
+  <p align="center"> <img src="/pt-br/assets/gui_26.png">
 
 
 
 #### Parte envolvida **B**
 
-B.3. Agora é a vez de **B** reconhecer a transação, colando o código gerado em **A.7** no campo **counterparty request** da aba **merge tx. request** e clicando em `Validate`
+3. Agora é a vez de **B** reconhecer a transação, colando o código gerado em **A.7** no campo **counterparty request** da aba **merge tx. request** e clicando em `Validate`
 
-<p align="center"> <img src="/pt-br/assets/gui_27.png"> </p>
-
-
-B.4. Em seguida, na janela **Transaction Verification**, **B** confirma a transação clicando em `Accept`
-
-<p align="center"> <img src="/pt-br/assets/gui_28.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_27.png"> </p>
 
 
-B.5. Após confirmada a transação, **B** deve clicar em `merge`
+4. Em seguida, na janela **Transaction Verification**, **B** confirma a transação clicando em `Accept`
 
-<p align="center"> <img src="/pt-br/assets/gui_29.png"> </p>
-
-
-B.6. Se tudo ocorrer corretamente, a janela `Trade Success` irá abrir com o código da transação e representando que a transação do acordo foi bem-sucedida; a janela pode ser fechada clicando em `close`
-
-<p align="center"> <img src="/pt-br/assets/gui_30.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_28.png"> </p>
 
 
-13. Na aba de ativos (`Asset`) veremos os ativos que acabaram de ser acordadados com a outra parte (**B** recebeu 5 MyToken de **A**)
+5. Após confirmada a transação, **B** deve clicar em `merge`
 
-<p align="center"> <img src="/pt-br/assets/gui_31.png"> </p>
+  <p align="center"> <img src="/pt-br/assets/gui_29.png"> </p>
+
+
+6. Se tudo ocorrer corretamente, a janela `Trade Success` irá abrir com o código da transação e representando que a transação do acordo foi bem-sucedida; a janela pode ser fechada clicando em `close`
+
+  <p align="center"> <img src="/pt-br/assets/gui_30.png"> </p>
 
 
 
-#### Reconhecimento de firma
+Na aba de ativos (**Asset**) veremos os ativos que acabaram de ser acordadados com a outra parte (**B** recebeu 5 MyToken de **A**)
 
-Algumas transações precisam ser reconhecidas por outra(s) parte(s). O código recebido de cada parte, deve então, ser colado no campo `Input` e em seguida confirmado clicando em `Signature`.
-Quando o número necessário de reconhecimentos for atingido, o botão `broadcast` ficará disponível. Clique em `Broadcast` para transmitir à rede a transação.
+  <p align="center"> <img src="/pt-br/assets/gui_31.png"> </p>
+
+
+
+#### `Signature` - Signatário 
+
+  ##### **_PRECISA MELHORAR A COMPREENSÃO DO USO_**
+
+Algumas transações precisam ser reconhecidas por outra(s) parte(s). O código recebido de cada parte, deve então, ser colado no campo `Input` e em seguida confirmado clicando em `Signature` para adicionar o signatário.
+Quando o número necessário de signatários for atingido, o botão `broadcast` ficará disponível. Clique em `Broadcast` para transmitir à rede a informação.
 
 <p align="center"> <img src="/pt-br/assets/gui_32.png"> </p>
 
-Se a transação for realizada com exito e gravada na *blockchain*, a janela de transação bem-sucedida irá se abrir.
+Se tudo ocorrer corretamente, a janela de transação bem-sucedida irá se abrir.
 
 <p align="center"> <img src="/pt-br/assets/gui_33.png"> </p>
 
 
 
-## Avançado
+## `Advanced` - Avançado
 
-### Resgate de GAS
+### `NeoGas Claim...` - Resgate de GAS
 
 Novos GAS são gerados a cada novo bloco registrado na *blockchain*. Esses GAS são registrados nos endereços dos portadores de NEO. Na aba de ativos `Asset`, o número entre parênteses representa a quantidade de GAS que pode ser resgatada.
 
@@ -374,7 +394,7 @@ Para o resgate de GAS, os passos são:
       <p align="center"> <img src="/pt-br/assets/gui_38.png"> </p>
       
 
-### Solicitar um certificado
+### `Request Certificate...` - Solicitar um certificado
 
 > [!IMPORTANT] 
 > A funcionalidade de solicitar e importar certificados não está disponível na versão atual do Neo-GUI.
@@ -398,7 +418,7 @@ Esta funcionalidade permite unicamente gerar o arquivo de de solicitação de ce
   <p align="center"> <img src="/pt-br/assets/gui_42.png"> </p>
 
 
-### Registrar ativos
+### `Asset Registration...` - Registrar ativos
 
 Existem dois tipos de ativos: **Tokens** e **Shares**. Neste exemplo vamos registrar um ativo do tipo Token.
 
@@ -421,7 +441,7 @@ Existem dois tipos de ativos: **Tokens** e **Shares**. Neste exemplo vamos regis
   > O id da transação de registro de ativo será utilizado na sessão seguinte para a distribuição de ativos
 
 
-### Distribuição de ativos
+### `Asset Distribution...` - Distribuição de ativos
 
   1. Vá em `Advanced`, clique em `Asset Distribution` e no campo `Asset Id` insira o id obtido na transação anterior (de registro do ativo); Clique no botão `[+]`
 
@@ -436,7 +456,7 @@ Existem dois tipos de ativos: **Tokens** e **Shares**. Neste exemplo vamos regis
   <p align="center"> <img src="/pt-br/assets/gui_48.png"> </p>
 
 
-### Implementar *smart contracts*
+### `Deploy contract...` - Implementar *smart contracts*
 
 Neste exemplo vamos implementar um *smart contract* criado na sessão [_**Smart Contracts**_](../sc/getting-started.md)
 
@@ -465,7 +485,7 @@ Neste exemplo vamos implementar um *smart contract* criado na sessão [_**Smart 
   <p align="center"> <img src="/pt-br/assets/gui_53.png"> </p>
 
 
-### Invocar um contrato
+### `Invoke Contract...` - Invocar um contrato
 
 Neste exemplo vamos invocar o contrato implementado anteriormente.
 
@@ -483,7 +503,7 @@ Neste exemplo vamos invocar o contrato implementado anteriormente.
   <p align="center"> <img src="/pt-br/assets/gui_56.png"> </p>
 
 
-### Eleição
+### `Election...` - Eleição
 
 Esta função é usada para registrar um candidato a Nó de Consenso na *blockchain*.
 
@@ -499,38 +519,25 @@ Esta função é usada para registrar um candidato a Nó de Consenso na *blockch
 
 
 
-### Download e sincronização offline da carteira
-
-Baixe o arquivo da *blockchain* completa mais recente diretamente do [site da NEO](https://www.neo.org/client/chain.acc.zip) 
-
-Após finalizar o download, confirme que o Neo-GUI não esteja sendo executado e mova o arquivo `chain.acc.zip` para o diretório em que se encontra o executável `Neo-gui.exe`. Agora, ao iniciar o Neo-GUI, o software irá descompactar o arquivo `.zip` e carregar os blocos salvos.
-
-  <p align="center"> <img src="/pt-br/assets/gui_58.png"> </p>
-
-Uma vez que os blocos tenham sido carregados, o programa vai excluir o arquivo zip.
-
-  <p align="center"> <img src="/pt-br/assets/gui_60.png"> </p>
-
-
-### `Options...`
+### `Options...` - Opções
 
 _**Conteúdo Pendente**_
 
 
-## `Help`
+## `Help` - Ajuda
 
-  ### `*Check for help*` (Procure ajuda)
+  ### `*Check for help*` - Procure ajuda
 
   _**Conteúdo pendente**_
 
-  ### `*Official Web*` (website oficial)
+  ### `*Official Web*` - website oficial
 
   [https://neo.org](https://neo.org)
 
-  ### `Developer Tool` (Ferramenta de Desenvolvimento)
+  ### `Developer Tool` - Ferramenta de Desenvolvimento
 
   _**Conteúdo pendente**_
 
-  ### `About NEO` (Sobre o NEO)
+  ### `About NEO` - Sobre o NEO
 
   Mostra a versão da interface Neo-GUI.
