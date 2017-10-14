@@ -77,19 +77,19 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
 10. Em alguns dias, se a aplicação for aprovada pela equipe NEO, receberás um e-mail com a conta contrato reconhecida e uma chave pública. Usaremos essa chave pública para criar uma conta contrato a partir de nossa conta referência  
 
 
-### Criando a conta contrato
+    #### Criando a conta contrato
 
-     10.1. Clique com o botão direito sobre a conta em sua carteira (a que foi auto-gerada na criação da carteira), em `Create Contract Add.` e em `Multi-Signature...`
+    * Clique com o botão direito sobre a conta em sua carteira (a que foi auto-gerada na criação da carteira), em `Create Contract Add.` e em `Multi-Signature...`
  
  <p align="center"> <img src="/assets/testnet_5.png"> </p>
  
-     10.2. No campo `Min. Sig. Num.` coloque `1`
+    * No campo `Min. Sig. Num.` coloque `1`
   
-     10.3. Na area `Public Key list` adicione as duas chaves públicas: a que foi recebida do NEO por e-mail e a sua (utilizada nos passos da sessão anterior) e clique em `Confirm`
+    * Na area `Public Key list` adicione as duas chaves públicas: a que foi recebida do NEO por e-mail e a sua (utilizada nos passos da sessão anterior) e clique em `Confirm`
  
  <p align="center"> <img src="/assets/testnet_6.png"> </p>
  
-     10.4. Após a confirmação, em cerca de 5 minutos, os NEO e GAS solicitados vão estar disponíveis
+    * Após a confirmação, em cerca de 5 minutos, os NEO e GAS solicitados vão estar disponíveis
  
  <p align="center"> <img src="/assets/testnet_7.png"> </p>
   
