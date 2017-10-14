@@ -120,7 +120,7 @@ Após importar um endereço de outra parte, você estará apto a monitar (ver) o
 
 2. Clique em `Browse` e na janela pop-up que abriu, selecione o diretório para armazenar e o nome que terá o arquivo `.db3` da carteira. Clique `Save`
 
-<p align="center"> <img src="/pt-br/assets/gui/gui_3.png"> </p>
+<p align="center"> <img src="/pt-br/assets/gui_3.png"> </p>
 
 3. Defina uma senha de sua escolha em `Password`, confirme a mesma em `Re-Password` e clique `confirm` para finalizar o processo de criação
 
