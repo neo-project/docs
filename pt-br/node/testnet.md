@@ -21,12 +21,11 @@ As interfaces de usuário (Neo-GUI) e de linha de comando (Neo-CLI) para a rede 
 
 Referência: [Introdução ao Nó NEO](introduction.md).
 
-<p align="center">
 |      | Neo-GUI                       | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
 | Releases | [site oficial](https://www.neo.org/download) ou [GitHub](https://github.com/neo-project/neo-gui/releases/) | [GitHub](https://github.com/neo-project/neo-cli/releases/) |
 Código fonte | [GitHub](https://github.com/neo-project/neo-gui/) | [GitHub](https://github.com/neo-project/neo-cli/) |
-</p>
+
 
 ## Configurar os softwares para a rede de teste
 
@@ -36,8 +35,8 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
   - da mesma forma, `protocol.mainnet.json` e `config.mainnet.json` são cópias que guardam as informações necessárias para utilizar a rede principal
 
 <p align="center">
-<img style="vertical-align: middle" src="assets/testnet_1_v2.png">
-<img style="vertical-align: middle" src="assets/testnet_2_v2.png">
+<img style="vertical-align: middle" src="/assets/testnet_1_v2.png">
+<img style="vertical-align: middle" src="/assets/testnet_2_v2.png">
 </p>
 
 #### Para utilizar a rede de testes:
@@ -55,7 +54,7 @@ Na pasta em que se encontra o arquivo executável `neo-gui.exe` (no caso de usar
 
 2. Inicie o software (nesse exemplo, é o Neo-GUI) e tenha certeza de que está sincronizado
 
-<p align="center"> <img src="assets/gui_1.png"> </p>
+<p align="center"> <img src="/assets/gui_1.png"> </p>
  
 3. Crie uma carteira, utilizando o procedimento já descrito na [documentação do Neo-GUI](gui.md)
 
