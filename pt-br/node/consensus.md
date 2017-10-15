@@ -39,13 +39,15 @@ Para melhor compreensão, vamos abordar dois cenários diferentes e descrever a 
   Na figura 1 temos apenas 1 **_delegado_**. Ambos os **_delegados_** recebem a mesma mensagem, uma vez que o **_orador_** é honesto, entretando, devido à controvérsia no conteúdo da mensagem do **_delegado_** desonesto, o **_delegado_** honesto sabe que, e apenas que, há um nó desonesto na rede, sem saber se este é o **_orador_** ou o outro **_delegado_**. Dada esta condição, o **_delegado_** deve se abster de uma votação (afinal ele não sabe qual informação é verdadeira), revezando o nó **_orador_**. A taxa de consenso é de 50%, pois temos 1 **_delegado_** honesto e 1 desonesto.
 
   <p align="center"> <img src="/assets/n3.png" width="300"><br> 
-  <b>Figura 1:</b> Exemplo 1 - n = 3 com 1 <b><i>delegado</i></b> desonesto</p>
+  <b>Figura 1:</b> Exemplo 1 <br>
+	n = 3 com 1 <b><i>delegado</i></b> desonesto</p>
  
  
 Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** recebem a mesma mensagem, uma vez que o **_orador_** é honesto, entretando, o **_delegado_** desonesto repassa uma mensagem diferente aos demais. Para esta condição é possível chegar a conclusão de que ou o **_orador_** ou o **_delegado_** da direita é desonesto. A taxa de consenso dessa vez é de 66,66%, pois temos 2 **_delegados_** com uma versão (honestos) e 1 **_delegado_** com outra (desonesto).
 
  <p align="center"><img src="/assets/n4.png" width="400"><br> 
- <b>Figura 2:</b> Exemplo 2 - n = 4 com 1 <i><b>delegado</b></i> desonesto</p>
+ <b>Figura 2:</b> Exemplo 2<br>
+	n = 4 com 1 <i><b>delegado</b></i> desonesto</p>
 
 
 ### **Orador desonesto** 
@@ -54,13 +56,15 @@ Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** r
 
 
   <p align="center"><img src="/assets/g3.png" width="300"><br> 
-  <b>Figura 3:</b> Exemplo 3 - n = 3 com 1 <i><b>orador</b></i> desonesto</p>
+  <b>Figura 3:</b> Exemplo 3<br>
+	n = 3 com 1 <i><b>orador</b></i> desonesto</p>
    
   
  No exemplo 4, as versões recebidas pelo nó esquerdo e pelos demais são diferentes. Neste caso, como há 66,66% de consenso sobre a divergência, todos votam para que uma nova rodada seja realizada, alterando o **_orador_** da vez, o que nos leva a um cenário como o do exemplo 1.
  
    <p align="center"><img src="/assets/g4.png" width="400"><br>
-   <b>Figura 4:</b> Exemplo 4 - n = 4 com 1 <i><b>orador</b></i> desonesto</p>     
+   <b>Figura 4:</b> Exemplo 4<br>
+	n = 4 com 1 <i><b>orador</b></i> desonesto</p>     
      
   
           
@@ -96,12 +100,14 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
   - `k` : índice do ponto de vista `v`. Uma atividade de consenso requer múltiplas rodadas (diferentes pontos de vista) para convergir
   
-  - `p` : índice do **Nó de Consenso** **_orador_**. O cálculo do índice reveza entre os **Nós de Consensos** para prevenir que apenas um nó seja ditador do sistema
-  	<p align="center"><code>p = (h - k) mod (n)</code></p>
+  - `p` : índice do **Nó de Consenso** **_orador_**. O cálculo do índice reveza entre os **Nós de Consensos** para prevenir que apenas um nó seja ditador do sistema 	
+<blockquote><p align="center"><b><i>p = (h - k) mod (n)</i></b></p></blockquote>
  
   - `s` : número mínimo de **Nós de Consenso** honestos para  manter a segurança do consenso. Abaixo desse limiar, a rede fica exposta a falhas  
-  	<p align="center"><code><b><i>s = (n - 1) - f<br><br>
-	                              s = 2 / 3 * (n - 1)</i></b></code></p>
+```
+  	<p align="center"><b><i>s = (n - 1) - f</i></b><br><br>
+	                        <b><i>s = 2 / 3 * (n - 1)</i></b></p>
+```
 
 
 ### 5.2 - Requisitos
@@ -121,7 +127,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
 1. Um **Nó de Consenso** transmite uma transação a toda a rede com assinatura do remetente
 
-   <p align="center"><img src="/pt-br/assets/consensus1_noblank.png" height="600"><br> 
+   <p align="center"><img src="/pt-br/assets/consensus1_noblank.png" height="300"><br> 
    <b>Figura 6:</b> Um <b>Nó de Consenso</b> recebe uma transação e a transmite ao sistema</p>
     
 2. Os **Nós de Consenso** gravam os dados da transação na memória local
@@ -130,7 +136,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
 4. O **_orador_** é identificado
 
-	 <p align="center"><img src="/pt-br/assets/consensus2_align.png" height="600"><br> 
+	 <p align="center"><img src="/pt-br/assets/consensus2_align.png" height="300"><br> 
    <b>Figura 7:</b> Um ponto de vista é estabelecido e um <i><b>orador</b></i> é identificado</p>
 	
   Aguarda-se `t` segundos
@@ -139,7 +145,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     <!-- -->
         <prepareRequest, h, k, p, block, [block]sigp>
 
-	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="600"><br> 
+	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="300"><br> 
    <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i> </p>
 	 
    
@@ -157,7 +163,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     	- **Se a versão proposta é inválida:**
 	        <p align="center"><code>( ChangeView, h, k, i, k+1 )</code></p>
 			
-   <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="600"><br> 
+   <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="300"><br> 
    <b>Figura 9:</b> Os <i><b>delegados</b></i> revisam a versão de novo bloco proposta pelo <i><b>orador</b></i> e respondem entre si</p>     
    
 
@@ -167,12 +173,12 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
 8. O _**delegado**_ assina o bloco na *blockchain*
 
-   <p align="center"><img src="/pt-br/assets/consensus5_noblank.png" height="600"><br> 
+   <p align="center"><img src="/pt-br/assets/consensus5_noblank.png" height="300"><br> 
    <b>Figura 10:</b> Se chega a um consenso e os <i><b>Delegados</b></i> assinam o bloco, vinculando-o na <i>blockchain</i></p>
   
   
 9. Quando um **Nó de Consenso** recebe um bloco completo, o ponto de vista é redefinido e uma nova rodada na atividade de consenso se inicia com `k = 0`
- 
+ <p><br></p>
 ---    
 
   
