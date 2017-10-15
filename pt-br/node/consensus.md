@@ -147,8 +147,9 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
   Aguarda-se `t` segundos
 	
 5. O **_orador_** transmite a proposta/versão do bloco correto:
-    <!-- -->
-        <prepareRequest, h, k, p, block, [block]sigp>
+    <pre><code><p align="center">
+        [ prepareRequest, h, k, p, block, [block]sigp ]
+	</p></code></pre>
 
 	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="400"><br> 
    <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i> </p>
@@ -161,15 +162,19 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     - Os scripts de **smart contrats** foram executados corretamente?
     - A transação é de cobrança única? (*isto é, a transação não se enquadra em um cenário de *cobrança duplicada*, quando uma mesma cobrança é paga mais de uma vez*)
 
-    	- **Se a versão proposta é válida:**
-	<p align="center"><pre><code>( prepareResponse, h, k, i, [block]sigi )</code></pre></p>
+      - **Se a versão proposta é válida:**
+	<pre><code>
+	<p align="center">( prepareResponse, h, k, i, [block]sigi )</p>
+	</code></pre>
     	
-	- **Se a versão proposta é inválida:**  
+      - **Se a versão proposta é inválida:**  
+	```html
 	<p align="center">
 		<code>
 		( ChangeView, h, k, i, k+1 )
 		</code>
 	</p>
+	```
 			
    <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="400"><br> 
    <b>Figura 9:</b> Os <i><b>delegados</b></i> revisam a versão de novo bloco proposta pelo <i><b>orador</b></i> e respondem entre si</p>     
