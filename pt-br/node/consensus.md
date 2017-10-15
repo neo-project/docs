@@ -38,7 +38,7 @@ Para melhor compreensão, vamos abordar dois cenários diferentes e descrever a 
 
   Na figura 1 temos apenas 1 **_delegado_**. Ambos os **_delegados_** recebem a mesma mensagem, uma vez que o **_orador_** é honesto, entretando, devido à controvérsia no conteúdo da mensagem do **_delegado_** desonesto, o **_delegado_** honesto sabe que, e apenas que, há um nó desonesto na rede, sem saber se este é o **_orador_** ou o outro **_delegado_**. Dada esta condição, o **_delegado_** deve se abster de uma votação (afinal ele não sabe qual informação é verdadeira), revezando o nó **_orador_**. A taxa de consenso é de 50%, pois temos 1 **_delegado_** honesto e 1 desonesto.
 
-  <p align="center"> <img src="/assets/n3.png" width="300"><br> 
+  <p align="center"> <img src="/assets/n3.png" width="400"><br> 
   <b>Figura 1:</b> Exemplo 1 <br>
 	n = 3 com 1 <b><i>delegado</i></b> desonesto</p>
  
@@ -55,7 +55,7 @@ Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** r
   Temos uma situação semelhante à do exemplo 1. Nenhum **_delegado_** consegue identificar quem é desonesto na rede, apenas que há um nó desonesto. Novamente temos uma taxa de consenso de 50%, afinal são 2 mensagens recebidas, cada uma diferente da outra.
 
 
-  <p align="center"><img src="/assets/g3.png" width="300"><br> 
+  <p align="center"><img src="/assets/g3.png" width="400"><br> 
   <b>Figura 3:</b> Exemplo 3<br>
 	n = 3 com 1 <i><b>orador</b></i> desonesto</p>
    
@@ -90,7 +90,9 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 	
   - `n`: número de **Nós de Consenso** ativos
   - `f`: limite máximo de falhas (Nós de Consenso desonestos/defeituosos) no sistema para que o algoritmo continue convergente  
-  	<p align="center"><code><b><i>f = (n - 1) / 3</i></b></code></p>
+<p align="center"><code>
+	<b><i>f = (n - 1) / 3</i></b>
+</code></p>
  
   - `h` : altura (tamanho) da *blockchain* durante as atividades de consenso
   
@@ -101,13 +103,15 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
   - `k` : índice do ponto de vista `v`. Uma atividade de consenso requer múltiplas rodadas (diferentes pontos de vista) para convergir
   
   - `p` : índice do **Nó de Consenso** **_orador_**. O cálculo do índice reveza entre os **Nós de Consensos** para prevenir que apenas um nó seja ditador do sistema 	
-<blockquote><p align="center"><b><i>p = (h - k) mod (n)</i></b></p></blockquote>
+<p align="center"><code>
+	<b><i>p = (h - k) mod (n)</i></b>
+	</code></p>
  
   - `s` : número mínimo de **Nós de Consenso** honestos para  manter a segurança do consenso. Abaixo desse limiar, a rede fica exposta a falhas  
-```
+<code>
   	<p align="center"><b><i>s = (n - 1) - f</i></b><br><br>
 	                        <b><i>s = 2 / 3 * (n - 1)</i></b></p>
-```
+</code>
 
 
 ### 5.2 - Requisitos
@@ -127,7 +131,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
 1. Um **Nó de Consenso** transmite uma transação a toda a rede com assinatura do remetente
 
-   <p align="center"><img src="/pt-br/assets/consensus1_noblank.png" height="300"><br> 
+   <p align="center"><img src="/pt-br/assets/consensus1_noblank.png" height="400"><br> 
    <b>Figura 6:</b> Um <b>Nó de Consenso</b> recebe uma transação e a transmite ao sistema</p>
     
 2. Os **Nós de Consenso** gravam os dados da transação na memória local
@@ -136,7 +140,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
 4. O **_orador_** é identificado
 
-	 <p align="center"><img src="/pt-br/assets/consensus2_align.png" height="300"><br> 
+	 <p align="center"><img src="/pt-br/assets/consensus2_align.png" height="400"><br> 
    <b>Figura 7:</b> Um ponto de vista é estabelecido e um <i><b>orador</b></i> é identificado</p>
 	
   Aguarda-se `t` segundos
@@ -145,7 +149,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     <!-- -->
         <prepareRequest, h, k, p, block, [block]sigp>
 
-	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="300"><br> 
+	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="400"><br> 
    <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i> </p>
 	 
    
@@ -156,14 +160,19 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     - Os scripts de **smart contrats** foram executados corretamente?
     - A transação é de cobrança única? (*isto é, a transação não se enquadra em um cenário de *cobrança duplicada*, quando uma mesma cobrança é paga mais de uma vez*)
 
-    	- **Se a versão proposta é válida:**
-	    <!-- -->
-	        <p align="center"><code>( prepareResponse, h, k, i, [block]sigi )</code></p>
+    	- **Se a versão proposta é válida:**	    
+	<code>
+	<p align="center">( prepareResponse, h, k, i, [block]sigi )</p>
+	</code>
 	 	
     	- **Se a versão proposta é inválida:**
-	        <p align="center"><code>( ChangeView, h, k, i, k+1 )</code></p>
+<p align="center">
+<code>
+		( ChangeView, h, k, i, k+1 )
+</code>
+</p>
 			
-   <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="300"><br> 
+   <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="400"><br> 
    <b>Figura 9:</b> Os <i><b>delegados</b></i> revisam a versão de novo bloco proposta pelo <i><b>orador</b></i> e respondem entre si</p>     
    
 
@@ -173,14 +182,14 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 
 8. O _**delegado**_ assina o bloco na *blockchain*
 
-   <p align="center"><img src="/pt-br/assets/consensus5_noblank.png" height="300"><br> 
+   <p align="center"><img src="/pt-br/assets/consensus5_noblank.png" height="400"><br> 
    <b>Figura 10:</b> Se chega a um consenso e os <i><b>Delegados</b></i> assinam o bloco, vinculando-o na <i>blockchain</i></p>
   
   
 9. Quando um **Nó de Consenso** recebe um bloco completo, o ponto de vista é redefinido e uma nova rodada na atividade de consenso se inicia com `k = 0`
- <p><br></p>
+<p><br></p>
+ 
 ---    
-
   
 **Nota:**
  
