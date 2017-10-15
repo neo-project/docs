@@ -106,7 +106,8 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 	<pre><code><p align="center"><b><i>p = (h - k) mod (n)</i></b></p></code></pre>
  
   - `s` : número mínimo de **Nós de Consenso** honestos para  manter a segurança do consenso. Abaixo desse limiar, a rede fica exposta a falhas  
-	<pre><code><p align="center"><b><i>s = (n - 1) - f</i></b><br><b><i>s = 2 / 3 * (n - 1)</i></b></p></code></pre>
+	<pre><code><p align="center"><b><i>s  =  (n - 1) - f  =  2 / 3 * (n - 1)</i></b></p></code></pre>
+
 
 ### 5.2 - Requisitos
 
@@ -140,8 +141,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
   Aguarda-se `t` segundos
 	
 5. O **_orador_** transmite a proposta/versão do bloco correto:
-    <pre><code><p align="center">
-        <b>< prepareRequest, h, k, p, block, [block]sigp ></b></p></code></pre>
+    <pre><code><p align="center"><b>< prepareRequest, h, k, p, block, [block]sigp ></b></p></code></pre>
 
 	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="400"><br> 
    <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i><br><br></p>
@@ -181,7 +181,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 **Nota:**
  
  Se após ![timeout](/assets/consensus.timeout.png) segundos, em um mesmo ponto de vista, não se chegou a um consenso, o **Nó de Consenso** transmite:	
-<pre><code><p align="center"><b>\< ChangeView, h, k, i, k+1 \></b></p></code></pre>
+<pre><code><p align="center"><b>< ChangeView, h, k, i, k+1 ></b></p></code></pre>
 		
 Uma vez que um **Nó de Consenso** recebe ao menos `s` transmissões com a resposta de `ChangeView` (alterar ponto de vista), o valor de `v` é incrementado e inicia-se uma nova rodada na atividade de consenso.
 	
