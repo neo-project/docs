@@ -41,6 +41,7 @@ Para melhor compreensão, vamos abordar dois cenários diferentes e descrever a 
   <p align="center"> <img src="/assets/n3.png" width="400"><br> 
   <b>Figura 1:</b> Exemplo 1 <br>
 	n = 3 com 1 <b><i>delegado</i></b> desonesto</p>
+<p><br><br></p>
  
  
 Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** recebem a mesma mensagem, uma vez que o **_orador_** é honesto, entretando, o **_delegado_** desonesto repassa uma mensagem diferente aos demais. Para esta condição é possível chegar a conclusão de que ou o **_orador_** ou o **_delegado_** da direita é desonesto. A taxa de consenso dessa vez é de 66,66%, pois temos 2 **_delegados_** com uma versão (honestos) e 1 **_delegado_** com outra (desonesto).
@@ -48,6 +49,7 @@ Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** r
  <p align="center"><img src="/assets/n4.png" width="400"><br> 
  <b>Figura 2:</b> Exemplo 2<br>
 	n = 4 com 1 <i><b>delegado</b></i> desonesto</p>
+<p><br><br></p>
 
 
 ### **Orador desonesto** 
@@ -58,13 +60,14 @@ Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** r
   <p align="center"><img src="/assets/g3.png" width="400"><br> 
   <b>Figura 3:</b> Exemplo 3<br>
 	n = 3 com 1 <i><b>orador</b></i> desonesto</p>
+<p><br><br></p>
    
   
  No exemplo 4, as versões recebidas pelo nó esquerdo e pelos demais são diferentes. Neste caso, como há 66,66% de consenso sobre a divergência, todos votam para que uma nova rodada seja realizada, alterando o **_orador_** da vez, o que nos leva a um cenário como o do exemplo 1.
  
    <p align="center"><img src="/assets/g4.png" width="400"><br>
    <b>Figura 4:</b> Exemplo 4<br>
-	n = 4 com 1 <i><b>orador</b></i> desonesto</p>     
+	n = 4 com 1 <i><b>orador</b></i> desonesto<br><br></p>     
      
 <p><br><br></p>
 	     
@@ -73,7 +76,7 @@ Agora, na figura 2, temos 2 **_delegados_** honestos. Todos os **_delegados_** r
 A implementação prática do DBFT no NEO utiliza um mecanismo de conversão iterativo para garantir que o consenso seja alcançado. O desempenho do algoritmo depende da fração de **_delegados_** honestos no sistema. A figura abaixo ilustra as iterações esperadas em função da fração de **_delegados_** honestos no sistema.
 
 <p align="center"> <img src="/assets/consensus.iterations.png" width="800"> <br>
-<b>Figura 5:</b> *Simulação de Monte Carlo do DBFT com uma população de 100 Nós; 100.000 blocos simulados (ou seja, versões da verdade simuladas) e seleção aleatória de nós honestos*</p>
+<b>Figura 5:</b> *Simulação de Monte Carlo do DBFT com uma população de 100 Nós; 100.000 blocos simulados (ou seja, versões da verdade simuladas) e seleção aleatória de nós honestos*<br><br></p>
 
 > [!Note]
 > Para uma fração de **_delegados_** honestos entre 33,33% e 66,66%, o algoritmo diverge.
@@ -89,9 +92,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 	
   - `n`: número de **Nós de Consenso** ativos
   - `f`: limite máximo de falhas (Nós de Consenso desonestos/defeituosos) no sistema para que o algoritmo continue convergente  
-<p align="center"><code>
-	<b><i>f = (n - 1) / 3</i></b>
-</code></p>
+	<pre><code><p align="center"><b><i>f = (n - 1) / 3</i></b></p></code></pre>
  
   - `h` : altura (tamanho) da *blockchain* durante as atividades de consenso
   
@@ -102,18 +103,10 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
   - `k` : índice do ponto de vista `v`. Uma atividade de consenso requer múltiplas rodadas (diferentes pontos de vista) para convergir
   
   - `p` : índice do **Nó de Consenso** **_orador_**. O cálculo do índice reveza entre os **Nós de Consensos** para prevenir que apenas um nó seja ditador do sistema 	
-<p align="center"><pre><code>	
-	<b><i>p = (h - k) mod (n)</i></b>	
-</code></pre></p>
+	<pre><code><p align="center"><b><i>p = (h - k) mod (n)</i></b></p></code></pre>
  
   - `s` : número mínimo de **Nós de Consenso** honestos para  manter a segurança do consenso. Abaixo desse limiar, a rede fica exposta a falhas  
-	<p align="center">
-	<code>
-	<b><i>s = (n - 1) - f</i></b><br><br>
-	<b><i>s = 2 / 3 * (n - 1)</i></b>
-	</code>
-	</p>
-
+	<pre><code><p align="center"><b><i>s = (n - 1) - f</i></b><br><b><i>s = 2 / 3 * (n - 1)</i></b></p></code></pre>
 
 ### 5.2 - Requisitos
 
@@ -142,7 +135,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 4. O **_orador_** é identificado
 
 	 <p align="center"><img src="/pt-br/assets/consensus2_align.png" height="400"><br> 
-   <b>Figura 7:</b> Um ponto de vista é estabelecido e um <i><b>orador</b></i> é identificado</p>
+   <b>Figura 7:</b> Um ponto de vista é estabelecido e um <i><b>orador</b></i> é identificado<br><br></p>
 	
   Aguarda-se `t` segundos
 	
@@ -152,7 +145,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 	</p></code></pre>
 
 	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="400"><br> 
-   <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i> </p>
+   <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i><br><br></p>
 	 
    
 6. Os **_delegado_** recebem a versão proposta e a validam:
@@ -163,18 +156,11 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     - A transação é de cobrança única? (*isto é, a transação não se enquadra em um cenário de *cobrança duplicada*, quando uma mesma cobrança é paga mais de uma vez*)
 
       - **Se a versão proposta é válida:**
-	<pre><code>
-	<p align="center">( prepareResponse, h, k, i, [block]sigi )</p>
-	</code></pre>
+	<pre><code><p align="center">( prepareResponse, h, k, i, [block]sigi )</p></code></pre>
     	
       - **Se a versão proposta é inválida:**  
-	```html
-	<p align="center">
-		<code>
-		( ChangeView, h, k, i, k+1 )
-		</code>
-	</p>
-	```
+	<pre><code><p align="center">( ChangeView, h, k, i, k+1 )</p></code></pre>
+	
 			
    <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="400"><br> 
    <b>Figura 9:</b> Os <i><b>delegados</b></i> revisam a versão de novo bloco proposta pelo <i><b>orador</b></i> e respondem entre si</p>     
@@ -198,9 +184,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 **Nota:**
  
  Se após ![timeout](/assets/consensus.timeout.png) segundos, em um mesmo ponto de vista, não se chegou a um consenso, o **Nó de Consenso** transmite:	
-<p align="center"><code>
-	( ChangeView, h, k, i, k+1 )
-	</code></p>
+<pre><code><p align="center">( ChangeView, h, k, i, k+1 )</p></code></pre>
 		
 Uma vez que um **Nó de Consenso** recebe ao menos `s` transmissões com a resposta de `ChangeView` (alterar ponto de vista), o valor de `v` é incrementado e inicia-se uma nova rodada na atividade de consenso.
 	
