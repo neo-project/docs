@@ -155,7 +155,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     - A transação é de cobrança única? (*isto é, a transação não se enquadra em um cenário de *cobrança duplicada*, quando uma mesma cobrança é paga mais de uma vez*)
       - **Se a versão proposta é válida:**
 	<pre><code><p align="center"><b>< prepareResponse, h, k, i, [block]sigi ></b></p></code></pre>
-      - **Se a versão proposta é inválida:**  
+        - **Se a versão proposta é inválida:**  
 	<pre><code><p align="center"><b>< ChangeView, h, k, i, k+1 ></b></p></code></pre>
 	
 			
