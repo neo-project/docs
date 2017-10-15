@@ -126,7 +126,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 1. Um **Nó de Consenso** transmite uma transação a toda a rede com assinatura do remetente
 
    <p align="center"><img src="/pt-br/assets/consensus1_noblank.png" height="400"><br> 
-   <b>Figura 6:</b> Um <b>Nó de Consenso</b> recebe uma transação e a transmite ao sistema</p>
+   <b>Figura 6:</b> Um <b>Nó de Consenso</b> recebe uma transação e a transmite ao sistema<br><br></p>
     
 2. Os **Nós de Consenso** gravam os dados da transação na memória local
 
@@ -141,8 +141,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 	
 5. O **_orador_** transmite a proposta/versão do bloco correto:
     <pre><code><p align="center">
-        [ prepareRequest, h, k, p, block, [block]sigp ]
-	</p></code></pre>
+        <b>< prepareRequest, h, k, p, block, [block]sigp ></b></p></code></pre>
 
 	 <p align="center"><img src="/pt-br/assets/consensus3_align.png" height="400"><br> 
    <b>Figura 8:</b> O <i><b>orador</b></i> apresenta uma versão de bloco para revisão pelos <i><b>Delegados</b></i><br><br></p>
@@ -154,16 +153,14 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
     - A transação já está na *blockchain*?
     - Os scripts de **smart contrats** foram executados corretamente?
     - A transação é de cobrança única? (*isto é, a transação não se enquadra em um cenário de *cobrança duplicada*, quando uma mesma cobrança é paga mais de uma vez*)
-
       - **Se a versão proposta é válida:**
-	<pre><code><p align="center">( prepareResponse, h, k, i, [block]sigi )</p></code></pre>
-    	
+	<pre><code><p align="center"><b>< prepareResponse, h, k, i, [block]sigi ></b></p></code></pre>
       - **Se a versão proposta é inválida:**  
-	<pre><code><p align="center">( ChangeView, h, k, i, k+1 )</p></code></pre>
+	<pre><code><p align="center"><b>< ChangeView, h, k, i, k+1 ></b></p></code></pre>
 	
 			
    <p align="center"><img src="/pt-br/assets/consensus4_noblank.png" height="400"><br> 
-   <b>Figura 9:</b> Os <i><b>delegados</b></i> revisam a versão de novo bloco proposta pelo <i><b>orador</b></i> e respondem entre si</p>     
+   <b>Figura 9:</b> Os <i><b>delegados</b></i> revisam a versão de novo bloco proposta pelo <i><b>orador</b></i> e respondem entre si<br><br></p>     
    
 
 
@@ -173,7 +170,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 8. O _**delegado**_ assina o bloco na *blockchain*
 
    <p align="center"><img src="/pt-br/assets/consensus5_noblank.png" height="400"><br> 
-   <b>Figura 10:</b> Se chega a um consenso e os <i><b>Delegados</b></i> assinam o bloco, vinculando-o na <i>blockchain</i></p>
+   <b>Figura 10:</b> Se chega a um consenso e os <i><b>Delegados</b></i> assinam o bloco, vinculando-o na <i>blockchain</i><br><br></p>
   
   
 9. Quando um **Nó de Consenso** recebe um bloco completo, o ponto de vista é redefinido e uma nova rodada na atividade de consenso se inicia com `k = 0`
@@ -184,7 +181,7 @@ A implementação prática do DBFT no NEO utiliza um mecanismo de conversão ite
 **Nota:**
  
  Se após ![timeout](/assets/consensus.timeout.png) segundos, em um mesmo ponto de vista, não se chegou a um consenso, o **Nó de Consenso** transmite:	
-<pre><code><p align="center">( ChangeView, h, k, i, k+1 )</p></code></pre>
+<pre><code><p align="center"><b>\< ChangeView, h, k, i, k+1 \></b></p></code></pre>
 		
 Uma vez que um **Nó de Consenso** recebe ao menos `s` transmissões com a resposta de `ChangeView` (alterar ponto de vista), o valor de `v` é incrementado e inicia-se uma nova rodada na atividade de consenso.
 	
