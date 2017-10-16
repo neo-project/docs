@@ -117,7 +117,6 @@ Die 100 Millionen NEO Token wurden in zwei Hälften aufgeteilt. Die ersten 50 Mi
 
 Die zweite Hälfte steht dem NEO Council für die langfristige Entwicklung und Instandhaltung von NEO zur Verfügung. Die Token sind für einen Zeitraum von einem Jahr in einem „Smart Contract“ eingefroren und stehen erst am dem 16. Oktober 2017 zur Verfügung. Diese 50 Millionen Token sind ausschließlich für die Sicherung der langfristigen Entwicklung von NEO und NEO Projekten deklariert und kommen nicht an die Börsen. Die Token sind dabei folgendermaßen aufgeteilt:
 
-
 🔹 10 Millionen Token (10%) werden als finanzieller Anreiz bzw. Entlohnung von NEO Entwicklern und Mitgliedern des NEO Councils verwendet.
 
 🔹 10 Millionen Token (10%) werden als finanzieller Anreiz bzw. Entlohnung von NEO Entwicklern im NEO Ökosystem verwendet.
@@ -128,6 +127,20 @@ Die zweite Hälfte steht dem NEO Council für die langfristige Entwicklung und I
 🔹 15 Millionen Token (15%) dienen als Reserve für unvorhergesehene Ausgaben.
 
 🔹 Die jährlichen Ausgaben dieser Token sollen nicht 15 Millionen Token überschreiten. 
+
+Die Inflation von NEO gestaltet sich demnach plangemäß folgendermaßen:
+
+1. Jahr: 50 Mio. auf 50 Mio. = 0% Inflation
+2. Jahr: 50 Mio. auf 65 Mio. = 30%
+3. Jahr: 65 Mio. auf 80 Mio. = 23%
+4. Jahr: 80 Mio. auf 95 Mio. = 18%
+5. Jahr: 95 Mio. auf 100 Mio. = 5%
+6. Jahr+: 100 Mio. auf 100 Mio. = 0%
+
+Da absehbar nicht 15 Mio. NEO an Ausgaben pro Jahr benötigt werden, ist nach jetzigem Stand davon auszugehen, dass die Inflationsrate unter diesen Werten liegen wird.
+
+Die noch ungenutzten NEO Token verbleiben in dieser Zeit auf der "Smart Contract" Adresse: AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i für jedermann einsehbar.
+
 
 GAS Distribution:
 
