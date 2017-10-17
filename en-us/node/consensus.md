@@ -68,7 +68,7 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
 
-Note that the **Figure 5** does not extend below 66.66% **Delegates** honesty.  Between this critical point and 33% **Delegates** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Delegates** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
+Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** honesty.  Between this critical point and 33% **Consensus nodes** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus nodes** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
 
 
 <img src="/assets/consensus.iterations.png" width="800">
