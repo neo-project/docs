@@ -15,10 +15,10 @@ namespace Woolong
         ///   It will generate 1 new Woolong every time the contract is invoked.
         /// 
         ///   Note the parameter list below:
-        ///   Parameter List: 05
+        ///   Parameter List: 0710
         ///   Return List: 05
         ///
-        ///   参数：05
+        ///   参数：0710
         ///   返回值：05
         /// </summary>
         /// <param name="method">
