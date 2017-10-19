@@ -6,7 +6,7 @@ O protocolo de rede da NEO é bastante similar ao do Bitcoin, entretanto, suas e
 
 ## Convenção
 
-#### 1. **Ordem dos bytes** : O tipo **inteiro** no NEO é *Little-Endian*, com exceção ao endereço IP e ao número de porta, que são *Big-Endian*
+1. **Ordem dos bytes** : O tipo **inteiro** no NEO é *Little-Endian*, com exceção ao endereço IP e ao número de porta, que são *Big-Endian*
 
 2. _**Hash**_ : NEO usa duas funções diferentes: SHA256 e RIPEMD160 
 SHA256 é utilizada para gerar uma *hash* longa, enquanto RIPEMD160 gera *hash's* curtas. Normalmente a *hash* é obtida aplicando-se duas vezes a função em si. Por exemplo, SHA256 é utlizada duas vezes para gerar a *hash* de bloco ou de transação, já para gerar um endereço de contrato, primeiro a função SHA256 é utilizada uma vez e em seguida a RIPEMD160 é utilizada.
@@ -14,10 +14,9 @@ SHA256 é utilizada para gerar uma *hash* longa, enquanto RIPEMD160 gera *hash's
 Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que permite o armazenamento de dados (transações do bloco) de forma segura, fiel e estruturada. Cada bloco tem uma *hash* adicional, chamada *Merkle Root*, que carrega toda a informação da *Merkle Tree*. 
 
 
-3. Comprimentos das variáveis por tipo
+3. **Comprimentos das variáveis por tipo**
 
-
-   + Variant： Inteiro de tamanho variável. Pode ser codificada de acordo com seu valor para poupar espaço
+   + *Variant*： Inteiro de tamanho variável. Pode ser codificada de acordo com seu valor para poupar espaço
 
       |Valor|Tamanho|Formato|
       |---|---|---|
@@ -26,7 +25,7 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
       |<= 0xffffffff|5|0xfe + uint32|
       |> 0xffffffff|9|0xff + uint64|
 
-   + Varstr： *String* de tamanho variável, composta por um inteiro de tamanho variável seguido de *strings*; é codificada em formato UTF8
+   + *Varstr*： *String* de tamanho variável, composta por um inteiro de tamanho variável seguido de *strings*; é codificada em formato UTF8
    >
    > definição confusa.. precisa ser melhorada.. ALTERAR
    >
@@ -36,20 +35,20 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
       | ? |length|variant|The length of a string in bytes|
       |length|string|uint8[length]|string itself|
 
-   + array： inteiro de comprimento variável seguido por uma série de elementos
+   + *array*： inteiro de comprimento variável seguido por uma série de elementos
 
-1. Número de tamanho-fixo
-   Dados como quantia ou preço, no NEO são números de tamanho-fixo de 64 bits; têm precisão decimal de ordem 10<sup>-8</sup> (8 casas após a vírgula) e pertencem ao domínio real [-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>]
+4. **Número de tamanho-fixo**
+   Dados como *quantia* ou *preço*, no NEO são números de tamanho-fixo, de 64 bits; têm precisão decimal de ordem 10<sup>-8</sup> (8 casas após a vírgula) e pertencem ao domínio real [-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>]
 
 
 ## Tipos de dados
 
 
-### 1. _**Blockchain**_
+### 1. _Blockchain_
 
   A *blockchain* é um tipo de estrutura lógica, formada pelo encadeamento sequencial e ordenado de uma série de blocos de dados. É utilizada para armazenar os dados de toda a rede, como transações e ativos.
       
-### Bloco
+### 2. Bloco
 > [!Note]
 > Tabelas precisam melhorar... falta clareza.. ALTERAR
 
@@ -85,7 +84,7 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
       
   O *timestamp* de cada bloco deve obrigatoriamente ser posterior ao *timestamp* do bloco prévio. Geralmente a diferença entre *timestamps* de dois blocos consecutivos é de aproximadamente 15 segundos.
 
-### Transação
+### 3. Transação
 
    |Tamanho|Campo|Tipo|Descrição|
    |---|---|---|---|
@@ -287,7 +286,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
    Depois de receber a mensagem `*getaddr*`, o nó devolve, como resposta, uma mensagem 'addr' com informação sobre os nós conhecidos na rede.
    
     
-### 5. *getheaders
+### 5. *getheaders*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -297,7 +296,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
    Solicita a um nó os *headers* dos blocos que contêm *hash* desde a *HashStart* até a *HashStop*, com limite máximo de 2000 blocos. Para obter a *hash* de mais blocos do que este limite, é preciso reenviar a mensagem `getheaders`. Esta mensagem é utilizada para rapidamente fazer o download da blockchain sem o conteúdo de transações.
 
 
-### 6. *headers
+### 6. *headers*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -305,7 +304,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Após receber a mensagem `getheaders`, o nó retorna uma mensagem `header` como resposta, contendo a informação dos nós conhecidos da rede.
    
-### 7. *getblocks
+### 7. *getblocks*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -314,7 +313,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Realiza solicitações a um nó pela mensagem `inv` desde a *HashStart* até a *HashStop*, para um limite máximo de 500 blocos. Para obter a *hash* de mais blocos além do 500º, é necessário reenviar a mensagem `getblocks`.
    
-### 8. *inv
+### 8. *inv*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -337,7 +336,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
    |0x02|Block|bloco|
    |0xe0|Consensus|dado de consenso|
 
-### 9. *getdata
+### 9. *getdata*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -345,7 +344,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Solicita um objeto específico de um nó. Normalmente é enviado após o pacote `inv` ter sido recebido e o elemento conhecido ter sido removido.
    
-### 10. *block
+### 10. *block*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -353,7 +352,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Envia um bloco a um nó para responder a mensagem `getdata`.
 
-### 11. *tx
+### 11. *tx*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
