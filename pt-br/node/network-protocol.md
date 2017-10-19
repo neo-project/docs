@@ -6,7 +6,7 @@ O protocolo de rede da NEO é bastante similar ao do Bitcoin, entretanto, suas e
 
 ## Convenção
 
-1. **Ordem dos bytes** : O tipo **inteiro** no NEO é *Little-Endian*, com exceção ao endereço IP e ao número de porta, que são *Big-Endian*
+#### 1. **Ordem dos bytes** : O tipo **inteiro** no NEO é *Little-Endian*, com exceção ao endereço IP e ao número de porta, que são *Big-Endian*
 
 2. _**Hash**_ : NEO usa duas funções diferentes: SHA256 e RIPEMD160 
 SHA256 é utilizada para gerar uma *hash* longa, enquanto RIPEMD160 gera *hash's* curtas. Normalmente a *hash* é obtida aplicando-se duas vezes a função em si. Por exemplo, SHA256 é utlizada duas vezes para gerar a *hash* de bloco ou de transação, já para gerar um endereço de contrato, primeiro a função SHA256 é utilizada uma vez e em seguida a RIPEMD160 é utilizada.
@@ -45,11 +45,11 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
 ## Tipos de dados
 
 
-_**Blockchain**_
+### 1. _**Blockchain**_
 
   A *blockchain* é um tipo de estrutura lógica, formada pelo encadeamento sequencial e ordenado de uma série de blocos de dados. É utilizada para armazenar os dados de toda a rede, como transações e ativos.
       
-**Bloco** 
+### Bloco
 > [!Note]
 > Tabelas precisam melhorar... falta clareza.. ALTERAR
 
@@ -85,7 +85,7 @@ _**Blockchain**_
       
   O *timestamp* de cada bloco deve obrigatoriamente ser posterior ao *timestamp* do bloco prévio. Geralmente a diferença entre *timestamps* de dois blocos consecutivos é de aproximadamente 15 segundos.
 
-**Transação**
+### Transação
 
    |Tamanho|Campo|Tipo|Descrição|
    |---|---|---|---|
@@ -163,15 +163,15 @@ Os gestores de ativos podem criar e enviar os ativos registrados na *blockchain*
    
    Invocar/chamar uma transação.
 
-      | Tamanho | Campo | Tipo de dado | Descrição |
-      | ---- | ------ | ------- | --------------- |
-      | -    | -      | -       | Campos públicos para transações       |
-      | ?    | Script | uint8[] | Invocar por *smart contract*     |
-      | 8    | GAS    | int64   | Custo em GAS necessário para executar o *smart contract* |
-      | -    | -      | -       | Campos públicos para transações  |
+   | Tamanho | Campo | Tipo de dado | Descrição |
+   | --- | --- | --- | --- |
+   | -    | -      | -       | Campos públicos para transações |
+   | ?    | Script | uint8[] | Invocar por *smart contract* |
+   | 8    | GAS    | int64   | Custo em GAS necessário para executar o *smart contract* |
+   | -    | -      | -       | Campos públicos para transações  |
 
 
-## Atributos de uma Transação
+### 4. Atributos de uma Transação
 
    | Tamanho | Campo | Tipo de dado | Descrição |
    |---|---|---|---|
@@ -198,7 +198,7 @@ Os gestores de ativos podem criar e enviar os ativos registrados na *blockchain*
    Para *ContractHash*, *ECDH series* e *Hash series*, o comprimento de dados está fixado em 32 bytes e o comprimento do campo está omitido;
    Para *CertUrl*, *DescriptionUrl*, *Description* e *Remark series*, o comprimento dos dados deve ser claramente definido e não deverá exceder 255;
 
-## 5. Entrada da transação (*inputs*)
+### 5. Entrada da transação (*inputs*)
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -206,7 +206,7 @@ Os gestores de ativos podem criar e enviar os ativos registrados na *blockchain*
    |2|PrevIndex|uint16| índice da transação anterior|
 
 
-## 6. Saída da transação (*outputs*)
+### 6. Saída da transação (*outputs*)
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -217,7 +217,7 @@ Os gestores de ativos podem criar e enviar os ativos registrados na *blockchain*
    Cada transação poderá ter saídas até 65536.
 
 
-## 7. Script de validação
+### 7. Script de validação
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -230,7 +230,7 @@ Em uma transação, a *hash* do código de script de contrato deve ser coerente 
  
 
 # Mensagem de Rede
---------------
+
 
 Todas as mensagens de rede são enviadas com a seguinte estrutura:
 
@@ -254,7 +254,7 @@ Comando é no formato UTF8, em que o comprimento é de 12 bytes e a parte que so
 
 De acordo com diferentes estados, o *payload* tem formato diferente:
 
-## 1. version
+### 1. *version*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -269,16 +269,16 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Quando um nó recebe uma solicitação de conexão, este declara sua versão imediatamente. Não haverá outra comunicação até que ambas as partes estejam recebendo as versões uma da outra.
 
-## 2. verack
+### 2. *verack*
 
    Quando um nó recebe a mensagem de versão, este responde imediantamente com um 'verack' de resposta. Esta mensagem não tem *payload*
 
-## 3. getaddr
+### 3. *getaddr*
 
    Fazer solicitações a um nó para receber os nós ativos e assim aumentar o número de conexões. Esta mensagem não tem *payload*.
 
   
-## 4. addr
+### 4. *addr*
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -287,7 +287,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
    Depois de receber a mensagem `*getaddr*`, o nó devolve, como resposta, uma mensagem 'addr' com informação sobre os nós conhecidos na rede.
    
     
-## 5. getheaders
+### 5. *getheaders
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -297,7 +297,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
    Solicita a um nó os *headers* dos blocos que contêm *hash* desde a *HashStart* até a *HashStop*, com limite máximo de 2000 blocos. Para obter a *hash* de mais blocos do que este limite, é preciso reenviar a mensagem `getheaders`. Esta mensagem é utilizada para rapidamente fazer o download da blockchain sem o conteúdo de transações.
 
 
-## 6. headers
+### 6. *headers
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -305,7 +305,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Após receber a mensagem `getheaders`, o nó retorna uma mensagem `header` como resposta, contendo a informação dos nós conhecidos da rede.
    
-## 7. getblocks
+### 7. *getblocks
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -314,7 +314,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Realiza solicitações a um nó pela mensagem `inv` desde a *HashStart* até a *HashStop*, para um limite máximo de 500 blocos. Para obter a *hash* de mais blocos além do 500º, é necessário reenviar a mensagem `getblocks`.
    
-## 8. inv
+### 8. *inv
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -337,7 +337,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
    |0x02|Block|bloco|
    |0xe0|Consensus|dado de consenso|
 
-## 9. getdata
+### 9. *getdata
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -345,7 +345,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Solicita um objeto específico de um nó. Normalmente é enviado após o pacote `inv` ter sido recebido e o elemento conhecido ter sido removido.
    
-## 10. block
+### 10. *block
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
@@ -353,7 +353,7 @@ De acordo com diferentes estados, o *payload* tem formato diferente:
 
    Envia um bloco a um nó para responder a mensagem `getdata`.
 
-## 11. tx
+### 11. *tx
 
    |Tamanho|Campo|Tipo de dado|Descrição|
    |---|---|---|---|
