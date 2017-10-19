@@ -26,14 +26,11 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
       |> 0xffffffff|9|0xff + uint64|
 
    + *Varstr*： *String* de tamanho variável, composta por um inteiro de tamanho variável seguido de *strings*; é codificada em formato UTF8
-   >
-   > definição confusa.. precisa ser melhorada.. ALTERAR
-   >
-
+   
       |Tamanho|Campo|Tipo de Dado|Descrição|
       |---|---|---|---|
-      | ? |length|variant|The length of a string in bytes|
-      |length|string|uint8[length]|string itself|
+      | ? |length|variant|comprimeto de da *string* em bytes|
+      |length|string|uint8[length]| a *string* em si|
 
    + *array*： inteiro de comprimento variável seguido por uma série de elementos
 
@@ -67,7 +64,7 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
 
    Quando se gera a *hash* do bloco, ao invés de computar o bloco inteiro, apenas os 7 primeiros campos do bloco são avaliados, que são, *versão*, *PrevBlock*, *MerkleRoot*, *timestamp*, *height*, *nonce* e *NextMiner*. Dado que *MerkleRoot* contém a *hash* de todas as transações, a modificação de alguma transação refletirá na alteração da *hash* do bloco.
  
-   Estrutura de dados do bloco de topo da *blockchain*
+   Estrutura de dados do *header* ("cabeçalho") de um bloco:
 
    |Tamanho|Campo|Tipo|Descrição|
    |---|---|---|---|
@@ -82,7 +79,7 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
    |?|Script|script|Script usado para validar o bloco|
    |1|-|uint8|Fijada a valor 0|
       
-  O *timestamp* de cada bloco deve obrigatoriamente ser posterior ao *timestamp* do bloco prévio. Geralmente a diferença entre *timestamps* de dois blocos consecutivos é de aproximadamente 15 segundos.
+  O *timestamp* de cada bloco deve, obrigatoriamente, ser posterior ao *timestamp* do bloco prévio. Geralmente a diferença entre *timestamps* de dois blocos consecutivos é de aproximadamente 15 segundos.
 
 ### 3. Transação
 
@@ -96,7 +93,7 @@ Além disso, o bloco usará uma estrutura de *hashes* chamada Merkle Tree, que p
    |60*?|Outputs|tx_out[]|saídas|
    |?*?|Scripts|script[]|lista de scripts utilizados para validar a transação|
 
-   Todos os processos no sistema NEO são salvos como transações, que por sua vez, podem ser dos tipos abaixo
+   Todos os processos no sistema NEO são salvos como transações, que por sua vez, podem ser de um dos tipos abaixo.
 
    |Valor|Nome|Tarifa do sistema|Descrição|
    |---|---|---|---|
