@@ -39,8 +39,8 @@ The example has been deployed on the testnet and can be accessed at the followin
     ```
 
     So we use:  
-    * **Parameter List:** 05
-    * **Return Type:** 05  
+    * **Parameter List:** 0710
+    * **Return Type:** 05
 
 5. If the contract requires storage (uses the [Read/Write API](../api/neo.md#readwrite-api)), check the **Need Storage** box.  The NEP5 standard uses storage to maintain accounts so make sure this is checked when deploying a NEP5 token.
 
