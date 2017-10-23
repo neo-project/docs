@@ -132,14 +132,16 @@ Resolvendo o sistema de equações,
 Da nossa definição inicial,
 <p align="center"><img src="/pt-br/assets/formula_neqR.gif"></p>
 então
-<p align="center"><img src="/pt-br/assets/formula_nmaisf.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_nmenosf.gif"></p>
 logo,
 <p align="center"><img src="/pt-br/assets/formula_nmenoreq3f.gif"></p>
 
 A última sentença não respeita nossa definição inicial de `𝑓`, provando que o sistema não pode ser bifurcado dentro da faixa tolerável de `𝑓` falhas.
 
 
+<p><br><br></p>
 
+-----
 Referências:   
 [1] Nakamoto S. Bitcoin: A peer-to-peer electronic cash system[J]. 2008.
 
