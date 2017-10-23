@@ -36,16 +36,16 @@ Aqui, definimos:
 
 ## O Algoritmo
 Nosso algoritmo garante tanto segurança quando usabilidade. O sistema tem garantia de funcionalidade e estabilidade enquanto o número de Nós de Consenso disfuncionais (desonestos, maliciosos, danificados, desativados, etc), isto é, o número de falhas, não for maior do que **𝑓**:
-<pre><code><spam align="center"><img src="/pt-br/assets/formula_f.gif"></spam></code></pre>
+<p align="center"><img src="/pt-br/assets/formula_f.gif"></p>
 onde
 𝑛 é o número de nós de consenso participando do processo de consenso.
 
 O conjunto de dados e informações envolvidos do começo ao fim de um processo de consenso é chamado de **_Vista_**. Se um consenso não é atingido em dada *Vista*, uma nova *Vista* é solicitada. Cada *Vista* é identificada pelo índice `𝑣`, iniciando em `0` e incrementando em `1` a cada nova *Vista*, até que se chegue a um consenso.
 Cada *Nó de Consenso* é identificado por um número, de `0` a `𝑛 − 1`. Para cada rodada no processo de consenso, um *Nó de Consenso* é definido aleatoriamente para o papel de **_orador_**, enquanto os demais têm papel de _**delegados**_ (no sentido de ter a função de validação delegada a si). O **_orador_** é identificado pela variável `𝑝`, definida como
-<pre><code><spam align="center"><img src="/pt-br/assets/formula_p.gif"></spam></code></pre>
+<p align="center"><img src="/pt-br/assets/formula_p.gif"></p>
 onde
-ℎ é a altura do bloco; e
-0 ≤ 𝑝 < 𝑛.
+`ℎ` é a altura do bloco; e
+`0 ≤ 𝑝 < 𝑛`.
 
 Um novo bloco será gerado e anexado a *blockchain* a cada rodada de consenso em que foram atingido o número mínimo de `𝑛 − 𝑓` assinaturas dos Nós de Consenso. Após a geração de um bloco, uma nova rodada de consenso inicia com `𝑣 = 0`. Uma assinatura de um Nó de Consenso representa um voto **a favor** da validação do bloco em questão, ou seja, quando `𝑛 − 𝑓` Nós de Consenso concordam em validar o bloco, é atingido o consenso e o bloco é gerado na *blockchain*.
 
@@ -71,12 +71,12 @@ Os *Nós*, após receberem uma proposta de novo bloco, validam as transações n
 
 ### Alteração da *Vista*
 
-Se após o intervalo de tempo <code><img src="/pt-br/assets/formula_t.2vmais1.gif"></code> os nós `𝑖` não chegarem a um consenso, ou receberem uma proposta contendo transações ilegais, a *Vista* é alterada:
+Se após o intervalo de tempo <img src="/pt-br/assets/formula_maior_t.2vmais1.gif"> os nós `𝑖` não chegarem a um consenso, ou receberem uma proposta contendo transações ilegais, a *Vista* é alterada:
 
-Dado `𝑘=1`,
-<pre><code><p align="center"><img src="/pt-br/assets/formula_vk.gif"></p></code></pre>
+Dado `𝑘 = 1`,
+<p align="center"><img src="/pt-br/assets/formula_vk.gif"></p>
 
-1. Um *Nó* `𝑖` envia a requisição de troca de *Vista* <code><img src="/pt-br/assets/formula_changeview.gif"></code>
+1. Um *Nó* `𝑖` envia a requisição de troca de *Vista* <img src="/pt-br/assets/formula_changeview.gif">
 
 2. Uma vez que qualquer *Nó* receber ao menos `𝑛 − 𝑓` requisições de diferentes delegados `𝑖` para uma mesma *Vista* `𝑣`, a alteração de *Vista* é realizada
 
@@ -101,10 +101,10 @@ Nosso algoritmo proporciona tolerância a 𝑓 falhas em um sistema com 𝑛 nó
 
 Como todas requisições carregam a assinatura do emissor, *Nós de Consenso* maliciosos não conseguem falsificar requisições. Ao invés disso, eles podem tentar reverter o status do sistema para um ponto no passado (uma altura de bloco menor do que a atual), forçando o sistema bifurcar.
 Em uma rede hipotética, dividimos o conjunto de todos *Nós de Consenso*, `𝑅`, em 3 sub-conjuntos, `𝑅1`, `𝑅2` e `𝐹`, tais que
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R-R1uR2uF.gif"></span></code></pre>
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R1interR2.gif"></span></code></pre>
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R1interF.gif"></span></code></pre>
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R2interF.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_R-R1uR2uF.gif"></p>
+<p center="align"><img src="/pt-br/assets/formula_R1interR2.gif"></p>
+<p center="align"><img src="/pt-br/assets/formula_R1interF.gif"></p>
+<p center="align"><img src="/pt-br/assets/formula_R2interF.gif"></p>
 
 Dadas as seguintes suposições:
   - Os *Nós* de `𝑅1` são honestos e podem se comunicar apenas com outros nós pertencentes a `𝑅1`;
@@ -114,28 +114,28 @@ Dadas as seguintes suposições:
 
 Se os *Nós* de `𝐹` desejarem bifurcar o sistema, eles terão de chegar a um consenso com os nós de `𝑅1`, publicar os blocos, e depois chegar a um concenso entre si, sem informar `𝑅2`, revogando o consenso com `𝑅1`.
 Isto implicaria em:
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R1maisFmaioreqnmenosf.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_R1maisFmaioreqnmenosf.gif"></p>
 e
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R2maisFmaioreqnmenosf.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_R2maisFmaioreqnmenosf.gif"></p>
 
 Ainda, supondo o pior cenário possível, em que o número de *Nós* desonestos é igual ao número máximo de falhas que o sistema consegue tolerar:
-<pre><code><span center="align"><img src="/pt-br/assets/formula_Feqf.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_Feqf.gif"></p>
 então
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R1maioreqnmenos2f.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_R1maioreqnmenos2f.gif"></p>
 e
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R2maioreqnmenos2f.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_R2maioreqnmenos2f.gif"></p>
 
 Resolvendo o sistema de equações,
-<pre><code><span center="align"><img src="/pt-br/assets/formula_R1maisR2maioreq2nmenos4f.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_R1maisR2maioreq2nmenos4f.gif"></p>
 
 Da nossa definição inicial,
-<pre><code><span center="align"><img src="/pt-br/assets/formula_neqR.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_neqR.gif"></p>
 então
-<pre><code><span center="align"><img src="/pt-br/assets/formula_nmaisf.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_nmaisf.gif"></p>
 logo,
-<pre><code><span center="align"><img src="/pt-br/assets/formula_nmenoreq3f.gif"></span></code></pre>
+<p center="align"><img src="/pt-br/assets/formula_nmenoreq3f.gif"></p>
 
-A última equação contradiz nossa definição de `𝑓`, provando que o sistema não pode ser bifurcado dentro da faixa tolerável de falhas.
+A última sentença não respeita nossa definição inicial de `𝑓`, provando que o sistema não pode ser bifurcado dentro da faixa tolerável de `𝑓` falhas.
 
 
 
