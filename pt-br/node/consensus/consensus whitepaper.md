@@ -31,7 +31,7 @@ Hipoteticamente, neste sistema as mensagens estão sujeitas a perda, dano, latê
 Integridade e autenticidade da informação transmitida são garantias que a criptografia nos proporciona, uma vez que os remetentes das transmissões precisam anexar suas assinaturas à *hash* da mensagem enviada. 
 Aqui, definimos: 
   - <img src="/pt-br/assets/formula_signature.gif"> é a assinatura digital da mensagem 𝑚 enviada pelo nó 𝑖
-  - **_D(𝑚)_** é o valor da *hash* da mensagem 𝑚
+  - *D*(𝑚) é o valor da *hash* da mensagem 𝑚
 
 
 ## O Algoritmo
@@ -43,8 +43,8 @@ onde
 O conjunto de dados e informações envolvidos do começo ao fim de um processo de consenso é chamado de **_Vista_**. Se um consenso não é atingido em dada *Vista*, uma nova *Vista* é solicitada. Cada *Vista* é identificada pelo índice `𝑣`, iniciando em `0` e incrementando em `1` a cada nova *Vista*, até que se chegue a um consenso.
 Cada *Nó de Consenso* é identificado por um número, de `0` a `𝑛 − 1`. Para cada rodada no processo de consenso, um *Nó de Consenso* é definido aleatoriamente para o papel de **_orador_**, enquanto os demais têm papel de _**delegados**_ (no sentido de ter a função de validação delegada a si). O **_orador_** é identificado pela variável `𝑝`, definida como
 <p align="center"><img src="/pt-br/assets/formula_p.gif"></p>
-onde
-`ℎ` é a altura do bloco; e
+onde  
+`ℎ` é a altura do bloco; e   
 `0 ≤ 𝑝 < 𝑛`.
 
 Um novo bloco será gerado e anexado a *blockchain* a cada rodada de consenso em que foram atingido o número mínimo de `𝑛 − 𝑓` assinaturas dos Nós de Consenso. Após a geração de um bloco, uma nova rodada de consenso inicia com `𝑣 = 0`. Uma assinatura de um Nó de Consenso representa um voto **a favor** da validação do bloco em questão, ou seja, quando `𝑛 − 𝑓` Nós de Consenso concordam em validar o bloco, é atingido o consenso e o bloco é gerado na *blockchain*.
@@ -101,10 +101,10 @@ Nosso algoritmo proporciona tolerância a 𝑓 falhas em um sistema com 𝑛 nó
 
 Como todas requisições carregam a assinatura do emissor, *Nós de Consenso* maliciosos não conseguem falsificar requisições. Ao invés disso, eles podem tentar reverter o status do sistema para um ponto no passado (uma altura de bloco menor do que a atual), forçando o sistema bifurcar.
 Em uma rede hipotética, dividimos o conjunto de todos *Nós de Consenso*, `𝑅`, em 3 sub-conjuntos, `𝑅1`, `𝑅2` e `𝐹`, tais que
-<p center="align"><img src="/pt-br/assets/formula_R-R1uR2uF.gif"></p>
-<p center="align"><img src="/pt-br/assets/formula_R1interR2.gif"></p>
-<p center="align"><img src="/pt-br/assets/formula_R1interF.gif"></p>
-<p center="align"><img src="/pt-br/assets/formula_R2interF.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R-R1uR2uF.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R1interR2.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R1interF.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R2interF.gif"></p>
 
 Dadas as seguintes suposições:
   - Os *Nós* de `𝑅1` são honestos e podem se comunicar apenas com outros nós pertencentes a `𝑅1`;
@@ -114,32 +114,32 @@ Dadas as seguintes suposições:
 
 Se os *Nós* de `𝐹` desejarem bifurcar o sistema, eles terão de chegar a um consenso com os nós de `𝑅1`, publicar os blocos, e depois chegar a um concenso entre si, sem informar `𝑅2`, revogando o consenso com `𝑅1`.
 Isto implicaria em:
-<p center="align"><img src="/pt-br/assets/formula_R1maisFmaioreqnmenosf.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R1maisFmaioreqnmenosf.gif"></p>
 e
-<p center="align"><img src="/pt-br/assets/formula_R2maisFmaioreqnmenosf.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R2maisFmaioreqnmenosf.gif"></p>
 
 Ainda, supondo o pior cenário possível, em que o número de *Nós* desonestos é igual ao número máximo de falhas que o sistema consegue tolerar:
-<p center="align"><img src="/pt-br/assets/formula_Feqf.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_Feqf.gif"></p>
 então
-<p center="align"><img src="/pt-br/assets/formula_R1maioreqnmenos2f.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R1maioreqnmenos2f.gif"></p>
 e
-<p center="align"><img src="/pt-br/assets/formula_R2maioreqnmenos2f.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R2maioreqnmenos2f.gif"></p>
 
 Resolvendo o sistema de equações,
-<p center="align"><img src="/pt-br/assets/formula_R1maisR2maioreq2nmenos4f.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_R1maisR2maioreq2nmenos4f.gif"></p>
 
 Da nossa definição inicial,
-<p center="align"><img src="/pt-br/assets/formula_neqR.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_neqR.gif"></p>
 então
-<p center="align"><img src="/pt-br/assets/formula_nmaisf.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_nmaisf.gif"></p>
 logo,
-<p center="align"><img src="/pt-br/assets/formula_nmenoreq3f.gif"></p>
+<p align="center"><img src="/pt-br/assets/formula_nmenoreq3f.gif"></p>
 
 A última sentença não respeita nossa definição inicial de `𝑓`, provando que o sistema não pode ser bifurcado dentro da faixa tolerável de `𝑓` falhas.
 
 
 
-Referências:
+Referências:   
 [1] Nakamoto S. Bitcoin: A peer-to-peer electronic cash system[J]. 2008.
 
 [2] Lamport L, Shostak R, Pease M. The Byzantine generals problem[J]. ACM Transactions on Programming Languages and Systems (TOPLAS), 1982, 4(3): 382-401.
