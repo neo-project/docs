@@ -219,7 +219,7 @@ NeoGas（缩写符号 GAS）共1亿份，代表了Neo区块链的使用权。GAS
 
 
 
-![gasflow](C:\neo-project\docfx\docs\localtest\gasflow.png)
+![gasflow](gasflow.png)
 
 
 
