@@ -7,7 +7,9 @@ dotnet neo-cli.dll
 ```
 
 <p align="center"><img src="/pt-br/assets/cli_1.png"></p>
-> [!Note] Para executar a interface `Neo-CLI`, é necessária a instalação do [Runtime .NET Core](https://www.microsoft.com/net/download/core#/runtime)  **versão 1.1.2** ou superior
+
+> [!Note] 
+> Para executar a interface `Neo-CLI`, é necessária a instalação do [Runtime .NET Core](https://www.microsoft.com/net/download/core#/runtime)  **versão 1.1.2** ou superior
 
 
 Ao executar, o interpretador de linha de comando é carregado no prompt. Através dos comandos  o NeoCLI, você consegue criar uma carteira, importar e exportar chave privada, realizar transferências, iniciar processo de consenso, etc.
@@ -112,9 +114,10 @@ Os parâmetros para envios (transferências) são:
   - O quarto é a tarifa para realizar a operação
   
 <br>
+
 Os *ids* dos ativos próprios do sistema são:
-  - NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b <br>
-  - GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+  - NEO: *c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b*
+  - GAS: *602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7*
 
 <br>
 Exemplo de comando para enviar 100 NEO para o endereço `AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b`:
