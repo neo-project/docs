@@ -29,7 +29,7 @@ If you are a developer, you can ask for GAS on the TestNet here: https://www.neo
 
 ## 테스트 네트워크 변경 방법 (Method of switching to test network)
 
-1. 아래 나오는 것처럼 `protocal.testnet.json` 폴더 아래 있는 프로그램 폴더의 내용물들을 복사 해서 ` protocol.json`아래 붙여넣기 합니다. 
+1. 아래 나오는 것처럼 `protocol.testnet.json` 폴더 아래 있는 프로그램 폴더의 내용물들을 복사 해서 ` protocol.json`아래 붙여넣기 합니다. 
 
 ![image](https://github.com/neo-project/docs/blob/master/assets/testnet_1.png)
 
