@@ -44,13 +44,13 @@ Comando | Descrição da Função | Observação |
 | `list address` | Lista todas as contas na carteira | Necessita abrir a carteira antes |
 | `list asset` | Lista todos os ativos na carteira | Necessita abrir a carteira antes |
 | `list key` | Lista todas as chaves públicas na carteira | Necessita abrir a carteira antes |
-| `show utxo [id|alias]` | Lista as transações pelo *id* ou pelo *alias* | Necessita abrir a carteira antes |
+| `show utxo [id\|alias]` | Lista as transações pelo *id* ou pelo *alias* | Necessita abrir a carteira antes |
 | `show gas` | Mostra a quantidade de GAS | Necessita abrir a carteira antes |
 | `claim gas` | Resgata o GAS disponível | Necessita abrir a carteira antes |
 | `create address [n = 1]` | Cria um ou mais endereços de forma automática | Necessita abrir a carteira antes |
-| `import key <wif|caminho>` | Importa uma ou mais chaves privadas de uma só vez | Necessita abrir a carteira antes |
+| `import key <wif\|caminho>` | Importa uma ou mais chaves privadas de uma só vez | Necessita abrir a carteira antes |
 | `export key [endereço] [caminho]` | Exporta a chave privada | Necessita abrir a carteira antes |
-| `send <id|alias> <endereço> <valor> [fee=0]`| Envia ao endereço especificado | Necessita abrir a carteira antes |
+| `send <id\|alias> <endereço> <valor> [fee=0]`| Envia ao endereço especificado | Necessita abrir a carteira antes |
 
 
 Os seguintes comandos são explicados com mais detalhes:
@@ -129,7 +129,6 @@ send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtX
 
 <br>
 
-
 ## 3. Informações do Nó
 
 Comando | Descrição |
@@ -138,7 +137,6 @@ Comando | Descrição |
 `show node` | Mostra o endereço e porta dos Nós conectados |
 `show pool` | Mostra as transações armazenadas na memória (Estas transações ficam em estado de zero confirmação) |
 
-<br>
 
 ## 4. Instruções Avançadas
 
