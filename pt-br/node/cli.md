@@ -38,19 +38,19 @@ Primeiro vamos explorar os comandos disponíveis, listados abaixo. No prompt de 
 
 Comando | Descrição da Função | Observação |
 | ---------------------------------------- | -------------------------------- | ------ |
-| `create wallet \<caminho>` | Cria um arquivo de carteira no caminho especificado |
-| `open wallet \<caminho>` | Abre a carteira pelo arquivo contido no caminho especificado |
+| `create wallet <caminho>` | Cria um arquivo de carteira no caminho especificado |
+| `open wallet <caminho>` | Abre a carteira pelo arquivo contido no caminho especificado |
 | `rebuild index` | Refaz os índices da carteira | Necessita abrir a carteira antes |
 | `list address` | Lista todas as contas na carteira | Necessita abrir a carteira antes |
 | `list asset` | Lista todos os ativos na carteira | Necessita abrir a carteira antes |
 | `list key` | Lista todas as chaves públicas na carteira | Necessita abrir a carteira antes |
-| `show utxo [id\|alias]` | Lista as transações pelo *id* ou pelo *alias* | Necessita abrir a carteira antes |
+| `show utxo [id|alias]` | Lista as transações pelo *id* ou pelo *alias* | Necessita abrir a carteira antes |
 | `show gas` | Mostra a quantidade de GAS | Necessita abrir a carteira antes |
 | `claim gas` | Resgata o GAS disponível | Necessita abrir a carteira antes |
 | `create address [n = 1]` | Cria um ou mais endereços de forma automática | Necessita abrir a carteira antes |
-| `import key \<wif\|caminho>` | Importa uma ou mais chaves privadas de uma só vez | Necessita abrir a carteira antes |
-| `export key \[endereço] [caminho]` | Exporta a chave privada | Necessita abrir a carteira antes |
-| `send \<id\|alias> \<endereço> \<valor> [fee=0]`| Envia ao endereço especificado | Necessita abrir a carteira antes |
+| `import key <wif|caminho>` | Importa uma ou mais chaves privadas de uma só vez | Necessita abrir a carteira antes |
+| `export key [endereço] [caminho]` | Exporta a chave privada | Necessita abrir a carteira antes |
+| `send <id|alias> <endereço> <valor> [fee=0]`| Envia ao endereço especificado | Necessita abrir a carteira antes |
 
 
 Os seguintes comandos são explicados com mais detalhes:
@@ -120,10 +120,13 @@ Os *ids* dos ativos próprios do sistema são:
   - GAS: *602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7*
 
 <br>
+
 Exemplo de comando para enviar 100 NEO para o endereço `AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b`:
+
 ```
 send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 ```
+
 <br>
 
 
