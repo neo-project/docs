@@ -21,7 +21,7 @@ Retorna o balanço de um dado ativo na carteira aberta.
 As *id*'s dos ativos podem ser consultadas com o comando `list asset` no [Neo-CLI](../cli.md).
 
 
-## Example 
+## Exemplo 
 
 ### Requisição:
 
