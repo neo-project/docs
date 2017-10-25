@@ -54,4 +54,4 @@ As *id*'s dos ativos podem ser consultadas com o comando `list asset` no [Neo-CL
 
 > [!Note]
 > Os valores `balance` e `confirmed` podem não ser iguais. 
-> Isto acontece quando há uma transação de saída desse ativo da carteira, e o troco (retorno da quantia de ativo não transferida) ainda não foi confirmada; nesse caso o valor de `confirmed` será menor do que o de `balance`. Uma vez que o acordo é confirmado, ambos os valores terão o mesmo valor
+Isto acontece quando há uma transação de saída desse ativo da carteira, e o troco (retorno da quantia de ativo não transferida) ainda não foi confirmada; nesse caso o valor de `confirmed` será menor do que o de `balance`. Uma vez que o acordo é confirmado, ambos os valores terão o mesmo valor
