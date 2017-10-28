@@ -54,7 +54,7 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
  <b>图 2：</b> 一个 n =4 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
 在图 2 中，我们有两个诚实的 **议员** (66%)。所有的 **议员** 从 **议长**  那里收到相同的消息，然后向其它 **议员** 发送消息和自己的验证结果。根据两位诚实 **议员** 的共识，我们可以确定 **议长** 或者右边的 **议员** 在系统中是不诚实的。
-  
+
 
 
 ### **不诚实的议长** 
@@ -194,7 +194,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus Node** hones
 ​	
 
 ## 6 - 引用
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](https://www.neo.org/Files/A8A0E2.pdf)
+1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 

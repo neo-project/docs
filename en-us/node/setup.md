@@ -64,7 +64,14 @@ If you see the final output "Hello World!", The .Net Core installation is succes
 > [!Note]
 > If you try to download and compile the Neo-CLI source directly on Github, you will find that `dotnet neo-cli.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as neo-cli.dll under. These two files can be downloaded in the first step of the package.
 
-2. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
+2. On Linux, install the LevelDB and SQLite3 dev packages. E.g. on Ubuntu:
+
+```
+sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, use the [Neo version of LevelDB](https://github.com/neo-project/leveldb).
+   
+3. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
 
 ```
 dotnet neo-cli.dll
@@ -74,4 +81,4 @@ Neo-CLI provides a series of APIs for external access. If you want to start the 
 ```
 dotnet neo-cli.dll /rpc
 ```
-3. If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
+4. If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
