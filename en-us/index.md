@@ -4,7 +4,7 @@ A distributed network for the Smart Economy
 
 ## NEO design goals: Smart Economy
 
-NEO is the use of blockchain technology and digital identity to digitize assets, the use of smart contracts for digital assets to be self-managed, to achieve "smart economy" with a distributed network.
+NEO's design goal is to use digital identity and blockchain technology to digitize assets and leverages smart contracts for autonomously managed digital assets to create a "smart economy" within a decentralized network.
 
 ### Digital Assets
 
