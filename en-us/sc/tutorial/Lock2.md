@@ -17,8 +17,8 @@ PS: At this point in time, the latest **test network client** download is: [Neo 
 > [!Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
 > In order to use the test net you have to make two changes in the config files:
-1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Be default, config.json and protocol.json are idential to the Mainnet versions.
-2. You need to copy the code from the testnet files into the config.json and protocol.json files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste config.testnet.json into config.json, and protocol.testnet.json into protocol.json.
+1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. By default, `config.json` and `protocol.json` are identical to the Mainnet versions.
+2. You need to copy the code from the testnet files into the `config.json` and `protocol.json` files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste `config.testnet.json` into `config.json`, and `protocol.testnet.json` into `protocol.json`.
 
 ## Create a wallet
 
