@@ -1,6 +1,6 @@
 # Network Protocol
 
-NEO maakt gebruik van een P2P netwerkstructuur, waarbij nodes met elkaar communiceren door TCP/IP protocol. In deze structuur zijn er twee soorten nodes: peer nodes en validating nodes (ook wel Bookkeepers geheten). Peer nodes kunnen transacties en blocks uitzenden, ontvangen en overzetten, terwijl validating nodes blocks kunnen aanmaken.
+NEO maakt gebruik van een P2P netwerkstructuur, waarbij nodes met elkaar communiceren door TCP/IP protocol. In deze structuur zijn er twee soorten nodes: peer nodes en validating nodes (ook wel 'Bookkeepers' geheten). Peer nodes kunnen transacties en blocks uitzenden, ontvangen en overzetten, terwijl validating nodes blocks kunnen aanmaken.
 
 Het netwerkprotocol van NEO lijkt op dat van Bitcoin, maar de datastructuur zoals blocks of transacties verschillen.
 
@@ -60,7 +60,7 @@ Data Type
    |8|Nonce|uint64|Willekeurig getal|
    |20|NextMiner|uint160|Contract-addres van de volgende miner|
    |1|-|uint8| Staat vast op 1 |
-   |?|Script|script| Het gebruikte validatiescript voor de block|
+   |?|Script|script| Het gebruikte validatiescript voor het block|
    |?\*? |Transactions|tx[]|Lijst van transacties|
 
    Bij het berekenen van de hashwaarde van een block worden alleen de eerste zeven velden in het block berekend, in plaats van het gehele block. Dit zijn: version, PrevBlock, MerkleRoot, timestamp, height, nonce en NextMiner. Aangezien MerkleRoot al de hashwaarde van alle transacties bevat, zal aanpassing van een transactie de hashwaarde van het block veranderen.
@@ -77,10 +77,10 @@ Data Type
    |8|Nonce|uint64|Willekeurig getal|
    |20|NextMiner|uint160|Contract-addres van de volgende miner|
    |1|-|uint8|Staat vast op 1|
-   |?|Script|script|Het gebruikte validatiescript voor de block|
+   |?|Script|script|Het gebruikte validatiescript voor het block|
    |1|-|uint8|Staat vast op 0|
 
-   De tijdsaanduiding op elk block moet later zijn dan die van het block ervoor. Normaal gesproken is het verschil ongeveer 15 seconden. De tijdsaanduiding hoeft niet tot op de milliseconde te kloppen. De hoogte van de blockchain moet exact gelijk zijn als die van de block hiervoor plus een.
+   De tijdsaanduiding op elk block moet later zijn dan die van het block ervoor. Normaal gesproken is het verschil ongeveer 15 seconden. De tijdsaanduiding hoeft niet tot op de milliseconde te kloppen. De hoogte van de blockchain moet exact gelijk zijn als die van het block hiervoor plus een.
    
 1. Transaction
 
@@ -291,7 +291,7 @@ Afhankelijk van verschillende orders heeft de Payload een ander format, zie hier
 
    | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |30*?|AddressList|net_addr[]|Adres van andere node in het netwerk|
+   |30\*?|AddressList|net_addr[]|Adres van andere node in het netwerk|
 
    Na het ontvangen van het getaddr bericht, reageert de node met een addr bericht en geeft de node informatie van andere bekende nodes op het netwerk.
 
@@ -316,16 +316,16 @@ Afhankelijk van verschillende orders heeft de Payload een ander format, zie hier
 
    | Grootte  | Veld    | Data Type     | Omschrijving         |
    |---|---|---|---|
-   |32*?|HashStart|uint256[]|Hash van het laatste block die de node aanvraagt|
+   |32\*?|HashStart|uint256[]|Hash van het laatste block die de node aanvraagt|
    |32|HashStop|uint256|Hash van het laatste block die de node aanvraagt|
 
-   Een aanvraag voor een node voor een inv-bericht welke gaat van HashStart tot HashStop. De hoeveelheid blocks welke starten van HashStart tot HashStop is maximaal 500. Als je meer block-hash-waardes dan dat wil ontvangen, dient het getblocks-bericht opnieuw te worden gestuurd.
+   Een aanvraag voor een node voor een inv-bericht die gaat van HashStart tot HashStop. De hoeveelheid blocks die starten van HashStart tot HashStop is maximaal 500. Als je meer block-hash-waardes dan dat wil ontvangen, dient het getblocks-bericht opnieuw te worden gestuurd.
 
 1. inv
 
    |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |36*?|Inventories|inv_vect[]|Data van inventarissen|
+   |36\*?|Inventories|inv_vect[]|Data van inventarissen|
 
    De node kan de informatie van het object welke het bezit uitzenden door middel van dit bericht. Het bericht kan automatisch worden gestuurd, of om getblocks-berichten te beantwoorden.
 
@@ -348,7 +348,7 @@ Afhankelijk van verschillende orders heeft de Payload een ander format, zie hier
 
    |Grootte|Veld|DataType|Omschrijving|
    |---|---|---|---|
-   |36*?|Inventories|inv_vect[]|Data van inventarissen|
+   |36\*?|Inventories|inv_vect[]|Data van inventarissen|
 
    Om een specifiek object van een node aan te vragen, wordt getdata meestal na het ontvangen van het inv-pakket gestuurd met het bekende element verwijderd.
 

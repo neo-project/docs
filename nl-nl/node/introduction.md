@@ -42,9 +42,9 @@ Het NEO [netwerkprotocol](network-protocol.md) verstrekt een simpele API voor en
 
 ## Port Omschrijving
 
-Als je wilt dat een extern programma de API van de node kan aanspreken, is een open firewall-port nodig. De volgende ports kunnen op 'volledig open' of 'open-op-aanvraag' worden gezet.
+Als je wilt dat een extern programma de API van de node kan aanspreken, is een open firewall-port nodig. De volgende ports kunnen op 'volledig open' of op 'open-op-aanvraag' worden gezet.
 
-|                    | Main Net | Test Net |
+|                    | Main Net     | Test Net |
 | ------------------ | ------------ | ------------- |
 | JSON-RPC via HTTPS | 10331        | 20331         |
 | JSON-RPC via HTTP  | 10332        | 20332         |
