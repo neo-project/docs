@@ -25,9 +25,9 @@
 
 Een van de fundamentele verschillen tussen blockchains is hoe ze fouttolerantie (*fault tolerance*) kunnen garanderen bij defecte, niet-eerlijke activiteit op het netwerk.
 
-Traditionele methodes gebruiken PoW en kunnen dit verschaffen, mits de meerderheid van de rekenkracht van het netwerk eerlijk is. Echter, door de rekenkracht-gerichte opbouw van dit model kan het mechanisme zeer inefficiënt zijn (rekenkracht kost energie en vereist geavanceerde hardware). Deze afhankelijkheid stelt een PoW-netwerk bloot aan een aantal limitaties, waarvan de voornaamste de kost van opschalen is.
+Traditionele methodes gebruiken PoW en kunnen dit verschaffen zolang de meerderheid van de rekenkracht van het netwerk eerlijk is. Echter, door de rekenkracht-gerichte opbouw van dit model kan het mechanisme zeer inefficiënt zijn (rekenkracht kost energie en vereist geavanceerde hardware). Deze afhankelijkheid stelt een PoW-netwerk bloot aan een aantal limitaties, waarvan de voornaamste de kost van opschalen is.
 
-NEO implementeerd een Delegated Byzantine Fault Tolerance consensus-algoritme dat gebruik maakt van enkele PoS-achtige kenmerken (NEO-bezitters stemmen op **Consensus Nodes**), welke het netwerk beschermen van Byzantine faults terwijl ze gebruik maken van minimale middelen, maar zonder sommige van de problemen van PoS. Deze oplossing richt zich op de prestatie- en schalingsproblemen die worden geassocieerd met huidige blockchain-implementaties, zonder dat dit ten koste gaat van de fouttolerantie.
+NEO implementeert een Delegated Byzantine Fault Tolerance consensus-algoritme dat gebruik maakt van enkele PoS-achtige kenmerken (NEO-bezitters stemmen op **Consensus Nodes**), welke het netwerk beschermen van Byzantine faults terwijl ze gebruik maken van minimale middelen, maar zonder sommige van de problemen van PoS. Deze oplossing richt zich op de prestatie- en schalingsproblemen die worden geassocieerd met huidige blockchain-implementaties, zonder dat dit ten koste gaat van de fouttolerantie.
 
 
 ## 4 - Theorie
@@ -39,7 +39,7 @@ Om te demonstreren hoe DBFT werkt, richt dit deel zich voornamelijk op het onder
 Hieronder volgt een aantal scenario's om DBFT te bespreken. In deze voorbeelden wordt aangenomen dat alle nodes het bericht doorsturen dat ze ontvangen van de **Speaker**. Dit komt overeen met het mechanisme van DBFT en is een belangrijk aspect van het systeem. Alleen het verschil tussen een functionerend en niet-functionerend systeem zal worden toegelicht; lees voor een meer uitgebreide uitleg de gebruikte bronnen.
 
 
-### **Erlijke Speaker**
+### **Eerlijke Speaker**
 
   <p align="center"><img src="/assets/n3.png" width="300"><br>
 	<b>Figuur 1:</b> Een n = 3 voorbeeld met een oneerlijke <b>Delegate</b>.
