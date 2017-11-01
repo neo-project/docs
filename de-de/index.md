@@ -10,7 +10,7 @@ NEO nutzt die Blockchaintechnologie in Verbindung mit digitalen Identitäten um 
 
 ### Digitale Assets
 
-Digitale Assets existieren in elektronischer Form. Die Blockchaintechnologie ermöglicht die dezentralisierte, vertrauenswürdige, nachvollziehbare und hoch transparente Digitalisierung von Assets ohne Zwischeninstanz. Nach erfolgter Registrierung eines Assets können Nutzer mittels der NEO Blockchain eine Vielzahl von digitalen Assets untereinander austauschen und handeln. Die Verknüpfung zwischen digitalen und physischen Assets wird dabei durch digitale Identitäten ermöglicht. Assets, die mittels einer verifizierten, digitalen Identität registriert wurden, sind so geschützt.
+Digitale Assets existieren in elektronischer Form. Die Blockchaintechnologie ermöglicht die dezentralisierte, vertrauenswürdige, nachvollziehbare und hoch transparente Digitalisierung von Assets ohne Zwischeninstanz. Nach erfolgter Registrierung eines Assets können Nutzer mittels der NEO Blockchain eine Vielzahl von digitalen Assets untereinander austauschen und handeln. Die Verknüpfung zwischen digitalen und physischen Assets wird dabei durch digitale Identitäten ermöglicht. Assets, die mittels einer verifizierten digitalen Identität registriert wurden, sind so geschützt.
 
 NEO bietet zwei Formen von digitalen Assets: globale Assets und contract-gebundene Assets. Globale Assets können in die gesamte Systemumgebung von NEO integriert werden und sind von allen „Smart Contracts“ und Netzwerkclients des NEO Netzwerks identifizierbar.
 Contract-gebundene Assets sind lediglich in die interne Speicherumgebung eines „Smart Contracts“ integriert und benötigen einen angepassten Client um erkannt zu werden. Die Contract-gebundenen Assets können an vorgegebene Standards des NEO Netzwerks geknüpft werden, um die Kompatibilität mit anderen Clients sicherzustellen.
@@ -31,7 +31,7 @@ Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Featu
 
 NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Sicherheit und Skalierbarkeit.
 
-Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwicklern weltweit „Smart Contracts“ zu entwickeln. Diesbezüglich wird in der Zukunft ein eigenes Whitepaper für NeoContract geben.
+Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwicklern weltweit „Smart Contracts“ zu entwickeln. Diesbezüglich wird es in der Zukunft ein eigenes Whitepaper für NeoContract geben.
 
 
 ### Anwendungen und Ökosystem 
