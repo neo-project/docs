@@ -45,13 +45,13 @@ Hieronder volgt een aantal scenario's om DBFT te bespreken. In deze voorbeelden 
 	<b>Figuur 1:</b> Een n = 3 voorbeeld met een oneerlijke <b>Delegate</b>.
   </p>
   
-  In **Figuur 1** is sprake van één eerlijke **Delegate** (50%). Beide **Delegates** ontvangen het zelfde bericht van de eerlijke **Speaker**. Aangezien een van de **Delegates** oneerlijk is, kan de eerlijke **Delegate** alleen vaststellen dat er een oneerlijke node is; het is voor de eerlijke **Delegate** echter onmogelijk om te bepalen of de **Speaker** of de **Delegate** eerlijk is. Hierdoor moet de eerlijke **Delegate** zich onthouden van een stem, waardoor de situatie veranderd.
+  In **Figuur 1** is sprake van één eerlijke **Delegate** (50%). Beide **Delegates** ontvangen het zelfde bericht van de eerlijke **Speaker**. Aangezien een van de **Delegates** oneerlijk is, kan de eerlijke **Delegate** alleen vaststellen dat er een oneerlijke node is; het is voor de eerlijke **Delegate** echter onmogelijk om te bepalen of de **Speaker** of de **Delegate** eerlijk is. Hierdoor moet de eerlijke **Delegate** zich onthouden van een stem, waardoor de situatie verandert.
   
   <p align="center"><img src="/assets/n4.png" width="400"><br>
     <b>Figuur 2:</b> Een n = 4 voorbeeld met een oneerlijke <b>Delegate</b>.
   </p>
   
-  In **Figuur 2** is sprake van twee eerlijke **Delegates** (66%). Alle **Delegates** ontvangen het zelfde bericht van de eerlijke **Speaker** en sturen het resultaat van hun bevestiging samen met het ontvangen bericht naar de andere mede-**Delegates**. Gebaseerd op de consensus van de twee eerlijke **Delegates**, kunnen we vaststellen dat de **Speaker** óf de overgebleven **Delegate** oneerlijk is.
+  In **Figuur 2** is sprake van twee eerlijke **Delegates** (66%). Alle **Delegates** ontvangen het zelfde bericht van de eerlijke **Speaker** en sturen het resultaat van hun bevestiging samen met het ontvangen bericht naar de andere **Delegates**. Gebaseerd op de consensus van de twee eerlijke **Delegates**, kunnen we vaststellen dat de **Speaker** óf de overgebleven **Delegate** oneerlijk is.
   
   
 ### **Oneerlijke Speaker** 
@@ -66,18 +66,18 @@ Hieronder volgt een aantal scenario's om DBFT te bespreken. In deze voorbeelden 
     <b>Figuur 4:</b> Een n = 4 voorbeeld met een oneerlijke <b>Speaker</b>.
   </p>
   
-  In het geval van de situatie in **Figuur 4** kunnen de blocks die zijn ontvangen door de middelste en rechter node niet bevestigd worden. Hierdoor kiezen de nodes voor een nieuwe **Speaker**, aangezien er dan wel sprake zou zijn van een 66%-meerderheid. Als in dit geval de oneerlijke **Speaker** gelijke oneerlijke data naar alle drie de **Delegates** had gestuurd, dan zou deze gevalideerd zijn zonder dat er een nieuwe **Speaker** zou worden aangesteld.
+  In het geval van de situatie in **Figuur 4** kunnen de blocks die zijn ontvangen door de middelste en rechter node niet bevestigd worden. Hierdoor kiezen de nodes voor een nieuwe **Speaker**, aangezien er dan wel sprake zou zijn van een 66%-meerderheid. Als in dit geval de oneerlijke **Speaker** exact gelijke (maar nog steeds oneerlijke) data naar alle drie de **Delegates** had gestuurd, dan zou deze gevalideerd zijn zonder dat er een nieuwe **Speaker** zou worden aangesteld.
   
 
 ## 5 - Praktische Implementatie
 
-De praktische implementatie van DBFT in NEO maakt gebruik van een herhalende consensusmethode die garandeerd dat een consensus wordt bereikt. Het presteren van het algoritme hangt af van het deel van eerlijke nodes in het systeem. **Figuur 5** toont het verwachte aantal maal dat het proces moet worden doorlopen om een consensus te bereiken als functie van het deel van de nodes dat oneerlijk is.
+De praktische implementatie van DBFT in NEO maakt gebruik van een herhalende consensusmethode die garandeert dat een consensus wordt bereikt. Het presteren van het algoritme hangt af van het deel van eerlijke nodes in het systeem. **Figuur 5** toont het verwachte aantal maal dat het proces moet worden doorlopen om een consensus te bereiken als functie van het deel van de nodes dat oneerlijk is.
 
 **Figuur 5** gaat niet tot onder de 66.66% **Consensus Node**-eerlijkheid. Tussen dit kritische punt en 33% **Consensus Node**-eerlijkheid bevindt zich een 'niemandsland' waar een consensus niet kan worden bereikt. Onder de 33.33% **Consensus Node**-eerlijkheid kunnen de oneerlijke nodes samen een consensus bereiken (ervan uitgaande dat ze samenwerken en dus gelijke valse informatie verspreiden), waardoor het bericht van de oneerlijke nodes als waarheid wordt aangenomen.
 
 <img src="/assets/consensus.iterations.png" width="800">
 
-**Figuur 5:** Monto-Carlo-Simulatie van het DBFT algoritme dat het aantal herhalingen toont om consensus te bereiken als functie van de eerlijkheid van de nodes. {100 Nodes; 100,000 gesimuleerde blocks met een willekeurige selectie eerlijke nodes}
+**Figuur 5:** Monto-Carlo-Simulatie van het DBFT-algoritme dat het aantal herhalingen toont om consensus te bereiken als functie van de eerlijkheid van de nodes. {100 Nodes; 100,000 gesimuleerde blocks met een willekeurige selectie eerlijke nodes}
 
 
 ### 5.1 - Definities
@@ -142,8 +142,8 @@ De praktische implementatie van DBFT in NEO maakt gebruik van een herhalende con
 	
 5. De **Speaker** zendt het voorstel uit:
 
-The **Speaker** broadcasts the proposal :
-	`<prepareRequest, h, k, p, bloc, [block]sigp>`
+
+`<prepareRequest, h, k, p, bloc, [block]sigp>`
 	<p align="center"><img src="/assets/consensus3.png" width="450"><br>
 		<b>Figuur 8:</b> De <b>Speaker</b> maakt een block-voorstel wat beoordeeld dient te worden door de <b>Delegates</b>.
 	</p>
