@@ -4,7 +4,7 @@ In een voorafgaande pagina is uitgelegd hoe een node op te zetten is op Windows 
 
 Voor het deployen van een NEO private chain zijn op zijn minst vier servers nodig om een consensus te bereiken, waarbij elke server gelijk staat aan een consensus node en een NEO-wallet.
 
-## 1. Configuratie van de virtual machine
+## 1. Configuratie van de Virtual Machine
 
 Voor demonstratieve doeleinden zijn in de volgende situatie vier Windows virtual machines gemaakt op Azure met grootte Standard DS1 v2 (1 core, 3,5 GB RAM). Private chains kunnen worden gemaakt op een LAN of een virtual machine.
 
@@ -106,7 +106,7 @@ Vier nodes kunnen zelfs wanneer een apparaat uitstaat nog consensus bereiken:
 
 Installeer Neo-GUI en pas het configuratiebestand `protocol.json` aan om met de private chain te verbinden.
 
-Open de wallet. Als de getallen linksonder niet 0 zijn en tot dezelfde block zijn gesynchroniseerd, betekent dit dat de client succesvol is verbonden met de private chain.
+Open de wallet. Als de getallen linksonder niet 0 zijn en tot hetzelfde block zijn gesynchroniseerd, betekent dit dat de client succesvol is verbonden met de private chain.
 
 Open wallet1.db3 in Neo-GUI, voeg het multi-party signature adres toe, voer de vier public keys in in `protocol.json` en zet het minimum aantal signatures naar 3 (aantal consensus nodes/2 + 1) zoals hieronder.
 
