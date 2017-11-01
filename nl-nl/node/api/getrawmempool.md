@@ -1,6 +1,6 @@
 # Getrawmempool Methode
 
-Verkrijg de lijst van nog niet bevestigde transacties in de memory pool.
+Geeft de lijst van nog niet bevestigde transacties in de memory pool.
 
 ## Voorbeeld
 

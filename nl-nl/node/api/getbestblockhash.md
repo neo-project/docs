@@ -1,6 +1,6 @@
 # Getbestblockhash Methode
 
-Geeft de hash van het hoogste block in de hoofdketen weer.
+Geeft de hash van het hoogste block in de hoofdketen weer. (Hoogste block = laatst geaccepteerde block)
 
 ## Voorbeeld
 

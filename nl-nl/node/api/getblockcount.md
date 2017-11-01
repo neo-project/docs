@@ -1,6 +1,6 @@
 # Getblockcount Methode
 
-Haalt het aantal blocks in de hoofdketen.
+Geeft het aantal blocks in de hoofdketen.
 
 ## Voorbeeld
 

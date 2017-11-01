@@ -3,23 +3,23 @@
 Overmaken naar een gespecificeerd adres.
 
 > [!Note]
-> De wallet moet worden geopend in de Neo-CLI-node alvorens deze command uitgevoerd kan worden.
+> De wallet moet worden geopend in de Neo-CLI-node voordat deze command uitgevoerd kan worden.
 
 ## Parameter Omschrijving
 
-Asset_id: Asset ID (asset-identificator), welke de transactie-ID is van de RegistTransaction bij het registreren van de asset.
+Asset_id: de asset-identificator, welke de transactie-ID is van de RegistTransaction bij het registreren van de asset.
 
 Voor NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
 Voor GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-De overgebleven asset-ID's kunnen worden opgevraagd door middel van de `list asset` command in [CLI Command](../cli.md), of in de blockchain-verkenner.
+De overgebleven asset-ID's kunnen worden opgevraagd door middel van de `list asset`-command in [CLI Command](../cli.md), of in de blockchain-verkenner.
 
 Address: het ontvangende adres.
 
 Value: de over te maken hoeveelheid.
 
-Fee: servicekosten; standaard 0 (kan leeg worden gelaten).
+Fee: servicekosten; standaard 0 (kan leeg worden gelaten bij `"Fee": 0`).
 
 ## Voorbeeld
 

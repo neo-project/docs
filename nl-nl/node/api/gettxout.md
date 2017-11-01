@@ -1,12 +1,12 @@
 # Gettxout Methode
 
-Geeft de overeenkomstige transactie-output informatie weer (teruggestuurd 'wisselgeld'), gebaseerd op de gespecificeerde hash en index.
+Geeft de overeenkomstige transactie-outputinformatie weer (teruggestuurd 'wisselgeld'), gebaseerd op de gespecificeerde hash en index.
 
 ## Parameter Omschrijving
 
-Txid: Transaction ID
+Txid: transaction ID
 
-N: De index van de transactie-output welke in de transactie moet worden verkregen (begint bij 0).
+N: de index van de transactie-output welke in de transactie moet worden verkregen (begint bij 0).
 
 ## Voorbeeld
 

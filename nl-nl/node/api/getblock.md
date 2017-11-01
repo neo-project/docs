@@ -4,7 +4,7 @@ Geeft de overeenkomstige block-informatie weer aan de hand van de gespecificeerd
 
 ## Parameter Omschrijving
 
-Index: block index (blockhoogte) = Aantal blocks min één.
+Index: block index (blockhoogte) = Aantal blocks min een.
 
 Verbose: optioneel; de standaardwaarde van verbose is 0. Als verbose 0 is, wordt de seriële informatie van het block teruggegeven, weergegeven als een hexadecimale string. Voor gedetailleerde informatie is de SDK voor deserialisatie nodig. Als verbose 1 is, wordt de gedetailleerde informatie van het overeenkomstige block teruggegeven in Json format string.
 
@@ -33,7 +33,7 @@ Response tekst:
 
 Request tekst:
 
-Verbose = 1, geefthet resultaat in JSON format.
+Verbose = 1, geeft het resultaat in JSON format.
 
 ```json
 {

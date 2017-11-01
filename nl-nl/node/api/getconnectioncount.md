@@ -1,6 +1,6 @@
 # Getconnectioncount Methode
 
-Haalt de huidige hoeveelheid connecties van de node.
+Geeft de huidige hoeveelheid connecties van de node.
 
 ## Voorbeeld
 
