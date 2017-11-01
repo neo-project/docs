@@ -45,7 +45,12 @@
     - name: Network Protocol
       href: node/network-protocol.md
     - name: Consensus
-      href: node/consensus.md
+      href: node/whitepaper.md
+      items:
+      - name: Consensus Whitepaper
+        href: node/whitepaper.md
+      - name: Consensus Diagram
+        href: node/consensus.md
 - name: Smart Contract
   href: sc/introduction.md
   items:

@@ -2,7 +2,7 @@
 typora-root-url: ..\..
 ---
 
-### How to use Java to write an NEO smart contract
+### How to use Java to write an NEO smart contract on Windows (7/8/10)
 
 Smart contracts are written in high-level languages such as Java, C#, Python, Kotlin (and more...) and compiled into AVM (Neo's Virtual Machine bytecode) so they can run on the Neo network.
 
@@ -84,16 +84,16 @@ Now run Command or PowerShell, and enter neoj.exe. If there is no error and the 
 
 NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
 
-## Compile Org.Neo.SmartContract.Framework.jar  
+## Compile org.neo.smartcontract.framework.jar  
 
-Download [neo-devpack-java](https://github.com/neo-project/neo-devpack-java). Open the project in Eclipse or IntelliJ and compile it into a jar-file.
+Download [neo-devpack-java](https://github.com/neo-project/neo-devpack-java). Open the project in Eclipse or IntelliJ and compile it into a jar-file. A precompiled JAR file can be found [here](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
 
 
 ## Create project
 
 After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
 
-You will need to add the Org.Neo.SmartContract.Framework.jar as an external library.
+You will need to add the org.neo.smartcontract.framework.jar as an external library.
 
 
 ## Compile the Project
@@ -121,7 +121,7 @@ Then using neoj, run cmd.exe and execute:
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
 
-For more information and to see working Java examples please refer here: [Java Examples](https://github.com/neo-project/examples-java)
+For more information and to see working Java examples (soon) please refer here: [Java Examples](https://github.com/neo-project/examples-java)
 
 ## Deploy smart contracts
 

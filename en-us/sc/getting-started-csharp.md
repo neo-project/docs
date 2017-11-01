@@ -78,7 +78,7 @@ After the above installation configuration is successful, you can create an NeoC
 
 ![new smart contract project](/assets/new_smart_contract_project.png)
 
-Once you create a project, it will automatically generate a C# file, the default class inherited from the FunctionCode, as shown in the following:
+Once you create a project, it will automatically generate a C# file, the default class inherited from the SmartContract, as shown in the following:
 
 ![smart contract function code](/assets/smart_contract_function_code.png)
 
@@ -88,7 +88,7 @@ Once you create a project, it will automatically generate a C# file, the default
 Everything is now ready to add the entry method that defines the smart contract:
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
     public static void Main ()// Note that the main method to capitalize
     {

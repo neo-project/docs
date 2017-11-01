@@ -32,7 +32,7 @@ Command | Function Description | Remarks |
 | create wallet \<path> | Create wallet file |
 | open wallet \<path> | Open wallet file |
 | rebuild wallet index | | Need to open wallet |
-| list all the accounts in the wallet | | Need to open wallet |
+| list address | list all the accounts in the wallet | Need to open wallet |
 | list asset | List all assets in the wallet | Need to open wallet |
 | list key | List all public keys in your wallet | Need to open wallet |
 | create address [n = 1] | Create address / batch create address | Need to open wallet |
