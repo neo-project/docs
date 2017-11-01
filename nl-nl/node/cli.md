@@ -6,38 +6,38 @@ Open de command interface, navigeer naar de map waar het programma zich bevindt 
 
 Deze handleiding zal alle commands in de command line wallet uitleggen. De wallet kan worden aangepast met commands zoals het creëren van een wallet, het starten van een transactie, et cetera.
 
-Eerst lichten we de verscheidene commands toe die tevoorschijn komen met de command `help` gevolgd door een return command.
+Eerst lichten we de verschillende commands toe die tevoorschijn komen met de command `help` gevolgd door een return command.
 
 ![image](/assets/cli_2.png)
 
 Hieronder volgt een beschrijving van alle commands en de betekenis van de haakjes:
-Gehoekte haakjes `<>` geven een parameter aan.
-Blokhaken `[]` geven een optionele parameter aan.
-Een verticale lijn `|` geeft fill parameters aan, welke van elk mogelijk type kunnen zijn.
-Het is-teken `=` geeft de standaardwaarde van een optionele parameter aan wanneer geen input gegeven wordt.
+- Gehoekte haakjes `<>` geven een parameter aan.
+- Blokhaken `[]` geven een optionele parameter aan.
+- Een verticale lijn `|` geeft fill parameters aan, welke van elk mogelijk type kunnen zijn.
+- Het is-teken `=` geeft de standaardwaarde van een optionele parameter aan wanneer geen input gegeven wordt.
 
 ## 1. Console-Instructies
 
-| Command      | Function Description                  |
+| Command      | Functieomschrijving                   |
 | :----------- | :------------------------------------ |
-| version      | Geeft de huidige software-versie weer |
+| version      | Geef de huidige software-versie weer  |
 | help         | Helpmenu                              |
 | clear        | Leeg het scherm                       |
 | exit         | Sluit het programma                   |
 
 ## 2. Wallet Functies
 
-| Command | Functieomschrijving | Opmerkingen |
-| :---------------------------------------- | :-------------------------------- | :------ |
-| create wallet \<path> | Creëer een wallet-bestand |
-| open wallet \<path> | Open een wallet-bestand |
-| rebuild wallet index | Bouw de wallet index opnieuw op | Wallet moet open zijn |
-| list all the accounts in the wallet | Toont alle accounts in een wallet | Wallet moet open zijn |
-| list asset | Toont alle assets in een wallet | Wallet moet open zijn |
-| list key | Toont alle public keys in een wallet | Wallet moet open zijn |
-| create address [n = 1] | Creëer een addres of per batch | Wallet moet open zijn |
-| import key \<wif\|path> | Importeer een of meerdere private keys | Wallet moet open zijn |
-| export key \[address] [path] | Exporteer  de private key | Wallet moet open zijn |
+| Command                                      | Functieomschrijving | Opmerkingen |
+| :------------------------------------------- | :-------------------------------- | :------ |
+| create wallet \<path>                        | Creëer een wallet-bestand |
+| open wallet \<path>                          | Open een wallet-bestand |
+| rebuild wallet index                         | Bouw de wallet index opnieuw op | Wallet moet open zijn |
+| list all the accounts in the wallet          | Toon alle accounts in een wallet | Wallet moet open zijn |
+| list asset                                   | Toon alle assets in een wallet | Wallet moet open zijn |
+| list key                                     | Toon alle public keys in een wallet | Wallet moet open zijn |
+| create address [n = 1]                       | Creëer een adres of een batch adressen | Wallet moet open zijn |
+| import key \<wif\|path>                      | Importeer een of meerdere private keys | Wallet moet open zijn |
+| export key \[address] [path] 				   | Exporteer de private key | Wallet moet open zijn |
 | send \<id\|alias> \<address> \<value> [fee=0]| Stuur naar het genoemde adres | Wallet moet open zijn |
 
 Hieronder worden verschillende commands nader toegelicht.
@@ -47,9 +47,9 @@ Hieronder worden verschillende commands nader toegelicht.
 Deze command wordt gebruikt om de wallet index opnieuw op te bouwen.
 Waarom is het nodig om dit te doen?
 
-Er is een veld in de wallet waar de huidige hoogte van de blockchain waarmee de wallet is gesynchroniseerd wordt bijgehouden. Bij elk nieuw block synchroniseerd de wallet client de blocks en update het de assets en transacties binnen de wallet. Stel dat de huidige opgenomen blockhoogte 100 is en je de `import key` command uitvoert om de private key te importeren, dan zal de wallet alsnog de asset berekenen vanaf blockhoogte 100. Als het geïmporteerde adres transacties had toen de blockhoogte nog lager dan 100 was, dan zullen de transacties en bijbehorende assets niet terug te zien zijn in de wallet als de index niet opnieuw wordt opgebouwd. Bij het uitvoeren van `rebuild index` wordt de wallet geforceerd om de assets te berekenen vanaf blockhoogte 0.
+Er is een veld in de wallet waar de huidige hoogte van de blockchain waarmee de wallet is gesynchroniseerd wordt bijgehouden. Bij elk nieuw block synchroniseert de wallet client de blocks en update het de assets en transacties binnen de wallet. Stel dat de huidige opgenomen blockhoogte 100 is en je de `import key`-command uitvoert om de private key te importeren; de wallet zal dan alsnog de asset berekenen vanaf blockhoogte 100. Als het geïmporteerde adres transacties had toen de blockhoogte nog onder de 100 was, dan zullen de transacties (en bijbehorende assets) niet terug te zien zijn in de wallet als de index niet opnieuw wordt opgebouwd. Bij het uitvoeren van `rebuild index` wordt de wallet geforceerd om de assets te berekenen vanaf blockhoogte 0.
 
-De nieuwe wallet hoeft niet de wallet index opnieuw op te bouwen, alleen de private key is nodig.
+De nieuwe wallet hoeft niet de wallet index opnieuw op te bouwen; alleen de private key is nodig.
 
 
 👉 `create address [n = 1]`
@@ -84,20 +84,20 @@ Voor transacties zijn er in totaal vier parameters: Asset ID, ontvangend adres, 
 
 `Send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100`
 
-Wanneer je niet zeker bent van de asset ID, gebruik dan de `list asset` command om alle assets in de wallet te bekijken.
+Wanneer je niet zeker bent van de asset ID, gebruik dan de `list asset`-command om alle assets in de wallet te bekijken.
 
 ## 3. Node Functies
 
-Command | Functieomschrijving |
-| ---------- | ----------------------- |
-show state | Toont de huidige status van blockchainsynchronisatie |
-show node | Toont het adres en de port van verbonden nodes |
-show pool | Toont de transacties die momenteel worden verwerkt (in de memory pool)
+| Command    | Functieomschrijving |
+| :--------- | :----------------------            
+| show state | Toon de huidige status van blockchainsynchronisatie 
+| show node  | Toon het adres en de port van verbonden nodes 
+| show pool  | Toon de transacties die momenteel worden verwerkt (in de memory pool)
 
-## 4. Geavanceerde functies
+## 4. Geavanceerde Functies
 
-Command | Functieomschrijving |
+| Command | Functieomschrijving |
 | --------------- | ---- |
-Start consensus | Begin het consensus-proces
+| Start consensus | Begin het consensus-proces
 
 Wanneer de wallet de mogelijkheid heeft tot het starten van een consensus, kan worden getracht consensus te bereiken op het netwerk door middel van stemmen. Bij een private chain kan de public key van de consensus worden opgesteld in `protocol.json`; zie [Private Chain](private-chain.md) voor meer informatie.

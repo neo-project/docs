@@ -4,7 +4,7 @@ Elke node in de Neo-CLI verschaft een API-interface voor het verkrijgen van bloc
 
 `dotnet neo-cli.dll /rpc`
 
-Om toegang te krijgen tot de RPC-server via HTTPS dient het configuratie-bestand `config.json` te worden aangepast en domeinnaam, certificaan en wachtwoord te worden ingesteld, alvorens de node te starten:
+Om toegang te krijgen tot de RPC-server via HTTPS dient het configuratie-bestand `config.json` te worden aangepast en domeinnaam, certificaat en wachtwoord te worden ingesteld, alvorens de node te starten:
 
 ```json
 {
@@ -21,7 +21,7 @@ Om toegang te krijgen tot de RPC-server via HTTPS dient het configuratie-bestand
 
 Nadat de JSON-RPC-server is opgestart, zal het de volgende ports volgen, welke horen bij het hoofdnetwerk en testnetwerken:
 
-(Kijk voor P2P en WebSocket informatie naar [Node/Introduction](introduction.md).)
+(Lees voor P2P- en WebSocket-informatie [Node/Introduction](introduction.md).)
 
 |                | (Main Net)   | (Test Net)    |
 | -------------- | ------------ | ------------- |
@@ -30,24 +30,24 @@ Nadat de JSON-RPC-server is opgestart, zal het de volgende ports volgen, welke h
 
 ## Lijst van Commands
 
-| Command                                       | Referentie                                      | Uitleg                         | Opmerkingen       |
-| :---------------------------------------- | :-------------------------------------- | :-------------------------- | :-------- |
-| [getbalance](api/getbalance.md)          | \<asset_id>                             |Weergeeft het saldo van de bijbehorende asset in de wallet a.d.h.v. het gegeven asset nummer| Wallet moet geopend worden|
-| [getbestblockhash](api/getbestblockhash.md) |                                         | Weergeeft de hash van de hoogste block in de hoofdketen           |          |
-| [getblock](api/getblock.md)              | \<hash> [verbose=0]                     | Weergeeft de informatie die past bij de block waarvan de hashwaarde gegeven is         |          |
-| [getblock](api/getblock2.md)             | \<index> [verbose=0]                    | Weergeeft de informatie die past bij de block waarvan de index gegeven is |          |
-| [getblockcount](api/getblockcount.md)    |                                         | Weergeeft het aantal blocks in de hoofdketen |          |
-| [getblockhash](api/getblockhash.md)      | \<index>                                | Weergeeft de hashwaarde van het block waarvan de index gegeven is |          |
-| [getconnectioncount](api/getconnectioncount.md) |                                         | Weergeeft de huidige hoeveelheid connecties voor de node |          |
-| [getrawmempool](api/getrawmempool.md)    |                                         | Weergeeft de lijst van nog niet bevestigde transacties in de memory pool |          |
-| [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | Weergeeft de transactie-informatie die past bij de gegeven hashwaarde |          |
-| [gettxout](api/gettxout.md)              | \<txid> \<n>                            | Weergeeft de verandering door een transactie die past bij de gegeven hashwaarde en index |          |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Broadcast een transactie naar het network. Zie de [network protocol](network-protocol.md)-documentatie.                       |          |
-| [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | Maak een bedrag over naar een bepaald adres                     | Wallet moet geopend worden   |
-| submitblock                              | \<hex>                                  | Diene en nieuw blok in                      | Node moet een consensus node zijn |
+| Command                                         | Referentie                              | Uitleg                                                                                       | Opmerkingen       |
+| :---------------------------------------------- | :-------------------------------------- | :--------------------------                                                                  | :-------- 
+| [getbalance](api/getbalance.md)                 | \<asset_id>                             | Weergeeft het saldo van de bijbehorende asset in de wallet a.d.h.v. het gegeven assetnummer  | Wallet moet geopend zijn
+| [getbestblockhash](api/getbestblockhash.md)     |                                         | Weergeeft de hash van de hoogste block in de hoofdketen                                      |          
+| [getblock](api/getblock.md)                     | \<hash> [verbose=0]                     | Weergeeft de informatie die past bij de block waarvan de hashwaarde gegeven is               |          
+| [getblock](api/getblock2.md)                    | \<index> [verbose=0]                    | Weergeeft de informatie die past bij de block waarvan de index gegeven is                    |          
+| [getblockcount](api/getblockcount.md)           |                                         | Weergeeft het aantal blocks in de hoofdketen                                                 |          
+| [getblockhash](api/getblockhash.md)             | \<index>                                | Weergeeft de hashwaarde van de block waarvan de index gegeven is                             |          
+| [getconnectioncount](api/getconnectioncount.md) |                                         | Weergeeft de huidige hoeveelheid connecties voor de node                                     |          
+| [getrawmempool](api/getrawmempool.md)           |                                         | Weergeeft de lijst van nog niet bevestigde transacties in de memory pool                     |          
+| [getrawtransaction](api/getrawtransaction.md)   | \<txid> [verbose=0]                     | Weergeeft de transactie-informatie die past bij de gegeven hashwaarde                        |          
+| [gettxout](api/gettxout.md)                     | \<txid> \<n>                            | Weergeeft de verandering door een transactie die past bij de gegeven hashwaarde en index     |          
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Broadcast een transactie naar het network.                                                   | Zie de [network protocol](network-protocol.md)documentatie.         |
+| [sendtoaddress](api/sendtoaddress.md)           | \<asset_id> \<address> \<value> [fee=0] | Maak een bedrag over naar een bepaald adres                                                  | Wallet moet geopend worden   
+| submitblock                                     | \<hex>                                  | Dien een nieuw blok in                                                                       | Node moet een consensus node zijn 
 
 
-## GET request voorbeeld
+## GET Request Voorbeeld
 
 Een typische JSON-RPC Get request format is als volgt:
 
@@ -69,9 +69,9 @@ Na het sturen van de request, ontvang je het volgende antwoord:
 }
 ```
 
-## POST request voorbeeld
+## POST Request Voorbeeld
 
-Een typische JSON-RPC Get request format is als volgt:
+Een typische JSON-RPC Post request format is als volgt:
 
 (Het voorbeeld hieronder geeft weer hoe het aantal blocks in de hoofdketen kan worden verkregen)
 
@@ -102,9 +102,9 @@ Na het sturen van de request, ontvang je het volgende antwoord:
 }
 ```
 
-## Test tools
+## Test Tools
 
-Het is mogelijk om de Chrome-extensie in Postman te gebruiken om bij testen te helpen (het installeren van de Chrome-extensie vereist een verbinding met het internet). Hieronder volgt een screenshot van een test:
+Het is mogelijk om de Chrome-extensie Postman te gebruiken om bij testen te helpen (het installeren van de Chrome-extensie vereist een verbinding met het internet). Hieronder volgt een screenshot van een test:
 
 ![image](/zh-cn/node/assets/api_2.jpg)
 
