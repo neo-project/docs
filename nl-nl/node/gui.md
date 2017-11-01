@@ -66,11 +66,11 @@ Het uitwisselen van online assets tussen twee partijen, waarbij beide partijen d
 Het ondertekenen van informatie. Dit geeft aan dat de informatie wordt geverifiëerd door de gebruiker.
 Voor transacties waarbij billijkheid (*equity allocation*) en het overdragen van assets een rol spelen, is de signature vereist als bewijs dat de partijen bewust akkoord zijn met de transactie.
 
-#### Registered assets
+#### Registered Assets
 
 Het creëren van een nieuwe, door een gebruiker aangevraagde asset binnen het NEO-block. De gebruiker kan het type, de naam en andere eigenschappen van de asset definiëren, en aangeven welke account de administrator van de asset is. De aanmaak van assets vereist betaling van een bepaalde hoeveelheid GAS als aanvullende servicekosten; de huidige prijs is 10.000 GAS (op het testnetwerk is dit honderd maal zo weinig als op het hoofdnetwerk).
 
-#### Distribute assets
+#### Distribute Assets
 
 De aangemaakte asset wordt gedistribueerd naar een adres, aangegeven door de verstrekker. Dit aantal moet binnen de bovenste grens van de totale hoeveelheid van de asset zijn, welke is aangegeven door de maker van de asset. Het distribueren van assets vereist een betaling van aanvullende servicekosten; de huidige prijs is 500 GAS (ook hierbij is dit op het testnetwerk honderd maal minder). 
 
@@ -84,11 +84,11 @@ Bezitters van NEO kunnen stemmen op een validator-kandidaat naar keuze. Op deze 
 
 #### Broadcast
 
-Na het tekenen van een transactie, wordt deze verzonden naar het gehele netwerk (*'to broadcast' = uitzenden), waarbij bevestiging nodig is van een node voordat de transactie wordt voltooid. Op dit moment is deze functie alleen aanwezig in de signature.
+Na het tekenen van een transactie, wordt deze verzonden naar het gehele netwerk (*'to broadcast'* = uitzenden), waarbij bevestiging nodig is van een node voordat de transactie wordt voltooid. Op dit moment is deze functie alleen aanwezig in de signature.
 
-#### Monitor address
+#### Monitor Address
 
-Het is mogelijk een adres van een andere partij te importeren, waarna het mogelijk is de assets van dat adres te zien.
+Het is mogelijk een adres van een andere partij te importeren, om assets van dat adres te zien.
 
 ## Wallet
 ### New Wallet Database
@@ -105,7 +105,7 @@ Het is mogelijk een adres van een andere partij te importeren, waarna het mogeli
 
 ![image](/assets/gui_4.png)
 
-(4) Klik op `OK` om de wallet aan te maken. Deze bevat standaard een standaard account. 
+(4) Klik op `OK` om de wallet aan te maken. Deze bevat een standaard account. 
 
 > [!Note]
 > Wanneer er 'wisselgeld' wordt gegeven, zullen de overgebleven assets standaard worden overgezet naar het eerste adres. Om deze reden wordt het aanbevolen om de bijbehorende private key en wallet te bewaren.
@@ -129,7 +129,7 @@ Dit kan worden gebruikt om het wachtwoord van de wallet te wijzigen.
 
 Nadat het wachtwoord is veranderd, is het van belang een nieuwe backup te maken van de wallet, aangezien oudere versies niet het nieuwe wachtwoord zullen bevatten.
 
-### Rebuild the wallet index
+### Rebuild the Wallet Index
 
 Deze functie bestaat om de client te herstellen wanneer een fout ontstaat. Het kan nodig zijn de Wallet Index opnieuw op te bouwen in de volgende situaties:
 
@@ -141,7 +141,7 @@ Deze functie bestaat om de client te herstellen wanneer een fout ontstaat. Het k
 
 Als de block-hoogte hoog is, kan het opnieuw bouwen van de Wallet Index verscheidene minuten duren. Wees a.u.b. geduldig.
 
-### Restore the account
+### Restore the Account
 
 Deze functie bestaat om het adres van een wallet-bestand te herstellen wanneer deze per ongelijk is verwijderd. 
 
@@ -166,7 +166,7 @@ Deze functie bestaat om het adres van een wallet-bestand te herstellen wanneer d
 
 ![image](/zh-cn/node/assets/i.png)
 
-#### Equity asset transfer
+#### Equity Asset Transfer
 
 (1) Klik op `Transaction`, `Transfer`, `+` en voer de transactie-informatie in.
 
@@ -182,7 +182,7 @@ Deze functie bestaat om het adres van een wallet-bestand te herstellen wanneer d
 
 (4) Zie voor de signature-functie [signature](#sign).
 
-#### Batch transfer
+#### Batch Transfer
 
 Deze functie wordt gebruik om transacties van een bepaalde asset naar verschillende adressen makkelijker te maken.
 
@@ -285,7 +285,7 @@ De specifieke stappen zijn als volgt:
 
 ![image](/assets/gui_37.png)
 
-### Request certificate
+### Request Certificate
 
 > [!Note]
 > Deze functie kan alleen een certificaat-aanvraag aanmaken; de gebruiker dient alsnog een verzoek in te dienen bij de relevante authoriteit om het certificaat daadwerkelijk te bemachtigen.
@@ -335,21 +335,21 @@ It should be noted that the election incurs a significant fee. (The main network
 
 ### 4.8 Option
 
-Wordt later toegevoegd.
+*Wordt later toegevoegd.*
 
 ## Help
 
-### View help
+### View Help
 
-Wordt later toegevoegd.
+*Wordt later toegevoegd.*
 
-### Official website
+### Official Website
 
 De officiële NEO-website is https://neo.org/.
 
 ### Developers tools
 
-Wordt later toegevoegd.
+*Wordt later toegevoegd.*
 
 ### About NEO
 

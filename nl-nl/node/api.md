@@ -34,10 +34,10 @@ Nadat de JSON-RPC-server is opgestart, zal het de volgende ports volgen, welke h
 | :---------------------------------------------- | :-------------------------------------- | :--------------------------                                                                  | :-------- 
 | [getbalance](api/getbalance.md)                 | \<asset_id>                             | Weergeeft het saldo van de bijbehorende asset in de wallet a.d.h.v. het gegeven assetnummer  | Wallet moet geopend zijn
 | [getbestblockhash](api/getbestblockhash.md)     |                                         | Weergeeft de hash van de hoogste block in de hoofdketen                                      |          
-| [getblock](api/getblock.md)                     | \<hash> [verbose=0]                     | Weergeeft de informatie die past bij de block waarvan de hashwaarde gegeven is               |          
-| [getblock](api/getblock2.md)                    | \<index> [verbose=0]                    | Weergeeft de informatie die past bij de block waarvan de index gegeven is                    |          
+| [getblock](api/getblock.md)                     | \<hash> [verbose=0]                     | Weergeeft de informatie die past bij het block waarvan de hashwaarde gegeven is               |          
+| [getblock](api/getblock2.md)                    | \<index> [verbose=0]                    | Weergeeft de informatie die past bij het block waarvan de index gegeven is                    |          
 | [getblockcount](api/getblockcount.md)           |                                         | Weergeeft het aantal blocks in de hoofdketen                                                 |          
-| [getblockhash](api/getblockhash.md)             | \<index>                                | Weergeeft de hashwaarde van de block waarvan de index gegeven is                             |          
+| [getblockhash](api/getblockhash.md)             | \<index>                                | Weergeeft de hashwaarde van het block waarvan de index gegeven is                             |          
 | [getconnectioncount](api/getconnectioncount.md) |                                         | Weergeeft de huidige hoeveelheid connecties voor de node                                     |          
 | [getrawmempool](api/getrawmempool.md)           |                                         | Weergeeft de lijst van nog niet bevestigde transacties in de memory pool                     |          
 | [getrawtransaction](api/getrawtransaction.md)   | \<txid> [verbose=0]                     | Weergeeft de transactie-informatie die past bij de gegeven hashwaarde                        |          
