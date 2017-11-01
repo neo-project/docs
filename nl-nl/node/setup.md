@@ -4,7 +4,7 @@ Het artikel hierboven beschrijft twee clients voor nodes binenn het NEO-netwerk.
 
 De deployment consensus node maakt gebruik van de `Neo-CLI`. Dit programma kan worden uitgevoerd in Windows, Linux en Docker.
 
-|                                   | Neo-CLI |
+|                                   | Neo-CLI           |
 | --------------------------------- | ----------------- |
 | Windows 7 SP1 x64                 | ✅                 |
 | Windows Server 2008 R2 SP1        | ✅                 |
@@ -17,11 +17,11 @@ De deployment consensus node maakt gebruik van de `Neo-CLI`. Dit programma kan w
 | Docker                            | ✅                 |
 
 > [!Opmerking]
-> Momenteel werken NEO-nodes nog niet naar behoren binnen Mac OS. In toekomstige versies zal ondersteuning voor Mac OS worden geïmplementeerd.
+> Momenteel werken NEO-nodes nog niet naar behoren op Mac OS. In toekomstige versies zal ondersteuning voor Mac OS worden geïmplementeerd.
 
 ## De Ontwikkelomgeving Uitvoeren
 
-Het runnen van een NEO-node vereist dat [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) geïnstalleerd is (minstens versie 1.0.1).
+Het draaien van een NEO-node vereist dat [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) geïnstalleerd is (minstens versie 1.0.1).
 
 ### Installatie op Windows
 
@@ -45,7 +45,7 @@ yum install rh-dotnetcore11
 scl enable rh-dotnetcore11 bash
 ```
 
-Nadat de installatie is voltooid, kunnen de volgende commands uitvoeren om na te gaan of de .NET Core -omgeving succesvol is geïnstalleerd.
+Nadat de installatie is voltooid, kunnen de volgende commands uitvoeren om na te gaan of de .NET Core-omgeving succesvol is geïnstalleerd.
 
 ```
 dotnet new console -o hwapp
@@ -58,7 +58,7 @@ Wanneer de laatste output "Hello World!" is, is de installatie van .Net Core ges
 
 ## Installatie van de NEO Node
 
-1. Download het [Neo-CLI-pakket](https://github.com/neo-project/neo-cli/releases) van Github en pak het uit.
+1. Download het [Neo-CLI-pakket](https://github.com/neo-project/neo-cli/releases) van Github en pak deze uit.
 
 > [!Opmerking]
 > Wanneer geprobeerd wordt de Neo-CLI direct te downloaden en compilen op GitHub, zal `dotnet neo-cli.dll` niet correct kunnen worden uitgevoerd. Dit vereist dat libleveldb.dll en sqlite3.dll naar dezelfde map worden gekopieerd als neo-cli.dll. Deze twee bestanden kunnen in de eerste fase van het pakket worden gedownload.

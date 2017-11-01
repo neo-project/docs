@@ -18,9 +18,9 @@ De TestNet-client is gelijk aan de hoofdnetwerk-client. Door aanpassingen in de 
 
 Zie ook: [Introduction of NEO node](introduction.md).
 
-|      | Neo-GUI                                  | Neo-CLI                        |
-| ---- | :--------------------------------------- | :--------------------------------------- |
-| Versies | [Officiële website](https://www.neo.org/download) of [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+|          | Neo-GUI                                  | Neo-CLI                        |
+| -------- | :--------------------------------------- | :--------------------------------------- |
+| Versies  | [Officiële website](https://www.neo.org/download) of [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Broncode | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## Wisselen naar het TestNet
