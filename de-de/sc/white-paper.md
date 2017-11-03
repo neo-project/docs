@@ -1,56 +1,63 @@
-# NeoContract White Paper
+# NeoContract Whitepaper
 
 
 ## 1.	Einführung
 
-Smart Contracts sind Computerprogramme, die automatisch die Vereinbarungen eines vorprogrammierten Vertrags ausführen können. Das Konzept des Smart Contracts ist ungefähr so alt wie das Internet selbst und wurde erstmals 1994 von dem Kryptografen Nick Szabo vorgestellt. Aufgrund eines Mangels an zuverlässigen Abwicklungsumfeldern wurden Smart Contracts bis jetzt noch kaum benutzt. 
+"Smart Contracts" sind Computerprogramme, die automatisch die Vereinbarungen eines vorprogrammierten Vertrags ausführen können. Das Konzept des Smart Contracts ist ungefähr so alt wie das Internet selbst und wurde erstmals 1994 vom Kryptografen Nick Szabo vorgestellt. Aufgrund eines Mangels an zuverlässigen Abwicklungsumfeldern wurden Smart Contracts bis jetzt noch kaum benutzt. 
 
-Im Jahre 2008 veröffentlichte eine Person unter dem Namen Satoshi Nakamoto “Bitcoin“ und skizzierte das grundlegende Konzept der Blockchain. Innerhalb der Bitcoinblockchain benützt Nakamoto ein Set von Skriptsprachen um den Nutzern erhöhte Flexibilität bei der Kontrolle über ihr persönliches Konto und beim Transferprozess zu bieten. Im Prinzip stellte dies die erste Embryoform eines chain-based Smart Contract Systems dar. 
+Im Jahre 2008 veröffentlichte eine Person unter dem Synonym "Satoshi Nakamoto" “Bitcoin“ und skizzierte das grundlegende Konzept der Blockchain. Innerhalb der Bitcoin-Blockchain benutzt Nakamoto ein Set von Skriptsprachen, um den Nutzern erhöhte Flexibilität bei der Kontrolle über ihr persönliches Konto und beim Transferprozess zu bieten. Im Prinzip stellte dies die erste Embryoform eines Blockchain basierten "Smart Contract"-Systems dar. 
 
-Im Jahre 2014 veröffentlichte ein Teenager namens Vitalik Buterin „Ethereum“, ein chain-based, Turing-vollständiges Smart Contract System, das für die Entwicklung einer Vielfalt an dezentralisierten Blockchain Anwendungen benützt werden kann.
+Im Jahre 2014 veröffentlichte ein Teenager namens Vitalik Buterin „Ethereum“, ein Blockchain basiertes, Turing-vollständiges "Smart Contract"-System, das für die Entwicklung einer Vielfalt an dezentralisierten Blockchain Anwendungen benutzt werden kann.
 
-Die NEO Blockchain ist eine digitale Asset- und Anwendungsplattform, die unter anderem ein neues Smart Contract System mit dem Namen NeoContract enthält. Der Kern der NEO Plattform bietet eine Vielzahl an Funktionen wie in etwa Ressourcen für digitale Assets (NeoAsset) oder für digitale Identität (NeoID), die es Nutzern auf einfache Art und Weise ermöglichen am digitalen Business teilzunehmen, und die nicht mehr ausschließlich auf die bloße Emission von blockchaineigene Token limitiert ist. 
+Die NEO Blockchain ist eine digitale Asset- und Anwendungsplattform, die unter anderem ein neues "Smart Contract"-System mit dem Namen NeoContract enthält. Der Kern der NEO Plattform bietet eine Vielzahl an Funktionen wie in etwa Ressourcen für digitale Assets (NeoAsset) oder für digitale Identitäten (NeoID), die es Nutzern auf einfache Art und Weise ermöglichen an digitalen Geschäften teilzunehmen, und die nicht mehr ausschließlich auf die bloße Emission von blockchaineigenen Token limitiert sind. 
 
-Dieser Artikel stellt die Funktionen von NeoCotnract vor und erforscht die nicht-technischen Details. Für technische Dokumentationen und Details verweisen wir auf docs.neo.org
+Dieser Artikel stellt die Funktionen von NeoCotnract vor und erforscht nicht-technische Details. Für technische Dokumentationen und Details verweisen wir auf docs.neo.org
 
 ## 2.	Funktionen 
 
-### 2.1 Gewissheit
+### 2.1 Finalität
 
 Eine Anwendung wird dann als deterministisch bezeichnet, wenn sie auf verschiedenen Computern, oder zu verschiedenen Zeitpunkten auf demselben Computer ausgeführt werden kann und dabei derselbe Input immer exakt den selben Output erzeugt.  
 
-Blockchain ist ein Mehrparteienspeicherungsystem und eine Berechnungsmethode. Die Daten innerhalb dieses dezentralisierten Systems sind das Resultat von vertrauenswürdigen Kalkulationen, die nicht verfälscht werden können. Smart Contracts operieren innerhalb eines dezentralisierten, multi-node Blockchain Netzwerk. Im Falle von nicht-deterministischen Smart Contracts sind die Ergebnisse von verschiedenen Nodes womöglich ebenfalls inkonsistent. Das führt dazu, dass zwischen den Nodes kein Konsens erreicht werden kann und das Netzwerk dadurch stagniert. Aus diesem Grund verlangt das Design eines Smart Contract Systems die bestmöglichste Prävention von Faktoren, die zu nicht-deterministischem Verhalten führen könnten. 
+Eine Blockchain ist ein Mehrparteienspeicherungsystem und eine Berechnungsmethode. Die Daten innerhalb dieses dezentralisierten Systems sind das Resultat von vertrauenswürdigen Berechnungen, die nicht verfälscht werden können. "Smart Contracts" operieren innerhalb eines dezentralisierten, multi-node Blockchain-Netzwerks. Im Falle von nicht-deterministischen "Smart Contracts" sind die Ergebnisse von verschiedenen Nodes womöglich ebenfalls inkonsistent. Das führt dazu, dass zwischen den Nodes kein Konsens erreicht werden kann und das Netzwerk dadurch stagniert. Aus diesem Grund verlangt das Design eines "Smart Contract"-Systems die bestmöglichste Prävention von Faktoren, die zu nicht-deterministischem Verhalten führen könnten. 
 
 
 #### 2.1.1 Zeit
 
-System-Zeit zu erlangen ist eine sehr übliche Systemfunktion, die besonders intensiv bei entsprechenden zeitsensitiven Smart Contract Prozeduren angewandt werden könnte. System-Zeit zu erlangen ist jedoch eine nicht-deterministische Systemfunktion. Es gestaltet sich schwierig eine einheitliche, präzise Zeit in einem dezentralisierten System zu erlangen, da die Resultate der verschiedenen Nodes inkonsistent sein werden. NeoContract bietet einen Block-basierten System-Call, der die gesamte Blockchain als Zeitstempel-Server behandelt und der dabei den Zeitstempel immer dann erhält, wenn ein neuer Block generiert wurde. Im Durchschnitt wird im NEO Netzwerk alle 15 Sekunden ein neuer Block erschaffen, somit läuft der Contract plus-minus 15 Sekunden zur selben Zeit wie die letzte Block-Zeit. 
+Die Systemzeit zu erfragen ist eine sehr verbreitete Systemfunktion, die besonders intensiv bei entsprechenden zeitsensitiven "Smart Contract"-Prozeduren angewandt werden könnte. Die Systemzeit ist jedoch eine nicht-deterministische Systemfunktion. Es gestaltet sich schwierig eine einheitliche, präzise Zeit in einem dezentralisierten System über die Systemzeit zu erlangen, da die Resultate der verschiedenen Nodes inkonsistent sein werden. NeoContract bietet einen Block-basierten System-Call, der die gesamte Blockchain als Zeitstempel-Server behandelt und der dabei den Zeitstempel immer dann erhält, wenn ein neuer Block generiert wurde. Im Durchschnitt wird im NEO Netzwerk alle 15 Sekunden ein neuer Block erschaffen, somit läuft der Contract ungefähr (Abweichung bis zu 15 Sekunden) zur selben Zeit wie die letzte Block-Zeit. 
 
 #### 2.1.2. Zufälligkeit
 
-Viele Smart Contract Anwendungen wie in etwa Glücksspiel Contracts und kleine Spiele nützen Zufallszahlenfunktionen. Diese Zufallszahlenfunktionen zählen allerdings zu typischen nicht-deterministischen Funktionen, denn jeder System-Call kommt zu einem anderen Ergebnis. In einem dezentralisierten System gibt es mehrere Möglichkeiten dieses Problem zu adressieren: Es könnte derselbe Zufallsseed für alle Nodes verwendet werden, sodass die erhaltene Sequenz der gesamten Zufallsfunktion deterministisch ist. Diese Methode gibt jedoch das gesamte zufallsgenerierte Resultat bereits im Vorhinein preis und reduziert somit drastisch den praktischen Nutzen des Zufallsprodukts. Eine andere mögliche Lösung wäre der Versuch durch kollaborative Kommunikation aller Nodes Zufallsprodukte zu generieren. Dies kann mit Hilfe kryptografischer Techniken die auf die Generierung fairer Zufallsprodukte abzielen erreicht werden. Der Nachteil dabei liegt in der äußerst schlechten Performance und der Notwendigkeit für zusätzliche Kommunikation. Ein zentralisierter Provider für Zufallszahlen könnte verwendet werden, um Konsistenz und Performance zu garantieren. Die Kehrseite dieser Methode ist augenscheinlich: Die Nutzer müssen bedingungslos dem zentralen Provider vertrauen. 
+Viele "Smart Contract"-Anwendungen wie in etwa Glücksspiel-Contracts und kleine Spiele nutzen Zufallszahlenfunktionen. Diese Zufallszahlenfunktionen zählen allerdings zu typischen nicht-deterministischen Funktionen, denn jeder System-Call kommt zu einem anderen Ergebnis. In einem dezentralisierten System gibt es mehrere Möglichkeiten dieses Problem zu adressieren: Es könnte derselbe Zufallsseed für alle Nodes verwendet werden, sodass die erhaltene Sequenz der gesamten Zufallsfunktion deterministisch ist. Diese Methode gibt jedoch das gesamte zufallsgenerierte Resultat bereits im Vorhinein preis und reduziert somit drastisch den praktischen Nutzen des Zufallsprodukts. Eine andere mögliche Lösung wäre der Versuch durch kollaborative Kommunikation aller Nodes Zufallsprodukte zu generieren. Dies kann mit Hilfe kryptografischer Techniken, die auf die Generierung fairer Zufallsprodukte abzielen, erreicht werden. Der Nachteil dabei liegt in der äußerst schlechten Performance und der Notwendigkeit für zusätzliche Kommunikation. Ein zentralisierter Provider für Zufallszahlen könnte verwendet werden, um Konsistenz und Performance zu garantieren. Die Kehrseite dieser Methode ist augenscheinlich: Die Nutzer müssen bedingungslos dem zentralen Provider vertrauen. 
 
-In NEO gibt es zwei Möglichkeiten für die Generierung einer Zufallszahl: 1) Jedes Mal wenn ein Block generiert wird, erreicht die Konsensnode Konsens bezüglich einer Zufallszahl und füllt diese in das Nonce Feld des neuen Blocks. Mittels Bezugnahme auf dieses Nonce Feld kann der Contract auf einfache Art und Weise die Zufallszahl jedes Blocks einholen. 2) Der Contract kann den Hashwert eines Blocks als Zufallszahlgenerator verwenden, denn dieser besitzt von Natur aus gewisse Zufälligkeit. Diese Methode kann für die Erlangung schwacher Zufallszahlen verwendet werden. 
+In NEO gibt es zwei Möglichkeiten für die Generierung einer Zufallszahl: 
+1) Jedes Mal wenn ein Block generiert wird, erreicht die Konsensnode Konsens bezüglich einer Zufallszahl und füllt diese in das Nonce Feld des neuen Blocks. Mittels Bezugnahme auf dieses Nonce Feld kann der Contract auf einfache Art und Weise die Zufallszahl jedes Blocks einholen. 
+2) Der Contract kann den Hashwert eines Blocks als Zufallszahlgenerator verwenden, denn dieser besitzt von Natur aus gewisse Zufälligkeit. Diese Methode kann für die Erlangung schwacher Zufallszahlen verwendet werden. 
 
 #### 2.1.3 Datenquellen
 
-Ein Programm das während der Laufzeit Daten einholt ist dann nicht-deterministisch, wenn die Datenquelle das Programm mit nicht-deterministischen Daten versorgt. Ein Beispiel hierfür wäre der Einsatz verschiedener Suchmaschinen für die Einholung der Top 10 Suchergebnisse für ein bestimmtes Keyword. Beim Einsatz verschiedener IP Adressen könnten verschiedene Suchergebnisse in unterschiedlicher Rangordnung erlangt werden. 
+Ein Programm, das während der Laufzeit Daten einholt, ist dann nicht-deterministisch, wenn die Datenquelle das Programm mit nicht-deterministischen Daten versorgt. Ein Beispiel hierfür wäre der Einsatz verschiedener Suchmaschinen für die Einholung der Top 10 Suchergebnisse für ein bestimmtes Keyword. Beim Einsatz verschiedener IP Adressen könnten verschiedene Suchergebnisse in unterschiedlicher Rangordnung erlangt werden. 
 
-Für Smart Contracts verwendet NEO zwei Arten von deterministischen Datenquellen:
+Für "Smart Contracts" verwendet NEO zwei Arten von deterministischen Datenquellen:
 
 **(1) Blockchain Ledger**
 
-Der Contract kann mittels der interoperablen Services auf die gesamten Daten der Chain, inklusive Blocks und Transaktionen und jedes ihrer Felder, zugreifen. Die Daten auf den Blocks sind deterministisch und konsistent und können somit unbesorgt von Smart Contracts abgerufen werden. 
+Der Contract kann mittels der interoperablen Services auf die gesamten Daten der Chain, inklusive Blocks und Transaktionen und jedes ihrer Felder, zugreifen. Die Daten auf den Blocks sind deterministisch und konsistent und können somit unbesorgt von "Smart Contracts" abgerufen werden. 
 
 **(2) Speicherumgebung der Contracts**
 
-Jeder Contract der im NEO Netzwerk eingesetzt wird besitzt eine private Speicherumgebung auf die ausschließlich vom Contract selbst zugegriffen werden kann. Der NEO Konsensmechanismus gewährt die Konsistenz des Speicherstatus von jeder Node im Netzwerk. 
+Jeder Contract der im NEO Netzwerk eingesetzt wird besitzt eine private Speicherumgebung auf die ausschließlich vom Contract selbst aus zugegriffen werden kann. Der NEO Konsensmechanismus gewährt die Konsistenz des Speicherstatus von jeder Node im Netzwerk. 
 
-Für den Zugriff auf non-Blockchain Daten bietet NEO keine direkte Möglichkeit. Non-Blockchain Daten müssen zuerst auf die NEO Blockchain transferiert werden und in eine der obengenannten Datenquellen übersetzt werden, damit sie von Smart Contracts abgerufen werden können. 
+Für den Zugriff auf non-Blockchain Daten bietet NEO keine direkte Möglichkeit. Non-Blockchain Daten müssen zuerst auf die NEO Blockchain transferiert werden und in eine der obengenannten Datenquellen übersetzt werden, damit sie von "Smart Contracts" abgerufen werden können. 
 
 #### 2.1.4 Contract Call
 
-In NeoContract haben Smart Contracts die Möglichkeit sich (in nicht rekursiver Weise) aufeinander zu berufen. Rekursion kann innerhalb eines Contracts stattfinden, allerdings nicht darüber hinaus. Darüber hinaus muss die Beziehung zwischen den Contracts von statischer Natur sein: Das Ziel kann während der Laufzeit nicht spezifiziert werden. Dies ermöglicht der Anwendung vor ihrer Ausführung vollkommen determiniert zu sein, und ihrer Call-Beziehung vollkommen definiert zu sein. Darauf basierend können multiple Verträge dynamisch partitioniert werden um parallele Ausführung zu erzielen.
+In NeoContract haben "Smart Contracts" die Möglichkeit sich (in nicht rekursiver Weise) aufeinander zu berufen. Rekursion kann innerhalb eines Contracts stattfinden, allerdings nicht darüber hinaus. Darüber hinaus muss die Beziehung zwischen den Contracts von statischer Natur sein: Das Ziel kann während der Laufzeit nicht spezifiziert werden. Dies ermöglicht der Anwendung vor ihrer Ausführung vollkommen determiniert zu sein, und ihrer Call-Beziehung vollkommen definiert zu sein. Darauf basierend können multiple Verträge dynamisch partitioniert werden um parallele Ausführung zu erzielen.
+
+
+
+
+#############################################################################################
 
 ### 2.2 Hohe Performance
 
