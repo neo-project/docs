@@ -5,7 +5,7 @@ Ein dezentralisiertes Netzwerk für eine „Smart Economy“
 
 ## Ziel: Die „Smart Economy“
 
-NEO nutzt die Blockchaintechnologie in Verbindung mit digitalen Identitäten um Güter und Vermögenswerte jeder Art (Assets) zu digitalisieren, neue digitale Assets unter Nutzung von „Smart Contracts“ zu erschaffen und so eine „Smart Economy“ innerhalb eines dezentralisierten Netzwerks zu bilden.
+NEO nutzt die Blockchaintechnologie in Verbindung mit digitalen Identitäten, um Güter und Vermögenswerte jeder Art (Assets) zu digitalisieren, neue digitale Assets unter Nutzung von „Smart Contracts“ zu erschaffen und so eine „Smart Economy“ innerhalb eines dezentralisierten Netzwerks zu bilden.
 
 
 ### Digitale Assets
@@ -18,7 +18,7 @@ Contract-gebundene Assets sind lediglich in die interne Speicherumgebung eines �
 
 ### Digitale Identität : NeoID
 
-Eine digitale Identität enthält Informationen über die Identität von Individuen, Organisationen und anderen Entitäten in elektronischer Form. Das ausgereifte Identitätssystem von NEO, NeoID, basiert auf dem PKI (Public Key Infrastructure) X.509-Standard. NEO implementiert außerdem eine Reihe von weiteren, mit X.509 kompatiblen, digitalen Identitätsstandards und unterstützt zusätzlich das Zertifizierungsmodell des Web of Trust. Die Identitätsüberprüfung bei Vergabe oder Benutzung einer digitalen Identität kann dabei über Gesichtserkennung, Fingerabdruck, Spracherkennung, SMS und andere Multifaktor-Authentifizierungsmethoden erfolgen. NEO nutzt die Blockchain außerdem, um das sog. „Online Certificate Status Protocol (OCSP)“ durch die „X.509 Certificate Revocation List (CRL) zu ersetzen.
+Eine digitale Identität enthält Informationen über die Identität von Individuen, Organisationen und anderen Entitäten in elektronischer Form. Das ausgereifte Identitätssystem von NEO, NeoID, basiert auf dem PKI (Public Key Infrastructure) X.509-Standard. NEO implementiert außerdem eine Reihe von weiteren, mit X.509 kompatiblen, digitalen Identitätsstandards und unterstützt zusätzlich das Zertifizierungsmodell des Web of Trust. Die Identitätsüberprüfung bei Vergabe oder Benutzung einer digitalen Identität kann dabei über Gesichtserkennung, Fingerabdruck, Spracherkennung, SMS und andere Multifaktor-Authentifizierungsmethoden erfolgen. NEO nutzt die Blockchain außerdem, um das sog. „Online Certificate Status Protocol (OCSP)“ durch die „X.509 Certificate Revocation List (CRL)" zu ersetzen.
 
 
 ### Smart Contract
@@ -27,11 +27,11 @@ Das Konzept des sogenannten „Smart Contracts“ wurde erstmals 1994 (nur fünf
 Wenn eine vorab programmierte Bedingung erfüllt wird, führt der „Smart Contract“ die dazu korrespondierenden Vertragsinhalte selbstständig aus.
 Die Blockchaintechnologie bietet eine dezentralisierte, fälschungssichere und äußerst vertrauenswürdige Umgebung für „Smart Contracts“. Die NEO-Blockchain nutzt dabei ein eigenes, unabhängiges „Smart Contract“-System: NeoContract. 
 
-Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Features von NEO, da es zur nahtlosen und raschen Integration des bereits vorhandenen Entwicklerökosystems beiträgt. Anstatt eine neue Programmiersprache lernen zu müssen, können Entwickler sowohl für die Entwicklung, das Debugging als auch das Kompilieren von „Smart Contracts“ zum  Beispiel auf C#, Java sowie eine Vielzahl anderer weit verbreiteter Programmiersprachen innerhalb ihrer gewohnten integrierten Entwicklungsumgebung (z.B. Visual Studio, Eclipse etc.) zurückgreifen.
+Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Features von NEO, da es zur nahtlosen und raschen Integration des bereits vorhandenen Entwicklerökosystems beiträgt. Anstatt eine neue Programmiersprache erlernen zu müssen, können Entwickler sowohl für die Entwicklung, das Debugging als auch das Kompilieren von „Smart Contracts“ zum  Beispiel auf C#, Java sowie eine Vielzahl anderer weit verbreiteter Programmiersprachen innerhalb ihrer gewohnten integrierten Entwicklungsumgebung (z.B. Visual Studio, Eclipse etc.) zurückgreifen.
 
-NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Sicherheit und Skalierbarkeit.
+NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Finaliät, Sicherheit und Skalierbarkeit.
 
-Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwicklern weltweit „Smart Contracts“ zu entwickeln. Diesbezüglich wird es in der Zukunft ein eigenes Whitepaper für NeoContract geben.
+Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwicklern weltweit „Smart Contracts“ zu entwickeln. Diesbezüglich gibt es ein eigenes Whitepaper für NeoContract.
 
 
 ### Anwendungen und Ökosystem 
@@ -139,14 +139,12 @@ Die Inflation von NEO gestaltet sich demnach plangemäß folgendermaßen:
 
 Da absehbar nicht 15 Mio. NEO an Ausgaben pro Jahr benötigt werden, ist nach jetzigem Stand davon auszugehen, dass die Inflationsrate unter diesen Werten liegen wird.
 
-Die noch ungenutzten NEO Token verbleiben in dieser Zeit auf der "Smart Contract" Adresse: AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i für jedermann einsehbar.
-
 
 GAS Distribution:
 
 Mit jedem neuen Block wird auch GAS generiert, wobei die Anfangsmenge an GAS null ist. Mit steigender Geschwindigkeit bei der Generierung von neuen Blöcken wird die Zielsumme von 100 Millionen GAS in ungefähr 22 Jahren erreicht. Das Intervall zwischen zwei neugeschaffenen Blöcken beträgt dabei zwischen 15-20 Sekunden, sodass ungefähr 2 Millionen Blöcke pro Jahr generiert werden.
  	
-Im ersten Jahr (Block 0-2 Millionen) werden pro Block 8 GAS generiert; im zweiten Jahr (Block 2-4 Millionen) werden pro Block 7 GAS generiert usw. Während der ersten 8 Jahre findet eine Reduktion der pro Block generierten Menge GAS um 1 statt, bis nur noch 1 GAS pro Block generiert wird, dies bleibt dann die Rate für die verbleibenden 22 Jahre. Nach dem 44 millionsten Block wird die Totalsumme von 100 Millionen GAS erreicht sein und somit keine neuen GAS generiert werden.
+Im ersten Jahr (Block 0-2 Millionen) werden pro Block 8 GAS generiert; im zweiten Jahr (Block 2-4 Millionen) werden pro Block 7 GAS generiert usw. Während der ersten 8 Jahre findet eine Reduktion der pro Block generierten Menge GAS um 1 statt, bis nur noch 1 GAS pro Block generiert wird, dies bleibt dann die Rate für die verbleibenden 14 Jahre. Nach dem 44 millionsten Block wird die Totalsumme von 100 Millionen GAS erreicht sein und somit keine neuen GAS generiert werden.
 
 Gemäß dieser Freisetzungskurve werden 16% des GAS im ersten Jahr, 52% innerhalb der ersten vier Jahre und 80% innerhalb der ersten 12 Jahre generiert werden. Diese GAS werden proportional zu den gehaltenen Mengen NEO, die über die korrespondierenden Adressen festgestellt werden können, verteilt. NEO Besitzer können jederzeit per Anspruchstransaktion die ihnen zustehenden GAS beanspruchen und ihrer Adresse zuordnen. 
 
