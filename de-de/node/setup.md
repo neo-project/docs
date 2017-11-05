@@ -1,8 +1,8 @@
-# Installation and deployment of NEO node 
+# Installation einer NEO-Node 
 
-The above article describes two clients for nodes in the NEO network. One is [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (the command line client - for developer use), and the other is [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (the graphical interface client - for the advanced user)
+Der vorherige Artikel beschreibt die zwei Clients, die als Nodes verwendet werden können. Der eine (NEO-CLI) ist ein Kommandozeilen-Client für Entwickler, der andere (NEO-GUI) ein Client mit grafischer Oberfläche für fortgeschrittene Anwender.
 
-The deployment consensus node uses the `Neo-CLI`, a cross-platform program that runs in Windows, Linux and Docker.
+Die bereitgestellten Consensus-Nodes nutzen den NEO-CLI-Client, ein Multiplattform Programm, das auf Windows, Linux und Docker läuft.
 
 |                                   | Neo-CLI |
 | --------------------------------- | ----------------- |
@@ -16,23 +16,23 @@ The deployment consensus node uses the `Neo-CLI`, a cross-platform program that 
 | openSUSE 13.2, 42.1               | ✅                 |
 | Docker                            | ✅                 |
 
-> [!Note]
-> At present, NEO nodes do not work properly under Mac OS. In the future there will be support for Mac OS, please wait for further updates.
+> [!Anmerkung]
+> Zur Zeit funktionieren NEO-Nodes nicht fehlerfrei unter MacOS. Es ist aber geplant, NEO-CLI MacOS kompatibel zu machen.
 
-## Run the environment
+## Die NEO-Node starten
 
-Running of an NEO node requires installation of [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), version 1.0.1 or above.
+Der Betrieb einer NEO-Node benötigt eine Instalation der [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), Version 1.0.1 oder höher.
 
-### Windows system installation method
+### Installation auf einem Windows System
 
-In the Windows system, installation of . NET Core is very convenient, you can directly download and run.
+Auf einem Windows System ist die Installation von .NET Core sehr nützlich, da der Client dann heruntergeladen und direkt gestartet werden kann.
 
-### Linux system installation method
+### Installation auf einem Linux System
 
-The following shows how .NET Core is installed in Red Hat Enterprise Linux 7 Server:
+Im Folgenden wird gezeigt, wie .NET Core auf einem Red Hat Enterprise Linux 7 Server installiert wird.
 
-> [!Note]
-> Other distributions of the Linux kernel installation method, please refer to [.NET Core installation tutorial](https://www.snetnet/core#linuxredhat)
+> [!Anmerkung]
+> Tutorials für eine Linux-Kernel-Installation auf anderen Distributionen finden Sie in der [.NET Core Installationsanleitung]https://www.snetnet/core#linuxredhat)
 
 
 ```
@@ -45,7 +45,7 @@ yum install rh-dotnetcore11
 scl enable rh-dotnetcore11 bash
 ```
 
-After the installation is complete, you can run the following command to check whether the .NET Core environment was installed successfully.
+Nachdem die Installation abgeschlossen wurde, können Sie mit dem folgenden Befehl überprüfen, ob die .NET Core Umgebung erfolgreich installiert wurde.
 
 ```
 dotnet new console -o hwapp
@@ -54,24 +54,24 @@ dotnet restore
 dotnet run
 ```
 
-If you see the final output "Hello World!", The .Net Core installation is successful.
+Wenn Sie den Output "Hello World!" ausgegeben bekommen, war die Installation erfolgreich.
 
 
-## Installation of NEO node
+## Installation der NEO-Node
 
-1. Download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package on Github and unzip it.
+1. Herunterladen und entpacken des [Neo-CLI](https://github.com/neo-project/neo-cli/releases)-Pakets von Github.
 
-> [!Note]
-> If you try to download and compile the Neo-CLI source directly on Github, you will find that `dotnet neo-cli.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as neo-cli.dll under. These two files can be downloaded in the first step of the package.
+> [!Anmerkung]
+> Beim Versuch den Quellcode von NEO-CLI von Github herunterzuladen und zu kompilieren wird `dotnet neo.cli.dll` danach nicht fehlerfrei funktionieren. Um diesen Fehler zu beheben müssen die Dateien libleveldb.dll und sqlite3.dll in das gleiche Verzeichnis wie neo-cli.dll kopiert werden. Beide Dateien können auch bei Github (s. Schritt 1.) heruntergeladen werden.
 
-2. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
+2. Öffnen Sie die Kommandozeile und navigieren Sie in das Installationsverzeichnis. Geben Sie den folgenden Code ein, um die NEO-Node zu starten.
 
 ```
 dotnet neo-cli.dll
 ```
 
-Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can run the following code.
+NEO-CLI bietet eine Reihe an verschiedenen APIs für externen Zugriff. Wenn Sie die Node mit APIs öffnen wollen, nutzen Sie folgenden Code:
 ```
 dotnet neo-cli.dll /rpc
 ```
-3. If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
+3. Um von außen auf die Node zuzugreifen, müssen Sie folgende Ports in Ihrer Firewall freigeben: 10331-10334, 20331-20334

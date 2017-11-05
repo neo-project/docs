@@ -3,7 +3,49 @@
 - name: Erste Schritte
   href: getting-started.md
 - name: NEO-Node
-  href: /node/introduction.md
+  href: node/introduction.md
+  items:
+    - name: Einführung
+      href: node/introduction.md
+    - name: Installation
+      href: node/setup.md
+    - name: Graphical User Interface
+      href: node/gui.md
+    - name: Test Netzwerk
+      href: node/testnet.md
+    - name: CLI Reference
+      href: node/cli.md
+    - name: Private Chain
+      href: node/private-chain.md
+    - name: API Reference
+      href: node/API.md
+      items:
+      - name: getbalance
+        href: node/api/getbalance.md
+      - name: getbestblockhash
+        href: node/api/getbestblockhash.md
+      - name: getblock
+        href: node/api/getblock2.md
+      - name: getblockcount
+        href: node/api/getblockcount.md
+      - name: getblockhash
+        href: node/api/getblockhash.md
+      - name: getconnectioncount
+        href: node/api/getconnectioncount.md
+      - name: getrawmempool
+        href: node/api/getrawmempool.md
+      - name: getrawtransaction
+        href: node/api/getrawtransaction.md
+      - name: gettxout
+        href: node/api/gettxout.md
+      - name: sendrawtransaction
+        href: node/api/sendrawtransaction.md
+      - name: sendtoaddress
+        href: node/api/sendtoaddress.md
+    - name: Network Protocol
+      href: node/network-protocol.md
+    - name: Consensus
+      href: node/consensus.md
 - name: "Smart Contracts"
   href: sc/introduction.md
   items:
