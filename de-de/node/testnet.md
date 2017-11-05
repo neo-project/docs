@@ -1,38 +1,38 @@
-# Test network
+# NEO Test Netzwerk
 
-The TestNet is an environment where the user can develop, commission and test programs. Testing programs on the testnet incurs the network fee of testnet GAS (not real GAS!!). Testnet NEO and GAS can be applied free of charge, on the official website.
+Das TestNet ist eine Umgebung in der User Programme entwickeln und testen können. Zum Testen von Programmen im TestNet wird TestNet-GAS und TestNet-NEO benötigt. TestNet-GAS und TestNet-NEO sind wertlose TestNet-Assets, die kostenlos auf der offiziellen NEO Website beantragt werden können.
 
-All the blockchain of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
+Die gesamte TestNet-Blockchain ist unabhängig vom NEO-MainNet. Für die Entwicklung von "Smart Contracts" oder die testweise Registrierung von Assets reicht das TestNet vollkommen aus. Nach abgeschlossener Entwicklung und ausgiebigen Tests kann der "Smart Contract" / das Asset problemlos im NEO-MainNet registriert werden.
 
-If you are a developer, you can ask for GAS on the TestNet here: https://www.neo.org/Testnet/Create
+Entwickler können TestNet-GAS kostenlos hier beantragen: https://www.neo.org/Testnet/Create
 
-## TestNet characteristics
+## TestNet Eigenschaften:
 
-1. Asset registration, asset distribution, contract execution, etc. (Does not consume real money)
-2. Globalized deployment in the Internet environment.
-3. Test of network blocks; Transactions and other information can be easily viewed in the blockchain browser.
-4. Smart contract deployment in the test environment, where anyone in the world can employ it.
-5. Test network can not be used as commercial application of an actual landing environment.
+1. Registrierung von Assets, Verteilung von Assets, Ausführung von "Smart Contracts" etc, ohne dabei "echtes" Geld zu verbrauchen.
+2. Globale Verteilung des "Smart Contracts" / des Assets im Internet.
+3. Test von Netzwerkblöcken; Transaktionen und andere Informationen können einfach in jedem Blockchainbrowser verfolgt werden.
+4. "Smart Contract" Verteilung in einer Testumgebung, in der es weltweit von Jedem genutzt werden kann.
+5. Das TestNet kann nicht als kommerzielle Plattform für Programme genutzt werden.
 
 ## Client Downloads
 
-The test network client is the same as the primary network client. By modifying the client's configuration file, the client can be switched between the primary and test networks.
+Der TestNet-Client ist der gleiche Client wie für das NEO-MainNet. Durch eine Änderung in der Konfigurationsdatei kann der Client zwischen TestNet und MainNet hin- und herwechseln.
 
-Reference: [Introduction of NEO node](introduction.md).
+Querverweis: [Einführung in NEO-Nodes](introduction.md).
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [Official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
-| Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
+| Releases | [Offizielle Website](https://www.neo.org/download) oder [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| Quellcode | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
-## Method of switching to test network
+## Anleitung zum Wechseln des Netzwerks
 
-1. Copy the contents of the program directory under the `protocal.testnet.json` into ` protocol.json` as shown.
+1. Den Inhalt der `protocol.testnet.json` in `protocol.json` im Programmverzeichnis kopieren:
 
 ![image](/assets/testnet_1.png)
 
-2. Copy the contents of the program (GUI) directory `neo-gui.exe.testnet.config` into the `neo-gui.exe.config` as shown in Figure
+2. Den Inhalt der Datei `neo-gui.exe.testnet.config` in die Datei `neo-gui.exe.config` kopieren:
 
 ![image](/assets/testnet_2.png)
 
-Note: If the node is run on CLI, the contents of `config.testnet.json` need to be copied to` config.json`.
+Anmerkung: Wenn die NEO-CLI-Node verwendet wird, muss der Inhalt der `config.testnet.json` in die Datei `config.json` kopiert werden.
