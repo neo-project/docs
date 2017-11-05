@@ -2,6 +2,8 @@
   href: index.md
 - name: Erste Schritte
   href: getting-started.md
+- name: NEO-Node
+  href: /node/introduction.md
 - name: "Smart Contracts"
   href: sc/introduction.md
   items:

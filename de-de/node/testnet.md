@@ -1,4 +1,4 @@
-# NEO Test Netzwerk
+# NEO Test-Netzwerk
 
 Das TestNet ist eine Umgebung in der User Programme entwickeln und testen können. Zum Testen von Programmen im TestNet wird TestNet-GAS und TestNet-NEO benötigt. TestNet-GAS und TestNet-NEO sind wertlose TestNet-Assets, die kostenlos auf der offiziellen NEO Website beantragt werden können.
 

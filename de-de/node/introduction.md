@@ -1,6 +1,6 @@
 # NEO Node - Einführung
 
-Nodes, die die gesamte Blockchain speichern werden "Full Nodes" genannt. "Full Nodes" sind über ein Peer-to-Peer Netzwerk mit der Blockchain verbunden. Alle Nodes werden vom Netzwerk gleichwertig behandelt und agieren zeitgleich als Clientinterface und Server.
+Nodes, die die gesamte Blockchain speichern, werden "Full Nodes" genannt. "Full Nodes" sind über ein Peer-to-Peer Netzwerk mit der Blockchain verbunden. Alle Nodes werden vom Netzwerk gleichwertig behandelt und agieren zeitgleich als Clientinterface und Server.
 
 Es gibt zur Zeit zwei "Full Node"-Programme: NEO-GUI und NEO-CLI. NEO-GUI hat alle Basisfunktionen eines Userclients, inklusive einer grafischen Oberfläche und ist gedacht für NEO Anwender. NEO-CLI bietet eine externe API für einfache Wallet-Funktionen und ist für NEO Entwickler gedacht. NEO-CLI hilft außerdem anderen Nodes bei der Konsensfindung und ist außerdem bei der Schaffung neuer Blöcke involviert.
 
