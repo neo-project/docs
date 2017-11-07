@@ -191,9 +191,9 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 可以看到在根目录下生成了一个 Notifications 文件夹：
 
-![1](C:\neo-project\docfx\docs\exchange\1.jpg)
+![1](1.jpg)
 
-#### ![2](C:\neo-project\docfx\docs\exchange\2.jpg)
+#### ![2](2.jpg)
 
 #### 查看 Notifications 文件
 
