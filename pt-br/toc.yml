@@ -15,7 +15,7 @@
       href: node/testnet.md
     - name: Interface de Linha Comando (CLI)
       href: node/cli.md
-    - name: *Blockchain* Privativa
+    - name: Blockchain Privativa
       href: node/private-chain.md
     - name: Referência API
       href: node/API.md
@@ -46,7 +46,7 @@
       href: node/network-protocol.md
     - name: Mecanismo de Consenso
       href: node/consensus.md
-- name: *Smart Contract*
+- name: Smart Contract
   href: sc/introduction.md
   items:
     - name: Introdução
@@ -60,17 +60,17 @@
       items:
       - name: Apredendo o Básico
         href: sc/tutorial.md
-      - name: *Hello World*
+      - name: Hello World
         href: sc/tutorial/HelloWorld.md
-      - name: *Lock Contract*
+      - name: Lock Contract
         href: sc/tutorial/Lock.md
-      - name: Domínio (*Domain Name System*)
+      - name: Domínio (Domain Name System)
         href: sc/tutorial/Domain.md
-      - name: Parâmetros e Valores de Retorno do *Smart Contract*
+      - name: Parâmetros e Valores de Retorno do Smart Contract
         href: sc/tutorial/Parameter.md
       - name: Tutorial de um Contrato de Autenticação
         href: sc/tutorial/verify.md
-      - name: Implementação de um *Lock Contract*
+      - name: Implementação de um Lock Contract
         href: sc/tutorial/Lock2.md
       - name: Chamada de Contrato
         href: sc/tutorial/call.md
@@ -78,7 +78,7 @@
         href: sc/tutorial/deploy-invoke.md      
     - name: Teste
       href: sc/test.md
-    - name: *Whitepaper*
+    - name: Whitepaper
       href: sc/white-paper.md
     - name: Referência API
       href: sc/api.md
@@ -87,10 +87,10 @@
         href: sc/api/neo.md
       - name: Sistema
         href: sc/api/system.md
-    - name: *Framework*
+    - name: Framework
       href: sc/fw.md
       items:
-      - name: .NET *framework*
+      - name: .NET framework
         href: sc/fw/dotnet.md
         items:
           - name: NEO
