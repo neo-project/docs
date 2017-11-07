@@ -1,6 +1,6 @@
 # 交易所对接指南
 
-本文主要用于指导交易所完成与 NEO 对接的安装部署，程序开发和相关交易处理，在阅读以下内容之前，请确认您已了解 NEO 背景知识和相关原理，详情请参阅 [NEO白皮书](http://docs.neo.org/zh-cn/index.html)。
+本文主要用于指导交易所完成与 NEO 对接的安装部署，程序开发和相关交易处理，在阅读以下内容之前，请确认您已了解 NEO 背景知识和相关原理，详情请参阅 [NEO白皮书](index.html)。
 
 通常，交易所需要完成以下操作：
 
@@ -19,7 +19,7 @@ NEO节点的初始安装部署包含以下步骤：
 1.  安装 NEO节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，1.0.1 或以上版本。
 2.  在 Github 上下载 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并启动 NEO 节点。
 
-更多详细内容，请参阅 [NEO 节点的安装部署](../zh-cn/node/setup.html)。
+更多详细内容，请参阅 [NEO 节点的安装部署](node/setup.html)。
 
 ## 创建和使用 NEO-CLI 钱包
 
@@ -46,7 +46,7 @@ NEO-CLI 提供以下功能：
   help
   ```
 
-  更多信息，请参阅 [CLI 命令参考](../zh-cn/node/cli.html)。
+  更多信息，请参阅 [CLI 命令参考](node/cli.html)。
 
 - 提供一系列 API 接口，用于从节点获取区块链数据。接口通过 [JSON-RPC](http://www.jsonrpc.org/specification) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。 
 
@@ -56,7 +56,7 @@ NEO-CLI 提供以下功能：
   dotnet neo-cli.dll /rpc
   ```
 
-  要查看更多 API 信息，请参阅 [API参考](../zh-cn/node/api.html)。
+  要查看更多 API 信息，请参阅 [API参考](node/api.html)。
 
 
 ### 创建钱包
@@ -95,7 +95,7 @@ NEO-CLI 提供以下功能：
 
 - 用户第一次充值（NEO/NEO GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
 
-  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress方法](../zh-cn/node/api/getnewaddress.html) 实现。程序会返回创建的地址。
+  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress方法](node/api/getnewaddress.html) 实现。程序会返回创建的地址。
 
 - 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/NEO GAS）时，给用户分配一个 NEO 地址。优点：可以备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 
@@ -113,7 +113,7 @@ NEO-CLI 提供以下功能：
 
 对于全局资产，交易所需要进行以下功能的开发：
 
-1. 使用NEO-CLI  API （[getblock方法](../zh-cn/node/api/getblock2.html)）监控新区块。
+1. 使用NEO-CLI  API （[getblock方法](node/api/getblock2.html)）监控新区块。
 2. 根据交易信息完成用户充值。
 3. 存储交易所相关交易记录。
 
@@ -134,7 +134,7 @@ NEO-CLI 提供以下功能：
 
 交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易。如果有充值交易就要修改数据库中的用户余额。 
 
-NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息的功能，该方法中的 <index> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock方法](../zh-cn/node/api/getblock2.html)。
+NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息的功能，该方法中的 <index> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock方法](node/api/getblock2.html)。
 
 获取的区块信息中包含了交易输入和交易输出，交易所需要记录下所有和自己相关的交易，作为用户充值提现的交易记录。如果发现在交易的输出中有属于交易所的地址，则要修改数据库中该充值地址对应的用户 NEO 或 NEO GAS 余额。
 
@@ -158,13 +158,13 @@ NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息
 
 3. （可选）客服处理提现申请。
 
-4. 使用NEO-CLI  API 中的 `sendtoaddress <asset_id> <address> <value>` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress方法](../zh-cn/node/api/sendtoaddress.html)。
+4. 使用NEO-CLI  API 中的 `sendtoaddress <asset_id> <address> <value>` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress方法](node/api/sendtoaddress.html)。
 
    - `<asset_id>` ：资产ID
    - `<address>` ：提现地址
    - `<value>` ：提现金额
 
-   要向多个地址批量发送交易，可以使用 API [sendmany方法](../zh-cn/node/api/sendmany.html)。
+   要向多个地址批量发送交易，可以使用 API [sendmany方法](node/api/sendmany.html)。
 
 5. 从返回的 Json 格式交易详情中提取交易ID，记录在数据库中。
 
@@ -191,9 +191,9 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 可以看到在根目录下生成了一个 Notifications 文件夹：
 
-![1](1.jpg)
+![1](../assets/notification_1.jpg)
 
-#### ![2](2.jpg)
+#### ![2](../assets/notification_2.jpg)
 
 #### 查看 Notifications 文件
 
@@ -312,7 +312,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 #### 调用示例
 
-##### 调用 balanceOf
+##### **调用 balanceOf**
 
 假设用户账户地址是 AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe，你需要将其转换为 Hash160类型并将此参数构造为 JSON 对象，如下所示:
 
@@ -366,7 +366,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 返回值”00e1f505“ 可以转化为整数**100000000**。
 
-##### 调用 decimals
+##### **调用 decimals**
 
 请求正文：
 
@@ -404,7 +404,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 返回值为整数 **8**。
 
-##### 调用 symbol
+##### **调用 symbol**
 
 请求正文:
 
@@ -442,7 +442,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 返回值 "525058" 可以被转换为币种符号 "RPX"。
 
-##### 计算用户余额
+##### **计算用户余额**
 
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 100000000/10<sup>8</sup> RPX = 1 RPX
@@ -690,7 +690,7 @@ NeoGas（缩写符号 GAS）共1亿份，代表了Neo区块链的使用权。GAS
 
 
 
-![gasflow](gasflow.png)
+![gasflow](node/assets/gasflow.png)
 
 
 

@@ -132,5 +132,7 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: System Fees
       href: sc/systemfees.md
+- name: Document for Exchange Developers
+  href: exchange_en.md
 - name: Contributors
   href: contributors.md

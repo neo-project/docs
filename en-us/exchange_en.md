@@ -1,6 +1,6 @@
 # Document for Exchange Developers
 
-This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete related program development for NEO assets transactions. Before reading, maker sure you have read [NEO White Paper](/en-us/index.html) and understand the NEO background knowledge and technologies. 
+This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete related program development for NEO assets transactions. Before reading, maker sure you have read [NEO White Paper](index.html) and understand the NEO background knowledge and technologies. 
 
 In general, an exchange needs to do the following：
 
@@ -19,7 +19,7 @@ To deploy a NEO node on the exchange server, do the following:
 1.  Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 1.0.1 and the later version.
 2.  From Github, download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) program and enable the NEO node.
 
-For more information, refer to [Installation and deployment of NEO node](../en-us/node/setup.html).
+For more information, refer to [Installation and deployment of NEO node](node/setup.html).
 
 ## Creating a Wallet and Deposit Addresses
 
@@ -46,7 +46,7 @@ NEO-CLI provides the following features：
   help
   ```
 
-  For more information, refer to [CLI Command Reference](../en-us/node/cli.html).
+  For more information, refer to [CLI Command Reference](node/cli.html).
 
 - Provides APIs to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
 
@@ -56,7 +56,7 @@ NEO-CLI provides the following features：
   dotnet neo-cli.dll /rpc
   ```
 
-  For more API information, refer to [API Reference](../en-us/node/api.html).
+  For more API information, refer to [API Reference](node/api.html).
 
 
 ### Creating a Wallet
@@ -94,7 +94,7 @@ There are two methods to generate deposit addresses:
 
 - When the user deposit (NEO/NEO GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is you can not backup the wallet.
 
-  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](../en-us/node/api/getnewaddress.html). The created address is returned.
+  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](node/api/getnewaddress.html). The created address is returned.
 
 - The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
   To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.
@@ -111,7 +111,7 @@ There are two methods to generate deposit addresses:
 
 For global assets, the exchange needs to develop programs to fulfil the following functions:
 
-1. Monitor new blocks through NEO-CLI  API ([getblock Method](../en-us/node/api/getblock2.html)).
+1. Monitor new blocks through NEO-CLI  API ([getblock Method](node/api/getblock2.html)).
 2. Deal with user deposits according to the transaction information. 
 3. Store the transaction records related to the exchange.
 
@@ -132,7 +132,7 @@ Regarding user deposits, the exchange needs to note the following:
 
 The exchange needs to write code to monitor every transaction in a block and record all the transactions related to the exchange addresses in the database. If a deposit occurs, the user's balance should be updated. 
 
-Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](../en-us/node/api/getblock2.html).
+Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](node/api/getblock2.html).
 
 The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/NEO GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
 
@@ -154,13 +154,13 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
 
 3. (Optional) Customer service deals with withdrawal application.
 
-4. Send transaction to the user's withdrawal address using the NEO-CLI  API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](../en-us/node/api/sendtoaddress.html).
+4. Send transaction to the user's withdrawal address using the NEO-CLI  API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](node/api/sendtoaddress.html).
 
    - `<asset_id>` ：Asset ID
    - `<address>` ：Withdrawal address
    - `<value>` ：Withdrawal amount
 
-   You can also send the transaction to a batch of addresses using API [sendmany Method](../en-us/node/api/sendmany.html).
+   You can also send the transaction to a batch of addresses using API [sendmany Method](node/api/sendmany.html).
 
 5. Extract the transaction ID from the returned transaction details in the JSON format,  and then record in the database.
 
@@ -187,9 +187,9 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 A folder "Notifications" is generated under the root path, as shown below:
 
-![1](1.jpg)
+![1](../assets/notification_1.jpg)
 
-#### ![2](2.jpg)
+#### ![2](../assets/notification_2.jpg)
 
 #### Notifications JSON File
 
@@ -284,17 +284,17 @@ You need to replace these strings when querying the user's balance:
 
   **balanceOf**
 
-  - Syntax: <code>public static BigInteger balanceOf(byte[] account)</code>
+  - Syntax: `<code>public static BigInteger balanceOf(byte[] account)</code>`
   - Remarks: "balanceOf" returns the token balance of the '''account'''.
 
   **decimals**
 
-  - Syntax: <code>public static byte decimals()</code>
+  - Syntax: `<code>public static byte decimals()</code>`
   - Remarks: "decimals" returns the number of decimals used by the token.
 
   **symbol**
 
-  - Syntax: <code>public static string symbol()</code>
+  - Syntax: `<code>public static string symbol()</code>`
   - Remarks: "symbol" returns the token symbol.
 
 
@@ -308,7 +308,7 @@ You need to replace these strings when querying the user's balance:
 
 #### Example
 
-##### Invoking balanceOf
+##### **Invoking balanceOf**
 
 Suppose the account address is AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, you need to convert it into Hash160 type and construct this parameter as a JSON object:
 
@@ -362,7 +362,7 @@ After sending the request, you will get the following response：
 
 It returns "00e1f505" which can be converted to interger 100000000.
 
-##### Invoking decimals
+##### **Invoking decimals**
 
 Request Body：
 
@@ -400,7 +400,7 @@ After sending the request, you will get the following response：
 
 It returns integer 8.
 
-##### Invoking symbol
+##### **Invoking symbol**
 
 Request Body：
 
@@ -438,7 +438,7 @@ After sending the request, you will get the following response：
 
 It returns "525058" which can be converted to string "RPX".
 
-##### Calculating the User Balance
+##### **Calculating the User Balance**
 
 According to all the returned values,  we can calculate the user balance as follows:
 The balance = 100000000/10<sup>8</sup> RPX = 1 RPX
@@ -636,24 +636,24 @@ After sending the request, you will get the following response：
 
 ##### name
 
-- Syntax: <code>public static string name()</code>
+- Syntax: `<code>public static string name()</code>`
 - Remarks: "name" returns the token name.
 
 ##### transfer
 
-- Syntax: <code>public static bool transfer(byte[] from, byte[] to, BigInteger amount)</code>
+- Syntax: `<code>public static bool transfer(byte[] from, byte[] to, BigInteger amount)</code>`
 - Remarks: "transfer" will transfer an '''amount''' of tokens from the '''from''' account to the '''to''' account.
 
 ##### transferFrom ''(optional)''
 
-- Syntax: <code>public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)</code>
+- Syntax: `<code>public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)</code>`
 - Remarks: "transferFrom" will transfer an '''amount''' from the '''from''' account to the '''to''' acount if the '''originator''' has been approved to transfer the requested '''amount'''.
 
 #### Events
 
 ##### transfer
 
-- Syntax: <code>public static event Action<byte[], byte[], BigInteger> transfer</code>
+- Syntax: `<code>public static event Action<byte[], byte[], BigInteger> transfer</code>`
 - Remarks: The "transfer" event is raised after a successful execution of the "transfer" method.
 
 ## (Optional) Distributing GAS to Users
@@ -687,7 +687,7 @@ NeoGas (abbreviated as GAS) represents the right to use the Neo Blockchain. Ther
 
 Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
 
-![gasflow_en](gasflow_en.png)
+![gasflow_en](sc/assets/gasflow_en.png)
 
 The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
 
