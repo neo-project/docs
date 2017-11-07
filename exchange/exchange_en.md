@@ -187,9 +187,9 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 A folder "Notifications" is generated under the root path, as shown below:
 
-![1](C:\neo-project\docfx\docs\exchange\1.jpg)
+![1](1.jpg)
 
-#### ![2](C:\neo-project\docfx\docs\exchange\2.jpg)
+#### ![2](2.jpg)
 
 #### Notifications JSON File
 
@@ -687,7 +687,7 @@ NeoGas (abbreviated as GAS) represents the right to use the Neo Blockchain. Ther
 
 Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
 
-![gasflow_en](C:\neo-project\docfx\docs\exchange\gasflow_en.png)
+![gasflow_en](gasflow_en.png)
 
 The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
 
