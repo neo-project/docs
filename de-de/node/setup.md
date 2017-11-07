@@ -1,6 +1,6 @@
 # Installation einer NEO-Node 
 
-Der vorherige Artikel beschreibt die zwei Clients, die als Nodes verwendet werden können. Der eine (NEO-CLI) ist ein Kommandozeilen-Client für Entwickler, der andere (NEO-GUI) ein Client mit grafischer Oberfläche für fortgeschrittene Anwender.
+Der vorherige Artikel beschreibt zwei Clients, die als Nodes verwendet werden können. Der eine (NEO-CLI) ist ein Kommandozeilen-Client für Entwickler, der andere (NEO-GUI) ein Client mit grafischer Oberfläche für fortgeschrittene Anwender.
 
 Die bereitgestellten Consensus-Nodes nutzen den NEO-CLI-Client, ein Multiplattform Programm, das auf Windows, Linux und Docker läuft.
 
@@ -17,7 +17,7 @@ Die bereitgestellten Consensus-Nodes nutzen den NEO-CLI-Client, ein Multiplattfo
 | Docker                            | ✅                 |
 
 > [!Anmerkung]
-> Zur Zeit funktionieren NEO-Nodes nicht fehlerfrei unter MacOS. Es ist aber geplant, NEO-CLI MacOS kompatibel zu machen.
+> Zur Zeit funktionieren NEO-Nodes nicht fehlerfrei unter MacOS. Es ist aber geplant, in der Zukunft einen MacOS-Client zu veröffentlichen.
 
 ## Die NEO-Node starten
 
@@ -54,7 +54,7 @@ dotnet restore
 dotnet run
 ```
 
-Wenn Sie den Output "Hello World!" ausgegeben bekommen, war die Installation erfolgreich.
+Wenn Sie den "Hello World!" ausgegeben bekommen, war die Installation erfolgreich.
 
 
 ## Installation der NEO-Node
