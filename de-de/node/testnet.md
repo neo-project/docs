@@ -1,6 +1,6 @@
-# NEO Test-Netzwerk
+# NEO TestNet
 
-Das TestNet ist eine Umgebung in der User Programme entwickeln und testen können. Zum Testen von Programmen im TestNet wird TestNet-GAS und TestNet-NEO benötigt. TestNet-GAS und TestNet-NEO sind wertlose TestNet-Assets, die kostenlos auf der offiziellen NEO Website beantragt werden können.
+Das TestNet ist eine Umgebung in der Entwickler Programme entwickeln und testen können. Zum Testen von Programmen im TestNet wird TestNet-GAS und TestNet-NEO benötigt. TestNet-GAS und TestNet-NEO sind wertlose TestNet-Assets, die kostenlos auf der offiziellen NEO Website beantragt werden können.
 
 Die gesamte TestNet-Blockchain ist unabhängig vom NEO-MainNet. Für die Entwicklung von "Smart Contracts" oder die testweise Registrierung von Assets reicht das TestNet vollkommen aus. Nach abgeschlossener Entwicklung und ausgiebigen Tests kann der "Smart Contract" / das Asset problemlos im NEO-MainNet registriert werden.
 
