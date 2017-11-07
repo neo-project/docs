@@ -21,7 +21,7 @@ Die bereitgestellten Consensus-Nodes nutzen den NEO-CLI-Client, ein Multiplattfo
 
 ## Die NEO-Node starten
 
-Der Betrieb einer NEO-Node benötigt eine Instalation der [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), Version 1.0.1 oder höher.
+Der Betrieb einer NEO-Node benötigt eine Installation der [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), Version 1.0.1 oder höher.
 
 ### Installation auf einem Windows System
 
