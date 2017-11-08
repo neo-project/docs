@@ -131,15 +131,10 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 
 3. The first view `v` of the consensus activity is initialized.
 
-4. The **Speaker** is identified.
+4. The **Speaker** is identified. **Wait** `t` seconds.
+<p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
 
-   <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set. </p>
-
-  **Wait** `t` seconds
-​	
-5. The **Speaker** broadcasts the proposal :
-    <!-- -->
-        <prepareRequest, h, k, p, bloc, [block]sigp>
+5. The **Speaker** broadcasts the proposal : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
      <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
 
@@ -148,16 +143,10 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
     - Is the data format consistent with the system rules?
     - Is the transaction already on the blockchain?
     - Are the contract scripts correctly executed?
-      - Does the transaction only contain a single spend?(i.e. does the transaction avoid a double spend scenario?)
+    - Does the transaction only contain a single spend?(i.e. does the transaction avoid a double spend scenario?)
+    - **If Validated Proposal Broadcast:**  `<prepareResponse, h, k, i, [block]sigi>`
+    - **If Invalidated Proposal Broadcast:**  `<ChangeView, h,k,i,k+1>`
 
-    - **If Validated Proposal Broadcast:**
-        <!-- -->
-            <prepareResponse, h, k, i, [block]sigi>
-
-    - **If Invalidated Proposal Broadcast:**
-        <!-- -->
-            <ChangeView, h,k,i,k+1>
-        ​	
    <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Delegates</b> review the block proposal and respond. </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Delegate** reaches a consensus and publishes a block.
