@@ -1,7 +1,3 @@
----
-typora-root-url: ..\..
----
-
 ### Die Erstellung eines NeoContracts mit C#
 
 Aktuell empfehlen wir C# für die Entwicklung von "Smart Contracts" (obwohl die Unterstützung von Java, Kotlin, GO, C/C++, Python, JavaScript und anderen Programmiersprachen vorhanden bzw. geplant ist). 
