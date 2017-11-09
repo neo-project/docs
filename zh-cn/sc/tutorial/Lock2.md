@@ -65,7 +65,7 @@ namespace ConsoleApp1
 
 ## 编写智能合约
 
-创建智能合约项目，编写如下的智能合约。注意，这里的合约是继承自 VerificationCode，它的用途是生成合约鉴权账户，即钱包文件中的一个合约地址。
+创建智能合约项目，编写如下的智能合约。
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -73,9 +73,9 @@ using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
 {
-    public class Lock : VerificationCode
+    public class Lock : SmartContract
     {
-        public static bool Verify(byte[] signature)
+        public static bool Main(byte[] signature)
         {
             Header header = Blockchain.GetHeader(Blockchain.GetHeight());
             if (header.Timestamp < 1499328600) // 2017-6-6 18:10
