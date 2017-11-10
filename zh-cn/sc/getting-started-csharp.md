@@ -87,7 +87,7 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 ![](assets/new_smart_contract_project.png)
 
-创建项目好后，会自动生成一个 c# 文件，默认的类继承于 FunctionCode，如图
+创建项目好后，会自动生成一个 c# 文件，默认的类继承于 SmartContract，如图
 
 ![](assets/NeoContract1.png)
 
@@ -99,7 +99,7 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 所有程序包已经还原成功后，如果代码仍然报错，并且右侧 “引用” 中仍有个感叹号，可以尝试双击感叹号，或者重启 Visual Studio。
 
-折腾一番后，代码终于不报错了，如图。
+正常情况下，代码如下图所示。
 
 ![](assets/smart_contract_function_code.png)
 
@@ -107,7 +107,7 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 点击菜单栏上的 `生成`，`生成解决方案`（快捷键 Ctrl + Shift + B）开始编译程序。
 
-编译成功后你会在 `bin/Debug` 目录下看到生成的 `SmartContract1.avm` 文件（具体名字取决于你的项目名），该文件即是生成的 NEO 智能合约文件。
+编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `项目名.avm` 文件，该文件即是生成的 NEO 智能合约文件。
 
 ![](assets/compile_smart_contract.jpg)
 

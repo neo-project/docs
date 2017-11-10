@@ -38,22 +38,18 @@
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 
-public class Class1: VerificationCode
+public class Class1: SmartContract
 {
-    public static bool Verify()
+    public static bool Main()
     {
         return true;
     }
 }
 ```
 
-![](assets/mac6.png)
-
 点击 `Build`，`Build All` 编译相应代码，编译成功后，会在 bin/Debug/netstandard2.0/ 目录下生成 .dll 文件，该 .dll 文件是 .NET IL 语言的文件，之后会用 neon 将其二次编译为 .avm 智能合约文件。
 
-这里我项目名为 test1，编译后会生成 test1.dll，之后会用到这个文件。
-
-![](assets/mac7.png)
+示例里项目名为 test1，编译后会生成 test1.dll，之后会用到这个文件。
 
 ### 3. neo-compiler
 
