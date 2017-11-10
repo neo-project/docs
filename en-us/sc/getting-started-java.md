@@ -99,7 +99,7 @@ Everything is now ready to add the entry method that defines the smart contract:
 import AntShares.SmartContract.Framework.FunctionCode;
 import AntShares.SmartContract.Framework.Services.AntShares.Storage;
 
-public class HelloWorld extends FunctionCode{
+public class HelloWorld extends SmartContract{
 
     public static byte[] Main(String[] args){
         Storage.Put(Storage.getCurrentContext(), "Greeting to the World", "Hello World!");

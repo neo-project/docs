@@ -4,7 +4,7 @@ After reading the previous document, we have been able to use C# in Visual Studi
 
 ## Write unit tests
 
-For example, you create the following smart contract, the contract is inherited from the FunctionCode, contains three parameters, the return value is int.
+For example, you create the following smart contract, which contains three parameters, the return value is int.
 
 
 ```c#
@@ -13,7 +13,7 @@ using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
 {
-    public class Test1: FunctionCode
+    public class Test1: SmartContract
     {
         public static int Main (int a, int b, int c)
         {

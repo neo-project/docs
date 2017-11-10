@@ -43,7 +43,7 @@ In the smart contract deployment or invocation, you need to specify the paramete
 For example, for the smart contract below:
 
 ```c#
-public class Lock : FunctionCode
+public class Lock : SmartContract
 {
     public static bool Main(int a, bool b, byte[] pubkey, byte[] signature)
     {
