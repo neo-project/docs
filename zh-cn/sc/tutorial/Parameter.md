@@ -38,7 +38,7 @@
 如智能合约定义为：
 
 ```c#
-public class Lock : FunctionCode
+public class Lock : SmartContract
 {
     public static bool Main(int a, bool b, byte[] pubkey, byte[] signature)
     {

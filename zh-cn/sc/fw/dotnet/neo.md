@@ -21,7 +21,7 @@ NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)                  | 用来表示区块头的数据结构             |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](neo/Runtime.md)                | `new` 提供智能合约运行时的一些方法     |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)                | 提供了持久化存储区的插入、查询、删除的方法    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md)    | `new` 用来表示私有存储区存储上下文的类   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md)  | `new` 用来表示私有存储区存储上下文的类   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)        | 用来表示交易的基类                |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | 用来表示交易特性的数据结构            |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | 用来表示交易输入的数据结构            |
@@ -30,8 +30,8 @@ NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 
 ## 枚举
 
-|                                          | 枚举                                     | 说明                        |
-| ---------------------------------------- | -------------------------------------- | ------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [TriggerType](TriggerType.md)          | `new` 用来表示智能合约触发条件的枚举     |
+|                                          | 枚举                                       | 说明                        |
+| ---------------------------------------- | ---------------------------------------- | ------------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [TriggerType](neo/TriggerType.md)        | `new` 用来表示智能合约触发条件的枚举     |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContext](neo/StorageContext2.md) | ` 已弃用 ` 用来表示私有存储区存储上下文的枚举 |
 
