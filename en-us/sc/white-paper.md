@@ -30,7 +30,7 @@ Many smart contract programs, such as gambling contracts and small games, use ra
 
 There are two ways to generate a random number in NEO:
 
-1. When each block is generated, the consensus node will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any bock, by referencing the Nonce field
+1. When each block is generated, the consensus node will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any block, by referencing the Nonce field
 
 2. The contract program can use the hash value of the block as a random number generator, because the block hash value has certain inherent randomness. This method can be used to obtain a weak random number
 

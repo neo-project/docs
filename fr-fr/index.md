@@ -1,188 +1,169 @@
-# NEO - Livre Blanc
+# Livre Blanc NEO
 
-Un réseau distribué pour une Smart Economy
+Un réseau distribué pour une Économie Intelligente.
 
-## Objectif de NEO : la Smart Economy
+## Concepts de NEO, Économie Intelligente
 
-Tout d’abord, le système NEO a pour objectif de numériser des actifs grâce à la technologie Blockchain et l'identité numérique. Il veut également rendre possible une Smart Economy dans un réseau distribué avec l'aide des contrats intelligents (Smart Contracts) pour que ces actifs numériques s'autogèrent d'elle-mêmes.
+NEO représente l'usage d'une chaîne de blocs (en anglais « blockchain ») et des identités numériques pour digitaliser des actifs, ainsi que l'utilisation de contrats intelligents (en anglais « smart contracts ») pour automatiser la gestion de ces actifs digitaux. Le tout dans le but de construire une "économie intelligente" reposant sur un réseau entièrement distribué.
 
-### Actifs numériques
+### Les actifs digitaux
 
-Les actifs numériques sont des biens programmables qui existent sous forme de données électroniques. Avec la technologie de la Blockchain, la numérisation des actifs peut être décentralisée, digne de confiance, traçable, hautement transparente et sans intermédiaire. Sur la blockchain NEO, les utilisateurs sont capable d'enregistrer, d'échanger et de diffuser de multiples types d'actifs. Le lien entre les actifss numériques et physiques sont possible à travers l'identité numérique. En effet, les actifs enregistrés avec une identité numérique valide sont protégé par les lois.
+Les actifs digitaux sont des actifs programmables qui existent sous la forme de données numériques. Grâce à la chaîne de blocs, la digitalisation des actifs devient décentralisée, sure, traçable, hautement transparente, et sans intermédiaire. Sur la chaîne de blocs NEO, les utilisateurs peuvent enregistrer, échanger et faire circuler différents types d'actifs. Prouver la connexion entre des actifs digitaux et des actifs physiques est rendue possible grâce à l'identité digitale. Les actifs enregistrés via une identité digitale certifiée sont protégés par la loi.
 
-NEO à deux formes d'actifs numériques : les actifs globaux et les actifs contractuels. Les actifs globaux peuvent être enregistrés dans l'espace-système et être identifiés par l'ensemble des contrats intelligents et des clients. Les actifs contractuels sont enregistrés dans un espace de stockage privé par un contrats intelligents et demande un client compatible pour les reconnaître. Ces derniers doivent rencontrer donc certains standards afin d'assurer la compatibilité avec la majorité des clients.
+NEO a deux formes d'actifs digitaux: les actifs globaux et les actifs contractuels. Les actifs globaux peuvent être enregistrés dans l'espace-système et être identifiés par l'ensemble les contrats intelligents ainsi que par tous les clients. Les actifs contractuels sont enregistrés dans l'espace de stockage privé du contract intelligent et exigent un client compatible pour les reconnaître. Les actifs contractuels peuvent adhérer à un certain nombre de normes afin d'assurer leur compatibilité avec la majorité des clients.
 
-### Identité numérique
+### Les identités digitales
 
-Une identité numérique fait référence aux informations relatives aux individus, aux organisations et aux autres entités qui peuvent exister sous une forme électronique. Le système d'identité numérique le plus abouti est basé sur le standard PKI (Public Key Infrastructure) X.509. Dans NEO, nous allons implémenter un ensemble d'identité numérique compatible avec le standard X.509. En addition au modèle d'émission de certificat compatible avec X.509, cet ensemble va aussi supporter le modèle d'émission de certificat Web Of Trust point-à-point. Notre vérification d'identité lors de l'émission ou de l'utilisation d'identités numériques inclura l'utilisation de la reconnaissance faciale, des empreintes digitales, de la voix, des SMS et autres authentification multi-facteur. Entre temps, nous aurons également remplacé le protocole de vérification de certificat en ligne (OCSP) par la blockchain pour gérer et enregistrer la liste de révocation de certificat X.509 (CRL).
+L'identité digitale fait référence aux informations sur l'identité des personnes physiques, morales, et aux autres entités qui existent sous forme numérique. Le système d'identification digital le plus mûr repose sur la norme ICP (Infrastructure à Clés Publiques - en anglais, PKI ») X.509. Au sein de NEO, nous allons implémenter une suite de normes d'identification digitale compatibles avec la norme X.509. Cette suite de normes d'identification digitale, s'ajoutant au modèle de délivrance en compatibilité avec le niveau requis par X.509, supportera de même le modèle de délivrance de certificat point-à-point (en anglais, « point-to-point ») Web Of Trust. Notre vérification d'identité, lorsqu'elle est délivrée ou lorsqu'elle utilise des identités digitales, inclut l'utilisation des fonctionnalités liées à la reconnaissance faciale, d'empreintes digitales et vocales, par SMS et à d'autres méthodes d'authentification multi-facteurs. De même, nous ferons usage de la chaîne de blocs pour remplacer l'Online Certificate Status Protocol (OCSP, en français « protocole de vérification de certificat en ligne ») dans le cadre de la gestion et l'enregistrement de listes de révocation de certificats X.509 (CRL).
 
-### Contrat intelligent (Smart Contract)
+### Les contrats intelligents
 
-Originellement, le contrats intelligent a été proposé au monde pour la première fois par le cryptographe Nick Szabo en 1994, seulement cinq ans après la création du World Wide Web. Selon la définition de Szabo : quand une condition préprogrammée est enclenchée, le contrat intelligent va exécuter les termes du contrat correspondants. La technologie blockchain nous fournit un système décentralisé, résistant aux crises et hautement fiable dans lesquelles les contrats intelligents seront extrêmement utiles. NEO a un système de contrats intelligents indépendant : NeoContract.
+Le contrat intelligent a d'abord été proposé par le cryptographe Nick Szabo, en 1994, soit seulement cinq ans après la création du World Wide Web. Selon la définition de Nick Szabo: lorsqu'une condition préprogrammée est déclenchée, le contrat intelligent exécute les termes relatifs au contrat. La technologie des chaînes de blocs nous fournit un système décentralisé, inaltérable, et particulièrement fiable au sein duquel les contrats intelligents sont très utiles. NEO comprend un système indépendant de contrats intelligents: NeoContract.
 
-Le système « NeoContract » est la plus grosse fonctionnalité de l'écosystème de développement existant. Tout d’abord, les développeurs n'ont pas besoin d'apprendre un nouveau langage mais ont, de plus, la possibilité d'utiliser C#, Java et d'autres langages de programmation plus courants dans leur environnement favori (Visual Studio, Eclipse, etc.) pour développer, déboguer et compiler des contrats intelligents. La très légère machine virtuelle universelle de NEO, NeoVM, a l'avantage d’être d’une très grande fiabilité, une concurrence élevée et une haute évolutivité. Le système NeoContract donnera la possibilité aux millions de développeurs du monde entier de démarrer rapidement le développement de contrats intelligents. En fin, NeoContract aura un livre blanc séparé avec tous les détails de son implémentation.
+Le système de contrat NeoContract est la fonctionnalité la plus importante car elle permet une intégration homogène avec l'écosystème de développeurs existant. Tout d'abord, les développeurs n'ont pas besoin d'apprendre un nouveau language de programmation. Ils peuvent utiliser le C#, le Java ou un autre des languages de programmation dominants, au sein des IDE qui leurs sont familiers (Visual Studio, Eclipse, etc.), pour développer, débugger et compiler des contrats intelligents. NEO's Universal Lightweight Virtual Machine, NeoVM, a pour elle les avantages d'être particulièrement fiable, concurrente et extensible. Le système de contrats intelligents NeoContract va permettre à des millions de développeurs du monde entier de mener rapidement à bien le développement de contrats intelligents. NeoContract aura un livre blanc séparé décrivant l'implémentation en détail.
 
-### Application et écosystème
+### Les applications et l'écosystème
 
-L'écosystème est le vivier de la communauté open-source. Afin d'atteindre l'objectif d'un réseau économique intelligent, NEO investira dans le développement de son écosystème en proposant des outils de développement complets, en améliorant la documentation, en organisant l'apprentissage via des activités d’entraînement et en pourvoyant un support financier aux membres de la communauté NEO. Nous avons pour objectif d'accompagner les futures applications basées sur NEO et son écosystème, et de récompenser les améliorations apportées à celui-ci.
+L'écosystème est caractérisé par le dynamisme de la communauté open source. Afin d'atteindre l'objectif de la construction d'un réseau économique intelligent, NEO sera engagé dans le développement de son écosystème, en fournissant des outils de développement complêts, en publiant de la documentation, en organisant des activités de formation en d'apprentissage, et en apportant un support financier. Nous avons l'intention de soutenir, ainsi que de récompenser les améliorations apportées à leur conception et à leur expérience, les applications et l'écosystème NEO suivants:
 
-🔹 **Applications de nœud (node)**
+🔹 **Les programmes de référence**
 
-- Un programme client desktop complet
+- Un programme PC de référence entièrement fonctionnel et complêt
+- Un programme PC léger avec une meilleure expérience utilisateur
+- Des Clients Web / Android / iOS qui ne nécessitent pas de synchronisation avec la chaîne de blocs
+- Portefeuille en dur (en anglais « Hardware wallet »)
 
-- Un programme client plus léger avec une meilleur expérience utilisateur
+🔹 **L'explorateur de chaîne**
 
-- Des clients Web, iOS et Android qui ne nécessite pas une synchronisation avec la blockchain
+🔹 **Le SDK, kit de développement**
 
-- Un portefeuille hardware
+- Supporte Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
-🔹 **Explorateur de blockchain**
-
-🔹 **Software DDevelopment Kit**
-
-- Support de Java / Kotlin, .NET C# / VB, JavaScript / TypeScript, Python, Go
-
-🔹 **Compilateur de contrats intelligents et plugin pour IDE**
+🔹 **Les compilateurs de Contrats Intelligents et les extensions d'IDE**
 
 - C# / VB.Net / F#, Visual Studio
-
 - Java / Kotlin, Eclipse
-
-- C /C++ / Go
-
+- C / C++ / GO
 - JavaScript / TypeScript
-
 - Python / Ruby
 
-🔹 **Applications décentralisées (dApps)**
+🔹 **Les applications décentralisées**
 
-- Smart fund
+- Fonds d'actifs intelligents
+- Contrats légaux "intelligents" assistés par de l'IA
+- Réseaux sociaux
+- Fournisseurs automatisé de liquidités adossées aux jetons
+- Plateformes d'échange décentralisé
+- Protocoles de communication sécurisée
+- Marchés d'échanges de données
+- Marchés de propriétés intellectuelles
+- Marchés de prédictions analytiques
+- Marchés publicitaires
+- Marchés de puissance de hachage (en anglais, « Hashpower »)
+- Marchés de NeoGas
 
-- Contrat intelligent légal assisté par AI
+## Le modèle de gestion de NEO
 
-- Réseau social
+### Le modèle économique
 
-- Pourvoyeur de liquidité de token automatique
+NEO a deux jetons (en anglais, « Token ») natifs, NEO (symbole abrégé: NEO) et NeoGas (symbole abrégé: GAS).
 
-- Échanges décentralisés
+NEO, avec un total de 100 millions de jetons, représente le droit de gestion du réseau. Ces droits incluent le droit de vote pour élire les comptables (en anglais, « Bookkeeper »), pour modifier les paramètres du réseau NEO, et cætera. Le minimum unitaire de NEO est égal à 1 et les jetons ne peuvent pas être subdivisés.
 
-- Protocole de communication sécurisée
+GAS représente le jeton "carburant" permettant d'utiliser les ressources du réseau NEO, avec une limite totale fixée à 100 millions de jetons. Le réseau NEO fait payer des frais pour l'exploitation et le stockage des jetons ainsi que pour l'utilisation de contrats intelligents, créant ainsi une incentive économique pour les comptables tout en prévenant l'abus d'utilisation des ressources. Le minimum unitaire de GAS est égal à 0.00000001.
 
-- Marché d'échange de données
+Lors de l'émission du bloc d'origine (en anglais, « genesis block ») du réseau NEO, 100 millions de NEOs ont été générés. Aucun de jeton de GAS n'avait encore été généré. 100 millions de jetons de GAS, correspondant aux 100 millions de NEO, seront générés via un algorithme déclinant sur une période d'à peu près 22 ans pour récompenser les détenteurs de jetons NEO. Si les jetons de NEO sont transférés vers une nouvelle adresse, les jetons de GAS générés correspondants seront crédités sur la nouvelle adresse.
 
-- Marché d'échange de propriété intellectuelle
+Le réseau NEO va définir un seuil, en votant, pour dispenser de frais en GAS un certain nombre de transactions de transfert, et d'opérations portant sur les contrats intelligents. Lorsqu'un nombre important de transactions indésirables se produit, NeoID peut être utilisé pour prioriser les transactions et contrats intelligents portant sur des identités certifiées. Les transactions et contrats intelligents qui ne portent pas sur des identités digitales certifiées peuvent obtenir cette priorité en payant via des jetons de GAS.
 
-- Marché de prédiction
+### Le mécanisme de distribution
 
-- Marché publicitaire
+**La distribution des jetons de NEO:**
 
-- Marché de puissance de hash
+Les 100 millions de jetons NEO sont divisés en deux portions.
 
-- Marché de NeoGas
+La première portion de 50 millions de jetons a été distribuée de manière proportionnelle aux participants de l'opération de financement participatif. Cette opération a eu lieu entre août et septembre 2016 (Neo était appelé Antshares à cette époque).
 
-## Modèle de gestion de NEO
+La seconde partie de 50 millions de jetons est gérée par le Conseil d'administration de NEO pour soutenir le développement, le fonctionnement, la maintenance et l'écosystème de NEO sur le long-terme. Les jetons NEO faisant partie de cette seconde portion ont été bloqués pour une période d'un an avant d'être débloqué le 16 octobre 2017. Cette seconde partie ne sera pas injectée sur les marchés d'échange et est exclusivement consacrée au soutien des projets NEO sur le long-terme, selon le programme suivant:
 
-### Modèle économique
+🔹 10 million de jetons (10% du total) seront dépensés pour motiver les développeurs et membres du Conseil d'administration de NEO.
 
-NEO possède deux tokens natifs, NEO (symbole : NEO) et NeoGas (symbole : GAS).
+🔹 10 million de jetons (10% du total) seront dépensés pour inciter les développeurs au sein de l'écosystème NEO.
 
-NEO, avec un total de 100 millions de tokens, représente les droits de gestion du réseau. Ceux-ci incluent le vote des bookkeepers, des changements de paramètre dans le réseau et bien plus encore. L'unité minimal de NEO est 1, il est indivisible.
+🔹 15 million de jetons (15% du total) seront dépensés pour inter-investir avec d'autres projets de chaînes de blocs, lesquels seront détenus par le Conseil d'administration de NEO et exclusivement utilisés pour des projets NEO.
 
-GAS est le token carburant destiné à l’utilisation des ressources du réseau NEO, avec un maximum total de 100 millions aussi. Le réseau facture les opérations, le stockage de tokens et les contrats intelligents avec le GAS. De ce fait, des incitants économiques sont créés pour les bookkeepers et cela permet d'éviter les abus de ressources sur le réseau. L'unité minimale du GAS est 0.00000001.
+🔹 15 million de jetons (15% du total) seront retenus en tant que fond de prévention.
 
-Dans le bloque originel de NEO, 100 millions de NEO sont été généré, mais il n'y a pas encore de GAS générés. Les 100 millions de GAS, correspondant aux 100 millions de NEO, seront généré à travers un algorithme pendant 22 ans et par après transféré aux adresses possédant du NEO. Si les NEO sont transférés vers une nouvelle adresse, le GAS sera alors donné à cette nouvelle adresse.
+🔹 Par principe, la dépense annuelle de jetons NEO se doit de ne pas dépasser les 15 millions de jetons.
 
-Par vote, le réseau placera un seuil éviter le paiement en GAS pour un certain nombre de transferts et d'opérations de contrats intelligents pour améliorer l'expérience utilisateur. Quand une énorme quantité de spam de transaction se produit, NeoID pourra être utilisé pour donner la priorité aux transactions et aux contrats intelligents possédant des identités qualifiées. Les transactions et les contrats intelligents sans identités qualifiées peuvent avoir une priorité en payant du GAS.
+**La distribution des jetons de GAS:**
 
-### Mécanisme de distribution
+Le GAS est généré par chaque nouveau bloc créé. Le montant total initial de GAS était de zéro. Avec le taux de croissance de la génération de nouveaux blocs, la limite du nombre totale de jetons de GAS, fixée à 100 millions, sera atteinte d'ici à peu près 22 ans. L'intervalle de génération de chacun des blocs est d'environ 15 à 20 secondes.
 
-Distribution du NEO :
+Chaque année, à peu près 2 millions de blocs seront générés et la génération de jetons de GAS initiale était de 8 par bloc. Il y aura une réduction annuelle d'1 jeton de GAS généré par bloc, concordant avec chaque passage de 2 millions de blocs supplémentaires générés. La réduction continuera jusqu'à atteindre 1 GAS par bloc et sera maintenue à ce taux jusqu'à atteindre les 22 ans. Lorsque le 44 millionième bloc sera généré, le nombre total de jetons de GAS généré aura donc atteint la limite de 100 millions et, à partir de cet instant, il n'y aura plus aucune émission de jetons de GAS durant la génération des blocks suivants.
 
-Les 100 millions de token NEO sont divisés en deux parties. La première partie est divisé en 50 million de tokens et est distribué proportionnellement aux investisseurs du projet pendant le crowdfunding. Cette partie a déjà été distribuée.
+Selon cette courbe d'émission, 16% des jetons de GAS seront créés durant la première année, 52% durant les quatre premières années, et 80% durant les premières 12 années. Ces jetons de GAS seront distribués à chaque adresse enregistrée en proportion du taux de jetons NEO détenus par chacune des ces adresse. Les porteurs de jetons de NEO peuvent initier une transaction de réclamation (en anglais, « claim transaction ») à n'importe quelle moment pour récupérer ces jetons de GAS sur chacune de leurs adresses.
 
-La seconde partie est géré par le NEO Council afin de supporter le développement à long terme du réseau, les opérations, la maintenance et l'écosystème. Elle est bloquée pour une période de un an et sera débloquée après le 16 octobre 2017. Cette partie de NEO ne sera pas libérée dans les marchés d’échanges. Elle sera destiné qu'au support à long terme des projets de NEO. La démarche est la suivante :
+### Le mécanisme de gouvernance
 
-🔹 10 million de tokens (10% du total) vont être utilisés pour motiver les développeurs NEO et les membres du NEO Council.
+La gouvernance de chaîne: les possesseurs de jetons NEO sont les propriétaires et gestionnaires du réseau, gérant le réseau grâce à leurs votes, dépensant le GAS généré à partir de leurs jetons NEO pour se servir des fonctionnalités du réseau. Les jetons NEO peuvent être transférés.
 
-🔹 10 millions de tokens (10% du total) vont être utilisés pour inciter les développeurs à rentrer dans l'écosystème NEO.
+La gouvernance hors-chaîne: le Conseil d'administration de NEO (en anglais, « NEO Council ») est composé des membres fondateurs du projet NEO, sous lequel le comité de gestion, le comité technique et le secrétariat, sont responsables, respectivement, des prises de décisions stratégiques, techniques et de leur implémentation. Le Conseil d'administration de NEO est quant à lui responsable, en priorité, de la promotion et du développement de l'écosystème NEO.
 
-🔹 15 millions de tokens (15% du total) vont être utilisés pour investir dans d'autres projets de blockchain qui sont détenu par le NEO Council et qui seront uniquement utilisés pour les projets NEO.
+## Les implémentations de la technologie NEO
 
-🔹 15 millions de tokens (15% du total) seront conservés pour gérer les imprévus.
+### Le mécanisme de consensus: dBFT
 
-🔹 L'utilisation annuelle de NEO ne devrait pas en principe excéder les 15 millions de tokens.
+Le dBFT désigne le Delegated Byzantine Fault Tolerant (en français, « tolérance aux pannes byzantines déléguées »), un mécanisme de consensus qui permet une prise de participation à grande échelle, au travers d'un scrutin proxy (en anglais, « proxy voting »). Le porteur de jetons NEO peut, en votant, choisir le comptable qu'il soutient. Le groupe de comptables élus, au travers de l'algorithme BFT, atteint un consensus et génère de nouveaux blocs. Voter sur le réseau NEO est un processus continu, en temps réel, et non pas basé sur des mandats fixés.
 
-Distribution du GAS :
+Le dBFT fournit une tolérance aux pannes correspondante à `f = (n-1) / 3` pour un système de consensus donné comportant `n` nœuds. Cette tolérance de panne incorpore une sécurité et une disponibilité importantes, résistant aux pannes générales et byzantines, et elle convient à tout environnement réseau. dBFT assume un caractère définitif, signifiant qu'une fois les confirmations finales, le bloc ne peut être modifié, et la transaction ne peut être révoquée ou annulée.
 
-Le GAS est généré a chaque nouveau bloque crées dans la blockchain. Le montant initial du GAS est nul. Avec le taux de croissance de génération par nouveaux bloques, la limite total de 100 millions de GAS va être atteinte dans les environs de 22 ans. L’intervalle entre chaque bloque est de 15 à 20 secondes de ce fait deux millions de bloques seront créés chaque année.
+Au sein du mécanisme de consensus dBFT, chaque bloc étant généré en 15 à 20 secondes, le débit de transactions s'élève à peu près à 1 000 transactions/s, ce qui représente une excellente performance parmi les chaînes publiques. Au moyen d'optimisations appropriées, il est potentiellement possible d'atteindre les 10 000 transactions/s, rendant possible le support d'applications professionnelles à très grande échelle.
 
-Initialement, la génération de GAS initiale sera de 8 par bloque. Il y aura une réduction annuelle de 1 GAS par bloque conjointement avec l'écoulement des deux millions de bloques. La réduction va continuer chaque année pour atteindre 1 GAS par bloque et va rester à ce taux jusqu'au 22 ans annoncés. Après les 44 millions de bloques, le total de GAS générés aura atteint 100 millions d'unité et dès lors il n'y aura plus de génération de GAS lors de la création de nouveaux bloques.
+Le dBFT se combine avec les identités numériques, impliquant que les comptables peuvent être le nom réel de personnes physiques ou morales. Par conséquent, il est possible de geler, révoquer, récupérer, et approprier les transferts à la suite de décisions judiciaires les concernant. Cela facilite l'enregistrement d'actifs financiers légalement conformes sur le réseau NEO. Le réseau NEO planifie de soutenir ces opérations lorsque cela deviendra nécessaire.
 
-Selon la courbe de génération de GAS, les 16 premiers % seront crées la première année, 52% les quatre premières années et 80% pendant les 12 premières années. Le GAS sera distribué proportionnellement au nombre de NEO détenu dans les adresses correspondantes. Les détenteurs de NEO peuvent réclamer leur GAS à n'importe quel moment sur leur adresse.
+### Le système de contrat intelligent: NeoContract
 
-### Mécanisme de gouvernance
+Le système de contrat intelligent de NEO est composé de trois parties:
 
-Gouvernance de la chaîne: les possesseurs de tokens NEO sont les propriétaires et les gestionnaires du réseau. Ils peuvent décider pour le réseau par votes et utiliser le GAS généré par leur NEO pour utiliser les fonctions du réseau. Les tokens NEO peuvent être transférés.
+**NeoVM - Machine virtuelle de chaîne de bloc universelle:**
 
-Gouvernance hors-chaîne: Le NEO Council se compose des membres fondateurs du projet NEO dans lequel le comité de gestion, le comité technique et le secrétariat sont responsable respectivement des décisions stratégiques, des décisions techniques et des implémentations spécifiques. Le NEO Council est responsable devant la communauté NEO pour la promotion et le développement de l’écosystème et ses objectifs premiers.
+NeoVM est une machine virtuelle universelle et légère dont l'architecture est très proche des environnements d'exécution JVM et .NET. Elle est analogue au processeur virtuel qui lit et exécute les instructions d'un contrat de manière séquentielle. Elle réalise des contrôles de processus en fonction des opérations (logiques ou autres) de l'instruction. Par ailleurs, elle jouit d'une bonne vitesse de démarrage et d'une bonne polyvalence. De ce fait, elle est très adaptée aux petits programmes, comme les contrats intelligents, et peut être portée sur des systèmes non-chaînés, ou même intégrée à l'IDE pour procurer une expérience de développement optimale. Les fonctionnalités de NeoVM peuvent être étendues, en introduisant, par exemple, un mécanisme de compilation à la volée (JIT), améliorant de fait l'efficacité de l'implémentation.
 
-## Implémentation technologique de NEO
+**InteropService - Services interopérables:**
 
-### Mécanisme de consensus distribué: dBFT
+Ces services sont utilisés pour charger le grand livre (en anglais, « ledger »), les actifs digitaux, les identités numériques, l'espace de stockage persistant, ainsi que d'autre services sous-jacents. Ils sont assimilables aux machines virtuelles qui sont fournis pour les machines virtuelles elles-mêmes, permettant aux contrats intelligents d'accéder à ces services durant la période d'exécution pour proposer des fonctionnalités avancées. Au travers de concept de couplage faible, **NeoVM peut être porté vers n'importe quelle chaîne de bloc, ou même système non chaîné, augmentant de fait l'utilité des contrats intelligents**.
 
-Le dBFT, le Delegated Byzantine Fault Tolerance, est un mécanisme de consensus qui tolère le problème des généraux byzantins et, de plus, qui permet une participation à grande échelle aux consensus à travers un système de vote. Le possesseur de NEO peut, grâce au vote, choisir le bookkeeper qu'il supporte. Par après, le groupe de bookkeepers sélectionné vont, à travers l'algorithme dBFT, atteindre des consensus pour générer les nouveaux bloques. Voter dans le réseau se fait en temps réel plutôt que par période fixe.
+**DevPack - Compilateur et extension d'IDE:**
 
-Le dBFT permet une tolérance à l'erreur maximum de f = (n-1) / 3 pour un système de consensus consistant à n nœuds. Cette tolérance à l'erreur inclut également la sécurité et la disponibilité, la résistance aux échecs généraux et aux échecs byzantins et est adapté à n'importe quel environnement réseau. Le dBFT conduit à une bonne finalité, les confirmations sont finales, c'est-à-dire qu'une fois confirmé, les bloques ne peuvent pas être modifiés, les transactions ne peuvent pas être annulées.
+DevPack comporte un compilateur de language haut niveau et une extension d'IDE. Du fait que l'architecture NeoVM est très semblable aux environnements d'exécution JVM et .NET, les compilateurs DevPack peuvent compiler du bytecode Java et du CIL .NET en suite d'instructions NeoVM. Les développeurs Java / Kotlin et C# n'ont pas besoin d'apprendre de nouveaux languages et seront capable de démarrer immédiatement à développer des contrats intelligents sous Visual Studio, Eclipse ou tout autre IDE familier. **Cela réduit considérablement la courbe d'apprentissage liée au développement de contrats intelligents, nous permettant de développer aisément une ardente communauté autour des NeoContracts.**
 
-Dans le mécanisme de consensus de NEO dBFT, cela prend de 15 à 20 secondes pour générer un bloque, le débit de transaction est de 1.000 transactions par seconde ce qui est, bien entendu, une excellente performance pour une chaîne publique. Après quelques optimisations, il y aura un potentiel de 10.000 transacations/s. Ce qui permettra un support à grande échelle des applications commerciales.
+NeoContract peut créer un arbre d'appels au contrat intelligent via une analyse statique avant d'exécuter un contrat intelligent. **Grâce à l'arbre d'appels déterministes, un nœud NEO peut fragmenter dynamiquement un contrat intelligent pour théoriquement atteindre une expansion illimitée**, ce qui surmonte "l'effet d'encombrement" causé par la fragmentation statique sur d'autres systèmes de chaîne de blocs.
 
-Le dBFT se combine aux identités numériques, ce qui implique que les bookkeepers peuvent être des personnes réelles ou des institutions. En d'autres termes, il est possible des geler, de révoquer, d'hériter, de récupérer ou de transférer les possessions d'un bookkeeper en cas de décisions de justice contre eux. Cela facilitera l'enregistrement d'actifs financiers conformes dans le réseau NEO. De telles opérations sont prévu par le réseau si nécessaire.
+### L'accord d'interopérabilité inter-chaîne: NeoX
 
-### Le système de contrats intelligents: NeoContract
+NeoX est un protocole implémentant l'interopérabilité entre les chaînes. NeoX est divisé en deux parties: le "protocole inter-chaîne d'échange d'actifs" (en anglais, « cross-chain assets exchange protocol »), et le "protocole inter-chaîne de transaction distribué" (en anglais, « cross-chain distributed transaction protocol »).
 
-Ce système se compose de trois parties:
+**L'accord inter-chaîne d'échange d'actifs:**
 
-**NeoVM - Universal Block Chain Virtual Machine :**
+NeoX a été étendu à partir du protocole existant d'échange atomique d'actifs en double-échecs (en anglais, « double-stranded atomic assets exchange protocols ») pour permettre à plusieurs participants d'échanger des actifs entre différentes chaînes tout en s'assurant que la totalité des étapes de la transaction réussissent ou échouent de façon atomique. Afin d'accomplir cette fonction, nous devons utiliser la fonction NeoContract pour créer un compte de contrat pour chacun des participants. Si d'autres chaînes de bloc ne sont pas compatibles avec NeoContract, elles peuvent être compatibles avec NeoX à partir du moment où elles fournissent simplement une fonctionnalité de contrat intelligent.
 
-NeoVM est une machine virtuelle légère à usage général avec une architecture vraiment proche de la JVM et de .NET Runtime. Elle est semblable à un CPU virtuel qui lit et exécute les instructions du contrat en séquences. Elle effectue un contrôle de procédure basé sur la fonction des opérations d'instructions, des opérations logiques, etc. De plus, elle possède une bonne vitesse de lancement et une certaine souplesse, ce qui est vraiment adapté aux petits programmes tels que les contrats intelligents. Elle peut également être utilisé dans un contexte hors de la blockchain ou être intégré à un IDE pour fournir la meilleur expérience de développement. Les fonctionnalités NeoVM peuvent être étendues par exemple par l'ajout d'une mécanisme JIT dans le but d'améliorer l’efficacité de l'implémentation.
+**Le protocole inter-chaîne de transaction distribuée:**
 
-**InteropService - Services interopérables :**
+Une transaction distribuée inter-chaîne représente une transaction dont les différentes étapes sont dispersées parmi différentes chaînes de bloc mais dont la consistence est assurée. C'est une extension de l'échange d'actifs inter-chaîne, assurant ainsi un comportement arbitraire aux échanges d'actifs. En termes plus simples, NeoX rend les contrats intelligents inter-chaîne possibles, ces contrats intelligents pouvant réaliser différentes opérations sur plusieurs chaînes tout assurant soit une réussite, soit un échec global. Cela ouvre d'excellentes possibilités pour des collaborations inter-chaîne. Nous sommes d'ailleurs en train d'explorer différents scénarios d'application des contrats intelligents inter-chaîne.
 
-Utilisés pour charger le grand livre de la blockchain, les actifs numériques, les identités numériques, l'espace de stockage persistant et autres services sous-jacents sont comme des machines virtuelles qui assure le bon fonctionnement de la machine virtuelle. Ils permettent aux contrats intelligents d'accéder à des services à l’exécution pour accomplir différentes fonctionnalités avancées. A travers ce design de faible couplage, **NeoVM peut être porté dans n'importe quelle blockchain ou même des système hors-blockchain. Cela mène à une augmentation de l'utilité des contrats intelligents dans n’importe quel secteur.**
+### Le protocole de stockage distribué: NeoFS
 
-**DevPack - Compilateur et plugins IDE :**
+NeoFS est un protocole de stockage distribué qui est fondé sur la technologie des tables de hachage distribuée (en anglais, « Distribued Hash Table » - DHT). NeoFS génère un index des données via un hachage du contenu des fichiers plutôt que via leur chemin (URI). Les fichiers de taille importante seront d'abord segmentés en blocs de données de taille fixe, puis répartis et stockés sur différents nœuds.
 
-Le DevPack fournit les compilateur pour les langages de haut-niveau et les plugins IDE. Parce que l'architecture de NeoVM est très similaire à JVM ou .NET Runtime, les compilateurs du DevPack peuvent compiler Java byte code et .NET MSIL dans un ensemble d'instructions de NeoVM. Java / Kotlin et C# développeurs n'ont donc pas besoin d'apprendre  de nouveaux langages et seront dès lors capable de commencer à développer instantanément des contrats intelligents dans Visual Studio, Eclipse ou d'autres IDE. **Cela réduit considérablement la courbe d'apprentissage du développement de contrats intelligents et va nous permettre de créer facilement une large communauté active autour de NeoContract.**
+Le problème principal avec ce type de système est le besoin de trouver un équilibre entre redondance et fiabilité. NeoFS compte résoudre cette contradictions grâce aux incitations sous forme de jetons et à l'établissement de nœuds pivots (en anglais, « backbone nodes »). Les utilisateurs peuvent choisir le niveau de fiabilité désiré pour chaque fichier. Les fichiers dont la fiabilité requise est faible peuvent être stockés et lu gratuitement ou presque gratuitement. A l'opposé les services particulièrement stables gérant des fichiers nécessitant un haut degré de fiabilité seront fournis par les nœuds pivots.
 
-NeoContract peut créer un arbre d'appels de contrats intelligents à travers une analyse statique avant d’exécuter un contrat intelligent. **Avec cet arbre d'appels déterminé, un nœud NEO peut dynamiquement fragmenter un contrat intelligent pour en accomplir une expansion théoriquement illimitée**, ce qui permettra de surmonter l'effet de blocage causé par la fragmentation statique d'autres systèmes de blockchain.
-
-### Entente multi-blockchain : NeoX
-
-NeoX est un protocole qui implémente l'interopérabilité multi-blockchain. NeoX est divisé en deux parties:
-
-- un protocole d'échange d'actifs multi-blockchain
-- un protocole de transaction distribué multi-blockchain
-
-**Protocole d'échange d'actifs multi-blockchain:**
-
-NeoX a été étendu sur des protocoles d'échange d'actifs atomiques flexibles déjà existant pour permettre de multiples participants à échanger des actifs à travers différentes blockchains. NeoX leurs assure également que toutes les étapes du processus de transaction seront réussies entièrement ou au contraire échoueront de façon atomique. Dans le but d'accomplir cette fonction, nous avons besoin d'utiliser NeoContract pour créer un compte de contrat pour chaque participant. Si les autres blockchains ne sont pas compatible avec NeoContract, elles seront compatible avec NeoX aussi longtemps qu'elles pourvoient le fonctionnement de simples contrats intelligents.
-
-**Protocole de transaction distribué multi-blockchain :**
-
-Une transaction distribuée multi-blockchain signifie que les plusieurs étapes de la transaction sont dispersées dans les autres blockchains et que la consistance de la transaction entière est assurée. Ceci est une extension du premier protocole étendant le comportement des échanges d'actifs à un comportement arbitraire. Pour aller plus loin, NeoX rend possible les contrats intelligents multi-blockchain. Les différentes parties d'un contrat intelligent pourront être effectué sur plusieurs blockchains et être réussies ou annulées comme un tout. Cela donne donc d'excellentes possibilités pour des collaborations multi-blockchains. Par ailleurs, nous sommes actuellement en train d'explorer des scénarios d'application de contrats intelligents multi-blockchains.
-
-### Protocole de stockage distribué : NeoFS
-
-NeoFS est un protocole de stockage distribué qui utilise la technologie de table de hash distribué (Distribued Hash Table). NeoFS indexe les données dans un hash plutôt que dans une URI. Les gros fichiers seront divisés dans des bloques de données d'une taille fixe qui seront distribué et stocké dans une multitudes de nœuds différents.
-
-Le principale problème de ce type de système est le besoin de trouver un équilibre entre la redondance et la fiabilité. NeoFS prévoit de résoudre cette contradiction aux moyens d’incitants économiques via les tokens et par l'établissement de nœuds pivots. Les utilisateurs pourront choisir le niveau de fiabilité du fichier. Les fichiers avec un faible niveau de fiabilité pourront être stocké gratuitement ou presque gratuitement. Les services stable et fiable pour les fichiers avec un haut niveau de fiabilité seront fournies par les nœuds pivots.
-
-NeoFS servira comme service d'interopérabilité InteropService dans le système NeoContract, habilitant les contrats intelligents à enregistrer le grands fichiers dans la blockchain et permettre les accès à ces grands fichiers. Par ailleurs, NeoFS peut être associé aux identités numériques de tel sorte que les certificats numériques utilisés par les identités numériques peuvent être assignés, envoyés et révoqués sans un serveur central pour les gérer. Dans le futur, les données des vieux bloques pourront être stockées dans NeoFS afin que la plupart des nœuds puisse se libérer des vieilles données pour une meilleur évolutivité et en même temps assurer l'intégrité des données historiques.
+NeoFS servira en tant qu'un des services d'interopérabilité InteropService sous le système NeoContract, habilitant aux contrats intelligents de stocker des fichiers de taille très importante sur la chaîne de bloc et de définir l'accès à ces fichiers. En outre, NeoFS peut être combiné aux identités digitales pour permettre aux certificats digitaux utilisés par les identités numériques d'être assignés, envoyés, et révoqués, sans nécessiter un serveur central pour les administrer. Dans l'avenir, les anciens blocs de données pourront être stocké in NeoFS, de manière à ce que la plupart des nœuds complets puissent libérer les données précédentes pour assurer une meilleure scalabilité tout en maintenant l'intégrité de l'historique des données.
 
 ### Mécanisme cryptographique anti-quantique: NeoQS
 
-Avec l'émergence des ordinateurs quantiques, nous nous retrouvons face à des défis majeurs par rapport au chiffrement RSA et les mécanisme cryptographique basés sur ECC. Les ordinateurs quantiques peuvent résoudre un nombre très large de problèmes à décompositions (RSA) et de logarithme discrète à courbe elliptique (ECC) et ce avec un temps très cours. NeoQS (NÉO Quantum Safe) est un mécanisme cryptographique basé sur les treillis. Jusqu'à présent, les ordinateurs quantiques n'ont pas la capacité de résoudre rapidement les problèmes du vecteur le plus court (Shortest Vector Problems - SVP) et les problèmes du vecteur le plus proche (Closest Vector Problems - CVP). Ce mécanisme cryptographique est considéré actuellement comme l'algorithme le plus fiable pour résister aux ordinateurs quantiques.
+L'émergence des ordinateurs quantiques pose un défi majeur au chiffrement RSA et aux mécanismes cryptographiques basés sur l'ECC. Les ordinateur quantiques peuvent résoudre un très grand nombre de problèmes de décomposition (sur lesquels RSA repose) et de logarithme discret sur une courbe elliptique (sur lesquels ECC repose) en un temps très bref. À l'heure actuelle, les ordinateurs quantiques n'ont pas la capacité de résoudre rapidement le problème du plus court vecteur (en anglais, « Shortest Vector Problems » - SVP) ni celui du plus proche vecteur (en anglais, « Closest Vector Problems » - CVP). Il est, actuellement, considéré comme l'algorithme le plus fiable pour résister aux ordinateurs quantiques.
 
-## Résumé
+## En bref
 
-NEO est un réseau distribué qui combine les actifs numériques, les identités numériques et les contrats intelligents. Le système NEO va utiliser le dBFT, NeoX, NeoFS, NeoQS et beaucoup d'autres technologies originales dans l'objectif de créer une infrastructure pour l'économie intelligente du future.
+NEO est un réseau distribué qui combine actifs digitaux, identités numériques et contrats intelligents. L'écosystème NEO utilisera dBFT, NeoX, NeoFS, NeoQS et beaucoup d'autres technologies innovantes comme infrastructure pour construire l'économie intelligente du futur.
