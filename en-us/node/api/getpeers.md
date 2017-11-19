@@ -96,7 +96,7 @@ Response Description:
 
 Unconnected: A node that is not currently connected.
 
-Bad: Nodes that are no longer connected (Rahe).
+Bad: Nodes that are no longer connected.
 
 Connected: the node to which you are currently connected.
 
