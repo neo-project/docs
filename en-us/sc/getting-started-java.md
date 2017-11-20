@@ -2,7 +2,7 @@
 typora-root-url: ..\..
 ---
 
-### How to use Java to write an NEO smart contract
+### How to use Java to write an NEO smart contract on Windows (7/8/10)
 
 Smart contracts are written in high-level languages such as Java, C#, Python, Kotlin (and more...) and compiled into AVM (Neo's Virtual Machine bytecode) so they can run on the Neo network.
 
@@ -11,7 +11,7 @@ We currently recommend C# for developing smart contracts. The Java compiler is s
 This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts and gives you an idea of ​​how to create a smart contract project and how to compile it.
 
 Notes: The process involves the following steps:
-1. Write Java code (.java) for classes that extend FunctionCode or VerificationCode which is part of the Neo Framework Library (JAR)
+1. Write Java code (.java) for classes that extend SmartContract which is part of the Neo Framework Library (JAR)
 2. Use the normal Java compiler to compile code into Java bytecode (.class)
 3. Build the neoj (C#) compiler that converts JVM code into AVM code (neoj.exe on Windows)
 4. Use neoj to compile your .class file (.avm)
@@ -25,8 +25,8 @@ Notes: The process involves the following steps:
 
 The most efficient way of getting these steps done is to download and compile all the tools you will need:
 
-1. Download Neo's Node GUI. At the time of writing, it is recommended you use the BETA developer GUI as it has some extra debugging features which are helpful. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). It will have default presets to Testnet and you will have to wait (up to a few hours) for it to fully sync up.
-2. Download the Neo Framework Library JAR. Current latest version is here: [Antshares.SmartContract.Framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
+1. Download Neo's Node GUI (optional). At the time of writing, it is recommended you use the BETA developer GUI as it has some extra debugging features which are helpful. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). It will have default presets to Testnet and you will have to wait (up to a few hours) for it to fully sync up.
+2. Download the Neo Devpack Java and compile it into a jar-file. Current latest version is here: [neo-devpack-java](https://github.com/neo-project/neo-devpack-java)
 3. Download an IDE for Java (optional but recommended), e.g. IntelliJ or Eclipse.
 4. Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
 
@@ -84,11 +84,16 @@ Now run Command or PowerShell, and enter neoj.exe. If there is no error and the 
 
 NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
 
+## Compile org.neo.smartcontract.framework.jar  
+
+Download [neo-devpack-java](https://github.com/neo-project/neo-devpack-java). Open the project in Eclipse or IntelliJ and compile it into a jar-file. A precompiled JAR file can be found [here](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
+
+
 ## Create project
 
 After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
 
-You will need to add the AntShares.SmartContract.Framework.jar (which is the neo compiler project) as an external library.
+You will need to add the org.neo.smartcontract.framework.jar as an external library.
 
 
 ## Compile the Project
@@ -96,14 +101,14 @@ You will need to add the AntShares.SmartContract.Framework.jar (which is the neo
 Everything is now ready to add the entry method that defines the smart contract:
 
 ```Java
-import AntShares.SmartContract.Framework.FunctionCode;
-import AntShares.SmartContract.Framework.Services.AntShares.Storage;
+import org.neo.smartcontract.framework.SmartContract;
+import org.neo.smartcontract.framework.services.neo.Storage;
 
-public class HelloWorld extends FunctionCode{
+public class HelloWorld extends SmartContract {
 
     public static byte[] Main(String[] args){
-        Storage.Put(Storage.getCurrentContext(), "Greeting to the World", "Hello World!");
-        return Storage.Get(Storage.getCurrentContext(),"Greeting to the World");
+        Storage.put(Storage.currentContext(), "Greeting to the World", "Hello World!");
+        return Storage.get(Storage.currentContext(),"Greeting to the World");
     }
 
 }
@@ -116,7 +121,7 @@ Then using neoj, run cmd.exe and execute:
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
 
-For more information and to see working Java examples please refer here: [Java Examples](https://github.com/neo-project/examples-java)
+For more information and to see working Java examples (soon) please refer here: [Java Examples](https://github.com/neo-project/examples-java)
 
 ## Deploy smart contracts
 
