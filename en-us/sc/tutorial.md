@@ -1,20 +1,20 @@
 # NEO smart contract tutorial
 
-After reading the previous tutorials, you should now be able to use C# in Visual Studio 2015 to create a smart contract project. Here we will discuss how smart contracts are executed on the NeoVM (Neo Virtual Machine).
+After reading the previous tutorials, you should now be able to use C# in Visual Studio 2015 or 2017 to create a smart contract project. Here we will discuss how smart contracts are executed on the NeoVM (Neo Virtual Machine).
 
 ## Smart contract triggers
 
 There are two ways to trigger smart contracts:
 
-1. Contract User Authentication: Here the smart contract is a contract account, and when the user requests to use the contract account in an asset, it will trigger the smart contract.
+1. Contract User Authentication: Here the smart contract is a contract account. When the user requests to use the contract account in an asset, it will trigger the smart contract.
 
-2. Manually send a transaction call Smart contract: Here the user sends a transaction (Invocation Transaction) to trigger the implementation of a smart contract.
+2. Manually call a smart contract: Here the user sends a transaction (Invocation Transaction) to trigger the implementation of a smart contract.
 
 ## NeoVM
 
-NeoVM is the virtual machine that executes the NEO smart contract code. We are talking about the concept of virtual machine in the narrow sense, not in reference to operating systems or programs that can simulate them such as Vmware or Hypter-V.
+NeoVM is the virtual machine that executes the NEO smart contract code. We are talking about the concept of virtual machine in the narrow sense, not in reference to operating systems or programs that can simulate them such as VMware or Hyper-V.
 
-For example, in the java JVM or. Net CLR, source code will be compiled into the relevant bytecode, and then run on the corresponding virtual machine. JVM or CLR will run the bytecode which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result.
+For example, in the Java JVM or. Net CLR, source code will be compiled into the relevant bytecode and then run on the corresponding virtual machine. The JVM or CLR will run the bytecode, which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result.
 
 ### Virtual machine architecture
 
@@ -22,27 +22,27 @@ For example, in the java JVM or. Net CLR, source code will be compiled into the 
 
 The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
 
-#### Execute engine
+#### Execution engine
 
-The green on the left is the virtual machine execution engine (equivalent to the CPU), which can execute common instructions such as flow control, stack operations, bit operations, arithmetic operations, logical operations, cryptographic methods, and so on. Interoperable service layer (described below) to interact.
+The green on the left is the Virtual Machine execution engine (the equivalent of the CPU). It can execute common instructions such as flow control, stack operations, bit operations, arithmetic operations, logical operations, cryptographic methods, and so on. It can interact with the Interoperable service layer (described below) through system calls.
 
-#### Calculate stack
+#### Evaluation stack
 
-The middle part of the gray is the virtual machine computing stack (equivalent to memory), and now the virtual machine to achieve two ways, based on the stack and based on the register, the two ways to achieve their own advantages and disadvantages, but also have the iconic product. Stack-based virtual machines with JVM, CPython, and .Net CLR. Register-based VMs also exist such as Dalvik and Lua5.0. Stack-based virtual machines have a stack stack concept that allows virtual machines to interact directly with the stack when performing real operations.
+The middle gray part of the the virtual machine is the Evaluation Stack (it is equivalent to memory). These days there are two ways to achieve a virtual machine 1) stack based and 2) register based. Both ways have their own advantages and disadvantages, and both have their own great implementation examples. There are stack-based virtual machines like JVM, CPython, and the .Net CLR. On the other side there are register-based VMs such as Dalvik and Lua5.0. Stack-based virtual machines have a computing stack concept that allows virtual machines to interact directly with the stack (Evaluation Stack) when performing real operations.
 
-Since the default is to fetch data from the operand stack, there is no need to specify an operand. For example, x86 assembly "ADD EAX, EBX", you need to specify where the operation from the need to take the operation, where the results stored in the implementation. But stack-based virtual machine instructions do not need to specify these parameters. For example, to add a simple operation the default operands are stored in the operand stack, and we can pop out two data directly from the stack to do addition.
+Since the default behavior of a stack based VM is to fetch data from the operand stack, there is no need to specify an operand. Contrast this to for example the following x86 assembly `"ADD EAX, EBX"`. This operation requires you to specify the source operands and destination of the result. Stack-based virtual machine instructions do not need to specify these parameters. For example, the addition of a simple "ADD" operation will operate directly on the operand stack. The data can be popped of directly and the result is stored at the stop of the stack.
 
 #### Interoperable service layer
 
-The blue part of the right side is the interoperable service layer of the virtual machine (equivalent to the peripherals). At present, the interoperable service layer provides some APIs for accessing the chain-chain data of the smart contract, which can access block information, transaction information, contract information, asset information, and so on.
+The blue part on the right side is the interoperable service layer of the virtual machine (equivalent to the peripherals). At present, the interoperable service layer provides some APIs for accessing the chain-chain data of the smart contract. It can access block information, transaction information, contract information, asset information, and so on.
 
-In addition, the interoperable service layer also provides a persistent storage area for each contract. Each of the smart contracts is optionally created with private storage, which is in the form of a key-value object determined by the callee of the contract, rather than the context of the persistent store. Of course, the caller needs to pass their own storage context to the callee (that is, to complete the authorization), the caller can perform read and write operations.
+In addition, the interoperable service layer also provides a persistent storage area for each contract. Each of the smart contracts is optionally created with private storage, which is in the form of a key-value object determined by the callee of the contract rather than the context of the persistent store. The caller needs to pass their own storage context to the callee (to complete the authorization) before the caller can perform read and write operations.
 
 ### Charge mode
 
-A smart contract can programmed to charge a certain fee, divided into deployment costs and implementation costs.
+A smart contract can programmed to charge a certain fee, divided into deployment costs and execution costs.
 
-Deployment costs refer to the need for a developer to deploy a smart contract to the chain to pay a fee for the block chain system (currently 500 GAS). With execution costs, the user will pay a fee for the execution of the smart contract (for free).
+Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (currently 500 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](systemfees.md#smart-contract-fees).
 
 ## A simple smart contract
 
@@ -57,7 +57,7 @@ public static bool Main ()
 
 Here the return value of the contract is always true, indicating that anyone can spend the contract address of the assets (can be understood as money).
 
-There is a function of deleting an asset in the client's e-wallet client. When you delete an asset, the asset is sent to a specified address, which is the contract address generated by the above smart contract, and anyone can spend the address In the assets, of course, the address of the assets are other people do not want the assets.
+The NEO wallet client has a function for deleting an asset. When you delete an asset, the asset is sent to a specified address being the contract address generated by the above smart contract. Anyone can spend the assets in the address. The assets in the address are assets that others do not want.
 
 ```c#
 public static bool Main ()
@@ -66,7 +66,7 @@ public static bool Main ()
 }
 ```
 
-The return value of the contract is always false, indicating that the assets of this contract can not be used (can be understood as burn or destroy an asset), such as which can store some of the shares of the company has been canceled.
+The return value of the contract is always `false`, indicating that the assets of this contract can not be used (this can be interpreted as burning or destroying an asset). Such a contract can for example be applied for shares of a company that have  been written off/canceled.
 
 For more examples please see:
 
