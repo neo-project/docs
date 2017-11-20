@@ -1,13 +1,13 @@
 # getnewaddress Method
 
-Creates a new address.
+Create a new address.
 
 > [!Note]
-> You must open the wallet in the Neo-CLI node before executing this command.
+> You need to open the wallet in the NEO-CLI node before you execute this command.
 
 ## Example
 
-Request text：
+Request body：
 
 ```json
 {
@@ -18,7 +18,7 @@ Request text：
 }
 ```
 
-Response text：
+Response body：
 
 ```json
 {
@@ -28,6 +28,6 @@ Response text：
 }
 ```
 
-Response Description：
+Response Description:
 
-Returns the new created address.
+Returns the newly created address.

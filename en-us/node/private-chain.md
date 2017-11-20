@@ -132,7 +132,7 @@ The operation to extract the GAS is also similar. Click `Advanced`, `Claim GAS`,
 
 ![image](/assets/privatechain_21.png)
 
-The next operation is similar to the transfer of the NEO. Copy down the code that has insufficient signatures, open the second wallet, click `transaction`, `transfer`, and paste the code that you have just copied. Click `signature`, and copy the code down. Open the third wallet, click on the `transaction`, `transfer` and paste the code that you have just copied. Click `signature` and then `broadcast` to broadcast the transaction to claim your GAS. Once the claim transaction begins broadcasting it will take about 15 seconds for successful remittance to the account.
+The next operation is similar to the transfer of the NEO. Copy down the code that has insufficient signatures, open the second wallet, click `transaction`, `signature`, and paste the code that you have just copied. Click `signature`, and copy the code down. Open the third wallet, click on the `transaction`, `signature` and paste the code that you have just copied. Click `signature` and then `broadcast` to broadcast the transaction to claim your GAS. Once the claim transaction begins broadcasting it will take about 15 seconds for successful remittance to the account.
 
 After successful extraction the GAS will enter the first standard address of the wallet (i.e. the top wallet address) where you initiated the extraction of the GAS, as shown.
 

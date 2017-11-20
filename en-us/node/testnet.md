@@ -27,7 +27,7 @@ Reference: [Introduction of NEO node](introduction.md).
 
 ## Method of switching to test network
 
-1. Copy the contents of the program directory under the `protocal.testnet.json` into ` protocol.json` as shown.
+1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
 ![image](/assets/testnet_1.png)
 

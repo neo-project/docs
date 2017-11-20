@@ -1,37 +1,38 @@
 # sendmany Method
 
-Transfers to a batch of addresses. Change address can be specified.
+Bulk transfer order, and you can specify a change address.
 
 > [!Note]
-> You must open the wallet in the Neo-CLI node before executing this command.
+> You need to open the wallet in the NEO-CLI node before executing this command.
 
-## Parameter Description
+## Parameter description
 
-`\<outputs_array> \[fee=0] \[change_address]`
+\<outputs_array> \[fee=0] \[change_address]
 
-- outputs_array：array. The data structure of each object in the array is as follows: 
+Outputs_array: Array, the data structure of each element in the array is as follows:
 
-  `{"asset": \<asset>,"value": \<value>,"address": \<address>}`
-  - asset: asset ID (asset identifier) , the transaction ID of the RegistTransaction when the asset is  registered.
+​	{"asset": \<asset>,"value": \<value>,"address": \<address>}
 
-    For example, NEO is: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+​	asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
 
-    NeoGas is 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+​	For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
-    For other assets ID, you can either query using the [CLI commands](../cli.md)  `list asset`  or search in the blockchain browser. 
+​	For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-  - value: transfer amount
+   The remaining asset IDs can be passed through the [CLI commandline](../cli.MD), the `list Asset` command query can also be queried in the block chain browser.
 
-  - address: deposit address
 
-- fee: Optional. The default value is 0.
+​	value：Transfer amount
 
-- change_address: Optional. Change address. It is the first standard address in the wallet by default.
+​	address：destination address.
 
+Fee: Handling fee, optional parameter, default is 0.
+
+Change_address: Change address, optional parameter, default is the first standard address in the wallet.
 
 ## Example
 
-Request text:
+Request body：
 
 ```json
 {
@@ -42,7 +43,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
@@ -94,10 +95,8 @@ Response text:
 
 Response Description:
 
-Returning of the transaction details as above indicates the transaction was sent successfully. If not, the transaction has failed to send.
+Returns the transaction details as above to indicate that the transaction was sent successfully or the transaction failed.
 
-If the JSON format is wrong, Parse error is returned.                                                                                                                                         
-
-If the signature is incomplete, the transaction to be signed is returned.
-
+If the JSON format is incorrect, a Parse error is returned.
+If the signature is incomplete, a pending transaction is returned.
 If the balance is insufficient, an error message is returned.

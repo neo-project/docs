@@ -32,18 +32,18 @@ NEO implements a Delegated Byzantine Fault Tolerance consensus algorithm which t
 
 ## 4 - Theory
 
-The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistant message to each recipient.  This is considered the most disasterous situation.  The solution of the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
+The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistent message to each recipient.  This is considered the most disastrous situation.  The solution to the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
 
 For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
 
-For the sake of discussion, we will describe a couple scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanic is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
+For the sake of discussion, we will describe a couple of scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanism is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
 
 
 ### **Honest Speaker**
 
   <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Delegate</b>.</p>
 
-  In **Figure 1**, we have a single loyal **Delegate** (50%).  Both **Delegates** received the same message from the honest **Speaker**.  However, because a **Delegate** is dishonest, the honest Delegate can only determine that there is a dishonest node, but is unable to identify if its the block nucleator (The **Speaker**) or the **Delegate**.  Because of this, the **Delegate** must abstain from a vote, changing the view.
+  In **Figure 1**, we have a single loyal **Delegate** (50%).  Both **Delegates** received the same message from the honest **Speaker**.  However, because a **Delegate** is dishonest, the honest Delegate can only determine that there is a dishonest node, but is unable to identify if it is the block nucleator (The **Speaker**) or the **Delegate**.  Because of this, the **Delegate** must abstain from voting, changing the view.
 
   <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Delegate</b>.</p>
 
@@ -60,12 +60,12 @@ For the sake of discussion, we will describe a couple scenarios.  In these simpl
 
   <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
 
-  In the example posed by **Figure 4**  The blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Delegates**, it would have been validated without the need for a view change.
+  In the example posed by **Figure 4**, the blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Delegates**, it would have been validated without the need for a view change.
 
 
 ## 5 - Practical Implementation
 
-The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
+The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. **Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
 
 Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** honesty.  Between this critical point and 33% **Consensus nodes** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus nodes** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
@@ -131,15 +131,10 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 
 3. The first view `v` of the consensus activity is initialized.
 
-4. The **Speaker** is identified.
+4. The **Speaker** is identified. **Wait** `t` seconds.
+<p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
 
-   <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set. </p>
-
-  **Wait** `t` seconds
-​	
-5. The **Speaker** broadcasts the proposal :
-    <!-- -->
-        <prepareRequest, h, k, p, bloc, [block]sigp>
+5. The **Speaker** broadcasts the proposal : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
      <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
 
@@ -148,16 +143,10 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
     - Is the data format consistent with the system rules?
     - Is the transaction already on the blockchain?
     - Are the contract scripts correctly executed?
-      - Does the transaction only contain a single spend?(i.e. does the transaction avoid a double spend scenario?)
+    - Does the transaction only contain a single spend?(i.e. does the transaction avoid a double spend scenario?)
+    - **If Validated Proposal Broadcast:**  `<prepareResponse, h, k, i, [block]sigi>`
+    - **If Invalidated Proposal Broadcast:**  `<ChangeView, h,k,i,k+1>`
 
-    - **If Validated Proposal Broadcast:**
-        <!-- -->
-            <prepareResponse, h, k, i, [block]sigi>
-
-    - **If Invalidated Proposal Broadcast:**
-        <!-- -->
-            <ChangeView, h,k,i,k+1>
-        ​	
    <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Delegates</b> review the block proposal and respond. </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Delegate** reaches a consensus and publishes a block.
