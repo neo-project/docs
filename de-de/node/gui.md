@@ -323,7 +323,7 @@ Diese Funktion ist zur Zeit noch nicht verfügbar. Bitte warten Sie auf weitere 
 
 ### 4.8 Option
 
-No content yet.
+Wird noch ergänzt.
 
 ## Hilfe
 
