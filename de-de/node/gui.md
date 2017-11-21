@@ -6,14 +6,14 @@
 
 Der NEO-GUI-Client ist kompatibel mit folgenden Windows Versionen: Windows 7(SP1), Windows 8 und Windows 10.
 
-Der Client selbst benötigt keine Installation. Nach dem Herunterladen und Entpacken der Dateien in ein Verzeichnis Ihrer Wahl, öffnet ein Doppelklick auf neo-gui.exe den Client. Sollte es beim Öffnen des Clients Probleme geben, speichern sie die Datei error.log (im gleichen Verzeichnis wie neo-gui.exe) und kontaktieren Sie unsere technischen Mitareiter, die Ihnen helfen, das Problem zu lösen.
+Der Client selbst benötigt keine Installation. Nach dem Herunterladen und Entpacken der Dateien in ein Verzeichnis Ihrer Wahl, öffnet ein Doppelklick auf neo-gui.exe den Client. Sollte es beim Öffnen des Clients Probleme geben, speichern sie die Datei error.log (im gleichen Verzeichnis wie neo-gui.exe) und kontaktieren Sie unsere technischen Mitarbeiter, die Ihnen helfen, das Problem zu lösen.
 
 > [!Anmerkung]
-> Windows 10 Vorabversionen benötigen eine Installation eine Installation des [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+> Bestimmte Windows 10 Vorabversionen benötigen eine Installation eine Installation des [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
 ### Synchronisation
 
-Der Client muss voll synchronisiert sein, bevor er genutzt werden kann. In der unteren linken Ecke wird die Anzahl der synchronisierten Blocks sowie die Gesamtmenge an Blocks angezeigt (s. Bild unten). Diese Zahlen aktualisieren sich laufend.
+Der Client muss voll synchronisiert sein bevor er genutzt werden kann. In der unteren linken Ecke wird die Anzahl der synchronisierten Blocks sowie die Gesamtmenge an Blocks angezeigt (s. Bild unten). Diese Zahlen aktualisieren sich laufend.
 
 ![image](/assets/gui_1.png)
 
@@ -21,11 +21,11 @@ Der Client muss voll synchronisiert sein, bevor er genutzt werden kann. In der u
 
 #### Wallet
 
-Die Wallet-Datei speichert Hinweise auf Ihr NEO, Gas und weitere Accountinformationen in einer Datenbank mit .db3-Endung. Diese Datei ist sehr wichtig und muss sicher gespeichert und werden. Es wird dringend empfohlen, eine Sicherung dieser Datei anzulegen!
+Die Wallet-Datei speichert Hinweise auf Ihr NEO, GAS und weitere Accountinformationen in einer Datenbank mit .db3-Endung. Es wird dringend empfohlen, eine redundante Sicherung dieser Datei anzulegen, da ein Verlust den Totalverlust der Assets mit sich bringen kann!
 
 > [!Wichtig]
 >
-> Der Verlust der Wallet-Datei oder des Wallet-Passworts führt zum Verlust der dazugehörigen Assets. Bitte stellen Sie unbedingt sicher, dass die Wallet-Datei mehrfach gesichert wurde und erinnern sich an das Wallet-Passwort.
+> Der Verlust der Wallet-Datei oder des Wallet-Passworts führt zum Verlust der dazugehörigen Assets. Bitte stellen Sie unbedingt sicher, dass die Wallet-Datei mehrfach gesichert wurde und erinnern sich an das Wallet-Passwort!
 
 #### Account
 
@@ -43,13 +43,13 @@ Accountinformationen beinhalten: Adresse, private Schlüssel, öffentlicher Schl
 
 > [!Wichtig]
 >
-> Unter keinen Umständen darf der private Schlüssel in die Hände anderer geraten, da dies zum Verlust Ihrer Assets führen kann! 
+> Unter keinen Umständen darf der private Schlüssel in die Hände Anderer geraten, da dies zum Verlust Ihrer Assets führen kann! 
 
 #### Assets
 
 Die Assets des Accounts, Asset-Informationen inkl. Asset(NEO/GAS/andere Assets), Assettyp, Kontostand und Herausgeber.
 
-#### Transaktionshistorie
+#### Transaction History
 
 Eine Historie aller Transaktionen des Accounts.
 
@@ -61,204 +61,205 @@ Transfer von Assets zu einer Zieladresse. Wenn NEO transferiert werden, sind bei
 
 Tauscht ein digitales Asset zwischen zwei Parteien aus, wobei beide Parteien die Transaktion bestätigen müssen bevor sie ausgeführt wird.
 
-#### Signatur
+#### Signature
 
 Das Unterzeichnen von Informationen dient der Bestätigungder Information durch den Unterzeichner.
 Für Transaktionen die Assettransfers bzw. Vermögensübertragungen beinhalten ist die Signatur der Beweis dafür, dass beide Parteien mit der Transaktion einverstanden sind.
 
-#### Registrierte Assets
+#### Asset Registration
 
 Kreiert ein neues, usergeneriertes Asset in der NEO-Blockchain. Der User kann dabei den Typ, Namen, Menge etc. des herausgegebenen Assets bestimmen und einem Administrator-Account zuordnen. Es kostet zur Zeit 10.000 GAS ein Asset auf der NEO-Blockchain zu registrieren (Im TestNet ist die Gebühr 1% der Gebühr des MainNets).
 
-#### Assetverteilung
+#### Asset Distribution
 
 Neu kreierte Assets werden in der, durch den Registrator festgelegten Menge, an die Adresse ausgegeben, die das Asset registriert hat. Die Registrierung von Assets verbraucht eine vorgegebene Menge an GAS als Servicegebühr. Die Gebühr beträgt zur Zeit 10.000 GAS (Im TestNet beträgt die Gebühr lediglich 1% vom MainNet).
 
 #### Election
 
-Those who want to be a NEO validator are required to register by election. Through the deposit of a certain amount of NEO, validator qualifications may be obtained. This function is not currently supported. Please wait for further updates.
+Wer eine NEO Bookkeeping Node betreiben möchte, muss sich für die Wahl registrieren. Dafür muss ein bestimmter Betrag GAS (momentan 1000 GAS) gezahlt werden. Nach der Registrierung kann man sich zur Wahl stellen. 
+Diese Funktion wird zur Zeit noch nicht unterstützt. 
 
 #### Vote
 
-Holders of NEO can vote on the validator candidates and this voting mechanism will determine if a validator is selected. This function is not currently supported. Please wait for further updates.
+NEO Halter können NEO Bookkeeping Nodes wählen und der integrierte Wahlmechanismus entscheidet, welche Bookkeeper ausgewählt werden. 
+Diese Funktion wird zur Zeit noch nicht unterstützt.
 
 #### Broadcast
 
-After signing, the transaction information is broadcasted to the entire network, where confirmation by a node, completes the transaction. At the moment, this feature only appears in the signature.
+Die signierten Transaktionsinformationen werden an das gesamte Netzwerk gesendet und von jedem Knoten bestätigt, um die Transaktion abzuschließen. Derzeit wird diese Funktion nur in der Signatur angezeigt.
 
 #### Monitor address
 
-After importing the address of the other party as the monitoring address, you will be able to view the assets at that address.
+Importieren Sie Ihre eigene oder eine fremde Adresse, um diese zu beobachten. Sie können außerdem die zu der Adresse gehörenden Assets sehen.
 
 ## Wallet
-### Create the wallet database
+### Wallet-Datei erstellen
 
-(1) Click on the `wallet`, `create the wallet database`, pop-up `new wallet` page.
+(1) Klicken Sie auf `Wallet`, `New Wallet Database`. Es erscheint ein PopUp `New Wallet`:
 
 ![image](/assets/gui_2.png)
 
-(2) Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
+(2) Klicken Sie auf `Browse` um einen Speicherort und Dateinamen auszuwählen, danach auf `Speichern`:
 
 ![image](/es-es/node/assets/gui/gui_3.png)
 
-(3) Enter `password` and `repeat password` and save your own password.
+(3) Geben Sie Ihr Passwort ein und bestätigen Sie es. Es wird dringend geraten, ein starkes Passwort zu wählen!
 
 ![image](/assets/gui_4.png)
 
-(4) Click `OK` and the wallet will be successfully created, which by default will come with a standard account. It should be noted that due to the role of change mechanism, the remainder of the assets will be transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
+(4) Klicken Sie auf `OK`. Die Wallet wurde nun erfolgreich erstellt. In der Wallet befindet sich nun eine Standard-Adresse. Sie können beliebig viele Adresse pro Wallet-Datei erstellen, die erste Adresse bleibt jedoch immer die Hauptadresse der Wallet. Wechselgeldtransaktionen werden immer auf diese Adresse geleitet, es ist also sinnvoll ein Backup dieser Adresse zu haben.
 
-### Open the wallet database
-(1) Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
+### Öffnen der Wallet-Datei
+(1) Bei jedem Öffnen des Clients müssen Sie nach dem Start zuerst die gewünschte Wallet-Datei öffnen:
 
 ![image](/assets/gui_5.png)
 
-(2) Click `Browse 'to select the wallet (usually the default is the last open wallet), enter the password, click `OK` to enter the wallet.
-It should be noted that when the wallet displays an error, you can try to choose "repair mode" to open the wallet.
+(2) Klicken Sie auf `Browse`, um die gewünschte Wallet auszuwählen (normalerweise ist die letzte geöffnete Wallet vorausgewählt). Geben Sie das Passwort ein und klicken Sie auf `Ok`, um die Wallet zu öffnen.
 
-### Change Password
+### Passwort ändern
 
-Can be used to modify the wallet password.
+Sie können das Passwort Ihrer Wallet-Datei folgendermaßen ändern:
 
 ![image](/assets/gui_6.png)
 
-After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
+Denken Sie daran, nach dem Ändern des Passworts ein neues Backup der Wallet-Datei anzulegen, da die alten Backups noch das alte Passwort enthalten.
 
-### Rebuild the wallet index
+### Wiederherstellen des Wallet-Index 
 
-This option is used to restore errors in the client when an exception occurs. The Wallet Index may need to be rebuilt in the following cases:
+Die Funktion `Rebuild Index` kann genutzt werden, um den Client nach einem Fehler wiederherzustellen. Der Wallet-Index muss in folgenden Fällen wiederhergestellt werden:
 
-1. After the import of a private key.
+1. Nach dem Import eines privaten Schlüssels
 
-2. A transaction that has not been confirmed after a long time.
+2. Wenn eine Transaktion nach langer Zeit noch nicht bestätigt wurde
 
-3. The wallet assets show errors and blockchain data does not match.
+3. Wenn die Assets der Wallet fehlerhaft angezeigt werden und die Daten nicht mit der Blockchain übereinstimmen.
 
-As the current block height is very high, rebuilding the wallet index can take several minutes. Please be patient.
+Da die aktuelle Blockhöhe relativ hoch ist, nimmt der Vorgang einige Minuten in Anspruch.
 
-### Restore the account
+### Account wiederherstellen
 
-This option is used to restore the address of the wallet file that was accidentally deleted and its assets. It should be noted that it is generally not recommended to delete the operation within the client, to avoid loss of assets.
+Die Funktion `Restore Accounts` kann genutzt werden, um Adressen Ihrer Wallet wiederherzustellen, wenn Sie ausversehen eine der Adressen gelöscht haben sollten. Es wird aber darauf hingewiesen, dass generell nicht empfohlen wird Adressen zu löschen, um den Totalverlust von Assets zu vermeiden.
 
-## Trade
+## Handel
 
 ### Transfer
 
 #### Token Asset Transfer
 
-(1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+(1) Klicken Sie auf `transaction`, `transfer`, `+`, und geben Sie die Transferdetails ein:
 
 ![image](/assets/gui_10.png)
 
-(2) Click OK.
+(2) Klicken Sie `Ok`:
 
 ![image](/assets/gui_11.png)
 
-(3) Click OK.
+(3) Klicken Sie `Ok`:
 
 ![image](/zh-cn/node/assets/i.png)
 
-#### Equity asset transfer
+#### Equity Asset Transfer
 
-(1) Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+(1) Klicken Sie auf `transaction`, `transfer`, `+`, und geben Sie die Transferdetails ein:
 
 ![image](/zh-cn/node/assets/j.png)
 
-(2) Click OK.
+(2) Klicken Sie `Ok`:
 
 ![image](/zh-cn/node/assets/k.png)
 
-(3) Click OK, as shown in the display, where more signatures are shown to be required:
+(3) Klicken Sie `Ok`, es wird angezeigt, dass mehrere Signaturen benötigt werden:
 
 ![image](/zh-cn/node/assets/l.png)
 
-(4) Signature function see [signature](#sign).
+(4) Informationen zur Signaturfunktion finden Sie [hier](#sign).
 
-#### Batch transfer
+#### Mehrfachtransaktionen
 
-This function is used to simplify the transfer of the same asset to a different addresses.
+Die `batch transfer` Funktion kann den Transfer von gleichen Assets an mehrere Zieladressen vereinfachen.
 
 ![image](/assets/gui_14.png)
 
-The data format is `address transfer amount` (separated by spaces).
+Das Datenformat ist dabei `"Adresse" "Transferbetrag"` (getrennt durch Leerzeichen):
 
 ![image](/assets/gui_15.png)
 
-It should be noted that the data format should be entered in accordance with the above criteria as extra spaces are likely to lead to transfer failure.
+Es wird darauf hingewiesen, dass das Datenformat in der oben genannten Form eingehalten werden sollte um Transferfehler zu vermeiden.
 
 #### Remarks
 
-This function is used to record the information of the transaction on the NEO block-chain. The [NEO blockchain browser](https://www.antchain.xyz/) can be used to locate transaction information.
+Diese Funktion wird genutzt, um zusätzliche Transaktionsdetails auf der NEO-Blockchain zu speichern. Die zusätzlichen Daten können auch über einen Blockchainexplorer gesucht werden:
 
 ![image](/zh-cn/node/assets/o.png)
 
-At the moment there is no requirement for the message format.
+Zur Zeit gibt es allerdings keinen Bedarf für dieses Nachrichtenformat:
 
 ![image](/zh-cn/node/assets/p.png)
 
-The remarks for the transaction can be found on the [NEO blockchain browser](https://www.antchain.xyz/)
+Die Daten können von außen über einen Blockchainexplorer eingesehen werden:
 
 ![image](/zh-cn/node/assets/oo.png)
 
-### Trade
+### Handel
 
-#### Initiating a deal
+#### Einen Handel einleiten
 
-(1) This transaction requires both parties to initiate a transaction request in order to determine the asset details being sent to the corresponding recipient.
+(1) Für diese Art der Transaktion müssen beide Seiten eine Transaktion einleiten und festlegen, welches Asset in welcher Menge das Gegenüber erhalten soll:
 
 ![image](/assets/gui_18.png)
 
-(2) Click OK to generate the transaction request. We can use the transaction request to obtain details on the terms sent by the corresponding party.
+(2) Klicken Sie auf `Ok` um die Transaktionsanfrage zu generieren. Aus der Transaktionsanfrage sind die Details der Transaktion ersichtlich. 
 
 ![image](/assets/gui_19.png)
 
-#### Merging of the deal
+#### Abschluss des Handels
 
-(1) After closing the initiated transaction request window you will be shown the merge transaction request interface.
+(1) Nach dem Schließen des `transaction request` Fensters erscheint das `merge transaction request` Fenster:
 
 ![image](/assets/gui_20.png)
 
-(2) This causes the other party's transaction request to be displayed. To verify the legitimacy of the other party's request, click verify. Depending the legitimacy of the request, one can either choose to accept or refuse.
+(2) Ihnen wird nun die Transaktionsanfrage des Gegenübers angezeigt. Um die Richtigkeit der Anfrage zu prüfen, klicken Sie auf `verify`. Abhängig von der Richtigkeit können Sie nun auf `accept` oder `refuse` klicken.
 
 ![image](/assets/gui_24.png)
 
-(3) If you choose to accept then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
+(3) Wenn Sie die Transaktion akzeptieren, müssen beide Seiten die Transaktion signieren und veröffentlichen. Weitere Informationen erhalten Sie [hier](#sign). <a id="sign"> </a>
 
 ### Signature
-(1) This causes the transaction sent by the other party to be pasted within the input box. Click on `sign`, and the output data will be generated. At the same time, the `broadcast` button will be displayed.
+(1) Dies kopiert die Transaktionsanfrage Ihres Gegenübers in das Eingabefeld. Klicken Sie auf `sign` um die Output-Daten für die Transaktion zu generieren. Anschließend wird der `broadcast`-Button freigegeben:
 
 ![image](/zh-cn/node/assets/u.png)
 
-(2) Click on `broadcast`, and the transaction will be sent. This transaction is now complete and a transaction ID (TXID) will be shown once the transaction is successful.
+(2) Klicken Sie auf `broadcast`, um die Transaktion zu senden. Die Transaktion ist nun abgeschlossen und eine Transaktions-ID wird angezeigt.
 
 ![image](/assets/gui_30.png)
 
 <a  id="offline"></a>
 
-## Advanced
+## Für Fortgeschrittene
 
-### Download Synchronize data offline
+### Manuelles Herunterladen der Blockchain
 
-In order to speed up network synchronzation you can download a copy of the blockchain up to a certain blockheight.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
+Um die Synchronisation der Blockchain zu beschleunigen, können Sie eine Kopie der Blockchain bis zu einer bestimmten Blockhöhe herunterladen. Das bedeutet, dass der Client anschließend nur den fehlenden Teil der Blockchain synchronisieren muss und nicht die gesamte Blockchain.
 
 **Download**
 
-To begin, download the file located at [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+Downloaden Sie die Datei: [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-**Add**
+**Einfügen**
 
-Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
+Schließen Sie den NEO-GUI-Client und öffnen Sie das ZIP-Archiv. Extrahieren Sie die Datei `chain.acc` wie im Bild gezeigt in den NEO-GUI-Ordner:
 
 ![](/assets/gui_58.png)
 
-**Sync**
+**Synchronisieren**
 
-After re-opening the neo-gui client you will see that the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. As shown in the figure below:  
+Nachdem Sie den NEO-GUI-Client erneut gestartet haben, werden Sie feststellen, dass der Client nun bis zu einem bestimmten Punkt synchronisiert ist und anfängt die fehlenden Blöcke zu synchronisieren:
 
 ![](/assets/gui_59.png)
 
-**Complete**
+**Abschluss**
 
-When synchronized to a certain point, the file (chain.acc) will be deleted and synchronization from the NEO network will continue. As shown in the figure below:
+Nachdem die Blockchain bis zu einem bestimmten Punkt synchronisiert wurde, wird die Datei gelöscht und die Synchronisation setzt sich automatisch fort:
 
 ![](/assets/gui_60.png)
 
@@ -266,77 +267,79 @@ When synchronized to a certain point, the file (chain.acc) will be deleted and s
 
 
 
-### Extraction of GAS
+### GAS Claim Transaktion
 
-GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
+GAS wird mit jedem neuen Block automatisch generiert und den Adressen von NEO Haltern gutgeschrieben. NEO Halter können zu jeder Zeit eine sog. GAS Claim Transaktion starten um das gutgeschriebene GAS den eigenen Assets hinzuzufügen. Momentan hat nur die PC-Version des NEO-GUI Clients eine GAS Claim Funktion.
 
-The specific steps are:
+Schritt für Schritt:
 
-(1) Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
+(1) Transferieren Sie alle NEO Ihrer Wallet an Ihre eigene Adresse. Sobald die Transaktion durchgeführt wurde, können Sie die GAS Claim Funktion aufrufen (Für Details lesen Sie bitte das Whitepaper).
 
-(2) Click `Advanced`, `Claim GAS`, `Claim All`.
+(2) Klicken Sie auf `Advanced`, `Claim GAS`, `Claim All`.
 
 ![image](/assets/gui_37.png)
 
-### Request a certificate
+### Ein Zertifikat beantragen
 
-Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
-Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
+Beachten Sie, dass diese Funktion lediglich eine Zertifikats-Datei anlegt. Der Nutzer muss sich trotzdem an eine Stelle für digitale Zertifikate wenden und sich dort um ein Zertifikat bemühen.
+Klicken Sie auf `Advanced`, `Request certificate`, und füllen Sie das Formular nach den gegebenen Anforderungen aus:
 
 ![image](/assets/gui_39.png)
 
-The generated file will be as shown in the following figure:
+Die generierte Datei wird folgendermaßen angezeigt:
 
 ![image](/zh-cn/node/assets/y.png)
 
-### Registered assets
+### Assets registrieren
 
-There are two types of assets, Token and Share. Using Token as an example, fill in the following:
+Es gibt zwei Arten von Assets: Token und Shares. Im folgenden wird ein Token als Beispiel genutzt. Füllen Sie folgendes Formular aus:
 
 ![image](/assets/gui_43.png)
 
-It should be noted that the registration of assets incurs a significant fee. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
+Es wird darauf hingewiesen, dass die Registrierung von Assets eine hohe Gebühr kostet. Bitte füllen Sie das Formular sorgfältig aus, Fehler können nicht rückgängig gemacht werden.
 
-### Distribute assets
+### Assets verteilen
 
 ![image](/assets/gui_46.png)
 
-It should be noted that the distribution of assets incurs a significant fee. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
+Es wird darauf hingewiesen, dass die Verteilung von Assets eine hohe Gebühr kostet. Bitte füllen Sie das Formular sorgfältig aus, Fehler können nicht rückgängig gemacht werden.
 
-### Deploy Contract
+### Smart Contract veröffentlichen
 
-To be added
+Wird noch ergänzt
 
-### Invoke Contract
+### Smart Contract aufrufen
 
-To be added
+Wird noch ergänzt
 
-### Election
+### Wahlmechanismus
 
-This function is used to register as a NEO blockchain validator candidate.
+Die `Election`-Funktion kann genutzt werden, um sich als Kandidat für NEO Bookkeeping Nodes zu registrieren:
 
 ![image](/assets/gui_57.png)
 
-It should be noted that the election incurs a significant fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
+Es wird darauf hingewiesen, dass die Registrierung eine hohe Gebühr kostet. Bitte füllen Sie das Formular sorgfältig aus, Fehler können nicht rückgängig gemacht werden.
+Diese Funktion ist zur Zeit noch nicht verfügbar. Bitte warten Sie auf weitere Updates.
 
 ### 4.8 Option
 
 No content yet.
 
-## Help
+## Hilfe
 
-### View help
+### Hilfe anzeigen
 
-No content yet.
+Wird noch ergänzt
 
-### Official website
+### Offizielle Webseite
 
+Die offizielle NEO Webseite finden Sie hier: https://neo.org
 The official NEO website is located at: https://neo.org/
 
-### Developers tools
+### Entwicklertools
 
-To be added
+Wird noch ergänzt
 
-### About NEO
+### Über NEO
 
-The version number of the NEO client.
+Die Versionsnummer des NEO Clients.

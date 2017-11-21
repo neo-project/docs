@@ -2,7 +2,7 @@
   href: index.md
 - name: Erste Schritte
   href: getting-started.md
-- name: "Smart Contracts"
+- name: Smart Contracts
   href: sc/introduction.md
   items:
     - name: Einführung
