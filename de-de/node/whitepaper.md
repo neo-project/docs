@@ -54,9 +54,9 @@ Wenn Sie die Zeitintervalle der Blockgenerierung als t festlegen, wird  unter no
 
 4) Nach dem Empfang des Vorschlags senden die Kongressabgeordneten i <𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒, ℎ, 𝑣, 𝑖, <𝑏𝑙𝑜𝑐𝑘> σ𝑖>;
 
-5) Jede Node, der mindestens 𝑛 - 𝑓 <𝑏𝑙𝑜𝑐𝑘> σ𝑖 erhält, erreicht einen Konsens und veröffentlicht einen vollständigen Block.
+5) Jede Node, die mindestens 𝑛 - 𝑓 <𝑏𝑙𝑜𝑐𝑘> σ𝑖 erhält, erreicht einen Konsens und veröffentlicht einen vollständigen Block.
 
-6) Jede Node löscht, nachdem er den vollen Block erhalten hat, die fragliche Transaktion aus seinem Speicher und beginnt die nächste Konsensrunde.
+6) Jede Node löscht, nachdem sie den vollen Block erhalten hat, die fragliche Transaktion aus dem Speicher und beginnt die nächste Konsensrunde.
 
 Es ist erforderlich, dass für alle Konsensnodes mindestens 𝑛 - 𝑓 Nodes in demselben ursprünglichen Zustand sind. Das heißt, für alle Nodes i sind die Blockhöhe h und die Viewanzahl v gleich. Die Konsistenz von h kann durch die Synchronisation der Blöcke erreicht werden,  während die Konsistenz von v durch Ändern der View erreicht werden kann. Die Blocksynchronisierung wird in diesem Artikel nicht behandelt. Überprüfen Sie für die Änderung der View den nächsten Abschnitt.
 
@@ -93,20 +93,15 @@ Vor dem Abschluss der Viewänderung ist die ursprüngliche View v weiterhin gül
 
 ![](~/assets/consensus_flowchart.jpg)
 
-## Fault Tolerance Capacity 
+## Fehlertoleranzkapazität
 
-â€‹Our algorithm provides ð‘“ = âŒŠ (ð‘›âˆ’1) / 3 âŒ‹ fault tolerance to a consensus system that comprises n nodes. This tolerance capacity includes security and usability and is suite for any network environment.
+Unser Algorithmus liefert 𝑓 = ⌊ (𝑛-1) / 3 ⌋ Fehlertoleranz zu einem Konsenssystem, das n Nodes umfasst. Diese Toleranzkapazität umfasst Sicherheit und Benutzerfreundlichkeit und ist für jede Netzwerkumgebung geeignet.
 
-Request data from nodes contain sender signatures, so malicious bookkeeping nodes cannot falsify requests. Instead, they will try to reverse the system status back to the past, forcing the system to fork.
+Die Anforderungsdaten von Nodes enthalten Absendersignaturen, so dass bösartige Bookkeeping Nodes keine Anforderungen fälschen können. Stattdessen werden sie versuchen, den Systemstatus zurück in die Vergangenheit zu setzen, wodurch das System gezwungen wird, zu forken.
 
-Hypothetically, in the network environment of the system, consensus nodes are divided into 3 parts: ð‘… = ð‘…1 âˆª ð‘…2 âˆª ð¹ , and ð‘…1 âˆ© ð‘…2 = âˆ… , ð‘…1 âˆ© ð¹ = âˆ… ï¼Œð‘…2 âˆ© ð¹ = âˆ… . Also hypothetically,
-both R1 and R2 are honest bookkeeping nodes in an information silo that they can only communicate with nodes in their set; F are all malicious nodes in coordination; moreover, the network condition of F allows them to communicate with any node, including R1 and R2.
-If F wishes to fork the system, they have to reach consensus with R1 and publish blocks, and
-then reach a second consensus without informing the R2, revoking the consensus with R1.
-â€‹To reach this, it is necessary that |ð‘…1| + |ð¹| â‰¥ ð‘› âˆ’ ð‘“ and |ð‘…2| + |ð¹| â‰¥ ð‘› âˆ’ ð‘“ .
-In the worst case scenario, |ð¹| = ð‘“â€‹ , i.e. the number of malicious nodes is at the maximum that the system could tolerate the aforementioned relation becomes |ð‘…1| â‰¥ ð‘› âˆ’ 2ð‘“â€‹ and â€‹|ð‘…2| â‰¥ ð‘› âˆ’ 2ð‘“. Added together, |ð‘…1| + |ð‘…2| â‰¥ 2ð‘› âˆ’ 4ð‘“â€‹, which could be simplified as â€‹ð‘› â‰¤ 3ð‘“. Given that ð‘“ = âŒŠ (ð‘›âˆ’1) / 3 âŒ‹, which contradicts with the former, it can be proven that the system cannot be forked within the tolerance range. 
+Hypothetisch sind Konsensusnodes in der Netzwerkumgebung des Systems in 3 Teile unterteilt: 𝑅 = 𝑅1 ∪ 𝑅2 ∪ 𝐹 und 𝑅1 ∩ 𝑅2 = ∅, 𝑅1 ∩ 𝐹 = ∅, 𝑅2 ∩ 𝐹 = ∅. Auch hypothetisch sind sowohl R1 als auch R2 ehrliche Bookkeeping Nodes in einem Informationssilo, die nur mit Nodes in ihrer Gruppe kommunizieren können. F sind alle bösartigen Nodes in Koordination; Darüber hinaus ermöglicht die Netzwerkbedingung von F die Kommunikation mit einer beliebigen Node, einschließlich R1 und R2. Wenn F das System forken möchte, muss es einen Konsens mit R1 erreichen und Blöcke veröffentlichen und dann einen zweiten Konsens erreichen, ohne den R2 zu informieren, wodurch der Konsens mit R1 widerrufen wird. Um dies zu erreichen, ist es notwendig, dass | 𝑅1 | + | 𝐹 | ≥ 𝑛 - 𝑓 und | 𝑅2 | + | 𝐹 | ≥ 𝑛 - 𝑓. Im schlimmsten Fall wird | 𝐹 | = 𝑓, d.h. die Anzahl der böswilligen Nodes ist maximal, so dass das System die oben erwähnte Beziehung tolerieren könnte, dann wird | 𝑅1 | ≥ 𝑛 - 2𝑓 und | 𝑅2 | ≥ 𝑛 - 2𝑓. Zusammen hinzugefügt, | 𝑅1 | + | 𝑅2 | ≥ 2𝑛 - 4𝑓, was als 𝑛 ≤ 3𝑓 vereinfacht werden kann. Da 𝑓 = ⌊ (𝑛-1) / 3 ⌋ ist, was im Widerspruch zu ersterem steht, kann bewiesen werden, dass das System nicht innerhalb des Toleranzbereichs geforkt werden kann.
 
-## Reference 
+## Verweise
 
 [1] Nakamoto S. Bitcoin: A peer-to-peer electronic cash system[J]. 2008. 
 
