@@ -16,10 +16,10 @@
     - name: Consensus
       href: node/whitepaper.md
       items:
-        - name: Consensus Whitepaper
-          href: node/whitepaper.md
-        - name: Consensus Diagram
-          href: node/consensus.md      
+       - name: Consensus Whitepaper
+         href: node/whitepaper.md
+       - name: Consensus Diagram
+         href: node/consensus.md      
 - name: Smart Contracts
   href: sc/introduction.md
   items:
