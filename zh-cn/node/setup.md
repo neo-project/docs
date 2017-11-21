@@ -26,6 +26,8 @@
 ### Windows 系统下的安装方法
 
 在 Windows 系统下安装  .NET Core 非常方便，直接下载运行即可。
+> [!Note]
+> Windows可能还需要安装Microsoft Visual C++ 2015 Redistributable Update 3（https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=53587），否则后面无法启动Neo-CLI。
 
 ### Linux 系统下的安装方法
 
