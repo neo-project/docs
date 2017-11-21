@@ -42,52 +42,52 @@ Wir identifizieren jede Konsensnode mit einer Zahl, beginnend bei 0, die  letzte
 Bei jeder Konsensrunde wird ein neuer Block mit mindestens 𝑛 - 𝑓 Signaturen von Bookkeeping Nodes generiert. Bei der Erzeugung eines Blocks soll eine neue Runde der Konsensbildung beginnen, wobei v = 0 zurückgesetzt wird.
 
 
-###  General Procedures 
+### Allgemeine Verfahren
 
-Set the time intervals of block generation as t, under normal circumstances, the algorithm executes in the following proceduresï¼š
+Wenn Sie die Zeitintervalle der Blockgenerierung als t festlegen, wird  unter normalen Umständen der Algorithmus in den folgenden Prozeduren durchgeführt:
 
-1) A node broadcasts transaction data to the entire network, attached with the sender signature;
+1) Eine Node sendet Transaktionsdaten mit der Absendersignatur an das gesamte Netzwerk.
 
-2) All bookkeeping nodes monitors transaction data broadcasting independently and stores the data in its memory respectively; 
+2) Alle Bookkeeping Nodes überwachen unabhängig die Transaktionsdatenübertragung und speichern die Daten jeweils in ihrem Speicher;
 
-3) After the time t, the speaker sends âŒ©ð‘ƒð‘’ð‘Ÿð‘ð‘Žð‘Ÿð‘’ð‘…ð‘’ð‘žð‘¢ð‘’ð‘ ð‘¡,â„Ž,ð‘£,ð‘,ð‘ð‘™ð‘œð‘ð‘˜,âŒ©ð‘ð‘™ð‘œð‘ð‘˜âŒª<sub>ðœŽð‘</sub>âŒªï¼› 
+3) Nach der Zeit t sendet der Sprecher 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉𝜎𝑝〉；
 
-4) After receiving the proposal, congressmen i send âŒ©ð‘ƒð‘’ð‘Ÿð‘ð‘Žð‘Ÿð‘’ð‘…ð‘’ð‘ ð‘ð‘œð‘›ð‘ ð‘’,â„Ž,ð‘£,ð‘–,âŒ©ð‘ð‘™ð‘œð‘ð‘˜âŒª<sub>ðœŽð‘–</sub>âŒª ;
+4) Nach dem Empfang des Vorschlags senden die Kongressabgeordneten i <𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒, ℎ, 𝑣, 𝑖, <𝑏𝑙𝑜𝑐𝑘> σ𝑖>;
 
-â€‹5) Any node, upon receiving at least ð‘› âˆ’ ð‘“  âŒ©ð‘ð‘™ð‘œð‘ð‘˜âŒª<sub>ðœŽð‘–</sub>, reaches a consensus and publishes a full block;
+5) Jede Node, der mindestens 𝑛 - 𝑓 <𝑏𝑙𝑜𝑐𝑘> σ𝑖 erhält, erreicht einen Konsens und veröffentlicht einen vollständigen Block.
 
-6) Any node, after receiving the full block, deletes the transaction in question from its memory and begins the next round the consensus;
+6) Jede Node löscht, nachdem er den vollen Block erhalten hat, die fragliche Transaktion aus seinem Speicher und beginnt die nächste Konsensrunde.
 
-It is required that, for all the consensus nodes, at least ð‘› âˆ’ ð‘“ nodes are in the same original state. This is to say, for all the nodes i, the block height h and View number v are the same. This is not difficult, consistency of h could be reached by synchronizing the blocks while consistency of v could reached by changing the View. Block synchronizing is not covered in this article. For View change, check next section.
+Es ist erforderlich, dass für alle Konsensnodes mindestens 𝑛 - 𝑓 Nodes in demselben ursprünglichen Zustand sind. Das heißt, für alle Nodes i sind die Blockhöhe h und die Viewanzahl v gleich. Die Konsistenz von h kann durch die Synchronisation der Blöcke erreicht werden,  während die Konsistenz von v durch Ändern der View erreicht werden kann. Die Blocksynchronisierung wird in diesem Artikel nicht behandelt. Überprüfen Sie für die Änderung der View den nächsten Abschnitt.
 
-Nodes, after monitoring the broadcasting and receiving the proposal, shall validate the transactions. They cannot write an illegal transaction in the memory once the latter is exposed. If an illegal transaction is contained in the proposal, this round of consensus will be abandoned and the View change will take place immediately. The validation procedures are as follows:
+Nodes validieren die Transaktionen, nachdem sie das Senden und Empfangen des Vorschlags überwacht haben. Sie können eine illegale Transaktion nicht in den Speicher schreiben, sobald diese freigegeben ist. Wenn eine illegale Transaktion im Vorschlag enthalten ist, wird diese Konsensrunde abgebrochen und die Änderung der View erfolgt sofort. Die Validierungsprozeduren sind wie folgt:
 
-1) Is the data format of the transaction consistent with the system rules? If no, the transaction is ruled illegal;
+1) Stimmt das Datenformat der Transaktion mit den Systemregeln überein? Falls nein, wird die Transaktion für illegal erklärt.
 
-2) Is the transaction already in the blockchain? If yes, the transaction is ruled illegal;
+2) Befindet sich die Transaktion bereits in der Blockchain? Falls ja, wird die Transaktion für illegal erklärt.
 
-3) Are all the contract scripts of the transaction correctly executed? If no, the transaction is ruled illegal;
+3) Werden alle Smart Contract-Skripte der Transaktion korrekt ausgeführt? Falls nein, wird die Transaktion für illegal erklärt.
 
-4) Is there multiple-spend in the transaction? If yes, the transaction is ruled illegal;
+4) Gibt es mehrere Ausgaben in der Transaktion? Falls ja, wird die Transaktion für illegal erklärt.
 
-5) If the transaction had not been ruled illegal in the above procedures, it will be ruled legal;
+5) Wenn die Transaktion in den obigen Verfahren nicht für rechtswidrig erklärt wurde, wird dies gesetzlich geregelt.
 
-### View Change 
+### View Änderung 
 
-If, after 2<sup>ð‘£+1</sup> â‹… ð‘¡ time interval, the nodes i cannot reach a consensus or should they receive proposals that contain illegal transactions, the View Change will take place: 
+Wenn nach einem Zeitintervall von 2𝑣 + 1 ⋅ die Knoten nicht zu einem Konsens gelangen können oder wenn sie Vorschläge erhalten, die illegale Transaktionen enthalten, findet die Viewänderung statt:
 
-1) Given k=1, ð‘£<sub>ð‘˜</sub> = ð‘£ + ð‘˜ ;
+1) Gegeben sei k = 1, 𝑣𝑘 = 𝑣 + 𝑘;
 
-2) Nodes i send View Change request âŒ©ð¶â„Žð‘Žð‘›ð‘”ð‘’ð‘‰ð‘–ð‘’ð‘¤,â„Ž,ð‘£,ð‘–,ð‘£<sub>ð‘˜</sub>âŒª ;
+2) Node i sendet View-Änderungsanforderung <𝐶ℎ𝑎𝑛𝑔𝑒𝑉𝑖𝑒𝑤, ℎ, 𝑣, 𝑖, 𝑣𝑘>;
 
-3) Once any node receives at least ð‘› âˆ’ ð‘“  same v<sub>k</sub> from different i, the View Change is
-completed. Set ð‘£ = ð‘£<sub>ð‘˜</sub> and the consensus making begins;
+3) Sobald eine beliebige Node mindestens 𝑛 - 𝑓 dasselbe vk von verschiedenen i empfängt, ist die Viewänderung abgeschlossen. Setze 𝑣 = 𝑣𝑘 und die Konsensfindung beginnt;
 
-4) If, after 2<sup>ð‘£+1</sup> â‹… ð‘¡ time interval, the View Change is not completed, the k will increase and back to step 2);
+4) Wenn nach 2𝑣 + 1 ⋅ 𝑡 Zeitintervallen die Viewänderung nicht abgeschlossen ist, wird k erhöht und es geht zurück zu Schritt 2);
 
-With the k increasing, the overtime waiting time will increase exponentially, so frequent View Change will be avoided and nodes are urged to reach consistency over v.
+Mit zunehmendem k wird die Wartezeit exponentiell ansteigen, so dass häufige Viewänderungen vermieden werden und Nodes dazu angehalten werden, Konsistenz über v zu erreichen.
 
-Before the completion of View Change, the original View v is still valid, so unnecessary View Change caused by occasional network latency can be avoided. 
+Vor dem Abschluss der Viewänderung ist die ursprüngliche View v weiterhin gültig, sodass unnötige Viewänderungen, die durch gelegentliche Netzwerklatenz verursacht werden, vermieden werden können.
+
 
 ### Flow Chart
 
