@@ -4,7 +4,7 @@
 
 ## 编写单元测试
 
-比如你创建了下面的智能合约，该合约是继承自 FunctionCode 的，包含三个参数，返回值为 int 型。
+比如你创建了下面的智能合约，该合约包含三个参数，返回值为 int 型。
 
 
 ```c#
@@ -13,7 +13,7 @@ using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
 {
-    public class Test1 : FunctionCode
+    public class Test1 : SmartContract
     {
         public static int Main(int a, int b, int c)
         {
@@ -84,7 +84,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 如果智能合约的返回值不是 int 类型，是 bool 或者其它类型，需要将 `engine.EvaluationStack.Peek().GetBigInteger()` 设置为其它值，如图
 
-![](/assets/test_1.jpg)
+![test_1](../../assets/test_1.jpg)
 
 注：该测试方法不适用于互操作服务及存储数据的测试。
 
