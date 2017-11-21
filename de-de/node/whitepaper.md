@@ -31,15 +31,16 @@ Hypothetisch können Nachrichten in diesem System Verlust, Beschädigung, hohen 
 Integrität und Authentizität der Informationsübertragung werden durch Kryptographie sichergestellt. Absender müssen dazu Signaturen an den Hash-Wert der gesendeten Nachricht anhängen. Hier definieren wir: 〈𝑚〉<sub>𝜎𝑖</sub> ist die digitale Signatur der Nachricht m der Node i, während D(m) der Hash-Wert der Nachricht m ist. Ohne besondere Erläuterungen sind alle in diesem Artikel genannten Signaturen Signaturen für den Nachrichten Hash-Wert.
 
 
-## The Algorithm 
+## Der Algorithmus
 
-â€‹Our algorithm ensures security as well as usability. With erroneous nodes in the consensus making no more than âŒŠ (ð‘›âˆ’1) / 3 âŒ‹ , the functionality and stability of the system is guaranteed. In it, ð‘› = |ð‘…| suggests the total number of nodes joined in the consensus making while R stands for the set of consensus nodes. Given ð‘“ = âŒŠ (ð‘›âˆ’1) / 3 âŒ‹ , f stands for the maximum number of erroneous nodes allowed in the system. In fact, the total ledger is maintained by bookkeeping nodes while ordinary nodes do not participate in the consensus making. This is to show the entire consensus making procedures.
+Unser Algorithmus sorgt für Sicherheit und Benutzerfreundlichkeit. Mit fehlerhaften Knoten im Konsens von nicht mehr als ⌊ (𝑛-1) / 3 ⌋ ist die Funktionalität und Stabilität des Systems gewährleistet. Darin schlägt 𝑛 = | 𝑅 | die Gesamtanzahl von Nodes vor, die an der Konsensbildung beteiligt sind, während R für die Menge von Konsensnodes steht. Wenn 𝑓 = ⌊ (𝑛-1) / 3 </s> gegeben ist, steht f für die maximale Anzahl von fehlerhaften Nodes, die in dem System erlaubt sind. Tatsächlich wird die gesamte Blockchain von Bookkeeping Nodes verwaltet, während gewöhnliche Nodes nicht an der Konsensfindung beteiligt sind. 
 
-All consensus nodes are required to maintain a state table to record current consensus status. The data set used for a consensus from its beginning to its end is called a View. If consensus cannot be reached within the current View, a View Change will be required. We identify each View with a number v, starting from 0 and it may increase till achieving the consensus.
+Alle Konsensnodes müssen eine Logdatei unterhalten, um den aktuellen Konsensstatus aufzuzeichnen. Der für einen Konsens von Anfang bis Ende verwendete Datensatz wird als View bezeichnet. Wenn in der aktuellen View kein Konsens erreicht werden kann, ist eine Änderung des View erforderlich. Wir identifizieren jede View mit einer Zahl v, beginnend bei 0, und sie kann sich bis zum Erreichen des Konsenses erhöhen.
 
-â€‹We identify each consensus node with a number, starting from 0, the last node is numbered n âˆ’ 1. For each round of consensus making, a node will play speaker of the house while other nodes play congressmen. The speakerâ€™s number p will be determined by the following algorithm: Hypothetically the current block height is h, then ð‘ = (â„Ž âˆ’ ð‘£) ð‘šð‘œð‘‘ ð‘›, pâ€™s value range will be  0 â‰¤ ð‘ < ð‘› .
+Wir identifizieren jede Konsensnode mit einer Zahl, beginnend bei 0, die  letzte Node ist mit n - 1 nummeriert. Für jede Runde der Konsensfindung wird eine Node Sprecher des Hauses spielen, während andere Nodes Kongressabgeordnete spielen. Die Sprecherzahl p wird durch den folgenden Algorithmus bestimmt: Hypothetisch ist die aktuelle Blockhöhe h, dann ist 𝑝 = (ℎ - 𝑣) 𝑚𝑜𝑑 𝑛, der Wertebereich von p ist 0 ≤ 𝑝 <𝑛.
 
-â€‹A new block will be generated with each round of consensus, with at least ð‘› âˆ’ ð‘“ signatures from bookkeeping nodes. Upon the generation of a block, a new round of consensus making shall begin, resetting v=0.
+Bei jeder Konsensrunde wird ein neuer Block mit mindestens 𝑛 - 𝑓 Signaturen von Bookkeeping Nodes generiert. Bei der Erzeugung eines Blocks soll eine neue Runde der Konsensbildung beginnen, wobei v = 0 zurückgesetzt wird.
+
 
 ###  General Procedures 
 
