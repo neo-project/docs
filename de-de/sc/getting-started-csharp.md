@@ -51,18 +51,18 @@ Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad
 
 **Windows 10 und Windows 8:**
 
-  In der Suche, suche nach System und wähle es aus.
-  Klicke auf die erweiterten Systemeinstellungen.
-  Klicke auf Umgebungsvariablen. In dem Reiter Systemvariablen, suche die Variable PATH und wähle Sie aus. Klicke auf Bearbeiten. Wenn die PATH Variable nicht existiert gehe auf Neu.
-  Im Umgebungsvariable bearbeiten oder Neue System Variable Fenster klicke auf Bearbeiten, definiere den Pfad der variable. Klick auf OK und schließe alle weiteren Fenster mit OK. 
+  In der Suche, suchen Sie nach System und wählen Sie es aus.
+  Klicken Sie nun auf die erweiterten Systemeinstellungen.
+  Klicken Sie nun auf Umgebungsvariablen. In dem Reiter Systemvariablen, suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert gehen Sie auf Neu.
+  Im Umgebungsvariable bearbeiten oder Neue Systemvariable Fenster klicken Sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klicken Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
 
 **Windows 7:**
 
-  Mache einen Rechtsklick auf das Computer Symbol.
-  Wähle Eigenschaften aus dem Menü aus.
-  Wähle die erweiterten Systemeigenschaften aus. 
-  Klicke auf Umgebungsvariablen. In dem Reiter Systemvariablen, suche die Variable PATH und wähle Sie aus. Klicke auf Bearbeiten. Wenn die PATH Variable nicht existiert gehe auf Neu.
-  Im Umgebungsvariable bearbeiten oder Neue System Variable Fenster Klick auf Bearbeiten, definiere den Pfad der variable. Klick auf OK und schließe alle weiteren Fenster mit OK. 
+  Machen Sie einen Rechtsklick auf das Computer Symbol.
+  Wählen Sie Eigenschaften aus dem Menü aus.
+  Wählen Sie die erweiterten Systemeigenschaften aus. 
+  Klicken Sie auf Umgebungsvariablen. In dem Reiter Systemvariablen, suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert gehen Sie auf Neu.
+  Im Umgebungsvariable bearbeiten oder Neue Systemvariable Fenster Klick sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klick Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
 Führen Sie nun die Commandline oder die PowerShell aus und öffnen Sie die neoj.exe. Wenn es keinen Fehler gibt und die Ausgabe die Versionsnummer anzeigt ist die Systemvariablen Konfiguration erfolgreich abgeschlossen. 
