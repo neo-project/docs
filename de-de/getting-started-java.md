@@ -92,6 +92,7 @@ Notiz: Windows 7 SP1 Benutzer bekommen eventuell einen Fehler angezeigt "Unhandl
 
 Wenn die oben genannte Installation fertig ist kannst du damit starten ein Java Projekt mit (z.B. mit Eclipse oder IntelliJ)
 zu erstellen.                                       
+
 Du musst auch noch das AntShares.SmartContract.Framework.jar (das ist das neo compiler project) als eine externe library hinzufügen.
 
 
