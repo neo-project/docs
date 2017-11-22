@@ -28,7 +28,7 @@ Der beste Weg um all diese Schritte umzusetzen ist es die folgenden benötigten 
 1. Herunterladen von Neo´s Node GUI. Im Moment wird empfohlen die BETA developer GUI einzusetzen da diese hilfreiche Extras zum debugging enthält. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Standardmäßig ist die GUI für das Testnet konfiguriert. Dieses wird nach dem Start synchronisiert was mehreren Stunden dauern kann.     
 2. Herunterladen von Neo Framework Library JAR. Die neuste Version befindet sich hier: [Antshares.SmartContract.Framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)   
 3. Laden Sie eine IDE für Java (Optional aber Empfohlen), wie z.B. IntelliJ oder Eclipse herunter.       
-4. Ladn Sie eine IDE für C# herunter: Im Moment muss der neoj compiler noch manuell erstellt werden da es sich noch nicht um einen veröffentlichten Release handelt. Empfohlen wird Visual Studio 2017 da es kostenlos ist.
+4. Laden Sie eine IDE für C# herunter: Im Moment muss der neoj compiler noch manuell erstellt werden, da es sich noch nicht um einen veröffentlichten Release handelt. Empfohlen wird Visual Studio 2017 da es kostenlos ist.
 
 
 ## Entwickler Werkzeuge
