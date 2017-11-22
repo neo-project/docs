@@ -54,7 +54,7 @@ Es werden einige Szenarien diskutiert, in denen wir davon ausgehen, dass jede No
 
 ### **Unehrlicher Speaker** 
 
-  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Abb. 3:</b> Ein n = 3 Beispiel mit einem unehrlichen<b>Speaker</b>. </p>
+  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Abb. 3:</b> Ein n = 3 Beispiel mit einem unehrlichen <b>Speaker</b>. </p>
 
   Im Fall von **Abb. 3** mit einem unehrlichen **Speaker** kommen wir zu dem gleichen Schluss wie in **Bild 1**. Kein **Delegate** ist in der Lage zu bestimmen, welche Node unehrlich ist.
 
@@ -93,7 +93,7 @@ Beachten Sie, dass **Abb. 5** nicht unter 66,66% Consensus Node Ehrlichkeit geht
 
   - `v` : Die View einer **Consensus Node**.  Die View enthält die Gesamtheit an Informationen, die die Node während einer Konsensrunde erhalten hat. Dies beinhaltet die Abstimmung (`prepareResponse` or `ChangeView`) die von allen **Delegates** ausgegeben wird.
 
-  - `k` : Der Index der View `v`. Eine Konsensbildung kann mehrere Konsensrunden benötigen. Beim Konsensversagen wird `k` erhöht und eine neue Konsensrunde beginnt. A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
+  - `k` : Der Index der View `v`. Eine Konsensbildung kann mehrere Konsensrunden benötigen. Beim Konsensversagen wird `k` erhöht und eine neue Konsensrunde beginnt. 
 
   - `p` : Index der **Consensus Node**, die zum **Speaker** gewählt wurde.  Der Mechanismus für diesen Index rotiert durch einzelne **Consensus Nodes**, um zu verhindern, dass ein einzelner Knoten als Diktator innerhalb des Systems fungiert.
      - `p = (h - k) mod (n)`
