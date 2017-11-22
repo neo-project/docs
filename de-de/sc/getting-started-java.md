@@ -2,22 +2,22 @@
 typora-root-url: ..\..
 ---
 
-### Wie man Java verwendet um einen NEO smart contract zu schreiben
+### Wie man Java verwendet um einen NEO Smart Contract zu schreiben
 
-Smart contracts werden in high-level Programmiersprachen wie Java, C#,  Python, Kotlin (usw...) geschrieben und in AVM (Neo´s Virtual Machine bytecode) kompiliert damit sie im NEO Netzwerk lauffähig sind. 
+Smart Contracts werden in high-level Programmiersprachen wie Java, C#,  Python, Kotlin (usw...) geschrieben und in AVM (Neo´s Virtual Machine bytecode) kompiliert damit sie im NEO Netzwerk lauffähig sind. 
 
 Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen. Der Java compiler befindet sich momentan immer noch in der Entwicklung, bis jetzt kann die derzeitige Version (neoj) mit Basis Methoden umgehen. 
 
-Dieser Abschnitt enthält ein Tutorial das Sie bei der Konfiguration des Java development enviroment für NEO smart contracts unterstützt und Ihnen eine Vorstellung gibt wie ein Smart contract project erstellt und kompiliert werden kann. 
+Dieser Abschnitt enthält ein Tutorial das Sie bei der Konfiguration des Java Development Enviroment für NEO Smart Contracts unterstützt und Ihnen eine Vorstellung gibt wie ein Smart Contract Project erstellt und kompiliert werden kann. 
 
 Notizen: Der Prozess enthält folgende Schritte:
 1. Schreibe Java code (.java) für Klassen die FunctionCode oder VerificationCode der Neo Framework Library (JAR) enthalten
-2. Benutze den normalen Java compiler um den Code in Java bytecode (.class) zu kompilieren
-3. Konfiguriere den neoj (C#) compiler der den JVM code in AVM code (neoj.exe in Windows) konvertiert
+2. Benutze den normalen Java Compiler um den Code in Java Bytecode (.class) zu kompilieren
+3. Konfiguriere den neoj (C#) Compiler der den JVM Code in AVM Code (neoj.exe in Windows) konvertiert
 4. Benutze neoj um dein .class file (.avm) zu kompilieren
 5. Laden Sie die Neo Node GUI herunter damit Sie sich mit dem Neo Testnet Network zu verbinden können 
-6. Benutzen Sie ihr .avm script um den smart contract im Netzwerk zu veröffentlichen
-7. Rufen Sie ihr .avm script auf um Ihren smart contract auszuführen
+6. Benutzen Sie ihr .avm Script um den Smart Contract im Netzwerk zu veröffentlichen
+7. Rufen Sie ihr .avm Script auf um Ihren Smart Contract auszuführen
 
 ### Ausführliche Anleitung
 
@@ -42,26 +42,26 @@ Downloaden und installieren:
 
 [Visual Studio Download Addresse](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-Der installations Prozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden das die Checkbox bei `.NET Core cross-platform development` ausgewählt ist da sich ansonsten das neo-vm project im Schritt #3 nicht öffnen lässt. 
+Der installations Prozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden das die Checkbox bei `.NET Core cross-platform development` ausgewählt ist da sich ansonsten das Neo-vm Project im Schritt #3 nicht öffnen lässt. 
 Die Installation braucht zwischen zehn Minuten und einer Stunde. 
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
-### 2. neo-compiler
+### 2. Neo-Compiler
 
 Installations und Konfigurationsschritte: 
 
-Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) project auf Github herunter, öffnen Sie das Project mit Visual Studio 2017, veröffentlichen Sie das neoj project, 
+Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Project auf Github herunter, öffnen Sie das Projekt mit Visual Studio 2017, veröffentlichen Sie das Neoj Project, 
 
-Veröffentlichen Sie den neoj compiler (welcher Java bytecode in AVM bytecode konvertiert)
+Veröffentlichen Sie den Neoj Compiler (welcher Java Bytecode in AVM Bytecode konvertiert)
 
 ![publish NEO compiler neoj](/assets/publish_neo_compiler_neoj.png)
 
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
-Nachdem die Veröffentlichung erfolgreich war wird eine neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
+Nachdem die Veröffentlichung erfolgreich war wird eine Neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
 
-Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die System Variable die unser Betriebssystem benutzt um benötigte ausführbare Dateien in der command line oder dem Terminal window zu finden 
+Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die Systemvariable die unser Betriebssystem benutzt um benötigte ausführbare Dateien in der Command Line oder dem Terminal Window zu finden 
 
 **Windows 10 und Windows 8:**
 
@@ -94,12 +94,12 @@ Notiz: Windows 7 SP1 Benutzer bekommen eventuell einen Fehler angezeigt "Unhandl
 Wenn die oben genannte Installation fertig ist können Sie damit starten ein Java Projekt mit (z.B. mit Eclipse oder IntelliJ)
 zu erstellen.                                       
 
-Sie müssen auch noch das AntShares.SmartContract.Framework.jar (das ist das neo compiler project) als eine externe library hinzufügen.
+Sie müssen auch noch das AntShares.SmartContract.Framework.jar (das ist das neo compiler project) als eine externe Library hinzufügen.
 
 
 ## Kompilieren des Projektes
 
-Alles ist nun soweit um die entry methode die die smart contracts definiert hinzuzufügen. 
+Alles ist nun soweit um die Entry Methode die die Smart Contracts definiert hinzuzufügen. 
 
 ```Java
 import AntShares.SmartContract.Framework.FunctionCode;
@@ -117,10 +117,10 @@ public class HelloWorld extends FunctionCode{
 
 Erstellen Sie das Projekt welches Ihnen als Ausgabe `HelloWorld.class` in deinen Ausgabeordner erstellt. 
 
-Benutzen Sie dann die neoj in der cmd.exe und geben Sie folgenden Befehl ein: 
+Benutzen Sie dann die Neoj in der cmd.exe und geben Sie folgenden Befehl ein: 
 > neoj.exe HelloWorld.class
 
-Wenn der Befehl erfolgreich ausgeführt wurde wird die Datei HelloWorld.avm erzeugt. Diese können Sie nun als smart contract bytecode verwenden. 
+Wenn der Befehl erfolgreich ausgeführt wurde wird die Datei HelloWorld.avm erzeugt. Diese können Sie nun als Smart Contract Bytecode verwenden. 
 
 Für weitere Informationen und Beispiele klicken Sie hier: [Java Examples](https://github.com/neo-project/examples-java)
 
