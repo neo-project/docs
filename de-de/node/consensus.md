@@ -150,7 +150,7 @@ Beachten Sie, dass **Abb. 5** nicht unter 66,66% Consensus Node Ehrlichkeit geht
    <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Abb. 10:</b> Der Konsens ist erreicht und zustimmende <b>Delegates</b> signieren den Block und hängen ihn an die Blockchain </p>
 
 9. Wenn eine **Consensus Node** einen vollen Block erhält, wird die aktuelle View gelöscht und eine neue Konsensbildung beginnt.
-  - `k = 0`
+    - `k = 0`
 
 ---
 
@@ -163,9 +163,9 @@ Wenn die **Consensus Node** sich nach (![timeout](/assets/consensus.timeout.png)
 
   - Sobald eine **Consensus Node** mindestens die Anzahl `s` an Nachrichten erhält, die die gleiche Viewänderung ankündigen, ändert sie die View `v` und startet eine neue Konsensrunde.
 
-​	
+
 
 ## 6 - Verweise
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
+1. [Der 'Byzantine Fault Tolerance' Algorithmus für Blockchains](whitepaper.md)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
