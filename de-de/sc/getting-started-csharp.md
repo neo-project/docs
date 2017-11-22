@@ -63,6 +63,7 @@ Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad
   Wählen Sie die erweiterten Systemeigenschaften aus. 
   Klicken Sie auf Umgebungsvariablen. In dem Reiter Systemvariablen, suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert gehen Sie auf Neu.
   Im Umgebungsvariable bearbeiten oder Neue Systemvariable Fenster Klick sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klick Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
+  
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
 Führen Sie nun die Commandline oder die PowerShell aus und öffnen Sie die neoj.exe. Wenn es keinen Fehler gibt und die Ausgabe die Versionsnummer anzeigt ist die Systemvariablen Konfiguration erfolgreich abgeschlossen. 
