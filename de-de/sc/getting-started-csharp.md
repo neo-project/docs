@@ -4,39 +4,39 @@ typora-root-url: ..\..
 
 ### Wie man C# verwendet um einen NEO Smart Contract zu schreiben
 
-Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen.(Auch wenn wir andere Programmiersprachen wie Java, Kotlin, Go, C/C++, Python, JavaScript und weitere Programmiersprachen unterstützen)
+Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen.(Auch wenn wir andere Programmiersprachen wie Java, Kotlin, Go, C/C++, Python, JavaScript und weitere Programmiersprachen unterstützen.)
 
-Dieser Abschnitt enthält ein Tutorial das Sie bei der Konfiguration des C# Development Enviroment für NEO Smart Contracts unterstützt und Ihnen eine Vorstellung gibt wie ein Smart Contract Project erstellt und kompiliert werden kann. 
+Dieser Abschnitt enthält ein Tutorial, das Sie bei der Konfiguration des C# Development Enviroment für NEO Smart Contracts unterstützt und Ihnen eine Vorstellung gibt, wie ein Smart Contract Project erstellt und kompiliert werden kann. 
 
    > [!Notiz]
-   > Alle Projekte wurden auf Visual Studio 2017 upgedatet, wenn Sie Visual Studio 2015 verweden wollen um ihre Intelligent Contracts zu erstellen beziehen Sie sich bitte auf [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md)
+   > Alle Projekte wurden auf Visual Studio 2017 upgedatet, wenn Sie Visual Studio 2015 verwenden wollen, um ihre Intelligent Contracts zu erstellen, beziehen Sie sich bitte auf [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md)
 
 ## Entwickler Werkzeuge
 
 ### 1. Visual Studio 2017
 
-Wenn Sie bereits Visual Studio 2017 & .NET Cross-Plattform Development auf Ihrem Computer installiert haben können Sie diese Anleitung überspringen. 
+Wenn Sie bereits Visual Studio 2017 & .NET Cross-Plattform Development auf Ihrem Computer installiert haben, können Sie diese Anleitung überspringen. 
 
 Downloaden und installieren: 
 
 [Visual Studio Download Addresse](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-Der installations Prozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden das die Checkbox bei `.NET Core cross-platform development` ausgewählt ist da ansonsten sich das Neo-Vm Project im Schritt #3 nicht öffnen lässt. 
+Der Installationsprozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden, dass die Checkbox bei `.NET Core cross-platform development` ausgewählt ist, da sich ansonsten das Neo-Vm Project im Schritt #3 nicht öffnen lässt. 
 Die Installation braucht zwischen zehn Minuten und einer Stunde. 
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
 ### 2. NeoContractPlugin
 
-Installations Methode:
+Installationsmethode:
 
-Starten Sie Visual Studio 2017, öffnen Sie Werkzeuge, clicken Sie auf Erweiterungen und Updates, klicken Sie auf den Online Reiter auf der linken Seite, suchen Sie noch NEO in der Suchbox, laden Sie das NeoContractPlugin herunter (dieser Schritt benötigt eine Internetverbindung).
+Starten Sie Visual Studio 2017, öffnen Sie Werkzeuge, klicken Sie auf Erweiterungen und Updates, klicken Sie auf den Online Reiter auf der linken Seite, suchen Sie nach NEO in der Suchbox, laden Sie das NeoContractPlugin herunter (dieser Schritt benötigt eine Internetverbindung).
 
 ![download and install NEO smart contract plugin](/assets/download_and_install_smart_contract_plugin.png)
 
 ### 3. Neo-Compiler
 
-Installations und Konfigurationsschritte: 
+Installations- und Konfigurationsschritte: 
 
 Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Project auf Github herunter, öffnen Sie das Projekt mit Visual Studio 2017.
 
@@ -45,28 +45,28 @@ Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Projec
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
 
-Nachdem die Veröffentlichung erfolgreich war wird eine Neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
+Nachdem die Veröffentlichung erfolgreich war, wird eine Neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
 
-Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die System Variable die unser Betriebssystem benutzt um benötigte ausführbare Dateien in der command line oder dem Terminal window zu finden 
+Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die Systemvariable, die unser Betriebssystem benutzt, um benötigte ausführbare Dateien in der command line oder dem Terminal window zu finden. 
 
 **Windows 10 und Windows 8:**
 
-  In der Suche, suchen Sie nach System und wählen Sie es aus.
+  In der Suchoption, suchen Sie nach System und wählen Sie es aus.
   Klicken Sie nun auf die erweiterten Systemeinstellungen.
-  Klicken Sie nun auf Umgebungsvariablen. In dem Reiter Systemvariablen, suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert gehen Sie auf Neu.
-  Im Umgebungsvariable bearbeiten oder Neue Systemvariable Fenster klicken Sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klicken Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
+  Klicken Sie nun auf Umgebungsvariablen. In dem Reiter Systemvariablen suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert, gehen Sie auf Neu.
+  Im "Umgebungsvariable bearbeiten" Menü oder im "Neue Systemvariable" Fenster klicken Sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klicken Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
 
 **Windows 7:**
 
   Machen Sie einen Rechtsklick auf das Computer Symbol.
   Wählen Sie Eigenschaften aus dem Menü aus.
   Wählen Sie die erweiterten Systemeigenschaften aus. 
-  Klicken Sie auf Umgebungsvariablen. In dem Reiter Systemvariablen, suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert gehen Sie auf Neu.
-  Im Umgebungsvariable bearbeiten oder Neue Systemvariable Fenster Klick sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klick Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
+  Klicken Sie auf Umgebungsvariablen. In dem Reiter Systemvariablen, suchen Sie die Variable PATH und wählen Sie diese aus. Klicken Sie auf Bearbeiten. Wenn die PATH Variable nicht existiert, gehen Sie auf Neu.
+  Im "Umgebungsvariable bearbeiten" Menü oder im "Neue Systemvariable" Fenster klicken Sie auf Bearbeiten, definieren Sie den Pfad der Variable. Klicken Sie auf OK und schließen Sie alle weiteren Fenster mit OK. 
   
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
-Führen Sie nun die Commandline oder die PowerShell aus und öffnen Sie die neoj.exe. Wenn es keinen Fehler gibt und die Ausgabe die Versionsnummer anzeigt ist die Systemvariablen Konfiguration erfolgreich abgeschlossen. 
+Führen Sie nun die Commandline oder die PowerShell aus und öffnen Sie die neoj.exe. Wenn es keinen Fehler gibt und die Ausgabe die Versionsnummer anzeigt, ist die Systemvariablen Konfiguration erfolgreich abgeschlossen. 
 
 ![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
@@ -76,18 +76,18 @@ Notiz: Windows 7 SP1 Benutzer bekommen eventuell einen Fehler angezeigt "Unhandl
 
 ## Erstellen des Projektes
 
-Wenn die oben genannte Installation fertig ist können Sie damit starten ein NeoContract Project in Visual Studio 2017 zu erstellen. 
+Wenn die oben genannte Installation fertig ist, können Sie damit starten, ein NeoContract Project in Visual Studio 2017 zu erstellen. 
 
 ![new smart contract project](/assets/new_smart_contract_project.png)
 
-Wenn Sie ein Projekt erstellt haben wird automatisch eine C# Datei erzeugt, das ist die vererbte Standardklasse des SmartContracts wie in folgendem Beispiel gezeigt.
+Wenn Sie ein Projekt erstellt haben, wird automatisch eine C# Datei erzeugt. Das ist die vererbte Standardklasse des SmartContracts wie in folgendem Beispiel gezeigt.
 
 ![smart contract function code](/assets/smart_contract_function_code.png)
 
 
 ## Kompilieren des Projektes
 
-Alles ist nun soweit um die Entry Methode die die Smart Contracts definiert hinzuzufügen.
+Alles ist nun soweit um die Entry Methode, die die Smart Contracts definiert hinzuzufügen.
 
 ```c#
 public class Contract1: SmartContract
