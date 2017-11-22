@@ -4,7 +4,7 @@ typora-root-url: ..\..
 
 ### Wie man Java verwendet um einen NEO Smart Contract zu schreiben
 
-Smart Contracts werden in high-level Programmiersprachen wie Java, C#,  Python, Kotlin (usw...) geschrieben und in AVM (Neo´s Virtual Machine bytecode) kompiliert damit sie im NEO Netzwerk lauffähig sind. 
+Smart Contracts werden in high-level Programmiersprachen wie Java, C#,  Python, Kotlin (usw...) geschrieben und in AVM (Neo´s Virtual Machine Bytecode) kompiliert damit sie im NEO Netzwerk lauffähig sind. 
 
 Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen. Der Java compiler befindet sich momentan immer noch in der Entwicklung, bis jetzt kann die derzeitige Version (neoj) mit Basis Methoden umgehen. 
 
