@@ -9,6 +9,8 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
+    - name: NEO CLI
+      href: node/cli.md
     - name: Graphical User Interface
       href: node/gui.md
     - name: Test Network
