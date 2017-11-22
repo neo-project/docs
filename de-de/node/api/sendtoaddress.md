@@ -1,6 +1,6 @@
 # Sendtoaddress Verfahren
 
-Transferriert an eine bestimmte Adresse.
+Transferiert an eine bestimmte Adresse.
 
 > [!Anmerkung]
 > Sie müssen die Wallet in der NEO-CLI öffnen, um diesen Befehl ausführen zu können.

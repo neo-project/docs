@@ -1,6 +1,6 @@
 # Gettxout Verfahren
 
-Gibt die entsprechende Transaktionsoutput Informationen (zurückgegebene Änderung) basierend auf dem angegebenen Hash und Index zurück.
+Gibt die entsprechenden Transaktionsoutput Informationen (zurückgegebene Änderung) basierend auf dem angegebenen Hash und Index zurück.
 
 ## Parameter Beschreibung
 
