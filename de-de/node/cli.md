@@ -1,4 +1,4 @@
-# CLI Command Referenz
+# CLI Kommandozeilen-Wallet
 
 Öffnen Sie die Kommandozeile und navigieren Sie in den Installationsordner von NEO-CLI. Geben Sie 
 
