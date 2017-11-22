@@ -1,6 +1,6 @@
 # Getblock Verfahren
 
-Die zu einem bestimmten Hashwert gehörenden Blockinformationen werden ausgegeben
+Holt die zu einem bestimmten Hashwert gehörenden Blockinformationen.
 
 ## Parameter Beschreibung
 

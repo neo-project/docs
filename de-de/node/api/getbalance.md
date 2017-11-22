@@ -1,6 +1,6 @@
 # Getbalance Verfahren
 
-Gibt den Kontostand des zugehörigen Assets in der Wallet aus, basierend auf der spezifischen Asset-ID.
+Gibt den Kontostand eines Assets in der Wallet aus, basierend auf der spezifischen Asset-ID.
 
 > [!Anmerkung]
 > Sie müssen die Wallet im NEO-CLI zuerst öffnen, bevor Sie diesen Befehl ausführen.

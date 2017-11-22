@@ -1,6 +1,6 @@
 # Getblock Verfahren
 
-Die zu einem bestimmten Index gehörenden Blockinformationen werden ausgegeben
+Holt die zu einem bestimmten Index gehörenden Blockinformationen.
 
 ## Parameter Beschreibung
 

@@ -1,6 +1,6 @@
 # Getaccountstate Verfahren
 
-Fragt die Assetinformationen der Kontoadresse
+Fragt die Assetinformationen einer Adresse ab.
 
 ## Parameter Beschreibung
 
@@ -8,7 +8,7 @@ Account Addresse: Ein 34-bit langer String, der mit A beginnt, z.B. AJBENSwajTzQ
 
 ## Beispiel
 
-Anfragentext:
+Anfrage:
 
 ```json
 {
@@ -19,7 +19,7 @@ Anfragentext:
 }
 ```
 
-Response Text:
+Antwort:
 
 ```json
 {

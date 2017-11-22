@@ -14,7 +14,7 @@ Die übrigen Asset-IDs können über den `list asset` Befehl in [CLI Command](..
 
 ## Beispiel
 
-Anfragentext:
+Anfrage:
 
 ```json
 {
@@ -25,7 +25,7 @@ Anfragentext:
 }
 ```
 
-Antworttext:
+Antwort:
 
 ```json
 {

@@ -1,6 +1,6 @@
 # Getbestblockhash Verfahren
 
-Gibt den Hashwert des höchsten Blocks der Blockchain aus.
+Holt den Hashwert des höchsten Blocks der Blockchain.
 
 ## Beispiel
 
