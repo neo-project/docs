@@ -8,7 +8,7 @@ Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts ein
 
 Dieser Abschnitt enthält ein Tutorial das Sie bei der Konfiguration des C# development enviroment für NEO smart contracts unterstützt und Ihnen eine Vorstellung gibt wie ein Smart contract project erstellt und kompiliert werden kann. 
 
-   > [!Note]
+   > [!Notiz]
    > Alle Projekte wurden auf Visual Studio 2017 upgedatet, wenn Sie Visual Studio 2015 verweden wollen um ihre intelligent contracts zu erstellen beziehen Sie sich bitte auf [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md)
 
 ## Entwickler Werkzeuge
