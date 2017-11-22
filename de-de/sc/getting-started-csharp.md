@@ -2,14 +2,14 @@
 typora-root-url: ..\..
 ---
 
-### Wie man C# verwendet um einen NEO smart contract zu schreiben
+### Wie man C# verwendet um einen NEO Smart Contract zu schreiben
 
 Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen.(Auch wenn wir andere Programmiersprachen wie Java, Kotlin, Go, C/C++, Python, JavaScript und weitere Programmiersprachen unterstützen)
 
-Dieser Abschnitt enthält ein Tutorial das Sie bei der Konfiguration des C# development enviroment für NEO smart contracts unterstützt und Ihnen eine Vorstellung gibt wie ein Smart contract project erstellt und kompiliert werden kann. 
+Dieser Abschnitt enthält ein Tutorial das Sie bei der Konfiguration des C# Development Enviroment für NEO Smart Contracts unterstützt und Ihnen eine Vorstellung gibt wie ein Smart Contract Project erstellt und kompiliert werden kann. 
 
    > [!Notiz]
-   > Alle Projekte wurden auf Visual Studio 2017 upgedatet, wenn Sie Visual Studio 2015 verweden wollen um ihre intelligent contracts zu erstellen beziehen Sie sich bitte auf [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md)
+   > Alle Projekte wurden auf Visual Studio 2017 upgedatet, wenn Sie Visual Studio 2015 verweden wollen um ihre Intelligent Contracts zu erstellen beziehen Sie sich bitte auf [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md)
 
 ## Entwickler Werkzeuge
 
@@ -21,7 +21,7 @@ Downloaden und installieren:
 
 [Visual Studio Download Addresse](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-Der installations Prozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden das die Checkbox bei `.NET Core cross-platform development` ausgewählt ist da ansonsten sich das neo-vm project im Schritt #3 nicht öffnen lässt. 
+Der installations Prozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden das die Checkbox bei `.NET Core cross-platform development` ausgewählt ist da ansonsten sich das Neo-Vm Project im Schritt #3 nicht öffnen lässt. 
 Die Installation braucht zwischen zehn Minuten und einer Stunde. 
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
@@ -34,18 +34,18 @@ Starten Sie Visual Studio 2017, öffnen Sie Werkzeuge, clicken Sie auf Erweiteru
 
 ![download and install NEO smart contract plugin](/assets/download_and_install_smart_contract_plugin.png)
 
-### 3. neo-compiler
+### 3. Neo-Compiler
 
 Installations und Konfigurationsschritte: 
 
-Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) project auf Github herunter, öffnen Sie das Project mit Visual Studio 2017, veröffentlichen Sie das neoj project, 
+Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Project auf Github herunter, öffnen Sie das Projekt mit Visual Studio 2017.
 
 ![publish NEO compiler msil project](/assets/publish_neo_compiler_msil_project.png)
 
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
 
-Nachdem die Veröffentlichung erfolgreich war wird eine neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
+Nachdem die Veröffentlichung erfolgreich war wird eine Neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
 
 Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die System Variable die unser Betriebssystem benutzt um benötigte ausführbare Dateien in der command line oder dem Terminal window zu finden 
 
@@ -76,7 +76,7 @@ Notiz: Windows 7 SP1 Benutzer bekommen eventuell einen Fehler angezeigt "Unhandl
 
 ## Erstellen des Projektes
 
-Wenn die oben genannte Installation fertig ist können Sie damit starten ein NeoContract project in Visual Studio 2017 zu erstellen. 
+Wenn die oben genannte Installation fertig ist können Sie damit starten ein NeoContract Project in Visual Studio 2017 zu erstellen. 
 
 ![new smart contract project](/assets/new_smart_contract_project.png)
 
@@ -87,7 +87,7 @@ Wenn Sie ein Projekt erstellt haben wird automatisch eine C# Datei erzeugt, das 
 
 ## Kompilieren des Projektes
 
-Alles ist nun soweit um die entry methode die die smart contracts definiert hinzuzufügen.
+Alles ist nun soweit um die Entry Methode die die Smart Contracts definiert hinzuzufügen.
 
 ```c#
 public class Contract1: SmartContract
@@ -99,9 +99,9 @@ public class Contract1: SmartContract
 }
 ```
 
-Wenn der Befehl erfolgreich ausgeführt wurde, sehen Sie eine Datei namens ` SmartContract1.avm` im `bin/Debug` Verzeichnis, diese Datei ist der generierte NEO smart contract.
+Wenn der Befehl erfolgreich ausgeführt wurde, sehen Sie eine Datei namens ` SmartContract1.avm` im `bin/Debug` Verzeichnis, diese Datei ist der generierte NEO Smart Contract.
 
 ![compile smart contract](assets/compile_smart_contract.png)
 
 
-Da Sie nun die Konfiguration des NEO smart contract development environment durchgeführt haben, bitten wir Sie für weitere Informationen folgendes Tutorial zu beachten.  [NEO smart contract tutorial](tutorial.md)
+Da Sie nun die Konfiguration des NEO Smart Contract Development Environment durchgeführt haben, bitten wir Sie für weitere Informationen folgendes Tutorial zu beachten.  [NEO smart contract tutorial](tutorial.md)
