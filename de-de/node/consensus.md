@@ -10,7 +10,7 @@
 
 * **Delegated Byzantine Fault Tolerance** `DBFT` - Ein Konsensalgorithmus, der in der NEO Blockchain eingesetzt wird, um Fehlertoleranz zu gewährleisten
 
-* **View** `v` - Der Datensatz der während der Konsensbildung in  NEO `DBFT` genutzt wird
+* **View** `v` - Der Datensatz, der während der Konsensbildung in  NEO `DBFT` genutzt wird
 
 ## 2 - Rollen
 **Im NEO Konsensalgorithmus werden Consensus Nodes von NEO Haltern gewählt und entscheiden über die Gültigkeit von Transaktionen. Die Consensus Nodes wurden früher "Bookkeepers" genannt**.
@@ -48,7 +48,7 @@ Es werden einige Szenarien diskutiert, in denen wir davon ausgehen, dass jede No
 
   <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Abb. 2:</b> Ein n = 4 Beispiel mit einem unehrlichen <b>Delegate</b>.</p>
 
-  In **Abb. 2** gibt es zwei loyale **Delegates** (66%): Alle **Delegats haben die gleiche Nachricht vom ehrlichen **Speaker** erhalten und senden ihr Validierungsergebnis zusammen mit der Nachricht des **Speaker** zu jedem **Delegate**. Aufgrund des Konsens zwischen den beiden **Delegates** sind wir in der Lage zu ermitteln, dass entweder der **Speaker** oder der rechte **Delegate** unehrlich ist.
+  In **Abb. 2** gibt es zwei loyale **Delegates** (66%): Alle **Delegates** haben die gleiche Nachricht vom ehrlichen **Speaker** erhalten und senden ihr Validierungsergebnis zusammen mit der Nachricht des **Speaker** zu jedem **Delegate**. Aufgrund des Konsens zwischen den beiden **Delegates** sind wir in der Lage zu ermitteln, dass entweder der **Speaker** oder der rechte **Delegate** unehrlich ist.
   
 
 
