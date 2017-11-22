@@ -88,7 +88,7 @@ Führen Sie nun die Commandline oder die PowerShell aus und öffnen Sie die neoj
 Notiz: Windows 7 SP1 Benutzer bekommen eventuell einen Fehler angezeigt "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. Diesen Fehler können Sie durch kopieren der 'api-ms-win-core-console-l2-1-0.dll' in das Verzeichnis C.\Windows\System32 beheben.
 
 
-## Erstelle ein Projekt
+## Erstellen des Projektes
 
 Wenn die oben genannte Installation fertig ist können Sie damit starten ein Java Projekt mit (z.B. mit Eclipse oder IntelliJ)
 zu erstellen.                                       
@@ -96,7 +96,7 @@ zu erstellen.
 Sie müssen auch noch das AntShares.SmartContract.Framework.jar (das ist das neo compiler project) als eine externe library hinzufügen.
 
 
-## Kompiliere das Projekt
+## Kompilieren des Projektes
 
 Alles ist nun soweit um die entry methode die die smart contracts definiert hinzuzufügen. 
 
