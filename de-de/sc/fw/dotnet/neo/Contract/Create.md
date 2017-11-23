@@ -2,7 +2,7 @@
 
 Das Ausführen dieser Methode in einem Smart Contract veröffentlicht einen neuen Contract.
 
-Dies ersetzt die PublicTransaction in Version 2.0.
+Diese Methode ersetzt die PublicTransaction in Version 2.0.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
