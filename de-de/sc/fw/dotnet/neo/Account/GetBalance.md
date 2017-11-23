@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long GetBalance (byte[] asset_id)
 ```
 
-Parameter: Asset ID, die Transaktions ID des RegisterTransaction wenn der Asset registriert wurde. Die Transaktions ID besteht aus einem 32 langen Byte Arry.
+Parameter: Asset ID, die Transaktions ID des RegisterTransaction wenn des Asset registriert wurde. Die Transaktions ID besteht aus einem 32 langen Byte Arry.
 
 Attributwert: Der Gesamtwert des Assets ist so lange, wie der aktuelle Wert multipliziert mit 10,000,000.
 
