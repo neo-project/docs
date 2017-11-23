@@ -1,8 +1,8 @@
 # Asset.Available Eigenschaft
 
-Gibt die Zahl zurück wie oft der Asset ausgeführt wurde.
+Gibt zurück wie oft das Asset ausgeführt wurde.
 
-Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long Available {get;}
 ```
 
-Attributewert: Die Zahl als Long Integer an wie oft der Asset ausgeführt wurde.
+Attributewert: Die Zahl als Long Integer zeigt an wie oft das Asset ausgeführt wurde.
 
 
 
