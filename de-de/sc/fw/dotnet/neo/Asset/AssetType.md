@@ -2,7 +2,7 @@
 
 Gibt den Typ des Assets zurück.
 
-Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
