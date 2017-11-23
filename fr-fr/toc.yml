@@ -1,4 +1,11 @@
-- name: Home
+- name: Accueil
   href: index.md
-- name: Contributors
+- name: Démarrage
+  href: getting-started.md
+- name: Nœud NEO
+  href: node/introduction.md
+  items:
+    - name: Introduction
+      href: node/introduction.md
+- name: Contributeurs
   href: contributors.md
