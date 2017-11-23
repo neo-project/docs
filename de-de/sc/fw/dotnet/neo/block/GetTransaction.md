@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction(int index)
 ```
 
-Parameters: Der Index der Transaktion in dem Block als Integer.
+Parameter: Der Index der Transaktion in dem Block als Integer.
 
 Rückgabewert: Transaktion als ein [Transaction](../Transaction.md) Typ.
 
