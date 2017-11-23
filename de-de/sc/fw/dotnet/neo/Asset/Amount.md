@@ -2,7 +2,7 @@
 
 Gibt den Gesamtwert des Vermögenswerts zurück.
 
-Namesraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
