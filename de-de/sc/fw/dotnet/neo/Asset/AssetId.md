@@ -2,7 +2,7 @@
 
 Gibt die ID des Vermögenswertes zurück.
 
-Namesraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
