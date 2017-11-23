@@ -1,6 +1,6 @@
 # Asset.Available Eigenschaft
 
-Gibt die Zahl zurück wie oft der Vermögenswert ausgestellt wurde.
+Gibt die Zahl zurück wie oft der Asset ausgeführt wurde.
 
 Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long Available {get;}
 ```
 
-Attributewert: Die Zahl der ausgestellten Vermögenswerte als Long Integer.
+Attributewert: Die Zahl als Long Integer an wie oft der Asset ausgeführt wurde.
 
 
 
