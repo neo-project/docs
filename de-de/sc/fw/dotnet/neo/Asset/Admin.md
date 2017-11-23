@@ -1,6 +1,6 @@
 # Asset.ScriptHash Eigenschaft
 
-Gibt als Wert den Administrator (Contract Address) des Vermögenswertes zurück. Der Administrator hat das Recht Attribute des Vermögenswertes zu ändern (z.B. total Amount, name, etc.).
+Gibt als Wert den Administrator (Contract Address) des Assets zurück. Der Administrator hat das Recht Attribute des Assets zu ändern (z.B. total Amount, name, etc.).
 
 Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
