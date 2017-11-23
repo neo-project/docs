@@ -1,6 +1,6 @@
 # Asset.AssetType Eigenschaft
 
-Gibt den Typ des Vermögenswertes zurück.
+Gibt den Typ des Assets zurück.
 
 Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern byte AssetType {get;}
 ```
 
-Attributwert: Die aufgezählten Werte einer Vermögensklasse (nicht die aufgezählten Namen).
+Attributwert: Die aufgezählten Werte des Assets (nicht die aufgezählten Namen).
 
-Die Aufzählung der Vermögensklasse sieht wie folgt aus: 
+Die Aufzählung der Assetklasse sieht wie folgt aus: 
 
 ```c#
 public enum AssetType: byte
