@@ -2,7 +2,7 @@
 
 Erhalte den Wert eines angegebenen Vermögenswert in einem Account anhand der Asset ID.
  
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namesraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -14,7 +14,7 @@ public extern long GetBalance (byte[] asset_id)
 
 Parameter: Asset ID, die Transaktions ID des RegisterTransaction wenn der Vermögenswert registriert wurde. Die Transaktions ID besteht aus einem 32 langen Byte Arry.
 
-Zurückgegebener Wert: Der Wert eines Vermögenswertes ist so lange wie der aktuelle Wert multipliziert mit 100,000,000.
+Zurückgegebener Wert: Der Wert eines Vermögenswertes ist so groß wie der aktuelle enthaltene Wert multipliziert mit 100,000,000.
 
 ## Beispiel
 
