@@ -5,32 +5,32 @@ Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API kann man kan
 
 1. Blockchain ledger. Der Smart Contract kann mithilfe Kompatibilitätsschicht auf alle Daten der Blockchain inklusive aller Blockchain Blöcke, Transaktionen und dessen Eigenschaftenfelder zugreifen.
 
-2. Persistenter Speicher. Jeder Apllication Contract auf NEO Basis hat einen Datenspeicher dieser auf diesen nur der Contract selbst zugreifen kann. Diese Methode kann auf die Daten im Contract zugreifen.
+2. Persistenter Speicher. Jeder Application Contract auf NEO Basis hat einen Datenspeicher dieser auf diesen nur der Contract selbst zugreifen kann. Diese Methode kann auf die Daten im Contract zugreifen.
 
-Anmerkung: Die Tags `Neu`und `Veraltet`in diesem Artikel sind Änderungen von der Version 1.6 auf die Version 2.0.
+Anmerkung: Die Tags `Neu` und `Veraltet` in diesem Artikel sind Änderungen von der Version 1.6 auf die Version 2.0.
 
 ## Klasse
 
 | | Klasse | Beschreibung |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](neo/Account.md)          | A class representing the Account, providing a method to query the balance.      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](neo/Account.md)          | Eine Klasse die den Account darstellt und es ermöglicht den Saldo abzurufen.     |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](neo/Asset.md)              | A class representing an asset and its data structure.         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](neo/Block.md)              | A class representing a block, provides methods to query transactions in the block.  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](neo/Blockchain.md)    | Provides a set of methods for accessing blockchain data.    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](neo/Contract.md)        | A class representing a contract.                |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `New` Represents the data structure of the registration transaction of a bookkeeper. |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)            | Represents the data structure of a block header           |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](neo/Runtime.md)          | `New` Provides a set of methods during smart contract execution   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Provides a set of methods to insert, query, or delete data of a persistent store   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md) | `New` A class representing storage context of the persistent store  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)  |  The base class representing the transaction            |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | The data structure representing the transaction attributes          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | The data structure representing the transaction inputs         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](neo/TransactionOutput.md) | The data structure representing the transaction outputs         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](neo/Validator.md)      | `New` Provides a set of methods for consensus nodes      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](neo/Block.md)              | Eine Klasse die einen Block darstellt und die Methoden zum Abfragen von Transaktionen in dem Block bereitstellt. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](neo/Blockchain.md)    | Stellt mehrere Methoden da um auf die Blockchain Daten zuzugreifen.|
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](neo/Contract.md)        | Eine Klasse die den Contract darstellt.                |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `Neu` Stellt die Datenstruktur einer Registrierungstransaktion eines Buchhalters dar.  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)            | Stellt die Datenstruktur eines Block Headers dar.|
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](neo/Runtime.md)          | `Neu` Stellt mehrere Methoden dar die während einer Smart Contract Execution genutzt werden können.|
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Stellt mehrere Methoden da um Daten im persistenten Speicher einzufügen, abzurufen oder zu löschen.  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md) | `Neu` Eine Klasse die den Zusammenhang des persistenten Speicher darstellt.  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)  |  Die Basisklasse einer Transaktion.            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | Die Datenstruktur der Transaktions Eigenschaften.          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | Die Datenstruktur der Transaktions Eingaben         |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](neo/TransactionOutput.md) |Die Datenstruktur der Transaktions Ausgaben|
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](neo/Validator.md)      | `Neu` Stellt mehrere Methoden für die Konsensknoten dar.    |
 
-## Enumeration
+## Aufzählung
 
-|  | Enumeration | Description |
+|  | Aufzählung | Beschreibung |
 | ---------------------------------------- | ---------------------------------------- | ----------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContext](neo/StorageContext2.md) | `Deprecated`  Represents the enum of the storage context. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContext](neo/StorageContext2.md) | `Veraltet`  Stellt die Aufzählung des Datenkontext bereit. |
