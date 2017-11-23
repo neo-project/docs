@@ -14,7 +14,7 @@ public extern long GetBalance (byte[] asset_id)
 
 Parameter: Asset ID, die Transaktions ID des RegisterTransaction wenn der Vermögenswert registriert wurde. Die Transaktions ID besteht aus einem 32 langen Byte Arry.
 
-Zurückgegebener Wert: Der Wert eines Vermögenswertes ist so groß wie der aktuelle enthaltene Wert multipliziert mit 100,000,000.
+Attributwert: Der Gesamtwert des Vermögenswertes ist so lange, wie der aktuelle Wert multipliziert mit 10,000,000.
 
 ## Beispiel
 
