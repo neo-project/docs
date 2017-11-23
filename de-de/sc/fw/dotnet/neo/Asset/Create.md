@@ -1,6 +1,6 @@
 # Asset.CreateAsset Methode (byte, string, long, byte, byte[], byte[], byte[])
 
-Diese Methode regisstiert ein Asset in der Neo Blockchain
+Diese Methode registriert ein Asset in der Neo Blockchain.
 
 Diese Methode ersetzt die RegisterTransaction in der Version 2.0.
 
@@ -26,11 +26,11 @@ precision: Die kleinste Teilbarkeit des Assets，oder die Nummer der Dezimalstel
 
 owner: Der öffentliche Schlüssel des Eigentümers als Byte Array mit einer länge von 33.
 
-admin: Die Contract Address des Adminstrators als Byte Array mit einer Länge von 20.
+admin: Die Contract Address des Administrators als Byte Array mit einer Länge von 20.
 
 issuer: Die Contract Address des Ausstellers als Byte Array mit einer länger von 20.
 
-Return value: Das neu registierte Asset als ein [Asset](../Asset.md) Objekt.
+Return value: Das neu registrierte Asset als ein [Asset](../Asset.md) Objekt.
 
 ## Beispiel
 
