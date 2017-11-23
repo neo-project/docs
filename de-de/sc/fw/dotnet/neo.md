@@ -7,11 +7,11 @@ Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API kann man kan
 
 2. Persistenter Speicher. Jeder Apllication Contract auf NEO Basis hat einen Datenspeicher dieser auf diesen nur der Contract selbst zugreifen kann. Diese Methode kann auf die Daten im Contract zugreifen.
 
-Note: The `New` and `Deprecated` tags in this article are the changes to version 2.0 relative to version 1.6.
+Anmerkung: Die Tags `Neu`und `Veraltet`in diesem Artikel sind Änderungen von der Version 1.6 auf die Version 2.0.
 
-## Class
+## Klasse
 
-| | Class | Description |
+| | Klasse | Beschreibung |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](neo/Account.md)          | A class representing the Account, providing a method to query the balance.      |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](neo/Asset.md)              | A class representing an asset and its data structure.         |
