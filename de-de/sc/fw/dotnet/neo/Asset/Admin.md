@@ -2,7 +2,7 @@
 
 Gibt als Wert den Administrator (Contract Address) des Assets zurück. Der Administrator hat das Recht Attribute des Assets zu ändern (z.B. total Amount, name, etc.).
 
-Namenraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
