@@ -2,9 +2,9 @@
 
 Für die Erneuerung von Assets. 
 
-Diese Methode ist neu in Version 2.0, nach der registrierung muss man für das Asset eine Jähliche Gebühr bezhalen. Falls diese Gebühr nicht bezhalt wird wird das Asset in den frozen state versetzt.
+Diese Methode ist neu in Version 2.0, nach der Registrierung muss man für das Asset eine jähliche Gebühr bezahlen. Falls diese Gebühr nicht bezhalt wird, wird das Asset in den frozen state versetzt.
 
-Wenn das Asset abgelaufen ist ist es notwendig das Asset zu erneuern. Wenn das Asset sich nicht im Zustand frozen befindet und erneuert wird wird das Datum ab dem Ablaufdatum ereuert. Wenn sich das Asset im Zustand frozen befindet wird eine Erneuerung ab dem Datum des bezahlens durchgeführt. Sodass es keinen Verzug beim erneuern geben kann.
+Wenn das Asset abgelaufen ist, ist es notwendig das Asset zu erneuern. Wenn das Asset sich nicht im Zustand frozen befindet und erneuert wird, wird das Datum ab dem Ablaufdatum erneuert. Wenn sich das Asset im Zustand frozen befindet, wird eine Erneuerung ab dem Datum des bezahlens durchgeführt. Durdurch kann es keinen Verzug beim erneuern geben.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -16,9 +16,9 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Renew (byte years)
 ```
 
-Paratmeter: Erneuerungszeitraum, ein Jahr ist gleich 2,000,000 Blocks, Byte Type.
+Parameter: Erneuerungszeitraum, ein Jahr ist gleich 2,000,000 Blocks, Byte Type.
 
-Rückgabewert: Die Höhe der Blocks bis wohin das Asset benutzt werden kann nachdem es erneuert wurde.
+Rückgabewert: Die Höhe der Blocks bis wohin das Asset nach der Erneuerung benutzt werden kann.
 
 ## Example
 
