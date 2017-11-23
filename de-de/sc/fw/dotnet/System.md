@@ -7,6 +7,6 @@ Der System Namensraum ist die API die von der Smart Contract Execution Engine (N
 
 | | Klasse | Beschreibung |
 | ---------------------------------------- | ---------------------------------------- | -------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [ExecutionEngine](System/ExecutionEngine.md) |Stellt die Execution Engine der Virtuellen Maschine da und erlaubt Zugriff auf die Aufrufe des Smart Contract und den Ausführungscontainer. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [ExecutionEngine](System/ExecutionEngine.md) |Stellt die Execution Engine der Virtuellen Maschine da und erlaubt Zugriff auf die Aufrufe und den Ausführungscontainer des Smart Contract. |
 
 
