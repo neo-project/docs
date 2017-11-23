@@ -20,7 +20,7 @@ asset_type: Ein Asset Typ als ein Byte. Für Details klicken Sie bitte hier [Ass
 
 name: Der Name eines Asset als String
 
-amount: Der Wert eines Assets als Long. Der Eingabewert sollte hier mit 10,000,000 eingeben werden.
+amount: Der Wert eines Assets als Long. Der Eingabewert sollte hier mit Multiplikator 10,000,000 eingeben werden.
 
 precision: Die kleinste Teilbarkeit des Assets，oder die Nummer der Dezimalstellen die das Asset als Byte kennen soll.
 
