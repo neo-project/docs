@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Admin {get;}
 ```
 
-Attributewert: Byte Array mit einer Länge von 20. 
+Attributwert: Byte Array mit einer Länge von 20. 
 
 
 
