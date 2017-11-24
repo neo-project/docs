@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] PublicKey {get;}
 ```
 
-Attribut Wert: Der öffentlichen Schlüssel des Bookkeeper als Byte Array mit einer Länge von 33.
+Attributwert: Der öffentlichen Schlüssel des Bookkeeper als Byte Array mit einer Länge von 33.
 
 
 
