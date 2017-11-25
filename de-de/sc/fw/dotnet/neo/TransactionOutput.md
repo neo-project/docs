@@ -1,6 +1,6 @@
 # TransactionOutput Klasse
 
-Die Datenstruktur wird benutzt um die Transactionsausgabe darzustellen. Die Transactionausgabe hat drei Felder.
+Die Datenstruktur wird benutzt um die Transactionausgabe darzustellen. Die Transactionausgabe hat drei Felder.
 
 1. Typ des Assets
 2. Zieladresse
