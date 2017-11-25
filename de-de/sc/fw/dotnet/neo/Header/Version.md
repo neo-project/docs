@@ -1,6 +1,6 @@
 # Header.Version Eigenschaften
 
-Gibt die Versionnummer des Blocks zurück.
+Gibt die Versionsnummer des Blocks zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Version {get;}
 ```
 
-Attributwert: Versionnummer als ein Unsigned Integer.
+Attributwert: Versionsnummer als ein Unsigned Integer.
 
 
 
