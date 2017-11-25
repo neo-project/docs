@@ -1,6 +1,5 @@
 # Blockchain.GetHeader Method (uint)
 
-Returns a block header given a block height.
 Gibt einen Block Header anhand der Block Height zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
