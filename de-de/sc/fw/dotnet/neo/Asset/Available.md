@@ -1,4 +1,4 @@
-# Asset.Available Eigenschaft
+# Asset.Available Eigenschaften
 
 Gibt zurück wie oft das Asset ausgeführt wurde.
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long Available {get;}
 ```
 
-Attributewert: Die Zahl als Long Integer zeigt an wie oft das Asset ausgeführt wurde.
+Attributwert: Die Zahl als Long Integer zeigt an wie oft das Asset ausgeführt wurde.
 
 
 
