@@ -1,6 +1,6 @@
 # Asset.Issuer Eigenschaften
 
-Gibt den Aussteller (Contract Address) des Assets zurück. Der Aussteller hat das Recht Assets auszustellen.
+Gibt den Aussteller (Contract Address) des Assets zurück. Der Aussteller hat das Recht das Asset auszuführen.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
