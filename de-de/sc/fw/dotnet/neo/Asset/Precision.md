@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte Precision {get;}
 ```
 
-Attributwert: Byte Array mit einer länge von 20.
+Attributwert: Byte Array mit einer Länge von 20.
 
 
 
