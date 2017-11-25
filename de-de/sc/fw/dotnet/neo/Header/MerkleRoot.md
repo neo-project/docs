@@ -1,6 +1,6 @@
 # Header.MerkleRoot Eigenschaften
 
-Gibt die Merkle Tree Root für alles Transaktionen einem Block aus.
+Gibt die Merkle Tree Root für alle Transaktionen einem Block aus.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
