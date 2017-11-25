@@ -14,13 +14,13 @@ Assembly: Neo.SmartContract.Framework
 ```c#
 public enum StorageContext: byte
 {
-     Current = 1,
-     CallingContract = 2,
-     EntryContract = 4
+     Current = 1,
+     CallingContract = 2,
+     EntryContract = 4
 }
 ```
 
-Enumerationwert: 2.
+Enumerationswert: 2.
 
 
 
