@@ -1,6 +1,5 @@
 # Blockchain.GetTransaction Methode (byte[])
 
-Returns a transaction given a transaction ID.
 Gibt eine Transaktion auf Basis der Transaction ID zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
