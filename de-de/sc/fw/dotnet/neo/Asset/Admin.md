@@ -1,4 +1,4 @@
-# Asset.ScriptHash Eigenschaft
+# Asset.ScriptHash Eigenschaften
 
 Gibt als Wert den Administrator (Contract Address) des Assets zurück. Der Administrator hat das Recht Attribute des Assets zu ändern (z.B. total Amount, name, etc.).
 
