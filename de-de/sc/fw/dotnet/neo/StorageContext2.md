@@ -1,6 +1,6 @@
 # StorageContext Enumeration
 
-Wird benutzt um die Enumeration dess Private Store Storage Context darzustellen.
+Wird benutzt um die Enumeration des Private Store Storage Context darzustellen.
 
 > [!Achtung]
 > Anmerkung: Veraltet in der Version 2.0.
