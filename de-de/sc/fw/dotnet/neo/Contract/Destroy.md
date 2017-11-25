@@ -1,6 +1,6 @@
 # Contract.Destroy Methode ()
 
-Löschung von Smart Contracts. Der Smart Contract der auf der Blockchain veröffentlicht wurde kann nicht von Aussen gelöscht werden, wenn der Contract gelöscht werden soll muss die Logik bereits während der Entwicklung beachtet werden.
+Löschung von Smart Contracts. Der Smart Contract der auf der Blockchain veröffentlicht wurde kann nicht von außen gelöscht werden, wenn der Contract gelöscht werden soll muss die Logik bereits während der Entwicklung beachtet werden.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -17,15 +17,15 @@ public static extern void Destroy()
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         var height = Blockchain.GetHeight();
-         var block = Blockchain.GetBlock(height);
-         if (block.Timestamp > 1514736000) // Beijing time 2018-1-1
-         {
-             Neo.SmartContract.Framework.Services.Neo.Contract.Destroy();
-         }
-     }
+     public static void Main()
+     {
+         var height = Blockchain.GetHeight();
+         var block = Blockchain.GetBlock(height);
+         if (block.Timestamp > 1514736000) // Beijing time 2018-1-1
+         {
+             Neo.SmartContract.Framework.Services.Neo.Contract.Destroy();
+         }
+     }
 }
 ```
 
