@@ -1,6 +1,6 @@
 # Smart Contract .NET framework
 
-Das .NET Framework ist eine Datenkapselung der Smart Contract API sodass .NET Programmierer mithilfe von Klassen, Methoden und Eigenschaften von .NET direkt mit der API interagieren können umso Daten, Speicherdaten und mehr zu erhalten.
+Das .NET Framework ist eine Datenkapselung der Smart Contract API sodass .NET Programmierer mithilfe von Klassen, Methoden und Eigenschaften von .NET direkt mit der API interagieren können, umso Daten, Speicherdaten und mehr zu erhalten.
 
 ## Kompatibilitätsschicht Methoden
 
@@ -9,16 +9,16 @@ Der Namensraum der Kompatibilitätsschicht ist in `Neo.SmartContract.Framework.S
 | Namensraum                 | Beschreibung                             |
 | -------------------------- | ---------------------------------------- |
 | [Neo](dotnet/neo.md)       | Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API kann man kann man auf Blockchaindaten zugreifen und diese verändern. |
-| [System](dotnet/system.md) | Der System Namensraum ist die API der Smart Contract Execution Engine (NeoVM), mithilfe der API kann man auf die Ausführungsumgebung zugreifen. |
+| [System](dotnet/system.md) | Der Systemnamensraum ist die API der Smart Contract Execution Engine (NeoVM), mithilfe der API kann man auf die Ausführungsumgebung zugreifen. |
 
 
-## Framework Methoden
+## Frameworkmethoden
 
-Ergänzend zu den Aufrufs Methoden der Kompatibilitätsschicht gibt es noch Smart Contract Aufrufs Methoden die von dem Framework unterstützt werden. Diese Methoden befinden sich im `Neo.SmartContract.Framework´ und können direkt mit einem Smart Contract ausgeführt werden.
+Ergänzend zu den Aufrufsmethoden der Kompatibilitätsschicht gibt es noch Smart Contract Aufrufs Methoden die von dem Framework unterstützt werden. Diese Methoden befinden sich im `Neo.SmartContract.Framework´ und können direkt mit einem Smart Contract ausgeführt werden.
 
 ### SmartContract Klassenmethoden
 
-Die `SmartContract` Klasse stellt Verschlüsslungs Algorithmen und Signatur Methoden bereit.
+Die `SmartContract` Klasse stellt Verschlüsslungsalgorithmen und Signaturmethoden bereit.
 
 |                                          | Name                                     | Beschreibung                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -30,10 +30,10 @@ Die `SmartContract` Klasse stellt Verschlüsslungs Algorithmen und Signatur Meth
 
 ### Byte Array Helper Methods
 
-Die unten genannten Methoden sind Hilfsmethoden für die Byteanordnung. Die Methoden werden durch das .NET Framework´s Helper Klassen bereitgestellt.
+Die unten genannten Methoden sind Hilfsmethoden für die Byteanordnung. Die Methoden werden durch die .NET Framework´s Helper Klassen bereitgestellt.
 
 |                                          | Name                         | Beschreibung                             |
 | ---------------------------------------- | ---------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Verknüpft 2 byte arrays                |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Gibt einen Teil der byte array Parameter zurück: index, count |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Verknüpft 2 Byte Arrays                |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Gibt einen Teil der Byte Array Parameter zurück: index, count |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | Gibt die Bytes ganz links vom Byte Array zurück Parameter: count |
