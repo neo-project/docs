@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] AssetId {get;}
 ```
 
-Attributwert: Asset ID als Byte Array mit einer länge von 32.
+Attributwert: Asset ID als Byte Array mit einer Länge von 32.
 
 
 
