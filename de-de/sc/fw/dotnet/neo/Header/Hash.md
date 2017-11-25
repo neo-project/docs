@@ -1,0 +1,19 @@
+# Header.Hash Eigenschaften
+
+Gibt den Hash des Blockes zurück.
+
+Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+
+Assembly: Neo.SmartContract.Framework
+
+## Syntax
+
+```c#
+public extern byte[] Hash {get;}
+```
+
+Attributwert: Hash des Blockes als Byte Array mit einer Länge von 32.
+
+
+
+[Back](../header.md)
