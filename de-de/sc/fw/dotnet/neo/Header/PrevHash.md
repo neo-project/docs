@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] PrevHash {get;}
 ```
 
-Attributwert: Hashdes vorhergehenden Blocks als Byte Array mit einer Länge von 32.
+Attributwert: Hash des vorhergehenden Blocks als Byte Array mit einer Länge von 32.
 
 
 
