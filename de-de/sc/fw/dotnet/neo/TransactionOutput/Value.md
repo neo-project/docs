@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long value {get;}
 ```
 
-Attributwert: Gesamtwert als Long Intger, der aktuelle Gesamtwert wird mulitpliziert mit 100,000,000 zurückgegeben.
+Attributwert: Gesamtwert als Long Intger, der aktuelle Gesamtwert wird multipliziert mit 100,000,000 zurückgegeben.
 
 
 
