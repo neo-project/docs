@@ -21,7 +21,7 @@ public class Asset
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](Asset/AssetId.md) | Gibt die ID des Assets zurück. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetType](Asset/AssetType.md) | Gibt den Typ des Assets zurück. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Available](Asset/Available.md) | Gibt zurück wie oft das Asset ausgeführt wurde. |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Issuer](Asset/Issuer.md) | Ribt den Aussteller (Contract Address) des Assets zurück. Der Aussteller hat das Recht das Asset auszuführen |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Issuer](Asset/Issuer.md) | Gibt den Aussteller (Contract Address) des Assets zurück. Der Aussteller hat das Recht das Asset auszuführen |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Owner](Asset/Owner.md) | Gibt den öffentlichen Schlüssel vom Besitzer des Assets zurück. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | Gibt die kleinste Stelle oder die Anzahl der Dezimalstellen des Assets zurück. |
 
