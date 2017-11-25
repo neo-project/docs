@@ -1,4 +1,4 @@
-# Asset.Amount Eigenschaft
+# Asset.Amount Eigenschaften
 
 Gibt den Gesamtwert des Assets zurück.
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long Amount {get;}
 ```
 
-Attributwert: Der Gesamtwert des Assets ist so lange, wie der aktuelle Wert multipliziert mit 10,000,000.
+Attributwert: Der Gesamtwert des Assets ist so groß, wie der aktuelle Wert multipliziert mit 10,000,000.
 
 
 
