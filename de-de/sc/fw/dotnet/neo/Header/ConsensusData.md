@@ -1,4 +1,4 @@
-# Header.ConsensusData Eigeschaften
+# Header.ConsensusData Eigenschaften
 
 Gibt die Konsensdaten des Blockes zurück (Pseudozufalls Nummer generiert von dem Konsensknoten)
 
@@ -17,3 +17,4 @@ Attributwert: Die Konsensdaten des Blockes als Usigned Long Integer
 
 
 [Back](../header.md)
+
