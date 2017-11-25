@@ -28,9 +28,9 @@ name: Der Name des Contract als ein String.
 
 version: Die Version als ein String.
 
-author: Der Author Name als ein String.
+author: Der Autor Name als ein String.
 
-email: Die Author Email als ein String.
+email: Die Autor Email als ein String.
 
 description: Die Description des Contract als ein String.
 
