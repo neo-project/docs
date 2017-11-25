@@ -1,4 +1,4 @@
-# Asset.AssetType Eigenschaft
+# Asset.AssetType Eigenschaften
 
 Gibt den Typ des Assets zurück.
 
@@ -19,15 +19,15 @@ Die Aufzählung der Assetklasse sieht wie folgt aus:
 ```c#
 public enum AssetType: byte
 {
-     CreditFlag = 0x40,
-     DutyFlag = 0x80,
+     CreditFlag = 0x40,
+     DutyFlag = 0x80,
 
-     SystemShare = 0x00,
-     SystemCoin = 0x01,
-     Currency = 0x08,
-     Share = DutyFlag | 0x10,
-     Invoice = DutyFlag | 0x18,
-     Token = CreditFlag | 0x20,
+     SystemShare = 0x00,
+     SystemCoin = 0x01,
+     Currency = 0x08,
+     Share = DutyFlag | 0x10,
+     Invoice = DutyFlag | 0x18,
+     Token = CreditFlag | 0x20,
 }
 ```
 
