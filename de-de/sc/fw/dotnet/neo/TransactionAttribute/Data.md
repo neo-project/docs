@@ -1,6 +1,6 @@
 # TransactionAttribute.Hash Eigenschaften
 
-Gibt Daten ausserhalb des Zwecks der Transaktion zurück.
+Gibt Daten außerhalb des Zwecks der Transaktion zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
