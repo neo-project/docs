@@ -23,7 +23,7 @@ public class Header: IScriptContainer
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [NextConsensus](Header/NextConsensus.md) | Gibt den Hashwert des nächsten Bookkeeper Contracts zurück. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](Header/PrevHash.md)           | Gibt den Hash des vorhergehenden Blocks zurück. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Timestamp](Header/Timestamp.md)         | Gibt den Zeitstempel des Blocks zurück. |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Version](Header/Version.md)             | Gibt die Versionnummer des Blocks zurück.  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Version](Header/Version.md)             | Gibt die Versionsnummer des Blocks zurück.  |
 
 ## Ersteller
 
