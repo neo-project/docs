@@ -18,4 +18,4 @@ public class StorageContext
 
 ## Ersteller
 
-Das StorageContextobjekt wird durch [Storage.CurrentContext](Storage/CurrentContext.md) erstellt.
+Das Storagecontextobjekt wird durch [Storage.CurrentContext](Storage/CurrentContext.md) erstellt.
