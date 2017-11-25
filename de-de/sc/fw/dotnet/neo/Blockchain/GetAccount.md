@@ -21,19 +21,19 @@ Rückgabewert: [Account](../Account.md).
 ```c#
 public class Contract1: FunctionCode
 {
-    public static void Main()
-    {
-        byte[] scriptHash = {36, 23, 241, 177, 228, 54, 109, 223, 27, 237, 139, 54, 207, 38, 132, 101, 172, 3, 10, 73};
-        Account acc = Blockchain.GetAccount(scriptHash);
-    }
+    public static void Main()
+    {
+        byte[] scriptHash = {36, 23, 241, 177, 228, 54, 109, 223, 27, 237, 139, 54, 207, 38, 132, 101, 172, 3, 10, 73};
+        Account acc = Blockchain.GetAccount(scriptHash);
+    }
 }
 ```
-Der Scipthash kann im vorraus erstellt werden und an Smart Contracts als Parameter übergeben werden. Der folgende Code benutzt die SDK um eine Adresse in Scripthash zu konvertieren.
+Der Scipthash kann im voraus erstellt werden und an Smart Contracts als Parameter übergeben werden. Der folgende Code benutzt die SDK um eine Adresse in Scripthash zu konvertieren.
 
 ```c#
 Static void Main(string[] args)
 {
-    byte[] scriptHash = Neo.Wallets.Wallet.ToScriptHash("AK4if54jXjSiJBs6jkfZjxAastauJtjjse").ToArray();
+    byte[] scriptHash = Neo.Wallets.Wallet.ToScriptHash("AK4if54jXjSiJBs6jkfZjxAastauJtjjse").ToArray();
 }
 ```
 
