@@ -19,15 +19,15 @@ Purposes:
 ```c#
 // Der Hashwert eines externen Contracts
 ContractHash = 0x00,
-// Der öffentliche Schlüssel für den ECDH Key Exchange, Das erste Byte des öffentlichen Schlüssel besteht aus 0x02
+// Der öffentliche Schlüssel für den ECDH Key Exchange, Das erste Byte des öffentlichen Schlüssels besteht aus 0x02
 ECDH02 = 0x02,
-// Der öffentliche Schlüssel für den ECDH Key Exchange, Das erste Byte des öffentlichen Schlüssel besteht aus 0x03
+// Der öffentliche Schlüssel für den ECDH Key Exchange, Das erste Byte des öffentlichen Schlüssels besteht aus 0x03
 ECDH03 = 0x03,
 // Für eine zusätzliche for additional Verifikation der Transaktion
 Script = 0x20,
 // Wahlinformationen
 Vote = 0x30,
-// Die URL der Beschreibung von der Transaktion
+// Die URL der Transaktionsbeschreibung 
 DescriptionUrl = 0x81,
 // Beschreibung
 Description = 0x90,
