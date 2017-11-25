@@ -1,6 +1,6 @@
 # Transaction.Hash Eigenschaften
 
-Gibt den Transaktionshash.
+Gibt den Transaktionshash zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
