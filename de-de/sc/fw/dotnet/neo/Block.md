@@ -16,7 +16,7 @@ public class Block: Header
 
 | | Name | Beschreibung |
 | ---------------------------------------- | ---------------------------------------- | ------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(int)](Block/GetTransaction.md) | Gibt die Transaktion zurück die in dem aktuellen Block ausgwählt wurde. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(int)](Block/GetTransaction.md) | Gibt die Transaktion zurück die in dem aktuellen Block ausgewählt wurde. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionCount()](Block/GetTransactionCount.md) | Gibt die Nummer der Transaktionen im ausgewählten Block zurück. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactions()](Block/GetTransactions.md) | Gibt alle Transaktionen im ausgewählten Block zurück. |
 
