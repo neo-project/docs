@@ -1,4 +1,4 @@
-# Contributors
+# Mitwirkende
 
 - Fabio C. Canesin [fabio.canesin@gmail.com](mailto:fabio.canesin@gmail.com)
 - Yak Jun Xiang [snowypowers@gmail.com](mailto:snowypowers@gmail.com)
