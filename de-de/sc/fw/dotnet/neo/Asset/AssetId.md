@@ -1,4 +1,4 @@
-# Asset.AssetId Eigenschaft
+# Asset.AssetId Eigenschaften
 
 Gibt die ID des Assets zurück.
 
