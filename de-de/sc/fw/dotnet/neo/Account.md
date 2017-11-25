@@ -25,6 +25,6 @@ public class Account
 | ---------------------------------------- | ---------------------------------------- | ------------------ |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBalance (byte[])](Account/GetBalance.md) | Gibt die Bilanz des Assets anhand der Asset ID zurück.
 
-## Constructor
+## Ersteller
 
 Das Accountobjekt ist erstellt durch [Blockchain.GetAccount (byte[])](Blockchain/GetAccount.md).
