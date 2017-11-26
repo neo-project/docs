@@ -2,7 +2,7 @@
 
 Gibt einen Wert von dem Peristent Store anhand eines vorgegebenen Keys zurück.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -25,10 +25,10 @@ Rückgabewert: Der Wert zum dazugehörigen Schlüssel als Byte Array.
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         byte[] value = Storage.Get(Storage.CurrentContext, "key");
-     }
+     public static void Main()
+     {
+         byte[] value = Storage.Get(Storage.CurrentContext, "key");
+     }
 }
 ```
 
