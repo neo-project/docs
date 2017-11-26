@@ -3,7 +3,7 @@
 Migrieren/Erneuern von Smart Contracts. Diese Methode ähnelt der `Contract.Create`, der einzige Unterschied ist das diese Methode Logik für die Migration des Private Persistent Storage beinhaltet. Wenn Sie diese Methode ausführen, werden alle **existierenden Daten** in den Persisten Sore des neuen Contracts migriert.
 Wenn der Contract keinen Persistent Store benutzt ist die Methode `Contract.Migrate` funktionell dieselbe wie `Contract.Create`.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
