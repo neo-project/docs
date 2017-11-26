@@ -2,7 +2,7 @@
 
 Gibt die derzeitige Block Height auf der Blockchain zurück. Block height = block index = number of blocks - 1.
  
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
