@@ -1,6 +1,6 @@
-# System Namensraum
+# System Namespace
 
-Der System Namensraum ist die API die von der Smart Contract Execution Engine (NeoVM) bereitgestellt wird. Die API gewährt Zugriff auf die Ausführungsumgebung in der die  Smart Contracts ausführt werden.
+Der System Namespace ist die API die von der Smart Contract Execution Engine (NeoVM) bereitgestellt wird. Die API gewährt Zugriff auf die Ausführungsumgebung in der die  Smart Contracts ausführt werden.
 
 
 ## Klasse
