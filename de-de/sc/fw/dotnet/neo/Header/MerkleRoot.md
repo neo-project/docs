@@ -2,7 +2,7 @@
 
 Gibt die Merkle Tree Root für alle Transaktionen einem Block aus.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
