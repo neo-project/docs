@@ -1,6 +1,6 @@
 # Enrollment.PublicKey Eigenschaften
 
-Gibt den öffentlichen Schlüssel des Bookkeepers aus.
+Gibt den öffentlichen Schlüssel des Bookkeepers zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
