@@ -4,7 +4,7 @@ Diese Methode registriert ein Asset in der Neo Blockchain.
 
 Diese Methode ersetzt die RegisterTransaction in der Version 2.0.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
