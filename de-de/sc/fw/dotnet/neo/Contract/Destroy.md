@@ -2,7 +2,7 @@
 
 Löschung von Smart Contracts. Der Smart Contract der auf der Blockchain veröffentlicht wurde kann nicht von außen gelöscht werden. Wenn der Contract gelöscht werden soll muss die Logik bereits während der Entwicklung beachtet werden.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
