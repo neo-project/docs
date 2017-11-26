@@ -46,7 +46,7 @@ Script_hash: Contract Script Hash; Alle Accounts in NEO sind Contract Accounts.
 
 Frozen: Bestimmt, ob der Account eingefroren ist. 
 
-Votes: Bestimmt den Betrag an NEO dieser Adresse, der zum wählen benutzt werden kann.
+Votes: Fragt den Gesamtbetrag der vorhandenen NEO auf der Adresse die zum wählen benutzt worden ist ab.
 
 Balance: Menge der Assets der Adresse
 
