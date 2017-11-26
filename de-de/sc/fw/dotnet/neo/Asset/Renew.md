@@ -6,7 +6,7 @@ Diese Methode ist neu in Version 2.0, nach der Registrierung muss man für das A
 
 Wenn das Asset abgelaufen ist, ist es notwendig das Asset zu erneuern. Wenn das Asset sich nicht im Zustand frozen befindet und erneuert wird, wird das Datum ab dem Ablaufdatum erneuert. Wenn sich das Asset im Zustand frozen befindet, wird eine Erneuerung ab dem Datum des Bezahlens durchgeführt. Dadurch kann es keinen Verzug beim Erneuern geben.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
