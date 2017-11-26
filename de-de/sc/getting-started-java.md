@@ -1,6 +1,3 @@
----
-typora-root-url: ..\..
----
 
 ### Wie man Java verwendet, um einen NEO Smart Contract zu schreiben
 
@@ -124,6 +121,8 @@ Wenn der Befehl erfolgreich ausgeführt wurde, wird die Datei HelloWorld.avm erz
 
 Für weitere Informationen und Beispiele klicken Sie hier: [Java Examples](https://github.com/neo-project/examples-java)
 
-## Ausführen von smart contracts
+
+## Ausführen von Smart Contracts
+
 
 Wenn Sie bereit sind Ihren Smart Contract auszuführen, folgen Sie diesem Link: [Deploy a lock contract](http://docs.neo.org/en-us/sc/tutorial/Lock2.html) Die Anleitung ist dieselbe, egal für welche Programmiersprache Sie sich entschieden haben. 
