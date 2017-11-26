@@ -31,7 +31,7 @@ Konventionen
       |<= 0xffffffff|5|0xfe + uint32|
       |> 0xffffffff|9|0xff + uint64|
 
-   + Varstr: String variabler Länge, bestehend aus Integer mit variabler Länge, gefolgt von Strings. Zeichenkette, codiert von UTF8.
+   + Varstr: String variabler Länge, bestehend aus Integer mit variabler Länge, gefolgt von Strings. Zeichenkette, UTF8 codiert.
 
       |Größe|Feld|Datentyp|Beschreibung|
       |---|---|---|---|

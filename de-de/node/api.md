@@ -49,7 +49,7 @@ P2P und WebSocket Informationen finden Sie [hier](introduction.md).
 
 ## GET request Beispiel
 
-Eine typische JSON-RPC GET request sieht folgendermaßen aus:
+Eine typische JSON-RPC GET Request sieht folgendermaßen aus:
 
 Das folgende Beispiel zeigt, wie die Zahl der Blöcke in der Hauptchain abgefragt werden können:
 
@@ -71,7 +71,7 @@ Nach dem Senden der Request erhält man folgende Antwort:
 
 ## POST request Beispiel
 
-Das Format einer typischen JSON-RPC Post request sieht folgendermaßen aus:
+Das Format einer typischen JSON-RPC Post Request sieht folgendermaßen aus:
 
 Das folgende Beispiel zeigt, wie die Zahl der Blöcke in der Hauptchain abgefragt werden können:
 

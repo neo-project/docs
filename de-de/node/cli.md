@@ -6,7 +6,7 @@
 
 ein um die Kommandozeilen-Wallet zu starten.
 
-Dieses Tutorial stellt alle Befehle für die Kommandozeilen-Wallet vor. Sie können in NEO-CLI eine Wallet erstellen, private Schlüssel im- und exportieren, Assets transferieren, an der Konsensbildung beteiligen etc.
+Dieses Tutorial stellt alle Befehle für die Kommandozeilen-Wallet vor. Sie können in NEO-CLI eine Wallet erstellen, private Schlüssel im- und exportieren, Assets transferieren, sich an der Konsensbildung beteiligen etc.
 
 Zuerst werden wir verschiedene Befehle kennenlernen, die in der Kommandozeile gelistet sind. Geben sie `help` ein und drücken sie `Enter` damit Ihnen folgende Liste angezeigt wird:
 
