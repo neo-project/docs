@@ -2,7 +2,7 @@
 
 Gibt ein Block auf der Blockchain anhand der Block Height zurück.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -21,10 +21,10 @@ Rückgabewert: [Block](../Block.md).
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         Block bl = Blockchain.GetBlock(997027);
-     }
+     public static void Main()
+     {
+         Block bl = Blockchain.GetBlock(997027);
+     }
 }
 ```
 
