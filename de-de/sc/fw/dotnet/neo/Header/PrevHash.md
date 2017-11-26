@@ -1,6 +1,6 @@
 # Header.PrevHash Eigenschaften
 
-Gibt den Hash des vorhergehenden Blocks zurück.
+Gibt den Hash des vorhergehenden Blockes zurück.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] PrevHash {get;}
 ```
 
-Attributwert: Hash des vorhergehenden Blocks als Byte Array mit einer Länge von 32.
+Attributwert: Hash des vorhergehenden Blockes als Byte Array mit einer Länge von 32.
 
 
 
