@@ -8,13 +8,13 @@ Der Namensraum der Kompatibilitätsschicht ist in `Neo.SmartContract.Framework.S
 
 | Namensraum                 | Beschreibung                             |
 | -------------------------- | ---------------------------------------- |
-| [Neo](dotnet/neo.md)       | Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API kann man kann man auf Blockchaindaten zugreifen und diese verändern. |
-| [System](dotnet/system.md) | Der Systemnamensraum ist die API der Smart Contract Execution Engine (NeoVM), mithilfe der API kann man auf die Ausführungsumgebung zugreifen. |
+| [Neo](dotnet/neo.md)       | Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API können Sie auf Blockchaindaten zugreifen und diese verändern. |
+| [System](dotnet/system.md) | Der Systemnamensraum ist die API der Smart Contract Execution Engine (NeoVM), mithilfe der API können Sie auf die Ausführungsumgebung zugreifen. |
 
 
 ## Frameworkmethoden
 
-Ergänzend zu den Aufrufsmethoden der Kompatibilitätsschicht gibt es noch Smart Contract Aufrufs Methoden die von dem Framework unterstützt werden. Diese Methoden befinden sich im `Neo.SmartContract.Framework´ und können direkt mit einem Smart Contract ausgeführt werden.
+Ergänzend zu den Aufrufsmethoden der Kompatibilitätsschicht gibt es noch die von dem Framework unterstützten Smart Contract Aufrufsmethoden. Diese Methoden befinden sich im `Neo.SmartContract.Framework´ und können direkt mit einem Smart Contract ausgeführt werden.
 
 ### SmartContract Klassenmethoden
 
