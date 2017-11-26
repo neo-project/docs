@@ -28,7 +28,7 @@ public class Contract1: FunctionCode
     }
 }
 ```
-Der Scipthash kann im voraus erstellt werden und an Smart Contracts als Parameter übergeben werden. Der folgende Code benutzt die SDK um eine Adresse in Scripthash zu konvertieren.
+Der Scipthash kann im voraus erstellt werden und an Smart Contracts als Parameter übergeben werden. Der folgende Code benutzt die SDK um, eine Adresse in Scripthash zu konvertieren.
 
 ```c#
 Static void Main(string[] args)
