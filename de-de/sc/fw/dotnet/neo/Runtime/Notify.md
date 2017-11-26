@@ -1,6 +1,6 @@
 # Runtime.Notify Methode (params object[])
 
-Ähnlich dem Runtime.log, benachrichtigt das Log den Client der den Smart Contract ausführt. Diese Methode löst ein Event an dem Client aus der den Smart Contract ausführt. Der Client muss kompatibel sein.
+Ähnlich dem Runtime.log, benachrichtigt das Log den Client der den Smart Contract ausführt. Diese Methode löst ein Event an dem Client der den Smart Contract ausführt aus. Der Client muss kompatibel sein.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
