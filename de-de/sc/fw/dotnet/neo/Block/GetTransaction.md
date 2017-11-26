@@ -2,7 +2,7 @@
 
 Gibt die Transaktion zurück die in dem aktuellen Block im Index definiert wurde. 
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -21,11 +21,11 @@ Rückgabewert: Transaktion als ein [Transaction](../Transaction.md) Typ.
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         Block block = Blockchain.GetBlock(997027);
-         Transaction tx = block.GetTransaction(0);
-     }
+     public static void Main()
+     {
+         Block block = Blockchain.GetBlock(997027);
+         Transaction tx = block.GetTransaction(0);
+     }
 }
 ```
 
