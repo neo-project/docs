@@ -12,7 +12,7 @@ Konventionen
 
 	Alle Integerwerte in NEO sind Little Endian, abgesehen von IP-Adressen und Ports (beide Big Endian).
 
-1. Hash
+2. Hash
 	
 	In NEO werden zwei unterschiedliche Hashfunktionen genutzt: SHA256 und RIPEMD160. SHA256 wird genutzt um lange Hashwerte zu generieren, RIPEMD160 für kurze Hashwerte. Generell wird ein Hashwert eines Objekts erzeugt, indem die Hashfunktion zweimal darauf angewendet wird. Zum Beispiel wird die SHA256-Funktion zweimal genutzt, um den Hashwert von Blöcken oder Transaktionen zu erzeugen. Wenn eine Contract-Adresse erzeugt wird, wird erst die SHA256-Funktion und dann die RIPEMD160-Funktion genutzt.
 
@@ -20,7 +20,7 @@ Konventionen
 
 	
 	
-1. Variable Length Type
+3. Datentyp mit variabler Länge
 
    + Variante: Integer mit variabler Länge können codiert werden, um Speicherplatz entsprechend dem eingegebenen Wert zu sparen.
 
@@ -40,7 +40,7 @@ Konventionen
 
    + Array: Das Array besteht aus einem Integer mit variabler Länge, gefolgt von einer Folge von Elementen.
 
-1. Festkommazahl
+4. Festkommazahl
 
    Daten in NEO wie Betrag oder Preis sind 64-Bit-Festkommazahlen und die Genauigkeit des Dezimalteils ist 10<sup>-8</sup>，Bereich：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
@@ -51,7 +51,7 @@ Datentyp
 
 Die Blockchain ist eine Art logische Struktur, die in Reihe mit einer einseitig verknüpften Liste verbunden ist. Es wird verwendet, um die Daten des gesamten Netzwerks zu speichern, z. B. Transaktionen oder Assets.
 
-1. Block
+2. Block
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -85,7 +85,7 @@ Die Blockchain ist eine Art logische Struktur, die in Reihe mit einer einseitig 
 
 	Der Zeitstempel jedes Blocks muss nach dem Zeitstempel des vorherigen Blocks liegen. Im Allgemeinen beträgt die Differenz des Zeitstempels von zwei Blöcken etwa 15 Sekunden und eine Ungenauigkeit ist zulässig. Die Höhe des Blocks muss genau der Höhe des vorherigen Blocks plus 1 entsprechen.
 
-1. Transaktion
+3. Transaktion
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -181,7 +181,7 @@ Die Blockchain ist eine Art logische Struktur, die in Reihe mit einer einseitig 
       | 8    | Gas    | int64   | Benötigte Gebühren, um einen Smart Contract ausführen zu lassen |
       | -    | -      | -       | Öffentliche Felder für Transaktionen         |
 
-1. Transaktionsattribute
+4. Transaktionsattribute
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -209,14 +209,14 @@ Die Blockchain ist eine Art logische Struktur, die in Reihe mit einer einseitig 
 
 	Für CertUrl, DescriptionUrl, Description und Remark-Serie muss die Datenlänge klar definiert sein, und die Länge sollte 255 nicht überschreiten.
 	
-1. Input einer Transaktion
+5. Input einer Transaktion
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
    |32|PrevHash|uint256|Hash der vorherigen Transaktion|
    |2|PrevIndex|uint16|Index der vorherigen Transaktion|
 
-1. Output einer Transaktion
+6. Output einer Transaktion
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -226,7 +226,7 @@ Die Blockchain ist eine Art logische Struktur, die in Reihe mit einer einseitig 
 
    Jede Transaktion kann einen Output von bis zu 65536 haben.
 
-1. Validationsscript
+7. Validationsscript
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -279,19 +279,19 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
 
    Wenn eine Node eine Verbindungsanfrage erhält, sendet sie automatisch die Versionsnummer. Es kommt keine Kommunikation zustande, bis beide Seiten die Version des jeweils anderen erhalten haben.
 
-1. verack
+2. verack
 
    Wenn eine Node eine version-Message erhält, antwortet sie sofort mit einer verack-Nachricht.
 
    Diese Nachricht hat keine Payload.
 
-1. getaddr
+3. getaddr
 
    Generiert eine Anfrage an eine Node, um Informationen zu aktiven Nodes zu erhalten und so die Anzahl aktiver Verbindungen zu erhöhen.
 
    Diese Nachricht hat keine Payload
 
-1. addr
+4. addr
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -299,7 +299,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
 
    Nachdem die Node eine getaddr-Nachricht erhält, sendet sie eine addr-Nachricht als Antwort und liefert Informationen über bekannte Nodes des Netzwerks.
 
-1. getheaders
+5. getheaders
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -308,7 +308,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
 
    Macht eine Anfrage an eine Node für Header-Pakete von höchsten 2000 Blöcken, die HashStart bis HashStop enthalten. Um weitere Blockhashes zu erhalten müssen Sie die getheaders-Nachricht erneut senden. Diese Nachricht kann verwendet werden, um die Blockchain ohne Transaktionsdaten schnell herunterzuladen.
 
-1. headers
+6. headers
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -316,7 +316,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
 
    Wenn eine Node eine getheaders-Nachricht erhält, sendet die Node eine header-Nachricht als Antwort und liefert Informationen über die bekannten Nodes des Netzwerks.
 
-1. getblocks
+7. getblocks
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -325,7 +325,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
 
    Sendet eine inv-Nachricht an eine Node, welche von HashStart bis Hashstop läuft. Die Nummer von Blocks geht dabei bis 500. Wenn Sie mehr als 500 Blockhashes benötigen müssen Sie eine zweite getblocks-Nachricht senden.
 
-1. inv
+8. inv
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -348,7 +348,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
    |0x02|Block|Block|
    |0xe0|Consensus|Konsensdaten|
 
-1. getdata
+9. getdata
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -356,7 +356,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
 
    Um ein bestimmtes Objekt von einer Node abzufragen: Wird normalerweise gesendet nachdem ein inv-Paket empfangen wurde und das bekannte Element gelöscht wurde.
 
-1. block
+10. block
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
@@ -364,7 +364,7 @@ Nach verschiedenen Aufträgen hat Payload ein anderes Format, siehe unten:
    
    Sendet einen Block an eine Node, um auf eine getdata Nachricht zu antworten.
 
-1. tx
+11. tx
 
    |Größe|Feld|Datentyp|Beschreibung|
    |---|---|---|---|
