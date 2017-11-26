@@ -2,7 +2,7 @@
 
 Gibt den öffentlichen Schlüssel des Bookkeepers zurück.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
