@@ -17,7 +17,7 @@
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - Diese Node nimmt an der Konsensfindung teil. An der Konsensfindung nehmen Consensus Nodes in einer der folgenden zwei Rollen  teil:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(Eine Node)` - Der **Speaker** sendet einen Blockvorschlag an das System.
-  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(Multiple)` - **Delegates** sind dafür verantwortlich, Konsens für die Transaktion zu finden.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(die restlichen Nodes)` - **Delegates** sind dafür verantwortlich, Konsens für die Transaktion zu finden.
 
 
 ## 3 - Einführung
