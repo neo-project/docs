@@ -1,6 +1,6 @@
 # Runtime.CheckWitness Methode (byte[])
 
-Stellt sich das Transaktionen / Block des aufrufenden Contracts den Scripthash validiert haben.
+Stellt sicher das die Transaktionen und der Block des aufrufenden Contracts den Scripthash validiert haben.
 
 Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
