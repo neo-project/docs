@@ -1,6 +1,6 @@
-# NEO Namensraum
+# NEO Namespace
 
-Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API kann man kann man auf Blockchaindaten zugreifen und diese verändern. Die API ist in zwei Bereiche unterteilt.
+Der NEO Namespace ist die API der NEO Blockchain, mithilfe der API kann man kann man auf Blockchaindaten zugreifen und diese verändern. Die API ist in zwei Bereiche unterteilt.
 
 1. Blockchain ledger. Der Smart Contract kann mithilfe Kompatibilitätsschicht auf alle Daten der Blockchain inklusive aller Blockchain Blöcke, Transaktionen und dessen Eigenschaftenfelder zugreifen.
 
