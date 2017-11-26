@@ -2,7 +2,7 @@
 
 Erhalte den Wert für angegebene Assets in einem Account anhand der Asset ID.
  
-Namesraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
