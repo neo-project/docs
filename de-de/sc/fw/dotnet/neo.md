@@ -15,7 +15,7 @@ Anmerkung: Die Tags `Neu` und `Veraltet` in diesem Artikel sind Änderungen von 
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](neo/Account.md)          | Eine Klasse die den Account darstellt und es ermöglicht den Saldo abzurufen.     |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](neo/Asset.md)              | Eine Klasse die die Datenstruktur von Assets darstellt.      |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](neo/Block.md)              | Eine Klasse die einen Block darstellt und die Methoden zum Abfragen von Transaktionen in dem Block bereitstellt. |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](neo/Blockchain.md)    | Stellt mehrere Methoden da um auf die Blockchain Daten zuzugreifen.|
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](neo/Blockchain.md)    | Stellt mehrere Methoden da um auf die Blockchaindaten zuzugreifen.|
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](neo/Contract.md)        | Eine Klasse die den Contract darstellt.                |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `Neu` Stellt die Datenstruktur einer Registrierungstransaktion eines Bookkeepers dar.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)            | Stellt die Datenstruktur eines Block Headers dar.|
