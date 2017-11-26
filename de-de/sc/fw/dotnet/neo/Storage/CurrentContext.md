@@ -4,7 +4,7 @@ Gibt den aktuellen Storekontext zurück. Nachdem man den Storekontext erhalten h
 
 Anmerkung: Dies ist anders als in der Version 1.6.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
