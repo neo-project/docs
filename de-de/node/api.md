@@ -54,8 +54,7 @@ P2P und WebSocket Informationen finden Sie [hier](introduction.md).
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Sendet eine Transaktion über das NEO Netzwerk. Es gibt mehrere Arten von Transaktionen, wie in der Dokumentation zum [Netzwerkprotokoll](../network-protocol.md) dargestellt.                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | Transferiert an eine bestimmte Adresse.                     | Die Wallet muss geöffnet sein  |
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | Vielfachtransaktionen                      | Die Wallet muss geöffnet sein.   |
-| submitblock                              | \<hex>   
- | Neuen Block senden                     | Erfordert eine Consensus Node |
+| submitblock                              | \<hex>                                  | Sendet neue Blöcke                     | Erfordert eine Consensus Node |
 | [getnewaddress](api/getnewaddress.md)    |                                          | Generiert eine neue Adresse                    | Die Wallet muss geöffnet sein  |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | Exportiert den privaten Schlüssel einer Adresse | Die Wallet muss geöffnet sein   |
 | [getpeers](api/getpeers.md)              |                                          | Holt eine Liste der Nodes die aktuell verbunden / nicht verbunden sind.          |          |
