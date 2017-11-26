@@ -30,7 +30,7 @@ public class Contract1: FunctionCode
 }
 ```
 
-Die Asset ID kann im Voraus erstellt werden und an Smart Contracts als Parameter übergeben werden. Der folgende Code benutzt die SDK um einen Hexstring in ein Byte Array zu konvertieren.
+Die Asset ID kann im Voraus erstellt werden und an Smart Contracts als Parameter übergeben werden. Der folgende Code benutzt die SDK um, einen Hexstring in ein Byte Array zu konvertieren.
 
 ```c#
 Static void Main(string[] args)
