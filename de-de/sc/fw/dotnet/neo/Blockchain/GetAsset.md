@@ -2,7 +2,7 @@
 
 Gibt ein Asset auf der Blockchain anhand einer Asset ID zurück.
 
-Namensraum [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
