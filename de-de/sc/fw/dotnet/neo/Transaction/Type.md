@@ -27,7 +27,7 @@ ClaimTransaction = 0x02,
 EnrollmentTransaction = 0x20,
 //Spezielle Transaktion für die Asset Registration
 RegisterTransaction = 0x40,
-// Contract Transaktion, welches das meist genutzte Abmachung ist.
+// Contract Transaktion, welches die meist genutzte Abmachung ist.
 ContractTransaction = 0x80,
 // Beauftragt von der Transaktion
 AgencyTransaction = 0xb0,
