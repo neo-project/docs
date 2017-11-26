@@ -20,7 +20,7 @@ Anmerkung: Die Tags `Neu` und `Veraltet` in diesem Artikel sind Änderungen von 
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `Neu` Stellt die Datenstruktur einer Registrierungstransaktion eines Bookkeepers dar.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)            | Stellt die Datenstruktur eines Block Headers dar.|
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](neo/Runtime.md)          | `Neu` Stellt mehrere Methoden dar die während einer Smart Contract Execution genutzt werden können.|
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Stellt mehrere Methoden da um Daten im persistenten Speicher einzufügen, abzurufen oder zu löschen.  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Stellt mehrere Methoden da um, Daten im persistenten Speicher einzufügen, abzurufen oder zu löschen.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md) | `Neu` Eine Klasse die den Zusammenhang des persistenten Speicher darstellt.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)  |  Die Basisklasse einer Transaktion.            |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | Die Datenstruktur der Transaktionseigenschaften.          |
