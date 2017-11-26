@@ -4,12 +4,12 @@ Das .NET Framework ist eine Datenkapselung der Smart Contract API sodass .NET Pr
 
 ## Kompatibilitätsschicht Methoden
 
-Der Namensraum der Kompatibilitätsschicht ist in `Neo.SmartContract.Framework.Services.NEO` und `Neo.SmartContract.Framework.Services.System` unterteilt. Klicken Sie auf den Link für weitere Details.
+Der Namespace der Kompatibilitätsschicht ist in `Neo.SmartContract.Framework.Services.NEO` und `Neo.SmartContract.Framework.Services.System` unterteilt. Klicken Sie auf den Link für weitere Details.
 
-| Namensraum                 | Beschreibung                             |
+| Namespace                 | Beschreibung                             |
 | -------------------------- | ---------------------------------------- |
-| [Neo](dotnet/neo.md)       | Der NEO Namensraum ist die API der NEO Blockchain, mithilfe der API können Sie auf Blockchaindaten zugreifen und diese verändern. |
-| [System](dotnet/system.md) | Der Systemnamensraum ist die API der Smart Contract Execution Engine (NeoVM), mithilfe der API können Sie auf die Ausführungsumgebung zugreifen. |
+| [Neo](dotnet/neo.md)       | Der NEO Namespace ist die API der NEO Blockchain, mithilfe der API können Sie auf Blockchaindaten zugreifen und diese verändern. |
+| [System](dotnet/system.md) | Der SystemNamespace ist die API der Smart Contract Execution Engine (NeoVM), mithilfe der API können Sie auf die Ausführungsumgebung zugreifen. |
 
 
 ## Frameworkmethoden
