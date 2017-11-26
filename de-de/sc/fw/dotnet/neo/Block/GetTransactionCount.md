@@ -2,7 +2,7 @@
 
 Gibt die Nummer der Transaktionen im aktuellen Block zurück.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -19,11 +19,11 @@ Rückgabewert: Nummer der Transaktionen als Integer.
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         Block block = Blockchain.GetBlock(997027);
-         Int txCount = block.GetTransactionCount();
-     }
+     public static void Main()
+     {
+         Block block = Blockchain.GetBlock(997027);
+         Int txCount = block.GetTransactionCount();
+     }
 }
 ```
 
