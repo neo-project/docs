@@ -1,6 +1,6 @@
 # Account.GetBalance Methode (byte[])
 
-Erhalte den Wert eines angegebenen Assets in einem Account anhand der Asset ID.
+Erhalte den Wert für angegebene Assets in einem Account anhand der Asset ID.
  
 Namesraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,7 +14,7 @@ public extern long GetBalance (byte[] asset_id)
 
 Parameter: Asset ID, die Transaktions ID des RegisterTransaction wenn des Asset registriert wurde. Die Transaktions ID besteht aus einem 32 langen Byte Arry.
 
-Attributwert: Der Gesamtwert des Assets ist so lange, wie der aktuelle Wert multipliziert mit 10,000,000.
+Attributwert: Der Gesamtwert des Assets ist so groß, wie der aktuelle Wert multipliziert mit 10,000,000.
 
 ## Beispiel
 
