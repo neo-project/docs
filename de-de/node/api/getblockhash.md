@@ -1,4 +1,4 @@
-# Getblockhash Verfahren
+# Getblockhash Methode
 
 Gibt den Hashwert eines bestimmten Blocks anhand des Block Index aus.
 

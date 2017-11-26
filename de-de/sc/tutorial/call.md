@@ -10,6 +10,6 @@ public static void Main ()
 }
 ```
 
-Sie können diese Funktion in einem Smart Contract benutzen um andere Smart Contracts, welche auf der Blockchain veröffentlicht worden sind, aufzurufen.
+Sie können diese Funktion in einem Smart Contract benutzen, um andere Smart Contracts, welche auf der Blockchain veröffentlicht worden sind, aufzurufen.
 1. Fügen Sie eine Deklaration mit AppCall und dem Scrip Hash des aufzurufenden Contracts hinzu
 2. Rufen Sie es im Code auf.

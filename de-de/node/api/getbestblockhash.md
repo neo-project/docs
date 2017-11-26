@@ -1,4 +1,4 @@
-# Getbestblockhash Verfahren
+# Getbestblockhash Methode
 
 Holt den Hashwert des höchsten Blocks der Blockchain.
 

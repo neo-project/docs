@@ -1,4 +1,4 @@
-# Sendtoaddress Verfahren
+# Sendtoaddress Methode
 
 Transferiert an eine bestimmte Adresse.
 

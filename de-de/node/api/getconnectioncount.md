@@ -1,4 +1,4 @@
-# Getconnectioncount Verfahren
+# Getconnectioncount Methode
 
 Holt die aktuelle Zahl an Verbindungen für eine Node.
 

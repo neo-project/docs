@@ -1,4 +1,4 @@
-# Sendrawtransaction Verfahren
+# Sendrawtransaction Methode
 
 Sendet eine Transaktion über das NEO Netzwerk. Es gibt mehrere Arten von Transaktionen, wie in der Dokumentation zum [Netzwerkprotokoll](../network-protocol.md) dargestellt.
 

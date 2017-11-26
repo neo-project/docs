@@ -1,4 +1,4 @@
-# Getassetstate Verfahren			
+# Getassetstate Methode			
 
 Fragt die Assetinformationen zu einer bestimmten Assetnummer ab.
 

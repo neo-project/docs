@@ -1,4 +1,4 @@
-# Getrawmempool Verfahren
+# Getrawmempool Methode
 
 Holt die Liste der noch nicht bestätigten Transaktionen aus dem Speicher.
 

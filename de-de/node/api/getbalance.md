@@ -1,4 +1,4 @@
-# Getbalance Verfahren
+# Getbalance Methode
 
 Gibt den Kontostand eines Assets in der Wallet aus, basierend auf der spezifischen Asset-ID.
 

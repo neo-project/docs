@@ -1,4 +1,4 @@
-# Getcontractstate Verfahren
+# Getcontractstate Methode
 
 Holt Contractinformationen zu einem bestimmten Contract Script Hash.
 

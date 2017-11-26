@@ -1,4 +1,4 @@
-# Getblock Verfahren
+# Getblock Methode
 
 Holt die zu einem bestimmten Hashwert gehörenden Blockinformationen.
 

@@ -1,7 +1,7 @@
 # Bereitstellen eines Smart Contracts mit Parametern
 
 ## 1 - Einführung
-Dieses Tutorial ist dazu da um zu zeigen wie man mit dem Desktop GUI einen Smart Contract auf der NEO Blockchain bereit stellt und aufruft. Dies ist ein übergeordnetes Tutorial und eignet sich für alle Contract Typen, einschliesslich NEP5 Tokens. Bei diesem Tutorial gehen wir davon aus, dass der Contract schon in eine .avm Datei compiled wurde. Wenn Sie das noch nicht getan haben, lesen sie bitte zuerst die anderen Tutorials. Eine schon compiled Version des Contracts und die in diesem Tutorial verwendete Quelle werden bereitgestellt. 
+Dieses Tutorial ist dazu da, um zu zeigen wie man mit dem Desktop GUI einen Smart Contract auf der NEO Blockchain bereitstellt und aufruft. Dies ist ein übergeordnetes Tutorial und eignet sich für alle Contract Typen, einschliesslich NEP5 Token. Bei diesem Tutorial gehen wir davon aus, dass der Contract schon in eine .avm Datei compiled wurde. Wenn Sie das noch nicht getan haben, lesen sie bitte zuerst die anderen Tutorials. Eine schon kompilierte Version des Contracts und die in diesem Tutorial verwendete Quelle werden bereitgestellt. 
 
 ## 2 - Nützliche Resourcen
 
@@ -16,9 +16,9 @@ Die folgenden Ressourcen werden in diesem Tutorial benutzt und können hilfreich
 
 ## 3 - SC Code
 
-Dieses Dokument verwendet den Bespielcode des Wooloong Beispiels um durch das Tutorial zu gehen. Dieser Contract wird zum Spass 1 Woolong generieren für jeden Aufruf.
+Dieses Dokument verwendet den Bespielcode des Wooloong Beispiels um durch das Tutorial zu gehen. Dieser Contract wird zum Spass für jeden Aufruf ein Woolong generieren.
 
-Das Beispiel wurde auf dem Testnet zur Verfügung gestellt und kann auf dem folgendem Script Hash zugegriffen werden:
+Das Beispiel wurde auf dem Testnet zur Verfügung gestellt und kann auf dem folgendem Script Hash abgerufen werden:
 
 	dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f
   

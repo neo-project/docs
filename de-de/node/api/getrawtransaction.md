@@ -1,4 +1,4 @@
-# Getrawtransaction Verfahren
+# Getrawtransaction Methode
 
 Gibt die, zu einem bestimmten Transaktionshash gehörenden, Informationen aus.
 

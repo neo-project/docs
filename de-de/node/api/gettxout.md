@@ -1,4 +1,4 @@
-# Gettxout Verfahren
+# Gettxout Methode
 
 Gibt die entsprechenden Transaktionsoutput Informationen (zurückgegebene Änderung) basierend auf dem angegebenen Hash und Index zurück.
 

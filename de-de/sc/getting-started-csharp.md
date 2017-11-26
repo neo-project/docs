@@ -1,7 +1,3 @@
----
-typora-root-url: ..\..
----
-
 ### Wie man C# verwendet um einen NEO Smart Contract zu schreiben
 
 Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen.(Auch wenn wir andere Programmiersprachen wie Java, Kotlin, Go, C/C++, Python, JavaScript und weitere Programmiersprachen unterstützen.)
@@ -28,7 +24,7 @@ Die Installation braucht zwischen zehn Minuten und einer Stunde.
 
 ### 2. NeoContractPlugin
 
-Installationsmethode:
+Installation:
 
 Starten Sie Visual Studio 2017, öffnen Sie Werkzeuge, klicken Sie auf Erweiterungen und Updates, klicken Sie auf den Online Reiter auf der linken Seite, suchen Sie nach NEO in der Suchbox, laden Sie das NeoContractPlugin herunter (dieser Schritt benötigt eine Internetverbindung).
 
@@ -87,7 +83,7 @@ Wenn Sie ein Projekt erstellt haben, wird automatisch eine C# Datei erzeugt. Das
 
 ## Kompilieren des Projektes
 
-Alles ist nun soweit um die Entry Methode, die die Smart Contracts definiert hinzuzufügen.
+Nun können Sie die Entry Methode, die die Smart Contracts definiert, hinzufügen.
 
 ```c#
 public class Contract1: SmartContract
@@ -99,9 +95,9 @@ public class Contract1: SmartContract
 }
 ```
 
-Wenn der Befehl erfolgreich ausgeführt wurde, sehen Sie eine Datei namens ` SmartContract1.avm` im `bin/Debug` Verzeichnis, diese Datei ist der generierte NEO Smart Contract.
+Wenn der Befehl erfolgreich ausgeführt wurde, sehen Sie eine Datei namens `SmartContract1.avm` im `bin/Debug` Verzeichnis, diese Datei ist der generierte NEO Smart Contract.
 
 ![compile smart contract](assets/compile_smart_contract.png)
 
 
-Da Sie nun die Konfiguration des NEO Smart Contract Development Environment durchgeführt haben, bitten wir Sie für weitere Informationen folgendes Tutorial zu beachten.  [NEO smart contract tutorial](tutorial.md)
+Da Sie nun die Konfiguration des NEO Smart Contract Development Environment durchgeführt haben, bitten wir Sie für weitere Informationen folgendes Tutorial zu beachten.  [NEO Smart Contract Tutorial](tutorial.md)

@@ -2,7 +2,7 @@
 
 ## Transaktionsgebühren
 
-Zurzeit gibt es keine Transaktionsgebühren, aber der User kann freiwillig eine Gebühr bezahlen um bevorzugt behandelt zu werden.
+Zurzeit gibt es keine Transaktionsgebühren, aber der User kann freiwillig eine Gebühr bezahlen, um bevorzugt behandelt zu werden.
 
 ## Smart Contract Gebühren
 

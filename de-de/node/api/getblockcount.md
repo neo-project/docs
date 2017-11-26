@@ -1,4 +1,4 @@
-# Getblockcount Verfahren
+# Getblockcount Methode
 
 Holt die Anzahl der Blocks aus der Hauptblockchain.
 

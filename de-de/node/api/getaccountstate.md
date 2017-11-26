@@ -1,4 +1,4 @@
-# Getaccountstate Verfahren
+# Getaccountstate Methode
 
 Fragt die Assetinformationen einer Adresse ab.
 

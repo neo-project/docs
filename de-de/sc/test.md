@@ -4,7 +4,7 @@ Nachdem Sie das vorherige Dokument gelesen haben, sind wir in der Lage mit C# in
 
 ## Unit Tests schreiben
 
-Wenn Sie zum Beispiel folgenden Smart Contract kreieren, welcher 3 Parameter enthält, ist der return Value int.
+Wenn Sie zum Beispiel folgenden Smart Contract kreieren, welcher 3 Parameter enthält, ist der return-Wert int.
 
 
 ```c#
@@ -36,7 +36,7 @@ Generieren Sie die 'Test1.avm' Datei nach dem Compiling. Wir können ein Unit Te
 Kreieren Sie zuerst ein C# Console App (.Net Framework) Projekt mit Visual Studio, mit .NET Framework 4.6.2 oder neuer. Fügen Sie danach eine Referenz zu 'Neo.dll' und 'neon.dll' hinzu.
 
 > [!Anmerkung]
-> Diese 2 Dateien erhalten Sie durch das compilen von [Neo](https://github.com/neo-project/neo) und [neo-vm](https://github.com/neo-project/neo-vm).
+> Diese 2 Dateien erhalten Sie durch das kompilieren von [Neo](https://github.com/neo-project/neo) und [neo-vm](https://github.com/neo-project/neo-vm).
 
 > Alternativ können sie auch einfach die NuGet packages "NEO" und "Neo.VM" zu Ihrem Projekt hinzufügen, indem sie im Solution Explorer mit Rechtsklick auf Ihr Contract Projekt klicken, gehen Sie dann zu Browse, suchen Sie NEO und installieren Sie die benötigten Packages.
 
@@ -89,16 +89,13 @@ using (ScriptBuilder sb = new ScriptBuilder())
 }
 ```
 
-Wenn der return Value des Smart Contract nicht vom Typ int ist, sondern bool oder ein anderer Typ, müssen Sie `engine.EvaluationStack.Peek (). GetBigInteger ()` auf andere Werte einstellen, wie in der Abbildung gezeigt.
+Wenn der return-Wert des Smart Contract nicht vom Typ int ist, sondern bool oder ein anderer Typ, müssen Sie `engine.EvaluationStack.Peek (). GetBigInteger ()` auf andere Werte einstellen, wie in der Abbildung gezeigt.
 
 [](/assets/test_1.jpg)
 
 ------
 
-### 📖 The document is being edited
+### 📖 Dieses Dokument ist noch nicht fertiggestellt. Wir werden es so schnell wie möglich fertig stellen.
 
-The document is being edited and we will complete it as soon as possible. You can view other documents on [Github wiki](https://github.com/neo-project/neo/wiki) or come to our [NEO official website](http://www.neo.org) and look around.
-
-NEO is a community open source project, if you are interested, you can also contribute to the developer documents by creating Pull requests on GitHub, the documents for the project can be found at [github.com/neo-project/docs](https://github.com/neo-project/docs), thank you for your contribution.
 
 

@@ -5,7 +5,7 @@ Aktuell empfehlen wir C# für die Entwicklung von "Smart Contracts" (obwohl die 
 Dieser Abschnitt enthält ein kurzes Tutorial, das die Konfiguration eines C# Entwicklungsumfeldes für NeoContracts erklärt und die grundlegende Idee der ​​Erstellung und Kompilierung eines "Smart Contract"-Projekts vermittelt. 
 
 >[!Anmerkung]
->Aktuell wurden alle Projekte auf Visual Studio 2017 geupgradet. Wenn Sie Visual Studio 2015 verwenden möchten um "Smart Contracts" zu erstellen, dann lesen sie bitte, [wie man C# in VS2015 verwenden kann, um NeoContracts zu erstellen](https://github.com/neo-project/docs/blob/master/en-us/sc/getting-started-2015.md).
+>Aktuell wurden alle Projekte auf Visual Studio 2017 geupgradet. Wenn Sie Visual Studio 2015 verwenden möchten, um "Smart Contracts" zu erstellen, dann lesen sie bitte [wie man C# in VS2015 verwenden kann, um NeoContracts zu erstellen](https://github.com/neo-project/docs/blob/master/en-us/sc/getting-started-2015.md).
 
 ## Entwicklungstools 
 
@@ -45,7 +45,7 @@ Nun müssen wir dieses Datenverzeichnis zu unserem Ausführungspfad hinzufügen.
 
 **Windows 10 und Windows 8:**
 
-Verwenden Sie die Suchfunktion um die Systemeigenschaften zu lokalisieren und zu öffnen. Navigieren sie zu den erweiterten Einstellungen. Wählen Sie Umgebungsvariablen aus. Suchen sie die PATH Umgebungsvariable in der Kategorie Systemvariablen und wählen sie aus. Klicken Sie Bearbeiten. Sollte die PATH Umgebungsvariable nicht existieren, dann klicken sie Neu. Definieren Sie in beiden Fällen die PATH Umgebungsvariable. Klicken Sie OK und schließen Sie alle Fenster mittels OK.
+Verwenden Sie die Suchfunktion, um die Systemeigenschaften zu lokalisieren und zu öffnen. Navigieren sie zu den erweiterten Einstellungen. Wählen Sie Umgebungsvariablen aus. Suchen sie die PATH Umgebungsvariable in der Kategorie Systemvariablen und wählen sie aus. Klicken Sie Bearbeiten. Sollte die PATH Umgebungsvariable nicht existieren, dann klicken sie Neu. Definieren Sie in beiden Fällen die PATH Umgebungsvariable. Klicken Sie OK und schließen Sie alle Fenster mittels OK.
 
 **Windows 7:**
 

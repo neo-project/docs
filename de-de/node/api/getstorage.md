@@ -1,4 +1,4 @@
-# Getstorage Verfahren
+# Getstorage Methode
 
 Gibt den gespeicherten Wert entsprechend dem Contract Script Hash und dem gespeicherten Schlüssel zurück.
 
