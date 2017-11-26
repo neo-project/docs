@@ -17,7 +17,7 @@
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - Diese Node nimmt an der Konsensfindung teil. An der Konsensfindung nehmen Consensus Nodes in einer der folgenden zwei Rollen  teil:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(Eine Node)` - Der **Speaker** sendet einen Blockvorschlag an das System.
-  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(Multiple)` - **Delegates** sind dafür verantwortlich, Konsens für die Transaktion zu finden.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(die restlichen Nodes)` - **Delegates** sind dafür verantwortlich, Konsens für die Transaktion zu finden.
 
 
 ## 3 - Einführung
@@ -125,7 +125,7 @@ Beachten Sie, dass **Abb. 5** nicht unter 66,66% Consensus Node Ehrlichkeit geht
 
 3. Die erste View `v` der Konsensbildung wird gestartet.
 
-4. Der **Speaker** wird gewählt. **Warte** `t` seconds.
+4. Der **Speaker** wird gewählt. **Warte** `t` Sekunden.
 <p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Abb. 7:</b> Ein <b>Speaker</b> wurde gewählt und die View wurde festgelegt</p>
 
 5. Der **Speaker** sendet Vorschlag : `<prepareRequest, h, k, p, bloc, [block]sigp>`
@@ -143,7 +143,7 @@ Beachten Sie, dass **Abb. 5** nicht unter 66,66% Consensus Node Ehrlichkeit geht
 
    <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Abb. 9:</b> Die <b>Delegates</b> überprüfen den Vorschlag und antworten </p>
 
-7. Nachdem er die Anzahl `s` von 'prepareResponse' Nachrichten erhalten hat, erreicht der **Delegate** KOnsens und veröffentlicht den Block.
+7. Nachdem er die Anzahl `s` von 'prepareResponse' Nachrichten erhalten hat, erreicht der **Delegate** Konsens und veröffentlicht den Block.
 
 8. Die **Delegates** signieren den Block.
 
