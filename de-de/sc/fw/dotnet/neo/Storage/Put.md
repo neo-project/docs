@@ -2,7 +2,7 @@
 
 Fügt einen definierten Wert zu dem gegebenen Key in dem Persistent Store hinzu.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -27,12 +27,12 @@ Rückgabewert: Void.
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         byte[] key = new byte[] {0};
-         byte[] value = new byte[] {1};
-         Storage.Put(Storage.CurrentContext, key, value);
-     }
+     public static void Main()
+     {
+         byte[] key = new byte[] {0};
+         byte[] value = new byte[] {1};
+         Storage.Put(Storage.CurrentContext, key, value);
+     }
 }
 ```
 
