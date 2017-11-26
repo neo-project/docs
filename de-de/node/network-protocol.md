@@ -42,7 +42,7 @@ Konventionen
 
 1. Festkommazahl
 
-	   Daten in NEO wie Betrag oder Preis sind 64-Bit-Festkommazahlen und die Genauigkeit des Dezimalteils ist 10<sup>-8</sup>，Bereich：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
+   Daten in NEO wie Betrag oder Preis sind 64-Bit-Festkommazahlen und die Genauigkeit des Dezimalteils ist 10<sup>-8</sup>，Bereich：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
 Datentyp
 -------
