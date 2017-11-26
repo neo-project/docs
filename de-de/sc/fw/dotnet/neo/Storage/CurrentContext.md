@@ -1,6 +1,6 @@
 # Storage.CurrentContext Eigenschaften
 
-Gibt den aktuellen Storekontext zurück. Nachdem man den Storekontext erhalten hat kann man das Objekt als ein Argument an einen anderen Contract übergeben (Als Autorisation). Das erlaubt anderen Contracts Read/Write Operationen auf dem Persistent Store des aktuellen Contracts auszuführen.
+Gibt den aktuellen Storekontext zurück. Nachdem man den Storekontext erhalten hat, kann man das Objekt als ein Argument an einen anderen Contract übergeben (Als Autorisation). Das erlaubt anderen Contracts Read/Write Operationen auf dem Persistent Store des aktuellen Contracts auszuführen.
 
 Anmerkung: Dies ist anders als in der Version 1.6.
 
