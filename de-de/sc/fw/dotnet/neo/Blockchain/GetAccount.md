@@ -2,7 +2,7 @@
 
 Gibt einen Account (Adresse) auf Basis des Hash des Contract Scripthash zurück.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
