@@ -2,7 +2,7 @@
 
 Löscht einen Wert von dem Peristent Store anhand eines vorgegebenen Keys.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -25,10 +25,10 @@ Rückgabewert: Void.
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main()
-     {
-         Storage.Delete(Storage.CurrentContext, "Key");
-     }
+     public static void Main()
+     {
+         Storage.Delete(Storage.CurrentContext, "Key");
+     }
 }
 ```
 
