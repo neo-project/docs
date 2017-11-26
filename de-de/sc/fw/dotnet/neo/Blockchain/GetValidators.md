@@ -2,7 +2,7 @@
 
 Gibt die Public Keys auf Basis des Validators (Consensus Nodes) zurück.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
