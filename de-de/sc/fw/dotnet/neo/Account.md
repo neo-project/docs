@@ -1,6 +1,6 @@
 # Account Klasse
 
-Diese Klasse repräsentiert den Account um die Bilanz abzurufen. Der Account bezieht sich auf den Hash des Contract Scripts welches der Adresse auf der Blockchain entspricht. 
+Diese Klasse repräsentiert den Account um die Bilanz abzurufen. Der Account bezieht sich auf den Hash des Contract Scripts welcher der Adresse auf der Blockchain entspricht. 
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
