@@ -2,7 +2,7 @@
 
 Stellt sicher das die Transaktionen und der Block des aufrufenden Contracts den Scripthash validiert haben.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
