@@ -5,7 +5,7 @@ Der Storage Kontext des aktuellen Contract.
 > [!Achtung]
 > Anmerkung: Veraltet in Version 2.0.
 
-Namensraum: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
