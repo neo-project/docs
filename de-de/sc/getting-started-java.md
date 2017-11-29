@@ -46,7 +46,7 @@ Die Installation braucht zwischen zehn Minuten und einer Stunde.
 
 ### 2. Neo-Compiler
 
-Installations und Konfigurationsschritte: 
+Installations- und Konfigurationsschritte: 
 
 Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Project auf Github herunter, öffnen Sie das Projekt mit Visual Studio 2017, veröffentlichen Sie das Neoj Project.
 
