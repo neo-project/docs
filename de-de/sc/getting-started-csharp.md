@@ -1,12 +1,12 @@
 
-### Wie man C# verwendet um einen NEO Smart Contract zu schreiben
+### Wie man C# verwendet, um einen NEO Smart Contract zu schreiben
 
-Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts einzusetzen.(Auch wenn wir andere Programmiersprachen wie Java, Kotlin, Go, C/C++, Python, JavaScript und weitere Programmiersprachen unterstützen.)
+Zum jetzigen Stand empfehlen wir C# für die Entwicklung von Smart Contracts.(Auch wenn wir andere Programmiersprachen wie Java, Kotlin, Go, C/C++, Python, JavaScript und weitere Programmiersprachen unterstützen.)
 
 Dieser Abschnitt enthält ein Tutorial, das Sie bei der Konfiguration des C# Development Enviroment für NEO Smart Contracts unterstützt und Ihnen eine Vorstellung gibt, wie ein Smart Contract Project erstellt und kompiliert werden kann. 
 
    > [!Notiz]
-   > Alle Projekte wurden auf Visual Studio 2017 upgedatet, wenn Sie Visual Studio 2015 verwenden wollen, um ihre Intelligent Contracts zu erstellen, beziehen Sie sich bitte auf [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md)
+   > Alle Projekte wurden auf Visual Studio 2017 geupdatet. Wenn Sie Visual Studio 2015 verwenden wollen, um ihre Smart Contracts zu erstellen, lesen Sie bitte auf [dieses Tutorial](getting-started-2015.md)
 
 ## Entwickler Werkzeuge
 
@@ -16,7 +16,7 @@ Wenn Sie bereits Visual Studio 2017 & .NET Cross-Plattform Development auf Ihrem
 
 Downloaden und installieren: 
 
-[Visual Studio Download Addresse](https://www.visualstudio.com/products/visual-studio-community-vs)
+[Visual Studio Download](https://www.visualstudio.com/products/visual-studio-community-vs)
 
 Der Installationsprozess ist sehr einfach, folgen Sie den Installationsanweisungen Schritt-für-Schritt, dabei sollte darauf geachtet werden, dass die Checkbox bei `.NET Core cross-platform development` ausgewählt ist, da sich ansonsten das Neo-Vm Project im Schritt #3 nicht öffnen lässt. 
 Die Installation braucht zwischen zehn Minuten und einer Stunde. 
@@ -35,7 +35,7 @@ Starten Sie Visual Studio 2017, öffnen Sie Werkzeuge, klicken Sie auf Erweiteru
 
 Installations- und Konfigurationsschritte: 
 
-Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Project auf Github herunter, öffnen Sie das Projekt mit Visual Studio 2017.
+Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Project auf Github herunter und öffnen Sie das Projekt mit Visual Studio 2017.
 
 ![publish NEO compiler msil project](/assets/publish_neo_compiler_msil_project.png)
 
@@ -44,7 +44,7 @@ Laden Sie das [neo-compiler](https://github.com/neo-project/neo-compiler) Projec
 
 Nachdem die Veröffentlichung erfolgreich war, wird eine Neoj.exe Datei in `bin\Release\PublishOutput` erzeugt.
 
-Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die Systemvariable, die unser Betriebssystem benutzt, um benötigte ausführbare Dateien in der command line oder dem Terminal window zu finden. 
+Nun müssen Sie dieses Verzeichnis in Ihren Ausführungspfad einfügen. Der Pfad ist die Systemvariable, die unser Betriebssystem benutzt, um benötigte ausführbare Dateien in der Kommandozeile oder dem Terminalwindow zu finden. 
 
 **Windows 10 und Windows 8:**
 
