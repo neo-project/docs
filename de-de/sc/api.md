@@ -4,7 +4,7 @@ Die NEO Smart Contract API erweitert die Fähigkeiten eines Smart Contract, um a
 
 Mehr Informationen über die NeoVM finden Sie hier: [NEO Smart Contract Tutorial](tutorial.md)
 
-Mehr Informationen wie sie das Framework nutzen können um einfach API's in high-level Sprachen abzrufen finden Sie hier:  [Ants Smart Contracts Framework](fw.md).
+Mehr Informationen wie sie das Framework nutzen können, um einfach API's in high-level Programmiersprachen abzrufen finden Sie hier:  [Ants Smart Contracts Framework](fw.md).
 
 Namespace | Beschreibung |
 | ----------------------------- | ---------------------------------------- |
