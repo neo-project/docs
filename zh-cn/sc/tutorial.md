@@ -11,50 +11,6 @@ NEO 的智能合约有两种触发方式：
 2. 手动发送交易调用智能合约：用户发送一笔交易（Invocation Transaction ）来触发一段智能合约的执行。
 
 
-## 智能合约的类型
-
-NEO 的智能合约有两个基类，FunctionCode 和 VerificationCode。
-
-### 继承自 FunctionCode 的智能合约
-
-继承于 FunctionCode 的智能合约可以编译好后发布到区块链中供其它用户使用。它相当于编程中的“函数”，即可以被“主函数”（上述的两种智能合约调用方式）调用，也能被“其它函数”（其它继承于 FunctionCode 的智能合约）调用。
-
-继承自 FunctionCode 的智能合约的入口点是 `Main` 方法，返回值可以是 void、int、byte[]
-
-本文是对上文的代码进行详述。
-
-创建好的智能合约项目默认继承自 FunctionCode 入口点是 Main
-
-```c#
-public class Contract1 : FunctionCode
-{
-    public static void Main() // 注意 Main 方法要大写
-    {
-     // 继承于 FunctionCode 的智能合约可以编译好后发布到区块链中供其它用户使用
-    }
-}
-```
-
-### 继承自 VerificationCode 的智能合约
-
-继承于 VerificationCode 的智能合约是可以在钱包客户端中生成合约地址，如果用户想使用该合约地址里的一笔资产（用户发送了一笔使用该合约地址资产的交易）便会触发该智能合约，合约执行并验证你是否可以动用这笔资产。
-
-当该合约返回值为 true 时，验证通过， 用户可以花费这笔资产；
-
-当该合约返回值为 false 时，验证失败，用户不可以花费这笔资产，这笔验证失败的交易无法被其它节点广播，也不会被共识节点确认。
-
-继承自 VerificationCode 的智能合约的入口点是 `Verify` 方法，Verify 方法的返回值必须是 `bool` 类型。
-
-```c#
-public class Contract1 : VerificationCode 
-{
-    public static bool Verify()
-    {
-     return true;
-    }
-}
-```
-
 ## NeoVM 虚拟机
 
 NeoVM 就是执行 NEO 智能合约代码的虚拟机。我们这里所讲述的虚拟机概念比较狭义，并非是借助于操作系统对物理机器的一种模拟，这里的虚拟机与 vmware 或者 Hyper-V 不同，是针对具体语言所实现的虚拟机。
@@ -63,7 +19,7 @@ NeoVM 就是执行 NEO 智能合约代码的虚拟机。我们这里所讲述的
 
 ### 虚拟机架构
 
-![](/assets/neo-vm.jpg)
+![neo-vm](../../assets/neo-vm.jpg)
 
 上图是 NEO 虚拟机（NeoVM）的系统架构图，其中虚线框中的部署是虚拟机的核心。
 
@@ -93,10 +49,10 @@ NEO 智能合约在部署或者执行的时候都要缴纳一定的手续费，�
 
 ## 一些简单的智能合约
 
-下面是一些简单的继承自 VerificationCode 的智能合约
+下面是一些简单的智能合约：
 
 ```c#
-public static bool Verify()
+public static bool Main()
 {
 	return true;
 }
@@ -107,7 +63,7 @@ public static bool Verify()
 NEO 钱包客户端中有一个删除资产的功能，当你删除了一个资产，这个资产是发送到了一个指定的地址中，这个地址就是上述智能合约所生成的合约地址，任何人都可以花费这个地址里的资产，当然这个地址里的资产都是别人不想要的资产。
 
 ```c#
-public static bool Verify()
+public static bool Main()
 {
 	return false;
 }

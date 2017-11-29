@@ -99,7 +99,7 @@ public class Contract1: SmartContract
 
 After you compiled it successfully, you will see` SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the NEO smart contract.
 
-![compile smart contract](/assets/compile_smart_contract.png)
+![compile smart contract](assets/compile_smart_contract.png)
 
 
 Now that you have completed the configuration of the NEO smart contract development environment, please refer to the [NEO smart contract tutorial](tutorial.md)

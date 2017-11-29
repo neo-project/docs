@@ -32,19 +32,33 @@ For P2P and WebSocket information see [Node/Introduction](introduction.md).
 
 | Command                                       | Reference                                      | Explanation                         | Comments       |
 | ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
+| [getaccountstate](api/getaccountstate.md)          | \<address>                             | Check account asset information according to account address  |    |
+| [getassetstate](api/getassetstate.md)    | \<asset_id>                              | Query asset information according to the specified asset number             |          |
 | [getbalance](api/getbalance.md)          | \<asset_id>                             |Returns the balance of the corresponding asset in the wallet according to the specified asset number.   | Need to open the wallet   |
 | [getbestblockhash](api/getbestblockhash.md) |                                         | Gets the hash of the tallest block in the main chain           |          |
 | [getblock](api/getblock.md)              | \<hash> [verbose=0]                     | Returns the corresponding block information according to the specified hash value         |          |
 | [getblock](api/getblock2.md)             | \<index> [verbose=0]                    | Returns the corresponding block information according to the specified index          |          |
 | [getblockcount](api/getblockcount.md)    |                                         | Gets the number of blocks in the main chain                 |          |
 | [getblockhash](api/getblockhash.md)      | \<index>                                | Returns the hash value of the corresponding block based on the specified index         |          |
+| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | Returns the system fees before the block according to the specified index      |          |
 | [getconnectioncount](api/getconnectioncount.md) |                                         | Gets the current number of connections for the node                 |          |
+| [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | Returns information about the contract based on the specified script hash |          |
 | [getrawmempool](api/getrawmempool.md)    |                                         | Get a list of unconfirmed transactions in memory            |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | Returns the corresponding transaction information based on the specified hash value         |          |
+| [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | Returns the stored value based on the contract script hash and key |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | Returns the corresponding transaction output (change) information based on the specified hash and index |          |
+| [invoke](api/invoke.md)      | \<script_hash> \<params>      | Invokes a smart contract at specified script hash with the given parameters |         |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params>   | Invokes a smart contract at specified script hash, passing in an operation and its params |     |
+| [invokescript](api/invokescript.md) | \<script>   | Runs a script through the virtual machine and returns the results |      |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Broadcast a transaction over the network. See the [network protocol](network-protocol.md) documentation.                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | Transfer to specified address                     | Need to open the wallet   |
+| [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                       | Need to open the wallet   |
+| [getnewaddress](api/getnewaddress.md)    |                                          | Create a new address                     | Need to open the wallet   |
+| [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | Export the private key of the specified address | Need to open the wallet   |
 | submitblock                              | \<hex>                                  | Submit new blocks                      | Needs to be a consensus node |
+| [validateaddress](api/validateaddress.md) | \<address>                               | Verify that the address is a correct NEO address           |          |
+| [getpeers](api/getpeers.md)              |                                          | Get a list of nodes that are currently connected/disconnected by this node          |          |
+| [getversion](api/getversion.md)              |                                          | Get version information of this node          |          |
 
 ## GET request example
 

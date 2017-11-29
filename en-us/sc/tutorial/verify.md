@@ -12,9 +12,9 @@ using Neo.SmartContract.Framework.Services.Neo;
 using Neo.SmartContract.Framework.Services.System;
 namespace Neo.SmartContract
 {
-    public class Test : VerificationCode
+    public class Test : SmartContract
     {
-        public static bool Verify(byte[] signature)
+        public static bool Main(byte[] signature)
         {
             return true;
         }
