@@ -30,7 +30,13 @@
         /// </summary>
         ByteArray = 5,
         PublicKey = 6,
-
+        String = 7,
+        
+         /// <summary>
+         /// 对象数组
+         /// </summary>        
+        Array = 10,
+        InteropInterface = 0xf0,
         Void = 0xff
     }
 ```

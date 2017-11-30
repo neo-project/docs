@@ -279,7 +279,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 
 - script hash
 
-  要查询的 NEP-5 币的散列值，例如，PRX 的散列值是：*0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*
+  要查询的 NEP-5 币的散列值，例如，RPX 的散列值是：*0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*
 
 
 - method name
