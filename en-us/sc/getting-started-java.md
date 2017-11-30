@@ -88,7 +88,7 @@ NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.
 
 After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
 
-You will need to add the org.neo.smartcontract.framework.jar (which is the neo compiler project) as an external library.
+You need to compile the .jar package of smart contract from the neo java devpack project ([neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet)) and add it as an external library.
 
 
 ## Compile the Project
