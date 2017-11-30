@@ -7,3 +7,5 @@
   items:
     - name: Introduction
       href: node/introduction.md
+    - name: Installation
+      href: node/setup.md
