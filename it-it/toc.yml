@@ -1,9 +1,9 @@
 - name: Home
   href: index.md
-- name: Inizio
-  href: Inizio.md
-- name: Nodo NEO
-  href: nodo/Introduzione.md
+- name: Getting Started
+  href: getting-started.md
+- name: NEO Node
+  href: node/introduction.md
   items:
-    - name: Introduzione
-      href: nodo/Introduzione.md
+    - name: Introduction
+      href: node/introduzione.md
