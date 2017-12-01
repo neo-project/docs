@@ -51,7 +51,7 @@ neo-compiler 是 NeoContract 的编译器，可以将高级语言的代码编译
 
 以上两步安装配置成功后，即可在 eclipse 中创建 NEO 智能合约项目。
 
-首先通过 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目编译智能合约jar包，然后使用这个jar包创建一个Java项目。
+首先通过 [neo-devpack-java](https://github.com/neo-project/neo-devpack-java) 项目编译智能合约jar包，然后使用这个jar包创建一个Java项目。
 
 创建一个类，如 go.java，将如下代码粘贴到文件中。
 
