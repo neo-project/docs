@@ -1,4 +1,4 @@
-# Sendrawtransaction method
+# sendrawtransaction Method
 
 Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../network-protocol.md).
 
@@ -8,7 +8,7 @@ Hex: A hexadecimal string that has been serialized, after the signed transaction
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -19,7 +19,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

@@ -5,7 +5,7 @@ Bulk transfer order, and you can specify a change address.
 > [!Note]
 > You need to open the wallet in the NEO-CLI node before executing this command.
 
-## Parameter description
+## Parameter Description
 
 \<outputs_array> \[fee=0] \[change_address]
 

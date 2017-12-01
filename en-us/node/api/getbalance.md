@@ -1,9 +1,9 @@
-# Getbalance method
+# getbalance Method
 
 Returns the balance of the corresponding asset in the wallet, based on the specified asset number.
 
 > [!Note]
-> You will need to open the wallet in the Neo-CLI node before executing this command.
+> You need to open the wallet in the NEO-CLI node before you execute this command.
 
 ## Parameter Description
 
@@ -17,7 +17,7 @@ The remaining asset IDs can be queried through the `list asset` command in [CLI 
 
 ## Example 
 
-Request text:
+Request body:
 
 ```json
 {
@@ -28,7 +28,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
@@ -43,8 +43,9 @@ Response text:
 
 Response Description:
 
-Balance: The actual balance of the asset in the wallet.
+- Balance: The actual balance of the asset in the wallet.
 
-Confirmed: The exact amount of the asset in the wallet, where only confirmed amounts can be used for transfer.
+- Confirmed: The exact amount of the asset in the wallet, where only confirmed amounts can be used for transfer.
+
 
 Balance and Confirmed values may not be equal. This happens when there is an output transaction from the wallet, and the change has not been confirmed yet, so the confirmed value will be less than the balance. Once the deal is confirmed, the two will become equal.

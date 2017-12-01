@@ -1,6 +1,6 @@
-# Getassetstate Method			
+# getassetstate Method			
 
-Query the asset information, based on the specified asset number. 
+Queries the asset information, based on the specified asset number. 
 
 ## Parameter Description
 
@@ -14,7 +14,7 @@ The remaining asset IDs can be queried through the `list asset` command in [CLI 
 
 ## Example		
 
-Request Text:
+Request body:
 
 ```json
 {
@@ -25,7 +25,7 @@ Request Text:
 }
 ```
 
-Response Text:
+Response body:
 
 ```json
 {

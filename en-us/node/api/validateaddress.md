@@ -1,8 +1,8 @@
-# validateaddress method
+# validateaddress Method
 
-Verify that the address is a correct NEO address.
+Verifies that the address is a correct NEO address.
 
-## Parameter description
+## Parameter Description
 
 address: Address.
 

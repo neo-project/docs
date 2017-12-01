@@ -1,4 +1,4 @@
-# Getstorage Method
+# getstorage Method
 
 Returns the stored value, according to the contract script hash and the stored key.
 
@@ -10,7 +10,7 @@ key: The key to look up in storage (in hex string)
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -21,7 +21,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

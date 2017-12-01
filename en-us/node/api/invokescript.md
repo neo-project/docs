@@ -1,8 +1,10 @@
-# Invokescript method
+# invokescript Method
 
 Returns the result after passing a script through the VM.
 
-**Note: This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.**
+> [!Note]
+>
+> This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
 
 ## Parameter Description
 
@@ -10,7 +12,7 @@ script: A script runnable by the VM. This is the same script that is carried in 
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -21,7 +23,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
