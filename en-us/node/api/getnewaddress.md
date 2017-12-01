@@ -1,6 +1,6 @@
 # getnewaddress Method
 
-Create a new address.
+Creates a new address.
 
 > [!Note]
 > You need to open the wallet in the NEO-CLI node before you execute this command.

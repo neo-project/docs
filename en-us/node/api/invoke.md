@@ -1,8 +1,10 @@
-# Invoke method
+# invoke Method
 
 Returns the result after calling a smart contract at scripthash with the given parameters.
 
-**Note: This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.**
+> [!Note]
+>
+> This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
 
 ## Parameter Description
 
@@ -12,7 +14,7 @@ params: The parameters to be passed into the smart contract
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -35,7 +37,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

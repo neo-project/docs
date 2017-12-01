@@ -29,13 +29,15 @@
       - name: getbestblockhash
         href: node/api/getbestblockhash.md
       - name: getblock
+        href: node/api/getblock.md
+      - name: getblock
         href: node/api/getblock2.md
       - name: getblockcount
         href: node/api/getblockcount.md
-      - name: getblockhash
-        href: node/api/getblockhash.md
       - name: getblocksysfee
         href: node/api/getblocksysfee.md
+      - name: getblockhash
+        href: node/api/getblockhash.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
       - name: getcontractstate
@@ -48,12 +50,8 @@
         href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
-      - name: invoke
-        href: node/api/invoke.md
       - name: invokefunction
         href: node/api/invokefunction.md
-      - name: invokescript
-        href: node/api/invokescript.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
@@ -68,8 +66,6 @@
         href: node/api/validateaddress.md
       - name: getpeers
         href: node/api/getpeers.md
-      - name: getversion
-        href: node/api/getversion.md
     - name: Network Protocol
       href: node/network-protocol.md
     - name: Consensus
@@ -161,6 +157,6 @@
     - name: System Fees
       href: sc/systemfees.md
 - name: Document for Exchange Developers
-  href: exchange_en.md
+  href: exchange.md
 - name: Contributors
   href: contributors.md

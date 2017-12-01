@@ -1,9 +1,9 @@
-# Sendtoaddress method
+# sendtoaddress Method
 
-Transfer to the specified address.
+Transfers to the specified address.
 
 > [!Note]
-> You will need to open the wallet in the Neo-CLI node, before executing this command.
+> You need to open the wallet in the Neo-CLI node before you execute this command.
 
 ## Parameter Description
 
@@ -23,7 +23,7 @@ Fee: Fee, default value is 0 (optional parameter)
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -34,7 +34,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

@@ -1,10 +1,10 @@
-# Getbestblockhash method
+# getbestblockhash Method
 
 Returns the hash of the tallest block in the main chain.
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -15,7 +15,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

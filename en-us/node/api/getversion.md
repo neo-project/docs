@@ -1,10 +1,10 @@
-# Getversion method
+# getversion Method
 
 Returns the version information about the queried node.
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -15,7 +15,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
