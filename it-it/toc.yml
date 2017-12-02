@@ -1,2 +1,11 @@
 - name: Home
   href: index.md
+- name: Getting Started
+  href: getting-started.md
+- name: NEO Node
+  href: node/introduction.md
+  items:
+    - name: Introduction
+      href: node/introduction.md
+    - name: Installation
+      href: node/setup.md
