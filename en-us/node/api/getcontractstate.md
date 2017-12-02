@@ -1,14 +1,14 @@
-# Getcontractstate Method
+# getcontractstate Method
 
-Query contract information, according to the contract script hash. 
+Queries contract information, according to the contract script hash. 
 
 ## Parameter Description
 
-Script_hash： Contract script hash 
+Script_hash：Contract script hash 
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -19,7 +19,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

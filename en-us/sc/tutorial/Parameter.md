@@ -36,7 +36,7 @@ In the smart contract deployment or invocation, you need to specify the paramete
          /// object array
          /// </summary>
          Array = 0x10,
-         
+         InteropInterface = 0xf0,   
          Void = 0xff
      }
 ```

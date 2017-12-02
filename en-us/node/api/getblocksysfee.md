@@ -2,7 +2,7 @@
 
 Returns the system fees of the block, based on the specified index.
 
-## Parameter description
+## Parameter Description
 
 index：Block index
 

@@ -1,11 +1,11 @@
-# dumpprivkey method
+# dumpprivkey Method
 
 Exports the private key of the specified address.
 
 > [!Note]
 > You need to open the wallet in the NEO-CLI node before you execute this command.
 
-## Parameter description
+## Parameter Description
 
 Address: To export the addresses of the private key, the address is required as a standard address.
 

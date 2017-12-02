@@ -1,10 +1,10 @@
-# Getconnectioncount method
+# getconnectioncount Method
 
 Gets the current number of connections for the node.
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -15,7 +15,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

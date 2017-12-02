@@ -1,4 +1,4 @@
-# Gettxout method
+# gettxout Method
 
 Returns the corresponding transaction output information (returned change), based on the specified hash and index.
 
@@ -10,7 +10,7 @@ N: The index of the transaction output to be obtained in the transaction (starts
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -21,7 +21,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

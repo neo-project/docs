@@ -20,28 +20,52 @@
     - name: API Reference
       href: node/API.md
       items:
+      - name: getaccountstate
+        href: node/api/getaccountstate.md
+      - name: getassetstate
+        href: node/api/getassetstate.md
       - name: getbalance
         href: node/api/getbalance.md
       - name: getbestblockhash
         href: node/api/getbestblockhash.md
       - name: getblock
+        href: node/api/getblock.md
+      - name: getblock
         href: node/api/getblock2.md
       - name: getblockcount
         href: node/api/getblockcount.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getblockhash
         href: node/api/getblockhash.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
+      - name: getcontractstate
+        href: node/api/getcontractstate.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
         href: node/api/getrawtransaction.md
+      - name: getstorage
+        href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
+      - name: invokefunction
+        href: node/api/invokefunction.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
+      - name: dumpprivkey
+        href: node/api/dumpprivkey.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
+      - name: getpeers
+        href: node/api/getpeers.md
     - name: Network Protocol
       href: node/network-protocol.md
     - name: Consensus
@@ -133,6 +157,6 @@
     - name: System Fees
       href: sc/systemfees.md
 - name: Document for Exchange Developers
-  href: exchange_en.md
+  href: exchange.md
 - name: Contributors
   href: contributors.md

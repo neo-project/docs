@@ -9,7 +9,7 @@ The following resources are used in this tutorial and can be helful references w
 
 1. [Lock2](Lock2.md)
 2. [Parameter](Parameter.md)
-3. [Woolong NEP5 Smart Contract](assets/examples/Woolong.cs.md)
+3. [Woolong NEP5 Smart Contract](assets/examples/woolong.cs.md)
 4. [Developer GUI](https://github.com/CityOfZion/neo-gui-developer)
 5. [Neo API](../api/neo.md)
 6. [NEP5 Token Standard](https://github.com/neo-project/proposals/pull/4)

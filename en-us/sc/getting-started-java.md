@@ -26,7 +26,7 @@ Notes: The process involves the following steps:
 The most efficient way of getting these steps done is to download and compile all the tools you will need:
 
 1. Download Neo's Node GUI. At the time of writing, it is recommended you use the BETA developer GUI as it has some extra debugging features which are helpful. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). It will have default presets to Testnet and you will have to wait (up to a few hours) for it to fully sync up.
-2. Download the Neo Framework Library JAR. Current latest version is here: [Antshares.SmartContract.Framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
+2. Download the Neo Framework Library JAR. Current latest version is here: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
 3. Download an IDE for Java (optional but recommended), e.g. IntelliJ or Eclipse.
 4. Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
 
@@ -88,7 +88,7 @@ NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.
 
 After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
 
-You will need to add the AntShares.SmartContract.Framework.jar (which is the neo compiler project) as an external library.
+You need to compile the .jar package of smart contract from the neo java devpack project ([neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet)) and add it as an external library.
 
 
 ## Compile the Project
@@ -96,14 +96,14 @@ You will need to add the AntShares.SmartContract.Framework.jar (which is the neo
 Everything is now ready to add the entry method that defines the smart contract:
 
 ```Java
-import AntShares.SmartContract.Framework.FunctionCode;
-import AntShares.SmartContract.Framework.Services.AntShares.Storage;
+import org.neo.smartcontract.framework.SmartContract;
+import org.neo.smartcontract.framework.services.neo.Storage;
 
-public class HelloWorld extends SmartContract{
+public class HelloWorld extends SmartContract {
 
     public static byte[] Main(String[] args){
-        Storage.Put(Storage.getCurrentContext(), "Greeting to the World", "Hello World!");
-        return Storage.Get(Storage.getCurrentContext(),"Greeting to the World");
+        Storage.put(Storage.currentContext(), "Greeting to the World", "Hello World!");
+        return Storage.get(Storage.currentContext(),"Greeting to the World");
     }
 
 }

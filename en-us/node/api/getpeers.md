@@ -1,4 +1,4 @@
-# getpeers method
+# getpeers Method
 
 Gets the list of nodes that the node is currently connected/disconnected from.
 
@@ -94,9 +94,10 @@ Response body:
 
 Response Description:
 
-Unconnected: A node that is not currently connected.
+- Unconnected: A node that is not currently connected.
 
-Bad: Nodes that are no longer connected.
+- Bad: Nodes that are no longer connected.
 
-Connected: the node to which you are currently connected.
+- Connected: the node to which you are currently connected.
+
 
