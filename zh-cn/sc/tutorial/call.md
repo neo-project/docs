@@ -1,7 +1,7 @@
 # 合约调用
 
 ```c#
-[Appcall]("XXXXXXXXXX")//ScriptHash
+[Appcall("XXXXXXXXXX")]//ScriptHash
 public static extern int AnotherContract(string arg);
 
 public static void Main()
