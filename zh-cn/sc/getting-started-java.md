@@ -56,10 +56,9 @@ neo-compiler 是 NeoContract 的编译器，可以将高级语言的代码编译
 创建一个类，如 go.java，将如下代码粘贴到文件中。
 
 ```java
-import AntShares.SmartContract.Framework.FunctionCode;
-import AntShares.SmartContract.Framework.VerificationCode;
+import org.neo.SmartContract.framework.SmartContract;
 
-public class go extends FunctionCode {
+public class go extends SmartContract{
 	public static void Main(byte[] signature)
 	{
 		
