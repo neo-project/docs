@@ -26,7 +26,7 @@
 > [!Note]
 > 新建项目时 .NET Core 版本请选择 2.0，因为如果选择 1.x 后，接下来添加 “Neo.SmartContract.Framework” 时会失败。
 
-然后右击 `Dependencies`，单击 `Restore`，搜索 “neo” ，选择 “Neo.SmartContract.Framework”，点击 `Add Package`。
+然后右击 `Dependencies`，单击 `Add Packages...`，搜索 “neo” ，选择 “Neo.SmartContract.Framework”，点击 `Add Package`。
 
 ![](assets/mac5.png)
 
