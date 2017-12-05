@@ -21,21 +21,18 @@ params：传递给智能合约操作的参数。
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "invoke",
+  "method": "invokefunction",
   "params": [
-"dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f",
-[
-  {
-    "type": "String",
-    "value": "name"
-  },
-  {
-    "type":"Boolean",
-    "value": false
-  }
-]
+    "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "balanceOf",
+    [
+      {
+        "type": "Hash160",
+        "value": "bfc469dd56932409677278f6b7422f3e1f34481d"
+      }
+    ]
   ],
-  "id": 1
+  "id": 3
 }
 ```
 
@@ -44,14 +41,14 @@ params：传递给智能合约操作的参数。
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 1,
+    "id": 3,
     "result": {
         "state": "HALT, BREAK",
-        "gas_consumed": "2.489",
+        "gas_consumed": "0.338",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "576f6f6c6f6e67"
+                "value": "00e1f505"
             }
         ]
     }
