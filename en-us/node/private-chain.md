@@ -1,6 +1,6 @@
 # Build a private chain with a NEO node
 
-In a previous tutorial, you learned how to setup and deploy a node on Windows and Linux. This tutorial will teach you how to build a private chain or alliance chain, and the steps needed to extract NEO and GAS from these private chains.
+In a previous tutorial, you learned how to setup and deploy a node on Windows and Linux. This tutorial will teach you how to build a private chain and the steps needed to extract NEO and GAS from these private chains.
 
 The deployment of an NEO private chain requires at least four servers to reach a consensus, where each server corresponds to a consensus node and a dedicated NEO wallet.
 
