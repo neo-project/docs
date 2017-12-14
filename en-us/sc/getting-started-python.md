@@ -178,3 +178,5 @@ neo>
 - [Settings and Loggings](python\logging.md)
 - [Interacting with Smart Contracts](python\smartcont.md)
 - [Tests](python\tests.md)
+- [Python Compiler for the NEO Virtual Machine](python\compiler.md)
+

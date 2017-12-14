@@ -101,6 +101,8 @@
         href: sc/python/smartcont.md
       - name: Tests
         href: sc/python/tests.md
+      - name: Python Compiler
+        href: sc/python/compiler.md
     - name: Tutorial
       href: sc/tutorial.md
       items:

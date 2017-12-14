@@ -5,9 +5,9 @@ neo-python has a settings module which you can use to configure several things:
 - The network: MainNet, TestNet, private networks or custom configs
 - Logging:
 
-> - Smart contract event logging
-> - Logfile (optionally rotating)
-> - Loglevel
+  - Smart contract event logging
+  - Logfile (optionally rotating)
+  - Loglevel
 
 To change settings, import the settings instance like this:
 
