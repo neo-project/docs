@@ -92,6 +92,19 @@
       href: sc/getting-started-csharp-mac.md
     - name: 如何开始（Java）
       href: sc/getting-started-java.md
+    - name: 如何开始（Python）
+      href: sc/getting-started-python.md
+      items:
+      - name: 使用命令行
+        href: sc/python/prompt.md
+      - name: 设置和日志
+        href: sc/python/logging.md
+      - name: 与智能合约交互
+        href: sc/python/smartcont.md
+      - name: 测试
+        href: sc/python/tests.md
+      - name: Python编译器
+        href: sc/python/compiler.md
     - name: 教程
       href: sc/tutorial.md
       items: 
