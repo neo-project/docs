@@ -1,4 +1,4 @@
-# Getblockhash method
+# getblockhash Method
 
 Returns the hash value of the corresponding block, based on the specified index.
 
@@ -8,7 +8,7 @@ Index: Block index (block height)
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -19,7 +19,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

@@ -20,28 +20,58 @@
     - name: API Reference
       href: node/API.md
       items:
+      - name: dumpprivkey
+        href: node/api/dumpprivkey.md
+      - name: getaccountstate
+        href: node/api/getaccountstate.md
+      - name: getassetstate
+        href: node/api/getassetstate.md
       - name: getbalance
         href: node/api/getbalance.md
       - name: getbestblockhash
         href: node/api/getbestblockhash.md
+      - name: getblock
+        href: node/api/getblock.md
       - name: getblock
         href: node/api/getblock2.md
       - name: getblockcount
         href: node/api/getblockcount.md
       - name: getblockhash
         href: node/api/getblockhash.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
+      - name: getcontractstate
+        href: node/api/getcontractstate.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
         href: node/api/getrawtransaction.md
+      - name: getstorage
+        href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
+      - name: getpeers
+        href: node/api/getpeers.md
+      - name: getversion
+        href: node/api/getversion.md
+      - name: invoke
+        href: node/api/invoke.md
+      - name: invokefunction
+        href: node/api/invokefunction.md
+      - name: invokescript
+        href: node/api/invokescript.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
     - name: Network Protocol
       href: node/network-protocol.md
     - name: Consensus
@@ -132,5 +162,7 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: System Fees
       href: sc/systemfees.md
+- name: Document for Exchange Developers
+  href: exchange.md
 - name: Contributors
   href: contributors.md

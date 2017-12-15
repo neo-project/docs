@@ -105,9 +105,9 @@ Request Body：
 
 Postmanのクロム拡張機能を用いてテストを容易にできます(クロム拡張機能のインストールにはインターネット接続が必要です)。下記はテストのスクリーンショットです。
 
-![image](http://docs.neo.org/images/2017-05-17_17-06-20.jpg)
+![image](/zh-cn/node/assets/api_2.jpg)
 
-![image](http://docs.neo.org/images/2017-05-17_16-55-58.jpg)
+![image](/assets/api_3.jpg)
 
 ## その他
 

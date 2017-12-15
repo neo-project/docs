@@ -15,10 +15,12 @@ Ver documentación en [Español](es-es/index.md).
 
 [한국어](ko-kr/index.md) 문서를 참조하시길 바랍니다.
 
-[Deutsche](de-de/index.md) dokumentation ansehen.
+[Deutsche](de-de/index.md) Dokumentation ansehen.
 
 Zie de [Nederlandse](nl-nl/index.md) documentatie.
 
 Acesse a documentação em português (brasileiro) [aqui](pt-br/index.md).
 
 Voir la documentation en [Français](fr-fr/index.md).
+
+Vedi la documentazione [Italiana](it-it/index.md).

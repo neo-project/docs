@@ -34,9 +34,11 @@ All Smart Contract fees are considered as Service fee to be put in a pool for re
 | Contract.Create                       | 500           |
 | Contract.Migrate                      | 500           |
 | Storage.Get                           | 0.1           |
-| Storage.Put [per KB]                  | 1             |
+| Storage.Put [per KB]*                 | 1             |
 | Storage.Delete                        | 0.1           |
 | (Default)                             | 0.001         |
+
+* Additional to 1 GAS minimum
 
 ### Fees for Instructions
 

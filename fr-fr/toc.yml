@@ -1,8 +1,8 @@
-- name: Page d'accueil
+- name: Accueil
   href: index.md
-- name: Guide de démarrage
+- name: Démarrage
   href: getting-started.md
-- name: Noeud NEO
+- name: Nœud NEO
   href: node/introduction.md
   items:
     - name: Introduction
