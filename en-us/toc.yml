@@ -90,6 +90,19 @@
       href: sc/getting-started-csharp.md
     - name: Getting Started (Java)
       href: sc/getting-started-java.md
+    - name: Getting Started (Python)
+      href: sc/getting-started-python.md
+      items:
+      - name: Using Prompt
+        href: sc/python/prompt.md
+      - name: Settings and Logging
+        href: sc/python/logging.md
+      - name: Interacting with Smart Contracts
+        href: sc/python/smartcont.md
+      - name: Tests
+        href: sc/python/tests.md
+      - name: Python Compiler
+        href: sc/python/compiler.md
     - name: Tutorial
       href: sc/tutorial.md
       items:
