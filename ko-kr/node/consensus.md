@@ -15,6 +15,7 @@
 ## 2 – 역할(Roles)
 **네오 컨센서스 알고리즘 에서, 컨센서스 노드는 네오 소유자들에 전송의 타당성에 대한 투표를통해 선출됩니다. 이런 컨센서스 노드들을 ‘북키퍼’(bookkeeper)라고 합니다. 앞으로 이들을 컨센서스 노드라고 하겠습니다.**
 
+
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **컨센서스 노드** - 이 노드는 컨센서스 활동에 참여하고 있습니다.  컨센서스 활동 중, 컨센서스 노드들은 아래 두 역할을 차례로 수행합니다:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **발표자** `(하나)` - 해당 **발표자**는 시스템에 제시 안 블록(block proposal) 전송에 책임이 있습니다.
   - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **대리인** `(다수의)` - **대리인**들은 해당 전송에 대한 컨센서스 도달에 책임이 있습니다.
@@ -65,6 +66,7 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 
 
 <img src="/assets/consensus.iterations.png" width="800">
+
 
 **그림 5** DBFT알고리즘의 몬테 카를로(Monte-Carlo) 시뮬레이션을 통해 컨센서스에 이를 때까지 필요한 반복수에 대한 설명(100 노드; 정직한 노드 에서 무작위로 뽑은 100,000개의 시뮬레이트 된 블록)
 
@@ -172,7 +174,8 @@ DBFT가 어떻게 작동하는 지 설명하기 위해, 이 부분을 섹션5에
 **주의:**
  
  만약 컨센서스 없이 같은 **뷰**상에서 (![timeout](/assets/consensus.timeout.png) )  초가 지나면:
-  - **컨센서스 노드** 아래를 시스템에 뿌립니다(broadcast):
+
+- **컨센서스 노드** 아래를 시스템에 뿌립니다(broadcast):
 
 	<!-- -->
 	    <ChangeView, h,k,i,k+1>
