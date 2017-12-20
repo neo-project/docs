@@ -8,14 +8,14 @@ NEO 有两个全节点程序，一个是给普通用户使用的，有图形界�
 
 ## NEO 节点下载地址
 
-|      | neo-gui                                  | ngo-cli                                  |
+|      | Neo-GUI                                  | Neo-CLI                                  |
 | ---- | ---------------------------------------- | ---------------------------------------- |
 | 程序   | [下载地址](https://github.com/neo-project/neo-gui/releases) | [下载地址](https://github.com/neo-project/neo-cli/releases) |
 | 源代码  | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## GUI 节点与 CLI 节点功能比较
 
-|                 | gui  | cli  |
+|                 | GUI  | CLI  |
 | --------------- | ---- | ---- |
 | 图形界面            | ✅    |      |
 | 命令行界面           |      | ✅    |
