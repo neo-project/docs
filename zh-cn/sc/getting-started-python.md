@@ -69,7 +69,7 @@ yum -y install development tools python35 python35-devel python35-pip readline-d
 
 您可能需要为 leveldb-devel 包启用epel存储库，可以编辑`/etc/yum.repos.d/epel.repo `来启用。
 
-> [!注意]
+> [!Note]
 >
 > 对于以上系统，请确保项目中的Chains目录具有正确的写入权限。
 

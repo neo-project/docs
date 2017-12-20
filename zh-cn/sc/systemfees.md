@@ -32,9 +32,11 @@
 | Contract.Create              | 500           |
 | Contract.Migrate             | 500           |
 | Storage.Get                  | 0.1           |
-| Storage.Put [per KB]         | 1             |
+| Storage.Put [per KB]*         | 1             |
 | Storage.Delete               | 0.1           |
 | 其它（每行OpCode）             | 0.001         |
+
+
 
 ### 指令费用
 

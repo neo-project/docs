@@ -259,7 +259,7 @@ send <asset_name> <address to> <amount> [from_addr]
 
 ### 示例 - 不指定地址发送
 
-在本示例中，发送的资产来自与您的地址，可能是多个地址。 `change_address` 是您钱包的中的某个地址。
+在本示例中，发送的资产来自于您的地址，可能是多个地址。 `change_address` 是您钱包的中的某个地址。
 
 ```python
 neo> send gas AeU8kTJxynwkT3q9ao8aDFuaRJBkU3AfFG 11
