@@ -1,7 +1,7 @@
 # Tutorial contratos inteligentes NEO
 
 Después de leer los tutoriales anteriores, deberías tener la capacidad de crear un proyecto de contrato inteligente
-en `Visual Studio 2017`. Aquí hablaremos de cómo se ejecutan los contratos inteligentes en la máquina virtual de NEO. (Neo-VM)
+en `Visual Studio 2017`. Aquí hablaremos de cómo se ejecutan los contratos inteligentes en la máquina virtual de NEO (Neo-VM).
 
 ## Desencadenadores de contratos inteligentes
 
@@ -13,7 +13,7 @@ Existen dos formas de desencadenar contratos inteligentes:
 
 ## Tipos de contratos inteligentes
 
-Los contratos inteligentes tienen dos clases base, `FunctionCode` y `VerificationCode.`
+Los contratos inteligentes tienen dos clases base, `FunctionCode` y `VerificationCode`.
 
 ### Contrato inteligente que hereda de FunctionCode
 
@@ -37,7 +37,6 @@ public class Contract1: FunctionCode
 ### Contrato inteligente que hereda de VerificationCode
 
 Este tipo de contrato hereda de VerificationCode, puede generar una dirección de contrato en el monedero del cliente. El contrato inteligente se desencadena si el usuario desea usar un activo de la dirección de contrato. El usuario crea/invoca una transacción.
-
 
 Cuando el contrato retorna un valor `true` la validación se valida y usuario puede usar el activo. En caso contrario, fallo en la autenticación, el contrato retorna un valor false y el usuario no podrá usar el activo. La transacción que ha fallado en la verificación no puede ser transmitida por otro nodo y no se confirmará por el nodo de consenso.
 
@@ -68,14 +67,13 @@ El diagrama de arriba muestra la arquitectura del sistema para la máquina virtu
 
 #### Motor de ejecución
 
-La parte verde de la derecha es el motor de ejecución de la máquina virtual (equivalente a la CPU) donde puede ejecutar 
-instrucciones comunes como control de flujo, operaciones de pila, operaciones de bits, operaciones aritméticas, método criptograficos e interactuar con la capa del servicio de interoperabilidad. (descrito abajo)
+La parte verde de la derecha es el motor de ejecución de la máquina virtual (equivalente a la CPU) donde puede ejecutar instrucciones comunes como control de flujo, operaciones de pila, operaciones de bits, operaciones aritméticas, métodos criptograficos e interactuar con la capa del servicio de interoperabilidad. (descrito abajo)
 
 #### Calcular pila
 
-La parte media del gris es la pila de computación de la máquina virtual (equivalente a la memoria). La máquina virtual tiene dos formas para computar la pila, ya sea basado en la pila o basado en el registro. La dos formas de lograr esto tiene sus ventajas y desventajas. En la actulidad existen máquinas virtuales basadas en la pila como JVM, CPython y .Net CLR y máquinas virtuales basadas en registros existen en reales. Las máquinas virtuales basadas en la pila tienen un concepto de pila que permite a las máquinas virtuales interactuar directamente con la pila al realizar operaciones reales.
+La parte media del gris es la pila de computación de la máquina virtual (equivalente a la memoria). La máquina virtual tiene dos formas para computar la pila, ya sea basado en la pila o basado en el registro. La dos formas de lograr esto tiene sus ventajas y desventajas. En la actualidad existen máquinas virtuales basadas en la pila como JVM, CPython y .Net CLR y máquinas virtuales basadas en registros existen en reales. Las máquinas virtuales basadas en la pila tienen un concepto de pila que permite a las máquinas virtuales interactuar directamente con la pila al realizar operaciones reales.
 
-Como por defecto es recuperar datos de la pila de operandos no hay necesidad de especificar operandos. Por ejemplo, en ensamblador x86 la operación "ADD EAX, EBX" tienes que especificar donde se realizará la operación y en que lugar se guardaran los resultados. Las intrucciones de la máquina virtual basadas en pila no necesita especificar estos parámetros. Por ejemplo, para una operación de suma los operandos se guardan en la pila de operandos y podemos extraerlos directamente de la pila para hacer la suma.
+Como por defecto es recuperar datos de la pila de operandos no hay necesidad de especificar operandos. Por ejemplo, en ensamblador x86 la operación "ADD EAX, EBX" tienes que especificar donde se realizará la operación y en que lugar se guardaran los resultados. Las instrucciones de la máquina virtual basadas en pila no necesita especificar estos parámetros. Por ejemplo, para una operación de suma los operandos se guardan en la pila de operandos y podemos extraerlos directamente de la pila para hacer la suma.
 
 #### Capa del servicio de interoperabilidad
 
@@ -83,12 +81,11 @@ La parte azul del lado derecho es la capa de servicio interoperable de la máqui
 
 Además, la capa de servicio interoperable también proporciona un área de almacenamiento persistente para cada contrato. Cada uno de los contratos inteligentes se crea opcionalmente con almacenamiento privado, que es un objeto del tipo valor-clave determinado por el destinatario del contrato, en lugar del contexto del almacén persistente.
 
-
 ### Carga de tarifas
 
-Un contrato inteligente se puede programar para cargar cierta tarifa, dividida entre costes de desarollo y costos de implementación.
+Un contrato inteligente se puede programar para cargar cierta tarifa, dividida entre costes de desarrollo y costos de implementación.
 
-Los costes de desarrollo hacen referencia a la necesidad del desarrollador a desplegar un contrato inteligente en la blockchain y pagar una tarifa por el despliegue. (Actualmente de 500 NeoGas). Los costes de ejecución el usuario paga por ejecutar un contrato inteligente. (Es gratis)
+Los costes de desarrollo hacen referencia a la necesidad del desarrollador a desplegar un contrato inteligente en la blockchain y pagar una tarifa por el despliegue (actualmente de 500 NeoGas). Los costes de ejecución el usuario paga por ejecutar un contrato inteligente. (Es gratis)
 
 ## Contrato inteligente sencillo
 
@@ -112,9 +109,9 @@ public static bool Verify ()
 }
 ```
 
-El valor de retorno del contrato es siempre falso, lo que indica que los activos de este contrato no puede ser utilizado (se puede entender como destruir un activo)
+El valor de retorno del contrato es siempre falso, lo que indica que los activos de este contrato no puede ser utilizado (se puede entender como destruir un activo).
 
-Para más ejemplo, ver:
+Para más ejemplos, ver:
 
 [Call](tutorial/call.md)
 
@@ -129,4 +126,3 @@ Para más ejemplo, ver:
 [Lock2](tutorial/Lock2.md)
 
 [Verify](tutorial/Verify.md)
-
