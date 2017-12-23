@@ -9,3 +9,9 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
+    - name: Graphical User Interface
+      href: node/gui.md
+    - name: Test Network
+      href: node/testnet.md
+    - name: CLI Reference
+      href: node/cli.md
