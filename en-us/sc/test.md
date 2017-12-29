@@ -77,7 +77,15 @@ namespace ConsoleApplication1
 
 Compile output: Execution result 14, as expected
 
-Note: If you use the above code to pass the parameters, pay attention to the top of the stack corresponding to the first parameter, for convenience you can also pass the parameters with following code.
+> [!Note]
+>
+> If you encounter the following error after execution：
+>
+> The type “BigInteger” is defined in an unreferenced assembly. You must add a reference to the assembly “System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”
+>
+> You can add a reference to “System.Numerics”  to solve the problem。
+
+Note: If you use the above code to pass the parameters, pay attention to the top of the stack corresponding to the first parameter, for convenience you can also pass the parameters with following code.S
 
 ```c#
 using (ScriptBuilder sb = new ScriptBuilder())
