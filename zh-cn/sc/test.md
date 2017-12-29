@@ -72,11 +72,14 @@ namespace ConsoleApplication1
 
 输出：执行结果 14，符合预期
 
-备注：若运行之后出现错误如下：
-
-类型“BigInteger”在未引用的程序集中定义。必须添加对程序集“System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”的引用。
-
-可采用解决方案：通过添加对 “System.Numerics” 的引用就可解决
+> [!Note]
+>
+> 若运行之后出现如下错误：
+>
+> 类型“BigInteger”在未引用的程序集中定义。必须添加对程序集“System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”的引用。
+>
+> 可通过添加对 “System.Numerics” 的引用解决此问题。
+>
 
 
 注意：如果用上面的代码的方式传参，要注意栈顶元素对应第一个形参，为了方便也可以将传参数的代码换成下面的代码。
