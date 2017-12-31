@@ -9,3 +9,8 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
+- name: Smart Contract
+  href: sc/white-paper.md
+  items:
+    - name: White Paper
+      href: sc/white-paper.md
