@@ -10,6 +10,10 @@
     - name: Installation
       href: node/setup.md
 - name: Smart Contract
+  href: sc/introduction.md
+  items:
+    - name: Introduction
+      href: sc/introduction.md
   href: sc/white-paper.md
   items:
     - name: White Paper
