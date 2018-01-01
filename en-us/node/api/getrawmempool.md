@@ -1,10 +1,10 @@
-# Getrawmempool method
+# getrawmempool Method
 
-Obtain the list of unconfirmed transactions in memory.
+Obtains the list of unconfirmed transactions in memory.
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -15,7 +15,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

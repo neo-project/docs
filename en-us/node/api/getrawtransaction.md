@@ -1,4 +1,4 @@
-# Getrawtransaction method
+# getrawtransaction Method
 
 Returns the corresponding transaction information, based on the specified hash value.
 
@@ -10,7 +10,7 @@ Verbose: Optional, the default value of verbose is 0. When verbose is 0, the ser
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -21,7 +21,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
@@ -31,7 +31,7 @@ Response text:
 }
 ```
 
-Request text:
+Request body:
 
 Verbose = 1, returns the result in JSON format.
 
@@ -44,7 +44,7 @@ Verbose = 1, returns the result in JSON format.
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

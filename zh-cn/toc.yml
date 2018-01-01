@@ -20,6 +20,8 @@
     - name: API 参考
       href: node/API.md
       items:
+      - name: dumpprivkey
+        href: node/api/dumpprivkey.md
       - name: getaccountstate
         href: node/api/getaccountstate.md
       - name: getassetstate
@@ -34,14 +36,16 @@
         href: node/api/getblock2.md
       - name: getblockcount
         href: node/api/getblockcount.md
-      - name: getblocksysfee
-        href: node/api/getblocksysfee.md
       - name: getblockhash
         href: node/api/getblockhash.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
       - name: getcontractstate
         href: node/api/getcontractstate.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
@@ -50,20 +54,24 @@
         href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
+      - name: getpeers
+        href: node/api/getpeers.md
+      - name: getversion
+        href: node/api/getversion.md
+      - name: invoke
+        href: node/api/invoke.md
+      - name: invokefunction
+        href: node/api/invokefunction.md
+      - name: invokescript
+        href: node/api/invokescript.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
       - name: sendmany
         href: node/api/sendmany.md
-      - name: getnewaddress
-        href: node/api/getnewaddress.md
-      - name: dumpprivkey
-        href: node/api/dumpprivkey.md
       - name: validateaddress
         href: node/api/validateaddress.md
-      - name: getpeers
-        href: node/api/getpeers.md
     - name: 网络协议
       href: node/network-protocol.md
     - name: 共识机制
@@ -84,6 +92,19 @@
       href: sc/getting-started-csharp-mac.md
     - name: 如何开始（Java）
       href: sc/getting-started-java.md
+    - name: 如何开始（Python）
+      href: sc/getting-started-python.md
+      items:
+      - name: 使用命令行
+        href: sc/python/prompt.md
+      - name: 设置和日志
+        href: sc/python/logging.md
+      - name: 与智能合约交互
+        href: sc/python/smartcont.md
+      - name: 测试
+        href: sc/python/tests.md
+      - name: Python编译器
+        href: sc/python/compiler.md
     - name: 教程
       href: sc/tutorial.md
       items: 
@@ -160,3 +181,7 @@
             items:
             - name: ExecutionEngine
               href: sc/fw/dotnet/System/ExecutionEngine.md
+    - name: 系统使用费
+      href: sc/systemfees.md
+- name: 交易所对接指南
+  href: exchange.md

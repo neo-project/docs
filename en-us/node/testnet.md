@@ -27,12 +27,10 @@ Reference: [Introduction of NEO node](introduction.md).
 
 ## Method of switching to test network
 
-1. Copy the contents of the program directory under the `protocal.testnet.json` into ` protocol.json` as shown.
+1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
 ![image](/assets/testnet_1.png)
 
-2. Copy the contents of the program (GUI) directory `neo-gui.exe.testnet.config` into the `neo-gui.exe.config` as shown in Figure
+2. Copy the contents of the program (GUI) directory `config.testnet.json` into the `config.json` as shown in Figure
 
-![image](/assets/testnet_2.png)
-
-Note: If the node is run on CLI, the contents of `config.testnet.json` need to be copied to` config.json`.
+![image](/assets/testnet_2_v2.png)

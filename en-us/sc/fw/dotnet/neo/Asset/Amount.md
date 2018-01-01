@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long Amount {get;}
 ```
 
-Attribute value: The total amount of the asset as a long, the value being the actual amount multipled by 10,000,000.
+Attribute value: The total amount of the asset as a long, the value being the actual amount multipled by 100,000,000.
 
 
 

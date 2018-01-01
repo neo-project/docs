@@ -1,10 +1,10 @@
-# Getblockcount method
+# getblockcount Method
 
 Gets the number of blocks in the main chain.
 
 ## Example
 
-Request text:
+Request body:
 
 ```json
 {
@@ -15,7 +15,7 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {

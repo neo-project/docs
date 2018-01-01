@@ -1,14 +1,14 @@
 # NEO White Paper
 
-Een gedistribueerd netwerk voor de Slimme Economie
+Een gedistribueerd netwerk voor de Smart Economy.
 
 ## NEO ontwerpdoelstellingen: Slimme Economie
 
-NEO maakt gebruik van blockchain technologie en een digitale identiteit om activa te kunnen digitaliseren. Door middel van Smart Contracten kunnen digitale activa zichzelf beheren, waardoor een slimme economie met een gedistribueerd netwerk gerealiseerd kan worden.
+NEO maakt gebruik van blockchaintechnologie en digitale identiteiten om activa te kunnen digitaliseren. Door middel van Smart Contracten kunnen digitale activa zichzelf beheren, waardoor een slimme economie (*Smart Economy*) met een gedistribueerd netwerk gerealiseerd kan worden.
 
 ### Digitale Activa
 
-Digitale activa zijn programmeerbare activa die bestaan in de vorm van elektronische gegevens. Met blockchain technologie kan de digitalisering van activa gedecentraliseerd, vertrouwelijk, traceerbaar, zeer transparant en vrij van tussenpersonen zijn. Op de NEO blockchain kunnen gebruikers meerdere soorten activa registreren, verhandelen en circuleren. Bovendien is het bewijs van de verbinding tussen digitale en fysieke activa mogelijk via een digitale identiteit en zijn de activa die geregistreerd zijn via een gevalideerde digitale identiteit wettelijk beschermd.
+Digitale activa zijn programmeerbare activa die bestaan in de vorm van elektronische gegevens. Met blockchain technologie kan de digitalisering van activa gedecentraliseerd, vertrouwelijk, traceerbaar, zeer transparant en vrij van tussenpersonen zijn. Op de NEO blockchain kunnen gebruikers meerdere soorten activa registreren, verhandelen en in omloop brengen. Bovendien is het bewijs van de verbinding tussen digitale en fysieke activa mogelijk via een digitale identiteit en zijn de activa die geregistreerd zijn via een gevalideerde digitale identiteit wettelijk beschermd.
 
 NEO heeft twee vormen van digitale activa: globale activa en contracten-activa. Globale activa kunnen worden opgenomen in het systeem en kunnen geïdentificeerd worden door alle klanten en Smart Contracten. Contracten-activa worden opgenomen in het privé-opslaggebied van het Smart Contract en vereisen dat een compatibele klant deze zou moeten kunnen herkennen. Contracten-activa kunnen voldoen aan bepaalde normen/eisen om compatibiliteit met de meeste klanten te bereiken.
 

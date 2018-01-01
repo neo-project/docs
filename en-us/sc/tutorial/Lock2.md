@@ -17,20 +17,20 @@ PS: At this point in time, the latest **test network client** download is: [Neo 
 > [!Note]
 > The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
 > In order to use the test net you have to make two changes in the config files:
-1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Be default, config.json and protocol.json are idential to the Mainnet versions.
-2. You need to copy the code from the testnet files into the config.json and protocol.json files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste config.testnet.json into config.json, and protocol.testnet.json into protocol.json.
+1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. By default, `config.json` and `protocol.json` are identical to the Mainnet versions.
+2. You need to copy the code from the testnet files into the `config.json` and `protocol.json` files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste `config.testnet.json` into `config.json`, and `protocol.testnet.json` into `protocol.json`.
 
 ## Create a wallet
 
 This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
 
-![](/assets/lock2_1.png)
+![](../../../assets/lock2_1.png)
 
 ## Get the public key
 
 The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
 
-![](/assets/lock2_2.png)
+![](../../../assets/lock2_2.png)
 
 > [!Caution]
 > Please note: Do not divulge your private key.
@@ -71,7 +71,7 @@ After running it, the screen will display the byte array created from the public
 
 ## Write a smart contract
 
-Create a smart contract project and write the following smart contract. Note that the contract here is inherited from VerificationCode, its purpose is to generate a contract authentication account, that is, a contract in the purse file address.
+Create a smart contract project and write the following smart contract. 
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -79,9 +79,9 @@ using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
 {
-    public class Lock : VerificationCode
+    public class Lock : SmartContract
     {
-        public static bool Verify(byte[] signature)
+        public static bool Main(byte[] signature)
         {
             Header header = Blockchain.GetHeader(Blockchain.GetHeight());
             if (header.Timestamp < 1499328600) // 2017-6-6 18:10
@@ -114,16 +114,16 @@ If you think writing a script for this is troublesome, the client's `Deploy Cont
 
 Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
 
-![](/assets/lock2_5.png)
+![](../../../assets/lock2_5.png)
 
 In the client, under the `Account` tab, right click on the whitespace, select `Create Contract Add.`, `Custom`, and paste the contract script into the box:
 
-![](/assets/lock2_7.png)
+![](../../../assets/lock2_7.png)
 
 
 Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
-![](/assets/lock2_8.png)
+![](../../../assets/lock2_8.png)
 
 
 
@@ -142,7 +142,7 @@ Open a wallet with assets on **testnet** and transfer a certain amount of assets
 
 Transfer assets from your smart contract account:
 
-![Transfer contract amount](/assets/lock2_11.png)
+![Transfer contract amount](../../../assets/lock2_11.png)
 
 If the above operation is correct, the following happens when the asset is transferred:
 

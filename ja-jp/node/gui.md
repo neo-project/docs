@@ -15,7 +15,7 @@
 
 クライアントを使用する前に完全に同期させる必要があります。完全に同期すると、左下隅にあるクライアントインターフェイスの左右の値は、安定した速度増加を伴いながら同値を示します。
 
-![image](http://docs.neo.org/images/gui/a.png)
+![image](/assets/gui_1.png)
 
 ### 用語集
 
@@ -95,22 +95,22 @@ NEOの保有者は、バリデーターの候補者に投票し、投票結果�
 
 (1) 左上タブの`wallet`から`create the wallet database`を選択すると`new wallet`のページが出現します。
 
-![image](http://docs.neo.org/images/gui/b.png)
+![image](/assets/gui_2.png)
 
 (2) `Browse`をクリックし、ウォレットファイルの保存場所を選択し、ファイル名を設定して、「保存」をクリックします。
 
-![image](http://docs.neo.org/images/gui/c.png)
+![image](/es-es/node/assets/gui/gui_3.png)
 
 (3) `password`と`repeat password`を入力して保存します。
 
-![image](http://docs.neo.org/images/gui/d.png)
+![image](/assets/gui_4.png)
 
 (4) `OK`をクリックすると、ウォレットが正常に作成されます。デフォルトでは標準アカウントが使用されます。デフォルトでは変換メカニズムにより、残りの資産は最初のアドレスに転送されることに注意してください。したがって、ウォレットと対応する秘密鍵のバックアップをしておく必要があります。
 
 ### ウォレットデータベースを開く
 (1) クライアントを開くたびに`open wallet database`をクリックし、開くウォレットファイルを選択する必要があります。
 
-![image](http://docs.neo.org/images/gui/e.png)
+![image](/assets/gui_5.png)
 
 (2) `Browse`をクリックして開きたいウォレットを選択し(通常は前回開いたウォレットが既に選択されています)、パスワードを入力してから`OK`をクリックしてウォレットを開きます。
 エラーが表示された場合は、ウォレットを開くために「repair mode」を選択することができます。
@@ -119,7 +119,7 @@ NEOの保有者は、バリデーターの候補者に投票し、投票結果�
 
 ウォレットのパスワードを変更するために使用できます。
 
-![image](http://docs.neo.org/images/gui/f.png)
+![image](/assets/gui_6.png)
 
 パスワードを変更した後は、以前のウォレットパスワードのバックアップが変更されていないため、ウォレットの再バックアップすることを忘れないでください。
 
@@ -147,29 +147,29 @@ NEOの保有者は、バリデーターの候補者に投票し、投票結果�
 
 (1) `transaction`タブから、`transfer`を選択し、`+`をクリックして、転送する情報を入力します。
 
-![image](http://docs.neo.org/images/gui/g.png)
+![image](/assets/gui_10.png)
 
 (2) 「OK」をクリックします。
 
-![image](http://docs.neo.org/images/gui/h.png)
+![image](/assets/gui_11.png)
 
 (3) 図のように「OK」をクリックします。
 
-![image](http://docs.neo.org/images/gui/i.png)
+![image](/zh-cn/node/assets/i.png)
 
 #### アセットの分配
 
 (1) `transaction`タブから、`transfer`を選択し、`+`をクリックして、転送する情報を入力します。
 
-![image](http://docs.neo.org/images/gui/j.png)
+![image](/zh-cn/node/assets/j.png)
 
 (2) 「OK」をクリックします。
 
-![image](http://docs.neo.org/images/gui/k.png)
+![image](/zh-cn/node/assets/k.png)
 
 (3) ディスプレイに表示されているように、「OK」をクリックします。必要な署名がさらに表示されます。
 
-![image](http://docs.neo.org/images/gui/l.png)
+![image](/zh-cn/node/assets/l.png)
 
 (4) 署名機能は署名を参照してください。
 
@@ -177,11 +177,11 @@ NEOの保有者は、バリデーターの候補者に投票し、投票結果�
 
 この機能は、同じアセットを異なるアドレスに一括で転送するために使用されます。
 
-![image](http://docs.neo.org/images/gui/m.png)
+![image](/assets/gui_14.png)
 
 データ形式は`address transfer amount`（スペースで区切る）です。
 
-![image](http://docs.neo.org/images/gui/n.png)
+![image](/assets/gui_15.png)
 
 余分なスペースなどは転送失敗につながる可能性があり、上記の形式にしっかりと従ったデータ形式にする必要があることに注意してください。
 
@@ -189,15 +189,15 @@ NEOの保有者は、バリデーターの候補者に投票し、投票結果�
 
 この機能は、NEOブロックチェーン上のトランザクションの情報を記録するために使用されます。現在、[NEOブロックチェーンブラウザ](https://www.antchain.xyz/)を使用して、そのトランザクションに対応する情報を確認できます。
 
-![image](http://docs.neo.org/images/gui/o.png)
+![image](/zh-cn/node/assets/o.png)
 
 現時点では、メッセージ形式の要件はありません。
 
-![image](http://docs.neo.org/images/gui/p.png)
+![image](/zh-cn/node/assets/p.png)
 
 取引の備考はブラウザで確認できます。
 
-![image](http://docs.neo.org/images/gui/Oo.png)
+![image](/zh-cn/node/assets/oo.png)
 
 ### トレード
 
@@ -205,32 +205,32 @@ NEOの保有者は、バリデーターの候補者に投票し、投票結果�
 
 (1) このトランザクションでは、対応する受領者に送付されるアセットの詳細を決めるために、双方の当事者が取引の要求をする必要があります。
 
-![image](http://docs.neo.org/images/gui/Q.png)
+![image](/assets/gui_18.png)
 
 (2) 「OK」をクリックして取引の要求を生成します。取引の要求を使用し、対応する当事者によって送信された条件の詳細を取得することができます。
 
-![image](http://docs.neo.org/images/gui/R.png)
+![image](/assets/gui_19.png)
 
 #### トランザクションの併合
 
 (1) 開始した取引の要求ウィンドウを閉じた後、マージトランザクション要求インタフェースにとびます
 
-![image](http://docs.neo.org/images/gui/S.png)
+![image](/assets/gui_20.png)
 
 (2) これにより、相手方の取引依頼がインタフェースに表示されます。確認をクリックして、相手方の要求の正当性を確認します。要求の正当性に応じて、受け入れるか拒否するかを選択できます。
 
-![image](http://docs.neo.org/images/gui/T.png)
+![image](/assets/gui_24.png)
 
 (3) あなたが受け入れることを選択した場合、双方は署名し、配信する必要があります。詳細は、[署名](#sign) <a id="sign"> </a>を参照してください。
 
 ### 署名
 (1) これにより、相手方が送信したトランザクションが入力ボックス内に貼り付けられます。`sign`をクリックすると、出力データが生成されます。同時に、`broadcast`ボタンが表示されます。
 
-![image](http://docs.neo.org/images/gui/U.png)
+![image](/zh-cn/node/assets/u.png)
 
 (2) `broadcast`をクリックすると、トランザクションが送信されます。トランザクション成功の承認があると、この取引は完了です。
 
-![image](http://docs.neo.org/images/gui/V.png)
+![image](/assets/gui_30.png)
 
 <a  id="offline"></a>
 
@@ -248,19 +248,19 @@ URLを入力すると、このようなパケットがダウンロードされ�
 
 下の図に示すように、パケットを解凍してフォルダに入れます。
 
-![](~/images/gui/2017-07-04_12-06-35.png)
+![](/assets/gui_58.png)
 
 **同期**
 
 クライアントを開くと、下図のようにクライアントが超高速で同期していることがわかります。
 
-![](~/images/gui/2017-07-04_12-07-35.png)
+![](/assets/gui_59.png)
 
 **完了**
 
 ある程度同期させると、下図のようにファイル（chain.acc）が消え、同期速度が遅くなります。
 
-![](~/images/gui/2017-07-04_12-08-35.png)
+![](/assets/gui_60.png)
 
 
 
@@ -276,30 +276,30 @@ GASは新しいブロックごとに生成され、NEO保有者のアドレス�
 
 (2) `Advanced`のタブから`Claim GAS`を選択し、`Claim All`をクリック。
 
-![image](http://docs.neo.org/images/gui/W.png)
+![image](/assets/gui_37.png)
 
 ### 証明書の要求
 
 この機能は証明書アプリケーションファイルを作成することができるだけであり、ユーザーは依然として証明書を申請するために関連するデジタル認証局に行く必要があります。
 `Advanced`のタブから、`Request certificate`をクリックし、指示に従って、リクエストフォームに記入してください。
 
-![image](http://docs.neo.org/images/gui/X.png)
+![image](/assets/gui_39.png)
 
 作成されたファイルは、次の図のようになります。
 
-![image](http://docs.neo.org/images/gui/y.png)
+![image](/zh-cn/node/assets/y.png)
 
 ### アセットの登録
 
 アセットのタイプは2種類あります。トークンを使用を例とすると、以下を記入してください：
 
-![image](http://docs.neo.org/images/gui/Z.png)
+![image](/assets/gui_43.png)
 
 アセットの登録には高額な手数料が必要であることに注意してください（メインネットワーク料金は10000GAS、テストネットワーク料金は100GASです）。
 
 ### アセットの配布
 
-![image](http://docs.neo.org/images/gui/A1.png)
+![image](/assets/gui_46.png)
 
 アセットの分配には高額な手数料が必要であることに注意してください（メインネットワーク料金は500GAS、テストネットワーク料金は5GASです）。できる限り慎重に配分を決定してください。
 
@@ -315,7 +315,7 @@ GASは新しいブロックごとに生成され、NEO保有者のアドレス�
 
 この関数は、NEOブロックチェインバリデータの候補として登録するために使用されます。
 
-![image](http://docs.neo.org/images/gui/B1.png)
+![image](/assets/gui_57.png)
 
 選挙には高額な手数料がかかることに注意してください（メインネットワーク料金は1000GAS、テストネットワーク料金は10GASです）。バリデーター機能はまだ利用できません。更なる更新をお待ちください。
 
