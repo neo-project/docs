@@ -228,24 +228,24 @@ dotnet neo-cli.dll --rpc --record-notifications
 }]
 ```
 
-在该文件中的通知数组只有一个对象，表示该区块上只有一个 NEP-5 事件被触发。在一个通知文件中，你需要查看以下与交易相关的信息：
+在该文件中的通知数组只有一个对象，表示该区块上只有一个 NEP-5 事件被触发。在一个通知文件中，你需要查看以下与交易相关的信息。
 
-- **contract**: 其后面的字符串代表了资产类型.
-- 数组中的第一个对象，如上述例子所示，其值是代表转账交易的字符串"transfer" : 
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应NEP5类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9"就是RPX资产的脚本哈希，是该资产在全网的唯一标识。
 
+- 对于转账交易，"state" 中的数组包含以下四个对象： 
+
+  [事件，转出账户，转入账户，金额]
+  
 ```json
 {
 	"type": "ByteArray",
 	"value": "7472616e73666572"
 }
 ```
-
-- 对于转账交易，"state" 中的数组包含以下四个对象： 
-
-  [事件，转出账户，转入账户，金额]
-
-- 数组中的的第三个对象，如果其值是交易所地址，交易所会收到通知。
-- 数组中的的第四个对象，有两种类型，一种是integer类型，另一种是bytearray类型。交易所处理该数值时，应当特别注意不要漏掉integer类型所对应的交易。
+- 数组中的第一个对象，如上述例子所示，类型为bytearray，值为"7472616e73666572"，经过转换，为字符串"transfer"。transfer是NEP5中的一个方法，代表资产转账。
+- 数组中的的第二个对象，为转出账户地址，类型为bytearray，值为"d336d7eb9975a29b2404fdb28185e277a4b299bc"，经过转换，为字符串"AYy6og4jxBghuqsF2PXd9qX4WePVaykBcw"。
+- 数组中的的第三个对象，为转入账户地址。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+- 数组中的的第四个对象，为转账金额。这里根据金额不同，会有两种类型，一种是integer类型，另一种是bytearray类型。交易所处理该数值时，应当特别注意不要漏掉integer类型所对应的交易。
 
 ### 查询用户余额
 
@@ -636,25 +636,25 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 ##### name
 
-- 语法： `<code>public static string name()</code>`
+- 语法： `public static string name()`
 - 说明： "name" 返回币种名称。
 
 ##### transfer
 
-- 语法： `<code>public static bool transfer(byte[] from, byte[] to, BigInteger amount)</code>`
+- 语法： `public static bool transfer(byte[] from, byte[] to, BigInteger amount)`
 - 说明："transfer" 会从 ”from“ 账户转账 ”amount“ 金额到 ”to“ 账户。
 
 ##### transferFrom ''(optional)''
 
-- 语法：  `<code>public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)</code>`
-- 说明：如果''originator'' 已被批准转移请求的 ”amount“，"transferFrom" 会从 ”from“ 账户转账 ”amount“ 金额到 ”to“ 账户。
+- 语法：  `public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)`
+- 说明：如果''originator'' 已被批准转移请求的 "amount"，"transferFrom" 会从"from" 账户转账 "amount" 金额到 "to" 账户。
 
 #### 事件
 
 ##### transfer
 
-- 语法： `<code>public static event Action<byte[], byte[], BigInteger> transfer</code>`
-- 说明：“transfer”事件在成功执行 “transfer” 方法后触发。
+- 语法： `public static event Action<byte[], byte[], BigInteger> transfer`
+- 说明："transfer"事件在成功执行 "transfer" 方法后触发。
 
 ## （可选）给用户分发 GAS
 
