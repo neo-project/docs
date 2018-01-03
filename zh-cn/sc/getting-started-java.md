@@ -53,12 +53,12 @@ neo-compiler 是 NeoContract 的编译器，可以将高级语言的代码编译
 
 首先通过 [neo-devpack-java](https://github.com/neo-project/neo-devpack-java) 项目编译智能合约jar包，然后使用这个jar包创建一个Java项目。
 
-创建一个类，如 go.java，将如下代码粘贴到文件中。
+创建一个类，如 Go.java，将如下代码粘贴到文件中。
 
 ```java
 import org.neo.smartcontract.framework.SmartContract;
 
-public class go extends SmartContract{
+public class Go extends SmartContract{
 	public static void Main(byte[] signature)
 	{
 		
@@ -68,11 +68,11 @@ public class go extends SmartContract{
 
 ## 编译项目
 
-在 eclipse 中编译 go.java 文件，编译后会在 bin 目录中生成 go.class 文件。
+在 eclipse 中编译 go.java 文件，编译后会在 bin 目录中生成 Go.class 文件。
 
 ![](assets/2017-08-16_12-13-27.png)
 
-打开 PowerShell/CMD 进入 bin 目录，输入 `neoj.exe go.class` 即可编译成 go.avm 文件，该文件即是生成的 NEO 智能合约文件。
+打开 PowerShell/CMD 进入 bin 目录，输入 `neoj.exe Go.class` 即可编译成 go.avm 文件，该文件即是生成的 NEO 智能合约文件。
 
 ![](assets/2017-08-17_10-35-52.png)
 
