@@ -630,31 +630,10 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 ### 相关参考
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")  
+[数据转换示例](https://github.com/PeterLinX/NeoDataTransformation)
 
-#### 方法
 
-##### name
-
-- 语法： `public static string name()`
-- 说明： "name" 返回币种名称。
-
-##### transfer
-
-- 语法： `public static bool transfer(byte[] from, byte[] to, BigInteger amount)`
-- 说明："transfer" 会从 ”from“ 账户转账 ”amount“ 金额到 ”to“ 账户。
-
-##### transferFrom ''(optional)''
-
-- 语法：  `public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)`
-- 说明：如果''originator'' 已被批准转移请求的 "amount"，"transferFrom" 会从"from" 账户转账 "amount" 金额到 "to" 账户。
-
-#### 事件
-
-##### transfer
-
-- 语法： `public static event Action<byte[], byte[], BigInteger> transfer`
-- 说明："transfer"事件在成功执行 "transfer" 方法后触发。
 
 ## （可选）给用户分发 GAS
 
