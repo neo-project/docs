@@ -53,6 +53,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |          |
+| [sendfrom](api/sendtoaddress.md)    | \<asset_id> \<from>\<to> \<value> [fee=0] | 从指定地址，向指定地址转账                    | 需要打开钱包   |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | 向指定地址转账                      | 需要打开钱包   |
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | 批量转账命令                       | 需要打开钱包   |
 | submitblock                              | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
@@ -125,4 +126,3 @@ http://somewebsite.com:10332
 ## 其它
 
 [C# JSON-RPC 使用方法](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
-
