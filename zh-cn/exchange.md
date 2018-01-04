@@ -243,7 +243,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 }
 ```
 - 数组中的第一个对象，如上述例子所示，类型为bytearray，值为"7472616e73666572"，经过转换，为字符串"transfer"。transfer是NEP5中的一个方法，代表资产转账。
-- 数组中的的第二个对象，为转出账户地址，类型为bytearray，值为"d336d7eb9975a29b2404fdb28185e277a4b299bc"，经过转换，为字符串"AYy6og4jxBghuqsF2PXd9qX4WePVaykBcw"。
+- 数组中的的第二个对象，为转出账户地址，类型为bytearray，值为"d336d7eb9975a29b2404fdb28185e277a4b299bc"，经过转换，为字符串"Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU"。注意：NEO中16进制值如果前面加0x，按大端序处理，如果没加0x，按小端序处理。
 - 数组中的的第三个对象，为转入账户地址。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
 - 数组中的的第四个对象，为转账金额。这里根据金额不同，会有两种类型，一种是integer类型，另一种是bytearray类型。交易所处理该数值时，应当特别注意不要漏掉integer类型所对应的交易。
 
