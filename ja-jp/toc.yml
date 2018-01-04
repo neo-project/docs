@@ -20,6 +20,8 @@
     - name: APIリファレンス
       href: node/API.md
       items:
+      - name: dumpprivkey.md
+        href: node/api/dumpprivkey.md
       - name: getaccountstate
         href: node/api/getaccountstate.md
       - name: getassetstate
@@ -36,10 +38,14 @@
         href: node/api/getblockcount.md
       - name: getblockhash
         href: node/api/getblockhash.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
       - name: getcontractstate
         href: node/api/getcontractstate.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
@@ -143,3 +149,5 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: システムの手数料
       href: sc/systemfees.md
+- name: 取引所開発者向けドキュメント
+  href: exchange.md
