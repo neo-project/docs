@@ -1,32 +1,32 @@
-# Block.GetTransactions method ()
+# Block.GetTransactions Method ()
 
-Get all the transactions in the current block.
+Returns all the transactions in the current block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public extern Neo.SmartContract.Framework.Services.Neo.Transaction[] GetTransactions ()
+public extern Neo.SmartContract.Framework.Services.Neo.Transaction[] GetTransactions()
 ```
 
-Return Value: Transaction array, Transaction[] type.
+Return Value: Transaction array as Transaction[].
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         Block block = Blockchain.GetBlock (997027);
-         Transaction[] txs = block.GetTransactions ();
+         Block block = Blockchain.GetBlock(997027);
+         Transaction[] txs = block.GetTransactions();
      }
 }
 ```
 
 
 
-[Return to superior](../Block.md)
+[Back](../Block.md)

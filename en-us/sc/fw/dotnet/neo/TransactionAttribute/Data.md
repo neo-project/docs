@@ -1,19 +1,19 @@
-# TransactionAttribute.Hash property
+# TransactionAttribute.Hash Property
 
-Obtain additional data beyond the purpose of the transaction.
+Returns data outside of the purpose of transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] Data {get;}
 ```
 
-Attribute value: additional data, byte array, other than the purpose used in the transaction feature.
+Attribute value: Data as a byte array.
 
 
 
-[Return to superior](../TransactionAttribute.md)
+[Back](../TransactionAttribute.md)

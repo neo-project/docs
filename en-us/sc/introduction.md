@@ -18,14 +18,17 @@ From the language point of view, the difference between NEO Smart Contract 2.0 a
 
 The languages that are currently supported are:
 
-1) C#, VB.Net, F#
-2) Java, Kotlin
+- C#, VB.Net, F#
+
+- Java, Kotlin
+- Python
 
 The languages that we plan to support include:
 
-1) C, C ++, GO
-2) Python, JavaScript
+- C, C++, Golang
+
+- JavaScript
 
 With multiple-language support, more than 90% of developers can directly participate in the development of an NEO smart contract without the need to learn a new language. Existing business system code might even be directly ported to the blockchain. We envision that this will greatly increase the overall popularity of the future blockchain.
 
-Additionally, traditional smart contracts are difficult to debug and test given lack of tool support. NEO, however, provide support for debugging at the NEO virtual machine level, allowing you to develep NEO Smart Contract 2.0 both easier and faster.
+Additionally, traditional smart contracts are difficult to debug and test given lack of tool supports and access to clear instructions. NEO, however, provides major support for debugging at the NEO virtual machine level, allowing you to develop NEO Smart Contract 2.0 both easier and faster. If you need TestNet GAS, feel free to ask openly and it will be provided for development purposes.

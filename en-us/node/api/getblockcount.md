@@ -1,26 +1,26 @@
-# Getblockcount method
+# getblockcount Method
 
 Gets the number of blocks in the main chain.
 
-## Call the example
+## Example
 
-Request text:
+Request body:
 
 ```json
 {
-   "jsonrpc": "2.0",
-   "method": "getblockcount",
-   "params":[],
-   "id": 1
+   "jsonrpc": "2.0",
+   "method": "getblockcount",
+   "params":[],
+   "id": 1
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
-   "jsonrpc": "2.0",
-   "id": 1,
-   "result": 991991
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": 991991
 }
 ```

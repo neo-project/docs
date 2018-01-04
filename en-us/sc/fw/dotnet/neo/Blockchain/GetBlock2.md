@@ -1,35 +1,33 @@
-# Blockchain.GetBlock method (uint)
+# Blockchain.GetBlock Method (uint)
 
-Find the block by block height.
+Returns a block from the blockchain given a block height.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Block GetBlock (uint height)
+public static extern Neo.SmartContract.Framework.Services.Neo.Block GetBlock(uint height)
 ```
 
-Parameters: Block height (block index), unsigned integer.
+Parameters: Block height (block index) as an unsigned integer.
 
-Return Value: Block, [Block](../Block.md) Type.
+Return Value: [Block](../Block.md).
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         Block bl = Blockchain.GetBlock (997027);
+         Block bl = Blockchain.GetBlock(997027);
      }
 }
 ```
 
 
 
-
-
-[Return to superior](../Blockchain.md)
+[Back](../Blockchain.md)

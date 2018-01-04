@@ -61,7 +61,7 @@ Por ejemplo, en la JVM de java o en el CLR de .NET el código fuente es compilad
 
 ### Arquitectura de la máquina virtual
 
-<img style="vertical-align: middle" src="assets/tutorial/evm.png">
+<img style="vertical-align: middle" src="/assets/neo-vm.jpg">
    
 
 El diagrama de arriba muestra la arquitectura del sistema para la máquina virtual de Neo (Neo-VM), donde la parte contenida dentro de la línea de puntos es el núcleo de la máquina virtual.

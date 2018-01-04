@@ -1,19 +1,19 @@
-# Transaction.Hash property
+# Transaction.Hash Property
 
-Get the current deal for Hash.
+Returns the transaction hash.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] Hash {get;}
 ```
 
-Attribute value: transaction hash, 32 bytes byte array.
+Attribute value: Transaction hash as a byte array of length 32.
 
 
 
-[Return to superior](../Transaction.md)
+[Back](../Transaction.md)

@@ -1,12 +1,16 @@
-# TransactionOutput class
+# TransactionOutput Class
 
-The data structure used to represent the transaction output. A transaction output has three fields, which is the transfer of assets, transfer to which address, how much money transferred.
+The data structure used to represent the transaction output. A transaction output has three fields:
+
+1. Type of assets
+2. Destination address
+3. Amount transferred
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public class TransactionOutput: IApiInterface
@@ -16,10 +20,11 @@ public class TransactionOutput: IApiInterface
 
 | | Name | description |
 | ---------------------------------------- | ---------------------------------------- | ------ |
-| [AssetId](TransactionOutput/AssetId.md) | Get Asset ID | | [Asset_id
-| [ScriptHash](TransactionOutput/ScriptHash.md) | Get Script Hash | Get [ScriptHash](ScriptOashput; ScriptHash.md) 
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Get Transaction Amount      | [Value](TransactionOutput/Value.md) |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](TransactionOutput/AssetId.md)  | Returns asset ID |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](TransactionOutput/ScriptHash.md) | Returns the scripthash |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Value](TransactionOutput/Value.md)      | Returns the transaction amount |
 
-## Construction method
 
-The TransactionOutput object is constructed by the [GetOutputs ()](Transaction/GetOutputs.md) method of the Transaction object.
+## Constructor
+
+The TransactionOutput object is constructed through [GetOutputs()](Transaction/GetOutputs.md) of the Transaction object.

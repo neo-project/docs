@@ -2,52 +2,6 @@
   href: index.md
 - name: 시작하기
   href: getting-started.md
-- name: 백서
-  href: white-paper.md
-- name: 앤트쉐어 노드
-  href: node/introduction.md
-  items:
-    - name: 소개
-      href: node/introduction.md
-    - name: 설치하기
-      href: node/setup.md
-    - name: 그래픽 유저 인터페이스
-      href: node/gui.md
-    - name: 테스트 네트워크
-      href: node/testnet.md
-    - name: CLI 참조
-      href: node/cli.md
-    - name: 프라이빗 체인
-      href: node/private-chain.md
-    - name: API 참조
-      href: node/API.md
-      items:
-      - name: 잔액 확보
-        href: node/api/getbalance.md
-      - name: 최대 블록해쉬 확보
-        href: node/api/getbestblockhash.md
-      - name: 블록 확보
-        href: node/api/getblock2.md
-      - name: 블록카운트 확보
-        href: node/api/getblockcount.md
-      - name: 블록해쉬 확보
-        href: node/api/getblockhash.md
-      - name: 연결 카운트 확보
-        href: node/api/getconnectioncount.md
-      - name: raw mem pool 확보
-        href: node/api/getrawmempool.md
-      - name: raw 전송 확보
-        href: node/api/getrawtransaction.md
-      - name: tx out 확보
-        href: node/api/gettxout.md
-      - name: raw 전송 보내기
-        href: node/api/sendrawtransaction.md
-      - name: 주소로 보내기
-        href: node/api/sendtoaddress.md
-    - name: 네트워크 프로토콜
-      href: node/network-protocol.md
-    - name: 동의
-      href: node/consensus.md
 - name: 스마트 계약
   href: sc/introduction.md
   items:
@@ -66,6 +20,12 @@
         href: sc/tutorial/Lock.md
       - name: 도메인 (도메인 이름 체계)
         href: sc/tutorial/Domain.md
+      - name: 스마트 계약 파라미터와 리턴 값
+        href: sc/tutorial/Parameter.md
+      - name: 계약 입증 설명서
+        href: sc/tutorial/verify.md
+      - name: 자물쇠 계약 전개하기
+        href: sc/tutorial/Lock2.md
       - name: 계약 호출
         href: sc/tutorial/call.md
     - name: 테스트
@@ -74,46 +34,5 @@
       href: sc/white-paper.md
     - name: API 참조
       href: sc/api.md
-      items:
-      - name: 앤트쉐어
-        href: sc/api/neo.md
-      - name: 시스템
-        href: sc/api/system.md
     - name: 프레임워크
       href: sc/fw.md
-      items:
-      - name: 닷넷 프레임워크
-        href: sc/fw/dotnet.md
-        items:
-          - name: 앤트쉐어
-            href: sc/fw/dotnet/neo.md
-            items:
-            - name: 계좌
-              href: sc/fw/dotnet/neo/Account.md
-            - name: 자산
-              href: sc/fw/dotnet/neo/Asset.md
-            - name: 블록
-              href: sc/fw/dotnet/neo/Block.md
-            - name: 블록체인
-              href: sc/fw/dotnet/neo/Blockchain.md
-            - name: 등록하기
-              href: sc/fw/dotnet/neo/Enrollment.md
-            - name: 헤더
-              href: sc/fw/dotnet/neo/Header.md
-            - name: 저장
-              href: sc/fw/dotnet/neo/Storage.md
-            - name: 저장 Contex
-              href: sc/fw/dotnet/neo/StorageContex.md
-            - name: 전송
-              href: sc/fw/dotnet/neo/Transaction.md
-            - name: 전송 특성
-              href: sc/fw/dotnet/neo/TransactionAttribute.md
-            - name: 전성 입력
-              href: sc/fw/dotnet/neo/TransactionInput.md
-            - name: 전송 출력
-              href: sc/fw/dotnet/neo/TransactionOutput.md
-          - name: 시스템
-            href: sc/fw/dotnet/System.md
-            items:
-            - name: 실행 엔진
-              href: sc/fw/dotnet/System/ExecutionEngine.md

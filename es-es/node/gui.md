@@ -24,7 +24,7 @@ La primera sincronización puede durar entre **24-48 horas.**
 > * Antivirus/IDS está bloqueado el cliente. Revisa que el ejecutable `neo-gui.exe` está excluido.
 
 
-<img style="vertical-align: middle" src="assets/gui/gui_1.png">
+<img style="vertical-align: middle" src="/assets/gui_1.png">
 
 ### Glosario
 
@@ -111,7 +111,7 @@ Te permite importar una dirección y monitorizarla. También te permite ver los 
 
 1. Click en `Wallet`, click en `New Wallet Database`. Una vez pulsado aparecerá la ventana `New Wallet` y click en `Browser`
 
-<img style="vertical-align: middle" src="assets/gui/gui_2.png">
+<img style="vertical-align: middle" src="/assets/gui_2.png">
 
 2. Seleciona una ubicación donde crear el fichero. Escribe el nombre del fichero y click en `Guardar`.
 
@@ -122,7 +122,7 @@ Te permite importar una dirección y monitorizarla. También te permite ver los 
 
 3. Introduce la conseña en `Password` y repitela en `Re-Password` y click en `Confirm`. Una vez pulsado `Confirm` el monedero creará por defecto un dirección estandard.
 
-<img style="vertical-align: middle" src="assets/gui/gui_4.png">
+<img style="vertical-align: middle" src="/assets/gui_4.png">
 
 > [!IMPORTANT] 
 > Introduce una contraseña compleja y anota la contraseña en un lugar seguro.
@@ -133,7 +133,7 @@ Te permite importar una dirección y monitorizarla. También te permite ver los 
 1. Cada vez que el cliente se abre se debe abrir el fichero base de datos del monedero. 
 Click en `Wallet`, click en `Open Wallet Database` y seleciona el fichero del monedero. Por defecto aparece el ultimo monedero abierto e introduce la contraseña y click en `Confirm`
 
-<img style="vertical-align: middle" src="assets/gui/gui_5.png">
+<img style="vertical-align: middle" src="/assets/gui_5.png">
 
 Si el fichero del monedero tiene errores, puedes intentar abrir el fichero selecionando la opción `repair mode`
 
@@ -141,7 +141,7 @@ Si el fichero del monedero tiene errores, puedes intentar abrir el fichero selec
 
 Esta opción se usa para cambiar la contraseña del fichero del monedero.
 
-<img style="vertical-align: middle" src="assets/gui/gui_6.png">
+<img style="vertical-align: middle" src="/assets/gui_6.png">
 
 > [!IMPORTANT] 
 > Al cambiar la contraseña recuerda volver hacer una copia de seguridad del fichero del monedero porque la anterior copia 
@@ -186,11 +186,11 @@ Pasos para transferir NeoGas
 2. Click en el botón `[+]`. En `Asset` seleciona `NeoGas` en `Pay to` la dirección donde enviar los tokens y el `Amount`
 la cantidad, y pulsa `OK`
 
-<img style="vertical-align: middle" src="assets/gui/gui_10.png">
+<img style="vertical-align: middle" src="/assets/gui_10.png">
 
 3. Click en `OK` para tranferrir los tokens.
 
-<img style="vertical-align: middle" src="assets/gui/gui_11.png">
+<img style="vertical-align: middle" src="/assets/gui_11.png">
 
 #### Tranferencia de Neo
 
@@ -212,11 +212,11 @@ la cantidad, y pulsa `OK`
 
 Esta funcionalidad se usa para simplificar la transferencia desde el mismo activo a diferentes direcciones.
 
-<img style="vertical-align: middle" src="assets/gui/gui_14.png">
+<img style="vertical-align: middle" src="/assets/gui_14.png">
 
 Hay que introducir la dirección y la cantidad separada de un espacio. Tal y como se muestra en la imagen.
 
-<img style="vertical-align: middle" src="assets/gui/gui_15.png">
+<img style="vertical-align: middle" src="/assets/gui_15.png">
 
 Cabe señalar que el formato debe ajustarse a lo anteriormente indicado, siendo: `dirección (un espacio) cantidad`. Un espacio extra puede llevar a un error en la transferencia.
 
@@ -240,15 +240,15 @@ Para iniciar un acuerdo deben existir una aprobación entre las dos partes.
 
 1. Click on the `Transaction` y click en `Transaction X`. En `Pay To` indica la dirección de la otra parte y click en el botón `[+]`. En la ventada de Payment indica el `Asset` en mi ejemplo 'MyToken' y en `Amount` la catidad, en mi ejemplo 5 y click en `Initiate`
 
-<img style="vertical-align: middle" src="assets/gui/gui_18.png">
+<img style="vertical-align: middle" src="/assets/gui_18.png">
 
 2. Al hacer click, nos aparecerá la ventada `Trade Request`, copiamos el codigo y click en `Close`. 
 
-<img style="vertical-align: middle" src="assets/gui/gui_19.png">
+<img style="vertical-align: middle" src="/assets/gui_19.png">
 
 3. Una vez cerrada nos aparecerá la ventana de `Merge tx. request`. Aqui tendremos que pegar el codigo de la otra parte, parte, que debera decidir cuanto pagará.
 
-<img style="vertical-align: middle" src="assets/gui/gui_20.png">
+<img style="vertical-align: middle" src="/assets/gui_20.png">
 
 **Parte B**
 
@@ -268,7 +268,7 @@ Para iniciar un acuerdo deben existir una aprobación entre las dos partes.
 
 7. A hacer click nos aparecerá la ventana `Transaction Verification`, seleccionamos el activo y click en `Accept`
 
-<img style="vertical-align: middle" src="assets/gui/gui_24.png">
+<img style="vertical-align: middle" src="/assets/gui_24.png">
 
 8. Una vez aceptado, click en `Merge`.
 
@@ -294,7 +294,7 @@ Para iniciar un acuerdo deben existir una aprobación entre las dos partes.
 
 12. Si todo ha ido bien, nos aparecerá la ventana `Trade Success` y click en `Close`
 
-<img style="vertical-align: middle" src="assets/gui/gui_30.png">
+<img style="vertical-align: middle" src="/assets/gui_30.png">
 
 13. En el apartado `Asset`veremos nuestros activos que acabamos de acordar con la otra parte.
 
@@ -346,7 +346,7 @@ Los pasos especificos son los siguientes:
       * Una vez realizada la tranferencia, volvemos al menu Avanzado `Advanced`, click en `NeoGas Claim` y ahora click en `Claim 
       All` 
       <br>
-      <img style="vertical-align: middle" src="assets/gui/gui_37.png">
+      <img style="vertical-align: middle" src="/assets/gui_37.png">
       
       * Una vez realizada la reclamación podemos ver los NeoGas en la dirección.
       <br>
@@ -362,7 +362,7 @@ Esta funcionalidad unicamente te permite generar el archivo para aplicación de 
 
 Click en `Advanced` y click en `Request Certificate` y rellena los campos. 
 
-<img style="vertical-align: middle" src="assets/gui/gui_39.png">
+<img style="vertical-align: middle" src="/assets/gui_39.png">
 
 Click en `Ok`y le indicamos donde guardar el archivo.
 
@@ -370,7 +370,7 @@ Click en `Ok`y le indicamos donde guardar el archivo.
 
 Una vez generado el archivo aplicaremos el fichero en una entidad certificadores para que nos emitan el certificado. Una vez emitido importaremos el certificado en el almacén **Personal**.
 
-<img style="vertical-align: middle" src="assets/gui/gui_41.png">
+/<img style="vertical-align: middle" src="assets/gui/gui_41.png">
 
 Una vez importado, click en la dirección con el botón derecho, click en `Import` y click en `Import from Certificate`, selecionamos el certificado y click en `Ok`.
 
@@ -384,11 +384,11 @@ Existen dos tipos de activos. Tokens y Share. En este ejemplo vamos a registrar 
 Click en `Advanced` y click en `Asset Registration`. En `Asset Type` indica el tipo de activo, en nuestro ejemplo "Token",
 y rellena los campos, y click en `Ok`
 
-<img style="vertical-align: middle" src="assets/gui/gui_43.png">
+<img style="vertical-align: middle" src="/assets/gui_43.png">
 
 El regitro de activos requiere una cantidad de NeoGas. Click en `Test` para saber la tarifa, y click en `Invoke` si queremos registrar el registro.
 
-<img style="vertical-align: middle" src="assets/gui/gui_44.png">
+<img style="vertical-align: middle" src="/assets/gui_44.png">
 
 Si la transacción se ha realizado bien, nos aparecerá una ventana con el Id. de la transacción. Ese Id. de transacción lo usaremos en el siguiente apartado para distribuir activos.
 
@@ -400,7 +400,7 @@ Si la transacción se ha realizado bien, nos aparecerá una ventana con el Id. d
 Click en `Advanced` y click en `Asset Distribution`. En el apartado `Asset Id` insertamos el Id. de la transacción anterior.
 y click en el símbolo `[+]`
 
-<img style="vertical-align: middle" src="assets/gui/gui_46.png">
+<img style="vertical-align: middle" src="/assets/gui_46.png">
 
 En `Pay To` indicamos la dirección donde vamos a distribuir los activos y la cantidad a distribuir. 
 Click en `Ok`y click en `Confirm`
@@ -465,7 +465,7 @@ Esta funcion se usa para registrar un candidato en la blockchain como bookkeeper
 
 Click en `Advanced` y click en `Election`
 
-<img style="vertical-align: middle" src="assets/gui/gui_57.png">
+<img style="vertical-align: middle" src="/assets/gui_57.png">
 
 El regitro de activos requiere una cantidad de NeoGas. En la red principal (MainNet) la tarifa es 1000 NeoGas y en la red de pruebas (TestNet) de 10 NeoGas.
 
@@ -473,23 +473,13 @@ El regitro de activos requiere una cantidad de NeoGas. En la red principal (Main
 
 Descagar los bloques del siguiente enlace [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip) 
 
-Una vez descargado asegurate que el cliente no se está ejecutando y descomprime el fichero `chain.acc.zip`en la ruta donde se encuentra el cliente PC `neo-gui`, tal y como se muestra en la imagen:
+Una vez descargado asegurate que el cliente no se está ejecutando y deja el fichero en la raiz del directorio donde se encuentra el ejecutable `Neo-gui.exe`. Al iniciar el cliente, el cliente descromprimirá el fichero zip y comenzará a cargar los bloques.
 
-<img style="vertical-align: middle" src="assets/gui/gui_58.png">
+><img style="vertical-align: middle" src="/assets/gui_58.png">
 
->[!TIP] 
-> En el caso de no descomprimir el fichero al arrancar el cliente, este lo descomprimirá y comenzará a cargar los 
-> bloques para hacer la sincronización offline.
+Una vez cargado los bloques el programa eliminará el fichero zip.
 
-Elimina el archivo Zip. NO elimines el archivo `chain.acc`, arranca el cliente PC y en ese momento empezará a sincronizar.
-Al cabo de un tiempo, el cliente estará totalmente sincronizado.
-
-<img style="vertical-align: middle" src="assets/gui/gui_59.png">
-
->[!TIP] 
-> A nivel informativo: Al acabar la sincronización de forma automática se borra el fichero `chain.acc` y la carpeta `Chain` se crea en la raiz del directorio donde se encuentra el cliente `NEO-gui`
-
-><img style="vertical-align: middle" src="assets/gui/gui_60.png">
+><img style="vertical-align: middle" src="/assets/gui_60.png">
 
 ### 4.8 Opciones
 

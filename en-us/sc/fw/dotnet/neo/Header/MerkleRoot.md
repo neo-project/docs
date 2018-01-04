@@ -1,19 +1,19 @@
-# Header.MerkleRoot property
+# Header.MerkleRoot Property
 
-Gets the roots of Merkle Tree for all transactions in that block.
+Returns the Merkle Tree root for all transactions in the block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] MerkleRoot {get;}
 ```
 
-Attribute value: Merkle Tree root, 32 bytes byte array.
+Attribute value: Merkle Tree root as a byte array of length 32.
 
 
 
-[Return to superior](../header.md)
+[Back](../header.md)

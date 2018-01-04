@@ -1,4 +1,4 @@
-# Referencia de la API
+﻿# Referencia de la API
 
 `NEO-cli` proporciona una interfaz API para obtener datos de la cadena de bloque, lo que facilita el desarrollo de aplicaciones blockchain. Esta interfaz se proporciona a través de [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) y usa el protocolo **HTTP/HTTPS** para la comunicación. Para iniciar en un nodo el servicio RPC, se debe  ejecutar el siguiente comando:
 
@@ -35,6 +35,7 @@ Para información sobre los tipos de clientes, [click aquí](introduction.md)
 
 | Comando                                       | Referencia                                     | Explicación                         | Comentario       |
 | ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
+| [dumpprivkey](api/dumpprivkey.md)          | \<address>                             |Devuelve la clave privada de en función de una cuenta especificada.   | Necesita abrir el monedero.   |
 | [getaccountstate](api/getaccountstate.md)          | \<hash>                             |Devuelve el estado de la cuenta.   |
 | [getassetstate](api/getassetstate.md)          | \<hash>                             |Devuelve el estado del activo.   |
 | [getbalance](api/getbalance.md)          | \<asset_id>                             |Devuelve el balance del activo correspodiente en el monedero en función del número del activo especificado.   | Necesita abrir el monedero.   |
@@ -46,11 +47,13 @@ Para información sobre los tipos de clientes, [click aquí](introduction.md)
 | [getblocksysfee](api/getblocksysfee.md)          | \<hash>            |Devuelve la tarifa del bloque.   ||
 | [getconnectioncount](api/getconnectioncount.md) |                                         | Obtiene el número de conexiones del nodo.                 |          |
 | [getcontractstate](api/getcontractstate.md)          | \<hash>        |Devuelve el estado del contrato.  |
+| [getnewaddress](api/getnewaddress.md)          |                              | Crea una cuenta estandar.   | Necesita abrir el monedero.   |
 | [getpeers](api/getpeers.md)          |         | Devuelve la lista de pares que estan conectados, desconectados o con problemas.  |
 | [getrawmempool](api/getrawmempool.md)    |                                         | Obtiene la lista de transacciones no confirmadas de la memoria.            |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | Devuelve la información de la correspondiente transacción en función del valor hash de la transacción especificado.         |          |
 | [getstorage](api/getstorage.md)          | \<hash> \<key>                            |Devuelve el valor del almacenamiento en funcion al script hash y clave especificado.   |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | Devuelve la información de la correspondiente transacción en función del valor hash de la transacción y del índice especificado.  |          |
+| [sendmany](api/sendmany.md)   |   \<asset> \<value> \<address>       | Permite realizar tranferencias por lote a más de una cuenta.   | Necesita abrir el monedero.   |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Transmite una transacción a la red. Ver la documentación de [network protocol](network-protocol.md).                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | Transferir al monedero especificado.                     | Necesita abrir el monedero.   |
 | [submitblock](api/submitblock.md)  | \<hex> | Envia nuevos bloques. Necesita ser un nodo consenso. |
@@ -116,7 +119,7 @@ Puedes usar la extensión de Chrome **Postman** para facilitar las pruebas. La i
 
 <img style="vertical-align: middle" src="assets/api/api_2.png">
 
-<img style="vertical-align: middle" src="assets/api/api_3.png">
+<img style="vertical-align: middle" src="/assets/api_3.jpg">
 
 
 ## Otros

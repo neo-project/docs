@@ -14,7 +14,7 @@
 public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext { get; }
 ```
 
-属性值：当前存储区上下文，[StorageContext](../StorageContex.md) 类型。
+属性值：当前存储区上下文，[StorageContext](../StorageContext.md) 类型。
 
 
 
