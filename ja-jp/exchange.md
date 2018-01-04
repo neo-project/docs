@@ -298,19 +298,32 @@ JSONにおいて、一般的なinvokefunctionリクエストのbodyは次のフ�
   - 注意: "symbol" はトークンのシンボルを返します。
   
   
-オプションの引数
-オプション。呼び出すメソッドに引数が必要な場合、これらのパラメータを配列に作成して渡すことができます。例えば、NEP-5の "balanceOf" は、"account"のトークンバランスを返します：
-public static BigInteger balanceOf(byte[] account)
-このため、"balanceOf" メソッドの引数としてaccountを渡す必要があります。
-例
-balanceOfの呼び出し
+- オプションの引数
+
+  オプション。呼び出すメソッドに引数が必要な場合、これらのパラメータを配列に作成して渡すことができます。例えば、NEP-5の "balanceOf" は、"account"のトークンバランスを返します：
+  
+  <code>public static BigInteger balanceOf(byte[] account)</code> 
+
+  このため、"balanceOf" メソッドの引数としてaccountを渡す必要があります。
+
+#### 例
+
+##### **balanceOfの呼び出し**
+
 アカウントのアドレスがAJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbeと仮定し、Hash 160の型に変換し、このパラメータをJSONオブジェクトとして作成する必要があります。
+
+```json
 {
     "type": "Hash160",
     "value": "bfc469dd56932409677278f6b7422f3e1f34481d"
 }
-そして次のようにJSONメッセージを作成することができます：
-リクエストボディ：
+```
+
+Then you can construct the JSON message as the following:
+
+Request Body：
+
+```json
 {
   "jsonrpc": "2.0",
   "method": "invokefunction",
@@ -326,7 +339,11 @@ balanceOfの呼び出し
   ],
   "id": 3
 }
+```
+
 リクエスト送信後は、次のレスポンスを得られます：
+
+```json
 {
     "jsonrpc": "2.0",
     "id": 3,
@@ -341,9 +358,15 @@ balanceOfの呼び出し
         ]
     }
 }
+```
+
 整数100000000に変換可能な "00e1f505" を返します。
-decimalsの呼び出し
+
+##### **decimalsの呼び出し**
+
 リクエストボディ：
+
+```json
 {
   "jsonrpc": "2.0",
   "method": "invokefunction",
@@ -354,7 +377,11 @@ decimalsの呼び出し
     ],
   "id": 2
 }
+```
+
 リクエスト送信後は、次のレスポンスが得られます：
+
+```json
 {
     "jsonrpc": "2.0",
     "id": 2,
@@ -369,9 +396,15 @@ decimalsの呼び出し
         ]
     }
 }
+```
+
 整数8を返します。
-symbolの呼び出し
+
+##### **symbolの呼び出し**
+
 リクエストボディ：
+
+```json
 {
   "jsonrpc": "2.0",
   "method": "invokefunction",
@@ -382,7 +415,11 @@ symbolの呼び出し
     ],
   "id": 1
 }
+```
+
 リクエスト送信後は、次のレスポンスが得られます：
+
+```json
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -397,40 +434,66 @@ symbolの呼び出し
         ]
     }
 }
+```
+
 "RPX" に変換可能な"525058"を返します。
-ユーザの残高の計算
+
+##### **ユーザの残高の計算**
+
 返された値に従い、次のようにユーザの残高を計算することができます：
 残高 = 100000000/108 RPX = 1 RPX
 
-ユーザの引き出しの取り扱い
-The exchange can choose one of the following way to send NEP-5 assets to users:
+### ユーザの引き出しの取り扱い
+
 取引所は、NEP-5資産をユーザに送信する次のいずれかの方法を選択できます。
-NEO-CLI コマンド: send
-RPC メソッド: sendtoaddress
-PRC メソッド: sendmany
-NEO-CLI コマンド: send
-構文
-send <txid|script hash> <address> <value> [fee = 0]
-パラメータ
-txid|script hash: アセットID
-address: 支払いアドレス
-value: 転送量
-fee: このパラメータは空のままにすることができます。デフォルトは0です。
+
+- NEO-CLI コマンド: `send`
+
+- RPC メソッド: `sendtoaddress`
+- PRC メソッド: `sendmany`
+
+#### NEO-CLI コマンド: send
+
+##### 構文
+
+`send <txid|script hash> <address> <value> [fee = 0]`
+
+##### パラメータ
+
+- txid|script hash: アセットID
+
+- address: 支払いアドレス
+
+- value: 転送量
+
+- fee: このパラメータは空のままにすることができます。デフォルトは0です。
+
+
 コマンドはウォレットのパスワードを検証します。
-例
-100RPXをのアドレスAeSHyuirtXbfZbFik6SiBW2BEj7GK3N62bに転送するため、次を入力してください：
+
+##### 例
+
+100RPXをのアドレス*AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b*に転送するため、次を入力してください：
+
+```
 send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
+```
 
+グローバル資産を送信する必要がある場合、最初のパラメータをtxidに変更します。例えば、
+NEOのtxid：0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b 
+GASのtxid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-If you need to send global asset, just change the first parameter to txid. For example, The txid of NEO: 
-グローバル資産を送信する必要がある場合、最初のパラメータをtxidに変更します。例えば、NEOのtxid：
-0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b The GASのtxid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-RPC メソッド: sendtoaddress
+#### RPC メソッド: sendtoaddress
+
 キーの "params" には、少なくとも3つのパラメータの配列が含まれます。
-"params":[script hash, address, amount, fee(optional), change address(optional)]
-For example, to send 1 RPX to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg , construct a JSON file as follows and send it to RPC server.
-例えば、1RPXをにAbP3FU3YcqBrWh72nc9deyQB99eazG9XUg 送信するため、次のようにJSONファイルを作成し、それをRPCサーバに送信してください：
+
+`"params":[script hash, address, amount, fee(optional), change address(optional)]`
+
+例えば、1RPXをに*AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*送信するため、次のようにJSONファイルを作成し、それをRPCサーバに送信してください：
+
 リクエストボディ：
+
+```json
 {
     "jsonrpc":"2.0",
     "method":"sendtoaddress",
@@ -443,7 +506,11 @@ For example, to send 1 RPX to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg , construct a J
     ],
     "id":1
 }
+```
+
 リクエスト送信後は、次のレスポンスが得られます：
+
+```json
 {
     "jsonrpc":"2.0",
     "id":1,
@@ -476,11 +543,19 @@ For example, to send 1 RPX to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg , construct a J
         "gas":"0"
     }
 }
-RPC メソッド: sendmany
+```
+
+#### RPC メソッド: sendmany
+
 キーの "params"には、少なくとも1つのパラメータの配列が含まれます。
-"params":[[], fee(optional), change address(optional)]
-例えば、15.5RPXと0.0001GASをAbP3FU3YcqBrWh72nc9deyQB99eazG9XUgに送信するため、 change address もまたAbP3FU3YcqBrWh72nc9deyQB99eazG9XUgであり、JSON ファイルを次のように作成し、RPCサーバに送信します。
-Request Body：
+
+`"params":[[], fee(optional), change address(optional)]`
+
+例えば、15.5RPXと0.0001GASを*AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*に送信するため、`change address`もまた*AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*であり、JSON ファイルを次のように作成し、RPCサーバに送信します。
+
+リクエストボディ：
+
+```json
 {
     "jsonrpc":"2.0",
     "method":"sendmany",
@@ -500,7 +575,11 @@ Request Body：
     ],
     "id":1
 }
+```
+
 リクエスト送信後は、次のレスポンスが得られます：
+
+```json
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -547,100 +626,89 @@ Request Body：
         "gas": "0"
     }
 }
-こちらも参照ください
-NEP-5 Token Standard
-メソッド
-name
-構文: <code>public static string name()</code>
-注意: "name" はトークン名を返します。
-transfer
-構文: <code>public static bool transfer(byte[] from, byte[] to, BigInteger amount)</code>
-注意: "transfer" は'''from'''アカウントから'''to'''アカウントへ'''amount'''のトークンを転送します。
-transferFrom ''(オプション)''
-構文: <code>public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)</code>
-注意: "transferFrom"は、'''originator'''が要求された'''amount'''を転送することが承認されている場合、'''from'''アカウントから'''to'''アカウントへ'''amount'''を送信します。
-イベント
-transfer
-構文: <code>public static event Action<byte[], byte[], BigInteger> transfer</code>
-注意: "transfer"イベントは、"transfer"メソッドの実行が成功した後に発生します。
-(オプション) ユーザへのGASの配布
+```
+
+### こちらも参照ください
+
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
+
+#### メソッド
+
+##### name
+
+- 構文: `<code>public static string name()</code>`
+- 注意: "name"はトークン名を返します。
+
+#### transfer
+
+- 構文: `<code>public static bool transfer(byte[] from, byte[] to, BigInteger amount)</code>`
+- 注意: "transfer"は'''from'''アカウントから'''to'''アカウントへ'''amount'''のトークンを転送します。
+
+#### transferFrom ''(オプション)''
+
+- 構文: `<code>public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)</code>`
+- 注意: "transferFrom"は、'''originator'''が要求された'''amount'''を転送することが承認されている場合、'''from'''アカウントから'''to'''アカウントへ'''amount'''を送信します。
+
+#### イベント
+
+##### transfer
+
+- 構文: `<code>public static event Action<byte[], byte[], BigInteger> transfer</code>`
+- 注意: "transfer"イベントは、"transfer"メソッドの実行が成功した後に発生します。
+
+## (オプション) ユーザへのGASの配布
+
 取引所は、GASをユーザに配布するかどうかを決定することができます。GASは、記録や追加サービスのためにNEOブロックチェーンへ支払うために使用されます。
-GASとは ?
+
+### GASとは ?
+
 NeoGas(略してGAS)は、NEOブロックチェーンを使用する権利を表します。合計1億GASになります。GASは、新しいブロック毎に生成されます。GASはゼロから1億に成長するための生成プロセス経ますが、その発行はゆっくりと減少するペースに沿って減速します。NEOが取得されると、GASはアルゴリズムに従ってシステム内で生成されます。
-利用可能なGASの量の計算
-利用可能な GAS = f(neo_amount, Δt_const)
-Δt_const = t_end - t_start
-t_end = NEOが使われた状態になった瞬間
-t_start = NEOが未使用の状態になった瞬間
-Δt_const は一定量のため、利用可能なGASも一定量です。そしてこの量はユーザが保有するNEOの量と、この金額をアドレスに入れてから引き出すまでの期間の関数です。
-利用不可の GAS = f(neo_amount, Δt_var)
-Δt_var = t - t_start
-t は現在の時間
-t_start = NEOが未使用の状態になった瞬間
-現在の時間は可変のため、利用不可のGASもまた時間によって増えます。言い換えると可変です。
-ユーザへのGASの配布
+
+### 利用可能なGASの量の計算
+
+- 利用可能な*GAS = f(neo_amount, Δt_const)*
+
+  -  Δt_const = t_end - t_start
+    - t_end = NEOが使われた状態になった瞬間
+    - t_start = NEOが未使用の状態になった瞬間
+    
+  Δt_constは一定量のため、利用可能なGASも一定量です。そしてこの量はユーザが保有するNEOの量と、この金額をアドレスに入れてから引き出すまでの期間の関数です。
+  
+  
+- 利用不可の*GAS = f(neo_amount, Δt_var)*
+
+  - Δt_var = t - t_start
+    - t は現在の時間
+    - t_start = NEOが未使用の状態になった瞬間
+    
+  現在の時間は可変のため、利用不可のGASもまた時間によって増えます。言い換えると可変です。
+
+### ユーザへのGASの配布
+
 すべての取引所のアドレスが1つのウォレットに格納されていると仮定して、次の図は取引所がユーザAに配布する方法と計算式を示しています。
 
-図の訳)
-通常の間隔でユーザのNEOのポジションのデータスナップショットを取ります。
-*1回目のスナップショット時のユーザAのポジションなど。
-↓
-単一ユーザのNEOのポジションの重みを計算します。言い換えると、すべてのスナップショットでのユーザのポジションの重みを合計します。
-*加重平均法：Tnはn回目のスナップショットからn-1回目のスナップショットまでの時間長
-↓
-すべてのユーザについて、NEOのポジションの合計の重みを計算します。言い換えると、各単一ユーザの重みを合計します。
-↓
-配布するGASの合計量を計算し、それらを請求します。
-↓
-各ユーザに保有されるNEOの割合を計算します。
-↓
-各ユーザに対応する量のGASを配布します。
+![gasflow_jp](sc/assets/gasflow_jp.png)
 
 スナップショット間隔が短いほど、計算はより正確です。スナップショット間隔が均一でない場合、加重平均計算方法を使用します。
 
-GASの請求
-ユーザがNEOを転送した後、GASは請求可能になります。例えば、誰かがアドレスAにNEOを持っていて、GASが請求可能でない場合、彼は自分のNEOを自分宛(アドレスA)に転送するとNEO GASが請求可能になります。
-次の表はGASを請求のステップと対応するコマンドです。
-#
-Steps
-Command
-1
-NEO-CLIを実行します
-./neo-cli.dll /rpc
-2
-クライアントのバージョンを確認します
-version
-3
-クライアントの同期の高さを確認します。（Height: height/headerの高さ, Nodes: 接続ノード数）
-show state
-4
-ウォレットを作成します
-create wallet /home/NeoNode/test.db3
-5
-前のステップで作成したウォレットを開きます
-open wallet /home/NeoNode/test.db3
-6
-ウォレット内のアドレスリストを確認します
-list address
-7
-ウォレット内の資産を確認します
-list asset
-8
-ウォレット内のGASの残高の詳細を確認します
-show gas
-9
-Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1） to change the status of Gas to be claimable.
-GASを請求可能な状態に変更するため、NEOをあなたのアドレス(例 AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1)に転送します
-send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1
-10
-Get the details of the balances of GAS in the wallet again. Now the status of all the GAS should be available to claim.
-再びウォレット内のGASの残高の詳細を取得します。このときすべてのGASが請求可能な状態である必要があります。
-show gas
-11
-GASを請求します
-claim gas
-12
-再度残高を確認します
-list asset
+### GASの請求
 
+ユーザがNEOを転送した後、GASは請求可能になります。例えば、**誰かがアドレスAにNEOを持っていて、GASが請求可能でない場合、彼は自分のNEOを自分宛(アドレスA)に転送するとNEO GASが請求可能になります。**
+
+次の表はGASを請求のステップと対応するコマンドです。
+
+| #    | Steps                                    | Command                                  |
+| ---- | :--------------------------------------- | ---------------------------------------- |
+| 1    | NEO-CLIを実行します                       | `./neo-cli.dll /rpc`                     |
+| 2    | クライアントのバージョンを確認します        | `version`                                |
+| 3    | クライアントの同期の高さを確認します（Height: height/headerの高さ, Nodes: 接続ノード数）。| `show state`                             |
+| 4    | ウォレットを作成します                     | `create wallet /home/NeoNode/test.db3`   |
+| 5    | 前のステップで作成したウォレットを開きます   | `open wallet /home/NeoNode/test.db3`     |
+| 6    | ウォレット内のアドレスリストを確認します     | `list address`                           |
+| 7    | ウォレット内の資産を確認します              | `list asset`                             |
+| 8    | ウォレット内のGASの残高の詳細を確認します    | `show gas`                               |
+| 9    | GASを請求可能な状態に変更するため、NEOをあなたのアドレス(例 AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1)に転送します | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
+| 10   | 再びウォレット内のGASの残高の詳細を取得します。このときすべてのGASが請求可能な状態である必要があります。 | `show gas`                               |
+| 11   | GASを請求します                           | `claim gas`                              |
+| 12   | 再度残高を確認します                       | `list asset`                             |
 
