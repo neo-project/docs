@@ -46,6 +46,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | 根据指定的散列和索引，返回对应的交易输出（零钱）信息 |          |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                           | 广播交易                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | 向指定地址转账                    | 需要打开钱包   |
+| [sendfrom](api/sendtoaddress.md)    | \<asset_id> \<from>\<to> \<value> [fee=0] | 从指定地址，向指定地址转账                    | 需要打开钱包   |
 | submitblock                              | \<hex>                                  | 提交新的区块                     | 需要成为共识节点 |
 
 ## GET 请求示例
