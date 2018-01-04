@@ -90,5 +90,5 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 Si el valor de retorno del contrato inteligente no es de tipo int, pero es de tipo bool u otro tipo, necesitas cambiar `engine.EvaluationStack.Peek().GetBigInteger ()` para que retorne otros valores tal y como se muestra en la imagen
 
-<img style="vertical-align: middle" src="assets/test/test_1.png">
+<img style="vertical-align: middle" src="/assets/test_1.jpg">
 

@@ -1,20 +1,20 @@
-# Transaction.GetReferences method ()
+# Transaction.GetReferences Method ()
 
-Query the transaction output referenced by all inputs of the current transaction.
+Returns all transaction outputs referenced by the transaction inputs of the transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public extern Neo.SmartContract.Framework.Services.Neo.TransactionOutput[] GetReferences ()
+public extern Neo.SmartContract.Framework.Services.Neo.TransactionOutput[] GetReferences()
 ```
 
-Return Value: The transaction output referenced by all inputs for the current transaction, [TransactionOutput](../TransactionOutput.md).
+Return Value: The transaction outputs as a [TransactionOutput](../TransactionOutput.md).
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
@@ -22,12 +22,12 @@ public class Contract1: FunctionCode
      public static void Main ()
      {
          byte[] transaction = new byte[] {88, 114, 160, 206, 130, 137, 41, 94, 119, 120, 242, 71, 232, 244, 3, 20, 165, 69, 182, 106, 185, 119, 239, 183, 65, 174, 220, 157, 251, 28, 215};
-         Transaction tx = Blockchain.GetTransaction (transaction);
-         TransactionOutput[] references = tx.GetReferences ();
+         Transaction tx = Blockchain.GetTransaction(transaction);
+         TransactionOutput[] references = tx.GetReferences();
      }
 }
 ```
 
 
 
-[Return to superior](../Transaction.md)
+[Back](../Transaction.md)

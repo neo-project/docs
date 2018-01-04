@@ -1,15 +1,15 @@
-# Enrollment class
+# Enrollment Class
 
-Used to indicate the data structure of the registrant's registration transaction.
+Used to indicate the data structure of the bookkeeper's registration transaction.
 
 > [!Caution]
-> Note: deprecated in version 2.0.
+> Note: Deprecated in version 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public class Enrollment: Transaction
@@ -17,6 +17,6 @@ public class Enrollment: Transaction
 
 ## Attributes
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | ------------------------------------ | -------- |
-|[][](Https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PublicKey](Enrollment/PublicKey.md) | Get the public key of the registrant |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PublicKey](Enrollment/PublicKey.md) | Returns the public key of the bookkeeper |

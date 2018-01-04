@@ -1,27 +1,27 @@
-# Block class
+# Block Class
 
-A class that represents a block that provides a way to query transactions in a block.
+A class representing a block, providing a way to query transactions in a block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public class Block: Header
 ```
 
-## method
+## Methods
 
 | | Name | description |
 | ---------------------------------------- | ---------------------------------------- | ------------ |
-[GetTransaction (int)](Block/GetTransaction.md) | Get the transaction specified in the current block (| https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | |
-(Get/RemoveTransactionCount.md) | Get the number of transactions in the current block |
-(Get/RemoveTransactions.md) | Get all the transactions in the current block |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(int)](Block/GetTransaction.md) | Returns the specified transaction within the block |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionCount()](Block/GetTransactionCount.md) | Returns the number of transactions within the block |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactions()](Block/GetTransactions.md) | Returns all the transactions within the block |
 
-## Construction method
+## Constructor
 
-The Block object is constructed by [Blockchain.GetBlock (byte[])](Blockchain/GetBlock.md).
+The Block object is constructed through [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md).
 
-The Block object is constructed by [Blockchain.GetBlock (uint)](Blockchain/GetBlock2.md).
+The Block object is constructed through [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).

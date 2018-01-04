@@ -1,36 +1,37 @@
-# Storage.Get method (StorageContext, byte[])
+# Storage.Get Method (StorageContext, byte[])
 
-Query operation, in the persistent storage area through the key query the corresponding value.
+Returns a value from the persistent store based on the given key.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public extern byte[] Get (Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key)
+public extern byte[] Get(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key)
 ```
 
-parameter:
-Context: storage context, [StorageContext](../StorageContex.md) type.
+Parameters:
 
-Key: key, byte array.
+Context: Storage context as a [StorageContext](../StorageContext.md).
 
-Return Value: key The corresponding value, byte array.
+Key: Key as a byte array.
 
-## example
+Return Value: The value corresponding to the key as a byte array.
+
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         byte[] value = Storage.Get (Storage.CurrentContext, new byte[] {0});
+         byte[] value = Storage.Get(Storage.CurrentContext, new byte[] {0});
      }
 }
 ```
 
 
 
-[Return to superior](../Storage.md)
+[Back](../Storage.md)

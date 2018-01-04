@@ -1,12 +1,12 @@
-# Storage class
+# Storage Class
 
-Provides a way to insert, query, and delete persistent storage areas.
+Provides a set of methods to insert, query, and delete data in the persistent store.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public static class Storage
@@ -14,23 +14,23 @@ public static class Storage
 
 ## Attributes
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | ---------------------------------------- | ---------- |
-[CurrentContext](Storage/CurrentContext.md) | Get the current store context |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [CurrentContext](Storage/CurrentContext.md) | Returns the current context of the store |
 
-## method
+## Methods
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | ---------------------------------------- | -------------------------------- |
-[Delete (StorageContext, byte[])](Storage/Delete.md) | Delete operation, in the [delete (StorageContext, byte[])] In the persistent store, delete the corresponding value
-[Delete (StorageContext, string)](Storage/Delete2.md) | delete operation, in the persistence of the [Delete (StorageContext, string)] In the memory area, delete the corresponding value
-[Get (StorageContext, byte[])](Storage/Get.md) | Query operation, in the [ The value of the corresponding value in the persistent store
-(Get/StorageS) In the storage area, query the corresponding value
-(Put (StorageContext, byte[], byte[])](Storage/Put.md) | Insert an action to insert data into the persistent store in the form of key-value
-[Put (StorageContext, byte[], string)](Storage/Put2.md) | Insert operation (| To insert data into the persistent store in the form of key-value
-(Put (StorageContext, string, byte[])](Storage/Put3.md) | Insert operation (| To insert data into the persistent store in the form of key-value
-(Put (StorageContext, string, string)](Storage/Put4.md) | Insert the operation to the [Insert (StorageContext, string, string)](http://www.mshn.sec.s-msft.com/dynimg/IC91302.jpeg) Key-value to insert data into the persistent store
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, byte[])](Storage/Delete.md) | Deletes a value from the persistent store based on the given key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, string)](Storage/Delete2.md) | Deletes a value from the persistent store based on the given key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Get(StorageContext, byte[])](Storage/Get.md) | Returns a value from the persistent store based on the given key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Get(StorageContext, string)](Storage/Get2.md) | Returns a value from the persistent store based on the given key |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, byte[], byte[])](Storage/Put.md) | Inserts a given value to the given key in the persistent store |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, byte[], string)](Storage/Put2.md) | Inserts a given value to the given key in the persistent store |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, byte[])](Storage/Put3.md) | Inserts a given value to the given key in the persistent store |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Put(StorageContext, string, string)](Storage/Put4.md) | Inserts a given value to the given key in the persistent store |
 
-# Construction method
+## Constructor
 
 The Storage class is a static class and does not require a constructor.

@@ -2,8 +2,6 @@
   href: index.md
 - name: Introducción
   href: getting-started.md
-- name: Whitepaper
-  href: white-paper.md
 - name: NEO
   href: node/introduction.md
   items:
@@ -17,13 +15,13 @@
       href: node/testnet.md
     - name: Documentación del CLI
       href: node/cli.md
-    - name: Crear una Blockchain Privada en Windows
-      href: node/private-chain-Windows.md
-    - name: Crear una Blockchain Privada en CentOS
-      href: node/private-chain-Centos.md
+    - name: Crear una Blockchain Privada
+      href: node/private-chain.md
     - name: Documentación de la API
       href: node/API.md
       items:
+        - name: dumpprivkey
+          href: node/api/dumpprivkey.md
         - name: getaccountstate
           href: node/api/getaccountstate.md
         - name: getassetstate
@@ -46,6 +44,8 @@
           href: node/api/getconnectioncount.md
         - name: getcontractstate
           href: node/api/getcontractstate.md
+        - name: getnewaddress
+          href: node/api/getnewaddress.md
         - name: getpeers
           href: node/api/getpeers.md
         - name: getrawmempool
@@ -56,6 +56,8 @@
           href: node/api/getstorage.md
         - name: gettxout
           href: node/api/gettxout.md
+        - name: sendmany
+          href: node/api/sendmany.md
         - name: sendrawtransaction
           href: node/api/sendrawtransaction.md
         - name: sendtoaddress
@@ -73,6 +75,8 @@
   items:
     - name: Introducción
       href: sc/introduction.md
+    - name: Crear contratos inteligentes con Java
+      href: sc/getting-started-java.md
     - name: Crear contratos inteligentes con C#
       href: sc/getting-started-csharp.md
     - name: Crear contratos inteligentes con VBNet
@@ -132,8 +136,8 @@
               href: sc/fw/dotnet/Neo/Header.md
             - name: Storage
               href: sc/fw/dotnet/Neo/Storage.md
-            - name: StorageContex
-              href: sc/fw/dotnet/Neo/StorageContex.md
+            - name: StorageContext
+              href: sc/fw/dotnet/Neo/StorageContext.md
             - name: Transaction
               href: sc/fw/dotnet/Neo/Transaction.md
             - name: TransactionAttribute
@@ -142,6 +146,10 @@
               href: sc/fw/dotnet/Neo/TransactionInput.md
             - name: TransactionOutput
               href: sc/fw/dotnet/Neo/TransactionOutput.md
+            - name: TriggerType
+              href: sc/fw/dotnet/Neo/TriggerType.md
+            - name: Runtime
+              href: sc/fw/dotnet/Neo/Runtime.md
           - name: System
             href: sc/fw/dotnet/System.md
             items:

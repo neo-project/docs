@@ -43,7 +43,7 @@ namespace NEO.SmartContract
 
 아래를 참조해서 하나의 새로운 지갑을 만들어 보세요.
 
-![Create a wallet](~/images/w1.jpeg)
+![Create a wallet](/assets/verify_1.png)
 
 ## '계약' 스크립트 획득하기 (Obtatining the Contract Script)
 
@@ -62,14 +62,14 @@ PC버전의 클라이언트에서, '고급'(Advanced), '계약 이행'을 차례
 코너에 있는 "Load"를 클릭해서 Test.avm파일을 선택하세요. 그러면 "코드"(Code)박스에 해당 '계약'의 스크립트가 아래 에서 보시는 것처럼 표시됩니다. 나중에 사용해야 하니
 이 코드 스크립트를 복사하세요.
 
-![Abtaining the contract script](~/images/2017-07-06_11-43-46.png)
+![Abtaining the contract script](/assets/verify_5.png)
 
 ## '계약' 주소 만들기 (Create a contract address)
 
 여러분의 지갑을 만든 다음, 마우스 오른쪽 버튼을 클릭해서 여러분이 생성한 계약 스크립트에
 맞는 계약 주소를 생성하세요.
 
- ![Create a contract address](~/images/w2.jpeg)
+ ![Create a contract address](/assets/verify_6.png)
 
 해당 '계약' 주소를 여러분의 계정에 할당시킨 다음 해당되는 매개변수를 채워넣으세요. 우리가
 사용하는 '계약'은 서명 변수를 가지고 있기 때문에 '매개변수 리스트'(Parameter List)안에 "00"을
@@ -79,7 +79,7 @@ PC버전의 클라이언트에서, '고급'(Advanced), '계약 이행'을 차례
 '계약'에 서명이 필요할 때, 클라이언트는 묶인 계정의 개인 키를 가지고 자동적으로 서명을 
 수행합니다. 
 
-![Create a contract address](~/images/w3.jpeg)
+![Create a contract address](/assets/verify_7.png)
 
 'Ok'를 클릭하고 나면, 스마트 계약 증명 계정이 성공적으로 생성됩니다. 
 
@@ -98,14 +98,14 @@ PC버전의 클라이언트에서, '고급'(Advanced), '계약 이행'을 차례
 
 일정한 양의 자산을 여러분의 계약 계좌로 전송하세요.
 
-![Transfer asset to contract address](~/images/w4.jpeg)
+![Transfer asset to contract address](/assets/verify_9.png)
 
 
 ### 계약 자산 전송 (Transfer contract assets)
 
 여러분의 스마트 계약 계좌에서 자선을 전송하세요.
 
-![Transfer the contract amount](~/images/w5.jpeg)
+![Transfer the contract amount](/assets/verify_10.png)
 
 >[!주의]
 

@@ -21,13 +21,13 @@ PS：現時点の最新の**テストネットワーククライアント**の�
 
 この手順は非常に基本的です。PC版のクライアントを開き、`Wallet`、`New Wallet Database`をクリックし、ウォレットデータベースを作成、ウォレットの格納場所を選択し、ウォレット名とパスワードを設定します。
 
-! [] (~ / Images / 2017-07-04_11-59-35.png)
+![](/assets/lock2_1.png)
 
 ## 公開鍵を取得する
 
 新しく作成されたウォレットは、標準のアカウントを自動的に生成します。アカウントを右クリックし、`View Private Key`を選択、図のように2行目の公開鍵をコピーします。
 
-! [] (~ / Images / 2017-07-06_18-28-31.png)
+![](/assets/lock2_2.png)
 
 > [！警告]
 > 秘密鍵を漏らさないよう注意してください。モザイク処理を忘れないでください。
@@ -42,7 +42,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             // 前のステップの変換用公開鍵をここに貼り付けます
-            byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa"); 
+            byte[] b = HexToBytes("0285eab65f4a0126e4b85b4e5d8b7e303aff7efb360d595f2e3189bb90487ad5aa");
             foreach (var item in b)
             {
                 Console.Write($"{item}, ");
@@ -111,15 +111,15 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 
 `Advanced`、`Deploy Contract`の順にクリックし、右下隅の`Load`ボタンをクリックします。先程生成されたLock.avmファイルを選択します。 図のように、`Code`ボックスにコントラクトスクリプトが表示されるはずです。これをもう一度コピーしてください。
 
-！ []（?/ Images / 2017-07-06_18-11-30.png）
+！ []（/assets/lock2_5.png）
 
 クライアントの`Account`タブで、空白を右クリックし、`Create Contract Add.`、`Custom`を選択し、コントラクトスクリプトをボックスに貼り付けます。
 
-！ []（?/ Images / 2017-07-06_18-11-47.png）
+！ []（/assets/lock2_7.png）
 
 ここでは、関連するアカウントを選択する必要があります（具体的には、公開鍵/秘密鍵のペアを関連付ける）。この関連付けは、スマートコントラクトが署名操作を必要とする場合、クライアントは署名に関連する秘密鍵を使用することを意味する。このステップでは、最初の手順と同じ公開鍵を選択する必要があります。そうでない場合は、署名が一致せず、コントラクトの実行が失敗します。コントラクトに署名パラメータがあるため、`Parameter List`に`00`を記入します（パラメータの記入方法を理解するには[パラメータ](Parameter.md)を参照）。前述のようにスクリプトコードを記入します。完了すると、図に示すコントラクトアドレスが表示されます。
 
-！ []（?/ Images / 2017-07-04_12-59-35.png）
+！ []（/assets/lock2_8.png）
 
 ## テスト
 
@@ -136,7 +136,7 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 
 スマートコントラクトアカウントからアセットを転送する：
 
-！ [Transfer contract amount]（?/ images / 2017-07-06_18-13-00.png）
+！ [Transfer contract amount]（/assets/lock2_11.png）
 
 上記の操作が正しい場合、アセットが転送されると、次のようになります。
 

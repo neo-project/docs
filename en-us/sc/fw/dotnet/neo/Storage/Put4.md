@@ -1,40 +1,41 @@
-# Storage.Put method (StorageContext, string, string)
+# Storage.Put Method (StorageContext, string, string)
 
-Insert the operation, in the form of key-value to the persistent storage area to insert data.
+Inserts a given value to the given key in the persistent store.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public extern void Put (Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, string value)
+public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, string value)
 ```
 
-parameter:
-Context: storage context, [StorageContext](../StorageContex.md) type.
+Parameters:
 
-Key: key, string.
+Context: Storage context as a [StorageContext](../StorageContext.md).
 
-Value: value, string.
+Key: Key as a string.
+
+Value: Value as a string.
 
 Return value: void.
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
          String key = "key";
          String value = "value";
-         Storage.Put (Storage.CurrentContext, key, value);
+         Storage.Put(Storage.CurrentContext, key, value);
      }
 }
 ```
 
 
 
-[Return to superior](../Storage.md)
+[Back](../Storage.md)

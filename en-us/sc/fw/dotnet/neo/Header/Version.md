@@ -1,19 +1,19 @@
-# Header.Version property
+# Header.Version Property
 
-Get the block version number.
+Return the version number of the block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern uint Version {get;}
 ```
 
-Attribute value: block version number, unsigned integer.
+Attribute value: Version number as an unsigned integer.
 
 
 
-[Return to superior](../header.md)
+[Back](../header.md)

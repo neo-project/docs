@@ -14,6 +14,6 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext {get;}
 ```
 
-Valor del atributo: current storage context, [StorageContext](../StorageContex.md) type.
+Valor del atributo: current storage context, [StorageContext](../StorageContext.md) type.
 
 [Volver arriba](../Storage.md)

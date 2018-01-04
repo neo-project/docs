@@ -1,33 +1,33 @@
-# Blockchain.GetHeader method (byte[])
+# Blockchain.GetHeader Method (uint)
 
-The block header is found in the blockchain by block height.
+Returns a block header given a block height.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader (uint height)
+public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(uint height)
 ```
 
-Parameters: Block Hash, 32 bytes of byte array.
+Parameters: Block Height as an unsigned integer.
 
-Return Value: Block, [Header](../Header.md) Type.
+Return Value: [Header](../Header.md).
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
      public static void Main ()
      {
-         Header bl = Blockchain.GetHeader (997027);
+         Header bl = Blockchain.GetHeader(997027);
      }
 }
 ```
 
 
 
-[Return to superior](../Blockchain.md)
+[Back](../Blockchain.md)

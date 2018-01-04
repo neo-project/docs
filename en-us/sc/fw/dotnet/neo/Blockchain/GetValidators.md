@@ -1,31 +1,31 @@
-# Blockchain.GetValidators method ()
+# Blockchain.GetValidators Method ()
 
-Get the public key of the consensus person.
+Returns the public keys of the validators (consensus nodes).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public static extern byte[][] GetValidators ()
+public static extern byte[][] GetValidators()
 ```
 
-Return Value: A public key array, each element in the array is a 33-byte byte array.
+Return Value: A public key array, each element being a byte array of length 33.
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         byte[][] validators = Blockchain.GetValidators ();
+         byte[][] validators = Blockchain.GetValidators();
      }
 }
 ```
 
 
 
-[Return to superior](../Blockchain.md)
+[Back](../Blockchain.md)

@@ -1,38 +1,36 @@
 # Test network
 
-The TestNet is designed to be developed, commissioned and tested by the user. Testing the system on the testnet incurs the network fee of testnet GAS (not real GAS)! Testnet NEO and GAS can be applied free of charge, on the official website.
+The TestNet is an environment where the user can develop, commission and test programs. Testing programs on the testnet incurs the network fee of testnet GAS (not real GAS!!). Testnet NEO and GAS can be applied free of charge, on the official website.
 
-All the block data of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
+All the blockchain of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
 
-If you are a developer, you can ask for coins on the TestNet here: https://www.neo.org/Testnet/Create
+If you are a developer, you can ask for GAS on the TestNet here: https://www.neo.org/Testnet/Create
 
-## Test the characteristics of the network
+## TestNet characteristics
 
-1. Asset registration, asset distribution, contract execution, etc. will not consume real money.
-2. Globalized, deployed in the Internet environment.
-3. Test the network block; transactions and other information can be easily viewed in the blockchain browser.
-4. Smart contract deployed in the test environment, anyone around the world can employ it.
-5. Test network can not be used as a commercial application of the actual landing environment.
+1. Asset registration, asset distribution, contract execution, etc. (Does not consume real money)
+2. Globalized deployment in the Internet environment.
+3. Test of network blocks; Transactions and other information can be easily viewed in the blockchain browser.
+4. Smart contract deployment in the test environment, where anyone in the world can employ it.
+5. Test network can not be used as commercial application of an actual landing environment.
 
 ## Client Downloads
 
 The test network client is the same as the primary network client. By modifying the client's configuration file, the client can be switched between the primary and test networks.
 
-Reference: [introduction of NEO node](introduction.md).
+Reference: [Introduction of NEO node](introduction.md).
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
+| Releases | [Official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## Method of switching to test network
 
-1. Copy the contents of the program directory under the `protocal.testnet.json` into ` protocol.json` as shown.
+1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-35.png)
+![image](/assets/testnet_1.png)
 
-2. Copy the contents of the program (GUI) directory `neo-gui.exe.testnet.config` into the `neo-gui.exe.config` as shown in Figure
+2. Copy the contents of the program (GUI) directory `config.testnet.json` into the `config.json` as shown in Figure
 
-![image](http://docs.neo.org/images/2017-06-08_14-16-12.png)
-
-Note: If the node is run on CLI, the contents of `config.testnet.json` need to be copied to` config.json`.
+![image](/assets/testnet_2_v2.png)

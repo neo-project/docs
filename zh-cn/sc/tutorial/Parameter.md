@@ -30,7 +30,13 @@
         /// </summary>
         ByteArray = 5,
         PublicKey = 6,
-
+        String = 7,
+        
+         /// <summary>
+         /// 对象数组
+         /// </summary>        
+        Array = 10,
+        InteropInterface = 0xf0,
         Void = 0xff
     }
 ```
@@ -38,7 +44,7 @@
 如智能合约定义为：
 
 ```c#
-public class Lock : FunctionCode
+public class Lock : SmartContract
 {
     public static bool Main(int a, bool b, byte[] pubkey, byte[] signature)
     {

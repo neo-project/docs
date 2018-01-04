@@ -19,7 +19,7 @@ Asumimos que tienes un conocimiento básico de como crear contratos inteligentes
 1. Click en `Wallet`, click en `New Wallet Database`. Una vez pulsado aparecerá la ventana `New Wallet` y click en `Browser`
 Seleciona una ubicación donde crear el fichero. Escribe el nombre del fichero y click en `Guardar`.
 
-<img style="vertical-align: middle" src="assets/lock2/lock2_1.png">
+<img style="vertical-align: middle" src="/assets/lock2_1.png">
 
 2. Introduce la conseña en `Password` y repitela en `Re-Password` y click en `Confirm`. Una vez pulsado `Confirm` el monedero creará por defecto una cuenta estandard.
 
@@ -28,7 +28,7 @@ Seleciona una ubicación donde crear el fichero. Escribe el nombre del fichero y
 
 Una vez creado el monedero nos creará una cuenta estandard. Click con el botón-derecho del raton y click en `View Private Key` y copiamos la clave pública, tal y como se muestra en la imagen:
 
-<img style="vertical-align: middle" src="assets/lock2/lock2_2.png">
+<img style="vertical-align: middle" src="/assets/lock2_2.png">
 
 > [!IMPORTANT] La clave privada que se muestra en la imagen está pixelada. Recuerda no divulgarla.
 
@@ -190,7 +190,7 @@ Si compilamos el codigo, podemos obtener el scripthash ejecutando:
 
 o bien, una opción más sencilla es hacerlo desde el cliente PC `Neo-GUI`. Para eso, click en `Advanced` y click en `Deploy Contract`. Click en `Load` y seleccionamos el archivo, en nuestro ejemplo `Lock2.avm`. Una vez cargado en el apartado `Code` nos aparecerá el bytecode del contrato. Copíalo para usarlo más tarde.
 
-<img style="vertical-align: middle" src="assets/lock2/lock2_5.png">
+<img style="vertical-align: middle" src="/assets/lock2_5.png">
 
 Ahora necesitamos crear una cuenta contrato, para eso, desde el cliente en el tab `Account` click en con el botón derecho, y click en `Create Contract. Add` y click en `Custom`
 
@@ -200,11 +200,11 @@ En el apartado `Related Account` necesitamos asociar una cuenta, siendo más esp
 
 En este paso seleccionaremos la clave pública usada en paso "Obtener clave pública", de lo contrario la firma no coincide y la ejecución del contrato fallará. Debido a que el contrato tiene un parametro del tipo Signature (public static bool Verify(byte[] signature) en el apartado `Parameter List` hay que poner **00** (click aquí, para consultar los parametros [Parameter](Parameter.md)) y en `Script` copia el script del contrato.
 
-<img style="vertical-align: middle" src="assets/lock2/lock2_7.png">
+<img style="vertical-align: middle" src="/assets/lock2_7.png">
 
 Una vez completados los pasos veremos la cuenta de contrato creada:
 
-<img style="vertical-align: middle" src="assets/lock2/lock2_8.png">
+<img style="vertical-align: middle" src="/assets/lock2_8.png">
 
 
 ## Prueba
@@ -228,7 +228,7 @@ Al cabo de unos segundo vemos como hemos recibidos los 100 NEO a la cuenta contr
 
 Desde el monedero de la cuenta contrato, transfiere activos desde la cuenta contrato a otra cuenta. En nuestro ejemplo vamos a transferir 5 NEO.
 
-<img style="vertical-align: middle" src="assets/lock2/lock2_11.png">
+<img style="vertical-align: middle" src="/assets/lock2_11.png">
 
 Vemos en la imagen como los 5 NEO ya no aparecen en los activos de las cuentas.
 

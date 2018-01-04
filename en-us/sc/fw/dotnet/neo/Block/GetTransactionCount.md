@@ -1,32 +1,32 @@
-# Block.GetTransactionCount method ()
+# Block.GetTransactionCount Method ()
 
-Gets the number of transactions in the current block.
+Returns the number of transactions in the current block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public extern int GetTransactionCount ()
+public extern int GetTransactionCount()
 ```
 
-Return value: number of transactions, integer.
+Return value: Number of transactions as an integer.
 
-## example
+## Example
 
 ```c#
 public class Contract1: FunctionCode
 {
-     public static void Main ()
+     public static void Main()
      {
-         Block block = Blockchain.GetBlock (997027);
-         Int txCount = block.GetTransactionCount ();
+         Block block = Blockchain.GetBlock(997027);
+         Int txCount = block.GetTransactionCount();
      }
 }
 ```
 
 
 
-[Return to superior](../Block.md)
+[Back](../Block.md)

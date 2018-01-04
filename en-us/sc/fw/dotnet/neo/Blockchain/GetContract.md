@@ -1,27 +1,27 @@
-# Blockchain.GetContract method (byte[])
+# Blockchain.GetContract Method (byte[])
 
-Obtain the contract by contract.
+Returns the contract contents given a contract script hash.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContract (byte[] script_hash)
+public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContract(byte[] script_hash)
 ```
 
-Parameters: Script hash, 20 bytes byte array.
+Parameters: Scripthash as a byte array of length 20.
 
-Return Value: Smart Contract, [Contract](../Contract.md) Type.
+Return Value: [Contract](../Contract.md).
 
-## example
-
-```
+## Example
 
 ```
 
+```
 
 
-[Return to superior](../Blockchain.md)
+
+[Back](../Blockchain.md)

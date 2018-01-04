@@ -1,14 +1,19 @@
-# TransactionInput class
+# TransactionInput Class
 
 Used to represent the data structure of the transaction input.
 
-In a UTXO system, the input of a transaction must come from the output of another transaction that existed before. ([PrevHash](TransactionInput/PrevHash.md)), and the output of all the output of the previous transaction ([PrevIndex](PrevHash.md)), and the output of the previous transaction, TransactionInput/PrevIndex.md)).
+In a UTXO system, the input of a transaction must come from the output of another transaction that existed before. 
+
+To confirm the outputs of the previous transactions, we require two things:
+
+1.  The hash of the previous transaction referenced ([PrevHash](TransactionInput/PrevHash.md))
+2.  The index of this input in the output list of the previous transaction ([PrevIndex](TransactionInput/PrevIndex.md))
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public class TransactionInput: IApiInterface
@@ -16,11 +21,11 @@ public class TransactionInput: IApiInterface
 
 ## Attributes
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-(PrevHash) (TransactionInput/PrevHash.md) | Transactional Hedding of Transactions Involved | |[][]()
-| [PrevIndex](TransactionInput/PrevIndex.md) | The transactions that are referenced are output in its entire transaction output list (https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) In the index
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](TransactionInput/PrevHash.md) | Returns the hash of the previous transaction            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevIndex](TransactionInput/PrevIndex.md) | Returns the index of this input in the output list of the previous transaction |
 
-## Construction method
+## Constructor
 
-The TransactionInput object is constructed by the [GetInputs ()](Transaction/GetInputs.md) method of the Transaction object.
+The TransactionInput object is constructed through [GetInputs()](Transaction/GetInputs.md) of the Transaction object.

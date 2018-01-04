@@ -1,7 +1,7 @@
 # Smart Contract Example - HelloWorld
 
 ```c#
-public class HelloWorld : FunctionCode
+public class HelloWorld : SmartContract
 {
     public static void Main()
     {

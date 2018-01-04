@@ -1,31 +1,35 @@
-# Contract class
+# Contract Class
 
-The class that represents the contract.
+The class representing a contract.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
-public class contract
+public class Contract
 ```
 
 ## Attributes
 
 | | Name | description |
 | ---------------------------------------- | ---------------------------- | ---------- |
-[Script](Contract/Script.md) | Get the script's hash of the contract | |[][](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg)
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md) | Returns the scripthash of the contract |
 
-## method
+## Methods
 
-| | Name | description |
+| | Name | Description |
 | ---------------------------------------- | -------------------------------- | ------ |
-(Destroy ()](Contract/Destroy.md) | Destroy Smart Contract |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `New` Publishes the contract    |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `New` Migrates / renews the contract |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `New` Destroys the contract    |
 
-## Construction method
+## Constructor
 
-Constructs a Contract object with the [Blockchain.GetContract (byte[])](Blockchain/GetContract.md) method.
+The Contract object can be constructed through [Blockchain.GetContract(byte[])](Blockchain/GetContract.md).
 
-(Blockchain/CreateContract.md) method to publish the smart contract to the blockchain, and return to the contract (Blockchain.createContract (byte[], byte[], byte, bool, string, string, string, string, string) Object.
+[Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) publishes the contract onto the blockchain and returns a Contract object.
+
+[Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) renews the contract and returns a Contract object.

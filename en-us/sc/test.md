@@ -4,7 +4,7 @@ After reading the previous document, we have been able to use C# in Visual Studi
 
 ## Write unit tests
 
-For example, you create the following smart contract, the contract is inherited from the FunctionCode, contains three parameters, the return value is int.
+For example, you create the following smart contract, which contains three parameters, the return value is int.
 
 
 ```c#
@@ -13,7 +13,7 @@ using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
 {
-    public class Test1: FunctionCode
+    public class Test1: SmartContract
     {
         public static int Main (int a, int b, int c)
         {
@@ -77,7 +77,15 @@ namespace ConsoleApplication1
 
 Compile output: Execution result 14, as expected
 
-Note: If you use the above code to pass the parameters, pay attention to the top of the stack corresponding to the first parameter, for convenience you can also pass the parameters with following code.
+> [!Note]
+>
+> If you encounter the following error after execution：
+>
+> The type “BigInteger” is defined in an unreferenced assembly. You must add a reference to the assembly “System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”
+>
+> You can add a reference to “System.Numerics”  to solve the problem。
+
+Note: If you use the above code to pass the parameters, pay attention to the top of the stack corresponding to the first parameter, for convenience you can also pass the parameters with following code.S
 
 ```c#
 using (ScriptBuilder sb = new ScriptBuilder())
@@ -89,7 +97,7 @@ using (ScriptBuilder sb = new ScriptBuilder())
 ```
 If the return value of the smart contract is not of type int, but is bool or other type, you need to set `engine.EvaluationStack.Peek (). GetBigInteger ()` to other values, as shown in Figure
 
-[](Http://docs.neo.org/images/2017-05-16_15-39-07.jpg)
+[](/assets/test_1.jpg)
 
 ------
 

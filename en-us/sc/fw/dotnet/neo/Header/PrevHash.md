@@ -1,19 +1,19 @@
-# Header.PrevHash property
+# Header.PrevHash Property
 
-Get the hash of the previous block.
+Returns the hash of the previous block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## syntax
+## Syntax
 
 ```c#
 public extern byte[] PrevHash {get;}
 ```
 
-Attribute value: the previous block of the hash, 32 bytes of the byte array.
+Attribute value: Hash of the previous block as a byte array of length 32.
 
 
 
-[Return to superior](../header.md)
+[Back](../header.md)

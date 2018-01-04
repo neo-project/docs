@@ -20,14 +20,16 @@ Nota: Las etiquetas `nueva` y `obsoleta` indican los cambios realizados en la ve
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](Neo/Enrollment.md)    | `nueva` Usada para indicar la estructura de datos de la transacción de registro de un registrante. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](Neo/Header.md)            | Usada para representar la estructura de datos de un encabezado de bloque.          |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](Neo/Storage.md)          | Facilita la inserción, consulta y eliminación en el almacenamiento persistente.  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContex](Neo/StorageContex.md) | `nueva` La clase usada para representar el contexto del almacenamiento privado.  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](Neo/StorageContext.md) | `nueva` La clase usada para representar el contexto del almacenamiento privado.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](Neo/Transaction.md)  |  La clase base usada para representar una transacción.           |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](Neo/TransactionAttribute.md) | La estructura de datos usada para representar una transacción.         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](Neo/TransactionInput.md) | La estructura de datos usada para representar una transacción entrante.        |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](Neo/TransactionOutput.md) | La estructura de datos usada para representar una transacción saliente. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](Neo/Validator.md)            | `new` Métodos para los nodos consensos.   |
 
-## enumeración
+## Enumeración
 
 |  | Enumeración | Descripción |
-| ---------------------------------------- | ---------------------------------------- | ----------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContex](Neo/StorageContex2.md) | `Obsoleta` se usa para resprensetar el area de almacenamiento privada.
+| ---------------------------------------- | -------------------------------------- | ------------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [TriggerType](Neo/TriggerType.md)          | `new` Enumeración de condiciones (Triggers) en contrato inteligente   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContext](Neo/StorageContext2.md) | `Obsoleta` se usa para resprensetar el area de almacenamiento privada.
