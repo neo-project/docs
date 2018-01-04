@@ -78,13 +78,13 @@ http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 
 下記は、メインチェイン内のブロック数を取得する方法の一例です。
 
-Request URL:
+リクエストURL:
 
 ```
 http://somewebsite.com:10332
 ```
 
-Request Body：
+リクエスト:
 
 ```json
 {
