@@ -69,9 +69,11 @@
       href: sc/introduction.md
     - name: はじめに（C#）
       href: sc/getting-started-csharp.md
-    - name: チュートリアル
-      href: sc/getting-started-csharp.md
     - name: はじめに（Java）
+      href: sc/getting-started-java.md
+    - name: はじめに（Python）
+      href: sc/getting-started-python.md
+    - name: チュートリアル
       href: sc/tutorial.md
       items: 
       - name: 基本
