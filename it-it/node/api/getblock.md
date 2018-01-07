@@ -6,7 +6,7 @@ Le informazioni del blocco corrispondente vengono restituite in base al valore h
 
 Hash: Valore hash del blocco.
 
-Verbose: Opzionale, il valore predefinito di verbose è 0. Quando verbose e 0, le informazioni serializzate del blocco vengono restituite, rappresentate da una stringa esadecimale. Se hai bisogno di ottenere informazioni dettagliate, sarà necessario utilizzare l'SDK per la deserializzazione. Quando verbose è 1, vengono restituite informazioni dettagliate sul blocco corrispondente nella stringa di formato Json.
+Verbose: Opzionale, il valore predefinito di verbose è 0. Quando verbose è 0, le informazioni serializzate del blocco vengono restituite, rappresentate da una stringa esadecimale. Se hai bisogno di ottenere informazioni dettagliate, sarà necessario utilizzare l'SDK per la deserializzazione. Quando verbose è 1, vengono restituite informazioni dettagliate sul blocco corrispondente nella stringa di formato Json.
 
 ## Esempio
 
