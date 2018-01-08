@@ -14,9 +14,9 @@ Ci sono due modi per innescare gli smart contacts:
 
 NeoVM é la macchina virtuale che esegue il codice smart contract NEO. Ci riferiamo al concetto di macchina virtuale in senso stretto, non con riferimento a sistemi operativi i programmi che possono simulare gli stessi come VMware o Hyper-V.
 
-For example, in the Java JVM or .NET CLR, source code will be compiled into the relevant bytecode and then run on the corresponding virtual machine. The JVM or CLR will run the bytecode, which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result.
+Per esempio, nel Jva JVM o .NET CLR, il codice sorgente verrá compilato nel codice byte pertinente e poi eseguito sulla macchina virtuale corrispondente. Il JVM o CLR eseguiranno il codice byte, il quale é simile alle istruzioni eseguibili su una vera macchina fisica. In particolare, le istruzioni binarie corrispondenti vengono ancora eseguite si una macchina fisica. La macchina fisica prende le istruzioni dalla memoria, li trasferisce alla CPU tramite il bus, poi decodifica, esegue, e memorizza il risultato.
 
-### Virtual machine architecture
+### Architettura della macchina virtuale
 
    ![](../../assets/neo-vm.jpg)
 
