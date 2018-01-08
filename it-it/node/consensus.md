@@ -51,15 +51,15 @@ Per il bene della discussione, descriveremo un paio di scenari. In questi sempli
   
 
 
-### **Dishonest Speaker** 
+### **Speaker Disonesto** 
 
-  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figure 3:</b> An n = 3 example with a dishonest <b>Speaker</b>. </p>
+  <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figura 3:</b> Esempio n = 3 con uno <b>Speaker</b> disonesto. </p>
 
-  In the case of **Figure 3**, the dishonest **Speaker**, we have an identical conclusion to those depicted in **Figure 1**.  Neither **Delegate** is able to determine which node is dishonest.
+  Nel caso della **Figura 3**, dello **Speaker** disonesto, abbiamo una conclusione identica a quella raffigurata nella **Figurea 1**. Il **Delegate** non é capace di determinare quale nodo si disonesto.
 
-  <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figure 4:</b> An n = 4 example with a dishonest <b>Speaker</b>. </p>
+  <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figura 4:</b> Esempio n = 4 con uno <b>Speaker</b> disonesto. </p>
 
-  In the example posed by **Figure 4**, the blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Delegates**, it would have been validated without the need for a view change.
+  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció causa un differimento per una nuova View che elegge un nuovo **Speaker** perché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegates**, sarebbe stato validato senza il bisogno di un cambio di View.
 
 
 ## 5 - Practical Implementation
