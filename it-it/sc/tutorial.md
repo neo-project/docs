@@ -20,9 +20,9 @@ Per esempio, nel Jva JVM o .NET CLR, il codice sorgente verrá compilato nel cod
 
    ![](../../assets/neo-vm.jpg)
 
-The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
+Il diagramma precedente é il diagramma dell'architettura del sistema della macchina virtuale di Neo (NeoVM), dove l'implementazione nella casella tratteggiata é la parte principale della macchina virtuale.
 
-#### Execution engine
+#### Motore di esecuzione
 
 The green on the left is the Virtual Machine execution engine (the equivalent of the CPU). It can execute common instructions such as flow control, stack operations, bit operations, arithmetic operations, logical operations, cryptographic methods, and so on. It can interact with the Interoperable service layer (described below) through system calls.
 
