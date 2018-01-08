@@ -22,15 +22,15 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 	dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f
 ​	
 
-## 4 - Deploying a Smart Contract with Parameters
+## 4 - Implementare uno Smart Contract con Parametri
 
-1. To deploy the smart contract (.avm) on the blockchain, click on the **Advanced** menu option on the NEO desktop wallet and select **Deploy Contract**.  FOr development contracts, we recommend using the NEO development GUI.
+1. Per implementare uno smart contract (.avm) sulla blockchain, clicca sull'opzione menu **Advanced** sul wallet desktop NEO e seleziona **Deploy Contract**. Per contratti di sviluppo, raccomandiamo di utilizzare la GUI di sviluppo NEO.
 
 <p align="center"><img style="vertical-align: middle" src="assets/img/deploy.png" width="500"></p>
 
-2. Populate all of the fields in the **Information** section of the window that appears.  All fields must be populated to deploy the contract.
-3. Load the .avm file using the **Load** buttton.  The **code field** will be populated with the script hash.  Copy the contents of the **Code** field for use in a later step.
-4. Populate the **Metadata** fields referencing the [Parameter](Parameter.md) documentation.
+2. Riempire tutti i campi nella sezione **Information** nella finestra che appare. Tutti i campi devono essere compilati per implementare il contratto. 
+3. Carica il file .avm usando il bottone **Load**. Il **code field** verrá compilato con l'hash script. Copia il contenuto del campo **Code** per utilizzaro negli step successivi.
+4. Compilare il campo **Metadata** in riferimento alla documentazione [Parametro](Parameter.md).
 
     **The Woolong example token is defined as:**  
 
