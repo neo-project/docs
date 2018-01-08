@@ -35,14 +35,15 @@
 
 在 Github 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目，用 Visual Studio 2017 打开该解决方案，发布其中的 neon 项目，如图
 
-![](assets/publish_neo_compiler_msil_project.jpg)
+- ![](assets/publish_neo_compiler_msil_project.jpg)
+
 
 ![](assets/publish_and_profile_settings.jpg)
 
 > [!Note]
-> 发布 neon 时程序会先还原 NuGet 程序包，如果此时看不到界面有任何变化，可以点击菜单栏上的 `视图`，`输出` 来查看（快捷键 Ctrl + Alt + O）。
 >
-> 这时会看到 “正在还原 NuGet 程序包...”。该过程可能需要十几分钟甚至几十分钟，并且中间可能失败 N 次，有条件的可以科学上网加快还原过程。
+> - 发布 neon 时程序会先还原 NuGet 程序包，如果此时看不到界面有任何变化，可以点击菜单栏上的 `视图`，`输出` 来查看（快捷键 Ctrl + Alt + O）。这时会看到 “正在还原 NuGet 程序包...”。该过程可能需要十几分钟甚至几十分钟，并且中间可能失败 N 次，有条件的可以科学上网加快还原过程。
+> - 发布neon时如果遇到提示neon.dll无法复制，可通过手动拷贝上一层文件夹的同名dll文件解决此问题。
 
 发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件
 

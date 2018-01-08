@@ -43,6 +43,9 @@ Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project
 
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
+> [!Note]
+>
+> During the process of publishing neon, if you are prompted neon.dll cannot be copied, you can manually copy the file with the same name from the upper-layer folder. 
 
 After the release is successful, the neon.exe file is generated in `bin\Release\PublishOutput`.
 
