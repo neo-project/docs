@@ -8,13 +8,13 @@ Leggi i seguenti tutorial prima di leggere il seguente articolo:
 
 [Esempio Smart contract - Lock (lock)](Lock.md)
 
-Assuming you already have basic knowledge regarding smart contracts, we will show how to deploy a lock contract to an address using the wallet.
+Assumendo che hai giá la conoscenza di base riguardo gli smart contracts, mosteremo come implementare un lock contract a un indirizzo usando il wallet.
 
-In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub](https://github.com/neo-project/neo-gui/releases).
+In aggiunta, questo tutorial é basato sul demo di Smart Contract 2.0. Per favore scaricare l'ultimo **test network client** da [GitHub](https://github.com/neo-project/neo-gui/releases).
 
-PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
+PS: In questo momento, l'ultimo **test network client** scaricabile é: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
-> [!Note]
+> [!Nota]
 > The following operation will run in the **test network**. Because the main network has not yet deployed Smart Contract 2.0, the following operation in the main network will fail.
 > In order to use the test net you have to make two changes in the config files:
 1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. By default, `config.json` and `protocol.json` are identical to the Mainnet versions.
