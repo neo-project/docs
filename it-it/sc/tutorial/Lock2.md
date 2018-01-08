@@ -101,7 +101,7 @@ Il contratto Lock ha due importanti variabili da cambiare: la chiave privata, e 
 
 Dopo aver rimpiazzato le due variabili, compila il contratto per ottenere il file Lock.avm.
 
-## Implementa un Lock Contract
+## Implementare un Lock Contract
 
 Per implementare il contratto, abbiamo prima bisogno di ottenere lo script del contratto. Ci sono molti modi per farlo. Possiamo utilizzare il codice C# di sotto per leggere il .avm per ottenere il codice di byte.
 
