@@ -15,16 +15,16 @@
 ## 2 - Ruoli
 **Nell'algoritmo di consenso di NEO, i Nodi di Consenso sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Bookkeepers'. Da ora in avanti, ci riferiremo ad essi come Nodi di Consenso**.
 
-  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
-  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
-  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(Multiple)` - **Delegates** are responsible for reaching a consensus on the transaction.
+  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Nodo di Consenso** - Questo nodo partecipa nell'attività di consenso. Durante l'attività di consenso, i nodi di consenso si alternano assumendo i due seguenti ruoli:
+  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(One)` - Lo **Speaker** è responsabile per la trasmissione di un blocco come proposta al sistema.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(Multiple)` - I **Delegates** sono responsabili della realizzazione del consenso sulla transazione.
 
 
-## 3 - Introduction
+## 3 - Introduzione
 
-One of the fundamental differences between blockchains is how they can guarantee fault tolerance given defective, non-honest activity on the network.
+Una delle differenze fondamentali tra le blockchain è il modo in cui possono garantire la tolleranza d'errore data l'attività "difettosa" e non onesta sulla rete.
 
-Traditional methods implemented using PoW can provide this guarantee as long as a majority of the network's computational power is honest.  However, because of this schema's dependency on compute, the mechanism can be very inefficient (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
+I metodi tradizionali implementati usando PoW possono fornire questa garanzia a patto che la maggior parte della potenza computazionale della rete sia onesta. Comunque, a causa della dipendenza di questo schema sulla computazione, il meccanismo può essere davvero inefficiente (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
 
 NEO implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(NEO holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
 
