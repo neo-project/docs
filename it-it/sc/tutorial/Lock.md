@@ -1,4 +1,4 @@
-# Smart Contract Example - Lock (Lock Contract)
+# Esempio di Smart Contract - Lock (Lock Contract)
 
 ```c#
 public class Lock : SmartContract
@@ -12,6 +12,8 @@ public class Lock : SmartContract
     }
 }
 ```
+
+Il contratto implementa una funzione che specifica un certo timestamp.
 
 The contract implements a function that specifies a certain timestamp. Before the specified time stated, no one is allowed to withdraw any assets from the contract. Once the time stated is reached, the contract owners can then withdraw the assets.
 
