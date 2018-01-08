@@ -28,14 +28,14 @@ Questo step é veramente basico. Apri la versione del PC del client, clicca `wal
 
 ## Ottieni la chiave pubblica
 
-The newly created wallet will automatically generate a standard account. Right-click on the account, view the private key, and copy the public key from the second line, as shown in the figure:
+Il nuovo wallet appena creato genererá automaticamente un account standard. Doppi clic destro sull'account, vedi la chiave privata, e copia la chiave pubblica dalla seconda linea, come mostrato in figura:
 
 ![](../../../assets/lock2_2.png)
 
-> [!Caution]
-> Please note: Do not divulge your private key.
+> [!Attenzione]
+> Per favore nota: Non divulgare la tua chiave privata.
 
-Here we write a local program to turn the public key into a byte array, C# code is as follows:
+Qui scriviamo un programma locale per trasformare la chiave pubblica in un array di byte, il C# é come segue:
 
 ```c#
 namespace ConsoleApp1
@@ -66,6 +66,8 @@ namespace ConsoleApp1
     }
 }
 ```
+
+Dopo averlo eseguito, lo schermo mostrerá l'array di byte creato dalla chiave pubblica. 
 
 After running it, the screen will display the byte array created from the public key. Copy this down as we will be using it later.
 
