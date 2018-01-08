@@ -55,7 +55,7 @@ public static bool Main ()
 }
 ```
 
-Qui i valore restituito dallo smart contract é sempre vero, indicando che chiunque puó spendere indirizzo di contratto dell'asset (inteso come soldi).
+Qui il valore restituito dallo smart contract é sempre vero, indicando che chiunque puó spendere indirizzo di contratto dell'asset (inteso come soldi).
 
 Il client wallet di NEO ha una funzione per l'eliminazione di un asset. Quando si elimina un asset, l'asset é inviato a un indirizzo specifico generato dallo stesso smart contract di sopra. Chiunque puó spendere l'asset nell'indirizzo. Gli assets nell'indirizzo sono assets che gli altri non vogliono.
 
