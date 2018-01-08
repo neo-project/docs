@@ -70,14 +70,14 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 <img src="/assets/consensus.iterations.png" width="800">
 
-**Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
+**Figura 5:** Simulazione Monto-Carlo dell'algoritmo DBFT raffigurante le iterazioni necessarie per raggiungere il consenso. {100 Nodi; 100,000 Blocchi simulati con una selezione casuale dei nodi onesti}
 
 
-### 5.1 - Definitions
+### 5.1 - Definizioni
 
-**Within the algorithm, we define the following:**
+**All'interno dell'algoritmo, definiamo quanto segue:**
 
-  - `t`: The amount of time allocated for block generation, measured in seconds.
+  - `t`: quantitá di tempo allocata per la generazione di un blocco, misurata in secondi.
     - Currently: `t = 15 seconds`
     - This value can be used to roughly approximate the duration of a single view iteration as the consensus activity and communication events are fast relative to this time constant.
 
