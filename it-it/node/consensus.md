@@ -164,12 +164,12 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
   <!-- -->
       <ChangeView, h,k,i,k+1>
 
-  - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.
+  - Una volte che un **Consensus Node** riceve almeno `s` numeri di trasmissioni che denotano lo stesso cambio di View, incrementa la View `v`, scatenando un nuovo round di consenso.
 
 
 ​	
 
-## 6 - References
+## 6 - Riferimenti
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
