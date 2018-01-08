@@ -132,18 +132,18 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 5. Lo **Speaker** trasmette la proposta : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
-     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
+     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> The <b>Speaker</b> conia una proposta di blocco per la revisione da parte del <b>Delegates</b>. </p>
 
-6. The **Delegates** receive the proposal and validate:
+6. I **Delegates** ricevono la proposta da confermare:
 
-    - Is the data format consistent with the system rules?
-    - Is the transaction already on the blockchain?
-    - Are the contract scripts correctly executed?
-    - Does the transaction only contain a single spend?(i.e. does the transaction avoid a double spend scenario?)
-    - **If Validated Proposal Broadcast:**  `<prepareResponse, h, k, i, [block]sigi>`
-    - **If Invalidated Proposal Broadcast:**  `<ChangeView, h,k,i,k+1>`
+    - Il formato dei dati è coerente con le regole di sistema?
+    - La transazione è già sulla blockchain?
+    - Gli script del contratto sono eseguiti correttamente?
+    - La transazione contiene solo una singola spesa?(cioè la transazione evita uno scenario di doppia spesa?)
+    - **Se la trasmissione proposta convalidata:**  `<prepareResponse, h, k, i, [block]sigi>`
+    - **Se la proposta invalidata trasmessa:**  `<ChangeView, h,k,i,k+1>`
 
-   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Delegates</b> review the block proposal and respond. </p>
+   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figura 9:</b> I <b>Delegates</b> rivedono la proposta del blocco e rispondono </p>
 
 7. After receiving `s` number of 'prepareResponse' broadcasts, a **Delegate** reaches a consensus and publishes a block.
 
