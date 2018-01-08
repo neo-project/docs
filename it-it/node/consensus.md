@@ -77,18 +77,17 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 **All'interno dell'algoritmo, definiamo quanto segue:**
 
-  - `t`: quantitá di tempo allocata per la generazione di un blocco, misurata in secondi.
-    - Currently: `t = 15 seconds`
-    - This value can be used to roughly approximate the duration of a single view iteration as the consensus activity and communication events are fast relative to this time constant.
+  - `t`: Quantitá di tempo allocata per la generazione di un blocco, misurata in secondi.
+    - Correntemente: `t = 15 secondi`
+    - Questo valore puó essere usato per approssimare il tempo di una singola iterazione View poiché l'attivitá di consenso e gli eventi di comunicazione sono veloci rispetto a questa costante di tempo. 
+  - `n`: Il numero di **Consensus Nodes** attivi.
 
-  - `n`: The number of active **Consensus Nodes**.
-
-  - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
+  - `f`: La soglia minima di **Consensus Nodes** difettosi all'interno del sistema. 
      - `f = (n - 1) / 3`
 
-  - `h` : The current block height during consensus activity.
+  - `h` : L'altezza del blocco corrente durante l'attivitá di consenso.
 
-  - `i` : **Consensus Node** index.
+  - `i` : Indice **Consensus Node**.
 
 
   - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.  This includes the vote (`prepareResponse` or `ChangeView`) issued by all Delegates.
