@@ -67,13 +67,11 @@ namespace ConsoleApp1
 }
 ```
 
-Dopo averlo eseguito, lo schermo mostrerá l'array di byte creato dalla chiave pubblica. 
+Dopo averlo eseguito, lo schermo mostrerá l'array di byte creato dalla chiave pubblica. Copialo da qualche parte in quanto verrá usato successivamente. 
 
-After running it, the screen will display the byte array created from the public key. Copy this down as we will be using it later.
+## Scrivi uno smart contract
 
-## Write a smart contract
-
-Create a smart contract project and write the following smart contract. 
+Creare un progetto smart contract e scrivere il seguente smart contract.
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -95,13 +93,13 @@ namespace Neo.SmartContract
 }
 ```
 
-The lock contract has two important variables to change: the public key, and the lock time.
+Il contratto Lock ha due importanti variabili da cambiare: la chiave privata, e il Lock Time.
 
-1. In the contract code, paste the previous copy of the public key byte array
+1. nel codice del contratto, incolla la precedente copia dell'array di byte della chiave pubblica.
 
-2. Change the lock time in the sample code, which is a Unix timestamp. Calculate it yourself, you may want to use an online tool. [Unix timestamp online conversion](https://unixtime.51240.com/).
+2. Cambia il Lock Time del codice esempio, il quale é un timestamp Unix. Calcolalo, potresti usare qualche strumento online. [Unix timestamp online conversion](https://unixtime.51240.com/).
 
-After replacing the two variables, compile the contract to get a Lock.avm file.
+Dopo aver rimpiazzato le due variabili, compila il contratto per ottenere il file Lock.avm.
 
 ## Deploy lock Contract
 
