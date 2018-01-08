@@ -145,21 +145,21 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
    <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figura 9:</b> I <b>Delegates</b> rivedono la proposta del blocco e rispondono </p>
 
-7. After receiving `s` number of 'prepareResponse' broadcasts, a **Delegate** reaches a consensus and publishes a block.
+7. Dopo aver ricevuto `s` numeri di 'prepareResponse' trasmesse, un **Delegate** realizza il consenso e pubblica un blocco.
 
-8. The **Delegates** sign the block.
+8. I **Delegates** firmano il blocco.
 
-   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figure 10:</b> A consensus is reached and the approving <b>Delegates</b> sign the block, binding it to the chain. </p>
+   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figura 10:</b> Il consenso é realizzato e approvato, i <b>Delegates</b> firmano il blocco, legandolo alla chain. </p>
 
-9. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
+9. Quando un **Consensus Node** riceve un blocco completo, la View corrente viene "ripulita", e un nuovo round di consenso comincia. 
   - `k = 0`
 
 ---
 
-**Note:**
+**Nota:**
 
- If after   (![timeout](/assets/consensus.timeout.png) )  seconds on the same view without consensus:
-  - **Consensus Node** broadcasts:
+ Se dopo   (![timeout](/assets/consensus.timeout.png) )  secondo sulla stessa View senza consenso:
+  - Il **Consensus Node** Trasmette:
 
   <!-- -->
       <ChangeView, h,k,i,k+1>
