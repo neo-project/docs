@@ -1,6 +1,6 @@
 # Parametri dello Smart Contract e Valori Restituiti
 
-In the smart contract deployment or invocation, you need to specify the parameters of the smart contract. Smart contract parameters are byte types, defined as follows.
+Nell'implementazione o invocazione di uno smart contract, occorre specificare i parametri dello smart contract, I paramentri dello smart contract sono tipi di bytes, definiti nel modo seguente.
 
 ```c#
      /// <summary>
@@ -40,7 +40,7 @@ In the smart contract deployment or invocation, you need to specify the paramete
          Void = 0xff
      }
 ```
-For example, for the smart contract below:
+Per esempio, per lo smart contract seguente:
 
 ```c#
 public class Lock : SmartContract
@@ -51,6 +51,7 @@ public class Lock : SmartContract
     }
 }
 ```
-Using the enum above, int is represented as 2, bool as 1, public key as 6 and signature as 0.
+Usando l'enum sopra, int é rappresentato come 2, bool come 1, la chiave pubblica come 6 e la firma come 0.
 
-When filling in parameters through the PC client, use 2 hexadecimal characters for each parameter. Thus, the arguments for the above function is written as : 02010600, return: 01.
+Nella compilazione dei parametri tramite il client del PC, usare due caratteri esadecimali per la compilazione di ogni parametro. Pertanto gli argomenti per la funzione di sopra sono scritti come : 02010600, return: 01.
+
