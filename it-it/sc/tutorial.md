@@ -30,9 +30,7 @@ Quello verde sulla sinistra é il motore di esecuzione della macchina virtuale (
 
 La parte grigia al centro della macchina virtuale é lo Stack di Valutazione (equivalente alla memoria). Al giorno d'oggi ci sono due modi per realizzare una macchina virtuale 1) basata sullo stack 2) basata sul registro. Entrambi i metodi hanno i loro vantaggi e svantaggi, ed entrambi hanno i loro grandi esempi di implementazione. Ci sono macchine virtuali basate sullo stack come JVM, CPython, e .NET CLR. Dall'altra parte ci sono le VM basate sul registro, come Dalvik e Lua5.0. Le macchine virtuali basate sullo stack hanno un concetto di computazione stak che permette alle macchine virtuali di interagire direttamente con lo stack (Stack di Valutazione) quando stanno performando operazioni reali. 
 
-
-
-Since the default behavior of a stack based VM is to fetch data from the operand stack, there is no need to specify an operand. Contrast this to for example the following x86 assembly `"ADD EAX, EBX"`. This operation requires you to specify the source operands and destination of the result. Stack-based virtual machine instructions do not need to specify these parameters. For example, the addition of a simple "ADD" operation will operate directly on the operand stack. The data can be popped of directly and the result is stored at the stop of the stack.
+Poiché il comportamente predefinito di una VM basata sullo stack é quello di recuperare i dati dallo stack degli operandi, non c'é bisogno di specificare un operando. Confrontalo con, ad esempio, il seguente assembly x86 `"ADD EAX, EBX"`. Questa operazione richiede lo specificamente degli operandi fonte e la destinazione del risultato. Le istruzioni delle macchine virtuali basate sullo stack non hanno bisogno della specificazione di questi parametri. Per esempio, l'aggiunta di una singola operazione "ADD" verrá eseguita direttamente sull'operando dello stack. I dati possono essere riempiti direttamente e il risultato viene conservato allo stop dello stack.
 
 #### Interoperable service layer
 
