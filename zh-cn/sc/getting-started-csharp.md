@@ -44,6 +44,10 @@
 >
 > 这时会看到 “正在还原 NuGet 程序包...”。该过程可能需要十几分钟甚至几十分钟，并且中间可能失败 N 次，有条件的可以科学上网加快还原过程。
 
+![](assets/can't_copy_file.png)
+
+另外，在 VS 2017 的某些版本中（如 15.4，15.5），发布项目会出现上图所示错误，这是 VS 的 Bug，此时需要将 `\obj\Release\netcoreapp1.0\neon.dll` 文件复制到 `\obj\Release\netcoreapp1.0\win10-x64\` 文件夹中，然后重新发布即可发布成功。
+
 发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件
 
 然后需要添加 path，让任何位置都能访问这个 exe 程序
