@@ -110,16 +110,16 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 1. `s` **Delegates** devono raggiungere il consenso su una transazione prima che un blocco possa essere impegnato. 
 
-2. I **Consensus Nodes** disonesti must not be able to persuade the honest consensus nodes of faulty transactions. 
+2. I **Consensus Nodes** disonesti non devono essere capaci di persuadere i Consensus Node onesti per quanto concerne transazioni falsate. 
 
-3. At least `s` **Delegates** are in same state (`h`,`k`) to begin a consensus activity
+3. Almeno `s` **Delegates** sono nello stesso stato (`h`,`k`) per cominciare un'attivitá di consenso.
 
 
 
-### 5.3 - Algorithm
-**The algorithm works as follows:**
+### 5.3 - Algoritmo
+**L'algoritmo funziona come segue:**
 
-1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
+1. Un **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
 
    <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figure 6:</b> A <b>Consensus Node</b> receives a transaction and broadcasts it to the system. </p>
 
