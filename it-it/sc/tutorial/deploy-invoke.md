@@ -67,23 +67,23 @@ Per invocare uno smart contract sulla blockchain di NEO, avrai bisogno dell'hash
 6. Per riempire i parametri in input, clicca sul bottone **...** a finco del campo Parametri per aprire il menu parametro compilato.
 7. Seleziona i parametri del campo sul lato sinistro e compila i valori delle variabili nel campo in basso a destra.
 
-  **For example, invoking the following:**
-  * `6e616d65` when calling the Woolong, will return 'Woolong'.
+  **Per esempio, invocare quanto segue:**
+  * `6e616d65` quando stai chiamando Woolong, restituirá 'Woolong'.
     ```csharp
     if (method == "name") return name;
     ```
-  * `73796d626f6c` will return 'WNG'.
+  * `73796d626f6c` restituirá 'WNG'.
     ```csharp
      if (method == "symbol") return symbol;
     ```
-  * `62616c616e63654f66, 5fe459481de7b82f0636542ffe5445072f9357a1261515d6d3173c07c762743b` will return the current balance of Woolong that lllwvlvwll holds on the testnet.
+  * `62616c616e63654f66, 5fe459481de7b82f0636542ffe5445072f9357a1261515d6d3173c07c762743b` restituirá il saldo corrente di Woolong che lllwvlvwll possiede sulla testnet.
     ```csharp
     if (method == "balanceOf") return Storage.Get(Storage.CurrentContext, (byte[]) args[0]);
     ```
 
-8. Click **OK** to close the parameter input window.
-9. Click the **Invoke** button to invoke the smart contract.
+8. Cliccare **OK** per chiudere la finestra di input dei parametri.
+9. Cliccare il bottone **Invoke** per invocare lo smart contract.
 
-**Note:** The current standard desktop GUI does not support viewing returns.  Using the developer GUI is recommended when executing the events.
+**Nota:** La GUI desktop standard corrente non supporta la visualizzazione dei resi. Usare la GUI di sviluppo è raccomandato quando si eseguono questi eventi.
 
  
