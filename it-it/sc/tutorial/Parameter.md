@@ -1,4 +1,4 @@
-# Smart Contract Parameters and Return Values
+# Parametri dello Smart Contract e Valori Restituiti
 
 In the smart contract deployment or invocation, you need to specify the parameters of the smart contract. Smart contract parameters are byte types, defined as follows.
 
