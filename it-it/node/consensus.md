@@ -1,19 +1,19 @@
-# Consensus
+# Consenso
 
-## 1 - List of Terms
+## 1 - Elenco dei Termini
 
-* **Proof of Stake** `PoS` - A type of algorithm which uses network consensus to handle fault tolerance.
+* **Proof of Stake** `PoS` - Un tipo di algoritmo che usa il consenso di rete per gestire la tolleranza d'errore.
 
-* **Proof of Work** `PoW` - A type of algorithm which uses computing power to handle fault tolerance.
+* **Proof of Work** `PoW` - Un tipo di algoritmo che utilizza la potenza di calcolo per gestire la tolleranza d'errore.
 
-* **Byzantine Fault** `BF` - A failure in which a node remains functional, but operates in a dishonest manner.
+* **Byzantine Fault** `BF` - Un fallimento nel quale un nodo rimane funzionante, ma opera in maniera disonesta.
 
-* **Delegated Byzantine Fault Tolerance** `DBFT` - A consensus algorithm implemented within the NEO blockchain to guarantee fault tolerance.
+* **Delegated Byzantine Fault Tolerance** `DBFT` - Un algoritmo di consenso implementato nella blockchain NEO per garantire la tolleranza d'errore.
 
-* **View** `v` - The dataset used during a consensus activity in NEO `DBFT`
+* **View** `v` - Il set di dati utilizzato durante l'attività di consenso `DBFT` in NEO.
 
-## 2 - Roles
-**In the NEO consensus algorithm, Consensus Nodes are elected by NEO holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**.
+## 2 - Ruoli
+**Nell'algoritmo di consenso di NEO, i Nodi di Consenso sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Bookkeepers'. Da ora in avanti, ci riferiremo ad essi come Nodi di Consenso**.
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
