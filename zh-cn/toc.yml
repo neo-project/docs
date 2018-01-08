@@ -64,6 +64,8 @@
         href: node/api/invokefunction.md
       - name: invokescript
         href: node/api/invokescript.md
+      - name: sendfrom
+        href: node/api/sendfrom.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
