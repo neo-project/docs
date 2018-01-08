@@ -13,10 +13,9 @@ public class Lock : SmartContract
 }
 ```
 
-Il contratto implementa una funzione che specifica un certo timestamp.
+Il contratto implementa una funzione che specifica un certo timestamp. Prima del tempo specificato, nessuno è autorizzato a ritirare alcun bene dal contratto. Quando il tempo specificato viene raggiunto, i proprietari del contratto possono ritirare gli assets.
 
-The contract implements a function that specifies a certain timestamp. Before the specified time stated, no one is allowed to withdraw any assets from the contract. Once the time stated is reached, the contract owners can then withdraw the assets.
+Il tempo corrente ottenuto dal contratto equivale al tempo dell'ultimo blocco nella blockchain (l'errore è di circa 15 secondi). Per dettagli, fare riferimento a [Blockchain class](../fw/dotnet/neo/Blockchain.md), [Header class](../fw/dotnet/neo/Header.md).
 
-The current time obtained by the contract is the time of the latest block in the blockchain (the error is about 15 seconds). For details, refer to [Blockchain class](../fw/dotnet/neo/Blockchain.md), [Header class](../fw/dotnet/neo/Header.md).
+Questo contratto puó essere implementato sulla chain affinché altri lo possano richiamare. Se desideri implementare un contratto timelock localmente, per favore fai riferimento a [Lock Contract](Lock2.md)
 
-This contract can be deployed to the chain for others to call. If you wish to deploy a timelock contract locally, please refer to [Lock Contract](Lock2.md)
