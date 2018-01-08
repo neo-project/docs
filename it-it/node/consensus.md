@@ -100,11 +100,11 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
      - `p = (h - k) mod (n)`
 
 
-  - `s`: The safe consensus threshold.  Below this threshold, the network is exposed to fault.  
+  - `s`: La soglia sicura di consenso. Al di sotto di questa soglia, la rete é esposta a guasti.  
      - `s = ((n - 1) - f)`
 
 
-### 5.2 - Requirements
+### 5.2 - Requisiti
 
 **Within NEO, there are three primary requirements for consensus fault tolerance:**
 
