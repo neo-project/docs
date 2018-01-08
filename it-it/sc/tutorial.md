@@ -32,9 +32,11 @@ La parte grigia al centro della macchina virtuale é lo Stack di Valutazione (eq
 
 Poiché il comportamente predefinito di una VM basata sullo stack é quello di recuperare i dati dallo stack degli operandi, non c'é bisogno di specificare un operando. Confrontalo con, ad esempio, il seguente assembly x86 `"ADD EAX, EBX"`. Questa operazione richiede lo specificamente degli operandi fonte e la destinazione del risultato. Le istruzioni delle macchine virtuali basate sullo stack non hanno bisogno della specificazione di questi parametri. Per esempio, l'aggiunta di una singola operazione "ADD" verrá eseguita direttamente sull'operando dello stack. I dati possono essere riempiti direttamente e il risultato viene conservato allo stop dello stack.
 
-#### Interoperable service layer
+#### Livello di servizio interoperabile
 
-The blue part on the right side is the interoperable service layer of the virtual machine (equivalent to the peripherals). At present, the interoperable service layer provides some APIs for accessing the chain-chain data of the smart contract. It can access block information, transaction information, contract information, asset information, and so on.
+La parte blu del lato destro é il livello di servizio interoperabile della macchina virtuale (equivalente alle periferiche). Al momento, il livello di servizio interoperabile fornisce alcune API per accedere ai dati chain-chain dello smart contract. Puó accedere alle informazioni del blocco, informazioni sulla transazione, informazioni sul contratto, informazioni sull'asset, e altro ancora.
+
+In aggiunta, il livello di servizio interoperabile fornisce anche un area di memorizzazione persistente per ogni contratto. Ciasc
 
 In addition, the interoperable service layer also provides a persistent storage area for each contract. Each of the smart contracts is optionally created with private storage, which is in the form of a key-value object determined by the callee of the contract rather than the context of the persistent store. The caller needs to pass their own storage context to the callee (to complete the authorization) before the caller can perform read and write operations.
 
