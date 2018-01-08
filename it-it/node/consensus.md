@@ -106,11 +106,11 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 ### 5.2 - Requisiti
 
-**Within NEO, there are three primary requirements for consensus fault tolerance:**
+**All'interno di NEO, ci sono tre principali requisiti per la tolleranza ai guasti del consenso:**
 
-1. `s` **Delegates** must reach a consensus about a transaction before a block can be committed.
+1. `s` **Delegates** devono raggiungere il consenso su una transazione prima che un blocco possa essere impegnato. 
 
-2. Dishonest **Consensus Nodes** must not be able to persuade the honest consensus nodes of faulty transactions. 
+2. I **Consensus Nodes** disonesti must not be able to persuade the honest consensus nodes of faulty transactions. 
 
 3. At least `s` **Delegates** are in same state (`h`,`k`) to begin a consensus activity
 
