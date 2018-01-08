@@ -70,14 +70,9 @@ public class Class1: SmartContract
 
 ### 4. .NET Core
 
-下载并安装  .NET Core 1.0.4
-
-[.NET Core 1.0.4 下载地址](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.0.4-download.md)
+下载并安装  [.NET Core 2.0.3](https://www.microsoft.com/net/download/macos )。
 
 ![](assets/mac8.png)
-
-> [!Note]
-> [.NET Core 官网](https://www.microsoft.com/net/core#macos) 上的 macOS 版只有 .NET Core 2.0 版，目前 neon 项目为 .NET Core 1.0.4 版，所以官网上的版本无法运行 neon，需要在 GitHub 中下载  .NET Core 1.0.4。
 
 ### 5. 输入命令
 
