@@ -40,13 +40,13 @@ Per il bene della discussione, descriveremo un paio di scenari. In questi sempli
 
 ### **Speaker Onesto**
 
-  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figura 1:</b> Un esempio n = 3 con un <b>Delegate</b> disonesto.</p>
+  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figura 1:</b> Esempio n = 3 con un <b>Delegate</b> disonesto.</p>
 
   Nella **Figura 1**, abbiamo un singolo **Delegate** leale (50%). Entrambi i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto. Comunque, a causa della disonestá di un **Delegate**, il Delegate onesto puó solo determinare che c'é un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (lo **Speaker**) o del **Delegate**. Per questo motivo, il **Delegate** deve astenersi dal voto, cambiando la View.
 
-  <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Delegate</b>.</p>
+  <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> Esempio n = 4 con un <b>Delegate</b> disonesto.</p>
 
-  In **Figure 2**, we have a two loyal **Delegates** (66%).  All **Delegates** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Delegate**.  Based on the consensus of the two honest **Delegates**, we are able to determine that either the **Speaker** or right **Delegate** is dishonest in the system.
+  Nella **Figura 2**, abbiamo due **Delegates** leali (66%). Tutti i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto e inviano il loro risultato di convalida, insieme al messaggio ricevuto dallo Speaker l'un l'altro **Delegate**. Sulla base del consenso dei due **Delegates** onesti, siamo capaci di determinare se lo **Speaker** o il **Delegate** a destra siano disonesti nel sistema. 
 
   
 
