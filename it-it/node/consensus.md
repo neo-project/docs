@@ -35,14 +35,14 @@ Il Byzantine Generals Problem é un classico problema nel calcolo distribuito. I
 
 Allo scopo di descrivere come funziona il DBFT, concentreremo principalmente questa sezione sulla giustificazione del tasso di consenso del 66.66% utilizzato nella sezione 5. Tieni a mente che un nodo disonesto non necessariamente deve essere attivamente malevolo, potrebbe semplicemente non funzionare come previsto.
 
-For the sake of discussion, we will describe a couple of scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanism is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
+Per il bene della discussione, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dallo **Speaker**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedi i riferimenti.
 
 
-### **Honest Speaker**
+### **Speaker Onesto**
 
-  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figure 1:</b> An n = 3 example with a dishonest <b>Delegate</b>.</p>
+  <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figura 1:</b> Un esempio n = 3 con un <b>Delegate</b> disonesto.</p>
 
-  In **Figure 1**, we have a single loyal **Delegate** (50%).  Both **Delegates** received the same message from the honest **Speaker**.  However, because a **Delegate** is dishonest, the honest Delegate can only determine that there is a dishonest node, but is unable to identify if it is the block nucleator (The **Speaker**) or the **Delegate**.  Because of this, the **Delegate** must abstain from voting, changing the view.
+  Nella **Figura 1**, abbiamo un singolo **Delegate** leale (50%). Entrambi i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto. Comunque, a causa della disonestá di un **Delegate**, il Delegate onesto puó solo determinare che c'é un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (lo **Speaker**) o del **Delegate**. Per questo motivo, il **Delegate** deve astenersi dal voto, cambiando la View.
 
   <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Delegate</b>.</p>
 
