@@ -1,4 +1,4 @@
-# Contract Call
+# Chiamata al Contratto
 
 ```c#
 [AppCall("XXXXXXXXXX")] // ScriptHash
@@ -10,6 +10,7 @@ public static void Main ()
 }
 ```
 
-In a smart contract, you can use this to call other smart contracts that have been published to the chain. 
-1. Add a declaration using AppCall and the script hash of the contract to be invoked.
-2. Call it in the code.
+In uno smart contract, puoi usarla per chiamare altri smart contracts che sono stati pubblicati sulla chain.
+1. Aggiungi la dichiarazione usando AppCall e l'hash dello script del contratto per essere invocato.
+2. Chiamalo nel codice.
+
