@@ -53,5 +53,5 @@ public class Lock : SmartContract
 ```
 Usando l'enum sopra, int é rappresentato come 2, bool come 1, la chiave pubblica come 6 e la firma come 0.
 
-Nella compilazione dei parametri tramite il client del PC, usare due caratteri esadecimali per la compilazione di ogni parametro. Pertanto gli argomenti per la funzione di sopra sono scritti come : 02010600, return: 01.
+Nella compilazione dei parametri tramite il client del PC, usare due caratteri esadecimali per la compilazione di ogni parametro. Pertanto gli argomenti per la funzione di sopra sono scritti come : 02010600, restituisce: 01.
 
