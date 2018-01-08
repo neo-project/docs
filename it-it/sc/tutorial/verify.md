@@ -68,9 +68,9 @@ Dopo aver cliccato `OK`, l'account di autenticazione dello smart contract è sta
 
 ## Testing
 
-The following is a test of the smart contract authentication account, when transferring assets out of a smart contract account, the consensus nodes will execute the contract when validating the transaction. If the contract validation is successful (returns result `true`), then the transaction is confirmed. Until result `true` is received, the transaction will have status unconfirmed. The test method is to first transfer some assets to the contract authentication account, and then transfer it out.
+Quanto segue é un test dell'account di autenticazione dello smart contrat, quando si trasferiscono asset da un account smart contract, il nodo di consenso eseguirá il contratto quando convalida la transazione. Se la validazione del contratto avviene con successo (restituisce il risultato `true`), la transazione é confermata. Fin quando viene ricevuto il risultato `true`, la transazione sará non confermata. Il miglior modo é di trasferire prima alcuni assets all'account di autenticazione del contratto, e poi trasferirli nuovamente.
 
-> [!Note]
+> [!Nota]
 > In order to ensure the accuracy of the test, do not have any other assets in the wallet. Otherwise you may not know whether the asset was transferred from the standard account or transferred from the contract account, unless you understand the client's change search algorithm and can confirm that the transaction is transferred from the smart contract address.
 
 
