@@ -13,9 +13,9 @@
 * **View** `v` - Il set di dati utilizzato durante l'attività di consenso `DBFT` in NEO.
 
 ## 2 - Ruoli
-**Nell'algoritmo di consenso di NEO, i Nodi di Consenso sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Bookkeepers'. Da ora in avanti, ci riferiremo ad essi come Nodi di Consenso**.
+**Nell'algoritmo di consenso di NEO, i Consensus Node sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Bookkeepers'. Da ora in avanti, ci riferiremo ad essi come Consensus Nodes**.
 
-  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Nodo di Consenso** - Questo nodo partecipa nell'attività di consenso. Durante l'attività di consenso, i nodi di consenso si alternano assumendo i due seguenti ruoli:
+  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - Questo nodo partecipa nell'attività di consenso. Durante l'attività di consenso, i nodi di consenso si alternano assumendo i due seguenti ruoli:
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(One)` - Lo **Speaker** è responsabile per la trasmissione di un blocco come proposta al sistema.
   - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(Multiple)` - I **Delegates** sono responsabili della realizzazione del consenso sulla transazione.
 
@@ -26,12 +26,12 @@ Una delle differenze fondamentali tra le blockchain è il modo in cui possono ga
 
 I metodi tradizionali implementati usando il PoW possono fornire questa garanzia a patto che la maggior parte della potenza computazionale della rete sia onesta. Comunque, a causa della dipendenza di questo schema dalla potenza computazionale, il meccanismo può essere davvero inefficiente (la potenza computazionale costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
 
-NEO implementa un algoritmo di consenso Delegated Byzantine Fault Tolerance il quale sfrutta alcune caratteristiche del PoS (i possessori di NEO possono votare i **Nodi di Consenso**) il quale protegge la rete da difetti Byzantine usando una quantitá di risorse minima, mentre respinge alcuni dei suoi problemi.  Questa soluzione risolve i problemi di prestazioni e scalabilità associati alle attuali implementazioni blockchain senza un impatto significativo sulla tolleranza ai guasti.  
+NEO implementa un algoritmo di consenso Delegated Byzantine Fault Tolerance (DBFT) il quale sfrutta alcune caratteristiche del PoS (i possessori NEO possono votare i **Consensus Nodes**) il quale protegge la rete da difetti Byzantine usando una quantitá di risorse minima, mentre respinge alcuni dei suoi problemi. Questa soluzione risolve i problemi di prestazione e scalabilità associati alle attuali implementazioni blockchain senza un impatto significativo sulla tolleranza ai guasti.  
 
 
-## 4 - Theory
+## 4 - Teoria
 
-The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistent message to each recipient.  This is considered the most disastrous situation.  The solution to the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
+Il Byzantine Generals Problem é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegates** che devono realizzare il consenso sul risultato di un ordine dello **Speaker**. In questo sistema, bisogna stare attenti perché lo **Speaker** o un numero qualsiasi di **Delegates** potrebbero essere dei traditori. A dishonest node may not send a consistent message to each recipient.  This is considered the most disastrous situation.  The solution to the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
 
 For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
 
