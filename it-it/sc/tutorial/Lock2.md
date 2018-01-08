@@ -6,7 +6,7 @@ Leggi i seguenti tutorial prima di leggere il seguente articolo:
 
 [Tutorial Smart Contract NEO](../tutorial.md)
 
-[Esempio Smart contract - Lock (lock)](Lock.md)
+[Esempio Smart Contract - Lock (lock)](Lock.md)
 
 Assumendo che hai giá la conoscenza di base riguardo gli smart contracts, mosteremo come implementare un lock contract a un indirizzo usando il wallet.
 
@@ -127,10 +127,10 @@ Qui, dobbiamo scegliente un account associato (per essere specifici, stiamo asso
 
 ## Test
 
-The following is a test of the smart contract authentication account. In transferring assets from a smart contract authentication account, the consensus node will execute the smart contract when verifying the transaction. If the contract validation is successful (the result is true), the transaction is confirmed. Otherwise the transaction will always be unconfirmed. Our testing method will be to first transfer some assets into the account address, then transfer them out.
+Quanto segue é un test dell'autenticazione dell'account di uno smart contract. Nel trasferimento di asset da un account di autenticazione di uno smart contract, il nodo di consenso eseguirá lo smart contract mentre verifica la transazione. Se il contratto viene validato con successo (il risultato é True), la transazione viene confermata. Altrimenti la transazione sará sempre non confermata. Il nostro metodo di testing sará di trasferire alcuni assets nell'indirizzo dell'account, e poi trasferirli al di fuori.
 
-> [! Note]
-> In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
+> [! Nota]
+> Al fine di assicurare l'accuratezza del test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
 
 ### Transfer assets to contract address
 
