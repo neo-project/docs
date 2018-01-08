@@ -1,12 +1,12 @@
-# Deploying a Lock Contract
+# Implementare un Lock Contract
 
-Read the following tutorial before reading this article:
+Leggi i seguenti tutorial prima di leggere il seguente articolo:
 
-[How to write NEO smart contract with C#](../getting-started-csharp.md)
+[Come Scrivere Smart Contract NEO in C#](../getting-started-csharp.md)
 
-[NEO Smart Contract Tutorial](../tutorial.md)
+[Tutorial Smart Contract NEO](../tutorial.md)
 
-[Smart contract example - Lock (lock)](Lock.md)
+[Esempio Smart contract - Lock (lock)](Lock.md)
 
 Assuming you already have basic knowledge regarding smart contracts, we will show how to deploy a lock contract to an address using the wallet.
 
