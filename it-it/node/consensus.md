@@ -59,16 +59,14 @@ Per il bene della discussione, descriveremo un paio di scenari. In questi sempli
 
   <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figura 4:</b> Esempio n = 4 con uno <b>Speaker</b> disonesto. </p>
 
-  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció causa un differimento per una nuova View che elegge un nuovo **Speaker** perché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegates**, sarebbe stato convalidato senza il bisogno di un cambio di View.
+  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció causa un differimento per una nuova View che elegge un nuovo **Speaker** perché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegates**, sarebbe stato convalidato senza la necessitá di un cambio di View.
 
 
 ## 5 - Implementazioni Pratiche
 
-The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. **Figure 5** depicts the
-expected iterations as a function of the fraction of dishonest nodes.  
+L'implementazione pratica del DBFT in NEO avviene tramite un metodo iterativo di consenso per garantire che lo stesso venga realizzato. Le performance dell'algoritmo dipendono dalla frazione dei nodi onesti nel sistema. La **Figura 5** raffigura le iterazioni previste in funzione della frazione dei nodi disonesti.
 
-Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** honesty.  Between this critical point and 33% **Consensus nodes** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus nodes** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
-
+Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **Consensus nodes**. Tra questo punto critico e il 33% di onestá dei **Consensus nodes**, c'é 'la terra di nessuno' dove il consenso é irragiungibile. Sotto il 33% di onestá dei **Consensus nodes**, i nodi disonesti (assumendo che siano allineati nel consenso) sono capaci di raggiungere il consenso da soli e diventare un nuovo punto di veritá nel sistema.
 
 <img src="/assets/consensus.iterations.png" width="800">
 
