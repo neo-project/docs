@@ -24,7 +24,7 @@ Il diagramma precedente é il diagramma dell'architettura del sistema della macc
 
 #### Motore di esecuzione
 
-The green on the left is the Virtual Machine execution engine (the equivalent of the CPU). It can execute common instructions such as flow control, stack operations, bit operations, arithmetic operations, logical operations, cryptographic methods, and so on. It can interact with the Interoperable service layer (described below) through system calls.
+Quello verde sulla sinistra é il motore di esecuzione della macchina virtuale (l'equivalente della CPU). Puó eseguire istruzioni comuni come il controllo di flusso, operazioni stack, operazioni sui bit, operazioni aritmetiche, operazioni logiche, metodi crittografici, e tanto altro. Puó interagire a livello di servizio interoperabile (Descritto sotto) tramite chiamate al sistema. 
 
 #### Evaluation stack
 
