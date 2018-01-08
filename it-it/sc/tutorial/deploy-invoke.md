@@ -32,19 +32,19 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 3. Carica il file .avm usando il bottone **Load**. Il **code field** verrá compilato con l'hash script. Copia il contenuto del campo **Code** per utilizzaro negli step successivi.
 4. Compilare il campo **Metadata** in riferimento alla documentazione [Parametro](Parameter.md).
 
-    **The Woolong example token is defined as:**  
+    **Il token Woolong di esempio é definito come:**  
 
     ```csharp
     public static object Main(string method, params object[] args)  
     ```
 
-    So we use:  
+    quindi usiamo:  
     * **Parameter List:** 0710
     * **Return Type:** 05
 
-5. If the contract requires storage (uses the [Read/Write API](../api/neo.md#readwrite-api)), check the **Need Storage** box.  The NEP5 standard uses storage to maintain accounts so make sure this is checked when deploying a NEP5 token.
+5. Se il contratto richiede memoria (usa [Read/Write API](../api/neo.md#readwrite-api)), controlla il box **Need Storage**.Lo standard NEP5 utilizza memoria per mantenere gli accounts quindi assicurati che sia spuntato quando si implementa un token NEP5.
 
-6. Click the **Deploy** button.
+6. Clicca il bottone **Deploy**.
 
 
 ## 5 - Watching the Smart Contract   
