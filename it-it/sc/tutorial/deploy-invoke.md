@@ -15,11 +15,9 @@ Le seguenti risorse sono usate in questo tutorial e possono essere riferimenti u
 6. [NEP5 Token Standard](https://github.com/neo-project/proposals/pull/4)
 
 ## 3 - Codice SC
-Questo 
+Questo documento utilizzerá il codice esempio fornito nell'esempio Woolong per seguire il tutorial. Per divertimento, questo contratto genererá 1 Woolong per ogni evento invocato.
 
-This document will be using the example code provided in the Woolong example to walk through the tutorial.  For fun, this contract will generate 1 Woolong for every invoke event.
-
-The example has been deployed on the testnet and can be accessed at the following script hash: 
+L'esempio é stato implementato in testnet e puó essere trovato con il seguente hash script:
 ​    
 	dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f
 ​	
