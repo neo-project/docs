@@ -115,12 +115,11 @@ Clicca su `Advanced`, `Deploy Contract`, clicca sul bottone `Load` nell'angolo i
 
 ![](../../../assets/lock2_5.png)
 
-In the client, under the `Account` tab, right click on the whitespace, select `Create Contract Add.`, `Custom`, and paste the contract script into the box:
+Nel client, sotto la finestra `Account`, fai doppio clicl sullo spazio bianco, seleziona `Create Contract Add.`, `Custom`, e incolla lo script del contratto nel box: 
 
 ![](../../../assets/lock2_7.png)
 
-
-Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill in for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
+Qui, dobbiamo scegliente un account associato (per essere specifici, stiamo associando una coppia di chiavi private/pubbliche). L'associazione significa che se lo smart contract richiede un'operazione di firma, il client userá la chiave privata associata per firmare. In questo step, dobbiamo selezionare la stessa chiave pubblica del primo step, altrimenti la firma non corrisponde e l'esecuzione del contratto fallirá. Perché esiste un parametro di firma nel nostro contratto, completa il form con 00 del paramentro entry (per capire di cosa compilare i parametri, fai riferimento a [Parameter](Parameter.md)), e compilalo con il codice script mostrato precedentemente. Una volta fatto, vedremo l'indirizzo del contratto come mostrato in figura.
 
 ![](../../../assets/lock2_8.png)
 
