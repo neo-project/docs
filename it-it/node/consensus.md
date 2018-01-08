@@ -2,13 +2,13 @@
 
 ## 1 - Elenco dei Termini
 
-* **Proof of Stake** `PoS` - Un tipo di algoritmo che usa il consenso di rete per gestire la tolleranza d'errore.
+* **Proof of Stake** `PoS` - Un tipo di algoritmo che usa il consenso di rete per gestire la tolleranza ai guasti.
 
-* **Proof of Work** `PoW` - Un tipo di algoritmo che utilizza la potenza di calcolo per gestire la tolleranza d'errore.
+* **Proof of Work** `PoW` - Un tipo di algoritmo che utilizza la potenza di calcolo per gestire la tolleranza ai guasti.
 
 * **Byzantine Fault** `BF` - Un fallimento nel quale un nodo rimane funzionante, ma opera in maniera disonesta.
 
-* **Delegated Byzantine Fault Tolerance** `DBFT` - Un algoritmo di consenso implementato nella blockchain NEO per garantire la tolleranza d'errore.
+* **Delegated Byzantine Fault Tolerance** `DBFT` - Un algoritmo di consenso implementato nella blockchain NEO per garantire la tolleranza ai guasti.
 
 * **View** `v` - Il set di dati utilizzato durante l'attività di consenso `DBFT` in NEO.
 
@@ -24,10 +24,9 @@
 
 Una delle differenze fondamentali tra le blockchain è il modo in cui possono garantire la tolleranza d'errore data l'attività "difettosa" e non onesta sulla rete.
 
-I metodi tradizionali implementati usando PoW possono fornire questa garanzia a patto che la maggior parte della potenza computazionale della rete sia onesta. Comunque, a causa della dipendenza di questo schema sulla computazione, il meccanismo può essere davvero inefficiente (computational power costs energy and requires hardware).  These dependencies expose a PoW network to a number of limitations, the primary one being the cost of scaling.
+I metodi tradizionali implementati usando il PoW possono fornire questa garanzia a patto che la maggior parte della potenza computazionale della rete sia onesta. Comunque, a causa della dipendenza di questo schema dalla potenza computazionale, il meccanismo può essere davvero inefficiente (la potenza computazionale costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
 
-NEO implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(NEO holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
-
+NEO implementa un algoritmo di consenso Delegated Byzantine Fault Tolerance il quale sfrutta alcune caratteristiche del PoS (i possessori di NEO possono votare i **Nodi di Consenso**) il quale protegge la rete da difetti Byzantine usando una quantitá di risorse minima, mentre respinge alcuni dei suoi problemi.  Questa soluzione risolve i problemi di prestazioni e scalabilità associati alle attuali implementazioni blockchain senza un impatto significativo sulla tolleranza ai guasti.  
 
 
 ## 4 - Theory
