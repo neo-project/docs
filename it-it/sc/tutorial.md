@@ -1,14 +1,14 @@
-# NEO smart contract tutorial
+# Tutorial NEO Smart Contract
 
-After reading the previous tutorials, you should now be able to use C# in Visual Studio 2015 or 2017 to create a smart contract project. Here we will discuss how smart contracts are executed on the NeoVM (Neo Virtual Machine).
+Dopo aver letto i precedenti tutorials, dovresti essere capace di usare C# in Visual Studio 2015 o 2017 per creare progetti smart contract. Qui discuteremo come gli smart contract vengono eseguiti su NeoVM (Neo Virtual Machine).
 
-## Smart contract triggers
+## Attivazione degli smart contract
 
-There are two ways to trigger smart contracts:
+Ci sono due modi per innescare gli smart contacts:
 
-1. Contract User Authentication: Here the smart contract is a contract account. When the user requests to use the contract account in an asset, it will trigger the smart contract.
+1. Contract User Authentication: Qui lo Smart Contract é un Account Contract. Quando l'utente richiede di utilizzare il contract account in un asset, attiverá lo smart contract. 
 
-2. Manually call a smart contract: Here the user sends a transaction (Invocation Transaction) to trigger the implementation of a smart contract.
+2. Chiamata manuale allo smart contract: Qui l'utente invia una transazione (Invocation transaction) per avviare l'implementazione di uno smart contract.
 
 ## NeoVM
 
