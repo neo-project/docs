@@ -26,9 +26,11 @@ Il diagramma precedente é il diagramma dell'architettura del sistema della macc
 
 Quello verde sulla sinistra é il motore di esecuzione della macchina virtuale (l'equivalente della CPU). Puó eseguire istruzioni comuni come il controllo di flusso, operazioni stack, operazioni sui bit, operazioni aritmetiche, operazioni logiche, metodi crittografici, e tanto altro. Puó interagire a livello di servizio interoperabile (Descritto sotto) tramite chiamate al sistema. 
 
-#### Evaluation stack
+#### Stack di valutazione
 
-The middle gray part of the the virtual machine is the Evaluation Stack (it is equivalent to memory). These days there are two ways to achieve a virtual machine 1) stack based and 2) register based. Both ways have their own advantages and disadvantages, and both have their own great implementation examples. There are stack-based virtual machines like JVM, CPython, and the .NET CLR. On the other side there are register-based VMs, such as Dalvik and Lua5.0. Stack-based virtual machines have a computing stack concept that allows virtual machines to interact directly with the stack (Evaluation Stack) when performing real operations.
+La parte grigia al centro della macchina virtuale é lo Stack di Valutazione (equivalente alla memoria). Al giorno d'oggi ci sono due modi per realizzare una macchina virtuale 1) basata sullo stack 2) basata sul registro. Entrambi i metodi hanno i loro vantaggi e svantaggi, ed entrambi hanno i loro grandi esempi di implementazione. Ci sono macchine virtuali basate sullo stack come JVM, CPython, e .NET CLR. Dall'altra parte ci sono le VM basate sul registro, come Dalvik e Lua5.0. Le macchine virtuali basate sullo stack hanno un concetto di computazione stak che permette alle macchine virtuali di interagire direttamente con lo stack (Stack di Valutazione) quando stanno performando operazioni reali. 
+
+
 
 Since the default behavior of a stack based VM is to fetch data from the operand stack, there is no need to specify an operand. Contrast this to for example the following x86 assembly `"ADD EAX, EBX"`. This operation requires you to specify the source operands and destination of the result. Stack-based virtual machine instructions do not need to specify these parameters. For example, the addition of a simple "ADD" operation will operate directly on the operand stack. The data can be popped of directly and the result is stored at the stop of the stack.
 
