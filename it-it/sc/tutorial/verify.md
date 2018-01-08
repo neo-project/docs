@@ -64,7 +64,7 @@ La ragione di associare un account é di associare un contratto con una coppia d
 
 ![Creare un indirizzo del contratto](/assets/verify_7.png)
 
-After clicking `OK`, the smart contract authentication account is created successfully.
+Dopo aver cliccato `OK`, l'account di autenticazione dello smart contract è stato creato correttamente.
 
 ## Testing
 
