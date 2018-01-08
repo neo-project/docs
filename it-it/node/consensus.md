@@ -31,9 +31,9 @@ NEO implementa un algoritmo di consenso Delegated Byzantine Fault Tolerance (DBF
 
 ## 4 - Teoria
 
-Il Byzantine Generals Problem é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegates** che devono realizzare il consenso sul risultato di un ordine dello **Speaker**. In questo sistema, bisogna stare attenti perché lo **Speaker** o un numero qualsiasi di **Delegates** potrebbero essere dei traditori. A dishonest node may not send a consistent message to each recipient.  This is considered the most disastrous situation.  The solution to the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
+Il Byzantine Generals Problem é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegates** che devono realizzare il consenso sul risultato proveniente da un'ordine dello **Speaker**. In questo sistema, bisogna stare attenti perché lo **Speaker** o un numero qualsiasi di **Delegates** potrebbero essere dei traditori. Un nodo disonesto potrebbe non inviare un messaggio coerente a ogni destinatario. Questa é considerata come la situazione piú disastrosa. La soluzione al problema richiede che i **Delegates** identifichino se lo **Speaker** sia onesto e quale fosse il vero comando come gruppo.
 
-For the purpose of describing how DBFT works, we will primarily be focusing this section on the justification of the 66.66% consensus rate used in Section 5.  Keep in mind that a dishonest node does not need to be actively malicious, it could simply not be functioning as intended. 
+Allo scopo di descrivere come funziona il DBFT, concentreremo principalmente questa sezione sulla giustificazione del tasso di consenso del 66.66% utilizzato nella sezione 5. Tieni a mente che un nodo disonesto non necessariamente deve essere attivamente malevolo, potrebbe semplicemente non funzionare come previsto.
 
 For the sake of discussion, we will describe a couple of scenarios.  In these simple examples, we will assume that each node sends along the message it received from the **Speaker**.   This mechanism is used in DBFT as well and is critical to the system. We will only be describing the difference between a functional system and disfunctional system.  For a more detailed explanation, see the references.
 
