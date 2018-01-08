@@ -1,11 +1,11 @@
-# Deploying a Smart Contract with Parameters
+# Implementare uno Smart Contract con Parametri
 
-## 1 - Introduction
-This tutorial is designed to cover how to deploy and invoke a smart contract on the NEO blockchain using the desktop GUI.  The tutorial is generic and is appropriate for all contract types including NEP5 tokens.  This tutorial assumes that the contract has already been compiled into a .avm file.  If it has not, please reference the other tutorials first.  A compiled version of the contract and the source used in this tutorial are provided.  
+## 1 - Introduzione
+Questo tutorial é progettato per spiegare come implementare e invocare uno smart contract sulla blockchain NEO usando la GUI del desktop. Il tutorial é generico ed é appropriato per tutti i tipi di contratto incluso i token NEP5. Questo tutorial parte dall'assunto che il contratto é giá stato compilato in un file .avm. Se non ancora compilato, per favore fai prima riferimento agli altri tutorial. Viene fornita una versione compilata del contratto e la fonte in questo tutorial.
 
-## 2 - Useful Resources
+## 2 - Risorse Utili
 
-The following resources are used in this tutorial and can be helful references when developing a smart contract:
+Le seguenti risorse sono usate in questo tutorial e possono essere riferimenti utili nello sviluppo di uno smart contract:
 
 1. [Lock2](Lock2.md)
 2. [Parameter](Parameter.md)
@@ -14,7 +14,9 @@ The following resources are used in this tutorial and can be helful references w
 5. [Neo API](../api/neo.md)
 6. [NEP5 Token Standard](https://github.com/neo-project/proposals/pull/4)
 
-## 3 - SC Code
+## 3 - Codice SC
+Questo 
+
 This document will be using the example code provided in the Woolong example to walk through the tutorial.  For fun, this contract will generate 1 Woolong for every invoke event.
 
 The example has been deployed on the testnet and can be accessed at the following script hash: 
