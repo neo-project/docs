@@ -2,13 +2,13 @@
 typora-root-url: ..\..
 ---
 
-### How to use Java to write an NEO smart contract
+### How to use Java to write a NEO smart contract
 
-Smart contracts are written in high-level languages such as Java, C#, Python, Kotlin (and more...) and compiled into AVM (Neo's Virtual Machine bytecode) so they can run on the Neo network.
+Smart contracts are written in high-level languages such as Java, C#, Python, Kotlin (and more...) and compiled into AVM (Neo's Virtual Machine bytecode) so that they can run on the Neo network.
 
 We currently recommend C# for developing smart contracts. The Java compiler is still in development but the current version (neoj) can handle basic methods.
 
-This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts and gives you an idea of ​​how to create a smart contract project and how to compile it.
+This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts. It also gives you an idea of ​​how to create a smart contract project and how to compile it.
 
 Notes: The process involves the following steps:
 1. Write Java code (.java) for classes that extend FunctionCode or VerificationCode which is part of the Neo Framework Library (JAR)
@@ -26,7 +26,7 @@ Notes: The process involves the following steps:
 The most efficient way of getting these steps done is to download and compile all the tools you will need:
 
 1. Download Neo's Node GUI. At the time of writing, it is recommended you use the BETA developer GUI as it has some extra debugging features which are helpful. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). It will have default presets to Testnet and you will have to wait (up to a few hours) for it to fully sync up.
-2. Download the Neo Framework Library JAR. Current latest version is here: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
+2. Download the Neo Framework Library JAR. The current latest version is here: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
 3. Download an IDE for Java (optional but recommended), e.g. IntelliJ or Eclipse.
 4. Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
 
@@ -48,7 +48,7 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 Installation and configuration steps:
 
-Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, publish the neoj project,
+Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, and publish the neoj project.
 
 Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
 
@@ -82,7 +82,7 @@ Now run Command or PowerShell, and enter neoj.exe. If there is no error and the 
 ![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
 
-NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32.
+NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32. This dll can potentially be found in a number of places throughout one's system(search your computer and copy/past it into \System32), but alternatively can be found online.
 
 ## Create project
 
