@@ -101,18 +101,17 @@ Il contratto Lock ha due importanti variabili da cambiare: la chiave privata, e 
 
 Dopo aver rimpiazzato le due variabili, compila il contratto per ottenere il file Lock.avm.
 
-## Deploy lock Contract
+## Implementa un Lock Contract
 
-To deploy the contract, we first need to obtain the contract script. There are many ways to do this. We can utilize the C# code below to read the .avm in order to get the bytecode.
+Per implementare il contratto, abbiamo prima bisogno di ottenere lo script del contratto. Ci sono molti modi per farlo. Possiamo utilizzare il codice C# di sotto per leggere il .avm per ottenere il codice di byte.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
 string str = System.Text.Encoding.Default.GetString(bytes);
 ```
+Se pensi che scrivere uno script per questo sia noioso, la funzione `Deploy Contract` del client permette di ottenere il codice di byte in modo semplice:
 
-If you think writing a script for this is troublesome, the client's `Deploy Contract` function has a simple way to obtain the bytecode:
-
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in the figure. Copy this down again.
+Clicca su `Advanced`, `Deploy Contract`, clicca sul bottone `Load` nell'angolo in basso a destra. Scegli il file `Lock.avm` generato precedentemente. Dovresti vedere lo script del contratto mostrato nel box `Code`, come in figura. Copialo dinuovo.
 
 ![](../../../assets/lock2_5.png)
 
