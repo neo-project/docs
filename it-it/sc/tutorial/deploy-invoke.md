@@ -58,14 +58,14 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 
 ## 6 - Invoking the Smart Contract
 
-To invoke a smart contract on the NEO blockchain, you will need the smart contract script hash. 
-1. To acquire the contract hash, right click on the contract account populated in the address window as a result of the **Watching the Smart Contract** window.
-2. Select **View Contract** to open a window containing information about the smart contract.  Copy the value in the **Script Hash** field.
-3. Click on the **Advanced** menu option and select **Invoke Contract**.
-4. Populate the **Script Hash** field with the value copied in Step 2.  As an example, you can invoke the Woolong using the script hash in **Section 3**
-5. The Smart Contract information should automatically populate in the remaining **Invoke Function** fields.
-6. To populate the input parameters, click on the **...** button next the the Parameters field to open the parameter population menu.
-7. Select the parameters on the left field and populate the variable values in the lower right field.
+Per invocare uno smart contract sulla blockchain di NEO, avrai bisogno dell'hash script dello smart contract.
+1. Per acquisire l'hash del contratto, fai doppio clic sull'account del contratto riempito nella finestra dell'indirizzo come risultato della finesta **Watching the Smart Contract** .
+2. Selezionare **View Contract** per aprire una finestra contenente le informazioni dello smart contract. Copia il valore nel campo **Script Hash**
+3. Cliccare sull'opzione menu **Advanced** e seleziona **Invoke Contract**.
+4. Riempire il campo **Script Hash** con il valore copiato nello step 2. Come esempio, é possibile invocare il Woolong usando l'hash script della **Sezione 3**
+5. Le informazioni dello Smart Contract dovrebbero automaticamente riempirsi nei campi rimanenti **Invoke Function**
+6. Per riempire i parametri in input, clicca sul bottone **...** a finco del campo Parametri per aprire il menu parametro compilato.
+7. Seleziona i parametri del campo sul lato sinistro e compila i valori delle variabili nel campo in basso a destra.
 
   **For example, invoking the following:**
   * `6e616d65` when calling the Woolong, will return 'Woolong'.
