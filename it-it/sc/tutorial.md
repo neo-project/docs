@@ -40,11 +40,11 @@ In aggiunta, il livello di servizio interoperabile fornisce anche un area di mem
 
 ### Modalitá di carica
 
-A smart contract can programmed to charge a certain fee, divided into deployment costs and execution costs.
+Uno smart contract puó essere programmato per caricare una certa commissione, divisa in costi di implementazione e in costi di esecuzione. 
 
-Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (currently 500 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](systemfees.md#smart-contract-fees).
+I costi di implementazione si riferiscono alla necessitá di uno sviluppatore di pagare una commissione per implementare un contratto sulla blockchain (correntemente 500 GAS). I costi di esecuzione si riferiscono alla commissione che gli utenti pagano per l'esecuzione di uno smart contract. Tutte le operazioni hanno un costo, con la maggior parte delle operazioni con un costo di 0.001 GAS. I primi 10 GAS sono gratis. E' possibile ottenere l'elaborazione prioritaria incrementando manualmente la commissione per l'esecuzione. Leggi di piú a proposito delle commissioni sugli smart contract [qui](systemfees.md#smart-contract-fees).
 
-## A simple smart contract
+## Uno smart contract semplice
 
 Here are some simple smart contracts:
 
