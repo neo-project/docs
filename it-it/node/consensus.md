@@ -59,10 +59,10 @@ Per il bene della discussione, descriveremo un paio di scenari. In questi sempli
 
   <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figura 4:</b> Esempio n = 4 con uno <b>Speaker</b> disonesto. </p>
 
-  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció causa un differimento per una nuova View che elegge un nuovo **Speaker** perché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegates**, sarebbe stato validato senza il bisogno di un cambio di View.
+  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció causa un differimento per una nuova View che elegge un nuovo **Speaker** perché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegates**, sarebbe stato convalidato senza il bisogno di un cambio di View.
 
 
-## 5 - Practical Implementation
+## 5 - Implementazioni Pratiche
 
 The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. **Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
