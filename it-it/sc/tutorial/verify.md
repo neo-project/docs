@@ -39,20 +39,20 @@ Crea un nuovo wallet secondo il tutorial mostrato sotto:
 
 ## Ottenere lo script del contratto
 
-There are many ways to obtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
+Ci sono molti modi per ottenere lo script del contratto, un modo é quello di leggerlo direttamente dal file `.avm` usando il codice C# seguente.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
 string str = System.Text.Encoding.Default.GetString(bytes);
 ```
 
-If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to obtain the contract code:
+Se non vuoi ottenere lo script del contratto tramite codice, allora il client `Deploy Contract` fornisce un modo semplice per ottenere il codice del contratto:
 
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in figure. Copy this down again.
+Cliccare su `Advanced`, `Deploy Contract`, cliccare sul bottone `Load` nell'angolo in basso a destra. Scegliere il file `Test.avm` generato precedentemente. Dovresti vedere lo script del contratto visualizzato nel box `Code`, come mostrato in figura. copialo.
 
-![Obtaining the contract script](/assets/verify_5.png)
+![Ottenere lo script del contratto](/assets/verify_5.png)
 
-## Create a contract address
+## Creare un indirizzo del contratto
 
 After creating your own wallet, click the right mouse button, and create a contract address with your generated contract script:
 
