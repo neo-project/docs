@@ -22,7 +22,7 @@
 
 ## 3 - Introduzione
 
-Una delle differenze fondamentali tra le blockchain è il modo in cui possono garantire la tolleranza d'errore data l'attività "difettosa" e non onesta sulla rete.
+Una delle differenze fondamentali tra le blockchain è il modo in cui possono garantire la tolleranza ai guasti data l'attività "difettosa" e non onesta sulla rete.
 
 I metodi tradizionali implementati usando il PoW possono fornire questa garanzia a patto che la maggior parte della potenza computazionale della rete sia onesta. Comunque, a causa della dipendenza di questo schema dalla potenza computazionale, il meccanismo può essere davvero inefficiente (la potenza computazionale costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
 
@@ -170,7 +170,7 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 ​	
 
 ## 6 - Riferimenti
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
-2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
-3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
+1. [Un Byzantine Fault Tolerance Algorithm per Blockchain](whitepaper.md)
+2. [Byzantine Fault Tolerance pratico](http://pmg.csail.mit.edu/papers/osdi99.pdf)
+3. [Il Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
