@@ -44,7 +44,7 @@ Per il bene della discussione, descriveremo un paio di scenari. In questi sempli
 
   Nella **Figura 1**, abbiamo un singolo **Delegate** leale (50%). Entrambi i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto. Comunque, a causa della disonestá di un **Delegate**, il Delegate onesto puó solo determinare che c'é un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (lo **Speaker**) o del **Delegate**. Per questo motivo, il **Delegate** deve astenersi dal voto, cambiando la View.
 
-  <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figure 2:</b> Esempio n = 4 con un <b>Delegate</b> disonesto.</p>
+  <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figura 2:</b> Esempio n = 4 con un <b>Delegate</b> disonesto.</p>
 
   Nella **Figura 2**, abbiamo due **Delegates** leali (66%). Tutti i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto e inviano il loro risultato di convalida, insieme al messaggio ricevuto dallo Speaker l'un l'altro **Delegate**. Sulla base del consenso dei due **Delegates** onesti, siamo capaci di determinare se lo **Speaker** o il **Delegate** a destra siano disonesti nel sistema. 
 
