@@ -130,22 +130,22 @@ Qui, dobbiamo scegliente un account associato (per essere specifici, stiamo asso
 Quanto segue é un test dell'autenticazione dell'account di uno smart contract. Nel trasferimento di asset da un account di autenticazione di uno smart contract, il nodo di consenso eseguirá lo smart contract mentre verifica la transazione. Se il contratto viene validato con successo (il risultato é True), la transazione viene confermata. Altrimenti la transazione sará sempre non confermata. Il nostro metodo di testing sará di trasferire alcuni assets nell'indirizzo dell'account, e poi trasferirli al di fuori.
 
 > [! Nota]
-> Al fine di assicurare l'accuratezza del test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
+> Al fine di assicurare l'accuratezza del test, é meglio non aver altri assets nel wallet, siccome non puoi sapere se gli assets arrivano da un indirizzo standard o un indirizzo di contratto, a meno che tu non abbia compreso l'algoritmo di cambiamento del client e sai quali transazioni arrivano dall'indirizzo di contratto.
 
-### Transfer assets to contract address
+### Trasferire assets a un indirizzo di contratto
 
-Open a wallet with assets on **testnet** and transfer a certain amount of assets to the contract account.
+Apri il wallet con gli assets sulla **testnet** e trasferisci una certa quantitá di assets all'account di contratto.
 
-### Transfer assets out of contract address
+### Trasferire gli assets fuori dall'indirizzo di contratto
 
-Transfer assets from your smart contract account:
+Trasferisci gli assets dal tuo account smart contract:
 
 ![Transfer contract amount](../../../assets/lock2_11.png)
 
-If the above operation is correct, the following happens when the asset is transferred:
+Se l'operazione sopra é corretta, succederá quanto segue se gli asset sono stati trasferiti:
 
-When the current time is less than the lockout time, the transfer will not be confirmed, ie the transfer will fail.
+Quando il tempo corrente é inferiore al tempo di lockout, il trasferimento non sará confermato, cioé il trasferimento fallirá.
 
-After clicking `Rebuild Index`, after about 5 minutes, the unacknowledged transfer will disappear and the assets will return to the previous state.
+Dopo aver cliccato `Rebuild Index`, dopo circa 5 minuti, il trasferimento non riconosciuto sparirà e gli assets torneranno allo stato precedente.
 
-If the current time is greater than the lock time, the transfer will be successful.
+Se il tempo corrente é piú grande del Lock Time, il trasferimento sará avvenuto con successo.
