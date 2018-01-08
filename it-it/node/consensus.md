@@ -119,20 +119,20 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 ### 5.3 - Algoritmo
 **L'algoritmo funziona come segue:**
 
-1. Un **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
+1. Un **Consensus Node** trasmette all'intera rete una transazione con la firma del mittente.
 
-   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figure 6:</b> A <b>Consensus Node</b> receives a transaction and broadcasts it to the system. </p>
+   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figura 6:</b> Un <b>Consensus Node</b> riceve una transazione e la trasmette al sistema. </p>
 
-2. **Consensus Nodes** log transaction data into local memory.
+2. I **Consensus Nodes** registrano i dati della transazione nella memoria locale.
 
-3. The first view `v` of the consensus activity is initialized.
+3. La prima View `v` dell'attivitá di consenso é inizializzata.
 
-4. The **Speaker** is identified. **Wait** `t` seconds.
-<p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
+4. Viene identificato lo **Speaker**. **Aspetta** `t` secondi.
+<p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Figura 7:</b> Uno <b>Speaker</b> é stato identificato e la View inviata.</p>
 
-5. The **Speaker** broadcasts the proposal : `<prepareRequest, h, k, p, bloc, [block]sigp>`
+5. Lo **Speaker** trasmette la proposta : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
-     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
+     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
 
 6. The **Delegates** receive the proposal and validate:
 
