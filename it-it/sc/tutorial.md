@@ -38,7 +38,7 @@ La parte blu del lato destro é il livello di servizio interoperabile della macc
 
 In aggiunta, il livello di servizio interoperabile fornisce anche un area di memorizzazione persistente per ogni contratto. Ciasciun contratto é opzionalmente creato con spazio di archiviazione privato, che ha la forma di un oggetto valore-chiave determinato dal destinatario del contratto piuttosto che dal contesto dell'archivio persistente. Il chiamante deve passare il proprio contesto di archiviazione al destinatario (per completare l'autorizzazione) prima che il chiamante possa eseguire operazioni di lettura e di scrittura.
 
-### Charge mode
+### Modalitá di carica
 
 A smart contract can programmed to charge a certain fee, divided into deployment costs and execution costs.
 
