@@ -18,16 +18,15 @@ PS: In questo momento, l'ultimo **test network client** scaricabile é: [Neo GUI
 > Le seguenti operazioni saranno eseguite in **test network**. Perché la main network non ha ancora implementato Smart Contract 2.0, le seguenti operazioni nella main network falliranno.
 > Al fine di usare la test net devi fare due cambiamenti nei files config: 
 1. Estrai il client NEO GUI nella tua cartella. Noterai i files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Di default, `config.json` e `protocol.json` sono identici al quelli della versione Mainnet.
+2. Devi copiare il codice dai files della testnet nei files `config.json` e `protocol.json` potrai in tal modo accedere alla testnet invece della Mainnet (cioé copia e incolla `config.testnet.json` in `config.json`, e `protocol.testnet.json` in `protocol.json`).
 
-2. You need to copy the code from the testnet files into the `config.json` and `protocol.json` files so that you can access the Testnet rather than the Mainnet (i.e. copy and paste `config.testnet.json` into `config.json`, and `protocol.testnet.json` into `protocol.json`).
+## Creare un wallet
 
-## Create a wallet
-
-This step is very basic. Open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
+Questo step é veramente basico. Apri la versione del PC del client, clicca `wallet`, `create the wallet database `, seleziona la locazione di archiviazione del wallet e imposta il nome e la password del wallet.
 
 ![](../../../assets/lock2_1.png)
 
-## Get the public key
+## Ottieni la chiave pubblica
 
 The newly created wallet will automatically generate a standard account. Right-click on the account, view the private key, and copy the public key from the second line, as shown in the figure:
 
