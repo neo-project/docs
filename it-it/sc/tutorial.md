@@ -66,9 +66,9 @@ public static bool Main ()
 }
 ```
 
-The return value of the contract is always `false`, indicating that the assets of this contract can not be used (this can be interpreted as burning or destroying an asset). Such a contract can for example be applied for shares of a company that have  been written off/canceled.
+Il valore restituito dal contratto é sempre `false`, indicando che gli assets di questo contratto non possono essere usati (ció puó essere interpretato come bruciare o distruggere un asset). Questo contratto puó essere applicato per azioni di una compagnia che sono state cancellate/stornate.
 
-For more examples please see:
+Per altri esempi vedere:
 
 [Hello World](tutorial/HelloWorld.md)
 
