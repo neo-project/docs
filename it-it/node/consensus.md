@@ -90,7 +90,7 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
   - `i` : Indice **Consensus Node**.
 
 
-  - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.  This includes the vote (`prepareResponse` or `ChangeView`) issued by all Delegates.
+  - `v` : La View di un **Consensus Node**. La View contiene le informazioni aggregate che i nodi hanno ricevuto durante il round di consenso. Questa include il voto (`prepareResponse` o `ChangeView`) emesso da tutti i Delegates.
 
 
   - `k` : The index of the view `v`.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
