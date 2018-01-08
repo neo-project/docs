@@ -15,9 +15,10 @@ In aggiunta, questo tutorial é basato sul demo di Smart Contract 2.0. Per favor
 PS: In questo momento, l'ultimo **test network client** scaricabile é: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
 > [!Nota]
-> The following operation will run in the **test network**. Because the main network has not yet deployed Smart Contract 2.0, the following operation in the main network will fail.
-> In order to use the test net you have to make two changes in the config files:
-1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. By default, `config.json` and `protocol.json` are identical to the Mainnet versions.
+> Le seguenti operazioni saranno eseguite in **test network**. Perché la main network non ha ancora implementato Smart Contract 2.0, le seguenti operazioni nella main network falliranno.
+> Al fine di usare la test net devi fare due cambiamenti nei files config: 
+1. Estrai il client NEO GUI nella tua cartella. Noterai i files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Di default, `config.json` e `protocol.json` sono identici al quelli della versione Mainnet.
+
 2. You need to copy the code from the testnet files into the `config.json` and `protocol.json` files so that you can access the Testnet rather than the Mainnet (i.e. copy and paste `config.testnet.json` into `config.json`, and `protocol.testnet.json` into `protocol.json`).
 
 ## Create a wallet
