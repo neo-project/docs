@@ -36,9 +36,7 @@ Poiché il comportamente predefinito di una VM basata sullo stack é quello di r
 
 La parte blu del lato destro é il livello di servizio interoperabile della macchina virtuale (equivalente alle periferiche). Al momento, il livello di servizio interoperabile fornisce alcune API per accedere ai dati chain-chain dello smart contract. Puó accedere alle informazioni del blocco, informazioni sulla transazione, informazioni sul contratto, informazioni sull'asset, e altro ancora.
 
-In aggiunta, il livello di servizio interoperabile fornisce anche un area di memorizzazione persistente per ogni contratto. Ciasc
-
-In addition, the interoperable service layer also provides a persistent storage area for each contract. Each of the smart contracts is optionally created with private storage, which is in the form of a key-value object determined by the callee of the contract rather than the context of the persistent store. The caller needs to pass their own storage context to the callee (to complete the authorization) before the caller can perform read and write operations.
+In aggiunta, il livello di servizio interoperabile fornisce anche un area di memorizzazione persistente per ogni contratto. Ciasciun contratto é opzionalmente creato con spazio di archiviazione privato, che ha la forma di un oggetto valore-chiave determinato dal destinatario del contratto piuttosto che dal contesto dell'archivio persistente. Il chiamante deve passare il proprio contesto di archiviazione al destinatario (per completare l'autorizzazione) prima che il chiamante possa eseguire operazioni di lettura e di scrittura.
 
 ### Charge mode
 
