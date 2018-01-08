@@ -2,11 +2,9 @@
 
 Questo tutorial é basato su Visual Studio 2017, per favore assicurati che il tuo Visual Studio sia aggiornato alla versione 2017. Inoltre, questo tutorial é basato sul dome di Smart Contract 2.0, Per favore scarica ed esegui il **test network** da [GitHub](https://github.com/neo-project/neo-gui/releases).
 
+Al momento della stesura di questo documento, l'ultimo client **test network** indirizzo di download: [neo-gui-2.0.1](https://github.com/neo-project/neo-gui/releases/download/v2.0.1/neo-gui-windows.zip).
 
-
-At the time of writing this document, the latest **test network** client download address: [neo-gui-2.0.1](https://github.com/neo-project/neo-gui/releases/download/v2.0.1/neo-gui-windows.zip).
-
-## Compile contract script
+## Compilare gli script del contratto
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -24,21 +22,22 @@ namespace Neo.SmartContract
 }
 ```
 
-> [!Note]
-> If you do not know how to write and generate smart contract scripts, see [How to use C# to prepare Smart Contract](../getting-started.md)
+> [!Nota]
+> Se non sai come scrivere e generare scripts per smart contract, vedi  [Come usare C# per preparare uno Smart Contract](../getting-started.md)
 >
 
-The above contract will be compiled into Test.avm, its contract script (Test.avm binary data) is: 52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
+Il contratto precedente sará compilato in Test.avm, Il suo contratto script (Test.avm dati binari) é:
+ 52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
 
-You will learn how to abtain the contract script for an `.avm` file later in this tutorial.
+Imparerai come ottenere lo script del contratto per un file `.avm` successivamente in questo tutorial.
 
-## Create a wallet
+## Creare un wallet
 
-Create a new wallet according to the tutorial shown below:
+Crea un nuovo wallet secondo il tutorial mostrato sotto:
 
-![Create a wallet](/assets/verify_1.png)
+![Creare un wallet](/assets/verify_1.png)
 
-## Obtaining the contract script
+## Ottenere lo script del contratto
 
 There are many ways to obtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
 
