@@ -71,22 +71,22 @@ Dopo aver cliccato `OK`, l'account di autenticazione dello smart contract è sta
 Quanto segue é un test dell'account di autenticazione dello smart contrat, quando si trasferiscono asset da un account smart contract, il nodo di consenso eseguirá il contratto quando convalida la transazione. Se la validazione del contratto avviene con successo (restituisce il risultato `true`), la transazione é confermata. Fin quando viene ricevuto il risultato `true`, la transazione sará non confermata. Il miglior modo é di trasferire prima alcuni assets all'account di autenticazione del contratto, e poi trasferirli nuovamente.
 
 > [!Nota]
-> In order to ensure the accuracy of the test, do not have any other assets in the wallet. Otherwise you may not know whether the asset was transferred from the standard account or transferred from the contract account, unless you understand the client's change search algorithm and can confirm that the transaction is transferred from the smart contract address.
+> al fine di garantire l'accuratezza del test, non avere altri asset nel wallet. Altrimenti potresti non sapere se l'asset é stato trasferito da un account standard o trasferito dall'account del contratto, a meno che non capisci se l'algoritmo di cambio del client e confermare che la transazine é trasferita dall'indirizzo dello smart contract.
 
 
-### Transfer asset to contract address
+### Trasferire assets all'indirizzo del contratto
 
-Transfer a set amount of assets into your contract account:
+Trasferire una certa quantitá di assets nel tuo account di contratto:
 
 ![Transfer asset to contract address](/assets/verify_9.png)
 
-### Transfer contract assets
+### Trasferire assets di contratto
 
-Transfer assets out from your smart contract account:
+Trasferire assets fuori dal tuo account smart contract:
 
 ![Transfer the contract amount](/assets/verify_10.png)
 
 
 
-> [!Note]
-> The balance of the assets in the client is the sum of the balance in the standard account and the balance in the contract address, that is, assets of all addresses combined. Whether or not you can use the assets in the contract address depends on the result of the smart contract execution, if the contract is successful (the result is `true`) then the asset can be transferred out, otherwise it cannot be transferred.
+> [!Nota]
+> Il saldo degli assets nel client é la somma del saldo nell'account standard e il saldo nell'indirizzo del contratto, detto questo, gli assets di tutti gli indirizzi combinati. Se o no puoi usare gli assets nell'indirizzo del contratto dipende dal risultato dell'esecuzione dello smart contract, se il contratto ha successo (il risultato é `true`) allora l'asset puó essere trasferito, altimenti non puó essere trasferito.
