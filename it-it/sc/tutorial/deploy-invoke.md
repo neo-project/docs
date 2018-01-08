@@ -47,13 +47,13 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 6. Clicca il bottone **Deploy**.
 
 
-## 5 - Watching the Smart Contract   
+## 5 - Guardare lo Smart Contract   
 
-1. On the main NEO wallet window, right click on the address area and select (Create Contract Add > Custom)
-2. Select the Account that you want to associate the Contract with from the **Related Account** dropdown
-3. In the **Parameter List** field, populate the **Parameter List** values used in Step 4 of the **Deploy Smart Contract w/ Parameters** sections.
-4. Populate the **Script** field with the value provided in Step 3 of **Deploy Smart Contract w/ Parameters**.
-5. Click **Confirm** to load the contract into the wallet window.
+1. Sulla finestra principale del wallet NEO, fai clic destro sull'area dell'indirizzo e seleziona (Create Contract Add > Custom)
+2. Selezionare l'account al quale vuoi associare il contratto da **Related Account** 
+3. Nel campo **Parameter List**, riempire i valori del **Parameter List** usati nello step 4 della sezione **Deploy Smart Contract w/ Parameters**.
+4. Riempire il campo **Script** con il valore fornito nello step 3 di **Deploy Smart Contract w/ Parameters**.
+5. Cliccare **Confirm** per caricare il contratto nella finestra del wallet.
 
 
 ## 6 - Invoking the Smart Contract
