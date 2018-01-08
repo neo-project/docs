@@ -54,15 +54,15 @@ Cliccare su `Advanced`, `Deploy Contract`, cliccare sul bottone `Load` nell'ango
 
 ## Creare un indirizzo del contratto
 
-After creating your own wallet, click the right mouse button, and create a contract address with your generated contract script:
+Dopo aver creato il tuo wallet, cliccare con il bottone destro del mouse, e creare un indirizzo del contratto con il tuo script generato del contratto:
 
-![Create a contract address](/assets/verify_6.png)
+![Creare un indirizzo del contratto](/assets/verify_6.png)
 
-Bind the contract address to your account and fill in the corresponding parameters. Because our contract has a parameter for signature, you have to fill in `00` in `Parameter List` (for details, please see [Parameter](Parameter.md)), and then enter the contract script from previous step in the `Code` box. 
+Associare l'indirizzo del contratto al proprio account e inserire i parametri corrispondenti.Poiché il nostro contratto ha un parametro per la firma, devi inserire `00` in `parameter list` (per dettagli, vedere [Parametro](Parameter.md)), e po inserire lo script el contratto dello step precedenti nel box `Code`. 
 
-The reason to associate an account is to bind a contract with a public-private key pair, so when the contract needs to be signed, the client will automatically sign with the private key of the bound account. 
+La ragione di associare un account é di associare un contratto con una coppia di chiavi pubbliche-privare, cosí quando il contratto ha bisogno di essere firmato, il client firmerá automaticamente con la chiave privata dell'account associato.
 
-![Create a contract address](/assets/verify_7.png)
+![Creare un indirizzo del contratto](/assets/verify_7.png)
 
 After clicking `OK`, the smart contract authentication account is created successfully.
 
