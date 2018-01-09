@@ -29,11 +29,11 @@ public class Asset
 
 | | Nome  | Descrizione |
 | ---------------------------------------- | ----------------------------- | ----------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) | `new` Register an asset on the blockchain |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Renew(byte)](Asset/Renew.md)            | `new` For asset renewal       |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) | `new` Registrare un asset sulla blockchain |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Renew(byte)](Asset/Renew.md)            | `new` Per il rinnovo dell'asset       |
 
-## Constructor
+## Costruttore
 
-The Asset object is constructed through [Blockchain.GetAsset (byte[])](Blockchain/GetAsset.md) method.
+L'oggetto dell'asset viene costruito attraverso il metodo [Blockchain.GetAsset (byte[])](Blockchain/GetAsset.md).
 
-The [Asset.Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) method is used to register a new asset on the blockchain and returns an Asset object.
+Il metodo [Asset.Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) é usato per registrare un nuovo asset sulla blockchain e restituire l'oggetto di un Asset.
