@@ -4,7 +4,7 @@ Restituisce l'hash del blocco più alto nella chain principale.
 
 ## Esempio
 
-Richiesta di testo:
+Testo di richiesta:
 
 ```json
 {
@@ -15,7 +15,7 @@ Richiesta di testo:
 }
 ```
 
-Risposta di testo:
+Testo di risposta:
 
 ```json
 {
