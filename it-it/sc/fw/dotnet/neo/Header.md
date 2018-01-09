@@ -26,6 +26,6 @@ public class Header: IScriptContainer
 
 ## Costruttore
 
-L'intestazione dell'oggetto é costruita tramite [Blockchain.GetHeader(byte[])](Blockchain/GetHeader.md).
+L'oggetto Header é costruito tramite [Blockchain.GetHeader(byte[])](Blockchain/GetHeader.md).
 
-L'intestazione dell'oggetto é costruita tramite [Blockchain.GetHeader(uint)](Blockchain/GetHeader2.md).
+L'oggetto Header é costruito tramite [Blockchain.GetHeader(uint)](Blockchain/GetHeader2.md).
