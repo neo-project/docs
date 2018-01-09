@@ -1,4 +1,4 @@
-# Impostazioni e Registrazione
+# Impostazioni e Logging
 
 neo-python ha un modulo impostazioni che puoi usare per configurare diverse cose:
 
