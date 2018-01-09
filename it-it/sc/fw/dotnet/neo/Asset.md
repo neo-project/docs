@@ -1,4 +1,4 @@
-# Classe dell'Asset
+# Classe Asset
 
 Rappresenta la struttura dati di un asset.
 
