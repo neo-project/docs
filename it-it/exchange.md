@@ -48,15 +48,15 @@ NEO-CLI fornisce le seguenti funzionalitá：
 
   Per maggiori informazioni, fare riferimento a [Riferimenti Comandi CLI](node/cli.html).
 
-- Fornisce API per recuperare i dati blockchain dai nodi. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
+- Fornisce API per recuperare i dati blockchain dai nodi. Le interfaccie sono fornite tramite  [JSON-RPC](http://www.jsonrpc.org/specification)，e le comunicazioni sottostanti usano i protocollo HTTP/HTTPS.
 
-  To start a node which provides RPC service, enter the following command under the NEO-CLI directory：
+  Per avviare un nodo che fornisce il servizio RPC, immettere il seguente comando nella directory NEO-CLI：
 
   ```
   dotnet neo-cli.dll /rpc
   ```
 
-  For more API information, refer to [API Reference](node/api.html).
+  Per maggiori informazioni sull'API, fare riferimento a [Riferimento API](node/api.html).
 
 
 ### Creating a Wallet
