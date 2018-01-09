@@ -24,12 +24,12 @@ Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti alla 2.0 r
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md) | `New` Una classe rappresentante il contesto di memoria dell'archivio persistente. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)  |  La classe base rappresentante la transazione            |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | La struttura dati rappresentante gli attributi della transazione          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | The data structure representing the transaction inputs         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](neo/TransactionOutput.md) | The data structure representing the transaction outputs         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](neo/Validator.md)      | `New` Provides a set of methods for consensus nodes      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | La struttura dati rappresentante gli inputs della transazione        |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](neo/TransactionOutput.md) | La struttura dati rappresentante gli outputs della transazione         |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](neo/Validator.md)      | `New` Fornisce un set di metodi per i consensus nodes      |
 
-## Enumeration
+## Enumerazione
 
-|  | Enumeration | Description |
+|  | Enumerazione | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ----------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContext](neo/StorageContext2.md) | `Deprecated`  Represents the enum of the storage context. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [StorageContext](neo/StorageContext2.md) | `Deprecated`  Rappresenta l'enumerazione del contesto di memoria. |
