@@ -168,15 +168,15 @@ neo> block 122235
     "time": 1479110368,
     "hash": "74671375033f506325ef08d35632f74083cca564dc7ea6444c94d3b9dec3f61b",
     "consensus data": 16070047272025254767,
-+    "next_consensus": "59e75d652b5d3827bf04c165bbe9ef95cca4bf55"
-+}
-+neo>
-+```
-+
-+## Ulteriori letture
-+
-+- [Interagire con la blockchain di NEO usando il Prompt](python\prompt.md)
-+- [Impostazioni e Registrazioni](python\logging.md)
-+- [Interagire con gli Smart Contracts](python\smartcont.md)
-+- [Tests](python\tests.md)
-+- [Compilatore Python per la Macchina Virtuale di NEO](python\compiler.md)
+    "next_consensus": "59e75d652b5d3827bf04c165bbe9ef95cca4bf55"
+}
+neo>
+```
+
+## Ulteriori letture
+
+- [Interagire con la blockchain di NEO usando il Prompt](python\prompt.md)
+- [Impostazioni e Registrazioni](python\logging.md)
+- [Interagire con gli Smart Contracts](python\smartcont.md)
+- [Tests](python\tests.md)
+- [Compilatore Python per la Macchina Virtuale di NEO](python\compiler.md)
