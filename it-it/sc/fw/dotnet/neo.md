@@ -2,11 +2,11 @@
 
 Il NEO namespace e l'API fornita dalla blockchain NEO, realizzando un modo per accedere ai dati della blockchain e manipolare la memoria persistente. Queste APIs sono divise in due categorie:
 
-1. Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
+1. Registro blockchain. Il contratto puó accedere a tutti i dati dell'intera blockchain attraverso al livello di interoperabilitá, inclusi blocchi e transazioni, cosí come ongiuno dei loro campi.
 
-2. Persistent store. Each application contract deployed on NEO has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
+2. Memoria persistente. Ogni applicazione contratto implementata su NEO ha uno spazio di memmoria al quale puó accedere solo il contratto stesso. Questi metodi forniti possono accedere ai dati nel contratto.
 
-Note: The `New` and `Deprecated` tags in this article are the changes to version 2.0 relative to version 1.6.
+Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti alla 2.0 relativi alla versione 1.6.
 
 ## Class
 
