@@ -1,18 +1,18 @@
-# Document for Exchange Developers
+# Documento per Sviluppatori di Exchange
 
-This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete related program development for NEO assets transactions. Before reading, maker sure you have read [NEO White Paper](index.html) and understand the NEO background knowledge and technologies. 
+Questo documento é inteso per guidare gli sviluppatori di exchange nella configurazione nei nodi NEO sul server exchange e completare i programmi di sviluppo correlati per le transazioni di assets in NEO. Prima di leggere, assicurati di aver letto [NEO White Paper](index.html) e capito le tecnologie e la conoscenza base di NEO.
 
-In general, an exchange needs to do the following：
+In generale, un exchange ha bisogno di fare quanto segue:
 
-- [Deploying a NEO Node on Server](#deploying-a-neo-node-on-server)
-- [Creating a Wallet and Deposit Addresses](#creating-a-wallet-and-deposit-addresses)
-- [Dealing with Global Assets Transactions](#dealing-with-global-assets-transactions)
-- [Dealing with NEP-5 Assets Transactions](#dealing-with-nep-5-assets-transactions)
-- [(Optional) Distributing GAS to Users](#optional-distributing-gas-to-users)
+- [Implementazione di un nodo NEO su server](#deploying-a-neo-node-on-server)
+- [Creazione di un wallet e un indirizzo di deposito](#creating-a-wallet-and-deposit-addresses)
+- [Trattare Transazioni Assets globali](#dealing-with-global-assets-transactions)
+- [Trattare Transazioni assets NEP-5 ](#dealing-with-nep-5-assets-transactions)
+- [(Opzionale) Distribuzione di GAS agli utenti](#optional-distributing-gas-to-users)
 
 
 
-## Deploying a NEO Node on Server
+## Implementare un Nodo NEO su Server
 
 To deploy a NEO node on the exchange server, do the following:
 
