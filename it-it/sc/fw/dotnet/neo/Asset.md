@@ -34,6 +34,6 @@ public class Asset
 
 ## Costruttore
 
-L'oggetto dell'asset viene costruito attraverso il metodo [Blockchain.GetAsset (byte[])](Blockchain/GetAsset.md).
+L'oggetto Asset viene costruito attraverso il metodo [Blockchain.GetAsset (byte[])](Blockchain/GetAsset.md).
 
-Il metodo [Asset.Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) é usato per registrare un nuovo asset sulla blockchain e restituire l'oggetto di un Asset.
+Il metodo [Asset.Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) é usato per registrare un nuovo asset sulla blockchain e restituire l'oggetto Asset.
