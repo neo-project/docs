@@ -60,8 +60,13 @@
         href: node/api/sendtoaddress.md
     - name: ネットワークプロトコル
       href: node/network-protocol.md
-    - name: コンセンサスメカニズム
-      href: node/consensus.md
+    - name: コンセンサス
+      href: node/whitepaper.md
+      items:
+      - name: コンセンサスホワイトペーパー
+        href: node/whitepaper.md
+      - name: コンセンサスメカニズム
+        href: node/consensus.md
 - name: スマートコントラクト
   href: sc/introduction.md
   items:
