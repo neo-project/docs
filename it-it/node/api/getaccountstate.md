@@ -8,7 +8,7 @@ Indirizzo dell'account: Una stringa lunga 34-bit cominciante con A, come AJBENSw
 
 ## Esempio
 
-Richiesta di Testo:
+Testo della richiesta:
 
 ```json
 {
@@ -19,7 +19,7 @@ Richiesta di Testo:
 }
 ```
 
-Risposta di Testo:
+Testo della risposta:
 
 ```json
 {
