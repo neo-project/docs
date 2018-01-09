@@ -22,8 +22,8 @@ public class Asset
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetType](Asset/AssetType.md) | Restituisce il tipo di questo asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Available](Asset/Available.md) | Restituisce la quantitá dell'asset che é stato emesso |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Issuer](Asset/Issuer.md) | Restituisce l'emittente (indirizzo del contratto) dell'asset che ha il diritto di emettere l'asset |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Owner](Asset/Owner.md) | Returns the owner (public key) of the asset |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | Returns the accuracy of the asset (the smallest division), or the number of digits after the decimal point |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Owner](Asset/Owner.md) | Restituisce il proprietario (chiave pubblica) dell'asset |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | Restituisce l'accuratezzaallest division), or the number of digits after the decimal point |
 
 ## Methods
 
