@@ -1,4 +1,4 @@
-# StorageContext Class
+# Classe StorageContext
 
 The class representing the storage context of the persistent store.
 
