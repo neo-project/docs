@@ -1,38 +1,38 @@
-# Smart Contract .NET framework
+# Struttura Smart Contract .NET
 
-The .NET Framework is an encapsulation of the Smart Contract API so that .NET programmers can use the classes, methods, and properties of .NET directly to interact with the API to obtain blockchain data, storage data and so on.
+Il .NET Framework è un'encapsulazione della API Smart Contract così che i programmatori .NET possono usare direttamente classi, metodi, e proprietà di .NET per interagire con l'API per ottenere i dati della blockchain, della memoria e e così via.
 
-## Interoperability Layer Methods
+## Metodi di Livello di Interoperabilità
 
-The namespace for interoperability layer is divided into `Neo.SmartContract.Framework.Services.NEO` and `Neo.SmartContract.Framework.Services.System`. Click on the links for more details. 
+Il namespace per il livello di interoperabilità e diviso in `Neo.SmartContract.Framework.Services.NEO` e `Neo.SmartContract.Framework.Services.System`. Clicca sui links per maggiori dettagli. 
 
-| Namespace                  | description                              |
+| Namespace                  | descrizione                              |
 | -------------------------- | ---------------------------------------- |
-| [Neo](dotnet/neo.md)       | The NEO namespace is the API provided by the NEO blockchain, providing a way to access the blockchain data and manipulate the persistent store. |
-| [System](dotnet/system.md) | System namespace is the API provided by the Smart Contract Execution Engine (NeoVM), which provides access to the execution environment. |
+| [Neo](dotnet/neo.md)       | Il NEO namespace è l'API fornita dalla blockchain NEO, fornisce un modo per accedere ai dati della blockchain e manipolare la memoria persistente. |
+| [System](dotnet/system.md) | Il sistema namespace è l'API fornita dallo Smart Contract Execution Engine (NeoVM), il quale fornisce accesso all'ambiente de'esecuzione. |
 
-## Framework Methods
+## Struttura dei Metodi
 
-In addition to calling methods from the Interoperability layer, smart contracts can also call methods provided by the framework. These methods are found within `Neo.SmartContract.Framework` and can be called directly by smart contracts.
+In aggiunta alla chiamata di metodi dal livello di interoperabilità, gli smart contract possono anche chiamare i metodi forniti dalla struttura. questi metodi si trovano all'interno di `Neo.SmartContract.Framework` e possono essere cancellati direttamente dagli smart contracts.
 
-### SmartContract Class Methods
+### Metodo Classe SmartContract
 
-The `SmartContract` class provides us with the hash algorithms and signature methods.
+La classe `SmartContract` ci fornisce degli algoritmi di hash e metodi di firma.
 
-|                                          | Name                                     | Description                              |
+|                                          | Nome                                     | Descrizione                              |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                             | Hashes the input bytes using SHA1        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | Hashes the input bytes using SHA256      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Hashes the input bytes using SHA256, followed by RIPEMD160 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Hashes the input bytes twice using SHA256 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | Verifies the signature using the given pubkey |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                             | Hasha i byte in input usando SHA1        |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | Hasha i byte in input usando SHA256      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Hasha i byte in input usando SHA256, seguito da RIPEMD160 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Hasha i byte in input doppiamente usando SHA256 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | verifica la firma usando la data pubkey |
 
-### Byte Array Helper Methods
+### Metodo Aiutante per Array di Byte
 
-The methods below are helper methods for byte arrays provided by the .NET framework's Helper class.
+Il metodi seguenti sono metodi aiutanti per arrays di byte forniti dalla struttura .NET Helper Class.
 
-|                                          | Name                         | Description                              |
+|                                          | nome                         | Descrizione                              |
 | ---------------------------------------- | ---------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Concatenate 2 byte arrays                |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Returns a portion of the byte array, params: index, count |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | Returns the left-most X bytes from the byte array，params: count |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Concatenare 2 arrays di byte                |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Restituire una porzione dell'array di byte, parametri: index, count |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | Restituisce i byte X più a sinistra dall'array di byte，parametri: count |
