@@ -1,33 +1,33 @@
-# Transaction Class
+# Classe Transaction 
 
-Used to represent the base class of a transaction.
+Usata per rappresentare la classe base di una transazione.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## Syntax
+## Sintassi
 
 ```c#
 public class Transaction: IScriptContainer
 ```
 
-## Attributes
+## Attributi
 
-| | Name | Description |
+| | Nome | Descrizione |
 | ---------------------------------------- | --------------------------- | ------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Transaction/Hash.md) | Returns the hash of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Type](Transaction/Type.md) | Returns the type of the transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Transaction/Hash.md) | Restituisce l'hash della transazione |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Type](Transaction/Type.md) | Restituisce il tipo di transazione |
 
-## Methods
+## Metodi
 
-| | Name | Description |
+| | Nome | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAttributes()](Transaction/GetAttributes.md) | Returns all attributes of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetInputs()](Transaction/GetInputs.md)  | Returns all [TransactionInput](TransactionInput.md) of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetOutputs()](Transaction/GetOutputs.md) | Returns all [TransactionOutput](TransactionOutput.md) of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetReferences()](Transaction/GetReferences.md) | Returns all outputs referenced by the inputs of the transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAttributes()](Transaction/GetAttributes.md) | Restituisce tutti gli attributi della transazione |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetInputs()](Transaction/GetInputs.md)  | Restituisce tutti i [TransactionInput](TransactionInput.md) della transazione |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetOutputs()](Transaction/GetOutputs.md) | Restituisce tutti [TransactionOutput](TransactionOutput.md) della transazione |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetReferences()](Transaction/GetReferences.md) | Restituisce tutti gli output a cui fanno riferimento gli input della transazione |
 
-## Constructor
+## Costruttore
 
-The Transaction object is constructed through [Blockchain.GetTransaction(byte[])](Blockchain/GetTransaction.md).
+L'oggetto Transaction é costruito mediante [Blockchain.GetTransaction(byte[])](Blockchain/GetTransaction.md).
