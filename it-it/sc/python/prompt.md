@@ -212,7 +212,7 @@ neo>
 
 **Importa l'indirizzo di uno Smart Contract**
 
-Potresti avere uno smart contract eseguito dal quale vorresti utilizzare i fondi. Dipendendo da come è stato programmato, potrebbe permetterti di usare i fondi che ha come se fossero i tuoi. In questo caso, puoi importare l'indirizzo di un contratto specificando lo `script_hash`del contratto e la `public key` dell'indirizzo nel tuo wallet con la quale vuoi associare il contratto. L'indirizzo di un contratto può essere eliminato dal tuo wallet nello stesso modo di un indirizzo normale.
+Potresti avere uno smart contract implementato dal quale vorresti utilizzare i fondi. Dipendendo da come è stato programmato, potrebbe esserti permesso di usare i fondi come se fossero i tuoi. In questo caso, puoi importare l'indirizzo di un contratto specificando lo `script_hash`del contratto e la `public key` dell'indirizzo nel tuo wallet con il quale vuoi associare il contratto. L'indirizzo di un contratto può essere eliminato dal tuo wallet nello stesso modo di un normale indirizzo.
 
 ```
 # import contract_addr {script_hash} {pubkey}
@@ -245,7 +245,7 @@ optional arguments:
 
 ```
 
-Su OSX, se ti piacerebbe eseguire il processo in background, anche quando il tuo computer sta dormendo, puoi usare il comando built in `caffeinate`
+Su OSX, se ti piacerebbe eseguire il processo in background, anche quando il tuo computer é in standby, puoi usare il comando `caffeinate`
 
 ```
 caffeinate python prompt.py
@@ -272,7 +272,7 @@ neo>
 
 ### Esempio - Invia da
 
-Puoi anche specificare un indirizzo particolare dal quale inviare. Ciò è particolarmente utile quando si invia da indirizzi di contratto.
+Puoi anche specificare un indirizzo particolare dal quale inviare l'asset. Ciò è particolarmente utile quando si invia da indirizzi di contratto.
 
 ```python
 neo> send gas AeU8kTJxynwkT3q9ao8aDFuaRJBkU3AfFG 11 --from-addr=AXjaFSP23Jkbe6Pk9pPGT6NBDs1HVdqaXK
@@ -283,9 +283,9 @@ neo>
 
 ## NEP5 Tokens
 
-### Importa token compatibile con NEP5
+### Importa un token compatibile con il protocollo NEP5
 
-Potresti voler osservare o interagire con tokens `NEP5` con il tuo wallet.  Per poterlo fare, devi prima registrare il tuo wallet per osservare un token, come mostrato sotto.
+Potresti voler osservare o interagire con i tokens `NEP5` con il tuo wallet. Per poterlo fare, devi prima registrare il tuo wallet per osservare un token, come mostrato sotto.
 
 ```python
 neo> import token f8d448b227991cf07cb96a6f9c0322437f1599b9
