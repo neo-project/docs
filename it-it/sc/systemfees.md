@@ -16,7 +16,7 @@ Tutte le commissioni degli smart contract sono considerate come servizio di comm
 
 ### Commissioni per le Chiamate al Sistema
 
-| SysCall                               | Fee [Gas]     |
+| SysCall                               | Commissione [Gas]     |
 |---------------------------------------|:-------------:|
 | Runtime.CheckWitness                  | 0.2           |
 | Blockchain.GetHeader                  | 0.1           |
@@ -30,7 +30,7 @@ Tutte le commissioni degli smart contract sono considerate come servizio di comm
 | Account.SetVotes                      | 1             |
 | Validator.Register                    | 1000          |
 | Asset.Create (system asset)           | 5000          |
-| Asset.Renew (system asset) [per year] | 5000          |
+| Asset.Renew (system asset) [per anno] | 5000          |
 | Contract.Create                       | 500           |
 | Contract.Migrate                      | 500           |
 | Storage.Get                           | 0.1           |
@@ -40,9 +40,9 @@ Tutte le commissioni degli smart contract sono considerate come servizio di comm
 
 * Aggiuntivo 1 GAS minimo.
 
-### Fees for Instructions
+### Commissioni per le Istruzioni
 
-| Instruction                           | Fee [Gas]     |
+| Istruzione                           | Commissione [Gas]     |
 |---------------------------------------|:-------------:|
 | OpCode.PUSH16 [or less]               | 0             |
 | OpCode.NOP                            | 0             |
@@ -53,6 +53,6 @@ Tutte le commissioni degli smart contract sono considerate come servizio di comm
 | OpCode.HASH160                        | 0.02          |
 | OpCode.HASH256                        | 0.02          |
 | OpCode.CHECKSIG                       | 0.1           |
-| OpCode.CHECKMULTISIG [per signature]  | 0.1           |
+| OpCode.CHECKMULTISIG [per firma]  | 0.1           |
 | (Default)                             | 0.001         |
 
