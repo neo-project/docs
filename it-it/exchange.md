@@ -1,6 +1,6 @@
 # Documento per Sviluppatori Exchange
 
-Questo documento é inteso per guidare gli sviluppatori di exchange nella configurazione nei nodi NEO sul server exchange e completare i programmi di sviluppo correlati per le transazioni di assets in NEO. Prima di leggere, assicurati di aver letto [NEO White Paper](index.html) e capito le tecnologie e la conoscenza base di NEO.
+Questo documento é inteso per guidare gli sviluppatori di exchange nella configurazione nei nodi NEO sul server exchange e nel completamento dei programmi di sviluppo correlati per le transazioni di assets in NEO. Prima di leggere, assicurati di aver letto [NEO White Paper](index.html) e capito le tecnologie e la conoscenza base di NEO.
 
 In generale, un exchange ha bisogno di fare quanto segue:
 
