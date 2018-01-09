@@ -4,9 +4,9 @@ Il sistema namespace é l'API fornita dallo Smart Contract Execution Engine (Neo
 
 | API | Descrizione |
 | ---------------------------------------- | -------------------------- |
-| System.ExecutionEngine.GetScriptContainer | Get the script container for this smart contract (the first trigger) |
-| System.ExecutionEngine.GetExecutingScriptHash | Get the scripthash of the executing smart contract  |
-| System.ExecutionEngine.GetCallingScriptHash | Get the scripthash of the caller for this smart contract |
-| System.ExecutionEngine.GetEntryScriptHash | Get the scripthash of the entry point for the smart contract (the starting point of the contract call chain) |
+| System.ExecutionEngine.GetScriptContainer | Ottenere il container script per questo smart contract (il primo innescato) |
+| System.ExecutionEngine.GetExecutingScriptHash | Ottenere lo scripthash dello smart contract in esecuzione |
+| System.ExecutionEngine.GetCallingScriptHash | Ottenere lo scripthash del chiamante di questo smart contract |
+| System.ExecutionEngine.GetEntryScriptHash | Ottenere lo scripthash del punto di entrata dello smart contract (il punto di inizio della chiamata dello smart contract nella chain) |
 
-Note: The source code for the API above can be found under `Neo.VM` in the `src\Neo.VM\InteropService.cs` file.
+Nota: Il codice sorgente dell'API sopra puó essere trovato sotto `Neo.VM` nel file `src\Neo.VM\InteropService.cs`.
