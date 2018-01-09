@@ -5,7 +5,7 @@ neo-python ha un modulo impostazioni che puoi usare per configurare diverse cose
 - La rete: MainNet, TestNet, reti private o configurazioni personalizzate
 - Logging:
 
-  - Smart contract eventi logging
+  - Smart contract event logging
   - Logfile (opzionalmente rotativo)
   - Loglevel
 
