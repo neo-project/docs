@@ -17,7 +17,7 @@ Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti della vers
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](neo/Block.md)              | Una classe rappresentante un blocco, fornisce metodi per interrogare le transazioni nel blocco.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](neo/Blockchain.md)    | Fornisce un set di metodi per accedere ai dati della blockchain.    |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Contract](neo/Contract.md)        | Una classe rappresentante un contratto.                |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `New` Rappresenta la struttura dati della transazione registrata di  un bookkeeper. |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `New` Rappresenta la struttura dati della transazione registrata da un bookkeeper. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)            | Rappresenta la struttura dati dell'intestazione di un blocco           |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](neo/Runtime.md)          | `New` Fornisce un set di metodi durante l'esecuzione di uno smart contract.   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Fornisce un set di metodi per inserire, interrogare, o eliminare dati da una memoria persistente.   |
