@@ -25,12 +25,12 @@ Per maggiori informazioni, fare riferimento a [Installazione e implementazione d
 
 ### NEO-CLI
 
-NEO-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
+NEO-CLIE é un client a linea di comando (wallet) per sviluppatori. Gli sviluppatori possono interagire con il client in due modi:
 
-- Using the CLI (command-line interface) commands. For example, you can create a wallet, generate an address, etc.
-- Using the Remote Procedure Call (RPC). For example, you can transfer to the designated address, acquire the block information of the designated height, acquire the information of the designated trade, etc.
+- Usare i comandi CLI (interfaccia a linea di comando). Per esempio, é possibile creare un wallet, generare un indirizzo, ecc.
+- Usare la Remote Procedure Call (RPC). Per esempio, é possibile trasferire all'indirizzo designato, acquisire le informazioni del blocco dell'altezza designata, acquisire le informazioni del trade designato, etc.
 
-NEO-CLI provides the following features： 
+NEO-CLI forni： 
 
 - As a wallet, manages assets through the command-line.
 
