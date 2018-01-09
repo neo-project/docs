@@ -23,7 +23,7 @@ Fee: commissione, il valore predefinito è 0 (parametro opzionale)
 
 ## Esempio
 
-Richiesta di testo:
+Testo della richiesta:
 
 ```json
 {
@@ -34,7 +34,7 @@ Richiesta di testo:
 }
 ```
 
-Risposta di testo:
+Testo della risposta:
 
 ```json
 {
