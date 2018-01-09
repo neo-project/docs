@@ -90,11 +90,11 @@ Per creare un wallet, fai quanto segue：
 
 Un wallet puó memorizzare indirizzi multipli. The exchange needs to generate a deposit address for each user. 
 
-There are two methods to generate deposit addresses: 
+Ci sono due metodi per generare indirizzi di deposito: 
 
-- When the user deposit (NEO/NEO GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is you can not backup the wallet.
+- Quando l'utente deposita (NEO/NEO GAS) per la prima volta, il programma genera dinamicamente un indirizzo NEO. Il vantaggio é che non c'é il bisogno di generare indirizzi a intervalli di tempo fissi, mentre lo svantaggio consiste nel non poter fare il backup del wallet.
 
-  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](node/api/getnewaddress.html). The created address is returned.
+  TPer sviluppare il programma per la generazione dinamica degli indirizzi, usa l'API NEO-CLI [Metodo getnewaddress](node/api/getnewaddress.html). L'indirizzo creato é restituito.
 
 - The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
   To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.
