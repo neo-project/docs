@@ -94,11 +94,11 @@ Ci sono due metodi per generare indirizzi di deposito:
 
 - Quando l'utente deposita (NEO/NEO GAS) per la prima volta, il programma genera dinamicamente un indirizzo NEO. Il vantaggio é che non c'é il bisogno di generare indirizzi a intervalli di tempo fissi, mentre lo svantaggio consiste nel non poter fare il backup del wallet.
 
-  TPer sviluppare il programma per la generazione dinamica degli indirizzi, usa l'API NEO-CLI [Metodo getnewaddress](node/api/getnewaddress.html). L'indirizzo creato é restituito.
+  Per sviluppare il programma per la generazione dinamica degli indirizzi, usare l'API NEO-CLI [Metodo getnewaddress](node/api/getnewaddress.html). L'indirizzo creato é restituito.
 
-- The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
-  To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.
-  [n] is optional. Its default value is 1. For example, to generate 100 addresses at a time, enter `create address 100`.
+- L'exchange crea in anticipo un lotto di indirizzi NEO. Quando l'utente paga per la prima volta (NEO/NEO GAS) fper la prima volta, l'exchange assegna un indirizzo NEO a lui o a lei. Il vantaggio consiste nella convenienza di fare il backup del wallet, mentre lo svantaggio consiste nel dover generare manualmente gli indirizzi NEO.
+  Per generare indirizzi in lotto, esegui il comando NEO- CLI `create address [n]`. Gli indirizzi vengono esportati automaticamente nel file address.txt.
+  [n] é opzionale. Il suo valore predefinito é 1. Per esempio, per generare 100 indirizzi in una volta, inserire `create address 100`.
 
 
 > [!Note]
