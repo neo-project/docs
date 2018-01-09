@@ -8,7 +8,7 @@ Script_hash: Hash dello script del contratto
 
 ## Esempio
 
-Richiesta di testo:
+Testo della richiesta:
 
 ```json
 {
@@ -19,7 +19,7 @@ Richiesta di testo:
 }
 ```
 
-Risposta di testo:
+Testo della risposta:
 
 ```json
 {
