@@ -33,4 +33,4 @@ public static class Storage
 
 ## Costruttore
 
-he La classe Store è una classe statica e non richiede un costruttore.
+La classe Store è una classe statica e non richiede un costruttore.
