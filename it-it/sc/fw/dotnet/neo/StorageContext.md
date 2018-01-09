@@ -1,21 +1,21 @@
 # Classe StorageContext
 
-The class representing the storage context of the persistent store.
+La classe che rappresenta il contesto di memoria dell'archivio persistente.
 
-The smart contract can obtain its own storage context through Storage.CurrentContext and pass the context as an argument to other contracts(as a way of authorization), allowing other contracts to call the read/write methods for its persistent store.
+Lo smart contract puó ottenere il suo contesto di memoria tramite Storage.CurrentContext e passare il contesto come un argomento agli altri contratti (come modo di autorizzazione), permettendo agli altri contratti di chiamare i metodi lettura/scrittura per i loro archivi persistenti.
 
-Note: This is different from the 1.6 version.
+Nota: Differisce dalla versione 1.6.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## Syntax
+## Sintassi
 
 ```c#
 public class StorageContext
 ```
 
-## Constructor
+## Costruttore
 
-The StorageContext object is constructed through [Storage.CurrentContext](Storage/CurrentContext.md).
+L'oggetto StorageContext é costruito tramite [Storage.CurrentContext](Storage/CurrentContext.md).
