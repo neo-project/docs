@@ -114,4 +114,4 @@ Questo tipo di API modificherá lo stato dello smart contract
 | Neo.Storage.Put                | Inserisce un valore nella memoria permanente in base alla chiave specificata |
 | Neo.Storage.Delete             | Elimina un valore dalla memoria permanente in base alla chiave specificata |
 
-Nota: The source code for the above API can be found under `NEO` in the `src/neo/SmartContract/StateMachine.cs` file.
+Nota: Il codice sorgente per le API sopra puó essere trovato sotto `NEO` nel file `src/neo/SmartContract/StateMachine.cs`.
