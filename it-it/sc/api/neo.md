@@ -1,21 +1,21 @@
 # NEO Namespace
 
-The NEO Namespace contains an API provided by the NEO blockchain. Methods of the API allow querying the blockchain and manipulation of the persistent store.
+Il NEO Namespace contiene un API fornita dalla blockchain NEO. I metodi delle API permettono di interrogare la blockchain e la manipolazione della memoria persistente.
 
-Note: `New` and `Deprecated` tags denote changes between version 1.6 and version 2.0.
+Nota: I tags `New` e `Deprecated` denotano cambiamenti tra la versione 1.6 e la versione 2.0.
 
-## Read-only API
+## API di Sola Lettura
 
 Blockchain Query API:
 
-| API                           | Description                                             |
+| API                           | Descrizione                                             |
 | ----------------------------- | ------------------------------------------------------- |
-| Neo.Blockchain.GetHeight      | Get the current block height                            |
-| Neo.Blockchain.GetHeader      | Find block header by block height or block hash         |
-| Neo.Blockchain.GetBlock       | Find block by block Height or block Hash                |
-| Neo.Blockchain.GetTransaction | Find transaction via transaction ID                     |
-| Neo.Blockchain.GetAccount     | Get an account based on the scripthash of the contract  |
-| Neo.Blockchain.GetValidators  | `New` Get the public key of the consensus node          |
+| Neo.Blockchain.GetHeight      | Ottieni l'altezza del blocco corrente                            |
+| Neo.Blockchain.GetHeader      | Trova l'intestazione del blocco tramite l'altezza del blocco o l'hash del blocco         |
+| Neo.Blockchain.GetBlock       | Trova il blocco tramite l'altezza del blocco o l'hash del blocco                |
+| Neo.Blockchain.GetTransaction | Trova la transazione tramite l'ID della transazione                     |
+| Neo.Blockchain.GetAccount     | Ottieni un account basato sullo scripthash del contratto  |
+| Neo.Blockchain.GetValidators  | `New` Ottieni la chiave pubblica del Consensus Node          |
 | Neo.Blockchain.GetAsset       | Get asset based on asset ID                             |
 | Neo.Blockchain.GetContract    | `New` Get contract content based on contract hash       |
 
