@@ -1,10 +1,10 @@
 # Classe TransactionInput 
 
-Used to represent the data structure of the transaction input.
+Usata per rappresentare la struttura dati della transazione in input.
 
-In a UTXO system, the input of a transaction must come from the output of another transaction that existed before. 
+In un sistema UTXO, l'input della transazione deve venire dall'output di un'altra transazione esistita precedentemente.
 
-To confirm the outputs of the previous transactions, we require two things:
+Per confermare gli outputs delle precedenti transazioni, sono richieste due cose:
 
 1.  The hash of the previous transaction referenced ([PrevHash](TransactionInput/PrevHash.md))
 2.  The index of this input in the output list of the previous transaction ([PrevIndex](TransactionInput/PrevIndex.md))
