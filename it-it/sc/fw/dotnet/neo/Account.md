@@ -25,6 +25,6 @@ public class Account
 | ---------------------------------------- | ---------------------------------------- | ------------------ |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBalance (byte[])](Account/GetBalance.md) | Restituisce il saldo dell'asset indentificato dall'asset ID fornito.
 
-## Constructor
+## Costruttore
 
-The Account object is constructed through [Blockchain.GetAccount (byte[])](Blockchain/GetAccount.md).
+L'oggetto dell'account viene costruito tramite [Blockchain.GetAccount (byte[])](Blockchain/GetAccount.md).
