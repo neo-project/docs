@@ -8,7 +8,7 @@ Index: Indice del Blocco (altezza del blocco)
 
 ## Esempio
 
-Richiesta di testo:
+Testo della richiesta:
 
 ```json
 {
@@ -19,7 +19,7 @@ Richiesta di testo:
 }
 ```
 
-Risposta di testo:
+Testo della risposta:
 
 ```json
 {
