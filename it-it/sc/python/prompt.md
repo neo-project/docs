@@ -34,7 +34,7 @@ $ python prompt.py
 
 - **-t {dark,light}, --set-default-theme {dark,light}**
 
-  Imposta il tema predefinito da caricare dal file di configurazione. Predefinito: 'dark'
+  Imposta il tema predefinito da caricare dal file config. Predefinito: 'dark'
 
 - **--version**
 
