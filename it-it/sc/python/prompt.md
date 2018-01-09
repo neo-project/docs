@@ -30,7 +30,7 @@ $ python prompt.py
 
 - **-c CONFIG, --config CONFIG**
 
-  Usa un file di configurazione specifico
+  Usa un file config specifico
 
 - **-t {dark,light}, --set-default-theme {dark,light}**
 
