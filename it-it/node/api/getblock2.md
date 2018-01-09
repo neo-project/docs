@@ -10,7 +10,7 @@ Verbose: Opzionale, il valore predefinito di verbose è 0. Quando verbose è 0, 
 
 ## Esempio
 
-Richiesta di testo:
+Testo di richiesta:
 
 ```json
 {
@@ -21,7 +21,7 @@ Richiesta di testo:
 }
 ```
 
-Risposta di testo:
+Testo di risposta:
 
 ```json
 {
