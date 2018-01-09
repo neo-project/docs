@@ -1,4 +1,4 @@
-# Documento per Sviluppatori di Exchange
+# Documento per Sviluppatori Exchange
 
 Questo documento é inteso per guidare gli sviluppatori di exchange nella configurazione nei nodi NEO sul server exchange e completare i programmi di sviluppo correlati per le transazioni di assets in NEO. Prima di leggere, assicurati di aver letto [NEO White Paper](index.html) e capito le tecnologie e la conoscenza base di NEO.
 
@@ -14,16 +14,16 @@ In generale, un exchange ha bisogno di fare quanto segue:
 
 ## Implementare un Nodo NEO su Server
 
-To deploy a NEO node on the exchange server, do the following:
+Per implementare un nodo NEO sul server exchange, esegui quanto segue:
 
-1.  Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 1.0.1 and the later version.
-2.  From Github, download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) program and enable the NEO node.
+1.  Installare [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 1.0.1 e le versioni successive.
+2.  Da Github, scaricare il programma [Neo-CLI](https://github.com/neo-project/neo-cli/releases) e abilitare il nodo NEO.
 
-For more information, refer to [Installation and deployment of NEO node](node/setup.html).
+Per maggiori informazioni, fare riferimento a [Installazione e implementazione di un nodo NEO](node/setup.html).
 
-## Creating a Wallet and Deposit Addresses
+## Creare un wallet e un indirizzo di deposito
 
-### About NEO-CLI
+### NEO-CLI
 
 NEO-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
 
