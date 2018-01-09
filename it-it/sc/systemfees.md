@@ -8,13 +8,13 @@ Correntemente non vi sono commissioni sulle transazioni. L'utente puó comunque 
 
 La struttura di commissioni per gli Smart Contracts puó essere trovata nella tabella sotto.
 
-The initial 10 GAS is always free. Fees that sum up to 10 GAS or less will thus not require a service fee.
+Gli iniziali 10 GAS sono sempre gratuiti. Le commssioni che ammontano a 10 GAS o meno non richiedono alcun servizio di commissione.
 
-The fees below are minimum fees. The user can choose to pay extra for priority.
+Le ccommisioni seguenti sono commissioni minime. L'utente puó decire di pagare qualcosa in piú per avere prioritá.
 
-All Smart Contract fees are considered as Service fee to be put in a pool for re-distribution to all NEO holders. The distribution is proportional to amount of NEO.
+Tutte le commissioni degli smart contract sono considerate come servizio di commissioni da mettere in una pool per la redistribuzione a tutti i possessori di NEO. La distribuzione é proporzionale alla quantitá di NEO.
 
-### Fees for System Calls
+### Commissioni per le Chiamate al Sistema
 
 | SysCall                               | Fee [Gas]     |
 |---------------------------------------|:-------------:|
@@ -38,7 +38,7 @@ All Smart Contract fees are considered as Service fee to be put in a pool for re
 | Storage.Delete                        | 0.1           |
 | (Default)                             | 0.001         |
 
-* Additional to 1 GAS minimum
+* Aggiuntivo 1 GAS minimo.
 
 ### Fees for Instructions
 
