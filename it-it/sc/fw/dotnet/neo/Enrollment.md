@@ -1,22 +1,22 @@
-# Enrollment Class
+# Classe Enrollment
 
-Used to indicate the data structure of the bookkeeper's registration transaction.
+Usata per indicare la struttura dati della transazione di registrazione del bookkeeper.
 
-> [!Caution]
-> Note: Deprecated in version 2.0.
+> [!Attenzione]
+> Nota: Obsoleta nella versione 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## Syntax
+## Sintassi
 
 ```c#
 public class Enrollment: Transaction
 ```
 
-## Attributes
+## Attributi
 
-| | Name | Description |
+| | Nome | Descrizione |
 | ---------------------------------------- | ------------------------------------ | -------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PublicKey](Enrollment/PublicKey.md) | Returns the public key of the bookkeeper |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PublicKey](Enrollment/PublicKey.md) | Restituisce la chiave pubblica del bookkeeper |
