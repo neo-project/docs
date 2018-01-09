@@ -15,9 +15,9 @@ Blockchain Query API:
 | Neo.Blockchain.GetBlock       | Trovare il blocco tramite l'altezza del blocco o l'hash del blocco                |
 | Neo.Blockchain.GetTransaction | Trovare la transazione tramite l'ID della transazione                     |
 | Neo.Blockchain.GetAccount     | Ottenere un account basato sullo scripthash del contratto  |
-| Neo.Blockchain.GetValidators  | Ottenere la `New` chiave pubblica del Consensus Node          |
+| Neo.Blockchain.GetValidators  | `New` Ottenere la chiave pubblica del Consensus Node          |
 | Neo.Blockchain.GetAsset       | Ottenere assets in base all'ID dell'asset                             |
-| Neo.Blockchain.GetContract    | Ottenere il `New` contenuto del contratto basato sull'hash del contratto       |
+| Neo.Blockchain.GetContract    | `New` Ottenere il contenuto del contratto basato sull'hash del contratto       |
 
 Block Class API::
 
@@ -46,7 +46,7 @@ Transaction Class API:
 | Neo.Transaction.GetOutputs    | Interrogare tutti gli output di transazione per la transazione corrente |
 | Neo.Transaction.GetReferences | Interrogare l'output della transazione a cui fanno riferimento tutti gli input della transazione corrente |
 | Neo.Attribute.GetUsage        | Ottenere lo scopo della transazione |
-| Neo.Attribute.GetData         | Ottenere dati extra al di fuori dello scopo della transazione |
+| Neo.Attribute.GetData         | Ottenere i dati extra al di fuori dello scopo della transazione |
 | Neo.Input.GetHash             | Ottenere l'hash della transazione precedente riferita |
 | Neo.Input.GetIndex            | L'indice dell'input nell'elenco di output della transazione precedente riferita |
 | Neo.Output.GetAssetId         | Ottenere l'ID dell'asset |
@@ -76,20 +76,20 @@ Asset class API:
 
 Contract class API:
 
-| API | Description |
+| API | Descrizione |
 | ---------------------- | -------- |
-| Neo.Contract.GetScript | Get the scripthash of the contract |
+| Neo.Contract.GetScript | Ottenere lo scripthash del contract |
 
 Storage class API:
 
-| API | Description |
+| API | Descrizione |
 | ---------------------- | ------------------------------- |
-| Neo.Storage.GetContext | `New` Get the current store context |
-| Neo.Storage.Get        | Returns the value in the persistent store based off the key given |
+| Neo.Storage.GetContext | `New` Ottenere il contesto attuale della memoria |
+| Neo.Storage.Get        | Restituisce il valore della memoria permanente in base alla chiave fornita |
 
 Runtime class API:
 
-| API | Description |
+| API | Descrizione |
 | ------------------------ | --------------------------------- |
 | Neo.Runtime.CheckWitness | `New` Verifies that the calling contract has verified the required script hashes of the transaction/block |
 | Neo.Runtime.Notify       | `New` Notifies the client with a notification during smart contract execution      |
