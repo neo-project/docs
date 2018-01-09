@@ -1,12 +1,12 @@
-# System Fees
+# Sistema di Commissioni
 
-## Transaction fees
+## Commissioni transazione
 
-There are currently no transaction fees. The user can however choose to pay transaction fee for priority.
+Correntemente non vi sono commissioni sulle transazioni. L'utente puó comunque scegliere di pagare la commissione della transazione per avere prioritá.
 
-## Smart Contract Fees
+## Commissioni smart contract
 
-The fee structure for Smart Contracts can be found in the tables below.
+La struttura di commissioni per gli Smart Contracts puó essere trovata nella tabella sotto.
 
 The initial 10 GAS is always free. Fees that sum up to 10 GAS or less will thus not require a service fee.
 
