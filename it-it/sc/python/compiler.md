@@ -29,7 +29,7 @@ docker run -it -v /absolute/path/input_dir:/python-contracts -v /absolute/path/o
 
 ```
 
-The -v (volume) command maps the directories on the host to the directories within the container.
+Il comando -v (volume) mappa le directories sull'host alle directories all'interno del container.
 
 ## Uso di base
 
