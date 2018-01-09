@@ -1,20 +1,20 @@
-# Blockchain Class
+# Classe della Blockchain 
 
-This class provides a set of methods for accessing blockchain data.
+Questa classe fornisce un set di metodi per accedete ai dati della blockchain.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## Syntax
+## Sintassi
 
 ```c#
 public static class Blockchain
 ```
 
-## Methods
+## Metodi
 
-| | Name | Description |
+| | Nome | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | -------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAccount(byte[])](Blockchain/GetAccount.md) | Returns an account (address) from the given scripthash |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAsset(byte[])](Blockchain/GetAsset.md) | Returns an asset from the given asset ID         |
@@ -27,6 +27,6 @@ public static class Blockchain
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(byte[])](Blockchain/GetTransaction.md) | Returns a transaction from the given transaction ID         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetValidators()](Blockchain/GetValidators.md) | `New` Returns the public keys of the validators       |
 
-## Constructor
+## Costruttore
 
-The BlockChain class is a static class and does not require a constructor.
+La classe BlockChain é una classe statica che non richiede un costruttore.
