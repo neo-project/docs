@@ -2,7 +2,7 @@
 
 *Autore Principale: [@localhuman](https://github.com/localhuman)*
 
-neo-python, il nodo python e l'SDK per la blockchain di NEO, ti permette di costruire, testare, ed eseguire smart contracts sulla blockchain di neo. Fornisce le seguenti funzionalità principali:
+neo-python, il nodo python e l'SDK per la blockchain NEO, permette di costruire, testare, ed eseguire smart contracts sulla blockchain Neo. Fornisce le seguenti funzionalità principali:
 
 - Esecuzione di un nodo P2P basato su Python
 - CLI interattiva per la configurazione del nodo e l'ispezione della blockchain
