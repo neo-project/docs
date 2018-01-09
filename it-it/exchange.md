@@ -61,23 +61,23 @@ NEO-CLI fornisce le seguenti funzionalitá：
 
 ### Creazione di un wallet
 
-The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data.
+L'exchange ha bisogno di un wallet online per gestire gli indirizzi di deposito degli utenti. Un wallet é usato per memorizzare le informazioni degli accounts (entrambe chiavi private e chiavi pubbliche) e i contratti. Questo é la prova piú importante in possesso dell'utente. Gli utenti devono mantenere i files del wallet e la password del wallet al sicuro. Essi non devono divulgare o perderne i dati. 
 
-> [!Note]
+> [!Nota]
 >
-> Exchanges do not have to create a wallet for every address. An online wallet usually keeps all deposit addresses of users. A cold wallet (offline wallet) is another storage option which provides better security.
+> Gli Exchanges non devono creare un wallet per ogni indirizzo. Di solito un wallet online tiene tutti gli indirizzi di deposito degli utenti. Un "cold wallet" (un wallet offline) rappresenta un'altra opzione di memorizzazione la quale fornisce una migliore sicurezza.
 
-To create a wallet, do the following：
+Per creare un wallet, fai quanto segue：
 
-1. enter  `create wallet <path>`.
+1. Inserisci  `create wallet <path>`.
 
-   <path> is the wallet path and wallet file name. The file extension can be any type, for example,  create wallet mywallet.db3.
+   <path> é il percorso del waller e del nome file del wallet. L'estensione del file puó essere di ogni tipo, per esempio,  creare il wallet mywallet.db3.
 
-2. Set a password for the wallet. 
+2. Imposta una password per il wallet. 
 
-> [!Note]
+> [!Nota]
 >
-> The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
+> Il wallet deve rimanere sempre aperto tutto il tempo per rispondere alle richieste di ritiro degli utenti. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
 
 |                    | Mainnet | Testnet |
 | ------------------ | ------- | ------- |
