@@ -177,7 +177,7 @@ neo>
 
 **Esportare il WIF NEP2 protetto da passphrase**
 
-Puoi esportare un indirizzo come chiave privata crittata [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) come questa:
+Puoi esportare un indirizzo come chiave privata criptata [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) come questa:
 
 ```
 neo> export nep2 AStZHy8E6StCqYQbzMqi4poH7YNDHQKxvt
@@ -188,9 +188,9 @@ NEP2 key export: 6PYVPVe1fQznphjbUxXP9KZJqPMVnVwCx5s5pr5axRJ8uHkMtZg97eT5kL
 neo>
 ```
 
-**Importa la passphrase NEP2 protetta dal WIF**
+**Importare il WIF NEP2 protetto da passphrase**
 
-Puoi importare [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) mediante chiave privata criptata come questa:
+Puoi importare una chiave privata criptata [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) come questa:
 
 ```
 neo> import nep2 6PYVPVe1fQznphjbUxXP9KZJqPMVnVwCx5s5pr5axRJ8uHkMtZg97eT5kL
