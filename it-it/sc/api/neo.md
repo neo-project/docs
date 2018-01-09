@@ -15,9 +15,9 @@ Blockchain Query API:
 | Neo.Blockchain.GetBlock       | Trova il blocco tramite l'altezza del blocco o l'hash del blocco                |
 | Neo.Blockchain.GetTransaction | Trova la transazione tramite l'ID della transazione                     |
 | Neo.Blockchain.GetAccount     | Ottieni un account basato sullo scripthash del contratto  |
-| Neo.Blockchain.GetValidators  | `New` Ottieni la chiave pubblica del Consensus Node          |
-| Neo.Blockchain.GetAsset       | Get asset based on asset ID                             |
-| Neo.Blockchain.GetContract    | `New` Get contract content based on contract hash       |
+| Neo.Blockchain.GetValidators  | Ottieni la `New` chiave pubblica del Consensus Node          |
+| Neo.Blockchain.GetAsset       | Ottieni assets in base all'ID dell'asset                             |
+| Neo.Blockchain.GetContract    | Ottieni il `New` contenuto del contratto basato sull'hash del contratto       |
 
 Block class API:
 
