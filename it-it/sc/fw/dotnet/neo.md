@@ -6,13 +6,13 @@ Il NEO namespace e l'API fornita dalla blockchain NEO, realizzando un modo per a
 
 2. Memoria persistente. Ogni applicazione contratto implementata su NEO ha uno spazio di memmoria al quale puó accedere solo il contratto stesso. Questi metodi forniti possono accedere ai dati nel contratto.
 
-Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti alla 2.0 relativi alla versione 1.6.
+Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti della versione 2.0 relativi alla versione 1.6.
 
 ## Classe
 
 | | Classe | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](neo/Account.md)          | Una classe rappresentante l'account, che fornisce un metodo per interrogare il saldo.      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Account](neo/Account.md)          | Una classe rappresentante l'account, fornisce un metodo per interrogare il saldo.      |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Asset](neo/Asset.md)              | Una classe rappresentante un asset e la sua struttura dati.         |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Block](neo/Block.md)              | Una classe rappresentante un blocco, fornisce metodi per interrogare le transazioni nel blocco.  |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Blockchain](neo/Blockchain.md)    | Fornisce un set di metodi per accedere ai dati della blockchain.    |
