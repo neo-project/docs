@@ -27,4 +27,4 @@ public class Account
 
 ## Costruttore
 
-L'oggetto dell'account viene costruito tramite [Blockchain.GetAccount (byte[])](Blockchain/GetAccount.md).
+L'oggetto Account viene costruito tramite [Blockchain.GetAccount (byte[])](Blockchain/GetAccount.md).
