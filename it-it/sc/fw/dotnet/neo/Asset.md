@@ -1,6 +1,6 @@
 # Classe dell'Asset
 
-Rappresenta la struttura dei dati di un asset.
+Rappresenta la struttura dati di un asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
