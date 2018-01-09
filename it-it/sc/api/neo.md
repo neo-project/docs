@@ -103,15 +103,15 @@ Questo tipo di API modificherá lo stato dello smart contract
 
 | API | Description |
 | ------------------------------ | -------------------------------- |
-| Neo.Account.SetVotes           | Set the voting information of this account |
-| Neo.Validator.Register         | `New` Register as a bookkeeper |
-| Neo.Asset.Create               | `New` Register a new asset |
-| Neo.Asset.Renew                | `New` Renew an asset |
-| Neo.Contract.Create            | `New` Publish a smart contract |
-| Neo.Contract.Migrate           | `New` Migrate/Renew a smart contract |
-| Neo.Contract.Destroy           | `New` Destroy a smart contract |
-| Neo.Contract.GetStorageContext | `New` Get the storage context of the contract |
-| Neo.Storage.Put                | Inserts a value into the persistent store based off the given key |
-| Neo.Storage.Delete             | Deletes a value from the persistent store based off the given key |
+| Neo.Account.SetVotes           | Impostare le informazioni di voto per questo account |
+| Neo.Validator.Register         | `New` Registrarsi come bookkeeper |
+| Neo.Asset.Create               | `New` Registrare un nuovo asset |
+| Neo.Asset.Renew                | `New` Rinnovare un asset |
+| Neo.Contract.Create            | `New` Pubblicare uno smart contract |
+| Neo.Contract.Migrate           | `New` Migrare/Rinnovare uno smart contract |
+| Neo.Contract.Destroy           | `New` Distruggere uno smart contract |
+| Neo.Contract.GetStorageContext | `New` Ottenere il contesto di memoria del contratto |
+| Neo.Storage.Put                | Inserisce un valore nella memoria permanente in base alla chiave specificata |
+| Neo.Storage.Delete             | Elimina un valore dalla memoria permanente in base alla chiave specificata |
 
-Note: The source code for the above API can be found under `NEO` in the `src/neo/SmartContract/StateMachine.cs` file.
+Nota: The source code for the above API can be found under `NEO` in the `src/neo/SmartContract/StateMachine.cs` file.
