@@ -2,15 +2,15 @@
 
 Restituisce il risultato dopo aver passato lo script attraverso la VM.
 
-> [!Nota
+> [!Nota]
 >
-> Questo metodo è per testare il tuo script VM come se fosse stato seguiti sulla blockchain in quel momento. This RPC call does not affect the blockchain in any way.
+> Questo metodo è per testare il tuo script VM come se fosse stato eseguito sulla blockchain in quel momento. Questa chiamata RPC, non ha in alcun modo, nessun effetto sulla blockchain.
 
-## Parameter Description
+## Descrizione del Parametro
 
-script: A script runnable by the VM. This is the same script that is carried in InvocationTransaction
+script: Uno script eseguibile dalla VM. Questo è lo stesso script che viene portato da InvocationTransaction
 
-## Example
+## Esempio
 
 Corpo della richiesta:
 
