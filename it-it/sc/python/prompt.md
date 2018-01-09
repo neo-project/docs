@@ -131,7 +131,7 @@ Wallet {
 
 **Ricostruire l'indice del wallet**
 
-Se il tuo wallet si sta comportando inaspettatamente o hai importato un nuovo indirizzo nel tuo wallet, è una buona idea ricostruire l'indice del tuo wallet. Cioé fare sincronizzare il wallet dall'inizio della chain. Opzionalmente, é possibile specificare un numero di un blocco per iniziare la sincronizzazione da quel livello.
+Se il tuo wallet si sta comportando inaspettatamente o hai importato un nuovo indirizzo nel tuo wallet, è una buona idea ricostruire l'indice del tuo wallet. Cioé far sincronizzare il wallet dall'inizio della chain. Opzionalmente, é possibile specificare un numero di un blocco per iniziare la sincronizzazione da quel livello.
 
 ```
 neo> wallet rebuild 700000
@@ -163,7 +163,7 @@ neo>
 
 ```
 
-**Export WIF**
+**Esportare WIF**
 
 Potresti voler esportare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) dal tuo wallet da usare in un altro programma. specifica l'indirizzo del `WIF` che vorresti esportare.
 
@@ -175,9 +175,9 @@ neo>
 
 ```
 
-**Esporta la passphrase NEP2 protetta dal WIF**
+**Esportare il WIF NEP2 protetto da passphrase**
 
-Puoi esportare un indirizzo come [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) mediante chiave privata criptata come questa:
+Puoi esportare un indirizzo come chiave privata crittata [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) come questa:
 
 ```
 neo> export nep2 AStZHy8E6StCqYQbzMqi4poH7YNDHQKxvt
