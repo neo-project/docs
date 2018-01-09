@@ -1,6 +1,6 @@
 # NEO Namespace
 
-The NEO namespace is the API provided by the Neo blockchain, providing a way to access the block-chain data and manipulate the persistent store. These APIs are divided into two categories:
+Il NEO namespace e l'API fornita dalla blockchain NEO, realizzando un modo per accedere ai dati della blockchain e manipolare la memoria persistente. Queste APIs sono divise in due categorie:
 
 1. Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
 
