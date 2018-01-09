@@ -1,22 +1,22 @@
-# Asset Class
+# Classe dell'Asset
 
-Represents the data structure of an asset.
+Rappresenta la struttura dei dati di un asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## Syntax
+## Sintassi
 
 ```c#
 public class Asset
 ```
 
-## Attributes
+## Attributi
 
-| | Name | Description |
+| | Nome | Descrizione |
 | ---------------------------------------- | ------------------------------- | ------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Admin](Asset/Admin.md) | Returns the administrator (contract address) of the asset who has the right to modify the attributes of the asset (such as total, name, etc) |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Admin](Asset/Admin.md) | Restituisce l'amministratore (indirizzo del contratto) dell'asset che ha il diritto di modificare gli attributi dell'asset (come totale, nome, etc) |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Amount](Asset/Amount.md) | Returns the total amount of the asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](Asset/AssetId.md) | Returns the ID of the asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetType](Asset/AssetType.md) | Returns the type of this asset |
