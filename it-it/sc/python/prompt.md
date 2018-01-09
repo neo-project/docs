@@ -58,7 +58,7 @@ La seguente tabella elenca tutti i comandi disponibili del wallet.
 | `import watch_addr <address>`            | Importare un indirizzo "watch only"              |
 | `import contract_addr <script_hash> <pubkey>` | Importare l'indirizzo di uno smart contract          |
 | `send <asset_ID> <address> <amount> [from_address]` | Invia assets all'indirizzo specificato     |
-| `wallet delete_addr <address>`           | Elimina un indirizzo                       |
+| `wallet delete_addr <address>`           | Eliminare un indirizzo                       |
 
 ### Dettagli ed Esempi
 
@@ -131,7 +131,7 @@ Wallet {
 
 **Ricostruire l'indice del wallet**
 
-Se il tuo wallet si sta comportando inaspettatamente o hai importato un nuovo indirizzo nel tuo wallet, è una buona idea ricostruire l'indice del tuo wallet. Ciò fare sincronizzare il wallet dall'inizio della chain. Opazionalmente, puoi specificare un numero di blocco per iniziare la sincronizzazione a quel livello
+Se il tuo wallet si sta comportando inaspettatamente o hai importato un nuovo indirizzo nel tuo wallet, è una buona idea ricostruire l'indice del tuo wallet. Cioé fare sincronizzare il wallet dall'inizio della chain. Opzionalmente, é possibile specificare un numero di un blocco per iniziare la sincronizzazione da quel livello.
 
 ```
 neo> wallet rebuild 700000
@@ -142,7 +142,7 @@ neo>
 
 **Migrare il tuo wallet**
 
-Se ci sono stati cambiamenti al modello di dati del wallet, potresti aver bisogno di migrare il tuo wallet
+Se ci sono stati cambiamenti nel modello di dati del wallet, potresti aver bisogno di migrare il tuo wallet
 
 ```
 neo> wallet migrated
@@ -153,7 +153,7 @@ neo>
 
 **Importare WIF**
 
-Vorresti voler importare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) per aggiungere un indirizzo al tuo wallet
+Potresti voler importare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) per aggiungere un indirizzo al tuo wallet
 
 ```
 neo> import wif KxP97gujib35PBEnTq78e5NmYVbeaosU4AdguDzZ4tyf6a7W32UM
@@ -165,7 +165,7 @@ neo>
 
 **Export WIF**
 
-Vorresti voler esportare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) dal tuo wallet da usare in un altro programma. specifica l'indirizzo del `WIF` che vorresti esportare.
+Potresti voler esportare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) dal tuo wallet da usare in un altro programma. specifica l'indirizzo del `WIF` che vorresti esportare.
 
 ```
 neo> export wif AXjaFSP23Jkbe6Pk9pPGT6NBDs1HVdqaXK
@@ -177,7 +177,7 @@ neo>
 
 **Esporta la passphrase NEP2 protetta dal WIF**
 
-Puoi esportare un indirizzo come [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) chiave privata criptata come questa:
+Puoi esportare un indirizzo come [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) mediante chiave privata criptata come questa:
 
 ```
 neo> export nep2 AStZHy8E6StCqYQbzMqi4poH7YNDHQKxvt
@@ -190,7 +190,7 @@ neo>
 
 **Importa la passphrase NEP2 protetta dal WIF**
 
-Puoi importare [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) chiave privata criptata come questa:
+Puoi importare [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) mediante chiave privata criptata come questa:
 
 ```
 neo> import nep2 6PYVPVe1fQznphjbUxXP9KZJqPMVnVwCx5s5pr5axRJ8uHkMtZg97eT5kL
@@ -212,7 +212,7 @@ neo>
 
 **Importa l'indirizzo di uno Smart Contract**
 
-Potresti avere uno smart contract che è stato eseguito dal quale vorresti utilizzare i fondi. Dipendendo da come è stato programmato, potrebbe permetterti di usare i fondi che ha come se fossero i tuoi. In questo caso, puoi importare l'indirizzo di un contratto specificando lo `script_hash`del contratto e la `public key` dell'indirizzo nel tuo wallet con la quale vuoi associare il contratto. L'indirizzo di un contratto può essere eliminato dal tuo wallet nello stesso modo di un indirizzo normale.
+Potresti avere uno smart contract eseguito dal quale vorresti utilizzare i fondi. Dipendendo da come è stato programmato, potrebbe permetterti di usare i fondi che ha come se fossero i tuoi. In questo caso, puoi importare l'indirizzo di un contratto specificando lo `script_hash`del contratto e la `public key` dell'indirizzo nel tuo wallet con la quale vuoi associare il contratto. L'indirizzo di un contratto può essere eliminato dal tuo wallet nello stesso modo di un indirizzo normale.
 
 ```
 # import contract_addr {script_hash} {pubkey}
