@@ -1,30 +1,30 @@
-# TransactionOutput Class
+# Classe TransactionOutput 
 
-The data structure used to represent the transaction output. A transaction output has three fields:
+La struttura dati usata per rappresentare la transazione in output. Una transazione in output ha tre campi:
 
-1. Type of assets
-2. Destination address
-3. Amount transferred
+1. Tipi di assets
+2. Indirizzo di destinazione
+3. Quantitá trasferita
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## Syntax
+## Sintassi
 
 ```c#
 public class TransactionOutput: IApiInterface
 ```
 
-## Attributes
+## Attributi
 
-| | Name | description |
+| | Nome | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ------ |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](TransactionOutput/AssetId.md)  | Returns asset ID |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](TransactionOutput/ScriptHash.md) | Returns the scripthash |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Value](TransactionOutput/Value.md)      | Returns the transaction amount |
 
 
-## Constructor
+## Costruttore
 
 The TransactionOutput object is constructed through [GetOutputs()](Transaction/GetOutputs.md) of the Transaction object.
