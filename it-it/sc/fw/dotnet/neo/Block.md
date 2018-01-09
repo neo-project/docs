@@ -22,6 +22,6 @@ public class Block: Header
 
 ## Costruttore
 
-L'oggetto del blocco viene costruito mediante [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md).
+L'oggetto Block viene costruito mediante [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md).
 
-'oggetto del blocco viene costruito mediant [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).
+L'oggetto Block viene costruito mediante [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).
