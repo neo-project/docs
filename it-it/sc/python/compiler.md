@@ -1,8 +1,8 @@
 # Compilatore Python per la macchina virtuale di NEO
 
-Il compilatore `neo-boa` è uno strumento per per compilare i files Python nel formato `.avm` per essere usati nella [Macchina Virtuale Neo](https://github.com/neo-project/neo-vm/) che viene usata per eseguire contratti sulla [Blockchain Neo](https://github.com/neo-project/neo/).
+Il compilatore `neo-boa` è uno strumento per per compilare i files Python nel formato `.avm` per essere usati nella [Macchina Virtuale Neo](https://github.com/neo-project/neo-vm/) utilizzata per eseguire contratti sulla [Blockchain Neo](https://github.com/neo-project/neo/).
 
-Il compilatore supporta un sottoinsieme del linguaggio Python (nello stesso modo in cui un *boa costrittore* sia un sottoinsieme delle specie di serpenti Python) e correntemente funziona con Python 3.4 e 3.5.
+Il compilatore supporta un sottoinsieme del linguaggio Python (nello stesso modo in cui un *boa costrittore* é un sottoinsieme delle specie Pitone dei serpenti) e correntemente funziona con Python 3.4 e 3.5.
 
 ## Installazione del compilatore neo-boa
 
@@ -15,7 +15,7 @@ pip install neo-boa
 
 #### Docker
 
-Questo progetto contiene un Dockerfile per compilare in lotto smart contracts in Python. Clona l'archivio e naviga nella sottodirectory docker del progetto. Esegui i seguenti comandi per costruire il container:
+Questo progetto contiene un Dockerfile per compilare in lotto smart contracts in Python. Clona l'archivio e naviga nella sottodirectory docker del progetto. Esegui il seguente comando per costruire il container:
 
 ```
 docker build -t neo-boa .
