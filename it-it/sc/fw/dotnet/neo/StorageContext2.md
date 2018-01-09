@@ -1,4 +1,4 @@
-# StorageContext Enumeration
+# Enumerazione StorageContext
 
 Used to represent the enumeration of the private store storage context.
 
