@@ -71,7 +71,7 @@ Per creare un wallet, fai quanto segue：
 
 1. Inserisci  `create wallet <path>`.
 
-   <path> é il percorso del waller e del nome file del wallet. L'estensione del file puó essere di ogni tipo, per esempio,  creare il wallet mywallet.db3.
+   <path> é il percorso del wallet e del nome file del wallet. L'estensione del file puó essere di ogni tipo, per esempio,  creare il wallet mywallet.db3.
 
 2. Imposta una password per il wallet. 
 
@@ -86,9 +86,9 @@ Per creare un wallet, fai quanto segue：
 | P2P                | 10333   | 20333   |
 | websocket          | 10334   | 20334   |
 
-### Generating Deposit Addresses
+### Generazione Indirizzo di Deposito
 
-A wallet can store multiple addresses. The exchange needs to generate a deposit address for each user. 
+Un wallet puó memorizzare indirizzi multipli. The exchange needs to generate a deposit address for each user. 
 
 There are two methods to generate deposit addresses: 
 
