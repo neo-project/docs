@@ -23,11 +23,11 @@ public class Asset
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Available](Asset/Available.md) | Restituisce la quantitá dell'asset che é stato emesso |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Issuer](Asset/Issuer.md) | Restituisce l'emittente (indirizzo del contratto) dell'asset che ha il diritto di emettere l'asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Owner](Asset/Owner.md) | Restituisce il proprietario (chiave pubblica) dell'asset |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | Restituisce l'accuratezzaallest division), or the number of digits after the decimal point |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | Restituisce l'accuratezza dell'asset (divisione del numero), o il numero di cifre dopo il punto decimale |
 
-## Methods
+## Metodi
 
-| | Name | Description |
+| | Nome  | Descrizione |
 | ---------------------------------------- | ----------------------------- | ----------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte, string, long, byte, byte[], byte[], byte[])](Asset/Create.md) | `new` Register an asset on the blockchain |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Renew(byte)](Asset/Renew.md)            | `new` For asset renewal       |
