@@ -1,4 +1,4 @@
-# Classe della Blockchain 
+# Classe Blockchain 
 
 Questa classe fornisce un set di metodi per accedete ai dati della blockchain.
 
