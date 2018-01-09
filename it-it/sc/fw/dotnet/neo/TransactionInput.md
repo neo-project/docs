@@ -6,8 +6,8 @@ In un sistema UTXO, l'input della transazione deve venire dall'output di un'altr
 
 Per confermare gli outputs delle precedenti transazioni, sono richieste due cose:
 
-1.  The hash of the previous transaction referenced ([PrevHash](TransactionInput/PrevHash.md))
-2.  The index of this input in the output list of the previous transaction ([PrevIndex](TransactionInput/PrevIndex.md))
+1.  Il riferimento all'hash della transazione precedente ([PrevHash](TransactionInput/PrevHash.md))
+2.  L'indice di questo input nella lista output delle transazioni precedenti ([PrevIndex](TransactionInput/PrevIndex.md))
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -23,9 +23,9 @@ public class TransactionInput: IApiInterface
 
 | | Nome | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](TransactionInput/PrevHash.md) | Returns the hash of the previous transaction            |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevIndex](TransactionInput/PrevIndex.md) | Returns the index of this input in the output list of the previous transaction |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](TransactionInput/PrevHash.md) | Restituisce l'hash della transazione precedente            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevIndex](TransactionInput/PrevIndex.md) | Restituisce l'indice di questo input nella lista output list delle transazioni precedenti |
 
 ## Costruttore
 
-The TransactionInput object is constructed through [GetInputs()](Transaction/GetInputs.md) of the Transaction object.
+L'oggetto TransactionInput é costruito mediante [GetInputs()](Transaction/GetInputs.md) dell'oggetto Transaction.
