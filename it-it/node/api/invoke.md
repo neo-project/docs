@@ -4,7 +4,7 @@ Restituisce il risultato dopo a uno smart contract a scripthash con i parametri 
 
 > [!Nota]
 >
-> This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+> Questo metodo è per testare il tuo script VM come se fosse stato eseguito sulla blockchain in quel momento. Questa chiamata RPC, non ha in alcun modo, nessun effetto sulla blockchain..
 
 ## Desrizione del parametro
 
