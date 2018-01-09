@@ -4,7 +4,7 @@ Ottiene il numero corrente di connessioni per il nodo.
 
 ## Esempio
 
-Richiesta di testo:
+Testo della richiesta:
 
 ```json
 {
@@ -15,7 +15,7 @@ Richiesta di testo:
 }
 ```
 
-Risposta di testo:
+Testo della risposta:
 
 ```json
 {
