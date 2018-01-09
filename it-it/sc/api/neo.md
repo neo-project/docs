@@ -91,15 +91,15 @@ Runtime class API:
 
 | API | Descrizione |
 | ------------------------ | --------------------------------- |
-| Neo.Runtime.CheckWitness | `New` Verifies that the calling contract has verified the required script hashes of the transaction/block |
-| Neo.Runtime.Notify       | `New` Notifies the client with a notification during smart contract execution      |
-| Neo.Runtime.Log          | `New` Notifies the client with a log message during smart contract execution      |
+| Neo.Runtime.CheckWitness | `New` verifica che il contratto chiamante abbia verificato gli hash dello script richiesti della transazione/blocco |
+| Neo.Runtime.Notify       | `New` Notifica il client con una notificazione durante l'esecuzione di uno smart contract      |
+| Neo.Runtime.Log          | `New` Notifica il client con un messaggio log durante l'esecuzione di uno smart contract      |
 
-Note: The source code can be found under `NEO` in the `src/neo/SmartContract/StateReader.cs` file.
+Nota: Il codice sorgente puó essere trovato sotto `NEO` nel file `src/neo/SmartContract/StateReader.cs`.
 
-## Read/Write API
+## Leggere/Scrivere API
 
-This type of API will modify the status of the smart contract
+Questo tipo di API modificherá lo stato dello smart contract
 
 | API | Description |
 | ------------------------------ | -------------------------------- |
