@@ -17,11 +17,11 @@ public class Asset
 | | Nome | Descrizione |
 | ---------------------------------------- | ------------------------------- | ------------------------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Admin](Asset/Admin.md) | Restituisce l'amministratore (indirizzo del contratto) dell'asset che ha il diritto di modificare gli attributi dell'asset (come totale, nome, etc) |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Amount](Asset/Amount.md) | Returns the total amount of the asset |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](Asset/AssetId.md) | Returns the ID of the asset |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetType](Asset/AssetType.md) | Returns the type of this asset |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Available](Asset/Available.md) | Returns the quantity of the asset that has been issued |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Issuer](Asset/Issuer.md) | Returns the issuer (contract address) of the asset who has the right to issue the asset |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Amount](Asset/Amount.md) | Restituisce la quantitá totale dell'asset |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](Asset/AssetId.md) | Restituisce l'ID dell'asset |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetType](Asset/AssetType.md) | Restituisce il tipo di questo asset |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Available](Asset/Available.md) | Restituisce la quantitá dell'asset che é stato emesso |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Issuer](Asset/Issuer.md) | Restituisce l'emittente (indirizzo del contratto) dell'asset che ha il diritto di emettere l'asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Owner](Asset/Owner.md) | Returns the owner (public key) of the asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Precision](Asset/Precision.md) | Returns the accuracy of the asset (the smallest division), or the number of digits after the decimal point |
 
