@@ -1,4 +1,4 @@
-# Classe del Block
+# Classe Block
 
 Una classe rappresentante un blocco, fornisce il modo per interrogare la transazione in un blocco.
 
