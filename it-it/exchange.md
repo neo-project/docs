@@ -59,7 +59,7 @@ NEO-CLI fornisce le seguenti funzionalitá：
   Per maggiori informazioni sull'API, fare riferimento a [Riferimento API](node/api.html).
 
 
-### Creating a Wallet
+### Creazione di un wallet
 
 The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data.
 
