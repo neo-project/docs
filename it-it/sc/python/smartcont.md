@@ -33,8 +33,8 @@ I gestori di eventi ricevono sempre un singolo argomento, un'istanza di `neo.Eve
 | `event_type`        | str        | Uno dei tipi di evento in `neo.EventHub.SmartContractEvent` |
 | `contract_hash`     | UInt160    | Hash del contratto                    |
 | `tx_hash`           | UInt256    | Hash della transazione                  |
-| `block_number`      | int        | Numero di blocco per cui questo evento è stato ricevuto a  |
-| `event_payload`     | object[]   | Un elenco di oggetti, a seconda dei tipi di dati emessi dal contratto intelligente (es. con `Runtime.Notify`). |
+| `block_number`      | int        | Numero di blocco al quale questo evento è stato ricevuto  |
+| `event_payload`     | object[]   | Un elenco di oggetti, a seconda dei tipi di dati emessi dallo smart contract (es. con `Runtime.Notify`). |
 | `execution_success` | bool       | Se l'invocazione del metodo ha avuto successo |
 | `test_mode`         | bool       | Se questo evento è stato inviato da un TestInvoke locale invece di essere ricevuto dalla blockchain |
 
