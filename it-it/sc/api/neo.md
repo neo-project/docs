@@ -57,22 +57,22 @@ Account class API:
 
 | API | Descrizione |
 | ------------------------- | ------------------ |
-| Neo.Account.GetScriptHash | Get the script hash of the contract account |
-| Neo.Account.GetVotes      | Get information of the votes that this account has casted |
-| Neo.Account.GetBalance    | Get the balance of this asset in the account given the asset ID |
+| Neo.Account.GetScriptHash | Ottenere l'hash script dell'account del contratto |
+| Neo.Account.GetVotes      | Ottenere informazioni sui voti che questo account ha emesso |
+| Neo.Account.GetBalance    | Ottenere il saldo di questo asset nell'account fornito dell'ID|
 
 Asset class API:
 
-| API | Description |
+| API | Descrizione |
 | ---------------------------- | ------------------------------------- |
-| Neo.Asset.GetAssetId   | Get ID of the asset |
-| Neo.Asset.GetAssetType | Get the category of the asset |
-| Neo.Asset.GetAmount    | Get the total amount of the asset |
-| Neo.Asset.GetAvailable | Get the quantity of the asset that has been issued |
-| Neo.Asset.GetPrecision | Get the number of divisions for this asset, the number of digits after the decimal point |
-| Neo.Asset.GetOwner     | Get the owner of the asset (public key) |
-| Neo.Asset.GetAdmin     | Obtain the administrator (contract address) of the asset |
-| Neo.Asset.GetIssuer    | Obtain the issuer (contract address) of the asset |
+| Neo.Asset.GetAssetId   | Ottenere l'ID dell'asset |
+| Neo.Asset.GetAssetType | Ottenere la categoria dell'asset |
+| Neo.Asset.GetAmount    | Ottenere la quantitá totale dell'asset |
+| Neo.Asset.GetAvailable | Ottenere la quantitá dell'asset emesso |
+| Neo.Asset.GetPrecision | Ottenere il numero di divisioni per questo asset, il numero di cifre dopo il punto decimale |
+| Neo.Asset.GetOwner     | Ottenere il proprietario dell'asset (chiave pubblica) |
+| Neo.Asset.GetAdmin     | Ottenere l'amministratore (indirizzo del contratto) dell'asset |
+| Neo.Asset.GetIssuer    | Ottenere l'emittente (indirizzo del contratto) dell'asset |
 
 Contract class API:
 
