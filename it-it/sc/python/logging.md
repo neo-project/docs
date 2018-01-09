@@ -75,9 +75,9 @@ settings.set_logfile(your_logfile_path, 1e7, 3)
 
 ```
 
-### Accesso al codice personalizzato
+### Logging in codice personalizzato
 
-neo-python usa [logzero](https://logzero.readthedocs.io/) per logging. Per usare alogger con l'esistente configurazione logging NEO, puoi semplicemente importare il logger da logzero:
+neo-python usa [logzero](https://logzero.readthedocs.io/) per il logging. Per usare alogger con l'esistente configurazione logging NEO, puoi semplicemente importare il logger da logzero:
 
 ```
 from logzero import logger
