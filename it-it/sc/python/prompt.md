@@ -1,6 +1,6 @@
 # Utilizzare il prompt
 
-Il Prompt è l'interfaccia predefinita per l'esecuzione e l'interazione con la blockchain di NEO.
+Il Prompt è l'interfaccia predefinita per l'esecuzione e l'interazione con la blockchain NEO.
 
 ## prompt.py
 
