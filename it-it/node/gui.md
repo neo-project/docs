@@ -208,137 +208,137 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 ![image](/assets/gui_18.png)
 
 (2) Clicca OK per generare una richiesta di transazione. Possiamo usare la richiesta di transazione per ottenere dettagli sui termini di invio dalla parte corrispondente.
-+
-+![image](/assets/gui_19.png)
-+
-+#### Fuosione dell'Operazione
-+
-+(1) Dopo aver chiuso la finestra di transazione avviata ti verrà mostrata l'interfaccia di richiesta di fuosione delle transazioni.
-+
-+![image](/assets/gui_20.png)
-+
-+(2) Ciò permette di visualizzare la richiesta di transazione dell'altra parte. Per verificare la legittimità della richiesta della controparte , cliccare verify. sulla legittimità della richiesta, è possibile scegliere di accettare o rifiutare.
-+
-+![image](/assets/gui_24.png)
-+
-+(3) Se si sceglie di accettare le due parti in questione devono firmare la trasmissione. Per maggiori dettagli, vedere [Firma](#sign). <a id="sign"> </a>
-+
-+### Firma
-+(1) Ciò fa sì che la transazione inviata dall'altra parte sia incollata all'interno della casella di input. Cliccare su `sign`, e i dati di output saranno generati. Allo stesso tempo, verrà visualizzato il bottone `broadcast`.
-+
-+![image](/zh-cn/node/assets/u.png)
-+
-+(2) Clicca su `broadcast` per inviare la transazione. Questa transazione è adesso completa e un ID della transazione (TXID) verrà mostrato una volta che la transazione avverrà con successo. 
-+
-+![image](/assets/gui_30.png)
-+
-+<a  id="offline"></a>
-+
-+## Avanzate
-+
-+### Scarica e Sincronizza Dati Offline
-+
-+Al fine di velocizzare la sincronizzazione della rete puoi scaricare una copia della blockchain fino a un certo blocco. Ciò significa che il client ha bisogno solo di sincronizzare i blocchi aggiuntivi dalla rete NEO invece dell'intera blockchain.
-+
-+**Scarica**
-+
-+Per iniziare, scarica il file collocato in [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
-+
-+**Aggiungi**
-+
-+Chiudi il client neo-gui e apri chain.acc.zip. estrai il file chain.acc nella cartella neo-gui come mostrato dalla figura seguente:
-+Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
-+
-+![](/assets/gui_58.png)
-+
-+**sincronizzazione**
-+
-+dopo aver riaperto il client neo-gui vedrai che il client è sincronizzato fino ad un certo livello e che lo stesso non continuerà la sincronizzazione del resto della blockchain. come mostrato in figura:
-+
-+![](/assets/gui_59.png)
-+
-+**Completare**
-+
-+Quando sincronizzato fino ad un certo punto, il file (chain.acc) verrà cancellato e la sincronizzazione dalla rete NEO continuerà. come mostrato nella figura sottostante:
-+
-+![](/assets/gui_60.png)
-+
-+
-+
-+
-+
-+### Estrazione del GAS
-+
-+Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli assets rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questo GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
-+
-+I passaggi specifici sono:
-+
-+(1) Trasferire tutti i NEO all'interno del wallet usando un'operazione di trasferimento. (è possibile inviare i NEO all'indirizzo corrente) Una volta che la richiesta di GAS viene risolta, il GAS può essere prelevato. (Fare riferimento al white paper per una spiegazione tecnica del suddetto processo). 
-+
-+(2) Cliccare `Advanced`, `Claim GAS`, `Claim All`.
-+
-+![image](/assets/gui_37.png)
-+
-+### Richiedere un Certificato
-+
-+Notare che questa operazione genera solo una richiesta per generare il file certificato, l'utente dovrà ancora andare dall'autorità rilevante per i certificati digitali per richiedere il detto certificato.
-+
-+Cliccare `Advanced`, `Request certificate`, e compilare il form in conformità alle istruzioni date.
-+
-+![image](/assets/gui_39.png)
-+
-+Il file generato verrà mostrato come nella figura seguente:
-+
-+![image](/zh-cn/node/assets/y.png)
-+
-+### Assets Registrati
-+
-+Vi sono due tipi di assets, Token e Azioni. usando i token come esempio, riempire come di seguito:
-+
-+![image](/assets/gui_43.png)
-+
-+Va notato che per la registrazione di assets vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 GAS) per favore, prestare attenzione.
-+
-+### Distribute assets
-+
-+![image](/assets/gui_46.png)
-+
-+Occorre notare che la distribuzione degli assets richiede commissioni importanti. (La commissione per la rete principale è di 500 NEO, sulla rete test la commissione è di 5 NEO) Per favore, prestare attenzione e scegliere una distribuzione in un'unica solizione se possibile.
-+
-+### eseguire Contratti
-+
-+Da aggiungere
-+
-+### Invocare Contratti
-+
-+Da aggiungere
-+
-+### Elezioni
-+
-+Questa funzione è usata per registrarsi come candidato validatore della blockchain di NEO.
-+
-+![image](/assets/gui_57.png)
-+
-+Occorre notare che l'elezione richiede importanti commissioni. (Per la rete principale la commissione è di 1000 GAS, per la rete test è di 10 GAS) Per favore, prestare attenzione. La funzione di validatore non è ancora disponibile, aspettare aggiornamenti futuri.
-+
-+### 4.8 Opzione
-+
-+Nessun contenuto al momento.
-+
-+## Aiuto
-+
-+### Vedi Aiuto
-+
-+No content yet.
-+
-+### Website Ufficiale
-+
-+Il website ufficiale di NEO è collocato a: https://neo.org/
-+
-+### Strumenti per Sviluppatori
-+
-+Da aggiungere
-+
-+### Su NEO
+
+![image](/assets/gui_19.png)
+
+#### Fuosione dell'Operazione
+
+(1) Dopo aver chiuso la finestra di transazione avviata ti verrà mostrata l'interfaccia di richiesta di fuosione delle transazioni.
+
+![image](/assets/gui_20.png)
+
+(2) Ciò permette di visualizzare la richiesta di transazione dell'altra parte. Per verificare la legittimità della richiesta della controparte , cliccare verify. sulla legittimità della richiesta, è possibile scegliere di accettare o rifiutare.
+
+![image](/assets/gui_24.png)
+
+(3) Se si sceglie di accettare le due parti in questione devono firmare la trasmissione. Per maggiori dettagli, vedere [Firma](#sign). <a id="sign"> </a>
+
+### Firma
+(1) Ciò fa sì che la transazione inviata dall'altra parte sia incollata all'interno della casella di input. Cliccare su `sign`, e i dati di output saranno generati. Allo stesso tempo, verrà visualizzato il bottone `broadcast`.
+
+![image](/zh-cn/node/assets/u.png)
+
+(2) Clicca su `broadcast` per inviare la transazione. Questa transazione è adesso completa e un ID della transazione (TXID) verrà mostrato una volta che la transazione avverrà con successo. 
+
+![image](/assets/gui_30.png)
+
+<a  id="offline"></a>
+
+## Avanzate
+
+### Scarica e Sincronizza Dati Offline
+
+Al fine di velocizzare la sincronizzazione della rete puoi scaricare una copia della blockchain fino a un certo blocco. Ciò significa che il client ha bisogno solo di sincronizzare i blocchi aggiuntivi dalla rete NEO invece dell'intera blockchain.
+
+**Scarica**
+
+Per iniziare, scarica il file collocato in [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+
+**Aggiungi**
+
+Chiudi il client neo-gui e apri chain.acc.zip. estrai il file chain.acc nella cartella neo-gui come mostrato dalla figura seguente:
+Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
+
+![](/assets/gui_58.png)
+
+**sincronizzazione**
+
+dopo aver riaperto il client neo-gui vedrai che il client è sincronizzato fino ad un certo livello e che lo stesso non continuerà la sincronizzazione del resto della blockchain. come mostrato in figura:
+
+![](/assets/gui_59.png)
+
+**Completare**
+
+Quando sincronizzato fino ad un certo punto, il file (chain.acc) verrà cancellato e la sincronizzazione dalla rete NEO continuerà. come mostrato nella figura sottostante:
+
+![](/assets/gui_60.png)
+
+
+
+
+
+### Estrazione del GAS
+
+Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli assets rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questo GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
+
+I passaggi specifici sono:
+
+(1) Trasferire tutti i NEO all'interno del wallet usando un'operazione di trasferimento. (è possibile inviare i NEO all'indirizzo corrente) Una volta che la richiesta di GAS viene risolta, il GAS può essere prelevato. (Fare riferimento al white paper per una spiegazione tecnica del suddetto processo). 
+
+(2) Cliccare `Advanced`, `Claim GAS`, `Claim All`.
+
+![image](/assets/gui_37.png)
+
+### Richiedere un Certificato
+
+Notare che questa operazione genera solo una richiesta per generare il file certificato, l'utente dovrà ancora andare dall'autorità rilevante per i certificati digitali per richiedere il detto certificato.
+
+Cliccare `Advanced`, `Request certificate`, e compilare il form in conformità alle istruzioni date.
+
+![image](/assets/gui_39.png)
+
+Il file generato verrà mostrato come nella figura seguente:
+
+![image](/zh-cn/node/assets/y.png)
+
+### Assets Registrati
+
+Vi sono due tipi di assets, Token e Azioni. usando i token come esempio, riempire come di seguito:
+
+![image](/assets/gui_43.png)
+
+Va notato che per la registrazione di assets vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 GAS) per favore, prestare attenzione.
+
+### Distribute assets
+
+![image](/assets/gui_46.png)
+
+Occorre notare che la distribuzione degli assets richiede commissioni importanti. (La commissione per la rete principale è di 500 NEO, sulla rete test la commissione è di 5 NEO) Per favore, prestare attenzione e scegliere una distribuzione in un'unica solizione se possibile.
+
+### eseguire Contratti
+
+Da aggiungere
+
+### Invocare Contratti
+
+Da aggiungere
+
+### Elezioni
+
+Questa funzione è usata per registrarsi come candidato validatore della blockchain di NEO.
+
+![image](/assets/gui_57.png)
+
+Occorre notare che l'elezione richiede importanti commissioni. (Per la rete principale la commissione è di 1000 GAS, per la rete test è di 10 GAS) Per favore, prestare attenzione. La funzione di validatore non è ancora disponibile, aspettare aggiornamenti futuri.
+
+### 4.8 Opzione
+
+Nessun contenuto al momento.
+
+## Aiuto
+
+### Vedi Aiuto
+
+No content yet.
+
+### Website Ufficiale
+
+Il website ufficiale di NEO è collocato a: https://neo.org/
+
+### Strumenti per Sviluppatori
+
+Da aggiungere
+
+### Su NEO
 
 La versione numerica del client NEO.
