@@ -16,12 +16,12 @@ public class Block: Header
 
 | | Nome | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(int)](Block/GetTransaction.md) | Returns the specified transaction within the block |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionCount()](Block/GetTransactionCount.md) | Returns the number of transactions within the block |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactions()](Block/GetTransactions.md) | Returns all the transactions within the block |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(int)](Block/GetTransaction.md) | Restituisce la transazione specificata all'interno del blocco |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionCount()](Block/GetTransactionCount.md) | Restituisce il numero di transazioni all'interno del blocco |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactions()](Block/GetTransactions.md) | Restituisce tutte le transazioni all'interno del blocco |
 
 ## Costruttore
 
-The Block object is constructed through [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md).
+L'oggetto del blocco viene costruito mediante [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md).
 
-The Block object is constructed through [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).
+'oggetto del blocco viene costruito mediant [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).
