@@ -30,23 +30,23 @@ NEO-CLIE é un client a linea di comando (wallet) per sviluppatori. Gli sviluppa
 - Usare i comandi CLI (interfaccia a linea di comando). Per esempio, é possibile creare un wallet, generare un indirizzo, ecc.
 - Usare la Remote Procedure Call (RPC). Per esempio, é possibile trasferire all'indirizzo designato, acquisire le informazioni del blocco dell'altezza designata, acquisire le informazioni del trade designato, etc.
 
-NEO-CLI forni： 
+NEO-CLI fornisce le seguenti funzionalitá： 
 
-- As a wallet, manages assets through the command-line.
+- Come wallet, gestisce gli assets tramite la linea di comando.
 
-  To enable the wallet，enter the following command under the NEO-CLI directory：
+  Per abilitare il wallet，inserire il seguente comando sotto la directory di NEO-CLI：
 
   ```
   dotnet neo-cli.dll
   ```
 
-  To check all the available commands, enter the following command：
+  Per controllare tutti i comandi disponibili, inserire il seguente comando：
 
   ```
   help
   ```
 
-  For more information, refer to [CLI Command Reference](node/cli.html).
+  Per maggiori informazioni, fare riferimento a [Riferimenti Comandi CLI](node/cli.html).
 
 - Provides APIs to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
 
