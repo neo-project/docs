@@ -4,15 +4,15 @@
 
 ## Prerequisite
 
-### Scaricamente del client
+### Scaricamento del client
 
-The client itself does not require any installation. Download and extract the files to a location of your choice, then double-click neo-gui.exe to open the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
+Il client stesso non richiede alcuna installazione. Scaricare e installare i file in una posizione a tua scelta, dopo fare doppio clic su neo-gui.exe per aprire il client. Se ci sono problemi durante il processo e il client non puó essere aperto normalmente, per favore posizionare il file error.log nella stessa directory di neo-gui, successivamente contattare il nostro sraff tecnico per assisterti nella risoluzione del problema.
 
-> [!Note]
+> [!Nota]
 >
-> The neo-gui client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+> Il client neo-gui é compatibile con le seguenti versioni di Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 >
-> Windows10 pre-version of the system requires installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+>La pre-versione del sistema Window 10 richiede l'installazione di [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
 ### Sincronizzazione dati blockchain
 
