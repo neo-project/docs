@@ -33,6 +33,6 @@ Descrizione della risposta:
 
 Quando il risultato è true, la transazione corrente è stata trasmessa correttamente alla rete.
 
-Quando il risultato è falso, la transazione corrente non è stat trasmessa. Ci sono molte ragioni per questo, come la doppia spesa, la firma incompleta, ecc.
+Quando il risultato è false, la transazione corrente non è stata trasmessa. Ci sono molte ragioni per questo, come la doppia spesa, la firma incompleta, ecc.
 
 In questo esempio, una transazione confermata era già stata trasmessa, quindi la seconda trasmissione non è riuscita a causa della doppia spesa.
