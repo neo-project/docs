@@ -63,7 +63,7 @@ Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La 
   Dal Desktop, cliccare con il tasto destro sull'icona Computer. 
   Scegliere Proprietà dal menu contestuale.
   Cliccare sul link Impostazioni Avanzate di Sistema.
-  Cliccare Variabili Ambientali. Nella sezione Variabili di Sistema, trovare la variabile di ambiente PATH e selezionala. Clicca su Modifica. Se la variabile di ambiente PATH non esiste, cliccare su nuova.
+  Cliccare Variabili Ambientali. Nella sezione Variabili di Sistema, trovare la variabile di ambiente PATH e selezionala. Cliccare su Modifica. Se la variabile di ambiente PATH non esiste, cliccare su nuova.
   Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di sistema), specificare il valore della variabile di ambiente PATH. Cliccare OK. Chiudere tutte le finestre rimaste aperte cliccando su OK.
 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
