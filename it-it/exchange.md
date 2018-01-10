@@ -1,6 +1,6 @@
 # Documento per Sviluppatori Exchange
 
-Questo documento é destinato a guidare gli sviluppatori di exchange nella configurazione dei nodi NEO sul server exchange e nel completamento dei programmi di sviluppo correlati per le transazioni di asset in NEO. Prima di procedere con la lettura, assicurati di aver letto [NEO White Paper](index.html) e di comprendere le tecnologie e le conoscenze base di NEO.
+Questo documento é destinato a guidare gli sviluppatori di exchange nella configurazione dei nodi NEO sul server exchange e nel completamento dei programmi di sviluppo correlati per le transazioni di asset in NEO. Prima di procedere con la lettura, assicurati di aver letto [NEO White Paper](index.html) e compreso le tecnologie e le conoscenze base di NEO.
 
 In genere, un exchange ha bisogno di fare quanto segue:
 
@@ -16,8 +16,8 @@ In genere, un exchange ha bisogno di fare quanto segue:
 
 Per implementare un nodo NEO sul server exchange, esegui quanto segue:
 
-1.  Installa [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 1.0.1 e le versioni successive.
-2.  Scarica il programma [Neo-CLI](https://github.com/neo-project/neo-cli/releases) da Github e abilita il nodo NEO.
+1.  Installare [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 1.0.1 e le versioni successive.
+2.  Scaricare il programma [Neo-CLI](https://github.com/neo-project/neo-cli/releases) da Github e abilitare il nodo NEO.
 
 Per maggiori informazioni, fare riferimento a [Installazione e implementazione di un nodo NEO](node/setup.html).
 
@@ -69,11 +69,11 @@ L'exchange deve creare un wallet online per gestire gli indirizzi di deposito de
 
 Per creare un wallet, eseguire la seguente procedura：
 
-1. Inserisci  `create wallet <path>`.
+1. Inserire  `create wallet <path>`.
 
    <path> é il percorso del wallet e del nome file del wallet. L'estensione del file puó essere di ogni tipo, per esempio,  creare il wallet mywallet.db3.
 
-2. Imposta una password per il wallet. 
+2. Impostare una password per il wallet. 
 
 > [!Nota]
 >
