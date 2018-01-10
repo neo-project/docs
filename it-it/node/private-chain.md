@@ -13,11 +13,11 @@ Lo sviluppo di una chain privata NEO richiede almeno quattro server per la reali
 Dopo aver creato, per aprire la porta 10331-10334, il metodo specifico per il sistema nel `firewall` `advanced setting` `inbound rules`, per stabilire nuove regole, e aggiungere la porta 10331-10334.
 
 > [!Nota]
-> Se crei una virtual machine su un cloud server, accedi al background amministrativo della virtual machine, e configura un gruppo di sicurezza rete.
+> Se crei una macchina virtuale su un cloud server, accedi al background amministrativo della macchina virtuale, e configura un gruppo di sicurezza rete.
 >
 > La configurazione in Azure è: `network interface` `network security group` `inbound security rules` `add` aggiungi la porta 10331-10334.
 
-Una volta creata la virtual machine, salva l'indirizzo IP delle quattro virtual machines per utilizzarlo in seguito.
+Una volta creata la macchina virtuale, salva l'indirizzo IP delle quattro macchine virtuali per utilizzarlo in seguito.
 
 ## 2. Installazione del nodo NEO
 
@@ -31,7 +31,7 @@ Primo, abbiamo creato quattro file wallet, denominati wallet1.db3 - wallet4.db3.
 
 Una che il wallet è stato creato e la sua chiave pubblica salvata, (per esempio salvata in un file txt), copia direttamente la chiave pubblica o usa il comando `list key` in [CLI Command](cli.md) per vedere la chiave pubblica, e poi copiarla. 
 
-Successivamente, copia i quattro wallets nella directory dei quattro nodi della virtual machine.
+Successivamente, copia i quattro wallets nella directory dei quattro nodi della macchina viruale.
 
 ## 4. Modifica il file di configurazione del nodo
 
@@ -81,7 +81,7 @@ Puoi impostare il tuo sistema di commissioni per la tua chain privata  qui.
 
 Infine, modifica il `protocol.json` nella directory del client dei 4 nodi, rimpiazzando il precedente file protocol.json.
 
-Poi nelle quattro virtual machines, inserisci i seguenti comandi per iniziare il nodo, apri il wallet e comincia il processo di consenso. Per favore fai riferimento al comando [CLI Command Reference](cli.md), se sei insicuro.
+Poi nelle quattro macchine virtuali, inserisci i seguenti comandi per iniziare il nodo, apri il wallet e comincia il processo di consenso. Per favore fai riferimento al comando [CLI Command Reference](cli.md), se sei insicuro.
 
 inizia nodo:
 
