@@ -1,8 +1,8 @@
 # Rete  Test
 
-La TestNet è un ambiente dove l'utente può sviluppare, commissionare e testare programmi. Per testare programmi sulla testnet occorre pagare la commissione di rete di GAS testnet (non GAS reale!!). NEO e GAS testnet possono essere richiesti senza costi, sul website ufficiale. 
+La TestNet è un ambiente dove l'utente può sviluppare, commissionare e testare programmi. Per testare programmi sulla testnet occorre pagare la commissione di rete in GAS testnet (non GAS reale!!). NEO e GAS testnet possono essere richiesti senza costi, sul sito web ufficiale. 
 
-Tutta la blockchain della rete test è indipendente da quella delle rete principale. Se sviluppi un semplice contratto smart o provi a registrare assets, l'uso della rete test dovrebbe bastare. Successivamente al completamento dei test, lo sviluppo può essere spostato sulla mainnet online di NEO.
+Tutta la blockchain della rete test è indipendente da quella delle rete principale. Per sviluppo un semplice smart contract o la registrazione di un asset, l'uso della rete test dovrebbe bastare. Successivamente al completamento dei test, lo sviluppo può essere spostato sulla mainnet online di NEO.
 
 Se sei uno sviluppatore, puoi chiedere GAS sulla Testnet qui: https://www.neo.org/Testnet/Create
 
