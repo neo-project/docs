@@ -29,16 +29,16 @@ Il simbolo uguale `=` indica il valore predefinito di un parametro opzionale sen
 
 Comando | Descrizione della funzione | Osservazioni |
 | ---------------------------------------- | -------------------------------- | ------ |
-| create wallet \<path> | creare il file wallet|
-| open wallet \<path> | Aprire il file wallet |
-| rebuild wallet index | | riapertura del wallet |
-| list address | Fare una lista di tutti gli account del wallet | Occorre aprire il wallet |
-| list asset | Fare una lista di tutti gli asset nel wallet| Occorre aprire il wallet |
-| list key | Fare una lista di tutte le chiavi pubbliche del wallet | Occorre aprire il wallet |
-| create address [n = 1] | Creare un indirizzo / creare lotti di indirizzi | Occorre aprire il wallet |
-| import key \<wif\|path> | Importare la chiave privata / importare chiavi private in gruppo | Occorre aprire il wallet |
-| export key \[address] [path] | Esportare la chiave privata | Occorre aprire il wallet |
-| send \<id\|alias> \<address> \<value> [fee=0]| Mandare all'indirizzo specificato | Occorre aprire il wallet |
+| create wallet \<path> | Creazione del file wallet|
+| open wallet \<path> | Apertura del file wallet |
+| rebuild wallet index | | Riapertura del wallet | Occorre aprire il wallet |
+| list address | Elenca tutti gli account del wallet | Occorre aprire il wallet |
+| list asset | Elenca tutti gli asset nel wallet| Occorre aprire il wallet |
+| list key | Elenca tutte le chiavi pubbliche del wallet | Occorre aprire il wallet |
+| create address [n = 1] | Creazione di un indirizzo / creazione di lotti di indirizzi | Occorre aprire il wallet |
+| import key \<wif\|path> | Importazione della chiave privata / importazione delle chiavi private in gruppo | Occorre aprire il wallet |
+| export key \[address] [path] | Esportazione della chiave privata | Occorre aprire il wallet |
+| send \<id\|alias> \<address> \<value> [fee=0]| Invio all'indirizzo specificato | Occorre aprire il wallet |
 
 I comandi seguenti vengono spiegati in dettaglio:
 
