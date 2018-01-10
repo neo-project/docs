@@ -49,7 +49,7 @@ Scarica il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) 
 
 A rilascio avvenuto con successo, il file neon.exe viene genrato in `bin\Release\PublishOutput`.
 
-Adesso occorre aggiunge questa directoru al nostro percorso di esecuzione. La PATH è la variabile di sistema che il tuo sistema operativo usa per localizzare eseguibili richiesti dalla linea di comando o dalla finestra del Terminal.
+Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La PATH è la variabile di sistema che il tuo sistema operativo usa per localizzare eseguibili richiesti dalla linea di comando o dalla finestra del Terminal.
 
 **Windows 10 e Windows 8:**
 
