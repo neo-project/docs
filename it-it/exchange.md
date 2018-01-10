@@ -1,34 +1,34 @@
 # Documento per Sviluppatori Exchange
 
-Questo documento é inteso per guidare gli sviluppatori di exchange nella configurazione nei nodi NEO sul server exchange e nel completamento dei programmi di sviluppo correlati per le transazioni di assets in NEO. Prima di leggere, assicurati di aver letto [NEO White Paper](index.html) e capito le tecnologie e la conoscenza base di NEO.
+Questo documento é destinato a guidare gli sviluppatori di exchange nella configurazione dei nodi NEO sul server exchange e nel completamento dei programmi di sviluppo correlati per le transazioni di asset in NEO. Prima di procedere con la lettura, assicurati di aver letto [NEO White Paper](index.html) e di comprendere le tecnologie e le conoscenze base di NEO.
 
-In generale, un exchange ha bisogno di fare quanto segue:
+In genere, un exchange ha bisogno di fare quanto segue:
 
-- [Implementazione di un nodo NEO su server](#deploying-a-neo-node-on-server)
-- [Creazione di un wallet e un indirizzo di deposito](#creating-a-wallet-and-deposit-addresses)
-- [Trattare Transazioni Assets globali](#dealing-with-global-assets-transactions)
-- [Trattare Transazioni assets NEP-5 ](#dealing-with-nep-5-assets-transactions)
+- [Implementazione di un Nodo NEO su Server](#deploying-a-neo-node-on-server)
+- [Creazione di un Wallet e un Indirizzo di Deposito](#creating-a-wallet-and-deposit-addresses)
+- [Trattare con Transazioni di Asset Globali](#dealing-with-global-assets-transactions)
+- [Trattare Transazioni di Asset NEP-5 ](#dealing-with-nep-5-assets-transactions)
 - [(Opzionale) Distribuzione di GAS agli utenti](#optional-distributing-gas-to-users)
 
 
 
-## Implementare un Nodo NEO su Server
+## Implementazione di un Nodo NEO su Server
 
 Per implementare un nodo NEO sul server exchange, esegui quanto segue:
 
-1.  Installare [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 1.0.1 e le versioni successive.
-2.  Da Github, scaricare il programma [Neo-CLI](https://github.com/neo-project/neo-cli/releases) e abilitare il nodo NEO.
+1.  Installa [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 1.0.1 e le versioni successive.
+2.  Scarica il programma [Neo-CLI](https://github.com/neo-project/neo-cli/releases) da Github e abilita il nodo NEO.
 
 Per maggiori informazioni, fare riferimento a [Installazione e implementazione di un nodo NEO](node/setup.html).
 
-## Creare un wallet e un indirizzo di deposito
+## Creazione di un Wallet e un Indirizzo di Deposito
 
 ### NEO-CLI
 
-NEO-CLIE é un client a linea di comando (wallet) per sviluppatori. Gli sviluppatori possono interagire con il client in due modi:
+NEO-CLI é un client a linea di comando (wallet) per sviluppatori. Gli sviluppatori possono interagire con il client in due modi:
 
-- Usare i comandi CLI (interfaccia a linea di comando). Per esempio, é possibile creare un wallet, generare un indirizzo, ecc.
-- Usare la Remote Procedure Call (RPC). Per esempio, é possibile trasferire all'indirizzo designato, acquisire le informazioni del blocco dell'altezza designata, acquisire le informazioni del trade designato, etc.
+- Usando i comandi CLI (interfaccia a linea di comando). Per esempio, é possibile creare un wallet, generare un indirizzo, ecc.
+- Usando la Remote Procedure Call (RPC). Per esempio, é possibile trasferire all'indirizzo designato, acquisire le informazioni del blocco dell'altezza designata, acquisire le informazioni del trade designato, ecc.
 
 NEO-CLI fornisce le seguenti funzionalitá： 
 
@@ -46,7 +46,7 @@ NEO-CLI fornisce le seguenti funzionalitá：
   help
   ```
 
-  Per maggiori informazioni, fare riferimento a [Riferimenti Comandi CLI](node/cli.html).
+  Per maggiori informazioni, fare riferimento a [Riferimento dei Comandi CLI](node/cli.html).
 
 - Fornisce API per recuperare i dati blockchain dai nodi. Le interfaccie sono fornite tramite  [JSON-RPC](http://www.jsonrpc.org/specification)，e le comunicazioni sottostanti usano i protocollo HTTP/HTTPS.
 
@@ -59,15 +59,15 @@ NEO-CLI fornisce le seguenti funzionalitá：
   Per maggiori informazioni sull'API, fare riferimento a [Riferimento API](node/api.html).
 
 
-### Creazione di un wallet
+### Creazione di un Wallet
 
-L'exchange ha bisogno di un wallet online per gestire gli indirizzi di deposito degli utenti. Un wallet é usato per memorizzare le informazioni degli accounts (entrambe chiavi private e chiavi pubbliche) e i contratti. Questo é la prova piú importante in possesso dell'utente. Gli utenti devono mantenere i files del wallet e la password del wallet al sicuro. Essi non devono divulgare o perderne i dati. 
+L'exchange deve creare un wallet online per gestire gli indirizzi di deposito degli utenti. Il wallet é usato per memorizzare le informazioni degli accounts (entrambe chiavi private e chiavi pubbliche) e dei contratti. È la prova piú importante in possesso dell'utente. Gli utenti devono mantenere i file del wallet e la password del wallet al sicuro. Essi non devono divulgare o perderne i dati. 
 
 > [!Nota]
 >
-> Gli Exchanges non devono creare un wallet per ogni indirizzo. Di solito un wallet online tiene tutti gli indirizzi di deposito degli utenti. Un "cold wallet" (un wallet offline) rappresenta un'altra opzione di memorizzazione la quale fornisce una migliore sicurezza.
+> Gli Exchange non devono creare un wallet per ogni indirizzo. Di solito un wallet online tiene tutti gli indirizzi di deposito degli utenti. Un "cold wallet" (un wallet offline) rappresenta un'altra opzione di memorizzazione che offre una maggiore sicurezza.
 
-Per creare un wallet, fai quanto segue：
+Per creare un wallet, eseguire la seguente procedura：
 
 1. Inserisci  `create wallet <path>`.
 
@@ -77,8 +77,7 @@ Per creare un wallet, fai quanto segue：
 
 > [!Nota]
 >
-> Il wallet deve rimanere sempre aperto tutto il tempo per rispondere alle richieste di ritiro degli utenti. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
-
+> Il wallet deve rimanere sempre aperto tutto il tempo per rispondere alle richieste di preglievo degli utenti. Per motivi di sicurezza, i wallet devono essere eseguiti in un server indipendente su cui il firewall è configurato in modo appropriato, come mostrato di seguito. 
 |                    | Mainnet | Testnet |
 | ------------------ | ------- | ------- |
 | JSON-RPC via HTTPS | 10331   | 20331   |
