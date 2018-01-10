@@ -149,7 +149,7 @@ optional arguments:
 --version             show program's version number and exit
 ```
 
-Puoi interrogare per un blocco nel server corrente dall' hash o dall'indice del blocco:
+Puoi interrogare un blocco nel server corrente tramite l'hash o l'indice del blocco:
 
 ```python
 python prompt.py
