@@ -2,7 +2,7 @@
 
 In un tutorial precedente, hai imparato come configurare ed eseguire un nodo su Windows e Linux. Questo tutorial ti insegnerà come costruire una chain privata, e gli step necessari per estrarre NEO e GAS da queste chain private.
 
-Lo sviluppo di una chain privata NEO richiede almeno 4 servers per realizzare il consenso, dove ogni server corrisponde a un nodo di consenso e un wallet NEO dedicato.
+Lo sviluppo di una chain privata NEO richiede almeno 4 server per realizzare il consenso, dove ogni server corrisponde a un nodo di consenso e un wallet NEO dedicato.
 
 ## 1. Configurazione della macchina virtuale
 
