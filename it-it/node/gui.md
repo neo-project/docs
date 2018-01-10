@@ -2,7 +2,6 @@
 
 ## Prerequisiti
 
-## Prerequisite
 
 ### Scaricamento del client
 
@@ -16,15 +15,15 @@ Il client stesso non richiede alcuna installazione. Scaricare e installare i fil
 
 ### Sincronizzazione dati blockchain
 
-The client must be fully synchronized before use. The bottom left hand corner indicates the number of blocks synchronized and the total number of blocks in the network (see example below).  These numbers will update regularly.
+Il client deve essere completamente sincronizzaro prima dell'uso. L'angolo in basso a sinistra indica il numero di blocchi sincronizzati e il numero totale di blocchi nella rete (vedi l'esempio in basso). Questi numeri si aggiornano regolarmente.
 
 ![image](/assets/gui_1.png)
 
-In order to speed up network synchronzation you can download a copy of the blockchain up to a certain blockheight.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
+Al fine di aumentare la velocitá di sincronizzazione della rete puoi scaricare una copia della blockchain fino ad una determinata altezza. Ció significa che il client avrá bisogno di sincronizzare soltanto i blocchi aggiuntivi dalla rete NEO invece dell'intera blockchain. 
 
-1. To begin, download the file located at [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+1. Per iniziare, scaricare il file collocato a [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-2. Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
+2. Chiudere il client neo-gui client e aprire chain.acc.zip. Estrarre il file chain.acc nella cartella neo-gui folder come mostrato nella figura seguente:
 
    ![](/assets/gui_58.png)
 
