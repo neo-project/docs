@@ -38,7 +38,7 @@ Tutti i nodi di consenso sono tenuti a mantenere una tabella di stato per regist
 
 ​Identifichiamo ciascun nodo di consenso con un numero, a partire da 0, l'ultimo nodo è numerato n - 1. Per ogni round di realizzazione del consenso, un nodo fará lo "speaker" della casa mentre gli altri nodi fanno i "congressman". Il numero p di "speaker" sarà determinato dall'algoritmo seguente: Ipoteticamente l'attuale altezza del blocco è h, poi 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, l'intervallo di valori di p sarà  0 ≤ 𝑝 < 𝑛 .
 
-​Un nuovo blocco verrà generato con ogni round di consenso, con almeno 𝑛 − 𝑓 firme dai nodi bookkeeping. Alla generazione di un blocco, inizierà un nuovo round di consenso, resettando v=0.
+​Un nuovo blocco verrà generato in ogni round di consenso, con almeno 𝑛 − 𝑓 firme dai nodi bookkeeping. Alla generazione di un blocco, inizierà un nuovo round di consenso, resettando v=0.
 
 ###  Procedure Generali
 
@@ -46,7 +46,7 @@ Essendo t l'intervallo di tempo nella generazione dei blocchi, sotto normali cir
 
 1) Un nodo trasmette i dati della transazione all'intera rete, in allegato con la firma del mittente;
 
-2) Tutti i nodi bookkeppers monitorano la trasmissione dei dati delle transazioni in modo indipendente e memorizzano i dati nella rispettiva memoria ; 
+2) Tutti i nodi bookkepper monitorano la trasmissione dei dati delle transazioni in modo indipendente e memorizzano i dati nella rispettiva memoria ; 
 
 3) Dopo il tempo t, lo speaker invia 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
 
@@ -54,9 +54,9 @@ Essendo t l'intervallo di tempo nella generazione dei blocchi, sotto normali cir
 
 ​5) Ogni nodo, dopo aver ricevuto almeno 𝑛 − 𝑓  〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, raggiunge il consenso e pubblica un blocco intero;
 
-6) Ogni nodo, dopo aver ricevuto il blocco completo, elimina la transazione in questione dalla sua memoria e inizia il prossimo round del consenso;
+6) Ogni nodo, dopo aver ricevuto il blocco completo, elimina la transazione in questione dalla sua memoria e inizia il prossimo round di consenso;
 
-Viene richiesto che, per tutti i nodi di consenso, almeno 𝑛 − 𝑓 nodi si trovino nello stato originiale. Vale a dire, per tutti i nodi i, l'altezza del blocco h e il numero di View v sono uguali. Questo non è difficile, la consistenza di h potrebbe essere raggiunta sincronizzando i blocchi mentre la consistenza di v potrebbe essere raggiunta cambiando la View. La sincronizzazione dei blocchi non è trattata in questo articolo. Per il cambio di View, controlla la prossima sezione.
+Viene richiesto che, per tutti i nodi di consenso, almeno 𝑛 − 𝑓 nodi si trovino nello stato originiale. Vale a dire, per tutti i nodi i, l'altezza del blocco h e il numero di View v sono uguali. Questo non è difficile, la consistenza di h potrebbe essere raggiunta sincronizzando i blocchi mentre la consistenza di v potrebbe essere raggiunta cambiando la View. La sincronizzazione dei blocchi non è trattata in questo articolo. Per il cambio di View, controllare la prossima sezione.
 
 I nodi, dopo aver monitorato la trasmissione e ricevuto la proposta, convalidano le transazioni. Non possono scrivere una transazione illegale nella memoria una volta che quest'ultimo si è esposto. Se una transazione illegale è contenuta nella proposta, questo specifico round di consenso sarà abbandonato e la modifica della View avverrà immediatamente. Le procedure di convalida sono le seguenti:
 
@@ -84,7 +84,7 @@ Se, dopo l'intervallo di tempo 2<sup>𝑣+1</sup> ⋅ 𝑡, i nodi i non possono
 
 Con l'aumentare di k, il tempo di attesa per gli straordinari aumenterà in modo esponenziale, quindi frequenti cambiamenti di View verranno evitati e i nodi verranno sollecitati a raggiungere la coerenza su v.
 
-Prima del completamento del cambio di View, l'originale View v è ancora valida, quindi possono essere evitati cambiamenti non necessari View causati da latenza occasionale della rete. 
+Prima del completamento del cambio di View, l'originale View v è ancora valida, quindi possono essere evitati cambiamenti non necessari di View causati da latenza occasionale della rete. 
 
 ### Diagramma di Flusso
 
