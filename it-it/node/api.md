@@ -31,7 +31,7 @@ Per le informazioni P2P e Websocket vedi [Node/Introduction](introduction.md).
 
 | Comando                                       | Riferimento                                      | Spiegazione                         | Commenti       |
 | ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
-| [getaccountstate](api/getaccountstate.md)          | \<address>                             |controlla le informazioni sugli assets dell'account dell'indirizzo di riferimento  |    |
+| [getaccountstate](api/getaccountstate.md)          | \<address>                             |controlla le informazioni sugli asset dell'account dell'indirizzo di riferimento  |    |
 | [getassetstate](api/getassetstate.md)    | \<asset_id>                              | Interrogare le informazioni sugli asset in base al numero di asset specificato            |          |
 | [getbalance](api/getbalance.md)          | \<asset_id>                             |Restituisce il saldo degli asset corrispondenti nel wallet secondo il numero di asset specificato.   | Occorre aprire il wallet   |
 | [getbestblockhash](api/getbestblockhash.md) |                                         | Ottieni l'hash del blocco più alto nella chain           |          |
