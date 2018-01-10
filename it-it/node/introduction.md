@@ -1,4 +1,4 @@
-# Introduzione Ai Nodi NEO
+# Introduzione ai Nodi NEO
 I nodi che memorizzano tutta la blockchain sono chiamati "full-nodes". Essi sono connessi alla blockchain tramite una rete P2P. Tutti i nodi nella blockchain sono uguali, agiscono sia come interfaccia cliente sia come server.
 
 Ci sono due programmi per un full-node. Il primo é Neo-GUI, contenente tutte le funzioni basiche di un client utente, inclusa un'interfaccia grafica per gli utenti di NEO. Il secondo é Neo-CLI: Esso provvede API esterne per un wallet con funzioni basiche ed é inteso per gli sviluppatori di NEO. Inoltre, aiuterá altri nodi a guadagnare consenso nella rete é sará coinvolto nella generazione di nuovi blocchi.
