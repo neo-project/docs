@@ -33,18 +33,18 @@ Una volta che il wallet è stato creato e la sua chiave pubblica salvata, (per e
 
 Successivamente, copiare i quattro wallet nella directory dei quattro nodi della macchina viruale.
 
-## 4. Modificare il file di configurazione del nodo
+## 4. Modifica del file di configurazione del nodo
 
-Apri il file di configurazione del nodo `protocol.json`.
+Aprire il file di configurazione del nodo `protocol.json`.
 
-prima modifica il valore `Magic`. Magic viene usato per identificare la fonte del messaggio nella rete, e specificare un Magic differente assicura che informazioni su reti differenti nel blocco NEO non vengano inviate ad altre reti, durante la trasmissione. 
+Prima modificare il valore `Magic`. Magic viene usato per identificare la fonte del messaggio nella rete, e specificare un Magic differente assicura che informazioni su reti differenti nel blocco NEO non vengano inviate ad altre reti, durante la trasmissione. 
 
 > [!Nota]
-> Il carattere Magic è unito, quindi nota che il valore che inserisci è nel range [0 - 4294967295].
+> Il carattere Magic è unito, quindi notare che il valore da inserire rientra nell'intervallo [0 - 4294967295].
 
-Modifica `StandbyValidators`, e inserisci le 4 chiavi pubbliche registrare nello step 3, qui.
+Modificare `StandbyValidators`, e inserire le 4 chiavi pubbliche registrare nello step 3, qui.
 
-infine modifica `SeedList`, inserisci l'indirizzo IP registrato nel primo step, e il numero di porta invariato. Per esempio, ho modificato le seguenti configurazioni
+infine modificare `SeedList`, inserire l'indirizzo IP registrato nel primo step, e il numero di porta invariato. Come esempio, sono state modificate le seguenti configurazioni
 
 ```json
 {
@@ -75,13 +75,13 @@ infine modifica `SeedList`, inserisci l'indirizzo IP registrato nel primo step, 
 
 SystemFee è il sistema di commissioni, le commissioni correnti sono come segue (in unità di GAS):
 
-Registrazione per book-keepers - 1000, Distribuzione di Asset - 500 Smart Contracts 500, Registrazione di Asset - 10000
+Registrazione per bookkeeper - 1000, Distribuzione di Asset - 500 Smart Contract 500, Registrazione di Asset - 10000
 
-Puoi impostare il tuo sistema di commissioni per la tua chain privata  qui.
+E' possibile impostare il proprio sistema di commissioni per la propria chain privata qui.
 
-Infine, modifica il `protocol.json` nella directory del client dei 4 nodi, rimpiazzando il precedente file protocol.json.
+Infine, modificare il `protocol.json` nella directory del client dei 4 nodi, rimpiazzando il precedente file protocol.json.
 
-Poi nelle quattro macchine virtuali, inserisci i seguenti comandi per iniziare il nodo, apri il wallet e comincia il processo di consenso. Per favore fai riferimento al comando [CLI Command Reference](cli.md), se sei insicuro.
+Poi nelle quattro macchine virtuali, inserire i seguenti comandi per avviare il nodo, aprire il wallet e avviare il processo di consenso. Si prega di fare riferimento al comando [Riferimento Comando CLI](cli.md), se si é insicuri.
 
 inizia nodo:
 
