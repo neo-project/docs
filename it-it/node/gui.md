@@ -218,32 +218,32 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 
 #### Iniziare un'Operazione
 
-(1) Questa transazione richiede ad entrambe le parti di iniziare una richiesta di transazione al fine di determinare i dettagli dell'asset inviati al destinatario corrispondente.
+(1) Questa transazione richiede ad entrambe le parti di avviare una richiesta di transazione al fine di determinare i dettagli dell'asset inviati al destinatario corrispondente.
 
 ![image](/assets/gui_18.png)
 
-(2) Clicca OK per generare una richiesta di transazione. Possiamo usare la richiesta di transazione per ottenere dettagli sui termini di invio dalla parte corrispondente.
+(2) Cliccare OK per generare una richiesta di transazione. E' possibile usare la richiesta di transazione per ottenere dettagli sui termini di invio dalla parte corrispondente.
 
 ![image](/assets/gui_19.png)
 
 #### Fuosione dell'Operazione
 
-(1) Dopo aver chiuso la finestra di transazione avviata ti verrà mostrata l'interfaccia di richiesta di fuosione delle transazioni.
+(1) Dopo aver chiuso la finestra di richiesta di transazione avviata ti verrà mostrata l'interfaccia di richiesta di fusione della transazione.
 
 ![image](/assets/gui_20.png)
 
-(2) Ciò permette di visualizzare la richiesta di transazione dell'altra parte. Per verificare la legittimità della richiesta della controparte , cliccare verify. sulla legittimità della richiesta, è possibile scegliere di accettare o rifiutare.
+(2) Ciò permette di visualizzare la richiesta di transazione dell'altra parte. Per verificare la legittimità della richiesta della controparte, cliccare verify. sulla legittimità della richiesta, è possibile scegliere di accettare o rifiutare.
 
 ![image](/assets/gui_24.png)
 
-(3) Se si sceglie di accettare le due parti in questione devono firmare la trasmissione. Per maggiori dettagli, vedere [Firma](#sign). <a id="sign"> </a>
+(3) Se si sceglie di accettare, le due parti in questione devono firmare e trasmettere. Per maggiori dettagli, vedere [Firma](#sign). <a id="sign"> </a>
 
 ### Firma
 (1) Ciò fa sì che la transazione inviata dall'altra parte sia incollata all'interno della casella di input. Cliccare su `sign`, e i dati di output saranno generati. Allo stesso tempo, verrà visualizzato il bottone `broadcast`.
 
 ![image](/zh-cn/node/assets/u.png)
 
-(2) Clicca su `broadcast` per inviare la transazione. Questa transazione è adesso completa e un ID della transazione (TXID) verrà mostrato una volta che la transazione avverrà con successo. 
+(2) Cliccare su `broadcast` per inviare la transazione. Questa transazione è adesso completa e l'ID della transazione (TXID) verrà mostrato una volta che la transazione avverrà con successo. 
 
 ![image](/assets/gui_30.png)
 
