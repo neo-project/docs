@@ -51,4 +51,4 @@ Se vuoi far accedere un programma esterno all'API del nodo, é necessario aprire
 | P2P via TCP        | 10333        | 20333         |
 | P2P via WebSocket  | 10334        | 20334         |
 
-Per maggiori informazioni, perfavore fare riferimento a [test network](testnet.md).
+Per maggiori informazioni, per favore fare riferimento a [test network](testnet.md).
