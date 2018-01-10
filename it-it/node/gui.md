@@ -251,36 +251,6 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 
 ## Avanzate
 
-### Scarica e Sincronizza Dati Offline
-
-Al fine di velocizzare la sincronizzazione della rete puoi scaricare una copia della blockchain fino a un certo blocco. Ciò significa che il client ha bisogno solo di sincronizzare i blocchi aggiuntivi dalla rete NEO invece dell'intera blockchain.
-
-**Scarica**
-
-Per iniziare, scarica il file collocato in [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
-
-**Aggiungi**
-
-Chiudi il client neo-gui e apri chain.acc.zip. estrai il file chain.acc nella cartella neo-gui come mostrato dalla figura seguente:
-Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
-
-![](/assets/gui_58.png)
-
-**sincronizzazione**
-
-dopo aver riaperto il client neo-gui vedrai che il client è sincronizzato fino ad un certo livello e che lo stesso non continuerà la sincronizzazione del resto della blockchain. come mostrato in figura:
-
-![](/assets/gui_59.png)
-
-**Completare**
-
-Quando sincronizzato fino ad un certo punto, il file (chain.acc) verrà cancellato e la sincronizzazione dalla rete NEO continuerà. come mostrato nella figura sottostante:
-
-![](/assets/gui_60.png)
-
-
-
-
 
 ### Estrazione del GAS
 
