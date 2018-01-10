@@ -37,7 +37,7 @@ Aprire Visual Studio 2017, aprire Tools, cliccare su Estensioni e Aggiornamenti,
 
 Passi per l'installazione e la configurazione:
 
-Scarica il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) su Github, apri la soluzione con Visual Studio 2017, pubblica il progetto neon
+Scaricare il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) su Github, aprire la soluzione con Visual Studio 2017, pubblicare il progetto neon
 
 ![publish NEO compiler msil project](/assets/publish_neo_compiler_msil_project.png)
 
@@ -47,7 +47,7 @@ Scarica il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) 
 >
 > Durante il processo di pubblicazione di neon, se viene richiesto, il file neon.dll non può essere copiato, è possibile copiare manualmente il file con lo stesso nome dalla cartella di livello superiore. 
 
-A rilascio avvenuto con successo, il file neon.exe viene genrato in `bin\Release\PublishOutput`.
+A rilascio avvenuto con successo, il file neon.exe viene generato in `bin\Release\PublishOutput`.
 
 Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La PATH è la variabile di sistema che il tuo sistema operativo usa per localizzare eseguibili richiesti dalla linea di comando o dalla finestra del Terminal.
 
@@ -75,7 +75,7 @@ Adesso eseguire il Command o la PowerShell, e inserire neon.exe. Se non ci sono 
 
 NOTA. Gli utenti di Windows 7 SP1 potrebbero incontrare un errore "Unhandled Exception: System.DllNotFoundException: unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". il file richiesto 'api-ms-win-core-console-l2-1-0.dll' è solo disponibile in Windows 8 o versioni successive. Questo errore può essere risolto ottenendo una copia di 'api-ms-win-core-console-l2-1-0.dll' e mettendola nella directory C:\Windows\System32.
 
-## Crea Progetto
+## Creare un Progetto
 
 Dopo l'installazione della configurazione precedente, puoi creare un progetto NeoContract in Visual Studio 2017.
 
@@ -86,9 +86,9 @@ Una volta creato un progetto, esso genererà automaticamente un file C#, la clas
 ![smart contract function code](/assets/smart_contract_function_code.png)
 
 
-## Compila il Progetto
+## Compilare il Progetto
 
-Adesso è tutto quanto pronto èer aggiungere il nuovo metodo di inserimento che definisce lo smart contract:
+Adesso è tutto quanto pronto per aggiungere il nuovo metodo di ingresso che definisce lo smart contract:
 
 ```c#
 public class Contract1: SmartContract
