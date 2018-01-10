@@ -1,10 +1,10 @@
 # NEO Whitepaper
 
-Una rete distribuita per l'Economia Smart
+Una rete distribuita per la Smart Economy
 
-## Progetti e Obiettivi di NEO: Economia Smart
+## Progetti e Obiettivi di NEO: Smart Economy
 
-NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare gli asset, gli "smart contract" (contratti intelligenti) sono utilizzati per rendere autonoma la gestione degli asset digitali, permettendo così di creare una Economia Smart tramite una rete decentralizzata.
+NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare gli asset, gli "smart contract" (contratti intelligenti) sono utilizzati per rendere autonoma la gestione degli asset digitali, permettendo così di creare una Smart Economy tramite una rete decentralizzata.
 
 ### Asset Digitali
 
