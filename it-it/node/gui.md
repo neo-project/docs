@@ -188,7 +188,7 @@ Siccome l'altezza del blocco corrente è molto alta, ricostruire l'Indice del wa
 
 (4) Per la funzione firma vedi [firma](#sign).
 
-#### Trasferiment in Lotto
+#### Trasferimento in Lotto
 
 Questa funzione è usata per semplificare il trasferimento di uno stesso asset a differenti indirizzi.
 
@@ -198,7 +198,7 @@ Il formato dei dati è `address transfer amount` (separato da spazi).
 
 ![image](/assets/gui_15.png)
 
-Va notate che il formato dei dati va inserito in conformità ai criteri esposti precedentemente, uno spazio aggiuntivo potrebbe portare al fallimento del trasferimento.
+Va notato che il formato dei dati va inserito in conformità ai criteri esposti precedentemente, uno spazio aggiuntivo potrebbe portare al fallimento del trasferimento.
 
 #### Osservazioni
 
