@@ -65,15 +65,15 @@ Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La 
   In Cerca, cercare e poi selezionare: Sistema (Pannello di Controllo)
   Cliccare il link impostazione di sistema avanzate.
   Cliccare Variabili D'ambiente. Nella sezione Variabili di Sistema, trovare la variabile d'ambiente PATH e selezionala. Cliccare Modifica. Se l'ambiente variabile PATH non esiste, cliccare su Nuova.
-  Nella finestra variabile di sistema modificata (o nuova variabile di sistema), specificare il valore della variabile ambiente PATH. Cliccare OK. Chiudere tutte le rimanenti finestre cliccando su OK.
+   Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di Sistema), specificare il valore della variabile PATH. Cliccare OK. Chiudere tutte le finestre rimanenti cliccando su OK.
 
 **Windows 7:**
 
-  Dal desktop, Clic destro sull'icona del computer.
-  Scegliere Proprietà dal menu.
-  Cliccare su Impostazioni Avanzate di Sistema.
-  Cliccare Variabili D'ambiente. Nella sezione Variabili di Sistema, trovare la Variabile D'ambiente PATH e selezionala. Cliccare Modifica. Se la Variabile D'ambiente PATH non esiste, cliccare su Nuova. 
-  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di Sistema), specificare il valore della variabile d'ambiente PATH. Cliccare OK. Chiudere tutte le finestre aperte cliccando su OK.
+  Dal Desktop, cliccare con il tasto destro sull'icona Computer. 
+  Scegliere Proprietà dal menu contestuale.
+  Cliccare sul link Impostazioni Avanzate di Sistema.
+  Cliccare Variabili Ambientali. Nella sezione Variabili di Sistema, trovare la variabile di ambiente PATH e selezionala. Cliccare su Modifica. Se la variabile di ambiente PATH non esiste, cliccare su nuova.
+  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di sistema), specificare il valore della variabile di ambiente PATH. Cliccare OK. Chiudere tutte le finestre rimaste aperte cliccando su OK.
 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
@@ -85,9 +85,9 @@ NOTA: Gli utetni di Windows 7 SP1 potrebbero incontrarre un errore "Unhandled Ex
 
 ## Creare un Progetto
 
-Dopo il completamento dell'installazione di sopra puoi creare progetti in Java (usando Eclipse o IntelliJ).
+Dopo il completamento dell'installazione precedente é possibile creare progetti in Java (usando Eclipse o IntelliJ).
 
-Hai bisogno di aggiungere AntShares.SmartContract.Framework.jar (il quale è  il compilatore del progetto neo) come library esterna.
+Occorre compilare il pacchetto .jar dello smart contract dal progetto neo java devpack ([neo-devpack-java](https://github.com/neo-project/neo-devpack-java)) e aggiungerlo come library esterna.
 
 
 ## Compilare il Progetto
@@ -108,7 +108,7 @@ public class HelloWorld extends SmartContract{
 }
 ```
 
-Costruisci il progetto che ti restituisce `HelloWorld.class` nella tua cartella.
+Costruire il progetto che restituirá `HelloWorld.class` nella tua cartella d'uscita.
 
 Poi usando neoj, avvia cmd.exe ed esegui :
 > neoj.exe HelloWorld.class
@@ -119,5 +119,5 @@ Per maggiori informazioni e per vedere esempi Java funzionanti per favore fare r
 
 ## Esegui un smart contracts
 
-Una volta arrivati a questo stadio, le istruzioni sono uguali, non importa quale linguaggio hai usato per scrivere gli smart contracts 
-Segui questo tutorial: [Esegui un lock contract](http://docs.neo.org/en-us/sc/tutorial/Lock2.html)
+Una volta arrivati a questo stadio, le istruzioni sono uguali, non importa quale linguaggio é stato usato per scrivere gli smart contracts.
+Seguire questo tutorial: [Esegui un lock contract](http://docs.neo.org/en-us/sc/tutorial/Lock2.html)
