@@ -1,6 +1,6 @@
 # Metodo Getrawmempool
 
-Ottenere l'elenco delle transazioni non confermate in memoria.
+Ottiene l'elenco delle transazioni non confermate in memoria.
 
 ## Esempio
 
