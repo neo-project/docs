@@ -48,14 +48,13 @@ Il file wallet memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'
 > La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi asset. Per favore, assicurati che il file wallet sia archiviato in sicurezza e ricorda la password del wallet.
 
 #### Account
-
 Usato per tenere traccia degli asset in un blocco NEO.
 
-Le informazioni legate all'account includono: Indirizzo, chiave privata, chiave pubblica, type.
+Le informazioni legate all'account includono: Indirizzo, chiave privata, chiave pubblica, tipo.
 
 (1) Indirizzo: L'equivalente di un conto bancario o il numero di carta bancaria, usato per ricevere asset durante le transazioni. 
 
-(2) Type: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste in una chiave pubblica ed è  un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste in molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per i contratti smart. 
+(2) Tipo: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste in una chiave pubblica ed è  un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste in molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per i contratti smart. 
 
 (3) Chiave privata: Un numero casuale da 256-bit, tenuto dall'utente e non divulgato pubblicamente. Rappresenta la proprietà dell'account e la proprietà degli asset all'interno dell'account. 
 
