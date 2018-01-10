@@ -13,7 +13,7 @@ neo-python, il nodo python e l'SDK per la blockchain NEO, permette di costruire,
 
 ## Installazione della liberira Python
 
-Installare la libreria libleveldb. Installa [Python 3.5](https://www.python.org/downloads/release/python-354/) per essere sicuro di non incombere in alcun problema con la tua versione di Python che potrebbe essere diversa dalle versioni correntemente mantenute. Nota che Python 3.6 non è correntemente supportato a causa di incompatibilità con il modulo byteplay.
+ictallare la libreria libleveldb. Installa [Python 3.5](https://www.python.org/downloads/release/python-354/) per essere sicuro di non incombere in alcun problema con la tua versione di Python che potrebbe essere diversa dalle versioni correntemente mantenute. Nota che Python 3.6 non è correntemente supportato a causa di incompatibilità con il modulo byteplay.
 
 **Per OSX**, inserire quanto segue:
 
