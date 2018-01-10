@@ -278,52 +278,23 @@ Il file generato verrà mostrato come nella figura seguente:
 
 ### Asset Registrati
 
-Vi sono due tipi di asset, Token e Azioni. usando i token come esempio, riempire come di seguito:
+Vi sono due tipi di asset, Token e Azioni. usando i token come esempio, riempire quanto segue:
 
 ![image](/assets/gui_43.png)
 
-Va notato che per la registrazione di asset vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 GAS) per favore, prestare attenzione.
+Occorre notare che per la registrazione di asset vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 monete NEO) per favore, prestare attenzione.
 
-### Distribute asset
+### Distribuire asset
 
 ![image](/assets/gui_46.png)
 
-Occorre notare che la distribuzione degli asset richiede commissioni importanti. (La commissione per la rete principale è di 500 NEO, sulla rete test la commissione è di 5 NEO) Per favore, prestare attenzione e scegliere una distribuzione in un'unica solizione se possibile.
-
-### eseguire Contratti
-
-Da aggiungere
-
-### Invocare Contratti
-
-Da aggiungere
+Occorre notare che la distribuzione di asset comporta commissioni importanti. (La commissione per la rete principale è di 500 monete NEO, sulla rete test la commissione è di 5 monete NEO) Per favore, prestare attenzione e scegliere la distribuzione in un'unica solizione se possibile.
 
 ### Elezioni
 
-Questa funzione è usata per registrarsi come candidato validatore della blockchain di NEO.
+Questa funzione è usata per registrarsi come candidato validatore della blockchain NEO.
 
 ![image](/assets/gui_57.png)
 
-Occorre notare che l'elezione richiede importanti commissioni. (Per la rete principale la commissione è di 1000 GAS, per la rete test è di 10 GAS) Per favore, prestare attenzione. La funzione di validatore non è ancora disponibile, aspettare aggiornamenti futuri.
+Occorre notare che l'elezione richiede importanti commissioni. (Per la rete principale la commissione è di 1000 GAS, per la rete test è di 10 GAS) Per favore, prestare attenzione. La funzione di validatore non è ancora disponibile, attendere aggiornamenti futuri.
 
-### 4.8 Opzione
-
-Nessun contenuto al momento.
-
-## Aiuto
-
-### Vedi Aiuto
-
-No content yet.
-
-### Website Ufficiale
-
-Il website ufficiale di NEO è collocato a: https://neo.org/
-
-### Strumenti per Sviluppatori
-
-Da aggiungere
-
-### Su NEO
-
-La versione numerica del client NEO.
