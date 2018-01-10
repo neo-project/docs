@@ -10,7 +10,7 @@ NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare
 
 Gli asset digitali sono risorse programmabili esistenti sotto forma di dati digitali. Grazie alla tecnologia blockchain, la digitalizzazione degli asset può essere decentralizzata, affidabile, tracciabile, altamente trasparente e senza intermediari. Sulla blockchain di NEO gli utenti possono registrarsi, commerciare e scambiarsi diversi tipi di asset, dimostrando che la connessione tra asset digitali e asset fisici é possibile tramite l'implementazione dell'identità digitale. Gli asset registrati e convalidati tramite un’identità digitale sono inoltre protetti dalla legge.
 
-NEO implementa due tipi di asset digitali: asset globali e asset contrattuali. Gli asset globali registrati nel sistema sono identificati da tutti gli smart contracts e dai clients. Gli asset contrattuali sono registrati nell' archivio privato dello smart contract in questione, quindi, é richiesto un client compatibile per riconoscerli. Gli asset contrattuali possono aderire a specifici standards rendendo possibile la compatibilità con la maggior parte dei clients.
+NEO implementa due tipi di asset digitali: asset globali e asset contrattuali. Gli asset globali registrati nel sistema sono identificati da tutti gli smart contract e dai clients. Gli asset contrattuali sono registrati nell' archivio privato dello smart contract in questione, quindi, é richiesto un client compatibile per riconoscerli. Gli asset contrattuali possono aderire a specifici standards rendendo possibile la compatibilità con la maggior parte dei clients.
 
 
 ### Identità Digitale
@@ -21,7 +21,7 @@ Per identità digitale ci si riferisce alle informazioni sull'identità degli in
 
 Il crittografo Nick Szabo, nel 1994, fu il primo a proporre il concetto di smart contract (contratto programmato), solo 5 anni dopo la creazione del World Wide Web. Secondo la definizione di Szabo: quando una condizione pre-programmata viene innescata lo smart contract eseguirà i corrispondenti termini contrattuali. La tecnologia blockchain provvede un sistema decentralizzato, resistente alle manomissioni, altamente affidabile, all'interno del quale gli smart contract sono di primaria utilità. NEO implementa un sistema indipendente per gli smart contract chiamato: NeoContract.
 
-Il sistema NeoContract rappresenta la più grande caratteristica dell'integrazione senza pari al preesistente ecosistema di sviluppo software. Gli sviluppatori non hanno più bisogno di imparare un nuovo linguaggio di programmazione, possono scegliere di utilizzare C#, Java e altri linguaggi mainstream nell'ambiente IDE a loro più familiare (Visual Studio, Eclipse, etc.) per lo sviluppo dei contratti, debugging e compilazione. La leggera macchina virtuale (VM - Virtual machine) di NEO, NeoVM, ha il vantaggio di avere un'elevato grado di sicurezza, alta concorrenza e alta scalabilità. NeoContract permetterà a milioni di sviluppatori di tutto il mondo di eseguire rapidamente lo sviluppo degli smart contracts. NeoContract avrà un white paper separato per descrivere i dettagli sull’implementazione.
+Il sistema NeoContract rappresenta la più grande caratteristica dell'integrazione senza pari al preesistente ecosistema di sviluppo software. Gli sviluppatori non hanno più bisogno di imparare un nuovo linguaggio di programmazione, possono scegliere di utilizzare C#, Java e altri linguaggi mainstream nell'ambiente IDE a loro più familiare (Visual Studio, Eclipse, etc.) per lo sviluppo dei contratti, debugging e compilazione. La leggera macchina virtuale (VM - Virtual machine) di NEO, NeoVM, ha il vantaggio di avere un'elevato grado di sicurezza, alta concorrenza e alta scalabilità. NeoContract permetterà a milioni di sviluppatori di tutto il mondo di eseguire rapidamente lo sviluppo degli smart contract. NeoContract avrà un white paper separato per descrivere i dettagli sull’implementazione.
 
 ### Applicazioni ed Ecosistema
 
@@ -59,7 +59,7 @@ L'ecosistema é il punto cardine della comunità open source. Per riuscire a rag
 
 -	Fondo smart
 
--	AI legale assistita dagli smart contracts
+-	AI legale assistita dagli smart contract
 
 -	Social networking
 
@@ -90,11 +90,11 @@ NEO ha due token nativi, NEO (simbolo abbreviato NEO) e NeoGas (simbolo abbrevia
 
 NEO, con un totale di 100 milioni di tokens, assegna ai possessori il diritto di gestire la rete. Nei diritti di gestione é incluso il voto per il “bookkeeping" (libro contabile), il cambiamento nei parametri della rete di NEO e tanto altro. L'unità minima di misura di NEO é 1, questi token non possono essere suddivisi.
 
-GAS é il token carburante usato per il controllo e la gestione degli asset interni della rete NEO, con un limite massimo di 100 milioni di tokens. Per utilizzare la rete é necessario pagare in GAS le operazioni e la conservazione dei tokens e dei contratti (smart contracts), in tal modo si prevengono di abusi degli asset della rete e vengono creati incentivi economici per i bookkeepers. l'unità minima del token GAS é 0.00000001.
+GAS é il token carburante usato per il controllo e la gestione degli asset interni della rete NEO, con un limite massimo di 100 milioni di tokens. Per utilizzare la rete é necessario pagare in GAS le operazioni e la conservazione dei tokens e dei contratti (smart contract), in tal modo si prevengono di abusi degli asset della rete e vengono creati incentivi economici per i bookkeepers. l'unità minima del token GAS é 0.00000001.
 
 Nel blocco genesi (il primo blocco) della rete NEO sono stati generati 100 milioni di NEO, a differenza del GAS che invece verrà rilasciato programmaticamente. 100 milioni di GAS, corrispondenti ai 100 milioni NEO, saranno generati attraverso un algoritmo di decadimento in 22 anni all'incirca, inviato istantaneamente agli indirizzi che detengono NEO. Se NEO viene trasferito a un nuovo indirizzo, il conseguente GAS generato sarà accreditato al nuovo indirizzo.
 
-La rete NEO fisserà una soglia, votando per esentare il GAS da una certa quantità di transazioni come trasferimenti e operazioni con smart contracts per migliorare l'esperienza utente. Quando si verificano grosse quantità di transazioni "spam", NeoID potrà essere utilizzato per dare priorità alle transazioni e agli smart contract con un’identità qualificata. Transazioni e smart contracts senza alcuna identità digitale potranno ottenere la priorità solo pagando in GAS.
+La rete NEO fisserà una soglia, votando per esentare il GAS da una certa quantità di transazioni come trasferimenti e operazioni con smart contract per migliorare l'esperienza utente. Quando si verificano grosse quantità di transazioni "spam", NeoID potrà essere utilizzato per dare priorità alle transazioni e agli smart contract con un’identità qualificata. Transazioni e smart contract senza alcuna identità digitale potranno ottenere la priorità solo pagando in GAS.
 
 ### Meccanismo Di Distribuzione
 
@@ -140,21 +140,21 @@ Nel meccanismo di consenso NEO dBFT, prendendo circa dai 15 ai 20 secondi per ge
 
 Il dBFT utilizza la tecnologia dell'identità digitale, ciò significa che i bookkeepers possono essere un nome reale di un individuo o un'istituzione. In tal modo é possibile congelare, revocare, ereditare, recuperare e trasferire la proprietà tramite una decisione giudiziaria. Ciò facilita la registrazione di asset finanziari nella rete NEO. La rete NEO ha pianificato di supportare queste operazioni quando necessario.
 
-### Sistema Degli Smart Contracts: NeoContract
+### Sistema Degli Smart Contract: NeoContract
 
-Il sistema degli smart contracts di NEO consiste in tre parti:
+Il sistema degli smart contract di NEO consiste in tre parti:
 
 **NeoVM – Macchina Virtuale (VM) della Block Chain Universale::**
 
-NeoVM é una leggera, macchina virtuale (virtual machine) multi-scopo la cui architettura é molto simile a JVM e .NET Runtime, simile a una CPU virtuale che legge ed esegue in sequenza le istruzioni presenti nei contratti, esegue il controllo dei processi in base alle funzionalità delle operazioni, delle istruzioni, operazioni logiche e molto altro. Ha un'ottima velocità di avvio e versatilità, é specialmente adatta per piccoli programmi come gli smart contracts, inoltre, può essere portata al di fuori della block-chain, oppure essere integrata con la IDE, provvedendo in tal modo un'ottima esperienza di sviluppo. Le funzionalità di NeoVM sono estensibili, ad esempio tramite l'introduzione del meccanismo JIT (real-time compiler), in tal modo potenziando l'efficienza dell’implementazione.
+NeoVM é una leggera, macchina virtuale (virtual machine) multi-scopo la cui architettura é molto simile a JVM e .NET Runtime, simile a una CPU virtuale che legge ed esegue in sequenza le istruzioni presenti nei contratti, esegue il controllo dei processi in base alle funzionalità delle operazioni, delle istruzioni, operazioni logiche e molto altro. Ha un'ottima velocità di avvio e versatilità, é specialmente adatta per piccoli programmi come gli smart contract, inoltre, può essere portata al di fuori della block-chain, oppure essere integrata con la IDE, provvedendo in tal modo un'ottima esperienza di sviluppo. Le funzionalità di NeoVM sono estensibili, ad esempio tramite l'introduzione del meccanismo JIT (real-time compiler), in tal modo potenziando l'efficienza dell’implementazione.
 
 **InteropService – Servizi Interoperabili:**
 
-Usato per caricare il registro della blockchain, gli asset digitali, l'identità digitale, l’area di archiviazione persistente e altri servizi sottostanti. InteropService é pensato per le macchine virtuali (c.d. Virtual Machines), abilitando gli smart contracts ad accedere a questi servizi in fase di esecuzione per raggiungere funzionalità più avanzate. Tramite questo design di basso attrito, NeoVM può essere portato su qualsiasi sistema blockchain o non block-chain usato, aumentando l'utilità dei contratti.
+Usato per caricare il registro della blockchain, gli asset digitali, l'identità digitale, l’area di archiviazione persistente e altri servizi sottostanti. InteropService é pensato per le macchine virtuali (c.d. Virtual Machines), abilitando gli smart contract ad accedere a questi servizi in fase di esecuzione per raggiungere funzionalità più avanzate. Tramite questo design di basso attrito, NeoVM può essere portato su qualsiasi sistema blockchain o non block-chain usato, aumentando l'utilità dei contratti.
 
 **DevPack - Compilatore e plugin IDE:**
 
-DevPack include il compilatore per linguaggi di alto livello e il plugin IDE. Siccome l'architettura di NeoVM é molto simile a JVM e .NET Runtime, i compilatori nel DevPack sono capaci di compilare Java byte code e .NET MSIL nel set di istruzioni di NeoVM. Gli sviluppatori Java / Kotlin, C# non hanno bisogno di imparare nuovi linguaggi e saranno capaci di sviluppare smart contracts in VS, Eclipse e altri ambienti IDE a loro familiari. Tutto ciò riduce enormemente la curva di apprendimento degli smart contracts, permettendoci di costruire una comunità intorno a NeoContract molto vivace.
+DevPack include il compilatore per linguaggi di alto livello e il plugin IDE. Siccome l'architettura di NeoVM é molto simile a JVM e .NET Runtime, i compilatori nel DevPack sono capaci di compilare Java byte code e .NET MSIL nel set di istruzioni di NeoVM. Gli sviluppatori Java / Kotlin, C# non hanno bisogno di imparare nuovi linguaggi e saranno capaci di sviluppare smart contract in VS, Eclipse e altri ambienti IDE a loro familiari. Tutto ciò riduce enormemente la curva di apprendimento degli smart contract, permettendoci di costruire una comunità intorno a NeoContract molto vivace.
 
 NeoContract può creare uno schema ad albero per un contratto intelligente attraverso un'analisi statica, ancor prima di eseguire lo stesso contratto. Attraverso questo schema ad albero deterministico, un qualsiasi nodo di NEO può dinamicamente frammentare il contratto intelligente raggiungendo in tal modo un'espansione illimitata a livello teorico, superando in tal modo il c.d. "effetto inceppamento” (jamming effect) causato dalla frammentazione statica di altri sistemi blockchain.
 
@@ -164,11 +164,11 @@ NeoX é un protocollo che implementa l'interoperabilità cross-chain. NeoX é di
 
 **Accordo di scambio per asset cross-chain:**
 
-NeoX é già esteso ai protocolli di scambio Atomic Asset permettendo a più partecipanti di scambiare asset attraverso chain differenti e assicurando che tutti gli step dell'intero processo di transazione abbiano successo o falliscano insieme. Al fine di rendere possibile questa funzione, abbiamo bisogno di usare le funzioni di NeoContract per creare un account destinato ai contratti per ogni partecipante. Se le altre blockchain non sono compatibili con NeoContract, possono essere compatibili con NeoX fintanto che forniscano semplici funzionalità correlate agli smart contracts.
+NeoX é già esteso ai protocolli di scambio Atomic Asset permettendo a più partecipanti di scambiare asset attraverso chain differenti e assicurando che tutti gli step dell'intero processo di transazione abbiano successo o falliscano insieme. Al fine di rendere possibile questa funzione, abbiamo bisogno di usare le funzioni di NeoContract per creare un account destinato ai contratti per ogni partecipante. Se le altre blockchain non sono compatibili con NeoContract, possono essere compatibili con NeoX fintanto che forniscano semplici funzionalità correlate agli smart contract.
 
 **Protocollo per le transazioni cross-chain distribuite:**
 
-Per transazioni cross chain distribuite s'intende che i diversi steps di una transazione sono sparpagliati tra differenti blockchain e che la consistenza dell'intera transazione é assicurata. Questa é una estensione dello scambio per asset cross-chain, estendendo il comportamento degli asset in un comportamento arbitrario. In termini profani, NeoX rende possibile l'esecuzione cross chain degli smart contracts dove un contratto intelligente può eseguire diverse componenti su chains differenti, avendo completo successo oppure essendo completamente ripristinato. Ciò offre un'eccellente possibilità di collaborazioni, inoltre nel frattempo stiamo esplorando scenari riguardanti applicazioni per gli smart contracts cross-chain. 
+Per transazioni cross chain distribuite s'intende che i diversi steps di una transazione sono sparpagliati tra differenti blockchain e che la consistenza dell'intera transazione é assicurata. Questa é una estensione dello scambio per asset cross-chain, estendendo il comportamento degli asset in un comportamento arbitrario. In termini profani, NeoX rende possibile l'esecuzione cross chain degli smart contract dove un contratto intelligente può eseguire diverse componenti su chains differenti, avendo completo successo oppure essendo completamente ripristinato. Ciò offre un'eccellente possibilità di collaborazioni, inoltre nel frattempo stiamo esplorando scenari riguardanti applicazioni per gli smart contract cross-chain. 
 
 ### Protocollo Per L'archiviazione Distribuita: NeoFS
 
@@ -176,7 +176,7 @@ NeoFS é un protocollo di archiviazione distribuita che utilizza la tecnologia H
 
 Il problema principale con questo tipo di sistema consiste nella necessità di trovare un bilanciamento tra ridondanza e affidabilità. NeoFS intende risolvere questa contraddizione tramite l'incentivazione con tokens e l'istituzione di nodi rappresentanti la struttura della rete. Gli utenti possono scegliere i requisiti di affidabilità dei files. I files con bassi requisiti di affidabilità possono avere accesso gratis o quasi. Servizi stabili e affidabili per file con requisiti di elevata affidabilità saranno forniti dai nodi strutturali della rete.
 
-NeoFS servirà come uno dei InteropService (servizi interoperabili) sotto il sistema di NeoContract, permettendo agli smart contracts di memorizzare files di grandi dimensioni sulla blockchain e impostare i permessi di accesso a questi files. Inoltre, NeoFS può essere combinato con l'identità digitale così i certificati digitali usati possono essere assegnati, inviati e revocati senza l'uso di un server centrale che li gestisca. In futuro, i vecchi dati della blockchain potranno essere archiviati in NeoFS, così che la maggior parte dei nodi della rete possano rilasciare i vecchi dati per una migliore scalabilità e allo stesso tempo, assicurare l'integrità storica dei dati.
+NeoFS servirà come uno dei InteropService (servizi interoperabili) sotto il sistema di NeoContract, permettendo agli smart contract di memorizzare files di grandi dimensioni sulla blockchain e impostare i permessi di accesso a questi files. Inoltre, NeoFS può essere combinato con l'identità digitale così i certificati digitali usati possono essere assegnati, inviati e revocati senza l'uso di un server centrale che li gestisca. In futuro, i vecchi dati della blockchain potranno essere archiviati in NeoFS, così che la maggior parte dei nodi della rete possano rilasciare i vecchi dati per una migliore scalabilità e allo stesso tempo, assicurare l'integrità storica dei dati.
 
 ### Meccanismo di Crittografia Anti-Quantistica: NeoQS
 
@@ -184,4 +184,4 @@ L'emergere dei computers quantistici pone una maggiore sfida ai meccanismi di cr
 
 ## Sommario
 
-NEO é una rete distribuita che combina asset digitali, identità digitali, e smart contracts. Il sistema NEO userà DBFT, NeoX, NeoFS, NeoQS e altre tecnologie originali, come infrastruttura per l'economia intelligente del futuro.
+NEO é una rete distribuita che combina asset digitali, identità digitali, e smart contract. Il sistema NEO userà DBFT, NeoX, NeoFS, NeoQS e altre tecnologie originali, come infrastruttura per l'economia intelligente del futuro.
