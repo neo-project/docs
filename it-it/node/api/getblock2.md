@@ -31,7 +31,7 @@ Testo della risposta:
 }
 ```
 
-Richiesta di test0:
+Testo della richiesta:
 
 Verbose = 1, restituisce il risultato in formato JSON.
 
@@ -44,7 +44,7 @@ Verbose = 1, restituisce il risultato in formato JSON.
 }
 ```
 
-Rispost di testo:
+Testo della risposta:
 
 ```json
 {
