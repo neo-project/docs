@@ -91,15 +91,15 @@ Creare un asset emesso dall'utente nel blocco NEO. L'utente può definire il tip
 
 #### Asset Distribuiti
 
-Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio addizionale con commissione, il prezzo corrente è di 500 GAS. (Sulla rete test corrisponde all'un percento della rete principale).
+Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio addizionale di commissione, il prezzo corrente è di 500 GAS. (Sulla rete Test la commussione corrisponde all'1% della rete principale).
 
 #### Elezioni
 
-Coloro che vogliono diventare validatori NEO devono registrarsi tramite elezione. Attraverso il deposito di una certa quantità di NEO, è possibile ottenere la qualificazione di validator. Questa funzione non è correntemente supportata. Per favore aspettare aggiornamenti successivi.
+Coloro che vogliono diventare validatori NEO devono registrarsi tramite elezione. Attraverso il deposito di una certa quantità di NEO, è possibile ottenere la qualificazione di validatore. Questa funzione non è correntemente supportata. Si prega di attendere ulteriori aggiornamenti.
 
 #### Voto
 
-I detentori di NEO possono votare i candidati validatori e questo meccaniscmo di voto determinerà se un validatore è eletto. Questa funzione non è correntemente supportata. Per favore aspettare aggiornamenti successivi.
+I detentori di NEO possono votare i candidati validatori e questo meccaniscmo di voto determinerà se un validatore è selezionato. Questa funzione non è correntemente supportata. Si prega di attendere ulteriori aggioramenti.
 
 #### Trasmissione
 
