@@ -34,13 +34,13 @@ Il modo più efficiente di portare a termine questi passaggi è di scaricare e c
 
 ### 1. Visual Studio 2017
 
-Se hai già installato Visual Studio 2017 sul tuo computer e controllato per .NET Cross-Platform Development al momento dell'installazione, puoi saltare questa sezione.
+Se hai già installato Visual Studio 2017 sul tuo computer e spuntato .NET Cross-Platform Development al momento dell'installazione, puoi saltare questa sezione.
 
 Scaricare e Installare:
 
 [Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-Il processo di installazione è davvero semplice, segui le istruzioni d'uso passo dopo passo, dovrebbe essere notato che hai bisogno di controllare l'installazione di `.NET Core cross-platform development`, altrimenti non sarai capace di aprire il progetto neo-vm nello step #3. l'installazione richiede da dieci minuti fino a un'ora.
+Il processo di installazione è davvero semplice, segui le operazioni prompts passo dopo passo, va notato che é necessario controllare l'installazione di `.NET Core cross-platform development`, altrimenti non sará possibile aprire il progetto neo-vm nello step #3. l'installazione richiede da dieci minuti fino a un'ora.
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
