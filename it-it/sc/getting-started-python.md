@@ -21,7 +21,7 @@ Occorre installare la libreria libleveldb. Installa [Python 3.5](https://www.pyt
 brew install leveldb
 ```
 
-Se hai un problema simile a questo:
+Se stai avendo un problema simile a questo:
 
 ```python
     from ._plyvel import (  # noqa
@@ -31,14 +31,14 @@ Se hai un problema simile a questo:
     Expected in: flat namespace
 ```
 
-Dovresti disinstallare plyvel (la libreria ython libleveldb), e reinstallare con i seguenti cflags:
+Dovresti disinstallare plyvel (la libreria Python libleveldb), e reinstallarla con i seguenti cflags:
 
 ```python
 pip uninstall plyvel
 CFLAGS='-mmacosx-version-min=10.7 -stdlib=libc++' pip install --no-use-wheel plyvel --no-cache-dir --global-option=build_ext --global-option="-I/usr/local/Cellar/leveldb/1.20_2/include/" --global-option="-L/usr/local/lib"
 ```
 
-Potresti incontrare problemi mentre stai installando il modulo pycrypto su OSX:
+Potresti incontrare problemi anche mentre stai installando il modulo pycrypto su OSX:
 
 ```python
 src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
@@ -48,40 +48,40 @@ src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
 error: command 'clang' failed with exit status 1
 ```
 
-Ciò può essere aggiustato installando la libreria gmp usando homebrew ed eseguendo pip install con la seguente linea di comando:
+Ciò può essere risolto installando la libreria gmp usando homebrew ed eseguendo pip install con la seguente linea di comando:
 
 ```python
 brew install gmp
 CFLAGS='-mmacosx-version-min=10.7 -stdlib=libc++' pip install --no-use-wheel pycrypto --no-cache-dir --global-option=build_ext --global-option="-I/usr/local/Cellar/gmp/6.1.2/include/" --global-option="-L/usr/local/lib"
 ```
 
-**Per Ubuntu/Debian**, inserisci quanto segue:
+**Per Ubuntu/Debian**, inserire quanto segue:
 
 ```python
 apt-get install libleveldb-dev python3.5-dev python3-pip libssl-dev
 ```
 
-**Per Centos/Redhat/Fedora**, inserisci quanto segue:
+**Per Centos/Redhat/Fedora**, inserire quanto segue:
 
 ```python
 yum -y install development tools python35 python35-devel python35-pip readline-devel leveldb-devel libffi-devel
 ```
 
-Potresti aver bisogno di permettere epel repo per il pacchetto leveldb-devel, e lo puoi fare modificando `/etc/yum.repos.d/epel.repo`.
+Potresti aver bisogno di abilitare epel repo per il pacchetto leveldb-devel, ed é possibile farlo modificando `/etc/yum.repos.d/epel.repo`.
 
 > [!Nota]
 >
-> Per tutto ciò, assicurati che la directory `Chains` nel tuo progetto abbia i giusti permessi di scrittura. 
+> Per tutto ciò, assicurati che la directory `Chains` nel tuo progetto abbia gli adeguati permessi di scrittura. 
 
 **Per Windows:**
 
-Questo non è ancora stato testato fino ad ora. Installare il pacchetto Python plyvel sembrerebbe richiedere il supporto del compilatore C++ legato a Visual Studio e librerie.
+Attualmente non testato. Installare il pacchetto Python plyvel sembra richiedere il supporto del compilatore C++ legato a Visual Studio e librerie.
 
 ## Configurazione dell'ambiente virtuale
 
-1. Clona l'archivio <https://github.com/CityOfZion/neo-python/> e naviga nella directory del progetto. 
+1. Clonare l'archivio <https://github.com/CityOfZion/neo-python/> e navigare nella directory del progetto. 
 
-2. Crea un ambiente virtuale Python 3 e attivalo tramite:
+2. Creare un ambiente virtuale Python 3 e attivarlo tramite:
 
    ```python
    python3 m venv venv
@@ -101,7 +101,7 @@ Questo non è ancora stato testato fino ad ora. Installare il pacchetto Python p
    pip install -r requirements.txt
    ```
 
-4. Installa un riferimento alla directory funzionante `neo`, la quale permette di `import neo` da qualunque parte nel progetto (esempi eg):
+4. Installare un riferimento alla directory funzionante `neo`, la quale permette di `import neo` da qualsiasi parte nel progetto (esempi):
 
 
    ```python
