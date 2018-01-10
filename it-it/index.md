@@ -88,7 +88,7 @@ L'ecosistema é il punto cardine della comunità open source. Per riuscire a rag
 
 NEO ha due token nativi, NEO (simbolo abbreviato NEO) e NeoGas (simbolo abbreviato GAS).
 
-NEO, con un totale di 100 milioni di token, assegna ai possessori il diritto di gestire la rete. Nei diritti di gestione é incluso il voto per il “bookkeeping" (contabilitá), il cambiamento nei parametri della rete di NEO e tanto altro. L'unità minima di misura di NEO é 1, questi token non possono essere suddivisi.
+NEO, con un totale di 100 milioni di token, assegna ai possessori il diritto di gestire la rete. Nei diritti di gestione é incluso il voto per il “bookkeeping" (contabilitá), il cambiamento dei parametri della rete di NEO e tanto altro. L'unità minima di misura di NEO é 1, questi token non possono essere suddivisi.
 
 GAS é il token carburante usato per il controllo e la gestione degli asset interni della rete NEO, con un limite massimo di 100 milioni di token. Per utilizzare la rete é necessario pagare in GAS le operazioni e la conservazione dei token e dei contratti (smart contract), in tal modo si prevengono di abusi degli asset della rete e vengono creati incentivi economici per i bookkeepers. l'unità minima del token GAS é 0.00000001.
 
