@@ -25,29 +25,29 @@ Il file wallet memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'
 
 > [!Importante]
 >
-> La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi assets. Per favore, assicurati che il file wallet sia archiviato in sicurezza e ricorda la  password del wallet.
+> La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi asset. Per favore, assicurati che il file wallet sia archiviato in sicurezza e ricorda la  password del wallet.
 
 #### Account
 
-Usato per tenere traccia degli assets in un blocco NEO.
+Usato per tenere traccia degli asset in un blocco NEO.
 
 Le informazioni legate all'account includono: Indirizzo, chiave privata, chiave pubblica, type.
 
-(1) Indirizzo: L'equivalente di un conto bancario o il numero di carta bancaria, usato per ricevere assets durante le transazioni. 
+(1) Indirizzo: L'equivalente di un conto bancario o il numero di carta bancaria, usato per ricevere asset durante le transazioni. 
 
 (2) Type: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste in una chiave pubblica ed è  un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste in molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per i contratti smart. 
 
-(3) Chiave privata: Un numero casuale da 256-bit, tenuto dall'utente e non divulgato pubblicamente. Rappresenta la proprietà dell'account e la proprietà degli assets all'interno dell'account. 
+(3) Chiave privata: Un numero casuale da 256-bit, tenuto dall'utente e non divulgato pubblicamente. Rappresenta la proprietà dell'account e la proprietà degli asset all'interno dell'account. 
 
 (4) Chiave pubblica: Ogni chiave privata ha una chiave pubblica corrispondente (Nota: Le informazioni sulla chiave pubblica e la chiave privata possono essere viste facendo doppio click sull'indirizzo.)
 
 > [!Importante]
 >
-> In nessun caso la chiave privata deve essere divulgata a terze parti. Una volta che la chiave privata viene divulgata, ciò potrebbe risultare in una perdita dei tuoi assets.
+> In nessun caso la chiave privata deve essere divulgata a terze parti. Una volta che la chiave privata viene divulgata, ciò potrebbe risultare in una perdita dei tuoi asset.
 
-#### Assets
+#### Asset
 
-Gli assets dell'account, le informazioni sugli assets, che includono: Assets (NEO, GAS, gli assets creati dall'utente), tipo, saldo e l'emittente.
+Gli asset dell'account, le informazioni sugli asset, che includono: Asset (NEO, GAS, gli asset creati dall'utente), tipo, saldo e l'emittente.
 
 #### Record delle Transazioni
 
@@ -55,24 +55,24 @@ Un record di tutte le informazioni sulle transazioni associate all'account.
 
 #### Trasferimento
 
-Il trasferimento di assets a un indirizzo ricevente. Se il tipo di asset è NEO, viene richiesto a entrambe le parti di confermare con la propria firma. Altri tipi di assets possono essere trasferiti senza la conferma da parte di entrambe le parti.
+Il trasferimento di asset a un indirizzo ricevente. Se il tipo di asset è NEO, viene richiesto a entrambe le parti di confermare con la propria firma. Altri tipi di asset possono essere trasferiti senza la conferma da parte di entrambe le parti.
 
 #### Commercio
 
-Effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli assets con successo.
+Effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
 
 #### Firma
 
 La firma di informazioni, significa confermare le informazioni da parte del firmatario.
-per le transazioni che coinvolgono allocazioni di capitale e trasferimento di assets, la firma è richiesta come prova del consenso da parte delle parti coinvolte.
+per le transazioni che coinvolgono allocazioni di capitale e trasferimento di asset, la firma è richiesta come prova del consenso da parte delle parti coinvolte.
 
-#### Assets Registrati
+#### Asset Registrati
 
-Creare un asset emesso dall'utente nel blocco NEO. L'utente può definire il tipo, il nome, il totale, etc. dell'asset e specificare l'amministratore dell'account dell'asset. la creazione di assets consuma una certa quantità  di NEO come servizio di commisione addizionale, il prezzo corrente è di 10,000 GAS. (la commissione per la rete in test è  l'uno percento della rete principale).
+Creare un asset emesso dall'utente nel blocco NEO. L'utente può definire il tipo, il nome, il totale, etc. dell'asset e specificare l'amministratore dell'account dell'asset. la creazione di asset consuma una certa quantità  di NEO come servizio di commisione addizionale, il prezzo corrente è di 10,000 GAS. (la commissione per la rete in test è  l'uno percento della rete principale).
 
-#### Assets Distribuiti
+#### Asset Distribuiti
 
-Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di assets consuma una certa quantità di piccole monete come servizio addizionale con commissione, il prezzo corrente è di 500 GAS. (Sulla rete test corrisponde all'un percento della rete principale).
+Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio addizionale con commissione, il prezzo corrente è di 500 GAS. (Sulla rete test corrisponde all'un percento della rete principale).
 
 #### Elezioni
 
@@ -88,7 +88,7 @@ Dopo aver firmato, l'informazione sulla transazione viene trasmette all'intera r
 
 #### Indirizzo Monitor
 
-dopo aver importato l'indirizzo di terza parte come indirizzo da monitorare, sarai capace di vedere gli assets in questo indirizzo.
+dopo aver importato l'indirizzo di terza parte come indirizzo da monitorare, sarai capace di vedere gli asset in questo indirizzo.
 
 ## Wallet
 ### Creazione del Database del Wallet
@@ -105,7 +105,7 @@ dopo aver importato l'indirizzo di terza parte come indirizzo da monitorare, sar
 
 ![image](/assets/gui_4.png)
 
-(4) Clicca su `OK` e il wallet verrà creato con successo, di default sarà reso disponibile con un account standard. Da notare che a causa del ruolo del meccanismo di cambiamento, il resto degli assets sarà trasferito al primo indirizzo predefinito. quindi, c'è il bisogno di fare il corrispondente backup della chiave privata e del wallet. 
+(4) Clicca su `OK` e il wallet verrà creato con successo, di default sarà reso disponibile con un account standard. Da notare che a causa del ruolo del meccanismo di cambiamento, il resto degli asset sarà trasferito al primo indirizzo predefinito. quindi, c'è il bisogno di fare il corrispondente backup della chiave privata e del wallet. 
 
 ### Apri il Database del Wallet
 
@@ -113,7 +113,7 @@ dopo aver importato l'indirizzo di terza parte come indirizzo da monitorare, sar
 
 ![image](/assets/gui_5.png)
 
-(2) Clicca su `Browse ' per selezionare il wallet (di solito quello predefinite è l'ultimo wallet aperto), inserisci la password, clicca `OK` per accedere al wallet. Va notato che quando il wallet mostra un errore, è possibile tentare il "repair mode" per aprire il wallet. 
+(2) Clicca su `Browse`  per selezionare il wallet (di solito quello predefinite è l'ultimo wallet aperto), inserisci la password, clicca `OK` per accedere al wallet. Va notato che quando il wallet mostra un errore, è possibile tentare il "repair mode" per aprire il wallet. 
 
 ### Cambiare Password
 
@@ -131,13 +131,13 @@ Questa opzione viene usata per ripristinare gli errori nel client quando si veri
 
 2. Se una transazione non è stata confermata dopo un lungo periodo di tempo.
 
-3. Gli assets del wallet mostrano errori e i dati della blockchain non corrispondono.
+3. Gli asset del wallet mostrano errori e i dati della blockchain non corrispondono.
 
 siccome l'altezza del blocco corrente è molto alta, ricostruire l'Index del wallet potrebbe richiedere diversi minuti. Per favore sii paziente.
 
 ### Ripristinare L'account
 
-Questa opzione viene usata per ripristinare l'indirizzo del file wallet che è stato accidentalmente cancellato e i suoi assets. Va notato che non è generalmente raccomandato eliminare le operazioni all'interno del client, per evitare la perdita di assets.
+Questa opzione viene usata per ripristinare l'indirizzo del file wallet che è stato accidentalmente cancellato e i suoi asset. Va notato che non è generalmente raccomandato eliminare le operazioni all'interno del client, per evitare la perdita di asset.
 
 ## Commercio
 
@@ -269,7 +269,7 @@ Quando sincronizzato fino ad un certo punto, il file (chain.acc) verrà cancella
 
 ### Estrazione del GAS
 
-Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli assets rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questo GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
+Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli asset rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questo GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
 
 I passaggi specifici sono:
 
@@ -291,19 +291,19 @@ Il file generato verrà mostrato come nella figura seguente:
 
 ![image](/zh-cn/node/assets/y.png)
 
-### Assets Registrati
+### Asset Registrati
 
-Vi sono due tipi di assets, Token e Azioni. usando i token come esempio, riempire come di seguito:
+Vi sono due tipi di asset, Token e Azioni. usando i token come esempio, riempire come di seguito:
 
 ![image](/assets/gui_43.png)
 
-Va notato che per la registrazione di assets vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 GAS) per favore, prestare attenzione.
+Va notato che per la registrazione di asset vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 GAS) per favore, prestare attenzione.
 
-### Distribute assets
+### Distribute asset
 
 ![image](/assets/gui_46.png)
 
-Occorre notare che la distribuzione degli assets richiede commissioni importanti. (La commissione per la rete principale è di 500 NEO, sulla rete test la commissione è di 5 NEO) Per favore, prestare attenzione e scegliere una distribuzione in un'unica solizione se possibile.
+Occorre notare che la distribuzione degli asset richiede commissioni importanti. (La commissione per la rete principale è di 500 NEO, sulla rete test la commissione è di 5 NEO) Per favore, prestare attenzione e scegliere una distribuzione in un'unica solizione se possibile.
 
 ### eseguire Contratti
 
