@@ -68,7 +68,7 @@ Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La 
 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
-Adesso eseguire il Command o la PowerShell, e inserire neon.exe. Se non ci sono errori e il prodotto mostra il numero di versione (come mostrato) la configurazione della variabile di ambiente è avvenuta con successo
+Adesso eseguire il Command o la PowerShell, e inserire neon.exe. Se non ci sono errori e il prodotto mostra il numero di versione (come mostrato) la configurazione della variabile ambiente è avvenuta con successo
 
 ![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
@@ -77,7 +77,7 @@ NOTA. Gli utenti di Windows 7 SP1 potrebbero incontrare un errore "Unhandled Exc
 
 ## Creare un Progetto
 
-Dopo l'installazione della configurazione precedente, puoi creare un progetto NeoContract in Visual Studio 2017.
+Dopo l'installazione della configurazione precedente, é possibile creare un progetto NeoContract in Visual Studio 2017.
 
 ![new smart contract project](/assets/new_smart_contract_project.png)
 
