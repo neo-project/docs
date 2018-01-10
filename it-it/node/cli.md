@@ -1,6 +1,6 @@
-# Comandi CLI
+# Riferimento dei Comandi CLI
 
-Apri la linea di comando, naviga fino alla directory dove il programma è collocato, ed inserisci il docice seguente per avviare il wallet a linea di comando (Il nodo NEO).
+Aprire la linea di comando, navigare fino alla directory dove il programma è collocato, inserire il docice seguente per avviare il wallet a linea di comando (Nel nodo NEO).
 
 `dotnet neo-cli.dll`
 
