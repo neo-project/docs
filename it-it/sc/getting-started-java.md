@@ -4,11 +4,11 @@ typora-root-url: ..\..
 
 ### Come usare Java per scrivere uno smart contract NEO
 
-Gli smart contracts (contratti intelligenti) sono scritti in linguaggi di alto livello come Java, C#, Python, Kotlin (e altri...) e compilati in AVM (La macchina virtuale bytecode di NEO) in modo da poter essere eseguiti sulla rete Neo. 
+Gli smart contract (contratti intelligenti) sono scritti in linguaggi di alto livello come Java, C#, Python, Kotlin (e altri...) e compilati in AVM (La macchina virtuale bytecode di NEO) in modo da poter essere eseguiti sulla rete Neo. 
 
-Correntemente raccomandiamo l'uso di C# per sviluppare smart contracts. Il compilatore Java è ancora in fase di sviluppo ma la versione corrente (neoj) può gestire metodi basici.
+Correntemente raccomandiamo l'uso di C# per sviluppare smart contract. Il compilatore Java è ancora in fase di sviluppo ma la versione corrente (neoj) può gestire metodi basici.
 
-Questa sezione contiene un tutorial che ti guida nella configurazione dell'ambiente di sviluppo Java per gli smart contracts di NEO e ti da un'idea di ​​come creare un progetto smart contract e come compilarlo.
+Questa sezione contiene un tutorial che ti guida nella configurazione dell'ambiente di sviluppo Java per gli smart contract di NEO e ti da un'idea di ​​come creare un progetto smart contract e come compilarlo.
 
 Nota: Il processo implica i seguenti passaggi:
 1. Scrivere codice Java (.java) per classi che estendono FunctionCode o VerificationCode che fanno parte della Framework Library di NEO (JAR)
@@ -117,7 +117,7 @@ Se funziona, creerà HelloWorld.avm il quale puoi usare come smart contract byte
 
 Per maggiori informazioni e per vedere esempi Java funzionanti per favore fare riferimento a: [Esempi Java](https://github.com/neo-project/examples-java)
 
-## Esegui un smart contracts
+## Esegui uno smart contract
 
-Una volta arrivati a questo stadio, le istruzioni sono uguali, non importa quale linguaggio é stato usato per scrivere gli smart contracts.
+Una volta arrivati a questo stadio, le istruzioni sono uguali, non importa quale linguaggio é stato usato per scrivere gli smart contract.
 Seguire questo tutorial: [Esegui un lock contract](http://docs.neo.org/en-us/sc/tutorial/Lock2.html)
