@@ -1,8 +1,8 @@
 # Istallazione e Implementazione del nodo NEO
 
-L’articolo precedente descrive due clients per i nodi della rete NEO. Uno é [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (il client a linea di comando - per gli sviluppatori), l’ altro é [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (Il client a interfaccia grafica - per gli utenti avanzati).
+L’articolo precedente descrive due client per i nodi della rete NEO. Uno é [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (il client a linea di comando - per gli sviluppatori), l’ altro é [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (Il client a interfaccia grafica - per gli utenti avanzati).
 
-Per il settaggio di un c.d. Consensus node viene utilizzato `Neo-CLI`, un programma multi-piattaforma che gira su Windows, Linux e Docker. 
+Per l'implementazione di un nodo di consenso viene utilizzato `Neo-CLI`, un programma multi-piattaforma che gira su Windows, Linux e Docker. 
 
 |                                   | Neo-CLI |
 | --------------------------------- | ----------------- |
@@ -62,7 +62,7 @@ Se l’output finale é "Hello World!", .NET Core é stato istallato con success
 1. Scarica il pacchetto [Neo-CLI](https://github.com/neo-project/neo-cli/releases) su Github ed estrailo.
 
 > [!Nota]
-> Se si prova a scaricare direttamente il sorgente di Neo-CLI da Github, `dotnet neo-cli.dll` verrá eseguito incorrettamente dopo la compilazione, quindi occorrerá copiare libleveldb.dll e sqlite3.dll nella stessa directory di neo-cli.dll. Questi due files devono essere scaricati durante il primo step del pacchetto. 
+> Se si prova a scaricare direttamente il sorgente di Neo-CLI da Github, `dotnet neo-cli.dll` verrá eseguito incorrettamente dopo la compilazione, quindi occorrerá copiare libleveldb.dll e sqlite3.dll nella stessa directory di neo-cli.dll. Questi due file devono essere scaricati durante il primo step del pacchetto. 
 
 2. Su Linux, istallare LevelDB e SQLite3 dev packages. Es. Su Ubuntu:
 
