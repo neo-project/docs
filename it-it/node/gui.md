@@ -254,11 +254,11 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 
 ### Estrazione del GAS
 
-Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli asset rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questo GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
+Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli asset rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questi GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
 
 I passaggi specifici sono:
 
-(1) Trasferire tutti i NEO all'interno del wallet usando un'operazione di trasferimento. (è possibile inviare i NEO all'indirizzo corrente) Una volta che la richiesta di GAS viene risolta, il GAS può essere prelevato. (Fare riferimento al white paper per una spiegazione tecnica del suddetto processo). 
+(1) Trasferire tutti i NEO all'interno del wallet usando un'operazione di trasferimento. (è possibile inviare i NEO direttamente all'indirizzo corrente) Una volta che la richiesta di GAS viene saldata, il GAS può essere prelevato. (Fare riferimento al white paper per una spiegazione tecnica del suddetto processo). 
 
 (2) Cliccare `Advanced`, `Claim GAS`, `Claim All`.
 
