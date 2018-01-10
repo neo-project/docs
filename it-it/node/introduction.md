@@ -24,19 +24,19 @@ Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá API di basso livello
 | Coppie Di Chiavi | ✅    | ✅    |
 | Importazione/Esportazione Della Coppia Di Chiavi| ✅    | ✅    |
 | Mostra Tutti Gli Indirizzi | ✅    | ✅    |
-| Mostra Tutti Gli Assets | ✅    | ✅    |
+| Mostra Tutti Gli Asset | ✅    | ✅    |
 | Creazione Indirizzo | ✅    | ✅    |
 | Trasferimento | ✅    | ✅    |
 | Transazione (Asset swap)  | ✅    |      |
 | Generare Contratto Con Firma Multiparte | ✅    |      |
 | Creazione Smart Contract Personalizzato | ✅    |      |
 | Firma | ✅    |      |
-| Elezione Consensus Node | ✅    |      |
+| Elezione Nodo di Consenso | ✅    |      |
 | Votazione | ✅    |      |
-| Registrare Assets | ✅    |      |
-| Distribuzione Di Assets | ✅    |      |
+| Registrare Asset | ✅    |      |
+| Distribuzione Di Asset | ✅    |      |
 | Estrazione Di NEO | ✅    |      |
-| Indirizzi Generati a Lotto   |      | ✅    |
+| Indirizzi Generati in Lotto   |      | ✅    |
 | JSON-RPC |      | ✅    |
 | Consenso Dei Blocchi Partecipanti |      | ✅    |
 
