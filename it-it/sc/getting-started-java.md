@@ -11,7 +11,7 @@ Correntemente raccomandiamo l'uso di C# per sviluppare smart contracts. Il compi
 Questa sezione contiene un tutorial che ti guida nella configurazione dell'ambiente di sviluppo Java per gli smart contracts di NEO e ti da un'idea di ​​come creare un progetto smart contract e come compilarlo.
 
 Nota: Il processo implica i seguenti passaggi:
-1. Scrivere codice Java (.java) per classi che si estendono a FunctionCode o VerificationCode che fanno parte della Framework Library di NEO (JAR)
+1. Scrivere codice Java (.java) per classi che estendono FunctionCode o VerificationCode che fanno parte della Framework Library di NEO (JAR)
 2. Usare il compilatore normale di Java per compilare codice in Java bytecode (.class)
 3. Costruire il compilatore di neoj che converte il codice JVM in codice AVM (neoj.exe su Windows)
 4. Usare neoj per compilare il tuo file .class (.avm)
