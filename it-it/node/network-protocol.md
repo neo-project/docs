@@ -1,11 +1,9 @@
 # Protocollo di Rete
 
+NEO adotta una struttura di rete P2P, in cui i nodi possono comunicare tra loro tramite il protocollo TCP/IP. In questa struttura, ci sono due diversi tipi di nodi: nodi peer e nodi convalidatori (indicati come Bookkeper nel whitepaper di NEO). I nodi peer possono trasmettere, ricevere e trasferire transazioni o blocchi, mentre i nodi convalidatori possono creare blocchi.
 
 
-NEO adotta una struttura di rete P2P, in cui i nodi possono comunicare tra loro tramite il protocollo TCP / IP. In questa struttura, ci sono due diversi tipi di nodi: nodi peer e nodi di convalidatori (indicati come Bookkepers nel whitepaper di NEO). I nodi peer possono trasmettere, ricevere e trasferire transazioni o blocchi, mentre i nodi convalidatori possono creare blocchi.
-
-
-Il protocollo di rete di NEO è approssimativamente simile a quello di Bitcoin,comunque, le strutture dati come blocchi o transazioni sono piuttosto diverse.
+Il protocollo di rete NEO è approssimativamente simile a quello di Bitcoin, comunque, le strutture dati, come blocchi o transazioni, sono piuttosto diverse.
 
 Convenzione
 ----
