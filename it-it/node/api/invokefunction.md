@@ -1,6 +1,6 @@
 # Metodo invokefunction
 
-Restituisce il risultato dopo la chiamata di uno smart contract a scripthash con le date operazioni e parametri.
+Restituisce il risultato dopo la chiamata a uno smart contract in scripthash con le date operazioni e parametri.
 
 > [!Nota]
 >
