@@ -25,7 +25,7 @@ Il sistema NeoContract rappresenta la più grande caratteristica dell'integrazio
 
 ### Applicazioni ed Ecosistema
 
-L'ecosistema é il punto cardine della comunità open source. Per riuscire a raggiungere l'obiettivo di una rete economica intelligente, NEO si impegnerà allo sviluppo del proprio ecosistema fornendo validi strumenti di sviluppo, migliorando lo sviluppo di documenti, organizzando attività educative e di addestramento e provvedendo supporto finanziario. Abbiamo in programma di supportare le seguenti applicazioni basate su NEO, ricompensando i miglioramenti al design e l'esperienza utente:
+L'ecosistema é il punto cardine della comunità open source. Per riuscire a raggiungere l'obiettivo di una rete economicamente intelligente, NEO si impegnerà sullo sviluppo del proprio ecosistema fornendo validi strumenti di sviluppo, migliorando lo sviluppo di documenti, organizzando attività educative e di addestramento e provvedendo supporto finanziario. Abbiamo in programma di supportare le seguenti applicazioni basate su NEO, ricompensando i miglioramenti al design e l'esperienza utente:
 
 🔹 **Programma Per i Nodi Della Rete**
 
