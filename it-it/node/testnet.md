@@ -25,7 +25,7 @@ Riferimento: [Introduzioni ai Nodi NEO](introduction.md).
 | Distribuzioni | [Website ufficiale](https://www.neo.org/download) o [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Codice sorgente| [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
-## Metodo di Commutazione alla Rete in Test 
+## Metodo di Commutazione alla Rete Test 
 
 1. Copiare i componenti della directory del programma sotto `protocol.testnet.json` in ` protocol.json` come mostrato.
 
