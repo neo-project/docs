@@ -92,9 +92,9 @@ NEO, con un totale di 100 milioni di token, assegna ai possessori il diritto di 
 
 GAS é il token carburante usato per il controllo e la gestione degli asset interni della rete NEO, con un limite massimo di 100 milioni di token. Per utilizzare la rete é necessario pagare in GAS le operazioni e la conservazione dei token e dei contratti (smart contract), creando incentivi economici per i bookkeeper e prevenendo l'abuso di risorse. l'unità minima del token GAS é 0.00000001.
 
-Nel blocco genesi (il primo blocco) della rete NEO sono stati generati 100 milioni di NEO, a differenza del GAS che invece verrà rilasciato programmaticamente. 100 milioni di GAS, corrispondenti ai 100 milioni NEO, saranno generati attraverso un algoritmo di decadimento in 22 anni all'incirca, inviato istantaneamente agli indirizzi che detengono NEO. Se NEO viene trasferito a un nuovo indirizzo, il conseguente GAS generato sarà accreditato al nuovo indirizzo.
+Nel blocco genesi (il primo blocco) della rete NEO sono stati generati 100 milioni di NEO, a differenza del GAS che invece verrà rilasciato programmaticamente. 100 milioni di GAS, corrispondenti ai 100 milioni NEO, saranno generati attraverso un algoritmo di decadimento in 22 anni all'incirca, inviati istantaneamente agli indirizzi che detengono NEO. Se NEO viene trasferito a un nuovo indirizzo, il conseguente GAS generato sarà accreditato sul nuovo indirizzo.
 
-La rete NEO fisserà una soglia, votando per esentare il GAS da una certa quantità di transazioni come trasferimenti e operazioni con smart contract per migliorare l'esperienza utente. Quando si verificano grosse quantità di transazioni "spam", NeoID potrà essere utilizzato per dare priorità alle transazioni e agli smart contract con un’identità qualificata. Transazioni e smart contract senza alcuna identità digitale potranno ottenere la priorità solo pagando in GAS.
+La rete NEO fisserà una soglia votando per esentare il GAS da una certa quantità di transazioni come trasferimenti e operazioni con smart contract per migliorare l'esperienza utente. Quando si verifica una gran quantità di transazioni spam, NeoID potrà essere utilizzato per dare priorità alle transazioni e agli smart contract con un’identità qualificata. Transazioni e smart contract senza identità digitali potranno ottenere priorità pagando in GAS.
 
 ### Meccanismo Di Distribuzione
 
@@ -132,13 +132,13 @@ Governo off-chain: Il Neo Council é costituito dai membri fondatori del progett
 
 ### Meccanismo Di Consenso: dBFT
 
-Il dBFT: Delegated Byzantine Fault Tolerant; Un meccanismo di consenso Byzantine fault-tolerant che abilita la partecipazione su larga scala attraverso il voto per delega (c.d proxy voting). I titolari dei token NEO possono, tramite voto, scegliere il bookkeeper supportato. Il gruppo di bookkeepers eletti, tramite l'algoritmo BFT, raggiunge il consenso generando in tal modo un nuovo blocco. Il voto, nella rete NEO, é un'operazione continua che avviene in tempo reale, a differenza di un accordo a termine prefissato.
+Il dBFT: Delegated Byzantine Fault Tolerant; Un meccanismo di consenso Byzantine fault-tolerant che abilita la partecipazione su larga scala attraverso il voto per delega (c.d proxy voting). I titolari dei token NEO possono, tramite voto, scegliere il bookkeeper supportato. Il gruppo di bookkeeper eletti, tramite l'algoritmo BFT, raggiunge il consenso generando in tal modo un nuovo blocco. Il voto, nella rete NEO, é un'operazione continua che avviene in tempo reale, a differenza di un accordo a termine prefissato.
 
 Il dBFT provvede una tolleranza d'errore di f = ⌊ (n-1) / 3 ⌋ per un sistema di consenso costituito da n nodi. Questa tolleranza d'errore include entrambe sicurezza e disponibilità, resistente alle falle generali e relative a Byzantine, inoltre adatto a qualsiasi ambiente di rete. Il dBFT é "inamovibile", ciò significa che una volta che le conferme sono definitive, il blocco non può più essere biforcato, e le transazioni non possono essere revocate o reimpostate allo stato precedente.
 
 Nel meccanismo di consenso NEO dBFT, prendendo circa dai 15 ai 20 secondi per generare un blocco, il flusso per ogni singola transazione viene conteggiato fino a 1,000 TPS, il quale rappresenta performance eccellenti tra le chain pubbliche. Attraverso appropriate ottimizzazioni, c'é il potenziale per raggiungere 10,000 TPS, permettendo l'adozione di implementazioni commerciali su larga scala.
 
-Il dBFT utilizza la tecnologia dell'identità digitale, ciò significa che i bookkeepers possono essere un nome reale di un individuo o un'istituzione. In tal modo é possibile congelare, revocare, ereditare, recuperare e trasferire la proprietà tramite una decisione giudiziaria. Ciò facilita la registrazione di asset finanziari nella rete NEO. La rete NEO ha pianificato di supportare queste operazioni quando necessario.
+Il dBFT utilizza la tecnologia dell'identità digitale, ciò significa che i bookkeeper possono essere un nome reale di un individuo o un'istituzione. In tal modo é possibile congelare, revocare, ereditare, recuperare e trasferire la proprietà tramite una decisione giudiziaria. Ciò facilita la registrazione di asset finanziari nella rete NEO. La rete NEO ha pianificato di supportare queste operazioni quando necessario.
 
 ### Sistema Degli Smart Contract: NeoContract
 
