@@ -54,7 +54,7 @@ Le informazioni legate all'account includono: Indirizzo, chiave privata, chiave 
 
 (1) Indirizzo: L'equivalente di un conto bancario o il numero di carta bancaria, usato per ricevere asset durante le transazioni. 
 
-(2) Tipo: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste in una chiave pubblica ed è  un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste in molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per i contratti smart. 
+(2) Tipo: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste in una chiave pubblica ed è un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste in molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per smart contract. 
 
 (3) Chiave privata: Un numero casuale da 256-bit, tenuto dall'utente e non divulgato pubblicamente. Rappresenta la proprietà dell'account e la proprietà degli asset all'interno dell'account. 
 
@@ -78,7 +78,7 @@ Il trasferimento di asset a un indirizzo ricevente. Se il tipo di asset è NEO, 
 
 #### Scambio
 
-Effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
+L'effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
 
 #### Firma
 
@@ -87,7 +87,7 @@ per le transazioni che coinvolgono allocazioni di capitale e trasferimento di as
 
 #### Asset Registrati
 
-Creare un asset emesso dall'utente nel blocco NEO. L'utente può definire il tipo, il nome, il totale, etc. dell'asset e specificare l'amministratore dell'account dell'asset. la creazione di asset consuma una certa quantità  di NEO come servizio di commisione addizionale, il prezzo corrente è di 10,000 GAS. (la commissione per la rete in test è  l'uno percento della rete principale).
+Creare un asset emesso dall'utente nel blocco NEO. L'utente può definire il tipo, il nome, il totale, etc. dell'asset e specificare l'amministratore dell'account dell'asset. la creazione di asset consuma una certa quantità  di GAS come servizio di commisione addizionale, il prezzo corrente è di 10,000 GAS. (la commissione per la rete in test è dell'1% della rete principale).
 
 #### Asset Distribuiti
 
