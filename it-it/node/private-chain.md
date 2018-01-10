@@ -81,13 +81,13 @@ E' possibile impostare il proprio sistema di commissioni per la propria chain pr
 
 Infine, modificare il `protocol.json` nella directory del client dei 4 nodi, rimpiazzando il precedente file protocol.json.
 
-Poi nelle quattro macchine virtuali, inserire i seguenti comandi per avviare il nodo, aprire il wallet e avviare il processo di consenso. Si prega di fare riferimento al comando [Riferimento Comando CLI](cli.md), se si é insicuri.
+Poi nelle quattro macchine virtuali, inserire i seguenti comandi per avviare il nodo, aprire il wallet e avviare il processo di consenso. Si prega di fare riferimento al comando [Riferimento Comando CLI](cli.md), in caso di insicurezza.
 
-inizia nodo:
+Avviare il nodo:
 
 `Dotnet neo-cli.dll`
 
-Apri il wallet:
+Aprire il wallet:
 
 `Open wallet wallet1.db3`
 
@@ -105,35 +105,35 @@ Se l'operazione precedente avviene con successo, i quattro nodi inizieranno il p
 
 
 
-## 5. Estrarre NEO e GAS
+## 5. Estrazione di NEO e GAS
 
-Installa la versione PC del client (Neo-GUI), modifica il file di configurazione protocol.json per connetterti alla chain privata.
+Installare la versione PC del client (Neo-GUI), modificare il file di configurazione protocol.json per connettersi alla chain privata.
 
-Apri il wallet. Se l'angolo in basso a sinistra del numero di connessione non è zero, ed è stato sincronizzato fino allo stesso blocco, significa che il client è stato connesso con successo alla chain privata.
+Aprire il wallet. Se l'angolo in basso a sinistra del numero di connessione non è zero, ed è stato sincronizzato fino allo stesso blocco, significa che il client è stato connesso con successo alla chain privata.
 
-Apri il wallet wallet1.db3 nel client PC, aggiungi l'indirizzo multi firma, inserisci le quattro chiavi pubbliche in protocol.json, imposta il numero minimo di firme a 3 (numero dei nodi di consenso/2 + 1), come mostrato.
+Aprire il wallet wallet1.db3 nel client PC, aggiungere l'indirizzo multi firma, inserire le quattro chiavi pubbliche in protocol.json, impostare il numero minimo di firme a 3 (numero dei nodi di consenso/2 + 1), come mostrato.
 
 ![image](/assets/privatechain_12.png)
 
-Clicca OK. Al fine di ricostruire l'indice del wallet, clicca su  'wallet' nella barra menu, successivamente vedrai che l'indirizzo del contratto ha 100 milioni di quote NEO.
+Cliccare OK. Al fine di ricostruire l'indice del wallet, cliccare su 'wallet' nella barra menu, successivamente vedrai che l'indirizzo del contratto ha 100 milioni di quote NEO.
 
 ![image](/assets/privatechain_14.png)
 
 > [!Nota]
 > Tutti e 4 i wallet devono eseguire l'operazione di aggiunta di indirizzi multi firma, e ricostruzione dell'indice del wallet. 
 
-Qui vogliamo inviare i NEO dall'indirizzo del contratto a un indirizzo normale. Per far ciò, apri uno dei quattro waller, clicca su `transaction`, `transfer` e inserisci l'indirizzo del destinatario, al fine di trasferire 100 millioni di NEO a questo indirizzo ricevente.
+Qui vogliamo inviare i NEO dall'indirizzo del contratto a un indirizzo normale. Per far ciò, aprire uno dei quattro wallet, cliccare su `transaction`, `transfer` e inserire l'indirizzo del destinatario, al fine di trasferire 100 millioni di NEO a questo indirizzo ricevente.
 
-Il sistema ti notificherà che non vi sono state abbastanza firme per completare la transazione. Copia il codice nella tua clipboard, apri il secondo waller, clicca su `transaction`, `signature` e incolla il codice che hai appena copiato. Clicca `signature` e copia il codice. Apri il terzo wallet, clicca su `transaction`, `signature` e incolla il codice che hai appena copiato. Clicca il bottone `signature`. A questo punto noterai un pop-up che mostra un bottone `broadcast` nell'angolo in basso a destra, il che significa che tutte le firme necessarie per inviare la transazione sono state raccolte. Clicca `broadcast`. Una volta che la transazione di trasferimento inizia la trasmissione impiegherà all'incirca 15 secondi per essere rimessa con successo sull'account.
+Il sistema ti notificherà che non vi sono state abbastanza firme per completare la transazione. Copiare il codice nella tua clipboard, apri il secondo wallet, cliccare su `transaction`, `signature` e incollare il codice appena copiato. Cliccare `signature` e copiare il codice. Aprire il terzo wallet, cliccare su `transaction`, `signature` e incollare il codice copiato. Cliccare il bottone `signature`. A questo punto noterai un pop-up che mostra un bottone `broadcast` nell'angolo in basso a destra, il che significa che tutte le firme necessarie per inviare la transazione sono state raccolte. Cliccare `broadcast`. Una volta che la transazione di trasferimento inizia la trasmissione impiegherà all'incirca 15 secondi per essere rimessa con successo sull'account.
 
 ![image](/assets/privatechain_20.png)
 
-L'operazione di estrazione del GAS è simile. Clicca `Advanced`, `Claim GAS`, `Claim` come mostrato. Ricorda l'indirizzo del wallet, ne avrai bisogno dopo.
+L'operazione di estrazione del GAS è simile. Cliccare `Advanced`, `Claim GAS`, `Claim` come mostrato. Ricorda l'indirizzo del wallet, ne avrai bisogno dopo.
 
 ![image](/assets/privatechain_21.png)
 
-La prossima operazione è  simile al trasferimento di NEO. Copia il codice che ha insufficienti firme, apri il secondo wallet, clicca `transaction`, `signature`, e incolla il codice che hai appena copiato. Clicca `signature`, e copia il codice. Apri il terzo wallet, clicca su `transaction`, `signature` e incolla il codice che hai appena copiato. Clicca `signature` e poi `broadcast` per trasmettere la transazione per richiedere il tuo GAS. Una volta che la transazione di richiesta inizia a trasmettersi ci vorranno circa 15 secondi per essere rimessa con successo sull'account.
+La prossima operazione è simile al trasferimento di NEO. Copiare il codice che ha insufficienti firme, aprire il secondo wallet, cliccare `transaction`, `signature`, e incollare il codice appena copiato. Cliccare `signature`, e copiare il codice. Aprire il terzo wallet, cliccare su `transaction`, `signature` e incollare il codice appena copiato. Cliccare `signature` e poi `broadcast` per trasmettere la transazione per richiedere il proprio GAS. Una volta che la transazione di richiesta inizia a trasmettersi ci vorranno circa 15 secondi per essere rimessa con successo sull'account.
 
-Dopo aver completato l'estrazione il GAS inserirà il primo indirizzo standard del wallet (es il primo indirizzo del wallet) da dove hai iniziato l'estrazione del GAS, come mostrato.
+Dopo aver completato l'estrazione il GAS inserirà il primo indirizzo standard del wallet (es il primo indirizzo del wallet) da dove é cominciata l'estrazione del GAS, come mostrato.
 
 ![image](/assets/privatechain_26.png)
