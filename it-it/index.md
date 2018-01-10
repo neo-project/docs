@@ -88,9 +88,9 @@ L'ecosistema é il punto cardine della comunità open source. Per riuscire a rag
 
 NEO ha due token nativi, NEO (simbolo abbreviato NEO) e NeoGas (simbolo abbreviato GAS).
 
-NEO, con un totale di 100 milioni di tokens, assegna ai possessori il diritto di gestire la rete. Nei diritti di gestione é incluso il voto per il “bookkeeping" (libro contabile), il cambiamento nei parametri della rete di NEO e tanto altro. L'unità minima di misura di NEO é 1, questi token non possono essere suddivisi.
+NEO, con un totale di 100 milioni di token, assegna ai possessori il diritto di gestire la rete. Nei diritti di gestione é incluso il voto per il “bookkeeping" (libro contabile), il cambiamento nei parametri della rete di NEO e tanto altro. L'unità minima di misura di NEO é 1, questi token non possono essere suddivisi.
 
-GAS é il token carburante usato per il controllo e la gestione degli asset interni della rete NEO, con un limite massimo di 100 milioni di tokens. Per utilizzare la rete é necessario pagare in GAS le operazioni e la conservazione dei tokens e dei contratti (smart contract), in tal modo si prevengono di abusi degli asset della rete e vengono creati incentivi economici per i bookkeepers. l'unità minima del token GAS é 0.00000001.
+GAS é il token carburante usato per il controllo e la gestione degli asset interni della rete NEO, con un limite massimo di 100 milioni di token. Per utilizzare la rete é necessario pagare in GAS le operazioni e la conservazione dei token e dei contratti (smart contract), in tal modo si prevengono di abusi degli asset della rete e vengono creati incentivi economici per i bookkeepers. l'unità minima del token GAS é 0.00000001.
 
 Nel blocco genesi (il primo blocco) della rete NEO sono stati generati 100 milioni di NEO, a differenza del GAS che invece verrà rilasciato programmaticamente. 100 milioni di GAS, corrispondenti ai 100 milioni NEO, saranno generati attraverso un algoritmo di decadimento in 22 anni all'incirca, inviato istantaneamente agli indirizzi che detengono NEO. Se NEO viene trasferito a un nuovo indirizzo, il conseguente GAS generato sarà accreditato al nuovo indirizzo.
 
@@ -100,19 +100,19 @@ La rete NEO fisserà una soglia, votando per esentare il GAS da una certa quanti
 
 Distribuzione di NEO:
 
-I 100 milioni di token NEO sono divisi in due porzioni. La prima porzione é di 50 milioni di tokens sono stati distribuiti proporzionalmente ai supporters di NEO durante il crowdfunding. Questa porzione é già stata distribuita.
+I 100 milioni di token NEO sono divisi in due porzioni. La prima porzione é di 50 milioni di token sono stati distribuiti proporzionalmente ai supporters di NEO durante il crowdfunding. Questa porzione é già stata distribuita.
 
-La seconda porzione di 50 milioni di tokens é gestita dal NEO Council per promuovere lo sviluppo di NEO nel lungo termine, le operazioni, la manutenzione e l'ecosistema. Per quanto riguarda questa porzione NEO ha bloccato i fondi per il periodo di 1 anno, i quali verranno sbloccati solo dopo il 16 ottobre 2017. Questa porzione non entrerà sugli exchanges e sarà utilizzata esclusivamente per il supporto finanziario dei progetti di lungo periodo. Segue il piano:
+La seconda porzione di 50 milioni di token é gestita dal NEO Council per promuovere lo sviluppo di NEO nel lungo termine, le operazioni, la manutenzione e l'ecosistema. Per quanto riguarda questa porzione NEO ha bloccato i fondi per il periodo di 1 anno, i quali verranno sbloccati solo dopo il 16 ottobre 2017. Questa porzione non entrerà sugli exchanges e sarà utilizzata esclusivamente per il supporto finanziario dei progetti di lungo periodo. Segue il piano:
 
-🔹 10 milioni di tokens (10% del totale) saranno usati per motivare e promuovere le attività degli sviluppatori e i membri del NEO Council.
+🔹 10 milioni di token (10% del totale) saranno usati per motivare e promuovere le attività degli sviluppatori e i membri del NEO Council.
 
-🔹 10 milioni di tokens (10% del totale) saranno utilizzati per motivare gli sviluppatori dell'intero ecosistema NEO.
+🔹 10 milioni di token (10% del totale) saranno utilizzati per motivare gli sviluppatori dell'intero ecosistema NEO.
 
-🔹 15 milioni di tokens (15% del totale) saranno usati per investimenti in altri progetti blockchain, di proprietà del NEO Council, e utilizzati solo per i progetti riguardanti NEO.
+🔹 15 milioni di token (15% del totale) saranno usati per investimenti in altri progetti blockchain, di proprietà del NEO Council, e utilizzati solo per i progetti riguardanti NEO.
 
 🔹 15 milioni (15% del totale) saranno ritenuti come contingenza.
 
-🔹 In linea di principio l'uso annuale dei tokens NEO non dovrebbe eccedere i 15 milioni.
+🔹 In linea di principio l'uso annuale dei token NEO non dovrebbe eccedere i 15 milioni.
 
 Distribuzione del GAS:
 
@@ -120,11 +120,11 @@ Nuovo GAS viene generato ogni volta che viene generato un nuovo blocco. La quant
 
 Ogni anno vengono generati intorno ai 2 milioni di blocchi e la distribuzione iniziale sarà di 8 GAS per blocco. Avverrà una riduzione annuale graduale di 1 GAS per blocco, coincidente con i 2 milioni di blocchi generati. La riduzione continuerà fino a 1 GAS per blocco e sarà raggiunta in 22 anni all'incirca. Dopo il 44 milionesimo blocco il GAS totale generato raggiungerà 100 milioni e da questo punto si fermerà la generazione di GAS da nuovi blocchi.
 
-Secondo questa curva di rilascio, il 16% del GAS verrà creato nel primo anno, il 52% del GAS verrà creato nei primi quattro anni e l'80% del GAS verrà creato nei primi 12 anni. Questo GAS sarà distribuito in maniera proporzionale secondo la quantità di NEO in possesso, registrato nei corrispondenti indirizzi wallet. I possessori di tokens NEO possono effettuare transazioni di reclamo per i GAS tokens in qualsiasi momento, questi saranno accreditati agli indirizzi in proprio possesso.
+Secondo questa curva di rilascio, il 16% del GAS verrà creato nel primo anno, il 52% del GAS verrà creato nei primi quattro anni e l'80% del GAS verrà creato nei primi 12 anni. Questo GAS sarà distribuito in maniera proporzionale secondo la quantità di NEO in possesso, registrato nei corrispondenti indirizzi wallet. I possessori di token NEO possono effettuare transazioni di reclamo per i GAS token in qualsiasi momento, questi saranno accreditati agli indirizzi in proprio possesso.
 
 ### Meccanismo Di Governo
 
-Governo della chain: I possessori di tokens NEO sono i proprietari e managers della rete, gestendo la rete attraverso un meccanismo di voti e usando il GAS generato da NEO per utilizzare le funzioni della rete. I token NEO possono essere trasferiti.
+Governo della chain: I possessori di token NEO sono i proprietari e managers della rete, gestendo la rete attraverso un meccanismo di voti e usando il GAS generato da NEO per utilizzare le funzioni della rete. I token NEO possono essere trasferiti.
 
 Governo off-chain: Il Neo Council é costituito dai membri fondatori del progetto NEO, sotto il quale il comitato di gestione, il comitato tecnico e il segretariato, rispettivamente, sono responsabili del processo decisionale, delle strategie, delle decisioni tecniche e implementazioni specifiche. Il NEO Council é responsabile verso la comunità NEO per la promozione e lo sviluppo dell'ecosistema NEO come suo primario obiettivo.
 
@@ -132,7 +132,7 @@ Governo off-chain: Il Neo Council é costituito dai membri fondatori del progett
 
 ### Meccanismo Di Consenso: dBFT
 
-Il dBFT: Delegated Byzantine Fault Tolerant; Un meccanismo di consenso Byzantine fault-tolerant che abilita la partecipazione su larga scala attraverso il voto per delega (c.d proxy voting). I titolari dei tokens NEO possono, tramite voto, scegliere il bookkeeper supportato. Il gruppo di bookkeepers eletti, tramite l'algoritmo BFT, raggiunge il consenso generando in tal modo un nuovo blocco. Il voto, nella rete NEO, é un'operazione continua che avviene in tempo reale, a differenza di un accordo a termine prefissato.
+Il dBFT: Delegated Byzantine Fault Tolerant; Un meccanismo di consenso Byzantine fault-tolerant che abilita la partecipazione su larga scala attraverso il voto per delega (c.d proxy voting). I titolari dei token NEO possono, tramite voto, scegliere il bookkeeper supportato. Il gruppo di bookkeepers eletti, tramite l'algoritmo BFT, raggiunge il consenso generando in tal modo un nuovo blocco. Il voto, nella rete NEO, é un'operazione continua che avviene in tempo reale, a differenza di un accordo a termine prefissato.
 
 Il dBFT provvede una tolleranza d'errore di f = ⌊ (n-1) / 3 ⌋ per un sistema di consenso costituito da n nodi. Questa tolleranza d'errore include entrambe sicurezza e disponibilità, resistente alle falle generali e relative a Byzantine, inoltre adatto a qualsiasi ambiente di rete. Il dBFT é "inamovibile", ciò significa che una volta che le conferme sono definitive, il blocco non può più essere biforcato, e le transazioni non possono essere revocate o reimpostate allo stato precedente.
 
@@ -174,7 +174,7 @@ Per transazioni cross chain distribuite s'intende che i diversi steps di una tra
 
 NeoFS é un protocollo di archiviazione distribuita che utilizza la tecnologia Hash Table. NeoFS indicizza i dati attraverso il contenuto del file (Hash) invece del percorso file (URI). File di grandi dimensioni verranno divisi in dati di dimensione prefissata, distribuiti e archiviati su tanti nodi diversi della rete.
 
-Il problema principale con questo tipo di sistema consiste nella necessità di trovare un bilanciamento tra ridondanza e affidabilità. NeoFS intende risolvere questa contraddizione tramite l'incentivazione con tokens e l'istituzione di nodi rappresentanti la struttura della rete. Gli utenti possono scegliere i requisiti di affidabilità dei files. I files con bassi requisiti di affidabilità possono avere accesso gratis o quasi. Servizi stabili e affidabili per file con requisiti di elevata affidabilità saranno forniti dai nodi strutturali della rete.
+Il problema principale con questo tipo di sistema consiste nella necessità di trovare un bilanciamento tra ridondanza e affidabilità. NeoFS intende risolvere questa contraddizione tramite l'incentivazione con token e l'istituzione di nodi rappresentanti la struttura della rete. Gli utenti possono scegliere i requisiti di affidabilità dei files. I files con bassi requisiti di affidabilità possono avere accesso gratis o quasi. Servizi stabili e affidabili per file con requisiti di elevata affidabilità saranno forniti dai nodi strutturali della rete.
 
 NeoFS servirà come uno dei InteropService (servizi interoperabili) sotto il sistema di NeoContract, permettendo agli smart contract di memorizzare files di grandi dimensioni sulla blockchain e impostare i permessi di accesso a questi files. Inoltre, NeoFS può essere combinato con l'identità digitale così i certificati digitali usati possono essere assegnati, inviati e revocati senza l'uso di un server centrale che li gestisca. In futuro, i vecchi dati della blockchain potranno essere archiviati in NeoFS, così che la maggior parte dei nodi della rete possano rilasciare i vecchi dati per una migliore scalabilità e allo stesso tempo, assicurare l'integrità storica dei dati.
 
