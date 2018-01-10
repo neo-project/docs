@@ -4,7 +4,7 @@ Restituisce le commissioni di sistema del blocco, in base all'indice specificato
 
 ## Descrizione del Parametro
 
-index：Indice di Blocco
+index：Indice del Blocco
 
 ## Esempio
 
@@ -31,4 +31,4 @@ Corpo della Risposta:
 
 Descrizione della risposta：
 
-result：Le cimmissioni di sistema del blocco, in unità NeoGas.
+result：Le commissioni di sistema del blocco, in unità NeoGas.
