@@ -94,8 +94,8 @@ Corpo della risposta:
 
 Descrizione della risposta:
 
-Unconnected: Un nodo che non è attualmente connesso.
+Unconnected: I nodi ai quali non si è attualmente connessi.
 
 Bad: Nodi non più connessi.
 
-Connected: il nodo a cui si è attualmente connessi.
+Connected: I nodi ai quali si è attualmente connessi.
