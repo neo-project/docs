@@ -29,7 +29,7 @@ Il processo di installazione è veramente semplice, segui le istruzioni prompts 
 
 Metodo di installazione:
 
-Apri Visual Studio 2017, apri Strumenti, clicca su Estensioni e Aggiornamenti, clicca sulla scheda Online sul lato sinistro della finestra, cerca neo nel box di ricerca nell'angolo in alto a destra della finestra, scarica NeoContractPlugin (questo passo richiede l'accesso a internet).
+Aprire Visual Studio 2017, aprire Tools, cliccare su Estensioni e Aggiornamenti, cliccare sulla scheda Online sul lato sinistro della finestra, cercare neo nel box di ricerca nell'angolo in alto a destra della finestra, scaricare NeoContractPlugin (questo passo richiede l'accesso a internet).
 
 ![download and install NEO smart contract plugin](/assets/download_and_install_smart_contract_plugin.png)
 
