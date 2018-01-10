@@ -15,15 +15,15 @@ Nota: Il processo implica i seguenti passaggi:
 2. Usare il compilatore normale di Java per compilare codice in Java bytecode (.class)
 3. Costruire il compilatore di neoj che converte il codice JVM in codice AVM (neoj.exe su Windows)
 4. Usare neoj per compilare il tuo file .class (.avm)
-5. Scaricare il GUI Node di NEO per connettersi alla Testnet di NEO
-6. Eseguire il tuo script .avm per pubblicare lo smart contract sulla rete
+5. Scaricare la GUI Node di NEO per connettersi alla Testnet di NEO
+6. Implementare il tuo script .avm per pubblicare lo smart contract sulla rete
 7. Invocare il tuo script .avm per eseguire il tuo smart contract
 
 ### Istruzioni Dettagliate
 
 ## Strumenti
 
-Il modo più efficiente di portare a termine questi passaggi è di scaricare e compilare tutti gli strumenti di cui hai bisogno:
+Il modo più efficiente di portare a termine questi passaggi è di scaricare e compilare tutti gli strumenti di cui avrai bisogno:
 
 1. Scaricare il GUI Node di NEO. Al momento della scrittura, è raccomandato di usare la GUI di sviluppo BETA siccome ha delle funzionalità extra per il debugging utili. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Sarà configurata di default alla Testnet e dovrai aspettare (fino a poche ore) la sincronizzazione completa.
 2. Scaricare il Framework Library JAR di NEO. L'ultima versione corrente si trova qui: [Antshares.SmartContract.Framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
