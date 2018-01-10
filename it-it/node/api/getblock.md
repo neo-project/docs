@@ -6,11 +6,11 @@ Le informazioni del blocco corrispondente vengono restituite in base al valore h
 
 Hash: Valore hash del blocco.
 
-Verbose: Opzionale, il valore predefinito di verbose è 0. Quando verbose e 0, le informazioni serializzate del blocco vengono restituite, rappresentate da una stringa esadecimale. Se hai bisogno di ottenere informazioni dettagliate, sarà necessario utilizzare l'SDK per la deserializzazione. Quando verbose è 1, vengono restituite informazioni dettagliate sul blocco corrispondente nella stringa di formato Json.
+Verbose: Opzionale, il valore predefinito di verbose è 0. Quando verbose é 0, le informazioni serializzate del blocco vengono restituite, rappresentate da una stringa esadecimale. Se hai bisogno di ottenere informazioni dettagliate, sarà necessario utilizzare l'SDK per la deserializzazione. Quando verbose è 1, vengono restituite informazioni dettagliate sul blocco corrispondente nella stringa in formato Json.
 
 ## Esempio
 
-Testo di richiesta:
+Testo della richiesta:
 
 ```json
 {
@@ -21,7 +21,7 @@ Testo di richiesta:
 }
 ```
 
-Testo di risposta:
+Testo della risposta:
 
 ```json
 {
@@ -31,7 +31,7 @@ Testo di risposta:
 }
 ```
 
-Richiesta di testo:
+Testo della richiesta:
 
 Verbose = 1, restituisce il risultato in formato JSON.
 
@@ -44,7 +44,7 @@ Verbose = 1, restituisce il risultato in formato JSON.
 }
 ```
 
-Risposta di testo:
+Testo di risposta:
 
 ```json
 {
