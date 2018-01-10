@@ -90,11 +90,11 @@ Prima del completamento del cambio di View, l'originale View v è ancora valida,
 
 ![](~/assets/consensus_flowchart.jpg)
 
-## Capacità Fault Tolerance 
+## Capacità di Tolleranza ai Guasti
 
-​Il nostro algoritmo fornisce 𝑓 = ⌊ (𝑛−1) / 3 ⌋ fault tolerance a un sistema di consenso che comprende n nodi. Questa capacità di tolleranza include sicurezza e usabilità ed è adatta a qualsiasi ambiente di rete. 
+​Il nostro algoritmo fornisce 𝑓 = ⌊ (𝑛−1) / 3 ⌋ tolleranza ai guasti a un sistema di consenso che comprende n nodi. Questa capacità di tolleranza include sicurezza e usabilità ed è adatta a qualsiasi ambiente di rete. 
 
-La richiesta di dati dai nodi contiene le firme dei mittenti, quindi i nodi bookkeppers malevoli non possono falsificare le richieste. Invece, cercheranno di invertire lo stato del sistema nel passato, forzando il sistema a forkare.
+La richiesta di dati dai nodi contiene le firme dei mittenti, quindi i nodi bookkepper malevoli non possono falsificare le richieste. Invece, cercheranno di invertire lo stato del sistema nel passato, forzando il sistema a forkare.
 
 Ipoteticamente, nell'ambiente di sistema della rete, i nodi di consenso sono divisi in 3 parti: 𝑅 = 𝑅1 ∪ 𝑅2 ∪ 𝐹 , e 𝑅1 ∩ 𝑅2 = ∅ , 𝑅1 ∩ 𝐹 = ∅ ，𝑅2 ∩ 𝐹 = ∅ . Anche ipoteticamente,
 entrambi R1 e R2 sono nodi bookkeeping onesti in un silo di informazioni che possono comunicare solo con i nodi nel loro set; F sono tutti nodi malevoli in coordinazione; Inoltre, la condizione di rete di F consente loro di comunicare con qualsiasi nodo, inclusi R1 e R2.
