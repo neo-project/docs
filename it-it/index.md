@@ -138,7 +138,7 @@ Il dBFT provvede una tolleranza ai guasti di f = ⌊ (n-1) / 3 ⌋ per un sistem
 
 Nel meccanismo di consenso NEO dBFT, prendendo circa dai 15 ai 20 secondi per generare un blocco, il flusso per ogni singola transazione viene conteggiato fino a 1,000 TPS, il quale rappresenta performance eccellenti tra le chain pubbliche. Attraverso appropriate ottimizzazioni, c'é il potenziale per raggiungere 10,000 TPS, permettendo l'adozione di implementazioni commerciali su larga scala.
 
-Il dBFT utilizza la tecnologia dell'identità digitale, ciò significa che i bookkeeper possono essere un nome reale di un individuo o un'istituzione. In tal modo é possibile congelare, revocare, ereditare, recuperare e trasferire la proprietà tramite una decisione giudiziaria. Ciò facilita la registrazione di asset finanziari nella rete NEO. La rete NEO ha pianificato di supportare queste operazioni quando necessario.
+Il dBFT combina la tecnologia di identità digitale, ciò significa che i bookkeeper possono essere un nome reale di un individuo o un'istituzione. In tal modo é possibile congelare, revocare, ereditare, recuperare e trasferire la proprietà tramite una decisione giudiziaria. Ciò facilita la registrazione di asset finanziari sulla rete NEO. La rete NEO ha pianificato di supportare queste operazioni quando necessario.
 
 ### Sistema Degli Smart Contract: NeoContract
 
