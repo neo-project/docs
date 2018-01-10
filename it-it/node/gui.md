@@ -6,7 +6,7 @@
 
 Il client neo-gui è compatibile con le seguenti versioni di Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 
-Il client non richiede alcuna installazione. Scarica ed estrai i files in un luogo di tua scelta, fai doppio click su neo-gui.exe per aprire il client. Se dovessero esserci problemi con il processo e il client non può essere usato normalmente, per favore apri il file error.log collocato nella stessa directory di neo-gui, successivamente contatta il nostro staff per assisterti nel risolvere il problema.
+Il client non richiede alcuna installazione. Scarica ed estrai i file in un luogo di tua scelta, fai doppio click su neo-gui.exe per aprire il client. Se dovessero esserci problemi con il processo e il client non può essere usato normalmente, per favore apri il file error.log collocato nella stessa directory di neo-gui, successivamente contatta il nostro staff per assisterti nel risolvere il problema.
 
 > [!Nota]
 > Le versioni precedenti di Windows10 richiedono l'installazione di [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
