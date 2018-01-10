@@ -1,9 +1,9 @@
 # Metodo dumpprivkey 
 
-Esportare la chiave privata dell'indirizzo specificato.
+Esporta la chiave privata dell'indirizzo specificato.
 
 > [!Notea]
-> Devi aprire il wallet nel nodo NEO-CLI prima di eseguire questo comando.
+> Aprire il wallet nel nodo NEO-CLI prima di eseguire questo comando.
 
 ## Descrizione del parametro
 
@@ -34,4 +34,4 @@ Corpo della risposta:
 
 Descrizione della risposta:
 
-Restituisce la  chiave privata dell'indirizzo standard.
+Restituisce la chiave privata dell'indirizzo standard.
