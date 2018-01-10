@@ -1,6 +1,6 @@
 # Metodo invoke 
 
-Restituisce il risultato dopo a uno smart contract a scripthash con i parametri specificati.
+Restituisce il risultato dopo la chiamata a uno smart contract in scripthash con i parametri specificati.
 
 > [!Nota]
 >
