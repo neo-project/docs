@@ -27,7 +27,7 @@ Al fine di aumentare la velocitá di sincronizzazione della rete puoi scaricare 
 
    ![](/assets/gui_58.png)
 
-3. After re-opening the neo-gui client you will see that the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. As shown in the figure below:  
+3. Dopo la riapertura del client neo-gui vedrai che il client é sincronizzato fino ad un certo punto e che lo stesso continuerá la sincronizzazione del resto della blockchain. Come mostrato nella figura successiva:
 
    ![](/assets/gui_59.png)
 
@@ -41,11 +41,11 @@ I dati di fianco "Height" corrispondono a altezza/client altezza/blockchain. Qua
 
 #### Wallet 
 
-Il file wallet memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'account nel database con l'estensione .db3. Questo file è molto importante e deve esserne fatto un backup in sicurezza.
+Il file wallet memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'account nel database con l'estensione .db3 o .json. Questo file è molto importante e deve essere eseguito un backup in sicurezza dello stesso.
 
 > [!Importante]
 >
-> La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi asset. Per favore, assicurati che il file wallet sia archiviato in sicurezza e ricorda la  password del wallet.
+> La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi asset. Per favore, assicurati che il file wallet sia archiviato in sicurezza e ricorda la password del wallet.
 
 #### Account
 
