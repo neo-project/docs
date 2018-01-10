@@ -124,7 +124,7 @@ Secondo questa curva di rilascio, il 16% del GAS verrà creato nel primo anno, i
 
 ### Meccanismo Di Governo
 
-Governo della chain: I possessori di token NEO sono i proprietari e managers della rete, gestendo la rete attraverso un meccanismo di voti e usando il GAS generato da NEO per utilizzare le funzioni della rete. I token NEO possono essere trasferiti.
+Governo della chain: I possessori di token NEO sono i proprietari e manager della rete, gestendo la rete attraverso un meccanismo di voti e usando il GAS generato da NEO per utilizzare le funzioni della rete. I token NEO possono essere trasferiti.
 
 Governo off-chain: Il Neo Council é costituito dai membri fondatori del progetto NEO, sotto il quale il comitato di gestione, il comitato tecnico e il segretariato, rispettivamente, sono responsabili del processo decisionale, delle strategie, delle decisioni tecniche e implementazioni specifiche. Il NEO Council é responsabile verso la comunità NEO per la promozione e lo sviluppo dell'ecosistema NEO come suo primario obiettivo.
 
