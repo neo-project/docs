@@ -10,30 +10,30 @@ Lo sviluppo di una chain privata NEO richiede almeno quattro server per la reali
 
 ![image](/assets/privatechain_1.png)
 
-Dopo aver creato, per aprire la porta 10331-10334, il metodo specifico per il sistema nel `firewall` `advanced setting` `inbound rules`, per stabilire nuove regole, e aggiungere la porta 10331-10334.
+Dopo aver creato, aprire la porta 10331-10334, il metodo specifico per il sistema nel `firewall` `advanced setting` `inbound rules`, per stabilire nuove regole, e aggiungere la porta 10331-10334.
 
 > [!Nota]
-> Se crei una macchina virtuale su un cloud server, accedi al background amministrativo della macchina virtuale, e configura un gruppo di sicurezza rete.
+> Se crei una macchina virtuale su un cloud server, accedere al background amministrativo della macchina virtuale, e configurare un gruppo di sicurezza rete.
 >
-> La configurazione in Azure è: `network interface` `network security group` `inbound security rules` `add` aggiungi la porta 10331-10334.
+> La configurazione in Azure è: `network interface` `network security group` `inbound security rules` `add` aggiungere la porta 10331-10334.
 
-Una volta creata la macchina virtuale, salva l'indirizzo IP delle quattro macchine virtuali per utilizzarlo in seguito.
+Una volta creata la macchina virtuale, salvare l'indirizzo IP delle quattro macchine virtuali per utilizzarlo in seguito.
 
 ## 2. Installazione del nodo NEO
 
 Il processo di installazione del nodo NEO è stato descritto precedentemente in dettaglio. Per favore fare riferimento alle istruzioni di installazione (setup.md).
 
-## 3. Creare un wallet
+## 3. Creazione di un wallet
 
-Primo, abbiamo creato quattro file wallet, denominati wallet1.db3 - wallet4.db3. Questo step può  essere eseguito sia nella versione wallet PC sia nella versione wallet a linea di comando, la seguente figura e uno screenshot del client a linea di comando.
+Primo, abbiamo creato quattro file wallet, denominati wallet1.db3 - wallet4.db3. Questo step può essere eseguito sia nella versione wallet PC sia nella versione wallet a linea di comando, la seguente figura e uno screenshot del client a linea di comando.
 
 ![image](/assets/privatechain_3.png)
 
-Una che il wallet è stato creato e la sua chiave pubblica salvata, (per esempio salvata in un file txt), copia direttamente la chiave pubblica o usa il comando `list key` in [CLI Command](cli.md) per vedere la chiave pubblica, e poi copiarla. 
+Una volta che il wallet è stato creato e la sua chiave pubblica salvata, (per esempio salvata in un file .txt), copiare direttamente la chiave pubblica o usare il comando `list key` in [Comando CLI](cli.md) per vedere la chiave pubblica, e poi copiarla. 
 
-Successivamente, copia i quattro wallets nella directory dei quattro nodi della macchina viruale.
+Successivamente, copiare i quattro wallet nella directory dei quattro nodi della macchina viruale.
 
-## 4. Modifica il file di configurazione del nodo
+## 4. Modificare il file di configurazione del nodo
 
 Apri il file di configurazione del nodo `protocol.json`.
 
