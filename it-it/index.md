@@ -180,7 +180,7 @@ NeoFS servirà come uno dei InteropService (servizi interoperabili) sotto il sis
 
 ### Meccanismo di Crittografia Anti-Quantistica: NeoQS
 
-L'emergere dei computers quantistici pone una maggiore sfida ai meccanismi di crittografia basati sull'RSA e meccanismi basati sull'ECC. I computer quantistici possono risolvere un numero elevatissimo di problemi decomposti (sui quali l'RSA fa perno) e il logaritmo discreto della curva ellittica (sul quale l’ECC fa perno) in un periodo di tempo brevissimo. NeoQS (Quantum Safe) é un meccanismo crittografico reticolare. Allo stato attuale dell'arte, i computer quantistici non sono capaci di risolvere velocemente lo Shortest Vector Problem (SVP) e il Closest Vector Problem (CVP), che è considerato essere l'algoritmo più affidabile e più resistente ai computer quantici.
+L'emergere dei computers quantistici pone una maggiore sfida ai meccanismi di crittografia basati sull'RSA e ai meccanismi basati sull'ECC. I computer quantistici possono risolvere un numero elevatissimo di problemi decomposti (sui quali l'RSA fa perno) e il logaritmo discreto della curva ellittica (sul quale l’ECC fa perno) in un periodo di tempo brevissimo. NeoQS (Quantum Safe) é un meccanismo crittografico reticolare. Allo stato attuale dell'arte, i computer quantistici non sono capaci di risolvere velocemente lo Shortest Vector Problem (SVP) e il Closest Vector Problem (CVP), che è considerato essere l'algoritmo più affidabile e più resistente ai computer quantici.
 
 ## Sommario
 
