@@ -82,7 +82,7 @@ L'ecosistema é il punto cardine della comunità open source. Per riuscire a rag
 -	Mercato per NeoGas
 
 
-## NEO Modello Di Management
+## Modello Di Management NEO
 
 ### Modello Economico
 
