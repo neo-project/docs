@@ -97,6 +97,6 @@ Descrizione della risposta:
 
 Restituisce i dettagli della transazione come sopra per indicare che la transazione è stata inviata correttamente o la transazione non è andata a buon fine.
 
-Se il formato JSON non è corretto, viene restituito un errore Parse.
+Se il formato JSON non è corretto, viene restituito un errore nel Parse.
 Se la firma è incompleta, viene restituita una transazione in sospeso.
 Se il saldo è insufficiente, viene restituito un messaggio di errore.
