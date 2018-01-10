@@ -1,4 +1,4 @@
-# Istallazione e settaggio del nodo NEO
+# Istallazione e Implementazione del nodo NEO
 
 L’articolo precedente descrive due clients per i nodi della rete NEO. Uno é [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (il client a linea di comando - per gli sviluppatori), l’ altro é [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (Il client a interfaccia grafica - per gli utenti avanzati).
 
