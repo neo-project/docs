@@ -1,6 +1,6 @@
 # Metodo sendmany
 
-Ordine di trasferimento di massa e puoi specificare un indirizzo di modifica.
+Ordine di trasferimento di massa é possibile specificare un indirizzo di modifica.
 
 > [!Nota]
 > È necessario aprire il portafoglio nel nodo NEO-CLI prima di eseguire questo comando.
@@ -19,7 +19,7 @@ Outputs_array: Array, la struttura dati di ogni elemento nell'array è la seguen
 
 ​	Per NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-   Gli ID degli asset rimanenti possono essere passati attraverso la [linea di comando CLI](../cli.MD), anche la query di comando `list Asset` può essere richiesta nel browser block chain.
+   Gli ID degli asset rimanenti possono essere passati attraverso la [linea di comando CLI](../cli.MD), anche la query di comando `list Asset` può essere richiesta nel browser blockchain.
 
 
 ​	value：Importo del trasferimento
