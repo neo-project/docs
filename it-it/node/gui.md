@@ -76,7 +76,7 @@ Un record di tutte le informazioni sulle transazioni associate all'account.
 
 Il trasferimento di asset a un indirizzo ricevente. Se il tipo di asset è NEO, viene richiesto a entrambe le parti di confermare con la propria firma. Altri tipi di asset possono essere trasferiti senza la conferma da parte di entrambe le parti.
 
-#### Scambio
+#### Trade
 
 L'effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
 
@@ -154,7 +154,7 @@ Questa opzione viene usata per ripristinare gli errori nel client quando si veri
 
 Siccome l'altezza del blocco corrente è molto alta, ricostruire l'Indice del wallet potrebbe richiedere diversi minuti. Per favore sii paziente.
 
-## Scambio
+## Trade
 
 ### Trasferimento
 
@@ -202,7 +202,7 @@ Va notato che il formato dei dati va inserito in conformità ai criteri esposti 
 
 #### Osservazioni
 
-Questa funzione è usata per registrare le informazioni sulle transazioni nella blockchain di NEO. Il [blockchain browser di NEO](https://www.antchain.xyz/) può essere usato per individuare le informazioni sulle transazioni.
+Questa funzione è usata per registrare le informazioni sulle transazioni nella blockchain NEO. Il [blockchain browser di NEO](https://www.antchain.xyz/) può essere usato per individuare le informazioni sulle transazioni.
 
 ![image](/zh-cn/node/assets/o.png)
 
@@ -214,7 +214,7 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 
 ![image](/zh-cn/node/assets/oo.png)
 
-### Commercio
+### Trade
 
 #### Iniziare un'Operazione
 
