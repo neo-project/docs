@@ -116,7 +116,7 @@ La seconda porzione di 50 milioni di token é gestita dal NEO Council per promuo
 
 Distribuzione del GAS:
 
-Nuovo GAS viene generato ogni volta che viene generato un nuovo blocco. La quantità iniziale di GAS é zero. Con l'aumentare del tasso di generazione di ogni nuovo blocco, il limite totale di 100 milioni GAS potrà essere raggiunto in 22 anni. L'intervallo tra ogni nuovo blocco é all'incirca di 15-20 secondi, con 2 milioni di blocchi generati in quasi un anno.
+Nuovo GAS viene generato ogni volta che viene generato un nuovo blocco. La quantità iniziale di GAS é zero. Con l'aumentare del tasso di generazione di ogni nuovo blocco, il limite totale di 100 milioni di GAS potrà essere raggiunto in 22 anni. L'intervallo tra ogni nuovo blocco é all'incirca di 15-20 secondi, con 2 milioni di blocchi generati in quasi un anno.
 
 Ogni anno vengono generati intorno ai 2 milioni di blocchi e la distribuzione iniziale sarà di 8 GAS per blocco. Avverrà una riduzione annuale graduale di 1 GAS per blocco, coincidente con i 2 milioni di blocchi generati. La riduzione continuerà fino a 1 GAS per blocco e sarà raggiunta in 22 anni all'incirca. Dopo il 44 milionesimo blocco il GAS totale generato raggiungerà 100 milioni e da questo punto si fermerà la generazione di GAS da nuovi blocchi.
 
