@@ -4,7 +4,7 @@ Una rete distribuita per l'Economia Smart
 
 ## Progetti e Obiettivi di NEO: Economia Smart
 
-NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare gli assets, gli "smart contract" (contratti intelligenti) sono utilizzati per rendere autonoma la gestione degli asset digitali, permettendo così di creare una Economia Smart tramite una rete decentralizzata.
+NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare gli asset, gli "smart contract" (contratti intelligenti) sono utilizzati per rendere autonoma la gestione degli asset digitali, permettendo così di creare una Economia Smart tramite una rete decentralizzata.
 
 ### Assets Digitali
 
