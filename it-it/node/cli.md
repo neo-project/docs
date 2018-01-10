@@ -47,7 +47,7 @@ I comandi seguenti vengono spiegati in dettaglio:
 Questo comando è utilizzato per ricostruire l'index del wallet.
 Perchè è necessario ricostruire l'index del wallet?
 
-C'è un campo nel wallet che registra l'altezza della sincronizzazione del blocco corrente. per ciascuno di essi, il client del wallet sincronizza i blocchi e aggiorna gli assets e le transazioni nel wallet. Supponendo che il blocco correntemente registrato sia 100, e stai eseguendo il comando di importazione della chiave privata, il wallet continua a calcolare i tuoi asset dal blocco all'altezza 100. Se l'indirizzo importato ha alcune transazioni quando l'altezza del blocco è 100, le transazioni e gli assets corrispondenti non saranno mostrati nel wallet, quindi va ricostruito l'index del wallet, forzando il wallet a calcolare i tuoi assets dall'altezza del blocco 0. 
+C'è un campo nel wallet che registra l'altezza della sincronizzazione del blocco corrente. per ciascuno di essi, il client del wallet sincronizza i blocchi e aggiorna gli asset e le transazioni nel wallet. Supponendo che il blocco correntemente registrato sia 100, e stai eseguendo il comando di importazione della chiave privata, il wallet continua a calcolare i tuoi asset dal blocco all'altezza 100. Se l'indirizzo importato ha alcune transazioni quando l'altezza del blocco è 100, le transazioni e gli asset corrispondenti non saranno mostrati nel wallet, quindi va ricostruito l'index del wallet, forzando il wallet a calcolare i tuoi asset dall'altezza del blocco 0. 
 
 Il wallet appena creato non ha bisogno di ricostruire l'index del wallet, solamente la chiave privata importata è richiesta per ricostruire l'index del wallet.
 
