@@ -25,10 +25,10 @@ Nota: Il processo implica i seguenti passaggi:
 
 Il modo più efficiente di portare a termine questi passaggi è di scaricare e compilare tutti gli strumenti di cui avrai bisogno:
 
-1. Scaricare il GUI Node di NEO. Al momento della scrittura, è raccomandato di usare la GUI di sviluppo BETA siccome ha delle funzionalità extra per il debugging utili. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Sarà configurata di default alla Testnet e dovrai aspettare (fino a poche ore) la sincronizzazione completa.
+1. Scaricare la GUI Node di NEO. Al momento della scrittura, è raccomandato di usare la GUI di sviluppo BETA siccome ha delle funzionalità extra utili per quanto riguarda il debugging. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Sarà configurata di default sulla Testnet e dovrai aspettare (fino a poche ore) la sincronizzazione completa.
 2. Scaricare il Framework Library JAR di NEO. L'ultima versione corrente si trova qui: [Antshares.SmartContract.Framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
-3. Scaricare una IDE èer Java (opzionale ma raccomandato), come IntelliJ o Eclipse.
-4. Scaricare una IDE per C# - correntemente il compilatore neoj deve essere costruito manualmente siccome non è nel formato di rilascio massiccio. E' raccomandato ottenere Visual Studio 2017 che è gratis.
+3. Scaricare una IDE per Java (opzionale ma raccomandato), come IntelliJ o Eclipse.
+4. Scaricare una IDE per C# - correntemente il compilatore neoj deve essere costruito manualmente siccome non è nel formato rilascio di massa. E' raccomandato ottenere Visual Studio 2017 che è gratis.
 
 ## Strumenti di Sviluppo
 
