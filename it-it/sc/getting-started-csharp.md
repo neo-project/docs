@@ -88,7 +88,7 @@ Una volta creato un progetto, esso genererà automaticamente un file C#, la clas
 
 ## Compilare il Progetto
 
-Adesso è tutto quanto pronto per aggiungere il nuovo metodo di ingresso che definisce lo smart contract:
+Adesso è tutto quanto pronto per aggiungere il nuovo metodo entry che definisce lo smart contract:
 
 ```c#
 public class Contract1: SmartContract
