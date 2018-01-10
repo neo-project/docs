@@ -11,7 +11,7 @@ Il client non richiede alcuna installazione. Scarica ed estrai i file in un luog
 > [!Nota]
 > Le versioni precedenti di Windows10 richiedono l'installazione di [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
-### Sincronizzare
+### Sincronizzazione
 
 Il client deve essere completamente sincronizzato prima dell'uso. L'angolo in basso a sinistra indica il numero di blocchi sincronizzati e il numero totale di blocchi nella rete (vedi l'esempio sotto). Questi numeri vengono aggiornati regolarmente.
 
@@ -19,7 +19,7 @@ Il client deve essere completamente sincronizzato prima dell'uso. L'angolo in ba
 
 ### Glossario
 
-#### Wallet (Portafoglio)
+#### Wallet 
 
 Il file wallet memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'account nel database con l'estensione .db3. Questo file è molto importante e deve esserne fatto un backup in sicurezza.
 
@@ -57,7 +57,7 @@ Un record di tutte le informazioni sulle transazioni associate all'account.
 
 Il trasferimento di asset a un indirizzo ricevente. Se il tipo di asset è NEO, viene richiesto a entrambe le parti di confermare con la propria firma. Altri tipi di asset possono essere trasferiti senza la conferma da parte di entrambe le parti.
 
-#### Commercio
+#### Scambio
 
 Effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
 
@@ -82,11 +82,11 @@ Coloro che vogliono diventare validatori NEO devono registrarsi tramite elezione
 
 I detentori di NEO possono votare i candidati validatori e questo meccaniscmo di voto determinerà se un validatore è eletto. Questa funzione non è correntemente supportata. Per favore aspettare aggiornamenti successivi.
 
-#### Trasmettere
+#### Trasmissione
 
 Dopo aver firmato, l'informazione sulla transazione viene trasmette all'intera rete, la conferma da parte di un nodo completa la transazione. In questo momento, questa caratteristica appare solamente nella firma.
 
-#### Indirizzo Monitor
+#### Indirizzo di Monitoraggio
 
 dopo aver importato l'indirizzo di terza parte come indirizzo da monitorare, sarai capace di vedere gli asset in questo indirizzo.
 
