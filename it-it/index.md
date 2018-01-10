@@ -100,9 +100,9 @@ La rete NEO fisserà una soglia votando per esentare il GAS da una certa quantit
 
 Distribuzione di NEO:
 
-I 100 milioni di token NEO sono divisi in due porzioni. La prima porzione é di 50 milioni di token sono stati distribuiti proporzionalmente ai supporters di NEO durante il crowdfunding. Questa porzione é già stata distribuita.
+I 100 milioni di token NEO sono divisi in due porzioni. La prima porzione di 50 milioni di token é distribuita proporzionalmente ai supporter di NEO durante il crowdfunding. Questa porzione é già stata distribuita.
 
-La seconda porzione di 50 milioni di token é gestita dal NEO Council per promuovere lo sviluppo di NEO nel lungo termine, le operazioni, la manutenzione e l'ecosistema. Per quanto riguarda questa porzione NEO ha bloccato i fondi per il periodo di 1 anno, i quali verranno sbloccati solo dopo il 16 ottobre 2017. Questa porzione non entrerà sugli exchanges e sarà utilizzata esclusivamente per il supporto finanziario dei progetti di lungo periodo. Segue il piano:
+La seconda porzione di 50 milioni di token é gestita dal NEO Council per promuovere lo sviluppo di NEO nel lungo termine, le operazioni, la manutenzione e l'ecosistema. Per quanto riguarda questa porzione NEO ha bloccato i fondi per il periodo di 1 anno, i quali verranno sbloccati solo dopo il 16 ottobre 2017. Questa porzione non entrerà sugli exchange e sarà utilizzata esclusivamente per il supporto finanziario dei progetti di lungo periodo. Segue il piano:
 
 🔹 10 milioni di token (10% del totale) saranno usati per motivare e promuovere le attività degli sviluppatori e i membri del NEO Council.
 
