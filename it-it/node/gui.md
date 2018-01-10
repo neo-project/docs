@@ -154,45 +154,41 @@ Questa opzione viene usata per ripristinare gli errori nel client quando si veri
 
 Siccome l'altezza del blocco corrente è molto alta, ricostruire l'Indice del wallet potrebbe richiedere diversi minuti. Per favore sii paziente.
 
-### Ripristinare L'account
+## Scambio
 
-Questa opzione viene usata per ripristinare l'indirizzo del file wallet che è stato accidentalmente cancellato e i suoi asset. Va notato che non è generalmente raccomandato eliminare le operazioni all'interno del client, per evitare la perdita di asset.
-
-## Commercio
-
-### Trasferire
+### Trasferimento
 
 #### Trasferimento di Token Asset 
 
-(1) Clicca su `transaction`, `transfer`, `+`, e inserisci le informazioni per il trasferimento.
+(1) Cliccare su `transaction`, `transfer`, `+`, e inserire le informazioni per il trasferimento.
 
 ![image](/assets/gui_10.png)
 
-(2) Clicca OK.
+(2) Cliccare OK.
 
 ![image](/assets/gui_11.png)
 
-(3) Clicca OK.
+(3) Cliccare OK.
 
 ![image](/zh-cn/node/assets/i.png)
 
 #### Trasferimento di un Asset Capitale
 
-(1) Clicca su `transaction`, `transfer`, `+`, e inserisci le informazioni per il trasferimento.
+(1) Cliccare su `transaction`, `transfer`, `+`, e inserire le informazioni per il trasferimento.
 
 ![image](/zh-cn/node/assets/j.png)
 
-(2) Clicca OK.
+(2) Cliccare OK.
 
 ![image](/zh-cn/node/assets/k.png)
 
-(3) Clicca OK, come mostrato nel display, dove sono mostrate più firme richieste:
+(3) Cliccare OK, come mostrato nel display, dove sono mostrate più firme richieste:
 
 ![image](/zh-cn/node/assets/l.png)
 
-(4) Per la funzione di firma vedi [signature](#sign).
+(4) Per la funzione firma vedi [firma](#sign).
 
-#### Trasferimenti in Lotto
+#### Trasferiment in Lotto
 
 Questa funzione è usata per semplificare il trasferimento di uno stesso asset a differenti indirizzi.
 
