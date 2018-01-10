@@ -4,7 +4,7 @@ Una rete distribuita per l'Economia Smart
 
 ## Progetti e Obiettivi di NEO: Economia Smart
 
-NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare gli assets, gli "smart contracts" (contratti intelligenti) sono utilizzati per rendere autonoma la gestione degli assets digitali, permettendo così di creare una Economia Smart tramite una rete decentralizzata.
+NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare gli assets, gli "smart contract" (contratti intelligenti) sono utilizzati per rendere autonoma la gestione degli asset digitali, permettendo così di creare una Economia Smart tramite una rete decentralizzata.
 
 ### Assets Digitali
 
@@ -19,7 +19,7 @@ Per identità digitale ci si riferisce alle informazioni sull'identità degli in
 
 ### Smart Contract
 
-Il crittografo Nick Szabo, nel 1994, fu il primo a proporre il concetto di smart contract (contratto programmato), solo 5 anni dopo la creazione del World Wide Web. Secondo la definizione di Szabo: quando una condizione pre-programmata viene innescata lo smart contract eseguirà i corrispondenti termini contrattuali. La tecnologia blockchain provvede un sistema decentralizzato, resistente alle manomissioni, altamente affidabile, all'interno del quale gli smart contracts sono di primaria utilità. NEO implementa un sistema indipendente per gli smart contracts chiamato: NeoContract.
+Il crittografo Nick Szabo, nel 1994, fu il primo a proporre il concetto di smart contract (contratto programmato), solo 5 anni dopo la creazione del World Wide Web. Secondo la definizione di Szabo: quando una condizione pre-programmata viene innescata lo smart contract eseguirà i corrispondenti termini contrattuali. La tecnologia blockchain provvede un sistema decentralizzato, resistente alle manomissioni, altamente affidabile, all'interno del quale gli smart contract sono di primaria utilità. NEO implementa un sistema indipendente per gli smart contract chiamato: NeoContract.
 
 Il sistema NeoContract rappresenta la più grande caratteristica dell'integrazione senza pari al preesistente ecosistema di sviluppo software. Gli sviluppatori non hanno più bisogno di imparare un nuovo linguaggio di programmazione, possono scegliere di utilizzare C#, Java e altri linguaggi mainstream nell'ambiente IDE a loro più familiare (Visual Studio, Eclipse, etc.) per lo sviluppo dei contratti, debugging e compilazione. La leggera macchina virtuale (VM - Virtual machine) di NEO, NeoVM, ha il vantaggio di avere un'elevato grado di sicurezza, alta concorrenza e alta scalabilità. NeoContract permetterà a milioni di sviluppatori di tutto il mondo di eseguire rapidamente lo sviluppo degli smart contracts. NeoContract avrà un white paper separato per descrivere i dettagli sull’implementazione.
 
