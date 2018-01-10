@@ -112,21 +112,21 @@ dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggi
 ## Wallet
 ### Creazione del Database del Wallet
 
-(1) clicca su `wallet`, `create the wallet database`, apparirà una nuova pagina `new wallet`.
+(1) cliccare su `wallet`, `create the wallet database`, apparirà la pagina `new wallet`.
 
 ![image](/assets/gui_2.png)
 
-(2) clicca su `Browse` per selezionare la posizione di archiviazione del file wallet, scegli il nome del file e clicca su Salva.
+(2) cliccare su `Browse` per selezionare la posizione di archiviazione del file wallet, impostare il nome del file e cliccare su Salva.
 
 ![image](/es-es/node/assets/gui/gui_3.png)
 
-(3) Inserici `password` e `ripeat password` e salva la tua password.
+(3) Inserire `password` e `ripeat password` e salvare la propria password.
 
 ![image](/assets/gui_4.png)
 
-(4) Clicca su `OK` e il wallet verrà creato con successo, di default sarà reso disponibile con un account standard. Da notare che a causa del ruolo del meccanismo di cambiamento, il resto degli asset sarà trasferito al primo indirizzo predefinito. quindi, c'è il bisogno di fare il corrispondente backup della chiave privata e del wallet. 
+(4) Cliccare su `OK` e il wallet verrà creato con successo, di default sarà disponibile con un account standard. Da notare che a causa del ruolo del meccanismo di cambiamento, il resto degli asset verrá trasferito al primo indirizzo predefinito. Quindi, occorre fare il backup della corrispondente chiave privata e wallet. 
 
-### Apri il Database del Wallet
+### Aprire il Database del Wallet
 
 (1) Ogni volta che il client viene ri-aperto, occorre fare clic su `open wallet database` per selezionare quale file del wallet aprire, come mostrato in figura:
 
