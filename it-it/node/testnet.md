@@ -1,4 +1,4 @@
-# Rete  Test
+# Rete Test
 
 La TestNet è un ambiente dove l'utente può sviluppare, commissionare e testare programmi. Per testare programmi sulla testnet occorre pagare la commissione di rete in GAS testnet (non GAS reale!!). NEO e GAS testnet possono essere richiesti senza costi, sul sito web ufficiale. 
 
