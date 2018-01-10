@@ -21,7 +21,7 @@ Scarica e installa:
 
 [Indirizzo di download di Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-Il processo di installazione è veramente semplice, segui le istruzioni prompts passo dopo passo, va notato che devi controllare l'installazione di `.NET Core cross-platform development`, altrimenti non sarai capace di aprire il progetto neo-vm nello step #3. L'installazione richiede da 10 minuti fino ad un'ora di tempo.
+Il processo di installazione è veramente semplice, segui le istruzioni prompts passo dopo passo, va notato che é necessario controllare l'installazione di `.NET Core cross-platform development`, altrimenti non sará possibile aprire il progetto neo-vm nello step #3. L'installazione richiede da 10 minuti fino ad un'ora di tempo.
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
