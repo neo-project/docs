@@ -10,7 +10,7 @@ La struttura di commissioni per gli Smart Contracts puó essere trovata nella ta
 
 Gli iniziali 10 GAS sono sempre gratuiti. Le commssioni che ammontano a 10 GAS o meno non richiedono alcun servizio di commissione.
 
-Le ccommisioni seguenti sono commissioni minime. L'utente puó decire di pagare qualcosa in piú per avere prioritá.
+Le commisioni seguenti sono commissioni minime. L'utente puó decire di pagare qualcosa in piú per avere prioritá.
 
 Tutte le commissioni degli smart contract sono considerate come servizio di commissioni da mettere in una pool per la redistribuzione a tutti i possessori di NEO. La distribuzione é proporzionale alla quantitá di NEO.
 
