@@ -1,10 +1,10 @@
 # Riferimento API per Smart Contract
 
-L'API di NEO smart contract espande il potenziale Degli smart contract di accedere ai dati della blockchain, manipolare memoria persistente, e interrogare l'esecuzione dell'ambiente. Fa parte del livello di servizio di interoperabilitá della macchina virtuale NEO (NeoVM). 
+L'API di NEO smart contract espande il potenziale degli smart contract di accedere ai dati della blockchain, manipolare memoria persistente, e interrogare l'esecuzione dell'ambiente. Fa parte del livello di servizio di interoperabilitá della macchina virtuale NEO (NeoVM). 
 
 Per informazioni su NeoVM, vedi [Tutorial NEO Smart Contract](tutorial.md).
 
-Per maggiori informazioni su come usare usare la struttura per chiamare facilmente le APIs in linguaggi di alto livello, vedi [Struttura Smart Contracts Ants](fw.md).
+Per maggiori informazioni su come usare usare la struttura per chiamare facilmente le API in linguaggi di alto livello, vedi [Struttura Smart Contracts Ants](fw.md).
 
 
 
