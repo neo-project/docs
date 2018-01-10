@@ -50,7 +50,6 @@ Per il bene della discussione, descriveremo un paio di scenari. In questi sempli
 
   
 
-
 ### **Speaker Disonesto** 
 
   <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figura 3:</b> Esempio n = 3 con uno <b>Speaker</b> disonesto. </p>
@@ -136,7 +135,7 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 6. I **Delegates** ricevono la proposta da confermare:
 
-    - Il formato dei dati è coerente con le regole di sistema?
+    - Il formato dei dati è coerente con le regole del sistema?
     - La transazione è già sulla blockchain?
     - Gli script del contratto sono eseguiti correttamente?
     - La transazione contiene solo una singola spesa?(cioè la transazione evita uno scenario di doppia spesa?)
@@ -158,7 +157,7 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 **Nota:**
 
- Se dopo   (![timeout](/assets/consensus.timeout.png) )  secondo sulla stessa View senza consenso:
+ Se dopo (![timeout](/assets/consensus.timeout.png) )  secondi sulla stessa View senza consenso:
   - Il **Consensus Node** Trasmette:
 
   <!-- -->
