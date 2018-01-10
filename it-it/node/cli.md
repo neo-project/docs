@@ -1,10 +1,10 @@
 # Riferimento dei Comandi CLI
 
-Aprire la linea di comando, navigare fino alla directory dove il programma è collocato, inserire il docice seguente per avviare il wallet a linea di comando (Nel nodo NEO).
+Aprire la linea di comando, navigare fino alla directory dove il programma è collocato, inserire il codice seguente per avviare il wallet a linea di comando (Nel nodo NEO).
 
 `dotnet neo-cli.dll`
 
-Questo tutorial introdurrà  tutti i comandi del wallet a linea di comando. con questi comandi è possibile manipolare il wallet per creare un wallet, importare ed esportare la chiave privata, trasferire, iniziare il consenso, etc.
+Questo tutorial introdurrà tutti i comandi del wallet a linea di comando. Con questi comandi è possibile manipolare il wallet per creare un wallet, importare ed esportare la chiave privata, trasferire, iniziare il consenso, etc.
 
 Esamineremo prima i vari comandi listati nella linea di comando. Se inserisci `help` seguito dal comando "indietro", ti verrà mostrata una lista di comandi.
 
