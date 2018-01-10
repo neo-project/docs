@@ -57,7 +57,7 @@ Questo comando può essere usato per creare un nuovo indirizzo. Vi è anche la p
 
 👉 `export key [address] [path]`
 
-E' possibile specificare da quali indirizzi esportare le corrispondenti chiavi private. Inoltre, è possibile specificare l'esportazione in un file determinato. (Vedi gli esempi successivi). Il comando, richiede anche la verifica della password del wallet.
+E' possibile specificare da quali indirizzi esportare le corrispondenti chiavi private. Inoltre, è possibile specificare l'esportazione in un file determinato. (Vedere gli esempi successivi). Il comando, richiede anche la verifica della password del wallet.
 
 Export key
 
@@ -75,15 +75,15 @@ Import key L4zRFphDJpLzXZzYrYKvUoz1LkhZprS5pTYywFqTJT2EcmWPPpPH
 
 Import key key.txt
 
-Vi è  un file specificato, il file è nel formato della chiave privata. Si riferisce all'output export key.txt.
+Se c'è un file specificato, il file è nel formato della chiave privata. Si riferisce all'output export key.txt.
 
 👉 `send <id | alias> <address> <value> [fee = 0]`
 
-Per i trasferimenti, vi è un totale di quattro parametri. Il primo parametro e l'ID dell'asset, il secondo parametro è l'indirizzo di pagamento, il terzo parametro è  la quantità  da trasferire e il quarto parametro è la commissione. (Questo parametro può essere lasciato vuoto, di default è 0) Il comando verifica la password del wallet. Per esempio, al fine di trasferire 100 NEO all'indirizzo "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", occorre inserire il seguente comando.
+Per i trasferimenti, vi è un totale di quattro parametri. Il primo parametro e l'ID dell'asset, il secondo parametro è l'indirizzo di pagamento, il terzo parametro è la quantità da trasferire e il quarto parametro è la commissione. (Questo parametro può essere lasciato vuoto, di default è 0) Il comando verifica la password del wallet. Per esempio, al fine di trasferire 100 NEO all'indirizzo "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", occorre inserire il seguente comando.
 
 Send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
-Se non sei sicuro dell'ID dell'asset, per favore esegui il comando per vedere la lista di asset nel tuo wallet.
+Se non si é sicuri dell'ID dell'asset, per favore eseguire il comando per visualizzare la lista di asset nel proprio wallet.
 
 ## 3. Vedere le Informazioni del Nodo
 
@@ -91,11 +91,11 @@ Comando | Descrizione della Funzione |
 | ---------- | ----------------------- |
 show state | Mostra lo stato corrente della sincronizzazione della blockchain |
 show node | Mostra l'indirizzo e la porta dei nodi connessi |
-show pool | Mostra le transazioni nella memoria (queste transazioni hanno ricevuto 0 conferme) 
+show pool | Mostra le transazioni nella pool della memoria (queste transazioni hanno ricevuto 0 conferme) 
 
 ## 4. Istruzioni Avanzate
 
 Comando | Descrizione della Funzione|
 | --------------- | ---- |
 Start consensus | iniziare il consenso 
-Iniziare il consenso sulla premessa che il wallet abbia l'autorità di consenso, permette che l'autorità di consenso stessa possa essere ottenuta sulla mainnet tramite votazione. Se una chain privata è eseguita, le chiavi pubbliche del consenso possono essere istituite in `protocol.json`. Per favore fare riferimento a [Chain privata](private-chain.md) per dettagli futuri.
+Iniziare il consenso sulla premessa che il wallet abbia l'autorità di consenso, permette che l'autorità di consenso stessa possa essere ottenuta sulla mainnet tramite votazione. Se una chain privata è implementata, le chiavi pubbliche del consenso possono essere istituite in `protocol.json`. Per favore fare riferimento a [Chain privata](private-chain.md) per maggiori dettagli.
