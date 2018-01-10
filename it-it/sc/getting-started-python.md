@@ -113,11 +113,11 @@ Attualmente non testato. Installare il pacchetto Python plyvel sembra richiedere
 > - Se stai aggiornando neo-python con `git pull`, assicurati di aggiornare le dipendenze con `pip install -r requirements.txt`.
 >
 >
-> - Se stai usando neo-python per la prima volta, hai bisogno di sincronizzare la blockchain, il quale potrebbe richiedere molto tempo. Incluso nel progetto vi è `bootstrap.py` per scaricare automaticamente la directory della chain per te. Per bootstrap per la testnet, esegui `python bootstrap.py`; Per bootstrap per la mainnet, usa `python bootstrap.py -m`.
+> - Se stai usando neo-python per la prima volta, occorre sincronizzare la blockchain, il quale potrebbe richiedere molto tempo. Incluso nel progetto vi è `bootstrap.py` per scaricare automaticamente la directory della chain per te. Per il bootstrap della testnet, esegui `python bootstrap.py`; Per il bootstrap della mainnet, usa `python bootstrap.py -m`.
 
 ## Esecuzione del nodo basato su Python
 
-Dopo aver installato quanto richiesto e aver attivato l'ambiente, usa il file `prompt.py` per eseguire il nodo così come alcune interattività di base.
+Dopo aver installato i requisiti e aver attivato l'ambiente, usa il file `prompt.py` per eseguire il nodo così come alcune interattività di base.
 
 Il seguente esempio avvia `prompt.py` sulla TestNet:
 
