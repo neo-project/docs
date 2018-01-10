@@ -5,44 +5,44 @@ Ci sono due programmi per un full-node. Il primo é Neo-GUI, contenente tutte le
 
 Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un API di basso livello per determinati tipi di transazioni che non sono attualmente supportate dal CLI, come richiedere GAS o inviare NEO senza un wallet aperto. 
 
-## Indirizzo Download Del Nodo NEO
+## Indirizzo Download del Nodo NEO
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
 | Distribuzioni | [Sito Web Ufficiale](https://www.neo.org/download) o [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Codice Sorgente | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
-## Comparazione Tra Le Funzioni Nodo GUI e Nodo CLI
+## Comparazione tra le Funzioni Nodo GUI e Nodo CLI
 
 |           | GUI  | CLI  |
 | --------- | ---- | ---- |
 | Interfaccia Grafica | ✅    |      |
 | Interfaccia a Linea Di Comando |      | ✅    |
-| Creazione Portafoglio (Wallet) | ✅    | ✅    |
-| Portafoglio (Wallet) Aperto | ✅    | ✅  |
-| Ricostruzione Indice Portafoglio (Wallet)| ✅    | ✅    |
+| Creazione di un Wallet | ✅    | ✅    |
+| Wallet Aperto | ✅    | ✅  |
+| Ricostruzione dell'Indice del Wallet | ✅    | ✅    |
 | Coppie Di Chiavi | ✅    | ✅    |
 | Importazione/Esportazione Della Coppia Di Chiavi| ✅    | ✅    |
-| Mostra Tutti Gli Indirizzi | ✅    | ✅    |
-| Mostra Tutti Gli Asset | ✅    | ✅    |
-| Creazione Indirizzo | ✅    | ✅    |
+| Mostrare Tutti Gli Indirizzi | ✅    | ✅    |
+| Mostrare Tutti Gli Asset | ✅    | ✅    |
+| Creazione di un Indirizzo | ✅    | ✅    |
 | Trasferimento | ✅    | ✅    |
 | Transazione (Asset swap)  | ✅    |      |
-| Generare Contratto Con Firma Multiparte | ✅    |      |
-| Creazione Smart Contract Personalizzato | ✅    |      |
+| Generazione di un Contratto Con Firma Multiparte | ✅    |      |
+| Creazione di uno Smart Contract Personalizzato | ✅    |      |
 | Firma | ✅    |      |
-| Elezione Nodo di Consenso | ✅    |      |
+| Elezione di un Nodo di Consenso | ✅    |      |
 | Votazione | ✅    |      |
-| Registrare Asset | ✅    |      |
-| Distribuzione Di Asset | ✅    |      |
-| Estrazione Di NEO | ✅    |      |
+| registrazione di Asset | ✅    |      |
+| Distribuzione di Asset | ✅    |      |
+| Estrazione di NEO | ✅    |      |
 | Indirizzi Generati in Lotto   |      | ✅    |
 | JSON-RPC |      | ✅    |
-| Consenso Dei Blocchi Partecipanti |      | ✅    |
+| Consenso dei Blocchi Partecipanti |      | ✅    |
 
 ## Descrizione Delle Porte
 
-Se si voglia che un nodo esterno acceda alle API, é necessario aprire una porta del firewall. Quanto segue é una descrizione della porta che puó essere impostata Completamente Aperta o Aperta Su Domanda.
+Se vuoi far accedere un programma esterno all'API del nodo, é necessario aprire una porta nel firewall. Quanto segue é una descrizione della porta che puó essere impostata Completamente Aperta o Aperta Su Domanda.
 
 |                    | Main Net | Test Net |
 | ------------------ | ------------ | ------------- |
