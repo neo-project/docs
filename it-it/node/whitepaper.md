@@ -36,7 +36,7 @@ L'integrità e l'autenticità della trasmissione delle informazioni sono garanti
 
 Tutti i nodi di consenso sono tenuti a mantenere una tabella di stato per registrare lo stato di consenso corrente. Il set di dati utilizzato per un consenso dal suo inizio fino alla sua fine è chiamato View. Se non è possibile raggiungere il consenso all'interno della View corrente, sarà necessario un cambiamento di View. Identifichiamo ciascuna View con un numero v, iniziante per 0 e può aumentare fino a raggiungere il consenso.
 
-​Identifichiamo ciascun nodo di consenso con un numero, a partire da 0, l'ultimo nodo è numerato n - 1. Per ogni round di realizzazione del consenso, un nodo fará lo "speaker" della casa mentre gli altri nodi fanno i "congressman". Il numero p di "parlatori" sarà determinato dall'algoritmo seguente: Ipoteticamente l'attuale altezza del blocco è h, poi 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, l'intervallo di valori di p sarà  0 ≤ 𝑝 < 𝑛 .
+​Identifichiamo ciascun nodo di consenso con un numero, a partire da 0, l'ultimo nodo è numerato n - 1. Per ogni round di realizzazione del consenso, un nodo fará lo "speaker" della casa mentre gli altri nodi fanno i "congressman". Il numero p di "speaker" sarà determinato dall'algoritmo seguente: Ipoteticamente l'attuale altezza del blocco è h, poi 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, l'intervallo di valori di p sarà  0 ≤ 𝑝 < 𝑛 .
 
 ​Un nuovo blocco verrà generato con ogni round di consenso, con almeno 𝑛 − 𝑓 firme dai nodi bookkeeping. Alla generazione di un blocco, inizierà un nuovo round di consenso, resettando v=0.
 
