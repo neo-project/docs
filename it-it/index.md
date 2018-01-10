@@ -168,7 +168,7 @@ NeoX é già esteso ai protocolli di scambio Atomic Asset permettendo a più par
 
 **Protocollo per le transazioni cross-chain distribuite:**
 
-Per transazioni cross chain distribuite s'intende che i diversi steps di una transazione sono sparpagliati tra differenti blockchain e che la consistenza dell'intera transazione é assicurata. Questa é una estensione dello scambio per asset cross-chain, estendendo il comportamento degli asset in un comportamento arbitrario. In termini profani, NeoX rende possibile l'esecuzione cross chain degli smart contract dove un contratto intelligente può eseguire diverse componenti su chains differenti, avendo completo successo oppure essendo completamente ripristinato. Ciò offre un'eccellente possibilità di collaborazioni, inoltre nel frattempo stiamo esplorando scenari riguardanti applicazioni per gli smart contract cross-chain. 
+Per transazioni cross chain distribuite s'intende che i diversi step di una transazione sono sparpagliati tra differenti blockchain e che la consistenza dell'intera transazione é assicurata. Questa é una estensione dello scambio di asset cross-chain, estendendo il comportamento dello scambio di asset in un comportamento arbitrario. In termini profani, NeoX rende possibile l'esecuzione cross chain degli smart contract dove un contratto intelligente può eseguire diverse componenti su chain differenti, avendo completo successo oppure essendo completamente ripristinato. Ciò offre un'eccellente possibilità di collaborazioni, inoltre nel frattempo stiamo esplorando gli scenari riguardanti applicazioni per gli smart contract cross-chain. 
 
 ### Protocollo Per L'archiviazione Distribuita: NeoFS
 
