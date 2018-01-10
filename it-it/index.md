@@ -59,7 +59,7 @@ L'ecosistema é il punto cardine della comunità open source. Per riuscire a rag
 
 -	Fondo smart
 
--	AI legale assistita dagli smart contract
+-	IA legale assistita dagli smart contract
 
 -	Social networking
 
