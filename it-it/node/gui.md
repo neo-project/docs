@@ -103,11 +103,11 @@ I detentori di NEO possono votare i candidati validatori e questo meccaniscmo di
 
 #### Trasmissione
 
-Dopo aver firmato, l'informazione sulla transazione viene trasmette all'intera rete, la conferma da parte di un nodo completa la transazione. In questo momento, questa caratteristica appare solamente nella firma.
+Dopo aver firmato, l'informazione sulla transazione viene trasmessa all'intera rete, dove la conferma da parte di un nodo completa la transazione. In questo momento, questa caratteristica appare solamente nella firma.
 
 #### Indirizzo di Monitoraggio
 
-dopo aver importato l'indirizzo di terza parte come indirizzo da monitorare, sarai capace di vedere gli asset in questo indirizzo.
+dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggio, sarai capace di vedere gli asset in quel indirizzo.
 
 ## Wallet
 ### Creazione del Database del Wallet
