@@ -53,11 +53,11 @@ Il wallet appena creato non ha bisogno di ricostruire l'indice del wallet, é ri
 
 👉 `create address [n = 1]`
 
-Questo comande può essere usato per creare un nuovo indirizzo. Vi è anche la possibilità di insierire 'create address 100' per creare 100 nuovi indirizzi in lotto; La creazione all'ingrosso di indirizzi verrà automaticamente esportata al file address.txt.
+Questo comando può essere usato per creare un nuovo indirizzo. Vi è anche la possibilità di insierire 'create address 100' per creare 100 nuovi indirizzi in lotto; La creazione all'ingrosso di indirizzi verrà automaticamente esportata nel file address.txt.
 
 👉 `export key [address] [path]`
 
-E' possibile specificare a quali indirizzi esportare le corrispondenti chiavi private. Inoltre, è possibile specificare l'esportazione del determinato file. (Vedi gli esempi successivi). Il comando, inoltre, richiede anche la verificazione della password del wallet.
+E' possibile specificare da quali indirizzi esportare le corrispondenti chiavi private. Inoltre, è possibile specificare l'esportazione in un file determinato. (Vedi gli esempi successivi). Il comando, richiede anche la verifica della password del wallet.
 
 Export key
 
