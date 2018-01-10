@@ -43,6 +43,10 @@ Scarica il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) 
 
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
+> [!Nota]
+>
+> Durante il processo di pubblicazione di neon, se viene richiesto, il file neon.dll non può essere copiato, è possibile copiare manualmente il file con lo stesso nome dalla cartella di livello superiore. 
+
 dopo che il rilascio avviene con successo, viene generato il file neon.exe in `bin\Release\PublishOutput`.
 
 Adesso occorre aggiunge questa directoru al nostro percorso di esecuzione. La PATH è la variabile di sistema che il tuo sistema operativo usa per localizzare eseguibili richiesti dalla linea di comando o dalla finestra del Terminal.
