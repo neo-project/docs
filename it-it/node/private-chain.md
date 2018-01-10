@@ -25,7 +25,7 @@ Il processo di installazione del nodo NEO è stato descritto precedentemente in 
 
 ## 3. Creare un wallet
 
-Primo, abbiamo creato quattro files wallet, denominati wallet1.db3 - wallet4.db3. Questo step può  essere eseguito sia nella versione wallet PC sia nella versione wallet a linea di comando, la seguente figura e uno screenshot del client a linea di comando.
+Primo, abbiamo creato quattro file wallet, denominati wallet1.db3 - wallet4.db3. Questo step può  essere eseguito sia nella versione wallet PC sia nella versione wallet a linea di comando, la seguente figura e uno screenshot del client a linea di comando.
 
 ![image](/assets/privatechain_3.png)
 
@@ -75,7 +75,7 @@ infine modifica `SeedList`, inserisci l'indirizzo IP registrato nel primo step, 
 
 SystemFee è il sistema di commissioni, le commissioni correnti sono come segue (in unità di GAS):
 
-Registrazione per book-keepers - 1000, Distribuzione di Assets - 500 Smart Contracts 500, Registrazione di Assets - 10000
+Registrazione per book-keepers - 1000, Distribuzione di Asset - 500 Smart Contracts 500, Registrazione di Asset - 10000
 
 Puoi impostare il tuo sistema di commissioni per la tua chain privata  qui.
 
@@ -120,7 +120,7 @@ Clicca OK. Al fine di ricostruire l'indice del wallet, clicca su  'wallet' nella
 ![image](/assets/privatechain_14.png)
 
 > [!Nota]
-> Tutti e 4 i wallets devono eseguire l'operazione di aggiunta di indirizzi multi firma, e ricostruzione dell'index del wallet. 
+> Tutti e 4 i wallets devono eseguire l'operazione di aggiunta di indirizzi multi firma, e ricostruzione dell'indice del wallet. 
 
 Qui vogliamo inviare i NEO dall'indirizzo del contratto a un indirizzo normale. Per far ciò, apri uno dei quattro waller, clicca su `transaction`, `transfer` e inserisci l'indirizzo del destinatario, al fine di trasferire 100 millioni di NEO a questo indirizzo ricevente.
 
