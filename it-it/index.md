@@ -132,7 +132,7 @@ Governo off-chain: Il Neo Council é costituito dai membri fondatori del progett
 
 ### Meccanismo Di Consenso: dBFT
 
-Il dBFT: Delegated Byzantine Fault Tolerant; Un meccanismo di consenso Byzantine fault-tolerant che abilita la partecipazione su larga scala attraverso il voto per delega (c.d proxy voting). I titolari dei token NEO possono, tramite voto, scegliere il bookkeeper supportato. Il gruppo di bookkeeper eletti, tramite l'algoritmo BFT, raggiunge il consenso generando in tal modo un nuovo blocco. Il voto, nella rete NEO, é un'operazione continua che avviene in tempo reale, a differenza di un accordo a termine prefissato.
+Il dBFT: Delegated Byzantine Fault Tolerant; Un meccanismo di consenso Byzantine tollerante ai guasti che abilita la partecipazione su larga scala attraverso il voto per delega (c.d proxy voting). I titolari dei token NEO possono, tramite voto, scegliere il bookkeeper supportato. Il gruppo di bookkeeper eletti, tramite l'algoritmo BFT, raggiunge il consenso generando in tal modo un nuovo blocco. Il voto, nella rete NEO, é un'operazione continua che avviene in tempo reale, a differenza di un accordo a termine prefissato.
 
 Il dBFT provvede una tolleranza d'errore di f = ⌊ (n-1) / 3 ⌋ per un sistema di consenso costituito da n nodi. Questa tolleranza d'errore include entrambe sicurezza e disponibilità, resistente alle falle generali e relative a Byzantine, inoltre adatto a qualsiasi ambiente di rete. Il dBFT é "inamovibile", ciò significa che una volta che le conferme sono definitive, il blocco non può più essere biforcato, e le transazioni non possono essere revocate o reimpostate allo stato precedente.
 
