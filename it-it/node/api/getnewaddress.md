@@ -1,6 +1,6 @@
 # Metodo getnewaddress
 
-Creare un nuovo indirizzo.
+Crea un nuovo indirizzo.
 
 > [!Nota]
 > È necessario aprire il wallet nel nodo NEO-CLI prima di eseguire questo comando.
