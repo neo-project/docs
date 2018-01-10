@@ -1,21 +1,42 @@
 # Utilizzo del Client NEO-GUI
 
-## Panoramica
+## Prerequisiti
 
-### Introduzione
+## Prerequisite
 
-Il client neo-gui è compatibile con le seguenti versioni di Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+### Scaricamente del client
 
-Il client non richiede alcuna installazione. Scarica ed estrai i file in un luogo di tua scelta, fai doppio click su neo-gui.exe per aprire il client. Se dovessero esserci problemi con il processo e il client non può essere usato normalmente, per favore apri il file error.log collocato nella stessa directory di neo-gui, successivamente contatta il nostro staff per assisterti nel risolvere il problema.
+The client itself does not require any installation. Download and extract the files to a location of your choice, then double-click neo-gui.exe to open the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
 
-> [!Nota]
-> Le versioni precedenti di Windows10 richiedono l'installazione di [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+> [!Note]
+>
+> The neo-gui client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+>
+> Windows10 pre-version of the system requires installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
-### Sincronizzazione
+### Sincronizzazione dati blockchain
 
-Il client deve essere completamente sincronizzato prima dell'uso. L'angolo in basso a sinistra indica il numero di blocchi sincronizzati e il numero totale di blocchi nella rete (vedi l'esempio sotto). Questi numeri vengono aggiornati regolarmente.
+The client must be fully synchronized before use. The bottom left hand corner indicates the number of blocks synchronized and the total number of blocks in the network (see example below).  These numbers will update regularly.
 
 ![image](/assets/gui_1.png)
+
+In order to speed up network synchronzation you can download a copy of the blockchain up to a certain blockheight.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
+
+1. To begin, download the file located at [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+
+2. Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
+
+   ![](/assets/gui_58.png)
+
+3. After re-opening the neo-gui client you will see that the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. As shown in the figure below:  
+
+   ![](/assets/gui_59.png)
+
+When synchronized to a certain point, the file (chain.acc) will be deleted and synchronization from the NEO network will continue. As shown in the figure below:
+
+![](/assets/gui_60.png)
+
+The data beside "Height" correspond to wallet height/client height/blockchain. When you open a wallet, the wallet height data is displayed.
 
 ### Glossario
 
