@@ -7,7 +7,7 @@ neo-python, il nodo python e l'SDK per la blockchain NEO, permette di costruire,
 - Esecuzione di un nodo P2P basato su Python
 - CLI interattiva per la configurazione del nodo e l'ispezione della blockchain
 - Compilare, testare, implementare ed eseguire Smart Contracts scritti in python o qualsiasi Smart Contract in `.avm format`
-- [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) e [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) funzionalità conforme al wallet
+- Funzionalitá del wallet conforme a [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) e [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 
 - RPC Client
 - `Runtime.Log` e `Runtime.Notify` monitoraggio degli eventi
 
