@@ -120,7 +120,7 @@ Clicca OK. Al fine di ricostruire l'indice del wallet, clicca su  'wallet' nella
 ![image](/assets/privatechain_14.png)
 
 > [!Nota]
-> Tutti e 4 i wallets devono eseguire l'operazione di aggiunta di indirizzi multi firma, e ricostruzione dell'indice del wallet. 
+> Tutti e 4 i wallet devono eseguire l'operazione di aggiunta di indirizzi multi firma, e ricostruzione dell'indice del wallet. 
 
 Qui vogliamo inviare i NEO dall'indirizzo del contratto a un indirizzo normale. Per far ciò, apri uno dei quattro waller, clicca su `transaction`, `transfer` e inserisci l'indirizzo del destinatario, al fine di trasferire 100 millioni di NEO a questo indirizzo ricevente.
 
