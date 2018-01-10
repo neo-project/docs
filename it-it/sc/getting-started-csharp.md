@@ -6,7 +6,7 @@ typora-root-url: ..\..
 
 Correntemente raccomandiamo C# per lo sviluppo degli smart contracts (anche se supportiamo o abbiamo pianificato di supportare Java, Kotlin, Go, C/C++, Python, JavaScript e altri linguaggi di programmazione)
 
-Questa sezione contiene un breve tutorial che guida nella configurazione dell'ambiente di sviluppo in C# per gli smart contracts NEO e da un'idea su ​​come creare un progetto smart contract e come compilarlo.
+Questa sezione contiene un breve tutorial che ti guida nella configurazione dell'ambiente di sviluppo in C# per gli smart contracts NEO e inoltre da un'idea su ​​come creare un progetto smart contract e come compilarlo.
 
    > [!Nota]
    > Al momento, tutti i progetti sono stati aggiornati alla versione Visual Studio 2017, se vuoi usare visual Studio 2015 per creare contratti intelligenti fai riferimento a  [come usare C # per scrivere contratti intelligenti NEO per VS2015](getting-started-2015.md)
