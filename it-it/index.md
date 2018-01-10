@@ -8,9 +8,9 @@ NEO implementa la tecnologia blockchain e l'identità digitale per digitalizzare
 
 ### Asset Digitali
 
-Gli asset digitali sono risorse programmabili esistenti sotto forma di dati digitali. Grazie alla tecnologia blockchain, la digitalizzazione degli asset può essere decentralizzata, affidabile, tracciabile, altamente trasparente e senza intermediari. Sulla blockchain di NEO gli utenti possono registrarsi, commerciare e scambiarsi diversi tipi di asset, dimostrando che la connessione tra asset digitali e asset fisici é possibile tramite l'implementazione dell'identità digitale. Gli asset registrati e convalidati tramite un’identità digitale sono inoltre protetti dalla legge.
+Gli asset digitali sono risorse programmabili esistenti sotto forma di dati digitali. Grazie alla tecnologia blockchain, la digitalizzazione degli asset può essere decentralizzata, affidabile, tracciabile, altamente trasparente e senza intermediari. Sulla blockchain di NEO gli utenti possono registrarsi, commerciare e scambiare diversi tipi di asset, dimostrando che la connessione tra asset digitali e asset fisici é possibile tramite l'implementazione dell'identità digitale. Gli asset registrati e convalidati tramite un’identità digitale sono, inoltre, protetti dalla legge.
 
-NEO implementa due tipi di asset digitali: asset globali e asset contrattuali. Gli asset globali registrati nel sistema sono identificati da tutti gli smart contract e dai clients. Gli asset contrattuali sono registrati nell' archivio privato dello smart contract in questione, quindi, é richiesto un client compatibile per riconoscerli. Gli asset contrattuali possono aderire a specifici standards rendendo possibile la compatibilità con la maggior parte dei clients.
+NEO implementa due tipi di asset digitali: asset globali e asset contrattuali. Gli asset globali registrati nel sistema sono identificati da tutti gli smart contract e dai client. Gli asset contrattuali sono registrati nell' archivio privato dello smart contract in questione, quindi, é richiesto un client compatibile per riconoscerli. Gli asset contrattuali possono aderire a specifici standards rendendo possibile la compatibilità con la maggior parte dei clients.
 
 
 ### Identità Digitale
