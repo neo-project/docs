@@ -35,7 +35,7 @@ Aprire Visual Studio 2017, aprire Tools, cliccare su Estensioni e Aggiornamenti,
 
 ### 3. neo-compiler
 
-Passi per l'installazione e la configurazione:
+Passaggi per l'installazione e la configurazione:
 
 Scaricare il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) su Github, aprire la soluzione con Visual Studio 2017, pubblicare il progetto neon
 
