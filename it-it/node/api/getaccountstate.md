@@ -1,6 +1,6 @@
 # Metodo Getaccountstate
 
-Interroga l'account sulle informazioni degli assets, secondo l'indirizzo dell'account.
+Interroga l'account sulle informazioni degli asset, secondo l'indirizzo dell'account.
 
 ## Descrizione del Parametro
 
@@ -42,14 +42,14 @@ Testo della risposta:
 
 Descrizione della Risposta:
 
-Script_hash: Scipt hash del contratto; Tutti gli accounts in NEO sono account di contratto
+Script_hash: Scipt hash del contratto; Tutti gli account in NEO sono account di contratto
 
-Congelato: Determina se l'account è congelato
+Frozen: Determina se l'account è congelato
 
-Voti: Interroga sulla quantità di NEO su quell'indirizzo usati per votare
+Votes: Interroga la quantità di NEO su quell'indirizzo usati per votare
 
-Saldo: Saldo degli asset a quell'indirizzo
+Balances: Saldo degli asset in quel indirizzo
 
 Asset: ID dell'asset
 
-Valore: Quantità  di Assets
+Value: Quantità di Asset
