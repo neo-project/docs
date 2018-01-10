@@ -1,6 +1,6 @@
 # Metodo Getrawtransaction
 
-Restituisce le informazioni sulla transazione corrispondenti, in base al valore hash specificato.
+Restituisce le informazioni sulle transazioni corrispondenti, in base al valore hash specificato.
 
 ## Descrizione del Parametro
 
@@ -31,7 +31,7 @@ Testo della risposta:
 }
 ```
 
-Richiesta di testo:
+Testo della richiesta:
 
 Verbose = 1, Restituisce il risultato in formato JSON.
 
@@ -44,7 +44,7 @@ Verbose = 1, Restituisce il risultato in formato JSON.
 }
 ```
 
-Risposta di testo:
+Testo della risposta:
 
 ```json
 {
