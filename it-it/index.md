@@ -63,7 +63,7 @@ L'ecosistema é il punto cardine della comunità open source. Per riuscire a rag
 
 -	Social networking
 
--	Token fornitore automatico di liquidità
+-	Fornitore di liquiditá Token automatizzato
 
 -	Exchange decentralizzato
 
