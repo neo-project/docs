@@ -31,11 +31,11 @@ Al fine di aumentare la velocitá di sincronizzazione della rete puoi scaricare 
 
    ![](/assets/gui_59.png)
 
-When synchronized to a certain point, the file (chain.acc) will be deleted and synchronization from the NEO network will continue. As shown in the figure below:
+Quando la sincronizzazione arriva a un certo punto, il file (chain.acc) verrá eliminato e la sincronizzazione dall rete NEO continuerá. Come mostrato nella figura successiva:
 
 ![](/assets/gui_60.png)
 
-The data beside "Height" correspond to wallet height/client height/blockchain. When you open a wallet, the wallet height data is displayed.
+I dati di fianco "Height" corrispondono a altezza/client altezza/blockchain. Quando il wallet viene aperto, vengono mostrati i dati sull'altezza del wallet.
 
 ### Glossario
 
