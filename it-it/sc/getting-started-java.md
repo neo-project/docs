@@ -48,7 +48,7 @@ Il processo di installazione è davvero semplice, segui le operazioni prompts pa
 
 Passaggi di installazione e configurazione:
 
-Scaricare il progetto [compilatore neo](https://github.com/neo-project/neo-compiler) su Github, aprire la soluzione con Visual Studio 2017, pubblicare il progetto neoj.
+Scaricare il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) su Github, aprire la soluzione con Visual Studio 2017, pubblicare il progetto neoj.
 
 Pubblicare il compilatore neoj (il quale converte Java bytecode in AVM bytecode).
 
@@ -56,9 +56,9 @@ Pubblicare il compilatore neoj (il quale converte Java bytecode in AVM bytecode)
 
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
-Dopo il rilascio con successo, ilfile neoj.exe è generato in `bin\Release\PublishOutput`.
+A rilascio avvenuto con successo, il file neoj.exe viene generato in `bin\Release\PublishOutput`.
 
-Non c'è bisogno di aggiungere questa directory al percorso di esecuzione. il PATH è la variabile di sistema che il tuo sistema operativo usa per collocare eseguibili dalla linea di comando o dalla finestra del Terminal.
+Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La PATH è la variabile di sistema che il tuo sistema operativo usa per localizzare eseguibili richiesti dalla linea di comando o dalla finestra del Terminal.
 
 **Windows 10 and Windows 8:**
 
