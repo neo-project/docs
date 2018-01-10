@@ -15,7 +15,7 @@ Questa sezione contiene un breve tutorial che ti guida nella configurazione dell
 
 ### 1. Visual Studio 2017
 
-Se hai già installato Visual Studio 2017 sul tuo computer e controllato per .NET Cross-Platform Development al momento dell'installazione, puoi saltare questa sezione.
+Se hai già installato Visual Studio 2017 sul tuo computer e spuntato .NET Cross-Platform Development al momento dell'installazione, puoi saltare questa sezione.
 
 Scarica e installa:
 
