@@ -10,11 +10,11 @@ Esamineremo prima i vari comandi elencati nella linea di comando. Nella linea di
 
 ![image](/assets/cli_2.png)
 
-Qaunto segue è una descrizione di tutti i comandi e l'ordine delle oarentesi:
+Qaunto segue è una descrizione di tutti i comandi e l'ordine delle parentesi:
 Le parentesi angolari ``<> `` , indicano un parametro.
 Le parentesi quadre `[]`, vengono usate per parametri opzionali.
 Il simbolo `|` mostra i parametri di riempimento, che possono essere di qualunque tipo.
-Il simbolo uguale `=` indica il valore predefinito di un di un parametro opzionale senza input. 
+Il simbolo uguale `=` indica il valore predefinito di un parametro opzionale senza un input. 
 
 ## 1. Istruzioni della Console
 
