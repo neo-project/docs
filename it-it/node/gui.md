@@ -1,4 +1,4 @@
-# Istruzioni D'uso del Client
+# Utilizzo del Client NEO-GUI
 
 ## Panoramica
 
