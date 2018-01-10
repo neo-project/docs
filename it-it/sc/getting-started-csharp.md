@@ -37,7 +37,7 @@ Aprire Visual Studio 2017, aprire Tools, cliccare su Estensioni e Aggiornamenti,
 
 Passi per l'installazione e la configurazione:
 
-Scarica il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) su Github, apri la soluzione con Visual Studio 2017, pubblica il progetto neon,
+Scarica il progetto [neo-compiler](https://github.com/neo-project/neo-compiler) su Github, apri la soluzione con Visual Studio 2017, pubblica il progetto neon
 
 ![publish NEO compiler msil project](/assets/publish_neo_compiler_msil_project.png)
 
@@ -53,22 +53,22 @@ Adesso occorre aggiungere questa directory al nostro percorso di esecuzione. La 
 
 **Windows 10 e Windows 8:**
 
-  In Ricerca, cerca e seleziona : Sistema (Pannello di Controllo)
-  Fai clic sul link Impostazioni Avanzate di Sistema. 
-  Clicca su Variabili di Ambiente. Nella sezione Variabili di Sistema, trova la variabile di ambiente PATH e selezionala. Clicca Modifica. Se la variabile di ambiente non esiste, clicca su nuova.
-  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di Sistema), specificare il valore della variabile PATH. Clicca OK. Chiudi tutte le finestre rimanenti cliccando su OK.
+  In Ricerca, cercare e poi selezionare : Sistema (Pannello di Controllo)
+  Cliccare sul link Impostazioni Avanzate di Sistema. 
+  Cliccare su Variabili di Ambiente. Nella sezione Variabili di Sistema, trovare la variabile di ambiente PATH e selezionarla. Cliccare Modifica. Se la variabile di ambiente non esiste, cliccare su nuova.
+  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di Sistema), specificare il valore della variabile PATH. Cliccare OK. Chiudere tutte le finestre rimanenti cliccando su OK.
 
 **Windows 7:**
 
-  Dal Desktop, clic con il tasto destro sull'icona Computer. 
-  Scegli Proprietà dal menu contestuale.
-  Clicca sul link Impostazioni Avanzate di Sistema.
-  Clicca Variabili Ambientali. Nella sezione Variabili di Sistema, trova la variabile di ambiente PATH e selezionala. Clicca su Modifica. Se la variabile di ambiente PATH non esiste, clicca su nuova.
-  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di sistema), specifica il valore della variabile di ambiente PATH. Clicca OK. Chiudi tutte le finestre rimaste aperte cliccando su OK.
+  Dal Desktop, cliccare con il tasto destro sull'icona Computer. 
+  Scegliere Proprietà dal menu contestuale.
+  Cliccare sul link Impostazioni Avanzate di Sistema.
+  Cliccare Variabili Ambientali. Nella sezione Variabili di Sistema, trovare la variabile di ambiente PATH e selezionala. Clicca su Modifica. Se la variabile di ambiente PATH non esiste, cliccare su nuova.
+  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di sistema), specificare il valore della variabile di ambiente PATH. Cliccare OK. Chiudere tutte le finestre rimaste aperte cliccando su OK.
 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
-Adesso esegui il Command o la PowerShell, e inserisci neon.exe. Se non ci sono errori e il prodotto mostra il numero di versione (come mostrato) la configurazione della variabile di ambiente è avvenuta con successo
+Adesso eseguire il Command o la PowerShell, e inserire neon.exe. Se non ci sono errori e il prodotto mostra il numero di versione (come mostrato) la configurazione della variabile di ambiente è avvenuta con successo
 
 ![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
