@@ -44,11 +44,11 @@ Il processo di installazione è davvero semplice, segui le operazioni prompts pa
 
 ![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
-### 2. Compilatore NEO
+### 2. NEO-compiler
 
 Passaggi di installazione e configurazione:
 
-Scaricare il progetto [compilatore neo](https://github.com/neo-project/neo-compiler) su Github, apri la soluzione con Visual Studio 2017, pubblica il progetto neoj,
+Scaricare il progetto [compilatore neo](https://github.com/neo-project/neo-compiler) su Github, aprire la soluzione con Visual Studio 2017, pubblicare il progetto neoj.
 
 Pubblicare il compilatore neoj (il quale converte Java bytecode in AVM bytecode).
 
