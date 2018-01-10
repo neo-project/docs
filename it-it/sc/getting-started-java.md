@@ -58,30 +58,30 @@ Pubblicare il compilatore neoj (il quale converte Java bytecode in AVM bytecode)
 
 Dopo il rilascio con successo, ilfile neoj.exe è generato in `bin\Release\PublishOutput`.
 
-Non vi è bisogno di aggiungere questa directory al percorso di esecuzione. il PATH è la variabile di sistema che il tuo sistema operativo usa per collocare eseguibili dalla linea di comando o dalla finestra del Terminal.
+Non c'è bisogno di aggiungere questa directory al percorso di esecuzione. il PATH è la variabile di sistema che il tuo sistema operativo usa per collocare eseguibili dalla linea di comando o dalla finestra del Terminal.
 
 **Windows 10 and Windows 8:**
 
-  In Cerca, cerca e poi seleziona: Sistema (Pannello di Controllo)
-  Clicca il link impostazione di sistema avanzate.
-  Clicca Variabili D'ambiente. Nella sezione Variabili di Sistema, trova la variabile d'ambiente PATH e selezionala. Clicca Modifica. Se l'ambiente variabile PATH non esiste, clicca nuovo.
-  Nella finestra variabile di sistema modificata (o nuova variabile di sistema), specifica il valore della variabile ambiente PATH. Clicca OK. Chiudi tutte le rimanenti finestre cliccando su OK.
+  In Cerca, cercare e poi selezionare: Sistema (Pannello di Controllo)
+  Cliccare il link impostazione di sistema avanzate.
+  Cliccare Variabili D'ambiente. Nella sezione Variabili di Sistema, trovare la variabile d'ambiente PATH e selezionala. Cliccare Modifica. Se l'ambiente variabile PATH non esiste, cliccare su Nuova.
+  Nella finestra variabile di sistema modificata (o nuova variabile di sistema), specificare il valore della variabile ambiente PATH. Cliccare OK. Chiudere tutte le rimanenti finestre cliccando su OK.
 
 **Windows 7:**
 
   Dal desktop, Clic destro sull'icona del computer.
-  Scegli Proprietà dal menu.
-  Clicca su Impostazioni Avanzate di Sistema.
-  Clicca Variabili D'ambiente. Nella sezione Variabili di Sistema, trova la Variabile D'ambiente PATH e selezionala. Clicca Modifica. Se la Variabile D'ambiente PATH non esiste, clicca Nuova. 
-  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di Sistema), specifica il valore della variabile d'ambiente PATH. Clicca OK. Chiudi tutte le finestre aperte cliccando su OK.
+  Scegliere Proprietà dal menu.
+  Cliccare su Impostazioni Avanzate di Sistema.
+  Cliccare Variabili D'ambiente. Nella sezione Variabili di Sistema, trovare la Variabile D'ambiente PATH e selezionala. Cliccare Modifica. Se la Variabile D'ambiente PATH non esiste, cliccare su Nuova. 
+  Nella finestra Modifica Variabile di Sistema (o Nuova Variabile di Sistema), specificare il valore della variabile d'ambiente PATH. Cliccare OK. Chiudere tutte le finestre aperte cliccando su OK.
 
 ![edit environmental variables](/assets/edit_environmental_variables.png)
 
-Adesso esegui Command o PowerShell, e inserisci neoj.exe. Se non vi sono errori e il prodotto mostra il numero di versione (come mostrato) la configurazione della variabile ambiente è avvenuta con successo
+Adesso eseguire il Command o PowerShell, e inserire neoj.exe. Se non vi sono errori e il prodotto mostra il numero di versione (come mostrato) la configurazione della variabile ambiente è avvenuta con successo
 
 ![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
-NOTA: Gli utetni di Windows 7 SP1 potrebbero incontrarre un errore "Unhandled Exception: System.DllNotFoundException: incapace di caricare DLL 'api-ms-win-core-console-l2-1-0.dll': Il moodulo specificato non può essere trovato". I file richiesti 'api-ms-win-core-console-l2-1-0.dll' è solo trovato in Windows 8 o successive versioni. Questo errore può essere risolto ottenendo una copia di 'api-ms-win-core-console-l2-1-0.dll' e metterla nella directory C:\Windows\System32.
+NOTA: Gli utetni di Windows 7 SP1 potrebbero incontrarre un errore "Unhandled Exception: System.DllNotFoundException: incapace di caricare DLL 'api-ms-win-core-console-l2-1-0.dll': Il moodulo specificato non può essere trovato". I file richiesti 'api-ms-win-core-console-l2-1-0.dll' è solo disponibile in Windows 8 o versioni successive. Questo errore può essere risolto ottenendo una copia di 'api-ms-win-core-console-l2-1-0.dll' e mettendola nella directory C:\Windows\System32.
 
 ## Creare un Progetto
 
