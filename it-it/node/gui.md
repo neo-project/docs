@@ -128,11 +128,11 @@ dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggi
 
 ### Aprire il Database del Wallet
 
-(1) Ogni volta che il client viene ri-aperto, occorre fare clic su `open wallet database` per selezionare quale file del wallet aprire, come mostrato in figura:
+(1) Ogni volta che il client viene riaperto, occorre fare clic su `open wallet database` per selezionare quale file del wallet aprire, come mostrato in figura:
 
 ![image](/assets/gui_5.png)
 
-(2) Clicca su `Browse`  per selezionare il wallet (di solito quello predefinite è l'ultimo wallet aperto), inserisci la password, clicca `OK` per accedere al wallet. Va notato che quando il wallet mostra un errore, è possibile tentare il "repair mode" per aprire il wallet. 
+(2) Cliccare su `Browse`  per selezionare il wallet (di solito quello predefinito è l'ultimo wallet aperto), inserire la password e cliccare `OK` per accedere al wallet. Va notato che quando il wallet mostra un errore, è possibile tentare il "repair mode" per aprire il wallet. 
 
 ### Cambiare Password
 
@@ -140,11 +140,11 @@ Usato per modificare la password del wallet.
 
 ![image](/assets/gui_6.png)
 
-Dopo aver cambiato la password, per favore ricorda di eseguire nuovamente il backup del wallet dato che i precedenti backup del wallet non contengono la nuova password.
+Dopo aver cambiato la password, per favore ricordati di eseguire nuovamente il backup del wallet dato che i precedenti backup  non contengono la nuova password.
 
-### Ricostruire L'Index del Wallet
+### Ricostruzione dell'Indice del Wallet
 
-Questa opzione viene usata per ripristinare gli errori nel client quando si verifica un'eccezione. L'Index del waller va ricostruito nei seguenti casi:
+Questa opzione viene usata per ripristinare gli errori nel client quando si verifica un'eccezione. L'Indice del waller va ricostruito nei seguenti casi:
 
 1. Dopo l'importazione di una chiave privata.
 
@@ -152,7 +152,7 @@ Questa opzione viene usata per ripristinare gli errori nel client quando si veri
 
 3. Gli asset del wallet mostrano errori e i dati della blockchain non corrispondono.
 
-siccome l'altezza del blocco corrente è molto alta, ricostruire l'Index del wallet potrebbe richiedere diversi minuti. Per favore sii paziente.
+Siccome l'altezza del blocco corrente è molto alta, ricostruire l'Indice del wallet potrebbe richiedere diversi minuti. Per favore sii paziente.
 
 ### Ripristinare L'account
 
