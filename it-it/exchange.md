@@ -133,17 +133,17 @@ L'exchange deve scrivere codice per monitorare tutte le transazioni in un blocco
 
 Gli sviluppatori possono usare il metodo  `getblock <index> [verbose]` dell'API NEO-CLI per recuperare le informazioni del blocco. `<index>` è l'indice di blocco. `[verbose]` equivale a 0 di default. Quando `[verbose]` è 0, il metodo restituisce le informazioni del blocco serializzato con il sistema numerico esadecimale. Dovresti deserializzare la stringa esadecimale per ottenere le informazioni dettagliate del blocco. Quando `[verbose]` è 1, il metodo restituisce le informazioni del blocco corrispondente in formato JSON. Per ulteriori informazioni, fare riferimento a [Metodo getblock](node/api/getblock2.html).
 
-Le informazioni di blocco includono le transazioni di input e output. L'exchange deve registrare tutte le sue transazioni correlate. L'output delle transazioni è in effetti la registrazione delle transazioni dei prelievi di un utente. Quando l'exchange vede uno dei suoi indirizzi nell'output delle transazioni, aggiorna il bilancio NEO/NEO GAS dell'utente corrispondente che possiede questo indirizzo di deposito. Alcuni exchange possono anche procedere nel seguente modo: se trova un indirizzo all'interno dell'exchange come output della transazione, registrerà il deposito nel suo database e modificherà il saldo dell'utente dopo diverse conferme (A meno che non debba rispettare l'operazione di altre blockchain, questo modo non è raccomandato) . 
+Le informazioni del blocco includono le transazioni in input e output. L'exchange deve registrare tutte le sue transazioni correlate. L'output delle transazioni è in effetti la registrazione delle transazioni dei prelievi di un utente. Quando l'exchange vede uno dei suoi indirizzi nell'output delle transazioni, aggiorna il bilancio NEO/NEO GAS dell'utente corrispondente che possiede questo indirizzo di deposito. Alcuni exchange possono anche procedere nel seguente modo: se trova un indirizzo all'interno dell'exchange come output della transazione, registrerà il deposito nel suo database e modificherà il saldo dell'utente dopo diverse conferme (A meno che non debba rispettare l'operazione di altre blockchain, questo modo non è raccomandato) . 
 
 > [!Nota]
 >
-> - Method getblockcount returns the count of the blocks in the main chain. The first parameter of Method getblock is `<index>` which is the block index. Block index = Block height = The count of the blocks – 1. If getblockcount returns 1234, you should use getblock 1233 to get the information of the latest block. 
-> - The deposit and withdrawal transactions (NEO/NEO GAS) are all in a type named ContractTransaction. The exchanges only need to care about the ones of ContractTransaction type when they check through the transactions in a block. 
-> - As the first transaction of every block must be MinerTransaction, you can neglect or jump over it when traversing the blockchain. 
-> - NEO system takes the transaction as a record unit.
+> - Il metodo getblockcount restituisce la somma di blocchi nella chain principale. Il primo parametro del Metodo getblock é `<index>` che é l'indice del blocco. Indice del blocco = Altezza del blocco = Somma dei blocchi -1. Se getblockcount restituisce 1234, Dovresti usare getblock 1233 per ottenere le informazioni dell'ultimo blocco.
+> - Le transazioni di deposito e prelievo (NEO/ NEO GAS) sono tutte in un tipo denominato ContractTransaction. Gli exchange devono solo preoccuparsi di quelle di tipo ContractTransaction quando controllano le transazioni in un blocco. 
+> - poiché la prima transazione di ogni blocco deve essere MinerTransaction, puoi saltarla o trascurarla quando stai traversando la blockchain. 
+> - Il sistema NEO prende la transazione come unitá di registrazione.
 >
 
-### Dealing with User Withdrawals 
+### Gestione dei Prelievi degli Utenti
 
 To deal with the user withdrawals for global assets, the exchange needs to do the following:
 
