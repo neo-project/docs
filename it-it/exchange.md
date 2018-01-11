@@ -147,32 +147,32 @@ Le informazioni del blocco includono le transazioni in input e output. L'exchang
 
 Per la gestione dei prelievi degli utenti per asset globali, l'exchange deve fare quanto segue:
 
-1. In NEO-CLI, esegue `open wallet <path>` per aprire il wallet.
+1. In NEO-CLI, eseguire `open wallet <path>` per aprire il wallet.
 
-2. Registra le transazioni di prelievo dell'utente e modifica il saldo dell'utente.
+2. Registrare le transazioni di prelievo dell'utente e modificare il saldo dell'utente.
 
 3. (Facoltativo) Il servizio clienti gestisce le richieste di prelievo.
 
-4. Send transaction to the user's withdrawal address using the NEO-CLI  API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](node/api/sendtoaddress.html).
+4. inviare la tranzazione all'indirizzo di prelievo dell'utente utilizzando il metodo API di NEO-CLI, `sendtoaddress <asset_id> <address> <value>`. Per maggiori informazioni, fare riferimento a [Metodo sendtoaddress](node/api/sendtoaddress.html).
 
-   - `<asset_id>` ：Asset ID
-   - `<address>` ：Withdrawal address
-   - `<value>` ：Withdrawal amount
+   - `<asset_id>` ：ID dell'asset
+   - `<address>` ：Indirizzo di prelievo
+   - `<value>` ：Importo del prelievo
+   
+   E' possibile anche inviare una transazione a un lotto di indirizzi utilizzando l'API del [Metodo sendmany](node/api/sendmany.html).
 
-   You can also send the transaction to a batch of addresses using API [sendmany Method](node/api/sendmany.html).
+5. Estrarre l'ID della transazione dai dettagli della transazione restituiti nel formato JSON, e in seguito registrarlo nel database.
 
-5. Extract the transaction ID from the returned transaction details in the JSON format,  and then record in the database.
+6. Una volta confermato dalla blockchain, contrassegnare la transazione di prelievo come avvenuta. 
+   
+   Similarmente al monitoraggio dei depositi, anche i prelievi devono essere monitorati. Se l'ID della transazione di prelievo viene trovato nella blockchain, significa che questa transazione è già stata confermata ed è un prelievo avvenuto con successo.
 
-6. Once confirmed by the blockchain, mark the withdrawal transaction as success. 
-
-   Similar to deposit monitoring, withdrawals also need to be monitored. If the withdrawal transaction ID  is found in the blockchain, it means this transaction has already been confirmed and is a successful withdrawal.
-
-> [!Note]
+> [!Nota]
 >
-> -  The <value> here refers to the actual amount, instead of the amount multiplied by 10^8.
-> -  NEO transfer amount must be an integer; otherwise, the blockchain will not confirm it since the loose change in the wallet will be inaccurate. It will be needed to rebuild wallet index, which is to recalculate the transactions and change of the wallet.
+> -  Qui <value> si riferisce all'importo effettivo, invece che dell'importo moltiplicato per  10^8.
+> -  La quantità di trasferimento NEO deve essere un numero intero; Altrimenti, la blockchain non lo confermerà siccome le monete nel wallet saranno imprecise. Sarà necessario ricostruire l'indice del wallet, per ricalcolare le transazioni e il cambio di wallet.
 
-## Dealing with NEP-5 Assets Transactions
+## Gestione delle Transazioni di Asset NEP-5
 
 ### Receiving User Deposits Notifications
 
