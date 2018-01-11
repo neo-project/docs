@@ -31,14 +31,14 @@ namespace Neo.SmartContract
 }
 ```
 
-Dopo la compilazione, genera il file `Test1.avm` del contratto. Possiamo creare un progetto unit test e testare `Test1.avm`.
+Dopo la compilazione, generare il file `Test1.avm` del contratto. Possiamo creare un progetto unit test e testare `Test1.avm`.
 
-Fper prima cosa crea un'app Console in C# (.Net Framework) con Visual Studio, con .NET Framework 4.6.2 o successivi. Poi aggiungere una referenza a `Neo.dll` e `neon.dll`.
+Per prima cosa crea un'app Console in C# (.Net Framework) con Visual Studio, con .NET Framework 4.6.2 o successivi. Poi aggiungere un riferimento a `Neo.dll` e `neon.dll`.
 
 > [!Nota]
 > Questi due file possono essere ottenuti compilando [Neo](https://github.com/neo-project/neo) e [neo-vm](https://github.com/neo-project/neo-vm).
 
-> Ain alternativa, puoi semplicemente aggiungere i pacchetti NuGet "NEO" e "Neo.VM" al tuo progetto. Puoi farlo facendo clic con il tasto destro del mouse sul progetto del contratto sul Solution Explorer, vai a Browse, cerca NEO e installa i pacchetti richiesti.
+> In alternativa, é possibile semplicemente aggiungere i pacchetti NuGet "NEO" e "Neo.VM" al tuo progetto. Puoi farlo facendo clic con il tasto destro del mouse sul progetto del contratto sul Solution Explorer, andare a Browse, cercare NEO e installare i pacchetti richiesti.
 
 ```c#
 using System;
@@ -95,6 +95,6 @@ Se il valore restituito del contratto intelligente non è di tipo int, ma è boo
 
 ### 📖 Il documento è in corso di modifica
 
-Il documento è in fase di modifica e lo completeremo il prima possibile. È possibile visualizzare altri documenti su [Github wiki](https://github.com/neo-project/neo/wiki)o vieni al nostro [sito web NEO ufficiale](http://www.neo.org) e guardati intorno.
+Il documento è in fase di modifica e lo completeremo il prima possibile. È possibile visualizzare altri documenti su [Github wiki](https://github.com/neo-project/neo/wiki)o vieni al nostro [sito web NEO ufficiale](http://www.neo.org) guardati intorno.
 
 NEO è un progetto open source, se sei interessato, puoi anche contribuire ai documenti per sviluppatori creando Pull request su GitHub, i documenti per il progetto possono essere trovati su [github.com/neo-project/docs](https://github.com/neo-project/docs), Grazie per il tuo contributo.
