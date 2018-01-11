@@ -2,7 +2,7 @@
 
 La struttura dati usata per rappresentare la transazione in output. Una transazione in output ha tre campi:
 
-1. Tipi di assets
+1. Tipi di asset
 2. Indirizzo di destinazione
 3. Quantitá trasferita
 
