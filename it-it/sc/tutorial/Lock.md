@@ -1,4 +1,4 @@
-# Esempio di Smart Contract - Lock (Lock Contract)
+# Esempio di Smart Contract - Lock (Contratto di Blocco)
 
 ```c#
 public class Lock : SmartContract
