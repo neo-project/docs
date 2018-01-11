@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long value {get;}
 ```
 
-Attribute value: Quantità come integer, il valore effettivo è l'importo restituito moltiplicato per 100.000.000.
+Valore dell'attributo: Quantità come integer, il valore effettivo è l'importo restituito moltiplicato per 100.000.000.
 
 
 
