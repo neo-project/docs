@@ -174,25 +174,25 @@ Per la gestione dei prelievi degli utenti per asset globali, l'exchange deve far
 
 ## Gestione delle Transazioni di Asset NEP-5
 
-### Receiving User Deposits Notifications
+### Ricezione di Notifiche sui Depositi degli utenti 
 
-For NEP-5 assets, the exchange needs to get the notification of users' deposits. The notification for each block is recorded in a JSON file, which includes all information of every NEP-5 transaction.
+Per gli asset NEP-5, l'exchange deve ottenere la notifica dei depositi degli utenti. La notifica per ogni blocco viene registrata in un file JSON, il quale include tutte le informazioni di ogni transazione NEP-5.
 
-To get notification files, run the following command:
+Per ottenere i file di notifica, esegui il seguente comando:
 
 ```
 dotnet neo-cli.dll --rpc --record-notifications
 ```
 
-A folder "Notifications" is generated under the root path, as shown below:
+Una cartella "Notifications" è generata sotto il percorso root, come mostrato di seguito:
 
 ![1](../assets/notification_1.jpg)
 
 #### ![2](../assets/notification_2.jpg)
 
-#### Notifications JSON File
+#### Notifiche file JSON
 
-The following shows an example of the notification file content.
+Quanto segue mostra un esempio del contenuto del file di notifica.
 
 ```json
 [
@@ -223,13 +223,13 @@ The following shows an example of the notification file content.
 }]
 ```
 
-In this file, there is an array of notifications with only one object, which means only one NEP-5 event is triggered in the block. The parameters related to a transaction in the file are the following:
+In questo file, c'è un array di notifiche con un solo oggetto, il che significa che solo un evento NEP-5 è innescato nel blocco. I parametri relativi a una transazione nel file sono i seguenti:
 
--  **contract**: the script hash of smart contract, by which the exchange can identify assets type. For example, "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" is the script hash and the unique identification of the RPX asset.
+-  **contract**: L'hash dello script di uno smart contract, dal quale l'exchange può identificare il tipo di asset. Per esempio, "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" è l'hash dello script e l'identificazione unica dell'asset RPX.
 
--  The four objects included in the "state" array:
+-  I quattro oggetti inclusi nell'array "state":
 
-   [event, from account, to account, amount]
+   [evento, dall'account, all'account, quantità]
 
    -  The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP5 that represents an asset transfer.
    -  The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "d336d7eb9975a29b2404fdb28185e277a4b299bc“ can be converted to "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
