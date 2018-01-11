@@ -81,4 +81,4 @@ Neo-CLI fornisce una serie di API per gli accessi esterni. Se si vuole avviare i
 ```
 dotnet neo-cli.dll /rpc
 ```
-4. Se si vuole permettere a un programma esterno di accedere all'API del nodo aprire le seguenti porte del firewall: 10331-10334 20331-20334
+4. Se si vuole permettere a un programma esterno di accedere all'API del nodo aprire la porta del firewall: 10331-10334 20331-20334
