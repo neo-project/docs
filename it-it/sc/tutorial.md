@@ -1,10 +1,10 @@
 # Tutorial NEO Smart Contract
 
-Dopo aver letto i precedenti tutorials, dovresti essere capace di usare C# in Visual Studio 2015 o 2017 per creare progetti smart contract. Qui discuteremo come gli smart contract vengono eseguiti su NeoVM (Neo Virtual Machine).
+Dopo aver letto i precedenti tutorial, dovresti essere capace di usare C# in Visual Studio 2015 o 2017 per creare progetti smart contract. Qui discuteremo come gli smart contract vengono eseguiti su NeoVM (Neo Virtual Machine).
 
 ## Attivazione degli smart contract
 
-Ci sono due modi per innescare gli smart contacts:
+Ci sono due modi per innescare gli smart contact:
 
 1. Contract User Authentication: Qui lo Smart Contract é un Account Contract. Quando l'utente richiede di utilizzare il contract account in un asset, attiverá lo smart contract. 
 
@@ -46,7 +46,7 @@ I costi di implementazione si riferiscono alla necessitá di uno sviluppatore di
 
 ## Uno smart contract semplice
 
-Ecco alcuni semplici smart contracts:
+Ecco alcuni semplici smart contract:
 
 ```c#
 public static bool Main ()
@@ -57,7 +57,7 @@ public static bool Main ()
 
 Qui il valore restituito dallo smart contract é sempre vero, indicando che chiunque puó spendere indirizzo di contratto dell'asset (inteso come soldi).
 
-Il client wallet di NEO ha una funzione per l'eliminazione di un asset. Quando si elimina un asset, l'asset é inviato a un indirizzo specifico generato dallo stesso smart contract di sopra. Chiunque puó spendere l'asset nell'indirizzo. Gli assets nell'indirizzo sono assets che gli altri non vogliono.
+Il client wallet di NEO ha una funzione per l'eliminazione di un asset. Quando si elimina un asset, l'asset é inviato a un indirizzo specifico generato dallo stesso smart contract di sopra. Chiunque puó spendere l'asset nell'indirizzo. Gli asset nell'indirizzo sono asset che gli altri non vogliono.
 
 ```c#
 public static bool Main ()
@@ -66,7 +66,7 @@ public static bool Main ()
 }
 ```
 
-Il valore restituito dal contratto é sempre `false`, indicando che gli assets di questo contratto non possono essere usati (ció puó essere interpretato come bruciare o distruggere un asset). Questo contratto puó essere applicato per azioni di una compagnia che sono state cancellate/stornate.
+Il valore restituito dal contratto é sempre `false`, indicando che gli asset di questo contratto non possono essere usati (ció puó essere interpretato come bruciare o distruggere un asset). Questo contratto puó essere applicato per azioni di una compagnia che sono state cancellate/stornate.
 
 Per altri esempi vedere:
 
