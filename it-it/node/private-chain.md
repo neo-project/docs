@@ -1,6 +1,6 @@
 # Costruire una chain privata con un nodo NEO
 
-In uno dei precedenti tutorial, hai imparato come configurare ed eseguire un nodo su Windows e Linux. Questo tutorial ti insegnerà come costruire una chain privata, e gli step necessari per estrarre NEO e GAS da queste chain private.
+In un precedente tutorial, hai imparato come configurare ed eseguire un nodo su Windows e Linux. Questo tutorial ti insegnerà come costruire una chain privata, e gli step necessari per estrarre NEO e GAS da queste chain private.
 
 Lo sviluppo di una chain privata NEO richiede almeno quattro server per la realizzazione del consenso, dove ogni server corrisponde a un nodo di consenso e un wallet NEO dedicato.
 
@@ -73,15 +73,15 @@ Infine modificare `SeedList`, inserire l'indirizzo IP registrato nel primo step,
 }
 ```
 
-SystemFee è la tassa di sistema, la tassa attuale è la seguente (in unità di GAS):
+SystemFee è la commissione di sistema, la commissione attuale è la seguente (in unità di GAS):
 
 Registrazione per book-keeper - 1000, Distribuzione di Asset - 500 Smart Contract 500, Registrazione di Asset - 10000
 
-E' possibile impostare il sistema di tassazione per la propria chain privata qui.
+E' possibile impostare il sistema di commissione per la propria chain privata qui.
 
 Infine, modificare il `protocol.json` modificato nella directory del client dei 4 nodi, rimpiazzando il precedente file protocol.json.
 
-Quindi, nelle quattro macchine virtuali, inserire i seguenti comandi per avviare il nodo, aprire il wallet e avviare il processo di consenso. Si prega di fare riferimento al comando [Riferimento dei Comandi CLI](cli.md), in caso di insicurezza.
+Quindi, nelle quattro macchine virtuali, inserire i seguenti comandi per avviare il nodo, aprire il wallet e avviare il processo di consenso. Si prega di fare riferimento al comando [Riferimento ai Comandi CLI](cli.md), in caso di insicurezza.
 
 Avviare il nodo:
 
@@ -111,7 +111,7 @@ Installare la versione PC del client (Neo-GUI), modificare il file di configuraz
 
 Aprire il wallet. Se l'angolo in basso a sinistra del numero di connessione non è zero, ed è stato sincronizzato fino allo stesso blocco, significa che il client è stato connesso con successo alla chain privata.
 
-Aprire il wallet wallet1.db3 nel client PC, aggiungere l'indirizzo multi firma, inserire le quattro chiavi pubbliche in protocol.json, impostare il numero minimo di firme a 3 (il numero dei nodi di consenso/2 + 1), come mostrato.
+Aprire il wallet wallet1.db3 nel client PC, aggiungere l'indirizzo multi firma, inserire le quattro chiavi pubbliche in protocol.json, impostare il numero minimo di firme a 3 (numero dei nodi di consenso/2 + 1), come mostrato.
 
 ![image](/assets/privatechain_12.png)
 
@@ -134,6 +134,6 @@ L'operazione di estrazione del GAS è simile. Cliccare `Advanced`, `Claim GAS`, 
 
 La prossima operazione è simile al trasferimento di NEO. Copiare il codice che ha insufficienti firme, aprire il secondo wallet, cliccare `transaction`, `signature`, e incollare il codice appena copiato. Cliccare `signature`, e copiare il codice. Aprire il terzo wallet, cliccare su `transaction`, `signature` e incollare il codice appena copiato. Cliccare `signature` e poi `broadcast` per trasmettere la transazione per richiedere il proprio GAS. Una volta che la transazione di richiesta inizia la trasmissione ci vorranno circa 15 secondi per la corretta rimessa sull'account.
 
-Dopo aver completato l'estrazione il GAS inserirà il primo indirizzo standard del wallet (es. il primo indirizzo del wallet) da dove é iniziata l'estrazione del GAS, come mostrato.
+Dopo aver completato l'estrazione il GAS inserirà il primo indirizzo standard del wallet (es. il primo indirizzo del wallet) da dove é cominciata l'estrazione del GAS, come mostrato.
 
 ![image](/assets/privatechain_26.png)
