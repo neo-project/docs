@@ -10,5 +10,5 @@ Per maggiori informazioni su come usare usare la struttura per chiamare facilmen
 
 Namespace | Descrizione |
 | ----------------------------- | ---------------------------------------- |
-| [Neo](api/neo.md) | Il namespace Neo è l'API fornita dalla blockchain NEO, fornendo un modo per accedere ai dati della blockchain e manipolare la memoria persistente. |
-| [System](api/system.md) | Il namespace System è l'API fornita da Smart Contract Execution Engine, fornendo accesso all'ambiente di esecuzione che accede allo smart contract. |
+| [Neo](api/neo.md) | Il namespace Neo è l'API fornita dalla blockchain NEO, provvedendo un modo per accedere ai dati della blockchain e manipolare la memoria persistente. |
+| [System](api/system.md) | Il namespace System è l'API fornita dallo Smart Contract Execution Engine, fornendo accesso all'ambiente di esecuzione che accede allo smart contract. |
