@@ -18,7 +18,7 @@ Parametri:
 
 pubkey：Chiave pubblica come array di byte di lunghezza 33.
 
-Return value: [Validatore](../Validator.md)
+return value: [Validatore](../Validator.md)
 
 ## Esempio
 
