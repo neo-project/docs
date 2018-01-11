@@ -17,7 +17,7 @@ Le seguenti risorse sono usate in questo tutorial e possono essere riferimenti u
 ## 3 - Codice SC
 Questo documento utilizzerá il codice esempio fornito nell'esempio Woolong per seguire il tutorial. Per divertimento, questo contratto genererá 1 Woolong per ogni evento invocato.
 
-L'esempio é stato implementato in testnet e puó essere trovato con il seguente hash script:
+L'esempio é stato implementato in testnet e puó essere trovato con il seguente hash dello script:
 ​    
 	dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f
 ​	
@@ -29,7 +29,7 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 <p align="center"><img style="vertical-align: middle" src="assets/img/deploy.png" width="500"></p>
 
 2. Riempire tutti i campi nella sezione **Information** nella finestra che appare. Tutti i campi devono essere compilati per implementare il contratto. 
-3. Carica il file .avm usando il bottone **Load**. Il **code field** verrá compilato con l'hash script. Copia il contenuto del campo **Code** per utilizzaro negli step successivi.
+3. Carica il file .avm usando il bottone **Load**. Il **code field** verrá compilato con l'hash dello script. Copia il contenuto del campo **Code** per utilizzaro negli step successivi.
 4. Compilare il campo **Metadata** in riferimento alla documentazione [Parametro](Parameter.md).
 
     **Il token Woolong di esempio é definito come:**  
@@ -56,13 +56,13 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 5. Cliccare **Confirm** per caricare il contratto nella finestra del wallet.
 
 
-## 6 - Invoking the Smart Contract
+## 6 - Invocare lo Smart Contract
 
-Per invocare uno smart contract sulla blockchain di NEO, avrai bisogno dell'hash script dello smart contract.
+Per invocare uno smart contract sulla blockchain di NEO, avrai bisogno dell'hash dello script dello smart contract.
 1. Per acquisire l'hash del contratto, fare doppio clic sull'account del contratto riempito nella finestra dell'indirizzo come risultato della finesta **Watching the Smart Contract** .
 2. Selezionare **View Contract** per aprire una finestra contenente le informazioni dello smart contract. Copia il valore nel campo **Script Hash**
 3. Cliccare sull'opzione menu **Advanced** e selezionare **Invoke Contract**.
-4. Riempire il campo **Script Hash** con il valore copiato nello step 2. Come esempio, é possibile invocare il Woolong usando l'hash script della **Sezione 3**
+4. Riempire il campo **Script Hash** con il valore copiato nello step 2. Come esempio, é possibile invocare il Woolong usando l'hash dello script della **Sezione 3**
 5. Le informazioni dello Smart Contract dovrebbero automaticamente riempirsi nei campi rimanenti **Invoke Function**
 6. Per riempire i parametri in input, cliccare sul bottone **...** a finco del campo Parametri per aprire il menu parametro compilato.
 7. Selezionare i parametri del campo sul lato sinistro e compilare i valori delle variabili nel campo in basso a destra.
