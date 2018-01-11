@@ -6,15 +6,15 @@ Dopo aver letto i precedenti tutorial, dovresti essere capace di usare C# in Vis
 
 Ci sono due modi per innescare gli smart contact:
 
-1. Contract User Authentication: Qui lo Smart Contract é un Account Contract. Quando l'utente richiede di utilizzare il contract account in un asset, attiverá lo smart contract. 
+1. Contract User Authentication: Qui lo Smart Contract é un account di contratto. Quando l'utente richiede di utilizzare l' account di contratto in un asset, attiverá lo smart contract. 
 
-2. Chiamata manuale allo smart contract: Qui l'utente invia una transazione (Invocation transaction) per avviare l'implementazione di uno smart contract.
+2. Chiamata manuale allo smart contract: Qui l'utente invia una transazione (Invocation Transaction) per avviare l'implementazione di uno smart contract.
 
 ## NeoVM
 
 NeoVM é la macchina virtuale che esegue il codice smart contract NEO. Ci riferiamo al concetto di macchina virtuale in senso stretto, non con riferimento a sistemi operativi i programmi che possono simulare gli stessi come VMware o Hyper-V.
 
-Per esempio, nel Jva JVM o .NET CLR, il codice sorgente verrá compilato nel codice byte pertinente e poi eseguito sulla macchina virtuale corrispondente. Il JVM o CLR eseguiranno il codice byte, il quale é simile alle istruzioni eseguibili su una vera macchina fisica. In particolare, le istruzioni binarie corrispondenti vengono ancora eseguite si una macchina fisica. La macchina fisica prende le istruzioni dalla memoria, li trasferisce alla CPU tramite il bus, poi decodifica, esegue, e memorizza il risultato.
+Per esempio, nel Jva JVM o .NET CLR, il codice sorgente verrá compilato nel codice byte pertinente e poi eseguito sulla macchina virtuale corrispondente. Il JVM o CLR eseguiranno il codice byte, il quale é simile alle istruzioni eseguibili su una vera macchina fisica. In particolare, le istruzioni binarie corrispondenti vengono ancora eseguite su una macchina fisica. La macferisce alla CPU trchina fisica prende le istruzioni dalla memoria, li trasamite il bus, poi decodifica, esegue, e memorizza il risultato.
 
 ### Architettura della macchina virtuale
 
