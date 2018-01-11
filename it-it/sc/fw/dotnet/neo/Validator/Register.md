@@ -35,4 +35,4 @@ public class Contract1 : FunctionCode
 
 
 
-[Back](../Validator.md)
+[Indietro](../Validator.md)
