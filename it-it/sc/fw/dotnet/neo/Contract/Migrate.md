@@ -14,7 +14,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Contract Migrate(byte[] script, byte[] parameter_list, byte return_type, bool need_storage, string name, string version, string author, string email, string description)
 ```
 
-Parametri
+Parametri:
 
 script: Il bytecode del contratto come un array di byte.
 
