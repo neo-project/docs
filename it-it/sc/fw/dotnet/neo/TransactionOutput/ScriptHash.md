@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] ScriptHash {get;}
 ```
 
-Attribute value: Scripthash come array di byte di lunghezza 20.
+Valore dell'attributo: Scripthash come array di byte di lunghezza 20.
 
 
 
