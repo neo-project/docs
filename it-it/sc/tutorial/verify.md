@@ -23,7 +23,7 @@ namespace Neo.SmartContract
 ```
 
 > [!Nota]
-> Se non sai come scrivere e generare scripts per smart contract, vedi  [Come usare C# per preparare uno Smart Contract](../getting-started.md)
+> Se non sai come scrivere e generare script per smart contract, vedi  [Come usare C# per preparare uno Smart Contract](../getting-started.md)
 >
 
 Il contratto precedente sará compilato in Test.avm, Il suo contratto script (Test.avm dati binari) é:
@@ -33,7 +33,7 @@ Imparerai come ottenere lo script del contratto per un file `.avm` successivamen
 
 ## Creare un wallet
 
-Crea un nuovo wallet secondo il tutorial mostrato sotto:
+Creare un nuovo wallet secondo il tutorial mostrato sotto:
 
 ![Creare un wallet](/assets/verify_1.png)
 
@@ -60,7 +60,7 @@ Dopo aver creato il tuo wallet, cliccare con il bottone destro del mouse, e crea
 
 Associare l'indirizzo del contratto al proprio account e inserire i parametri corrispondenti.Poiché il nostro contratto ha un parametro per la firma, devi inserire `00` in `parameter list` (per dettagli, vedere [Parametro](Parameter.md)), e po inserire lo script el contratto dello step precedenti nel box `Code`. 
 
-La ragione di associare un account é di associare un contratto con una coppia di chiavi pubbliche-privare, cosí quando il contratto ha bisogno di essere firmato, il client firmerá automaticamente con la chiave privata dell'account associato.
+La ragione di associare un account é di associare un contratto con una coppia di chiavi pubbliche-private, cosí quando il contratto ha bisogno di essere firmato, il client firmerá automaticamente con la chiave privata dell'account associato.
 
 ![Creare un indirizzo del contratto](/assets/verify_7.png)
 
