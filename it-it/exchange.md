@@ -145,13 +145,13 @@ Le informazioni del blocco includono le transazioni in input e output. L'exchang
 
 ### Gestione dei Prelievi degli Utenti
 
-To deal with the user withdrawals for global assets, the exchange needs to do the following:
+Per la gestione dei prelievi degli utenti per asset globali, l'exchange deve fare quanto segue:
 
-1. In NEO-CLI, run `open wallet <path>` to open the wallet.
+1. In NEO-CLI, esegue `open wallet <path>` per aprire il wallet.
 
-2. Record the user withdrawal transaction and modify the user balance.
+2. Registra le transazioni di prelievo dell'utente e modifica il saldo dell'utente.
 
-3. (Optional) Customer service deals with withdrawal application.
+3. (Facoltativo) Il servizio clienti gestisce le richieste di prelievo.
 
 4. Send transaction to the user's withdrawal address using the NEO-CLI  API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](node/api/sendtoaddress.html).
 
