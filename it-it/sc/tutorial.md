@@ -28,7 +28,7 @@ Quello verde sulla sinistra é il motore di esecuzione della macchina virtuale (
 
 #### Stack di valutazione
 
-La parte grigia al centro della macchina virtuale é lo Stack di Valutazione (equivalente alla memoria). Al giorno d'oggi ci sono due modi per realizzare una macchina virtuale 1) basata sullo stack 2) basata sul registro. Entrambi i metodi hanno i loro vantaggi e svantaggi, ed entrambi hanno i loro grandi esempi di implementazione. Ci sono macchine virtuali basate sullo stack come JVM, CPython, e .NET CLR. Dall'altra parte ci sono le VM basate sul registro, come Dalvik e Lua5.0. Le macchine virtuali basate sullo stack hanno un concetto di computazione stak che permette alle macchine virtuali di interagire direttamente con lo stack (Stack di Valutazione) quando stanno performando operazioni reali. 
+La parte grigia al centro della macchina virtuale é lo Stack di Valutazione (equivalente alla memoria). Al giorno d'oggi ci sono due modi per realizzare una macchina virtuale 1) basata sullo stack 2) basato sul registro. Entrambi i metodi hanno i loro vantaggi e svantaggi, ed entrambi hanno i loro grandi esempi di implementazione. Ci sono macchine virtuali basate sullo stack come JVM, CPython, e .NET CLR. Dall'altra parte ci sono le VM basate sul registro, come Dalvik e Lua5.0. Le macchine virtuali basate sullo stack hanno un concetto di computazione stak che permette alle macchine virtuali di interagire direttamente con lo stack (Stack di Valutazione) quando stanno performando operazioni reali. 
 
 Poiché il comportamente predefinito di una VM basata sullo stack é quello di recuperare i dati dallo stack degli operandi, non c'é bisogno di specificare un operando. Confrontalo con, ad esempio, il seguente assembly x86 `"ADD EAX, EBX"`. Questa operazione richiede lo specificamente degli operandi fonte e la destinazione del risultato. Le istruzioni delle macchine virtuali basate sullo stack non hanno bisogno della specificazione di questi parametri. Per esempio, l'aggiunta di una singola operazione "ADD" verrá eseguita direttamente sull'operando dello stack. I dati possono essere riempiti direttamente e il risultato viene conservato allo stop dello stack.
 
@@ -55,7 +55,7 @@ public static bool Main ()
 }
 ```
 
-Qui il valore restituito dallo smart contract é sempre vero, indicando che chiunque puó spendere indirizzo di contratto dell'asset (inteso come soldi).
+Qui il valore restituito dallo smart contract é sempre vero (true), indicando che chiunque puó spendere indirizzo di contratto dell'asset (inteso come soldi).
 
 Il client wallet di NEO ha una funzione per l'eliminazione di un asset. Quando si elimina un asset, l'asset é inviato a un indirizzo specifico generato dallo stesso smart contract di sopra. Chiunque puó spendere l'asset nell'indirizzo. Gli asset nell'indirizzo sono asset che gli altri non vogliono.
 
@@ -66,7 +66,7 @@ public static bool Main ()
 }
 ```
 
-Il valore restituito dal contratto é sempre `false`, indicando che gli asset di questo contratto non possono essere usati (ció puó essere interpretato come bruciare o distruggere un asset). Questo contratto puó essere applicato per azioni di una compagnia che sono state cancellate/stornate.
+Il valore restituito dal contratto é sempre `false`, indicando che gli asset di questo contratto non possono essere usati (ció puó essere interpretato come bruciare o distruggere un asset). Questo contratto puó essere applicato per le azioni di una compagnia che sono state cancellate/stornate.
 
 Per altri esempi vedere:
 
