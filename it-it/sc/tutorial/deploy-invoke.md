@@ -42,15 +42,15 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
     * **Parameter List:** 0710
     * **Return Type:** 05
 
-5. Se il contratto richiede memoria (usa [Read/Write API](../api/neo.md#readwrite-api)), controlla il box **Need Storage**.Lo standard NEP5 utilizza memoria per mantenere gli accounts quindi assicurati che sia spuntato quando si implementa un token NEP5.
+5. Se il contratto richiede memoria (usare [Read/Write API](../api/neo.md#readwrite-api)), controlla il box **Need Storage**.Lo standard NEP5 utilizza memoria per mantenere gli account quindi assicurati che sia spuntato quando si implementa un token NEP5.
 
-6. Clicca il bottone **Deploy**.
+6. Cliccare il bottone **Deploy**.
 
 
 ## 5 - Guardare lo Smart Contract   
 
-1. Sulla finestra principale del wallet NEO, fai clic destro sull'area dell'indirizzo e seleziona (Create Contract Add > Custom)
-2. Selezionare l'account al quale vuoi associare il contratto da **Related Account** 
+1. Sulla finestra principale del wallet NEO, fare clic destro sull'area dell'indirizzo e selezionare (Create Contract Add > Custom)
+2. Selezionare l'account al quale si vuole associare il contratto da **Related Account** 
 3. Nel campo **Parameter List**, riempire i valori del **Parameter List** usati nello step 4 della sezione **Deploy Smart Contract w/ Parameters**.
 4. Riempire il campo **Script** con il valore fornito nello step 3 di **Deploy Smart Contract w/ Parameters**.
 5. Cliccare **Confirm** per caricare il contratto nella finestra del wallet.
@@ -59,13 +59,13 @@ L'esempio é stato implementato in testnet e puó essere trovato con il seguente
 ## 6 - Invoking the Smart Contract
 
 Per invocare uno smart contract sulla blockchain di NEO, avrai bisogno dell'hash script dello smart contract.
-1. Per acquisire l'hash del contratto, fai doppio clic sull'account del contratto riempito nella finestra dell'indirizzo come risultato della finesta **Watching the Smart Contract** .
+1. Per acquisire l'hash del contratto, fare doppio clic sull'account del contratto riempito nella finestra dell'indirizzo come risultato della finesta **Watching the Smart Contract** .
 2. Selezionare **View Contract** per aprire una finestra contenente le informazioni dello smart contract. Copia il valore nel campo **Script Hash**
-3. Cliccare sull'opzione menu **Advanced** e seleziona **Invoke Contract**.
+3. Cliccare sull'opzione menu **Advanced** e selezionare **Invoke Contract**.
 4. Riempire il campo **Script Hash** con il valore copiato nello step 2. Come esempio, é possibile invocare il Woolong usando l'hash script della **Sezione 3**
 5. Le informazioni dello Smart Contract dovrebbero automaticamente riempirsi nei campi rimanenti **Invoke Function**
-6. Per riempire i parametri in input, clicca sul bottone **...** a finco del campo Parametri per aprire il menu parametro compilato.
-7. Seleziona i parametri del campo sul lato sinistro e compila i valori delle variabili nel campo in basso a destra.
+6. Per riempire i parametri in input, cliccare sul bottone **...** a finco del campo Parametri per aprire il menu parametro compilato.
+7. Selezionare i parametri del campo sul lato sinistro e compilare i valori delle variabili nel campo in basso a destra.
 
   **Per esempio, invocare quanto segue:**
   * `6e616d65` quando stai chiamando Woolong, restituirá 'Woolong'.
