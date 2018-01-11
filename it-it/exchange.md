@@ -6,8 +6,8 @@ In genere, un exchange ha bisogno di fare quanto segue:
 
 - [Implementazione di un Nodo NEO su Server](#deploying-a-neo-node-on-server)
 - [Creazione di un Wallet e un Indirizzo di Deposito](#creating-a-wallet-and-deposit-addresses)
-- [Trattare con Transazioni di Asset Globali](#dealing-with-global-assets-transactions)
-- [Trattare Transazioni di Asset NEP-5 ](#dealing-with-nep-5-assets-transactions)
+- [Gestione delle Transazioni di Asset Globali](#dealing-with-global-assets-transactions)
+- [Gestione delle Transazioni di Asset NEP-5 ](#dealing-with-nep-5-assets-transactions)
 - [(Opzionale) Distribuzione di GAS agli utenti](#optional-distributing-gas-to-users)
 
 
@@ -78,6 +78,7 @@ Per creare un wallet, eseguire la seguente procedura：
 > [!Nota]
 >
 > Il wallet deve rimanere sempre aperto tutto il tempo per rispondere alle richieste di preglievo degli utenti. Per motivi di sicurezza, i wallet devono essere eseguiti in un server indipendente su cui il firewall è configurato in modo appropriato, come mostrato di seguito. 
+
 |                    | Mainnet | Testnet |
 | ------------------ | ------- | ------- |
 | JSON-RPC via HTTPS | 10331   | 20331   |
@@ -85,57 +86,56 @@ Per creare un wallet, eseguire la seguente procedura：
 | P2P                | 10333   | 20333   |
 | websocket          | 10334   | 20334   |
 
-### Generazione Indirizzo di Deposito
+### Generazione Indirizzi di Deposito
 
-Un wallet puó memorizzare indirizzi multipli. The exchange needs to generate a deposit address for each user. 
+Un wallet puó memorizzare indirizzi multipli. L'exchange deve generare un indirizzo di deposito per ogni utente. 
 
 Ci sono due metodi per generare indirizzi di deposito: 
 
-- Quando l'utente deposita (NEO/NEO GAS) per la prima volta, il programma genera dinamicamente un indirizzo NEO. Il vantaggio é che non c'é il bisogno di generare indirizzi a intervalli di tempo fissi, mentre lo svantaggio consiste nel non poter fare il backup del wallet.
+- Quando l'utente deposita (NEO/NEO GAS) per la prima volta, il programma genera dinamicamente un indirizzo NEO. Il vantaggio é che non é necessario generare indirizzi a intervalli di tempo fissi, mentre lo svantaggio consiste nel non poter effettuare il backup del wallet.
 
   Per sviluppare il programma per la generazione dinamica degli indirizzi, usare l'API NEO-CLI [Metodo getnewaddress](node/api/getnewaddress.html). L'indirizzo creato é restituito.
 
-- L'exchange crea in anticipo un lotto di indirizzi NEO. Quando l'utente paga per la prima volta (NEO/NEO GAS) fper la prima volta, l'exchange assegna un indirizzo NEO a lui o a lei. Il vantaggio consiste nella convenienza di fare il backup del wallet, mentre lo svantaggio consiste nel dover generare manualmente gli indirizzi NEO.
-  Per generare indirizzi in lotto, esegui il comando NEO- CLI `create address [n]`. Gli indirizzi vengono esportati automaticamente nel file address.txt.
-  [n] é opzionale. Il suo valore predefinito é 1. Per esempio, per generare 100 indirizzi in una volta, inserire `create address 100`.
+- L'exchange crea in anticipo un lotto di indirizzi NEO. Quando l'utente paga (NEO/NEO GAS) per la prima volta, l'exchange assegna un indirizzo NEO a lui o lei. Il vantaggio consiste nella convenienza di fare il backup del wallet, mentre lo svantaggio consiste nel dover generare manualmente gli indirizzi NEO.
+  Per generare indirizzi in lotto, eseguire il comando NEO- CLI `create address [n]`. Gli indirizzi vengono esportati automaticamente nel file address.txt. [n] é opzionale. Il suo valore predefinito é 1. Per esempio, per generare 100 indirizzi alla volta, inserire `create address 100`.
 
 
-> [!Note]
+> [!Nota]
 >
-> Either way, the exchange must import the addresses into the database and distribute them to users.
+> In entrambi i casi, l'exchange deve importare gli indirizzi nel database e distribuirli agli utenti
 
-## Dealing with Global Assets Transactions
+## Gestione delle Transazioni di Asset Globali
 
-### Developing Programs for User Deposits and Withdrawals
+### Sviluppo di Programmi destinati ai Depositi e Prelievi dell'Utente
 
-For global assets, the exchange needs to develop programs to fulfil the following functions:
+Per gli asset globali, l'exchange deve sviluppare programmi che svolgono le seguenti funzioni:
 
-1. Monitor new blocks through NEO-CLI  API ([getblock Method](node/api/getblock2.html)).
-2. Deal with user deposits according to the transaction information. 
-3. Store the transaction records related to the exchange.
+1. Monitorare i nuovi blocchi tramite l'API NEO-CLI ([Metodo getblock](node/api/getblock2.html)).
+2. Gestire i depositi dell'utente in base alle informazioni sulla transazione.
+3. Memorizzare i record delle transazioni relativi all'exchange.
 
-#### User Deposits 
+#### Depositi dell'Utente 
 
-Regarding user deposits, the exchange needs to note the following: 
+Per quanto riguarda i depositi degli utenti, l'exchange deve tenere presente quanto segue:
 
-- NEO blockchain has only one main chain without side chains, will not fork, and will not have isolated blocks.
-- A transaction recorded in NEO blockchain cannot be tampered with, which means a confirmation represents a deposit success.
-- In general, the balance of a deposit address in the exchange is not equal to the balance the user has in the exchange. It may because：
-  - When transferring or withdrawing, the NEO wallet looks through one or more addresses in the wallet, finds the minimal loose change that meets the requirement and adds up to the total sum of the transaction and then serves that as the input, instead of withdrawing from the specified address (unless the exchange rewrites some functions of NEO wallet to meet their own needs).
-  - Other operations that may lead to balance inequality, for example, the exchange transfers part of the assets to its cold wallets.
-- There are more than two assets (NEO and NEO GAS) in a NEO address. More assets issued by users (such as stock or token) can be stored. The exchange should determine the assets type when the user deposits. Neither regard other assets as NEO shares or NEO nor confuse the withdrawal of NEO with NEO GAS. 
-- NEO wallet is a full node, which needs to stay online to synchronize blocks. You can view the block synchronization status through the show state in the CLI, where the left side is the local block height, and the right side is the node block height.
-- In the exchange, the transfer between users should not be recorded through the blockchain. In general, the user's balance are modified in the database directly. Only deposits and withdrawals should be recorded on the blockchain.
+- La blockchain NEO ha una sola chain principale senza chain laterali, che non ha blocchi isolati e di cui non si può effettuare il fork.
+- Una transazione registrata nella blockchain NEO non può essere manomessa, il che significa che una conferma rappresenta il successo di un deposito.
+- In genere, il saldo di un indirizzo di deposito nell'exchange non è uguale al saldo che l'utente ha nell'exchange. Potrebbe essere perché:
+  - Quando si trasferisce o si preleva, il wallet NEO cerca uno o più indirizzi nel wallet, trova gli spiccioli che soddisfano il requisito e li somma fino al raggiungimento del totale della transazione per poi utilizzarlo come input invece di prelevare dall'indirizzo specificato (a meno che l'exchange riscriva alcune funzioni del wallet NEO per soddisfare i propri bisogni).
+  - Altre operazioni che possono portare alla disuguaglianza dell'equilibrio, ad esempio, l'exchange trasferisce parte degli asset ai suoi wallet offline (c.d. cold wallet).
+- In un indirizzo NEO vi sono più di due asset (NEO e NEO GAS). Più asset emessi dagli utenti (come stock o token) possono essere archiviati. L'exchange dovrebbe determinare il tipo di asset quando l'utente li deposita. Inoltre non dovrebbe confondere altri asset per NEO GAS o NEO né confondere il prelevamento di NEO con quello di NEO GAS.
+- Il wallet NEO è un nodo completo che deve rimanere online per sincronizzare i blocchi. È possibile visualizzare lo stato di sincronizzazione dei blocchi attraverso lo stato di visualizzazione nella CLI, qui il lato sinistro rappresenta l'altezza del blocco locale mentre il lato destro rappresenta l'altezza del blocco del nodo.
+- Nell'exchange, il trasferimento tra gli utenti non dovrebbe essere registrato attraverso la blockchain. In generale, il saldo dell'utente viene modificato direttamente nel database. Solo i depositi e i prelievi vengono registrati sulla blockchain.
 
-#### Deposit Records
+#### Registri dei Depositi
 
-The exchange needs to write code to monitor every transaction in a block and record all the transactions related to the exchange addresses in the database. If a deposit occurs, the user's balance should be updated. 
+L'exchange deve scrivere codice per monitorare tutte le transazioni in un blocco e per registrare tutte le transazioni relative agli indirizzi dell'exchange nel database. Se si verifica un deposito, il saldo dell'utente deve essere aggiornato. 
 
-Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](node/api/getblock2.html).
+Gli sviluppatori possono usare il metodo  `getblock <index> [verbose]` dell'API NEO-CLI per recuperare le informazioni del blocco. `<index>` è l'indice di blocco. `[verbose]` equivale a 0 di default. Quando `[verbose]` è 0, il metodo restituisce le informazioni del blocco serializzato con il sistema numerico esadecimale. Dovresti deserializzare la stringa esadecimale per ottenere le informazioni dettagliate del blocco. Quando `[verbose]` è 1, il metodo restituisce le informazioni del blocco corrispondente in formato JSON. Per ulteriori informazioni, fare riferimento a [Metodo getblock](node/api/getblock2.html).
 
-The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/NEO GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
+Le informazioni di blocco includono le transazioni di input e output. L'exchange deve registrare tutte le sue transazioni correlate. L'output delle transazioni è in effetti la registrazione delle transazioni dei prelievi di un utente. Quando l'exchange vede uno dei suoi indirizzi nell'output delle transazioni, aggiorna il bilancio NEO/NEO GAS dell'utente corrispondente che possiede questo indirizzo di deposito. Alcuni exchange possono anche procedere nel seguente modo: se trova un indirizzo all'interno dell'exchange come output della transazione, registrerà il deposito nel suo database e modificherà il saldo dell'utente dopo diverse conferme (A meno che non debba rispettare l'operazione di altre blockchain, questo modo non è raccomandato) . 
 
-> [!Note]
+> [!Nota]
 >
 > - Method getblockcount returns the count of the blocks in the main chain. The first parameter of Method getblock is `<index>` which is the block index. Block index = Block height = The count of the blocks – 1. If getblockcount returns 1234, you should use getblock 1233 to get the information of the latest block. 
 > - The deposit and withdrawal transactions (NEO/NEO GAS) are all in a type named ContractTransaction. The exchanges only need to care about the ones of ContractTransaction type when they check through the transactions in a block. 
