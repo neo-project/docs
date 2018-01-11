@@ -16,7 +16,7 @@ public static extern Neo.SmartContract.Framework.Services.Neo.Validator Register
 
 Parametri:
 
-pubkey：Chiave pubblica come array di byte di lunghezza 33.
+pubkey：Chiave pubblica come  array di byte di lunghezza 33.
 
 Valore restituito: [Validatore](../Validator.md)
 
