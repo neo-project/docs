@@ -77,6 +77,14 @@ namespace ConsoleApplication1
 
 Compilazione dell'output: risultato dell'esecuzione 14, come previsto
 
+> [!Nota]
+>
+> Se si encontrano i seguenti errori dopo l'esecuzione：
+>
+> The type “BigInteger” is defined in an unreferenced assembly. You must add a reference to the assembly “System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”
+>
+> Puoi aggiungere un riferimento a “System.Numerics”  per risolvere il problema。
+
 Nota: Se usi il codice sopra per passare i parametri, fai attenzione alla parte superiore della pila corrispondente al primo parametro, per comodità puoi anche passare i parametri con il seguente codice.
 
 ```c#
