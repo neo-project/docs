@@ -36,8 +36,8 @@ Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwick
 
 ### Anwendungen und Ökosystem 
 
-Ein gutes Ökosystem ist der Lebenselixier der OpenSource Community. Um ein intelligentes, ökonomisches Netzwerk zu realisieren, widmet sich NEO intensiv der Entwicklung des Ökosystems, aber auch der Bereitstellung von ausgereiften Entwicklertools, der Verbesserung der Dokumentation und der Organisation von Ausbildungen und Trainings. NEO stellt ausgewählten Projekten außerdem finanzielle Unterstützung bereit.
-Wir planen die Unterstützung folgender NEO-basierter Anwendungen  und Umgebungen, sowie die Honorierung von Beiträgen, die zur Verbesserung des allgemeinen Nutzungserlebnisses von NEO beitragen:
+Ein gutes Ökosystem ist das Lebenselixier der OpenSource Community. Um ein intelligentes, ökonomisches Netzwerk zu realisieren, widmet sich NEO intensiv der Entwicklung des Ökosystems, aber auch der Bereitstellung von ausgereiften Entwicklertools, der Verbesserung der Dokumentation und der Organisation von Ausbildung und Training. NEO stellt für ausgewählte Projekte außerdem finanzielle Unterstützung bereit.
+Wir planen die Unterstützung folgender NEO-basierter Anwendungen und Umgebungen, sowie die Honorierung von Beiträgen, die zur Verbesserung des allgemeinen Nutzungserlebnisses von NEO beitragen:
 
 
 🔹 **Node Programm**
@@ -121,8 +121,7 @@ Die zweite Hälfte steht dem NEO Council für die langfristige Entwicklung und I
 
 🔹 10 Millionen Token (10%) werden als finanzieller Anreiz bzw. Entlohnung von NEO Entwicklern im NEO Ökosystem verwendet.
 
-🔹 15 Millionen Token (15%) sind für Investitionen in andere Blockchain
- Projekte, die dem NEO Council zugehörig sind und ausschließlich für NEO Projekte verwendet werden, reserviert.
+🔹 15 Millionen Token (15%) sind für Investitionen in andere Blockchain Projekte, die dem NEO Council zugehörig sind und ausschließlich für NEO Projekte verwendet werden, reserviert.
 
 🔹 15 Millionen Token (15%) dienen als Reserve für unvorhergesehene Ausgaben.
 
@@ -137,7 +136,7 @@ Die Inflation von NEO gestaltet sich demnach plangemäß folgendermaßen:
 5. Jahr: 95 Mio. auf 100 Mio. = 5%
 6. Jahr+: 100 Mio. auf 100 Mio. = 0%
 
-Da absehbar nicht 15 Mio. NEO an Ausgaben pro Jahr benötigt werden, ist nach jetzigem Stand davon auszugehen, dass die Inflationsrate unter diesen Werten liegen wird.
+Da absehbar ist, dass nicht 15 Mio. NEO an Ausgaben pro Jahr benötigt werden, ist nach jetzigem Stand davon auszugehen, dass die Inflationsrate unter diesen Werten liegen wird.
 
 
 GAS Distribution:
@@ -175,11 +174,11 @@ Das NEO Smart Contract System besteht aus drei Teilen:
 
 **NeoVM – Universal Block Chain Virtual Machine:**
 
-NeoVM ist eine schlanke, allgemein einsetzbare virtuelle Maschine deren Architektur JVM und .NET Laufzeitumgebung ähnelt, ähnlich einer virtuellen CPU, die Anweisungen in einem Contract sequentiell liest, ausführt und Prozesse auf Funktionalität, basierend auf den Anweisungsoperationen, logischen Operationen etc., kontrolliert. Sie besitzt eine hohe Startgeschwindigkeit und Flexibilität und ist deshalb für kleine Anwendungen wie „Smart Contracts“ besonders geeignet. NeoVM kann außerdem auch auf nicht-Blockchains aus dem NEO-Ökosystem heraus portiert oder in eine Entwicklungsumgebung integriert werden. All das sorgt für optimale Bedingungen für Entwickler. Die Funktionalität von NeoVM kann zudem erweitert werden, beispielweise durch die Implementierung von JIT (Echtzeit Compiler) und die damit verbundene Erhöhung der Implementierungseffizienz. 
+NeoVM ist eine schlanke, allgemein einsetzbare Virtuelle Maschine deren Architektur JVM und .NET Laufzeitumgebung ähnelt, ähnlich einer virtuellen CPU, die Anweisungen in einem Contract sequentiell liest, ausführt und Prozesse auf Funktionalität, basierend auf den Anweisungsoperationen, logischen Operationen etc., kontrolliert. Sie besitzt eine hohe Startgeschwindigkeit und Flexibilität und ist deshalb für kleine Anwendungen wie „Smart Contracts“ besonders geeignet. NeoVM kann außerdem auch auf nicht-Blockchains aus dem NEO-Ökosystem heraus portiert oder in eine Entwicklungsumgebung integriert werden. All das sorgt für optimale Bedingungen für Entwickler. Die Funktionalität von NeoVM kann zudem erweitert werden, beispielweise durch die Implementierung von JIT (Echtzeit Compiler) und die damit verbundene Erhöhung der Implementierungseffizienz. 
 
 **InteropService – Interoperable Services**
 
-InteropServices werden genutzt um den Blockchain-Ledger, digitale Assets, digitale Identitäten, persistenten Speicherplatz und andere Dienste zu laden. Sie sind wie virtuelle Maschinen, die der NeoVM zurVerfügung gestellt werden können, um „Smart Contracts“ Zugang zu den genannten Diensten innerhalb der Laufzeit zu ermöglichen und somit die Funktionalität zu erhöhen.
+InteropServices werden genutzt um den Blockchain-Ledger, digitale Assets, digitale Identitäten, persistenten Speicherplatz und andere Dienste zu laden. Sie sind wie virtuelle Maschinen, die der NeoVM zur Verfügung gestellt werden können, um „Smart Contracts“ Zugang zu den genannten Diensten innerhalb der Laufzeit zu ermöglichen und somit die Funktionalität zu erhöhen.
 Durch die lockere Kopplung innerhalb dieses Designs kann die NeoVM auf jedes Blockchainsystem und sogar auf Nicht-Blockchainsysteme portiert werden, was wiederum die Funktionalität der „Smart Contracts“ weiter erhöht.
 
 **DevPack – Compiler und IDE plugin:**
@@ -200,7 +199,7 @@ NeoX baut auf existierenden „double-standard atomic asset exchange“ Protokol
 
 **Cross-chain distributed transaction protocol:**
 
-„Cross-chain distributed transactions“ bedeuten, dass mehrere Schritte einer Transaktion auf verschiedene Blockchains verstreut sind und die Konsistenz der gesamten Transaktion gewährleistet ist. Das stellt eine Erweiterung der „cross-chain asset exchange“ dar, indem sie das Verhalten des asset exchange in arbiträres Verhalten erweitert. Vereinfacht ausgedrückt ermöglicht es NeoX cross-chain „Smart Contracts“, bei denen ein „Smart Contract“ verschiedene Teile auf mehreren Blockchains ausführen kann, sicherzustellen, dass die „Smart Contracts“ in ihrer Gesamtheit entweder erfolgreich verlaufen oder annulliert werden. Dies bietet exzellente Möglichkeiten für cross-chain Kollaborationen. Mögliche Szenarien für cross-chain „Smart Contracts“ werden noch erforscht. 
+„Cross-chain distributed transactions“ bedeutet, dass mehrere Schritte einer Transaktion auf verschiedene Blockchains verstreut sind und die Konsistenz der gesamten Transaktion gewährleistet ist. Das stellt eine Erweiterung der „cross-chain asset exchange“ dar, indem sie das Verhalten des asset exchange in arbiträres Verhalten erweitert. Vereinfacht ausgedrückt ermöglicht es NeoX cross-chain „Smart Contracts“, bei denen ein „Smart Contract“ verschiedene Teile auf mehreren Blockchains ausführen kann, sicherzustellen, dass die „Smart Contracts“ in ihrer Gesamtheit entweder erfolgreich verlaufen oder annulliert werden. Dies bietet exzellente Möglichkeiten für cross-chain Kollaborationen. Mögliche Szenarien für cross-chain „Smart Contracts“ werden noch erforscht. 
 
 
 ### Dezentralisiertes Speicherprotokoll: NeoFS
@@ -209,8 +208,7 @@ NeoFS ist ein dezentralisiertes Speicherprotokoll, das „Distributed Hash Table
 
 Das Hauptproblem besteht dabei in der Findung der richtigen Balance zwischen Redundanz und Verlässlichkeit. NeoFS plant dieses Problem durch Anreize wie Token und die Einrichtung sog. „backbone nodes“ zu umgehen. Die Nutzer von NeoFS können dabei die gewünsche Verlässlichkeit auswählen. Dateien mit geringem Anspruch an die Verlässlichkeit können so nahezu gratis gespeichert und abgerufen werden. Hohe Ansprüche an die Verlässlichkeit werden durch stabile und zuverlässige „backbone nodes“ bedient.
 
-NeoFS arbeitet als eines der InteropService Interoperabilitätservices unter dem NeoContract System und ermöglicht es, „Smart Contracts“ beispielweise große Dateien in der Blockchain zu lagern und einen Zugang zu diesen Daten zu gewährleisten. Darüber hinaus ist NeoFS kompatibel mit digitalen Identitäten, sodass digitalen Zertifikaten ohne der Erfordernis eines zentralen Servers digitale Identitäten zugeordnet, zugesendet und widerrufen werden können. In der Zukunft können alte Blockdaten in NeoFS gespeichert werden, sodass die meisten Full Nodes zum Zweck der besseren
- Skalierbarkeit die alten Daten verwerfen können und gleichzeitig die Integrität der alten Daten gewährleistet ist.
+NeoFS arbeitet als eines der InteropService Interoperabilitätservices unter dem NeoContract System und ermöglicht es, „Smart Contracts“ beispielweise große Dateien in der Blockchain zu lagern und einen Zugang zu diesen Daten zu gewährleisten. Darüber hinaus ist NeoFS kompatibel mit digitalen Identitäten, sodass digitalen Zertifikaten ohne der Erfordernis eines zentralen Servers digitale Identitäten zugeordnet, zugesendet und widerrufen werden können. In der Zukunft können alte Blockdaten in NeoFS gespeichert werden, sodass die meisten Full Nodes zum Zweck der besseren Skalierbarkeit die alten Daten verwerfen können und gleichzeitig die Integrität der alten Daten gewährleistet ist.
 
 
 ### Anti-quantum cryptography mechanism: NeoQS
