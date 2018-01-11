@@ -16,11 +16,11 @@ public static extern Neo.SmartContract.Framework.Services.Neo.Contract Migrate(b
 
 Parametri
 
-script: Il bytecode del contratto come array di byte.
+script: Il bytecode del contratto come un array di byte.
 
-parameter_list: Elenco dei parametri come array di byte. fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
+parameter_list: Elenco dei parametri come un array di byte. fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
-return_type: Restituisce il tipo come byte. Fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
+return_type: Restituisce il tipo come un byte. Fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
 need_storage: Se il contratto richiede una memoria persistente, boolean.
 
