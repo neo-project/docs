@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.TransactionAttribute[] GetAttributes()
 ```
 
-Valore Restituito: Tutti gli attributi della transazione corrente, come [TransactionAttribute](../TransactionAttribute.md) array.
+Valore Restituito: Tutti gli attributi della transazione corrente, come array [TransactionAttribute](../TransactionAttribute.md).
 
 ## Esempio
 
