@@ -1,4 +1,4 @@
-# Smart Contract Example - Domain (Domain Name System)
+# Esempio di Smart Contract - Domain (Sistema dei Nomi di Dominio)
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -61,8 +61,8 @@ namespace Neo.SmartContract
 }
 ```
 
-The contract implements a domain name system, where the domain names points to data on the blockchain. It is not the real domain names on the Internet.
+Il contratto implementa un sistema dei nomi di dominio, dove i nomi di dominio puntano i dati sulla blockchain. Non é il vero sistema dei nomi di dominio di internet.
 
-The code above implements querying, registration, transfer and deletion of domain names.
+Il codice sopra implementa query, registrazione, trasferimento e cancellazione di nomi di dominio.
 
-For details, refer to [Storage](../fw/dotnet/neo/Storage.md).
+Per dettagli, fare riferimento a [Storage](../fw/dotnet/neo/Storage.md).
