@@ -160,3 +160,5 @@
       href: sc/systemfees.md
 - name: 取引所開発者向けドキュメント
   href: exchange.md
+- name: 協力者
+  href: contributors.md
