@@ -13,7 +13,7 @@ NEO nutzt die Blockchaintechnologie in Verbindung mit digitalen Identitäten, um
 Digitale Assets existieren in elektronischer Form. Die Blockchaintechnologie ermöglicht die dezentralisierte, vertrauenswürdige, nachvollziehbare und hoch transparente Digitalisierung von Assets ohne Zwischeninstanz. Nach erfolgter Registrierung eines Assets können Nutzer mittels der NEO Blockchain eine Vielzahl von digitalen Assets untereinander austauschen und handeln. Die Verknüpfung zwischen digitalen und physischen Assets wird dabei durch digitale Identitäten ermöglicht. Assets, die mittels einer verifizierten digitalen Identität registriert wurden, sind so geschützt.
 
 NEO bietet zwei Formen von digitalen Assets: globale Assets und contract-gebundene Assets. Globale Assets können in die gesamte Systemumgebung von NEO integriert werden und sind von allen „Smart Contracts“ und Netzwerkclients des NEO Netzwerks identifizierbar.
-Contract-gebundene Assets sind lediglich in die interne Speicherumgebung eines „Smart Contracts“ integriert und benötigen einen angepassten Client um erkannt zu werden. Die Contract-gebundenen Assets können an vorgegebene Standards des NEO Netzwerks geknüpft werden, um die Kompatibilität mit anderen Clients sicherzustellen.
+Contract-gebundene Assets sind lediglich in die interne Speicherumgebung eines „Smart Contracts“ integriert und benötigen einen angepassten Client, um erkannt zu werden. Die contract-gebundenen Assets können an vorgegebene Standards des NEO Netzwerks geknüpft werden, um die Kompatibilität mit anderen Clients sicherzustellen.
 
 
 ### Digitale Identität : NeoID
@@ -29,7 +29,7 @@ Die Blockchaintechnologie bietet eine dezentralisierte, fälschungssichere und �
 
 Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Features von NEO, da es zur nahtlosen und raschen Integration des bereits vorhandenen Entwicklerökosystems beiträgt. Anstatt eine neue Programmiersprache erlernen zu müssen, können Entwickler sowohl für die Entwicklung, das Debugging als auch das Kompilieren von „Smart Contracts“ zum  Beispiel auf C#, Java sowie eine Vielzahl anderer weit verbreiteter Programmiersprachen innerhalb ihrer gewohnten integrierten Entwicklungsumgebung (z.B. Visual Studio, Eclipse etc.) zurückgreifen.
 
-NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Finaliät, Sicherheit und Skalierbarkeit.
+NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Gleichzeitigkeit, Sicherheit und Skalierbarkeit.
 
 Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwicklern weltweit „Smart Contracts“ zu entwickeln. Diesbezüglich gibt es ein eigenes Whitepaper für NeoContract.
 
@@ -106,7 +106,7 @@ GAS (insgesamt 100 Millionen Token) ist der „Treibstoff“ für die Nutzung de
 
 Im Genesis-Block des NEO Netzwerks wurden 100 Millionen NEO generiert. GAS wird mittels eines Zerfallsalgorithmus über die nächsten 22 Jahre generiert und an NEO Halter verteilt, wobei ein NEO über 22 Jahre ein GAS erzeugt. 
 
-Das NEO Netzwerk kann per Voting Grenzwerte implementieren, die bestimmte Transaktionen und „Smart Contracts“ von GAS Gebühren ausnehmen, um die Benutzerfreundlichkeit des Netzwerks zu erhöhen. NeoID kann verwendet werden, um Transaktionen und „Smart Contracts“ von qualifizierten Identitäten zu priorisieren und eventuelle Spam-Transaktionen zu vernachlässigen. Transaktionen und „Smart Contracts“ ohne qualifizierte digitale Identität können ihre Priorität durch die Zahlung von GAS Gebühren erhöhen.
+Das NEO Netzwerk kann per Voting Grenzwerte implementieren, die bestimmte Transaktionen und „Smart Contracts“ von GAS Gebühren ausnehmen, um die Benutzerfreundlichkeit des Netzwerks zu erhöhen. NeoID kann verwendet werden, um Transaktionen und „Smart Contracts“ von qualifizierten Identitäten zu priorisieren und eventuelle Spam-Transaktionen nachrangig zu verarbeiten. Transaktionen und „Smart Contracts“ ohne qualifizierte digitale Identität können ihre Priorität durch die Zahlung von GAS Gebühren erhöhen.
 
 
 ### Distributionsmechanismus
@@ -125,7 +125,7 @@ Die zweite Hälfte steht dem NEO Council für die langfristige Entwicklung und I
 
 🔹 15 Millionen Token (15%) dienen als Reserve für unvorhergesehene Ausgaben.
 
-🔹 Die jährlichen Ausgaben dieser Token sollen nicht 15 Millionen Token überschreiten. 
+🔹 Die jährliche Ausgabe dieses Tokens soll 15 Millionen Token nicht überschreiten. 
 
 Die Inflation von NEO gestaltet sich demnach plangemäß folgendermaßen:
 
