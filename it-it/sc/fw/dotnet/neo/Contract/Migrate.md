@@ -18,21 +18,21 @@ Parametri
 
 script: Il bytecode del contratto come array di byte.
 
-parameter_list: Elenco r to [Smart Contract Parameters and Return Values](../../../../tutorial/Parameter.md).
+parameter_list: Elenco dei parametri come array di byte. fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
-return_type: Return type as a byte. Refer to [Smart Contract Parameters and Return Values](../../../../tutorial/Parameter.md).
+return_type: Restituisce il tipo come byte. Fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
-need_storage: If the contract requires a persistent store, boolean.
+need_storage: Se il contratto richiede una memoria persistente, boolean.
 
-name: The name of the contract as a string.
+name: Il nome del contratto come una stringa.
 
-version: The version as a string.
+version: La versione come una stringa.
 
-author: The author name as a string.
+author: Il nome dell'autore come una stringa.
 
-email: The author email as a string.
+email: L'email dell'autore come una stringa.
 
-description: The description of the contract as a string.
+description: La descrizione del contratto come una stringa.
 
 Valore restituito: [Contratto](../Contract.md).
 
