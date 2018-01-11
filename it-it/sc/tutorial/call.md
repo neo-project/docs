@@ -11,6 +11,6 @@ public static void Main ()
 ```
 
 In uno smart contract, puoi usarla per chiamare altri smart contracts che sono stati pubblicati sulla chain.
-1. Aggiungi la dichiarazione usando AppCall e l'hash dello script del contratto per essere invocato.
+1. Aggiungere la dichiarazione usando AppCall e l'hash dello script del contratto per essere invocato.
 2. Chiamalo nel codice.
 
