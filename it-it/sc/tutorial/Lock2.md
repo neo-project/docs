@@ -1,6 +1,6 @@
-# Implementare un Lock Contract
+# Implementare un Contratto di Blocco
 
-Leggi i seguenti tutorial prima di leggere il seguente articolo:
+Leggi i seguenti tutorial prima di leggere l'articolo:
 
 [Come Scrivere Smart Contract NEO in C#](../getting-started-csharp.md)
 
@@ -8,7 +8,7 @@ Leggi i seguenti tutorial prima di leggere il seguente articolo:
 
 [Esempio Smart Contract - Lock (lock)](Lock.md)
 
-Assumendo che hai giá la conoscenza di base riguardo gli smart contracts, mosteremo come implementare un lock contract a un indirizzo usando il wallet.
+Assumendo che hai giá la conoscenza di base riguardo gli smart contract, mosteremo come implementare un contratto di blocco a un indirizzo usando il wallet.
 
 In aggiunta, questo tutorial é basato sul demo di Smart Contract 2.0. Per favore scaricare l'ultimo **test network client** da [GitHub](https://github.com/neo-project/neo-gui/releases).
 
@@ -16,19 +16,19 @@ PS: In questo momento, l'ultimo **test network client** scaricabile é: [Neo GUI
 
 > [!Nota]
 > Le seguenti operazioni saranno eseguite in **test network**. Perché la main network non ha ancora implementato Smart Contract 2.0, le seguenti operazioni nella main network falliranno.
-> Al fine di usare la test net devi fare due cambiamenti nei files config: 
-1. Estrai il client NEO GUI nella tua cartella. Noterai i files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Di default, `config.json` e `protocol.json` sono identici al quelli della versione Mainnet.
-2. Devi copiare il codice dai files della testnet nei files `config.json` e `protocol.json` potrai in tal modo accedere alla testnet invece della Mainnet (cioé copia e incolla `config.testnet.json` in `config.json`, e `protocol.testnet.json` in `protocol.json`).
+> Al fine di usare la test net devi fare due cambiamenti nei file config: 
+1. Estrarre il client NEO GUI nella tua cartella. Noterai i file config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. Di default, `config.json` e `protocol.json` sono identici al quelli della versione Mainnet.
+2. Devi copiare il codice dai file della testnet nei file `config.json` e `protocol.json` potrai in tal modo accedere alla testnet invece della Mainnet (cioé copia e incolla `config.testnet.json` in `config.json`, e `protocol.testnet.json` in `protocol.json`).
 
 ## Creare un wallet
 
-Questo step é veramente basico. Apri la versione del PC del client, clicca `wallet`, `create the wallet database `, seleziona la locazione di archiviazione del wallet e imposta il nome e la password del wallet.
+Questo step é veramente basico. Aprire la versione del PC del client, cliccare `wallet`, `create the wallet database `, selezionare la locazione di archiviazione del wallet e impostare il nome e la password del wallet.
 
 ![](../../../assets/lock2_1.png)
 
-## Ottieni la chiave pubblica
+## Ottenere la chiave pubblica
 
-Il nuovo wallet appena creato genererá automaticamente un account standard. Doppi clic destro sull'account, vedi la chiave privata, e copia la chiave pubblica dalla seconda linea, come mostrato in figura:
+Il nuovo wallet appena creato genererá automaticamente un account standard. Doppio clic destro sull'account, vedi la chiave privata, copiare la chiave pubblica dalla seconda linea, come mostrato in figura:
 
 ![](../../../assets/lock2_2.png)
 
@@ -93,13 +93,13 @@ namespace Neo.SmartContract
 }
 ```
 
-Il contratto Lock ha due importanti variabili da cambiare: la chiave privata, e il Lock Time.
+Il contratto di blocco ha due importanti variabili da cambiare: la chiave privata, e il Lock Time.
 
-1. nel codice del contratto, incolla la precedente copia dell'array di byte della chiave pubblica.
+1. nel codice del contratto, incollare la precedente copia dell'array di byte della chiave pubblica.
 
-2. Cambia il Lock Time del codice esempio, il quale é un timestamp Unix. Calcolalo, potresti usare qualche strumento online. [Unix timestamp online conversion](https://unixtime.51240.com/).
+2. Cambiare il Lock Time del codice esempio, il quale é un timestamp Unix. Calcolalo, potresti usare qualche strumento online. [Unix timestamp online conversion](https://unixtime.51240.com/).
 
-Dopo aver rimpiazzato le due variabili, compila il contratto per ottenere il file Lock.avm.
+Dopo aver rimpiazzato le due variabili, compilare il contratto per ottenere il file Lock.avm.
 
 ## Implementare un Lock Contract
 
@@ -111,11 +111,11 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 ```
 Se pensi che scrivere uno script per questo sia noioso, la funzione `Deploy Contract` del client permette di ottenere il codice di byte in modo semplice:
 
-Clicca su `Advanced`, `Deploy Contract`, clicca sul bottone `Load` nell'angolo in basso a destra. Scegli il file `Lock.avm` generato precedentemente. Dovresti vedere lo script del contratto mostrato nel box `Code`, come in figura. Copialo dinuovo.
+Cliccare su `Advanced`, `Deploy Contract`, cliccare sul bottone `Load` nell'angolo in basso a destra. Scegliere il file `Lock.avm` generato precedentemente. Dovresti vedere lo script del contratto mostrato nel box `Code`, come in figura. Copialo dinuovo.
 
 ![](../../../assets/lock2_5.png)
 
-Nel client, sotto la finestra `Account`, fai doppio clicl sullo spazio bianco, seleziona `Create Contract Add.`, `Custom`, e incolla lo script del contratto nel box: 
+Nel client, sotto la finestra `Account`, fare doppio clicl sullo spazio bianco, selezionare `Create Contract Add.`, `Custom`, e incollare lo script del contratto nel box: 
 
 ![](../../../assets/lock2_7.png)
 
@@ -132,13 +132,13 @@ Quanto segue é un test dell'autenticazione dell'account di uno smart contract. 
 > [! Nota]
 > Al fine di assicurare l'accuratezza del test, é meglio non aver altri assets nel wallet, siccome non puoi sapere se gli assets arrivano da un indirizzo standard o un indirizzo di contratto, a meno che tu non abbia compreso l'algoritmo di cambiamento del client e sai quali transazioni arrivano dall'indirizzo di contratto.
 
-### Trasferire assets a un indirizzo di contratto
+### Trasferire asset a un indirizzo di contratto
 
-Apri il wallet con gli assets sulla **testnet** e trasferisci una certa quantitá di assets all'account di contratto.
+Aprire il wallet con gli assets sulla **testnet** e trasferire una certa quantitá di assets all'account di contratto.
 
-### Trasferire gli assets fuori dall'indirizzo di contratto
+### Trasferire gli asset fuori dall'indirizzo di contratto
 
-Trasferisci gli assets dal tuo account smart contract:
+Trasferire gli assets dal tuo account smart contract:
 
 ![Transfer contract amount](../../../assets/lock2_11.png)
 
@@ -146,6 +146,6 @@ Se l'operazione sopra é corretta, succederá quanto segue se gli asset sono sta
 
 Quando il tempo corrente é inferiore al tempo di lockout, il trasferimento non sará confermato, cioé il trasferimento fallirá.
 
-Dopo aver cliccato `Rebuild Index`, dopo circa 5 minuti, il trasferimento non riconosciuto sparirà e gli assets torneranno allo stato precedente.
+Dopo aver cliccato `Rebuild Index`, dopo circa 5 minuti, il trasferimento non riconosciuto sparirà e gli asset torneranno allo stato precedente.
 
 Se il tempo corrente é piú grande del Lock Time, il trasferimento sará avvenuto con successo.
