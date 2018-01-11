@@ -40,7 +40,7 @@ neo-python usa le seguenti predefinite:
 
 ### Eventi Smart Contract
 
-Se si desidera disabilitare il logging di tutti gli eventi degli smart contracts, è possibile farlo:
+Se si desidera disabilitare il logging di tutti gli eventi degli smart contract, è possibile farlo:
 
 ```
 settings.set_log_smart_contract_events(False)
