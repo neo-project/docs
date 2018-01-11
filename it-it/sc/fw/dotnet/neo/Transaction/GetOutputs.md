@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.TransactionOutput[] GetOutputs()
 ```
 
-Valore Restituito: Tutti gli output di transazione per la transazione corrente come un array [TransactionOutput](../TransactionOutput.md).
+Valore Restituito: Tutti gli output di transazione per la transazione corrente come array [TransactionOutput](../TransactionOutput.md).
 
 ## Esempio
 
