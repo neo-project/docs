@@ -2,11 +2,11 @@
 
 主な著者: [@localhuman](https://github.com/localhuman)
 
-neo-pythonはNEOブロックチェーンのためのPythonノードとSDKです。neo-pythonを用い、NEOブロックチェーン上でスマートコントラクトを構築し、テストし、実行することができます。neo-pythonが提供する主な機能は、以下の通りです。
+neo-pythonはNEOブロックチェーンのためのPythonノードとSDKです。neo-pythonを用い、NEOブロックチェーン上でスマートコントラクトを構築、テスト、実行することができます。neo-pythonが提供する主な機能は、以下の通りです。
 
 - PythonベースP2Pノードの実行
-- ノードの環境設定およびブロックチェーンのインスペクションのためのインタラクティブCLI
-- Pythonで書かれたスマートコントラクトあるいは .avm format のスマートコントラクトをコンパイル、テスト、デプロイ、そして実行する。
+- インタラクティブCLIを使用したノードの環境設定およびブロックチェーンの検査
+- Pythonで書かれたスマートコントラクトあるいは .avm 形式のスマートコントラクトのコンパイル、テスト、デプロイ、そして実行。
 - [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki)および[NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)に対応したウォレット機能
 - RPCクライアント
 - `Runtime.Log`と`Runtime.Notify`のイベントモニタリング
@@ -31,7 +31,7 @@ brew install leveldb
     Expected in: flat namespace
 ```
 
-plyvel（python libleveldbライブラリ）をアンインストールし、次のcflagsを再インストールします。
+plyvel（python libleveldbライブラリ）をアンインストールし、次のcflagsを追加して再インストールします。
 
 ```python
 pip uninstall plyvel
@@ -109,14 +109,14 @@ yum -y install development tools python35 python35-devel python35-pip readline-d
 
 > [!注意]
 > 
-> - `git pull`とともにneo-pythonをアップデートする場合、`pip install -r requirements.txt`とともにあるディペンデンシーもアップデートしていることを確かめてください。
+> - `git pull`を使用してneo-pythonをアップデートする場合、`pip install -r requirements.txt`を実行して依存パッケージもアップデートしていることを確かめてください。
 > 
 > 
-> 初めてneo-pythonを使用する場合、ブロックチェーンを同期する必要があります（時間がかかります）。自動的にchainディレクトリをダウンロードします。このプロジェクトでは、`bootstrap.py`に含まれます。テストネットのためにブートストラップを行うには、`python bootstrap.py`を実行します。メインネットのためにブートストラップを行うには、`python bootstrap.py -m`を実行します。
+> 初めてneo-pythonを使用する場合、ブロックチェーンを同期する必要があります（時間がかかります）。このプロジェクトには、自動的にchainディレクトリをダウンロードするため、`bootstrap.py`が含まれます。テストネットのためにブートストラップを行うには、`python bootstrap.py`を実行します。メインネットのためにブートストラップを行うには、`python bootstrap.py -m`を実行します。
 
 ## Pythonベースノードの実行
 
-要件をインストールし環境をアクティベートしたら、`prompt.py`ファイルを使ってベーシックなインタラクティビティとノードを実行しましょう。
+要件をインストールし環境をアクティベートしたら、`prompt.py`ファイルを使ってノードを起動し、基本的な対話を行いましょう。
 
 以下の例は、テストネット上で`prompt.py`を開始させます。
 
@@ -148,7 +148,7 @@ optional arguments:
 --version             show program's version number and exit
 ```
 
-ハッシュあるいはブロックインデックスにより、現在のサーバー上で、ブロックのクエリを行うことができます。　
+ハッシュあるいはブロックインデックスにより、現在のサーバー上で、ブロックを参照することができます。
 
 ```python
 python prompt.py
