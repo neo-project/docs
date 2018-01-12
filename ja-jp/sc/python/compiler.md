@@ -1,6 +1,6 @@
 # NEO仮想マシンのためのPythonコンパイラ
 
-`neo-boa`コンパイラは、Neo仮想マシンでの利用するためにPythonファイルを`.avm`フォーマットにコンパイルするツールです。[Neo仮想マシン](https://github.com/neo-project/neo-vm/)を用いることにより、[Neoブロックチェーン]((https://github.com/neo-project/neo/))上でコントラクトを実行することができます。
+`neo-boa`コンパイラは、Neo仮想マシン上で利用するためにPythonファイルを`.avm`フォーマットにコンパイルするツールです。[Neo仮想マシン](https://github.com/neo-project/neo-vm/)を用いることにより、[Neoブロックチェーン]((https://github.com/neo-project/neo/))上でコントラクトを実行することができます。
 
 本コンパイラはPython言語のサブセットをサポートし、現在、Python 3.4と3.5で動作します。
 
@@ -15,7 +15,7 @@ pip install neo-boa
 
 #### Docker
 
-このプロジェクトは、Pythonスマートコントラクトを一括コンパイルするDockerfileを含みます。レポジトリのクローンを作り、プロジェクトのdockerのサブディレクトリに通してください。コンテナを作るために次のコマンドを動かします。
+このプロジェクトは、Pythonスマートコントラクトを一括コンパイルするDockerfileを含みます。レポジトリのクローンを作り、プロジェクトのdockerのサブディレクトリに移動してください。コンテナを作るために次のコマンドを実行します。
 
 ```
 docker build -t neo-boa .
@@ -33,7 +33,7 @@ docker run -it -v /absolute/path/input_dir:/python-contracts -v /absolute/path/o
 
 ## 基本的な利用方法
 
-次の例のようにコンパイラを使えるでしょう。
+次の例のようにコンパイラを使用することが出来ます。
 
 ```
 from boa.compiler import Compiler
