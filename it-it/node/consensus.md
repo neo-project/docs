@@ -13,59 +13,59 @@
 * **View** `v` - Il set di dati utilizzato durante l'attività di consenso `DBFT` in NEO.
 
 ## 2 - Ruoli
-**Nell'algoritmo di consenso di NEO, i Consensus Node sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Bookkeepers'. Da ora in avanti, ci riferiremo ad essi come Consensus Nodes**.
+**Nell'algoritmo di consenso di NEO, i Nodi di Consenso sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Contabili'. Da ora in avanti, ci riferiremo ad essi come Nodi di Consenso**.
 
-  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Consensus Node** - Questo nodo partecipa nell'attività di consenso. Durante l'attività di consenso, i nodi di consenso si alternano assumendo i due seguenti ruoli:
-  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(One)` - Lo **Speaker** è responsabile per la trasmissione di un blocco come proposta al sistema.
-  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegate** `(Multiple)` - I **Delegates** sono responsabili della realizzazione del consenso sulla transazione.
+  - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Nodo di Consenso** - Questo nodo partecipa nell'attività di consenso. Durante l'attività di consenso, i nodi di consenso si alternano assumendo i due seguenti ruoli:
+  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Oratore** `(Uno)` - L'**Oratore** è responsabile della trasmissione di una proposta di blocco al sistema.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegato** `(Multipli)` - I **Delegati** sono responsabili della realizzazione del consenso sulla transazione.
 
 
 ## 3 - Introduzione
 
-Una delle differenze fondamentali tra le blockchain è il modo in cui possono garantire la tolleranza ai guasti data l'attività "difettosa" e non onesta sulla rete.
+Una delle differenze fondamentali tra le blockchain è il modo con la quale possono garantire la tolleranza ai guasti data un'attività malfunzionante e non onesta sulla rete.
 
-I metodi tradizionali implementati usando il PoW possono fornire questa garanzia a patto che la maggior parte della potenza computazionale della rete sia onesta. Comunque, a causa della dipendenza di questo schema dalla potenza computazionale, il meccanismo può essere davvero inefficiente (la potenza computazionale costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
+I metodi tradizionali implementati che fanno uso del PoW possono fornire questa garanzia a patto che la maggior parte dell'energia di calcolo della rete sia onesta. Tuttavia, a causa di questa dipendenza dello schema dal potere computazionale, il meccanismo può essere davvero inefficiente (l'energia di calcolo costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
 
-NEO implementa un algoritmo di consenso chiamato Delegated Byzantine Fault Tolerance (DBFT) il quale sfrutta alcune caratteristiche del PoS (i possessori NEO possono votare i **Consensus Nodes**) il quale protegge la rete da difetti Byzantine usando una quantitá di risorse minima, mentre respinge alcuni dei suoi problemi. Questa soluzione risolve i problemi di prestazione e scalabilità associati alle attuali implementazioni blockchain senza un impatto significativo sulla tolleranza ai guasti.  
+NEO implementa un algoritmo di consenso chiamato Delegated Byzantine Fault Tolerance (DBFT) il quale sfrutta alcune caratteristiche del PoS (i possessori NEO possono votare i **Nodi di Consenso**) il quale protegge la rete da difetti Byzantine (Bizantini) usando una quantitá di risorse minima, mentre respinge alcuni dei suoi problemi. Questa soluzione risolve i problemi di prestazione e di scalabilità associati alle attuali implementazioni blockchain senza un impatto significativo sulla tolleranza ai guasti.  
 
 
 ## 4 - Teoria
 
-Il Byzantine Generals Problem é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegates** che devono realizzare il consenso sul risultato proveniente da un'ordine dello **Speaker**. In questo sistema, bisogna stare attenti perché lo **Speaker** o un numero qualsiasi di **Delegates** potrebbero essere dei traditori. Un nodo disonesto potrebbe non inviare un messaggio coerente a ogni destinatario. Questa é considerata come la situazione piú disastrosa. La soluzione al problema richiede che i **Delegates** identifichino se lo **Speaker** sia onesto e quale sia il vero comando come gruppo.
+Il Problema dei Generali Bizantini é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegati** che devono realizzare un consenso sul risultato proveniente da un'ordine dell'**Oratore**. In questo sistema, bisogna prestare attenzione poiché l'**Oratore** o un numero qualsiasi di **Delegati** potrebbero essere dei traditori. Un nodo disonesto potrebbe non inviare un messaggio coerente a ogni destinatario. Questa é da considerarsi come la situazione piú disastrosa. La soluzione al problema richiede che i **Delegati** identifichino se l'**Oratore** sia onesto e quale sia il vero comando come gruppo.
 
-Allo scopo di descrivere come funziona il DBFT, concentreremo principalmente questa sezione sulla giustificazione del tasso di consenso del 66.66% utilizzato nella sezione 5. Tieni a mente che un nodo disonesto non necessariamente deve essere attivamente malevolo, potrebbe semplicemente non funzionare come previsto.
+Allo scopo di descrivere come funziona il DBFT, concentreremo principalmente questa sezione sulla motivazione dell'utilizzo di un tasso di consenso del 66.66% nella sezione 5. Tenere presente che un nodo disonesto non necessariamente deve essere attivamente malevolo, potrebbe semplicemente non funzionare come previsto.
 
-Per il bene della discussione, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dallo **Speaker**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedi i riferimenti.
+Per discuterne, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dall'**Oratore**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedere i riferimenti.
 
 
-### **Speaker Onesto**
+### **Oratore Onesto**
 
   <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figura 1:</b> Esempio n = 3 con un <b>Delegate</b> disonesto.</p>
 
-  Nella **Figura 1**, abbiamo un singolo **Delegate** leale (50%). Entrambi i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto. Comunque, a causa della disonestá di un **Delegate**, il Delegate onesto puó solo determinare che c'é un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (lo **Speaker**) o del **Delegate**. Per questo motivo, il **Delegate** deve astenersi dal voto, cambiando la View.
+  Nella **Figura 1**, abbiamo un singolo **Delegato** leale (50%). Entrambi i **Delegati** ricevono lo stesso messaggio dall'**Oratore** onesto. Tuttavia, a causa della disonestá di un **Delegato**, il Delegato onesto puó solo determinare che esiste un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (l'**Oratore**) o del **Delegato**. Per questo motivo, il **Delegato** deve astenersi dal voto, cambiando il punto di vista.
 
   <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figura 2:</b> Esempio n = 4 con un <b>Delegate</b> disonesto.</p>
 
-  Nella **Figura 2**, abbiamo due **Delegates** leali (66%). Tutti i **Delegates** ricevono lo stesso messaggio dallo **Speaker** onesto e inviano il loro risultato di convalida, insieme al messaggio ricevuto dallo Speaker l'un l'altro **Delegate**. Sulla base del consenso dei due **Delegates** onesti, siamo capaci di determinare se lo **Speaker** o il **Delegate** a destra siano disonesti nel sistema. 
+  Nella **Figura 2**, abbiamo due **Delegati** leali (66%). Tutti i **Delegati** ricevono lo stesso messaggio dall'**Oratore** onesto e inviano il loro risultato di convalida insieme al messaggio ricevuto dall'Oratore ad ogni **Delegato**. Sulla base del consenso dei due **Delegati** onesti, siamo capaci di determinare che nel sistema l'**Oratore** o il **Delegato** a destra sono disonesti. 
 
   
 
-### **Speaker Disonesto** 
+### **Oratore Disonesto** 
 
   <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figura 3:</b> Esempio n = 3 con uno <b>Speaker</b> disonesto. </p>
 
-  Nel caso della **Figura 3**, dello **Speaker** disonesto, abbiamo una conclusione identica a quella raffigurata nella **Figurea 1**. Il **Delegate** non é capace di determinare quale nodo si disonesto.
+  Nel caso della **Figura 3**, dell'**Oratore** disonesto, abbiamo una conclusione identica a quella raffigurata nella **Figurea 1**. Nessun **Delegato** é capace di determinare quale nodo sia disonesto.
 
   <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figura 4:</b> Esempio n = 4 con uno <b>Speaker</b> disonesto. </p>
 
-  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció causa un differimento per una nuova View che elegge un nuovo **Speaker** perché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegates**, sarebbe stato convalidato senza la necessitá di un cambio di View.
+  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció li induce a differire per un nuovo punto di vista che elegge un nuovo **Oratore** poiché essi hanno la maggioranza del 66%. In questo esempio, se l'**Oratore** disonesto aveva inviato dati onesti ai due dei tre **Delegati**, sarebbe stato convalidato senza la necessitá di un cambio di visualizzazione.
 
 
 ## 5 - Implementazioni Pratiche
 
-L'implementazione pratica del DBFT in NEO avviene tramite un metodo iterativo di consenso per garantire che lo stesso venga realizzato. Le performance dell'algoritmo dipendono dalla frazione dei nodi onesti nel sistema. La **Figura 5** raffigura le iterazioni previste in funzione della frazione dei nodi disonesti.
+L'implementazione pratica del DBFT in NEO avviene tramite un metodo del consenso iterativo per poter garantire che il raggiungimento del consenso venga realizzato. Le performance dell'algoritmo dipendono dalla frazione dei nodi onesti nel sistema. La **Figura 5** raffigura le iterazioni previste in funzione della frazione dei nodi disonesti.
 
-Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **Consensus nodes**. Tra questo punto critico e il 33% di onestá dei **Consensus nodes**, c'é 'la terra di nessuno' dove il consenso é irragiungibile. Sotto il 33% di onestá dei **Consensus nodes**, i nodi disonesti (assumendo che siano allineati nel consenso) sono capaci di raggiungere il consenso da soli e diventare un nuovo punto di veritá nel sistema.
+Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **Nodi di Consenso**. Tra questo punto critico e il 33% di onestá dei **Nodi di Consenso**, c'é 'la terra di nessuno' dove il consenso é irragiungibile. Sotto il 33% di onestá dei **Nodi di Consenso**, i nodi disonesti (assumendo che siano allineati nel consenso) sono capaci di raggiungere il consenso da soli e di diventare un nuovo punto di veritá nel sistema.
 
 <img src="/assets/consensus.iterations.png" width="800">
 
@@ -78,28 +78,28 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
   - `t`: Quantitá di tempo allocata per la generazione di un blocco, misurata in secondi.
     - Correntemente: `t = 15 secondi`
-    - Questo valore puó essere usato per approssimare il tempo di una singola iterazione View poiché l'attivitá di consenso e gli eventi di comunicazione sono veloci rispetto a questa costante di tempo. 
-  - `n`: Il numero di **Consensus Nodes** attivi.
+    - Questo valore puó essere usato per approssimare il tempo di una singola iterazione di visualizzazione poiché l'attivitá di consenso e gli eventi di comunicazione sono veloci rispetto a questa costante di tempo. 
+  - `n`: Il numero di **Nodi di Consenso** attivi.
 
-  - `f`: La soglia minima di **Consensus Nodes** difettosi all'interno del sistema. 
+  - `f`: La soglia minima di **Nodi di Consenso** difettosi all'interno del sistema. 
      - `f = (n - 1) / 3`
 
   - `h` : L'altezza del blocco corrente durante l'attivitá di consenso.
 
-  - `i` : Indice **Consensus Node**.
+  - `i` : Indice dei **Nodi di Consenso**.
 
 
-  - `v` : La View di un **Consensus Node**. La View contiene le informazioni aggregate che i nodi hanno ricevuto durante il round di consenso. Questa include il voto (`prepareResponse` o `ChangeView`) emesso da tutti i Delegates.
+  - `v` : La visualizzazione di un **Nodo di Consenso**. La visualizzazione contiene le informazioni aggregate che i nodi hanno ricevuto durante il round di consenso. Questa include il voto (`prepareResponse` o `ChangeView`) emesso da tutti i Delegati.
 
 
-  - `k` : L'indice della View `v`. Un'attivitá di consenso puó richiedere round multipli. In caso del fallimento del consenso, `k` é incrementato e un nuovo round di consenso comincia.
+  - `k` : L'indice della visualizzazione `v`. Un'attivitá di consenso puó richiedere round multipli. In caso del fallimento del consenso, `k` é incrementato e un nuovo round di consenso comincia.
 
 
-  - `p` : Indice del **Consensus Node** eletto come **Speaker**. Questo meccanismo di calcolo per questo indice ruota tra i **Consensus Nodes** per prevenire che un singolo nodo agisca da dittatore all'interno del sistema. 
+  - `p` : Indice del **Nodo di Consenso** eletto come **Oratore**. Questo meccanismo di calcolo per questo indice ruota tra i **Nodi di Consenso** in modo da prevenire che un singolo nodo agisca da dittatore all'interno del sistema. 
      - `p = (h - k) mod (n)`
 
 
-  - `s`: La soglia sicura di consenso. Al di sotto di questa soglia, la rete é esposta a guasti.  
+  - `s`: La soglia sicura del consenso. Al di sotto di questa soglia, la rete é esposta a guasti.  
      - `s = ((n - 1) - f)`
 
 
@@ -107,63 +107,63 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 **All'interno di NEO, ci sono tre principali requisiti per la tolleranza ai guasti del consenso:**
 
-1. `s` **Delegates** devono raggiungere il consenso su una transazione prima che un blocco possa essere impegnato. 
+1. `s` **Delegati** devono raggiungere il consenso su una transazione prima che un blocco possa essere impegnato. 
 
-2. I **Consensus Nodes** disonesti non devono essere capaci di persuadere i Consensus Node onesti per quanto concerne transazioni falsate. 
+2. I **Nodi di Consenso** disonesti non devono essere capaci di persuadere i Nodi di Consenso onesti con transazioni falsate. 
 
-3. Almeno `s` **Delegates** sono nello stesso stato (`h`,`k`) per cominciare un'attivitá di consenso.
+3. Almeno `s` **Delegati** sono nello stesso stato (`h`,`k`) per iniziare un'attivitá di consenso.
 
 
 
 ### 5.3 - Algoritmo
 **L'algoritmo funziona come segue:**
 
-1. Un **Consensus Node** trasmette all'intera rete una transazione con la firma del mittente.
+1. Un **Nodo di Consenso** trasmette all'intera rete una transazione con la firma del mittente.
 
    <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figura 6:</b> Un <b>Consensus Node</b> riceve una transazione e la trasmette al sistema. </p>
 
-2. I **Consensus Nodes** registrano i dati della transazione nella memoria locale.
+2. I **Nodi di Consenso** registrano i dati della transazione nella memoria locale.
 
-3. La prima View `v` dell'attivitá di consenso é inizializzata.
+3. La prima visualizzazione `v` dell'attivitá di consenso é inizializzata.
 
-4. Viene identificato lo **Speaker**. **Aspetta** `t` secondi.
+4. Viene identificato l'**Oratore**. **Attende** `t` secondi.
 <p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Figura 7:</b> Uno <b>Speaker</b> é stato identificato e la View inviata.</p>
 
-5. Lo **Speaker** trasmette la proposta : `<prepareRequest, h, k, p, bloc, [block]sigp>`
+5. L'**Oratore** trasmette la proposta : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
-     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> The <b>Speaker</b> conia una proposta di blocco per la revisione da parte del <b>Delegates</b>. </p>
+     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> L'<b>Oratore</b> conia una proposta di blocco per la revisione da parte dei <b>Delegati</b>. </p>
 
-6. I **Delegates** ricevono la proposta da confermare:
+6. I **Delegati** ricevono la proposta da confermare:
 
     - Il formato dei dati è coerente con le regole del sistema?
     - La transazione è già sulla blockchain?
     - Gli script del contratto sono eseguiti correttamente?
-    - La transazione contiene solo una singola spesa?(cioè la transazione evita uno scenario di doppia spesa?)
+    - La transazione contiene solo una singola spesa?(es. la transazione evita uno scenario di doppia spesa?)
     - **Se la trasmissione proposta convalidata:**  `<prepareResponse, h, k, i, [block]sigi>`
     - **Se la proposta invalidata trasmessa:**  `<ChangeView, h,k,i,k+1>`
 
-   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figura 9:</b> I <b>Delegates</b> rivedono la proposta del blocco e rispondono </p>
+   <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figura 9:</b> I <b>Delegati</b> rivedono la proposta del blocco e rispondono </p>
 
-7. Dopo aver ricevuto `s` numeri di 'prepareResponse' trasmesse, un **Delegate** realizza il consenso e pubblica un blocco.
+7. Dopo aver ricevuto `s` numeri di 'prepareResponse' trasmessi, un **Delegato** realizza il consenso e pubblica un blocco.
 
-8. I **Delegates** firmano il blocco.
+8. I **Delegati** firmano il blocco.
 
-   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figura 10:</b> Il consenso é realizzato e approvato, i <b>Delegates</b> firmano il blocco, legandolo alla chain. </p>
+   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figura 10:</b> Il consenso é realizzato e approvato, i <b>Delegati</b> firmano il blocco legandolo alla chain. </p>
 
-9. Quando un **Consensus Node** riceve un blocco completo, la View corrente viene "ripulita", e un nuovo round di consenso comincia. 
+9. Quando un **Nodo di Consenso** riceve un blocco completo, la View corrente viene "ripulita", e un nuovo round di consenso comincia. 
   - `k = 0`
 
 ---
 
 **Nota:**
 
- Se dopo (![timeout](/assets/consensus.timeout.png) )  secondi sulla stessa View senza consenso:
-  - Il **Consensus Node** Trasmette:
+ Se dopo (![timeout](/assets/consensus.timeout.png) )  secondi sulla stessa visualizzazione senza consenso:
+  - Il **Nodo di Consenso** Trasmette:
 
   <!-- -->
       <ChangeView, h,k,i,k+1>
 
-  - Una volte che un **Consensus Node** riceve almeno `s` numeri di trasmissioni che denotano lo stesso cambio di View, incrementa la View `v`, scatenando un nuovo round di consenso.
+  - Una volta che un **Nodo di Consenso** riceve almeno `s` numeri di trasmissioni che denotano lo stesso cambio di visualizzazione, incrementa la visualizzazione `v`, attivando un nuovo round di consenso.
 
 
 ​	
