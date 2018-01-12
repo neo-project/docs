@@ -84,14 +84,7 @@ This has not been tested at this time. Installing the Python package plyvel seem
 2. Make a Python 3 virtual environment and activate it via:
 
    ```python
-   python3 m venv venv
-   source venv/bin/activate
-   ```
-
-   or to explicitly install Python 3.5:
-
-   ```python
-   virtualenv -p /usr/local/bin/python3.5 venv
+   python3.5 -m venv venv
    source venv/bin/activate
    ```
 
