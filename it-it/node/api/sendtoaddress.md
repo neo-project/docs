@@ -13,17 +13,17 @@ Per NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
 Per GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-Gli ID degli asset rimanenti possono essere interrogati tramite il comando `list asset` in [CLI Command] (../ cli.md) o nel Block Chain Browser.
+Gli ID degli asset rimanenti possono essere interrogati tramite il comando `list asset` in [CLI Command](../cli.md) o nel  Browser della Block Chain.
 
 Address: Indirizzo di pagamento
 
 Value: Ammontare trasferito
 
-Fee: commissione, il valore predefinito è 0 (parametro opzionale)
+Fee: Tassa, il valore predefinito è 0 (parametro opzionale)
 
 ## Esempio
 
-Testo della richiesta:
+Contenuto della richiesta:
 
 ```json
 {
@@ -34,7 +34,7 @@ Testo della richiesta:
 }
 ```
 
-Testo della risposta:
+Contenuto della risposta:
 
 ```json
 {
