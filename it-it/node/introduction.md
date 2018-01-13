@@ -1,18 +1,18 @@
 # Introduzione ai Nodi NEO
-I nodi che memorizzano tutta la blockchain sono chiamati "full-nodes". Essi sono connessi alla blockchain tramite una rete P2P. Tutti i nodi nella blockchain sono uguali, agiscono sia come interfaccia cliente sia come server.
+I nodi che memorizzano tutta la blockchain sono chiamati "full-nodes". Essi sono connessi alla blockchain tramite una rete P2P. Tutti i nodi nella blockchain sono uguali, agiscono sia come interfaccia client sia come server.
 
-Ci sono due programmi per un full-node. Il primo é Neo-GUI, contenente tutte le funzioni basiche di un client utente, inclusa un'interfaccia grafica per gli utenti di NEO. Il secondo é Neo-CLI: Esso provvede un API esterna per wallet con funzioni basiche ed é inteso per gli sviluppatori NEO. Inoltre, aiuterá altri nodi a guadagnare consenso nella rete é sará coinvolto nella generazione di nuovi blocchi.
+Ci sono due programmi full-node. Il primo é Neo-GUI, contenente tutte le funzioni basiche di un client utente, inclusa un'interfaccia grafica per gli utenti di NEO. Il secondo é Neo-CLI: Esso provvede un'API esterna per le funzioni basiche del wallet ed é destinato agli sviluppatori NEO. Inoltre, aiuterá altri nodi a guadagnare il consenso nella rete e sará coinvolto nella generazione di nuovi blocchi.
 
-Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un API di basso livello per determinati tipi di transazioni che non sono attualmente supportate dal CLI, come richiedere GAS o inviare NEO senza un wallet aperto. 
+Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un'API di basso livello per determinati tipi di transazione che non sono attualmente supportati dal CLI, come richiedere GAS o inviare NEO senza un wallet aperto. 
 
-## Indirizzo Download del Nodo NEO
+## Indirizzo di Download del Nodo NEO
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
 | Distribuzioni | [Sito Web Ufficiale](https://www.neo.org/download) o [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Codice Sorgente | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
-## Comparazione tra le Funzioni Nodo GUI e Nodo CLI
+## Comparazione tra le Funzioni del Nodo GUI e il Nodo CLI
 
 |           | GUI  | CLI  |
 | --------- | ---- | ---- |
@@ -21,19 +21,19 @@ Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un API di basso live
 | Creazione di un Wallet | ✅    | ✅    |
 | Wallet Aperto | ✅    | ✅  |
 | Ricostruzione dell'Indice del Wallet | ✅    | ✅    |
-| Coppie Di Chiavi | ✅    | ✅    |
+| Visualizzazione Coppie Di Chiavi | ✅    | ✅    |
 | Importazione/Esportazione Della Coppia Di Chiavi| ✅    | ✅    |
 | Mostrare Tutti Gli Indirizzi | ✅    | ✅    |
 | Mostrare Tutti Gli Asset | ✅    | ✅    |
 | Creazione di un Indirizzo | ✅    | ✅    |
 | Trasferimento | ✅    | ✅    |
-| Transazione (Asset swap)  | ✅    |      |
-| Generazione di un Contratto Con Firma Multiparte | ✅    |      |
+| Transazione (Asset Swap)  | ✅    |      |
+| Generazione di un Contratto Con Firma Multi-parte | ✅    |      |
 | Creazione di uno Smart Contract Personalizzato | ✅    |      |
 | Firma | ✅    |      |
 | Elezione di un Nodo di Consenso | ✅    |      |
 | Votazione | ✅    |      |
-| registrazione di Asset | ✅    |      |
+| Registrazione di Asset | ✅    |      |
 | Distribuzione di Asset | ✅    |      |
 | Estrazione di NEO | ✅    |      |
 | Indirizzi Generati in Lotto   |      | ✅    |
@@ -42,7 +42,7 @@ Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un API di basso live
 
 ## Descrizione Delle Porte
 
-Se vuoi far accedere un programma esterno all'API del nodo, é necessario aprire una porta nel firewall. Quanto segue é una descrizione della porta che puó essere impostata Completamente Aperta o Aperta Su Domanda.
+Se si vuole far accedere un programma esterno all'API del nodo, é necessario aprire una porta nel firewall. Quanto segue é una descrizione della porta che puó essere impostata Completamente Aperta o Aperta Su Richiesta.
 
 |                    | Main Net | Test Net |
 | ------------------ | ------------ | ------------- |
