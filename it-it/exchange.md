@@ -190,7 +190,7 @@ Una cartella "Notifications" è generata sotto il percorso root, come mostrato d
 
 #### ![2](../assets/notification_2.jpg)
 
-#### Notifiche file JSON
+#### Notifiche del file JSON
 
 Quanto segue mostra un esempio del contenuto del file di notifica.
 
@@ -231,22 +231,22 @@ In questo file, c'è un array di notifiche con un solo oggetto, il che significa
 
    [evento, dall'account, all'account, quantità]
 
-   -  The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP5 that represents an asset transfer.
-   -  The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "d336d7eb9975a29b2404fdb28185e277a4b299bc“ can be converted to "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
-   -  The third object in the array is the account address where the asset is transferred to. If the address is an exchange account address, it is a deposit transaction.
-   -  The fourth object in the array is the transfer amount. There are two types of amount,  integer and bytearray. When dealing with this value, the exchange should pay special attention for transactions of the integer type.
+   -  Il primo oggetto con il tipo "bytearray" e il valore "7472616e73666572", come mostrato nell'esempio, può essere convertito nella stringa "transfer". "transfer" è un metodo in NEP5 che rappresenta il trasferimento di un asset.
+   -  Il secondo oggetto nell'array è l'indirizzo dell'account dal quale l'asset è trasferito. Il suo tipo "bytearray" e il valore "d336d7eb9975a29b2404fdb28185e277a4b299bc“ può essere convertito in "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Nota che per la stringa esadecimale con il prefisso "0x", è processato come big endian; Altrimenti, è processato come small endian.
+   -  Il terzo oggetto nel'array è l'indirizzo dell'account al quale l'asset è trasferito. Se l'indirizzo è un indirizzo di un account exchange, è una transazione di deposito.
+   -  Il quarto oggetto nell'array è la quantità trasferita. Ci sono due tipi di quantità, integer e bytearray. Quando si tratta di questo valore, l'exchange dovrebbe prestare particolare attenzione per le transazioni di tipo integer.
 
-### Querying User Balance
+### Interrogazione del Saldo dell'Utente
 
-To query the user's balance, the exchange needs to do the following:
+Per interrogare il saldo dell'utente, l'exchange deve fare quanto segue:
 
-1. Construct JSON files to invoke three methods (`balanceOf`, `decimals`, and `symbol`) through the PRC API invokefunction. 
-2. Send the JSON files to NEO RPC server.
-3. Calculate the user balance according to the returned values.
+1. Costruire i file JSON per invocare tre metodi (`balanceOf`, `decimals`, e `symbol`) tramite l'PRC API invokefunction. 
+2. Inviare i file JSON al server NEO RPC.
+3. Calcolare il saldo dell'utente in base ai valori restituiti.
 
 #### invokefunction
 
-In JSON, a general invokefunction request body is in the following form: 
+In JSON, Il corpo della richiesta di una invokefunction generale è nel seguente formato: 
 
 ```
 {
@@ -265,42 +265,42 @@ In JSON, a general invokefunction request body is in the following form:
 }
 ```
 
-You need to replace these strings when querying the user's balance:
+È necessario sostituire queste stringhe quando si esegue una query sul saldo dell'utente:
 
 - script hash
 
-  The script hash of the NEP-5 token you are querying. For example, you can find the script hash of RPX is : *0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
+  Lo script hash di un token NEP-5 che stai interrogando. Per esempio, puoi trovare l'hash dello script di RPX è : *0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
 
 
 - method name
 
-  The name of the method you are invoking. To query the user's balance, you need to invoke these three methods:
+  Il nome del metodo che stai invocando. Per interrogare il saldo dell'utente, è necessario invocare questi tre metodi:
 
   **balanceOf**
 
-  - Syntax: `public static BigInteger balanceOf(byte[] account)`
-  - Remarks: "balanceOf" returns the token balance of the '''account'''.
+  - Sintassi: `public static BigInteger balanceOf(byte[] account)`
+  - Osservazioni: "balanceOf" restituisce il saldo del token dell' '''account'''.
 
   **decimals**
 
-  - Syntax: `public static byte decimals()`
-  - Remarks: "decimals" returns the number of decimals used by the token.
+  - Sintassi: `public static byte decimals()`
+  - Osservazioni: "decimals" restituisce il numero dei decimali usati dal token.
 
   **symbol**
 
-  - Syntax: `public static string symbol()`
-  - Remarks: "symbol" returns the token symbol.
+  - Sintassi: `public static string symbol()`
+  - Osservazioni: "symbol" Restituisce il simbolo del token.
 
 
-- optional arguments
+- Argomenti opzionali
 
-  Optional. If the method you are invoking requires arguments, you can pass them by constructing these parameters into an array. For example, "balanceOf" in NEP-5 returns the token balance of the "account":
+  Opzionale. Se il metodo che stai invocando richiede argomenti, puoi passarli costruendo questi parametri in un array. Per esempio, "balanceOf" in NEP-5 restituisce il saldo del token dell' "account":
 
   `public static BigInteger balanceOf(byte[] account)`
 
-  So you need to pass the account as an argument in the "balanceOf" method.
+  Quindi è necessario passare l'account come argomento nel metodo "balanceOf".
 
-#### Example
+#### Esempio
 
 ##### **Invoking balanceOf**
 
