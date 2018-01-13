@@ -61,7 +61,7 @@ NEO-CLI fornisce le seguenti funzionalitá：
 
 ### Creazione di un Wallet
 
-L'exchange deve creare un wallet online per gestire gli indirizzi di deposito degli utenti. Il wallet é usato per memorizzare le informazioni degli accounts (entrambe chiavi private e chiavi pubbliche) e dei contratti. È la prova piú importante in possesso dell'utente. Gli utenti devono mantenere i file del wallet e la password del wallet al sicuro. Essi non devono divulgare o perderne i dati. 
+L'exchange deve creare un wallet online per gestire gli indirizzi di deposito degli utenti. Il wallet é usato per memorizzare le informazioni degli account (entrambe chiavi private e chiavi pubbliche) e dei contratti. È la prova piú importante in possesso dell'utente. Gli utenti devono mantenere i file del wallet e la password del wallet al sicuro. Essi non devono divulgare o perderne i dati. 
 
 > [!Nota]
 >
