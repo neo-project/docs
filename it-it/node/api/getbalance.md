@@ -17,7 +17,7 @@ Gli ID degli asset rimanenti possono essere interrogati tramite il comando `list
 
 ## Esempio 
 
-Corpo di richiesta:
+Corpo della richiesta:
 
 ```json
 {
@@ -28,7 +28,7 @@ Corpo di richiesta:
 }
 ```
 
-Corpo di risposta:
+Corpo della risposta:
 
 ```json
 {
