@@ -10,7 +10,7 @@ N: L'indice dell'output della transazione da ottenere nella transazione (parte d
 
 ## Esempio
 
-Testo della richiesta:
+Corpo della richiesta:
 
 ```json
 {
@@ -21,7 +21,7 @@ Testo della richiesta:
 }
 ```
 
-Testo della risposta:
+Corpo della risposta:
 
 ```json
 {
