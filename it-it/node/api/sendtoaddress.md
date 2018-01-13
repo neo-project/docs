@@ -19,11 +19,11 @@ Address: Indirizzo di pagamento
 
 Value: Ammontare trasferito
 
-Fee: Tassa, il valore predefinito è 0 (parametro opzionale)
+Fee: Commissione, il valore predefinito è 0 (parametro opzionale)
 
 ## Esempio
 
-Contenuto della richiesta:
+Corpo della richiesta:
 
 ```json
 {
@@ -34,7 +34,7 @@ Contenuto della richiesta:
 }
 ```
 
-Contenuto della risposta:
+Corpo della risposta:
 
 ```json
 {
