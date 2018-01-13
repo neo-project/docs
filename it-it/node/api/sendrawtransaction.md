@@ -8,7 +8,7 @@ Hex: Una stringa esadecimale che è stata serializzata, dopo la transazione firm
 
 ## Esempio
 
-Testo della richiesta:
+Corpo della richiesta:
 
 ```json
 {
@@ -19,7 +19,7 @@ Testo della richiesta:
 }
 ```
 
-Testo della risposta:
+Corpo della risposta:
 
 ```json
 {
