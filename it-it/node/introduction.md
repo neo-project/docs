@@ -1,7 +1,7 @@
 # Introduzione ai Nodi NEO
-I nodi che memorizzano tutta la blockchain sono chiamati "full-nodes" o nodi completi. Essi sono connessi alla blockchain tramite una rete P2P. Tutti i nodi nella blockchain sono uguali, agiscono sia come interfaccia client sia come server.
+I nodi che memorizzano tutta la blockchain sono chiamati "full-nodes". Essi sono connessi alla blockchain tramite una rete P2P. Tutti i nodi nella blockchain sono uguali, agiscono sia come interfaccia client sia come server.
 
-Ci sono due programmi full-node. Il primo é Neo-GUI, contenente tutte le funzioni basiche di un client utente, inclusa un'interfaccia grafica per gli utenti di NEO. Il secondo é Neo-CLI: Esso provvede un'API esterna per le funzioni basiche del wallet ed é destinato agli sviluppatori NEO. Inoltre, aiuterá altri nodi a ottenere il consenso nella rete e sará coinvolto nella generazione di nuovi blocchi.
+Ci sono due programmi full-node. Il primo é Neo-GUI, contenente tutte le funzioni basiche di un client utente, inclusa un'interfaccia grafica per gli utenti di NEO. Il secondo é Neo-CLI: Esso provvede un'API esterna per le funzioni basiche del wallet ed é destinato agli sviluppatori NEO. Inoltre, aiuterá altri nodi a guadagnare il consenso nella rete e sará coinvolto nella generazione di nuovi blocchi.
 
 Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un'API di basso livello per determinati tipi di transazione che non sono attualmente supportati dal CLI, come richiedere GAS o inviare NEO senza un wallet aperto. 
 
@@ -12,7 +12,7 @@ Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un'API di basso live
 | Distribuzioni | [Sito Web Ufficiale](https://www.neo.org/download) o [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Codice Sorgente | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
-## Confronto tra le Funzioni del Nodo GUI e il Nodo CLI
+## Comparazione tra le Funzioni del Nodo GUI e il Nodo CLI
 
 |           | GUI  | CLI  |
 | --------- | ---- | ---- |
@@ -28,7 +28,7 @@ Il [protocollo di rete](protocollo-di-rete.md) NEO fornirá un'API di basso live
 | Creazione di un Indirizzo | ✅    | ✅    |
 | Trasferimento | ✅    | ✅    |
 | Transazione (Asset Swap)  | ✅    |      |
-| Generazione di un Contratto Con Firma Multipartitica | ✅    |      |
+| Generazione di un Contratto Con Firma Multi-parte | ✅    |      |
 | Creazione di uno Smart Contract Personalizzato | ✅    |      |
 | Firma | ✅    |      |
 | Elezione di un Nodo di Consenso | ✅    |      |
