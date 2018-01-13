@@ -8,7 +8,7 @@ index：Indice del Blocco
 
 ## Esempio
 
-Testo della richiesta：
+Corpo della richiesta：
 
 ```json
 {
