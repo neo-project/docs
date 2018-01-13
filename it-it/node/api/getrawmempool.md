@@ -4,7 +4,7 @@ Ottiene l'elenco delle transazioni non confermate in memoria.
 
 ## Esempio
 
-Testo della richiesta:
+Corpo della richiesta:
 
 ```json
 {
@@ -15,7 +15,7 @@ Testo della richiesta:
 }
 ```
 
-Testo della risposta:
+Corpo della risposta:
 
 ```json
 {
