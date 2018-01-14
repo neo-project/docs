@@ -26,7 +26,7 @@ Outputs_array: Array, la struttura dati di ogni elemento nell'array è la seguen
 
 ​	address：Indirizzo di destinazione.
 
-Fee: Tassa di gestione, parametro opzionale, il valore predefinito è 0.
+Fee: Commissione di gestione, parametro opzionale, il valore predefinito è 0.
 
 Change_address: Cambia indirizzo, parametro opzionale, di default è il primo indirizzo standard nel wallet.
 
