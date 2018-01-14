@@ -1,6 +1,6 @@
-# Metodo Getconnectioncount
+# Metodo getconnectioncount
 
-Ottiene il numero corrente di connessioni per il nodo.
+Ottiene il numero attuale di connessioni per il nodo.
 
 ## Esempio
 
