@@ -27,4 +27,4 @@ Corpo della risposta:
 }
 ```
 
-Queste sono le transazioni non confermate ricevute dai nodi, ovvero le transazioni con zero conferme.
+Queste sono le transazioni non confermate ricevute dai nodi, ossia le transazioni con zero conferme.
