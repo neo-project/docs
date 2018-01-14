@@ -125,4 +125,4 @@ E' possibile usare l'estensione di Chrome in Postman per facilitare il test (L'i
 
 ## Altro
 
-[C# JSON-RPC Lista dei Comandi](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
+[Lista dei Comandi C# JSON-RPC ](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
