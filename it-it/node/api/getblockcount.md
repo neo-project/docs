@@ -1,4 +1,4 @@
-# Metodo Getblockcount
+# Metodo getblockcount
 
 Ottiene il numero di blocchi nella chain principale.
 
