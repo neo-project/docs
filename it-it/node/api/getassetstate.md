@@ -1,7 +1,7 @@
-# Metodo Getassetstate 			
+# Metodo getassetstate 			
 
 
-Interroga le informazioni sull'asset, in base al numero di risorsa specificato. 
+Interroga le informazioni sull'asset, in base al numero di asset specificato. 
 
 ## Descrizione del parametro
 
