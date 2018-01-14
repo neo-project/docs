@@ -1,6 +1,6 @@
-# Metodo Getblockhash
+# Metodo getblockhash
 
-Restituisce il valore hash del blocco corrispondente, in base all'indice specificato.
+Restituisce il valore hash del blocco corrispondente in base all'indice specificato.
 
 ## Descrizione del Parametro
 
