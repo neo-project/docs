@@ -1,4 +1,4 @@
-# Metodo Getblock
+# Metodo getblock
 
 Le informazioni del blocco corrispondente vengono restituite in base al valore hash specificato.
 
