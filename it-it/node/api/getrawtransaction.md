@@ -1,6 +1,6 @@
-# Metodo Getrawtransaction
+# Metodo getrawtransaction
 
-Restituisce le informazioni sulle transazioni corrispondenti, in base al valore hash specificato.
+Restituisce le informazioni sulle transazioni corrispondenti in base al valore hash specificato.
 
 ## Descrizione del Parametro
 
