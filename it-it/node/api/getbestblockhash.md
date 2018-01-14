@@ -1,4 +1,4 @@
-# Metodo Getbestblockhash
+# Metodo getbestblockhash
 
 Restituisce l'hash del blocco più alto nella chain principale.
 
