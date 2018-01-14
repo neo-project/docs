@@ -2,14 +2,14 @@
 
 Esporta la chiave privata dell'indirizzo specificato.
 
-> [!Notea]
+> [!Nota]
 > Aprire il wallet nel nodo NEO-CLI prima di eseguire questo comando.
 
 ## Descrizione del parametro
 
 Indirizzo: Per esportare la chiave privata dall'indirizzo, l'indirizzo è richiesto come indirizzo standard.
 
-## Example
+## Esempio
 
 Corpo della richiesta:
 
