@@ -137,15 +137,15 @@ Le informazioni del blocco includono le transazioni in input e output. L'exchang
 
 > [!Nota]
 >
-> - Il metodo getblockcount restituisce la somma di blocchi nella chain principale. Il primo parametro del Metodo getblock é `<index>` che é l'indice del blocco. Indice del blocco = Altezza del blocco = Somma dei blocchi -1. Se getblockcount restituisce 1234, Dovresti usare getblock 1233 per ottenere le informazioni dell'ultimo blocco.
-> - Le transazioni di deposito e prelievo (NEO/ NEO GAS) sono tutte in un tipo denominato ContractTransaction. Gli exchange devono solo preoccuparsi di quelle di tipo ContractTransaction quando controllano le transazioni in un blocco. 
-> - poiché la prima transazione di ogni blocco deve essere MinerTransaction, puoi saltarla o trascurarla quando stai traversando la blockchain. 
-> - Il sistema NEO prende la transazione come unitá di registrazione.
+> - Il metodo getblockcount restituisce la somma di blocchi nella chain principale. Il primo parametro del Metodo getblock é `<index>` che rappresenta l'indice del blocco. Indice del blocco = Altezza del blocco = Somma dei blocchi -1. Se getblockcount restituisce 1234, dovresti usare getblock 1233 per ottenere le informazioni dell'ultimo blocco.
+> - Le transazioni di deposito e prelievo (NEO/ NEO GAS) sono tutte di una tipologia denominata ContractTransaction. Gli exchange devono solo preoccuparsi di quelle di tipo ContractTransaction quando controllano le transazioni in un blocco. 
+> - Poiché la prima transazione di ogni blocco deve essere MinerTransaction, puoi saltarla o trascurarla quando stai traversando la blockchain. 
+> - Il sistema NEO tratta la transazione come unitá di registrazione.
 >
 
 ### Gestione dei Prelievi degli Utenti
 
-Per la gestione dei prelievi degli utenti per asset globali, l'exchange deve fare quanto segue:
+Per gestire i prelievi degli utenti per gli asset globali, l'exchange deve fare quanto segue:
 
 1. In NEO-CLI, eseguire `open wallet <path>` per aprire il wallet.
 
@@ -161,20 +161,20 @@ Per la gestione dei prelievi degli utenti per asset globali, l'exchange deve far
    
    E' possibile anche inviare una transazione a un lotto di indirizzi utilizzando l'API del [Metodo sendmany](node/api/sendmany.html).
 
-5. Estrarre l'ID della transazione dai dettagli della transazione restituiti nel formato JSON, e in seguito registrarlo nel database.
+5. Estrarre l'ID della transazione dai dettagli della transazione restituiti nel formato JSON e in seguito registrarlo nel database.
 
-6. Una volta confermato dalla blockchain, contrassegnare la transazione di prelievo come avvenuta. 
+6. Una volta confermata dalla blockchain, contrassegnare la transazione di prelievo come avvenuta. 
    
    Similarmente al monitoraggio dei depositi, anche i prelievi devono essere monitorati. Se l'ID della transazione di prelievo viene trovato nella blockchain, significa che questa transazione è già stata confermata ed è un prelievo avvenuto con successo.
 
 > [!Nota]
 >
 > -  Qui <value> si riferisce all'importo effettivo, invece che dell'importo moltiplicato per  10^8.
-> -  La quantità di trasferimento NEO deve essere un numero intero; Altrimenti, la blockchain non lo confermerà siccome le monete nel wallet saranno imprecise. Sarà necessario ricostruire l'indice del wallet, per ricalcolare le transazioni e il cambio di wallet.
+> -  La quantità dei NEO trasferiti deve essere un numero intero; altrimenti, la blockchain non lo confermerà poiché le monete nel wallet saranno imprecise. Sarà necessario ricostruire l'indice del wallet, per ricalcolare le transazioni e il cambiamento del wallet.
 
 ## Gestione delle Transazioni di Asset NEP-5
 
-### Ricezione di Notifiche sui Depositi degli utenti 
+### Ricezione di Notifiche sui Depositi degli Utenti 
 
 Per gli asset NEP-5, l'exchange deve ottenere la notifica dei depositi degli utenti. La notifica per ogni blocco viene registrata in un file JSON, il quale include tutte le informazioni di ogni transazione NEP-5.
 
@@ -223,7 +223,7 @@ Quanto segue mostra un esempio del contenuto del file di notifica.
 }]
 ```
 
-In questo file, c'è un array di notifiche con un solo oggetto, il che significa che solo un evento NEP-5 è innescato nel blocco. I parametri relativi a una transazione nel file sono i seguenti:
+In questo file, c'è un array di notifiche con un solo oggetto, il che significa che un solo evento NEP-5 è innescato nel blocco. I parametri relativi a una transazione nel file sono i seguenti:
 
 -  **contract**: L'hash dello script di uno smart contract, dal quale l'exchange può identificare il tipo di asset. Per esempio, "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" è l'hash dello script e l'identificazione unica dell'asset RPX.
 
@@ -231,8 +231,8 @@ In questo file, c'è un array di notifiche con un solo oggetto, il che significa
 
    [evento, dall'account, all'account, quantità]
 
-   -  Il primo oggetto con il tipo "bytearray" e il valore "7472616e73666572", come mostrato nell'esempio, può essere convertito nella stringa "transfer". "transfer" è un metodo in NEP5 che rappresenta il trasferimento di un asset.
-   -  Il secondo oggetto nell'array è l'indirizzo dell'account dal quale l'asset è trasferito. Il suo tipo "bytearray" e il valore "d336d7eb9975a29b2404fdb28185e277a4b299bc“ può essere convertito in "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Nota che per la stringa esadecimale con il prefisso "0x", è processato come big endian; Altrimenti, è processato come small endian.
+   -  Il primo oggetto di tipo "bytearray" e il valore "7472616e73666572", come mostrato nell'esempio, può essere convertito nella stringa "transfer". "transfer" è un metodo in NEP5 che rappresenta il trasferimento di un asset.
+   -  Il secondo oggetto nell'array è l'indirizzo dell'account dal quale l'asset è trasferito. Il suo tipo "bytearray" e il valore "d336d7eb9975a29b2404fdb28185e277a4b299bc“ può essere convertito in "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Nota che per la stringa esadecimale con il prefisso "0x", è processato come Big-Endian (Alto/Basso); altrimenti, è processato come Small-Endian (Basso/Alto).
    -  Il terzo oggetto nel'array è l'indirizzo dell'account al quale l'asset è trasferito. Se l'indirizzo è un indirizzo di un account exchange, è una transazione di deposito.
    -  Il quarto oggetto nell'array è la quantità trasferita. Ci sono due tipi di quantità, integer e bytearray. Quando si tratta di questo valore, l'exchange dovrebbe prestare particolare attenzione per le transazioni di tipo integer.
 
@@ -240,13 +240,13 @@ In questo file, c'è un array di notifiche con un solo oggetto, il che significa
 
 Per interrogare il saldo dell'utente, l'exchange deve fare quanto segue:
 
-1. Costruire i file JSON per invocare tre metodi (`balanceOf`, `decimals`, e `symbol`) tramite l'PRC API invokefunction. 
+1. Costruire i file JSON per invocare tre metodi (`balanceOf`, `decimals`, e `symbol`) tramite l'API PRC invokefunction. 
 2. Inviare i file JSON al server NEO RPC.
 3. Calcolare il saldo dell'utente in base ai valori restituiti.
 
 #### invokefunction
 
-In JSON, Il corpo della richiesta di una invokefunction generale è nel seguente formato: 
+In JSON, Il corpo della richiesta di un'invokefunction generale è nel seguente formato: 
 
 ```
 {
@@ -269,7 +269,7 @@ In JSON, Il corpo della richiesta di una invokefunction generale è nel seguente
 
 - script hash
 
-  Lo script hash di un token NEP-5 che stai interrogando. Per esempio, puoi trovare l'hash dello script di RPX è : *0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
+  Lo script hash di un token NEP-5 che stai interrogando. Ad esempio, puoi trovare che l'hash dello script di RPX è: *0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
 
 
 - method name
@@ -302,9 +302,9 @@ In JSON, Il corpo della richiesta di una invokefunction generale è nel seguente
 
 #### Esempio
 
-##### **Invoking balanceOf**
+##### **Invocare il balanceOf**
 
-Suppose the account address is AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, you need to convert it into Hash160 type and construct this parameter as a JSON object:
+Supponiamo che l'indirizzo dell'account sia AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, è necessario convertirlo in tipo Hash160 e costruire questo parametro come oggetto JSON:
 
 ```json
 {
@@ -313,9 +313,9 @@ Suppose the account address is AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, you need to c
 }
 ```
 
-Then you can construct the JSON message as the following:
+In seguito è possibile costruire il messaggio JSON come segue:
 
-Request Body：
+Corpo della richiesta:
 
 ```json
 {
@@ -335,7 +335,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Dopo aver inviato la richiesta, riceverai la seguente risposta:
 
 ```json
 {
@@ -354,11 +354,11 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns "00e1f505" which can be converted to interger 100000000.
+Restituisce "00e1f505" che può essere convertito in numero intero 100000000.
 
-##### **Invoking decimals**
+##### **Invocare i decimali**
 
-Request Body：
+Corpo della richiesta:
 
 ```json
 {
@@ -373,7 +373,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Dopo aver inviato la richiesta, riceverai la seguente risposta:
 
 ```json
 {
@@ -392,11 +392,11 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns integer 8.
+Restituisce un'integer 8.
 
-##### **Invoking symbol**
+##### **Invocazione del symbol**
 
-Request Body：
+Corpo della richiesta:
 
 ```json
 {
@@ -411,7 +411,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Dopo aver inviato la richiesta, riceverai la seguente risposta:
 
 ```json
 {
@@ -430,62 +430,62 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns "525058" which can be converted to string "RPX".
+Restituisce "525058" che può essere convertito nella stringa "RPX".
 
-##### **Calculating the User Balance**
+##### **Calcolo del Saldo dell'Utente**
 
-According to all the returned values,  we can calculate the user balance as follows:
-The balance = 100000000/10<sup>8</sup> RPX = 1 RPX
+In base a tutti i valori restituiti, possiamo calcolare il saldo dell'utente come segue:
+Saldo = 100000000/10<sup>8</sup> RPX = 1 RPX
 
-### Dealing with User Withdrawals
+### Trattare con i Prelievi degli Utenti
 
-The exchange can choose one of the following way to send NEP-5 assets to users: 
+Lo scambio può scegliere uno dei seguenti modi per inviare risorse NEP-5 agli utenti:
 
-- NEO-CLI command: `send`
+- Comando NEO-CLI: `send`
 
-- RPC method: `sendtoaddress`
-- PRC method: `sendmany`
+- Metodo RPC: `sendtoaddress`
+- Metodo PRC: `sendmany`
 
-#### NEO-CLI Command: send
+#### Comando NEO-CLI: send
 
-##### Syntax
+##### Sintassi
 
 `send <txid|script hash> <address> <value> [fee = 0]`
 
-##### Parameters
+##### Parametri
 
-- txid|script hash: the asset ID.
+- txid|script hash: l'ID dell'asset.
 
-- address: the payment address.
+- address: l'indirizzo di pagamento.
 
-- value: the transfer amount.
+- value: l'importo del trasferimento.
 
-- fee: This parameter can be left empty. The default value is 0.
+- fee: Questo parametro può essere lasciato vuoto. Il valore predefinito è 0.
 
 
-This command verifies the wallet password. 
+Questo comando verifica la password del wallet.
 
-##### Example
+##### Esempio
 
-To transfer 100 RPX to the address *AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b*, enter the following:
+Per trasferire 100 RPX all'indirizzo *AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b*, inserire quanto segue:
 
 ```
 send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 ```
 
-If you need to send global asset, just change the first parameter to txid. For example, 
-The txid of NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-The txid of GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+Se è necessario inviare asset globali, è sufficiente modificare il primo parametro in txid. Ad esempio, 
+Il txid di NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+Il txid di GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-#### RPC Method: sendtoaddress
+#### Metodo RPC: sendtoaddress
 
-The key "params" includes an array of at least three parameters. 
+La chiave "param" include un array di almeno tre parametri.
 
 `"params":[script hash, address, amount, fee(optional), change address(optional)]`
 
-For example, to send 1 RPX to *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* , construct a JSON file as follows and send it to RPC server.
+Ad esempio, per inviare 1 RPX a *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* , costruire il file JSON come segue e inviarlo al server RPC.
 
-Request Body：
+Corpo di richiesta:
 
 ```json
 {
@@ -502,7 +502,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Dopo aver inviato la richiesta, riceverai la seguente risposta:
 
 ```json
 {
@@ -539,15 +539,15 @@ After sending the request, you will get the following response：
 }
 ```
 
-#### RPC Method: sendmany
+#### Metodo RPC: sendmany
 
-The key "params" includes an array of at least one parameter:
+La chiave "param" include un array di almeno un parametro:
 
 `"params":[[], fee(optional), change address(optional)]`
 
-For example, to send 15.5 RPX and 0.0001 GAS to *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* and the `change address` is also *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*, you can construct a JSON file as follows and send it to RPC server.
+Ad esempio, per inviare 15.5 RPX e 0.0001 GAS a *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* e il `change address` è anch'esso *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*, è possibile costruire il file JSON come segue e inviarlo al server RPC.
 
-Request Body：
+Corpo di richiesta:
 
 ```json
 {
@@ -571,7 +571,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Dopo aver inviato la richiesta, riceverai la seguente risposta:
 
 ```json
 {
@@ -622,65 +622,65 @@ After sending the request, you will get the following response：
 }
 ```
 
-### See Also
+### Vedi anche
 
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
 
-[Data Transformation Examples](https://github.com/PeterLinX/NeoDataTransformation)
+[Esempi di Trasformazione dei Dati](https://github.com/PeterLinX/NeoDataTransformation)
 
-## (Optional) Distributing GAS to Users
+## (Facoltativo) Distribuzione di GAS agli Utenti
 
-The exchange can determine whether to distribute GAS to users. GAS is used to pay to the NEO blockchain for recording and additional services. 
+L'exchange può determinare se distribuire GAS agli utenti. Il GAS è utilizzato per pagare la blockchain NEO per la registrazione e i servizi aggiuntivi.
 
-### What is GAS ?
+### Cos'è GAS?
 
-NeoGas (abbreviated as GAS) represents the right to use the Neo Blockchain. There will be 100 million GAS in total. GASs are generated along with every new block. The issuance will slow down according to a set slowly-decreasing pace, while GAS will go through a generating process to grow from zero to 100 million. Once NEO is acquired, GAS will be generated in the system following the algorithms.
+NeoGas (abbreviato GAS) rappresenta il diritto di utilizzare la Blockchain di Neo. Ci saranno 100 milioni di GAS in totale. I GAS vengono generati insieme a ogni nuovo blocco. L'emissione rallenterà a un ritmo lentamente decrescente, GAS passerà attraverso un processo di generazione che lo farà passare da zero a 100 milioni di GAS totali. Una volta ottenuto NEO, GAS verrà generato nel sistema seguendo i vari algoritmi.
 
-### Calculating the Available GAS Amount
+### Calcolo dell'importo disponibile di GAS
 
-- Available *GAS = f(neo_amount, Δt_const)*
+- *GAS disponibile = f(neo_amount, Δt_const)*
 
   -  Δt_const = t_end - t_start
-    -  t_end = the moment that Neo goes into the state of spent
-    -  t_start = the moment that Neo goes into the state of unspent
+    -  t_end = il momento in cui Neo entra nello stato di spesa
+    -  t_start = il momento in cui Neo entra nello stato di non speso
 
-  Δt_const is fixed, thus the available Gas is of a fixed amount too. And this amount is a function of the amount of Neo held by the user and the duration between the moments that he or she transferred this amount of Neo into and out of his or her address. 
+  Δt_const è fisso, quindi anche il Gas disponibile è di una quantità fissa. Questo importo è una funzione della quantità di Neo detenuta dall'utente e la durata tra il momento in cui ha trasferito questa quantità di Neo nel suo indirizzo e all'infuori del suo indirizzo.
 
 
-- Unavailable *GAS = f(neo_amount, Δt_var)*
+- *GAS non disponibile = f(neo_amount, Δt_var)*
 
   - Δt_var = t - t_start
-    - t is the current time
-    - t_start = the moment that Neo goes into the state of unspent
+    - t è l'ora corrente
+    - t_start = nel momento in cui Neo entra nello stato di non speso
 
-  The current time is a variable, so the amount of the unavailable GAS also grows through time, which means it is a variable.
+  L'ora corrente è una variabile, quindi anche la quantità di GAS non disponibile aumenta nel tempo, il che significa che è anch'essa una variabile.
 
-### Distributing GAS to Users
+### Distribuzione di GAS agli Utenti
 
-Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
+Supponiamo che tutti gli indirizzi di exchange siano memorizzati in un unico portafoglio, la seguente tabella mostra la procedura e la formula di calcolo con la quale l'exchange distribuisce GAS all'utente A.
 
 ![gasflow_en](sc/assets/gasflow_en.png)
 
-The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
+Più breve è l'intervallo dello snapshot, più preciso è il calcolo. Se l'intervallo dello snapshot non è uniforme, utilizzare il metodo di calcolo della media ponderata.
 
-### Claiming GAS
+### Reclamo del GAS
 
-GAS becomes claimable after the user transfer his or her NEO. For example, **someone has NEO in address A and GAS are not claimable, he transfer his NEO to himself (address A) then the NEO GAS are claimable.**
+GAS diventa rivendicabile dopo che l'utente ha trasferito il proprio NEO. Ad esempio, **qualcuno ha NEO nell'indirizzo A e i GAS non sono reclamabili, quando trasferisce il suo NEO a se stesso (indirizzo A) i NEO GAS sono reclamabili.**
 
-The following table lists the GAS claiming steps and corresponding commands.
+Nella seguente tabella sono elencati i passaggi di rivendicazione GAS e i comandi corrispondenti.
 
-| #    | Steps                                    | Command                                  |
+| #    | Steps                                    | Comandi                                  |
 | ---- | :--------------------------------------- | ---------------------------------------- |
-| 1    | Run NEO-CLI                              | `./neo-cli.dll /rpc`                     |
-| 2    | Check the client version                 | `version`                                |
-| 3    | Check the synchronized height of the client ( Height: height/header height, Nodes: amount of connected nodes). | `show state`                             |
-| 4    | Create a wallet                          | `create wallet /home/NeoNode/test.db3`   |
-| 5    | Open the wallet created in the last step | `open wallet /home/NeoNode/test.db3`     |
-| 6    | Check the address list in the wallet     | `list address`                           |
-| 7    | Check the assets in the wallet           | `list asset`                             |
-| 8    | Check the GAS balances details in the wallet | `show gas`                               |
-| 9    | Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1） to change the status of Gas to be claimable. | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
-| 10   | Get the details of the balances of GAS in the wallet again. Now the status of all the GAS should be available to claim. | `show gas`                               |
-| 11   | Claim GAS.                               | `claim gas`                              |
-| 12   | Check balance again.                     | `list asset`                             |
+| 1    | Esegui NEO-CLI                              | `./neo-cli.dll /rpc`                     |
+| 2    | Controlla la versione del client                 | `version`                                |
+| 3    | Controlla l'altezza sincronizzata del client ( Altezza: altezza / altezza intestazione, Nodi: quantità di nodi connessi). | `show state`                             |
+| 4    | Crea un wallet                          | `create wallet /home/NeoNode/test.db3`   |
+| 5    | Apri il wallet creato nell'ultimo passaggio | `open wallet /home/NeoNode/test.db3`     |
+| 6    | Controlla l'elenco degli indirizzi nel wallet     | `list address`                           |
+| 7    | Controlla l'elenco degli indirizzi nel wallet           | `list asset`                             |
+| 8    | Controlla il saldo di GAS nel wallet | `show gas`                               |
+| 9    | Trasferisci NEO al tuo indirizzo（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1）cambiare lo stato di Gas per essere reclamato. | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
+| 10   | Ottieni nuovamente i dettagli del saldo di GAS nel wallet. Ora lo stato di tutti i GAS dovrebbe essere disponibile alla reclamazione. | `show gas`                               |
+| 11   | Reclama GAS.                               | `claim gas`                              |
+| 12   | Controlla nuovamente il saldo.                     | `list asset`                             |
 
