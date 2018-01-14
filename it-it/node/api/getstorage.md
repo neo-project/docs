@@ -1,4 +1,4 @@
-# Metodo Getstorage
+# Metodo getstorage
 
 Restituisce il valore memorizzato, in base all'hash dello script del contratto e alla chiave memorizzata.
 
