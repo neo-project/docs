@@ -4,7 +4,7 @@ Restituisce il risultato dopo aver passato lo script attraverso la VM.
 
 > [!Nota]
 >
-> Questo metodo è per testare il tuo script VM come se fosse stato eseguito sulla blockchain in quel momento. Questa chiamata RPC, non ha in alcun modo, nessun effetto sulla blockchain.
+> Questo metodo è per testare il tuo script della macchina virtuale (VM) come se fosse stato eseguito sulla blockchain in quel momento. Questa chiamata RPC, non ha in alcun modo effetto sulla blockchain.
 
 ## Descrizione del Parametro
 
