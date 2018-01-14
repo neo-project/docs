@@ -91,7 +91,7 @@ Creare un nuovo asset emesso dall'utente nel blocco NEO. L'utente può definire 
 
 #### Asset Distribuiti
 
-Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio addizionale di tassazione, il prezzo corrente è di 500 GAS. (Sulla rete di test la commissione corrisponde all'1% della rete principale).
+Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio di commissione addizionale, il prezzo corrente è di 500 GAS. (Sulla rete Test la commissione corrisponde all'1% della rete principale).
 
 #### Elezioni
 
