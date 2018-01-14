@@ -1,6 +1,6 @@
-# Metodo Getcontractstate
+# Metodo getcontractstate
 
-Interroga le informazioni sul contratto, in base all'hash dello script del contratto.
+Interroga le informazioni sul contratto in base all'hash dello script del contratto.
 
 ## Descrizione del Parametro
 
