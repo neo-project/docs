@@ -1,6 +1,6 @@
-# Metodo Gettxout 
+# Metodo gettxout 
 
-Restituisce le informazioni sull'uscita della transazione corrispondente (modifica restituita), in base all'hash e all'indice specificati.
+Restituisce le informazioni di output della transazione corrispondente (modifica restituita) in base all'hash e all'indice specificati.
 
 ## Descrizione del Parametro
 
