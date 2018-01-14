@@ -1,10 +1,10 @@
-# Metodo Getaccountstate
+# Metodo getaccountstate
 
-Interroga l'account sulle informazioni degli asset, secondo l'indirizzo dell'account.
+Interroga l'account sulle informazioni degli asset, in base all'indirizzo dell'account.
 
 ## Descrizione del Parametro
 
-Indirizzo dell'account: Una stringa lunga 34-bit cominciante con A, come AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz.
+Indirizzo dell'account: Una stringa lunga 34-bit che inizia con A, come AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz.
 
 ## Esempio
 
@@ -46,9 +46,9 @@ Script_hash: Scipt hash del contratto; Tutti gli account in NEO sono account di 
 
 Frozen: Determina se l'account è congelato
 
-Votes: Interroga la quantità di NEO su quell'indirizzo usati per votare
+Votes: Interroga la quantità di NEO usati per votare su quell'indirizzo
 
-Balances: Saldo degli asset in quel indirizzo
+Balances: Saldo degli asset in quell'indirizzo
 
 Asset: ID dell'asset
 
