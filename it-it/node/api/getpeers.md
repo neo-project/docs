@@ -1,6 +1,6 @@
 # Metodo getpeers
 
-Ottiene l'elenco di nodi a cui il nodo è attualmente connesso / disconnesso.
+Ottiene l'elenco di nodi a cui il nodo è attualmente connesso/disconnesso.
 
 ## Esempio
 
@@ -94,8 +94,8 @@ Corpo della risposta:
 
 Descrizione della risposta:
 
-Unconnected: I nodi ai quali non si è attualmente connessi.
+Unconnected: Un nodo che non è attualmente connesso.
 
 Bad: Nodi non più connessi.
 
-Connected: I nodi ai quali si è attualmente connessi.
+Connected: Il nodo al quale si è attualmente connessi.
