@@ -1,4 +1,4 @@
-# Metodo Getblock
+# Metodo getblock
 
 Restituisce le informazioni del blocco corrispondenti in base all'indice specificato.
 
