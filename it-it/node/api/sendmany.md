@@ -1,6 +1,6 @@
 # Metodo sendmany
 
-Ordine di trasferimento di massa é possibile specificare un indirizzo di modifica.
+Ordine di trasferimento di grandi quantitativi, é possibile specificare un indirizzo di modifica.
 
 > [!Nota]
 > È necessario aprire il portafoglio nel nodo NEO-CLI prima di eseguire questo comando.
@@ -19,7 +19,7 @@ Outputs_array: Array, la struttura dati di ogni elemento nell'array è la seguen
 
 ​	Per NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-   Gli ID degli asset rimanenti possono essere passati attraverso la [linea di comando CLI](../cli.MD), anche la query di comando `list Asset` può essere richiesta nel browser blockchain.
+   Gli ID degli asset rimanenti possono essere passati attraverso la [linea di comando CLI](../cli.MD), anche la query del comando `list Asset` può essere interrogata nel browser della block chain.
 
 
 ​	value：Importo del trasferimento
@@ -28,7 +28,7 @@ Outputs_array: Array, la struttura dati di ogni elemento nell'array è la seguen
 
 Fee: Commissione di gestione, parametro opzionale, il valore predefinito è 0.
 
-Change_address: Cambia indirizzo, parametro opzionale, default è il primo indirizzo standard nel wallet.
+Change_address: Cambia indirizzo, parametro opzionale, di default è il primo indirizzo standard nel wallet.
 
 ## Esempio
 
@@ -95,8 +95,8 @@ Corpo della risposta:
 
 Descrizione della risposta:
 
-Restituisce i dettagli della transazione come sopra per indicare che la transazione è stata inviata correttamente o la transazione non è andata a buon fine.
+Restituisce i dettagli della transazione come sopra per indicare che la transazione è stata inviata correttamente o che la transazione non è andata a buon fine.
 
-Se il formato JSON non è corretto, viene restituito un errore nel Parse.
+Se il formato JSON non è corretto, viene restituito un errore Parse.
 Se la firma è incompleta, viene restituita una transazione in sospeso.
 Se il saldo è insufficiente, viene restituito un messaggio di errore.
