@@ -3,27 +3,27 @@
 ## Prerequisiti
 
 
-### Scaricamento del client
+### Download del client
 
-Il client stesso non richiede alcuna installazione. Scaricare e installare i file in una posizione a tua scelta, dopo fare doppio clic su neo-gui.exe per aprire il client. Se ci sono problemi durante il processo e il client non puó essere aperto normalmente, per favore posizionare il file error.log nella stessa directory di neo-gui, successivamente contattare il nostro sraff tecnico per assisterti nella risoluzione del problema.
+Il client stesso non richiede alcuna installazione. Scaricare e installare i file in una posizione a tua scelta, in seguito fare doppio clic su neo-gui.exe per aprire il client. Se vi sono problemi durante il processo e il client non puó essere aperto normalmente, si prega di posizionare il file error.log nella stessa directory di neo-gui, successivamente contattare il nostro staff tecnico che vi assisterà nella risoluzione del problema.
 
 > [!Nota]
 >
 > Il client neo-gui é compatibile con le seguenti versioni di Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 >
->La pre-versione del sistema Window 10 richiede l'installazione di [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+>La versione preliminare del sistema operativo Windows 10 richiede l'installazione di [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
-### Sincronizzazione dati blockchain
+### Sincronizzazione dei dati della blockchain
 
-Il client deve essere completamente sincronizzaro prima dell'uso. L'angolo in basso a sinistra indica il numero di blocchi sincronizzati e il numero totale di blocchi nella rete (vedi l'esempio in basso). Questi numeri si aggiornano regolarmente.
+Il client deve essere completamente sincronizzato prima dell'uso. L'angolo in basso a sinistra indica il numero di blocchi sincronizzati e il numero totale di blocchi nella rete (vedi l'esempio in basso). Questi numeri si aggiornano regolarmente.
 
 ![image](/assets/gui_1.png)
 
-Al fine di aumentare la velocitá di sincronizzazione della rete puoi scaricare una copia della blockchain fino ad una determinata altezza. Ció significa che il client avrá bisogno di sincronizzare soltanto i blocchi aggiuntivi dalla rete NEO invece dell'intera blockchain. 
+Al fine di aumentare la velocitá di sincronizzazione della rete puoi scaricare una copia della blockchain fino ad una determinata altezza. Ció significa che il client avrá bisogno di sincronizzare solo i blocchi aggiuntivi dalla rete NEO e non l'intera blockchain. 
 
-1. Per iniziare, scaricare il file collocato a [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+1. Per iniziare, scaricare il file collocato qui [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
 
-2. Chiudere il client neo-gui client e aprire chain.acc.zip. Estrarre il file chain.acc nella cartella neo-gui folder come mostrato nella figura seguente:
+2. Chiudere il client neo-gui e aprire chain.acc.zip. Estrarre il file chain.acc nella cartella neo-gui come mostrato nella figura seguente:
 
    ![](/assets/gui_58.png)
 
@@ -31,38 +31,39 @@ Al fine di aumentare la velocitá di sincronizzazione della rete puoi scaricare 
 
    ![](/assets/gui_59.png)
 
-Quando la sincronizzazione arriva a un certo punto, il file (chain.acc) verrá eliminato e la sincronizzazione dall rete NEO continuerá. Come mostrato nella figura successiva:
+Quando la sincronizzazione arriva a un certo punto, il file (chain.acc) verrá eliminato e la sincronizzazione dalla rete NEO continuerá. Come mostrato nella figura successiva:
 
 ![](/assets/gui_60.png)
 
-I dati di fianco "Height" corrispondono a altezza/client altezza/blockchain. Quando il wallet viene aperto, vengono mostrati i dati sull'altezza del wallet.
+I dati di fianco a "Height" corrispondono a altezza/client e altezza/blockchain. Quando il wallet viene aperto, vengono mostrati i dati sull'altezza del wallet.
 
 ### Glossario
 
 #### Wallet 
 
-Il file wallet memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'account nel database con l'estensione .db3 o .json. Questo file è molto importante e deve essere eseguito un backup in sicurezza dello stesso.
+Il file wallet (portafoglio) memorizza un riferimento ai tuoi NEO, GAS e le informazioni dell'account nel database con l'estensione .db3 o .json. Questo file è molto importante e deve essere eseguito un backup per garantirne la sicurezza.
 
 > [!Importante]
 >
-> La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi asset. Per favore, assicurati che il file wallet sia archiviato in sicurezza e ricorda la password del wallet.
+> La perdita del file wallet o della password del wallet risulterà in una perdita dei tuoi asset. Si prega di assicurarsi che il file wallet sia archiviato in modo sicuro e di ricordare la password del wallet.
 
 #### Account
+
 Usato per tenere traccia degli asset in un blocco NEO.
 
 Le informazioni legate all'account includono: Indirizzo, chiave privata, chiave pubblica, tipo.
 
-(1) Indirizzo: L'equivalente di un conto bancario o il numero di carta bancaria, usato per ricevere asset durante le transazioni. 
+(1) Indirizzo: L'equivalente di un conto bancario o il numero di carta bancaria, è usato per ricevere asset durante le transazioni. 
 
-(2) Tipo: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste in una chiave pubblica ed è un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste in molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per smart contract. 
+(2) Tipo: Neo.Wallets.SignatureContract Indica che l'indirizzo consiste di una chiave pubblica ed è un indirizzo multi-firma 1-a-1. Neo.Wallets.MultiSigContract indica che l'indirizzo consiste di molteplici chiavi pubbliche ed è un indirizzo multifirma m-a-n, usato per smart contract. 
 
-(3) Chiave privata: Un numero casuale da 256-bit, tenuto dall'utente e non divulgato pubblicamente. Rappresenta la proprietà dell'account e la proprietà degli asset all'interno dell'account. 
+(3) Chiave privata: Un numero casuale da 256-bit, tenuto dall'utente e non divulgato pubblicamente. Questo rappresenta la proprietà dell'account e la proprietà degli asset all'interno dell'account. 
 
-(4) Chiave pubblica: Ogni chiave privata ha una chiave pubblica corrispondente (Nota: Le informazioni sulla chiave pubblica e la chiave privata possono essere viste facendo doppio click sull'indirizzo.)
+(4) Chiave pubblica: Ogni chiave privata ha una chiave pubblica corrispondente (Nota: Le informazioni sulla chiave pubblica e la chiave privata possono essere viste effettuando un doppio click sull'indirizzo.)
 
 > [!Importante]
 >
-> In nessun caso la chiave privata deve essere divulgata a terze parti. Una volta che la chiave privata viene divulgata, ciò potrebbe risultare in una perdita dei tuoi asset.
+> In nessun caso la chiave privata deve essere divulgata a terze parti. Una volta che la chiave privata viene divulgata, ciò potrebbe risultare in una perdita dei propri asset.
 
 #### Asset
 
@@ -74,40 +75,39 @@ Un record di tutte le informazioni sulle transazioni associate all'account.
 
 #### Trasferimento
 
-Il trasferimento di asset a un indirizzo ricevente. Se il tipo di asset è NEO, viene richiesto a entrambe le parti di confermare con la propria firma. Altri tipi di asset possono essere trasferiti senza la conferma da parte di entrambe le parti.
+Il trasferimento di asset a un'indirizzo ricevente. Se il tipo di asset è NEO, viene richiesto a entrambe le parti di confermare con la propria firma. Altri tipi di asset possono essere trasferiti senza la conferma da parte di entrambe le parti.
 
 #### Trade
 
-L'effettuare lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
+Effettua lo scambio online di asset tra due parti, dove entrambe le parti devono confermare prima di scambiare gli asset con successo.
 
 #### Firma
 
-La firma di informazioni, significa confermare le informazioni da parte del firmatario.
-per le transazioni che coinvolgono allocazioni di capitale e trasferimento di asset, la firma è richiesta come prova del consenso da parte delle parti coinvolte.
+La firma di informazioni, significa confermare le informazioni da parte del firmatario. Per le transazioni che coinvolgono allocazioni di capitale e trasferimento di asset, la firma è richiesta come prova del consenso da parte delle parti coinvolte.
 
 #### Asset Registrati
 
-Creare un asset emesso dall'utente nel blocco NEO. L'utente può definire il tipo, il nome, il totale, etc. dell'asset e specificare l'amministratore dell'account dell'asset. la creazione di asset consuma una certa quantità  di GAS come servizio di commisione addizionale, il prezzo corrente è di 10,000 GAS. (la commissione per la rete in test è dell'1% della rete principale).
+Creare un nuovo asset emesso dall'utente nel blocco NEO. L'utente può definire il tipo, il nome, il totale, ecc. dell'asset e specificare l'amministratore dell'account dell'asset. La creazione di asset consuma una certa quantità  di GAS come servizio di commisione addizionale, il prezzo corrente è di 10,000 GAS. (la commissione per la rete di test è dell'1% della rete principale).
 
 #### Asset Distribuiti
 
-Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio addizionale di commissione, il prezzo corrente è di 500 GAS. (Sulla rete Test la commussione corrisponde all'1% della rete principale).
+Nei limiti massimi della  quantità totale impostata dal creatore dell'asset, l'asset viene emesso all'indirizzo specificato dall'emittente. La distribuzione di asset consuma una certa quantità di piccole monete come servizio addizionale di tassazione, il prezzo corrente è di 500 GAS. (Sulla rete di test la commissione corrisponde all'1% della rete principale).
 
 #### Elezioni
 
-Coloro che vogliono diventare validatori NEO devono registrarsi tramite elezione. Attraverso il deposito di una certa quantità di NEO, è possibile ottenere la qualificazione di validatore. Questa funzione non è correntemente supportata. Si prega di attendere ulteriori aggiornamenti.
+Coloro che vogliono divenire validatori NEO devono registrarsi tramite un processo di elezione. Attraverso il deposito di una certa quantità di NEO, è possibile ottenere la qualificazione di validatore. Questa funzione non è attualmente supportata. Si prega di attendere ulteriori aggiornamenti.
 
 #### Voto
 
-I detentori di NEO possono votare i candidati validatori e questo meccaniscmo di voto determinerà se un validatore è selezionato. Questa funzione non è correntemente supportata. Si prega di attendere ulteriori aggioramenti.
+I detentori di NEO possono votare i candidati validatori e questo meccaniscmo di voto determinerà se un validatore è selezionato. Questa funzione non è attualmente supportata. Si prega di attendere ulteriori aggioramenti.
 
 #### Trasmissione
 
-Dopo aver firmato, l'informazione sulla transazione viene trasmessa all'intera rete, dove la conferma da parte di un nodo completa la transazione. In questo momento, questa caratteristica appare solamente nella firma.
+Dopo aver firmato, l'informazione sulla transazione viene trasmessa all'intera rete, dove la conferma da parte di un nodo completa la transazione. In questo momento, questa caratteristica appare solo nella firma.
 
 #### Indirizzo di Monitoraggio
 
-dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggio, sarai capace di vedere gli asset in quel indirizzo.
+dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggio, sarai capace di vedere gli asset in quell'indirizzo.
 
 ## Wallet
 ### Creazione del Database del Wallet
@@ -120,11 +120,11 @@ dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggi
 
 ![image](/es-es/node/assets/gui/gui_3.png)
 
-(3) Inserire `password` e `ripeat password` e salvare la propria password.
+(3) Inserire `password` e `repeat password` e salvare la propria password.
 
 ![image](/assets/gui_4.png)
 
-(4) Cliccare su `OK` e il wallet verrà creato con successo, di default sarà disponibile con un account standard. Da notare che a causa del ruolo del meccanismo di cambiamento, il resto degli asset verrá trasferito al primo indirizzo predefinito. Quindi, occorre fare il backup della corrispondente chiave privata e wallet. 
+(4) Cliccare su `OK` e il wallet verrà creato con successo, di default sarà disponibile con un account standard. Da notare che a causa del ruolo del meccanismo di cambiamento, il resto degli asset verrá trasferito al primo indirizzo come impostazione predefinita. Quindi, occorre fare il backup della corrispondente chiave privata e del wallet. 
 
 ### Aprire il Database del Wallet
 
@@ -134,17 +134,17 @@ dopo aver importato l'indirizzo di una terza parte come indirizzo di monitoraggi
 
 (2) Cliccare su `Browse`  per selezionare il wallet (di solito quello predefinito è l'ultimo wallet aperto), inserire la password e cliccare `OK` per accedere al wallet. Va notato che quando il wallet mostra un errore, è possibile tentare il "repair mode" per aprire il wallet. 
 
-### Cambiare Password
+### Cambiare la Password
 
 Usato per modificare la password del wallet.
 
 ![image](/assets/gui_6.png)
 
-Dopo aver cambiato la password, per favore ricordati di eseguire nuovamente il backup del wallet dato che i precedenti backup  non contengono la nuova password.
+Dopo aver cambiato la password, si prega di ricordarsi di eseguire nuovamente il backup del wallet dato che i precedenti backup non contengono la nuova password.
 
 ### Ricostruzione dell'Indice del Wallet
 
-Questa opzione viene usata per ripristinare gli errori nel client quando si verifica un'eccezione. L'Indice del waller va ricostruito nei seguenti casi:
+Questa opzione viene usata per ripristinare gli errori nel client quando si verifica un'eccezione. L'Indice del wallet va ricostruito nei seguenti casi:
 
 1. Dopo l'importazione di una chiave privata.
 
@@ -152,7 +152,7 @@ Questa opzione viene usata per ripristinare gli errori nel client quando si veri
 
 3. Gli asset del wallet mostrano errori e i dati della blockchain non corrispondono.
 
-Siccome l'altezza del blocco corrente è molto alta, ricostruire l'Indice del wallet potrebbe richiedere diversi minuti. Per favore sii paziente.
+Siccome l'altezza del blocco corrente è molto alta, ricostruire l'Indice del wallet potrebbe richiedere diversi minuti. Si prega di essere pazienti.
 
 ## Trade
 
@@ -202,7 +202,7 @@ Va notato che il formato dei dati va inserito in conformità ai criteri esposti 
 
 #### Osservazioni
 
-Questa funzione è usata per registrare le informazioni sulle transazioni nella blockchain NEO. Il [blockchain browser di NEO](https://www.antchain.xyz/) può essere usato per individuare le informazioni sulle transazioni.
+Questa funzione è usata per registrare le informazioni delle transazioni nella blockchain NEO. Il [blockchain browser di NEO](https://www.antchain.xyz/) può essere usato per individuare le informazioni delle transazioni.
 
 ![image](/zh-cn/node/assets/o.png)
 
@@ -226,13 +226,13 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 
 ![image](/assets/gui_19.png)
 
-#### Fuosione dell'Operazione
+#### Fusione dell'Operazione
 
-(1) Dopo aver chiuso la finestra di richiesta di transazione avviata ti verrà mostrata l'interfaccia di richiesta di fusione della transazione.
+(1) Dopo aver chiuso la finestra di richiesta di transazione avviata vi verrà mostrata l'interfaccia di richiesta di fusione della transazione.
 
 ![image](/assets/gui_20.png)
 
-(2) Ciò permette di visualizzare la richiesta di transazione dell'altra parte. Per verificare la legittimità della richiesta della controparte, cliccare verify. sulla legittimità della richiesta, è possibile scegliere di accettare o rifiutare.
+(2) Ciò permette di visualizzare la richiesta di transazione dell'altra parte. Per verificare la legittimità della richiesta della controparte, cliccare "verify". A seconda della legittimità della richiesta, è possibile scegliere di accettare o di rifiutare.
 
 ![image](/assets/gui_24.png)
 
@@ -254,7 +254,7 @@ Le osservazioni sulla transazione possono essere trovate sul [blockchain browser
 
 ### Estrazione del GAS
 
-Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli asset rappresenta la quantità di GAS che può essere rivendicata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per rivendicare questi GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
+Il GAS viene generato da ogni nuovo blocco e sarà allocato agli indirizzi che contengono NEO. (Il numero all'interno delle parentesi nel saldo degli asset rappresenta la quantità di GAS che può essere reclamata) In qualsiasi momento, Un possessore di NEO può iniziare una richiesta per reclamare questi GAS all'indirizzo corrispondente di NEO. Al momento, solo la versione del client per PC ha la funzionalità di estrarre GAS.
 
 I passaggi specifici sono:
 
@@ -266,7 +266,7 @@ I passaggi specifici sono:
 
 ### Richiedere un Certificato
 
-Notare che questa operazione genera solo una richiesta per generare il file certificato, l'utente dovrà ancora andare dall'autorità rilevante per i certificati digitali per richiedere il detto certificato.
+Notare che questa operazione genera solo una richiesta per generare il file certificato, l'utente dovrà ancora riferirsi all'autorità rilevante dei certificati digitali in modo da richiedere il detto certificato.
 
 Cliccare `Advanced`, `Request certificate`, e compilare il form in conformità alle istruzioni date.
 
@@ -282,13 +282,13 @@ Vi sono due tipi di asset, Token e Azioni. usando i token come esempio, riempire
 
 ![image](/assets/gui_43.png)
 
-Occorre notare che per la registrazione di asset vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete test è di 100 monete NEO) per favore, prestare attenzione.
+Occorre notare che per la registrazione di asset vanno sostenute commissioni importanti. (Per la rete principale la commissione è di 10000 GAS, per la rete di test è di 100 monete NEO) si prega di prestare attenzione.
 
-### Distribuire asset
+### Distribuire gli asset
 
 ![image](/assets/gui_46.png)
 
-Occorre notare che la distribuzione di asset comporta commissioni importanti. (La commissione per la rete principale è di 500 monete NEO, sulla rete test la commissione è di 5 monete NEO) Per favore, prestare attenzione e scegliere la distribuzione in un'unica solizione se possibile.
+Occorre notare che la distribuzione di asset comporta commissioni importanti. (La commissione per la rete principale è di 500 monete NEO, sulla rete di test la commissione è di 5 monete NEO) Si prega di prestare attenzione e, se possibile, scegliere la distribuzione in un'unica soluzione.
 
 ### Elezioni
 
@@ -296,5 +296,5 @@ Questa funzione è usata per registrarsi come candidato validatore della blockch
 
 ![image](/assets/gui_57.png)
 
-Occorre notare che l'elezione richiede importanti commissioni. (Per la rete principale la commissione è di 1000 GAS, per la rete test è di 10 GAS) Per favore, prestare attenzione. La funzione di validatore non è ancora disponibile, attendere aggiornamenti futuri.
+Occorre notare che l'elezione richiede importanti commissioni. (Per la rete principale la commissione è di 1000 GAS, per la rete di test è di 10 GAS) Si prega di prestare attenzione. La funzione di validatore non è ancora disponibile, attendere aggiornamenti futuri.
 
