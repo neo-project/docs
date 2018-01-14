@@ -1,4 +1,4 @@
-# Metodo Getrawmempool
+# Metodo getrawmempool
 
 Ottiene l'elenco delle transazioni non confermate in memoria.
 
@@ -27,4 +27,4 @@ Corpo della risposta:
 }
 ```
 
-Queste sono le transazioni non confermate ricevute dai nodi, cioè transazioni con zero conferme.
+Queste sono le transazioni non confermate ricevute dai nodi, ossia le transazioni con zero conferme.
