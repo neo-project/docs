@@ -13,7 +13,7 @@ Per iniziare esploreremo i vari comandi elencati nella linea di comando. Nella l
 Quanto segue è una descrizione di tutti i comandi e l'ordine delle parentesi:
 Le parentesi angolari ``<> ``  indicano un parametro.
 Le parentesi quadre `[]` sono per parametri opzionali.
-Il simbolo `|` visualizza i parametri di riempimento, che possono essere di qualsiasi tipo.
+Il simbolo `|` visualizza i parametri di riempimento, che possono essere qualsiasi di qualsiasi tipo.
 Il simbolo uguale `=` indica il valore predefinito del parametro opzionale senza un input. 
 
 ## 1. Istruzioni della Console
