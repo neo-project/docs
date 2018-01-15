@@ -213,7 +213,7 @@ Das Hauptproblem besteht dabei in der Findung der richtigen Balance zwischen Red
 NeoFS arbeitet als eines der InteropService Interoperabilitätservices unter dem NeoContract System und ermöglicht es, „Smart Contracts“ beispielweise große Dateien in der Blockchain zu lagern und einen Zugang zu diesen Daten zu gewährleisten. Darüber hinaus ist NeoFS kompatibel mit digitalen Identitäten, sodass digitalen Zertifikaten ohne der Erfordernis eines zentralen Servers digitale Identitäten zugeordnet, zugesendet und widerrufen werden können. In der Zukunft können alte Blockdaten in NeoFS gespeichert werden, sodass die meisten Full Nodes zum Zweck der besseren Skalierbarkeit die alten Daten verwerfen können und gleichzeitig die Integrität der alten Daten gewährleistet ist.
 
 
-### Anti Quantenkryptographie Mechanismus: NeoQS
+### Anti-Quantenkryptographie Mechanismus: NeoQS
 
 Das Aufkommen von Quantencomputern bringt eine bedeutende Herausforderung für RSA- und ECC-basierte kryptografischen Mechanismen mit sich.  Quantencomputer können die hohe Anzahl an Dekompositionsproblemen (von denen RSA abhängt) und den „elliptic curve discrete“-Logarithmus (wovon ECC abhängig ist) in kürzester Zeit lösen. NeoQS (Quantum Safe) ist ein „lattice-based“ kryptografischer Mechanismus. Derzeit besitzen Quantencomputer nicht die Fähigkeit „Shortest Vector Problems“ (SVP) und „Closest Vector Problems“ (CVP) in kurzer Zeit zu lösen. Aufgrund dessen wird er als der zuverlässigste Algorithmus für den Schutz vor Quantencomputern gesehen. 
 
