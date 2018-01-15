@@ -51,7 +51,7 @@ P2PとWebSocketに関する情報は[Node/Introduction](introduction.md)を参�
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | スマートコントラクトをスクリプトハッシュからパラメータを指定して呼び出した結果を返します。 |                              |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | スマートコントラクトをスクリプトハッシュからオペレーション名とパラメータを指定して呼び出した結果を返します。 |                              |
 | [invokescript](api/invokescript.md)      | \<script>                                | スクリプトがVMを介した後の結果を返します。 |                              |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | トランザクションをネットワークにブロードキャストする。[network protocol](network-protocol.md)を参照。                       |          |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | トランザクションをネットワークにブロードキャストする。[ネットワークプロトコル](network-protocol.md)を参照。                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | 指定のアドレスに送信する。                     | ウォレットを開いている必要がある。   |
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | オーダーの一括転送。お釣り用アドレスを指定することができます。                      | ウォレットを開いている必要がある。      |
 | submitblock                              | \<hex>                                  | 新たなブロックをサブミットする。                      | コンセンサスノードである必要がある。 |
