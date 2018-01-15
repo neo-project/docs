@@ -16,8 +16,8 @@
 **Nell'algoritmo di consenso di NEO, i Nodi di Consenso sono eletti dai possessori di NEO e votano sulla validità delle transazioni. Questi nodi vengono anche definiti come 'Contabili'. Da ora in avanti, ci riferiremo ad essi come Nodi di Consenso**.
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **Nodo di Consenso** - Questo nodo partecipa nell'attività di consenso. Durante l'attività di consenso, i nodi di consenso si alternano assumendo i due seguenti ruoli:
-  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Oratore** `(Uno)` - L'**Oratore** è responsabile della trasmissione di una proposta di blocco al sistema.
-  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegato** `(Multipli)` - I **Delegati** sono responsabili della realizzazione del consenso sulla transazione.
+  - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **Speaker** `(Uno)` - Lo **Speaker** è responsabile della trasmissione di una proposta di blocco al sistema.
+  - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **Delegati** `(Multipli)` - I **Delegati** sono responsabili della realizzazione del consenso sulla transazione.
 
 
 ## 3 - Introduzione
@@ -31,34 +31,34 @@ NEO implementa un algoritmo di consenso chiamato Delegated Byzantine Fault Toler
 
 ## 4 - Teoria
 
-Il Problema dei Generali Bizantini é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegati** che devono realizzare un consenso sul risultato proveniente da un'ordine dell'**Oratore**. In questo sistema, bisogna prestare attenzione poiché l'**Oratore** o un numero qualsiasi di **Delegati** potrebbero essere dei traditori. Un nodo disonesto potrebbe non inviare un messaggio coerente a ogni destinatario. Questa é da considerarsi come la situazione piú disastrosa. La soluzione al problema richiede che i **Delegati** identifichino se l'**Oratore** sia onesto e quale sia il vero comando come gruppo.
+Il Problema dei Generali Bizantini é un classico problema nel calcolo distribuito. Il problema definisce un numero di **Delegati** che devono realizzare un consenso sul risultato proveniente da un'ordine dello **Speaker**. In questo sistema, bisogna prestare attenzione poiché lo **Speaker** o un numero qualsiasi di **Delegati** potrebbero essere dei traditori. Un nodo disonesto potrebbe non inviare un messaggio coerente a ogni destinatario. Questa é da considerarsi come la situazione piú disastrosa. La soluzione al problema richiede che i **Delegati** identifichino se lo **Speaker** sia onesto e quale sia il vero comando come gruppo.
 
 Allo scopo di descrivere come funziona il DBFT, concentreremo principalmente questa sezione sulla motivazione dell'utilizzo di un tasso di consenso del 66.66% nella sezione 5. Tenere presente che un nodo disonesto non necessariamente deve essere attivamente malevolo, potrebbe semplicemente non funzionare come previsto.
 
-Per discuterne, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dall'**Oratore**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedere i riferimenti.
+Per discuterne, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dallo **Speaker**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedere i riferimenti.
 
 
-### **Oratore Onesto**
+### **Speaker Onesto**
 
   <p align="center"><img src="/assets/n3.png" width="300"><br> <b>Figura 1:</b> Esempio n = 3 con un <b>Delegate</b> disonesto.</p>
 
-  Nella **Figura 1**, abbiamo un singolo **Delegato** leale (50%). Entrambi i **Delegati** ricevono lo stesso messaggio dall'**Oratore** onesto. Tuttavia, a causa della disonestá di un **Delegato**, il Delegato onesto puó solo determinare che esiste un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (l'**Oratore**) o del **Delegato**. Per questo motivo, il **Delegato** deve astenersi dal voto, cambiando il punto di vista.
+  Nella **Figura 1**, abbiamo un singolo **Delegato** leale (50%). Entrambi i **Delegati** ricevono lo stesso messaggio dallo **Speaker** onesto. Tuttavia, a causa della disonestá di un **Delegato**, il Delegato onesto puó solo determinare che esiste un nodo disonesto, ma non é in grado di identificare se si tratti del creatore del blocco (lo **Speaker**) o del **Delegato**. Per questo motivo, il **Delegato** deve astenersi dal voto, cambiando la View.
 
   <p align="center"><img src="/assets/n4.png" width="400"><br> <b>Figura 2:</b> Esempio n = 4 con un <b>Delegate</b> disonesto.</p>
 
-  Nella **Figura 2**, abbiamo due **Delegati** leali (66%). Tutti i **Delegati** ricevono lo stesso messaggio dall'**Oratore** onesto e inviano il loro risultato di convalida insieme al messaggio ricevuto dall'Oratore ad ogni **Delegato**. Sulla base del consenso dei due **Delegati** onesti, siamo capaci di determinare che nel sistema l'**Oratore** o il **Delegato** a destra sono disonesti. 
+  Nella **Figura 2**, abbiamo due **Delegati** leali (66%). Tutti i **Delegati** ricevono lo stesso messaggio dallo **Speaker** onesto e inviano il loro risultato di convalida insieme al messaggio ricevuto dallo Speaker ad ogni **Delegato**. Sulla base del consenso dei due **Delegati** onesti, siamo capaci di determinare che nel sistema lo **Speaker** o il **Delegato** a destra sono disonesti. 
 
   
 
-### **Oratore Disonesto** 
+### **Speaker Disonesto** 
 
   <p align="center"><img src="/assets/g3.png" width="300"><br> <b>Figura 3:</b> Esempio n = 3 con uno <b>Speaker</b> disonesto. </p>
 
-  Nel caso della **Figura 3**, dell'**Oratore** disonesto, abbiamo una conclusione identica a quella raffigurata nella **Figurea 1**. Nessun **Delegato** é capace di determinare quale nodo sia disonesto.
+  Nel caso della **Figura 3**, dello **Speaker** disonesto, abbiamo una conclusione identica a quella raffigurata nella **Figurea 1**. Nessun **Delegato** é capace di determinare quale nodo sia disonesto.
 
   <p align="center"><img src="/assets/g4.png" width="400"><br> <b>Figura 4:</b> Esempio n = 4 con uno <b>Speaker</b> disonesto. </p>
 
-  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció li induce a differire per un nuovo punto di vista che elegge un nuovo **Oratore** poiché essi hanno la maggioranza del 66%. In questo esempio, se l'**Oratore** disonesto aveva inviato dati onesti ai due dei tre **Delegati**, sarebbe stato convalidato senza la necessitá di un cambio di visualizzazione.
+  Nell'esempio posto dalla **Figura 4**, i blocchi ricevuti dal nodo centrale e dal nodo destro non sono validabili. Ció li induce a differire per una nuova View che elegge un nuovo **Speaker** poiché essi hanno la maggioranza del 66%. In questo esempio, se lo **Speaker** disonesto aveva inviato dati onesti ai due dei tre **Delegati**, sarebbe stato convalidato senza la necessitá di un cambio di View.
 
 
 ## 5 - Implementazioni Pratiche
@@ -78,7 +78,7 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
   - `t`: Quantitá di tempo allocata per la generazione di un blocco, misurata in secondi.
     - Correntemente: `t = 15 secondi`
-    - Questo valore puó essere usato per approssimare il tempo di una singola iterazione di visualizzazione poiché l'attivitá di consenso e gli eventi di comunicazione sono veloci rispetto a questa costante di tempo. 
+    - Questo valore puó essere usato per approssimare il tempo di una singola iterazione View poiché l'attivitá di consenso e gli eventi di comunicazione sono veloci rispetto a questa costante di tempo. 
   - `n`: Il numero di **Nodi di Consenso** attivi.
 
   - `f`: La soglia minima di **Nodi di Consenso** difettosi all'interno del sistema. 
@@ -89,13 +89,13 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
   - `i` : Indice dei **Nodi di Consenso**.
 
 
-  - `v` : La visualizzazione di un **Nodo di Consenso**. La visualizzazione contiene le informazioni aggregate che i nodi hanno ricevuto durante il round di consenso. Questa include il voto (`prepareResponse` o `ChangeView`) emesso da tutti i Delegati.
+  - `v` : La View di un **Nodo di Consenso**. La View contiene le informazioni aggregate che i nodi hanno ricevuto durante il round di consenso. Questa include il voto (`prepareResponse` o `ChangeView`) emesso da tutti i Delegati.
 
 
-  - `k` : L'indice della visualizzazione `v`. Un'attivitá di consenso puó richiedere round multipli. In caso del fallimento del consenso, `k` é incrementato e un nuovo round di consenso comincia.
+  - `k` : L'indice della View `v`. Un'attivitá di consenso puó richiedere round multipli. In caso del fallimento del consenso, `k` é incrementato e un nuovo round di consenso comincia.
 
 
-  - `p` : Indice del **Nodo di Consenso** eletto come **Oratore**. Questo meccanismo di calcolo per questo indice ruota tra i **Nodi di Consenso** in modo da prevenire che un singolo nodo agisca da dittatore all'interno del sistema. 
+  - `p` : Indice del **Nodo di Consenso** eletto come **Speaker**. Questo meccanismo di calcolo per questo indice ruota tra i **Nodi di Consenso** in modo da prevenire che un singolo nodo agisca da dittatore all'interno del sistema. 
      - `p = (h - k) mod (n)`
 
 
@@ -124,14 +124,14 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 2. I **Nodi di Consenso** registrano i dati della transazione nella memoria locale.
 
-3. La prima visualizzazione `v` dell'attivitá di consenso é inizializzata.
+3. La prima View `v` dell'attivitá di consenso é inizializzata.
 
-4. Viene identificato l'**Oratore**. **Attende** `t` secondi.
+4. Viene identificato **Speaker**. **Attende** `t` secondi.
 <p align="center"><img src="/assets/consensus2.png" width="450"><br/> <b>Figura 7:</b> Uno <b>Speaker</b> é stato identificato e la View inviata.</p>
 
-5. L'**Oratore** trasmette la proposta : `<prepareRequest, h, k, p, bloc, [block]sigp>`
+5. Lo **Speaker** trasmette la proposta : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
-     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> L'<b>Oratore</b> conia una proposta di blocco per la revisione da parte dei <b>Delegati</b>. </p>
+     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figura 8:</b> Lo <b>Speaker</b> conia una proposta di blocco per la revisione da parte dei <b>Delegati</b>. </p>
 
 6. I **Delegati** ricevono la proposta da confermare:
 
@@ -157,13 +157,13 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
 
 **Nota:**
 
- Se dopo (![timeout](/assets/consensus.timeout.png) )  secondi sulla stessa visualizzazione senza consenso:
+ Se dopo (![timeout](/assets/consensus.timeout.png) )  secondi sulla stessa View senza consenso:
   - Il **Nodo di Consenso** Trasmette:
 
   <!-- -->
       <ChangeView, h,k,i,k+1>
 
-  - Una volta che un **Nodo di Consenso** riceve almeno `s` numeri di trasmissioni che denotano lo stesso cambio di visualizzazione, incrementa la visualizzazione `v`, attivando un nuovo round di consenso.
+  - Una volta che un **Nodo di Consenso** riceve almeno `s` numeri di trasmissioni che denotano lo stesso cambio di View, incrementa la View `v`, attivando un nuovo round di consenso.
 
 
 ​	
