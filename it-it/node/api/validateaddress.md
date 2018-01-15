@@ -1,8 +1,8 @@
 # Metodo validateaddress
 
-Verificare che l'indirizzo sia un indirizzo NEO corretto.
+Verifica che l'indirizzo sia un indirizzo NEO corretto.
 
-## Descrizione parametro
+## Descrizione del parametro
 
 address: indirizzo.
 
