@@ -1,10 +1,10 @@
-# Metodo Sendrawtransaction 
+# Metodo sendrawtransaction 
 
 Trasmette una transazione sulla rete NEO. Esistono molti tipi di transazioni, come specificato nel protocollo di rete [documentazione](../network-protocol.md).
 
 ## Descrizione del parametro
 
-Hex: Una stringa esadecimale che è stata serializzata, dopo la transazione firmata nel programma.
+Hex: Una stringa esadecimale che è stata serializzata dopo la transazione firmata nel programma.
 
 ## Esempio
 
@@ -31,8 +31,8 @@ Corpo della risposta:
 
 Descrizione della risposta:
 
-Quando il risultato è true, la transazione corrente è stata trasmessa correttamente alla rete.
+Quando il risultato corrisponde a true, la transazione corrente è stata trasmessa correttamente alla rete.
 
-Quando il risultato è false, la transazione corrente non è stata trasmessa. Ci sono molte ragioni per questo, come la doppia spesa, la firma incompleta, ecc.
+Quando il risultato corrisponde a false, la transazione corrente non è stata trasmessa. Ci possono essere molte ragioni che portano a questo risultato, come ad esempio la doppia spesa, la firma incompleta, ecc.
 
 In questo esempio, una transazione confermata era già stata trasmessa, quindi la seconda trasmissione non è riuscita a causa della doppia spesa.
