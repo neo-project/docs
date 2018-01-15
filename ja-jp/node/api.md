@@ -21,7 +21,7 @@ HTTPS経由でRPCサーバにアクセスするため、ノードを開始する
 
 JSON-RPCサーバは、起動後にメインネットとテストネットに対応する下記ポートをモニタします。
 
-P2PとWebSocketに関する情報は[Node/Introduction](introduction.md)を参照。
+P2PとWebSocketに関する情報は[NEOノード序論](introduction.md)を参照。
 
 |                | （メインネット） | （テストネット） |
 | -------------- | ------------ | ------------- |
