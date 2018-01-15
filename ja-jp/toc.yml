@@ -54,10 +54,24 @@
         href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
+      - name: getpeers
+        href: node/api/getpeers.md
+      - name: getversion
+        href: node/api/getversion.md
+      - name: invoke
+        href: node/api/invoke.md
+      - name: invokefunction
+        href: node/api/invokefunction.md
+      - name: invokescript
+        href: node/api/invokescript.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
     - name: ネットワークプロトコル
       href: node/network-protocol.md
     - name: コンセンサス
