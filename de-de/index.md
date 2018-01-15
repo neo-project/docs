@@ -24,10 +24,11 @@ Eine digitale Identität enthält Informationen über die Identität von Individ
 ### Smart Contract
 
 Das Konzept des sogenannten „Smart Contracts“ wurde erstmals 1994 (nur fünf Jahre nach der Schaffung des World Wide Web) vom Kryptografen Nick Szabo vorgestellt. Seine Definition dazu lautet:
-Wenn eine vorab programmierte Bedingung erfüllt wird, führt der „Smart Contract“ die dazu korrespondierenden Vertragsinhalte selbstständig aus.
+> Wenn eine vorab programmierte Bedingung erfüllt wird, führt der „Smart Contract“ die dazu korrespondierenden Vertragsinhalte selbstständig aus.
+
 Die Blockchaintechnologie bietet eine dezentralisierte, fälschungssichere und äußerst vertrauenswürdige Umgebung für „Smart Contracts“. Die NEO-Blockchain nutzt dabei ein eigenes, unabhängiges „Smart Contract“-System: NeoContract. 
 
-Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Features von NEO, da es zur nahtlosen und raschen Integration des bereits vorhandenen Entwicklerökosystems beiträgt. Anstatt eine neue Programmiersprache erlernen zu müssen, können Entwickler sowohl für die Entwicklung, das Debugging als auch das Kompilieren von „Smart Contracts“ zum  Beispiel auf C#, Java sowie eine Vielzahl anderer weit verbreiteter Programmiersprachen innerhalb ihrer gewohnten integrierten Entwicklungsumgebung (z.B. Visual Studio, Eclipse etc.) zurückgreifen.
+Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Features von NEO, da es zur nahtlosen und raschen Integration des bereits vorhandenen Entwicklerökosystems beiträgt. Anstatt eine neue Programmiersprache erlernen zu müssen, können Entwickler sowohl für die Entwicklung, das Debugging als auch das Kompilieren von „Smart Contracts“ zum Beispiel auf C#, Java sowie eine Vielzahl anderer weit verbreiteter Programmiersprachen innerhalb ihrer gewohnten integrierten Entwicklungsumgebung (z.B. Visual Studio, Eclipse etc.) zurückgreifen.
 
 NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Gleichzeitigkeit, Sicherheit und Skalierbarkeit.
 
@@ -37,6 +38,7 @@ Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwick
 ### Anwendungen und Ökosystem 
 
 Ein gutes Ökosystem ist das Lebenselixier der OpenSource Community. Um ein intelligentes, ökonomisches Netzwerk zu realisieren, widmet sich NEO intensiv der Entwicklung des Ökosystems, aber auch der Bereitstellung von ausgereiften Entwicklertools, der Verbesserung der Dokumentation und der Organisation von Ausbildung und Training. NEO stellt für ausgewählte Projekte außerdem finanzielle Unterstützung bereit.
+
 Wir planen die Unterstützung folgender NEO-basierter Anwendungen und Umgebungen, sowie die Honorierung von Beiträgen, die zur Verbesserung des allgemeinen Nutzungserlebnisses von NEO beitragen:
 
 
@@ -106,7 +108,7 @@ GAS (insgesamt 100 Millionen Token) ist der „Treibstoff“ für die Nutzung de
 
 Im Genesis-Block des NEO Netzwerks wurden 100 Millionen NEO generiert. GAS wird mittels eines Zerfallsalgorithmus über die nächsten 22 Jahre generiert und an NEO Halter verteilt, wobei ein NEO über 22 Jahre ein GAS erzeugt. 
 
-Das NEO Netzwerk kann per Voting Grenzwerte implementieren, die bestimmte Transaktionen und „Smart Contracts“ von GAS Gebühren ausnehmen, um die Benutzerfreundlichkeit des Netzwerks zu erhöhen. NeoID kann verwendet werden, um Transaktionen und „Smart Contracts“ von qualifizierten Identitäten zu priorisieren und eventuelle Spam-Transaktionen nachrangig zu verarbeiten. Transaktionen und „Smart Contracts“ ohne qualifizierte digitale Identität können ihre Priorität durch die Zahlung von GAS Gebühren erhöhen.
+Das NEO Netzwerk kann per Voting Grenzwerte implementieren, die bestimmte Transaktionen und „Smart Contracts“ von GAS Gebühren ausnehmen, um die Benutzerfreundlichkeit des Netzwerks zu erhöhen. NeoID kann verwendet werden, um Transaktionen und „Smart Contracts“ von qualifizierten Identitäten zu priorisieren und eventuelle Spam-Transaktionen nachrangig zu verarbeiten. Transaktionen und „Smart Contracts“ ohne qualifizierte digitale Identität können ihre Priorisierung durch die Zahlung von GAS Gebühren erhöhen.
 
 
 ### Distributionsmechanismus
@@ -117,9 +119,9 @@ Die 100 Millionen NEO Token wurden in zwei Hälften aufgeteilt. Die ersten 50 Mi
 
 Die zweite Hälfte steht dem NEO Council für die langfristige Entwicklung und Instandhaltung von NEO zur Verfügung. Die Token sind für einen Zeitraum von einem Jahr in einem „Smart Contract“ eingefroren und stehen erst am dem 16. Oktober 2017 zur Verfügung. Diese 50 Millionen Token sind ausschließlich für die Sicherung der langfristigen Entwicklung von NEO und NEO Projekten deklariert und kommen nicht an die Börsen. Die Token sind dabei folgendermaßen aufgeteilt:
 
-🔹 10 Millionen Token (10%) werden als finanzieller Anreiz bzw. Entlohnung von NEO Entwicklern und Mitgliedern des NEO Councils verwendet.
+🔹 10 Millionen Token (10%) werden als finanzieller Anreiz, bzw., Entlohnung von NEO Entwicklern und Mitgliedern des NEO Councils verwendet.
 
-🔹 10 Millionen Token (10%) werden als finanzieller Anreiz bzw. Entlohnung von NEO Entwicklern im NEO Ökosystem verwendet.
+🔹 10 Millionen Token (10%) werden als finanzieller Anreiz, bzw., Entlohnung von NEO Entwicklern im NEO Ökosystem verwendet.
 
 🔹 15 Millionen Token (15%) sind für Investitionen in andere Blockchain Projekte, die dem NEO Council zugehörig sind und ausschließlich für NEO Projekte verwendet werden, reserviert.
 
