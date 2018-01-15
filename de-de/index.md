@@ -30,7 +30,7 @@ Die Blockchaintechnologie bietet eine dezentralisierte, fälschungssichere und �
 
 Das NeoContract „Smart Contract“-System ist mit eines der bedeutensten Features von NEO, da es zur nahtlosen und raschen Integration des bereits vorhandenen Entwicklerökosystems beiträgt. Anstatt eine neue Programmiersprache erlernen zu müssen, können Entwickler sowohl für die Entwicklung, das Debugging als auch das Kompilieren von „Smart Contracts“ zum Beispiel auf C#, Java sowie eine Vielzahl anderer weit verbreiteter Programmiersprachen innerhalb ihrer gewohnten integrierten Entwicklungsumgebung (z.B. Visual Studio, Eclipse etc.) zurückgreifen.
 
-NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei gleichzeitig hoher Gleichzeitigkeit, Sicherheit und Skalierbarkeit.
+NEOs „Universal Lightweight Virtual Machine“ (NeoVM) ermöglicht die parallele Ausführung vieler „Smart Contracts“ bei hoher Übereinkunftsrate, hoher Sicherheit und hoher Skalierbarkeit.
 
 Das NeoContract „Smart Contract“-System ermöglicht es Millionen von Entwicklern weltweit „Smart Contracts“ zu entwickeln. Diesbezüglich gibt es ein eigenes Whitepaper für NeoContract.
 
