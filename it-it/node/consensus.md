@@ -22,9 +22,9 @@
 
 ## 3 - Introduzione
 
-Una delle differenze fondamentali tra le blockchain è il modo con la quale possono garantire la tolleranza ai guasti data un'attività malfunzionante e non onesta sulla rete.
+Una delle differenze fondamentali tra le blockchain è il modo con la quale possono garantire la tolleranza ai guasti data un'attività "difettosa" e non onesta sulla rete.
 
-I metodi tradizionali implementati che fanno uso del PoW possono fornire questa garanzia a patto che la maggior parte dell'energia di calcolo della rete sia onesta. Tuttavia, a causa di questa dipendenza dello schema dal potere computazionale, il meccanismo può essere davvero inefficiente (l'energia di calcolo costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
+I metodi tradizionali implementati che fanno uso del PoW possono fornire questa garanzia a patto che la maggior parte della potenza di calcolo della rete sia onesta. Tuttavia, a causa di questa dipendenza dello schema dalla potenza computazionale, il meccanismo può essere davvero inefficiente (la potenza di calcolo costa energia e richiede hardware). Queste dipendenze espongono la rete PoW a una serie di limitazioni, la principale é il costo di scalabilitá.
 
 NEO implementa un algoritmo di consenso chiamato Delegated Byzantine Fault Tolerance (DBFT) il quale sfrutta alcune caratteristiche del PoS (i possessori NEO possono votare i **Nodi di Consenso**) il quale protegge la rete da difetti Byzantine (Bizantini) usando una quantitá di risorse minima, mentre respinge alcuni dei suoi problemi. Questa soluzione risolve i problemi di prestazione e di scalabilità associati alle attuali implementazioni blockchain senza un impatto significativo sulla tolleranza ai guasti.  
 
@@ -35,7 +35,7 @@ Il Problema dei Generali Bizantini é un classico problema nel calcolo distribui
 
 Allo scopo di descrivere come funziona il DBFT, concentreremo principalmente questa sezione sulla motivazione dell'utilizzo di un tasso di consenso del 66.66% nella sezione 5. Tenere presente che un nodo disonesto non necessariamente deve essere attivamente malevolo, potrebbe semplicemente non funzionare come previsto.
 
-Per discuterne, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dallo **Speaker**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedere i riferimenti.
+Per il bene della discussione, descriveremo un paio di scenari. In questi semplici esempi, assumeremo che ogni nodo invii il messaggio ricevuto dallo **Speaker**. Questo meccanismo é usato anche nel DBFT ed é fondamentale per il sistema. Descriveremo solamente la differenza fra un sistema funzionante e un sistema non funzionante. Per una spiegazione maggiormente dettagliata, vedere i riferimenti.
 
 
 ### **Speaker Onesto**
@@ -63,7 +63,7 @@ Per discuterne, descriveremo un paio di scenari. In questi semplici esempi, assu
 
 ## 5 - Implementazioni Pratiche
 
-L'implementazione pratica del DBFT in NEO avviene tramite un metodo del consenso iterativo per poter garantire che il raggiungimento del consenso venga realizzato. Le performance dell'algoritmo dipendono dalla frazione dei nodi onesti nel sistema. La **Figura 5** raffigura le iterazioni previste in funzione della frazione dei nodi disonesti.
+L'implementazione pratica del DBFT in NEO avviene tramite un metodo di consenso iterativo per poter garantire che il consenso venga realizzato. Le performance dell'algoritmo dipendono dalla frazione dei nodi onesti nel sistema. La **Figura 5** raffigura le iterazioni previste in funzione della frazione dei nodi disonesti.
 
 Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **Nodi di Consenso**. Tra questo punto critico e il 33% di onestá dei **Nodi di Consenso**, c'é 'la terra di nessuno' dove il consenso é irragiungibile. Sotto il 33% di onestá dei **Nodi di Consenso**, i nodi disonesti (assumendo che siano allineati nel consenso) sono capaci di raggiungere il consenso da soli e di diventare un nuovo punto di veritá nel sistema.
 
@@ -99,7 +99,7 @@ Nota che la **Figura 5** non si estende al di sotto del 66.66% di onestá dei **
      - `p = (h - k) mod (n)`
 
 
-  - `s`: La soglia sicura del consenso. Al di sotto di questa soglia, la rete é esposta a guasti.  
+  - `s`: La soglia sicura di consenso. Al di sotto di questa soglia, la rete é esposta a guasti.  
      - `s = ((n - 1) - f)`
 
 
