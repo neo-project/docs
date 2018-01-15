@@ -1,4 +1,4 @@
-# Metodo Sendtoaddress 
+# Metodo sendtoaddress 
 
 Trasferimento all'indirizzo specificato.
 
