@@ -1,10 +1,10 @@
 # Riferimento API
 
-Ogni nodo in Neo-CLI fornisce un'interfaccia API per ottenere i dati della blockchain da un nodo, rendendo facile lo sviluppo di applicazioni blockchain. L'interfaccia è fornita mediante [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) e il protocollo sottostante utilizza HTTP/HTTPS per la comunicazione. Per avviare un nodo che fornisca un servizio RPC, eseguire i seguenti comandi:
+Ogni nodo in Neo-CLI fornisce un'interfaccia API per ottenere i dati della blockchain da un nodo rendendo facile lo sviluppo di applicazioni blockchain. L'interfaccia è fornita mediante [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) e il protocollo sottostante utilizza HTTP/HTTPS per la comunicazione. Per avviare un nodo che fornisca un servizio RPC, eseguire i seguenti comandi:
 
 `dotnet neo-cli.dll /rpc`
 
-Per accedere al server RPC via HTTPS, modificare il file di configurazione config.json prima di avviare il nodo e impostare il nome di dominio, il certificaro e una password:
+Per accedere al server RPC via HTTPS, modificare il file di configurazione config.json prima di avviare il nodo e impostare il nome del dominio, il certificato e una password:
 
 ```json
 {
@@ -18,7 +18,7 @@ Per accedere al server RPC via HTTPS, modificare il file di configurazione confi
   }
 }                                          
 ```
-dopo l'avvio del server JSON-RPC, questo monitorerà le seguenti porte, corrispondenti alla rete Main (rete principale) e alla rete in Test:
+Dopo l'avvio del server JSON-RPC, questo monitorerà le seguenti porte, corrispondenti alla rete principale (Main Net) e alla rete di test (Test Net):
 
 Per le informazioni P2P e Websocket vedere [Nodo/Introduzione](introduction.md).
 
@@ -32,7 +32,7 @@ Per le informazioni P2P e Websocket vedere [Nodo/Introduzione](introduction.md).
 | Comando                                       | Riferimento                                      | Spiegazione                         | Commenti       |
 | ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | Esporta la chiave privata dell'indirizzo specificato | Occorre aprire il wallet      |
-| [getaccountstate](api/getaccountstate.md)          | \<address>                             |controlla le informazioni dell'asset dell'account in base all'indirizzo dell'account  |    |
+| [getaccountstate](api/getaccountstate.md)          | \<address>                             |Controlla le informazioni dell'asset dell'account in base all'indirizzo dell'account  |    |
 | [getassetstate](api/getassetstate.md)    | \<asset_id>                              | Interroga le informazioni dell'asset in base al numero di asset specificato            |          |
 | [getbalance](api/getbalance.md)          | \<asset_id>                             |Restituisce il saldo dell'asset corrispondente nel wallet in base al numero di asset specificato.   | Occorre aprire il wallet   |
 | [getbestblockhash](api/getbestblockhash.md) |                                         | Ottiene l'hash del blocco più alto nella chain principale          |          |
@@ -53,7 +53,7 @@ Per le informazioni P2P e Websocket vedere [Nodo/Introduzione](introduction.md).
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | Invoca uno smart contract a uno script hash specificato con i parametri dati |                              |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | Invoca uno smart contract a uno script hash specificato, passandogli un'operazione e i suoi parametri |                              |
 | [invokescript](api/invokescript.md)      | \<script>                                | Esegue uno script attraverso la macchina virtuale e restituisce i risultati |                              |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Trasmette una transazione nella rete. Visionare la documentazione [Protocollo di Rete](network-protocol.md).                       |          |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | Trasmette una transazione nella rete. Vedi la documentazione sul [Protocollo di Rete](network-protocol.md).                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | Trasferisce a un indirizzo specificato                     | Occorre aprire il wallet   |
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | Ordina un trasferimento in lotto                       | Occorre aprire il wallet   |
 | submitblock                              | \<hex>                                  | Invia nuovi blocchi                      | Occorre essere un nodo di consenso |
@@ -62,7 +62,7 @@ Per le informazioni P2P e Websocket vedere [Nodo/Introduzione](introduction.md).
 
 ## Esempio di richiesta GET
 
-Un tipico formato di richiesta JSON-RPC GET è come segue:
+Un tipico formato di richiesta JSON-RPC GET è il seguente:
 
 Quanto segue è un esempio di come ottenere il numero di blocchi nella chain principale.
 
@@ -84,11 +84,11 @@ Dopo aver inviato la richiesta, otterrai la seguente risposta:
 
 ## Esempio di richiesta POST
 
-Il formato di una tipica richiesta JSON-RPC POST è come segue:
+Il formato di una tipica richiesta JSON-RPC POST è il seguente:
 
 Quanto segue è un esempio di come ottenere il numero di blocchi nella chain principale.
 
-richiesta URL:
+Richiesta URL:
 
 ```
 http://somewebsite.com:10332
@@ -117,7 +117,7 @@ Dopo aver inviato la richiesta, otterrai la seguente risposta：
 
 ## Strumenti di Test
 
-E' possibile usare l'estensione di Chrome in Postman per facilitare il test (L'installazione dell'estensione di Chrome richiede una connessione a internet), quanto segue è uno screenshot del test:
+E' possibile usare Postman un'estensione di Chrome per facilitare il test (L'installazione dell'estensione di Chrome richiede una connessione a internet), quanto segue è uno screenshot del test:
 
 ![image](/zh-cn/node/assets/api_2.jpg)
 
