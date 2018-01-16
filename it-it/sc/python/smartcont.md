@@ -1,10 +1,10 @@
-# Interagire con gli Smart Contracts
+# Interagire con gli Smart Contract
 
-Un caso d'uso comune per implementare neo-python è interagire con gli smart contracts. Gli eventi tipici degli smart contract includono `Runtime.Notify`, `Runtime.Log`, esecuzione con successo o fallita e `Storage.GET/PUT/DELETE`.
+Un caso d'uso comune per implementare neo-python è interagire con gli smart contract. Gli eventi tipici degli smart contract includono `Runtime.Notify`, `Runtime.Log`, esecuzione con successo o esecuzione fallita e `Storage.GET/PUT/DELETE`.
 
 ## Tipi di eventi
 
-Questa è una lista del tipo di eventi degli smart contract i quali possono correntemente essere gestiti con neo-python:
+Questa è una lista del tipo di eventi degli smart contract che possono attualmente essere gestiti con neo-python:
 
 ```python
 RUNTIME_NOTIFY = "SmartContract.Runtime.Notify"
@@ -26,7 +26,7 @@ Quando tali eventi si verificano in blocchi ricevuti, un'istanza `SmartContractE
 
 ## SmartContractEvent
 
-I gestori di eventi ricevono sempre un singolo argomento, un'istanza di `neo.EventHub.SmartContractEvent`, che include tutte le informazioni sull'evento corrente. Il `SmartContractEvent` ha le seguenti proprietà:
+I gestori di eventi ricevono sempre un singolo argomento, un'istanza di `neo.EventHub.SmartContractEvent`, che include tutte le informazioni sull'evento corrente. Lo `SmartContractEvent` ha le seguenti proprietà:
 
 | Proprietà            | Tipo di dato | Descrizione                              |
 | ------------------- | ---------- | ---------------------------------------- |
@@ -72,7 +72,7 @@ I seguenti decoratori sono attualmente disponibili:
 | `@on_storage`   | Storage PUT, GET e DELETE            |
 | `@on_execution` | Invocazione del metodo, successo e fallimento |
 
-Ecco un altro esempio, che mostra come ascoltare tutti gli eventi e distinguere tra tipi di eventi nel codice:
+Ecco un altro esempio, che mostra come ascoltare tutti gli eventi e come distinguere tra i tipi di eventi nel codice:
 
 ```python
 from neo.contrib.smartcontract import SmartContract
