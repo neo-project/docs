@@ -24,7 +24,7 @@ Il meccanismo Byzantine Fault Tolerance rappresenta una soluzione universale per
 
 ## Modello di Sistema 
 
-Una blockchain è un registro distribuito in cui i partecipanti si connettono tra loro tramite una rete peer-to-peer. Tutti i messaggi al suo interno verranno inviati tramite trasmissione. Esistono due tipi di ruoli: Nodi ordinari e nodi Bookkeeping. I nodi ordinari usano il sistema per trasferire, scambiare e accettare i dati del registro; Mentre i nodi bookkeeping forniscono servizi di contabilità per l'intera rete e mantengono il registro. 
+Una blockchain è un registro distribuito in cui i partecipanti si connettono tra loro tramite una rete peer-to-peer. Tutti i messaggi al suo interno verranno inviati tramite trasmissione. Esistono due tipi di ruoli: Nodi ordinari e nodi di "Bookkeeping" (contabilitá). I nodi ordinari usano il sistema per trasferire, scambiare e accettare i dati del registro; Mentre i nodi bookkeeping forniscono servizi di contabilità per l'intera rete e mantengono il registro. 
 
 Ipoteticamente, in questo sistema, i messaggi possono essere soggetti a perdita, danno, latenza e ripetizione. Inoltre, l'ordine di invio potrebbe non essere necessariamente coerente con l'ordine di ricezione dei messaggi. Le attività dei nodi potrebbero essere arbitrarie, essi possono unirsi e uscire dalla rete in qualsiasi momento; Possono anche scaricare e falsificare informazioni o semplicemente smettere di funzionare. Possono anche verificarsi anomalie artificiali o non artificiali.
 
@@ -32,11 +32,11 @@ L'integrità e l'autenticità della trasmissione delle informazioni sono garanti
 
 ## Algoritmo
 
-​Il nostro algoritmo garantisce sicurezza e usabilità. Con un numero di nodi erronei nel consenso non maggiore di ⌊ (𝑛−1) / 3 ⌋ , la funzionalità e la stabilità del sistema sono garantite. In esso, 𝑛 = | 𝑅 | suggerisce il numero totale di nodi entrati nel consenso mentre R sta per il numero di nodi di consenso. Data 𝑓 = ⌊ (𝑛−1) / 3 ⌋ , f indica il numero massimo di nodi erronei ammessi nel sistema. Infatti, il registro è mantenuto dai nodi Bookkepping mentre i nodi ordinari non partecipano al processo di consenso. Ciò per mostrare l'intera procedura di consenso.
+​Il nostro algoritmo garantisce sicurezza e usabilità. Con un numero di nodi erronei nel consenso non maggiore di ⌊ (𝑛−1) / 3 ⌋ , la funzionalità e la stabilità del sistema sono garantite. In esso, 𝑛 = | 𝑅 | suggerisce il numero totale di nodi entrati nel consenso mentre R corrisponde al numero di nodi di consenso. Data 𝑓 = ⌊ (𝑛−1) / 3 ⌋, f indica il numero massimo di nodi erronei ammessi nel sistema. Di fatto, il registro è mantenuto dai nodi Bookkepping mentre i nodi ordinari non partecipano al processo di consenso. Ciò per mostrare l'intera procedura di consenso.
 
-Tutti i nodi di consenso sono tenuti a mantenere una tabella di stato per registrare lo stato di consenso corrente. Il set di dati utilizzato per un consenso dal suo inizio fino alla sua fine è chiamato View. Se non è possibile raggiungere il consenso all'interno della View corrente, sarà necessario un cambiamento di View. Identifichiamo ciascuna View con un numero v, iniziante per 0 e può aumentare fino a raggiungere il consenso.
+Tutti i nodi di consenso sono tenuti a mantenere una tabella di stato per registrare lo stato di consenso corrente. Il set di dati utilizzato per un consenso dal suo inizio fino alla sua fine è chiamato View. Se non è possibile raggiungere il consenso all'interno della View corrente, sarà necessario un cambiamento di View. Identifichiamo ciascuna View con un numero v, iniziante per 0 e può aumentare fino al raggiungimento del consenso.
 
-​Identifichiamo ciascun nodo di consenso con un numero, a partire da 0, l'ultimo nodo è numerato n - 1. Per ogni round di realizzazione del consenso, un nodo fará lo "speaker" della casa mentre gli altri nodi fanno i "congressman". Il numero p di "speaker" sarà determinato dall'algoritmo seguente: Ipoteticamente l'attuale altezza del blocco è h, poi 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, l'intervallo di valori di p sarà  0 ≤ 𝑝 < 𝑛 .
+​Identifichiamo ciascun nodo di consenso con un numero, a partire da 0, l'ultimo nodo è numerato n - 1. Per ogni round di realizzazione del consenso, un nodo fará lo "speaker" (oratori) della casa mentre gli altri nodi fanno i "congressman" (deputati). Il numero p di "speaker" sarà determinato dall'algoritmo seguente: Ipoteticamente l'attuale altezza del blocco è h, poi 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, l'intervallo di valori di p sarà  0 ≤ 𝑝 < 𝑛 .
 
 ​Un nuovo blocco verrà generato in ogni round di consenso, con almeno 𝑛 − 𝑓 firme dai nodi bookkeeping. Alla generazione di un blocco, inizierà un nuovo round di consenso, resettando v=0.
 
@@ -46,7 +46,7 @@ Essendo t l'intervallo di tempo nella generazione dei blocchi, sotto normali cir
 
 1) Un nodo trasmette i dati della transazione all'intera rete, in allegato con la firma del mittente;
 
-2) Tutti i nodi bookkepper monitorano la trasmissione dei dati delle transazioni in modo indipendente e memorizzano i dati nella rispettiva memoria ; 
+2) Tutti i nodi bookkepper monitorano la trasmissione dei dati delle transazioni in modo indipendente e memorizzano i dati nella rispettiva memoria; 
 
 3) Dopo il tempo t, lo speaker invia 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
 
@@ -64,27 +64,27 @@ I nodi, dopo aver monitorato la trasmissione e ricevuto la proposta, convalidano
 
 2) La transazione è già nella blockchain? Se si, la transazione è illegale;
 
-3) Tutti gli script del contratto della transazione sono eseguiti correttamente? Se no, la transazione è illegale;
+3) Tutti gli script del contratto della transazione sono stati eseguiti correttamente? Se no, la transazione è illegale;
 
 4) C'è una "spesa multipla" nella transazione? Se si, la transazione è illegale;
 
-5) Se la transazione non è stata dichiarata illegale nelle procedure di cui sopra, sarà giudicata legale;
+5) Se la transazione non è stata dichiarata illegale nelle suddette procedure, sarà giudicata legale;
 
 ### Cambi di View
 
-Se, dopo l'intervallo di tempo 2<sup>𝑣+1</sup> ⋅ 𝑡, i nodi i non possono raggiungere il consenso o dovrebbero ricevere proposte contenenti transazioni illegali, avrà luogo il cambio View: 
+Se, dopo l'intervallo di tempo 2<sup>𝑣+1</sup> ⋅ 𝑡, i nodi i non possono raggiungere il consenso o se dovessero ricevere proposte contenenti transazioni illegali, avrà luogo il cambio View: 
 
 1) Dato k=1, 𝑣<sub>𝑘</sub> = 𝑣 + 𝑘 ;
 
 2) I nodi i inviano una richiesta di Cambio di View 〈𝐶ℎ𝑎𝑛𝑔𝑒𝑉𝑖𝑒𝑤,ℎ,𝑣,𝑖,𝑣<sub>𝑘</sub>〉 ;
 
-3) Una volta che un nodo riceve almeno 𝑛 − 𝑓  uguali v<sub>k</sub> da un differente i, il cambio di View è completo. Stabilito 𝑣 = 𝑣<sub>𝑘</sub> il processo di consenso inzia;
+3) Una volta che un nodo riceve almeno 𝑛 − 𝑓  uguali v<sub>k</sub> da un i diverso, il cambio di View è completo. Stabilito 𝑣 = 𝑣<sub>𝑘</sub> il processo di consenso inzia;
 
 4) Se, l'intervallo di tempo 2<sup>𝑣+1</sup> ⋅ 𝑡, il cambio di View non è completato, il valore k aumenterà e ritornerà allo step 2);
 
-Con l'aumentare di k, il tempo di attesa per gli straordinari aumenterà in modo esponenziale, quindi frequenti cambiamenti di View verranno evitati e i nodi verranno sollecitati a raggiungere la coerenza su v.
+Con l'aumentare di k, il tempo di attesa extra aumenterà in modo esponenziale, quindi frequenti cambiamenti di View verranno evitati e i nodi verranno sollecitati a raggiungere la coerenza su v.
 
-Prima del completamento del cambio di View, l'originale View v è ancora valida, quindi possono essere evitati cambiamenti non necessari di View causati da latenza occasionale della rete. 
+Prima del completamento del cambio di View, l'originale View v è ancora valida, dunque i cambiamenti non necessari di View causati da una latenza occasionale della rete possono essere evitati. 
 
 ### Diagramma di Flusso
 
@@ -98,10 +98,9 @@ La richiesta di dati dai nodi contiene le firme dei mittenti, quindi i nodi book
 
 Ipoteticamente, nell'ambiente di sistema della rete, i nodi di consenso sono divisi in 3 parti: 𝑅 = 𝑅1 ∪ 𝑅2 ∪ 𝐹 , e 𝑅1 ∩ 𝑅2 = ∅ , 𝑅1 ∩ 𝐹 = ∅ ，𝑅2 ∩ 𝐹 = ∅ . Anche ipoteticamente,
 entrambi R1 e R2 sono nodi bookkeeping onesti in un silo di informazioni che possono comunicare solo con i nodi nel loro set; F sono tutti nodi malevoli in coordinazione; Inoltre, la condizione di rete di F consente loro di comunicare con qualsiasi nodo, inclusi R1 e R2.
-Se F desidera di forkare il sistema, devono raggiungere il consenso con R1 e pubblicare blocchi, e
-quindi raggiungere un secondo consenso senza informare R2, revocando il consenso con R1.
+Se F desidera forkare il sistema, devono raggiungere il consenso con R1 e pubblicare i blocchi, e quindi raggiungere un secondo consenso senza informare R2, revocando il consenso con R1.
 ​Per raggiungere questo, è necessario che |𝑅1| + |𝐹| ≥ 𝑛 − 𝑓 and |𝑅2| + |𝐹| ≥ 𝑛 − 𝑓 .
-Nel peggiore dei casi, |𝐹| = 𝑓​ , Cioè il numero dei nodi malevoli è il massimo che il sistema può tollerare e la relazione summenzionata diventa |𝑅1| ≥ 𝑛 − 2𝑓​ e ​|𝑅2| ≥ 𝑛 − 2𝑓. Sommate insieme, |𝑅1| + |𝑅2| ≥ 2𝑛 − 4𝑓​, il quale può essere semplificato come ​𝑛 ≤ 3𝑓. Dato che 𝑓 = ⌊ (𝑛−1) / 3 ⌋, che contraddice il primo, può essere dimostrato che il sistema non può essere forkato all'interno del campo di tolleranza. 
+Nel peggiore dei casi, |𝐹| = 𝑓​ , Cioè il numero dei nodi malevoli è il massimo che il sistema può tollerare e la relazione summenzionata diventa |𝑅1| ≥ 𝑛 − 2𝑓​ e ​|𝑅2| ≥ 𝑛 − 2𝑓. Sommate insieme, |𝑅1| + |𝑅2| ≥ 2𝑛 − 4𝑓​, il quale può essere semplificato come ​𝑛 ≤ 3𝑓. Dato che 𝑓 = ⌊ (𝑛−1) / 3 ⌋, che contraddice il primo, può essere dimostrato che il sistema non può essere forkato all'interno del campo di tolleranza.
 
 ## Riferimenti 
 
