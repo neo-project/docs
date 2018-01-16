@@ -2,7 +2,7 @@
 
 Il NEO Namespace contiene una API fornita dalla blockchain NEO. I metodi delle API permettono di interrogare la blockchain e la manipolazione della memoria persistente.
 
-Nota: I tags `New` e `Deprecated` denotano cambiamenti tra la versione 1.6 e la versione 2.0.
+Nota: I tag `New` e `Deprecated` denotano cambiamenti tra la versione 1.6 e la versione 2.0.
 
 ## API di Sola Lettura
 
@@ -15,8 +15,8 @@ Blockchain Query API:
 | Neo.Blockchain.GetBlock       | Trova il blocco tramite l'altezza del blocco o l'hash del blocco                |
 | Neo.Blockchain.GetTransaction | Trova la transazione tramite l'ID della transazione                     |
 | Neo.Blockchain.GetAccount     | Ottiene un account basato sullo scripthash del contratto  |
-| Neo.Blockchain.GetValidators  | `New` Ottiene la chiave pubblica del Consensus Node          |
-| Neo.Blockchain.GetAsset       | Ottiene assets in base all'ID dell'asset                             |
+| Neo.Blockchain.GetValidators  | `New` Ottiene la chiave pubblica del Nodo di Consenso          |
+| Neo.Blockchain.GetAsset       | Ottiene l'asset in base all'ID dell'asset                             |
 | Neo.Blockchain.GetContract    | `New` Ottiene il contenuto del contratto basato sull'hash del contratto       |
 
 Block Class API::
@@ -25,11 +25,11 @@ Block Class API::
 | ----------------------------- | -------------------------- |
 | Neo.Header.GetHash            | Ottiene l'hash del blocco |
 | Neo.Header.GetVersion         | Ottiene il numero di versione del blocco |
-| Neo.Header.GetPrevHash        | Ottiene l'hash del precedente blocco |
+| Neo.Header.GetPrevHash        | Ottiene l'hash del blocco precedente |
 | Neo.Header.GetMerkleRoot      | Ottiene la radice Merkle Tree per tutte le transazioni in quel blocco |
 | Neo.Header.GetTimestamp       | Ottiene il timestamp del blocco |
-| Neo.Header.GetConsensusData   | Ottiene dati di consenso per questo blocco (pseudo numeri generati casualmente dal consensus node) |
-| Neo.Header.GetNextConsensus   | Ottiene il valore hash del prossimo contratto bokkeeper |
+| Neo.Header.GetConsensusData   | Ottiene dati sul consenso per questo blocco (pseudo numeri generati casualmente dal nodo di consenso) |
+| Neo.Header.GetNextConsensus   | Ottiene il valore hash del prossimo contratto bookkeeper |
 | Neo.Block.GetTransactionCount | Ottiene il numero delle transazioni nel blocco corrente |
 | Neo.Block.GetTransactions     | Ottiene tutte le transazioni nel blocco corrente           |
 | Neo.Block.GetTransaction      | Ottiene la transazione specificata nel blocco corrente  |
@@ -48,18 +48,18 @@ Transaction Class API:
 | Neo.Attribute.GetUsage        | Ottiene lo scopo della transazione |
 | Neo.Attribute.GetData         | Ottiene i dati extra al di fuori dello scopo della transazione |
 | Neo.Input.GetHash             | Ottiene l'hash della transazione precedente riferita |
-| Neo.Input.GetIndex            | L'indice dell'input nell'elenco di output della transazione precedente riferita |
+| Neo.Input.GetIndex            | L'indice dell'input nell'elenco output della transazione precedente riferita |
 | Neo.Output.GetAssetId         | Ottiene l'ID dell'asset |
 | Neo.Output.GetValue           | Ottiene l'hash dello script |
-| Neo.Output.GetScriptHash      | Ottiene la quantitá della transazione |
+| Neo.Output.GetScriptHash      | Ottiene l'importo della transazione |
 
 Account class API:
 
 | API | Descrizione |
 | ------------------------- | ------------------ |
-| Neo.Account.GetScriptHash | Ottiene l'hash script dell'account del contratto |
+| Neo.Account.GetScriptHash | Ottiene l'hash dello script dell'account del contratto |
 | Neo.Account.GetVotes      | Ottiene informazioni sui voti che questo account ha emesso |
-| Neo.Account.GetBalance    | Ottiene il saldo di questo asset nell'account fornito dell'ID|
+| Neo.Account.GetBalance    | Ottiene il saldo di questo asset nell'account, dato l'ID dell'asset|
 
 Asset class API:
 
@@ -78,7 +78,7 @@ Contract class API:
 
 | API | Descrizione |
 | ---------------------- | -------- |
-| Neo.Contract.GetScript | Ottiene lo scripthash del contract |
+| Neo.Contract.GetScript | Ottiene lo scripthash del contratto |
 
 Storage class API:
 
@@ -91,9 +91,9 @@ Runtime class API:
 
 | API | Descrizione |
 | ------------------------ | --------------------------------- |
-| Neo.Runtime.CheckWitness | `New` verifica che il contratto chiamante abbia verificato gli hash dello script richiesti della transazione/blocco |
-| Neo.Runtime.Notify       | `New` Notifica il client con una notificazione durante l'esecuzione di uno smart contract      |
-| Neo.Runtime.Log          | `New` Notifica il client con un messaggio log durante l'esecuzione di uno smart contract      |
+| Neo.Runtime.CheckWitness | `New` Verifica che il contratto chiamante abbia verificato gli hash dello script richiesti della transazione/blocco |
+| Neo.Runtime.Notify       | `New` Avverte il client con una notifica durante l'esecuzione di uno smart contract      |
+| Neo.Runtime.Log          | `New` Avverte il client con un messaggio di log durante l'esecuzione di uno smart contract      |
 
 Nota: Il codice sorgente puó essere trovato sotto `NEO` nel file `src/neo/SmartContract/StateReader.cs`.
 
@@ -114,4 +114,4 @@ Questo tipo di API modificherá lo stato dello smart contract
 | Neo.Storage.Put                | Inserisce un valore nella memoria permanente in base alla chiave specificata |
 | Neo.Storage.Delete             | Elimina un valore dalla memoria permanente in base alla chiave specificata |
 
-Nota: Il codice sorgente per le API sopra puó essere trovato sotto `NEO` nel file `src/neo/SmartContract/StateMachine.cs`.
+Nota: Il codice sorgente per le API soprastante puó essere trovato su `NEO` nel file `src/neo/SmartContract/StateMachine.cs`.
