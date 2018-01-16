@@ -1,19 +1,19 @@
-# Iniziare con neo-python
+# Introduzione di neo-python
 
 *Autore Principale: [@localhuman](https://github.com/localhuman)*
 
-neo-python, il nodo python e l'SDK per la blockchain NEO, permette di costruire, testare, ed eseguire smart contracts sulla blockchain Neo. Fornisce le seguenti funzionalità principali:
+neo-python, il nodo python e l'SDK per la blockchain NEO, permette di costruire, testare, ed eseguire smart contract sulla blockchain Neo. Fornisce le seguenti funzionalità principali:
 
 - Esecuzione di un nodo P2P basato su Python
 - CLI interattiva per la configurazione del nodo e l'ispezione della blockchain
-- Compilare, testare, implementare ed eseguire Smart Contracts scritti in python o qualsiasi Smart Contract in `.avm format`
+- Compilare, testare, implementare ed eseguire Smart Contract scritti in python o qualsiasi Smart Contract in `.avm format`
 - Funzionalitá del wallet conforme a [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) e [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 
 - Client RPC 
 - Monitoraggio degli eventi `Runtime.Log` e `Runtime.Notify` 
 
-## Installazione della liberira Python
+## Installazione della libreria Python
 
-Occorre installare la libreria libleveldb. Installa [Python 3.5](https://www.python.org/downloads/release/python-354/) per essere sicuro di non incombere in alcun problema con la tua versione di Python che potrebbe essere diversa dalle versioni correntemente mantenute. Nota che Python 3.6 non è correntemente supportato a causa della incompatibilità con il modulo byteplay.
+Occorre installare la libreria libleveldb. Installa [Python 3.5](https://www.python.org/downloads/release/python-354/) per essere sicuro di non incombere in alcun problema con la tua versione di Python che potrebbe essere diversa dalle versioni correntemente mantenute. Nota che Python 3.6 non è attualmente supportato a causa della sua incompatibilità con il modulo byteplay.
 
 **Per OSX**, inserire quanto segue:
 
@@ -71,11 +71,11 @@ Potresti aver bisogno di abilitare epel repo per il pacchetto leveldb-devel, ed 
 
 > [!Nota]
 >
-> Per tutto ciò, assicurati che la directory `Chains` nel tuo progetto abbia gli adeguati permessi di scrittura. 
+> Assicurati che la directory `Chains` nel tuo progetto abbia gli adeguati permessi di scrittura. 
 
 **Per Windows:**
 
-Attualmente non testato. Installare il pacchetto Python plyvel sembra richiedere il supporto del compilatore C++ legato a Visual Studio e librerie.
+Attualmente non testato. L'installazione del pacchetto Python plyvel sembra richiedere il supporto del compilatore C++ legato a Visual Studio e librerie.
 
 ## Configurazione dell'ambiente virtuale
 
@@ -113,7 +113,7 @@ Attualmente non testato. Installare il pacchetto Python plyvel sembra richiedere
 > - Se stai aggiornando neo-python con `git pull`, assicurati di aggiornare le dipendenze con `pip install -r requirements.txt`.
 >
 >
-> - Se stai usando neo-python per la prima volta, occorre sincronizzare la blockchain, il quale potrebbe richiedere molto tempo. Incluso nel progetto vi è `bootstrap.py` per scaricare automaticamente la directory della chain per te. Per il bootstrap della testnet, esegui `python bootstrap.py`; Per il bootstrap della mainnet, usa `python bootstrap.py -m`.
+> - Se stai usando neo-python per la prima volta, occorre sincronizzare la blockchain, questo potrebbe richiedere molto tempo. Incluso nel progetto vi è `bootstrap.py` per scaricare automaticamente la directory della chain per te. Per il bootstrap della testnet, esegui `python bootstrap.py`; Per il bootstrap della mainnet, usa `python bootstrap.py -m`.
 
 ## Esecuzione del nodo basato su Python
 
@@ -131,7 +131,7 @@ Progress: 1054913 / 1237188
 neo>
 ```
 
-Puoi mostrare aiuto per vedere tutti gli argomenti disponibili:
+Puoi visualizzare l'aiuto per vedere tutti gli argomenti disponibili:
 
 ```python
 python prompt.py -h
