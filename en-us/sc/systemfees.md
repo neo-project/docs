@@ -29,7 +29,7 @@ All Smart Contract fees are considered as Service fee to be put in a pool for re
 | Transaction.GetReferences             | 0.2           |
 | Account.SetVotes                      | 1             |
 | Validator.Register                    | 1000          |
-| Asset.Create (system asset)           | 5000          |
+| Asset.Create (system asset)           | 4999          |
 | Asset.Renew (system asset) [per year] | 5000          |
 | Contract.Create                       | 500           |
 | Contract.Migrate                      | 500           |
