@@ -23,7 +23,7 @@ namespace Neo.SmartContract
 ```
 
 > [!Note]
-> If you do not know how to write and generate smart contract scripts, see [How to use C# to prepare Smart Contract](../getting-started.md)
+> If you do not know how to write and generate smart contract scripts, see [How to use C# to prepare Smart Contract](../getting-started-csharp.md)
 >
 
 The above contract will be compiled into Test.avm, its contract script (Test.avm binary data) is: 52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
