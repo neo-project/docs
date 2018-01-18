@@ -1,15 +1,15 @@
 # Impostazioni e Logging
 
-neo-python ha un modulo impostazioni che puoi usare per configurare diverse cose:
+neo-python ha un modulo impostazioni che puoi usare per configurare diverse variabili:
 
 - La rete: MainNet, TestNet, reti private o configurazioni personalizzate
 - Logging:
 
-  - Smart contract event logging
-  - Logfile (opzionalmente rotativo)
+  - Logging di eventi degli smart contract
+  - Logfile (facoltativamente rotativo)
   - Loglevel
 
-Per modificare le impostazioni, importa l'istanza delle impostazioni come questa:
+Per modificare le impostazioni, importa l'istanza delle impostazioni come segue:
 
 ```
 from neo.Settings import settings
@@ -28,15 +28,15 @@ settings.setup(config_file)
 
 ```
 
-Di default, `neo-python` usa la TestNet.
+Di default `neo-python` usa la TestNet.
 
 ## Logging
 
-neo-python usa le seguenti predefinite:
+neo-python usa le seguenti caratteristiche di default:
 
 - Tutti gli eventi degli smart contracts sono registrati con loglevel INFO
-- loglevel è configurato su INFO
-- logging in un logfile è diasattivato (prompt.py logs a prompt.log)
+- Loglevel è configurato su INFO
+- Il logging in un logfile è disattivato (prompt.py logs a prompt.log)
 
 ### Eventi Smart Contract
 
@@ -77,7 +77,7 @@ settings.set_logfile(your_logfile_path, 1e7, 3)
 
 ### Logging in codice personalizzato
 
-neo-python usa [logzero](https://logzero.readthedocs.io/) per il logging. Per usare alogger con l'esistente configurazione logging NEO, puoi semplicemente importare il logger da logzero:
+neo-python usa [logzero](https://logzero.readthedocs.io/) per il logging. Per usare un logger con l'esistente configurazione logging NEO, puoi semplicemente importare il logger da logzero:
 
 ```
 from logzero import logger
