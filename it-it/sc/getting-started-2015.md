@@ -2,19 +2,19 @@
 
 Correntemente raccomandiamo C# per lo sviluppo di smart contract (anche se supportiamo o pianifichiamo di supportare Java, Kotlin, Go, C/C + +, Python, JavaScript e altri linguaggi di programmazione)
 
-Questa sezione contiene un breve tutorial che ti guida nella configurazione dell'ambiente di sviluppo in C# per gli smart contract NEO e inoltre da un'idea su come creare un progetto smart contract e come compilarlo.
+Questa sezione contiene un breve tutorial che ti guida nella configurazione dell'ambiente di sviluppo in C# per gli smart contract NEO e inoltre ti da un'idea su come creare un progetto smart contract e come compilarlo.
 
 ## Strumenti di sviluppo
 
 ### 1. Visual Studio 2015
 
-Metodo di scaricamente e installazione:
+Metodo di scaricamento e installazione:
 
 Se hai già installato Visual Studio 2015 (qualsiasi versione) sul tuo computer, puoi saltare questa sezione.
 
 Visual Studio 2015 è stato rimosso dalla Home del sito web, ma può essere scaricato.
 
-Apri la [pagina di download della versione precedente di Visual Studio](https://www.visualstudio.com/en/vans/vs/older-downloads/), cliccare `free to join`
+Aprire la [pagina di download della versione precedente di Visual Studio](https://www.visualstudio.com/en/vans/vs/older-downloads/), cliccare `free to join`
 
    ![](assets/install_core_cross_platform_development_toolset.jpg)
 
@@ -25,13 +25,13 @@ Utilizzare il proprio account di accesso Microsoft, inserire Visual Studio Dev E
 Nel box di ricerca, Inserire Visual Studio Community 2015 con Update 3, e quindi selezionare i risultati della ricerca in una buona versione, linguaggio, etc., cliccare la parte sinistra del bottone `download`
 ![image](assets/2017-05-10_13-45-48.jpg)
 
-Il metodo di installazione e il software generale sono fondamentalmente gli stessi, il processo di installazione senza la necessità di selezionare funzionalità aggiuntive, è possibile installare solo la parte principale di VS2015
+Il metodo di installazione e il software generale sono fondamentalmente gli stessi, processo di installazione senza la necessità di selezionare funzionalità aggiuntive, è possibile installare solo la parte principale di VS2015
 
 ![image](assets/2017-05-10_9-48-54.jpg)
 
 ### 2. NET Core strumenti Preview 2 per Visual Studio 2015
 
-Metodo di scaricamente e installazione:
+Metodo di scaricamento e installazione:
 
 Aprire la [pagina di download .Net Core](https://www.microsoft.com/net/download/core)
 
@@ -43,7 +43,7 @@ Scaricare e installare NET Core strumenti Preview 2 per Visual Studio 2015
 
 Metodo di installazione:
 
-Aprire Visual Studio 2015, aprire lo strumento, esteso e aggiornato, cliccare sulla sinistra per la ricerca online dell'installazione di NEO, Neo.SmartContract
+Aprire Visual Studio 2015, aprire lo strumento, esteso e aggiornato, cliccare sulla parte sinistra per la ricerca online dell'installazione di NEO, Neo.SmartContract
 
 ![image](assets/2017-05-10_15-50-48.jpg)
 
@@ -60,7 +60,7 @@ Dopo il completamento della compilazione, il file neon.exe sarà generato in `bi
    > 
    > Se il tuo computer ha un sistema operativo a 32 bit, devi cambiare win10-x64 nel file project.json a win10-x86
 
-Ora devi aggiungere un percorso, in modo che qualsiasi posizione possa accedere al programma. Per aggiungere il metodo del percorso, apri le proprietà del computer (o accendere il pannello di controllo, sistema e sicurezza, sistema), apri le impostazioni di sistema avanzate, seleziona la scheda Avanzate, fare clic sul pulsante della variabile di ambiente, come mostrato in figura
+Ora occorre aggiungere un percorso, in modo che qualsiasi posizione possa accedere al programma. Per aggiungere il metodo del percorso, aprire proprietà del computer (o accedere al pannello di controllo, sistema e sicurezza, sistema), aprire le impostazioni di sistema avanzate, seleziona la scheda Avanzate, fare clic sul pulsante della variabile di ambiente, come mostrato in figura
 
 ![image](assets/2017-05-10_18-37-05.jpg)
 
@@ -117,9 +117,9 @@ Dopo la compilazione con successo, vedrai il file `SmartContract1.avm` generato 
 
 
 !Nota:
-   Se lo hai generato, non c'è output dei risultati della mappa, non importa, è possibile inserire direttamente il comando per compilare il file dll avm
+   Se lo hai generato, e non vi è un output dei risultati della mappa, non importa, è possibile inserire direttamente il comando per compilare il file dll avm
 
-   Aprire il prompt dei comandi, navigare alla directory Debug, inserire quanto selezionato seguentemente (SmartContract1.dll è il nome del dll generatodal precedente step).
+   Aprire il prompt dei comandi, navigare fino alla directory Debug, inserire quanto selezionato seguentemente (SmartContract1.dll è il nome del dll generatodal precedente step).
 ```
 	> C: \ ... \ bin \ Debug> `./neon SmartContract1.dll`
 	>
@@ -136,4 +136,4 @@ Dopo la compilazione con successo, vedrai il file `SmartContract1.avm` generato 
 	> C: \ ... \ bin \ Debug>
 ```
 
-Adesso che hai completato la configurazione dell'ambiente di sviluppo dello smart contract, si prega di fare riferimento a [Art Experiment Guide per Tomids](tutorial.md)
+Adesso, una volta completata la configurazione dell'ambiente di sviluppo dello smart contract, si prega di fare riferimento a [Art Experiment Guide per Tomids](tutorial.md)
