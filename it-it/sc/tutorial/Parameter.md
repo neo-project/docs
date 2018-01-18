@@ -1,6 +1,6 @@
 # Parametri dello Smart Contract e Valori Restituiti
 
-Nell'implementazione o invocazione di uno smart contract, occorre specificare i parametri dello smart contract, I paramentri dello smart contract sono tipi di bytes, definiti nel modo seguente.
+Nell'implementazione o invocazione di uno smart contract, occorre specificare i parametri dello smart contract. I parametri dello smart contract sono tipi di byte definiti come segue.
 
 ```c#
      /// <summary>
@@ -53,5 +53,5 @@ public class Lock : SmartContract
 ```
 Usando l'enum sopra, int é rappresentato come 2, bool come 1, la chiave pubblica come 6 e la firma come 0.
 
-Nella compilazione dei parametri tramite il client del PC, usare due caratteri esadecimali per la compilazione di ogni parametro. Pertanto gli argomenti per la funzione di sopra scritti come : 02010600, restituiscono: 01.
+Quando si compilano i parametri tramite il client del PC, usare due caratteri esadecimali per la compilazione di ogni parametro. Pertanto gli argomenti per la funzione precedente sono scritti come : 02010600, restituiscono: 01.
 
