@@ -1,12 +1,12 @@
 # NEO Namespace
 
-Il NEO namespace e l'API fornita dalla blockchain NEO, realizzando un modo per accedere ai dati della blockchain e manipolare la memoria persistente. Queste API sono divise in due categorie:
+Il NEO namespace e l'API fornita dalla blockchain NEO, che fornisce un modo per accedere ai dati della blockchain e manipolare la memoria persistente. Queste API sono divise in due categorie:
 
-1. Registro blockchain. Il contratto puó accedere a tutti i dati dell'intera blockchain attraverso al livello di interoperabilitá, inclusi blocchi e transazioni, cosí come ongiuno dei loro campi.
+1. Registro blockchain. Il contratto puó accedere a tutti i dati dell'intera blockchain attraverso al livello di interoperabilitá, inclusi blocchi e transazioni, cosí come ognuno dei loro campi.
 
-2. Memoria persistente. Ogni applicazione contratto implementata su NEO ha uno spazio di memmoria al quale puó accedere solo il contratto stesso. Questi metodi forniti possono accedere ai dati nel contratto.
+2. Memoria persistente. Ogni applicazione contratto distribuito su NEO ha uno spazio di memoria al quale puó accedere solo il contratto stesso. Questi metodi forniti possono accedere ai dati nel contratto.
 
-Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti della versione 2.0 relativi alla versione 1.6.
+Nota: I tag `New` e `Deprecated` di questo articolo sono cambiamenti della versione 2.0 relativi alla versione 1.6.
 
 ## Classe
 
@@ -20,13 +20,13 @@ Nota: I tags `New` e `Deprecated` di questo articolo sono cambiamenti della vers
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Enrollment](neo/Enrollment.md)    | `New` Rappresenta la struttura dati della transazione registrata da un bookkeeper. |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Header](neo/Header.md)            | Rappresenta la struttura dati dell'intestazione di un blocco           |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Runtime](neo/Runtime.md)          | `New` Fornisce un set di metodi durante l'esecuzione di uno smart contract.   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Fornisce un set di metodi per inserire, interrogare, o eliminare dati da una memoria persistente.   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Storage](neo/Storage.md)          | Fornisce un set di metodi per inserire, interrogare o eliminare dati da una memoria persistente.   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [StorageContext](neo/StorageContext.md) | `New` Una classe rappresentante il contesto di memoria dell'archivio persistente. |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)  |  La classe base rappresentante la transazione            |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | La struttura dati rappresentante gli attributi della transazione          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | La struttura dati rappresentante gli inputs della transazione        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](neo/TransactionOutput.md) | La struttura dati rappresentante gli outputs della transazione         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](neo/Validator.md)      | `New` Fornisce un set di metodi per i consensus nodes      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Transaction](neo/Transaction.md)  |  La classe base rappresentante la transazione.            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionAttribute](neo/TransactionAttribute.md) | La struttura dati rappresentante gli attributi della transazione.          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionInput](neo/TransactionInput.md) | La struttura dati rappresentante gli input della transazione.        |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [TransactionOutput](neo/TransactionOutput.md) | La struttura dati rappresentante gli output della transazione.         |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [Validator](neo/Validator.md)      | `New` Fornisce un set di metodi per i nodi di consenso.      |
 
 ## Enumerazione
 
