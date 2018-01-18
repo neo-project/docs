@@ -2,7 +2,7 @@
 
 Il compilatore `neo-boa` è uno strumento utilizzato per compilare i file Python nel formato `.avm` da essere usati nella [Macchina Virtuale Neo](https://github.com/neo-project/neo-vm/) utilizzata per eseguire contratti sulla [Blockchain Neo](https://github.com/neo-project/neo/).
 
-Il compilatore supporta un sottoinsieme del linguaggio Python (nello stesso modo in cui un *serpente boa* é un sottoinsieme delle specie di serpenti Python (Pitone)) e attualmente funziona con Python 3.4 e 3.5.
+Il compilatore supporta un sottoinsieme del linguaggio Python (nello stesso modo in cui un *boa costrittore* é un sottoinsieme delle specie di serpenti Python (Pitone)) e attualmente funziona con Python 3.4 e 3.5.
 
 ## Installazione del compilatore neo-boa
 
