@@ -2,7 +2,7 @@
 typora-root-url: ..\..
 ---
 
-### How to use C# to write an NEO smart contract
+### How to use C# to write a NEO smart contract
 
 We currently recommend C# for developing smart contracts (though we support or plan to support Java, Kotlin, Go, C/C++, Python, JavaScript and other programming languages).
 
