@@ -61,7 +61,7 @@ namespace Neo.SmartContract
 }
 ```
 
-Il contratto implementa un sistema dei nomi di dominio, dove i nomi di dominio puntano i dati sulla blockchain. Non é il vero sistema dei nomi di dominio di internet.
+Il contratto implementa un sistema dei nomi di dominio, dove i nomi di dominio puntano ai dati sulla blockchain. Non é il vero sistema dei nomi di dominio di internet.
 
 Il codice sopra implementa query, registrazione, trasferimento e cancellazione di nomi di dominio.
 
