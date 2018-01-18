@@ -34,7 +34,7 @@ $ python prompt.py
 
 - **-t {dark,light}, --set-default-theme {dark,light}**
 
-  Imposta il tema predefinito da caricare dal file config. Predefinito: 'dark'
+  Imposta il tema predefinito da caricare dal file di configurazione. Il predefinito è: 'dark'
 
 - **--version**
 
@@ -57,7 +57,7 @@ La seguente tabella elenca tutti i comandi disponibili del wallet.
 | `import nep2 <address>`                  | Importa un indirizzo come [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) chiave privata criptata |
 | `import watch_addr <address>`            | Importa un indirizzo "watch only"              |
 | `import contract_addr <script_hash> <pubkey>` | Importa l'indirizzo di uno smart contract          |
-| `send <asset_ID> <address> <amount> [from_address]` | Invia assets all'indirizzo specificato     |
+| `send <asset_ID> <address> <amount> [from_address]` | Invia asset all'indirizzo specificato     |
 | `wallet delete_addr <address>`           | Elimina un indirizzo                       |
 
 ### Dettagli ed Esempi
@@ -131,7 +131,7 @@ Wallet {
 
 **Ricostruire l'indice del wallet**
 
-Se il tuo wallet si sta comportando inaspettatamente o hai importato un nuovo indirizzo nel tuo wallet, è una buona idea ricostruire l'indice del tuo wallet. Cioé far sincronizzare il wallet dall'inizio della chain. Opzionalmente, é possibile specificare un numero di un blocco per iniziare la sincronizzazione da quel livello.
+Se il tuo wallet si sta comportando in modo imprevisto o se hai importato un nuovo indirizzo nel tuo wallet, è una buona idea ricostruire l'indice del tuo wallet. Cioé far sincronizzare il wallet dall'inizio della chain. Opzionalmente, é anche possibile specificare un numero di un blocco in modo da iniziare la sincronizzazione da quel livello.
 
 ```
 neo> wallet rebuild 700000
@@ -165,7 +165,7 @@ neo>
 
 **Esportare WIF**
 
-Potresti voler esportare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) dal tuo wallet da usare in un altro programma. specifica l'indirizzo del `WIF` che vorresti esportare.
+Potresti voler esportare una chiave [WIF](https://en.bitcoin.it/wiki/Wallet_import_format) dal tuo wallet da usare in un altro programma. Specifica l'indirizzo del `WIF` che vorresti esportare.
 
 ```
 neo> export wif AXjaFSP23Jkbe6Pk9pPGT6NBDs1HVdqaXK
@@ -212,7 +212,7 @@ neo>
 
 **Importa l'indirizzo di uno Smart Contract**
 
-Potresti avere uno smart contract implementato dal quale vorresti utilizzare i fondi. Dipendendo da come è stato programmato, potrebbe esserti permesso di usare i fondi come se fossero i tuoi. In questo caso, puoi importare l'indirizzo di un contratto specificando lo `script_hash`del contratto e la `public key` dell'indirizzo nel tuo wallet con il quale vuoi associare il contratto. L'indirizzo di un contratto può essere eliminato dal tuo wallet nello stesso modo di un normale indirizzo.
+Potresti avere uno smart contract già implementato dal quale vorresti utilizzarne i fondi. Dipendendo da come è stato programmato, potrebbe esserti permesso di usare i fondi come se fossero tuoi. In questo caso, puoi importare l'indirizzo di un contratto specificando lo `script_hash` del contratto e la `public key` dell'indirizzo nel tuo wallet con il quale vuoi associare il contratto. L'indirizzo di un contratto può essere eliminato dal tuo wallet nello stesso modo di un normale indirizzo.
 
 ```
 # import contract_addr {script_hash} {pubkey}
@@ -231,7 +231,7 @@ neo>
 
 **Note aggiuntive**
 
-per eseguire il prompt in mainnet, puoi usare l'argomento cli `-m`:
+per eseguire il prompt nalla MainNet, puoi usare l'argomento cli `-m`:
 
 ```
 $ python prompt.py -h
@@ -245,7 +245,7 @@ optional arguments:
 
 ```
 
-Su OSX, se ti piacerebbe eseguire il processo in background, anche quando il tuo computer é in standby, puoi usare il comando `caffeinate`
+Su OSX, se si desidera eseguire il processo in background, anche quando il tuo computer é in standby, é possibile usare il comando `caffeinate`
 
 ```
 caffeinate python prompt.py
@@ -259,9 +259,9 @@ caffeinate python prompt.py
 send <asset_name> <address to> <amount> [from_addr]
 ```
 
-### Esempio - Invio basico
+### Esempio - Invio semplice
 
-In questo caso, l'asset viene scelto dai tuoi indirizzi per te, e potrebbe venire da più indirizzi. il `change_address` della transazione è uno degli indirizzi nel tuo wallet.
+In questo caso, gli asset vengono scelti dai tuoi indirizzi per te e potrebbero provenire da più indirizzi. il `change_address` della transazione è uno degli indirizzi nel tuo wallet.
 
 ```python
 neo> send gas AeU8kTJxynwkT3q9ao8aDFuaRJBkU3AfFG 11
@@ -285,7 +285,7 @@ neo>
 
 ### Importa un token compatibile con il protocollo NEP5
 
-Potresti voler osservare o interagire con i tokens `NEP5` con il tuo wallet. Per poterlo fare, devi prima registrare il tuo wallet per osservare un token, come mostrato sotto.
+Potresti voler osservare o interagire con i token `NEP5` con il tuo wallet. Per poterlo fare e osservare un token devi prima registrare il tuo wallet, come mostrato di seguito.
 
 ```python
 neo> import token f8d448b227991cf07cb96a6f9c0322437f1599b9
