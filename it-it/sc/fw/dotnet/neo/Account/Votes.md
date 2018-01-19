@@ -1,6 +1,6 @@
 # Proprietà Account.Votes
 
-Restituisce le informazioni sui voti che questo account ha lanciato per gli altri.
+Restituisce le informazioni sui voti che questo account ha rilasciato per gli altri.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
