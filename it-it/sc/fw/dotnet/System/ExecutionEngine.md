@@ -1,6 +1,6 @@
 # Classe ExecutionEngine 
 
-Il motere di esecuzione della macchina virtuale, permette l'accesso al caller e al container di esecuzione.
+Il motore di esecuzione della macchina virtuale, permette l'accesso al chiamante e al container di esecuzione.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../System.md)
 
