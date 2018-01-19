@@ -1,6 +1,6 @@
 # Classe Account
 
-Sarebe la classe che rappresenta l'account, fornisce un modo per interrogare il saldo. Qui l'account si riferisce all'hash dello script del contratto il quale corrisponde all'indirizzo sulla blockchain.
+Sarebe la classe che rappresenta l'account, fornisce un modo per interrogare il saldo. Qui l'account si riferisce all'hash dello script del contratto il quale corrisponde un'indirizzo sulla blockchain.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
