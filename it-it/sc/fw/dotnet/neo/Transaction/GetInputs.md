@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.TransactionInput[] GetInputs()
 ```
 
-Valore Restituito: Tutti gli input di transazione per la transazione corrente come array [TransactionInput](../TransactionInput.md).
+Valore Restituito: Tutti gli input della transazione corrente come un array [TransactionInput](../TransactionInput.md).
 
 ## Esempio
 
