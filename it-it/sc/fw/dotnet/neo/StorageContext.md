@@ -2,7 +2,7 @@
 
 La classe che rappresenta il contesto di memoria dell'archivio persistente.
 
-Lo smart contract puó ottenere il suo contesto di memoria tramite Storage.CurrentContext e passare il contesto come un argomento agli altri contratti (come modo di autorizzazione), permettendo agli altri contratti di chiamare i metodi lettura/scrittura per i loro archivi persistenti.
+Lo smart contract puó ottenere il suo contesto di memoria tramite Storage.CurrentContext e passare il contesto come un argomento agli altri contratti (come modo di autorizzazione), permettendo agli altri contratti di chiamare i metodi di lettura/scrittura per i loro archivi persistenti.
 
 Nota: Differisce dalla versione 1.6.
 
