@@ -16,7 +16,7 @@ public class Asset
 
 | | Nome | Descrizione |
 | ---------------------------------------- | ------------------------------- | ------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Admin](Asset/Admin.md) | Restituisce l'amministratore (indirizzo del contratto) dell'asset che ha il diritto di modificare gli attributi dell'asset (come totale, nome, etc) |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Admin](Asset/Admin.md) | Restituisce l'amministratore (indirizzo del contratto) dell'asset che ha il diritto di modificare gli attributi dell'asset (come totale, nome, ecc.) |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Amount](Asset/Amount.md) | Restituisce la quantitá totale dell'asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](Asset/AssetId.md) | Restituisce l'ID dell'asset |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetType](Asset/AssetType.md) | Restituisce il tipo di questo asset |
