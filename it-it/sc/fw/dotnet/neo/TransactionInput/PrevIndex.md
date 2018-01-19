@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern ushort PrevIndex {get;}
 ```
 
-Valore dell'attributo: Numero indice che inizia da 0 come intero corto senza segno.
+Valore dell'attributo: Numero indice che inizia da 0 come numero intero corto senza segno.
 
 
 
