@@ -2,9 +2,9 @@
 
 Per il rinnovo dell'asset.
 
-Il metodo è nuovo nella versione 2.0; dopo la registrazione, gli asset dovranno pagare una commissione annuale, altrimenti entrerà nello stato congelato.
+Il metodo nella versione 2.0 è nuovo; dopo la registrazione, gli asset dovranno pagare una commissione annuale, altrimenti entrerà nello stato di congelamento.
 
-Quando l'asset scade, è necessario rinnovare l'asset. Quando l'asset non è congelato, la commissione di rinnovo estenderà la data dalla data di scadenza dell'asset. Quando l'asset è congelato, la commissione di rinnovo sarà considerata dal punto di pagamento. Perciò, non ci saranno arretrati dopo aver pagato la commissione di rinnovo.
+Quando l'asset scade, è necessario rinnovare l'asset. Quando l'asset non è congelato, la commissione di rinnovo estenderà la data da quella di scadenza dell'asset. Quando l'asset è congelato, la commissione di rinnovo sarà considerata dal punto di pagamento. Perciò, non ci saranno arretrati dopo aver pagato la commissione di rinnovo.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -16,9 +16,9 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Renew (byte years)
 ```
 
-Parametri: Periodo di rinnovo, un anno equivale a 2,000,000 blocchi, tipo di byte.
+Parametri: Periodo di rinnovo, un anno equivale a 2,000,000 blocchi, tipologia di byte.
 
-Valore restituito: L'altezza del blocco fino alla quale è possibile utilizzare l'asset, dopo il rinnovo. 
+Valore restituito: L'altezza del blocco fino alla quale è possibile utilizzare l'asset dopo il rinnovo. 
 
 ## Esempio
 
@@ -37,4 +37,4 @@ public class Contract1: FunctionCode
 
 
 
-[ndietro](../Asset.md)
+[Indietro](../Asset.md)
