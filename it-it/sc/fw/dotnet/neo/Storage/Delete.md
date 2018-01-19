@@ -18,7 +18,7 @@ Context: Contesto di archiviazione come [StorageContext](../StorageContext.md).
 
 Key: Chiave come array di byte.
 
-Valore restituito: Vuoto.
+Valore Restituito: Vuoto.
 
 ## Esempio
 
