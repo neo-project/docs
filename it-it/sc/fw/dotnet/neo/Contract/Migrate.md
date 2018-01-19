@@ -1,6 +1,6 @@
 #  Metodo (byte[], byte[], byte, bool, string, string, string, string, string) Contract.Migrate
 
-Migrare/rinnovare smart contract. Questo metodo è simile a `Contract.Create`, l'unica differenza è che questo metodo aggiunge la logica per la migrazione dell'archivio persistente privato. Quando si esegue questo metodo, migrerà tutti i **dati esistenti** dall'archivio permanente al nuovo contratto.
+Migrare/rinnovare smart contract. Questo metodo è simile a `Contract.Create`, l'unica differenza è che questo metodo aggiunge la logica per la migrazione dell'archivio persistente privato. Quando viene eseguito, questo metodo migrerà tutti i **dati esistenti** dall'archivio permanente al nuovo contratto.
 
 Se il contratto non utilizza l'archivio persistente, `Contract.Migrate` è funzionalmente lo stesso di `Contract.Create`.
 
@@ -18,7 +18,7 @@ Parametri:
 
 script: Il bytecode del contratto come un array di byte.
 
-parameter_list: Elenco dei parametri come un array di byte. fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
+parameter_list: Elenco dei parametri come un array di byte. Fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
 return_type: Restituisce il tipo come un byte. Fare riferimento a [Parametri Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
