@@ -1,6 +1,6 @@
 # Proprietà Asset.ScriptHash 
 
-Restituisce l'amministratore (indirizzo del contratto) dell'asset. L'amministratore ha il diritto di modificare gli attributi dell'asset (come quantità totale, nome, etc.).
+Restituisce l'amministratore (indirizzo del contratto) dell'asset. L'amministratore ha il diritto di modificare gli attributi dell'asset (come quantità totale, nome, ecc.).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
