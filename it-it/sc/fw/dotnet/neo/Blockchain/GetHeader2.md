@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(uint height)
 ```
 
-Parametri: Block Height come integer non firmato.
+Parametri: Altezza di blocco come integer non firmato.
 
 Valore restituito: [Header](../Header.md).
 
