@@ -1,6 +1,6 @@
 # Proprietà ExecutionEngine.EntryScriptHash 
 
-Restituisce lo scripthash dei punti di entrata del contratto (nella chain di invocazione del contratto)
+Restituisce lo scripthash del contratto in esecuzione.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
