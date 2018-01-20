@@ -1,6 +1,6 @@
 # Proprietà Asset.Available
 
-Restituisce la quantità di asset che è stato emesso.
+Restituisce la quantità di asset emesso.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
