@@ -92,6 +92,7 @@
       href: sc/getting-started-java.md
     - name: はじめに（Python）
       href: sc/getting-started-python.md
+      items:
       - name: プロンプトの使用
         href: sc/python/prompt.md
       - name: 設定とロギング
