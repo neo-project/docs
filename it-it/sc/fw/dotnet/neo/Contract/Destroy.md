@@ -1,6 +1,6 @@
 # Metodo () Contract.Destroy 
 
-Distruzione di smart contract. Lo smart contract pubblicato sulla blockchain non può essere distrutto dall'esterno, quindi se il contratto deve essere distrutto, la logica deve essere scritta durante lo sviluppo.
+Distruzione degli smart contract. Lo smart contract pubblicato sulla blockchain non può essere distrutto dall'esterno, quindi se il contratto deve essere distrutto, la logica deve essere scritta durante lo sviluppo.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
