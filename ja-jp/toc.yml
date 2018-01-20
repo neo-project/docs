@@ -92,6 +92,14 @@
       href: sc/getting-started-java.md
     - name: はじめに（Python）
       href: sc/getting-started-python.md
+      - name: プロンプトの使用
+        href: sc/python/prompt.md
+      - name: 設定とロギング
+        href: sc/python/logging.md
+      - name: スマートコントラクトとの相互作用
+        href: sc/python/smartcont.md
+      - name: テスト
+        href: sc/python/tests.md
       - name: Pythonコンパイラ
         href: sc/python/compiler.md
     - name: チュートリアル
