@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern long GetBalance (byte[] asset_id)
 ```
 
-Parametri: Asset ID, the transaction ID of the RegisterTransaction when the asset is registered. It is a byte array of length 32.
+Parametri: Asset ID, l'ID della transazione di RegisterTransaction quando l'asset è registrato. È una matrice di byte di lunghezza 32.
 
-Valore restituito: The balance of the assets in the account as a long, equal to the actual amount multiplied by 100,000,000.
+Valore restituito: Il saldo degli asset nell'account come lungo, uguale alla quantità effettiva moltiplicata per 100.000.000.
 
 ## Esempio
 
