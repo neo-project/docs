@@ -1,6 +1,6 @@
 # Metodo () Transaction.GetReferences 
 
-Restituisce tutti gli output di transazione a cui fanno riferimento gli input di transazione della transazione.
+Restituisce tutti gli output di transazione a cui fanno riferimento gli input della transazione.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
