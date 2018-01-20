@@ -20,15 +20,15 @@ asset_type: Un tipo di asset come byte. Per dettagli, si prega di far riferiment
 
 name: Il nome dell'asset come stringa.
 
-amount: Il nome dell'asset come lungo. Qui il valore in input dovrebbe essere inteso come valore moltiplicato per 100,000,000.
+amount: La quantità dell'asset come lungo. Qui il valore in input dovrebbe essere inteso come valore moltiplicato per 100,000,000.
 
-precision: La divisione più piccola dell'asset，O il numero di posti decimali che l'asset può prendere come byte. 
+precision: La divisione più piccola dell'asset, o il numero di posti decimali che l'asset può prendere come byte. 
 
 owner: La chiave pubblica del proprietario come array di byte di lunghezza 33.
 
 admin: L'indirizzo del contratto dell'amministratore come array di byte di lunghezza 20.
 
-issuer: L'indirizzo di contratto dell'emittente come array di byte di lunghezza 20.
+issuer: L'indirizzo del contratto dell'emittente come array di byte di lunghezza 20.
 
 Valore restituito: Il nuovo asset registrato come oggetto [Asset](../Asset.md).
 
