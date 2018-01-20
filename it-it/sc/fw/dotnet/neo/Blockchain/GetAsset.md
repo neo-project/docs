@@ -30,7 +30,7 @@ public class Contract1: FunctionCode
 }
 ```
 
-The asset ID can be obtained in advance and passed in as a parameter into smart contracts. The following uses the SDK to covert the hexstring into a byte array.
+L'ID dell'asset può essere ottenuto in anticipo e può essere passato come parametro negli smart contract. Quanto segue utilizza l'SDK per convertire la stringa esadecimale in una matrice di byte.
 
 ```c#
 Static void Main(string[] args)
