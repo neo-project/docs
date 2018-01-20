@@ -1,4 +1,3 @@
-
 # Documento Técnico del NeoContract 
 
 ## 1. Prefacio
@@ -14,10 +13,10 @@ La cadena de bloques NEO es una plataforma de activos y aplicaciones digitales, 
 Este artículo presentará las características del Neo Contract y explorará los detalles no técnicos. Consulta la documentación técnica para obtener detalles técnicos, consulta [aquí](http://docs.neo.org)
 
 ## 2. Características
+
 ### 2.1 Certeza
 
 Si un programa se ejecuta en equipos diferentes o en diferentes horas en el mismo equipo, el comportamiento del programa es determinista si se garantiza que la misma entrada debe producir la misma salida y viceversa.
-
 
 La cadena de bloques es un almacenamiento multipartito y un método computacional, donde los datos dentro de este sistema distribuido son el resultado de cálculos fiables, que no pueden ser manipulados. Los contratos inteligentes operan dentro de la red de cadenas de bloques, distribuida en los multi-nodos. Si un contrato inteligente no es determinista, los resultados de los diferentes nodos pueden ser inconsistentes. Como resultado, el consenso entre los nodos no puede ser alcanzado, y la red se estanca. Por lo tanto, en el diseño de un sistema de contrato inteligente, es necesario descartar cualquier factor que pueda conducir a un comportamiento no determinista.
 
@@ -66,7 +65,7 @@ NEO utiliza una NeoVM ligera (NEO Virtual Machine) como su entorno para la ejecu
 
 ### 2.3 Escalabilidad
 
-#### 2.3.1 Alta concurrencia y partición dinámic
+#### 2.3.1 Alta concurrencia y partición dinámica
 
 Cuando se discute la escalabilidad de un sistema, esto involucra dos áreas principales: la escala vertical y escala horizontal. El escalado vertical se refiere a la optimización del flujo de trabajo de procesamiento, permitiendo al sistema aprovechar al máximo la capacidad del equipo existente. Con este enfoque, los límites del sistema se alcanzan fácilmente, ya que la capacidad de procesamiento en serie se basa en el límite de hardware de un solo dispositivo. Cuando necesitamos escalar el sistema, ¿hay una manera de transformar el sistema en serie en un sistema paralelo? Teóricamente, simplemente habría que aumentar el número de dispositivos, y se podría alcanzar una escalabilidad casi ilimitada. ¿Podríamos conseguir escalamiento ilimitado en redes de cadenas de bloques distribuidas? En otras palabras, ¿puede una cadena de bloques ejecutar programas en paralelo?
 
@@ -87,8 +86,6 @@ El acoplamiento es una medida de la dependencia entre dos o más entidades. El s
 
 ## 3. Uso del Contrato
 
-
-
 ### 3.1 Verificación de Contratos
 
 A diferencia del sistema de cuentas de clave pública utilizado en Bitcoin, el sistema de cuentas de NEO utiliza el sistema de cuentas de contrato. Cada cuenta en NEO corresponde a un contrato de verificación y el valor hash del contrato de verificación es la dirección de la cuenta; la lógica del programa del contrato de verificación controla la propiedad de la cuenta. Al transferir desde una cuenta, primero se debe ejecutar el contrato de verificación para esa cuenta. Un contrato de validación puede aceptar un conjunto de parámetros (generalmente una firma digital u otros criterios) y devolver un valor booleano después de la verificación, indicando el éxito de la verificación al sistema.
@@ -98,7 +95,8 @@ El usuario puede implementar previamente el contrato de verificación en la cade
 ### 3.2 Contrato de Aplicación
 
 El contrato de aplicación se activa mediante una transacción especial, que puede acceder y modificar el estado global del sistema y el estado privado del contrato (área de almacenamiento) en tiempo de ejecución. Por ejemplo, se puede crear un activo digital global en un contrato, votar, guardar datos e incluso crear dinámicamente un nuevo contrato cuando se ejecuta el contrato.
-#La ejecución del contrato de aplicación requiere el cobro por instrucción. Cuando la comisión de transacción se consume, el contrato fallará y detendrá la ejecución, y todos los cambios de estado se revertirán. El éxito del contrato no afecta la validez de la transacción.
+
+La ejecución del contrato de aplicación requiere el cobro por instrucción. Cuando la comisión de transacción se consume, el contrato fallará y detendrá la ejecución, y todos los cambios de estado se revertirán. El éxito del contrato no afecta la validez de la transacción.
 
 ### 3.3 Contrato de Función 
 
@@ -115,6 +113,7 @@ NeoVM proporciona una capa de hardware virtual, para apoyar la ejecución de con
 **CPU**
 
 El CPU es responsable de leer y ordenar secuencialmente la ejecución de instrucciones en el contrato, de acuerdo con la función del control de flujo de instrucciones, las operaciones aritméticas y las operaciones lógicas. El futuro de la función de la CPU se puede ampliar, con la introducción de la función JIT (compilador en tiempo real), mejorando así la eficiencia de la ejecución de la instrucción.
+
 **Pila de llamadas**
 
 La pila de llamadas se utiliza para contener la información de contexto de la ejecución del programa en cada llamada de función, de modo que pueda continuar ejecutándose en el contexto actual después de que la función haya terminado de ejecutar y devolver.
@@ -148,7 +147,7 @@ La máquina virtual en la que se ejecuta el contrato inteligente es un entorno l
 
 ### 4.4 Función de depuración
 
-A menudo, el desarrollo de contratos inteligentes es muy difícil, debido a la falta de buenos métodos de depuración y pruebas. NeoV proporciona soporte de depuración de programas a nivel de máquina virtual, donde se puede establecer el punto de interrupción en el código de contrato, o de un solo paso, la ejecución de un solo proceso. Gracias al diseño de bajo acoplamiento entre la máquina virtual y la cadena de bloques, es fácil integrar NeoVM directamente con varios IDE, para proporcionar un entorno de prueba que sea consistente con el entorno de producción final.
+A menudo, el desarrollo de contratos inteligentes es muy difícil, debido a la falta de buenos métodos de depuración y pruebas. NeoVM proporciona soporte de depuración de programas a nivel de máquina virtual, donde se puede establecer el punto de interrupción en el código de contrato, o de un solo paso, la ejecución de un solo proceso. Gracias al diseño de bajo acoplamiento entre la máquina virtual y la cadena de bloques, es fácil integrar NeoVM directamente con varios IDE, para proporcionar un entorno de prueba que sea consistente con el entorno de producción final.
 
 ## 5. Lenguaje de Alto Nivel
 
@@ -170,13 +169,13 @@ Posteriormente, NeoContract agregará soporte para otros lenguajes de alto nivel
 * C, C + +, GO
 * Python, JavaScript
 
-En el futuro, continuaremos agregando más soporte de lenguajes de alto nivel. Nuestro objetivo es ver más del 90% de los desarrolladores de NEO desarrollando con NeoContract, sin necesidad de aprender un nuevo lenguaje, e incluso posiblemente transferir el código existente del sistema empresarial directamente a la cadena de bloqueo.
+En el futuro, continuaremos agregando más soporte de lenguajes de alto nivel. Nuestro objetivo es ver más del 90% de los desarrolladores de NEO desarrollando con NeoContract, sin necesidad de aprender un nuevo lenguaje, e incluso posiblemente transferir el código existente del sistema empresarial directamente a la cadena de bloques.
 
 ## 6. Servicio
 
 ### 6.1 Libro Mayor de Cadena de Bloques
 
-NEO Smart Contracts puede obtener datos completos de bloque para la cadena de bloqueo NEO, incluyendo bloques completos y transacciones, y cada uno de sus campos, en tiempo de ejecución, a través de las funciones del sistema proporcionadas por el servicio interoperable. Específicamente, se pueden consultar estos datos:
+NEO Smart Contracts puede obtener datos completos de bloque para la cadena de bloques NEO, incluyendo bloques completos y transacciones, y cada uno de sus campos, en tiempo de ejecución, a través de las funciones del sistema proporcionadas por el servicio interoperable. Específicamente, se pueden consultar estos datos:
 
 * Altura de la cadena de bloques;
 * Bloque principal, bloque actual;

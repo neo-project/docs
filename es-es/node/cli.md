@@ -7,9 +7,9 @@ Desde la línea de comandos, ir al directorio donde se encuentra el cliente `NEO
 
 <img style="vertical-align: middle" src="assets/cli/cli_1.png">
 
-> [!Note] Para ejecutar el cliente CLI `NEO-cli` requiere la instalación de [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime),  **versión 1.1.2** o superior.
+> [!Note] Para ejecutar el cliente CLI `NEO-cli` requiere la instalación de [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), **versión 1.1.2** o superior.
 
-Una vez ejecutado aparecerá el interprete de comandos de NEO, desde aquí puedes manipular el monedero con comandos permitiendote: crear o abrir un monedero, importar o exportar la clave privada, tranferir, reclamar gas, comenzar un consenso, etc.
+Una vez ejecutado aparecerá el interprete de comandos de NEO, desde aquí puedes manipular el monedero con comandos permitiéndote: crear o abrir un monedero, importar o exportar la clave privada, transferir, reclamar gas, comenzar un consenso, etc.
 
 Exploraremos primero los distintos comandos disponibles en la línea de comandos. Introduce `help` seguido de enter y aparecerá la siguiente lista:
 
@@ -22,33 +22,33 @@ El signo igual `=` indica el valor por defecto cuando se ejecuta el comando sin 
 
 A continuación una descripción de todos los comandos:
 
-## 1. Intrucciones de la consola
+## 1. Instrucciones de la consola
 
 | Comando      | Descripción de la función      |
 | ------- | --------- |
-| version | Muestra la versión actual. 
-| help    | Menu de ayuda.      |
+| version | Muestra la versión actual. |
+| help    | Menú de ayuda.      |
 | clear   | Borra pantalla.      |
-| exit    | Sale del prorama.      |
+| exit    | Sale del programa.      |
 
 ## 2. Operaciones del monedero
 
-Comando | Descripción de la función | Comentario |
+| Comando | Descripción de la función | Comentario |
 | ---------------------------------------- | -------------------------------- | ------ |
 | create wallet \<path> | Crea el fichero del monedero. |
 | open wallet \<path> | Abre el fichero del monedero. |
-| update wallet <path> | Actualiza el monedero |
-| rebuild wallet index | Reconstruye los índices del monedero. | Necesita abrir el monedero. |
-| list address | Lista todas las cuentas del monedero. | | Necesita abrir el monedero. |
+| update wallet <path> | Actualiza el monedero. |
+| rebuild index | Reconstruye los índices del monedero. | Necesita abrir el monedero. |
+| list address | Lista todas las cuentas del monedero. | Necesita abrir el monedero. |
 | list asset | Lista todos los activos del monedero. | Necesita abrir el monedero. |
 | list key | Lista todas las claves publicas del monedero. | Necesita abrir el monedero. |
-| show utxo [id|alias] | Lista las transacciones en función del id o del alias | Necesita abrir el monedero.
+| show utxo [id\|alias] | Lista las transacciones en función del id o del alias. | Necesita abrir el monedero. |
 | show gas | Muestra el NeoGas. | Necesita abrir el monedero. |
 | claim gas | Reclama el NeoGas disponible. | Necesita abrir el monedero. |
 | create address [n = 1] | Crea una dirección/Crea direcciones de forma automática. | Necesita abrir el monedero. |
 | import key \<wif\|path> | Importa la clave privada/importa claves privadas de forma masiva. | Necesita abrir el monedero. |
 | export key \[address] [path] | Exporta la clave privada. | Necesita abrir el monedero. |
-| send \<id\|alias|all> \<address> \<value> [fee=0]| Transfiere a la dirección especificada o a todas las direcciones. | Necesita abrir el monedero. |
+| send \<id\|alias> \<address> \<value> [fee=0]| Transfiere a la dirección especificada. | Necesita abrir el monedero. |
 
 Los siguientes comandos se explican en detalle:
 
@@ -77,15 +77,15 @@ Los siguientes comandos se explican en detalle:
 `Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3`<br>
 
 
-**Recontruye los indices del fichero del monedero**
+**Reconstruye los índices del fichero del monedero**
  
 :point_right: `rebuild index`
 
-Reconstruye los índices del monedero. ¿Por qué es necesario reconstruir los indices del monedero?
+Reconstruye los índices del monedero. ¿Por qué es necesario reconstruir los índices del monedero?
 
 Hay un campo en el monedero que guarda el tamaño de bloque actual sincronizado. Por cada nuevo bloque, el monedero sincroniza los bloques y actualiza los activos y las transacciones. Supongamos que el actual tamaño del bloque guardado es 100, ejecutamos el comando `import key` para importar una clave privada, el monedero calculará tus activos desde el tamaño de bloque 100. Si la dirección importada tenia transacciones cuando el tamaño del bloque era menor de 100, las transacciones y sus correspondientes bloques no quedarán reflejados en el monedero, por lo que el índice del monedero debe reconstruirse forzando al monedero a calcular los activos y transacciones desde el tamaño de bloque 0.
 
-Un monedero nuevo no necesita recontruir los indices, sólo hay que recontruir los indices cuando se importa una clave privada.
+Un monedero nuevo no necesita reconstruir los índices, sólo hay que reconstruir los índices cuando se importa una clave privada.
 
 **Crea una dirección**
 
@@ -168,28 +168,26 @@ Los id de activos propios del sistema son:
 - NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b <br>
 - NEOGas: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-Para poder tranferir hay que introducir la contraseña del monedero. Por ejemplo, para enviar 100 NEO a la dirección `AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b` el comando es el siguiente:
+Para poder transferir hay que introducir la contraseña del monedero. Por ejemplo, para enviar 100 NEO a la dirección `AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b` el comando es el siguiente:
 
 `send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100`
 
 Si no estas seguro del ID del activo, ejecuta el comando `list asset` para mostrar la lista de todos los activos del monedero.
 
-
 ## 3. Ver la información del nodo
 
-Comando | Descripción de la función  |
+Comando | Descripción de la función |
 | ---------- | ----------------------- |
-`show state` | Muestra el estado de la sincronización de la blockchain. |
-`show node` | Muestra los puertos y los nodos conectados. |
-`show pool` | Muestra las transacciones en el pool de memoria. |
-
-
+| `show state` | Muestra el estado de la sincronización de la blockchain. |
+| `show node` | Muestra los puertos y los nodos conectados. |
+| `show pool` | Muestra las transacciones en el pool de memoria. |
+| `export blocks [path=chain.acc]` | Exporta los bloques a un fichero de salida. |
 
 ## 4. Comandos avanzados
 
-Comando  | Descripción de la función |
+| Comando | Descripción de la función |
 | --------------- | ---- |
-`start consensus` | Inicia consenso.
-Para iniciar un consenso el monedero tiene que tener autoridad consenso, la autoridad de consenso en la red principal (MainNet) se obtiene a través de voto. Si se despliega una blockchain privada, la claves publicas se pueden configurar en el fichero `protocol.json`. Consulta la creación de blockchain privadas aqui [Private chain](private-chain.md)
-`export blocks [path=chain.acc]` | Exporta los bloques a un fichero de salida |
-`refresh policy` | Refresca la política.
+| `start consensus` | Inicia consenso. |
+| `refresh policy` | Refresca la política. |
+
+Para iniciar un consenso el monedero tiene que tener autoridad consenso, la autoridad de consenso en la red principal (MainNet) se obtiene a través de voto. Si se despliega una blockchain privada, la claves publicas se pueden configurar en el fichero `protocol.json`. Consulta la creación de blockchain privadas aqui [Private chain](private-chain.md).

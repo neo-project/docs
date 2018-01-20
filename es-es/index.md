@@ -1,31 +1,30 @@
-
-
 # NEO White Paper
 
 Una red distribuida para la Economía Inteligente
 
-
 # Objetivos de diseño de NEO: Economía Inteligente
 
 NEO es el uso de la tecnología de cadena de bloques y la identidad digital para digitalizar los activos, el uso de contratos inteligentes para que los activos digitales sean autogestionados, para lograr una "economía inteligente" con una red distribuida.
+
 ### Activos digitales
 
 Los activos digitales son activos programables que existen en forma de datos electrónicos. Con la tecnología de cadena de bloques, la digitalización de los activos puede ser descentralizada, confiable, rastreable, altamente transparente y libre de intermediarios. En la cadena de bloques NEO, los usuarios pueden registrar, comercializar y distribuir múltiples tipos de activos. Probar la conexión entre los activos digitales y físicos es posible a través de la identidad digital. Los bienes registrados a través de una identidad digital válida están protegidos por la ley.
 
 NEO tiene dos formas de activos digitales: los activos globales y los activos contractuales. Los activos globales se pueden registrar en el espacio del sistema y pueden ser identificados por todos los contratos y clientes inteligentes. Los activos contractuales se registran en el área de almacenamiento privado del contrato inteligente y requieren que un cliente compatible los reconozca. Los activos contractuales pueden adherirse a ciertos estándares para lograr la compatibilidad con la mayoría de los clientes.
 
-
 ### Identidad digital
+
 La identidad digital se refiere a la información de la identidad de los individuos, las organizaciones y otras entidades que existen en forma electrónica. El sistema de identidad digital más maduro se basa en la norma PKI (Public Key Infrastructure) X.509. En NEO, implementaremos un conjunto de estándares de identidad digital compatibles con X.509. Este conjunto de estándares de identidad digital, además de ser compatible con el modelo de emisión de certificados de nivel X.509, también soportará el modelo de emisión de certificados punto a punto de Web Of Trust. Nuestra verificación de identidad al emitir o usar identidades digitales incluye el uso de rasgos faciales, huellas dactilares, voz, SMS y otros métodos de autenticación de múltiples factores. Al mismo tiempo, también usaremos la cadena de bloques para reemplazar el Protocolo de Estatus de Certificados en línea (OCSP, por sus siglas en inglés) para administrar y registrar la Lista de Revocación de Certificados (CRL, por sus siglas en inglés) X.509.
-t### Contrato Inteligente
+
+### Contrato Inteligente
+
 El contrato inteligente fue propuesto por primera vez por el criptógrafo Nick Szabo en 1994, apenas cinco años después de la creación de la World Wide Web. Según la definición de Szabo: Cuando se activa una condición preprogramada, el contrato inteligente ejecutará los términos del contrato correspondiente. La tecnología de cadena de bloques nos proporciona un sistema descentralizado, resistente a las manipulaciones y altamente fiable, en el que los contratos inteligentes son muy útiles. NEO tiene un sistema independiente de contrato inteligente: NeoContract.
 
-El sistema de contrato inteligente NeoContract es la característica más importante de la integración perfecta del ecosistema de desarrolladores existente. Los desarrolladores no necesitan aprender un nuevo lenguaje de programación, sino que usan C #, Java y otros lenguajes de programación convencionales en sus entornos IDE (Visual Studio, Eclipse, etc.) conocidos para el desarrollo, depuración y compilación de contratos inteligentes. La Máquina Virtual Ligera Universal de Neo, NeoVM, tiene las ventajas de alta seguridad, alta concurrencia y alta escalabilidad. El sistema de contrato inteligente NeoContract permitirá a millones de desarrolladores de todo el mundo llevar a cabo rápidamente el desarrollo de contratos inteligentes. NeoContract tendrá un documento técnico aparte que describirá los detalles de su implementación.
+El sistema de contrato inteligente NeoContract es la característica más importante de la integración perfecta del ecosistema de desarrolladores existente. Los desarrolladores no necesitan aprender un nuevo lenguaje de programación, sino que usan C#, Java y otros lenguajes de programación convencionales en sus entornos IDE (Visual Studio, Eclipse, etc.) conocidos para el desarrollo, depuración y compilación de contratos inteligentes. La Máquina Virtual Ligera Universal de Neo, NeoVM, tiene las ventajas de alta seguridad, alta concurrencia y alta escalabilidad. El sistema de contrato inteligente NeoContract permitirá a millones de desarrolladores de todo el mundo llevar a cabo rápidamente el desarrollo de contratos inteligentes. NeoContract tendrá un documento técnico aparte que describirá los detalles de su implementación.
+
 ### Aplicación y Ecosistema
 
-
 El ecosistema es la vitalidad de la comunidad de código abierto. Para lograr el objetivo de una red económica inteligente, NEO se compromete a desarrollar su ecosistema, proporcionando herramientas maduras de desarrollo, mejorando el desarrollo de documentos, organizando actividades de educación y capacitación y proporcionando apoyo financiero. Planeamos apoyar las siguientes aplicaciones y ecología basadas en NEO y recompensar las mejoras en el diseño de la experiencia:
-
 
 **Programa de Nodo**
 
@@ -38,7 +37,7 @@ El ecosistema es la vitalidad de la comunidad de código abierto. Para lograr el
 
 **Kit de Desarrollo SDK **
 
-* Soporta Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
+* Soporta Java / Kotlin, .NET C# / VB, JavaScript / Typescript, Python, Go
 
 **Compilador de Contratos Inteligentes y Plugin IDE**
 * C# / VB.Net / F#, Visual Studio
@@ -66,8 +65,9 @@ El ecosistema es la vitalidad de la comunidad de código abierto. Para lograr el
 
 ### Modelo Económico
 
-AS es el token combustible para la realización del control de recursos de la red NEO, con un límite máximo total de 100 millones. La red de NEO cobra por la operación y almacenamiento de fichas y contratos inteligentes, creando así incentivos económicos para los contadores y previniendo el abuso de recursos. La unidad mínima de GAS es 0.00000001.
-En el bloque genesis de la red NEO, se generan 100 millones de NEOs, mientras que aún no se han generado GAS. 100 millones de GAS, correspondientes a los 100 millones de NEO, se generarán a través de un algoritmo de decaimiento en unos 22 años para abordar el mantenimiento de NEO. Si NEO se transfiere a una nueva dirección, los GAS que se generen a continuación serán acreditados a la nueva dirección.
+GAS es el token combustible para la realización del control de recursos de la red NEO, con un límite máximo total de 100 millones. La red de NEO cobra por la operación y almacenamiento de fichas y contratos inteligentes, creando así incentivos económicos para los contadores y previniendo el abuso de recursos. La unidad mínima de GAS es 0.00000001.
+
+En el bloque génesis de la red NEO, se generan 100 millones de NEOs, mientras que aún no se han generado GAS. 100 millones de GAS, correspondientes a los 100 millones de NEO, se generarán a través de un algoritmo de decaimiento en unos 22 años para abordar el mantenimiento de NEO. Si NEO se transfiere a una nueva dirección, los GAS que se generen a continuación serán acreditados a la nueva dirección.
 
 La red NEO fijará un umbral votando para eximir al GAS de una cierta cantidad de transacciones de transferencia y operaciones de contratos inteligentes para mejorar la experiencia del usuario. Cuando se produzca una gran cantidad de transacciones de spam, se puede utilizar lar NeoID para priorizar las transacciones y contratos inteligentes con identidades calificadas. Las transacciones y contratos inteligentes sin identidades digitales calificadas pueden obtener prioridad al pagar con GAS.
 
@@ -105,19 +105,14 @@ Mando fuera de la cadena: El Consejo de NEO está formado por los miembros funda
 
 ## Implementación de la tecnología NEO
 
-
 ### Mecanismo de consenso: dBFT
-
 
 dBFT son las siglas en inglés para “Tolerancia Delegada ante Fallo Bizantino”, un mecanismo de consenso tolerante ante fallos bizantinos que permite la participación a gran escala en el consenso a través de la votación delegada. El poseedor de la ficha NEO puede, al votar, elegir al contador que apoya. El grupo seleccionado de contadores, a través del algoritmo BFT, llega a un consenso y genera nuevos bloques. La votación en la red NEO continúa en tiempo real, en lugar de cumplir con un plazo fijo.
 
-
-
 dBFT proporciona tolerancia a fallos de f = ⌊ (n-1) / 3 ⌋ para un sistema de consenso que consta de n nodos de consenso. Esta tolerancia a fallos también incluye seguridad y disponibilidad, resistencia a fallos generales y bizantinos, y es adecuada para cualquier entorno de red. La DBFT tiene buena finalización, lo que significa que una vez que las confirmaciones sean finales, el bloque no puede ser bifurcado, y la transacción no será revocada o revertida.
 
-
 En el mecanismo de consenso dBFT de NEO, que se toma unos 15 a 20 segundos para generar un bloque, el rendimiento de la transacción se mide hasta aproximadamente 1.000 TPS, lo cual es un excelente rendimiento entre las cadenas públicas. A través de una optimización adecuada, hay potencial para alcanzar 10.000 TPS, lo que le permite soportar aplicaciones comerciales a gran escala.
-dBFT combina la tecnología de identidad digital, lo que significa que los contadores pueden ser el nombre real de una persona o institución. Por lo tanto, es posible congelar, revocar, heredar, recuperar y tranferir la propiedad debido a decisiones judiciales sobre ellos. Esto facilita el registro de activos financieros conformes en la red NEO. La red NEO planea apoyar tales operaciones cuando sea necesario.
+dBFT combina la tecnología de identidad digital, lo que significa que los contadores pueden ser el nombre real de una persona o institución. Por lo tanto, es posible congelar, revocar, heredar, recuperar y transferir la propiedad debido a decisiones judiciales sobre ellos. Esto facilita el registro de activos financieros conformes en la red NEO. La red NEO planea apoyar tales operaciones cuando sea necesario.
  
 ### Sistema de contrato inteligente: NeoContract
 
@@ -133,8 +128,7 @@ Se utiliza para cargar el libro mayor de la cadena de bloques, los activos digit
 
 **DevPack - Compilador y complemento IDE:**
 
-
-DevPack incluye el compilador de lenguaje de alto nivel y el complemento IDE. Debido a que la arquitectura de NeoVM es muy similar a JVM y .NET Runtime, los compiladores de DevPack pueden compilar código de bytes Java y .NET MSIL en el conjunto de instrucciones de NeoVM. Los desarrolladores Java / Kotlin, C # no necesitan aprender nuevos lenguajes y podrán comenzar inmediatamente a desarrollar contratos inteligentes en VS, Eclipse y otros entornos IDE que les sean conocidos. **Esto reduce en gran medida la curva de aprendizaje para desarrollar contratos inteligentes, lo que nos permite construir fácilmente una comunidad vibrante alrededor de NeoContract.**
+DevPack incluye el compilador de lenguaje de alto nivel y el complemento IDE. Debido a que la arquitectura de NeoVM es muy similar a JVM y .NET Runtime, los compiladores de DevPack pueden compilar código de bytes Java y .NET MSIL en el conjunto de instrucciones de NeoVM. Los desarrolladores Java / Kotlin, C# no necesitan aprender nuevos lenguajes y podrán comenzar inmediatamente a desarrollar contratos inteligentes en VS, Eclipse y otros entornos IDE que les sean conocidos. **Esto reduce en gran medida la curva de aprendizaje para desarrollar contratos inteligentes, lo que nos permite construir fácilmente una comunidad vibrante alrededor de NeoContract.**
 
 NeoContract puede crear un diagrama de flujo de contratos inteligentes mediante el análisis estático antes de ejecutar un contrato inteligente. **A través del diagrama determinista, el nodo NEO puede fragmentar dinámicamente el contrato inteligente para lograr una expansión teóricamente ilimitada**, que supera el "efecto de interferencia" causado por la fragmentación estática de otros sistemas de cadena de bloques.
 
