@@ -16,9 +16,9 @@ Parametri:
 
 Context: Contesto di memoria come [StorageContext](../StorageContext.md).
 
-Key: Chiave come una stringa .
+Key: Chiave come una stringa.
 
-Valore restituito: vuoto.
+Valore Restituito: vuoto.
 
 ## Esempio
 
