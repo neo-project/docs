@@ -1,6 +1,6 @@
 # Proprietà TransactionInput.PrevHash 
 
-Restituisce l'hash della transazione della transazione precedentemente riferita.
+Restituisce l'hash della transazione precedentemente riferita.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
