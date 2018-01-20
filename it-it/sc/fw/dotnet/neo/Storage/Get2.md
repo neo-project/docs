@@ -18,7 +18,7 @@ Context: Contesto di memoria come [StorageContext](../StorageContext.md).
 
 Key: Chiave come una stringa.
 
-Return Value: Il valore corrispondente alla chiave come array di byte.
+Valore Restituito: Il valore corrispondente alla chiave come array di byte.
 
 ## Esempio
 
