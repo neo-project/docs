@@ -1,6 +1,6 @@
 # Enumerazione StorageContext.CallingContract 
 
-Contesto di archiviazione del Caller.
+Contesto di archiviazione del Caller (chiamante).
 
 > [!Attenzione]
 > Nota: deprecato nella versione 2.0.
