@@ -1,6 +1,6 @@
 # Proprietà ExecutionEngine.CallingScriptHash 
 
-Restituisce lo scripthash del caller del contratto.
+Restituisce lo scripthash del chiamante del contratto.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
