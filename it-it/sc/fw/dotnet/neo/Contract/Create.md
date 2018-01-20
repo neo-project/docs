@@ -1,6 +1,6 @@
 # Metodo (byte[], byte[], byte, bool, string, string, string, string, string) Contract.Create 
 
-Chiamare questo metodo in uno smart contract pubblicherà un nuovo contratto.
+Richiamare questo metodo in uno smart contract pubblicherà un nuovo contratto.
 
 Questo è il rimpiazzo per PublishTransaction nella versione 2.0.
 
@@ -20,9 +20,9 @@ script: Il bytecode del contratto come un array di byte.
 
 parameter_list: Elenco dei parametri come un array di byte. Fare riferimento a [Parametri di Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
-return_type: Restituisce un tipo come un byte. Fare riferimento a [Parametri di Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
+return_type: Restituisce il tipo come un byte. Fare riferimento a [Parametri di Smart Contract e Valori Restituiti](../../../../tutorial/Parameter.md).
 
-need_storage: se il contratto richiede una memoria persistente, boolean.
+need_storage: Se il contratto richiede una memoria persistente, boolean.
 
 name: Il nome del contratto come una stringa.
 
