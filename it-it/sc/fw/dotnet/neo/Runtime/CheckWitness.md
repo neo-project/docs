@@ -1,6 +1,6 @@
 # Metodo (byte[]) Runtime.CheckWitness 
 
-Verifica che le transazioni/il blocco del contratto chiamante abbiano convalidato gli scripthashes richiesti.
+Verifica che le transazioni/blocco del contratto chiamante abbiano convalidato gli hash degli script richiesti.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
