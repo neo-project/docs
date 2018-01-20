@@ -1,6 +1,6 @@
 # Proprietà Asset.Issuer
 
-restituisce l'emittente (indirizzo di contratto) dell'asset. L'emittente ha il diritto di emettere asset.
+Restituisce l'emittente (indirizzo di contratto) dell'asset. L'emittente ha il diritto di emettere asset.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
