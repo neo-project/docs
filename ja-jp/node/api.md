@@ -32,13 +32,17 @@ P2PとWebSocketに関する情報は[Node/Introduction](introduction.md)を参�
 
 | コマンド                                       | リファレンス                                      | 説明                         | コメント       |
 | ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
+| [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 指定されたアドレスの秘密鍵をエクスポートします。 | ウォレットを開いている必要がある。      |
 | [getbalance](api/getbalance.md)          | \<asset_id>                             |指定のアセットナンバーから、対応するウォレット内アセットのバランスを返す。   | ウォレットを開いている必要がある。   |
 | [getbestblockhash](api/getbestblockhash.md) |                                         | メインチェイン内で最も高いブロックのハッシュを取得する。           |          |
 | [getblock](api/getblock.md)              | \<hash> [verbose=0]                     | 指定のハッシュ値から、対応するブロック情報を返す。         |          |
 | [getblock](api/getblock2.md)             | \<index> [verbose=0]                    | 指定のインデックスから、対応するブロック情報を返す。          |          |
 | [getblockcount](api/getblockcount.md)    |                                         | メインチェイン内のブロック数を取得する。                 |          |
 | [getblockhash](api/getblockhash.md)      | \<index>                                | 指定のインデックスから、対応するブロックのハッシュ値を返す。         |          |
+| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 指定されたインデックスに基づいて、ブロックのシステム料金を返します。 |                              |
 | [getconnectioncount](api/getconnectioncount.md) |                                         | ノードがもつ現在のコネクション数を取得する。                 |          |
+| [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | コントラクトのスクリプトハッシュをキーとして、契約情報を照会します。 |                              |
+| [getnewaddress](api/getnewaddress.md)    |                                          | 新規アドレスの作成                     | ウォレットを開いている必要がある。      |
 | [getrawmempool](api/getrawmempool.md)    |                                         | メモリ内の未確認トランザクションのリストを取得する。            |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | 指定のハッシュ値に基づき、対応するトランザクション情報を返す。         |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | 指定のハッシュとインデックスに基づき、対応するトランザクション出力（変更）情報を返却する。 |          |
@@ -74,13 +78,13 @@ http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 
 下記は、メインチェイン内のブロック数を取得する方法の一例です。
 
-Request URL:
+リクエストURL:
 
 ```
 http://somewebsite.com:10332
 ```
 
-Request Body：
+リクエスト:
 
 ```json
 {
