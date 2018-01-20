@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Owner {get;}
 ```
 
-Valore attribuito: Array di byte di lunghezza 33
+Valore dell'attributo: Array di byte di lunghezza 33
 
 
 
