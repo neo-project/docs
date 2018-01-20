@@ -21,4 +21,4 @@ public class TransactionAttribute: IApiInterface
 
 ## Costruttore
 
-L'oggetto TransactionAttribute é costruito mediante [GetAttributes ()](Transaction/GetAttributes.md) of Translation object.
+L'oggetto TransactionAttribute é costruito mediante [GetAttributes ()](Transaction/GetAttributes.md) dell'oggetto Transaction.
