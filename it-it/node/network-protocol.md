@@ -1,11 +1,9 @@
 # Protocollo di Rete
 
+NEO adotta una struttura di rete P2P, in cui i nodi possono comunicare tra loro tramite il protocollo TCP/IP. In questa struttura, ci sono due diversi tipi di nodi: nodi peer e nodi convalidatori (indicati come Bookkeper nel whitepaper di NEO). I nodi peer possono trasmettere, ricevere e trasferire transazioni o blocchi, mentre i nodi convalidatori possono creare blocchi.
 
 
-NEO adotta una struttura di rete P2P, in cui i nodi possono comunicare tra loro tramite il protocollo TCP / IP. In questa struttura, ci sono due diversi tipi di nodi: nodi peer e nodi di convalidatori (indicati come Bookkepers nel whitepaper di NEO). I nodi peer possono trasmettere, ricevere e trasferire transazioni o blocchi, mentre i nodi convalidatori possono creare blocchi.
-
-
-Il protocollo di rete di NEO è approssimativamente simile a quello di Bitcoin,comunque, le strutture dati come blocchi o transazioni sono piuttosto diverse.
+Il protocollo di rete NEO è approssimativamente simile a quello di Bitcoin, comunque, le strutture dati, come blocchi o transazioni, sono piuttosto diverse.
 
 Convenzione
 ----
@@ -66,7 +64,7 @@ Tipo di dati
    |?|Script|script|Script utilizzato per convalidare il blocco|
    |?*?|Transactions|tx[]|Lista di transazioni|
 
-   Quando si calcola il valore hash del blocco, invece di calcolare l'intero blocco, verranno calcolati solo i primi sette campi della testa del blocco, which are version, PrevBlock, MerkleRoot, timestamp, e height, il nonce, NextMiner. Poiché MerkleRoot contiene già il valore hash di tutte le transazioni, la modifica della transazione influenzerà il valore hash del blocco.
+   Quando si calcola il valore hash del blocco, invece di calcolare l'intero blocco, verranno calcolati solo i primi sette campi della testa del blocco, i quali sono version, PrevBlock, MerkleRoot, timestamp, e height, il nonce, NextMiner. Poiché MerkleRoot contiene già il valore hash di tutte le transazioni, la modifica della transazione influenzerà il valore hash del blocco.
 
    Struttura dei dati della testa del blocco:
 
@@ -126,7 +124,7 @@ Tipo di dati
 
       Non ci sono campi speciali per una transazione di emissione.
 
-     Gli asset managers possono creare gli assets che sono stati registrati nella blockchain di NEO tramite IssueTransaction, e inviari a qualsiasi indirizzo.
+     Gli asset manager possono creare gli asset che sono stati registrati nella blockchain di NEO tramite IssueTransaction, e inviarli a qualsiasi indirizzo.
 
      In particolare, se gli asset emessi sono NEO, la transazione verrà inviata gratuitamente.
 
@@ -224,7 +222,7 @@ Tipo di dati
    |8|Value|int64|Valore|
    |20|ScriptHash|uint160|Indirizzo del beneficiario|
 
-   Ogni transazione può avere outputs fino a 65536.
+   Ogni transazione può avere degli output fino a 65536.
 
 1. Script di convalida
 
