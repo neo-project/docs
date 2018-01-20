@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.Transaction[] GetTransactions()
 ```
 
-Valore Restituito: L'array della transazione come transazione[].
+Valore Restituito: L'array della transazione come Transaction[].
 
 ## Esempio
 
