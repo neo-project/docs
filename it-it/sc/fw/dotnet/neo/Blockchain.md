@@ -1,6 +1,6 @@
 # Classe Blockchain 
 
-Questa classe fornisce un set di metodi per accedete ai dati della blockchain.
+Questa classe fornisce un set di metodi per accedere ai dati della blockchain.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
