@@ -20,6 +20,8 @@
     - name: APIリファレンス
       href: node/API.md
       items:
+      - name: dumpprivkey.md
+        href: node/api/dumpprivkey.md
       - name: getaccountstate
         href: node/api/getaccountstate.md
       - name: getassetstate
@@ -36,10 +38,14 @@
         href: node/api/getblockcount.md
       - name: getblockhash
         href: node/api/getblockhash.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
       - name: getconnectioncount
         href: node/api/getconnectioncount.md
       - name: getcontractstate
         href: node/api/getcontractstate.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
       - name: getrawmempool
         href: node/api/getrawmempool.md
       - name: getrawtransaction
@@ -48,14 +54,33 @@
         href: node/api/getstorage.md
       - name: gettxout
         href: node/api/gettxout.md
+      - name: getpeers
+        href: node/api/getpeers.md
+      - name: getversion
+        href: node/api/getversion.md
+      - name: invoke
+        href: node/api/invoke.md
+      - name: invokefunction
+        href: node/api/invokefunction.md
+      - name: invokescript
+        href: node/api/invokescript.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
         href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
     - name: ネットワークプロトコル
       href: node/network-protocol.md
-    - name: コンセンサスメカニズム
-      href: node/consensus.md
+    - name: コンセンサス
+      href: node/whitepaper.md
+      items:
+      - name: コンセンサスホワイトペーパー
+        href: node/whitepaper.md
+      - name: コンセンサスメカニズム
+        href: node/consensus.md
 - name: スマートコントラクト
   href: sc/introduction.md
   items:
@@ -63,9 +88,13 @@
       href: sc/introduction.md
     - name: はじめに（C#）
       href: sc/getting-started-csharp.md
-    - name: チュートリアル
-      href: sc/getting-started-csharp.md
     - name: はじめに（Java）
+      href: sc/getting-started-java.md
+    - name: はじめに（Python）
+      href: sc/getting-started-python.md
+      - name: Pythonコンパイラ
+        href: sc/python/compiler.md
+    - name: チュートリアル
       href: sc/tutorial.md
       items: 
       - name: 基本
@@ -143,3 +172,7 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: システムの手数料
       href: sc/systemfees.md
+- name: 取引所開発者向けドキュメント
+  href: exchange.md
+- name: 協力者
+  href: contributors.md

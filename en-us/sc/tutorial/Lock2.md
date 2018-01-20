@@ -8,27 +8,27 @@ Read the following tutorial before reading this article:
 
 [Smart contract example - Lock (lock)](Lock.md)
 
-Now we assume that you already have the basic knowledge of the smart contract, we will show how to deploy a lock contract to an address using the wallet.
+Assuming you already have basic knowledge regarding smart contracts, we will show how to deploy a lock contract to an address using the wallet.
 
 In addition, this tutorial is based on the demo of Smart Contract 2.0. Please download the latest **test network client** from [GitHub](https://github.com/neo-project/neo-gui/releases).
 
 PS: At this point in time, the latest **test network client** download is: [Neo GUI v2.2.0](https://github.com/neo-project/neo-gui/releases/tag/v2.2.0).
 
 > [!Note]
-> The following operation will run in the **test network**, because the main network has not yet deployed Smart Contract 2.0, so the following operation in the main network will fail.
+> The following operation will run in the **test network**. Because the main network has not yet deployed Smart Contract 2.0, the following operation in the main network will fail.
 > In order to use the test net you have to make two changes in the config files:
 1. Extract Neo GUI client to your folder. You will notice the files config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json. By default, `config.json` and `protocol.json` are identical to the Mainnet versions.
-2. You need to copy the code from the testnet files into the `config.json` and `protocol.json` files so that you can access the Testnet rather than the Mainnet. i.e. copy and paste `config.testnet.json` into `config.json`, and `protocol.testnet.json` into `protocol.json`.
+2. You need to copy the code from the testnet files into the `config.json` and `protocol.json` files so that you can access the Testnet rather than the Mainnet (i.e. copy and paste `config.testnet.json` into `config.json`, and `protocol.testnet.json` into `protocol.json`).
 
 ## Create a wallet
 
-This step is very basic, open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
+This step is very basic. Open the PC version of the client, click `wallet`, `create the wallet database `, select the wallet storage location and set the wallet name and password.
 
 ![](../../../assets/lock2_1.png)
 
 ## Get the public key
 
-The newly created wallet will automatically generate a standard account, right-click on the account, view the private key, copy the public key from the second line, as shown in the figure:
+The newly created wallet will automatically generate a standard account. Right-click on the account, view the private key, and copy the public key from the second line, as shown in the figure:
 
 ![](../../../assets/lock2_2.png)
 
@@ -93,7 +93,7 @@ namespace Neo.SmartContract
 }
 ```
 
-The lock contract has two important variables to change, one is the public key, the second is the lock time.
+The lock contract has two important variables to change: the public key, and the lock time.
 
 1. In the contract code, paste the previous copy of the public key byte array
 
@@ -103,7 +103,7 @@ After replacing the two variables, compile the contract to get a Lock.avm file.
 
 ## Deploy lock Contract
 
-To deploy the contract, we first need to obtain the contract script. There are many ways to get this, we can utilize the C# code below to read the .avm to get the bytecode.
+To deploy the contract, we first need to obtain the contract script. There are many ways to do this. We can utilize the C# code below to read the .avm in order to get the bytecode.
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
@@ -112,7 +112,7 @@ string str = System.Text.Encoding.Default.GetString(bytes);
 
 If you think writing a script for this is troublesome, the client's `Deploy Contract` function has a simple way to obtain the bytecode:
 
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in fugre. Copy this down again.
+Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in the figure. Copy this down again.
 
 ![](../../../assets/lock2_5.png)
 
@@ -121,7 +121,7 @@ In the client, under the `Account` tab, right click on the whitespace, select `C
 ![](../../../assets/lock2_7.png)
 
 
-Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
+Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill in for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
 ![](../../../assets/lock2_8.png)
 
@@ -129,10 +129,10 @@ Here, we need to choose an associated account (to be specific, we are associatin
 
 ## Test
 
-The following is a test of the smart contract authentication account. When transferring assets from an smart contract authentication account, the consensus node will execute the smart contract when verifying the transaction. If the contract validation is successful (the result is true), the transaction is confirmed. Otherwise the transaction will always be unconfirmed. Our testing method will be to first transfer some assets into the account address, then transfer it out.
+The following is a test of the smart contract authentication account. In transferring assets from a smart contract authentication account, the consensus node will execute the smart contract when verifying the transaction. If the contract validation is successful (the result is true), the transaction is confirmed. Otherwise the transaction will always be unconfirmed. Our testing method will be to first transfer some assets into the account address, then transfer them out.
 
 > [! Note]
-> In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, else you may not know if the assets is coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
+> In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
 
 ### Transfer assets to contract address
 

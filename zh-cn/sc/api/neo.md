@@ -24,6 +24,7 @@ NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | Neo.Header.GetHash            | 获得该区块的散列                   |
 | Neo.Header.GetVersion         | 获得区块版本号                    |
 | Neo.Header.GetPrevHash        | 获得前一个区块的散列                 |
+| Neo.Header.GetIndex           | 获得该区块的高度                   |
 | Neo.Header.GetMerkleRoot      | 获得该区块中所有交易的 Merkle Tree 的根 |
 | Neo.Header.GetTimestamp       | 获得区块的时间戳                   |
 | Neo.Header.GetConsensusData   | 获得该区块的共识数据（共识节点生成的伪随机数）    |

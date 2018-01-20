@@ -21,7 +21,7 @@ HTTPS経由でRPCサーバにアクセスするため、ノードを開始する
 
 JSON-RPCサーバは、起動後にメインネットとテストネットに対応する下記ポートをモニタします。
 
-P2PとWebSocketに関する情報は[Node/Introduction](introduction.md)を参照。
+P2PとWebSocketに関する情報は[NEOノード序論](introduction.md)を参照。
 
 |                | （メインネット） | （テストネット） |
 | -------------- | ------------ | ------------- |
@@ -32,19 +32,30 @@ P2PとWebSocketに関する情報は[Node/Introduction](introduction.md)を参�
 
 | コマンド                                       | リファレンス                                      | 説明                         | コメント       |
 | ---------------------------------------- | --------------------------------------- | -------------------------- | -------- |
+| [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 指定されたアドレスの秘密鍵をエクスポートします。 | ウォレットを開いている必要がある。      |
 | [getbalance](api/getbalance.md)          | \<asset_id>                             |指定のアセットナンバーから、対応するウォレット内アセットのバランスを返す。   | ウォレットを開いている必要がある。   |
 | [getbestblockhash](api/getbestblockhash.md) |                                         | メインチェイン内で最も高いブロックのハッシュを取得する。           |          |
 | [getblock](api/getblock.md)              | \<hash> [verbose=0]                     | 指定のハッシュ値から、対応するブロック情報を返す。         |          |
 | [getblock](api/getblock2.md)             | \<index> [verbose=0]                    | 指定のインデックスから、対応するブロック情報を返す。          |          |
 | [getblockcount](api/getblockcount.md)    |                                         | メインチェイン内のブロック数を取得する。                 |          |
 | [getblockhash](api/getblockhash.md)      | \<index>                                | 指定のインデックスから、対応するブロックのハッシュ値を返す。         |          |
+| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 指定されたインデックスに基づいて、ブロックのシステム料金を返します。 |                              |
 | [getconnectioncount](api/getconnectioncount.md) |                                         | ノードがもつ現在のコネクション数を取得する。                 |          |
+| [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | コントラクトのスクリプトハッシュをキーとして、契約情報を照会します。 |                              |
+| [getnewaddress](api/getnewaddress.md)    |                                          | 新規アドレスの作成                     | ウォレットを開いている必要がある。      |
 | [getrawmempool](api/getrawmempool.md)    |                                         | メモリ内の未確認トランザクションのリストを取得する。            |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | 指定のハッシュ値に基づき、対応するトランザクション情報を返す。         |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | 指定のハッシュとインデックスに基づき、対応するトランザクション出力（変更）情報を返却する。 |          |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | トランザクションをネットワークにブロードキャストする。[network protocol](network-protocol.md)を参照。                       |          |
+| [getpeers](api/getpeers.md)              |                                          | ノードが現在、接続/切断しているノードのリストを取得する。 |                              |
+| [getversion](api/getversion.md)          |                                          | 照会されたノードに関するバージョン情報を返します。     |                              |
+| [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | スマートコントラクトをスクリプトハッシュからパラメータを指定して呼び出した結果を返します。 |                              |
+| [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | スマートコントラクトをスクリプトハッシュからオペレーション名とパラメータを指定して呼び出した結果を返します。 |                              |
+| [invokescript](api/invokescript.md)      | \<script>                                | スクリプトがVMを介した後の結果を返します。 |                              |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                  | トランザクションをネットワークにブロードキャストする。[ネットワークプロトコル](network-protocol.md)を参照。                       |          |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0] | 指定のアドレスに送信する。                     | ウォレットを開いている必要がある。   |
+| [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | オーダーの一括転送。お釣り用アドレスを指定することができます。                      | ウォレットを開いている必要がある。      |
 | submitblock                              | \<hex>                                  | 新たなブロックをサブミットする。                      | コンセンサスノードである必要がある。 |
+| [validateaddress](api/validateaddress.md) | \<address>                               | アドレスが正しいNEOアドレスであることを確認します。 |                              |
 
 ## GETリクエスト例
 
@@ -74,13 +85,13 @@ http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 
 下記は、メインチェイン内のブロック数を取得する方法の一例です。
 
-Request URL:
+リクエストURL:
 
 ```
 http://somewebsite.com:10332
 ```
 
-Request Body：
+リクエスト:
 
 ```json
 {

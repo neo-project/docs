@@ -226,21 +226,16 @@ The following shows an example of the notification file content.
 
 In this file, there is an array of notifications with only one object, which means only one NEP-5 event is triggered in the block. The parameters related to a transaction in the file are the following:
 
--  **contract**: the strings represent the asset type.
--  The first object in the array. In this example, it is the string of the "transfer" event : 
+-  **contract**: the script hash of smart contract, by which the exchange can identify assets type. For example, "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" is the script hash and the unique identification of the RPX asset.
 
-```json
-{
-	"type": "ByteArray",
-	"value": "7472616e73666572"
-}
-```
+-  The four objects included in the "state" array:
 
-- If the event is "transfer", the "state" value includes an array of four objects: 
+   [event, from account, to account, amount]
 
-  [event, from account, to account, amount]
-
-- The third object in the array. If it is the  exchange address you will get a deposit notification.
+   -  The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP5 that represents an asset transfer.
+   -  The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "d336d7eb9975a29b2404fdb28185e277a4b299bc“ can be converted to "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
+   -  The third object in the array is the account address where the asset is transferred to. If the address is an exchange account address, it is a deposit transaction.
+   -  The fourth object in the array is the transfer amount. There are two types of amount,  integer and bytearray. When dealing with this value, the exchange should pay special attention for transactions of the integer type.
 
 ### Querying User Balance
 
@@ -284,17 +279,17 @@ You need to replace these strings when querying the user's balance:
 
   **balanceOf**
 
-  - Syntax: `<code>public static BigInteger balanceOf(byte[] account)</code>`
+  - Syntax: `public static BigInteger balanceOf(byte[] account)`
   - Remarks: "balanceOf" returns the token balance of the '''account'''.
 
   **decimals**
 
-  - Syntax: `<code>public static byte decimals()</code>`
+  - Syntax: `public static byte decimals()`
   - Remarks: "decimals" returns the number of decimals used by the token.
 
   **symbol**
 
-  - Syntax: `<code>public static string symbol()</code>`
+  - Syntax: `public static string symbol()`
   - Remarks: "symbol" returns the token symbol.
 
 
@@ -302,7 +297,7 @@ You need to replace these strings when querying the user's balance:
 
   Optional. If the method you are invoking requires arguments, you can pass them by constructing these parameters into an array. For example, "balanceOf" in NEP-5 returns the token balance of the "account":
 
-  <code>public static BigInteger balanceOf(byte[] account)</code> 
+  `public static BigInteger balanceOf(byte[] account)`
 
   So you need to pass the account as an argument in the "balanceOf" method.
 
@@ -632,29 +627,7 @@ After sending the request, you will get the following response：
 
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
 
-#### Methods
-
-##### name
-
-- Syntax: `<code>public static string name()</code>`
-- Remarks: "name" returns the token name.
-
-##### transfer
-
-- Syntax: `<code>public static bool transfer(byte[] from, byte[] to, BigInteger amount)</code>`
-- Remarks: "transfer" will transfer an '''amount''' of tokens from the '''from''' account to the '''to''' account.
-
-##### transferFrom ''(optional)''
-
-- Syntax: `<code>public static bool transferFrom(byte[] originator, byte[] from, byte[] to, BigInteger amount)</code>`
-- Remarks: "transferFrom" will transfer an '''amount''' from the '''from''' account to the '''to''' acount if the '''originator''' has been approved to transfer the requested '''amount'''.
-
-#### Events
-
-##### transfer
-
-- Syntax: `<code>public static event Action<byte[], byte[], BigInteger> transfer</code>`
-- Remarks: The "transfer" event is raised after a successful execution of the "transfer" method.
+[Data Transformation Examples](https://github.com/PeterLinX/NeoDataTransformation)
 
 ## (Optional) Distributing GAS to Users
 
