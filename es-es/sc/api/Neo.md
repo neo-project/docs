@@ -54,8 +54,8 @@ API de la clase **Transaction:**
 | Neo.Input.GetHash | La transación que hace referencia en la transación. |
 | Neo.Input.GetIndex | Índice de la transacción referenciada en su lista de transacciones de salida. |
 | Neo.Output.GetAssetId | Obtiene el ID del activo. |
-| Neo.Output.GetValue | Obtiene el hash del script. |
-| Neo.Output.GetScriptHash | Obtiene el total de la transacción. |
+| Neo.Output.GetValue | Obtiene el total de la transacción. |
+| Neo.Output.GetScriptHash | Obtiene el hash del script. |
 
 API de la clase **Account:**
 
