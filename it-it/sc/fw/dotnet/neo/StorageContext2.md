@@ -20,5 +20,5 @@ public enum StorageContext: byte
 | | Nome | Descrizione |
 | ---------------------------------------- | ---------------------------------------- | ---------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [CallingContract](StorageContext/CallingContract.md) | Chiamante del contesto di memoria |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContext/Current.md) | Il contesto di memoria dell'attuale corrente |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContext/EntryContract.md) | Punto di entrata del contratto (Il punto di inizio della chiamata alla chain del contratto) |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [Current](StorageContext/Current.md) | Il contesto di memoria dell'attuale contratto |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC134134.jpeg) | [EntryContract](StorageContext/EntryContract.md) | Punto di entrata del contratto (Il punto d'inizio della chiamata alla chain del contratto) |
