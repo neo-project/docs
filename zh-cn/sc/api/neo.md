@@ -48,8 +48,8 @@ NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | Neo.Input.GetHash             | 所引用的交易的交易散列                              |
 | Neo.Input.GetIndex            | 所引用的交易输出在其全部交易输出列表中的索引                   |
 | Neo.Output.GetAssetId         | 获得资产 ID                                  |
-| Neo.Output.GetValue           | 获得脚本散列                                   |
-| Neo.Output.GetScriptHash      | 获得交易金额                                   |
+| Neo.Output.GetValue           | 获得交易金额                                   |
+| Neo.Output.GetScriptHash      | 获得脚本散列                                   |
 | Neo.Enrollment.GetPublicKey   | ` 已弃用 ` 已用 Neo.Blockchain.GetValidators 替代 |
 
 账户类 API：
