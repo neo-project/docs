@@ -77,7 +77,7 @@ settings.set_logfile(your_logfile_path, 1e7, 3)
 
 ### Logging in custom code
 
-neo-python is using [logzero](https://logzero.readthedocs.io/) for logging. To use alogger with the existing neo logging configuration, you can just import the logger from logzero:
+neo-python is using [logzero](https://logzero.readthedocs.io/) for logging. To use a logger with the existing neo logging configuration, you can just import the logger from logzero:
 
 ```
 from logzero import logger
