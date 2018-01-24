@@ -1,6 +1,6 @@
 # 共识机制
 
-## 1 - 术语说明
+## 术语说明
 
 * **权益证明** `PoS` 一种利用网络协商一致来处理容错的算法。
 
@@ -12,15 +12,15 @@
 
 * **视图** `V` 在dBFT算法中，一次共识从开始到结束所使用的数据集合，称为视图。
 
-## 2 - 规则
-**在NEO的共识算法中，共识节点由NEO持有人股票选出，并对区块链中交易的有效性进行验证。过去这些节点被称作“记账人”，现在他们被称作“共识节点”**
+## 规则
+在NEO的共识算法中，共识节点由NEO持有人股票选出，并对区块链中交易的有效性进行验证。过去这些节点被称作“记账人”，现在他们被称作“共识节点”。
 
   - <img style="vertical-align: middle" src="/assets/nNode.png" width="25"> **共识节点** —— 此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
   - <img style="vertical-align: middle" src="/assets/speakerNode.png" width="25"> **议长** `（一人）` —— **议长** 负责向系统发送一个新的区块的提案。
   - <img style="vertical-align: middle" src="/assets/cNode.png" width="25"> **议员** `（多人）` —— **议员** 负责对议长的提案进行投票，大于等于2/3的议员投票时，提案通过。
 
 
-## 3 - 介绍
+## 介绍
 
 众多区块链共识算法的根本区别是他们如何保障对系统中的故障节点、恶意节点的容错能力。
 
@@ -32,7 +32,7 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
 
 
-## 4 - 理论
+## 理论
 
 拜占庭位于如今的土耳其的伊斯坦布尔，是东罗马帝国的首都。由于当时拜占庭罗马帝国国土辽阔，为了防御目的，因此每个军队都分隔很远，将军与将军之间只能靠信差传消息。 在战争的时候，拜占庭军队内所有将军和副官必需达成一致的共识，决定是否有赢的机会才去攻打敌人的阵营。但是，在军队内有可能存有叛徒和敌军的间谍，左右将军们的决定又扰乱整体军队的秩序。在进行共识时，结果并不代表大多数人的意见。这时候，在已知有成员谋反的情况下，其余忠诚的将军在不受叛徒的影响下如何达成一致的协议，拜占庭问题就此形成。
 
@@ -47,7 +47,7 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
  <b>图 1：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
-在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **文员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因为 **议员** 必须弃票，改变视图。
+在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **议员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因为 **议员** 必须弃票，改变视图。
 
   <p align="center"><img src="/assets/n4.png" width="400"><br>
 
@@ -69,131 +69,128 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
  <b>图 4：</b> 一个 n = 4 的例子中存在一个不诚实的 <b>议长</b>。</p>
 
-在图 4 所示的例子中，中间的节点和右边的节点接收的区块不可验证， This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Congressmen**, it would have been validated without the need for a view change.
+在图 4 所示的例子中，中间的节点和右边的节点接收的区块不可验证， 由于他们占到多数（66%），导致更换视图选举新议长。在这个例子中，如果诚实的议长向三名议员中的两名发送了诚实的数据，那么它将被验证而不需要改变视图。
 
 
-## 5 - 实际实施
+## 实际实施
 
-The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system.**Figure 5** depicts the
-expected iterations as a function of the fraction of dishonest nodes.  
+DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。算法的性能取决于系统中诚实节点的分数。图5描绘了作为不诚实节点的函数的期望迭代。  
 
-Note that the **Figure 5** does not extend below 66.66% **Consensus Node** honesty.  Between this critical point and 33% **Consensus Node** honesty, there is a 'No-Man's Land' where a consensus is unattainable.  Below 33.33% **Consensus Node** honesty, dishonest nodes (assuming they are aligned in consensus) are able to reach a consensus themselves and become the new point of truth in the system.
+请注意，图5没有低于66.66%的共识节点诚信。在这个临界点和33.33%的共识节点诚信之间，有一个无人地带，那里无法达成共识。低于33.33%的共识节点诚信，不诚实的节点（假设它们达成共识）能够自己达成共识，并成为系统中新的真理点。
 
 
 <img src="/assets/consensus.iterations.png" width="800">
 
-**Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
+**图5:** DBFT算法的 Monto-Carlo 模拟，描绘了达成共识所需的迭代。 {100 个节点；100,000 个模拟区块随机选择诚实节点}
 
 
-### 5.1 - 定义
+### 定义
 
-**Within the algorithm, we define the following:**
+在算法中有如下定义：
 
-  - `t`: The amount of time allocated for block generation, measured in seconds.
-    - Currently: `t = 15 seconds`
-    - This value can be used to roughly approximate the duration of a single view iteration as the consensus activity and communication events are fast relative to this time constant.
-
-  - `n`: The number of active **Consensus Nodes**.
-
-  - `f`: The minimum threshold of faulty **Consensus Nodes** within the system. 
+  - `t`：分配给区块生成的时间总量，以秒为单位。
+    - 当前时间： `t = 15 秒`
+    - 这个值可以用来粗略估计单个视图迭代的持续时间，因为共识活动和通信事件相对于这个时间常数是快速的。
+  - `n`： 有效的共识节点数量。
+  - `f`：系统中故障共识节点的最小阈值。 
      - `f = (n - 1) / 3`
-
-  - `h` : The current block height during consensus activity.
-
-  - `i` : **Consensus Node** index.
+  - `h` : 在共识活动期间的当前块高度。
+  - `i` : 共识节点索引。
 
 
-  - `v` : The view of a **Consensus Node**.  The view contains the aggregated information the node has received during a round of consensus.  This includes the vote (`prepareResponse` or `ChangeView`) issued by all congressmen.
+  - `v` : 共识节点视图。该视图包含节点在一轮共识中收到的汇总信息。 这包括所有议员发起的投票（`prepareResponse` 或 `ChangeView`）。
 
 
-  - `k` : The index of the view `v`.  A consensus activity can require multiple rounds.  On consensus failure, `k` is incremented and a new round of consensus begins.
+  - `k` : 视图 `v` 的索引。共识活动可能需要多轮。在共识失败时，k值增加，新一轮的共识开始。
 
 
-  - `p` : Index of the **Consensus Node** elected as the **Speaker**.  This calculation mechanism for this index rotates through **Consensus Nodes** to prevent a single node from acting as a dicator within the system. 
+  - `p` : 选为议长的共识节点索引。这个索引的计算机制在共识节点间轮流，以防止单个节点成为系统内的指令器。
      - `p = (h - k) mod (n)`
 
 
-  - `s`: The safe consensus threshold.  Below this threshold, the network is exposed to fault.  
+  - `s`: 安全共识的阈值。 低于这个阈值，表示网络故障。  
      - `s = ((n - 1) - f)`
 
 
-### 5.2 - 要求
+### 要求
 
-**Within NEO, there are three primary requirements for consensus fault tolerance:**
+**在NEO中，共识容错有三项主要要求：**
 
-1. `s` **Congressmen** must reach a consensus about a transaction before a block can be committed.
-
-2. Dishonest **Consensus Nodes** must not be able to persuade the honest consensus nodes of faulty transactions. 
-
-3. At least `s` **Congressmen** are in same state (`h`,`k`) to begin a consensus activity
+- `s` 议员必须就一项交易达成共识，然后区块才可以实施。
+- 不诚实的共识节点不能说服故障交易的诚实共识节点。 
+- 至少`s` **Congressmen** 处于同一状态 (`h`,`k`) ，开始达成共识。
 
 
 
-### 5.3 - 算法
-**The algorithm works as follows:**
+### 算法
+**该算法工作原理如下：**
 
-1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
+1. 共识节点使用发送者的签名向全网广播一个交易。
 
-   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>Figure 6:</b> A <b>Consensus Node</b> receives a transaction and broadcasts it to the system. </p>
+   <p align="center"><img src="/assets/consensus1.png" width="450"><br> <b>图 6:</b>一个 <b>共识节点</b> 收到交易并在系统中广播 </p>
 
-2. **Consensus Nodes** log transaction data into local memory.
+2. 共识节点将交易数据记录到本地存储器中。
 
-3. The first view `v` of the consensus activity is initialized.
+3. 共识活动的第一个视图  `v` 被初始化。
 
-4. The **Speaker** is identified.
+4. 议长确定。
 
-   <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set. </p>
+   <p align="center"><img src="/assets/consensus2.png" width="450"><br> <b>图 7:</b> <b>议长</b> 确定且设置好视图 </p>
 
-  **Wait** `t` seconds
+  **等待** `t` 秒。
 ​	
-5. The **Speaker** broadcasts the proposal :
+5. 议长广播提案
     <!-- -->
         <prepareRequest, h, k, p, bloc, [block]sigp>
 
-     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Congressmen</b>. </p>
+     <p align="center"><img src="/assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
 
-6. The **Congressmen** receive the proposal and validate:
+6. 议员收到提案并验证：
 
-    - Is the data format consistent with the system rules?
-    - Is the transaction already on the blockchain?
-    - Are the contract scripts correctly executed?
-      - Does the transaction only contain a single spend?(i.e. does the transaction avoid a double spend scenario?)
+    - 数据格式与系统规则是否一致?
 
-    - **If Validated Proposal Broadcast:**
+    - 交易是否已经在链上?
+
+    - 合同脚本是否正确执行?
+
+      - 交易是否只包含一笔开支（即交易是否避免了双重开支的情况？)
+
+    - **如果是有效的提案广播:**
         <!-- -->
             <prepareResponse, h, k, i, [block]sigi>
 
-    - **If Invalidated Proposal Broadcast:**
+    - **如果是无效的提案广播:**
         <!-- -->
             <ChangeView, h,k,i,k+1>
-        ​	
-           <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>Figure 9:</b> The <b>Congressmen</b> review the block proposal and respond. </p>
+        ​	‘
+           <p align="center"><img src="/assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
 
-7. After receiving `s` number of 'prepareResponse' broadcasts, a **Congressman** reaches a consensus and publishes a block.
+7. 在收到 `s` 数量的 'prepareResponse' 广播后，众议员达成共识并发布一个区块。
 
-8. The **Congressmen** sign the block.
+8. 议员签名该区块
 
-   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>Figure 10:</b> A consensus is reached and the approving <b>Congressmen</b> sign the block, binding it to the chain. </p>
+   <p align="center"><img src="/assets/consensus5.png" width="500"><br> <b>图 10:</b> 达成共识，获批议员签名区块，并将其绑定到链上。</p>
 
-9. When a **Consensus Node** receives a full block, current view data is purged, and a new round of consensus begins. 
+9. 当一个共识节点收到一个完整区块时，当前的视图数据被清除，并开始新一轮的共识。
+
   - `k = 0`
 
----
-
-**Note:**
-
- If after   (![timeout](/assets/consensus.timeout.png) )  seconds on the same view without consensus:
-  - **Consensus Node** broadcasts:
-
-  <!-- -->
-      <ChangeView, h,k,i,k+1>
-
-  - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.
-
+> [!Note]
+>
+> 如果 (![timeout](/assets/consensus.timeout.png) ) 秒后在同一视图没有达成共识：
+>   - 共识节点进行广播：
+>
+>   <!-- -->
+>       <ChangeView, h,k,i,k+1>
+>     
+>
+>   - 一旦共识节点接收到至少 `s` 个表示相同视图改变的广播，就会增加视图 `v`， 并引发新一轮的共识。
+>
+>
 
 ​	
 
-## 6 - 引用
+## 引用
 1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
 2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
