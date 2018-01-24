@@ -42,7 +42,8 @@ namespace Neo.SmartContract
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
-string str = System.Text.Encoding.Default.GetString(bytes);
+for (int i = 0; i < bytes.Length; i++)
+    Console.Write(bytes[i].ToString("x2"));
 ```
 
 如果觉得写代码获取合约脚本比较麻烦，客户端的 ` 部署合约 ` 中提供了简单的获取合约代码的方法：

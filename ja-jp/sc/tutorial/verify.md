@@ -41,7 +41,8 @@ namespace NEO.SmartContract
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
-string str = System.Text.Encoding.Default.GetString(bytes);
+for (int i = 0; i < bytes.Length; i++)
+    Console.Write(bytes[i].ToString("x2"));
 ```
 
 コーディングによってコントラクトスクリプトを取得したくない場合、クライアントの`Deploy Contract`機能はコントラクトコードを取得する簡単な方法を提供します。
