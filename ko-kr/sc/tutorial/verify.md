@@ -52,7 +52,8 @@ namespace NEO.SmartContract
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
-string str = System.Text.Encoding.Default.GetString(bytes);
+for (int i = 0; i < bytes.Length; i++)
+    Console.Write(bytes[i].ToString("x2"));
 ```
 
 만약 여러분이 코딩을 통해 스크립트 입수를 원하지 않는다면 '계약'코드를 획득하는 다른 
@@ -111,5 +112,5 @@ PC버전의 클라이언트에서, '고급'(Advanced), '계약 이행'을 차례
 
 > 클라이언트의 자산 잔고는 표준 계좌와 해당 '계약' 계좌 자산 잔고들의 합(sum)입니다.  
 > 이는 모든 주소의 자산들이 결합된 것을 의미합니다. 해당'계약' 계좌의 자산을 사용하고 
-말고 여부는 해당 스마트 계약의 실행여부에 달려있습니다. 만약 해당 계약이 성공적이면 (결과가 참) 자산은 외부로 전송되며 그렇지 않으면 전송되지 않습니다. 
+> 말고 여부는 해당 스마트 계약의 실행여부에 달려있습니다. 만약 해당 계약이 성공적이면 (결과가 참) 자산은 외부로 전송되며 그렇지 않으면 전송되지 않습니다. 
 

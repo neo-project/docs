@@ -43,7 +43,8 @@ Ci sono molti modi per ottenere lo script del contratto, un modo é quello di le
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
-string str = System.Text.Encoding.Default.GetString(bytes);
+for (int i = 0; i < bytes.Length; i++)
+    Console.Write(bytes[i].ToString("x2"));
 ```
 
 Se non vuoi ottenere lo script del contratto tramite codice, allora il client `Deploy Contract` fornisce un modo semplice per ottenere il codice del contratto:
