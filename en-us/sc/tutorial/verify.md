@@ -2,7 +2,7 @@
 
 This tutorial is based on Visual Studio 2017，please ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.0, please download and run the **test network** from [GitHub](https://github.com/neo-project/neo-gui/releases).
 
-At the time of writing this document, the latest **test network** client download address: [neo-gui-2.5.2](https://github.com/neo-project/neo-gui/releases/download/v2.5.2/neo-gui-windows.zip).
+The latest **test network** client download address is [NEO-GUI](https://github.com/neo-project/neo-gui/releases).
 
 ## Compile contract script
 
