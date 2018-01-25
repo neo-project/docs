@@ -92,6 +92,7 @@
       href: sc/getting-started-java.md
     - name: はじめに（Python）
       href: sc/getting-started-python.md
+      items:
       - name: Pythonコンパイラ
         href: sc/python/compiler.md
     - name: チュートリアル
