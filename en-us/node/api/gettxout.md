@@ -1,6 +1,6 @@
 # Gettxout method
 
-Returns the corresponding transaction output information (returned change), based on the specified hash and index.
+Returns the corresponding unspent transaction output information (returned change), based on the specified hash and index. If the transaction output is already spent, the result value will be `null`.
 
 ## Parameter Description
 
