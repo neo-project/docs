@@ -1,7 +1,7 @@
-# Getting Started
+# Guide de démarrage
 
-Ce tutorial en deux parties va vous permettre de vous initier au développement sur NEO.
- 
-1. Construire des chaînes privées basées sur les nœuds NEO et interagir avec la chaîne de blocs à travers l'API et le SDK. [Cliquez ici](node/introduction.md).
+Ce tutorial va vous permettre de vous introduire au développement sur NEO en deux parties.
 
-2. Écrire et compiler des contrats intelligents afin de les déployer sur la chaîne de blocs. [Cliquez ici](/en-us/sc/introduction.md).
+1. La construction de chaine privée basée sur les noeuds NEO et l'interaction avec la blockchain à travers l'API et un SDK. [Cliquez ici](node/introduction.md).
+
+2. L'écriture et la compilation de smartcontracts NEO afin de les déployer dans la blockchain. [Cliquez ici](sc/introduction.md).
