@@ -24,6 +24,8 @@
         href: node/api/dumpprivkey.md
       - name: getaccountstate
         href: node/api/getaccountstate.md
+      - name: getapplicationlog
+        href: node/api/getapplicationlog.md
       - name: getassetstate
         href: node/api/getassetstate.md
       - name: getbalance
@@ -64,6 +66,8 @@
         href: node/api/invokefunction.md
       - name: invokescript
         href: node/api/invokescript.md
+      - name: listaddress
+        href: node/api/listaddress.md
       - name: sendfrom
         href: node/api/sendfrom.md
       - name: sendrawtransaction
