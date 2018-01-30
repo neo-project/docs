@@ -4,7 +4,7 @@
 
 > [!Note]
 >
-> 调用此方法前需要运行命令 `dotnet neo-cli.dll /log` 启动日志记录, 完整的合约日志会记录到 ApplicationLogs 目录。
+> 调用此方法前需要运行命令 `dotnet neo-cli.dll --log` 启动日志记录, 完整的合约日志会记录到 ApplicationLogs 目录。
 
 ## 参数说明
 
