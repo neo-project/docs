@@ -1,17 +1,14 @@
 # 如何用 C# 编写 NEO 智能合约
 
-目前 NEO 智能合约推荐使用 C# 语言来开发（此外还支持 Java、Kotlin、Go、C/C++、Python、JavaScript 等编程语言）
+目前 NEO 智能合约推荐使用 C# 语言来开发（此外还支持 Java、Kotlin、Python 等语言开发，未来还将支持 Go、 C/C++、JavaScript 等更多的编程语言）
 
 此部分包含简短的教程，可指导你配置 NEO 智能合约的 C# 开发环境，并使你了解如何创建智能合约项目，以及如何编译。
-
-   > [!Note]
-   > 目前 NEO 的所有项目已经升级到了 Visual Studio 2017 版本，如果你电脑中安装的是 Visual Studio 2015，请升级。
 
 ## 开发工具
 
 ### 1. Visual Studio 2017
 
-如果你的计算机中已经安装过 Visual Studio 2017，并且在安装时勾选了 `.NET Core 跨平台开发 ` 可跳过本小节。
+如果你的计算机中已经安装过 Visual Studio 2017，并且在安装时勾选了 `.NET Core 跨平台开发 ` 可跳过本小节。如果你电脑中安装的是 Visual Studio 2015，则无法进行下一步，请升级 Visual Studio。
 
 下载及安装方法：
 
@@ -40,10 +37,15 @@
 
 ![](assets/publish_and_profile_settings.jpg)
 
+neon 项目默认的发布平台为 win10-x64，如果你不是 Windows10 系统，需要修改发布平台，用文本编译器打开 neon.csproj 文件，将 `<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>` 更改为目标平台，如 `<RuntimeIdentifiers>win7-64\</RuntimeIdentifiers>`，然后用 VS 重新发布该项目即可。详细 RID 可以参考 [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
+
 > [!Note]
 >
-> - 发布 neon 时程序会先还原 NuGet 程序包，如果此时看不到界面有任何变化，可以点击菜单栏上的 `视图`，`输出` 来查看（快捷键 Ctrl + Alt + O）。这时会看到 “正在还原 NuGet 程序包...”。该过程可能需要十几分钟甚至几十分钟，并且中间可能失败 N 次，有条件的可以科学上网加快还原过程。
-> - 发布neon时如果遇到提示neon.dll无法复制，可通过手动拷贝上一层文件夹的同名dll文件解决此问题。
+> 常见问题：
+>
+> [发布 neon 时提示 NuGet 错误](faq.md#发布-neon-时提示-nuget-错误)
+>
+> [无法复制 neon.dll](faq.md#无法复制-neondll)
 
 发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件
 
@@ -69,7 +71,6 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 >
 > 在环境变量中不要添加 “…… neon.exe” 字样的路径，要填写 neon.exe **所在的文件夹目录** 而非 neon.exe 本身的路径
 >
-> 这时会看到 “正在还原 NuGet 程序包...”。该过程可能需要十几分钟甚至几十分钟，并且中间可能失败 N 次，有条件的可以科学上网加快还原过程。
 
 ![](assets/edit_environment_variable.png)
 
@@ -78,9 +79,11 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 ![](assets/powershell_enviornment_variabled_updated_correctly.png)
 
 > [!Note]
-> 如果你的系统是 Windows 7 SP1，此步骤会提示缺少  [api-ms-win-core-console-l2-1-0.dll](https://cn.dll-files.com/api-ms-win-core-console-l2-1-0.dll.html) 文件。
 >
-> 可在 [这里](https://cn.dll-files.com/api-ms-win-core-console-l2-1-0.dll.html) 下载该文件，下载后解压出 api-ms-win-core-console-l2-1-0.dll 文件，放在 neon.exe 所在的目录中。
+> 常见问题：
+>
+> [缺少 api-ms-win-core-console-l2-1-0.dll 文件](faq.md#缺少-api-ms-win-core-console-l2-1-0dll-文件)
+
 
 ## 创建项目
 
@@ -90,19 +93,13 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 创建项目好后，会自动生成一个 c# 文件，默认的类继承于 SmartContract，如图
 
-![](assets/NeoContract1.png)
-
-新创建的项目会因为没有还原 NuGet 程序包而报错，注意右侧 “引用” 中会有个感叹号。
-
-（如果你新建的项目没有报错，请跳过这一步）
-
-解决方法也很简单，右击 `解决方案"NeoContract1"`（也就是右击解决方案文件），点击 `还原 NuGet 程序 包` ，这时在 “输出” 面板会看到 “正在还原 NuGet 程序包...”（如果没看到 “输出” 面板，可以用快捷键 Ctrl + Alt + O 打开 “输出” 面板）。该过程可能需要几分钟，有条件的可以科学上网加快还原过程。
-
-所有程序包已经还原成功后，如果代码仍然报错，并且右侧 “引用” 中仍有个感叹号，可以尝试双击感叹号，或者重启 Visual Studio。
-
-正常情况下，代码如下图所示。
-
 ![](assets/smart_contract_function_code.png)
+
+> [!Note]
+>
+> 常见问题：
+>
+> [新建的 NeoContract 项目找不到 Neo 命名空间](faq.md#新建的-neocontract-项目找不到-neo-命名空间)
 
 ## 编译项目
 
@@ -111,6 +108,12 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `项目名.avm` 文件，该文件即是生成的 NEO 智能合约文件。
 
 ![](assets/compile_smart_contract.jpg)
+
+>[!Note]
+>
+>常见问题：
+>
+>[编译 NeoContract 时卡在 Start NeoContract converter 这一步](faq.md#编译-neocontract-时卡在-start-neocontract-converter-这一步)
 
 现在，你已经完成了 NEO 智能合约开发环境的配置，更多智能合约编写方法请参考 [NEO 智能合约教程](tutorial.md)
 
