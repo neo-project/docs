@@ -189,5 +189,7 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: 系统使用费
       href: sc/systemfees.md
+    - name: 常见问题
+      href: sc/faq.md
 - name: 交易所对接指南
   href: exchange.md
