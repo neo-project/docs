@@ -8,9 +8,7 @@ Returns the contract log based on the specified txid.
 
 ## Parameter Description
 
-txid：Transaction ID，
-
-verbose：Optional, the default value of verbose is 0. When verbose is 0, the serialized information of the block is returned, represented by a hexadecimal string. If you need to get detailed information, you will need to use the SDK for deserialization. When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
+txid：Transaction ID
 
 ## Example
 
