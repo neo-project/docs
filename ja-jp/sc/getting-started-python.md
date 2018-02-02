@@ -174,9 +174,9 @@ neo>
 
 ## 参考文献
 
-- [Interacting with the NEO blockchain using Prompt](python\prompt.md)
-- [Settings and Loggings](python\logging.md)
-- [Interacting with Smart Contracts](python\smartcont.md)
-- [Tests](python\tests.md)
-- [Python Compiler for the NEO Virtual Machine](python\compiler.md)
+- [プロンプトの使用](python\prompt.md)
+- [設定とロギング](python\logging.md)
+- [スマートコントラクトとの相互作用](python\smartcont.md)
+- [テスト](python\tests.md)
+- [NEO仮想マシンのためのPythonコンパイラ](python\compiler.md)
 
