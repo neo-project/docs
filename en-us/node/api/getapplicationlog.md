@@ -18,7 +18,7 @@ Request body：
 {
   "jsonrpc": "2.0",
   "method": "getapplicationlog",
-  "params": ["0x0d03ad35eb8b0bb2e43e18896d22cd2a77fe54fc0b00794fb295bcf96257d0e3",1],
+  "params": ["0x0d03ad35eb8b0bb2e43e18896d22cd2a77fe54fc0b00794fb295bcf96257d0e3"],
   "id": 1
 }
 ```
