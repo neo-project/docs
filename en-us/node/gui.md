@@ -1,122 +1,52 @@
 # Using the NEO-GUI Client
 
+> [!Note]
+>
+> Unless otherwise stated,  this article introduces the NEO-GUI running on the test net. For more information, refer to [Test Network](testnet.md).
+
 ## Prerequisite
 
 ### Downloading the client
 
-The client itself does not require any installation. Download and extract the files to a location of your choice, then double-click neo-gui.exe to open the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
+Download [NEO-GUI](https://neo.org/download) and extract the files to a location of your choice, then double-click neo-gui.exe to run the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
 
 > [!Note]
 >
-> The neo-gui client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+> The NEO-GUI client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 >
-> Windows10 pre-version of the system requires installation [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+> Pre-Windows 10 systems require [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) to be installed.
 
 ### Synchronizing blockchain data
 
-The client must be fully synchronized before use. The bottom left hand corner indicates the number of blocks synchronized and the total number of blocks in the network (see example below).  These numbers will update regularly.
+The client must be fully synchronized before use. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height. When you open a wallet, the wallet height data is displayed.  These numbers update regularly.
 
 ![image](/assets/gui_1.png)
 
-In order to speed up network synchronzation you can download a copy of the blockchain up to a certain blockheight.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
+In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
 
-1. To begin, download the file located at [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
+1. To begin, download the package located at [Client Downloads](https://neo.org/download) according to your network: chain.acc.zip for main net or chain.acc.test.zip for test net.
 
-2. Close the neo-gui client and open chain.acc.zip.  Extract the chain.acc file in the neo-gui folder as shown in the figure below:
+2. Close the neo-gui client and copy chain.acc.zip to the neo-gui folder as shown in the figure below:
 
    ![](/assets/gui_58.png)
 
-3. After re-opening the neo-gui client you will see that the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. As shown in the figure below:  
+   > [!Note]
+   >
+   > For the test net package chain.acc.test.zip, you need to rename the file to chain.acc.zip before placement.
 
-   ![](/assets/gui_59.png)
+3. Re-open the neo-gui client, you can see the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain.   
 
-When synchronized to a certain point, the file (chain.acc) will be deleted and synchronization from the NEO network will continue. As shown in the figure below:
 
-![](/assets/gui_60.png)
 
-The data beside "Height" correspond to wallet height/client height/blockchain. When you open a wallet, the wallet height data is displayed.
+You can also use the NEO-CLI command `export blocks` to export the synchronized block data to a package. For more information,  see  [CLI Command Reference](cli.md).
 
-### Glossary
-
-#### Wallet
-
-A wallet file stores a reference to your NEO, GAS, and account information in a database with .json or .db3 extension. This file is very important and must be backed up securely.
+## Wallet
+A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
 
 > [!Important]
 >
 > Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
 
-#### Account
-
-This is used to track assets in a NEO block.
-
-Account information includes: Address, private key, public key, type.
-
-- Address: The equivalent of a bank account or bank card number, used to receive assets during transactions.
-
-
-
-- Type: Neo.Wallets.SignatureContract Indicates that the address consists of a public key and is a 1-of-1 multi-signed address. Neo.Wallets.MultiSigContract indicates that the address consists of multiple public keys and is a m-of-n multi-signature address, which is used for smart contracts.
-
-
-
-- Private key: A 256-bit random number, kept by the user and not known publicly. This represents the user account ownership and the ownership of the assets within the account.
-
-
-
-- Public key: Each private key has a matching public key (Note: Public key, and private key information can be viewed by right clicking on the address.)
-
-
-> [!Important]
->
-> At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
-
-#### Assets
-
-The assets of the account, asset information, including: Assets (NEO, GAS, the user created by the assets), type, balance, and the issuer.
-
-#### Transaction Record
-
-A record of all transaction information associated with the account.
-
-#### Transfer
-
-Transfer of assets to a recipient address. If the asset type is NEO, both parties are required to confirm with their signature. Other types of asset transfer can be conducted without confirmation for both parties.
-
-#### Trade
-
-Carries out online asset exchange between two parties, where both parties have to confirm before the successful exchange of assets can occur.
-
-#### Signature
-
-Signing of information, is to signify confirmation of the information by the signer.
-For transactions involving equity allocation and transfer of assets, the signature is required as proof of consent by the parties involved.
-
-#### Registered assets
-
-Creating a new user-issued asset in the NEO block. The user can define the type, name, total, etc. of the asset and specify the administrator account of the asset. The creation of assets need to consume a certain amount of NEO as an additional service fee, the current price is 10,000 GAS. (Test network fee is one percent of the main network)
-
-#### Distribute assets
-
-Within the upper limits of the total amount set by the asset creator, the asset is issued to the address specified by the issuer. Distribution of assets consumes a certain amount of small coins as an additional service fee, the current price is 500 GAS. (Test network fee is one percent of the main network)
-
-#### Election
-
-Those who want to be a NEO validator are required to register by election. Through the deposit of a certain amount of NEO, validator qualifications may be obtained. This function is not currently supported. Please wait for further updates.
-
-#### Vote
-
-Holders of NEO can vote on the validator candidates and this voting mechanism will determine if a validator is selected. This function is not currently supported. Please wait for further updates.
-
-#### Broadcast
-
-After signing, the transaction information is broadcasted to the entire network, where confirmation by a node, completes the transaction. At the moment, this feature only appears in the signature.
-
-#### Monitor address
-
-After importing the address of the other party as the monitoring address, you will be able to view the assets at that address.
-
-## Wallet
 ### Create the wallet database
 
 1. Click on the `wallet`, `create the wallet database`, pop-up `new wallet` page.
@@ -131,10 +61,50 @@ After importing the address of the other party as the monitoring address, you wi
 
    ![image](/assets/gui_4.png)
 
-4. Click `OK` and the wallet will be successfully created, which by default will come with a standard account. It should be noted that due to the role of change mechanism, the remainder of the assets will be transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
+4. Click `OK` and the wallet is successfully created, which by default comes with a standard account. 
+
+   > [!Note]
+   >
+   > Due to the role of change mechanism, the remainder of the assets is transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
+
+### View the wallet information
+
+#### Account
+
+Right-click the wallet and select Account -> View Key to check the account information:
+
+- Address: The equivalent of a bank account or bank card number, used to receive assets during transactions.
+
+
+- Private key: A 256-bit random number, kept by the user and not known publicly. This represents the user account ownership and the ownership of the assets within the account.
+
+
+- Public key: Each private key has a matching public key (Note: Public key, and private key information can be viewed by right clicking on the address.)
+
+> [!Important]
+>
+> At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
+
+You can also do the following operations by right-clicking an address of the account:
+
+| Function             | Description                              |
+| -------------------- | ---------------------------------------- |
+| Create a new address | Creates a new address in the wallet      |
+| Import               | Import wif: Imports the corresponding address into the wallet<br>Import certification: Imports the certification <br>Import monitoring address：After importing the address of the other party as the monitoring address, you can view the assets at that address. |
+| Copy to clipboard    | Copies the address                       |
+| Delete               | Removes the address                      |
+
+#### Assets
+
+Clicking on the `Assets` tab you can view the assets of the account, including Assets (NEO, GAS, the user-created assets), type, balance, and the issuer.
+
+#### Transaction Record
+
+Clicking on the `Transaction Record` tab you can view all the transaction records associated with the wallet.
 
 ### Open the wallet database
-1. Every time the client is re-opened, you will need to click `open wallet database` to select which wallet file to open, as the picture shows:
+
+1. Every time the client is re-opened, you need to click `open wallet database` to select which wallet file to open, as the picture shows:
 
    ![image](/assets/gui_5.png)
 
@@ -152,7 +122,7 @@ After importing the address of the other party as the monitoring address, you wi
 
 
 
-### Change Password
+### Change password
 
 Can be used to modify the wallet password.
 
@@ -171,98 +141,90 @@ This option is used to restore errors in the client when an exception occurs. Th
 
 As the current block height is very high, rebuilding the wallet index can take several minutes. Please be patient.
 
-## Trade
+## Transactions
 
 ### Transfer
 
-#### Token Asset Transfer
+Transfers assets to a recipient address. If the transferred asset type is equity, both parties are required to confirm with their signature.
 
-1. Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+1. From NEO-GUI, click  `Transaction`-> `Transfer`
 
-   ![image](/assets/gui_10.png)
+2. Do one of the following:
 
-2. Click OK.
+   1. To transfer to a single address, click  `+` and enter the transfer information, e.g. assets type, recipient address, and amount.
+   2. To transfer to a batch of addresses, click ![image](/assets/gui_icon.png) and enter pairs of the address and amount separated by a space, as shown below: 
 
-   ![image](/assets/gui_11.png)
+   ![image](/assets/gui_15.png)
 
-3. Click OK.
+3. Click OK. If need be, click ![image](/assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
 
-![image](/zh-cn/node/assets/i.png)
+4. Double-check the transfer information and then click OK.
 
-#### Equity asset transfer
+   For token asset transfer, the transaction is completed with the transaction ID displayed.
 
-1. Click on the `transaction`, `transfer`, `+`, and enter the transfer information.
+   ![image](/zh-cn/node/assets/i.png)
 
-   ![image](/zh-cn/node/assets/j.png)
-
-2. Click OK.
-
-   ![image](/zh-cn/node/assets/k.png)
-
-3. Click OK, as shown in the display, where more signatures are shown to be required:
-
-   ![image](/zh-cn/node/assets/l.png)
-
-4. Signature function see [signature](#sign).
-
-#### Batch transfer
-
-This function is used to simplify the transfer of the same asset to a different addresses.
-
-![image](/assets/gui_14.png)
-
-The data format is `address transfer amount` (separated by spaces).
-
-![image](/assets/gui_15.png)
-
-It should be noted that the data format should be entered in accordance with the above criteria as extra spaces are likely to lead to transfer failure.
-
-#### Remarks
-
-This function is used to record the information of the transaction on the NEO block-chain. The [NEO blockchain browser](https://www.antchain.xyz/) can be used to locate transaction information.
-
-![image](/zh-cn/node/assets/o.png)
-
-At the moment there is no requirement for the message format.
-
-![image](/zh-cn/node/assets/p.png)
-
-The remarks for the transaction can be found on the [NEO blockchain browser](https://www.antchain.xyz/)
-
-![image](/zh-cn/node/assets/oo.png)
-
-### Trade
-
-#### Initiating a deal
-
-1. This transaction requires both parties to initiate a transaction request in order to determine the asset details being sent to the corresponding recipient.
-
-   ![image](/assets/gui_18.png)
-
-2. Click OK to generate the transaction request. We can use the transaction request to obtain details on the terms sent by the corresponding party.
-
-![image](/assets/gui_19.png)
-
-#### Merging of the deal
-
-1. After closing the initiated transaction request window you will be shown the merge transaction request interface.
-
-   ![image](/assets/gui_20.png)
-
-2. This causes the other party's transaction request to be displayed. To verify the legitimacy of the other party's request, click verify. Depending the legitimacy of the request, one can either choose to accept or refuse.
-
-   ![image](/assets/gui_24.png)
-
-3. If you choose to accept then the two sides need to sign and broadcast. For details, see [Signature](#sign). <a id="sign"> </a>
+   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [signature](#sign).
 
 ### Signature
-1. This causes the transaction sent by the other party to be pasted within the input box. Click on `sign`, and the output data will be generated. At the same time, the `broadcast` button will be displayed.
+
+Signing of information, is to signify confirmation of the information by the signer.
+For transactions involving equity allocation and asset exchange, the signature is required as proof of consent by the parties involved.
+
+1. From NEO-GUI, click `Transaction` -> `Sign`,
+
+2. Paste the transaction information sent by the other party in the input field, and then click `sign`. The output data is generated. 
+
+   At the same time, the `broadcast` button is displayed.
 
    ![image](/zh-cn/node/assets/u.png)
 
-2. Click on `broadcast`, and the transaction will be sent. This transaction is now complete and a transaction ID (TXID) will be shown once the transaction is successful.
+3. Click  `broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
 
 ![image](/assets/gui_30.png)
+
+### Assets Exchange
+
+An online asset exchange between two parties require both parties to sign for the transaction before the successful exchange of assets can occur. For example, a general asset exchange process between the transaction parties A and B is:
+
+1. Both parties initiate a transaction request and send the generated request to each other
+2. Verify the request received
+3. Merge transaction requests from both parties, generate signatures and send them to each other
+4. Sign and broadcast the transaction.
+
+#### Step 1 - Initiating a request
+
+Take the operations made on A side as an example:
+
+1. From NEO-GUI, click `Transaction` -> `Transaction`.
+
+2. Enter the other party's account information and then click `+` to enter the asset to be sent.
+
+3. Click `Initiate` to generate the transaction request. Cope the request that appears and send it to B. Then click `Close`.
+
+4. The merging request page is displayed. Wait for the transaction request sent from B.
+
+   B performs the same operations and send the request to A.
+
+#### Step 2 - Merging the request
+
+Take the operations made on A side as an example:
+
+1. In the merging request page, paste the request sent from B into the counterparty request field. Click `Validate`.
+
+   ![image](/assets/gui_20.png)
+
+2. Verify the transaction information. Click `Accept` if no issue.
+
+3. Click `Merge` to merge both parties' requests and generate the signature.
+
+4. Copy the signature information and send it to B.
+
+5. B performs the same operations and send the signature to A.
+
+#### Step 3 - Signing and broadcasting the transaction
+
+The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#sign).
 
 ## Advanced
 
