@@ -49,7 +49,7 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 
 ### Create the wallet database
 
-1. Click on the `wallet`, `create the wallet database`, pop-up `new wallet` page.
+1. Click `Wallet`, `New Wallet Database`.
 
    ![image](/assets/gui_2.png)
 
@@ -57,7 +57,7 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 
    ![image](/es-es/node/assets/gui/gui_3.png)
 
-3. Enter `password` and `repeat password` and save your own password.
+3. Enter `Password` and `Re-Password` and save your own password.
 
    ![image](/assets/gui_4.png)
 
@@ -87,12 +87,12 @@ Right-click the wallet and select Account -> View Key to check the account infor
 
 You can also do the following operations by right-clicking an address of the account:
 
-| Function             | Description                              |
-| -------------------- | ---------------------------------------- |
-| Create a new address | Creates a new address in the wallet      |
-| Import               | Import wif: Imports the corresponding address into the wallet<br>Import certification: Imports the certification <br>Import monitoring address：After importing the address of the other party as the monitoring address, you can view the assets at that address. |
-| Copy to clipboard    | Copies the address                       |
-| Delete               | Removes the address                      |
+| Function          | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| Create New Add.   | Creates a new address in the wallet                          |
+| Import            | Import from WIF: Imports the corresponding address into the wallet<br>Import from Certificate: Imports the certification <br>Import Watch-Only Address：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
+| Copy to Clipboard | Copies the address                                           |
+| Delete            | Removes the address                                          |
 
 #### Assets
 
@@ -162,9 +162,9 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 
    For token asset transfer, the transaction is completed with the transaction ID displayed.
 
-   ![image](/zh-cn/node/assets/i.png)
+   ![image](/assets/txid.png)
 
-   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [signature](#sign).
+   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#Signature).
 
 ### Signature
 
@@ -177,7 +177,7 @@ For transactions involving equity allocation and asset exchange, the signature i
 
    At the same time, the `broadcast` button is displayed.
 
-   ![image](/zh-cn/node/assets/u.png)
+   ![image](/assets/signature.png)
 
 3. Click  `broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
 
@@ -201,6 +201,8 @@ Take the operations made on A side as an example:
 2. Enter the other party's account information and then click `+` to enter the asset to be sent.
 
 3. Click `Initiate` to generate the transaction request. Cope the request that appears and send it to B. Then click `Close`.
+
+   ![image](/assets/tranrequest.png)
 
 4. The merging request page is displayed. Wait for the transaction request sent from B.
 
@@ -226,9 +228,29 @@ Take the operations made on A side as an example:
 
 The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#sign).
 
-## Advanced
+## Advanced Features
 
-### Extraction of GAS
+### Multi-party signed address
+
+Multi-party signed address is a contract address that requires one or more parties to sign during the process of transaction.
+
+To create a multi-party signed address:
+
+1. From NEO-GUI, right-click on the account area and select `Create Contract Address` -> `Multi-Signature`.
+
+2. In the public key list, enter the public keys used for signing.
+
+3. Specify the minimal number of signatures.
+
+   ![image](/assets/multisign.png)
+
+4. Click OK.
+
+The contract address is created and displayed in the account page.
+
+![image](/assets/multisign2.png)
+
+### Claiming GAS
 
 GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
 
@@ -239,7 +261,7 @@ The specific steps are:
 
 ![image](/assets/gui_37.png)
 
-### Request a certificate
+### Requesting a certificate
 
 Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
 Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
@@ -250,19 +272,68 @@ The generated file will be as shown in the following figure:
 
 ![image](/zh-cn/node/assets/y.png)
 
-### Registered assets
+### Registering assets
 
-There are two types of assets, Token and Share. Using Token as an example, fill in the following:
+You can create a new asset type in the NEO blockchain, defining the type, name, total amount, and the administrator account of the asset. Currently creating an asset costs 4990 GAS as an additional service fee. 
 
-![image](/assets/gui_43.png)
+There are two types of assets, Token and Share. Taking Token assets as an example, do the following to create the asset:
 
-It should be noted that the registration of assets incurs a significant fee. (The main network fee is 10000 GAS, test network fee is 100 NEO coins) Please exercise caution.
+1. From NEO-GUI, click `Advanced` -> `Asset Registration`. Specify the following options and click `OK`：
 
-### Distribute assets
+   - Asset Type: Choose the asset type: Token or Share.  For share asset transfer, signature is required.
+
+   - Name: The asset name. It will be displayed in the Asset page of neo-gui and the blockchain browser after the asset distributed. 
+
+   - Capped: Check this option to set the maximum amount of the asset issued.
+
+   - Precision: The minimum unit of the asset. The default is 8, indicating the minimum unit is 0.00000001. If it is 0, the minimum unit is 0.
+
+   - Owner: The asset issuer.
+
+   - Admin: An administrator can modify the asset name, the total amount and so on. The feature is not supported yet.
+
+   - Issuer: The address of the asset to be distributed.
+
+     ![image](/assets/gui_43.png)
+
+2. Assets registration is implemented by invoking the smart contract. In the Invoke Contract page, click `Test` . 
+
+   You can see the corresponding service fee is shown up in the lower-left corner of the page.
+
+   You can also load your local smart contract files.
+
+   > [!Note]
+   >
+   > The assets registration incurs a significant fee (Currently it is 4990 Gas) .
+
+
+3. If you are sure to continue, click `Invoke`.
+
+4. Copy the transaction ID returned and paste it into Notepad for later use in asset distribution.
+
+   > [!Note]
+   >
+   > It takes about 15 minutes to register before you can distribute assets.
+
+### Distributing assets
+
+Within the upper limits of the total amount set by the asset creator, the asset can be issued to the address specified by the issuer. Distributing assets requires a certain amount of GAS to be used as an additional service fee, currently 1 Gas per time.
+
+1. From NEO-GUI, click `Advanced` -> `Asset Distribution`.
+
+2. Paste the transaction ID obtained in the last step of registering assets into `Asset ID`, the asset details is displayed automatically.
+
+   If the transaction ID starts with "0x", you need to delete "0x" and enter it again.
+
+3. Click `+` to enter the account address and the amount of assets to be distributed. Click `OK`.
+
+   Once the distribution is complete, you can see the user-created assets is displayed in your wallet.
 
 ![image](/assets/gui_46.png)
 
-It should be noted that the distribution of assets incurs a significant fee. (The main network fee is 500 NEO coins, test network fee is 5 NEO coins) Please exercise caution, and choose one-time distribution if possible.
+### NEP-5 Assets
+
+The NEO-GUI client supports NEP-5 assets transactions. To make a NEP-5 asset transaction, you first need to click `Advanced` -> `Options` in the client to add a script hashes for the NEP-5 asset. Then you can select the NEP-5 asset type for asset transfer and exchange transactions.
 
 ### Election
 
