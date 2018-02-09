@@ -4,7 +4,7 @@ The TestNet is an environment where the user can develop, commission and test pr
 
 All the blockchain of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
 
-If you are a developer, you can ask for GAS on the TestNet here: https://www.neo.org/Testnet/Create
+If you are a developer, you can ask for GAS on the TestNet here: https://www.neo.org/Testnet/Create For detailed instructions see [Request and Access Test NEO](access-test-neo.md).
 
 ## TestNet characteristics
 
