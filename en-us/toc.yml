@@ -9,11 +9,11 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
-    - name: Graphical User Interface
-      href: node/gui.md
     - name: Test Network
       href: node/testnet.md
-    - name: CLI Reference
+    - name: Using NEO-GUI Client
+      href: node/gui.md
+    - name: Using NEO-CLI Client
       href: node/cli.md
     - name: Private Chain
       href: node/private-chain.md
