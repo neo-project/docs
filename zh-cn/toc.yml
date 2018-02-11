@@ -9,11 +9,11 @@
       href: node/introduction.md
     - name: 如何安装
       href: node/setup.md
-    - name: 客户端使用说明
-      href: node/gui.md
     - name: 测试网
       href: node/testnet.md
-    - name: CLI 命令参考
+    - name: 使用NEO-GUI客户端
+      href: node/gui.md
+    - name: 使用NEO-CLI客户端
       href: node/cli.md
     - name: 私链搭建
       href: node/private-chain.md
