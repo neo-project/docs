@@ -51,8 +51,8 @@ Transaction class API:
 | Neo.Input.GetHash             | Get the hash of the referenced previous transaction |
 | Neo.Input.GetIndex            | The index of the input in the output list of the referenced previous transaction |
 | Neo.Output.GetAssetId         | Get Asset ID                             |
-| Neo.Output.GetValue           | Get Script Hash                          |
-| Neo.Output.GetScriptHash      | Get the transaction amount               |
+| Neo.Output.GetValue           | Get the transaction amount               |
+| Neo.Output.GetScriptHash      | Get Script Hash                          |
 
 Account class API:
 
@@ -96,7 +96,7 @@ Runtime class API:
 | Neo.Runtime.Notify       | `New` Notifies the client with a notification during smart contract execution |
 | Neo.Runtime.Log          | `New` Notifies the client with a log message during smart contract execution |
 
-Note: The source code can be found under `NEO` in the `src/neo/SmartContract/StateReader.cs` file.
+Note: The source code can be found under `NEO` in the [`SmartContract/StateReader.cs`](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateReader.cs) file.
 
 ## Read/Write API
 
@@ -115,4 +115,4 @@ This type of API will modify the status of the smart contract
 | Neo.Storage.Put                | Inserts a value into the persistent store based off the given key |
 | Neo.Storage.Delete             | Deletes a value from the persistent store based off the given key |
 
-Note: The source code for the above API can be found under `NEO` in the `src/neo/SmartContract/StateMachine.cs` file.
+Note: The source code for the above API can be found under `NEO` in the [`SmartContract/StateMachine.cs`](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateMachine.cs) file.

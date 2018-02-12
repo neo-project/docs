@@ -2,7 +2,7 @@
 typora-root-url: ..\..
 ---
 
-### How to use C# to write an NEO smart contract
+### How to use C# to write a NEO smart contract
 
 We currently recommend C# for developing smart contracts (though we support or plan to support Java, Kotlin, Go, C/C++, Python, JavaScript and other programming languages).
 
@@ -91,18 +91,17 @@ Once you create a project, it will automatically generate a C# file. The default
 Everything is now ready to add the entry method that defines the smart contract:
 
 ```c#
-public class Contract1: SmartContract
+public class Contract1 : SmartContract
 {
-    public static void Main ()// Note that the main method to capitalize
+    public static void Main() // Note that the main method is capitalized
     {
         
     }
 }
 ```
 
-After you compiled it successfully you will see` SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the NEO smart contract.
+After you compile it successfully you will see `SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the NEO smart contract.
 
-![compile smart contract](assets/compile_smart_contract.png)
-
+![compile smart contract](/assets/compile_smart_contract.png)
 
 Now that you have completed the configuration of the NEO smart contract development environment, please refer to the [NEO smart contract tutorial](tutorial.md)

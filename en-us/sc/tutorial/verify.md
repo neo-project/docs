@@ -2,7 +2,7 @@
 
 This tutorial is based on Visual Studio 2017，please ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.0, please download and run the **test network** from [GitHub](https://github.com/neo-project/neo-gui/releases).
 
-At the time of writing this document, the latest **test network** client download address: [neo-gui-2.0.1](https://github.com/neo-project/neo-gui/releases/download/v2.0.1/neo-gui-windows.zip).
+The latest **test network** client download address is [NEO-GUI](https://github.com/neo-project/neo-gui/releases).
 
 ## Compile contract script
 
@@ -42,7 +42,8 @@ There are many ways to obtain the contract script, one way is to read it directl
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
-string str = System.Text.Encoding.Default.GetString(bytes);
+for (int i = 0; i < bytes.Length; i++)
+    Console.Write(bytes[i].ToString("x2"));
 ```
 
 If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to obtain the contract code:

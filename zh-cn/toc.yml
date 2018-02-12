@@ -9,11 +9,11 @@
       href: node/introduction.md
     - name: 如何安装
       href: node/setup.md
-    - name: 客户端使用说明
-      href: node/gui.md
     - name: 测试网
       href: node/testnet.md
-    - name: CLI 命令参考
+    - name: 使用NEO-GUI客户端
+      href: node/gui.md
+    - name: 使用NEO-CLI客户端
       href: node/cli.md
     - name: 私链搭建
       href: node/private-chain.md
@@ -24,6 +24,8 @@
         href: node/api/dumpprivkey.md
       - name: getaccountstate
         href: node/api/getaccountstate.md
+      - name: getapplicationlog
+        href: node/api/getapplicationlog.md
       - name: getassetstate
         href: node/api/getassetstate.md
       - name: getbalance
@@ -64,6 +66,8 @@
         href: node/api/invokefunction.md
       - name: invokescript
         href: node/api/invokescript.md
+      - name: listaddress
+        href: node/api/listaddress.md
       - name: sendfrom
         href: node/api/sendfrom.md
       - name: sendrawtransaction
@@ -185,5 +189,7 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: 系统使用费
       href: sc/systemfees.md
+    - name: 常见问题
+      href: sc/faq.md
 - name: 交易所对接指南
   href: exchange.md

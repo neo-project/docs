@@ -50,8 +50,8 @@ Transaction クラスAPI：
 | Neo.Input.GetHash             | 参照されている前のトランザクションのハッシュを取得する |
 | Neo.Input.GetIndex            | 参照されている前のトランザクションの出力リスト内の入力のインデックス |
 | Neo.Output.GetAssetId         | アセットIDを取得する |
-| Neo.Output.GetValue           | スクリプトハッシュを取得する |
-| Neo.Output.GetScriptHash      | トランザクションの量を取得する |
+| Neo.Output.GetValue           | トランザクションの量を取得する |
+| Neo.Output.GetScriptHash      | スクリプトハッシュを取得する |
 
 Account クラスAPI：
 

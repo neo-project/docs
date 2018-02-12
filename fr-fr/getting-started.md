@@ -1,4 +1,4 @@
-# Getting Started
+# Démarrage
 
 Ce tutorial en deux parties va vous permettre de vous initier au développement sur NEO.
  

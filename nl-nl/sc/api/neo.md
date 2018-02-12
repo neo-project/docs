@@ -51,8 +51,8 @@ Transaction class API:
 | Neo.Input.GetHash             | Krijg de hash van een gerefereerde vorige transactie 
 | Neo.Input.GetIndex            | Krijg de index van de input in de output-lijst van de gerefereerde vorige transactie 
 | Neo.Output.GetAssetId         | Krijg het Asset ID 
-| Neo.Output.GetValue           | Krijg de Script Hash 
-| Neo.Output.GetScriptHash      | Krijg de transactie-hoeveelheid
+| Neo.Output.GetValue           | Krijg de transactie-hoeveelheid
+| Neo.Output.GetScriptHash      | Krijg de Script Hash 
 
 Account class API:
 

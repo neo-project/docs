@@ -32,7 +32,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 导出指定地址的私钥                    | 需要打开钱包   |
 | [getaccountstate](api/getaccountstate.md) | \<address>                               | 根据账户地址，查询账户资产信息              |          |
-| [getassetstate](api/getassetstate.md)    | \<asset_id>                              | 根据指定的资产编号，查询资产信息             |          |
+| [getapplicationlog](api/getapplicationlog.md) | \<txid> [verbose=0]                      | 根据指定的交易 ID 获取合约日志            | 需要启动日志记录 |
+| [getassetstate](api/getassetstate.md) | \<asset_id>                              | 根据指定的资产编号，查询资产信息             |          |
 | [getbalance](api/getbalance.md)          | \<asset_id>                              | 根据指定的资产编号，返回钱包中对应资产的余额信息     | 需要打开钱包   |
 | [getbestblockhash](api/getbestblockhash.md) |                                          | 获取主链中高度最大的区块的散列              |          |
 | [getblock](api/getblock.md)              | \<hash> [verbose=0]                      | 根据指定的散列值，返回对应的区块信息           |          |
@@ -52,6 +53,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | 使用给定的参数以散列值调用智能合约            |          |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
+| [listaddress](api/listaddress.md)        |                                          | 列出当前钱包内的所有地址                 | 需要打开钱包   |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |          |
 | [sendfrom](api/sendfrom.md)              | \<asset_id> \<from>\<to> \<value> [fee=0] | 从指定地址，向指定地址转账                | 需要打开钱包   |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | 向指定地址转账                      | 需要打开钱包   |

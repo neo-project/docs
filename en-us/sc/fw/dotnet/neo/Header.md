@@ -20,7 +20,7 @@ public class Header: IScriptContainer
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Header/ConsensusData.md)          | Returns the block hash                   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Index](Header/Index.md)                 | Returns the block height                 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [MerkleRoot](Header/MerkleRoot.md)       | Returns the Merkle Tree root for all the transaction in the block |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [NextConsensus](Header/NextConsensus.md) | Returns the hash of the next bookeeper   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [NextConsensus](Header/NextConsensus.md) | Returns the hash of the next bookkeeper   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](Header/PrevHash.md)           | Returns the hash of the previous block   |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Timestamp](Header/Timestamp.md)         | Returns the timestamp of the block       |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Version](Header/Version.md)             | Returns the version of the block         |

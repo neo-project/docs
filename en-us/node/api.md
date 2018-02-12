@@ -34,6 +34,7 @@ For P2P and WebSocket information see [Node/Introduction](introduction.md).
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------- |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | Export the private key of the specified address | Need to open the wallet      |
 | [getaccountstate](api/getaccountstate.md) | \<address>                               | Check account asset information according to account address |                              |
+| [getapplicationlog](api/getapplicationlog.md) | \<txid>[verbose=0]                       | Returns the contract log based on the specified txid. | Need to enable logging       |
 | [getassetstate](api/getassetstate.md)    | \<asset_id>                              | Query asset information according to the specified asset number |                              |
 | [getbalance](api/getbalance.md)          | \<asset_id>                              | Returns the balance of the corresponding asset in the wallet according to the specified asset number. | Need to open the wallet      |
 | [getbestblockhash](api/getbestblockhash.md) |                                          | Gets the hash of the tallest block in the main chain |                              |
@@ -54,6 +55,7 @@ For P2P and WebSocket information see [Node/Introduction](introduction.md).
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | Invokes a smart contract at specified script hash with the given parameters |                              |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | Invokes a smart contract at specified script hash, passing in an operation and its params |                              |
 | [invokescript](api/invokescript.md)      | \<script>                                | Runs a script through the virtual machine and returns the results |                              |
+| [listaddress](api/listaddress.md)        |                                          | Lists all the addresses in the current wallet. | Need to open the wallet      |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | Broadcast a transaction over the network. See the [network protocol](network-protocol.md) documentation. |                              |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | Transfer to specified address            | Need to open the wallet      |
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                      | Need to open the wallet      |

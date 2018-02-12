@@ -38,7 +38,7 @@
 
 🔹 **블록체인 익스플로러**
 
-🔹 **SKD 개발자 Kit**
+🔹 **SDK 개발자 Kit**
 
 - Java/Kotlin, NET C#/VB, JavaScript/Type Script, Python, Go 를 지원
 

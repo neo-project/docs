@@ -9,11 +9,11 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
-    - name: Graphical User Interface
-      href: node/gui.md
     - name: Test Network
       href: node/testnet.md
-    - name: CLI Reference
+    - name: Using NEO-GUI Client
+      href: node/gui.md
+    - name: Using NEO-CLI Client
       href: node/cli.md
     - name: Private Chain
       href: node/private-chain.md
@@ -24,6 +24,8 @@
         href: node/api/dumpprivkey.md
       - name: getaccountstate
         href: node/api/getaccountstate.md
+      - name: getapplicationlog
+        href: node/api/getapplicationlog.md
       - name: getassetstate
         href: node/api/getassetstate.md
       - name: getbalance
@@ -64,6 +66,8 @@
         href: node/api/invokefunction.md
       - name: invokescript
         href: node/api/invokescript.md
+      - name: listaddress
+        href: node/api/listaddress.md
       - name: sendrawtransaction
         href: node/api/sendrawtransaction.md
       - name: sendtoaddress
