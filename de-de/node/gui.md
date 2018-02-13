@@ -1,27 +1,46 @@
-# NEO-GUI Anleitung
+# Den NEO-GUI Client benutzen
 
-## Übersicht
+## Voraussetzungen
 
-### Einleitung
+### Den Client downloaden
 
-Der NEO-GUI-Client ist kompatibel mit folgenden Windows Versionen: Windows 7(SP1), Windows 8 und Windows 10.
-
-Der Client selbst benötigt keine Installation. Nach dem Herunterladen und Entpacken der Dateien in ein Verzeichnis Ihrer Wahl, öffnet ein Doppelklick auf neo-gui.exe den Client. Sollte es beim Öffnen des Clients Probleme geben, speichern sie die Datei error.log (im gleichen Verzeichnis wie neo-gui.exe) und kontaktieren Sie unsere technischen Mitarbeiter, die Ihnen helfen, das Problem zu lösen.
+Der Client selbst benötigt keine Installation. Nach dem Herunterladen und Entpacken der Dateien in ein Verzeichnis Ihrer Wahl, öffnet ein Doppelklick auf neo-gui.exe den Client. Sollte es beim Öffnen des Clients Probleme geben, speichern Sie die Datei error.log (im gleichen Verzeichnis wie neo-gui.exe) und kontaktieren Sie unsere technischen Mitarbeiter, die Ihnen helfen, das Problem zu lösen.
 
 > [!Anmerkung]
+>
+> Der NEO-GUI Client ist kompatibel mit folgenden Windows Versionen: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+> 
 > Bestimmte Windows 10 Vorabversionen benötigen eine Installation eine Installation des [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
 
-### Synchronisation
+### Blockchain Daten synchronisieren
 
 Der Client muss voll synchronisiert sein bevor er genutzt werden kann. In der unteren linken Ecke wird die Anzahl der synchronisierten Blocks sowie die Gesamtmenge an Blocks angezeigt (s. Bild unten). Diese Zahlen aktualisieren sich laufend.
 
 ![image](/assets/gui_1.png)
 
+Um den Prozess der Synchronisation zu beschleunigen, können sie eine Kopie der Blockchain bis zu einer bestimmten Blockhöhe herunterladen. Das bedeutet, der Client muss nur die restlichen Blocks synchronisieren, anstelle der gesamten Blockchain.
+
+1. Anfangs, laden Sie die auf [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip") gelegene Datei herunter.
+
+2. Schließen Sie den NEO-GUI Client und öffnen Sie chain.acc.zip. Entpacken Sie die chain.acc Datei in den NEO-GUI Ordner, wie hier gezeigt:
+
+   ![](/assets/gui_58.png)
+   
+3. Nachdem Sie den NEO-GUI Client neu gestartet haben, werden Sie sehen, dass der Client nun bis zu einem bestimmten Punkt synchronisiert ist und nur noch mit dem restlichen Teil der Blockchain synchronisieren muss, wie hier gezeigt:
+
+   ![](/assets/gui_59.png)
+
+Sobald die Synchronisation an einem bestimmten Punkt angekommen ist, wird die Datei (chain.acc) gelöscht, und die Synchronisation mit dem NEO Netzwerk wird fortfahren, wie hier gezeigt:
+
+![](/assets/gui_60.png)
+
+Die Daten neben "Height" (Höhe) entsprechen Wallet Height/Client Height/Blockchain. Wenn Sie eine Wallet öffnen, wird die Wallet Height angezeigt.
+
 ### Glossar
 
 #### Wallet
 
-Die Wallet-Datei speichert Hinweise auf Ihr NEO, GAS und weitere Accountinformationen in einer Datenbank mit .db3-Endung. Es wird dringend empfohlen, eine redundante Sicherung dieser Datei anzulegen, da ein Verlust den Totalverlust der Assets mit sich bringen kann!
+Die Wallet-Datei speichert Hinweise auf Ihr NEO, GAS und weitere Accountinformationen in einer Datenbank mit .json- oder .db3-Endung. Es wird dringend empfohlen, eine redundante Sicherung dieser Datei anzulegen, da ein Verlust den Totalverlust der Assets mit sich bringen kann!
 
 > [!Wichtig]
 >
@@ -33,13 +52,13 @@ Der Account wird genutzt um Assets in einem NEO-Block zu verfolgen.
 
 Accountinformationen beinhalten: Adresse, private Schlüssel, öffentlicher Schlüssel und Accounttyp.
 
-(1) Adresse: Die Adresse ist äquivalent zu einer Kontonummer und wird genutzt um Assets in einer Transaktion zu erhalten.
+- Adresse: Die Adresse ist äquivalent zu einer Kontonummer und wird genutzt um Assets in einer Transaktion zu erhalten.
 
-(2) Accounttyp: NEO.Wallets.SignatureContract zeigt an, dass die Adresse aus einem öffentlichen Schlüssel besteht und eine sog. 1-of-1 mehrfachsignierte Adresse ist. NEO.Wallets.MultiSigContract zeigt an, dass die Adresse aus mehreren öffentlichen Schlüsseln besteht und eine sog. m-of-n mehrfachsignierte Adresse ist, welche für "Smart Contracts" genutzt wird.
+- Accounttyp: NEO.Wallets.SignatureContract zeigt an, dass die Adresse aus einem öffentlichen Schlüssel besteht und eine sog. 1-of-1 mehrfachsignierte Adresse ist. NEO.Wallets.MultiSigContract zeigt an, dass die Adresse aus mehreren öffentlichen Schlüsseln besteht und eine sog. m-of-n mehrfachsignierte Adresse ist, welche für "Smart Contracts" genutzt wird.
 
-(3) privater Schlüssel: Eine 256-bit Zufallszahl, die dem User gehört und NICHT öffentlich bekannt ist. Dieser Schlüssel repräsentiert einen Eigentumsnachweis für den Account und die damit verbundenen Assets.
+- Privater Schlüssel: Eine 256-bit Zufallszahl, die dem User gehört und NICHT öffentlich bekannt ist. Dieser Schlüssel repräsentiert einen Eigentumsnachweis für den Account und die damit verbundenen Assets.
 
-(4) öffentlicher Schlüssel: Jeder private Schlüssel hat einen passenden öffentlichen Schlüssel (Anmerkung: Informationen zu öffentlichem und privatem Schlüssel können durch einen Rechtsklick auf die Adresse eingesehen werden).
+- Öffentlicher Schlüssel: Jeder private Schlüssel hat einen passenden öffentlichen Schlüssel (Anmerkung: Informationen zu öffentlichem und privatem Schlüssel können durch einen Rechtsklick auf die Adresse eingesehen werden).
 
 > [!Wichtig]
 >
@@ -95,26 +114,36 @@ Importieren Sie Ihre eigene oder eine fremde Adresse, um diese zu beobachten. Si
 ## Wallet
 ### Wallet-Datei erstellen
 
-(1) Klicken Sie auf `Wallet`, `New Wallet Database`. Es erscheint ein PopUp `New Wallet`:
+1. Klicken Sie auf `Wallet`, `New Wallet Database`. Es erscheint ein PopUp `New Wallet`:
 
-![image](/assets/gui_2.png)
+  ![image](/assets/gui_2.png)
 
-(2) Klicken Sie auf `Browse` um einen Speicherort und Dateinamen auszuwählen, danach auf `Speichern`:
+2. Klicken Sie auf `Browse` um einen Speicherort und Dateinamen auszuwählen, danach auf `Speichern`:
 
-![image](/es-es/node/assets/gui/gui_3.png)
+  ![image](/es-es/node/assets/gui/gui_3.png)
 
-(3) Geben Sie Ihr Passwort ein und bestätigen Sie es. Es wird dringend geraten, ein starkes Passwort zu wählen!
+3. Geben Sie Ihr Passwort ein und bestätigen Sie es. Es wird dringend geraten, ein starkes Passwort zu wählen!
 
-![image](/assets/gui_4.png)
+  ![image](/assets/gui_4.png)
 
-(4) Klicken Sie auf `OK`. Die Wallet wurde nun erfolgreich erstellt. In der Wallet befindet sich nun eine Standard-Adresse. Sie können beliebig viele Adresse pro Wallet-Datei erstellen, die erste Adresse bleibt jedoch immer die Hauptadresse der Wallet. Wechselgeldtransaktionen werden immer auf diese Adresse geleitet, es ist also sinnvoll ein Backup dieser Adresse zu haben.
+4. Klicken Sie auf `OK`. Die Wallet wurde nun erfolgreich erstellt. In der Wallet befindet sich nun eine Standard-Adresse. Sie können beliebig viele Adresse pro Wallet-Datei erstellen, die erste Adresse bleibt jedoch immer die Hauptadresse der Wallet. Wechselgeldtransaktionen werden immer auf diese Adresse geleitet, es ist also sinnvoll ein Backup dieser Adresse zu haben.
 
 ### Öffnen der Wallet-Datei
-(1) Bei jedem Öffnen des Clients müssen Sie nach dem Start zuerst die gewünschte Wallet-Datei öffnen:
+1. Bei jedem Öffnen des Clients müssen Sie nach dem Start zuerst die gewünschte Wallet-Datei öffnen:
 
-![image](/assets/gui_5.png)
+  ![image](/assets/gui_5.png)
 
-(2) Klicken Sie auf `Browse`, um die gewünschte Wallet auszuwählen (normalerweise ist die letzte geöffnete Wallet vorausgewählt). Geben Sie das Passwort ein und klicken Sie auf `Ok`, um die Wallet zu öffnen.
+2. Klicken Sie auf `Browse`, um die gewünschte Wallet auszuwählen (normalerweise ist die letzte geöffnete Wallet vorausgewählt).
+
+3. Wählen Sie eine der Dateitypen aus: NEP-6 (.json) oder SQLite (.db3)
+
+  Clients vor der Version NEO GUI v2.5.2 unterstützen nur .db3 Dateien.
+  
+4. Geben Sie das Passwort ein und drücken Sie `OK`.
+
+5. Falls Sie eine alte .db3 Wallet öffnen, müssen Sie sich entscheiden, ob Sie die Wallet zu dem neuen NEP-6 Format aktualisieren möchten.
+
+  Nach einer Aktualisierung kann die NEP-6 Wallet auf mehreren Platformen geteilt werden, z.b. Mobile, PC, oder Website. Jedoch kann sie nicht in Clients vor der Version NEO GUI v2.5.2 geöffnet werden.
 
 ### Passwort ändern
 
@@ -128,17 +157,12 @@ Denken Sie daran, nach dem Ändern des Passworts ein neues Backup der Wallet-Dat
 
 Die Funktion `Rebuild Index` kann genutzt werden, um den Client nach einem Fehler wiederherzustellen. Der Wallet-Index muss in folgenden Fällen wiederhergestellt werden:
 
-1. Nach dem Import eines privaten Schlüssels
-
-2. Wenn eine Transaktion nach langer Zeit noch nicht bestätigt wurde
-
-3. Wenn die Assets der Wallet fehlerhaft angezeigt werden und die Daten nicht mit der Blockchain übereinstimmen.
+- Nach dem Import eines privaten Schlüssels
+- Wenn eine Transaktion nach langer Zeit noch nicht bestätigt wurde
+- Wenn die Assets der Wallet fehlerhaft angezeigt werden und die Daten nicht mit der Blockchain übereinstimmen.
+- Wechsel zwischen dem Hauptnetz und dem Testnetz.
 
 Da die aktuelle Blockhöhe relativ hoch ist, nimmt der Vorgang einige Minuten in Anspruch.
-
-### Account wiederherstellen
-
-Die Funktion `Restore Accounts` kann genutzt werden, um Adressen Ihrer Wallet wiederherzustellen, wenn Sie ausversehen eine der Adressen gelöscht haben sollten. Es wird aber darauf hingewiesen, dass generell nicht empfohlen wird Adressen zu löschen, um den Totalverlust von Assets zu vermeiden.
 
 ## Handel
 
@@ -146,33 +170,33 @@ Die Funktion `Restore Accounts` kann genutzt werden, um Adressen Ihrer Wallet wi
 
 #### Token Asset Transfer
 
-(1) Klicken Sie auf `transaction`, `transfer`, `+`, und geben Sie die Transferdetails ein:
+1. Klicken Sie auf `transaction`, `transfer`, `+`, und geben Sie die Transferdetails ein:
 
-![image](/assets/gui_10.png)
+  ![image](/assets/gui_10.png)
 
-(2) Klicken Sie `Ok`:
+2. Klicken Sie `Ok`:
 
-![image](/assets/gui_11.png)
+  ![image](/assets/gui_11.png)
 
-(3) Klicken Sie `Ok`:
+3. Klicken Sie `Ok`:
 
-![image](/zh-cn/node/assets/i.png)
+  ![image](/zh-cn/node/assets/i.png)
 
 #### Equity Asset Transfer
 
-(1) Klicken Sie auf `transaction`, `transfer`, `+`, und geben Sie die Transferdetails ein:
+1. Klicken Sie auf `transaction`, `transfer`, `+`, und geben Sie die Transferdetails ein:
 
-![image](/zh-cn/node/assets/j.png)
+  ![image](/zh-cn/node/assets/j.png)
+  
+2. Klicken Sie `Ok`:
 
-(2) Klicken Sie `Ok`:
+  ![image](/zh-cn/node/assets/k.png)
 
-![image](/zh-cn/node/assets/k.png)
+3. Klicken Sie `Ok`, es wird angezeigt, dass mehrere Signaturen benötigt werden:
 
-(3) Klicken Sie `Ok`, es wird angezeigt, dass mehrere Signaturen benötigt werden:
+  ![image](/zh-cn/node/assets/l.png)
 
-![image](/zh-cn/node/assets/l.png)
-
-(4) Informationen zur Signaturfunktion finden Sie [hier](#sign).
+4. Informationen zur Signaturfunktion finden Sie [hier](#sign).
 
 #### Mehrfachtransaktionen
 
@@ -204,68 +228,35 @@ Die Daten können von außen über einen Blockchainexplorer eingesehen werden:
 
 #### Einen Handel einleiten
 
-(1) Für diese Art der Transaktion müssen beide Seiten eine Transaktion einleiten und festlegen, welches Asset in welcher Menge das Gegenüber erhalten soll:
+1. Für diese Art der Transaktion müssen beide Seiten eine Transaktion einleiten und festlegen, welches Asset in welcher Menge das Gegenüber erhalten soll:
 
-![image](/assets/gui_18.png)
+  ![image](/assets/gui_18.png)
 
-(2) Klicken Sie auf `Ok` um die Transaktionsanfrage zu generieren. Aus der Transaktionsanfrage sind die Details der Transaktion ersichtlich. 
+2. Klicken Sie auf `Ok` um die Transaktionsanfrage zu generieren. Aus der Transaktionsanfrage sind die Details der Transaktion ersichtlich. 
 
 ![image](/assets/gui_19.png)
 
 #### Abschluss des Handels
 
-(1) Nach dem Schließen des `transaction request` Fensters erscheint das `merge transaction request` Fenster:
+1. Nach dem Schließen des `transaction request` Fensters erscheint das `merge transaction request` Fenster:
 
-![image](/assets/gui_20.png)
+  ![image](/assets/gui_20.png)
 
-(2) Ihnen wird nun die Transaktionsanfrage des Gegenübers angezeigt. Um die Richtigkeit der Anfrage zu prüfen, klicken Sie auf `verify`. Abhängig von der Richtigkeit können Sie nun auf `accept` oder `refuse` klicken.
+2. Ihnen wird nun die Transaktionsanfrage des Gegenübers angezeigt. Um die Richtigkeit der Anfrage zu prüfen, klicken Sie auf `verify`. Abhängig von der Richtigkeit können Sie nun auf `accept` oder `refuse` klicken.
 
 ![image](/assets/gui_24.png)
-
-(3) Wenn Sie die Transaktion akzeptieren, müssen beide Seiten die Transaktion signieren und veröffentlichen. Weitere Informationen erhalten Sie [hier](#sign). <a id="sign"> </a>
+3. Wenn Sie die Transaktion akzeptieren, müssen beide Seiten die Transaktion signieren und veröffentlichen. Weitere Informationen erhalten Sie [hier](#sign). <a id="sign"> </a>
 
 ### Signature
-(1) Dies kopiert die Transaktionsanfrage Ihres Gegenübers in das Eingabefeld. Klicken Sie auf `sign` um die Output-Daten für die Transaktion zu generieren. Anschließend wird der `broadcast`-Button freigegeben:
+1. Dies kopiert die Transaktionsanfrage Ihres Gegenübers in das Eingabefeld. Klicken Sie auf `sign` um die Output-Daten für die Transaktion zu generieren. Anschließend wird der `broadcast`-Button freigegeben:
 
-![image](/zh-cn/node/assets/u.png)
+  ![image](/zh-cn/node/assets/u.png)
 
-(2) Klicken Sie auf `broadcast`, um die Transaktion zu senden. Die Transaktion ist nun abgeschlossen und eine Transaktions-ID wird angezeigt.
+2. Klicken Sie auf `broadcast`, um die Transaktion zu senden. Die Transaktion ist nun abgeschlossen und eine Transaktions-ID wird angezeigt.
 
 ![image](/assets/gui_30.png)
 
-<a  id="offline"></a>
-
 ## Für Fortgeschrittene
-
-### Manuelles Herunterladen der Blockchain
-
-Um die Synchronisation der Blockchain zu beschleunigen, können Sie eine Kopie der Blockchain bis zu einer bestimmten Blockhöhe herunterladen. Das bedeutet, dass der Client anschließend nur den fehlenden Teil der Blockchain synchronisieren muss und nicht die gesamte Blockchain.
-
-**Download**
-
-Downloaden Sie die Datei: [https://www.neo.org/client/chain.acc.zip](https://www.neo.org/client/chain.acc.zip "chain.acc.zip")
-
-**Einfügen**
-
-Schließen Sie den NEO-GUI-Client und öffnen Sie das ZIP-Archiv. Extrahieren Sie die Datei `chain.acc` wie im Bild gezeigt in den NEO-GUI-Ordner:
-
-![](/assets/gui_58.png)
-
-**Synchronisieren**
-
-Nachdem Sie den NEO-GUI-Client erneut gestartet haben, werden Sie feststellen, dass der Client nun bis zu einem bestimmten Punkt synchronisiert ist und anfängt die fehlenden Blöcke zu synchronisieren:
-
-![](/assets/gui_59.png)
-
-**Abschluss**
-
-Nachdem die Blockchain bis zu einem bestimmten Punkt synchronisiert wurde, wird die Datei gelöscht und die Synchronisation setzt sich automatisch fort:
-
-![](/assets/gui_60.png)
-
-
-
-
 
 ### GAS Claim Transaktion
 
@@ -273,11 +264,10 @@ GAS wird mit jedem neuen Block automatisch generiert und den Adressen von NEO Ha
 
 Schritt für Schritt:
 
-(1) Transferieren Sie alle NEO Ihrer Wallet an Ihre eigene Adresse. Sobald die Transaktion durchgeführt wurde, können Sie die GAS Claim Funktion aufrufen (Für Details lesen Sie bitte das Whitepaper).
+1. Transferieren Sie alle NEO Ihrer Wallet an Ihre eigene Adresse. Sobald die Transaktion durchgeführt wurde, können Sie die GAS Claim Funktion aufrufen (Für Details lesen Sie bitte das Whitepaper).
+2. Klicken Sie auf `Advanced`, `Claim GAS`, `Claim All`.
 
-(2) Klicken Sie auf `Advanced`, `Claim GAS`, `Claim All`.
-
-![image](/assets/gui_37.png)
+  ![image](/assets/gui_37.png)
 
 ### Ein Zertifikat beantragen
 
@@ -304,14 +294,6 @@ Es wird darauf hingewiesen, dass die Registrierung von Assets eine hohe Gebühr 
 
 Es wird darauf hingewiesen, dass die Verteilung von Assets eine hohe Gebühr kostet. Bitte füllen Sie das Formular sorgfältig aus, Fehler können nicht rückgängig gemacht werden.
 
-### Smart Contract veröffentlichen
-
-Wird noch ergänzt
-
-### Smart Contract aufrufen
-
-Wird noch ergänzt
-
 ### Wahlmechanismus
 
 Die `Election`-Funktion kann genutzt werden, um sich als Kandidat für NEO Bookkeeping Nodes zu registrieren:
@@ -320,26 +302,3 @@ Die `Election`-Funktion kann genutzt werden, um sich als Kandidat für NEO Bookk
 
 Es wird darauf hingewiesen, dass die Registrierung eine hohe Gebühr kostet. Bitte füllen Sie das Formular sorgfältig aus, Fehler können nicht rückgängig gemacht werden.
 Diese Funktion ist zur Zeit noch nicht verfügbar. Bitte warten Sie auf weitere Updates.
-
-### 4.8 Option
-
-Wird noch ergänzt.
-
-## Hilfe
-
-### Hilfe anzeigen
-
-Wird noch ergänzt
-
-### Offizielle Webseite
-
-Die offizielle NEO Webseite finden Sie hier: https://neo.org
-The official NEO website is located at: https://neo.org/
-
-### Entwicklertools
-
-Wird noch ergänzt
-
-### Über NEO
-
-Die Versionsnummer des NEO Clients.
