@@ -21,7 +21,7 @@
 
 ## 実行環境
 
-NEOノードを実行するには、[.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)バージョン1.0.1以降のインストールが必要です。
+NEOノードを実行するには、[.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)バージョン2.0以降のインストールが必要です。
 
 ### Windowsシステムのインストール方法
 

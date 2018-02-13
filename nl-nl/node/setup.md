@@ -21,7 +21,7 @@ De deployment consensus node maakt gebruik van de `Neo-CLI`. Dit programma kan w
 
 ## De Ontwikkelomgeving Uitvoeren
 
-Het draaien van een NEO-node vereist dat [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) geïnstalleerd is (minstens versie 1.0.1).
+Het draaien van een NEO-node vereist dat [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) geïnstalleerd is (minstens versie 2.0).
 
 ### Installatie op Windows
 

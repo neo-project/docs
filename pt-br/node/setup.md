@@ -25,7 +25,7 @@ Para a implementação de um Nó *full* é necessário o [Neo-CLI](https://githu
 
 ## Pré-requisitos do sistema
 
-Para rodar um nó NEO é necessário instalar o [Runtime .NET Core](https://www.microsoft.com/net/download/core#/runtime) versão 1.0.1 ou acima. 
+Para rodar um nó NEO é necessário instalar o [Runtime .NET Core](https://www.microsoft.com/net/download/core#/runtime) versão 2.0 ou acima. 
 
 
 ### Instalação **.Net Core** para Windows:

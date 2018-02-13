@@ -16,7 +16,7 @@
 
 NEO节点的初始安装部署包含以下步骤：
 
-1.  安装 NEO节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，1.0.1 或以上版本。
+1.  安装 NEO节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，2.0 或以上版本。
 2.  在 Github 上下载 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并启动 NEO 节点。
 
 更多详细内容，请参阅 [NEO 节点的安装部署](node/setup.html)。

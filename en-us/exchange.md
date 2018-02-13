@@ -16,7 +16,7 @@ In general, an exchange needs to do the following：
 
 To deploy a NEO node on the exchange server, do the following:
 
-1.  Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 1.0.1 and the later version.
+1.  Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 2.0 and the later version.
 2.  From Github, download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) program and enable the NEO node.
 
 For more information, refer to [Installation and deployment of NEO node](node/setup.html).
