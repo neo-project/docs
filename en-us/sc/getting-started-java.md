@@ -70,8 +70,15 @@ Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project
 ```
 cd neo-compiler/neoj
 dotnet build
-dotnet run
 ```
+
+NOTE: At this point, after having launched the build command, you could get the following error:
+`It was not possible to find any compatible framework version
+ The specified framework 'Microsoft.NETCore.App', version '1.0.4' was not found.`
+ 
+If this is the case, open neoj.csproj and change the RuntimeFrameworkVersion's tag with your dotnet version. 
+For example `<RuntimeFrameworkVersion>2.0.5</RuntimeFrameworkVersion>`
+
 
 We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
 
@@ -139,11 +146,16 @@ Build the project which will give you `HelloWorld.class` in your out folder.
 Then using neoj, run cmd.exe and execute:
 > neoj.exe HelloWorld.class
 
-**Linux**
+**Linux:**
 
-From the same folder call
+Copy the jar in the dotnet's folder. For example:
+
+`sudo cp org.neo.smartcontract.framework.jar /usr/share/dotnet`
+
+and then call
 
 > dotnet run HelloWorld.class
+
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
 
