@@ -132,12 +132,18 @@ public class HelloWorld extends SmartContract {
 }
 ```
 
-Build the project with either your IDE or from command line, which will give you `HelloWorld.class`
+Build the project which will give you `HelloWorld.class` in your out folder.
 
-`javac HelloWorld.java -cp org.neo.smartcontract.framework.jar`
+**Windows:**
 
 Then using neoj, run cmd.exe and execute:
 > neoj.exe HelloWorld.class
+
+**Linux**
+
+From the same folder call
+
+> dotnet run HelloWorld.class
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
 
