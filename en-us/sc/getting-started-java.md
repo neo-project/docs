@@ -28,11 +28,12 @@ The most efficient way of getting these steps done is to download and compile al
 1. Download Neo's Node GUI. At the time of writing, it is recommended you use the BETA developer GUI as it has some extra debugging features which are helpful. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). It will have default presets to Testnet and you will have to wait (up to a few hours) for it to fully sync up.
 2. Download the Neo Framework Library JAR. The current latest version is here: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
 3. Download an IDE for Java (optional but recommended), e.g. IntelliJ or Eclipse.
-4. Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
+4. (Windows only) Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
 
 ## Development Tools
 
-### 1. Visual Studio 2017
+
+#### 1. Visual Studio 2017 (Windows)
 
 If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
 
@@ -48,6 +49,7 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 Installation and configuration steps:
 
+**Windows:** 
 Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, and publish the neoj project.
 
 Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
@@ -57,6 +59,19 @@ Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
 ![publish and profile settings](/assets/publish_and_profile_settings.png)
 
 After the release is successful, the neoj.exe file is generated in `bin\Release\PublishOutput`.
+
+**Linux:**
+
+Since there's no "publish" function in Visual Studio Code for Linux we build it manually.
+Make sure you have [dotnet](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x#install-net-core-for-ubuntu-1404-ubuntu-1604-ubuntu-1610--linux-mint-17-linux-mint-18-64-bit) installed.
+
+Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github.
+
+```
+cd neo-compiler/neoj
+dotnet build
+dotnet run
+```
 
 We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
 
@@ -84,6 +99,14 @@ Now run Command or PowerShell, and enter neoj.exe. If there is no error and the 
 
 NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32. This dll can potentially be found in a number of places throughout one's system(search your computer and copy/past it into \System32), but alternatively can be found online.
 
+**Linux**
+
+Add this to your ~/.profile or ~/.bashrc file:
+
+`export PATH=$PATH:/path/to/neo-compiler`
+
+then execute `source ~/.profile` or `source ~/.bashrc`
+
 ## Create project
 
 After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
@@ -109,7 +132,9 @@ public class HelloWorld extends SmartContract {
 }
 ```
 
-Build the project which will give you `HelloWorld.class` in your out folder.
+Build the project with either your IDE or from command line, which will give you `HelloWorld.class`
+
+`javac HelloWorld.java -cp org.neo.smartcontract.framework.jar`
 
 Then using neoj, run cmd.exe and execute:
 > neoj.exe HelloWorld.class
