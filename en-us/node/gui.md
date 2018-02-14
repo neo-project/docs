@@ -47,7 +47,7 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 >
 > Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
 
-### Create the wallet database
+### Creating the wallet database
 
 1. Click `Wallet`, `New Wallet Database`.
 
@@ -67,11 +67,11 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
    >
    > Due to the role of change mechanism, the remainder of the assets is transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
 
-### View the wallet information
+### Viewing the wallet information
 
 #### Account
 
-Right-click the wallet and select Account -> View Key to check the account information:
+Right-click on the account and select `View Private Key` to check the account information:
 
 - Address: The equivalent of a bank account or bank card number, used to receive assets during transactions.
 
@@ -90,19 +90,19 @@ You can also do the following operations by right-clicking an address of the acc
 | Function          | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
 | Create New Add.   | Creates a new address in the wallet                          |
-| Import            | Import from WIF: Imports the corresponding address into the wallet<br>Import from Certificate: Imports the certification <br>Import Watch-Only Address：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
+| Import            | `Import from WIF`: Imports the corresponding address into the wallet<br>`Import from Certificate:` Imports the certification <br>`Import Watch-Only Address`：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
 | Copy to Clipboard | Copies the address                                           |
 | Delete            | Removes the address                                          |
 
 #### Assets
 
-Clicking on the `Assets` tab you can view the assets of the account, including Assets (NEO, GAS, the user-created assets), type, balance, and the issuer.
+Clicking on the `Asset` tab you can view the assets of the account, including Assets (NEO, GAS, the user-created assets), type, balance, and the issuer.
 
-#### Transaction Record
+#### Transaction History
 
-Clicking on the `Transaction Record` tab you can view all the transaction records associated with the wallet.
+Clicking on the `Transaction History` tab you can view all the transaction records associated with the wallet.
 
-### Open the wallet database
+### Opening the wallet database
 
 1. Every time the client is re-opened, you need to click `open wallet database` to select which wallet file to open, as the picture shows:
 
@@ -122,9 +122,9 @@ Clicking on the `Transaction Record` tab you can view all the transaction record
 
 
 
-### Change password
+### Changing password
 
-Can be used to modify the wallet password.
+You can modify the wallet password.
 
 ![image](/assets/gui_6.png)
 
@@ -156,9 +156,9 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 
    ![image](/assets/gui_15.png)
 
-3. Click OK. If need be, click ![image](/assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
+3. Click `OK`. If need be, click ![image](/assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
 
-4. Double-check the transfer information and then click OK.
+4. Double-check the transfer information and then click `OK`.
 
    For token asset transfer, the transaction is completed with the transaction ID displayed.
 
@@ -175,17 +175,17 @@ For transactions involving equity allocation and asset exchange, the signature i
 
 2. Paste the transaction information sent by the other party in the input field, and then click `sign`. The output data is generated. 
 
-   At the same time, the `broadcast` button is displayed.
+   At the same time, the `Broadcast` button is displayed.
 
    ![image](/assets/signature.png)
 
-3. Click  `broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
+3. Click  `Broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
 
 ![image](/assets/gui_30.png)
 
 ### Assets Exchange
 
-An online asset exchange between two parties require both parties to sign for the transaction before the successful exchange of assets can occur. For example, a general asset exchange process between the transaction parties A and B is:
+An online asset exchange between two parties require both parties to sign for the transaction before the successful exchange of asset can occur. For example, a general asset exchange process between the transaction parties A and B is:
 
 1. Both parties initiate a transaction request and send the generated request to each other
 2. Verify the request received
@@ -333,7 +333,7 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
 ### NEP-5 Assets
 
-The NEO-GUI client supports NEP-5 assets transactions. To make a NEP-5 asset transaction, you first need to click `Advanced` -> `Options` in the client to add a script hashes for the NEP-5 asset. Then you can select the NEP-5 asset type for asset transfer and exchange transactions.
+The NEO-GUI client supports NEP-5 assets transactions. To make a NEP-5 asset transaction, you first need to click `Advanced` -> `Options` in the client to add a script hash for the NEP-5 asset. Then you can select the NEP-5 asset type for asset transfer and exchange transactions.
 
 ### Election
 

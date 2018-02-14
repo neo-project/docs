@@ -1,4 +1,4 @@
-- name: Home
+﻿- name: Home
   href: index.md
 - name: Erste Schritte
   href: getting-started.md
@@ -60,6 +60,8 @@
       href: sc/getting-started-csharp.md
     - name: Getting Started (Java)
       href: sc/getting-started-java.md
+    - name: Getting Started (Python)
+      href: sc/getting-started-python.md
     - name: Tutorial
       href: sc/tutorial.md
       items:
@@ -132,5 +134,7 @@
               href: sc/fw/dotnet/System/ExecutionEngine.md
     - name: Systemgebühren
       href: sc/systemfees.md
+- name: Dokument für Exchange Developer
+  href: exchange.md
 - name: Mitwirkende
   href: contributors.md

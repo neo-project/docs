@@ -11,9 +11,9 @@
       href: node/setup.md
     - name: Test Network
       href: node/testnet.md
-    - name: Using NEO-GUI Client
+    - name: Using NEO-GUI
       href: node/gui.md
-    - name: Using NEO-CLI Client
+    - name: Using NEO-CLI
       href: node/cli.md
     - name: Private Chain
       href: node/private-chain.md
