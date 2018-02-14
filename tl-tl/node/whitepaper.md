@@ -1,64 +1,64 @@
-# A Byzantine Fault Tolerance Algorithm for Blockchain 
+# Isang Byzantine na Algoritmo ng toleransiya ng kamalian para sa Blockchain 
 
 Erik Zhang
 
 erik@vcage.com 
 
-## Abstract 
+## Abstrakto
 
-​This article proposes an improved Byzantine Fault Tolerance algorithm, adjusted for a blockchain system. Hypothetically, in this system, messages may subject to loss, damage, latency, and repetition. Also, the sending order may not necessarily be consistent with the receiving order of messages. The activities of nodes could be arbitrary, they may join and quit the network at any time; they may also dump and falsify information or simply stop working. Artificial or non-artificial glitches may occur as well. Our algorithm provides a  𝑓 = ⌊ (𝑛−1) / 3 ⌋  fault tolerance to a consensus system that comprises n nodes. This tolerance capacity includes security and usability and is suited for any network environment. 
+​Ang artikulong ito ay iminumungkahi ang isang pinahusay na  Byzantine na toleransiya sa kamalian na algoritmo, na binagay para sa sistemang blockchain. Gayun din, sa sistemang ito, ang mga mensahe ay sumailalim sa pagkawala, pagkasira, pagkawalang-kilos, at pag-uulit. Ganun din, ang pagkaka-ayos ng pag-papadala ay hindi kailangan na naaalinsunod sa pagkakaayos ng pagtanggap ng mga mensahe. Ang mga aktibidad ng mga noda ay maaring maging arbitraryo, sila ay pwedeng sumali at umalis sa network sa kahit na anong panahon; sila din ay pwedeng magbasura at pumeke ng impormasyon o sadyang titigil lang sa pagtatrabaho. Artipisyal o hindi artipisyal na pagkakamali ay pwede rin mangyari. Ang ating algoritmo ay nagbibigay din ng 𝑓 = ⌊ (𝑛−1) / 3 ⌋ na toleransiya ng kamalian sa sistemang konsensus na binubuo ng n noda. Ang kapasidad ng toleransiya nito ay sumasaklaw ng seguridad at sa abilidad na pwedeng gamitin na angkop sa kahit na anong na anumang sinasaklawang network. 
 
-## Overview 
+## Buod 
 
-A blockchain is a decentralized distributed ledger system. It could be used for registration and issuance of digitalized assets, property right certificates, credit points and so on. It enables transfer, payment, and transactions in a peer-to-peer way. The blockchain technology was originally proposed by Satoshi Nakamoto in a cryptography mailing list, i.e. the Bitcoin. Since then, numerous applications based on the blockchain emerged, such as e-cash systems, stock equity exchanges and Smart Contract systems.
+Ang blockchain ay isang desentralisadong pagbabahagi ng sistema ng pagtatala. Ito ay pwedeng gamitin sa pagrerehistro o pag-iisyu ng makabagong digital na mga bagay na may halaga, mga sertipikong ikaw ay nagmamay-ari ng mga ari-arian, kreditong mga puntos at iba pa. Ito ay nagbibigay-daan din sa paglipat, pagbayad, at mga transaksyong tao-sa-taong pamamaraan. Ang teknolohiya ng blockchain ay orihinal na iminungkahi ni Satoshi Nakamoto sa paraan ng listahan ng liham na kriptograpiya, halimbawa, ang Bitcoin. Mula noon, sandamakmak na mga aplikasyon na batay sa blockchain ang lumitaw, tulad ng sistemang e-cash, palitan ng mga stock equity at ang mga sistemang smart na kontrata.
 
-A blockchain system is advantageous over a traditional centralized ledger system for its full-openness,immutability and anti-multiple-spend characters, and it does not rely on any kind of trusted third-party.
+Ang sistemang blockchain ay may kalamangan kesa sa tradisyunal na sentralisadong systema ng pagtatala dahil sa ito'y bukas ,sistemang kailan man ay hindi mababago at may kontra sa maramihang paggasta na mga karakter, at ito din ay hindi umaasa sa kahit na anumang ikatlong partid  na mapagkakatiwalaan.
 
-However, like all distributed systems, blockchain systems are challenged with network latency, transmission errors, software bugs, security loopholes and black-hat hacker threats. Moreover, its decentralized nature suggests that no participant of the system cannot be trusted. Malicious nodes may emerge, so does data difference due to conflicting interests.
+Gayunpaman, kayagaya sa ibang sistema ng pagbabahagi, ang mga sistemang blockchain ay hinahamon ng paghinda sa bilis ng network, mga kamalian sa transmisyon, mga softwer bugs, mga butas sa seguridad at ang mga banta ng black-hat hacker. Bukod pa rito, ang  desentralisadong katangian ay nagpapahiwatig na walang kalahok sa sistema ang mapagkakatiwalaan. May mga malisyong mga noda ang posibleng lumabas, gayun ding ang pagkakaiba nga mga datos buhat ng mga magkakasalungat na mga interes.
 
-To counter these potential errors, a blockchain system is in need of an efficient consensus mechanism to ensure that every node has a copy of a recognized version of the total ledger. Traditional fault tolerance mechanisms concerning certain problems may not be completely capable of tackling the issue that distributed and blockchain systems are faced with. A universal cure-to-all fault tolerance solution is in need.
+Para malabanan ang mga potensyal na kamalian, ang sistemang blockchain ay nangangailangan ng mabisang mekanismong pangkonsensus upang matiyak na ang bawat noda ay may kopya ng mga kilalang bersyon ng kabuuang pagtatala. Mekanismong tadisyunal na toleransiya ng kamalian na hinggil sa ilang problema ay hindi maaaring may ganap na kakayahang harapin ang isyu na ang sistemang blockchain at pamamahagi na hinaharap nito. isang unibersal na toleransiya ng kamalian na solusyong panglunas ang kinakailangan.
 
-Proof-of-Work mechanism[1], employed by the Bitcoin, addresses this issue rather brilliantly. But it comes with an obvious price, i.e. significant electricity cost and energy consumption. Further, with Bitcoin’s existence, new blockchains must find different hashing algorithms, so as to prevent computational attacks from it. For example, Litecoin adopts SCRYPT, rather than Bitcoin’s SHA256.
+mekanismong pruweba-ng-trabaho[1], inempleyo ng Bitcoin, bagkus ay tinatalakay nito ang isyu ng may katalinuhan. Ngunit ito ay sadyang may kamahalan talaga, halimbawa, mahal na presyo ng kuryenteng bayarin at mataas na konsampsyon ng enerhiya. Dagdag pa rito, dahil sa presensya ni Bitcoin, ang mga bagong blockchain ay kailangang maghanap ng ibang hashing na mga algoritmo, ng sa ganun ay maiwasan ang komputisyunal sa pag-atake sa kanila. halimbawa, inadopt ni Litcoin ang SCRYPT, kesa sa SHA256 ni Bitcoin.
 
-Byzantine Fault Tolerance mechanism is a universal solution for distributed systems[5]. Here in this article, based on the Practical Byzantine Fault Tolerance (PBFT)[3] proposed by Castro and Liskov in 1999, an improved Byzantine Fault Tolerance algorithm is proposed for blockchain systems。 
+Ang mekanismong Byzantine na toleransiya ng kamalian ay isang unibersal na solusyon for sa mga sistemang nababahagi[5]. Sa artikulong ito, batay sa Practical Byzantine Fault Tolerance (PBFT)[3] na iminungkahi nila Castro at Liskov noong 1999, isang pinabuting Algoritmo ng Byzantine na toleransiya ng kamalian ang iminungkahi para sa sistemang blockchain。 
 
-## System Model 
+## Modelo ng Sistema 
 
-A blockchain is a distributed ledger system in which participants connect with each other via a peer-to-peer network. All messages within it will be sent by broadcasting. Two types of roles exist: Ordinary nodes and Bookkeeping nodes. Ordinary nodes use the system to transfer and exchange, accepting ledger data; while bookkeeping nodes provide accounting service for the entire network and maintain the ledger. 
+Ang blockchain ay isang sistema ng ipinamahaging pagtatala na kung saan ang mga partisipante ay kumokonekta sa bawat isa sa paraan ng tao-sa-tao na network. Lahat ng mensahe na nakaloob dito ay ipapadala sa pamamagitan ng pagpapahayag. May dalawang uri ng mga tungkulin ang pumiiral: Ordinaryong noda at noda ng bookkeeping. ang mga ordinaryong noda ay ginagamit ang sistema upang makalipat at makipag-palitan, pagtanggap ng mga datos sa talaan; habang ang noda ng bookkeeping ay nagbibigay ng serbisyong akawnting sa pangkalahatang netwok at pinapanatili ang talaan. 
 
-Hypothetically, in this system, messages may subject to loss, damage, latency and repetition. Also, the sending order may not necessarily be consistent with the receiving order of messages. The activities of nodes could be arbitrary, they may join and quit the network at any time; they may also dump and falsify information or simply stop working. Artificial or non-artificial glitches may occur as well.
+Gayunpaman, sa sistemang ito,ang mga mensahe ay sumailalim sa pagkawala, pagkasira, pagkawalang-kilos, at pag-uulit. Ganun din, ang pagkaka-ayos ng pag-papadala ay hindi kailangan na naaalinsunod sa pagkakaayos ng pagtanggap ng mga mensahe. Ang mga aktibidad ng mga noda ay maaring maging arbitraryo, sila ay pwedeng sumali at umalis sa network sa kahit na anong panahon; sila din ay pwedeng magbasura at pumeke ng impormasyon o sadyang titigil lang sa pagtatrabaho. Artipisyal o hindi aryipisyal na mga glitches ay pwede din mangyari.
 
-Integrity and Authenticity of information transmission are ensured with cryptography while senders must attach signatures to the hash value of the message sent. Here we define 〈𝑚〉<sub>𝜎𝑖</sub> is the message m’s digital signature from node i, while D(m) is the hash value of message m. Without special clarification, all signature referred to in this article are signatures to the message hash value. 
+Itegridad at pagiging tunay ng mga transmisyon ng impormasyon ay natitiyak sa pamamagitan ng kriptograpiya habang ang nagpapadala ay kailangang maglagay ng lagda sa halaga ng hash ng mensaheng pinadala. Dito ay binibigyan nating ng kahulugan na ang 〈𝑚〉<sub>𝜎𝑖</sub> mensaheng m’s digital na lagda galing sa i na noda, habang ang D(m) ay ang halaga ng hash ng mensaheng m. Kahit walang espesyal na paglilinaw, lahat ng lagda na tinutukoy sa artikulong ito ay mga lagda sa halaga hash ng mensahe.
 
-## The Algorithm 
+## Ang Algoritmp
 
-​Our algorithm ensures security as well as usability. With erroneous nodes in the consensus making no more than ⌊ (𝑛−1) / 3 ⌋ , the functionality and stability of the system is guaranteed. In it, 𝑛 = |𝑅| suggests the total number of nodes joined in the consensus making while R stands for the set of consensus nodes. Given 𝑓 = ⌊ (𝑛−1) / 3 ⌋ , f stands for the maximum number of erroneous nodes allowed in the system. In fact, the total ledger is maintained by bookkeeping nodes while ordinary nodes do not participate in the consensus making. This is to show the entire consensus making procedures.
+​Ang ating algoritmo tinitiyak ang segurida at at abilidad na itoy pwedeng gamitin. Dahil sa mga maling noda sa konsensus ng paggawa ng hindi hihigit sa ⌊ (𝑛−1) / 3 ⌋ , ang panksyonalidad at katatagan ng sistema ay masisigurado. Sa loob nito, 𝑛 = |𝑅| ay nagmumungkahi na ang lahat ng kabuuang bilang ng noda na kasali sa paggagawa ng konsesus habang ang R ay ang ibig sabihin ay pangkat ng mga noda ng konsensus. Bigay ang 𝑓 = ⌊ (𝑛−1) / 3 ⌋ , f ay ang tumatayong kahulugan para sa pinakamataas na bilang ng mga maling noda na pwede sa sistema. Sa katunayan, ang kabuuang talaan ay binabantayan at iniingatan ng mga noda na bookkeeping habang ang mga ordinaryong noda ay hindi sumasali sa paggagawa ng konsensus. Ito ay para ipakita ang pangkalahatang pamamaraan ng paggawa ng konsensus.
 
-All consensus nodes are required to maintain a state table to record current consensus status. The data set used for a consensus from its beginning to its end is called a View. If consensus cannot be reached within the current View, a View Change will be required. We identify each View with a number v, starting from 0 and it may increase till achieving the consensus.
+Lahat ng mga nodang para sa konsensus ay kailangang magpanatili ng talahanayang pang-estado para itala ang kasalukuyang estado ng konsensus. Ang set ng datos na ginamit para sa konsensus mula sa simula hanggang sa walas nito ay tinatawag na View. Kung ang konsensus hindi maabot ng kasalukuyang View, ang pagbabago ng View Change ang kinakailangan. Tutukuyin namin ang bawat isang View na may bilang v, na magsisimula sa 0 at ito ay maaaring madagdagan hanggang sa makamit ang konsensus.
 
-​We identify each consensus node with a number, starting from 0, the last node is numbered n − 1. For each round of consensus making, a node will play speaker of the house while other nodes play congressmen. The speaker’s number p will be determined by the following algorithm: Hypothetically the current block height is h, then 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, p’s value range will be  0 ≤ 𝑝 < 𝑛 .
+​Tinutukoy namin ang bawat isang noda ng isang konsensus gamit ang isang numero, nagsisimula sa 0, ang huling noda ay may bilang na n − 1. sa bawat pag-ikot ng paggawa ng konsensus, may isang noda na gaganap bilang tagapagsalita ng bahay habang ang ibang mga noda ay maglalaro bilang mga kongressman. Ang numero ng tagapagsalita na p ay matutukoy sa pamamagitan ng sumusunod na algoritmo: Gayung din ang kasalukuyang taas ng bloke ay h, tapos ang 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, ang halaga ni p ay magiging  0 ≤ 𝑝 < 𝑛 .
 
-​A new block will be generated with each round of consensus, with at least 𝑛 − 𝑓 signatures from bookkeeping nodes. Upon the generation of a block, a new round of consensus making shall begin, resetting v=0.
+​Isang bagong bloke ang mabubuo sa bawat pag-ikot ng konsensus, na hindi bababa sa 𝑛 − 𝑓 na mga lagda galing sa mga noda ng bookkeeping. sa panahon ng pagkakabuo ng bloke, isang bagong pag-ikot ng paggawa ng knsensus ang magsisimula, na-irereset sa v=0.
 
-###  General Procedures 
+###  Pangkalahatang Pamamaraan 
 
-Set the time intervals of block generation as t, under normal circumstances, the algorithm executes in the following procedures：
+Itakda ang mga agwat ng oras ng paggawa ng bloke sa t, sa ilalim ng mga normal na pangyayari, ang algoritmo ay magpapatupad ng sumusunod na pamamaraan：
 
-1) A node broadcasts transaction data to the entire network, attached with the sender signature;
+1) Ang pagpapahayag ng transaktsyon na datos ng noda sa panghalahatang network , na nakalakip ang lagda ng nagpadala;
 
-2) All bookkeeping nodes monitors transaction data broadcasting independently and stores the data in its memory respectively; 
+2) Lahat ng mga noda na bookkeeping ay nagmomonitor ng mga datos ng transaksyon na namamahayag ng malaya at itinatago ang mga datos sa kanyang sariling alaala ayon sa pagkakabanggit; 
 
-3) After the time t, the speaker sends 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
+3) Pagkatapos ng oras t, ang tagapagsalita ay magpapadala ng 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
 
-4) After receiving the proposal, congressmen i send 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒,ℎ,𝑣,𝑖,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>〉 ;
+4) Matapos matanggap ang lahat ng  iminumungkahi, ang mga kongressman i ay magpapadala ng 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒,ℎ,𝑣,𝑖,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>〉 ;
 
-​5) Any node, upon receiving at least 𝑛 − 𝑓  〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, reaches a consensus and publishes a full block;
+​5) Kahit na anumang noda, sa panahon ng pagtanggap ng hindi bababa sa 𝑛 − 𝑓  〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, ay aabot sa isang konsensus at maglalathala ng isang buong bloke;
 
-6) Any node, after receiving the full block, deletes the transaction in question from its memory and begins the next round the consensus;
+6) Kahit na anumang noda, matapos matanggap ang buong bloke, ay buburahin ang transaksyon nasa katanungan na galing sa kanyang alaala at magsisimula ng panibagong pag-ikot para sa konsensus;
 
-It is required that, for all the consensus nodes, at least 𝑛 − 𝑓 nodes are in the same original state. This is to say, for all the nodes i, the block height h and View number v are the same. This is not difficult, consistency of h could be reached by synchronizing the blocks while consistency of v could reached by changing the View. Block synchronizing is not covered in this article. For View change, check next section.
+Kinakailangan na, sa lahat ng mga noda ng konsensus, at hindi bababa sa  𝑛 − 𝑓 ng mga noda ang nasa orihinal na estado. Ito ay para sabihinna para sa laht ng nodang i, ang taas ng blokeng h and bilang ng View na v ay magkapareha. Ito ay hindi mahirap, pagkakapareho-pareho ng h ay maabot sa paraang ng  pagsisingkronisa ng mga bloke habang ang pagkakapare-pareha ng  v ay maaabot sa paraan ng pagbabago ng View. Ang pagsisingkronisa ng bloke ay hindi  sakop sa artikulong ito. Para sa pagbabago ng view, tingnan ang susunod na seksyon.
 
-Nodes, after monitoring the broadcasting and receiving the proposal, shall validate the transactions. They cannot write an illegal transaction in the memory once the latter is exposed. If an illegal transaction is contained in the proposal, this round of consensus will be abandoned and the View change will take place immediately. The validation procedures are as follows:
+Ang mga noda, matapos mamonitor ang pagpapahayag at pagtatanggap ng mga iminumungkahi, ang magpapatunay ng mga transaksyon. Hindi sila pwedeng sumulat ng illegal na transaksyon sa alaala nang sa huli ay mailantad. Kung ang illegal na transaksyon ay nakapaloob sa iminumungkahi , ang ikot ng konsensus na iyon ay iaabandona at ang pagbabago sa View ay magsisimula agad. Ang pamamaraan ng pagpapatunay ang mga sumusunod:
 
 1) Is the data format of the transaction consistent with the system rules? If no, the transaction is ruled illegal;
 
