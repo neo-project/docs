@@ -22,7 +22,7 @@ Para el desplegar un nodo consenso se usa el cliente `NEO-cli`. Un programa mult
 
 ## Ejecutar el entorno
 
-Ejecutar el nodo NEO requiere la instalación de [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), la **versión 1.1.2** o superior.
+Ejecutar el nodo NEO requiere la instalación de [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), la **versión 2.0** o superior.
 
 ### Instalación en un entorno Windows
 
