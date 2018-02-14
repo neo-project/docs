@@ -46,7 +46,7 @@ Itakda ang mga agwat ng oras ng paggawa ng bloke sa t, sa ilalim ng mga normal n
 
 1) Ang pagpapahayag ng transaktsyon na datos ng noda sa panghalahatang network , na nakalakip ang lagda ng nagpadala;
 
-2) Lahat ng mga noda na bookkeeping ay nagmomonitor ng mga datos ng transaksyon na namamahayag ng malaya at itinatago ang mga datos sa kanyang sariling alaala ayon sa pagkakabanggit; 
+2) Lahat ng mga noda na bookkeeping ay nagmomonitor ng mga datos ng transaksyon na namamahayag ng malaya at itinatago ang mga datos sa kanyang sariling memorya ayon sa pagkakabanggit; 
 
 3) Pagkatapos ng oras t, ang tagapagsalita ay magpapadala ng 〈𝑃𝑒𝑟𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
 
@@ -54,11 +54,11 @@ Itakda ang mga agwat ng oras ng paggawa ng bloke sa t, sa ilalim ng mga normal n
 
 ​5) Kahit na anumang noda, sa panahon ng pagtanggap ng hindi bababa sa 𝑛 − 𝑓  〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, ay aabot sa isang konsensus at maglalathala ng isang buong bloke;
 
-6) Kahit na anumang noda, matapos matanggap ang buong bloke, ay buburahin ang transaksyon nasa katanungan na galing sa kanyang alaala at magsisimula ng panibagong pag-ikot para sa konsensus;
+6) Kahit na anumang noda, matapos matanggap ang buong bloke, ay buburahin ang transaksyon nasa katanungan na galing sa kanyang memorya at magsisimula ng panibagong pag-ikot para sa konsensus;
 
 Kinakailangan na, sa lahat ng mga noda ng konsensus, at hindi bababa sa  𝑛 − 𝑓 ng mga noda ang nasa orihinal na estado. Ito ay para sabihinna para sa laht ng nodang i, ang taas ng blokeng h and bilang ng View na v ay magkapareha. Ito ay hindi mahirap, pagkakapareho-pareho ng h ay maabot sa paraang ng  pagsisingkronisa ng mga bloke habang ang pagkakapare-pareha ng  v ay maaabot sa paraan ng pagbabago ng View. Ang pagsisingkronisa ng bloke ay hindi  sakop sa artikulong ito. Para sa pagbabago ng view, tingnan ang susunod na seksyon.
 
-Ang mga noda, matapos mamonitor ang pagpapahayag at pagtatanggap ng mga iminumungkahi, ang magpapatunay ng mga transaksyon. Hindi sila pwedeng sumulat ng illegal na transaksyon sa alaala nang sa huli ay mailantad. Kung ang illegal na transaksyon ay nakapaloob sa iminumungkahi , ang ikot ng konsensus na iyon ay iaabandona at ang pagbabago sa View ay magsisimula agad. Ang pamamaraan ng pagpapatunay ang mga sumusunod:
+Ang mga noda, matapos mamonitor ang pagpapahayag at pagtatanggap ng mga iminumungkahi, ang magpapatunay ng mga transaksyon. Hindi sila pwedeng sumulat ng illegal na transaksyon sa memorya nang sa huli ay mailantad. Kung ang illegal na transaksyon ay nakapaloob sa iminumungkahi , ang ikot ng konsensus na iyon ay iaabandona at ang pagbabago sa View ay magsisimula agad. Ang pamamaraan ng pagpapatunay ang mga sumusunod:
 
 1) Is the data format of the transaction consistent with the system rules? If no, the transaction is ruled illegal;
 
