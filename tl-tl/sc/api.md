@@ -1,10 +1,10 @@
-# Reperensiya ng Smart Contract API
+# Reperensiya para sa Smart Contract API
 
 Ang NEO Smart Contract API ay nagpapalawak ng kapabilidad ng Smart Contract na makuha ang blockchain na datos, imanipula ang persistent storage, at umusisa sa eskekusyon na environment. Ito ay bahagi ng Neo Virtual Machine (NeoVM) Interoperability Service Layer.
 
 Para sa impormasyon tungkol sa NeoVM, tingnan ang [NEO Smart Contract na Tutoryal](tutorial.md).
 
-Para sa karagdagang impormasyon kung paano gamitin ang framework para sa madaling pagtawag ng mga API sa mga mataas na lebel na mga lengguwahe, tignan ang [Ants Smart Contracts Framework](fw.md).
+Para sa karagdagang impormasyon kung paano gamitin ang framework para sa madaling pagtawag ng mga API sa mga mataas na lebel na mga lengguwahe, tingnan ang [Ants Smart Contracts Framework](fw.md).
 
 
 Namespace | deskripsyon |
