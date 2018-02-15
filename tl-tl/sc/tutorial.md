@@ -57,7 +57,7 @@ public static bool Main ()
 
 Dito ang isinasauli na halaga ng kontrata ay parating true, nagpapahiwatig na kahit sino ay pwedeng gumastos ng contract address ng mga asset (pwedeng isipin na pera).
 
-Ay NEO wallet na client ay mayroong punsyon para tumanggal ng isang asset. Kung tatanggal ka nang asset, ang asset ay ipapadala patungo sa tinukoy na address na nagrerepresenta sa nagawang address ng nasa itaas na mataliong kontrata. Kahit sino ay pwedeng gumastos ng asset na nasa address. Ang mga asset na nasa address ay mga asset na hindi gusto ng iba.
+Ang NEO wallet na client ay mayroong punsyon para tumanggal ng isang asset. Kung tatanggal ka nang asset, ang asset ay ipapadala patungo sa tinukoy na address na nagrerepresenta sa nagawang address ng nasa itaas na mataliong kontrata. Kahit sino ay pwedeng gumastos ng asset na nasa address. Ang mga asset na nasa address ay mga asset na hindi gusto ng iba.
 
 ```c#
 public static bool Main ()
