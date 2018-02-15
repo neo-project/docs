@@ -1,4 +1,4 @@
-# Smart Contract Framework
+# Smart na Kontract Framework
 
 Ang smart contract na framework ay nagbibigay ng hindi pabagu-bagong mga API sa lahat ng mga programming na lengguwahe na maaring magamit ng mga programmer para imanipula ang estado na nasa blockchain.
 
