@@ -4,7 +4,7 @@ Bawat node sa Neo-CLI ay nagbibigay ng isang interface ng API para makamit ang d
 
 `dotnet neo-cli.dll /rpc`
 
-Para makapasok ang serber ng RPC via HTTPS, kailangan mong baguhin ang kompigurasyon na payl config.json bago simulan ang node at i-set ang pangalan ng domain, sertipiko, at password:
+Para makapasok sa serber ng RPC gamit ang HTTPS, kailangan mong baguhin ang kompigurasyon na payl config.json bago simulan ang node at i-set ang pangalan ng domain, sertipiko, at password:
 
 ```json
 {
