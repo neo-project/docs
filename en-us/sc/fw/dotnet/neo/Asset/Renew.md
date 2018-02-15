@@ -2,7 +2,7 @@
 
 For asset renewal.
 
-The method is new in version 2.0; after registration, assets will need to pay an annual fee, otherwise it will enter the frozen state.
+This method is new in version 2.0; after registration, assets will need to pay an annual fee, otherwise it will enter the frozen state.
 
 When the asset expires, it is necessary to renew the asset. When the asset is not frozen, the renewal fee will extend the date from the expiration date of the asset. When the asset is frozen, the renewal fee will be considered from the point of payment. Therefore, there will be no arrears after paying the renewal fee.
 
@@ -30,7 +30,7 @@ public class Contract1: FunctionCode
         // Taking NEO shares as an example
         byte[] asset = {197, 111, 51, 252, 110, 207, 205, 12, 34, 92, 74, 179, 86, 254, 229, 147, 144, 175, 133, 96, 190, 147, 15, 174, 190, 116, 166, 218, 255, 124, 155};
         Asset ass = Blockchain.GetAsset(asset);
-        Uint blockIndex = ass.Renew (1);
+        uint blockIndex = ass.Renew (1);
     }
 }
 ```
