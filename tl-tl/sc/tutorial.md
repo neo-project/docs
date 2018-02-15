@@ -1,22 +1,22 @@
 # Tutoryal para sa NEO smart contract
 
-Pagkatapos basahin ang mga nakaraang mga tutoryal, dapat mo na ngayong magamit ang C# sa loob ng Visual Studio 2015 o 2017 para lumikha ng isang matalinong kontrata na proyekto. Dito, tatalakayin natin kong paano ini-eksekyut ang mga matalinong kontrata sa NeoVM (Neo Virtual Machine).
+Pagkatapos basahin ang mga nakaraang mga tutoryal, dapat mo na ngayong magamit ang C# sa loob ng Visual Studio 2015 o 2017 para lumikha ng isang smart contract na proyekto. Dito, tatalakayin natin kong paano ini-eksekyut ang mga smart contract sa NeoVM (Neo Virtual Machine).
 
-## Mga nagpapasimula ng matalinong kontrata
+## Mga nagpapasimula ng smart contract
 
-Mayroong dalawang paraan para umpisahan ang mga matalinong kontrata:
+Mayroong dalawang paraan para umpisahan ang mga smart contract:
 
-1. Contract User Awtentikasyon: Dito ang mga matalinong kontrata ay isang kontrata na account. Kung ang user ay hihiling na gumamit ng kontrata na account sa isang asset, ito ay magpapasimula sa matalinong kontrata.
+1. Contract User Awtentikasyon: Dito ang mga smart contract ay isang kontrata na account. Kung ang user ay hihiling na gumamit ng kontrata na account sa isang asset, ito ay magpapasimula sa smart contract.
 
-2. Mano-manong pagtawag sa isang matalinong kontrata: Dito, ang user ay magpapadala ng isang transaksyon (Invocation Transaction) para simulan ang implementasyon ng isang matalinong kontrata.
+2. Mano-manong pagtawag sa isang smart contract: Dito, ang user ay magpapadala ng isang transaksyon (Invocation Transaction) para simulan ang implementasyon ng isang smart contract.
 
 ## NeoVM
 
-Ang NeoVM ay isang bertuwal na makina na umi-eksekyut ng NEO matalinong kontrata na code. Ang pinag-uusapan natin ay tungkol sa limitadong konsepto ng bertuwal na makina, hindi tungkol sa mga  operating system o mga program na nakakasimulate nito tulad ng VMware o Hyper-V.
+Ang NeoVM ay isang bertuwal na makina na umi-eksekyut ng NEO smart contract na code. Ang pinag-uusapan natin ay tungkol sa limitadong konsepto ng bertuwal na makina, hindi tungkol sa mga operating system o mga program na nakakasimyuleyt nito tulad ng VMware o Hyper-V.
 
 Halimbawa, sa Java JVM o .NET CLR, ang mga source code ay i-cocompile sa nauugnay na bytecode at ipapagana sa nararapat na bertuwal na makina. Ang JVM o CLR ay magpapatakbo ng bytecode, na kaparehas lang sa pagpapatakbo ng mga instruksyon sa isang pisikal na makina. Kapansin-pansin, na ang nararapat na binary na instruksyon ay pinapatakbo pa rin sa pisikal na makina. Ang pisikal na makina ay kukuha ng mga instruksyon galing sa memorya, ililipat ito patungo sa CPU gamit ang bus, tapos idedecode, i-eeksekyut, at itatabi ang resulta.
 
-### Ang arkitektura ng virtual na makina
+### Ang arkitektura ng bertuwal na makina
 
    ![](../../assets/neo-vm.jpg)
 
@@ -34,19 +34,19 @@ Dahil ang default na aksyon ng isang batay sa stack na VM ay ang pagkuha ng dato
 
 #### Interoperable service na layer
 
-Ang kanang bahagi na kulay asul ay ang interoperable service na layer ng bertuwal na makina (ito ay katumbas ng mga periperal). Sa ngayon, ang interoperable service na layer ay nagbibigay ng ilang mga API para makuha ang chain-chain na datos ng mga matalinong kontrata. Ito ay pwede kumuha ng bloke na impormasyon, transaksiyon na impormasyon, kontrata na impormasyon, asset na impormasyon, at iba pa.
+Ang kanang bahagi na kulay asul ay ang interoperable service na layer ng bertuwal na makina (ito ay katumbas ng mga periperal). Sa ngayon, ang interoperable service na layer ay nagbibigay ng ilang mga API para makuha ang chain-chain na datos ng mga smart contract. Ito ay pwede kumuha ng bloke na impormasyon, transaksiyon na impormasyon, kontrata na impormasyon, asset na impormasyon, at iba pa.
 
 Sa karagdagan, ang interoperable service na layer ay nagbibigay din ng hindi nawawalang area na matatabihan ng bawat isang kontrata. Ang bawat isang kontrata ay opsyonal na gagawin gamit ang pribadong storage, kung saan ito ay may key-value object na kaanyuan na dinitermina ng bagay na tinatawag ng kontrata sa halip ng konteksto ng hindi nawawalang store. Ang tumatawag ay kailangang pumasa ng kanilang sariling storage na konteksto patungo sa tinatawagan (para ikumpleto ang awtorisasyon) bago makagawa ng mga pagbasa at pagsulat na mga operasyon ang tumatawag.
 
 ### Charge mode
 
-Ang isang matalinong kontrata ay maaring iprogram para sumingil ng bayad na hinahati sa mga gastos sa pagdeploy at gastos sa pag-eksekyut.
+Ang isang smart contract ay maaring iprogram para sumingil ng bayad na hinahati sa mga gastos sa pagdeploy at gastos sa pag-eksekyut.
 
-Ang mga gastos sa pagdeploy ay ang kinakailangang bayad ng isang debeloper para magdeploy ng isang matalinong kontrata sa block chain (kasalukuyang 500 GAS). Ang gastos ng eksekyusyon ay ang bayad ng isang user para i-eksekyut ang isang matalinong kontrata. Ang lahat ng operasyon ay mayroong mga gastos, na ang karamihan ay nagdedefault sa 0.001 GAS. Ang unang 10 GAS ay libre. Para unahin sa pagproproseso, manomanong itaas ang bayad para sa pag-eeksekyut. Para sa iba pang impormasyon tungkol sa mga bayad sa matalinong kontrata, bumasa [dito](systemfees.md#smart-contract-fees).
+Ang mga gastos sa pagdeploy ay ang kinakailangang bayad ng isang debeloper para magdeploy ng isang smart contract sa block chain (kasalukuyang 500 GAS). Ang gastos ng eksekyusyon ay ang bayad ng isang user para i-eksekyut ang isang smart contract. Ang lahat ng operasyon ay mayroong mga gastos, na ang karamihan ay nagdedefault sa 0.001 GAS. Ang unang 10 GAS ay libre. Para unahin sa pagproproseso, manomanong itaas ang bayad para sa pag-eeksekyut. Para sa iba pang impormasyon tungkol sa mga bayad sa smart contract, bumasa [dito](systemfees.md#smart-contract-fees).
 
-## Isang simpleng matalinong kontrata
+## Isang simpleng smart contract
 
-Narito ang ilang mga simpleng matalinong kontrata:
+Narito ang ilang mga simpleng smart contract:
 
 ```c#
 public static bool Main ()
