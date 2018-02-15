@@ -119,7 +119,7 @@ Pagkatapos magpadala ng request, makakakuha ka ng sumusunod na sagot:
 
 ## Mga tool sa pagsusuri
 
-Maaari mong gamitin ang ekstensyon ng Chrome sa Postman para mapangasiwaan ang pagsusuri (Ang pag-install ng ekstensyon ng Chrome ay kinakailangan ng koneksyon ng Internet), ang sumusunod ay isang screenshot ng pagsusuri:
+Maaari mong gamitin ang ekstensyon ng Chrome sa Postman para mapangasiwaan ang pagsusuri (Ang pag-install ng ekstensyon ng Chrome ay nangangailangan ng koneksyon ng Internet), ang sumusunod ay isang screenshot ng pagsusuri:
 
 ![image](/zh-cn/node/assets/api_2.jpg)
 
