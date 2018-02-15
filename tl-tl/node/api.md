@@ -1,10 +1,10 @@
 # Reperensiya ng API
 
-Bawat node sa Neo-CLI ay nagbibigay ng isang interface ng API para makamit ang datos ng blockchain na mula sa isang node, na pinapadali nito na makabuo ng mga blockchain application. Ang interface ay ibinigay sa pamamagitan ng [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), at ang pinagtitibayan na protocol ay gumagamit ng HTTP/HTTPS para sa komunikasyon. Para makapagsimula ng isang node na nagbibigay ng isang RPC na serbisyo, i-run ang mga sumusunod na command:
+Bawat node sa Neo-CLI ay nagbibigay ng isang interface ng API para makamit ang datos ng blockchain na mula sa isang node, na pinapadali nito ang pagdevelop ng mga blockchain application. Ang interface ay ibinigay sa pamamagitan ng [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), at ang pinagtitibayan na protocol ay gumagamit ng HTTP/HTTPS para sa komunikasyon. Para makapagsimula ng isang node na nagbibigay ng isang RPC na serbisyo, i-run ang mga sumusunod na command:
 
 `dotnet neo-cli.dll /rpc`
 
-Para ma-akses ang serber ng RPC via HTTPS, kailangan mong baguhin ang kompigurasyon na payl config.json bago simulan ang node at i-set ang pangalan ng domain, sertipikato, at password:
+Para makapasok ang serber ng RPC via HTTPS, kailangan mong baguhin ang kompigurasyon na payl config.json bago simulan ang node at i-set ang pangalan ng domain, sertipiko, at password:
 
 ```json
 {
