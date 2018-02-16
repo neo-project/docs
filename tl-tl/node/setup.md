@@ -1,8 +1,8 @@
-# Installation and deployment of NEO node 
+# Pag-install at pag-deploy sa node ng NEO
 
-The above article describes two clients for nodes in the NEO network. One is [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (the command line client - for developer use), and the other is [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (the graphical interface client - for the advanced user)
+Ang artikulo na nasa itaas ay inilalarawan ang dalawang kliyente para sa mga node sa network ng NEO. Ang isa ay [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (ang command line client - ginagamit para sa developer), at ang iba ay [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (ang graphical interface client - para sa advanced na user)
 
-The deployment consensus node uses the `Neo-CLI`, a cross-platform program that runs in Windows, Linux and Docker.
+Ang node ng konsensus sa pag-deploy ay gumagamit ng `Neo-CLI`, isang cross-platform na programa na tumatakbo sa Windows, Linux at Docker.
 
 |                                   | Neo-CLI |
 | --------------------------------- | ----------------- |
@@ -16,23 +16,23 @@ The deployment consensus node uses the `Neo-CLI`, a cross-platform program that 
 | openSUSE 13.2, 42.1               | ✅                 |
 | Docker                            | ✅                 |
 
-> [!Note]
-> At present, NEO nodes do not work properly under Mac OS. In the future there will be support for Mac OS, please wait for further updates.
+> [!Paalala]
+> Sa kasalukuyan, ang mga node ng NEO ay hindi gumagana ng maayos sa ilalim ng Mac OS. Sa hinaharap ay magkakaroon ng suporta para sa Mac OS, maghintay lamang para sa mga karagdagang update.
 
-## Run the environment
+## Patakbuhin ang environment
 
-Running of an NEO node requires installation of [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), version 1.0.1 or above.
+Sa pagpapatakbo ng isang node ng NEO ay kinakailangan na mag-install ng [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), bersyon 1.0.1 o higit pa.
 
-### Windows system installation method
+### Paraan ng pag-install sa sistema ng Windows
 
-In the Windows system, installation of . NET Core is very convenient, you can directly download and run.
+Sa sistem ng Windows, ang pag-iinstall ng . NET Core ay napakadali, maaari mong direktang i-download at patakbuhin.
 
-### Linux system installation method
+### Paraan ng pag-install sa sistema ng Linux
 
-The following shows how .NET Core is installed in Red Hat Enterprise Linux 7 Server:
+Ang sumusunod ay nagpapakita kung paano na-install ang .NET Core sa serber ng Red Hat Enterprise Linux 7:
 
-> [!Note]
-> Other distributions of the Linux kernel installation method, please refer to [.NET Core installation tutorial](https://www.snetnet/core#linuxredhat)
+> [!Paalala]
+> Para sa mga ibang distribusyon sa paraan ng pag-install ng Linux kernel, maaaring tukuyin sa [.NET Core installation tutorial](https://www.snetnet/core#linuxredhat)
 
 
 ```
@@ -45,7 +45,7 @@ yum install rh-dotnetcore11
 scl enable rh-dotnetcore11 bash
 ```
 
-After the installation is complete, you can run the following command to check whether the .NET Core environment was installed successfully.
+Pagkatapos makompleto ang pag-install, maaari mong patakbuhin ang sumusunod na command para masuri kung ang .NET Core environment ay matagumpay na na-install.
 
 ```
 dotnet new console -o hwapp
@@ -54,31 +54,31 @@ dotnet restore
 dotnet run
 ```
 
-If you see the final output "Hello World!", The .Net Core installation is successful.
+Kung nakikita mo ang kahuli-hulihang awtput na "Hello World!", Ang .Net Core ay matagumpay na na-install.
 
 
-## Installation of NEO node
+### Pag-install ng node ng NEO
 
-1. Download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package on Github and unzip it.
+1. I-download ang pakete na [Neo-CLI](https://github.com/neo-project/neo-cli/releases) sa Github at i-unzip ito.
 
-> [!Note]
-> If you try to download and compile the Neo-CLI source directly on Github, you will find that `dotnet neo-cli.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as neo-cli.dll under. These two files can be downloaded in the first step of the package.
+> [!Paalala]
+> Kung susubukan mong i-download at i-compile ang source ng NEO-CLI direkta sa Github, makikita mo na ang `dotnet neo-cli.dll` ay hindi wasto ang pagka-run matapos mag-compile, at kailangan mong kopyahin ang libleveldb.dll at sqlite3.dll sa parehong direktoryo bilang neo-cli.dll sa ilalim. Maaaring ma-download ang dalawang file na ito sa unang hakbang ng pakete.
 
-2. On Linux, install the LevelDB and SQLite3 dev packages. E.g. on Ubuntu:
+2. Sa Linux, i-install ang mga pakete ng LevelDB at SQLite3 dev. E.g. sa Ubuntu:
 
 ```
 sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, use the [Neo version of LevelDB](https://github.com/neo-project/leveldb).
-   
-3. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sa Windows, gamitin ang [Neo version of LevelDB](https://github.com/neo-project/leveldb).
+
+3. Buksan ang command line, mag-navigate sa direktoryo ng program, ipasok ang sumusunod na code upang simulan ang node ng NEO.
 
 ```
 dotnet neo-cli.dll
 ```
 
-Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can run the following code.
+Nagbibigay ang Neo-CLI ng isang hanay ng mga API para sa panlabas na pag-akses. Kung gusto mong simulan ang node habang binubuksan ang API, maaari mong patakbuhin ang sumusunod na code.
 ```
 dotnet neo-cli.dll /rpc
 ```
-4. If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
+4. Kung gusto mong mapasok ng panlabas na programa ang node kailangan buksan ng API ang port ng firewall: 10331-10334, 20331-20334
