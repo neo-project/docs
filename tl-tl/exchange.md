@@ -1,7 +1,7 @@
-# Dokumento para sa Mga Nag-develop ng Exchange
+# Dokumento para sa Mga Deveoper ng Exchange
 
 
-Ang dokumentong ito ay inilaan upang gabayan ang mga developer ng exhange upang mag set-up ng NEO node sa exchange server at kumpletuhing kaugnay na pag-unlad ng programa para sa mga transaksyong asset ng NEO. Bago magbasa, siguraduhin na nabasa mo ang [NEO White Paper] (index.html) at nauunawaan NEO background na kaalaman at teknolohiya.
+Ang dokumentong ito ay inilaan upang gabayan ang mga developer ng exhange upang mag set-up ng mga NEO node sa exchange server at kumpletuhing kaugnay na pagbuo ng programa para sa mga transaksyong asset ng NEO. Bago magbasa, siguraduhin na nabasa mo ang [NEO White Paper] (index.html) at nauunawaan ang NEO background na kaalaman at teknolohiya.
 
 
 Sa pangkalahatan, kailangan ng isang palitan ang mga sumusunod:
@@ -50,7 +50,7 @@ Ang NEO-CLI ay nagbibigay ng mga sumusunod na tampok:
 
 Para sa karagdagang impormasyon, sumangguni sa [CLI Command Reference](node/cli.html).
 
--Magbigay ng mga API upang mabawi ang blockchain data mula sa mga node. Ang mga interface ay ipinagkakaloob [JSON-RPC](http://www.jsonrpc.org/specification)，at ang kalakip na mga komunikasyon ay gumagamit ng HTTP / HTTPS protocol.
+-Nagbigay ng mga API upang mabawi ang blockchain na datos mula sa mga node. Ang mga interface ay ipinagkakaloob [JSON-RPC](http://www.jsonrpc.org/specification)，at ang kalakip na mga komunikasyon ay gumagamit ng HTTP / HTTPS protocol.
 
  Upang magsimula ng node na nagbibigay ng serbisyo ng RPC, ipasok ang sumusunod na command sa ilalim ng direktoryo ng NEO-CLI:
 
@@ -90,16 +90,16 @@ Upang lumikha ng wallet, gawin ang mga sumusunod:
 
 ### Pagbubuo ng mga Address sa Deposito
 
-Ang isang wallet ay maaaring mag-imbak ng maramihang mga address. Ang palitan ay kailangang bumuo ng isang addres sa deposito para sa bawat gumagamit.
+Ang isang wallet ay maaaring mag-imbak ng maramihang mga address. Ang palitan ay kailangang bumuo ng isang addressu sa deposito para sa bawat user.
 Mayroong dalawang mga paraan upang makabuo ng mga address ng deposito:
 
 - Kapag ang gumagamit sa deposito (NEO / NEO GAS) sa unang pagkakataon, ang programa ay dynamic na bumubuo ng isang NEO address. Ang kalamangan ay hindi na kailangan upang makabuo ng mga address sa mga nakapirming mga agwat ng oras, habang ang kawalan ay hindi mo maaaring i-backup ang wallet.
 
 
--Upang bumuo ng programa patungong dynamically binuong mga address,, gamitin ang NEO-CLI API  [getnewaddress Method](node/api/getnewaddress.html). Ang nagawa na address ay ibinalik.
+-Upang bumuo ng programa ng dynamically binuong mga address, gamitin ang NEO-CLI API  [getnewaddress Method](node/api/getnewaddress.html). Ang nagawa na address ay ibinalik.
   
 
-- Ang palitan ay lumilikha ng batch ng NEO address nang maaga. Kapag ang mga singil ng gumagamit (NEO / NEO GAS) sa unang pagkakataon, ang palitan ay nagtatalaga ng isang NEO address sa kanya. Ang kalamangan ay ang kaginhawaan na i-backup ang wallet, habang ang kawalan ay ang pangangailangan upang bumuo ng mga address NEO nang manu-mano.
+- Ang palitan ay lumilikha ng batch ng NEO address nang maaga. Kapag ang mga singil ng gumagamit sa unang pagkakataon (NEO / NEO GAS), ang palitan ay nagtatalaga ng isang NEO address sa kanya. Ang kalamangan ay ang kaginhawaan na i-backup ang wallet, habang ang kawalan ay ang pangangailangan upang bumuo ng mga address NEO nang manu-mano.
   Upang bumuo ng mga address sa batch, patakbuhin ang ng NEO-CLI command `create address [n]`. Ang mga address ay awtomatikong na-export sa address.txt file.
   [n] ay opsyonal. Ang default na halaga nito ay 1. Halimbawa, upang bumuo ng 100 mga address sa isang pagkakataon, ipasok `create address 100`.
 
@@ -118,7 +118,7 @@ Para sa mga pandaigdigang ari-arian, kailangan ng palitan ng mga programa upang 
 2. Harapin ang mga deposito ng user ayon sa impormasyon ng transaksyon.
 3. Iimbak ang mga talaan ng transaksyon na may kaugnayan sa palitan.
 
-#### Mga Deposito ng gumagamit
+#### Mga Deposito ng Gumagamit
 
 Tungkol sa mga deposito ng user, kailangang palitan ng palitan ang mga sumusunod:
 
@@ -131,7 +131,7 @@ Tungkol sa mga deposito ng user, kailangang palitan ng palitan ang mga sumusunod
 - NEO wallet ay isang buong node, na kailangang manatili sa online upang i-synchronize ang mga bloke. Maaari mong tingnan ang katayuan ng pag-block ng pag-synchronize sa pamamagitan ng estado ng pagpapakita sa CLI, kung saan ang kaliwang bahagi ay ang lokal na taas ng bloke, at ang kanang bahagi ay ang taas ng node block.
 - Sa palitan, ang paglipat sa pagitan ng mga gumagamit ay hindi dapat maitala sa pamamagitan ng blockchain. Sa pangkalahatan, ang balanse ng user ay binago nang direkta sa database. Tanging ang mga deposito at withdrawals ay dapat na maitatala sa blockchain.
 
-#### Mga rekord ng deposito
+#### Mga Rekord ng Deposito
 
 Ang palitan ay kailangang magsulat ng code upang masubaybayan ang bawat transaksyon sa isang bloke at itala ang lahat ng mga transaksyon na may kaugnayan sa mga address ng palitan sa database. Kung ang isang deposito ay nangyayari, dapat na ma-update ang balanse ng gumagamit.
 
@@ -154,7 +154,7 @@ Upang makitungo sa withdrawals ng gumagamit para sa mga pandaigdigang asset, kai
 
 1. Sa NEO-CLI, patakbuhin ang `open wallet <path>` upang buksan ang wallet.
 
-2. I-rekord ang transaksyon ng pag-withdraw ng gumagamit at baguhin ang balanse gumagamit
+2. I-rekord ang transaksyon ng pag-withdraw ng gumagamit at baguhin ang balansng user.
 
 3. (Opsyonal) Mga deal ng serbisyo sa customer na may withdrawal application.
 
