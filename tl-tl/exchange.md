@@ -1,83 +1,85 @@
-# Document for Exchange Developers
-
-This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete related program development for NEO assets transactions. Before reading, maker sure you have read [NEO White Paper](index.html) and understand the NEO background knowledge and technologies. 
-
-In general, an exchange needs to do the following：
-
-- [Deploying a NEO Node on Server](#deploying-a-neo-node-on-server)
-- [Creating a Wallet and Deposit Addresses](#creating-a-wallet-and-deposit-addresses)
-- [Dealing with Global Assets Transactions](#dealing-with-global-assets-transactions)
-- [Dealing with NEP-5 Assets Transactions](#dealing-with-nep-5-assets-transactions)
-- [(Optional) Distributing GAS to Users](#optional-distributing-gas-to-users)
+# Dokumento para sa Mga Deveoper ng Exchange
 
 
+Ang dokumentong ito ay inilaan upang gabayan ang mga developer ng exhange upang mag set-up ng mga NEO node sa exchange server at kumpletuhing kaugnay na pagbuo ng programa para sa mga transaksyong asset ng NEO. Bago magbasa, siguraduhin na nabasa mo ang [NEO White Paper] (index.html) at nauunawaan ang NEO background na kaalaman at teknolohiya.
 
-## Deploying a NEO Node on Server
 
-To deploy a NEO node on the exchange server, do the following:
+Sa pangkalahatan, kailangan ng isang palitan ang mga sumusunod:
 
-1.  Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 1.0.1 and the later version.
-2.  From Github, download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) program and enable the NEO node.
+- [Pag-deploy ng NEO Node sa Server](#deploying-a-neo-node-on-server)
+- [Paglikha ng mga Wallet at mga address sa Deposito](#creating-a-wallet-and-deposit-addresses)
+- [Pakikitungo sa mga Transaksyong Global Asset](#dealing-with-global-assets-transactions)
+- [Pagkikitungo sa mga Transaksyon ng NEP-5 na mga Asset](#dealing-with-nep-5-assets-transactions)
+- [(Opsyonal) Ipamahagi ang GAS sa mga User](#optional-distributing-gas-to-users)
 
-For more information, refer to [Installation and deployment of NEO node](node/setup.html).
 
-## Creating a Wallet and Deposit Addresses
 
-### About NEO-CLI
+## Pag-deploy ng NEO Node sa Server
 
-NEO-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
+Upang i-deploy ang NEO node sa exchange server, gawin ang mga sumusunod:
 
-- Using the CLI (command-line interface) commands. For example, you can create a wallet, generate an address, etc.
-- Using the Remote Procedure Call (RPC). For example, you can transfer to the designated address, acquire the block information of the designated height, acquire the information of the designated trade, etc.
+1.  I-install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sa server, 1.0.1 at sa susunod na bersyon
+2.  Mula kay Github, i-download ang [Neo-CLI](https://github.com/neo-project/neo-cli/releases) programa at paganahin ang NEO node.
 
-NEO-CLI provides the following features： 
+Para sa karagdagang impormasyon, sumangguni sa [Pag-install at pag-deploy ng NEO node](node/setup.html).
 
-- As a wallet, manages assets through the command-line.
+## Paglikha ng Mga Wallet at mga address sa deposito
 
-  To enable the wallet，enter the following command under the NEO-CLI directory：
+### Tungkol sa NEO-CLI
 
+Ang NEO-CLI ay isang command-line client (wallet) para sa mga developer. May dalawang paraan ang mga developer na makipag-ugnay dito:
+
+- Paggamit ng CLI (command-line interface) na mga utos. Halimbawa, maaari kang lumikha ng isang wallet, bumuo ng isang address, atbp.
+- Gamit ang Remote Procedure Call (RPC). Halimbawa, maaari kang maglipat sa itinalagang address, kunin ang impormasyon ng block ng itinalagang taas, kunin ang impormasyon ng itinalagang kalakalan, atbp.
+
+Ang NEO-CLI ay nagbibigay ng mga sumusunod na tampok:
+
+- Bilang isang wallet, namamahala ng mga asset sa pamamagitan ng command-line.
+
+  Upang paganahin ang wallet, ipasok ang sumusunod na command sa ilalim ng direktoryo ng NEO-CLI:
+  
   ```
   dotnet neo-cli.dll
   ```
 
-  To check all the available commands, enter the following command：
+ Upang suriin ang lahat ng mga magagamit na command, ipasok ang sumusunod na command:
 
   ```
   help
   ```
 
-  For more information, refer to [CLI Command Reference](node/cli.html).
+Para sa karagdagang impormasyon, sumangguni sa [CLI Command Reference](node/cli.html).
 
-- Provides APIs to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
+-Nagbigay ng mga API upang mabawi ang blockchain na datos mula sa mga node. Ang mga interface ay ipinagkakaloob [JSON-RPC](http://www.jsonrpc.org/specification)，at ang kalakip na mga komunikasyon ay gumagamit ng HTTP / HTTPS protocol.
 
-  To start a node which provides RPC service, enter the following command under the NEO-CLI directory：
+ Upang magsimula ng node na nagbibigay ng serbisyo ng RPC, ipasok ang sumusunod na command sa ilalim ng direktoryo ng NEO-CLI:
 
   ```
   dotnet neo-cli.dll /rpc
   ```
 
-  For more API information, refer to [API Reference](node/api.html).
+  Para sa karagdagan pang impormasyon sa API, sumangguni sa [API Reference](node/api.html).
 
 
-### Creating a Wallet
+### Lumikha ng Wallet
 
-The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data.
+Ang palitan ay kailangang lumikha ng isang online wallet upang pamahalaan ang mga address ng deposito ng mga gumagamit. Ang isang pitaka ay ginagamit upang iimbak ang impormasyon ng mga account (parehong mga pampublikong key at mga pribadong key) at ang mga kontrata. Ito ang pinakamahalagang patunay na hinahawakan ng gumagamit. Ang mga gumagamit ay dapat na panatilihin ang mga wallet file at secure ang mga password ng wallet. Hindi nila dapat mawala o ibunyag ang mga datos na ito.
 
-> [!Note]
+> [!Tandaan]
 >
-> Exchanges do not have to create a wallet for every address. An online wallet usually keeps all deposit addresses of users. A cold wallet (offline wallet) is another storage option which provides better security.
+> Ang mga palitan ay hindi kailangang lumikha ng wallet para sa bawat address. Ang isang online wallet ay karaniwang nagpapanatili sa lahat ng mga address ng deposito ng mga gumagamit. Ang isang malamig na wallet(offline wallet) ay isa pang pagpipilian sa imbakan na nagbibigay ng mas mahusay na seguridad.
 
-To create a wallet, do the following：
+Upang lumikha ng wallet, gawin ang mga sumusunod:
 
-1. enter  `create wallet <path>`.
+1. ipasok  `create wallet <path>`.
 
-   <path> is the wallet path and wallet file name. The file extension can be any type, for example,  create wallet mywallet.db3.
+   <path> ay ang landas ng pitaka at pangalan ng wallet na file. Ang extension ng file ay maaaring maging anumang uri, halimbawa, gumawa ng wallet mywallet.db3.
 
-2. Set a password for the wallet. 
+2. Magtakda ng isang password para sa wallet.
 
-> [!Note]
+> [!Tandaan]
 >
-> The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
+>Ang wallet ay dapat panatilihing bukas sa lahat ng oras upang tumugon sa mga kahilingan sa pag-withdraw ng mga gumagamit. Para sa mga kadahilanang pang-seguridad, ang mga wallet ay dapat na patakbuhin sa isang malayang server kung saan ang firewall ay maayos na naisaayos, tulad ng ipinapakita sa ibaba. 
 
 |                    | Mainnet | Testnet |
 | ------------------ | ------- | ------- |
@@ -86,114 +88,116 @@ To create a wallet, do the following：
 | P2P                | 10333   | 20333   |
 | websocket          | 10334   | 20334   |
 
-### Generating Deposit Addresses
+### Pagbubuo ng mga Address sa Deposito
 
-A wallet can store multiple addresses. The exchange needs to generate a deposit address for each user. 
+Ang isang wallet ay maaaring mag-imbak ng maramihang mga address. Ang palitan ay kailangang bumuo ng isang addressu sa deposito para sa bawat user.
+Mayroong dalawang mga paraan upang makabuo ng mga address ng deposito:
 
-There are two methods to generate deposit addresses: 
-
-- When the user deposit (NEO/NEO GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is you can not backup the wallet.
-
-  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](node/api/getnewaddress.html). The created address is returned.
-
-- The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
-  To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.
-  [n] is optional. Its default value is 1. For example, to generate 100 addresses at a time, enter `create address 100`.
+- Kapag ang gumagamit sa deposito (NEO / NEO GAS) sa unang pagkakataon, ang programa ay dynamic na bumubuo ng isang NEO address. Ang kalamangan ay hindi na kailangan upang makabuo ng mga address sa mga nakapirming mga agwat ng oras, habang ang kawalan ay hindi mo maaaring i-backup ang wallet.
 
 
-> [!Note]
+-Upang bumuo ng programa ng dynamically binuong mga address, gamitin ang NEO-CLI API  [getnewaddress Method](node/api/getnewaddress.html). Ang nagawa na address ay ibinalik.
+  
+
+- Ang palitan ay lumilikha ng batch ng NEO address nang maaga. Kapag ang mga singil ng gumagamit sa unang pagkakataon (NEO / NEO GAS), ang palitan ay nagtatalaga ng isang NEO address sa kanya. Ang kalamangan ay ang kaginhawaan na i-backup ang wallet, habang ang kawalan ay ang pangangailangan upang bumuo ng mga address NEO nang manu-mano.
+  Upang bumuo ng mga address sa batch, patakbuhin ang ng NEO-CLI command `create address [n]`. Ang mga address ay awtomatikong na-export sa address.txt file.
+  [n] ay opsyonal. Ang default na halaga nito ay 1. Halimbawa, upang bumuo ng 100 mga address sa isang pagkakataon, ipasok `create address 100`.
+
+
+> [!Tandaan]
 >
-> Either way, the exchange must import the addresses into the database and distribute them to users.
+>Sa alinmang paraan, dapat na i-angkat ng palitan ang mga address sa database at ipamahagi ang mga ito sa mga gumagamit.
 
-## Dealing with Global Assets Transactions
+## Pakikitungo sa mga Transaksyong Global Asset
 
-### Developing Programs for User Deposits and Withdrawals
+### Pagbubuo ng Programa para sa mga Deposito ng Gumagamit at mga Pag-withdraw
 
-For global assets, the exchange needs to develop programs to fulfil the following functions:
+Para sa mga pandaigdigang ari-arian, kailangan ng palitan ng mga programa upang matupad ang mga sumusunod na function:
 
-1. Monitor new blocks through NEO-CLI  API ([getblock Method](node/api/getblock2.html)).
-2. Deal with user deposits according to the transaction information. 
-3. Store the transaction records related to the exchange.
+1. Subaybayan ang mga bagong bloke sa pamamagitan ng NEO-CLI API([getblock Method](node/api/getblock2.html)).
+2. Harapin ang mga deposito ng user ayon sa impormasyon ng transaksyon.
+3. Iimbak ang mga talaan ng transaksyon na may kaugnayan sa palitan.
 
-#### User Deposits 
+#### Mga Deposito ng Gumagamit
 
-Regarding user deposits, the exchange needs to note the following: 
+Tungkol sa mga deposito ng user, kailangang palitan ng palitan ang mga sumusunod:
 
-- NEO blockchain has only one main chain without side chains, will not fork, and will not have isolated blocks.
-- A transaction recorded in NEO blockchain cannot be tampered with, which means a confirmation represents a deposit success.
-- In general, the balance of a deposit address in the exchange is not equal to the balance the user has in the exchange. It may because：
-  - When transferring or withdrawing, the NEO wallet looks through one or more addresses in the wallet, finds the minimal loose change that meets the requirement and adds up to the total sum of the transaction and then serves that as the input, instead of withdrawing from the specified address (unless the exchange rewrites some functions of NEO wallet to meet their own needs).
-  - Other operations that may lead to balance inequality, for example, the exchange transfers part of the assets to its cold wallets.
-- There are more than two assets (NEO and NEO GAS) in a NEO address. More assets issued by users (such as stock or token) can be stored. The exchange should determine the assets type when the user deposits. Neither regard other assets as NEO shares or NEO nor confuse the withdrawal of NEO with NEO GAS. 
-- NEO wallet is a full node, which needs to stay online to synchronize blocks. You can view the block synchronization status through the show state in the CLI, where the left side is the local block height, and the right side is the node block height.
-- In the exchange, the transfer between users should not be recorded through the blockchain. In general, the user's balance are modified in the database directly. Only deposits and withdrawals should be recorded on the blockchain.
+- Ang NEO blockchain ay mayroon lamang isang pangunahing chain na walang mga chain sa gilid, ay hindi ma-fork, at hindi magkakaroon ng ilang mga bloke.
+- Ang isang transaksyon na na-record sa NEO blockchain ay hindi maaaring ma-tampered sa, na nangangahulugang ang pagkumpirma ay kumakatawan sa isang tagumpay na deposito.
+- Sa pangkalahatan, ang balanse ng isang deposito na address sa palitan ay hindi katumbas ng balanse ng gumagamit sa palitan. Maaaring dahil:
+  - Kapag naglilipat o nag-withdraw, ang NEO wallet ay tumitingin sa pamamagitan ng isa o higit pang mga address sa wallet, hinahanap ang minimal na maluwag na pagbabago na nakakatugon sa pangangailangan at nagdadagdag ng hanggang kabuuan ng transaksyon at pagkatapos ay nagsisilbing bilang input, sa halip na umalis mula sa tinukoy na address (maliban kung ang palitan ay muling isinusulat ang ilang mga function ng NEO wallet upang matugunan ang kanilang sariling mga pangangailangan).
+  - Ang iba pang mga operasyon na maaaring humantong sa hindi pagkakapantay-pantay na balanse, halimbawa, ang paglilipat ng mga bahagi ng mga asset sa mga malamig na wallet nito.
+- Mayroong higit sa dalawang mga asset (NEO at NEO GAS) sa isang NEO address. Ang higit pang mga asset na ibinigay ng mga gumagamit (tulad ng stock o token) ay maaaring maimbak. Ang palitan ay dapat matukoy ang uri ng mga ari-arian kapag ang mga deposito ng gumagamit. Huwag isaalang-alang ang iba pang mga ari-arian bilang NEO pagbabahagi o NEO o malito ang withdrawal ng NEO sa NEO GAS.
+- NEO wallet ay isang buong node, na kailangang manatili sa online upang i-synchronize ang mga bloke. Maaari mong tingnan ang katayuan ng pag-block ng pag-synchronize sa pamamagitan ng estado ng pagpapakita sa CLI, kung saan ang kaliwang bahagi ay ang lokal na taas ng bloke, at ang kanang bahagi ay ang taas ng node block.
+- Sa palitan, ang paglipat sa pagitan ng mga gumagamit ay hindi dapat maitala sa pamamagitan ng blockchain. Sa pangkalahatan, ang balanse ng user ay binago nang direkta sa database. Tanging ang mga deposito at withdrawals ay dapat na maitatala sa blockchain.
 
-#### Deposit Records
+#### Mga Rekord ng Deposito
 
-The exchange needs to write code to monitor every transaction in a block and record all the transactions related to the exchange addresses in the database. If a deposit occurs, the user's balance should be updated. 
+Ang palitan ay kailangang magsulat ng code upang masubaybayan ang bawat transaksyon sa isang bloke at itala ang lahat ng mga transaksyon na may kaugnayan sa mga address ng palitan sa database. Kung ang isang deposito ay nangyayari, dapat na ma-update ang balanse ng gumagamit.
 
-Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](node/api/getblock2.html).
+Maaaring gamitin ng mga developer ang  `getblock <index> [verbose]` paraan ng NEO-CLI API upang mabawi ang impormasyon ng bloke. `<index>` ay ang index ng bloke. `[verbose]` ay 0 bilang default. Kailan `[verbose]` ay 0, ang paraan ay nagbabalik ng serialized block na impormasyon sa Hexadecimal. Dapat mong deserialize ang hex string upang makuha ang detalyadong impormasyon ng block. Kailan `[verbose]` ay 1, ang paraan ay nagbabalik ng detalyadong impormasyon ng nararapat na block sa JSON na format. Para sa karagdagang impormasyon, sumangguni sa [Getblock Method](node/api/getblock2.html).
 
-The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/NEO GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
+Ang bloke ng impormasyon kabilang ang input at output ng mga transaksyon. Kailangan ng palitan ng rekord ang lahat ng mga kaugnay na transaksyon nito. Ang mga transaksyon na output ay sa katunayan ang mga rekord ng transaksyon ng mga withdrawals ng isang gumagamit. Kapag nakikita ng palitan ang alinman sa mga address nito sa output ng mga transaksyon, ina-update nito ang NEO / NEO GAS na balanse ng kaukulang gumagamit na nagmamay-ari ng deposito na ito. Ang ilang mga palitan ay maaari ring gawin tulad ng sumusunod: kung ito ay nakakahanap ng isang address sa loob ng palitan bilang ang output ng transaksyon, pagkatapos ay itatala ang deposito sa database nito at binabago ang balanse ng gumagamit pagkatapos ng ilang mga pagkumpirma (Maliban kung ito ay kailangang sumunod sa pagpapatakbo ng iba pang blockchains, hindi inirerekomenda ang ganitong paraan).
 
-> [!Note]
+> [!Tandaan]
 >
-> - Method getblockcount returns the count of the blocks in the main chain. The first parameter of Method getblock is `<index>` which is the block index. Block index = Block height = The count of the blocks – 1. If getblockcount returns 1234, you should use getblock 1233 to get the information of the latest block. 
-> - The deposit and withdrawal transactions (NEO/NEO GAS) are all in a type named ContractTransaction. The exchanges only need to care about the ones of ContractTransaction type when they check through the transactions in a block. 
-> - As the first transaction of every block must be MinerTransaction, you can neglect or jump over it when traversing the blockchain. 
-> - NEO system takes the transaction as a record unit.
+> - Paraan ng pagkuha getblockcount ang bilang ng mga bloke sa pangunahing chain. Ang unang parameter ng Method getblock ay `<index>` 
+kung saan ay ang index ng block. I-block ang index = I-block ang taas = Ang bilang ng mga bloke - 1. Kung ang getblockcount ay nagbalik 1234, dapat mong gamitin ang getblock 1233 upang makuha ang impormasyon ng pinakabagong block.
+> - Ang mga deposito at mga withdrawal na transaksyon (NEO / NEO GAS) ay lahat sa isang uri na pinangalanang ContractTransaction. Ang mga palitan ay kailangan lamang mag-alaga tungkol sa mga uri ng Kontrata ng Transaksyon kapag tiningnan nila ang mga transaksyon sa isang bloke.
+> - Bilang unang transaksyon ng bawat bloke ay dapat na MinerTransaction, maaari mong pabayaan o tumalon sa paglipas nito kapag traversing ang blockchain.
+> - Kinukuha ng sistema ng NEO ang transaksyon bilang isang yunit ng record.
 >
 
-### Dealing with User Withdrawals 
+### Pakikitungo sa mga Gumagamit ng mga Paglipat
 
-To deal with the user withdrawals for global assets, the exchange needs to do the following:
+Upang makitungo sa withdrawals ng gumagamit para sa mga pandaigdigang asset, kailangan ng palitan ang mga sumusunod:
 
-1. In NEO-CLI, run `open wallet <path>` to open the wallet.
+1. Sa NEO-CLI, patakbuhin ang `open wallet <path>` upang buksan ang wallet.
 
-2. Record the user withdrawal transaction and modify the user balance.
+2. I-rekord ang transaksyon ng pag-withdraw ng gumagamit at baguhin ang balansng user.
 
-3. (Optional) Customer service deals with withdrawal application.
+3. (Opsyonal) Mga deal ng serbisyo sa customer na may withdrawal application.
 
-4. Send transaction to the user's withdrawal address using the NEO-CLI  API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](node/api/sendtoaddress.html).
+4. Magpadala ng transaksyon sa gumagamit ng address sa withdrawal gamit ang pamamaraan ng NEO-CLI API, `sendtoaddress <asset_id> <address> <value>`. Para sa karagdagang impormasyon, sumangguni sa  [sendtoaddress Method](node/api/sendtoaddress.html).
 
    - `<asset_id>` ：Asset ID
-   - `<address>` ：Withdrawal address
-   - `<value>` ：Withdrawal amount
+   - `<address>` ：Pag-withdraw ng address
+   - `<value>` Halaga ng kinuha
 
-   You can also send the transaction to a batch of addresses using API [sendmany Method](node/api/sendmany.html).
+   Maaari mo ring ipadala ang transaksyon sa isang batch ng mga address gamit ang API [sendmany Method](node/api/sendmany.html).
 
-5. Extract the transaction ID from the returned transaction details in the JSON format,  and then record in the database.
+5. I-extract ang ID ng transaksyon mula sa mga ibinalik na detalye ng transaksyon sa format ng JSON, at pagkatapos ay i-record sa database.
 
-6. Once confirmed by the blockchain, mark the withdrawal transaction as success. 
+6. Kapag nakumpirma na sa blockchain, markahan ang transaksyon sa pag-withdraw bilang tagumpay.
 
-   Similar to deposit monitoring, withdrawals also need to be monitored. If the withdrawal transaction ID  is found in the blockchain, it means this transaction has already been confirmed and is a successful withdrawal.
-
-> [!Note]
+   Katulad ng pagsubaybay sa deposito, ang mga withdrawals ay kailangan din na subaybayan. Kung ang ID ng withdrawal ay matatagpuan sa blockchain, nangangahulugang ang transaksyong ito ay nakumpirma na at isang matagumpay na pag-withdraw
+   
+> [!Tandaan]
 >
-> -  The <value> here refers to the actual amount, instead of the amount multiplied by 10^8.
-> -  NEO transfer amount must be an integer; otherwise, the blockchain will not confirm it since the loose change in the wallet will be inaccurate. It will be needed to rebuild wallet index, which is to recalculate the transactions and change of the wallet.
+> -  Ang <value> dito ay tumutukoy sa aktwal na halaga, sa halip na ang halaga na times sa 10 ^ 8.
+> -  Ang halaga ng transfer ng NEO ay dapat na isang integer; kung hindi man, hindi maitatatag ito ng blockchain dahil ang hindi maayos na pagbabago sa wallet ay hindi tumpak. Kakailanganing muling itayo ang index ng wallet, na muling pagkalkula ng mga transaksyon at pagbabago ng wallet.
 
-## Dealing with NEP-5 Assets Transactions
+## Pagkikitungo sa mga Transaksyon ng NEP-5 na mga Asset
 
-### Receiving User Deposits Notifications
+### Pagtanggap ng Mga Abiso ng Mga Gumagamit sa Deposito
 
-For NEP-5 assets, the exchange needs to get the notification of users' deposits. The notification for each block is recorded in a JSON file, which includes all information of every NEP-5 transaction.
+Para sa mga asset ng NEP-5, kailangan ng palitan ang pagpapabatid ng mga deposito ng mga gumagamit. Ang notification para sa bawat bloke ay naitala sa isang JSON file, na kinabibilangan ng lahat ng impormasyon ng bawat transaksyong NEP-5.
 
-To get notification files, run the following command:
+Upang makakuha ng mga file ng notification, patakbuhin ang sumusunod na command:
 
 ```
 dotnet neo-cli.dll --rpc --record-notifications
 ```
 
-A folder "Notifications" is generated under the root path, as shown below:
+Ang isang folder na "Notification" ay binuo sa ilalim ng landas ng ugat, tulad ng ipinapakita sa ibaba:
 
 ![1](../assets/notification_1.jpg)
 
 #### ![2](../assets/notification_2.jpg)
 
-#### Notifications JSON File
+#### Mga abiso sa JSON File
 
-The following shows an example of the notification file content.
+Ang sumusunod ay nagpapakita ng isang halimbawa ng nilalaman ng abiso ng file.
 
 ```json
 [
@@ -224,30 +228,30 @@ The following shows an example of the notification file content.
 }]
 ```
 
-In this file, there is an array of notifications with only one object, which means only one NEP-5 event is triggered in the block. The parameters related to a transaction in the file are the following:
+Sa file na ito, mayroong isang hanay ng mga abiso na may isang bagay lamang, na nangangahulugang isa lamang NEP-5 na kaganapan ang na-trigger sa block. Ang mga parameter na may kaugnayan sa isang transaksyon sa file ay ang mga sumusunod:
 
--  **contract**: the script hash of smart contract, by which the exchange can identify assets type. For example, "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" is the script hash and the unique identification of the RPX asset.
+-  **contract**: ang iskrip na hash ng matalinong kontrata, kung saan maaaring makilala ng palitan ang uri ng asset. Halimbawa,"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" ay ang iskrip hash at ang natatanging pagkakakilanlan ng RPX asset.
 
--  The four objects included in the "state" array:
+-  Ang apat na bagay na kasama sa "state" na array:
 
-   [event, from account, to account, amount]
+[kaganapan, mula sa account, sa account, halaga]
 
-   -  The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP5 that represents an asset transfer.
-   -  The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "d336d7eb9975a29b2404fdb28185e277a4b299bc“ can be converted to "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
-   -  The third object in the array is the account address where the asset is transferred to. If the address is an exchange account address, it is a deposit transaction.
-   -  The fourth object in the array is the transfer amount. There are two types of amount,  integer and bytearray. When dealing with this value, the exchange should pay special attention for transactions of the integer type.
+   -  Ang unang bagay na may uri ay "bytearray" at ang halaga ay "7472616e73666572", ulad ng ipinapakita sa halimbawa, maaaring ma-convert sa string na "transfer". "transfer" ay isang paraan sa NEP5 na kumakatawan sa isang transfer ng pag-aari.
+   -  Ang pangalawang bagay sa array ay ang address ng account kung saan ang asset ay inilipat mula sa. Ang uri nito "bytearray" at ang halaga "d336d7eb9975a29b2404fdb28185e277a4b299bc“ maaaring i-convert sa "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Tandaan na para sa hexadecimal string na may prefix na "0x", pinoproseso ito bilang malaking endian; kung hindi, ito ay naproseso bilang maliit na endian.
+   -  Ang ikatlong bagay sa array ay ang address ng account kung saan ang asset ay inilipat sa. Kung ang address ay isang address ng palitan ng account, ito ay isang transaksyon sa deposito.
+   -  Ang ikaapat na bagay sa array ay ang halaga ng paglilipat. Mayroong dalawang uri ng halaga, integer at bytearray. Kapag nakikitungo sa halagang ito, ang exchange ay dapat magbayad ng espesyal na pansin para sa mga transaksyon ng uri ng integer.
 
-### Querying User Balance
+### Pag-query ng Balanse ng Gumagamit
 
-To query the user's balance, the exchange needs to do the following:
+Upang tanungin ang balanse ng user, kailangan ng palitan ang mga sumusunod:
 
-1. Construct JSON files to invoke three methods (`balanceOf`, `decimals`, and `symbol`) through the PRC API invokefunction. 
-2. Send the JSON files to NEO RPC server.
-3. Calculate the user balance according to the returned values.
+1. Buuin ang mga file ng JSON upang magamit ang tatlong pamamaraan (`balanceOf`,` decimals`, at `simbolo`) sa pamamagitan ng PRC API invokefunction.
+2. Ipadala ang mga file ng JSON sa NEO RPC server.
+3. Kalkulahin ang balanse ng gumagamit ayon sa ibinalik na mga halaga.
 
 #### invokefunction
 
-In JSON, a general invokefunction request body is in the following form: 
+Sa JSON, isang pangkalahatang kahilingan na humiling ng katawan ay nasa sumusunod na form:
 
 ```
 {
@@ -266,46 +270,44 @@ In JSON, a general invokefunction request body is in the following form:
 }
 ```
 
-You need to replace these strings when querying the user's balance:
+Kailangan mong palitan ang mga string na ito kapag nag-query sa balanse ng gumagamit:
 
 - script hash
 
-  The script hash of the NEP-5 token you are querying. For example, you can find the script hash of RPX is : *0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
+  Ang script hash ng NEP-5 token na iyong hiniling. Halimbawa, maaari mong mahanap ang script na hash ng RPX ay:*0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
 
 
-- method name
+- pangalan ng pamamaraan
 
-  The name of the method you are invoking. To query the user's balance, you need to invoke these three methods:
-
+  Ang pangalan ng pamamaraan na ginagamit mo. Upang tanungin ang balanse ng user, kailangan mong tawagan ang tatlong paraan na ito:
+  
   **balanceOf**
 
   - Syntax: `public static BigInteger balanceOf(byte[] account)`
-  - Remarks: "balanceOf" returns the token balance of the '''account'''.
+  - Remarks: "balanceOf" nagbabalik ang token na balanse ng '''account'''.
 
   **decimals**
 
   - Syntax: `public static byte decimals()`
-  - Remarks: "decimals" returns the number of decimals used by the token.
+  - Remarks: "decimals" nagbabalik ang bilang ng mga desimal na ginamit ng token.
 
   **symbol**
 
   - Syntax: `public static string symbol()`
-  - Remarks: "symbol" returns the token symbol.
+  - Remarks: "symbol" nagbabalik ang simbolo ng token.
 
+- opsyonal na argumento
 
-- optional arguments
-
-  Optional. If the method you are invoking requires arguments, you can pass them by constructing these parameters into an array. For example, "balanceOf" in NEP-5 returns the token balance of the "account":
-
+ Opsyonal. Kung ang paraan na iyong ginagamit ay nangangailangan ng mga argumento, maaari mong ipasa ang mga ito sa pamamagitan ng pagtatayo ng mga parameter na ito sa isang array. Halimbawa, ang "balanceOf" sa NEP-5 ay nagbabalik ng token na balanse ng "account":
   `public static BigInteger balanceOf(byte[] account)`
 
-  So you need to pass the account as an argument in the "balanceOf" method.
+Kaya kailangan mong ipasa ang account bilang argumento sa paraan ng "balanceOf".
 
-#### Example
+#### Halimbawa
 
 ##### **Invoking balanceOf**
 
-Suppose the account address is AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, you need to convert it into Hash160 type and construct this parameter as a JSON object:
+Ipagpalagay na ang address account ay AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, kailangan mong i-convert ito sa uri ng Hash160 at buuin ang parameter na ito bila
 
 ```json
 {
@@ -314,8 +316,7 @@ Suppose the account address is AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, you need to c
 }
 ```
 
-Then you can construct the JSON message as the following:
-
+Pagkatapos ay maaari mong buuin ang mensahe ng JSON bilang mga sumusunod:
 Request Body：
 
 ```json
@@ -336,7 +337,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Pagkatapos maipadala ang kahilingan, makakakuha ka ng sumusunod na tugon:
 
 ```json
 {
@@ -355,7 +356,7 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns "00e1f505" which can be converted to interger 100000000.
+Nagbabalik ang "00e1f505" na maaaring ma-convert sa interger 100000000.
 
 ##### **Invoking decimals**
 
@@ -374,7 +375,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Pagkatapos maipadala ang kahilingan, makakakuha ka ng sumusunod na tugon:
 
 ```json
 {
@@ -393,7 +394,7 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns integer 8.
+Nagbabalik ito ng integer 8.
 
 ##### **Invoking symbol**
 
@@ -412,7 +413,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Pagkatapos maipadala ang kahilingan, makakakuha ka ng sumusunod na tugon:
 
 ```json
 {
@@ -431,60 +432,60 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns "525058" which can be converted to string "RPX".
+Nagbabalik ang "525058" na maaaring ma-convert sa string na "RPX".
 
 ##### **Calculating the User Balance**
 
-According to all the returned values,  we can calculate the user balance as follows:
-The balance = 100000000/10<sup>8</sup> RPX = 1 RPX
+Ayon sa lahat ng ibinalik na mga halaga, maaari nating kalkulahin ang balanse ng gumagamit tulad ng sumusunod:
+Ang balanse = 100000000/10 <sup> 8 </ sup> RPX = 1 RPX
 
-### Dealing with User Withdrawals
+### Pakikitungo sa mga Gumagamit ng mga widthrawal
 
-The exchange can choose one of the following way to send NEP-5 assets to users: 
+Ang palitan ay maaaring pumili ng isa sa mga sumusunod na paraan upang magpadala ng mga NEP-5 asset sa mga gumagamit:
 
-- NEO-CLI command: `send`
+- Utos ng NEO-CLI: `send`
 
-- RPC method: `sendtoaddress`
-- PRC method: `sendmany`
+- RPC na paraan: `sendtoaddress`
+- RPC na paraan: `sendmany`
 
-#### NEO-CLI Command: send
+#### NEO-CLI Command: magpadala
 
 ##### Syntax
 
 `send <txid|script hash> <address> <value> [fee = 0]`
 
-##### Parameters
+##### Mga Parameter
 
-- txid|script hash: the asset ID.
+- txid|script hash: ang Id ng asset
 
-- address: the payment address.
+- address: ang address ng pagbabayad.
 
-- value: the transfer amount.
+- Halaga: ang halaga ng paglipat.
 
-- fee: This parameter can be left empty. The default value is 0.
+- fee: Maaaring iwanang walang laman ang parameter na ito. Ang default na halaga ay 0.
 
 
-This command verifies the wallet password. 
+Pinapatunayan ng utos na ito ang password ng wallet.
 
-##### Example
+##### Halimbawa
 
-To transfer 100 RPX to the address *AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b*, enter the following:
+Upang ilipat ang 100 RPX sa address *AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b*, ipasok ang sumusunod:
 
 ```
 send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 ```
 
-If you need to send global asset, just change the first parameter to txid. For example, 
-The txid of NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-The txid of GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+Kung kailangan mong magpadala ng global na asset, baguhin lamang ang unang parameter sa txid. Halimbawa,
+Ang txid ng NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+Ang txid ng GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 #### RPC Method: sendtoaddress
 
-The key "params" includes an array of at least three parameters. 
+Ang susi "params" ay nagsasama ng isang array ng hindi bababa sa tatlong mga parameter.'
 
 `"params":[script hash, address, amount, fee(optional), change address(optional)]`
 
-For example, to send 1 RPX to *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* , construct a JSON file as follows and send it to RPC server.
+Halimbawa, upang magpadala ng 1 RPX sa *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* ,bumuo ng isang JSON file bilang mga sumusunod at ipadala ito sa RPC server.
 
 Request Body：
 
@@ -503,7 +504,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+Pagkatapos maipadala ang kahilingan, makakakuha ka ng sumusunod na tugon:
 
 ```json
 {
@@ -542,12 +543,11 @@ After sending the request, you will get the following response：
 
 #### RPC Method: sendmany
 
-The key "params" includes an array of at least one parameter:
+Ang susi "params" ay nagsasama ng isang array ng hindi bababa sa isang parameter:
 
 `"params":[[], fee(optional), change address(optional)]`
 
-For example, to send 15.5 RPX and 0.0001 GAS to *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* and the `change address` is also *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*, you can construct a JSON file as follows and send it to RPC server.
-
+Halimbawa, upang magpadala ng 15.5 RPX at 0.0001 GAS sa *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* at ang `change address` ay din *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*, maaari kang bumuo ng isang JSON file bilang mga sumusunod at ipadala ito sa RPC server.
 Request Body：
 
 ```json
@@ -572,8 +572,7 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
-
+Pagkatapos maipadala ang kahilingan, makakakuha ka ng sumusunod na tugon:
 ```json
 {
     "jsonrpc": "2.0",
@@ -629,44 +628,43 @@ After sending the request, you will get the following response：
 
 [Data Transformation Examples](https://github.com/PeterLinX/NeoDataTransformation)
 
-## (Optional) Distributing GAS to Users
+## (Opsyonal) Ipamahagi ang GAS sa mga Gumagamit
 
-The exchange can determine whether to distribute GAS to users. GAS is used to pay to the NEO blockchain for recording and additional services. 
+Ang palitan ay maaaring matukoy kung ipamahagi ang GAS sa mga gumagamit. Ginagamit ang GAS para magbayad sa block block ng NEO para sa pagtatala at karagdagang mga serbisyo.
 
-### What is GAS ?
+### Ano ang GAS ?
 
-NeoGas (abbreviated as GAS) represents the right to use the Neo Blockchain. There will be 100 million GAS in total. GASs are generated along with every new block. The issuance will slow down according to a set slowly-decreasing pace, while GAS will go through a generating process to grow from zero to 100 million. Once NEO is acquired, GAS will be generated in the system following the algorithms.
+Ang NeoGas (dinaglat bilang GAS) ay kumakatawan sa karapatang gamitin ang Neo Blockchain. Magkakaroon ng 100 milyong GAS sa kabuuan. Ang mga gas ay binuo kasama ang bawat bagong block. Ang pagpapalabas ay magpapabagal ayon sa isang itinakdang hakbang na mabagal, habang ang GAS ay dumadaan sa isang proseso ng pagbuo upang lumago mula sa zero hanggang 100 milyon. Sa sandaling nakuha ang NEO, ang GAS ay mabubuo sa sistema ng pagsunod sa mga algorithm.
 
-### Calculating the Available GAS Amount
+### Kinakalkula ang Magagamit na Halaga ng GAS
 
-- Available *GAS = f(neo_amount, Δt_const)*
+- Magagamit na *GAS = f(neo_amount, Δt_const)*
+onst = t_end - t_start
+    -  t_end = sa sandaling si Neo ay pumasok sa estado ng ginugol
+    -  t_start = ang sandali na napupunta si Neo sa kalagayan ng walang kasiglahan
 
-  -  Δt_const = t_end - t_start
-    -  t_end = the moment that Neo goes into the state of spent
-    -  t_start = the moment that Neo goes into the state of unspent
-
-  Δt_const is fixed, thus the available Gas is of a fixed amount too. And this amount is a function of the amount of Neo held by the user and the duration between the moments that he or she transferred this amount of Neo into and out of his or her address. 
+Ang Δt_const ay naayos na, kaya ang magagamit na Gas ay masyadong naayos. At ang halagang ito ay isang function ng halaga ng Neo na hawak ng gumagamit at ang tagal sa pagitan ng mga sandali na inilipat niya ang halaga na ito ng Neo papunta at sa kanyang address.
 
 
-- Unavailable *GAS = f(neo_amount, Δt_var)*
+- Hindi magagamit *GAS = f(neo_amount, Δt_var)*
 
   - Δt_var = t - t_start
     - t is the current time
     - t_start = the moment that Neo goes into the state of unspent
 
-  The current time is a variable, so the amount of the unavailable GAS also grows through time, which means it is a variable.
+Ang kasalukuyang oras ay isang variable, kaya ang halaga ng hindi magagamit na GAS ay lumalaki din sa pamamagitan ng oras, na nangangahulugang ito ay isang variable.
 
-### Distributing GAS to Users
+### Ipamahagi ang GAS sa mga Gumagamit
 
-Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
+Ipagpalagay na ang lahat ng mga address ng exchange ay naka-imbak sa isang pitaka, ang sumusunod na tsart ay nagpapakita ng pamamaraan at computational formula kung paano ipinagkakaloob ng palitan ang GAS sa user A.
 
 ![gasflow_en](sc/assets/gasflow_en.png)
 
-The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
+Ang mas maikli ang pagitan ng snapshot, mas tumpak ang pagkalkula. Kung ang pagitan ng snapshot ay hindi pare-pareho, gamitin ang timbang na average na paraan ng pagkalkula.
 
-### Claiming GAS
+### Pag-claim ng GAS
 
-GAS becomes claimable after the user transfer his or her NEO. For example, **someone has NEO in address A and GAS are not claimable, he transfer his NEO to himself (address A) then the NEO GAS are claimable.**
+Ang GAS ay maaaring maipahayag pagkatapos mailipat ng user ang kanyang NEO. Halimbawa, **someone has NEO in address A and GAS are not claimable, he transfer his NEO to himself (address A) then the NEO GAS are claimable.**
 
 The following table lists the GAS claiming steps and corresponding commands.
 
