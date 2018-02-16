@@ -1,13 +1,13 @@
-# Smart Contract API Reference
+# Reperensiya para sa API ng Smart Contract
 
-The NEO Smart Contract API expands the capabilities of the Smart Contract to access the blockchain data, manipulate persistent storage, and query the execution environment. It is part of the Neo Virtual Machine (NeoVM) Interoperability Service Layer.
+Ang API ng NEO Smart Contract ay nagpapalawak ng kapabilidad ng Smart Contract na makuha ang blockchain na datos, imanipula ang di mawawalang storage, at umusisa sa pagganap na environment. Ito ay bahagi ng Neo Virtual Machine (NeoVM) Interoperability Service Layer.
 
-For information about NeoVM, see [NEO Smart Contract Tutorial](tutorial.md).
+Para sa impormasyon tungkol sa NeoVM, tingnan ang [NEO Smart Contract na Tutoryal](tutorial.md).
 
-For more information on how to use the framework to easily call APIs in high-level languages, see [Ants Smart Contracts Framework](fw.md).
+Para sa karagdagang impormasyon kung paano gamitin ang framework para sa madaling pagtawag ng mga API sa mga mataas na lebel na mga lengguwahe, tingnan ang [Ants Smart Contracts Framework](fw.md).
 
 
-Namespace | description |
+Namespace | Deskripsyon |
 | ----------------------------- | ---------------------------------------- |
-| [Neo](api/neo.md) | The Neo namespace is the API provided by the NEO blockchain, providing a way to access the blockchain data and manipulate the persistent store. |
-| [System](api/system.md) | The System namespace is the API provided by the Smart Contract Execution Engine, providing access to the execution environment that accesses the smart contract. |
+| [Neo](api/neo.md) | Ang Neo namespace ay ang API na binibigay ng NEO blockchain, na nagbibigay ng paraan upang makuha ang blockchain na datos at imanipula ang di nawawalang store. |
+| [System](api/system.md) | Ang System namespace ay ang API na binibigay ng Smart Contract Execution Engine, ito ay nagbibigay ng paraan para makuha ang pagganap na environment na gumagamit sa smart contract. |
