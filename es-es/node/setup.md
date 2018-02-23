@@ -76,8 +76,8 @@ yum install leveldb leveldb-devel libunwind libicu -y
 
 subscription-manager repos --enable=rhel-7-server-dotnet-rpms
 yum install scl-utils -y
-scl enable rh-dotnetcore11 bash
-echo "source scl_source enable rh-dotnetcore11" >> ~/.bashrc
+yum install rh-dotnet20
+scl enable rh-dotnet20 bash
 
 wget https://github.com/neo-project/neo-cli/releases/download/v2.1.0/neo-cli-rhel.7.2-x64.zip
 unzip neo-cli-rhel.7.2-x64.zip -d /opt/
