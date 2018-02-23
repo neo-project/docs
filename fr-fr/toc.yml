@@ -7,5 +7,7 @@
   items:
     - name: Introduction
       href: node/introduction.md
+    - name: Installation
+      href: node/setup.md
 - name: Contributeurs
   href: contributors.md
