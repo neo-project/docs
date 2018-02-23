@@ -1,344 +1,336 @@
-# Using the NEO-GUI Client
+# Gamit ang NEO-GUI Client
 
-> [!Note]
+> [!Tandaan]
 >
-> Unless otherwise stated,  this article introduces the NEO-GUI running on the test net. For more information, refer to [Test Network](testnet.md).
+>Maliban kung ito ay sinabi, ang artikulong ito ay ipinakikilala ang NEO-GUI na tumatakbo sa test net . Para sa karagdagang impormasyon, sumangguni sa [Test Network](testnet.md).
 
-## Prerequisite
+## Kinakailangan
 
-### Downloading the client
+### Pag-download ng kliyente
 
-Download [NEO-GUI](https://neo.org/download) and extract the files to a location of your choice, then double-click neo-gui.exe to run the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
-
-> [!Note]
+I-download ang [NEO-GUI](https://neo.org/download) at kunin ang mga file sa isang lokasyon na iyong pinili, pagkatapos ay i-double-click ang neo-gui.exe upang patakbuhin ang kliyente. Kung may anumang mga problema sa proseso at ang kliyente ay hindi maaaring gamitin kagaya ng normal, mangyaring panatilihin ang error.log file na matatagpuan sa parehong direktoryo ng neo-gui, pagkatapos ay makipag-ugnay sa aming mga teknikal na kawani upang tulungan ka sa paglutas ng problema.
+> [!Tandaan]
 >
-> The NEO-GUI client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+> Ang NEO-GUI na kliyente ay tugma sa mga sumusunod na bersyon ng Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 >
-> Pre-Windows 10 systems require [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) to be installed.
+> Kinakailangan ng mga pre-Windows 10 system ang [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) upang mai-install.
 
-### Synchronizing blockchain data
+### Pagsinkronisa ng datos ng blockchain
 
-The client must be fully synchronized before use. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height. When you open a wallet, the wallet height data is displayed.  These numbers update regularly.
+Ang kliyente ay dapat na ganap na nakasinkronisa bago gamitin. Ang data sa tabi ng "Height" y tumutugma sa taas ng wallet / naka-synchronize na taas ng blockchain/taas na blockchain header. Kapag binuksan mo ang isang wallet, ang  taas na data ng wallet ay ipinapakita. Regular na nag-uupdate ang mga numerong ito.
 
-![image](/assets/gui_1.png)
+![imahe](/assets/gui_1.png)
 
-In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
+Upang mapabilis ang pagsinkronisa ng network maaari mong i-download ang isang offline na pakete ng datos blockchain hanggang sa isang tiyak na taas ng block. Ang ibig sabihin nito ay kailangan lamang ng kliyente na isink ang mga karagdagang bloke mula sa NEO network kaysa sa buong blockchain.
 
-1. To begin, download the package located at [Client Downloads](https://neo.org/download) according to your network: chain.acc.zip for main net or chain.acc.test.zip for test net.
+1. Upang magsimula, i-download ang pakete na matatagpuan sa [Client Downloads](https://neo.org/download) na ayon sa iyong network: chain.acc.zip para sa pangunahing net o chain.acc.test.zip para sa test net..
 
-2. Close the neo-gui client and copy chain.acc.zip to the neo-gui folder as shown in the figure below:
+2. Isara ang neo-gui na kliyente at kopyahin ang chain.acc.zip sa neo-gui na folder tulad ng ipinapakita sa pigura sa ibaba:
 
    ![](/assets/gui_58.png)
 
-   > [!Note]
+   > [!Tandaan]
    >
-   > For the test net package chain.acc.test.zip, you need to rename the file to chain.acc.zip before placement.
+   > Para sa pakete ng test net na chain.acc.test.zip, kailangan mong palitan ang pangalan ng file sa chain.acc.zip bago ang 
+pagkakalagay.
+3. Buksan muli ang kliyente na neo-gui, maaari mong makita ang kliyente na ngayon ay nakasinkronisa hanggang sa tiyak na punto at ang kliyente ay ipagpapatuloy ang pagsisinkronisa sa natitirang bahagi ng blockchain.
 
-3. Re-open the neo-gui client, you can see the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain.   
 
 
-
-You can also use the NEO-CLI command `export blocks` to export the synchronized block data to a package. For more information,  see  [CLI Command Reference](cli.md).
+Maaari mo ring gamitin ang NEO-CLI na utos na `export blocks` upang i-export angnakasinkronisang datos ng bloke sa isang pakete. Para sa karagdagang impormasyon,  tingnan ang  [CLI Command Reference](cli.md).
 
 ## Wallet
-A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
+Ang isang wallet na file, kasama ang extension ng json o .db3, nag-iimbak ng reperensiya sa iyong NEO, GAS, at impormasyon ng account sa isang database. Ang file na ito ay napakahalaga at dapat na naka-back up nang ligtas.
 
-> [!Important]
+> [!Mahalaga]
 >
-> Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
+> Ang pagkawala ng alinman sa file ng wallet o password ng wallet ay magreresulta sa pagkawala ng iyong mga asset. Mangyaring siguraduhin na ang wallet file ay ligtas na nakatago at tandaan ang password ng wallet.
 
-### Create the wallet database
+### Lumikha ng wallet ng database
 
-1. Click `Wallet`, `New Wallet Database`.
+1. I-klik ang `Wallet`, `New Wallet Database`.
 
-   ![image](/assets/gui_2.png)
+   ![imahe](/assets/gui_2.png)
 
-2. Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
+2.I-iklik ang `Browse` upang piliin ang lokasyon ng taguan ng file ng wallet, at itakda ang pangalan ng file, at pagkatapos ay i-click ang Save.
+   ![imahe](/es-es/node/assets/gui/gui_3.png)
 
-   ![image](/es-es/node/assets/gui/gui_3.png)
+3. Ipasok ang `Password` and `Re-Password` at i-save ang iyong sariling password.
 
-3. Enter `Password` and `Re-Password` and save your own password.
+   ![imahe](/assets/gui_4.png)
 
-   ![image](/assets/gui_4.png)
+4. I-klik ang `OK` at ang wallet ay matagumpay na nalikha, na kung saan ang defaultay may kasamang karaniwan na account.
 
-4. Click `OK` and the wallet is successfully created, which by default comes with a standard account. 
-
-   > [!Note]
+   > [!Tandaan]
    >
-   > Due to the role of change mechanism, the remainder of the assets is transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
+   >Dahil sa papel ng pagbabago na mekanismo, ang natitira sa mga asset ay inililipat sa unang address bilang default. Kaya, Kinakailangan ang pag-back up ng kaukulang pribadong key at wallet.
 
-### View the wallet information
+### Tingnan ang impormasyon ng wallet
 
 #### Account
 
-Right-click the wallet and select Account -> View Key to check the account information:
+I-right click ang wallet at piliin ang Account -> Tingnan ang Key upang suriin ang impormasyon ng account:
 
-- Address: The equivalent of a bank account or bank card number, used to receive assets during transactions.
-
-
-- Private key: A 256-bit random number, kept by the user and not known publicly. This represents the user account ownership and the ownership of the assets within the account.
+- Address: Ang katumbas ng isang account sa bangko o numero ng bank card, na ginagamit upang makatanggap ng mga asset sa panahon ng mga transaksyon.
 
 
-- Public key: Each private key has a matching public key (Note: Public key, and private key information can be viewed by right clicking on the address.)
+- Pribadong key: Isang random na 256-bit na numero, tinatago ng gumagamit at hindi alam ng publiko. Ito ay kumakatawan sa pagmamay-ari ng account ng gumagamit at ang pagmamay-ari ng mga asset sa loob ng account.
 
-> [!Important]
+-Pampublikong key: Ang bawat pribadong susi ay may katugmang pampublikong susi (Tandaan: Ang pampublikong susi, at ang pribadong susi ng pangunahing impormasyon ay maaaring makita sa pamamagitan ng pagright-click ng address.)
+
+> [!Mahalaga]
 >
-> At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
+>Hindi dapat ipaalam sa iba ang pribadong susi sa iba. Sa sandaling ibunyag ang pribadong key, maaaring magresulta ito sa pagkawala ng iyong mga ari-arian.
 
-You can also do the following operations by right-clicking an address of the account:
+Maaari mo ring gawin ang mga sumusunod na operasyon sa pamamagitan ng pag-right click sa isang address ng account:
 
-| Function          | Description                                                  |
+| Punksyon         |Paglalarawan                                        |
 | ----------------- | ------------------------------------------------------------ |
-| Create New Add.   | Creates a new address in the wallet                          |
-| Import            | Import from WIF: Imports the corresponding address into the wallet<br>Import from Certificate: Imports the certification <br>Import Watch-Only Address：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
-| Copy to Clipboard | Copies the address                                           |
-| Delete            | Removes the address                                          |
+| Lumikha ng Bagong Idadagdag.   | Lumilikha ng bagong address sa wallet                        |
+| Angkat           | Angkat mula sa WIF: Ini-aangkat ang katumbas na address sa wallet <br> Mag-angkat mula sa Sertipiko: Ini-angkat ang sertipikasyon <br> Mag-angkat ng Address ng maaari mo nang: Matapos mag-angkat ng address ng kabilang partido bilang address ng watch-only maaari mong subaybayan ang mga ari-arian sa address na iyon. |
+|Kopyahin sa clipboard | Kinokopya ang address                                 |
+| Burahin         | Tinatanggal ang address                                         |
 
-#### Assets
+#### Mga ari-arian
 
-Clicking on the `Assets` tab you can view the assets of the account, including Assets (NEO, GAS, the user-created assets), type, balance, and the issuer.
+Sa pagclick tab ng `Assets` maari mong tingnan ang mga ari-arian na account, kabilang ang Mga Asset (NEO, GAS,mga nilikhang ari-arian ng user), uri, balanse, at taga-isyu.
 
-#### Transaction Record
+#### Rekord ng Transaksyon
 
-Clicking on the `Transaction Record` tab you can view all the transaction records associated with the wallet.
+Sa pagclick sa tab na `Transaction Record` maari mong tingnan ang lahat ng mga rekord ng transaksyon na nauugnay sa wallet.
 
-### Open the wallet database
+### Buksan ang database ng wallet
 
-1. Every time the client is re-opened, you need to click `open wallet database` to select which wallet file to open, as the picture shows:
+1. Sa bawat oras na muling mabuksan ang kliyente, kailangan mong i-click ang  `open wallet database` upang piliin kung aling file ng wallet ang bubuksan, tulad ng ipinakita ng larawan:
 
-   ![image](/assets/gui_5.png)
+   ![imahe](/assets/gui_5.png)
 
-2. Click `Browse` to select the wallet (usually the default is the last open wallet)
+2. I-click ang `Browse` upang piliin ang wallet (kadalasan ang default ay ang huling bukas na wallet)
 
-3. Select one of the file format to open: NEP-6 (.json) or SQLite (.db3)
+3. Pumili ng isa sa format ng file upang buksan: NEP-6 (.json) or SQLite (.db3)
 
-   Clients earlier than Neo GUI v2.5.2 support only .db3 files.
+  Mga kliyente na mas mauna kaysa Neo GUI v2.5.2 ay sumusuporta lamang ng .db3 na file.
+  
+4. Ipasok ang password, at i-klik ang `OK` upang makapasok sa wallet.
 
-4. Enter the password, and click `OK` to enter the wallet.
+5. Kung magbubukas ng lumang wallet na db3,kailangan mong pumili kung i-upgrade ang wallet sa bagong format ng NEP-6 na ayon sa nasabing mensahe
 
-5. If opening an old .db3 wallet, you need to choose whether to upgrade the wallet to the new NEP-6 format according to the prompted message.
-
-   After upgraded, the NEP-6 wallet can be shared among multiple clients, e.g. mobile, PC, or Web site. But it cannot be opened in the  clients earlier than Neo GUI v2.5.2.
-
+   Pagkatapos na ma-upgrade, maibabahagi na wallet ng NEP-6 sa maraming kliyente, hal. mobile, PC, o Web site. Ngunit hindi ito mabubuksan sa mga kliyente nang mas nauna kaysa sa Neo GUI v2.5.2.
 
 
 ### Change password
 
-Can be used to modify the wallet password.
+Maaaring magamit upang baguhin ang password ng wallet.
 
-![image](/assets/gui_6.png)
+![imahe](/assets/gui_6.png)
 
-After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
+Pagkatapos na baguhin ang password, mangyaring tandaan na i-backup muli ang wallet bilang anumang nakaraang mga pag-backup ng wallet ay hindi maglalaman ng bagong password.
 
-### Rebuild the wallet index
+### Muling itayo ang index ng wallet
 
-This option is used to restore errors in the client when an exception occurs. The Wallet Index may need to be rebuilt in the following cases:
+Ginagamit ang opsyong ito upang maibalik ang mga error sa kliyente kapag may eksepsiyon. Ang Index ng Wallet ay maaaring kailangang muling maitayo sa mga sumusunod na kaso:
 
-- After the import of a private key.
-- A transaction that has not been confirmed after a long time.
-- The wallet assets show errors and blockchain data does not match.
-- Switching between the main net and test net.
+- Matapos ang pag-import ng isang pribadong key.
+- Isang transaksyon na hindi pa nakumpirma pagkatapos ng mahabang panahon.
+- Ang mga asset ng wallet ay nagpakita ng mga error at hindi tumutugma ang data ng blockchain.
+- Paglipat sa pagitan ng pangunahing net at net test.
 
-As the current block height is very high, rebuilding the wallet index can take several minutes. Please be patient.
+Dahil napakataas ang bloke, ang muling pagtatayo ng index ng wallet ay maaaring tumagal nang ilang minuto. Mangyaring maging matiyaga.
 
-## Transactions
+## Mga transakyon
 
-### Transfer
+### Paglipat
 
-Transfers assets to a recipient address. If the transferred asset type is equity, both parties are required to confirm with their signature.
+Nililipat ang mga asset sa isang address ng tatanggap. Kung ang inilipat na uri ng asset ay equity, ang dalawang partido ay kinakailangang kumpirmahin sa kanilang sariling lagda.
 
-1. From NEO-GUI, click  `Transaction`-> `Transfer`
+1. Mula sa NEO-GUI, I-klik ang  `Transaction`-> `Transfer`
 
-2. Do one of the following:
+2. Gawin ang isa sa mga sumusunod:
 
-   1. To transfer to a single address, click  `+` and enter the transfer information, e.g. assets type, recipient address, and amount.
-   2. To transfer to a batch of addresses, click ![image](/assets/gui_icon.png) and enter pairs of the address and amount separated by a space, as shown below: 
+   1. Upang mailipat sa isang solong address, i-klik ang `+` at ipasok ang impormasyon ng paglilipat, hal. uri ng asset, address ng tatanggap, at halaga.
+   2. Upang mailipat sa isang grupo ng address, i-klik ang ![image](/assets/gui_icon.png) at ipasok ang mga pares ng address at halaga na pinaghihiwalay ng isang puwang, tulad ng ipinapakita sa ibaba:
+   ![imahe](/assets/gui_15.png)
 
-   ![image](/assets/gui_15.png)
+3. I-klik ang OK. Kung kailangan, i-klik ![image](/assets/gui_remark.png)  upang ipasok ang impormasyon na kaugnay sa transaksyon na maitatala sa block ng NEO.
+4. I-double-check ang impormasyon sa paglilipat at pagkatapos ay i-klik ang OK.
 
-3. Click OK. If need be, click ![image](/assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
-
-4. Double-check the transfer information and then click OK.
-
-   For token asset transfer, the transaction is completed with the transaction ID displayed.
-
+   Para sa paglipat ng token ng pag-aari, ang transaksyon ay nakumpleto na ipinapakita ang ID ng transaksyon.
    ![image](/assets/txid.png)
 
-   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#Signature).
+  Para sa transfer ng pag-aari ng equity, kinakailangan ang mga lagda para sa pagkumpleto ng transaksyon. Kopyahin ang impormasyon ng transaksyon na lumilitaw at ipadala ito sa kabilang panig. Ang ibang partido ng transaksyon ay kailangang mag-sign at mag-broadcast sa NEO-GUI upang makumpleto ang transaksyon. Para sa karagdagang impormasyon, sumangguni sa [Signature](#Signature).
 
-### Signature
+### Lagda
 
-Signing of information, is to signify confirmation of the information by the signer.
-For transactions involving equity allocation and asset exchange, the signature is required as proof of consent by the parties involved.
+Ang Paglalagda ng impormasyon ay nagpapahiwatig ng kumpi..n ng impormasyon, ay upang ipahiwatig ang kumpirmasyon nng impormasyon sa lumagda
+Para sa mga transaksyon na kinasasangkutan ng equity allocation at exchange asset, kinakailangan ang lagda bilang patunay ng pahintulot ng mga partido na sangkot.
 
-1. From NEO-GUI, click `Transaction` -> `Sign`,
+1. Mula sa NEO-GUI, i-klik ang `Transaction` -> `Sign`,
 
-2. Paste the transaction information sent by the other party in the input field, and then click `sign`. The output data is generated. 
+2. I-paste ang impormasyon ng transaksyon na ipinadala ng ibang partido sa patlang ng input, at pagkatapos ay i-klik ang `sign`. Ang output data ay nabuo.
 
-   At the same time, the `broadcast` button is displayed.
+   Kasabay nito, ang pindutan ng  `broadcast` ay ipinapakita.
 
    ![image](/assets/signature.png)
-
-3. Click  `broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
+ 
+3. I-klik ang `broadcast`. Ang transaksyon ay matagumpay na ipinadala at makukumpleto sa sandaling nakumpirma na ng NEO blockchain.
 
 ![image](/assets/gui_30.png)
 
-### Assets Exchange
+### Palitan ng mga ari-arian
 
-An online asset exchange between two parties require both parties to sign for the transaction before the successful exchange of assets can occur. For example, a general asset exchange process between the transaction parties A and B is:
+Ang isang online asset exchange sa pagitan ng dalawang partido ay nnangangailangan na ang parehong partido ang lumagda para sa transaksyon bago amangyari ang palitan ng mga asset ay maaaring mangyari. Halimbawa, ang isang pangkalahatang proseso ng pagpapalit ng asset sa pagitan ng mga partido ng transaksyon A at B ay:
 
-1. Both parties initiate a transaction request and send the generated request to each other
-2. Verify the request received
-3. Merge transaction requests from both parties, generate signatures and send them to each other
-4. Sign and broadcast the transaction.
+1. Ang parehong partido ay nagsimula ng isang kahilingan na transaction at ipadala ang nabuong kahilingan sa bawat isa
+2. Patunayan ang kahilingan na natanggap
+3. Pagsamahin ang mga kahilingan na transaksyon mula sa parehong mga partido, bumuo ng mga lagda at ipadala ang mga ito sa bawat isa
+4. Lumagda at ipahayag ang transaksyon.
 
-#### Step 1 - Initiating a request
+#### Unang hakbang - Pagpapasimula ng isang kahilingan
 
-Take the operations made on A side as an example:
+Gawin ang mga operasyon na ginawa sa A side  bilang isang halimbawa:
 
-1. From NEO-GUI, click `Transaction` -> `Transaction`.
+1. Mula sa NEO-GUI, i-klik ang  `Transaction` -> `Transaction`.
 
-2. Enter the other party's account information and then click `+` to enter the asset to be sent.
+2. Ilagay ang impormasyon ng ibang account ng partido at pagkatapos ay i-klik ang `+` upang ipasok ang asset upang maipadala.
 
-3. Click `Initiate` to generate the transaction request. Cope the request that appears and send it to B. Then click `Close`.
+3. I-klik ang `Initiate` upang makabuo ng kahilingan na transaksyon. kopyahin ang kahilinganna lilitaw at ipadala ito sa B. Pagkatapos i-klik ang `Close`.
 
    ![image](/assets/tranrequest.png)
 
-4. The merging request page is displayed. Wait for the transaction request sent from B.
+4. Ang pahina ng kahilingan ng pagmemergee ay ipinapakita. Maghintay ng kahilingan na transaksyon na ipinadala mula sa B.
 
-   B performs the same operations and send the request to A.
+ Ang B ay gumaganap ng parehong mga operasyon at ipadala ang kahilingan sa A.
 
-#### Step 2 - Merging the request
+#### Pangalawang hakbang 2 - Pagsasama ng kahilingan
 
-Take the operations made on A side as an example:
+Gawin ang mga operasyon na ginawa sa A side bilang isang halimbawa:
 
-1. In the merging request page, paste the request sent from B into the counterparty request field. Click `Validate`.
+1. Sa pahina ng kahilingan ngpagmemerge, i-paste ang kahilingan na ipinadala mula sa B sa patlang ng kahilingan ng kabilang partido. I-klik ang `Validate`.
 
    ![image](/assets/gui_20.png)
 
-2. Verify the transaction information. Click `Accept` if no issue.
+2. Patunayan ang impormasyon ng transaksyon. I-klik ang `Accept` kung walang isyu.
 
-3. Click `Merge` to merge both parties' requests and generate the signature.
+3. I-klik ang `Merge` upang pagsamahin ang mga kahilingan ng parehong partido at bumuo ng lagda.
 
-4. Copy the signature information and send it to B.
+4.Kopyahin ang impormasyon na lagda at ipadala ito sa B.
 
-5. B performs the same operations and send the signature to A.
+5. Ang B ay gumaganap ng parehong operasyon at ipapadala ang pirma sa A.
 
-#### Step 3 - Signing and broadcasting the transaction
+#### Pangatlong hakbang - Pag-sign at pagpapahayag ng transaksyon
 
-The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#sign).
+Ang dalawangpanig ay lalagda at magpapahayag ng impormasyon sa transaksyon upang makumpleto ang proseso. Para sa karagdagang impormasyon, sumangguni sa [signature](#sign).
 
-## Advanced Features
+## Mga Advanced na Tampok
 
-### Multi-party signed address
+### Multi-party na naka-sign address
 
-Multi-party signed address is a contract address that requires one or more parties to sign during the process of transaction.
+Ang nilagdaang address na may maraming partido ay isang kontratang address na nangangailangan ng isa o higit pang mga partido na lumagda sa panahon ng proseso ng transaksyon.
+Para makalikha ng nilagdaang address na may maraming partido:
 
-To create a multi-party signed address:
+1. Mula sa NEO-GUI, i-right klik sa lugar ng account at piliin ang `Create Contract Address` -> `Multi-Signature`.
 
-1. From NEO-GUI, right-click on the account area and select `Create Contract Address` -> `Multi-Signature`.
+2. Sa listahan ng pampublikong key, ilagay ang mga pampublikong key na ginamit para sa pag-sign.
 
-2. In the public key list, enter the public keys used for signing.
-
-3. Specify the minimal number of signatures.
+3. Tukuyin ang kaunting bilang ng mga lagda.
 
    ![image](/assets/multisign.png)
 
-4. Click OK.
+4. I-klik ang  OK.
 
-The contract address is created and displayed in the account page.
+Ang address ng kontrata ay nilikha at ipinapakita sa account page.
 
 ![image](/assets/multisign2.png)
 
-### Claiming GAS
+### Pagkuha ng GAS
 
-GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
+Ang GAS ay binuo sa bawat bagong bloke at ilalaan sa address ng mga may hawak ng NEO. (Ang numero sa loob ng mga braket ng balanse ng mga ari-arian ay ang bilang ng GAS na maaaring  matanggap) Sa anumang oras, ang tagapagtaguyod ng NEO ay maaaring magpasimula ng isang paghahabol na tubusin ang mga GAS na ito sa kaukulang address ng NEO. Sa sandaling ito, ang PC version lamang ng client ay may  punksyonalidad na kunin ang GAS.
 
-The specific steps are:
+Ang mga tiyak na hakbang ay:
 
-1. Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
-2. Click `Advanced`, `Claim GAS`, `Claim All`.
+1.Ilipat ang lahat ng NEO sa loob ng wallet gamit ang isang operasyon sa paglilipat. (Posibleng ipadala ang NEO diretso sa kasalukuyang address) Kapag ang pagtatanggap para sa GAS ay napagkasunduan, ang GAS ay maaaring maibalik. (Sumangguni sa puting papel para sa teknikal na paliwanag ng prosesong ito).
+2.I-klik ang `Advanced`, `Claim GAS`, `Claim All`.
 
 ![image](/assets/gui_37.png)
 
-### Requesting a certificate
+### Humihiling ng sertipiko
 
-Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
-Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
+Tandaan na ang tampok na ito ay maaari lamang bumuo ng isang application certificate file, ang gumagamit ay kailangan pa ring pumunta sa kaugnay digital na sertipiko upang ang sertipikato ng aplikasyon na file.
+I-klik ang `Advanced`, `Request certificate`, at punan ang kahilingan ayon sa mga tagubilin na ibinigay.
 
 ![image](/assets/gui_39.png)
 
-The generated file will be as shown in the following figure:
-
+Ang nakabuo ng file ay magiging tulad ng ipinapakita sa sumusunod na figure:
 ![image](/zh-cn/node/assets/y.png)
 
-### Registering assets
+### Pagrehistro ng mga asset
 
-You can create a new asset type in the NEO blockchain, defining the type, name, total amount, and the administrator account of the asset. Currently creating an asset costs 4990 GAS as an additional service fee. 
+Maaari kang lumikha ng isang bagong uri ng asset sa NEO blockchain, pagtukoy sa uri, pangalan, kabuuang halaga, at administrator account ng asset. Sa kasalukuyan ay lumilikha ng isang gastos sa asset 4990 GAS bilang karagdagang bayad sa serbisyo.
 
-There are two types of assets, Token and Share. Taking Token assets as an example, do the following to create the asset:
+Mayroong dalawang uri ng mga ari-arian, Token at Share. Sa pagkuha ng mga asset ng Token bilang isang halimbawa, gawin ang mga sumusunod upang lumikha ng  ari-arian:
 
-1. From NEO-GUI, click `Advanced` -> `Asset Registration`. Specify the following options and click `OK`：
+1. Mula sa NEO-GUI, i-klik ang  `Advanced` -> `Asset Registration`. Tukuyin ang mga sumusunod na pagpipilian at i-klik ang `OK`：
 
-   - Asset Type: Choose the asset type: Token or Share.  For share asset transfer, signature is required.
+   - Uri ng ari-arian :Piliin ang uri ng ari-arian: Token o Ibahagi. Para sa pagbabahagi ng transfer ng pag-aari, kinakailangan ang lagda.
 
-   - Name: The asset name. It will be displayed in the Asset page of neo-gui and the blockchain browser after the asset distributed. 
+   - Name: The asset name. Ipapakita ito sa pahina ng Asset ng neo-gui at browser ng blockchain pagkatapos maibahagi ang ari-arian.
 
-   - Capped: Check this option to set the maximum amount of the asset issued.
+   - Capped: Suriin ang pagpipiliang ito upang itakda ang pinakamataas na halaga ng ibinibigay na asset.
+   - Precision: Ang minimum na yunit ng asset. Ang default ay 8, na nagpapahiwatig na ang pinakamaliit na yunit ay 0.00000001. Kung ito ay 0, ang minimum na yunit ay 0.
 
-   - Precision: The minimum unit of the asset. The default is 8, indicating the minimum unit is 0.00000001. If it is 0, the minimum unit is 0.
+   - Owner:Ang issuer ng asset.
 
-   - Owner: The asset issuer.
+   - Admin: Ang isang administrator ay maaaring baguhin ang pangalan ng asset, ang kabuuang halaga at iba pa. Ang tampok ay hindi pa sinusuportahan.
 
-   - Admin: An administrator can modify the asset name, the total amount and so on. The feature is not supported yet.
-
-   - Issuer: The address of the asset to be distributed.
+   - Issuer: Ang address ng asset na ipamahagi.
 
      ![image](/assets/gui_43.png)
 
-2. Assets registration is implemented by invoking the smart contract. In the Invoke Contract page, click `Test` . 
+2. 
+Ang pagpaparehistro ng mga asset ay ipinatutupad sa pamamagitan ng invoking ang smart contract. Sa pahina ng Kontrata ng Inimbitahan, i-klik ang `Test` . 
 
-   You can see the corresponding service fee is shown up in the lower-left corner of the page.
+ 
+Makikita mo ang nararapat na bayad sa serbisyo ay ipinapakita sa kaliwang sulok sa ibaba ng pahina.
 
-   You can also load your local smart contract files.
+  Maaari mo ring i-load ang iyong mga lokal na matalinong mga file ng kontrata.
 
-   > [!Note]
+   > [!Tandaan]
    >
-   > The assets registration incurs a significant fee (Currently it is 4990 Gas) .
+   > Ang pagpaparehistro ng mga ari-arian ay nakukuha ng isang makabuluhang bayad (Sa kasalukuyan ito ay 4990 Gas).
 
 
-3. If you are sure to continue, click `Invoke`.
+3.Kung sigurado kang magpatuloy, i-klik ang `Invoke`.
 
-4. Copy the transaction ID returned and paste it into Notepad for later use in asset distribution.
+4. Kopyahin ang ID ng transaksyon na ibalik at i-paste ito sa Notepad para magamit sa ibang pagkakataon sa pamamahagi ng asset.
 
-   > [!Note]
+   > [!Tandaan]
    >
-   > It takes about 15 minutes to register before you can distribute assets.
+   > Kinakailangan ng humigit-kumulang 15 minuto upang magparehistro bago ka makakapag-distribute ng mga asset
 
-### Distributing assets
+### Pagbabahagi ng mga asset
 
-Within the upper limits of the total amount set by the asset creator, the asset can be issued to the address specified by the issuer. Distributing assets requires a certain amount of GAS to be used as an additional service fee, currently 1 Gas per time.
+Sa loob ng itaas na mga limitasyon ng kabuuang halaga na itinakda ng taga-gawa ng asset, ang asset ay maaaring maibigay sa address na tinukoy ng issuer. Ang paghahatid ng mga asset ay nangangailangan ng isang tiyak na halaga ng GAS na gagamitin bilang karagdagang bayad sa serbisyo, na kasalukuyang 1 Gas bawat oras.
 
-1. From NEO-GUI, click `Advanced` -> `Asset Distribution`.
+1.Mula sa NEO-GUI, i-klik ang `Advanced` -> `Asset Distribution`.
 
-2. Paste the transaction ID obtained in the last step of registering assets into `Asset ID`, the asset details is displayed automatically.
+2. Ilagay ang ID ng transaksyon na nakuha sa huling hakbang ng pagrehistro ng mga asset sa `Asset ID`, ang mga detalye ng asset ay awtomatikong ipinapakita.
 
-   If the transaction ID starts with "0x", you need to delete "0x" and enter it again.
+   Kung ang ID ng transaksyon ay nagsisimula sa "0x", kailangan mong tanggalin ang "0x" at ipasok ito muli.
+   
+3. I-klik ang  `+` upang ipasok ang address ng account at ang halaga ng mga asset na ipamahagi. I-klik ang  `OK`.
 
-3. Click `+` to enter the account address and the amount of assets to be distributed. Click `OK`.
-
-   Once the distribution is complete, you can see the user-created assets is displayed in your wallet.
+  
+Kapag nakumpleto na ang pamamahagi, makikita mo ang mga asset na nilikha ng user ay ipinapakita sa iyong wallet.
 
 ![image](/assets/gui_46.png)
 
-### NEP-5 Assets
+### Mga NEP-5 Asset
 
-The NEO-GUI client supports NEP-5 assets transactions. To make a NEP-5 asset transaction, you first need to click `Advanced` -> `Options` in the client to add a script hashes for the NEP-5 asset. Then you can select the NEP-5 asset type for asset transfer and exchange transactions.
-
+Tinusuportahan ng client ng NEO-GUI ang mga transaksyon ng NEP-5 asset. Upang gumawa ng transaksyon ng asset na NEP-5, kailangan mo munang i-klik ang `Advanced` -> `Options` a client upang magdagdag ng isang hash ng script para sa asset ng NEP-5. Pagkatapos ay maaari mong piliin ang uri ng NEP-5 na asset para sa transfer ng pag-aari at mga transaksyon.
 ### Election
 
-This function is used to register as a NEO blockchain validator candidate.
+Ang function na ito ay ginagamit upang magrehistro bilang NEO blockchain validator kandidato.
 
 ![image](/assets/gui_57.png)
 
-It should be noted that the election incurs a significant fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
+Dapat pansinin na ang eleksyon ay may malaking halaga. (Ang pangunahing bayad sa network ay 1000 GAS, ang bayad sa network na pagsubok ay 10 GAS) Mangyaring mag-ingat. Hindi pa available ang function ng validator, mangyaring maghintay para sa higit pang mga update.
