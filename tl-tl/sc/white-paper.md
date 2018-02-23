@@ -1,7 +1,8 @@
-# NeoContract White Paper
+# NeoContract na White Paper
 
-## 1. Preface
+## 1. Paunang Salita
 
+Ang Smart na mga kontrata ay sumasangguni sa anumang kompyuter na program na maaaring awtomatikong magsagawa ng mga termino sa kontrata na naka-preprogram nito. Ang ideya ng 
 Smart contracts refer to any computer program which can automatically execute the terms of its preprogrammed contract. The idea of smart contract was first proposed by the cryptographer Nick Szabo in 1994, making it as old as the Internet itself. Due to the lack of a reliable execution environment, smart contracts have not been widely used.
 
 In 2008, a man under the name of Satoshi Nakamoto released Bitcoin, and outlined the foundational concepts of a blockchain. Within the Bitcoin blockchain, Nakamoto uses a set of scripting languages to help users gain more flexibility in controlling their personal accounts and the transfer process, which eventually became the embryonic form of a chain-based, smart contract system.
