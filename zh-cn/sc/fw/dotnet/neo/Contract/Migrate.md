@@ -4,8 +4,6 @@
 
 如果在智能合约中没有涉及到持久化存储区的操作，则 Contract.Migrate 方法与 Contract.Create 方法相同。
 
-当发生合约销毁时，旧合约的存储区会和合约一起被销毁，如果是合约迁移，那么旧存储区的内容会被复制到新合约的存储区中。
-
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 程序集：Neo.SmartContract.Framework
