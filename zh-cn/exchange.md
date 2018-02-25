@@ -2,13 +2,16 @@
 
 本文主要用于指导交易所完成与 NEO 对接的安装部署，程序开发和相关交易处理，在阅读以下内容之前，请确认您已了解 NEO 背景知识和相关原理，详情请参阅 [NEO白皮书](index.html)。
 
-通常，交易所需要完成以下操作：
+本文对应neo-cli版本为[Neo CLI v2.7.1](https://github.com/neo-project/neo-cli/releases/tag/v2.7.1)
+
+
+NEO中主要有两种资产，一种是全局资产，例如：NEO、GAS等。另一种是合约资产，例如：NEP-5类型的资产。交易所对接时，主要处理这两种类型资产的充值、提现等操作。neo-cli作为客户端，在P2P网络中充当一个普通节点，同时，该程序也是一个跨平台的钱包，处理各种资产的相关交易。综上，交易所对接需要完成以下操作：
 
 - [在服务器中部署 NEO 节点](#在服务器中部署-neo-节点)
-- [创建和使用 NEO-CLI 钱包](#创建和使用-neo-cli-钱包)
+- [使用 NEO-CLI 客户端](#创建和使用-neo-cli-钱包)
 - [处理全局资产交易](#处理全局资产交易)
 - [处理NEP-5资产交易](#处理-nep-5-资产交易)
-- [（可选）给用户分发 GAS](#（可选）给用户分发-gas)
+- [给用户分发 GAS](#给用户分发-gas)
 
 
 
@@ -21,7 +24,7 @@ NEO节点的初始安装部署包含以下步骤：
 
 更多详细内容，请参阅 [NEO 节点的安装部署](node/setup.html)。
 
-## 创建和使用 NEO-CLI 钱包
+## 使用 NEO-CLI 客户端
 
 ### 关于NEO-CLI
 
@@ -34,7 +37,7 @@ NEO-CLI 提供以下功能：
 
 - 作为命令行钱包，管理资产。
 
-  要启动钱包功能，在 NEO-CLI 程序目录下输入以下命令：
+  要启动钱包，在 NEO-CLI 程序目录下输入以下命令：
 
   ```
   dotnet neo-cli.dll
@@ -53,7 +56,7 @@ NEO-CLI 提供以下功能：
   如果想启动节点的同时开启 API，在 NEO-CLI 程序目录下输入以下命令：
 
   ```
-  dotnet neo-cli.dll /rpc
+  dotnet neo-cli.dll --rpc
   ```
 
   要查看更多 API 信息，请参阅 [API参考](node/api.html)。
@@ -61,23 +64,23 @@ NEO-CLI 提供以下功能：
 
 ### 创建钱包
 
-交易所需要创建一个在线钱包管理用户充值地址。钱包用来存储账户（包含公钥和私钥）、合约地址等信息，是用户持有资产的最重要的凭证，一定要保管好钱包文件和钱包密码，不要丢失或泄露。 
+交易所需要创建一个在线钱包管理用户充值地址。钱包是用来存储账户（包含公钥和私钥）、合约地址等信息，是用户持有资产的最重要的凭证，一定要保管好钱包文件和钱包密码，不要丢失或泄露。 交易所不需要为每个地址创建一个钱包文件，通常一个钱包文件可以存储用户所有充值地址。也可以使用一个冷钱包（离线钱包）作为更安全的存储方式。
 
 > [!Note]
 >
-> 交易所不需要为每个地址创建一个钱包，通常一个在线钱包可以存储用户所有充值地址。也可以使用一个冷钱包（离线钱包）作为更安全的存储方式。
+> neo-cli钱包支持两种格式的钱包，一种是一直使用的sqlite钱包（格式为.db3），另一种是新支持的[NEP6标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki)钱包（格式为.json）。建议交易所使用sqlite钱包。
 
 请按照以下步骤创建钱包：
 
 1. 输入命令 `create wallet <path>` 。
 
-   其中 <path> 为钱包路径及名称，扩展名任意。 如 create wallet mywallet.db3。
+   其中 <path> 为钱包路径及名称，扩展名根据所使用的钱包种类来设定，可以是.db3也可以是.json（如无扩展名，则钱包格式为NEP6钱包）。如 create wallet /home/mywallet.db3。
 
 2. 设置钱包密码。 
 
 > [!Note]
 >
-> 钱包要一直保持打开状态以便处理用户的提现，为了安全钱包应该运行在单独的服务器上，并参考下表配置好防火墙。 
+> 钱包要一直保持打开状态以便处理用户的提现，为了安全，钱包应该运行在单独的服务器上，并参考下表配置好防火墙。 
 >
 
 |                    | Mainnet | Testnet |
@@ -97,7 +100,7 @@ NEO-CLI 提供以下功能：
 
   要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress方法](node/api/getnewaddress.html) 实现。程序会返回创建的地址。
 
-- 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/NEO GAS）时，给用户分配一个 NEO 地址。优点：可以备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
+- 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/NEO GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 
   要批量创建地址，执行 NEO- CLI 的 create address [n] 命令，地址会自动导出到 address.txt 文件。
   方括号为可选参数，默认值为 1。例如要一次创建100个地址，输入 `create address 100` 。
@@ -105,7 +108,7 @@ NEO-CLI 提供以下功能：
 
 > [!Note]
 >
-> 无论采用哪种方式，交易所需要将生成的地址导入到数据库中，作为充值地址分配给用户。
+> 无论采用哪种方式，交易所需要将生成的地址导入到数据库中，作为充值地址分配给用户。一般建议交易所采用第二种方式，这样可以减少外界对钱包的操作，有利于钱包的稳定运行。
 
 ## 处理全局资产交易
 
@@ -126,8 +129,18 @@ NEO-CLI 提供以下功能：
 - 一般来讲，交易所充值地址里的余额并不等于用户在交易所里的余额，有以下原因：
   - 在转账或提现时，NEO钱包会从一个或多个地址中找到即能满足需求又使用总输入最小的零钱作为本次交易的输入，而不会将指定地址的零钱作为交易输入（除非交易所重写了NEO钱包的部分代码使其满足自身需求）。
   - 其他操作，例如交易所将一部分资产转移到交易所的冷钱包等。
-- NEO 地址中不仅包含 NEO 和 NEO GAS 两种资产，还可以有许多种用户自己发行的资产（如股权、Token等），交易所记录用户充值时需要判断充值资产的资产类型，以免把其它资产的充值当成 NEO 股或 NEO 币，或把 NEO 和 NEO GAS 的充值弄混。
-- NEO 钱包是一个全节点，要保持在线才能同步区块，可以通过 NEO-CLI 的 `show state` 命令查看区块同步状态，左侧为本地区块高度，右侧为节点区块高度。
+- NEO 地址中不仅包含 NEO 和 NEO GAS 两种资产，还可以有许多种用户自己发行的全局资产（如股权、Token等），交易所记录用户充值时需要判断充值资产的资产类型，以免把其它资产的充值当成NEO或GAS，或把 NEO 和GAS 的充值弄混。
+- NEO 钱包是一个全节点，要保持在线才能同步区块，可以通过 NEO-CLI 的 `show state` 命令查看区块同步状态，例如,  
+```
+neo>show state
+Height: 99/99/99, Nodes: 10
+```
+含义为：钱包高度99/区块高度99/区块头高度99，连接节点数为10.
+
+> [!Note]
+>
+> 假设该节点与P2P网络充分连接，当区块高度=区块头高度时，代表节点同步完成。当钱包高度=区块高度=区块头高度时，代表节点同步完成且钱包索引建立完成。
+
 - 交易所内的用户之间转账不需要通过区块链，而可以直接修改数据库中的用户余额进行，只有充值提现才上链。
 
 #### 充值记录
@@ -136,14 +149,14 @@ NEO-CLI 提供以下功能：
 
 NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息的功能，该方法中的 <index> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock方法](node/api/getblock2.html)。
 
-获取的区块信息中包含了交易输入和交易输出，交易所需要记录下所有和自己相关的交易，作为用户充值提现的交易记录。如果发现在交易的输出中有属于交易所的地址，则要修改数据库中该充值地址对应的用户 NEO 或 NEO GAS 余额。
+获取的区块信息中包含了交易输入和交易输出，交易所需要记录下所有和自己相关的交易，作为用户充值提现的交易记录。如果发现在交易的输出中有属于交易所的地址，则要修改数据库中该充值地址对应的用户 NEO 或 GAS 余额。
 
 也有交易所采用另一种方式：如果发现在交易的输出中有属于交易所的地址，先在数据库中记录下充值记录，待几个确认后再修改用户余额。如果不是为了与其它区块链操作方式统一，并不推荐这么做。 
 
 > [!Note]
 >
 > - getblockcount 返回的是主链中的区块数量，getblock <index> 第一个参数是区块索引，区块索引 = 区块高度 = 区块数量 - 1，所以如果 getblockcount 返回 1234，调用 getblock 1234将获取不到结果，而应该调用 getblock 1233。
-> - 交易所充值提现交易的交易类型都是 ContractTransaction（无论是充值 NEO 股还是 NEO 币），交易所在遍历区块中的所有交易时，只需关心 ContractTransaction 。
+> - 交易所充值提现交易的交易类型都是 ContractTransaction（无论是充值 NEO 还是GAS），交易所在遍历区块中的所有交易时，只需关心ContractTransaction。
 > - 每个区块的第一个交易必定是 MinerTransaction，在遍历交易时可以忽略或跳过。
 > - NEO系统中的一切事务都以交易为单位进行记录。
 >
@@ -158,7 +171,7 @@ NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息
 
 3. （可选）客服处理提现申请。
 
-4. 使用NEO-CLI  API 中的 `sendtoaddress <asset_id> <address> <value>` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress方法](node/api/sendtoaddress.html)。
+4. 使用NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value>` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress方法](node/api/sendtoaddress.html)。
 
    - `<asset_id>` ：资产ID
    - `<address>` ：提现地址
@@ -175,64 +188,77 @@ NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息
 > [!Note]
 >
 > -  <value> 为实际金额，并非乘以10^8后的金额。
-> -  NEO 转账金额必须是整数，否则区块链不会确认，这时钱包里的零钱就不准确了，需要重建钱包索引，即根据区块链重新计算钱包里的交易和零钱。
+> -  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在neo-cli中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在neo-cli状态一直为unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
 
 ## 处理 NEP-5 资产交易
 
 ### 获取用户充值通知
 
-对于 NEP-5 资产，交易所需要获取用户充值通知。每个区块的通知信息会记录在一个 JSON 文件中，包含每笔 NEP-5 交易的所有信息。
+对交易所来说，捕获 NEP-5 类资产的充值交易，其方法与全局资产非常类似。
+1. 通过 getblock api 获取每个区块的详情，其中便包括该区块中所有交易的详情；
+2. 分析每笔交易的交易类型，过滤出所有类型为"InvocationTransaction"的交易，任何非"InvocationTransaction"类型的交易都不可能成为 NEP-5 类型资产的转账交易；
+3. 调用 getapplicationlog api 获取每笔"InvocationTransaction"交易的详情，分析交易内容完成用户充值。
 
-要获取通知文件，运行以下命令：
+##### 调用 getapplicationlog api
+
+要使用[getapplicationlog](http://docs.neo.org/zh-cn/node/api/getapplicationlog.html)这个api来获取交易信息，必须运行以下命令来打开 neo-cli 客户端：
 
 ```
-dotnet neo-cli.dll --rpc --record-notifications
+dotnet neo-cli.dll --rpc --log
 ```
 
-可以看到在根目录下生成了一个 Notifications 文件夹：
+可以看到在根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在一个 JSON 文件中，文件名为该交易的txid。
 
-![1](../assets/notification_1.jpg)
 
-#### ![2](../assets/notification_2.jpg)
-
-#### 查看 Notifications 文件
 
 以下是一个通知文件的内容示例。
 
 ```json
-[
 {
-    "txid": "0x65d62a736a73c4d15dc4e4d0bfc1e4bbc4ef220e163625d770eb05577b1afdee",
-    "contract": "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-    "state":
-    {
-        "type": "Array",
-        "value": [
-        {
-            "type": "ByteArray",
-            "value": "7472616e73666572"
-        },
-        {
-            "type": "ByteArray",
-            "value": "d336d7eb9975a29b2404fdb28185e277a4b299bc"
-        },
-        {
-            "type": "ByteArray",
-            "value": "eab336cac807707295afa7e7da2f4683237f612a"
-        },
-        {
-            "type": "ByteArray",
-            "value": "006ad42d100100"
-        }]
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "txid": "0xef8957a7bbf83822704f79d63c5f36f3c2b006d928ce978c1d97c23551deb7c8",
+        "vmstate": "HALT, BREAK",
+        "gas_consumed": "1.884",
+        "stack": [],
+        "notifications": [
+            {
+                "contract": "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+                "state": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "ByteArray",
+                            "value": "7472616e73666572"
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "9393ee15ce6612484ab5be3bbc78c82af8dc0e07"
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "2b41aea9d405fef2e809e3c8085221ce944527a7"
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "00c2eb0b"
+                        }
+                    ]
+                }
+            }
+        ]
     }
-}]
+}
 ```
-
-在该文件中的通知数组只有一个对象，表示该区块上只有一个 NEP-5 事件被触发。在一个通知文件中，你需要查看以下与交易相关的信息。
+> [!Note]
+>
+> -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项"vmstate"是否正确。
+> -  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
 - **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应NEP5类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9"就是RPX资产的脚本哈希，是该资产在全网的唯一标识。
 
-- 对于转账交易，"state" 中的数组包含以下四个对象： 
+- 对于转账交易，"state" 中 "value" 对应的数组包含以下四个对象： 
 
   [事件，转出账户，转入账户，金额]
   
@@ -242,10 +268,28 @@ dotnet neo-cli.dll --rpc --record-notifications
 	"value": "7472616e73666572"
 }
 ```
-- 数组中的第一个对象，如上述例子所示，类型为bytearray，值为"7472616e73666572"，经过转换，为字符串"transfer"。transfer是NEP5中的一个方法，代表资产转账。
-- 数组中的的第二个对象，为转出账户地址，类型为bytearray，值为"d336d7eb9975a29b2404fdb28185e277a4b299bc"，经过转换，为字符串"Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU"。注意：NEO中16进制值如果前面加0x，按大端序处理，如果没加0x，按小端序处理。
-- 数组中的的第三个对象，为转入账户地址。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
-- 数组中的的第四个对象，为转账金额。这里根据金额不同，会有两种类型，一种是integer类型，另一种是bytearray类型。交易所处理该数值时，应当特别注意不要漏掉integer类型所对应的交易。
+- 数组中的第一个对象，类型为bytearray，值为"7472616e73666572"，经过转换，为字符串"transfer"。transfer是 NEP-5 中的一个方法，代表资产转账。
+```json
+{
+	"type": "ByteArray",
+	"value": "9393ee15ce6612484ab5be3bbc78c82af8dc0e07"
+}
+```
+- 数组中的的第二个对象，为转出账户地址，类型为bytearray，值为"9393ee15ce6612484ab5be3bbc78c82af8dc0e07"，经过转换，为字符串 "AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h"。注意：NEO中16进制值如果前面加0x，按大端序处理，如果没加0x，按小端序处理。
+```json
+{
+	"type": "ByteArray",
+	"value": "2b41aea9d405fef2e809e3c8085221ce944527a7"
+}
+```
+- 数组中的的第三个对象，为转入账户地址，类型为bytearray，值为"2b41aea9d405fef2e809e3c8085221ce944527a7"，经过转换，为字符串 "AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+```json
+{
+	"type": "ByteArray",
+	"value": "00c2eb0b"
+}
+```
+- 数组中的的第四个对象，为转账金额，类型为bytearray，值为200000000。这里根据金额不同，会有两种类型，一种是integer类型，另一种是bytearray类型。交易所处理该数值时，应当特别注意，如果类型为integer，其数值转换方式与bytearray不同。
 
 ### 查询用户余额
 
@@ -333,12 +377,12 @@ dotnet neo-cli.dll --rpc --record-notifications
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "bfc469dd56932409677278f6b7422f3e1f34481d"
+        "value": "0xa7274594ce215208c8e309e8f2fe05d4a9ae412b"
       }
     ]
   ],
@@ -353,19 +397,20 @@ dotnet neo-cli.dll --rpc --record-notifications
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
+        "script": "142b41aea9d405fef2e809e3c8085221ce944527a751c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
         "state": "HALT, BREAK",
         "gas_consumed": "0.338",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "00e1f505"
+                "value": "00c2eb0b"
             }
         ]
     }
 }
 ```
 
-返回值”00e1f505“ 可以转化为整数**100000000**。
+返回值”00c2eb0b“ 可以转化为整数**200000000**。
 
 ##### **调用 decimals**
 
@@ -391,6 +436,7 @@ dotnet neo-cli.dll --rpc --record-notifications
     "jsonrpc": "2.0",
     "id": 2,
     "result": {
+        "script": "00c108646563696d616c7367f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
         "state": "HALT, BREAK",
         "gas_consumed": "0.156",
         "stack": [
@@ -429,6 +475,7 @@ dotnet neo-cli.dll --rpc --record-notifications
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
+        "script": "00c10673796d626f6c67f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
         "state": "HALT, BREAK",
         "gas_consumed": "0.141",
         "stack": [
@@ -446,7 +493,7 @@ dotnet neo-cli.dll --rpc --record-notifications
 ##### **计算用户余额**
 
 根据所有返回值，可以计算出用户余额为：
-用户余额 = 100000000/10<sup>8</sup> RPX = 1 RPX
+用户余额 = 200000000/10<sup>8</sup> RPX = 2 RPX
 
 ### 处理用户提现
 
@@ -684,7 +731,7 @@ NeoGas（缩写符号 GAS）共1亿份，代表了Neo区块链的使用权。GAS
 
 | #    | 步骤                                       | 输入命令                                     |
 | ---- | :--------------------------------------- | ---------------------------------------- |
-| 1    | 运行客户端                                    | `./neo-cli.dll /rpc`                     |
+| 1    | 运行客户端                                    | `dotnet neo-cli.dll --rpc`                     |
 | 2    | 查看客户端版本                                  | `version`                                |
 | 3    | 查看客户端同步高度（Height: 区块高度/区块头高度，Nodes: 连接节点数量）。 | `show state`                             |
 | 4    | 创建钱包                                     | `create wallet /home/NeoNode/test.db3`   |
