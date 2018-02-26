@@ -136,4 +136,4 @@ Pagkatapos nitong makompayl, makitkita mo ang nabuong `SmartContract1.avm` file 
 	> C: \ ... \ bin \ Debug>
 ```
 
-Ngayon na nakompleto mo na ang pagkonpigyura ng development environment para sa smart na kontrata, pakisangguni sa [Art Experiment na Gabay para sa Tomids](tutorial.md)
+Ngayon na nakompleto mo na ang pagkonpigyura ng development environment para sa smart na kontrata, pakipunta sa [Art Experiment na Gabay para sa Tomids](tutorial.md)

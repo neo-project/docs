@@ -21,87 +21,87 @@ Pag-download at pag-install:
 
 [Ang address para ma-download ang Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-The installation process is very simple, just follow the operation prompts step-by-step. It should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open neo-vm project in step #3. The installation takes about ten minutes or up to an hour.
+Ang proseso nag pag-install ay napakasimple, kailangan mo lang sundin ang bawat hakbang ng mga operation prompt. Kailangan mong tandaan na kinakailangan mong itsek ang instalasyon ng `.NET Core cross-platform development`, kung hindi hindi ka makakabukas ng neo-vm na proyekto sa ikatlong hakbang. Ang instalasyon ay magtagagal ng mga sampung minuto o hanggang sa isang oras.
 
-![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
+![i-install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
 ### 2. NeoContractPlugin
 
-Installation method:
+Pamamaraan ng pag-install:
 
-Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the NeoContractPlugin (this step requires internet access).
+Buksan ang Visual Studio 2017, buksan ang Tools, i-click ang Extensions and Updates, i-click ang Online na tab na nasa kaliwang bahagi ng window, hanapin ang NEO sa search na kahon na nasa itaas na kanang sulok ng window, i-download ang NeoContractPlugin (ang hakbang na ito ay nangangailangan ng akses sa internet).
 
-![download and install NEO smart contract plugin](/assets/download_and_install_smart_contract_plugin.png)
+![i-download at i-install ang NEO smart contract plugin](/assets/download_and_install_smart_contract_plugin.png)
 
 ### 3. neo-compiler
 
-Installation and configuration steps:
+Mga hakbang sa pag-install at pag-konpigyura:
 
-Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, and publish the neon project
+I-download ang [neo-compiler](https://github.com/neo-project/neo-compiler) na proyekto sa Github, buksan ang solusyon gamit ang Visual Studio 2017, at i-publish ang neon project.
 
-![publish NEO compiler msil project](/assets/publish_neo_compiler_msil_project.png)
+![i-publish ang NEO compiler msil na proyekto](/assets/publish_neo_compiler_msil_project.png)
 
-![publish and profile settings](/assets/publish_and_profile_settings.png)
+![publish at profile na mga setting](/assets/publish_and_profile_settings.png)
 
-> [!Note]
+> [!Tandaan]
 >
-> During the process of publishing neon, if you are prompted neon.dll cannot be copied, you can manually copy the file with the same name from the upper-layer folder. 
+> Sa panahon na pina-publish ang neon, kung ikaw ay prinompt na ang neon.dll ay hindi pwede makopya, pwede mong i-manomanong ikopya ang file na mayroong kaparehang pangalan ng upper-layer na folder.
 
-After the release is successful, the neon.exe file is generated in `bin\Release\PublishOutput`.
+Pagkatapos ng matagumpay na pag-release, ang neon.exe na file ay mabubuo sa `bin\Release\PublishOutput`.
 
-We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
+Kinakailangan na natin ngayong idagdag ito sa direktoryo ng iyong execution path. Ang PATH ay ang variable ng sistema na ginagmit ng iyong operating system para matagpuan ang mga kinakailangang mga executable galing sa command line o Terminal window.
 
 **Windows 10 and Windows 8:**
 
-  In Search, search for and then select: System (Control Panel)
-  Click the Advanced system settings link.
-  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+  Sa Search, hanapin ang at pagkatapos pumili: System (Control Panel)
+  I-click ang Advanced system settings na link.
+  I-click ang Environment Variables. Sa seksyon na System Variables, hanapin ang PATH environment variable at piliin ito. I-click ang Edit. Kung walang PATH environment variable, i-click ang New.
+  Sa Edit System Variable (o New System Variable) na window, itukoy ang halaga ng PATH environment na variable. I-click ang OK. Isara ang lahat ng mga window sa pamamagitan ng pag-click ng OK.
 
 **Windows 7:**
 
-  From the desktop, right click the Computer icon.
-  Choose Properties from the context menu.
-  Click the Advanced system settings link.
-  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+  Galing sa desktop, i-right click ang Computer icon.
+  Piliin ang Properties na nasa sa context menu.
+  I-click ang Advanced system settings na link.
+  I-click ang Environment Variables. Sa seksyon na System Variables, hanapin ang Path environment variable at piliin ito. I-click ang Edit. Kung wala ang PATH environment variable, i-click ang New.
+  Sa Edit System Variable (o sa New System Variable) na window, itukoy ang halaga nga PATH environment variable. I-click ang OK. Isara ang lahat ng mga natitirang window sa pamamagitan ng pag-click ng OK.
 
-![edit environmental variables](/assets/edit_environmental_variables.png)
+![i-edit ang mga environmental variable](/assets/edit_environmental_variables.png)
 
-Now run Command or PowerShell, and enter neon.exe. If there is no error and the output shows the version number (as shown), then the environment variable configuration is successful.
+Ngayon, patakbuhin ang Command o PowerShell, at itala ang neon.exe. Kung wala error na nangyari at ang numero ng bersyon ang pinapakita, ang environment variable ay matagumpay na nakonpigyura.
 
-![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
+![powershell enviornment variable ay naiupdate ng tama](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
 
-NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32. This dll can be found in other folders on your computer(search it, then copy it to \System32), or alternatively found online.
+TANDAAN. Ang mga Windows7 SP1 na mga user ay maaring makatagpo ng error na "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". Ang required na 'api-ms-win-core-console-l2-1-0.dll' file ay matatagpuan lamang sa Windows 8 o mas higit pa na mga bersyon. Ang error na ito ay pwedeng maresolba sa pamamagitan ng pagkuha ng kopya ng 'api-ms-win-core-console-l2-1-0.dll' at pag lagay nito sa direktoryo na C:\Windows\System32. Ang dll ay maaring makita sa ibang mga folder sa iyong kompyuter (hanapin ito, at ikopya sa \System32), o hanapin ito online.
 
-## Create project
+## Paggawa ng proyekto
 
-After the above installation configuration is successful, you can create a NeoContract project in Visual Studio 2017.
+Pagkatapos ng matagumpay na pagkonpigyura ng instalasyon sa itaas, pwede ka nang gumawa ng isang NeoContract na proyekto sa Visual Studio 2017.
 
-![new smart contract project](/assets/new_smart_contract_project.png)
+![bagong smart contract na proyekto](/assets/new_smart_contract_project.png)
 
-Once you create a project, it will automatically generate a C# file. The default class which inherits the SmartContract is shown in the following:
+Pagkatapos mong gumawa ng isang proyekto, ito ay awtomatikong gagawa ng isang C# na file. Ang default na class ay mag-iinherita ng SmartContract ay ipapakita sa sumusunod:
 
 ![smart contract function code](/assets/smart_contract_function_code.png)
 
 
-## Compile the Project
+## Ikompayl ang Proyekto
 
-Everything is now ready to add the entry method that defines the smart contract:
+Ang lahat ay handa na para magdagdag ng entry na method na magdedefine sa smart na kontrata:
 
 ```c#
 public class Contract1 : SmartContract
 {
-    public static void Main() // Note that the main method is capitalized
+    public static void Main() // Tandaan na ang Main na method ay kina-capitalize
     {
         
     }
 }
 ```
 
-After you compile it successfully you will see `SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the NEO smart contract.
+Pagkatapos mong ikompayl ito, makikita mo ang `SmartContract1.avm` sa loob ng `bin/Debug` na direktoryo, kung saan ang file na ito ang nabubuo bilang Neo smart na kontrata.
 
-![compile smart contract](/assets/compile_smart_contract.png)
+![ikompayl ang smart na kontrata](/assets/compile_smart_contract.png)
 
-Now that you have completed the configuration of the NEO smart contract development environment, please refer to the [NEO smart contract tutorial](tutorial.md)
+Ngayon na natapos mo nang i-konpigyura ang NEO smart contract development environment, pakipunta na sa [tutoryal para sa NEO smart na kontrata](tutorial.md)
