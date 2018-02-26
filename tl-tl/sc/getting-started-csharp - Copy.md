@@ -2,24 +2,24 @@
 typora-root-url: ..\..
 ---
 
-### Paano gamitin ang C# para magsulat ng isang NEO smart na kontrata
+### How to use C# to write a NEO smart contract
 
-Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para mag-program ng mga smart na kontrata (bagamat kami aky sumusuporta o nagplaplano na susuporta sa Java, Kotlin, Go, C/C + +, Python, Javascript at iba pang mga programming na lengguwahe)
+We currently recommend C# for developing smart contracts (though we support or plan to support Java, Kotlin, Go, C/C++, Python, JavaScript and other programming languages).
 
-Ang seksyon na ito ay naglalaman ng maikling tutoryal na maggagabay sa iyo para ikonpigyura ang C# development environment para sa mga NEO smart na kontrata at magbibigay sa iyo ng ideya kong papaano gumawa ng isang proyekto ng smart na kontrata at paano ito ikokompayl.
+This section contains a short tutorial that guides you in configuring the C# development environment for NEO smart contracts. It also gives you an idea of ​​how to create a smart contract project and how to compile it.
 
-   > [!Tandaan]
-   > Sa kasalukuyan, ang lahat ng mga proyekto ay nai-upgrade na sa Visual Studio 2017 na bersyon. Kung gusto mong gamitin ang Visual Studio 2015 para gumawa ng mga matalinong kontrata, tumanaw sa [Paano gamitin ang C # para magsulat ng NEO smart na kontrata para sa VS2015](getting-started-2015.md).
+   > [!Note]
+   > At present, all the projects have been upgraded to the Visual Studio 2017 version. If you want to use Visual Studio 2015 to create intelligent contracts, refer to [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md).
 
-## Mga Development Tool
+## Development Tools
 
 ### 1. Visual Studio 2017
 
-Kung mayroon ka nang naka-install na Visual Studio 2017 sa iyong komppyuter at na-check ang .NET Cross-Platform Development noong nag-iinstall pa, pwede mong laktawan ang seksyon na ito.
+If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
 
-Pag-download at pag-install:
+Download and install:
 
-[Ang address para ma-download ang Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs)
+[Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
 
 The installation process is very simple, just follow the operation prompts step-by-step. It should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open neo-vm project in step #3. The installation takes about ten minutes or up to an hour.
 
