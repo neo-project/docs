@@ -9,5 +9,7 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
+    - name: TestNet, le réseau de test
+      href: node/testnet.md
 - name: Contributeurs
   href: contributors.md
