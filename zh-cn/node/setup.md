@@ -74,6 +74,6 @@ dotnet neo-cli.dll
 
 Neo-CLI 提供了一系列供外部访问的 API，如果想启动节点的同时开启 API 的话，可以运行下面的代码。
 ```
-dotnet neo-cli.dll /rpc
+dotnet neo-cli.dll --rpc
 ```
 3、如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 

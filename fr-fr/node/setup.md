@@ -79,7 +79,7 @@ dotnet neo-cli.dll
 Neo-CLI fournit une suite d'APIs (interfaces de programmation) pour les accès externes. Si vous voulez lancer un nœud supportant ces APIs, entrez plutôt :
 
 ```
-dotnet neo-cli.dll /rpc
+dotnet neo-cli.dll --rpc
 ```
 
 4. Si vous souhaitez utiliser les APIs, pensez à aussi ouvrir les ports suivants dans votre pare-feu: 10331-10334, 20331-20334.

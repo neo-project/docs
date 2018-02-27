@@ -137,10 +137,8 @@ dotnet neo-cli.dll
 >esta APIs, ejecuta el siguiente comando. Más información, consulta [API](api.md)
 
 ```
-dotnet neo-cli.dll /rpc
+dotnet neo-cli.dll --rpc
 ```
-
-<img style="vertical-align: middle" src="assets/setup/setup_3.png">
 
 > [!NOTE]
 > Si quiere que un programa externo acceda a las APIs del nodo necesitas abrir los puertos del firewall: 10331-10334 y 20331-20334.
