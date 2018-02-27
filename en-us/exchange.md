@@ -2,13 +2,15 @@
 
 This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete related program development for NEO assets transactions. Before reading, maker sure you have read [NEO White Paper](index.html) and understand the NEO background knowledge and technologies. 
 
+NEO has two types of digital assets: global assets (e.g. NEO, GAS) and contract assets (e.g. NEP-5 assets). That's the main assets the exchange need to deal with for user withdrawals,  deposits, and other operations. The NEO-CLI client works as an normal node in the P2P network and meanwhile a cross-platform wallet handling various asset related transactions. 
+
 In general, an exchange needs to do the following：
 
 - [Deploying a NEO Node on Server](#deploying-a-neo-node-on-server)
 - [Creating a Wallet and Deposit Addresses](#creating-a-wallet-and-deposit-addresses)
 - [Dealing with Global Assets Transactions](#dealing-with-global-assets-transactions)
 - [Dealing with NEP-5 Assets Transactions](#dealing-with-nep-5-assets-transactions)
-- [(Optional) Distributing GAS to Users](#optional-distributing-gas-to-users)
+- [Distributing GAS to Users](#distributing-gas-to-users)
 
 
 
@@ -53,7 +55,7 @@ NEO-CLI provides the following features：
   To start a node which provides RPC service, enter the following command under the NEO-CLI directory：
 
   ```
-  dotnet neo-cli.dll /rpc
+  dotnet neo-cli.dll --rpc
   ```
 
   For more API information, refer to [API Reference](node/api.html).
@@ -61,17 +63,17 @@ NEO-CLI provides the following features：
 
 ### Creating a Wallet
 
-The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data.
+The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data. Exchanges do not have to create a wallet for every address. An online wallet usually keeps all deposit addresses of users. A cold wallet (offline wallet) is another storage option which provides better security.
 
 > [!Note]
 >
-> Exchanges do not have to create a wallet for every address. An online wallet usually keeps all deposit addresses of users. A cold wallet (offline wallet) is another storage option which provides better security.
+> NEO-CLI supports wallets in two formats: the sqlite wallet (.db3) and the new [NEP6 standard](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) wallet (.json). For exchanges the sqlite wallet is recommended.
 
 To create a wallet, do the following：
 
 1. enter  `create wallet <path>`.
 
-   <path> is the wallet path and wallet file name. The file extension can be any type, for example,  create wallet mywallet.db3.
+   <path> is the wallet path and wallet file name. The file extension can be .db3 or .json, depending on the wallet type you are using, for example,  `create wallet /home/mywallet.db3`. If the file extension is not specified, the NEP6 format (.json) is used by default. 
 
 2. Set a password for the wallet. 
 
@@ -103,7 +105,7 @@ There are two methods to generate deposit addresses:
 
 > [!Note]
 >
-> Either way, the exchange must import the addresses into the database and distribute them to users.
+> Either way, the exchange must import the addresses into the database and distribute them to users. It is generally recommend the exchange use the second way, so as to reduce the external controls and run the wallet more stable.
 
 ## Dealing with Global Assets Transactions
 
@@ -120,12 +122,26 @@ For global assets, the exchange needs to develop programs to fulfil the followin
 Regarding user deposits, the exchange needs to note the following: 
 
 - NEO blockchain has only one main chain without side chains, will not fork, and will not have isolated blocks.
+
 - A transaction recorded in NEO blockchain cannot be tampered with, which means a confirmation represents a deposit success.
+
 - In general, the balance of a deposit address in the exchange is not equal to the balance the user has in the exchange. It may because：
   - When transferring or withdrawing, the NEO wallet looks through one or more addresses in the wallet, finds the minimal loose change that meets the requirement and adds up to the total sum of the transaction and then serves that as the input, instead of withdrawing from the specified address (unless the exchange rewrites some functions of NEO wallet to meet their own needs).
   - Other operations that may lead to balance inequality, for example, the exchange transfers part of the assets to its cold wallets.
-- There are more than two assets (NEO and NEO GAS) in a NEO address. More assets issued by users (such as stock or token) can be stored. The exchange should determine the assets type when the user deposits. Neither regard other assets as NEO shares or NEO nor confuse the withdrawal of NEO with NEO GAS. 
-- NEO wallet is a full node, which needs to stay online to synchronize blocks. You can view the block synchronization status through the show state in the CLI, where the left side is the local block height, and the right side is the node block height.
+
+- There are more than two assets (NEO and NEO GAS) in a NEO address. More assets issued by users (such as stock or token) can be stored. The exchange should determine the assets type when the user deposits. Neither regard other assets as NEO  or GAS nor confuse the withdrawal of NEO with GAS. 
+
+- NEO wallet is a full node, which needs to stay online to synchronize blocks. You can view the block synchronization status through the show state in the CLI, for example:
+
+  ... 
+  neo>show state
+  Height: 99/99/99, Nodes: 10 
+  ...
+
+  The Height value corresponds to wallet height/blockchain height/blockchain header height.
+
+  Suppose this node is fully connected to the P2P network, when the block height gets to the same as the block header height, the node synchronization is completed. Furthermore, when the wallet height, the block height and the block header height are the same, that indicates the node synchronization is completed and the wallet index establishment is completed. 
+
 - In the exchange, the transfer between users should not be recorded through the blockchain. In general, the user's balance are modified in the database directly. Only deposits and withdrawals should be recorded on the blockchain.
 
 #### Deposit Records
@@ -134,12 +150,12 @@ The exchange needs to write code to monitor every transaction in a block and rec
 
 Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](node/api/getblock2.html).
 
-The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/NEO GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
+The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
 
 > [!Note]
 >
 > - Method getblockcount returns the count of the blocks in the main chain. The first parameter of Method getblock is `<index>` which is the block index. Block index = Block height = The count of the blocks – 1. If getblockcount returns 1234, you should use getblock 1233 to get the information of the latest block. 
-> - The deposit and withdrawal transactions (NEO/NEO GAS) are all in a type named ContractTransaction. The exchanges only need to care about the ones of ContractTransaction type when they check through the transactions in a block. 
+> - The deposit and withdrawal transactions (NEO/GAS) are all in a type named ContractTransaction. The exchanges only need to care about the ones of ContractTransaction type when they check through the transactions in a block. 
 > - As the first transaction of every block must be MinerTransaction, you can neglect or jump over it when traversing the blockchain. 
 > - NEO system takes the transaction as a record unit.
 >
@@ -154,7 +170,7 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
 
 3. (Optional) Customer service deals with withdrawal application.
 
-4. Send transaction to the user's withdrawal address using the NEO-CLI  API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](node/api/sendtoaddress.html).
+4. Send transaction to the user's withdrawal address using the NEO-CLI API method, `sendtoaddress <asset_id> <address> <value>`. For more information, refer to  [sendtoaddress Method](node/api/sendtoaddress.html).
 
    - `<asset_id>` ：Asset ID
    - `<address>` ：Withdrawal address
@@ -171,71 +187,49 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
 > [!Note]
 >
 > -  The <value> here refers to the actual amount, instead of the amount multiplied by 10^8.
-> -  NEO transfer amount must be an integer; otherwise, the blockchain will not confirm it since the loose change in the wallet will be inaccurate. It will be needed to rebuild wallet index, which is to recalculate the transactions and change of the wallet.
+> -  NEO transfer amount must be an integer; otherwise, the transfer will remain unconfirmed although the transaction can be constructed in NEO-CLI, and will thus affect the wallet change status and cause sending failure of other transactions.  In this situation, you need to rebuild wallet index, so as to recalculate the transactions and change of the wallet.
 
 ## Dealing with NEP-5 Assets Transactions
 
-### Receiving User Deposits Notifications
+### Receiving User Deposits Information
 
-For NEP-5 assets, the exchange needs to get the notification of users' deposits. The notification for each block is recorded in a JSON file, which includes all information of every NEP-5 transaction.
+Similar to global assets, the exchange can get the user deposits information of the NEP-5 assets by doing the following:
 
-To get notification files, run the following command:
+1.  Get each block details using the `getblock` API, including details of all the transactions in the block.
+2.  Analyze each transaction type and filter out all transactions of the type "InvocationTransaction". Any transaction other than "InvocationTransaction" can not be a transfer transaction of NEP-5 assets.
+3. Invoke the `getapplicationlog` api to get the details of each "InvocationTransaction" transaction and analyze the transaction content to complete the user deposit.
+
+#### Invoking getapplicationlog
+
+Before you can use the `getapplicationlog` api to get transaction information, you need to  run the following command to open NEO-CLI:
 
 ```
-dotnet neo-cli.dll --rpc --record-notifications
+dotnet neo-cli.dll --rpc --log
 ```
 
-A folder "Notifications" is generated under the root path, as shown below:
-
-![1](../assets/notification_1.jpg)
-
-#### ![2](../assets/notification_2.jpg)
-
-#### Notifications JSON File
+A folder "ApplicationLogs" is generated under the root path. The complete contract log is recorded in this directory, and each NEP-5 transaction is recorded in a JSON file with the  named of the transaction txid.
 
 The following shows an example of the notification file content.
 
-```json
-[
-{
-    "txid": "0x65d62a736a73c4d15dc4e4d0bfc1e4bbc4ef220e163625d770eb05577b1afdee",
-    "contract": "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-    "state":
-    {
-        "type": "Array",
-        "value": [
-        {
-            "type": "ByteArray",
-            "value": "7472616e73666572"
-        },
-        {
-            "type": "ByteArray",
-            "value": "d336d7eb9975a29b2404fdb28185e277a4b299bc"
-        },
-        {
-            "type": "ByteArray",
-            "value": "eab336cac807707295afa7e7da2f4683237f612a"
-        },
-        {
-            "type": "ByteArray",
-            "value": "006ad42d100100"
-        }]
-    }
-}]
-```
+![json.png](assets/json.png)
 
-In this file, there is an array of notifications with only one object, which means only one NEP-5 event is triggered in the block. The parameters related to a transaction in the file are the following:
+> [!Note]
+>
+> - The failed NEP-5 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct. 
+> - "vmstate" indicates the vm status after it executes the contract. If it contains "FAULT", that means the execution is failed and the transaction is invalid. 
+
+The parameters related to a transaction in the file are the following:
 
 -  **contract**: the script hash of smart contract, by which the exchange can identify assets type. For example, "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9" is the script hash and the unique identification of the RPX asset.
 
--  The four objects included in the "state" array:
+-  The four objects included in the "value" array of "state" are:
 
    [event, from account, to account, amount]
 
-   -  The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP5 that represents an asset transfer.
-   -  The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "d336d7eb9975a29b2404fdb28185e277a4b299bc“ can be converted to "Ab2fvZdmnM4HwDgVbdBrbTLz1wK5TcEyhU". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
-   -  The third object in the array is the account address where the asset is transferred to. If the address is an exchange account address, it is a deposit transaction.
-   -  The fourth object in the array is the transfer amount. There are two types of amount,  integer and bytearray. When dealing with this value, the exchange should pay special attention for transactions of the integer type.
+   -  The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP-5 that represents an asset transfer.
+   -  The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "9393ee15ce6612484ab5be3bbc78c82af8dc0e07“ can be converted to "AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
+   -  The third object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "2b41aea9d405fef2e809e3c8085221ce944527a7“ can be converted to "AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR". If the address is an exchange account address, it is a deposit transaction.
+   -  The fourth object in the array is the transfer amount. Its type is "bytearray" and the value is 200000000. There are two types of amount,  integer and bytearray. Note that when dealing with amount of the interger type, the value conversion method is different than that of the bytearray type.
 
 ### Querying User Balance
 
@@ -323,12 +317,12 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "bfc469dd56932409677278f6b7422f3e1f34481d"
+        "value": "0xa7274594ce215208c8e309e8f2fe05d4a9ae412b"
       }
     ]
   ],
@@ -343,19 +337,20 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
+        "script": "142b41aea9d405fef2e809e3c8085221ce944527a751c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
         "state": "HALT, BREAK",
         "gas_consumed": "0.338",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "00e1f505"
+                "value": "00c2eb0b"
             }
         ]
     }
 }
 ```
 
-It returns "00e1f505" which can be converted to interger 100000000.
+It returns "00c2eb0b" which can be converted to interger **200000000**.
 
 ##### **Invoking decimals**
 
@@ -381,6 +376,7 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 2,
     "result": {
+        "script": "00c108646563696d616c7367f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",  
         "state": "HALT, BREAK",
         "gas_consumed": "0.156",
         "stack": [
@@ -419,6 +415,7 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
+        "script": "00c10673796d626f6c67f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",   
         "state": "HALT, BREAK",
         "gas_consumed": "0.141",
         "stack": [
@@ -436,7 +433,7 @@ It returns "525058" which can be converted to string "RPX".
 ##### **Calculating the User Balance**
 
 According to all the returned values,  we can calculate the user balance as follows:
-The balance = 100000000/10<sup>8</sup> RPX = 1 RPX
+The balance = 200000000/10<sup>8</sup> RPX = 2 RPX
 
 ### Dealing with User Withdrawals
 
@@ -629,7 +626,7 @@ After sending the request, you will get the following response：
 
 [Data Transformation Examples](https://github.com/PeterLinX/NeoDataTransformation)
 
-## (Optional) Distributing GAS to Users
+## Distributing GAS to Users
 
 The exchange can determine whether to distribute GAS to users. GAS is used to pay to the NEO blockchain for recording and additional services. 
 
@@ -670,18 +667,18 @@ GAS becomes claimable after the user transfer his or her NEO. For example, **som
 
 The following table lists the GAS claiming steps and corresponding commands.
 
-| #    | Steps                                    | Command                                  |
-| ---- | :--------------------------------------- | ---------------------------------------- |
-| 1    | Run NEO-CLI                              | `./neo-cli.dll /rpc`                     |
-| 2    | Check the client version                 | `version`                                |
-| 3    | Check the synchronized height of the client ( Height: height/header height, Nodes: amount of connected nodes). | `show state`                             |
-| 4    | Create a wallet                          | `create wallet /home/NeoNode/test.db3`   |
-| 5    | Open the wallet created in the last step | `open wallet /home/NeoNode/test.db3`     |
-| 6    | Check the address list in the wallet     | `list address`                           |
-| 7    | Check the assets in the wallet           | `list asset`                             |
-| 8    | Check the GAS balances details in the wallet | `show gas`                               |
+| #    | Steps                                                        | Command                                         |
+| ---- | :----------------------------------------------------------- | ----------------------------------------------- |
+| 1    | Run NEO-CLI                                                  | `dotnet neo-cli.dll --rpc`                      |
+| 2    | Check the client version                                     | `version`                                       |
+| 3    | Check the synchronized height of the client ( Height: height/header height, Nodes: amount of connected nodes). | `show state`                                    |
+| 4    | Create a wallet                                              | `create wallet /home/NeoNode/test.db3`          |
+| 5    | Open the wallet created in the last step                     | `open wallet /home/NeoNode/test.db3`            |
+| 6    | Check the address list in the wallet                         | `list address`                                  |
+| 7    | Check the assets in the wallet                               | `list asset`                                    |
+| 8    | Check the GAS balances details in the wallet                 | `show gas`                                      |
 | 9    | Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1） to change the status of Gas to be claimable. | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
-| 10   | Get the details of the balances of GAS in the wallet again. Now the status of all the GAS should be available to claim. | `show gas`                               |
-| 11   | Claim GAS.                               | `claim gas`                              |
-| 12   | Check balance again.                     | `list asset`                             |
+| 10   | Get the details of the balances of GAS in the wallet again. Now the status of all the GAS should be available to claim. | `show gas`                                      |
+| 11   | Claim GAS.                                                   | `claim gas`                                     |
+| 12   | Check balance again.                                         | `list asset`                                    |
 

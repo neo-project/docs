@@ -81,6 +81,6 @@ dotnet neo-cli.dll
 
 O Neo-CLI possui uma serie de APIs para acesso remoto. Se você quiser inicializar o nó com a API, você pode utilizar o comando
 ```
-dotnet neo-cli.dll /rpc
+dotnet neo-cli.dll --rpc
 ```
 3. Para permitir o acesso remoto à API é necessário abrir o firewall do Windows nas portas: 10331-10334, 20331-20334

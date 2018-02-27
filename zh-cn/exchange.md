@@ -5,7 +5,7 @@
 本文对应neo-cli版本为[Neo CLI v2.7.1](https://github.com/neo-project/neo-cli/releases/tag/v2.7.1)
 
 
-NEO中主要有两种资产，一种是全局资产，例如：NEO、GAS等。另一种是合约资产，例如：NEP-5类型的资产。交易所对接时，主要处理这两种类型资产的充值、提现等操作。neo-cli作为客户端，在P2P网络中充当一个普通节点，同时，该程序也是一个跨平台的钱包，处理各种资产的相关交易。综上，交易所对接需要完成以下操作：
+NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等。另一种是合约资产，例如：NEP-5 类型的资产。交易所对接时，主要处理这两种类型资产的充值、提现等操作。NEO-CLI 作为客户端，在 P2P 网络中充当一个普通节点，同时，该程序也是一个跨平台的钱包，处理各种资产的相关交易。综上，交易所对接需要完成以下操作：
 
 - [在服务器中部署 NEO 节点](#在服务器中部署-neo-节点)
 - [使用 NEO-CLI 客户端](#创建和使用-neo-cli-钱包)
@@ -68,13 +68,13 @@ NEO-CLI 提供以下功能：
 
 > [!Note]
 >
-> neo-cli钱包支持两种格式的钱包，一种是一直使用的sqlite钱包（格式为.db3），另一种是新支持的[NEP6标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki)钱包（格式为.json）。建议交易所使用sqlite钱包。
+> neo-cli 钱包支持两种格式的钱包，一种是一直使用的 sqlite 钱包（格式为.db3），另一种是新支持的 [NEP6标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki)钱包（格式为.json）。建议交易所使用 sqlite 钱包。
 
 请按照以下步骤创建钱包：
 
 1. 输入命令 `create wallet <path>` 。
 
-   其中 <path> 为钱包路径及名称，扩展名根据所使用的钱包种类来设定，可以是.db3也可以是.json（如无扩展名，则钱包格式为NEP6钱包）。如 create wallet /home/mywallet.db3。
+   其中 <path> 为钱包路径及名称，扩展名根据所使用的钱包种类来设定，可以是 .db3 也可以是 .json（如无扩展名，则钱包格式为NEP6钱包）。如 create wallet /home/mywallet.db3。
 
 2. 设置钱包密码。 
 
@@ -116,7 +116,7 @@ NEO-CLI 提供以下功能：
 
 对于全局资产，交易所需要进行以下功能的开发：
 
-1. 使用NEO-CLI  API （[getblock方法](node/api/getblock2.html)）监控新区块。
+1. 使用 NEO-CLI  API（[getblock方法](node/api/getblock2.html)）监控新区块。
 2. 根据交易信息完成用户充值。
 3. 存储交易所相关交易记录。
 
@@ -171,7 +171,7 @@ NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息
 
 3. （可选）客服处理提现申请。
 
-4. 使用NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value>` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress方法](node/api/sendtoaddress.html)。
+4. 使用 NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value>` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress方法](node/api/sendtoaddress.html)。
 
    - `<asset_id>` ：资产ID
    - `<address>` ：提现地址
@@ -188,7 +188,7 @@ NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息
 > [!Note]
 >
 > -  <value> 为实际金额，并非乘以10^8后的金额。
-> -  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在neo-cli中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在neo-cli状态一直为unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
+> -  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在 NEO-CLI 中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在 NEO-CLI 状态一直为unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
 
 ## 处理 NEP-5 资产交易
 
@@ -201,7 +201,7 @@ NEO-CLI  API 中的 getblock <index> [verbose] 方法提供了获取区块信息
 
 ##### 调用 getapplicationlog api
 
-要使用[getapplicationlog](http://docs.neo.org/zh-cn/node/api/getapplicationlog.html)这个api来获取交易信息，必须运行以下命令来打开 neo-cli 客户端：
+要使用[getapplicationlog](http://docs.neo.org/zh-cn/node/api/getapplicationlog.html)这个api来获取交易信息，必须运行以下命令来打开 NEO-CLI 客户端：
 
 ```
 dotnet neo-cli.dll --rpc --log
@@ -209,52 +209,16 @@ dotnet neo-cli.dll --rpc --log
 
 可以看到在根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在一个 JSON 文件中，文件名为该交易的txid。
 
-
-
 以下是一个通知文件的内容示例。
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "txid": "0xef8957a7bbf83822704f79d63c5f36f3c2b006d928ce978c1d97c23551deb7c8",
-        "vmstate": "HALT, BREAK",
-        "gas_consumed": "1.884",
-        "stack": [],
-        "notifications": [
-            {
-                "contract": "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-                "state": {
-                    "type": "Array",
-                    "value": [
-                        {
-                            "type": "ByteArray",
-                            "value": "7472616e73666572"
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "9393ee15ce6612484ab5be3bbc78c82af8dc0e07"
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "2b41aea9d405fef2e809e3c8085221ce944527a7"
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "00c2eb0b"
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-}
-```
+![json.png](node/assets/json.png)
+
 > [!Note]
 >
 > -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项"vmstate"是否正确。
 > -  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
+
+该文件中与交易相关的参数说明如下：
 
 - **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应NEP5类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9"就是RPX资产的脚本哈希，是该资产在全网的唯一标识。
 
@@ -262,33 +226,17 @@ dotnet neo-cli.dll --rpc --log
 
   [事件，转出账户，转入账户，金额]
   
-```json
-{
-	"type": "ByteArray",
-	"value": "7472616e73666572"
-}
-```
+
+
 - 数组中的第一个对象，类型为bytearray，值为"7472616e73666572"，经过转换，为字符串"transfer"。transfer是 NEP-5 中的一个方法，代表资产转账。
-```json
-{
-	"type": "ByteArray",
-	"value": "9393ee15ce6612484ab5be3bbc78c82af8dc0e07"
-}
-```
+
+
 - 数组中的的第二个对象，为转出账户地址，类型为bytearray，值为"9393ee15ce6612484ab5be3bbc78c82af8dc0e07"，经过转换，为字符串 "AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h"。注意：NEO中16进制值如果前面加0x，按大端序处理，如果没加0x，按小端序处理。
-```json
-{
-	"type": "ByteArray",
-	"value": "2b41aea9d405fef2e809e3c8085221ce944527a7"
-}
-```
+
+
 - 数组中的的第三个对象，为转入账户地址，类型为bytearray，值为"2b41aea9d405fef2e809e3c8085221ce944527a7"，经过转换，为字符串 "AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
-```json
-{
-	"type": "ByteArray",
-	"value": "00c2eb0b"
-}
-```
+
+
 - 数组中的的第四个对象，为转账金额，类型为bytearray，值为200000000。这里根据金额不同，会有两种类型，一种是integer类型，另一种是bytearray类型。交易所处理该数值时，应当特别注意，如果类型为integer，其数值转换方式与bytearray不同。
 
 ### 查询用户余额

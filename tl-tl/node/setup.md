@@ -79,6 +79,6 @@ dotnet neo-cli.dll
 
 Nagbibigay ang Neo-CLI ng isang hanay ng mga API para sa panlabas na pag-akses. Kung gusto mong simulan ang node habang binubuksan ang API, maaari mong patakbuhin ang sumusunod na code.
 ```
-dotnet neo-cli.dll /rpc
+dotnet neo-cli.dll --rpc
 ```
 4. Kung gusto mong mapasok ng panlabas na programa ang node kailangan buksan ng API ang port ng firewall: 10331-10334, 20331-20334
