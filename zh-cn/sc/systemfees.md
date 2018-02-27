@@ -27,16 +27,16 @@
 | Transaction.GetReferences    | 0.2           |
 | Account.SetVotes             | 1             |
 | Validator.Register           | 1000          |
-| Asset.Create（系统资产）       | 5000          |
-| Asset.Renew（系统资产）        | 5000          |
-| Contract.Create              | 500           |
-| Contract.Migrate             | 500           |
+| Asset.Create（系统资产）      | 5000          |
+| Asset.Renew（系统资产）       | 5000          |
+| Contract.Create*             | 100~1000      |
+| Contract.Migrate*            | 100~1000      |
 | Storage.Get                  | 0.1           |
-| Storage.Put [per KB]*         | 1             |
+| Storage.Put [per KB]         | 1             |
 | Storage.Delete               | 0.1           |
-| 其它（每行OpCode）             | 0.001         |
+| 其它（每行OpCode）            | 0.001         |
 
-
+\* 创建智能合约与迁移智能合约目前是根据合约所需功能进行收费。其中基础的费用为 100GAS，需要存储区 +400GAS，需要动态调用 +500GAS。
 
 ### 指令费用
 
@@ -51,6 +51,6 @@
 | OpCode.HASH160                        | 0.02          |
 | OpCode.HASH256                        | 0.02          |
 | OpCode.CHECKSIG                       | 0.1           |
-| OpCode.CHECKMULTISIG（每个签名）        | 0.1           |
-| 其它（每行OpCode）                      | 0.001         |
+| OpCode.CHECKMULTISIG（每个签名）       | 0.1           |
+| 其它（每行OpCode）                     | 0.001         |
 
