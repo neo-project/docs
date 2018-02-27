@@ -497,9 +497,10 @@ dotnet neo-cli.dll --rpc --log
 
 ### 处理用户提现
 
-交易所可以通过以下一种方式发送 NEP-5 资产给用户： 
+交易所可以通过以下一种方式发送 NEP-5 资产给用户，客户端侧必须打开钱包才能使用以下api： 
 
 - NEO-CLI 命令： `send`
+- RPC 方法： `sendfrom`
 - RPC 方法： `sendtoaddress`
 - PRC 方法： `sendmany`
 
@@ -520,23 +521,75 @@ dotnet neo-cli.dll --rpc --log
 
 ##### 示例
 
-要将100 RPX 转账到地址 *AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b*，输入以下命令：
+要将100 RPX 转账到地址 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b，输入以下命令：
 
 ```
 send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 ```
 
 如果要转账全局资产，只需要将第一个参数改为 txid。例如，
-NEO txid: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+NEO txid: 0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+
+#### RPC 方法：sendfrom
+
+ "params"  包含一个至少4个参数的数组。
+
+`"params":[script hash, address from, address to, amount, fee(optional), change address(optional)]`
+
+例如，要从地址 AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR 发送 1 RPX 到地址 AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h，编写如下 JSON 文件并发送给 RPC 服务器。
+
+请求正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sendfrom",
+  "params": ["0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9","AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR","AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h",1],
+  "id": 1
+}
+```
+
+发送请求后，将收到如下响应：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "txid": "0xec413354b76fc50a614419f76f131c873da0b17e0fd2dd9170c955b667de08ef",
+        "size": 219,
+        "type": "InvocationTransaction",
+        "version": 1,
+        "attributes": [
+            {
+                "usage": "Script",
+                "data": "2b41aea9d405fef2e809e3c8085221ce944527a7"
+            }
+        ],
+        "vin": [],
+        "vout": [],
+        "sys_fee": "0",
+        "net_fee": "0",
+        "scripts": [
+            {
+                "invocation": "401743a9c3fc91f131aea1c872d166e9c6fae577647884cd8511986041561c2b3e574c1708f662e570688d1a31db7cea281d43615b7fa64d7fa3babf0f6477c31e",
+                "verification": "2103c532d9335f512e1198ede5c3d35524e6a3b4598f1eb335193b09c4cd52591927ac"
+            }
+        ],
+        "script": "0400e1f505149393ee15ce6612484ab5be3bbc78c82af8dc0e07142b41aea9d405fef2e809e3c8085221ce944527a753c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166c72745294a433e52",
+        "gas": "0"
+    }
+}
+```
 
 #### RPC 方法：sendtoaddress
 
- "params"  包含一个至少三个参数的数组。
+ "params"  包含一个至少3个参数的数组。
 
 `"params":[script hash, address, amount, fee(optional), change address(optional)]`
 
-例如，要发送 1 RPX 到 *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要发送 1 RPX 到地址 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -598,7 +651,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 `"params":[[], fee(optional), change address(optional)]`
 
-例如，要发送 15.5 RPX 和 0.0001 GAS 到 *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg* ，且零钱地址`change address`也是 *AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg*，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要发送 15.5 RPX 和 0.0001 GAS 到 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg ，且零钱地址`change address`也是 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -682,7 +735,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 
 
-## （可选）给用户分发 GAS
+## 给用户分发 GAS
 
 交易所可以选择是否给用户分发 GAS。GAS 用来支付 Neo 区块链的记账费和附加服务费。
 
