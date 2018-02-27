@@ -1,6 +1,6 @@
 # Paano gamitin ang C # para magsulat ng NEO smart na kontrata para sa VS2015
 
-Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para mag-program ng mga smart na kontrata (bagamat kami aky sumusuporta o nagplaplano na susuporta sa Java, Kotlin, Go, C/C + +, Python, Javascript at iba pang mga programming na lengguwahe)
+Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para mag-program ng mga smart na kontrata (bagamat kami ay sumusuporta o nagpaplanong sumuporta sa Java, Kotlin, Go, C/C + +, Python, Javascript at iba pang mga programming na lengguwahe)
 
 Ang seksyon na ito ay naglalaman ng maikling tutoryal na maggagabay sa iyo para ikonpigyura ang C# development environment para sa mga NEO smart na kontrata at magbibigay sa iyo ng ideya kong papaano gumawa ng isang proyekto ng smart na kontrata at paano ito ikokompayl.
 
@@ -10,11 +10,11 @@ Ang seksyon na ito ay naglalaman ng maikling tutoryal na maggagabay sa iyo para 
 
 Pamamaraan ng Pag-download at Pag-install:
 
-Kung meron ng naka-install na Visual Studio 2015 (kahit anong bersyon) sa iyong kompyuter, pwede mong laktawan ang seksyon na ito.
+Kung meron nang naka-install na Visual Studio 2015 (kahit anong bersyon) sa iyong kompyuter, pwede mong laktawan ang seksyon na ito.
 
 Ang Visual Studio 2015 ay wala na sa home ng opisyal na website, pero maari pa rin itong madownload.
 
-Buksan ang [lumang bersyon ng Visual Studio download na page](https://www.visualstudio.com/en/vans/vs/older-downloads/) at i-click ang `free to join`
+Buksan ang [lumang bersyon ng Visual Studio download na pahina](https://www.visualstudio.com/en/vans/vs/older-downloads/) at i-click ang `free to join`
 
    ![](assets/install_core_cross_platform_development_toolset.jpg)
 
@@ -34,7 +34,7 @@ Ang pamamaraan ng pag-install at ang general na software ay kapareho lang, ang p
 
 Pamamaraan ng Pag-download at Pag-install:
 
-Buksan ang [.Net Core download na page](https://www.microsoft.com/net/download/core)
+Buksan ang [.Net Core download na pahina](https://www.microsoft.com/net/download/core)
 
 I-download at i-install ang NET Core tools Preview 2 para sa Visual Studio 2015
 
@@ -56,11 +56,11 @@ I-download ang [neo-compiler](https://github.com/neo-project/neo-compiler) na pr
 
 ![imahe](assets/2017-05-10_18-22-39.jpg)
 
-Pagkatapos na makompleto ang pagkompayl, ang neon.exe na file kay mabubuo sa `bin\Debug\netcoreapp1.0\win10-x64`
+Pagkatapos na makompleto ang pagkompayl, ang neon.exe na file ay mabubuo sa `bin\Debug\netcoreapp1.0\win10-x64`
    > [!Tandaan]
-   > Kung ang iyong kompyuter ay gumagamit ng 32-bit na operating system, kinakailangan mong bagohin ang win10-x64 sa project.json file sa win10-x86.
+   > Kung ang iyong kompyuter ay gumagamit ng 32-bit na operating system, kinakailangan mong baguhin ang win10-x64 sa project.json file sa win10-x86.
 
-Kinakailangan mo na ngayong magdagdag ng isang path, para ang kahit na anong lokasyon ay makaka-akses sa programma. Para idagdag ang path na pamamaraan, buksan ang mga computer properties (o buksan ang control panel, system and security, system), buksan ang advanced system settings, piliin ang Advanced tab, i-click ang environment variable na pindutan, tulad ng ipinapakita sa Pigyur
+Kinakailangan mo na ngayong magdagdag ng isang landas, para ang kahit na anong lokasyon ay makaka-akses sa programma. Para idagdag ang path na pamamaraan, buksan ang mga computer properties (o buksan ang control panel, system and security, system), buksan ang advanced system settings, piliin ang Advanced tab, i-click ang environment variable na pindutan, tulad ng ipinapakita sa Pigyur
 
 ![imahe](assets/2017-05-10_18-37-05.jpg)
 
@@ -100,7 +100,7 @@ Pagkatapos, buksan ang project reference, i-click ang `Neo.SmartContract.Framewo
 
 ## Ikompayl ang proyekto
 
-Ang lahat ay handa na para magdagdag nga entry na pamamaraan sa proyekto:
+Ang lahat ay handa na para magdagdag ng entry na pamamaraan sa proyekto:
 
 ```c#
 public class Contract1: FunctionCode
@@ -111,7 +111,7 @@ public class Contract1: FunctionCode
     }
 }
 ```
-Pagkatapos nitong makompayl, makitkita mo ang nabuong `SmartContract1.avm` file sa `bin/Debug` na direktoryo, na kung saan ito ang file na nabuo ng NEO smart na kontrata.
+Pagkatapos nitong makompayl, makikita mo ang nabuong `SmartContract1.avm` file sa `bin/Debug` na direktoryo, na kung saan ito ang file na nabuo ng NEO smart na kontrata.
 
 ![imahe](/assets/compile_smart_contract.jpg)
 

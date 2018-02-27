@@ -4,7 +4,7 @@ typora-root-url: ..\..
 
 ### Paano gamitin ang C# para magsulat ng isang NEO smart na kontrata
 
-Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para mag-program ng mga smart na kontrata (bagamat kami aky sumusuporta o nagplaplano na susuporta sa Java, Kotlin, Go, C/C + +, Python, Javascript at iba pang mga programming na lengguwahe)
+Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para mag-program ng mga smart na kontrata (bagamat kami ay sumusuporta o nagplaplano na susuporta sa Java, Kotlin, Go, C/C + +, Python, Javascript at iba pang mga programming na lengguwahe)
 
 Ang seksyon na ito ay naglalaman ng maikling tutoryal na maggagabay sa iyo para ikonpigyura ang C# development environment para sa mga NEO smart na kontrata at magbibigay sa iyo ng ideya kong papaano gumawa ng isang proyekto ng smart na kontrata at paano ito ikokompayl.
 
@@ -15,7 +15,7 @@ Ang seksyon na ito ay naglalaman ng maikling tutoryal na maggagabay sa iyo para 
 
 ### 1. Visual Studio 2017
 
-Kung mayroon ka nang naka-install na Visual Studio 2017 sa iyong komppyuter at na-check ang .NET Cross-Platform Development noong nag-iinstall pa, pwede mong laktawan ang seksyon na ito.
+Kung mayroon ka nang naka-install na Visual Studio 2017 sa iyong kompyuter at na-check ang .NET Cross-Platform Development noong nag-iinstall pa, pwede mong laktawan ang seksyon na ito.
 
 Pag-download at pag-install:
 
@@ -45,7 +45,7 @@ I-download ang [neo-compiler](https://github.com/neo-project/neo-compiler) na pr
 
 > [!Tandaan]
 >
-> Sa panahon na pina-publish ang neon, kung ikaw ay prinompt na ang neon.dll ay hindi pwede makopya, pwede mong i-manomanong ikopya ang file na mayroong kaparehang pangalan ng upper-layer na folder.
+> Sa panahon na pina-publish ang neon, kung ikaw ay prinompt na ang neon.dll ay hindi pwede makopya, pwede mong i-manu-manong kopyahin ang file na mayroong kaparehong pangalan ng upper-layer na folder.
 
 Pagkatapos ng matagumpay na pag-release, ang neon.exe na file ay mabubuo sa `bin\Release\PublishOutput`.
 
@@ -64,7 +64,7 @@ Kinakailangan na natin ngayong idagdag ito sa direktoryo ng iyong execution path
   Piliin ang Properties na nasa sa context menu.
   I-click ang Advanced system settings na link.
   I-click ang Environment Variables. Sa seksyon na System Variables, hanapin ang Path environment variable at piliin ito. I-click ang Edit. Kung wala ang PATH environment variable, i-click ang New.
-  Sa Edit System Variable (o sa New System Variable) na window, itukoy ang halaga nga PATH environment variable. I-click ang OK. Isara ang lahat ng mga natitirang window sa pamamagitan ng pag-click ng OK.
+  Sa Edit System Variable (o sa New System Variable) na window, itukoy ang halaga ng PATH environment variable. I-click ang OK. Isara ang lahat ng mga natitirang window sa pamamagitan ng pag-click ng OK.
 
 ![i-edit ang mga environmental variable](/assets/edit_environmental_variables.png)
 
