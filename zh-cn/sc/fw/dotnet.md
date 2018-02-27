@@ -19,13 +19,13 @@ NEO 智能合约的.net 框架是对智能合约 API 的封装，使 .net 程序
 
 SmartContract 类提供了一些散列算法以及验签方法等。
 
-|                                          | 名称                                       | 说明                                       |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                             | 对传入的 byte 数组进行 Sha1 运算                   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | 对传入的 byte 数组进行 Sha256 运算                 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | 对传入的 byte 数组进行 Sha256 运算后，再进行 Ripemd160 运算 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | 对传入的 byte 数组进行两次 Sha256 运算               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | 通过公钥和已签名的数据来验证验证是否通过                     |
+|                                                        | 名称                                             | 说明                                                        |
+| ------------------------------------------------------ | ------------------------------------------------ | ----------------------------------------------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | 对传入的 byte 数组进行 Sha1 运算                            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | 对传入的 byte 数组进行 Sha256 运算                          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | 对传入的 byte 数组进行 Sha256 运算后，再进行 Ripemd160 运算 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | 对传入的 byte 数组进行两次 Sha256 运算                      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | 通过公钥和已签名的数据来验证验证是否通过                    |
 
 ### byte 数组的扩展方法
 
