@@ -31,8 +31,8 @@
 | Validator.Register                    | 1000          |
 | Asset.Create（システムアセット）        | 5000          |
 | Asset.Renew（システムアセット）[毎年]  | 5000          |
-| Contract.Create                       | 500           |
-| Contract.Migrate                      | 500           |
+| Contract.Create                       | 100~1000   |
+| Contract.Migrate                      | 100~1000   |
 | Storage.Get                           | 0.1           |
 | Storage.Put [per KB]                  | 1             |
 | Storage.Delete                        | 0.1           |

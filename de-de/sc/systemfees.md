@@ -16,27 +16,27 @@ Alle Smart Contract Gebühren werden als Servicegebühren behandelt und in einem
 
 ### Gebühren für System Calls
 
-| SysCall                               | Gebühr [Gas]  |
-|---------------------------------------|:-------------:|
-| Runtime.CheckWitness                  | 0.2           |
-| Blockchain.GetHeader                  | 0.1           |
-| Blockchain.GetBlock                   | 0.2           |
-| Blockchain.GetTransaction             | 0.1           |
-| Blockchain.GetAccount                 | 0.1           |
-| Blockchain.GetValidators              | 0.2           |
-| Blockchain.GetAsset                   | 0.1           |
-| Blockchain.GetContract                | 0.1           |
-| Transaction.GetReferences             | 0.2           |
-| Account.SetVotes                      | 1             |
-| Validator.Register                    | 1000          |
-| Asset.Create (system asset)           | 5000          |
-| Asset.Renew (system asset) [pro Jahr] | 5000          |
-| Contract.Create                       | 500           |
-| Contract.Migrate                      | 500           |
-| Storage.Get                           | 0.1           |
-| Storage.Put [pro KB]                  | 1             |
-| Storage.Delete                        | 0.1           |
-| (Default)                             | 0.001         |
+| SysCall                               | Gebühr [Gas] |
+| ------------------------------------- | :----------: |
+| Runtime.CheckWitness                  |     0.2      |
+| Blockchain.GetHeader                  |     0.1      |
+| Blockchain.GetBlock                   |     0.2      |
+| Blockchain.GetTransaction             |     0.1      |
+| Blockchain.GetAccount                 |     0.1      |
+| Blockchain.GetValidators              |     0.2      |
+| Blockchain.GetAsset                   |     0.1      |
+| Blockchain.GetContract                |     0.1      |
+| Transaction.GetReferences             |     0.2      |
+| Account.SetVotes                      |      1       |
+| Validator.Register                    |     1000     |
+| Asset.Create (system asset)           |     5000     |
+| Asset.Renew (system asset) [pro Jahr] |     5000     |
+| Contract.Create                       |   100~1000   |
+| Contract.Migrate                      |   100~1000   |
+| Storage.Get                           |     0.1      |
+| Storage.Put [pro KB]                  |      1       |
+| Storage.Delete                        |     0.1      |
+| (Default)                             |    0.001     |
 
 ### Gebühren für Instructions
 
