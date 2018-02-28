@@ -8,27 +8,27 @@ Ang mga smart na kontrata ay sinusulat gamit ang mga mataas na lebel na lengguwa
 
 Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para gumawa ng mga smart na kontrata. Ang Java compiler ay ginagawa pa rin hanggang sa ngayon pero ang kasalukuyang bersyon (neoj) ay maari nang makapagtakbo ng mga basic na method.
 
-Ang seksyon na ito ay naglalaman ng isang tutoryal na gagabay sa iyo sa pagkonpigyura ng Java development environment para sa mga NEO smart na kontrata. Ito rin ay magbibigay ng ideya kong papano gumawa ng isang smart na kontratang proyekto at paano ito i-kompayl.
+Ang seksyon na ito ay naglalaman ng isang tutoryal na gagabay sa iyo sa pagkonpigyura ng Java development environment para sa mga NEO smart na kontrata. Ito rin ay magbibigay ng ideya kong papaano gumawa ng isang smart na kontratang proyekto at paano ito i-kompayl.
 
 Mga Paalala: Ang proseso ay naglalaman ng mga sumusunod na mga hakbang:
 1. Sumulat ng Java na code (.java) para sa mga class na umi-extend sa FunctionCode o VerificationCode na parte sa Neo Framework Library (JAR)
 2. Gumamit ng normal na Java compiler para i-kompayl ang code para maging Java bytecode (.class)
 3. I-build ang neoj (C#) na compiler na kino-convert ang JVM na code para maging AVM na code (neoj.exe sa Windows)
-4. Gamitin ang neoj para icompile ang iyong .class na file (.avm)
+4. Gamitin ang neoj para i-kompayl ang iyong .class na file (.avm)
 5. I-downloand ang Node GUI ng Neo para kumonekta sa Testnet na network ng Neo.
-6. I-deploy ang iyong .avm na script para ipublish ang smart na kontrata sa network
+6. I-deploy ang iyong .avm na script para i-publish ang smart na kontrata sa network
 7. I-invoke ang iyong .avm na script para patakbuhin ang iyong smart na kontrata
 
 ### Mga Detalyadong Instruksyon
 
 ## Mga Tool
 
-Ang pinakaepisyenteng pamamaraan para magawa ang mga sumusunod na mga hakbang ay ang pagdownload at pagkompayl ng lahat ng tools na kakailanganin mo:
+Ang pinakaepisyenteng pamamaraan para magawa ang mga sumusunod na mga hakbang ay ang pagdownload at pagkompayl ng lahat ng kagamitan na kakailanganin mo:
 
-1. I-download ang Node GUI ng Neo. Sa pagkakasulat nito, nirerekomenda na gumamit ka ng BETA developer GUI dahil mayroon itong mga ekstrang debugging feature na nagpapadali ng lahat. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Ito ay mayroong mga default preset sa Testnet at kinakailangan mong maghintay (hanggang sa ilang oras) para ito ay mag-sync ng lubos.
+1. I-download ang Node GUI ng Neo. Sa pagkakasulat nito, inirerekomenda na gumamit ka ng BETA developer GUI dahil mayroon itong mga ekstrang debugging feature na nagpapadali ng lahat. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Ito ay mayroong mga default preset sa Testnet at kinakailangan mong maghintay (hanggang sa ilang oras) para ito ay mag-sync ng lubos.
 2. I-download ang Neo Framework Library JAR. Nandito ang kasalukuyang pinakabago na bersyon: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
-3. Magdownload ng isang IDE para sa Java (opsyonal ito pero rinrekomenda), e.g. IntelliJ o Eclipse.
-4. Magdownload ng isang IDE para sa C# - sa kasalukuyan, ang neoj compiler ay kinakailangang likhain ng mano-mano dahil ito ay hindi naka wide distribution release na format.
+3. Mag-download ng isang IDE para sa Java (opsyonal ito pero rinrekomenda), e.g. IntelliJ o Eclipse.
+4. Mag-download ng isang IDE para sa C# - sa kasalukuyan, ang neoj compiler ay kinakailangang likhain ng mano-mano dahil ito ay hindi naka wide distribution release na format.
 
 ## Mga Development Tool
 
@@ -40,9 +40,9 @@ Pag-download at pag-install:
 
 [Ang address para i-download ang Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-Napakasimple lang ng proseso sa pag-install, sundin lang ang bawat hakbang sa mga operation prompt, dapat mong tandaan na kinakailangan mong e-check ang pag-install ng `.NET Core cross-platform development`, dahil kong hindi, hindi mo maaring buksan ang neo-vm na proyekto na nasa ikatlong hakbang. Ang pag-install ay tumatagal ng halos sampung minuto o hanggang sa isang oras.
+Napakasimple lang ng proseso sa pag-install, sundin lang ang bawat hakbang sa mga operation prompt, dapat mong tandaan na kinakailangan mong e-check ang pag-install ng `.NET Core cross-platform development`, dahil kong hindi, hindi mo maaaring buksan ang neo-vm na proyekto na nasa ikatlong hakbang. Ang pag-install ay tumatagal ng halos sampung minuto o hanggang sa isang oras.
 
-![pag-install sa net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
+![pag-install sa net core cross-platform development kagamitanet](/assets/install_core_cross_platform_development_kagamitanet.png)
 
 ### 2. neo-compiler
 
@@ -109,12 +109,12 @@ public class HelloWorld extends SmartContract {
 }
 ```
 
-I-build ang proyekto na kung saan ay magbibigay sa yo ng `HelloWorld.class` sa iyong out na folder. 
+I-build ang proyekto na kung saan ay magbibigay sa iyo ng `HelloWorld.class` sa iyong out na folder. 
 
 Ngayon habang ginagamit ang neoj, patakbuhin ang cmd.exe at i-execute ang:
 > neoj.exe HelloWorld.class
 
-Kung matagumpay, ito ay gagawa ng HelloWorld.avm na kung saan ikaw ay maarin nang gumamit ng bytecode na smart na kontrata.
+Kung matagumpay, ito ay gagawa ng HelloWorld.avm na kung saan ikaw ay maari nang gumamit ng bytecode na smart na kontrata.
 
 Para sa karagdagang impormasyon at para matanaw ang mga gumaganang Java na halimbawa, pakisangguni dito: [Mga Halimbawa sa Java](https://github.com/neo-project/examples-java)
 

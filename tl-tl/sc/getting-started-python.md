@@ -2,18 +2,18 @@
 
 *Main author: [@localhuman](https://github.com/localhuman)*
 
-Ang neo-python, ang python node at SDK para sa NEO blockchain, ay nagbibigay sa iyo ng kakayahan na mag-build, mag-test, at magpatakbo ng mga smart na kontrata sa Neo blockchain. Ito ay nagbibigay ng mga sumusunod na pangunahing functionalidad:
+Ang neo-python, ang python node at SDK para sa NEO blockchain, ay nagbibigay sa iyo ng kakayahan na mag-build, mag-test, at magpatakbo ng mga smart na kontrata sa Neo blockchain. Ito ay nagbibigay ng mga sumusunod na pangunahing functionality:
 
 - Pagpapatakbo sa isang Python based P2P na node
 - Interactive na CLI para sa pagkonpigyura sa node at pagsisiyasat sa blockchain
 - Pagkompayl, pagtest, pag-deploy at pagpapatakbo ng mga Smart na Kontrata na isinulat sa python o na kahit anong Smart na Kontrata na naka `.avm format`
-- [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) at [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) compliant wallet na functionalidad
+- [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) at [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) compliant wallet na functionality
 - RPC Client
 - Pagmonitor sa `Runtime.Log` at `Runtime.Notify` na event
 
 ## Pag-install ng Python library
 
-Kinakailangan mong i-install ang libleveldb na library. I-install ang [Python 3.5](https://www.python.org/downloads/release/python-354/) para masiguradong walang isyu na magaganap sa iyong ibang bersyon ng Python na di kapareho sa bersyon ng maintainer. Tandaan na ang Python 3.6 ay hindi sinusuportahan dahil sa mga incompatibility na mga isyu sabyteplay na module.
+Kinakailangan mong i-install ang libleveldb na library. I-install ang [Python 3.5](https://www.python.org/downloads/release/python-354/) para masiguradong walang isyu na magaganap sa iyong ibang bersyon ng Python na di kapareho sa bersyon ng maintainer. Tandaan na ang Python 3.6 ay hindi sinusuportahan dahil sa mga incompatibility na mga isyu sa byteplay na module.
 
 **Para sa OSX**, i-enter ang mga sumusunod:
 
