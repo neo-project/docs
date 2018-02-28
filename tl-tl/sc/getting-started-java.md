@@ -2,98 +2,98 @@
 typora-root-url: ..\..
 ---
 
-### How to use Java to write a NEO smart contract
+### Paano gamitin ang Java para magsulat ng isang NEO smart na kontrata
 
-Smart contracts are written in high-level languages such as Java, C#, Python, Kotlin (and more...) and compiled into AVM (Neo's Virtual Machine bytecode) so that they can run on the Neo network.
+Ang mga smart na kontrata ay sinusulat gamit ang mga mataas na lebel na lengguwahe kagaya ng Java, C#, Python, Kotlin (at iba pa...) at kinukompayl para maging AVM (ang Virtual Machine bytecode ng Neo) para mapatakbo ito sa Neo network.
 
-We currently recommend C# for developing smart contracts. The Java compiler is still in development but the current version (neoj) can handle basic methods.
+Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para gumawa ng mga smart na kontrata. Ang Java compiler ay ginagawa pa rin hanggang sa ngayon pero ang kasalukuyang bersyon (neoj) ay maari nang makapagtakbo ng mga basic na method.
 
-This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts. It also gives you an idea of ​​how to create a smart contract project and how to compile it.
+Ang seksyon na ito ay naglalaman ng isang tutoryal na gagabay sa iyo sa pagkonpigyura ng Java development environment para sa mga NEO smart na kontrata. Ito rin ay magbibigay ng ideya kong papano gumawa ng isang smart na kontratang proyekto at paano ito i-kompayl.
 
-Notes: The process involves the following steps:
-1. Write Java code (.java) for classes that extend FunctionCode or VerificationCode which is part of the Neo Framework Library (JAR)
-2. Use the normal Java compiler to compile code into Java bytecode (.class)
-3. Build the neoj (C#) compiler that converts JVM code into AVM code (neoj.exe on Windows)
-4. Use neoj to compile your .class file (.avm)
-5. Download Neo's Node GUI to connect to Neo's Testnet network
-6. Deploy your .avm script to publish the smart contract to the network
-7. Invoke your .avm script to execute your smart contract
+Mga Paalala: Ang proseso ay naglalaman ng mga sumusunod na mga hakbang:
+1. Sumulat ng Java na code (.java) para sa mga class na umi-extend sa FunctionCode o VerificationCode na parte sa Neo Framework Library (JAR)
+2. Gumamit ng normal na Java compiler para i-kompayl ang code para maging Java bytecode (.class)
+3. I-build ang neoj (C#) na compiler na kino-convert ang JVM na code para maging AVM na code (neoj.exe sa Windows)
+4. Gamitin ang neoj para icompile ang iyong .class na file (.avm)
+5. I-downloand ang Node GUI ng Neo para kumonekta sa Testnet na network ng Neo.
+6. I-deploy ang iyong .avm na script para ipublish ang smart na kontrata sa network
+7. I-invoke ang iyong .avm na script para patakbuhin ang iyong smart na kontrata
 
-### Detailed Instructions
+### Mga Detalyadong Instruksyon
 
-## Tools
+## Mga Tool
 
-The most efficient way of getting these steps done is to download and compile all the tools you will need:
+Ang pinakaepisyenteng pamamaraan para magawa ang mga sumusunod na mga hakbang ay ang pagdownload at pagkompayl ng lahat ng tools na kakailanganin mo:
 
-1. Download Neo's Node GUI. At the time of writing, it is recommended you use the BETA developer GUI as it has some extra debugging features which are helpful. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). It will have default presets to Testnet and you will have to wait (up to a few hours) for it to fully sync up.
-2. Download the Neo Framework Library JAR. The current latest version is here: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
-3. Download an IDE for Java (optional but recommended), e.g. IntelliJ or Eclipse.
-4. Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
+1. I-download ang Node GUI ng Neo. Sa pagkakasulat nito, nirerekomenda na gumamit ka ng BETA developer GUI dahil mayroon itong mga ekstrang debugging feature na nagpapadali ng lahat. [CoZ NEO GUI](https://github.com/CityOfZion/neo-gui-developer). Ito ay mayroong mga default preset sa Testnet at kinakailangan mong maghintay (hanggang sa ilang oras) para ito ay mag-sync ng lubos.
+2. I-download ang Neo Framework Library JAR. Nandito ang kasalukuyang pinakabago na bersyon: [org.neo.smartcontract.framework JAR](https://github.com/CityOfZion/neo-java-sdk/blob/master/target/org.neo.smartcontract.framework.jar)
+3. Magdownload ng isang IDE para sa Java (opsyonal ito pero rinrekomenda), e.g. IntelliJ o Eclipse.
+4. Magdownload ng isang IDE para sa C# - sa kasalukuyan, ang neoj compiler ay kinakailangang likhain ng mano-mano dahil ito ay hindi naka wide distribution release na format.
 
-## Development Tools
+## Mga Development Tool
 
 ### 1. Visual Studio 2017
 
-If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
+Kong ikaw ay naka-install na ng Visual Studio 2017 sa iyong kompyuter at naka-check sa .NET Cross-Platform Development sa panahon na nag-iinstall, pwede mong laktawan ang seksyon na ito.
 
-Download and install:
+Pag-download at pag-install:
 
-[Visual Studio download address](https://www.visualstudio.com/products/visual-studio-community-vs)
+[Ang address para i-download ang Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs)
 
-The installation process is very simple, follow the operation prompts step-by-step, it should be noted that you need to check the installation of `.NET Core cross-platform development`, otherwise you will not be able to open neo-vm project in step #3. The installation takes about ten minutes or up to an hour.
+Napakasimple lang ng proseso sa pag-install, sundin lang ang bawat hakbang sa mga operation prompt, dapat mong tandaan na kinakailangan mong e-check ang pag-install ng `.NET Core cross-platform development`, dahil kong hindi, hindi mo maaring buksan ang neo-vm na proyekto na nasa ikatlong hakbang. Ang pag-install ay tumatagal ng halos sampung minuto o hanggang sa isang oras.
 
-![install net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
+![pag-install sa net core cross-platform development toolset](/assets/install_core_cross_platform_development_toolset.png)
 
 ### 2. neo-compiler
 
-Installation and configuration steps:
+Mga hakbang sa pag-install at pag-konpigyura:
 
-Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, and publish the neoj project.
+I-download ang [neo-compiler](https://github.com/neo-project/neo-compiler) na proyekto sa Github, buksan ang solusyon gamit ang Visual Studio 2017, at i-publish ang neoj na proyekto.
 
-Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
+I-publish ang neoj compiler (na kino-convert ang Java bytecode para maging AVM bytecode).
 
-![publish NEO compiler neoj](/assets/publish_neo_compiler_neoj.png)
+![i-publish ang NEO compiler neoj](/assets/publish_neo_compiler_neoj.png)
 
-![publish and profile settings](/assets/publish_and_profile_settings.png)
+![publish at mga profile setting](/assets/publish_and_profile_settings.png)
 
-After the release is successful, the neoj.exe file is generated in `bin\Release\PublishOutput`.
+Pagkatapos na magtagumpay ang pag-release, ang neoj.exe na file ay mabubuo sa `bin\Release\PublishOutput`.
 
-We now need to add this directory to our execution path. The PATH is the system variable that your operating system uses to locate needed executables from the command line or Terminal window.
+Kinakailangan na natin ngayong idagdag ang direktoryong ito sa ating execution path. Ang PATH ay isang system variable na ginagamit ng iyong operating system para matagpuan ang mga kinakailangang mga executable galing sa command line o Terminal window.
 
-**Windows 10 and Windows 8:**
+**Windows 10 at Windows 8:**
 
-  In Search, search for and then select: System (Control Panel)
-  Click the Advanced system settings link.
-  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+  Sa Search, maghanap ng at pagkatapos pumili: System (Control Panel)
+  I-click ang Advanced system settings na link.  
+  I-click ang Environment Variables. Sa seksyon na System Variables, hanapin ang Path environment variable at piliin ito. I-click ang Edit. Kung wala ang PATH environment variable, i-click ang New.
+  Sa Edit System Variable (o New System Variable) na window, itukoy ang value ng Path environment variable. I-click ang OK. Isara ang lahat ng natitirang mga window sa pamamagitan ng pag-click ng OK.
 
 **Windows 7:**
 
-  From the desktop, right click the Computer icon.
-  Choose Properties from the context menu.
-  Click the Advanced system settings link.
-  Click Environment Variables. In the section System Variables, find the PATH environment variable and select it. Click Edit. If the PATH environment variable does not exist, click New.
-  In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable. Click OK. Close all remaining windows by clicking OK.
+  Galing sa desktop, i-right click ang Computer icon.
+  Piliin ang Properties galing sa context menu.
+  I-click ang Advanced system settings na link.
+  I-click ang Environment Variables. Sa seskyon na System variables, hanapin ang PATH environment variable at piliin ito. I-click ang Edit. Kung wala ang PATH environment variable, i-click ang New.
+  Sa Edit System Variable (o New System Variable) na window, itukoy ang value ng PATH environment variable. I-click ang OK. Isara ang lahat ng natitirang mga window sa pamamagitan ng pag-click ng OK.
 
-![edit environmental variables](/assets/edit_environmental_variables.png)
+![i-edit ang mga environmental variable](/assets/edit_environmental_variables.png)
 
-Now run Command or PowerShell, and enter neoj.exe. If there is no error and the output shows the version number (as shown) the environment variable configuration is successful
+Ngayon patakbuhin ang Command o Powershell, at i-enter ang neoj.exe. Kung wala error at ang output ay nagpapakita ng numero ng bersyon (kagyaa ng pinapakita) ang pag-konpigyura ng environment variable ay naging matagumpay.
 
 ![powershell enviornment variabled updated correctly](/assets/powershell_enviornment_variabled_updated_correctly.png)
 
 
-NOTE. Windows 7 SP1 users might encounter an error "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". The required 'api-ms-win-core-console-l2-1-0.dll' file is only found in Windows 8 or later versions. This error can be resolved by obtaining a copy of 'api-ms-win-core-console-l2-1-0.dll' and putting it in the directory C:\Windows\System32. This dll can potentially be found in a number of places throughout one's system(search your computer and copy/past it into \System32), but alternatively can be found online.
+TANDAAN. Ang mga gumagamit ng Windows 7 SP1 ay maaring maka-enkwentro ng error na "Unhandled Exception: System.DllNotFoundException: Unable to load DLL 'api-ms-win-core-console-l2-1-0.dll': The specified module could not be found". Ang kinakailangang 'api-ms-win-core-console-l2-1-0.dll' na file ay matatagpuan lamang sa Windows 8 o mas bago pa na mga bersyon. Ang error na ito ay maaring maresolba sa pamamagitan ng pagkuha na kopya ng 'api-ms-win-core-console-l2-1-0.dll' at paglagay nito sa direktoryo na C:\Windows\System32. Ang dll ay maaring makita sa maraming mga lugar sa iyong sistema (maghanap sa iyong kompyuter at kopyahi o i-paste ito sa loob ng \System32), pero pwede rin itong hanapin online.
 
-## Create project
+## Paggawa ng Proyekto
 
-After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
+Pagkatapos matapos ang instolasyon sa itaas, pwede ka nang bumuo ng isang Java na proyekto (e.g. gamit ang Eclipse o IntelliJ).
 
-You need to compile the .jar package of smart contract from the neo java devpack project ([neo-devpack-java](https://github.com/neo-project/neo-devpack-java)) and add it as an external library.
+Kinakailangan mong ikompayl ang .jar package ng smart na kontrata na galing sa neo java devpack na proyekto  ([neo-devpack-java](https://github.com/neo-project/neo-devpack-java)) at idagdag ito bilang eksternal na library.
 
 
-## Compile the Project
+## Pagkompayl ng Proyekto
 
-Everything is now ready to add the entry method that defines the smart contract:
+Ang lahat ay handa na ngayon para madagdag ang entry method na tutukoy sa smart na kontrata:
 
 ```Java
 import org.neo.smartcontract.framework.SmartContract;
@@ -102,23 +102,22 @@ import org.neo.smartcontract.framework.services.neo.Storage;
 public class HelloWorld extends SmartContract {
 
     public static byte[] Main(String[] args){
-        Storage.put(Storage.currentContext(), "Greeting to the World", "Hello World!");
-        return Storage.get(Storage.currentContext(),"Greeting to the World");
+        Storage.put(Storage.currentContext(), "Pagbati para sa Mundo", "Hello Mundo!");
+        return Storage.get(Storage.currentContext(),"Pagbati para sa Mundo");
     }
 
 }
 ```
 
-Build the project which will give you `HelloWorld.class` in your out folder.
+I-build ang proyekto na kung saan ay magbibigay sa yo ng `HelloWorld.class` sa iyong out na folder. 
 
-Then using neoj, run cmd.exe and execute:
+Ngayon habang ginagamit ang neoj, patakbuhin ang cmd.exe at i-execute ang:
 > neoj.exe HelloWorld.class
 
-If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
+Kung matagumpay, ito ay gagawa ng HelloWorld.avm na kung saan ikaw ay maarin nang gumamit ng bytecode na smart na kontrata.
 
-For more information and to see working Java examples please refer here: [Java Examples](https://github.com/neo-project/examples-java)
+Para sa karagdagang impormasyon at para matanaw ang mga gumaganang Java na halimbawa, pakisangguni dito: [Mga Halimbawa sa Java](https://github.com/neo-project/examples-java)
 
-## Deploy smart contracts
+## Pag-deploy ng mga smart na kontrata
 
-Once you are at this stage, the instructions are the same no matter what language you used to write the smart contracts.
-Follow this tutorial: [Deploy a lock contract](http://docs.neo.org/en-us/sc/tutorial/Lock2.html)
+Ngayon na nandito kana sa bahaging ito, ang mga instruksyon ay pareho lang kahit na ano pa na lengguwahe ang ginamit mo para isulat ang mga smart na kontrata. Sundin ang tutoryal na ito: [Pag-deploy ng isang lock na kontrata](http://docs.neo.org/en-us/sc/tutorial/Lock2.html)

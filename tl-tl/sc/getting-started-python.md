@@ -1,27 +1,27 @@
-# Getting Started with neo-python
+# Pagsisimula gamit ang neo-python
 
 *Main author: [@localhuman](https://github.com/localhuman)*
 
-neo-python, the python node and SDK for the NEO blockchain, enables you to build, test, and run smart contracts on the Neo blockchain. It provides the following main functionalities:
+Ang neo-python, ang python node at SDK para sa NEO blockchain, ay nagbibigay sa iyo ng kakayahan na mag-build, mag-test, at magpatakbo ng mga smart na kontrata sa Neo blockchain. Ito ay nagbibigay ng mga sumusunod na pangunahing functionalidad:
 
-- Running a Python based P2P node
-- Interactive CLI for configuring node and inspecting blockchain
-- Compiling, testing, deploying and running Smart Contracts written in python or any Smart Contract in the `.avm format`
-- [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) and [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) compliant wallet functionality
+- Pagpapatakbo sa isang Python based P2P na node
+- Interactive na CLI para sa pagkonpigyura sa node at pagsisiyasat sa blockchain
+- Pagkompayl, pagtest, pag-deploy at pagpapatakbo ng mga Smart na Kontrata na isinulat sa python o na kahit anong Smart na Kontrata na naka `.avm format`
+- [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) at [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) compliant wallet na functionalidad
 - RPC Client
-- `Runtime.Log` and `Runtime.Notify` event monitoring
+- Pagmonitor sa `Runtime.Log` at `Runtime.Notify` na event
 
-## Installing the Python library
+## Pag-install ng Python library
 
-You need to install the libleveldb library. Install [Python 3.5](https://www.python.org/downloads/release/python-354/) to make sure you don't run into any issues with your version of Python being different than the current maintainer's version. Note that Python 3.6 is not currently supported due to incompatibilities with the byteplay module.
+Kinakailangan mong i-install ang libleveldb na library. I-install ang [Python 3.5](https://www.python.org/downloads/release/python-354/) para masiguradong walang isyu na magaganap sa iyong ibang bersyon ng Python na di kapareho sa bersyon ng maintainer. Tandaan na ang Python 3.6 ay hindi sinusuportahan dahil sa mga incompatibility na mga isyu sabyteplay na module.
 
-**For OSX**, enter the following:
+**Para sa OSX**, i-enter ang mga sumusunod:
 
 ```python
 brew install leveldb
 ```
 
-If you're having an issue similar to this:
+Kung meron kang isyu na katulad nito:
 
 ```python
     from ._plyvel import (  # noqa
@@ -31,14 +31,14 @@ If you're having an issue similar to this:
     Expected in: flat namespace
 ```
 
-You may need to uninstall plyvel (python libleveldb library), and reinstall with the following cflags:
+Baka kinakailangan mong i-uninstall ang plyvel (python libleveldb library), at i-reinstall ito gamit ang mga sumusunod na cflags:
 
 ```python
 pip uninstall plyvel
 CFLAGS='-mmacosx-version-min=10.7 -stdlib=libc++' pip install --no-use-wheel plyvel --no-cache-dir --global-option=build_ext --global-option="-I/usr/local/Cellar/leveldb/1.20_2/include/" --global-option="-L/usr/local/lib"
 ```
 
-You may also encounter issues when installing the pycrypto module on OSX:
+Pwede ka ring makaenkwentro ng mga isyu habang nag-iinstall ng pycrypto module sa OSX:
 
 ```python
 src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
@@ -48,7 +48,7 @@ src/_fastmath.c:36:11: fatal error: 'gmp.h' file not found
 error: command 'clang' failed with exit status 1
 ```
 
-This may be fixed by installing the gmp library using homebrew and running pip install with the following command line:
+Ito ay maaring maayos sa pamamagitan ng pag-install sa gmp library gamit ang homebew at pagpapatakbo sa pip install gamit ang sumusunod na command line:
 
 ```python
 brew install gmp
