@@ -11,9 +11,9 @@ We will first explore the various commands listed in the command line. In the co
 ![image](/assets/cli_2.png)
 
 The following is a description of all the commands and the order of the brackets:
-Angular brackets ``<> `` indicate a parameter.
-Square brackets`[]`is for optional parameters.
-The symbol `|` displays the fill parameters, that can be any of any type.
+Angular brackets `<>` indicate a parameter.
+Square brackets `[]` is for optional parameters.
+The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
 The equal sign `=` indicates the default value of the optional parameter without an input.
 
 ## 1. Console Instructions
