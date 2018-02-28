@@ -17,7 +17,7 @@
       "WsPort": 10334
     },
     "RPC": {
-      "Port": 10332,
+      "Port": 10331,
       "SslCert": "YourSslCertFile.xxx",
       "SslCertPassword": "YourPassword"
     }
