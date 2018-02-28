@@ -1,124 +1,125 @@
-# How to use C # to write NEO smart contract for VS2015
+# Paano gamitin ang C # para magsulat ng NEO smart na kontrata para sa VS2015
 
-We currently recommend C# for developing smart contracts (though we support or plan to support Java, Kotlin, Go, C/C + +, Python, JavaScript and other programming languages)
+Kami ay kasalukuyang nagrerekomenda na gumamit ng C# para mag-program ng mga smart na kontrata (bagamat kami ay sumusuporta o nagpaplanong sumuporta sa Java, Kotlin, Go, C/C + +, Python, Javascript at iba pang mga programming na lengguwahe)
 
-This section contains a short tutorial that guides you in configuring the C# development environment for NEO smart contracts and gives you an idea of how to create a smart contract project and how to compile it.
+Ang seksyon na ito ay naglalaman ng maikling tutoryal na maggagabay sa iyo para ikonpigyura ang C# development environment para sa mga NEO smart na kontrata at magbibigay sa iyo ng ideya kong papaano gumawa ng isang proyekto ng smart na kontrata at paano ito ikokompayl.
 
-## development tools
+## mga development tool
 
 ### 1. Visual Studio 2015
 
-Download and install method:
+Pamamaraan ng Pag-download at Pag-install:
 
-If you have already installed Visual Studio 2015 (any version) on your computer, you can skip this section.
+Kung meron nang naka-install na Visual Studio 2015 (kahit anong bersyon) sa iyong kompyuter, pwede mong laktawan ang seksyon na ito.
 
-Visual Studio 2015 has been off the official website from home, but can be downloaded.
+Ang Visual Studio 2015 ay wala na sa home ng opisyal na website, pero maari pa rin itong madownload.
 
-Open the [Visual Studio old version download page](https://www.visualstudio.com/en/vans/vs/older-downloads/) click `free to join`
+Buksan ang [lumang bersyon ng Visual Studio download na pahina](https://www.visualstudio.com/en/vans/vs/older-downloads/) at i-click ang `free to join`
 
    ![](assets/install_core_cross_platform_development_toolset.jpg)
 
-Use your own Microsoft account login, enter Visual Studio Dev Essentials in the navigation menu, click `download`
+Gamitin ang iyong sariling Microsoft account para mag-login, itala ang Visual Studio Dev Essentials sa navigation menu, i-click ang `download`
 
-![image](assets/2017-05-10_13-47-10.jpg)
+![imahe](assets/2017-05-10_13-47-10.jpg)
 
-In the search box, enter Visual Studio Community 2015 with Update 3, and then select the search results in a good version, language, etc., click the right side of the `download` button
-![image](assets/2017-05-10_13-45-48.jpg)
+Sa search na kahon, itala ang Visual Studio Community 2015 with Update 3, at piliin ang resulta ng paghahanap sa tamang bersyon, lengguwahe, etc., i-click ang kanang bahagi ng `download` na pindutan.
 
-Installation method and the general software is basically the same, the installation process without the need to select additional features, only the core part of the VS2015 can be installed
+![imahe](assets/2017-05-10_13-45-48.jpg)
 
-![image](assets/2017-05-10_9-48-54.jpg)
+Ang pamamaraan ng pag-install at ang general na software ay kapareho lang, ang proseso ng pag-install na hindi kinakailangan ang pagpili ng mga karagdagang mga feature, ang core na parte ng VS2015 lamang ang pwede ma-install
 
-### 2. NET Core tools Preview 2 for Visual Studio 2015
+![imahe](assets/2017-05-10_9-48-54.jpg)
 
-Download and install method:
+### 2. Ang NET Core tools Preview 2 para sa Visual Studio 2015
 
-Open the [.Net Core download page](https://www.microsoft.com/net/download/core)
+Pamamaraan ng Pag-download at Pag-install:
 
-Download and install NET Core tools Preview 2 for Visual Studio 2015
+Buksan ang [.Net Core download na pahina](https://www.microsoft.com/net/download/core)
 
-![image](assets/2017-05-10_15-38-46.jpg)
+I-download at i-install ang NET Core tools Preview 2 para sa Visual Studio 2015
+
+![imahe](assets/2017-05-10_15-38-46.jpg)
 
 ### 3. NeoContractPlugin
 
-installation method:
+Pamamaraan ng pag-install:
 
-Open Visual Studio 2015, open the tool, extended and updated, click on the left for online search for NEO installation, Neo.SmartContract
+Buksan ang Visual Studio 2015, buksan ang tool, na-extend at na-update, i-click ang nasa kaliwa para sa online search para sa NEO instolasyon, Neo.SmartContract
 
-![image](assets/2017-05-10_15-50-48.jpg)
+![imahe](assets/2017-05-10_15-50-48.jpg)
 
 ### 4. neo-compiler
 
-Installation and configuration methods:
+Pamamaraan ng Pag-install at pag-konpigyura:
 
-Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2015, compile the neon project,
+I-download ang [neo-compiler](https://github.com/neo-project/neo-compiler) na proyekto sa Github, buksan ang solusyon gamit ang Visual Studio 2015, ikompayl ang neon project,
 
-![image](assets/2017-05-10_18-22-39.jpg)
+![imahe](assets/2017-05-10_18-22-39.jpg)
 
-After the compilation is successful, the neon.exe file will be generated in `bin\Debug\netcoreapp1.0\win10-x64`
-   > [!Note]
-   > If your computer is a 32-bit operating system, you need to change the win10-x64 in the project.json file to win10-x86
+Pagkatapos na makompleto ang pagkompayl, ang neon.exe na file ay mabubuo sa `bin\Debug\netcoreapp1.0\win10-x64`
+   > [!Tandaan]
+   > Kung ang iyong kompyuter ay gumagamit ng 32-bit na operating system, kinakailangan mong baguhin ang win10-x64 sa project.json file sa win10-x86.
 
-You now need to add a path, so that any location can access the program. To add the path method, open the computer properties (or turn on the control panel, system and security, system), open the advanced system settings, select the Advanced tab, click the environment variable button, as shown in Figure
+Kinakailangan mo na ngayong magdagdag ng isang landas, para ang kahit na anong lokasyon ay makaka-akses sa programma. Para idagdag ang path na pamamaraan, buksan ang mga computer properties (o buksan ang control panel, system and security, system), buksan ang advanced system settings, piliin ang Advanced tab, i-click ang environment variable na pindutan, tulad ng ipinapakita sa Pigyur
 
-![image](assets/2017-05-10_18-37-05.jpg)
+![imahe](assets/2017-05-10_18-37-05.jpg)
 
-Then select Path and click `Edit '
+Tapos, piliin ang Path at i-click ang `Edit '
 
-![image](assets/2017-05-10_18-46-05.jpg)
+![imahe](assets/2017-05-10_18-46-05.jpg)
 
-In the pop-up window, click "New" input neon.exe where the directory, click `OK`, `OK`
+Sa pop-up window, i-click ang "New" input neon.exe kung saan ang direktoryo, i-click ang `OK`, `OK`
 
-![image](assets/2017-05-10_18-48-11.jpg)
+![imahe](assets/2017-05-10_18-48-11.jpg)
 
-Add the path, run cmd test, enter neon.exe, no error, the output as shown in the figure that the environment variable configuration is successful
+Idagdag ang path, patakbuhin ang cmd test, i-enter ang neon.exe, walang error, ang resulta na pinapakita sa pigyur ay nagpapakita na naging matagumpay ang pagkonpigyura
 
-![image](assets/2017-05-10_18-52-10.jpg)
+![imahe](assets/2017-05-10_18-52-10.jpg)
 
-## Create project
+## Paglikha ng proyekto
 
-After the above four-step installation is successful, you can create an NEO smart contract project in Visual Studio 2015.
+Pagkatapos ng matagumpay na apat-na-hakbang na pag-install sa itaas, pwede ka nang lumikha nga isang proyekto na NEO smart na kontrata sa Visual Studio 2015.
 
-![image](assets/2017-05-10_16-08-48.jpg)
+![imahe](assets/2017-05-10_16-08-48.jpg)
 
-This will automatically generate a C# file, the default class inherited from the FunctionCode, as shown in the following:
+Ito ay awtomatikong bubuo ng isang C# na file, ang default na class ay iinherit galing sa FunctionCode, na pinapakita sa sumusunod:
 
-![image](assets/2017-05-10_16-25-09.jpg)
+![imahe](assets/2017-05-10_16-25-09.jpg)
 
-- Note: If the following image appears, because the project in the Neo.SmartContract.Framework did not successfully restore, you can restore the NuGet package in the following way (the process without networking)
+- Tandaan: kung ang sumusunod na imahe ay lalabas, ang proyoketo na nasa Neo.SmartContract.Framework ay hindi na-irestore ng maayos, pwede mong i-restore ang Nuget package sa susunod na pamamaraan (ang proseso na walang networking)
 
-![image](assets/2017-05-10_16-27-40.jpg)
+![imahe](assets/2017-05-10_16-27-40.jpg)
 
-In the Solution Explorer, select the solution, right-click, and click `Restore NuGet Package`
+Sa Solution Explorer, piliin ang solusyon, i-right click, at i-click ang `Restore NuGet Package`
 
-![image](assets/2017-05-10_16-28-39.jpg)
+![imahe](assets/2017-05-10_16-28-39.jpg)
 
-Then open the project reference, click `Neo.SmartContract.Framework`. A few cases still can not restore Nuget package how to do? Please restart Visual Studio 2015 or try to generate a solution directly.
+Pagkatapos, buksan ang project reference, i-click ang `Neo.SmartContract.Framework`. May ilang mga kaso pa ding hindi maka-restore sa Nuget package, paano ito? Paki-restart ang Visual Studio 2015 o subukang magbuo nga soluson ng direkta.
 
-![image](assets/2017-05-10_16-31-55.jpg)
+![imahe](assets/2017-05-10_16-31-55.jpg)
 
-## Compile the project
+## Ikompayl ang proyekto
 
-Everything is now ready to add the entry method to the project:
+Ang lahat ay handa na para magdagdag ng entry na pamamaraan sa proyekto:
 
 ```c#
 public class Contract1: FunctionCode
 {
-    public static void Main ()// Note that the main method to capitalize
+    public static void Main ()// Tandaan na ang main na method ay dapat i-capitalize
     {
         
     }
 }
 ```
-After this compiles successfully, you will see the generated `SmartContract1.avm` file in the `bin/Debug` directory, which is the file that is generated by the NEO smart contract.
+Pagkatapos nitong makompayl, makikita mo ang nabuong `SmartContract1.avm` file sa `bin/Debug` na direktoryo, na kung saan ito ang file na nabuo ng NEO smart na kontrata.
 
-![image](/assets/compile_smart_contract.jpg)
+![imahe](/assets/compile_smart_contract.jpg)
 
 
-!Note:
-   If you are generated, there is no output of the results of the map, it does not matter, you can also directly enter the command to compile the dll avm file
+!Tandaan:
+   Kung ikaw ay nakabuo, walang awtput ng mga resulta ng map, hindi ito mahalaga, pwede ka ring direktang magtala ng command para i-kompayl ang dll avm na file
 
-   Open a command prompt, navigate to the Debug directory, enter the following highlight (SmartContract1.dll is the name of the dll generated by the previous step).
+   Buksan ang command prompt, pumunta sa Debug na direktoryo, itala ang sumusunod na highlight (SmartContract1.dll ang pangalan nga dll na nabuo sa pamamagitan ng nakaraang hakbang).
 ```
 	> C: \ ... \ bin \ Debug> `./neon SmartContract1.dll`
 	>
@@ -135,4 +136,4 @@ After this compiles successfully, you will see the generated `SmartContract1.avm
 	> C: \ ... \ bin \ Debug>
 ```
 
-Now that you have completed the configuration of the smart contract development environment, please refer to the [Art Experiment Guide for Tomids](tutorial.md)
+Ngayon na nakompleto mo na ang pagkonpigyura ng development environment para sa smart na kontrata, pakipunta sa [Art Experiment na Gabay para sa Tomids](tutorial.md)
