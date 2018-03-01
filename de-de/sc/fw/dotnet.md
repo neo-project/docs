@@ -20,13 +20,13 @@ Ergänzend zu den Aufrufsmethoden der Kompatibilitätsschicht gibt es noch die v
 
 Die `SmartContract` Klasse stellt Verschlüsslungsalgorithmen und Signaturmethoden bereit.
 
-|                                          | Name                                     | Beschreibung                             |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                             | Verschlüsselt den Inhalt mit SHA1 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | Verschlüsselt den Inhalt mit SHA256 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Verschlüsselt den Inhalt mit SHA256, und im Nachgang mit RIPEMD160 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Verschlüsselt den Inhalt doppelt mit SHA256 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | Verifiziert das die Signatur den gültigen Public Key verwendet|
+|                                                        | Name                                             | Beschreibung                                                 |
+| ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | Verschlüsselt den Inhalt mit SHA1                            |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | Verschlüsselt den Inhalt mit SHA256                          |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | Verschlüsselt den Inhalt mit SHA256, und im Nachgang mit RIPEMD160 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | Verschlüsselt den Inhalt doppelt mit SHA256                  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | Verifiziert das die Signatur den gültigen Public Key verwendet |
 
 ### Byte Array Helper Methods
 

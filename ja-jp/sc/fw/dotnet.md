@@ -19,13 +19,13 @@
 
 [NEO スマートコントラクト チュートリアル](../tutorial.md)では、コントラクトが`FunctionCode`または`VerificationCode`のいずれかを継承していることが分かります。これらの2つのクラスはSmartContractを継承し、ハッシュアルゴリズムと署名メソッドを提供します。
 
-|                                                        | 名前                                             | 説明                                             |
-| ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | SHA1を使用して入力バイトをハッシュ化する                       |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | SHA256を使用して入力バイトをハッシュ化する                     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | SHA256、続いてRPEMD160を使用して入力バイトをハッシュ化する|
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | SHA256を2回使用して入力バイトをハッシュ化する               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | 指定のpubkeyを使用して署名をベリファイする           |
+|                                                        | 名前                                             | 説明                                                       |
+| ------------------------------------------------------ | ------------------------------------------------ | ---------------------------------------------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | SHA1を使用して入力バイトをハッシュ化する                   |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | SHA256を使用して入力バイトをハッシュ化する                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | SHA256、続いてRPEMD160を使用して入力バイトをハッシュ化する |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | SHA256を2回使用して入力バイトをハッシュ化する              |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | 指定のpubkeyを使用して署名をベリファイする                 |
 
 ### バイト配列ヘルパーメソッド
 
