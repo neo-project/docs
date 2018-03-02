@@ -17,27 +17,27 @@ Todas as tarifas de *Smart Contract* são consideradas Tarifas de Serviço a ser
 
 ### Tarifas para Chamadas de Sistema (namespace *System*)
 
-| SysCall (chamada)                     | Tarifa em GAS |
-|---------------------------------------|:-------------:|
-| Runtime.CheckWitness                  | 0.2           |
-| Blockchain.GetHeader                  | 0.1           |
-| Blockchain.GetBlock                   | 0.2           |
-| Blockchain.GetTransaction             | 0.1           |
-| Blockchain.GetAccount                 | 0.1           |
-| Blockchain.GetValidators              | 0.2           |
-| Blockchain.GetAsset                   | 0.1           |
-| Blockchain.GetContract                | 0.1           |
-| Transaction.GetReferences             | 0.2           |
-| Account.SetVotes                      | 1             |
-| Validator.Register                    | 1000          |
-| Asset.Create (ativo do sistema)       | 5000          |
-| Asset.Renew (ativo do sistema) [por ano] | 5000          |
-| Contract.Create                       | 500           |
-| Contract.Migrate                      | 500           |
-| Storage.Get                           | 0.1           |
-| Storage.Put [por KB]                  | 1             |
-| Storage.Delete                        | 0.1           |
-| (Default/padrão)                      | 0.001         |
+| SysCall (chamada)                        | Tarifa em GAS |
+| ---------------------------------------- | :-----------: |
+| Runtime.CheckWitness                     |      0.2      |
+| Blockchain.GetHeader                     |      0.1      |
+| Blockchain.GetBlock                      |      0.2      |
+| Blockchain.GetTransaction                |      0.1      |
+| Blockchain.GetAccount                    |      0.1      |
+| Blockchain.GetValidators                 |      0.2      |
+| Blockchain.GetAsset                      |      0.1      |
+| Blockchain.GetContract                   |      0.1      |
+| Transaction.GetReferences                |      0.2      |
+| Account.SetVotes                         |       1       |
+| Validator.Register                       |     1000      |
+| Asset.Create (ativo do sistema)          |     5000      |
+| Asset.Renew (ativo do sistema) [por ano] |     5000      |
+| Contract.Create                          |   100~1000    |
+| Contract.Migrate                         |   100~1000    |
+| Storage.Get                              |      0.1      |
+| Storage.Put [por KB]                     |       1       |
+| Storage.Delete                           |      0.1      |
+| (Default/padrão)                         |     0.001     |
 
 ### Tarifas para Instruções
 

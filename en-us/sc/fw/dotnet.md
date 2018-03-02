@@ -25,7 +25,7 @@ The `SmartContract` class provides us with the hash algorithms and signature met
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | Hashes the input bytes using SHA256      |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Hashes the input bytes using SHA256, followed by RIPEMD160 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Hashes the input bytes twice using SHA256 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | Verifies the signature using the given pubkey |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | Verifies the signature using the given pubkey |
 
 ### Byte Array Helper Methods
 

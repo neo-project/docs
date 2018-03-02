@@ -22,7 +22,7 @@
 
 ## 환경 실행 (Run the environment)
 
-네오 노드를 실행하기 위해서는 [닷넷 코어 런타임 1.0.1](https://www.microsoft.com/net/download/core#/runtime) 또는 이후 버전을 설치해야 합니다. 
+네오 노드를 실행하기 위해서는 [닷넷 코어 런타임](https://www.microsoft.com/net/download/core#/runtime) 또는 이후 버전을 설치해야 합니다. 
 
 ### 윈도우 시스템 인스톨 방법
 

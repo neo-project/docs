@@ -7,7 +7,7 @@ Desde la línea de comandos, ir al directorio donde se encuentra el cliente `NEO
 
 <img style="vertical-align: middle" src="assets/cli/cli_1.png">
 
-> [!Note] Para ejecutar el cliente CLI `NEO-cli` requiere la instalación de [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), **versión 1.1.2** o superior.
+> [!Note] Para ejecutar el cliente CLI `NEO-cli` requiere la instalación de [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), **versión 2.0** o superior.
 
 Una vez ejecutado aparecerá el interprete de comandos de NEO, desde aquí puedes manipular el monedero con comandos permitiéndote: crear o abrir un monedero, importar o exportar la clave privada, transferir, reclamar gas, comenzar un consenso, etc.
 

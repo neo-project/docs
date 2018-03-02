@@ -87,6 +87,13 @@
           href: node/consensus/whitepaper.md
         - name: 共识机制图解
           href: node/consensus/consensus.md
+- name: NEO SDK
+  href: sdk/introduction.md
+  items:
+    - name: 欢迎使用 NEO SDK
+      href: sdk/introduction.md
+    - name: NEO SDK 常见用法
+      href: sdk/common.md
 - name: 智能合约
   href: sc/introduction.md
   items:
@@ -192,4 +199,10 @@
     - name: 常见问题
       href: sc/faq.md
 - name: 交易所对接指南
-  href: exchange.md
+  href: exchange/general.md
+  items:
+    - name: v2.7.1
+      href: exchange/v2.7.1.md
+    - name: v2.6.0
+      href: exchange/v2.6.0.md
+  

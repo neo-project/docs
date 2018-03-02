@@ -63,8 +63,8 @@ Ang environment ng pagpapatupad ng isang matalinong kontrata ay naglalaro ng isa
 2. Bilis ng startup ng environment na pagpapatupad
 
 Para sa matalinong mga kontrata, ang environment ng pagpapatupad ay kadalasang mas importante kaysa sa bilis ng pagpapatupad ng tagubilin. Ang matalinong mga kontrata ay mas kasangkot sa IO na operasyon ng lohika, upang matukoy ang mga tagubilin, kung saan ang implementasyon ng mga tagubiling ito ay madaling mapaunlad. Sa bawat pagkakataon na tinawag nag matalinong kontrata, dapat itong magsimula ng isang panibagong birtwal na makina / container. Samakatuwid, ang bilis ng pagpapatupad sa environment (pagsisimula ng isang birtwal na makina / container) ay may mas malaking epekto sa pagganap ng matalinong kontrata na sistema.
-
 Ang NEO ay gumagamit ng isang magaang NeoVM (Birtwal na Makina ng NEO) bilang matalinong kontratang execution environment nito, na mayroong isang napakabilis na start up at kumukuha ng napakaliit na mga resource, perpekto para sa maikling mga program katulad ng matalinong mga kontrata. Ang paggamit ng pag-compile at pag-cache ng hotspot na matalinong mga kontrata gamit ang JIT (totoong-oras na compiler) ay maaaring makabuluhang magpabuti sa kahusayan ng mga birtwal na makina.
+
 
 ### 2.3 Kakayahan sa Pag-iskala
 

@@ -16,7 +16,7 @@
 
 NEOノードを取引所のサーバにデプロイするためには、以下のことを行います：
 
-1.  バージョン1.0.1以降の[.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)をサーバにインストールします。
+1.  バージョン2.0以降の[.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)をサーバにインストールします。
 2.  Githubから[Neo-CLI](https://github.com/neo-project/neo-cli/releases)をダウンロードし、NEOノードを有効にします。
 
 更なる情報については、[NEOノードのインストールとデプロイ](node/setup.html)を参照して下さい。
@@ -58,7 +58,7 @@ NEO-CLIは次の機能を提供します：
 
   更なるAPIの情報については、[API Reference](node/api.html)を参照してください。
   
-  
+  ​
 ### ウォレットの作成
 
 取引所は、ユーザの預金用アドレスを管理するため、オンラインウォレットを作成する必要があります。ウォレットはアカウント(公開鍵と秘密鍵の両方)とコントラクトの情報を格納するために使用されます。これはユーザが保持する最も重要な証拠です。ユーザはウォレットファイルとウォレットパスワードをセキュアに保つ必要があります。彼らはこれらのデータを失ったり、開示したりしてはなりません。
@@ -271,28 +271,26 @@ JSONにおいて、一般的なinvokefunctionリクエストのbodyは次の形�
 - スクリプトハッシュ
 
   NEP-5トークンのスクリプトハッシュを参照しています。例えば、RPXのスクリプトハッシュは次の通りです：*0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*.
-  
-  
+
 - メソッド名
 
   呼び出しているメソッド名です。ユーザの残高を参照するため、これらの3つのメソッドを呼び出す必要があります：
 
   **balanceOf**
-  
+
   - 構文: `<code>public static BigInteger balanceOf(byte[] account)</code>`
   - 注意: "balanceOf" は'''account'''のトークン残高を返します。
-  
+
   **decimals**
-  
+
   - 構文: `<code>public static byte decimals()</code>`
   - 注意: "decimals" はトークンにより使用される小数点以下の桁数を返します。
-  
+
   **symbol**
-  
+
   - 構文: `<code>public static string symbol()</code>`
   - 注意: "symbol" はトークンのシンボルを返します。
-  
-  
+
 - オプション引数
 
   オプションとして、呼び出すメソッドに引数が必要な場合、これらのパラメータを配列として渡すことができます。例えば、NEP-5の "balanceOf" は、"account"のトークンバランスを返します：
@@ -668,8 +666,7 @@ NeoGas(略してGAS)は、NEOブロックチェーンを使用する権利を表
     - t_start = NEOが未使用の状態になった瞬間
     
   Δt_constは一定量のため、利用可能なGASも一定量です。そしてこの量はユーザが保有するNEOの量と、この金額をアドレスに入れてから引き出すまでの期間の関数です。
-  
-  
+
 - 利用不可の*GAS = f(neo_amount, Δt_var)*
 
   - Δt_var = t - t_start

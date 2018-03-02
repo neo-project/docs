@@ -21,7 +21,7 @@ The deployment consensus node uses the `Neo-CLI`, a cross-platform program that 
 
 ## Run the environment
 
-Running of an NEO node requires installation of [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), version 1.0.1 or above.
+Running of an NEO node requires installation of [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), version 2.0 or above.
 
 ### Windows system installation method
 
@@ -70,7 +70,7 @@ If you see the final output "Hello World!", The .Net Core installation is succes
 sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, use the [Neo version of LevelDB](https://github.com/neo-project/leveldb).
-   
+
 3. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
 
 ```

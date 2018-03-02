@@ -21,7 +21,7 @@
 
 ## 运行环境
 
-运行 NEO 节点需要安装 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，需要安装 1.0.1 或以上版本
+运行 NEO 节点需要安装 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，需要安装 2.0 或以上版本。
 
 ### Windows 系统下的安装方法
 
