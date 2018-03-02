@@ -63,56 +63,57 @@ Ang environment ng pagpapatupad ng isang matalinong kontrata ay naglalaro ng isa
 2. Bilis ng startup ng environment na pagpapatupad
 
 Para sa matalinong mga kontrata, ang environment ng pagpapatupad ay kadalasang mas importante kaysa sa bilis ng pagpapatupad ng tagubilin. Ang matalinong mga kontrata ay mas kasangkot sa IO na operasyon ng lohika, upang matukoy ang mga tagubilin, kung saan ang implementasyon ng mga tagubiling ito ay madaling mapaunlad. Sa bawat pagkakataon na tinawag nag matalinong kontrata, dapat itong magsimula ng isang panibagong birtwal na makina / container. Samakatuwid, ang bilis ng pagpapatupad sa environment (pagsisimula ng isang birtwal na makina / container) ay may mas malaking epekto sa pagganap ng matalinong kontrata na sistema.
+Ang NEO ay gumagamit ng isang magaang NeoVM (Birtwal na Makina ng NEO) bilang matalinong kontratang execution environment nito, na mayroong isang napakabilis na start up at kumukuha ng napakaliit na mga resource, perpekto para sa maikling mga program katulad ng matalinong mga kontrata. Ang paggamit ng pag-compile at pag-cache ng hotspot na matalinong mga kontrata gamit ang JIT (totoong-oras na compiler) ay maaaring makabuluhang magpabuti sa kahusayan ng mga birtwal na makina.
 
-NEO uses a lightweight NeoVM (NEO Virtual Machine) as its smart contract execution environment, which has a very fast start up and takes up very little resources, perfect for short programs like smart contracts. Using the compilation and caching of hotspot smart contracts with JIT (real-time compiler) can significantly improve the efficiency of virtual machines.
 
-### 2.3 Scalability
+### 2.3 Kakayahan sa Pag-iskala
 
-#### 2.3.1 High concurrency and dynamic partitioning
+#### 2.3.1 Mataas na pagkakasabay at dynamic na pagpartisyon
 
-When discussing the scalability of a system, it involves two main areas: Vertical scaling and horizontal scaling. Vertical scaling refers to the optimization of the processing workflow, allowing the system to take full advantage of existing equipment capacity. With this approach, limits of the system are easily reached, as series-based processing capacity is based on the hardware limit of a single device. When we need to scale the system, is there a way to transform the series system into a parallel system? Theoretically, we will only need to increase the number of devices, and we will be able to achieve almost unlimited scalability. Could we possibly achieve unlimited scaling in distributed blockchain networks? In other words, can the blockchain execute programs in parallel?
+Kapag tayo ay nagtatalakay ng kakayahan sa pag-iskala ng isang sistema, ito ay nagsasangkot ng dalawang pangunahing mga aspeto: Ang bertikal na pag-iskala at pahalang na pag-iskala. Ang bertikal na pag-iskala ay tumutukoy sa optimisasyon ng nagpoprosesong workflow, na nagpapahintulot sa sistema na gamitin ng husto sa umiiral na kapasidad ng kagamitan. Sa pamamaraang ito, ang mga limitasyon ng sistema ay madaling maaabot, dahil ang series-based processing na kapasidad ay nakabase sa limitasyon ng hardware sa isang solong aparato. Kapag kailangan nating iiskala ang sistema, mayroon bang paraan upang mag-transform ng mga serye na sistema sa isang kahilera na sistema? Sa pagkateoretikal, kailangan lamang nating dagdagan ang bilang ng mga aparato, at maaari na nating makamit ang halos walang limitasyon na kakayahan sa pag-iskala. Pwede ba nating makamit ang walang limitasyon na pag-iskala sa ibinahaging mga blockchain network? Sa ibang salita, maaari bang magsagawa ang blockchain ng mga program na nakahilera?
 
-The blockchain is a distributed ledger, that records a variety of state data and the rules governing the changes in state of these data. Smart contracts are used as carriers, to record these rules. Blockchains can process programs in parallel, only if, multiple smart contracts can be executed concurrently and in a non-sequential manner. Basically, if contracts do not interact with each other, or if the contract does not modify the same state data, at the same time, their execution is non-sequential and can be executed concurrently. Otherwise, it can only execute in series, following a sequential order, and the network is unable to scale horizontally.
+Ang blockchain ay isang ibinahaging ledger, na nagtatala ng iba't-ibang estado ng datos at mga panuntunan na namamahala sa mga pagbabago sa estado ng mga datos na ito. Ang mga matalinong kontrata ay ginamit bilang mga tagapagdala, upang magtala sa mga panuntunang ito. Ang mga blockchain ay maaaring magproseso ng mga program na nakahilera, lamang kung, ang maramihang mga matalinong kontrata ay maaaring maisagawa nang sabay-sabay at sa isang hindi magkasunod-sunod na paraan. Sa madaling salita, kung ang mga kontrata ay hindi nakikipag-ugnayan sa isa't isa, o kung ang kontrata ay hindi nagbabago ng parehong estado ng datos, sa parehong panahon, ang kanilang pagpapatupad ay hindi magkakasunod at maaaring isagawa nang sabay-sabay. Kung hindi, ito ay magsasagawa lamang nang nakaserye, na sumusunod sa isang magkakasunod na pagkakaayos, at ang network ay hindi maaaring mag-iskala nang pahalang.
 
-Based on the analysis above, we can easily design "unlimited scaling" in smart contract systems. All we must do is to set up simple rules:
+Base sa pagsusuri sa itaas, maaari tayong madaling magdisenyo ng "walang limitasyon na pag-iskala" sa mga sistema ng matalinong kontrata. Ang lahat nang dapat nating gawin ay ang pag-set up ng simpleng mga panuntunan:
+ 
+ * **Ang isang matalinong kontrata ay maaari lamang magbago ng estado na rekord sa kontrata kung saan ito nabibilang**
 
- * **A smart contract can only modify the state record of the contract that it belongs to**
+ * **Sa parehong transaksyon na batch (block), ang isang kontrata ay maaari lamang patakbuhin sa isang beses**
 
- * **In the same transaction batch (block), a contract can only be running once**
+Bilang isang resulta, ang lahat ng mga matalinong kontrata ay maaari lamang maproseso na nakahilera sa sunud-sunod na pagkakaayos na walang kaugnayan sa resulta. Gayunpaman, kung ang isang "matalinong kontrata ay maaari lamang magbago ng estado na rekord sa kontrata kung saan ito nabibilang", ito ay nagpapahiwatig na ang kontrata ay hindi makakatawag sa isa't isa. Ang bawat kontrata, ay isang hiwalay na isla; kung "Sa parehong transaksyon na batch (block), ang isang kontrata ay maaari lamang patakbuhin sa isang beses", ito ay nagpapahiwatigna ang isang digital asset na ibinigay gamit ang isang matalinong kontrata, maaari lamang mag-asikaso ng isang transaksyon sa bawat bloke. Ito ay isang mundo ng pagkakaiba sa mga layunin ng orihinal na disenyo ng "matalinong" mga kontrata, na titigil sa pagiging "matalino". Sa wakas, ang aming mga disenyo na layunin ay parehong mutwal na pagtawag sa pagitan ng mga kontrata, at maramihang pagpapatupad ng parehong pagtawag, sa parehong bloke.
 
-As a result, all the smart contracts can be processed in parallel as sequential order is irrelevant to the result. However, if a "smart contract can only modify the state record of the contract that it belongs to", it implies that the contract cannot call each other. Each contract, is an isolated island; if "In the same transaction batch (block), a contract can only be running once", this implies that a digital asset issued with a smart contract, can only handle one transaction per block. This is a world of difference with the original design goals of "smart" contracts, which cease to be "smart". After all, our design goals include both mutual call between contracts, and multiple execution of the same call, in the same block.
+Sa kabutihang-palad, ang mga matalinong kontrata sa NEO ay may isang static call na relasyon, at ang call target ay hindi maaaring tukuyin sa run time. Pinapayagan nito ang pag-uugali ng program na maging buong nakatukoy bago sa pagpapatupad, at buong nakatukoy ang call na relasyon nito bago ito maaaring tumakbo. Kinakailangan namin na ang bawat kontrata ay tahasang ipahiwatig ang mga kontrata na maaaring matatawag, upang ang nag-ooperang environment ay maaaring magkalkula sa kumpletong call tree bago magpapatakbo ng kontrata na pamamaraan, at partisyon na pagpapatupad ng mga kontrata, base sa call tree. Ang mga kontrata na maaaring baguhin ang parehong estado na rekord, ay maisasagawa sa isang 
+magkakasunod na paraan sa loob ng parehong partisyon, kung saan ang magkaibang mga partisyon ay maaari nang isagawa na nakahilera.
 
-Fortunately, smart contracts in NEO have a static call relationship, and the call target cannot be specified at run time. This allows the behavior of the program to be fully determined before execution, and its call relationship to be fully defined before it can run. We require that each contract explicitly indicate the contracts which are likely to be invoked, so that the operating environment can calculate the complete call tree before running the contract procedure, and partition execution of the contracts, based on the call tree. Contracts that may modify the same state record, are executed in a sequential manner within the same partition, whereby different partitions can then be executed in parallel.
+#### 2.3.2 Mababang coupling
 
-#### 2.3.2 Low coupling
+Ang coupling ay isang sukatan ng dependensya sa pagitan ng dalawa o maraming mga entity. Ang NeoContract na sistema ay gumagamit ng isang mababang-coupling na disenyo, na naipapatupad sa NeoVM, at nakikipag-ugnayan sa hindi blockchain na datos gamit ang interoperable na service layer. Bilang isang resulta, ang karamihan sa mga upgrade sa matalinong kontrata na mga function ay maaaring makamit sa pamamagitan ng pagpapalaki ng API ng mga interoperable service.
 
-Coupling is a measure of the dependency between two or more entities. NeoContract system uses a low-coupling design, which is executed in the NeoVM, and communicates with the non-blockchain data through the interoperable service layer. As a result, most upgrades to smart contract functions can be achieved by increasing the API of interoperable services.
+## 3. Paggamit ng Kontrata
 
-## 3. Contract Use
+### 3.1 Beripikasyon ng Kontrata
 
-### 3.1 Contract Verification
+Hindi tulad ng public-key account na sistema na ginamit sa Bitcoin, ang account na sistema ng NEO ay gumagamit ng kontratang account na sistema. Ang bawat account sa NEO ay tumutugon sa isang beripikasyong kontrata, at ang hash na halaga ng beripikasyong kontrata, ay ang account address; Ang program na lohika ng beripikasyong kontrata ay kumukontrol sa pagmamay-ari ng account. Kapag naglilipat mula sa isang account, una mong kakailanganing magpatupad ng beripikasyong kontrata para sa account na iyon. Ang balidasyong kontrata ay maaaring tumanggap ng isang hanay ng mga parameter (kadalasan ang isang digital signature o ibang pamantayan), at nagsasauli ng isang boolean na halaga pagkatapos ng beripikasyon, nagpapahiwatig sa tagumpay ng beripikasyon sa sistema.
 
-Unlike the public-key account system used in Bitcoin, NEO's account system uses the contract account system. Each account in the NEO corresponds to a verification contract, and the hash value of the verification contract, is the account address; The program logic of the verification contract controls the ownership of the account. When transferring from an account, you firstly need to execute the verification contract for that account. A validation contract can accept a set of parameters (usually a digital signature or other criteria), and return a boolean value after verification, indicating the success of the verification to the system.
+Ang user ay maaari munang mag-deploy ng beripikasyong kontrata sa blockchain, o mag-publish ng kontratang nilalaman nang direkta sa transaksyon habang nasa paglipat na proseso.
 
-The user can deploy the verification contract to the blockchain beforehand, or publish the contract content directly in the transaction during the transfer process.
+### 3.2 Kontratang Aplikasyon
 
-### 3.2 Contract Application
+Ang aplikasyon na kontrata ay nati-trigger ng isang espesyal na transaksyon, na maaaring mag-access at magbago ng global na estado ng sistema, at ang pribadong estado ng kontrata (storage area) sa run time. Halimbawa, maaari kang lumikha ng isang global digital asset sa isang kontrata, bumoto, mag-save ng datos, at kahit dynamic na lumikha ng isang bagong kontrata, kapag ang kontrata ay tumatakbo.
 
-The application contract is triggered by a special transaction, which can access and modify the global state of the system, and the private state of the contract (storage area) at run time. For example, you can create a global digital asset in a contract, vote, save data, and even dynamically create a new contract, when the contract is running.
+Ang pagpapatupad ng aplikasyon na kontrata ay nangangailangan ng pagsisingil gamit ang instruksiyon. Kapag ang transaksyon na fee ay natupok, ang kontrata ay mabibigo at hihinto sa pagpapatupad, at ang lahat ng estadong pagbabago ay maibabalik. Ang tagumpay ng kontrata ay hindi nakakaapekto sa bisa ng transaksyon.
 
-The execution of the application contract requires charging by instruction. When the transaction fee is consumed, the contract will fail and stop execution, and all state changes will be rolled back. The success of the contract does not affect the validity of the transaction.
+### 3.3 Kontratang Function
 
-### 3.3 Contract Function
+Ang function na kontrata ay ginagamit upang magbigay ng ilang publiko o karaniwang ginagamit na mga function, na maaaring matawag sa ibang mga kontrata. Ang matalinong kontrata na code ay maaaring magamit muli, upang ang mga developer ay maaaring magsulat ng lalong nagiging kumplikadong lohika ng negosyo. Ang bawat function na kontrata, kapag na-deploy, ay maaaring pumili na magkaroon ng isang pribadong storage area na alinman ay nabasa o naisulat sa datos sa isang hinaharap na kontrata, nakakamit ang pagpapanatili ng estado.
 
-The function contract is used to provide some public or commonly used functions, which can be called by other contracts. The smart contract code can be reused, so that developers are able to write increasingly complex business logic. Each function contract, when deployed, can choose to have a private storage area that is either read or written to data in a future contract, achieving state persistence.
+Ang function na kontrata ay dapat munang naka-pre-deploy sa chain upang matawag, at matanggal mula sa chain gamit ang isang "self-destructing" na sistemang function, na hindi na magagamit at ang pribadong storage nito ay mawawasak. Ang lumang kontratang datos ay maaaring awtomatikong malilipat sa ibang subcontract bago ito mawasak, gamit ang contract migration na mga kasangkapan.
 
-The function contract must be pre-deployed to the chain to be invoked, and removed from the chain by a "self-destructing" system function, which will no longer be used and its private storage will be destroyed. The old contract data can be automatically migrated to another subcontract before it is destroyed, using contract migration tools.
+## 4. Birtwal na Makina
 
-## 4. Virtual Machine
+### 4.1 Birtwal na Hardware
 
-### 4.1 Virtual Hardware
-
-NeoVM provides a virtual hardware layer, to support the execution of smart contracts, including:
+Ang NeoVM ay nagbibigay ng isang birtwal na hardware layer, upang sumuporta ng mga matalinong kontrata, kabilang ang:
 
  * **CPU**
 
