@@ -10,14 +10,20 @@ Para acessar o servidor RPC via HTTPS, é necessário alterar o arquivo de confi
 ```json
 {
   "ApplicationConfiguration": {
-    "DataDirectoryPath": "Chain",
-    "NodePort": 10333,
-    "WsPort": 10334,
-    "UriPrefix": [ "https://*:10331", "http://*:10332" ],
-    "SslCert": "Seu_arquivo_certificado_ssl.xxx",
-    "SslCertPassword": "Sua_Senha"
+    "Paths": {
+      "Chain": "Chain"
+    },
+    "P2P": {
+      "Port": 10333,
+      "WsPort": 10334
+    },
+    "RPC": {
+      "Port": 10331,
+      "SslCert": "YourSslCertFile.xxx",
+      "SslCertPassword": "YourPassword"
+    }
   }
-}                                          
+}
 ```
 
 Depois que o servidor JSON-RPC iniciar, ele irá monitorar as seguintes portas, correspondentes a rede principal (MainNet) e/ou a rede de teste (TestNet):

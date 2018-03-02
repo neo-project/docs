@@ -10,14 +10,20 @@ HTTPS를 통해 RPC서버에 접근하려면, 여러분께서는 노드 시작/�
 ```json
 {
   "ApplicationConfiguration": {
-    "DataDirectoryPath": "Chain",
-    "NodePort": 10333,
-    "WsPort": 10334,
-    "UriPrefix": [ "https://*:10331", "http://*:10332" ],
-    "SslCert": "YourSslCertFile.xxx",
-    "SslCertPassword": "YourPassword"
+    "Paths": {
+      "Chain": "Chain"
+    },
+    "P2P": {
+      "Port": 10333,
+      "WsPort": 10334
+    },
+    "RPC": {
+      "Port": 10331,
+      "SslCert": "YourSslCertFile.xxx",
+      "SslCertPassword": "YourPassword"
+    }
   }
-}                                          
+}                                    
 ```
 
 JSON-RPC 서버를 시작하면, 매인/테스트 넷(Main and Test net))에 맞춰 아래의 포트들을 모니터합니다.

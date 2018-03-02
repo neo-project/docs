@@ -9,14 +9,20 @@ Um auf den RPC Server mittels HTTPS zuzugreifen, müssen Sie die Konfigurationsd
 ```json
 {
   "ApplicationConfiguration": {
-    "DataDirectoryPath": "Chain",
-    "NodePort": 10333,
-    "WsPort": 10334,
-    "UriPrefix": [ "https://*:10331", "http://*:10332" ],
-    "SslCert": "YourSslCertFile.xxx",
-    "SslCertPassword": "YourPassword"
+    "Paths": {
+      "Chain": "Chain"
+    },
+    "P2P": {
+      "Port": 10333,
+      "WsPort": 10334
+    },
+    "RPC": {
+      "Port": 10331,
+      "SslCert": "YourSslCertFile.xxx",
+      "SslCertPassword": "YourPassword"
+    }
   }
-}                                          
+}                                    
 ```
 
 Der JSON-RPC Server hört nach dem Start auf folgenden Ports:
@@ -41,11 +47,11 @@ P2P und WebSocket Informationen finden Sie [hier](introduction.md).
 | [getblock](api/getblock2.md)             | \<index> [verbose=0]                    | Holt die zu einem bestimmten Index gehörenden Blockinformationen.         |          |
 | [getblockcount](api/getblockcount.md)    |                                         | Holt die Anzahl der Blocks aus der Hauptblockchain.                 |          |
 | [getblockhash](api/getblockhash.md)      | \<index>                                | Gibt den Hashwert eines bestimmten Blocks anhand des Block Index aus.         |          |
-| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | Gibt die Systemgebühren eines bestimmten Blocks basierend auf dem Index aus    |    
+| [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | Gibt die Systemgebühren eines bestimmten Blocks basierend auf dem Index aus    |
 | [getconnectioncount](api/getconnectioncount.md) |                                         | Holt die aktuelle Zahl an Verbindungen für eine Node.                |          |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | Gibt Informationen zu einem Contract basierend auf dem Scripthash aus. |          |
 | [getrawmempool](api/getrawmempool.md)    |                                         | Holt die Liste der noch nicht bestätigten Transaktionen aus dem Speicher.           |          |
-| [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | Gibt die, zu einem bestimmten Transaktionshash gehörenden, Informationen aus.         |   
+| [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                     | Gibt die, zu einem bestimmten Transaktionshash gehörenden, Informationen aus.         |
 | [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | Gibt den gespeicherten Wert basierend auf dem Scripthash und dem Schlüssel aus |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                            | Gibt die entsprechenden Transaktionsoutput Informationen (zurückgegebene Änderung) basierend auf dem angegebenen Hash und Index zurück.|          |
 | [invoke](api/invoke.md)      | \<script_hash> \<params>      | Ruft einen Smart Contract auf einem bestimmten Scripthash mit gegebenen Parametern auf |         |
