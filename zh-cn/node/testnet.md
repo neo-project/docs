@@ -74,7 +74,7 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 邮件中指定的合约地址已创建并显示在账户页面中。
 
-![image](/assets/neogas.png)
+![image](assets/neogas.png)
 
 可以在合约地址处看到获取的 NEO/GAS 数量。
 
