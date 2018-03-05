@@ -9,14 +9,20 @@ Para makapasok sa serber ng RPC gamit ang HTTPS, kailangan mong baguhin ang komp
 ```json
 {
   "ApplicationConfiguration": {
-    "DataDirectoryPath": "Chain",
-    "NodePort": 10333,
-    "WsPort": 10334,
-    "UriPrefix": [ "https://*:10331", "http://*:10332" ],
-    "SslCert": "YourSslCertFile.xxx",
-    "SslCertPassword": "YourPassword"
+    "Paths": {
+      "Chain": "Chain"
+    },
+    "P2P": {
+      "Port": 10333,
+      "WsPort": 10334
+    },
+    "RPC": {
+      "Port": 10331,
+      "SslCert": "YourSslCertFile.xxx",
+      "SslCertPassword": "YourPassword"
+    }
   }
-}                                          
+}                                         
 ```
 
 Pagkatapos ng pagsisimula ng JSON-RPC na serber, susubaybayan nito ang mga sumusunod na mga port, na naaayon sa Main at Test na mga net:
