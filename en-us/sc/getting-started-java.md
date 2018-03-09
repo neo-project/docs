@@ -33,7 +33,7 @@ The most efficient way of getting these steps done is to download and compile al
 ## Development Tools
 
 
-#### 1. Visual Studio 2017 (Windows)
+#### 1. Visual Studio 2017 (Windows and Mac)
 
 If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
 
@@ -49,7 +49,7 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 Installation and configuration steps:
 
-**Windows:** 
+**Windows:**
 Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github, open the solution with Visual Studio 2017, and publish the neoj project.
 
 Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
@@ -60,10 +60,14 @@ Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
 
 After the release is successful, the neoj.exe file is generated in `bin\Release\PublishOutput`.
 
-**Linux:**
+**Linux and Mac OS:**
 
-Since there's no "publish" function in Visual Studio Code for Linux we build it manually.
-Make sure you have [dotnet](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x#install-net-core-for-ubuntu-1404-ubuntu-1604-ubuntu-1610--linux-mint-17-linux-mint-18-64-bit) installed.
+Since there's no "publish" function in Visual Studio Code for Linux or Mac OS we build it manually.
+Make sure you have dotnet installed.
+
+[dotnet for Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x#install-net-core-for-ubuntu-1404-ubuntu-1604-ubuntu-1610--linux-mint-17-linux-mint-18-64-bit)
+
+[dotnet for Mac OS](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#supported-macos-versions)
 
 Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project on Github.
 
@@ -75,8 +79,8 @@ dotnet build
 NOTE: At this point, after having launched the build command, you could get the following error:
 `It was not possible to find any compatible framework version
  The specified framework 'Microsoft.NETCore.App', version '1.0.4' was not found.`
- 
-If this is the case, open neoj.csproj and change the RuntimeFrameworkVersion's tag with your dotnet version. 
+
+If this is the case, open neoj.csproj and change the RuntimeFrameworkVersion's tag with your dotnet version.
 For example `<RuntimeFrameworkVersion>2.0.5</RuntimeFrameworkVersion>`
 
 
@@ -155,6 +159,16 @@ Copy the jar in the dotnet's folder. For example:
 and then call
 
 > dotnet run HelloWorld.class
+
+**Mac OS:**
+
+Copy the jar to the neo-compiler's neoj folder. For example:
+
+`sudo cp org.neo.smartcontract.framework.jar /path/to/neo-compiler/neoj`
+
+and then from the neoj folder call
+
+> dotnet run org.neo.smartcontract.framework.jar
 
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
