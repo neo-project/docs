@@ -4,9 +4,7 @@
 >
 > Unless otherwise stated,  this article introduces the NEO-GUI running on the test net. For more information, refer to [Test Network](testnet.md).
 
-## Prerequisite
-
-### Downloading the client
+## Downloading the client
 
 Download [NEO-GUI](https://neo.org/download) and extract the files to a location of your choice, then double-click neo-gui.exe to run the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as neo-gui, then contact our technical staff to assist you in solving the problem.
 
@@ -16,7 +14,7 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 >
 > Pre-Windows 10 systems require [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) to be installed.
 
-### Synchronizing blockchain data
+## Synchronizing blockchain data
 
 The client must be fully synchronized before use. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height. When you open a wallet, the wallet height data is displayed.  These numbers update regularly.
 
