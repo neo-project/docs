@@ -76,6 +76,13 @@
         href: node/api/sendmany.md
       - name: validateaddress
         href: node/api/validateaddress.md
+    - name: NEO SDK
+      href: node/sdk/introduction.md
+      items:
+      - name: About NEO SDK
+        href: node/sdk/introduction.md
+      - name: NEO SDK Common Uses
+        href: node/sdk/common.md
     - name: Network Protocol
       href: node/network-protocol.md
     - name: Consensus
