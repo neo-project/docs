@@ -38,7 +38,9 @@ All Smart Contract fees are considered as Service fee to be put in a pool for re
 | Storage.Delete                        |    0.1    |
 | (Default)                             |   0.001   |
 
-* Additional to 1 GAS minimum
+For the description of API in the table above, refer to [NEO Namespace](api/neo.md)
+
+The cost of creating or migrating a smart contract is the basic 100 GAS plus fees of functions the contract requires. If the storage area is required, the function fee is 400 GAS, and if the dynamic call is needed, the function fee is 500 GAS.
 
 ### Fees for Instructions
 
