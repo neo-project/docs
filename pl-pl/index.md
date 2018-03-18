@@ -168,6 +168,14 @@ NeoX został rozszerzony na istniejące dwupasmowe protokoły wymiany atomowej a
 
 Transakcje rozproszone między dwoma łańcuchami oznaczają, że wiele etapów transakcji jest rozproszonych w różnych blokach i że zapewniona jest spójność całej transakcji. To jest przedłużenie łańcucha wymiana aktywów łańcucha, wydłużenie zachowania wymiany aktywów w arbitralne zachowanie. W kategoriach laika, NeoX umożliwia inteligentne kontrakty między różnymi łańcuchami, w których inteligentny kontrakt może wykonywać różne części w wielu łańcuchach, albo sukces albo odwrócenie jako całość. Daje to doskonałe możliwości współpracy między sieciami, a także analizujemy scenariusze aplikacji dotyczących inteligentnego kontraktu między różnymi łańcuchami.
 
+**Protokół rozproszenia pamięci masowej: NeoFS**
+
+NeoFS to rozproszony protokół pamięci masowej wykorzystujący technologię Distributed Hash Table (DHT). NeoFS indeksuje dane poprzez zawartość pliku (skrót) zamiast ścieżki pliku (URI). Duże pliki zostaną podzielone na bloki o stałych rozmiarach, które są dystrybuowane i przechowywane w wielu różnych węzłach.
+
+Głównym problemem tego typu systemu jest potrzeba znalezienia równowagi między redundancją a niezawodnością. NeoFS planuje rozwiązać tę sprzeczność za pomocą zachęt symbolicznych i ustanowienia węzłów szkieletowych. Użytkownicy mogą wybrać wymagania dotyczące niezawodności pliku. Pliki o niskich wymaganiach dotyczących niezawodności można przechowywać i uzyskiwać do nich dostęp za darmo lub prawie za darmo. Stabilne i niezawodne usługi dla plików o wysokim stopniu niezawodności będą dostarczane przez węzły szkieletowe.
+
+NeoFS będzie służyć jako jedna z usług interoperacyjności InteropService w ramach systemu NeoContract, umożliwiając inteligentnym kontraktom przechowywanie dużych plików w sieci blockchain i zapewniającym dostęp do tych plików. Ponadto, NeoFS można łączyć z cyfrową tożsamością, aby cyfrowe certyfikaty używane przez cyfrowe tożsamości mogły być przypisywane, wysyłane i unieważniane bez centralnego serwera do zarządzania nimi. W przyszłości stare dane bloków mogą być przechowywane w NeoFS, więc większość pełnych węzłów może uwolnić stare dane w celu zwiększenia skalowalności, a jednocześnie zapewnić integralność danych historycznych.
+
 **Mechanizm kryptografii anty-kwantowej: NeoQS**
 
 Pojawienie się komputerów kwantowych stanowi poważne wyzwanie dla mechanizmów kryptograficznych opartych na RSA i ECC. Komputery kwantowe mogą rozwiązać dużą liczbę problemów dekompozycji (na których opiera się RSA) i dyskretny logarytm krzywej eliptycznej (na której opiera się ECC) w bardzo krótkim czasie. NeoQS (Quantum Safe) to oparty na sieciach mechanizm kryptograficzny. Obecnie komputery kwantowe nie mają możliwości szybkiego rozwiązania Najkrótszego Problemu Wektorowego (SVP) i Najbliżejszego Problemu Wektorowego (CVP), który jest uważany za najbardziej niezawodny algorytm odporny na komputery kwantowe.
@@ -176,19 +184,3 @@ Pojawienie się komputerów kwantowych stanowi poważne wyzwanie dla mechanizmó
 
 NEO to rozproszona sieć łącząca cyfrowe zasoby, cyfrową tożsamość i inteligentne kontrakty. System NEO wykorzysta DBFT, NeoX, NeoFS, NeoQS i wiele innych oryginalnych technologii, jako infrastrukturę dla inteligentnej ekonomii przyszłości.
 
-
-
-
-
-
-
-
-**Protokół rozproszenia pamięci masowej: NeoFS**
-
-NeoFS to rozproszony protokół pamięci masowej wykorzystujący technologię Distributed Hash Table (DHT). NeoFS indeksuje dane poprzez zawartość pliku (skrót) zamiast ścieżki pliku (URI). Duże pliki zostaną podzielone na bloki o stałych rozmiarach, które są dystrybuowane i przechowywane w wielu różnych węzłach.
-Głównym problemem tego typu systemu jest potrzeba znalezienia równowagi między redundancją a niezawodnością. NeoFS planuje rozwiązać tę sprzeczność za pomocą zachęt symbolicznych i ustanowienia węzłów szkieletowych. Użytkownicy mogą wybrać wymagania dotyczące niezawodności pliku. Pliki o niskich wymaganiach dotyczących niezawodności można przechowywać i uzyskiwać do nich dostęp za darmo lub prawie za darmo. Stabilne i niezawodne usługi dla plików o wysokim stopniu niezawodności będą dostarczane przez węzły szkieletowe.
-NeoFS będzie służyć jako jedna z usług interoperacyjności InteropService w ramach systemu NeoContract, umożliwiając inteligentnym kontraktom przechowywanie dużych plików w sieci blockchain i zapewniającym dostęp do tych plików. Ponadto, NeoFS można łączyć z cyfrową tożsamością, aby cyfrowe certyfikaty używane przez cyfrowe tożsamości mogły być przypisywane, wysyłane i unieważniane bez centralnego serwera do zarządzania nimi. W przyszłości stare dane bloków mogą być przechowywane w NeoFS, więc większość pełnych węzłów może uwolnić stare dane w celu zwiększenia skalowalności, a jednocześnie zapewnić integralność danych historycznych.
-Mechanizm kryptografii anty-kwantowej: NeoQS
-Pojawienie się komputerów kwantowych stanowi poważne wyzwanie dla mechanizmów kryptograficznych opartych na RSA i ECC. Komputery kwantowe mogą rozwiązać wiele problemów dekompozycji (na których opiera się RSA) i dyskretny logarytm krzywej eliptycznej (na której opiera się ECC) w bardzo krótkim czasie. NeoQS (Quantum Safe) to oparty na sieciach mechanizm kryptograficzny. Obecnie komputery kwantowe nie mają możliwości szybkiego rozwiązania Najkrótszego Problemu Wektorowego (SVP) i Najbliżejszego Problemu Wektorowego (CVP), który jest uważany za najbardziej niezawodny algorytm odporny na komputery kwantowe.
-Podsumowanie
-NEO to rozproszona sieć łącząca cyfrowe zasoby, cyfrową tożsamość i inteligentne kontrakty. System NEO wykorzysta DBFT, NeoX, NeoFS, NeoQS i wiele innych oryginalnych technologii, jako infrastrukturę dla inteligentnej ekonomii przyszłości.
