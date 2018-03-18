@@ -161,11 +161,17 @@ NeoContract może utworzyć inteligentne drzewo połączeń kontraktowych za pom
 
 NeoX to protokół implementujący interoperacyjność między łańcuchami. NeoX dzieli się na dwie części: "protokół wymiany aktywów między łańcuchami" i "protokół transakcji rozproszonych między łańcuchami".
 
-Umowa wymiany aktywów między łańcuchami:
+**Umowa wymiany aktywów między łańcuchami:**
+
 NeoX został rozszerzony na istniejące dwupasmowe protokoły wymiany atomowej aktywów, aby umożliwić wielu uczestnikom wymianę aktywów pomiędzy różnymi łańcuchami i zapewnienie, że wszystkie NeoX to protokół implementujący interoperacyjność między łańcuchami. NeoX dzieli się na dwie części: "protokół wymiany aktywów między łańcuchami" i "protokół transakcji rozproszonych między łańcuchami".
-Mechanizm kryptografii anty-kwantowej: NeoQS
+
+
+**Mechanizm kryptografii anty-kwantowej: NeoQS**
+
 Pojawienie się komputerów kwantowych stanowi poważne wyzwanie dla mechanizmów kryptograficznych opartych na RSA i ECC. Komputery kwantowe mogą rozwiązać dużą liczbę problemów dekompozycji (na których opiera się RSA) i dyskretny logarytm krzywej eliptycznej (na której opiera się ECC) w bardzo krótkim czasie. NeoQS (Quantum Safe) to oparty na sieciach mechanizm kryptograficzny. Obecnie komputery kwantowe nie mają możliwości szybkiego rozwiązania Najkrótszego Problemu Wektorowego (SVP) i Najbliżejszego Problemu Wektorowego (CVP), który jest uważany za najbardziej niezawodny algorytm odporny na komputery kwantowe.
-Podsumowanie
+
+**Podsumowanie**
+
 NEO to rozproszona sieć łącząca cyfrowe zasoby, cyfrową tożsamość i inteligentne kontrakty. System NEO wykorzysta DBFT, NeoX, NeoFS, NeoQS i wiele innych oryginalnych technologii, jako infrastrukturę dla inteligentnej ekonomii przyszłości.
 
 Biała Księga NEO
