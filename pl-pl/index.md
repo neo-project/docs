@@ -36,13 +36,13 @@ Ekosystem to witalność społeczności open source. Aby osiągnąć cel, jakim 
 
 - Portfel sprzętowy
 
-**Blockchain Explorer**
+🔹 **Blockchain Explorer**
 
-**Zestaw SDK Development Kit**
+🔹 **Zestaw SDK Development Kit**
 
 - Obsługa Java / Kotlin, .NET C # / VB, JavaScript / Maszynopis, Python, Go
 
-**Inteligentny kompilator kontraktów i wtyczka IDE**
+🔹**Inteligentny kompilator kontraktów i wtyczka IDE**
 
 - C # / VB.Net / F #, Visual Studio
 
@@ -54,7 +54,7 @@ Ekosystem to witalność społeczności open source. Aby osiągnąć cel, jakim 
 
 - Python / Ruby
 
-**Zdecentralizowane aplikacje**
+🔹 **Zdecentralizowane aplikacje**
 
 - Inteligentny fundusz
 
@@ -80,39 +80,69 @@ Ekosystem to witalność społeczności open source. Aby osiągnąć cel, jakim 
 
 - Rynek NeoGas
 
-Model zarządzania NEO
-Model ekonomiczny
+## Model zarządzania NEO
+
+### Model ekonomiczny
+
 NEO ma dwa rodzime tokeny, NEO (skrócone oznaczenie NEO) i NeoGas (skrócony symbol GAS).
+
 NEO, w sumie 100 milionów tokenów, reprezentuje prawo do zarządzania siecią. Prawa do zarządzania obejmują głosowanie na księgowość, zmiany parametrów sieci NEO i tak dalej. Minimalna jednostka NEO to 1, a żetonów nie można dzielić.
+
 GAS jest tokenem paliwa do realizacji kontroli zasobów sieci NEO, z maksymalnym całkowitym limitem 100 milionów. Sieć NEO pobiera opłatę za działanie i przechowywanie tokenów i inteligentnych umów, tworząc tym samym ekonomiczne zachęty dla księgowych i zapobiegając nadużyciom zasobów. Minimalna jednostka GAZU to 0,00000001.
+
 W bloku genesis sieci NEO generowane są 100 milionów NEO, GAS nie został jeszcze wygenerowany. 100 milionów GAS, odpowiadają 100 milionom NEO, które będą generowane przez algorytm w ciągu około 22 lat na wskazany adres NEO. Jeśli NEO zostanie przeniesiony na nowy adres, kolejny wygenerowany GAS zostanie przekazany na nowy adres.
+
 Sieć NEO ustali próg, głosując w celu zwolnienia GAS z pewnej liczby transakcji transferowych i inteligentnych operacji kontraktowych, aby zwiększyć zadowolenie użytkowników. Kiedy dochodzi do znacznej ilości transakcji spamowych, NeoID może służyć do priorytetyzacji transakcji i inteligentnych umów z kwalifikowanymi tożsamościami. Transakcje i inteligentne umowy bez kwalifikujących tożsamości cyfrowych mogą uzyskać pierwszeństwo, płacąc GAS.
 
-Mechanizm dystrybucji
+### Mechanizm dystrybucji
+
 Dystrybucja NEO:
+
 100 milionów tokenów NEO podzielono na dwie części. Pierwsza część to 50 milionów tokenów rozdzielanych proporcjonalnie do zwolenników NEO podczas finansowania społecznościowego. Ta część została rozprowadzona.
+
 Druga część to 50 milionów NEO zarządzanych przez Radę NEO w celu wspierania długofalowego rozwoju, eksploatacji i utrzymania NEO oraz ekosystemu. NEO w tej części ma okres blokady wynoszący 1 rok i jest odblokowany dopiero od 16 października 2017 r. Ta część nie wejdzie na giełdy i jest tylko do długoterminowego wsparcia projektów NEO. Plany są następujące:
+
 🔹 10 milionów tokenów (łącznie 10%) zostanie wykorzystanych do zmotywowania twórców NEO i członków Rady NEO
+
 🔹 10 milionów tokenów (łącznie 10%) zostanie wykorzystanych do zmotywowania deweloperów w ekosystemie NEO
+
 🔹 15 milionów żetonów (łącznie 15%) zostanie wykorzystanych do zainwestowania w inne projekty blokowe, które są własnością Rady NEO i są wykorzystywane wyłącznie w projektach NEO
+
 🔹 15 milionów (łącznie 15%) zostanie zatrzymanych jako przypadek
+
 🔹 Roczne zużycie NEO nie powinno przekraczać 15 milionów żetonów
+
 Dystrybucja GAS:
+
 GAS generowany jest z każdym nowym blokiem. Początkowa całkowita ilość GAS wynosi zero. Wraz ze wzrostem wskaźnika generowania nowych bloków, całkowity limit 100 milionów GAS zostanie osiągnięty w ciągu około 22 lat. Odstęp między blokami wynosi około 15-20 sekund, a 2 miliony bloków generowane są w ciągu około jednego roku.
+
 Każdego roku zostanie wygenerowanych około 2 milionów bloków, a początkowa generacja wyniesie 8 GASów na blok. Roczna redukcja 1 GASu na blok, rocznie, zbiega się z zejściem co 2 miliony bloków. Redukcja spadnie do zaledwie 1 GASu na blok i będzie utrzymywana według tej stawki przez około 22 lata. Po 44-milionowym bloku całkowity wygenerowany GAS osiągnie 100 milionów i od tego momentu nie będzie już generowania GASu z nowych bloków.
+
 Zgodnie z krzywą uwalniania, w pierwszym roku powstanie 16% gazu, w ciągu pierwszych czterech lat powstanie 52% gazu, a w ciągu pierwszych 12 lat powstanie 80% gazu. Gazy te będą dystrybuowane proporcjonalnie zgodnie ze współczynnikiem zatrzymania NEO, zapisanym w odpowiednich adresach. Właściciele NEO mogą w dowolnym momencie zainicjować transakcję roszczenia i odebrać tokeny GAS na swoich adresach holdingowych.
-Mechanizm zarządzania
+
+### Mechanizm zarządzania
+
 Zarządzanie łańcuchem: Posiadacze tokenów NEO są właścicielami sieci i menedżerami, zarządzając siecią poprzez głosowanie w sieci, wykorzystując GAS wygenerowany z NEO do wykorzystania funkcji w sieci. Żetony NEO można przenosić.
+
 Zarządzanie poza łańcuchem: Rada NEO składa się z członków założycieli projektu NEO, zgodnie z którymi odpowiednio komitet zarządzający, komitet techniczny i sekretariat odpowiadają za podejmowanie strategicznych decyzji, podejmowanie decyzji technicznych i wdrażanie szczegółowe. Rada NEO jest odpowiedzialna przed społecznością NEO za promocję i rozwój ekosystemu NEO jako swój główny cel.
 
 
-Implementacja technologii NEO
-Mechanizm konsensusu: dBFT
+## Implementacja technologii NEO
+
+### Mechanizm konsensusu: dBFT
+
 DBFT nosi nazwę Delegowany Bizancjum, tolerancyjny błąd tolerancji, bizantyjski tolerancyjny mechanizm konsensusu, który umożliwia udział w konsensusie na dużą skalę poprzez głosowanie przez pełnomocnika. Posiadacz tokena NEO może, wybierając głos, wybrać księgowego, który obsługuje. Wybrana grupa księgowych, poprzez algorytm BFT, osiąga konsensus i generuje nowe bloki. Głosowanie w sieci NEO odbywa się w czasie rzeczywistym, a nie zgodnie z ustalonym terminem.
+
 DBFT zapewnia tolerancję błędu na poziomie f = ⌊ (n-1) / 3 ⌋ dla systemu konsensusu składającego się z n węzłów konsensusowych. Tolerancja na awarię obejmuje również bezpieczeństwo i dostępność, odporność na błędy ogólne i bizantyjskie i jest odpowiednia dla dowolnego środowiska sieciowego. dBFT ma dobrą ostateczność, co oznacza, że ​​po potwierdzeniu blok nie może być rozwidlony, a transakcja nie zostanie odwołana lub wycofana.
-W mechanizmie konsensusu NEO dBFT, uzyskanie około 15 do 20 sekund na wygenerowanie bloku, przepustowość transakcji jest mierzona do około 1000 TPS, co jest doskonałą wydajnością wśród sieci publicznych. Dzięki odpowiedniej optymalizacji istnieje potencjał osiągnięcia 10 000TPS, co pozwala na obsługę komercyjnych aplikacji na dużą skalę. DBFT łączy technologię cyfrowej tożsamości, co oznacza, że ​​księgowi mogą być prawdziwą nazwą osoby lub instytucji. W ten sposób możliwe jest zamrożenie, odwołanie, dziedziczenie, odzyskanie i przeniesienie własności z powodu orzeczeń sądowych na nich. Ułatwia to rejestrację zgodnych aktywów finansowych w sieci NEO. Sieć NEO planuje w razie potrzeby wspierać takie operacje.
-Inteligentny system kontraktowy: NeoContract
+
+W mechanizmie konsensusu NEO dBFT, uzyskanie około 15 do 20 sekund na wygenerowanie bloku, przepustowość transakcji jest mierzona do około 1000 TPS, co jest doskonałą wydajnością wśród sieci publicznych. Dzięki odpowiedniej optymalizacji istnieje potencjał osiągnięcia 10 000TPS, co pozwala na obsługę komercyjnych aplikacji na dużą skalę.
+
+DBFT łączy technologię cyfrowej tożsamości, co oznacza, że ​​księgowi mogą być prawdziwą nazwą osoby lub instytucji. W ten sposób możliwe jest zamrożenie, odwołanie, dziedziczenie, odzyskanie i przeniesienie własności z powodu orzeczeń sądowych na nich. Ułatwia to rejestrację zgodnych aktywów finansowych w sieci NEO. Sieć NEO planuje w razie potrzeby wspierać takie operacje.
+
+### Inteligentny system kontraktowy: NeoContract
+
 Inteligentny system kontraktowy NEO składa się z trzech części:
+
 NeoVM - wirtualna maszyna uniwersalnego łańcucha blokowego:
 NeoVM to lekka maszyna wirtualna ogólnego zastosowania, której architektura jest bardzo zbliżona do JVM i .NET Runtime, podobnie jak wirtualny procesor, który odczytuje i wykonuje instrukcje w umowie w sekwencji, wykonuje kontrolę procesu na podstawie funkcjonalności operacji instrukcji, operacje logiczne i tak dalej. Ma dobrą prędkość początkową i wszechstronność, jest bardzo odpowiedni dla małych programów, takich jak inteligentne kontrakty, może być również przeniesiony do systemów innych niż blockchain lub zintegrowany z IDE, aby zapewnić optymalne doświadczenie rozwoju. Funkcjonalność NeoVM można rozszerzyć, np. Wprowadzając mechanizm JIT (kompilator czasu rzeczywistego), zwiększając tym samym efektywność implementacji.
 InteropService - Interoperable Services:
