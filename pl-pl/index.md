@@ -164,6 +164,9 @@ NeoX to protokół implementujący interoperacyjność między łańcuchami. Neo
 
 NeoX został rozszerzony na istniejące dwupasmowe protokoły wymiany atomowej aktywów, aby umożliwić wielu uczestnikom wymianę aktywów pomiędzy różnymi łańcuchami i zapewnienie, że wszystkie kroki w całym procesie transakcji powiodły się lub zawiodły razem. Aby osiągnąć tę funkcję, musimy użyć funkcji NeoContract, aby utworzyć konto kontraktowe dla każdego uczestnika. Jeśli inne łańcuchy blokowe nie są kompatybilne z NeoContract, mogą być kompatybilne z NeoX, o ile mogą zapewnić prostą funkcjonalność inteligentnego kontraktu.
 
+**Protokół transakcji rozproszonych między łańcuchami:**
+
+Transakcje rozproszone między dwoma łańcuchami oznaczają, że wiele etapów transakcji jest rozproszonych w różnych blokach i że zapewniona jest spójność całej transakcji. To jest przedłużenie łańcucha wymiana aktywów łańcucha, wydłużenie zachowania wymiany aktywów w arbitralne zachowanie. W kategoriach laika, NeoX umożliwia inteligentne kontrakty między różnymi łańcuchami, w których inteligentny kontrakt może wykonywać różne części w wielu łańcuchach, albo sukces albo odwrócenie jako całość. Daje to doskonałe możliwości współpracy między sieciami, a także analizujemy scenariusze aplikacji dotyczących inteligentnego kontraktu między różnymi łańcuchami.
 
 **Mechanizm kryptografii anty-kwantowej: NeoQS**
 
@@ -178,10 +181,10 @@ NEO to rozproszona sieć łącząca cyfrowe zasoby, cyfrową tożsamość i inte
 
 
 
-**Protokół transakcji rozproszonych między łańcuchami:**
-Transakcje rozproszone między dwoma łańcuchami oznaczają, że wiele etapów transakcji jest rozproszonych w różnych blokach i że zapewniona jest spójność całej transakcji. To jest przedłużenie łańcucha wymiana aktywów łańcucha, wydłużenie zachowania wymiany aktywów w arbitralne zachowanie. W kategoriach laika, NeoX umożliwia inteligentne kontrakty między różnymi łańcuchami, w których inteligentny kontrakt może wykonywać różne części w wielu łańcuchach, albo sukces albo odwrócenie jako całość. Daje to doskonałe możliwości współpracy między sieciami, a także analizujemy scenariusze aplikacji dotyczących inteligentnego kontraktu między różnymi łańcuchami.
 
-Protokół rozproszenia pamięci masowej: NeoFS
+
+**Protokół rozproszenia pamięci masowej: NeoFS**
+
 NeoFS to rozproszony protokół pamięci masowej wykorzystujący technologię Distributed Hash Table (DHT). NeoFS indeksuje dane poprzez zawartość pliku (skrót) zamiast ścieżki pliku (URI). Duże pliki zostaną podzielone na bloki o stałych rozmiarach, które są dystrybuowane i przechowywane w wielu różnych węzłach.
 Głównym problemem tego typu systemu jest potrzeba znalezienia równowagi między redundancją a niezawodnością. NeoFS planuje rozwiązać tę sprzeczność za pomocą zachęt symbolicznych i ustanowienia węzłów szkieletowych. Użytkownicy mogą wybrać wymagania dotyczące niezawodności pliku. Pliki o niskich wymaganiach dotyczących niezawodności można przechowywać i uzyskiwać do nich dostęp za darmo lub prawie za darmo. Stabilne i niezawodne usługi dla plików o wysokim stopniu niezawodności będą dostarczane przez węzły szkieletowe.
 NeoFS będzie służyć jako jedna z usług interoperacyjności InteropService w ramach systemu NeoContract, umożliwiając inteligentnym kontraktom przechowywanie dużych plików w sieci blockchain i zapewniającym dostęp do tych plików. Ponadto, NeoFS można łączyć z cyfrową tożsamością, aby cyfrowe certyfikaty używane przez cyfrowe tożsamości mogły być przypisywane, wysyłane i unieważniane bez centralnego serwera do zarządzania nimi. W przyszłości stare dane bloków mogą być przechowywane w NeoFS, więc większość pełnych węzłów może uwolnić stare dane w celu zwiększenia skalowalności, a jednocześnie zapewnić integralność danych historycznych.
