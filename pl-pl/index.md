@@ -143,9 +143,12 @@ DBFT łączy technologię cyfrowej tożsamości, co oznacza, że ​​księgowi
 
 Inteligentny system kontraktowy NEO składa się z trzech części:
 
-NeoVM - wirtualna maszyna uniwersalnego łańcucha blokowego:
+**NeoVM - wirtualna maszyna uniwersalnego łańcucha blokowego:**
+
 NeoVM to lekka maszyna wirtualna ogólnego zastosowania, której architektura jest bardzo zbliżona do JVM i .NET Runtime, podobnie jak wirtualny procesor, który odczytuje i wykonuje instrukcje w umowie w sekwencji, wykonuje kontrolę procesu na podstawie funkcjonalności operacji instrukcji, operacje logiczne i tak dalej. Ma dobrą prędkość początkową i wszechstronność, jest bardzo odpowiedni dla małych programów, takich jak inteligentne kontrakty, może być również przeniesiony do systemów innych niż blockchain lub zintegrowany z IDE, aby zapewnić optymalne doświadczenie rozwoju. Funkcjonalność NeoVM można rozszerzyć, np. Wprowadzając mechanizm JIT (kompilator czasu rzeczywistego), zwiększając tym samym efektywność implementacji.
-InteropService - Interoperable Services:
+
+**InteropService - Interoperable Services:**
+
 Służy do ładowania księgi blockchain, zasobów cyfrowych, tożsamości cyfrowej, trwałego obszaru pamięci, systemu NeoFS i innych usług podstawowych. Są jak maszyny wirtualne, które są dostarczane dla maszyn wirtualnych, umożliwiając inteligentnym kontraktom dostęp do tych usług w czasie wykonywania w celu osiągnięcia niektórych zaawansowanych funkcji. Dzięki tej konstrukcji o niskim sprzężeniu, NeoVM może zostać przeniesiony do dowolnego systemu blockchain lub nawet bez blockchain, zwiększając użyteczność inteligentnych kontraktów.
 DevPack - Wtyczka kompilatora i IDE:
 DevPack zawiera kompilator języka wysokiego poziomu i wtyczkę IDE. Ponieważ architektura NeoVM jest bardzo podobna do JVM i .NET Runtime, kompilatory w DevPack mogą kompilować kod bajtowy Java i .NET MSIL do zestawu instrukcji NeoVM. Programiści Java / Kotlin, C # nie muszą uczyć się nowych języków i będą mogli natychmiast rozpocząć tworzenie inteligentnych kontraktów w VS, Eclipse i innych znanych środowiskach IDE. To znacznie zmniejsza krzywą uczenia się tworzenia inteligentnych kontraktów, co pozwala nam łatwo budować dynamiczną społeczność wokół NeoContract.
