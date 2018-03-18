@@ -150,11 +150,17 @@ NeoVM to lekka maszyna wirtualna ogólnego zastosowania, której architektura je
 **InteropService - Interoperable Services:**
 
 Służy do ładowania księgi blockchain, zasobów cyfrowych, tożsamości cyfrowej, trwałego obszaru pamięci, systemu NeoFS i innych usług podstawowych. Są jak maszyny wirtualne, które są dostarczane dla maszyn wirtualnych, umożliwiając inteligentnym kontraktom dostęp do tych usług w czasie wykonywania w celu osiągnięcia niektórych zaawansowanych funkcji. Dzięki tej konstrukcji o niskim sprzężeniu, NeoVM może zostać przeniesiony do dowolnego systemu blockchain lub nawet bez blockchain, zwiększając użyteczność inteligentnych kontraktów.
-DevPack - Wtyczka kompilatora i IDE:
-DevPack zawiera kompilator języka wysokiego poziomu i wtyczkę IDE. Ponieważ architektura NeoVM jest bardzo podobna do JVM i .NET Runtime, kompilatory w DevPack mogą kompilować kod bajtowy Java i .NET MSIL do zestawu instrukcji NeoVM. Programiści Java / Kotlin, C # nie muszą uczyć się nowych języków i będą mogli natychmiast rozpocząć tworzenie inteligentnych kontraktów w VS, Eclipse i innych znanych środowiskach IDE. To znacznie zmniejsza krzywą uczenia się tworzenia inteligentnych kontraktów, co pozwala nam łatwo budować dynamiczną społeczność wokół NeoContract.
-NeoContract może utworzyć inteligentne drzewo połączeń kontraktowych za pomocą analizy statycznej przed uruchomieniem inteligentnego kontraktu. Dzięki deterministycznemu drzewu wywołań węzeł NEO może dynamicznie dzielić inteligentny kontrakt, aby osiągnąć teoretycznie nieograniczoną ekspansję, która pokonuje "efekt zagłuszania" spowodowany statyczną fragmentacją innych systemów łańcucha bloków.
-Umowa o interoperacyjności między różnymi sieciami: NeoX
+
+**DevPack - Wtyczka kompilatora i IDE:**
+
+DevPack zawiera kompilator języka wysokiego poziomu i wtyczkę IDE. Ponieważ architektura NeoVM jest bardzo podobna do JVM i .NET Runtime, kompilatory w DevPack mogą kompilować kod bajtowy Java i .NET MSIL do zestawu instrukcji NeoVM. Programiści Java / Kotlin, C # nie muszą uczyć się nowych języków i będą mogli natychmiast rozpocząć tworzenie inteligentnych kontraktów w VS, Eclipse i innych znanych środowiskach IDE. **To znacznie zmniejsza krzywą uczenia się tworzenia inteligentnych kontraktów, co pozwala nam łatwo budować dynamiczną społeczność wokół NeoContract.**
+
+NeoContract może utworzyć inteligentne drzewo połączeń kontraktowych za pomocą analizy statycznej przed uruchomieniem inteligentnego kontraktu. **Dzięki deterministycznemu drzewu wywołań węzeł NEO może dynamicznie dzielić inteligentny kontrakt, aby osiągnąć teoretycznie nieograniczoną ekspansję,** która pokonuje "efekt zagłuszania" spowodowany statyczną fragmentacją innych systemów łańcucha bloków.
+
+### Umowa o interoperacyjności między różnymi sieciami: NeoX
+
 NeoX to protokół implementujący interoperacyjność między łańcuchami. NeoX dzieli się na dwie części: "protokół wymiany aktywów między łańcuchami" i "protokół transakcji rozproszonych między łańcuchami".
+
 Umowa wymiany aktywów między łańcuchami:
 NeoX został rozszerzony na istniejące dwupasmowe protokoły wymiany atomowej aktywów, aby umożliwić wielu uczestnikom wymianę aktywów pomiędzy różnymi łańcuchami i zapewnienie, że wszystkie NeoX to protokół implementujący interoperacyjność między łańcuchami. NeoX dzieli się na dwie części: "protokół wymiany aktywów między łańcuchami" i "protokół transakcji rozproszonych między łańcuchami".
 Mechanizm kryptografii anty-kwantowej: NeoQS
