@@ -35,10 +35,49 @@ change_address：找零地址，可选参数，默认为钱包中第一个标准
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "sendmany",
-  "params": [[{"asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4","value": 1,"address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"},{"asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4","value": 1,"address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"}]],
-  "id": 1
+    "jsonrpc": "2.0",
+    "method": "sendmany",
+    "params": [
+        [
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            },
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            }
+        ]
+    ],
+    "id": 1
+}
+```
+
+请求正文（包含手续费和找零地址）：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "sendmany",
+    "params": [
+        [
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            },
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            }
+        ],
+        0,
+        "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+    ],
+    "id": 1
 }
 ```
 
