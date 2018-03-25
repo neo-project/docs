@@ -2,11 +2,11 @@
 
    1. 创建library项目，引入智能合约库,添加自己的代码。
    2. 编译neo-compiler/neoa编译生成编译器。
-   3. 执行命令运行neoa转换获得vm文件。
+   3. 执行命令运行neoa转换获得avm文件。
 
-## 2. 新建项目
+## 2. 新建合约项目
 
-### 使用dotnet命令行创建libaray项目
+### dotnet命令行创建libaray项目
 
     mkdir NeoContractDemo
     cd ./NeoContractDemo/
@@ -37,13 +37,13 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/neo_addpackage.png)
 
-### 编译
+### 编译智能合约项目
 
     dotnet publish -o ../testlib
 
 ![](../../assets/build_neo_contract_project.png)
 
-## 3. neo-compiler
+## 2. neo-compiler
 
     cd ..
     git clone https://github.com/neo-project/neo-compiler.git
@@ -52,7 +52,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/build_neo_neoa.png)
 
-### 生成avm文件
+## 3. 生成avm文件
 
     cd ../../testlib
     dotnet neon.dll NeoContractDemo.dll
