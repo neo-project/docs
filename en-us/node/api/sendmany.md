@@ -36,10 +36,49 @@ Request body：
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "sendmany",
-  "params": [[{"asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4","value": 1,"address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"},{"asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4","value": 1,"address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"}]],
-  "id": 1
+    "jsonrpc": "2.0",
+    "method": "sendmany",
+    "params": [
+        [
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            },
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            }
+        ]
+    ],
+    "id": 1
+}
+```
+
+Request body (system fee and change address included)
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "sendmany",
+    "params": [
+        [
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            },
+            {
+                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "value": 1,
+                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+            }
+        ],
+        0,
+        "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+    ],
+    "id": 1
 }
 ```
 
@@ -95,7 +134,7 @@ Response body:
 
 Response Description:
 
-Returns the transaction details as above to indicate that the transaction was sent successfully or the transaction failed.
+Returns the transaction details as above if the transaction was sent successfully; otherwise the transaction is failed.
 
 If the JSON format is incorrect, a Parse error is returned.
 If the signature is incomplete, a pending transaction is returned.
