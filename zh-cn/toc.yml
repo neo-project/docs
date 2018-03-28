@@ -103,6 +103,8 @@
       href: sc/getting-started-csharp.md
     - name: 如何开始（C#）for macOS
       href: sc/getting-started-csharp-mac.md
+    - name: 如何开始（C#）for ubuntu
+      href: sc/getting-started-csharp-ubuntu.md
     - name: 如何开始（Java）
       href: sc/getting-started-java.md
     - name: 如何开始（Python）

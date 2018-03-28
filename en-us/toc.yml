@@ -99,6 +99,8 @@
       href: sc/introduction.md
     - name: Getting Started (C#)
       href: sc/getting-started-csharp.md
+    - name: Getting Started (C#) for macOS
+      href: sc/getting-started-csharp-mac.md 
     - name: Getting Started (Java)
       href: sc/getting-started-java.md
     - name: Getting Started (Python)
