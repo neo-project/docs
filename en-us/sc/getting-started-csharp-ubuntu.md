@@ -1,14 +1,14 @@
-# 在 ubuntu 上如何用 C# 编写智能合约
+# How to write smart contracts in C# on ubuntu
 
-在 ubuntu 中使用C#编写智能合约，需要进行如下操作：
+To develop smart contracts in C# on ubuntu, basically you need to do the following:
 
-   1. 创建 library 项目，编写代码，引入智能合约库。
-   2. 编译 neo-compiler/neon 生成编译器。
-   3. 执行命令运行 neon 生成.avm 文件。
+      1. Create a library project, write code, and add the smart contract library.
+   2. Execute neo-compiler/neon to generate the compiler.
+      3. Run neon to generate the .avm file.
 
-## 新建合约项目
+## Create a smart contract project
 
-1. 在 dotnet 命令行中创建 library 项目:
+1. In the dotnet command line, create a library project:
 
 ```
 mkdir NeoContractDemo
@@ -20,7 +20,7 @@ vim NeoContractDemo.cs
 
 ![](../../assets/create_neo_contract.png)
 
-2. 键入下面代码后按 `ESC`+`wq!` 保存退出。
+2. In NeoContractDemo.cs, enter the following code and then press `ESC`+`wq!` .
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -35,7 +35,7 @@ public class NeoContractDemo: SmartContract
 }
 ```
 
-3. 添加智能合约引用：
+3. Add the smart contract reference:
 
     ```
     dotnet add package Neo.SmartContract.Framework --version 2.5.4
@@ -43,7 +43,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/neo_addpackage.png)
 
-4. 编译智能合约项目：
+4. Compile the smart contract project：
 
     ```
     dotnet publish -o ../testlib
@@ -51,7 +51,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/build_neo_contract_project.png)
 
-## 生成编译器
+## Generate the compiler
 
     cd ..
     git clone https://github.com/neo-project/neo-compiler.git
@@ -60,7 +60,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/build_neo_neoa.png)
 
-## 生成 .avm 文件
+## Generate the .avm file
 
     cd ../../testlib
     dotnet neon.dll NeoContractDemo.dll
@@ -69,4 +69,4 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/neo_contract_build_avm.png)
 
-(完整脚本参考)[https://raw.githubusercontent.com/hunjixin/NeoContractBuildScriptOnUbuntu/master/SmartContract.sh]
+For complete scripts, refer to https://raw.githubusercontent.com/hunjixin/NeoContractBuildScriptOnUbuntu/master/SmartContract.sh
