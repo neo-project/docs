@@ -1,10 +1,10 @@
 # 在 ubuntu 上如何用 C# 编写智能合约
 
-   1. 创建library项目，引入智能合约库,添加自己的代码。
+   1. 创建library项目，引入智能合约类库,添加自己的代码。
    2. 编译neo-compiler/neoa编译生成编译器。
    3. 执行命令运行neoa转换获得avm文件。
 
-## 2. 新建合约项目
+## 1. 新建合约项目
 
 ### dotnet命令行创建libaray项目
 
@@ -31,7 +31,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/create_neo_contract.png)
 
-### 添加智能合约引用
+### 添加智能合约类库引用
 
     dotnet add package Neo.SmartContract.Framework --version 2.5.4
 
@@ -43,7 +43,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/build_neo_contract_project.png)
 
-## 2. neo-compiler
+## 2. 编译neo-compiler
 
     cd ..
     git clone https://github.com/neo-project/neo-compiler.git
@@ -52,7 +52,7 @@ public class NeoContractDemo: SmartContract
 
 ![](../../assets/build_neo_neoa.png)
 
-## 3. 生成avm文件
+## 3. 生成.avm文件
 
     cd ../../testlib
     dotnet neon.dll NeoContractDemo.dll
@@ -60,6 +60,7 @@ public class NeoContractDemo: SmartContract
     cp NeoContractDemo.avm ../output/NeoContractDemo.avm
 
 ![](../../assets/neo_contract_build_avm.png)
+
 
 完整脚本参考：
 [https://raw.githubusercontent.com/hunjixin/NeoContractBuildScriptOnUbuntu/master/SmartContract.sh]
