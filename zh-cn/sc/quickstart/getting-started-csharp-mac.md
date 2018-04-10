@@ -8,11 +8,11 @@
 
 安装时只需勾选基本功能，无需安装 Android / iOS / macOS 等平台组件。
 
-![](assets/mac1.png)
+![](../assets/mac1.png)
 
-![](assets/mac2.png)
+![](../assets/mac2.png)
 
-![](assets/mac3.png)
+![](../assets/mac3.png)
 
 > [!Note]
 > 基本安装全程大约需要几十分钟，如果勾选了 Android / iOS / macOS 平台，其安装时间可能会需要数小时，而且由于网络情况，可能会失败 N 次，所以不建议勾选平台组件。
@@ -21,14 +21,14 @@
 
 打开 Visual Studio for Mac，新建项目，选择 .NET Standard Library（.NET Core → Library）。
 
-![](assets/mac4.png)
+![](../assets/mac4.png)
 
 > [!Note]
 > 新建项目时 .NET Core 版本请选择 2.0，因为如果选择 1.x 后，接下来添加 “Neo.SmartContract.Framework” 时会失败。
 
 然后右击 `Dependencies`，单击 `Add Packages...`，搜索 “neo” ，选择 “Neo.SmartContract.Framework”，点击 `Add Package`。
 
-![](assets/mac5.png)
+![](../assets/mac5.png)
 
 程序开始添加 NEO 智能合约框架，该过程大约需要几分钟。
 
@@ -72,7 +72,7 @@ public class Class1: SmartContract
 
 下载并安装  [.NET Core 2.0.3](https://www.microsoft.com/net/download/macos )。
 
-![](assets/mac8.png)
+![](../assets/mac8.png)
 
 ### 5. 输入命令
 
@@ -106,7 +106,7 @@ dotnet neon.dll test1.dll
 
 即可开始编译，此处的 test1.dll 是第二步最后生成的文件。
 
-![](assets/mac9.png)
+![](../assets/mac9.png)
 
 ```
 Neo.Compiler.MSIL console app v2.0.1.0 
@@ -118,7 +118,7 @@ SUCC
 
 编译器输出如上内容，编译成功，在目录中会生成 test1.avm 文件。
 
-![](assets/mac10.png)
+![](../assets/mac10.png)
 
 
 
