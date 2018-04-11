@@ -19,12 +19,12 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 1. 将程序目录下的 `protocol.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图。
 
 
-![](/assets/testnet_1_v2.png)
+![](../../assets/testnet_1_v2.png)
 
 2. 将程序（GUI）目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图
 
 
-![](/assets/testnet_2_v2.png)
+![](../../assets/testnet_2_v2.png)
 
 注：旧版客户端此步是将 `neo-gui.testnet.config` 里的内容复制到 `neo-gui.exe.config`（替换原有配置文件）。
 
@@ -47,7 +47,7 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 ### 第 2 步 - 填写申请
 
 填写申请表：https://www.neo.org/Testnet/Create ，需要指定你的邮箱和公钥。
-一般一天后将收到邮件回复，包含一个多方签名地址和发件人的公钥。关于多方签名地址，请参见[使用 NEO-GUI 客户端](gui.md)。
+一般一天后将收到邮件回复，包含一个多方签名地址和发件人的公钥。关于多方签名地址，请参见[使用 NEO-GUI 客户端](../node/gui.md)。
 
 ### 第 3 步 - 创建多方签名地址
 

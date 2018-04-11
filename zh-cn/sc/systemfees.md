@@ -36,7 +36,7 @@
 | Storage.Delete               | 0.1           |
 | 其它（每行OpCode）            | 0.001         |
 
-关于表格中API的含义，请参见[NEO命名空间](api/neo.md)。
+关于表格中API的含义，请参见 [NEO命名空间](reference/api/neo.md)。
 
 \* 创建智能合约与迁移智能合约目前是根据合约所需功能进行收费。其中基础的费用为 100GAS，需要存储区 +400GAS，需要动态调用 +500GAS。
 

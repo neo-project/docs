@@ -2,7 +2,7 @@
 
 阅读本文前先要阅读有以下教程：
 
-[如何用 C# 编写 NEO 智能合约](../getting-started-csharp.md)
+[如何用 C# 编写 NEO 智能合约](../quickstart/getting-started-csharp.md)
 
 [NEO 智能合约教程](../tutorial.md)
 

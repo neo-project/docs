@@ -18,7 +18,7 @@ rm ./Class1.cs
 vim NeoContractDemo.cs
 ```
 
-![](../../assets/create_neo_contract.png)
+![](../../../assets/create_neo_contract.png)
 
 2. 键入下面代码后按 `ESC`+`wq!` 保存退出。
 
@@ -41,7 +41,7 @@ public class NeoContractDemo: SmartContract
     dotnet add package Neo.SmartContract.Framework --version 2.5.4
     ```
 
-![](../../assets/neo_addpackage.png)
+![](../../../assets/neo_addpackage.png)
 
 4. 编译智能合约项目：
 
@@ -49,7 +49,7 @@ public class NeoContractDemo: SmartContract
     dotnet publish -o ../testlib
     ```
 
-![](../../assets/build_neo_contract_project.png)
+![](../../../assets/build_neo_contract_project.png)
 
 ## 生成编译器
 
@@ -58,7 +58,7 @@ public class NeoContractDemo: SmartContract
     cd  ./neo-compiler/neon
     dotnet publish -o ../../testlib
 
-![](../../assets/build_neo_neoa.png)
+![](../../../assets/build_neo_neoa.png)
 
 ## 生成 .avm 文件
 
@@ -67,6 +67,6 @@ public class NeoContractDemo: SmartContract
     mkdir ../output
     cp NeoContractDemo.avm ../output/NeoContractDemo.avm
 
-![](../../assets/neo_contract_build_avm.png)
+![](../../../assets/neo_contract_build_avm.png)
 
 (完整脚本参考)[https://raw.githubusercontent.com/hunjixin/NeoContractBuildScriptOnUbuntu/master/SmartContract.sh]
