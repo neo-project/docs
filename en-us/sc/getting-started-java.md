@@ -125,7 +125,7 @@ After the above installation is complete you can create a Java project (e.g. usi
 You need to compile the .jar package of smart contract from the neo java devpack project ([neo-devpack-java](https://github.com/neo-project/neo-devpack-java)) and add it as an external library.
 
 
-## Compile the Project
+## Compile the Java Project
 
 Everything is now ready to add the entry method that defines the smart contract:
 
@@ -145,6 +145,18 @@ public class HelloWorld extends SmartContract {
 
 Build the project which will give you `HelloWorld.class` in your out folder.
 
+Alternatively, you can build from the command line in Mac OS.
+
+**Mac OS:**
+
+`cd /path/to/HelloWorld/project`
+
+`javac -cp /path/to/org.neo.smartcontract.framework.jar HelloWorld.java`
+
+You should now have a HelloWorld.class in the same directory as HelloWorld.java
+
+## Transform HelloWorld.class to HelloWorld.avm
+
 **Windows:**
 
 Then using neoj, run cmd.exe and execute:
@@ -152,7 +164,7 @@ Then using neoj, run cmd.exe and execute:
 
 **Linux:**
 
-Copy the jar in the dotnet's folder. For example:
+Copy the jar into the dotnet's folder. For example:
 
 `sudo cp org.neo.smartcontract.framework.jar /usr/share/dotnet`
 
@@ -166,9 +178,12 @@ Copy the jar to the neo-compiler's neoj folder. For example:
 
 `sudo cp org.neo.smartcontract.framework.jar /path/to/neo-compiler/neoj`
 
-and then from the neoj folder call
+Also copy HelloWorld.class to the neoj folder. For example:
+`sudo cp HelloWorld.class /path/to/neo-compiler/neoj`
 
-> dotnet run org.neo.smartcontract.framework.jar
+Then from the neoj folder call
+
+> dotnet run HelloWorld.class
 
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.
