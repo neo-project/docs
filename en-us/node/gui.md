@@ -2,7 +2,7 @@
 
 > [!Note]
 >
-> Unless otherwise stated,  this article introduces the NEO-GUI running on the test net. For more information, refer to [Test Network](testnet.md).
+> Unless otherwise stated,  this article introduces the NEO-GUI running on the test net. For more information, refer to [Test Network](../network/testnet.md).
 
 ## Downloading the client
 
@@ -18,7 +18,7 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 
 The client must be fully synchronized before use. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height. When you open a wallet, the wallet height data is displayed.  These numbers update regularly.
 
-![image](/assets/gui_1.png)
+![image](../../assets/gui_1.png)
 
 In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
 
@@ -26,7 +26,7 @@ In order to speed up network synchronization you can download an offline package
 
 2. Close the neo-gui client and copy chain.acc.zip to the neo-gui folder as shown in the figure below:
 
-   ![](/assets/gui_58.png)
+   ![](../../assets/gui_58.png)
 
    > [!Note]
    >
@@ -36,7 +36,7 @@ In order to speed up network synchronization you can download an offline package
 
 
 
-You can also use the NEO-CLI command `export blocks` to export the synchronized block data to a package. For more information,  see  [CLI Command Reference](cli.md).
+You can also use the NEO-CLI command `export blocks` to export the synchronized block data to a package. For more information,  see  [CLI Command Reference](cli/cli.md).
 
 ## Wallet
 A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
@@ -49,15 +49,15 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 
 1. Click `Wallet`, `New Wallet Database`.
 
-   ![image](/assets/gui_2.png)
+   ![image](../../assets/gui_2.png)
 
 2. Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
 
-   ![image](/es-es/node/assets/gui/gui_3.png)
+   ![image](../../es-es/node/assets/gui/gui_3.png)
 
 3. Enter `Password` and `Re-Password` and save your own password.
 
-   ![image](/assets/gui_4.png)
+   ![image](../../assets/gui_4.png)
 
 4. Click `OK` and the wallet is successfully created, which by default comes with a standard account. 
 
@@ -104,7 +104,7 @@ Clicking on the `Transaction History` tab you can view all the transaction recor
 
 1. Every time the client is re-opened, you need to click `open wallet database` to select which wallet file to open, as the picture shows:
 
-   ![image](/assets/gui_5.png)
+   ![image](../../assets/gui_5.png)
 
 2. Click `Browse` to select the wallet (usually the default is the last open wallet)
 
@@ -124,7 +124,7 @@ Clicking on the `Transaction History` tab you can view all the transaction recor
 
 You can modify the wallet password.
 
-![image](/assets/gui_6.png)
+![image](../../assets/gui_6.png)
 
 After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
 
@@ -150,17 +150,17 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 2. Do one of the following:
 
    1. To transfer to a single address, click  `+` and enter the transfer information, e.g. assets type, recipient address, and amount.
-   2. To transfer to a batch of addresses, click ![image](/assets/gui_icon.png) and enter pairs of the address and amount separated by a space, as shown below: 
+   2. To transfer to a batch of addresses, click ![image](../../assets/gui_icon.png) and enter pairs of the address and amount separated by a space, as shown below: 
 
-   ![image](/assets/gui_15.png)
+   ![image](../../assets/gui_15.png)
 
-3. Click `OK`. If need be, click ![image](/assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
+3. Click `OK`. If need be, click ![image](../../assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
 
 4. Double-check the transfer information and then click `OK`.
 
    For token asset transfer, the transaction is completed with the transaction ID displayed.
 
-   ![image](/assets/txid.png)
+   ![image](../../assets/txid.png)
 
    For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#Signature).
 
@@ -175,11 +175,11 @@ For transactions involving equity allocation and asset exchange, the signature i
 
    At the same time, the `Broadcast` button is displayed.
 
-   ![image](/assets/signature.png)
+   ![image](../../assets/signature.png)
 
 3. Click  `Broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
 
-![image](/assets/gui_30.png)
+![image](../../assets/gui_30.png)
 
 ### Assets Exchange
 
@@ -200,7 +200,7 @@ Take the operations made on A side as an example:
 
 3. Click `Initiate` to generate the transaction request. Cope the request that appears and send it to B. Then click `Close`.
 
-   ![image](/assets/tranrequest.png)
+   ![image](../../assets/tranrequest.png)
 
 4. The merging request page is displayed. Wait for the transaction request sent from B.
 
@@ -212,7 +212,7 @@ Take the operations made on A side as an example:
 
 1. In the merging request page, paste the request sent from B into the counterparty request field. Click `Validate`.
 
-   ![image](/assets/gui_20.png)
+   ![image](../../assets/gui_20.png)
 
 2. Verify the transaction information. Click `Accept` if no issue.
 
@@ -240,13 +240,13 @@ To create a multi-party signed address:
 
 3. Specify the minimal number of signatures.
 
-   ![image](/assets/multisign.png)
+   ![image](../../assets/multisign.png)
 
 4. Click OK.
 
 The contract address is created and displayed in the account page.
 
-![image](/assets/multisign2.png)
+![image](../../assets/multisign2.png)
 
 ### Claiming GAS
 
@@ -257,18 +257,18 @@ The specific steps are:
 1. Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
 2. Click `Advanced`, `Claim GAS`, `Claim All`.
 
-![image](/assets/gui_37.png)
+![image](../../assets/gui_37.png)
 
 ### Requesting a certificate
 
 Note that this feature can only generate a certificate application file, the user will still need to go to the relevant digital certificate authority to apply for a certificate.
 Click `Advanced`, `Request certificate`, and fill in the request form according to the instructions given.
 
-![image](/assets/gui_39.png)
+![image](../../assets/gui_39.png)
 
 The generated file will be as shown in the following figure:
 
-![image](/zh-cn/node/assets/y.png)
+![image](../../zh-cn/node/assets/y.png)
 
 ### Registering assets
 
@@ -292,7 +292,7 @@ There are two types of assets, Token and Share. Taking Token assets as an exampl
 
    - Issuer: The address of the asset to be distributed.
 
-     ![image](/assets/gui_43.png)
+     ![image](../../assets/gui_43.png)
 
 2. Assets registration is implemented by invoking the smart contract. In the Invoke Contract page, click `Test` . 
 
@@ -327,7 +327,7 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
    Once the distribution is complete, you can see the user-created assets is displayed in your wallet.
 
-![image](/assets/gui_46.png)
+![image](../../assets/gui_46.png)
 
 ### NEP-5 Assets
 
@@ -337,6 +337,6 @@ The NEO-GUI client supports NEP-5 assets transactions. To make a NEP-5 asset tra
 
 This function is used to register as a NEO blockchain validator candidate.
 
-![image](/assets/gui_57.png)
+![image](../../assets/gui_57.png)
 
 It should be noted that the election incurs a significant fee. (The main network fee is 1000 GAS, test network fee is 10 GAS) Please exercise caution. The validator function is not available yet, please wait for further updates.
