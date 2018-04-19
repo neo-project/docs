@@ -129,7 +129,7 @@
           href: sc/quickstart/getting-started-csharp-ubuntu.md
         - name: Using Java
           href: sc/quickstart/getting-started-java.md
-        - name: 使用 Python
+        - name: Using Python
           href: sc/quickstart/getting-started-python.md
       - name: Limitations
         href: sc/quickstart/limitation.md
