@@ -3,7 +3,7 @@ Nodes that store all of the blockchain are called “full-nodes”. They are con
 
 There are two full-node programs. The first one is Neo-GUI, it has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. The second one is Neo-CLI, it provides an external API for basic wallet functions and is intended for NEO developers. It will also help other nodes achieve consensus with the network and will be involved in generating new blocks.
 
-The NEO [network protocol](network-protocol.md) will provide a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
+The NEO [network protocol](../network/network-protocol.md) will provide a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
 
 ## NEO node download address
 
@@ -51,4 +51,4 @@ If you want an external program to access the node's API, an open firewall port 
 | P2P via TCP        | 10333        | 20333         |
 | P2P via WebSocket  | 10334        | 20334         |
 
-For more information, please refer to [test network](testnet.md).
+For more information, please refer to [test network](../network/testnet.md).

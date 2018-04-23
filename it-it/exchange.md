@@ -16,7 +16,7 @@ In genere, un exchange ha bisogno di fare quanto segue:
 
 Per implementare un nodo NEO sul server exchange, esegui quanto segue:
 
-1.  Installare [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 1.0.1 e le versioni successive.
+1.  Installare [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) sul server, 2.0 e le versioni successive.
 2.  Scaricare il programma [Neo-CLI](https://github.com/neo-project/neo-cli/releases) da Github e abilitare il nodo NEO.
 
 Per maggiori informazioni, fare riferimento a [Installazione e implementazione di un nodo NEO](node/setup.html).
@@ -164,7 +164,7 @@ Per gestire i prelievi degli utenti per gli asset globali, l'exchange deve fare 
 5. Estrarre l'ID della transazione dai dettagli della transazione restituiti nel formato JSON e in seguito registrarlo nel database.
 
 6. Una volta confermata dalla blockchain, contrassegnare la transazione di prelievo come avvenuta. 
-   
+  
    Similarmente al monitoraggio dei depositi, anche i prelievi devono essere monitorati. Se l'ID della transazione di prelievo viene trovato nella blockchain, significa che questa transazione è già stata confermata ed è un prelievo avvenuto con successo.
 
 > [!Nota]

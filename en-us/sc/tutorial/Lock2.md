@@ -2,9 +2,7 @@
 
 Read the following tutorial before reading this article:
 
-[How to write NEO smart contract with C#](../getting-started-csharp.md)
-
-[NEO Smart Contract Tutorial](../tutorial.md)
+[How to write NEO smart contract with C#](../quickstart/getting-started-csharp.md)
 
 [Smart contract example - Lock (lock)](Lock.md)
 
@@ -87,7 +85,7 @@ namespace Neo.SmartContract
             if (header.Timestamp < 1499328600) // 2017-6-6 18:10
                 return false;
             // Paste the public key byte array here
-            return VerifySignature(new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 }, signature);
+            return VerifySignature(signature，new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 });
         }
     }
 }
@@ -121,7 +119,7 @@ In the client, under the `Account` tab, right click on the whitespace, select `C
 ![](../../../assets/lock2_7.png)
 
 
-Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill in for parameters, refer to [Parameter](Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
+Here, we need to choose an associated account (to be specific, we are associating a pair of public/private keys). The association means that if the smart contract requires a signature operation, the client will use the associated private key to sign. In this step, we have to select the same public key as the first step, otherwise the signature does not match and execution of the contract will fail. Because there is a signature parameter in our contract, fill in 00 in the form of the parameter entry(To understand what to fill in for parameters, refer to [Parameter](../Parameter.md)), and fill in the script code as shown earlier. Once done, we will see the contract address as shown in the figure.
 
 ![](../../../assets/lock2_8.png)
 

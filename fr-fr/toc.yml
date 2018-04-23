@@ -7,5 +7,11 @@
   items:
     - name: Introduction
       href: node/introduction.md
+    - name: Installation
+      href: node/setup.md
+    - name: TestNet, le réseau de test
+      href: node/testnet.md
+    - name: Utiliser NEO-CLI
+      href: node/cli.md
 - name: Contributeurs
   href: contributors.md

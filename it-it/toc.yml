@@ -9,8 +9,173 @@
       href: node/introduction.md
     - name: Installation
       href: node/setup.md
+    - name: Graphical User Interface
+      href: node/gui.md
+    - name: Test Network
+      href: node/testnet.md
+    - name: CLI Reference
+      href: node/cli.md
+    - name: Private Chain
+      href: node/private-chain.md
+    - name: API Reference
+      href: node/API.md
+      items:
+      - name: dumpprivkey
+        href: node/api/dumpprivkey.md
+      - name: getaccountstate
+        href: node/api/getaccountstate.md
+      - name: getassetstate
+        href: node/api/getassetstate.md
+      - name: getbalance
+        href: node/api/getbalance.md
+      - name: getbestblockhash
+        href: node/api/getbestblockhash.md
+      - name: getblock
+        href: node/api/getblock.md
+      - name: getblock
+        href: node/api/getblock2.md
+      - name: getblockcount
+        href: node/api/getblockcount.md
+      - name: getblockhash
+        href: node/api/getblockhash.md
+      - name: getblocksysfee
+        href: node/api/getblocksysfee.md
+      - name: getconnectioncount
+        href: node/api/getconnectioncount.md
+      - name: getcontractstate
+        href: node/api/getcontractstate.md
+      - name: getnewaddress
+        href: node/api/getnewaddress.md
+      - name: getrawmempool
+        href: node/api/getrawmempool.md
+      - name: getrawtransaction
+        href: node/api/getrawtransaction.md
+      - name: getstorage
+        href: node/api/getstorage.md
+      - name: gettxout
+        href: node/api/gettxout.md
+      - name: getpeers
+        href: node/api/getpeers.md
+      - name: getversion
+        href: node/api/getversion.md
+      - name: invoke
+        href: node/api/invoke.md
+      - name: invokefunction
+        href: node/api/invokefunction.md
+      - name: invokescript
+        href: node/api/invokescript.md
+      - name: sendrawtransaction
+        href: node/api/sendrawtransaction.md
+      - name: sendtoaddress
+        href: node/api/sendtoaddress.md
+      - name: sendmany
+        href: node/api/sendmany.md
+      - name: validateaddress
+        href: node/api/validateaddress.md
+    - name: Network Protocol
+      href: node/network-protocol.md
+    - name: Consensus
+      href: node/whitepaper.md
+      items:
+      - name: Consensus Whitepaper
+        href: node/whitepaper.md
+      - name: Consensus Diagram
+        href: node/consensus.md
 - name: Smart Contract
-  href: sc/white-paper.md
+  href: sc/introduction.md
   items:
-    - name: White Paper
+    - name: Introduction
+      href: sc/introduction.md
+    - name: Getting Started (C#)
+      href: sc/getting-started-csharp.md
+    - name: Getting Started (Java)
+      href: sc/getting-started-java.md
+    - name: Getting Started (Python)
+      href: sc/getting-started-python.md
+      items:
+      - name: Using Prompt
+        href: sc/python/prompt.md
+      - name: Settings and Logging
+        href: sc/python/logging.md
+      - name: Interacting with Smart Contracts
+        href: sc/python/smartcont.md
+      - name: Tests
+        href: sc/python/tests.md
+      - name: Python Compiler
+        href: sc/python/compiler.md
+    - name: Tutorial
+      href: sc/tutorial.md
+      items:
+      - name: Basics
+        href: sc/tutorial.md
+      - name: Hello World
+        href: sc/tutorial/HelloWorld.md
+      - name: Lock Contract
+        href: sc/tutorial/Lock.md
+      - name: Domain (Domain Name System)
+        href: sc/tutorial/Domain.md
+      - name: Smart Contract Parameters and Return Values
+        href: sc/tutorial/Parameter.md
+      - name: Contract Authentication Tutorial
+        href: sc/tutorial/verify.md
+      - name: Deploying a Lock Contract
+        href: sc/tutorial/Lock2.md
+      - name: Contract Call
+        href: sc/tutorial/call.md
+      - name: Deploying and Invoking
+        href: sc/tutorial/deploy-invoke.md      
+    - name: Test
+      href: sc/test.md
+    - name: Whitepaper
       href: sc/white-paper.md
+    - name: API Reference
+      href: sc/api.md
+      items:
+      - name: NEO
+        href: sc/api/neo.md
+      - name: System
+        href: sc/api/system.md
+    - name: Framework
+      href: sc/fw.md
+      items:
+      - name: .NET framework
+        href: sc/fw/dotnet.md
+        items:
+          - name: NEO
+            href: sc/fw/dotnet/neo.md
+            items:
+            - name: Account
+              href: sc/fw/dotnet/neo/Account.md
+            - name: Asset
+              href: sc/fw/dotnet/neo/Asset.md
+            - name: Block
+              href: sc/fw/dotnet/neo/Block.md
+            - name: Blockchain
+              href: sc/fw/dotnet/neo/Blockchain.md
+            - name: Enrollment
+              href: sc/fw/dotnet/neo/Enrollment.md
+            - name: Header
+              href: sc/fw/dotnet/neo/Header.md
+            - name: Storage
+              href: sc/fw/dotnet/neo/Storage.md
+            - name: StorageContext
+              href: sc/fw/dotnet/neo/StorageContext.md
+            - name: Transaction
+              href: sc/fw/dotnet/neo/Transaction.md
+            - name: TransactionAttribute
+              href: sc/fw/dotnet/neo/TransactionAttribute.md
+            - name: TransactionInput
+              href: sc/fw/dotnet/neo/TransactionInput.md
+            - name: TransactionOutput
+              href: sc/fw/dotnet/neo/TransactionOutput.md
+          - name: System
+            href: sc/fw/dotnet/System.md
+            items:
+            - name: ExecutionEngine
+              href: sc/fw/dotnet/System/ExecutionEngine.md
+    - name: System Fees
+      href: sc/systemfees.md
+- name: Document for Exchange Developers
+  href: exchange.md
+- name: Contributors
+  href: contributors.md

@@ -1,189 +1,228 @@
-﻿- name: 白皮书
+﻿- name: NEO 基础知识
   href: index.md
-- name: 开始学习
-  href: getting-started.md
+  items:
+    - name: NEO 白皮书
+      href: index.md
+    - name: NEO Contract白皮书
+      href: basic/neocontract.md
+    - name: 共识机制
+      href: basic/consensus/whitepaper.md
+      items:
+      - name: 共识机制白皮书
+        href: basic/consensus/whitepaper.md
+      - name: 共识机制图解
+        href: basic/consensus/consensus.md
 - name: NEO 节点
   href: node/introduction.md
   items:
-    - name: 介绍
+    - name: NEO 节点介绍
       href: node/introduction.md
-    - name: 如何安装
-      href: node/setup.md
-    - name: 客户端使用说明
+    - name: NEO-GUI
       href: node/gui.md
+    - name: NEO-CLI
+      href: node/cli/cli.md
+      items:
+      - name: 安装
+        href: node/cli/setup.md
+      - name: NEO-CLI 命令参考
+        href: node/cli/cli.md
+      - name: API 参考
+        href: node/cli/api.md
+        items:
+        - name: dumpprivkey
+          href: node/cli/api/dumpprivkey.md
+        - name: getaccountstate
+          href: node/cli/api/getaccountstate.md
+        - name: getapplicationlog
+          href: node/cli/api/getapplicationlog.md
+        - name: getassetstate
+          href: node/cli/api/getassetstate.md
+        - name: getbalance
+          href: node/cli/api/getbalance.md
+        - name: getbestblockhash
+          href: node/cli/api/getbestblockhash.md
+        - name: getblock
+          href: node/cli/api/getblock.md
+        - name: getblock
+          href: node/cli/api/getblock2.md
+        - name: getblockcount
+          href: node/cli/api/getblockcount.md
+        - name: getblockhash
+          href: node/cli/api/getblockhash.md
+        - name: getblocksysfee
+          href: node/cli/api/getblocksysfee.md
+        - name: getconnectioncount
+          href: node/cli/api/getconnectioncount.md
+        - name: getcontractstate
+          href: node/cli/api/getcontractstate.md
+        - name: getnewaddress
+          href: node/cli/api/getnewaddress.md
+        - name: getrawmempool
+          href: node/cli/api/getrawmempool.md
+        - name: getrawtransaction
+          href: node/cli/api/getrawtransaction.md
+        - name: getstorage
+          href: node/cli/api/getstorage.md
+        - name: gettxout
+          href: node/cli/api/gettxout.md
+        - name: getpeers
+          href: node/cli/api/getpeers.md
+        - name: getversion
+          href: node/cli/api/getversion.md
+        - name: invoke
+          href: node/cli/api/invoke.md
+        - name: invokefunction
+          href: node/cli/api/invokefunction.md
+        - name: invokescript
+          href: node/cli/api/invokescript.md
+        - name: listaddress
+          href: node/cli/api/listaddress.md
+        - name: sendfrom
+          href: node/cli/api/sendfrom.md
+        - name: sendrawtransaction
+          href: node/cli/api/sendrawtransaction.md
+        - name: sendtoaddress
+          href: node/cli/api/sendtoaddress.md
+        - name: sendmany
+          href: node/cli/api/sendmany.md
+        - name: validateaddress
+          href: node/cli/api/validateaddress.md
+    - name: NEO-Python
+      href: node/python.md
+- name: NEO 网络
+  href: network/testnet.md
+  items:
     - name: 测试网
-      href: node/testnet.md
-    - name: CLI 命令参考
-      href: node/cli.md
-    - name: 私链搭建
-      href: node/private-chain.md
-    - name: API 参考
-      href: node/API.md
-      items:
-      - name: dumpprivkey
-        href: node/api/dumpprivkey.md
-      - name: getaccountstate
-        href: node/api/getaccountstate.md
-      - name: getassetstate
-        href: node/api/getassetstate.md
-      - name: getbalance
-        href: node/api/getbalance.md
-      - name: getbestblockhash
-        href: node/api/getbestblockhash.md
-      - name: getblock
-        href: node/api/getblock.md
-      - name: getblock
-        href: node/api/getblock2.md
-      - name: getblockcount
-        href: node/api/getblockcount.md
-      - name: getblockhash
-        href: node/api/getblockhash.md
-      - name: getblocksysfee
-        href: node/api/getblocksysfee.md
-      - name: getconnectioncount
-        href: node/api/getconnectioncount.md
-      - name: getcontractstate
-        href: node/api/getcontractstate.md
-      - name: getnewaddress
-        href: node/api/getnewaddress.md
-      - name: getrawmempool
-        href: node/api/getrawmempool.md
-      - name: getrawtransaction
-        href: node/api/getrawtransaction.md
-      - name: getstorage
-        href: node/api/getstorage.md
-      - name: gettxout
-        href: node/api/gettxout.md
-      - name: getpeers
-        href: node/api/getpeers.md
-      - name: getversion
-        href: node/api/getversion.md
-      - name: invoke
-        href: node/api/invoke.md
-      - name: invokefunction
-        href: node/api/invokefunction.md
-      - name: invokescript
-        href: node/api/invokescript.md
-      - name: sendfrom
-        href: node/api/sendfrom.md
-      - name: sendrawtransaction
-        href: node/api/sendrawtransaction.md
-      - name: sendtoaddress
-        href: node/api/sendtoaddress.md
-      - name: sendmany
-        href: node/api/sendmany.md
-      - name: validateaddress
-        href: node/api/validateaddress.md
+      href: network/testnet.md
+    - name: 搭建私有链
+      href: network/private-chain.md
+    - name: 快速同步区块
+      href: network/syncblocks.md
     - name: 网络协议
-      href: node/network-protocol.md
-    - name: 共识机制
-      href: node/consensus/whitepaper.md
+      href: network/network-protocol.md
+- name: NEO 开发工具
+  href: utility/sdk/introduction.md
+  items:
+    - name: NEO SDK
+      href: utility/sdk/introduction.md
       items:
-        - name: 共识机制白皮书
-          href: node/consensus/whitepaper.md
-        - name: 共识机制图解
-          href: node/consensus/consensus.md
+      - name: 欢迎使用 NEO SDK
+        href: utility/sdk/introduction.md
+      - name: NEO SDK 常见用法
+        href: utility/sdk/common.md
 - name: 智能合约
   href: sc/introduction.md
   items:
-    - name: 介绍
+    - name: 智能合约介绍
       href: sc/introduction.md
-    - name: 如何开始（C#）
-      href: sc/getting-started-csharp.md
-    - name: 如何开始（C#）for macOS
-      href: sc/getting-started-csharp-mac.md
-    - name: 如何开始（Java）
-      href: sc/getting-started-java.md
-    - name: 如何开始（Python）
-      href: sc/getting-started-python.md
+    - name: 快速入门
+      href: sc/quickstart/getting-started-csharp.md
       items:
-      - name: 使用命令行
-        href: sc/python/prompt.md
-      - name: 设置和日志
-        href: sc/python/logging.md
-      - name: 与智能合约交互
-        href: sc/python/smartcont.md
+      - name: 如何开始
+        href: sc/quickstart/getting-started-csharp.md
+        items:
+        - name: 使用C# (Windows)
+          href: sc/quickstart/getting-started-csharp.md
+        - name: 使用C# (macOS)
+          href: sc/quickstart/getting-started-csharp-mac.md
+        - name: 使用C# (uubuntu)
+          href: sc/quickstart/getting-started-csharp-ubuntu.md
+        - name: 使用 Java
+          href: sc/quickstart/getting-started-java.md
+        - name: 使用 Python
+          href: sc/quickstart/getting-started-python.md
+      - name: 合约编写限制
+        href: sc/quickstart/limitation.md
       - name: 测试
-        href: sc/python/tests.md
-      - name: Python编译器
-        href: sc/python/compiler.md
-    - name: 教程
-      href: sc/tutorial.md
+        href: sc/quickstart/test.md
+      - name: 部署合约
+        href: sc/quickstart/deploy-invoke.md
+      - name: 调用合约
+        href: sc/quickstart/call.md
+    - name: 开发参考
+      href: sc/reference/api.md
       items: 
-      - name: 基础知识
-        href: sc/tutorial.md
+      - name: API 参考
+        href: sc/reference/api.md
+        items: 
+        - name: NEO
+          href: sc/reference/api/neo.md
+        - name: System
+          href: sc/reference/api/System.md
+      - name: 框架
+        href: sc/reference/fw.md
+        items: 
+        - name: .net 框架
+          href: sc/reference/fw/dotnet.md
+          items:
+            - name: NEO
+              href: sc/reference/fw/dotnet/neo.md
+              items:
+              - name: Account
+                href: sc/reference/fw/dotnet/neo/Account.md
+              - name: Asset
+                href: sc/reference/fw/dotnet/neo/Asset.md
+              - name: Block
+                href: sc/reference/fw/dotnet/neo/Block.md
+              - name: Blockchain
+                href: sc/reference/fw/dotnet/neo/Blockchain.md
+              - name: Contract
+                href: sc/reference/fw/dotnet/neo/Contract.md
+              - name: Enrollment
+                href: sc/reference/fw/dotnet/neo/Enrollment.md
+              - name: Header
+                href: sc/reference/fw/dotnet/neo/Header.md
+              - name: Runtime
+                href: sc/reference/fw/dotnet/neo/Runtime.md
+              - name: Storage
+                href: sc/reference/fw/dotnet/neo/Storage.md
+              - name: StorageContext
+                href: sc/reference/fw/dotnet/neo/StorageContext.md
+              - name: Transaction
+                href: sc/reference/fw/dotnet/neo/Transaction.md
+              - name: TransactionAttribute
+                href: sc/reference/fw/dotnet/neo/TransactionAttribute.md
+              - name: TransactionInput
+                href: sc/reference/fw/dotnet/neo/TransactionInput.md
+              - name: TransactionOutput
+                href: sc/reference/fw/dotnet/neo/TransactionOutput.md
+              - name: TriggerType
+                href: sc/reference/fw/dotnet/neo/TriggerType.md
+              - name: Validator
+                href: sc/reference/fw/dotnet/neo/Validator.md
+            - name: System
+              href: sc/reference/fw/dotnet/System.md
+              items:
+              - name: ExecutionEngine
+                href: sc/reference/fw/dotnet/System/ExecutionEngine.md
+    - name: 合约示例与教程
+      href: sc/tutorial/HelloWorld.md
+      items: 
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
       - name: Lock（锁仓合约）
         href: sc/tutorial/Lock.md
       - name: Domain（域名系统）
         href: sc/tutorial/Domain.md
-      - name: 参数和返回值
-        href: sc/tutorial/Parameter.md
       - name: 鉴权合约示例教程
         href: sc/tutorial/verify.md
       - name: 锁仓合约的部署
         href: sc/tutorial/Lock2.md
-      - name: 合约调用
-        href: sc/tutorial/call.md
-    - name: 测试
-      href: sc/test.md
-    - name: 白皮书
-      href: sc/white-paper.md
-    - name: API 参考
-      href: sc/api.md
-      items: 
-      - name: NEO
-        href: sc/api/neo.md
-      - name: System
-        href: sc/api/System.md
-    - name: 框架
-      href: sc/fw.md
-      items: 
-      - name: .net 框架
-        href: sc/fw/dotnet.md
-        items:
-          - name: NEO
-            href: sc/fw/dotnet/neo.md
-            items:
-            - name: Account
-              href: sc/fw/dotnet/neo/Account.md
-            - name: Asset
-              href: sc/fw/dotnet/neo/Asset.md
-            - name: Block
-              href: sc/fw/dotnet/neo/Block.md
-            - name: Blockchain
-              href: sc/fw/dotnet/neo/Blockchain.md
-            - name: Contract
-              href: sc/fw/dotnet/neo/Contract.md
-            - name: Enrollment
-              href: sc/fw/dotnet/neo/Enrollment.md
-            - name: Header
-              href: sc/fw/dotnet/neo/Header.md
-            - name: Runtime
-              href: sc/fw/dotnet/neo/Runtime.md
-            - name: Storage
-              href: sc/fw/dotnet/neo/Storage.md
-            - name: StorageContext
-              href: sc/fw/dotnet/neo/StorageContext.md
-            - name: Transaction
-              href: sc/fw/dotnet/neo/Transaction.md
-            - name: TransactionAttribute
-              href: sc/fw/dotnet/neo/TransactionAttribute.md
-            - name: TransactionInput
-              href: sc/fw/dotnet/neo/TransactionInput.md
-            - name: TransactionOutput
-              href: sc/fw/dotnet/neo/TransactionOutput.md
-            - name: TriggerType
-              href: sc/fw/dotnet/neo/TriggerType.md
-            - name: Validator
-              href: sc/fw/dotnet/neo/Validator.md
-          - name: System
-            href: sc/fw/dotnet/System.md
-            items:
-            - name: ExecutionEngine
-              href: sc/fw/dotnet/System/ExecutionEngine.md
+    - name: 参数和返回值
+      href: sc/Parameter.md
+    - name: 智能合约触发器
+      href: sc/trigger.md
     - name: 系统使用费
       href: sc/systemfees.md
+- name: 常见问题
+  href: faq.md
 - name: 交易所对接指南
-  href: exchange.md
+  href: exchange/general.md
+  items:
+    - name: v2.7.3
+      href: exchange/v2.7.3.md
+    - name: v2.7.1
+      href: exchange/v2.7.1.md
+    - name: v2.6.0
+      href: exchange/v2.6.0.md
+  

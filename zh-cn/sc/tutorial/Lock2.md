@@ -2,7 +2,7 @@
 
 阅读本文前先要阅读有以下教程：
 
-[如何用 C# 编写 NEO 智能合约](../getting-started-csharp.md)
+[如何用 C# 编写 NEO 智能合约](../quickstart/getting-started-csharp.md)
 
 [NEO 智能合约教程](../tutorial.md)
 
@@ -81,7 +81,7 @@ namespace Neo.SmartContract
             if (header.Timestamp < 1499328600) // 2017-6-6 18:10
                 return false;
             // 这里粘贴上一步复制的公钥字节数组
-            return VerifySignature(new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 }, signature);
+            return VerifySignature(signature, new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 });
         }
     }
 }

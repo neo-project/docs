@@ -21,7 +21,7 @@ L'implementazione di un nodo di consenso utilizza `Neo-CLI`, un programma multi-
 
 ## Esecuzione dell'ambiente
 
-L’esecuzione di un nodo NEO richiede l’istallazione di [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), versione 1.0.1 o successive.
+L’esecuzione di un nodo NEO richiede l’istallazione di [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), versione 2.0 o successive.
 
 ### Metodo di istallazione su Windows
 

@@ -48,7 +48,7 @@ typora-root-url: ..\..
 
 インストールと設定の手順：
 
-Githubの[neo-compiler](https://github.com/neo-project/neo-compiler)をダウンドードし、Visual Studioでソリューションを開き、neojプロジェクトを発行します。
+Githubの[neo-compiler](https://github.com/neo-project/neo-compiler)をダウンロードし、Visual Studioでソリューションを開き、neojプロジェクトを発行します。
 
 neojコンパイラを発行します（JavaバイトコードからAVMバイトコードに変換します）。
 

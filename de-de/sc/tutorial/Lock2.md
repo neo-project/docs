@@ -17,8 +17,8 @@ PS: Zur Zeit ist die aktuellste Version von **test network client**: [Neo GUI v2
 > [!Anmerkung]
 > Die folgende Operation wird auf dem **test network** laufen, weil das Main Network Smart Contract 2.0 noch nicht zur Verfügung stellt, demnach wird die folgende Operation auf dem Main Network scheitern.
 > Um das Test Net zu nutzen müssen Sie 2 Änderungen in den config Dateien vornehmen:
-1. Extrahieren Sie den Neo GUI Client in Ihren Ordner. Sie werden die Dateien  config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json sehen. 'Config.json' und 'protocol.json' sind standardmässig identisch zu der Mainnet Version.
-2. Sie müssen den Code der Testnet Dateien in  die 'config.json' und 'protocol.json' Dateien kopieren, damit sie Zugang zum Testnet statt zum Mainnet bekommen. Das heisst: Kopieren Sie 'config.testnet.json' nach 'config.json' und 'protocol.testnet.json' nach 'protocol.json'
+ . Extrahieren Sie den Neo GUI Client in Ihren Ordner. Sie werden die Dateien  config.json, config.mainnet.json, config.testnet.json, protocol.json, protocol.mainnet.json, protocol.testnet.json sehen. 'Config.json' und 'protocol.json' sind standardmässig identisch zu der Mainnet Version.
+ . Sie müssen den Code der Testnet Dateien in  die 'config.json' und 'protocol.json' Dateien kopieren, damit sie Zugang zum Testnet statt zum Mainnet bekommen. Das heisst: Kopieren Sie 'config.testnet.json' nach 'config.json' und 'protocol.testnet.json' nach 'protocol.json'
 
 ## Kreieren Sie eine Wallet
 
@@ -88,7 +88,7 @@ namespace Neo.SmartContract
             if (header.Timestamp < 1499328600) // 2017-6-6 18:10
                 return false;
             // Paste the public key byte array here
-            return VerifySignature(new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 }, signature);
+            return VerifySignature(signature，new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 });
         }
     }
 }

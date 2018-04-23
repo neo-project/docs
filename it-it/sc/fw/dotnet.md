@@ -19,13 +19,13 @@ In aggiunta alla chiamata di metodi dal livello di interoperabilità, gli smart 
 
 La classe `SmartContract` ci fornisce degli algoritmi di hash e metodi di firma.
 
-|                                          | Nome                                     | Descrizione                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                             | Effettua l'hash dei byte in input usando SHA1        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | Effettua l'hash dei byte in input usando SHA256      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Effettua l'hash dei byte in input usando SHA256, seguito da RIPEMD160 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Effettua l'hash dei byte in input doppiamente usando SHA256 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] pubkey, byte[] signature) | Verifica la firma usando la data pubkey |
+|                                                        | Nome                                             | Descrizione                                                  |
+| ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | Effettua l'hash dei byte in input usando SHA1                |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | Effettua l'hash dei byte in input usando SHA256              |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | Effettua l'hash dei byte in input usando SHA256, seguito da RIPEMD160 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | Effettua l'hash dei byte in input doppiamente usando SHA256  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | Verifica la firma usando la data pubkey                      |
 
 ### Metodo di Assistenza per il Byte Array
 
