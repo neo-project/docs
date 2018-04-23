@@ -81,6 +81,16 @@
         href: node/whitepaper.md
       - name: コンセンサスメカニズム
         href: node/consensus.md
+- name: NEOユーティリティー
+  href: utility/sdk/introduction.md
+  items:
+    - name: NEO SDK（ソフトウェア開発キット）
+      href: utility/sdk/introduction.md
+      items:
+      - name: NEO SDKとは？
+        href: utility/sdk/introduction.md
+      - name: 一般的な使用方法
+        href: utility/sdk/common.md
 - name: スマートコントラクト
   href: sc/introduction.md
   items:
@@ -184,6 +194,9 @@
     - name: システムの手数料
       href: sc/systemfees.md
 - name: 取引所開発者向けドキュメント
-  href: exchange.md
+  href: exchange/general.md
+  items:
+    - name: v2.6.0
+    href: exchange/v2.6.0.md
 - name: 協力者
   href: contributors.md
