@@ -10,46 +10,46 @@
 
 1. 在 dotnet 命令行中创建 library 项目:
 
-```
-mkdir NeoContractDemo
-cd ./NeoContractDemo/
-dotnet new library
-rm ./Class1.cs
-vim NeoContractDemo.cs
-```
+   ```c#
+   mkdir NeoContractDemo
+   cd ./NeoContractDemo/
+   dotnet new library
+   rm ./Class1.cs
+   vim NeoContractDemo.cs
+   ```
 
-![](../../../assets/create_neo_contract.png)
+   ![](../../../assets/create_neo_contract.png)
 
 2. 键入下面代码后按 `ESC`+`wq!` 保存退出。
 
-```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+   ```c#
+   using Neo.SmartContract.Framework;
+   using Neo.SmartContract.Framework.Services.Neo;
 
-public class NeoContractDemo: SmartContract
-{
-    public static bool Main()
-    {
-        return true;
-    }
-}
-```
+   public class NeoContractDemo: SmartContract
+   {
+       public static bool Main()
+       {
+           return true;
+       }
+   }
+   ```
 
 3. 添加智能合约引用：
 
-    ```
-    dotnet add package Neo.SmartContract.Framework --version 2.5.4
-    ```
+   ```
+   dotnet add package Neo.SmartContract.Framework --version 2.5.4
+   ```
 
-![](../../../assets/neo_addpackage.png)
+   ![](../../../assets/neo_addpackage.png)
 
 4. 编译智能合约项目：
 
-    ```
-    dotnet publish -o ../testlib
-    ```
+   ```
+   dotnet publish -o ../testlib
+   ```
 
-![](../../../assets/build_neo_contract_project.png)
+   ![](../../../assets/build_neo_contract_project.png)
 
 ## 生成编译器
 
