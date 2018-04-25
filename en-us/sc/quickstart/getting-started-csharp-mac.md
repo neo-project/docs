@@ -6,25 +6,25 @@ If you already have Visual Studio for Mac installed on your computer, skip this 
 
 Just check the basic functions when installing, without selecting the platform specific components.
 
-![](../assets/mac1.png)
+![](../../../assets/mac1.png)
 
 ![](../assets/mac2.png)
 
-![](../assets/mac3.png)
+![](../../../assets/mac3.png)
 
 
 ### 2. New Project
 
 Open Visual Studio for Mac，create a new project, and select .NET Standard Library（.NET Core → Library）。
 
-![](../assets/mac4.png)
+![](../../../assets/mac4.png)
 
 > [!Note]
 > When you create a new project, select 2.0 for the .NET Core version，because if you select 1.x ，then adding “Neo.SmartContract.Framework” will fail.
 
 Next, right click on the project，click `Add NuGet Packages...`，search for “neo”，select “Neo.SmartContract.Framework”，and click on `Add Package`。
 
-![](../assets/mac5.png)
+![](../../../assets/mac5.png)
 
 After the installation is successful, write the following sample code in your Class1.cs file.
 
@@ -73,7 +73,8 @@ The basic syntax is
 dotnet neon.dll <your smart contract.dll>
 ```
 
-Note: `neon.dll` is the file from Step 3. In our example `sample_contract.dll` would be our smart contract. The output should look like this
+ `neon.dll` is the file from Step 3. In our example `sample_contract.dll` would be our smart contract. The output should look like this
+
 ```bash
 Eriks-Air:netcoreapp2.0 erik$ dotnet neon.dll ~/Projects/sample_contract/sample_contract/bin/Debug/netstandard2.0/sample_contract.dll
 Neo.Compiler.MSIL console app v2.0.3.1

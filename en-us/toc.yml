@@ -125,7 +125,7 @@
           href: sc/quickstart/getting-started-csharp.md
         - name: Using C# (macOS)
           href: sc/quickstart/getting-started-csharp-mac.md
-        - name: Using C# (uubuntu)
+        - name: Using C# (ubuntu)
           href: sc/quickstart/getting-started-csharp-ubuntu.md
         - name: Using Java
           href: sc/quickstart/getting-started-java.md

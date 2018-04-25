@@ -2,54 +2,54 @@
 
 To develop smart contracts in C# on ubuntu, basically you need to do the following:
 
-      1. Create a library project, write code, and add the smart contract library.
-   2. Execute neo-compiler/neon to generate the compiler.
-      3. Run neon to generate the .avm file.
+1. Create a library project, write code, and add the smart contract library.
+2. Execute `neo-compiler/neon` to generate the compiler.
+3. Run `neon` to generate the .avm file.
 
 ## Create a smart contract project
 
 1. In the dotnet command line, create a library project:
 
-```
-mkdir NeoContractDemo
-cd ./NeoContractDemo/
-dotnet new library
-rm ./Class1.cs
-vim NeoContractDemo.cs
-```
+   ```c#
+   mkdir NeoContractDemo
+   cd ./NeoContractDemo/
+   dotnet new library
+   rm ./Class1.cs
+   vim NeoContractDemo.cs
+   ```
 
-![](../../../assets/create_neo_contract.png)
+   ![](../../../assets/create_neo_contract.png)
 
 2. In NeoContractDemo.cs, enter the following code and then press `ESC`+`wq!` .
 
-```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+   ```c#
+   using Neo.SmartContract.Framework;
+   using Neo.SmartContract.Framework.Services.Neo;
 
-public class NeoContractDemo: SmartContract
-{
-    public static bool Main()
-    {
-        return true;
-    }
-}
-```
+   public class NeoContractDemo: SmartContract
+   {
+       public static bool Main()
+       {
+           return true;
+       }
+   }
+   ```
 
 3. Add the smart contract reference:
 
-    ```
-    dotnet add package Neo.SmartContract.Framework --version 2.5.4
-    ```
+   ```
+   dotnet add package Neo.SmartContract.Framework --version 2.5.4
+   ```
 
-![](../../../assets/neo_addpackage.png)
+   ![](../../../assets/neo_addpackage.png)
 
 4. Compile the smart contract project：
 
-    ```
-    dotnet publish -o ../testlib
-    ```
+   ```
+   dotnet publish -o ../testlib
+   ```
 
-![](../../../assets/build_neo_contract_project.png)
+   ![](../../../assets/build_neo_contract_project.png)
 
 ## Generate the compiler
 
