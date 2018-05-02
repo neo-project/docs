@@ -197,6 +197,6 @@
   href: exchange/general.md
   items:
     - name: v2.6.0
-    href: exchange/v2.6.0.md
+      href: exchange/v2.6.0.md
 - name: 協力者
   href: contributors.md
