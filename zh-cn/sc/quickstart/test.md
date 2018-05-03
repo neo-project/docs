@@ -1,107 +1,191 @@
 # 智能合约的单元测试
 
-阅读上一篇文档后，我们已经可以用 C# 在 Visual Studio 2017 中编写智能合约了。当编写好了一段智能合约后，我们怎样才能进行单元测试呢。
+可以使用 NEO-CLI 提供的 [invokeScript](../../node/cli/api/invokescript.md) 方法来进行单元测试。
 
-## 编写单元测试
+### 单元测试工具
 
-比如你创建了下面的智能合约，该合约包含三个参数，返回值为 int 型。
+发起单元测试就是一条 POST 请求，本文使用一个通用的 POST 工具，POSTMAN 来进行测试。你也可以自己编写一个 POST 工具。
+
+编写好智能合约并获取合约脚本后，可使用 POSTMAN 进行测试，基本步骤如下：
+
+1. 配置 CLI 地址。选择 Post 方式，填入 NEO-CLI 的 RPC 接口地址。
+
+2. 选择参数，**raw**，**JSON**，配置如下：
+
+   ```
+   {
+    "jsonrpc":"2.0",
+    "method":"invokescript",
+    "params":["03230fa0"],
+    "id":1
+   }
+   ```
+
+   将 `params` 中的字符串替换为要测试的智能合约的脚本，点 **Send** 开始测试。参考下图：
+
+   ![img](../../../assets/test1.png)
+
+###  示例 1 - 测试无参数合约
+
+1. 编写如下智能合约：
+
+   ```c#
+         public class Test01 : SmartContract
+         {
+             public static object Main()
+             {
+
+                 var magicstr = "2018 02 21";
+
+               
+                 return magicstr;
+             }
+       
+          }
+   ```
+
+   将生成的 avm 文件保存为 `d:\\1.avm`
 
 
-```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+2. 创建一个 netcore 项目，引入 Neo 项目。
 
-namespace Neo.SmartContract
-{
-    public class Test1 : SmartContract
-    {
-        public static int Main(int a, int b, int c)
-        {
-            if (a > b)
-                return a * sum(b, c);
-            else
-                return sum(a, b) * c;
-        }
+   ![img](../../../assets/test2.png)
 
-        public static int sum(int a, int b)
-        {
-            return a + b;
-        }
-    }
-}
-```
+   编写如下代码获取合约脚本：
 
-编译通过后，生成该合约的 `Test1.avm` 文件。我们可以创建单元测试项目，对 `Test1.avm` 进行测试。
-
-首先用 Visual Studio 创建一个 C# 控制台项目，设置 .net framework 版本中 4.6.2 或以上，并且在 Nuget 中添加对 Neo.dll 和 Neo.VM.dll 的引用。
-
-```c#
-using System;
-using System.IO;
-using System.Linq;
-using Neo;
-using Neo.VM;
-using Neo.Cryptography;
-
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var engine = new ExecutionEngine(null, Crypto.Default);
-            engine.LoadScript(File.ReadAllBytes(@"C:\……\Test1.avm")); 
-            
-            using (ScriptBuilder sb = new ScriptBuilder())
-            {
-                sb.EmitPush(2); // 对应形参 c
-                sb.EmitPush(4); // 对应形参 b
-                sb.EmitPush(3); // 对应形参 a
-                engine.LoadScript(sb.ToArray());
-            }
-
-            engine.Execute(); // 开始执行
-
-            var result = engine.EvaluationStack.Peek().GetBigInteger(); // 在这里设置返回值
-            Console.WriteLine($"执行结果 {result}");
+   ```c#
+   class Program
+   {
+       static void Main(string[] args)
+       {
+            var noparamAVM =System.IO.File.ReadAllBytes("d:\\1.avm");
+            var str =Neo.Helper.ToHexString(noparamAVM);
+            Console.WriteLine("AVM=" + str);
             Console.ReadLine();
-        }
+       }
     }
-}
-```
+   ```
 
-输出：执行结果 14，符合预期
+   运行此程序可得合约脚本为       “52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566”。
 
-> [!Note]
->
-> 若运行之后出现如下错误：
->
-> 类型“BigInteger”在未引用的程序集中定义。必须添加对程序集“System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”的引用。
->
-> 可通过添加对 “System.Numerics” 的引用解决此问题。
->
+3. 使用 postman 进行测试，如下图所示：
+
+   ![img](../../../assets/test3.png)
+
+"state": "HALT, BREAK" 表示测试成功。
+
+Stack 是留在栈上的值，此值为 string helloworld 对应的 bytearray。
+
+###  示例2 - 测试有参数合约
+
+1. 编写如下智能合约，并将 AVM 文件存为 `d:\\2.avm`。
+
+   ```c#
+      public class Test01 : SmartContract
+
+      {
+
+          public static object Main(string param1,int[] value)
+
+          {
+
+               var magicstr = "2018 02 21";
+
+               return value[0]+value[1];
+
+          }
+   ```
 
 
-注意：如果用上面的代码的方式传参，要注意栈顶元素对应第一个形参，为了方便也可以将传参数的代码换成下面的代码。
+
+2. 编写如下测试代码，生成测试脚本
+
+   ```c#
+             static void Main(string[] args)
+
+             {
+
+                 var noparamAVM =System.IO.File.ReadAllBytes("d:\\2.avm");
+
+                  var str =Neo.Helper.ToHexString(noparamAVM);
+
+                  Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
+
+                  sb.EmitPush(12);
+
+                  sb.EmitPush(14);
+
+                  sb.EmitPush(2);
+
+                  sb.Emit(Neo.VM.OpCode.PACK);
+
+                  sb.EmitPush("param1");
+
+                  var _params = sb.ToArray();
+
+                  var str2 =Neo.Helper.ToHexString(_params);
+
+       
+
+                  Console.WriteLine("AVM=" + str2 + str);
+
+                 Console.ReadLine();
+
+              }
+   ```
+
+
+3. 使用 PostMan 进行测试：
+
+![img](../../../assets/test4.png)
+
+### 示例 3 - 测试已经部署到链上的合约
+
+其它步骤请参考前两个示例。
+
+测试代码如下：
 
 ```c#
-using (ScriptBuilder sb = new ScriptBuilder())
-{
-    int[] parameter = { 3, 4, 2 };
-    parameter.Reverse().ToList().ForEach(p => sb.EmitPush(p));
-    engine.LoadScript(sb.ToArray());
-}
+       static void Main(string[] args)
+
+       {
+
+            //var noparamAVM =System.IO.File.ReadAllBytes("d:\\2.avm");
+
+            //var str = Neo.Helper.ToHexString(noparamAVM);
+
+ 
+
+            Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
+
+            sb.EmitPush(12);
+
+            sb.EmitPush(14);
+
+            sb.EmitPush(2);
+
+            sb.Emit(Neo.VM.OpCode.PACK);
+
+            sb.EmitPush("param1");
+
+ 
+
+            //调用已发布的合约，最后加一条EmitAppCall即可
+
+            var addr = Neo.UInt160.Parse("0x10ad2338f972e90406fd2ebea9a60f38f4aebd53");
+
+            sb.EmitAppCall(addr.ToArray());
+
+            var _params = sb.ToArray();
+
+            var str2 = Neo.Helper.ToHexString(_params);
+
+ 
+
+            Console.WriteLine("AVM=" + str2);
+
+            Console.ReadLine();
+
+        }
 ```
-如果智能合约的返回值不是 int 类型，是 bool 或者其它类型，需要将 `engine.EvaluationStack.Peek().GetBigInteger()` 设置为其它值，如图
 
-![test_1](../../assets/test_1.jpg)
-
-注：该测试方法不适用于互操作服务及存储数据的测试。
-
-------
-
-### 📖该文档正在编辑中
-
-该文档正在编辑中，我们会尽快完成，你可以在 [Github wiki](https://github.com/neo-project/neo/wiki) 上查看其它文档，或者来我们的 [NEO 官方网站](http://www.neo.org) 逛逛。
-
-NEO 是一个开源的社区项目，如果你感兴趣，你也可以通过 pull request 的方式来贡献开发文档，开发文档的项目地址为 [github.com/neo-project/docs](https://github.com/neo-project/docs) ，感谢您的付出。
