@@ -116,7 +116,7 @@
     - name: 智能合约介绍
       href: sc/introduction.md
     - name: 快速入门
-      href: sc/quickstart/getting-started-csharp.md
+      href: sc/quickstart/overview.md
       items:
       - name: 如何开始
         href: sc/quickstart/getting-started-csharp.md
@@ -131,8 +131,8 @@
           href: sc/quickstart/getting-started-java.md
         - name: 使用 Python
           href: sc/quickstart/getting-started-python.md
-      - name: 合约编写限制
-        href: sc/quickstart/limitation.md
+      - name: 合约编写须知
+        href: sc/quickstart/notices.md
       - name: 测试
         href: sc/quickstart/test.md
       - name: 部署合约
