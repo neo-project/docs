@@ -129,6 +129,32 @@ catch (Exception)
 
 解锁钱包时，如果密码错误，则会抛出异常。
 
+### 构造合约交易
+
+合约交易（ContractTransaction）就是常规的转账交易，可以通过下面的代码来构造
+
+```c#
+var wallet = new Neo.Implementations.Wallets.NEP6.NEP6Wallet("wallet.json");
+try
+{
+    wallet.Unlock("password");
+}
+catch (Exception)
+{
+    Console.WriteLine("密码错误");
+}
+
+var ctx = new Neo.Core.ContractTransaction();
+var outputs = new List<Neo.Core.TransactionOutput>{ new Neo.Core.TransactionOutput()
+{
+    AssetId = new UInt256("c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b".HexToBytes()), //资产ID
+    ScriptHash = Neo.Wallets.Wallet.ToScriptHash("AS8UDW7aLhrywLVHFL3ny5tSBaVhWTeZjT"), //接收方的地址
+    Value = new Fixed8(100000000) //转账金额（单位为聪）
+}};
+var tx = wallet.MakeTransaction(ctx);
+wallet.Sign(new Neo.SmartContract.ContractParametersContext(tx));
+```
+
 
 
 更多 NEO SDK 常见用法正在补充中……
