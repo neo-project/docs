@@ -61,19 +61,29 @@ dotnet run
 
 ## NEO 节点的安装
 
-1、在 Github 上下载 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
+1. 在 Github 上下载 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
 
-> [!Note]
-> 如果你试图直接在 Github 上下载并编译 Neo-CLI 源码，你会发现编译后运行 `dotnet neo-cli.dll` 会报错，这时你需要将 libleveldb.dll 和  sqlite3.dll 复制到 neo-cli.dll 同一目录下。这两个文件可以在第一步的程序包中下载。
+   > [!Note]
+   > 如果你试图直接在 Github 上下载并编译 Neo-CLI 源码，你会发现编译后运行 `dotnet neo-cli.dll` 会报错，这时你需要将 libleveldb.dll 和  sqlite3.dll 复制到 neo-cli.dll 同一目录下。这两个文件可以在第一步的程序包中下载。
 
-2、打开命令行，定位到程序所在目录，输入下面代码即可启动 NEO 节点 。
+2. 对于Linux 系统，安装 LevelDB 和 SQLite3 开发包。例如，在 Ubuntu 上输入：
 
-``` 
-dotnet neo-cli.dll
-```
+   ```c#
+   sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
+   ```
 
-Neo-CLI 提供了一系列供外部访问的 API，如果想启动节点的同时开启 API 的话，可以运行下面的代码。
-```
-dotnet neo-cli.dll /rpc
-```
-3、如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
+   对于Windows 系统，安装  [Neo version of LevelDB](https://github.com/neo-project/leveldb)。
+
+3. 打开命令行，定位到程序所在目录，输入下面代码即可启动 NEO 节点 。
+
+   ```
+   dotnet neo-cli.dll
+   ```
+
+   Neo-CLI 提供了一系列供外部访问的 API，如果想启动节点的同时开启 API 的话，可以运行下面的代码。
+
+   ```
+   dotnet neo-cli.dll /rpc
+   ```
+
+4. 如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
