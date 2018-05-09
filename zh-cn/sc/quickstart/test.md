@@ -27,24 +27,20 @@
 
 ###  示例 1 - 测试无参数合约
 
-1. 编写如下智能合约：
+1. 编写如下智能合约，将生成的 avm 文件保存为  `d:\\1.avm`。
 
-   ```c#
-         public class Test01 : SmartContract
-         {
-             public static object Main()
-             {
+    ```c#
+    public class Test01 : SmartContract
+    {
+        public static object Main()
+        {
+            var magicstr = "2018 02 21";
+            return magicstr;
+        }
+    }
+    ```
 
-                 var magicstr = "2018 02 21";
 
-               
-                 return magicstr;
-             }
-       
-          }
-   ```
-
-   将生成的 avm 文件保存为 `d:\\1.avm`
 
 
 2. 创建一个 netcore 项目，引入 Neo 项目。
@@ -55,15 +51,15 @@
 
    ```c#
    class Program
-   {
-       static void Main(string[] args)
        {
-            var noparamAVM =System.IO.File.ReadAllBytes("d:\\1.avm");
-            var str =Neo.Helper.ToHexString(noparamAVM);
-            Console.WriteLine("AVM=" + str);
-            Console.ReadLine();
-       }
-    }
+           static void Main(string[] args)
+           {
+               var noparamAVM = System.IO.File.ReadAllBytes("d:\\1.avm");
+               var str = Neo.Helper.ToHexString(noparamAVM);
+               Console.WriteLine("AVM=" + str);
+               Console.ReadLine();
+           }
+   }
    ```
 
    运行此程序可得合约脚本为       “52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566”。
@@ -81,63 +77,43 @@ Stack 是留在栈上的值，此值为 string helloworld 对应的 bytearray。
 1. 编写如下智能合约，并将 AVM 文件存为 `d:\\2.avm`。
 
    ```c#
-      public class Test01 : SmartContract
-
-      {
-
-          public static object Main(string param1,int[] value)
-
-          {
-
-               var magicstr = "2018 02 21";
-
-               return value[0]+value[1];
-
-          }
+   public class Test01 : SmartContract
+   {
+       public static object Main(string param1,int[] value)
+       {
+             var magicstr = "2018 02 21";
+             return value[0]+value[1];
+       }
+   }
    ```
 
 
-
-2. 编写如下测试代码，生成测试脚本
+2. 编写如下测试代码，生成测试脚本:
 
    ```c#
-             static void Main(string[] args)
+    static void Main(string[] args)
+           {
+               var noparamAVM = System.IO.File.ReadAllBytes("d:\\2.avm");
+               var str = Neo.Helper.ToHexString(noparamAVM);
 
-             {
+               Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
+               sb.EmitPush(12);
+               sb.EmitPush(14);
+               sb.EmitPush(2);
+               sb.Emit(Neo.VM.OpCode.PACK);
+               sb.EmitPush("param1");
+               var _params = sb.ToArray();
+               var str2 = Neo.Helper.ToHexString(_params);
 
-                 var noparamAVM =System.IO.File.ReadAllBytes("d:\\2.avm");
-
-                  var str =Neo.Helper.ToHexString(noparamAVM);
-
-                  Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
-
-                  sb.EmitPush(12);
-
-                  sb.EmitPush(14);
-
-                  sb.EmitPush(2);
-
-                  sb.Emit(Neo.VM.OpCode.PACK);
-
-                  sb.EmitPush("param1");
-
-                  var _params = sb.ToArray();
-
-                  var str2 =Neo.Helper.ToHexString(_params);
-
-       
-
-                  Console.WriteLine("AVM=" + str2 + str);
-
-                 Console.ReadLine();
-
-              }
+               Console.WriteLine("AVM=" + str2 + str);
+               Console.ReadLine();
+           }
    ```
-
 
 3. 使用 PostMan 进行测试：
 
-![img](../../../assets/test4.png)
+   ![img](../../../assets/test4.png)
+
 
 ### 示例 3 - 测试已经部署到链上的合约
 
@@ -146,46 +122,23 @@ Stack 是留在栈上的值，此值为 string helloworld 对应的 bytearray。
 测试代码如下：
 
 ```c#
-       static void Main(string[] args)
-
-       {
-
-            //var noparamAVM =System.IO.File.ReadAllBytes("d:\\2.avm");
-
-            //var str = Neo.Helper.ToHexString(noparamAVM);
-
- 
-
-            Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
-
-            sb.EmitPush(12);
-
-            sb.EmitPush(14);
-
-            sb.EmitPush(2);
-
-            sb.Emit(Neo.VM.OpCode.PACK);
-
-            sb.EmitPush("param1");
-
- 
-
-            //调用已发布的合约，最后加一条EmitAppCall即可
-
-            var addr = Neo.UInt160.Parse("0x10ad2338f972e90406fd2ebea9a60f38f4aebd53");
-
-            sb.EmitAppCall(addr.ToArray());
-
-            var _params = sb.ToArray();
-
-            var str2 = Neo.Helper.ToHexString(_params);
-
- 
-
-            Console.WriteLine("AVM=" + str2);
-
-            Console.ReadLine();
-
-        }
+static void Main(string[] args)
+{
+     //var noparamAVM = System.IO.File.ReadAllBytes("d:\\2.avm");
+     //var str = Neo.Helper.ToHexString(noparamAVM);
+     Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
+     sb.EmitPush(12);
+     sb.EmitPush(14);
+     sb.EmitPush(2);
+     sb.Emit(Neo.VM.OpCode.PACK);
+     sb.EmitPush("param1");
+     //调用已发布的合约，最后加一条EmitAppCall即可
+     var addr = Neo.UInt160.Parse("0x10ad2338f972e90406fd2ebea9a60f38f4aebd53");
+     sb.EmitAppCall(addr.ToArray());
+     var _params = sb.ToArray();
+     var str2 = Neo.Helper.ToHexString(_params);
+     Console.WriteLine("AVM=" + str2);
+     Console.ReadLine();
+}
 ```
 

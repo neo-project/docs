@@ -1,4 +1,4 @@
-## 合约编写须知
+# 合约编写须知
 
 ### NEO 编译器支持的 C# 特性
 
@@ -44,58 +44,44 @@ C# 的基本类型有
 
 另外对 C# 的 `BigInteger` 也可以支持：
 
-```
-            ulongtotal_neo = 200;
-
-            BigInteger ico_neo = 300;
-
-            BigInteger balance_neo = total_neo- ico_neo;
-
-            ulongvalue = 150;
+```c#
+ulongtotal_neo = 200;
+BigInteger ico_neo = 300;
+BigInteger balance_neo = total_neo- ico_neo;
+ulongvalue = 150;
 ```
 
 需要注意在将数值类型转型为更小的类型时，编译为 AVM 之后并不会截断数值（byte）（ulong）
 
 对所有整数类型支持数学运算符 +-*/% 加减乘除余：
 
-```
-            var a1 = abc + 1;
-
-            var a2 = abc - 1;
-
-            var a3 = abc * 1;
-
-            var a4 = abc / 1;
-
-            var a5 = abc % 2;
+```c#
+var a1 = abc + 1;
+var a2 = abc - 1;
+var a3 = abc * 1;
+var a4 = abc / 1;
+var a5 = abc % 2;
 ```
 
 对所有整数类型支持逻辑运算 大于、大于等于、小于、小于等于、等于、不等于：
 
-```
-            if (a1> a2) ;
-
-            if (a2< a3) ;
-
-            if (a3 ==a2) ;
-
-            if (a3 !=a2) ;
-
-            if (a1>= a2) ;
-
-            if(a1 <= a2) ;
+```c#
+if (a1> a2) ;
+if (a2< a3) ;
+if (a3 ==a2) ;
+if (a3 !=a2) ;
+if (a1>= a2) ;
+if(a1 <= a2) ;
 ```
 
 ​    支持整数的自增操作符：
 
-```
-            int k =100;
-
-            for (int j = 0;j < 3; j++)
-
-            {
-                k += j;
-            }
+```c#
+int k =100;
+for (int j = 0;j < 3; j++)
+{
+   k += j;
+}
 ```
 
 #### C# 浮点类型的支持
@@ -112,18 +98,13 @@ C# 的基本类型有
 
 尤其不要使用 string 处理中文。
 
-```
-            string ss3 = "ab";
-
-            ss3 += "c";
-
-            var ss = "abcdef";
-
-            var b2 = ss.Length;
-
-            var c = ss + "abc";
-
-            var d = ss.Substring(1, 2);
+```c#
+string ss3 = "ab";
+ss3 += "c";
+var ss = "abcdef";
+var b2 = ss.Length;
+var c = ss + "abc";
+var d = ss.Substring(1, 2);
 ```
 
 支持针对 bytes 操作的 string 的连接，取长度，截取操作，在英文处理时与 C# string 相同，不支持处理中文。
@@ -136,13 +117,12 @@ char 类型作为整数支持。
 
 支持 C# class 和结构体定义。
 
-```
-    public class info
-
-    {
-        public byte[] a;
-        public byte[] b;
-    }
+```c#
+public class info
+{
+    public byte[] a;
+    public byte[] b;
+}
 ```
 
 不支持在其中自定义成员函数，使用 APPCALL 之类特性的 extern 成员函数例外。
@@ -157,10 +137,10 @@ Byte[] 例外，因为 byte[] 是 NEOVM 底层的特别类型。
 
 对一般数组可以用的设置其中的值的操作
 
-```
-      short[] some= new short[17];
-      some[1] = 12;
-      returnsome;
+```c#
+short[] some= new short[17];
+some[1] = 12;
+returnsome;
 ```
 
 对 Byte[] 不允许。
@@ -183,7 +163,7 @@ Dictionary 功能可以用 NEO DOTNET DEVPACK 中的 MAP 替代。
 
 临时变量不限，支持定义 const 变量和静态成员变量。支持静态成员变量直接赋初值。
 
-```
+```c#
 private const ulongtotal_neo = total_ico_usd / neo_to_usd * neo_decimals;
 publicstatic BigInteger TotalIcoNeo()=> total_neo;
 ```
@@ -230,50 +210,45 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 
 调用一个具有 APPCALL 特性的函数，会调用指定的智能合约。
 
-```
+```c#
 [Appcall("97b9373228d508155d5bdf75cd4703dfb1137fe0")]
-
-        public static extern bool AnotherContract(string arg, object[] args);
+ public static extern bool AnotherContract(string arg, object[] args);
 ```
 
 #### SYSCALL特性
 
 调用一个具有 Syscall 特性的函数，实际上会调用对应的系统函数：
 
-```
+```c#
  [Syscall("Neo.Account.GetBalance")]
-
-        public extern long GetBalance(byte[] asset_id);
+  public extern long GetBalance(byte[] asset_id);
 ```
 
 #### OPCALL 特性
 
 调用一个具有 OPCODE 特性的函数时，该调用会被翻译成一条指令：
 
-```
+```c#
 [OpCode(Neo.VM.OpCode.LEFT)]
-
-       public extern static byte[] Take(byte[] good, int index);
+ public extern static byte[] Take(byte[] good, int index);
 ```
 
 #### NONEMIT 特性
 
 执行一个具有 NonEMit 特性的函数，通常都是用来完成一些满足语法的转换，实际上在 NEOVM 底层并不需要转换。
 
-```
+```c#
 [Nonemit]
-
-        public extern static Delegate ToDelegate(this byte[] source);
+ public extern static Delegate ToDelegate(this byte[] source);
 ```
 
 #### NonemitWithConvert 特性
 
 当执行一个具有 `NonemitWithConvert` 特性的函数时，实际只是执行一个转换。这个函数的入参必须是一个常数，因为这个转换是在编译阶段执行的。
 
-```
-       [NonemitWithConvert(ConvertMethod.ToScriptHash)]
-
-        public extern static byte[] ToScriptHash(this string address);
+```c#
+[NonemitWithConvert(ConvertMethod.ToScriptHash)]
+ public extern static byte[] ToScriptHash(this string address);
 ```
 
 例如， `“ABCD”.ToScriptHash();` 是合法的，因为编译器可以执行对 “ABCD” 的转换。
