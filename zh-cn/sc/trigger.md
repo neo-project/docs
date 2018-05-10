@@ -1,6 +1,6 @@
 # 智能合约的触发器
 
-触发器是触发智能合约执行的机制，在 NEO 智能合约中，有 4 种触发器，`Verification`, `Application` and `VerificationR`, `ApplicationR`，前两者已经实现，后两者已在 NEP-7（NEO 改进提案第7条）中被采纳，不久后便会实现。关于 NEP-7 可参考 [此文](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) 。
+触发器是触发智能合约执行的机制，在 NEO 智能合约中，有 4 种触发器，`Verification`, `Application`， `VerificationR`, `ApplicationR`
 
 一个实现智能合约的区块链应该为其上运行的智能合约提供多种触发器，便其在不同的上下文中起作用。
 
@@ -81,6 +81,14 @@ public static byte[] FunctionC(params object[] args)
 
 智能合约的执行成功与否不决定 `InvocationTransaction` 交易的成功。 `InvocationTransaction` 交易的成功也不决定智能合约的成功。
 
+### VerificationR
+
+待补充，关于 VerificationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) 。
+
+### ApplicationR
+
+待补充，关于 ApplicationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) 。
+
 ### 其它说明
 
 一个智能合约可以同时包含多种触发器以适应不同的上下文，下面的代码是同时包含了 Verification 触发器和 Application 触发器。
@@ -111,12 +119,12 @@ public static bool FunctionA(params object[] args)
 
 下面是几种智能合约触发器的对比
 
-|                  | Verification               | Application                     | VerificationR | ApplicationR |
-| ---------------- | -------------------------- | ------------------------------- | ------------- | ------------ |
-| 中文名           | 验证触发器                 | 应用触发器                      |               |              |
-| 开发状态         | 已开发完成                 | 已开发完成                      | 提议被采纳    | 提议被采纳   |
-| 如何触发         | 转账触发                   | 发送 InvocationTransaction 触发 |               |              |
-| 交易与合约的顺序 | 先执行智能合约，后确认交易 | 先确认交易，后执行智能合约      |               |              |
-|                  |                            |                                 |               |              |
+|                  | Verification               | Application                     | VerificationR              | ApplicationR               |
+| ---------------- | -------------------------- | ------------------------------- | -------------------------- | -------------------------- |
+| 中文名           | 验证触发器                 | 应用触发器                      | 待定                       | 待定                       |
+| 开发状态         | 已开发完成                 | 已开发完成                      | 已开发完成                 | 已开发完成                 |
+| 如何触发         | 转账触发                   | 发送 InvocationTransaction 触发 | 接收转账时触发             | 接收转账时触发             |
+| 交易与合约的顺序 | 先执行智能合约，后确认交易 | 先确认交易，后执行智能合约      | 先执行智能合约，后确认交易 | 先确认交易，后执行智能合约 |
+| 返回值           | 布尔                       | 任意                            | 布尔                       | 任意                       |
+| 智能合约存储区   | 只读                       | 读写                            | 只读                       | 读写                       |
 
-关于 VerificationR 和 ApplicationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) 。
