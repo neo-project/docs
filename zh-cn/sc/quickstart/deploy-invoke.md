@@ -1,87 +1,72 @@
-# 使用参数部署智能合约
+# 部署和调用智能合约
 
-## 1 - 介绍
-本教程旨在介绍如何用图形用户界面在NEO区块链上来部署和调用智能合约。本教程是通用的，适用于包括NEP5代币在内的所有合同类型。本教程假定合同已经被编译成一个.avm文件。 如果没有，请首先参考其他教程。合同的编译版本和本教程中使用的源代码都已经提供，供参考。
-## 2 - 实用的资源
+本文将介绍如何使用 NEO-GUI 在 NEO 区块链上部署和调用智能合约。本文中的操作步骤是通用的，适用于包括 NEP5 代币在内的所有合约类型。
+## 准备工作
+在开始部署之前，请确认您已经完成以下工作：
 
-本教程使用以下资源，在开发智能合约时可使用的有效参考资料：
-1. [Lock2](Lock2.md)
-2. [参数](Parameter.md)
-3. [Woolong NEP5 智能合约](assets/examples/woolong.cs.md)
-4. [开发人员 GUI](https://github.com/CityOfZion/neo-gui-developer)
-5. [Neo API](../api/neo.md)
-6. [NEP5 代币标准](https://github.com/neo-project/proposals/pull/4)
+- 已确认您的合约需要部署。相关信息请参阅 [什么需要部署](overview.md#智能合约的部署)。
+- 已编译好一个 .avm 合约文件。
+- 已安装 NEO-GUI 并完成区块同步。相关信息请参阅 [使用 NEO-GUI 客户端](../../node/gui.md)。
 
-## 3 - SC 代码
-本文档将使用Woolong示例中提供的示例代码来完成本教程。为了增加趣味性，这个合同将为每个invoke事件生成1个Woolong。
+## 使用 NEO-GUI 部署智能合约
 
-该示例已部署在testnet上，可以通过以下脚本哈希访问： 
-​    
-	dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f
-​	
+1. 在 NEO-GUI 中点击 `高级` -> `部署合约`。
 
-## 4 - 使用参数部署智能合约
+2. 在部署合约对话框中，点击 `加载` 选择编译好的合约文件。
 
-1. 区块链运用中 (.avm)部署智能合约 , 在NEO桌面钱包菜单上点击 **Advanced** 并选择 **Deploy Contract**.  在开发合同中，我们推荐使用NEO开发GUI。
+   此时代码框中会显示合约脚本。将其复制供以后使用。
 
-<p align="center"><img style="vertical-align: middle" src="assets/img/deploy.png" width="500"></p>
+3. 填写信息与元数据区域的参数。
 
-2.在 **Information** （信息）区域所有出现的窗口填充所有的字段.  必须填写所有字段才能部署合同.
-3. 点击 **Load** 按钮加载.avm文件.  此 **code field** 将被脚本哈希填充.  复制的内容 **Code** 字段供以后使用。
-4. 填充 **Metadata** 字段引用 [参数](Parameter.md) 文件.
+   元数据参数填写可参考 [智能合约参数和返回值](../Parameter.md)。
 
-    **Woolong示例标记被定义为:**  
+   如果需要，勾选 `需要创建存储区`。NEP5 标准使用存储区来维护帐户，因此部署 NEP5 token 时请勾选此项。
 
-    ```csharp
-    public static object Main(string method, params object[] args)  
-    ```
+4. 完成所有参数填写后，点击 `部署`。
 
-   所以这里运用:  
-    * **Parameter List:** 0710
-    * **Return Type:** 05
+   部署合约需要花费100 ~1000 GAS，详情请参见 [系统手续费](../systemfees.md)。
 
-5. 如果合同需要存储 (运用[Read/Write API](../api/neo.md#readwrite-api)), 检查 **Need Storage** 盒子.  NEP5标准使用存储目的是来维护帐户，因此请确保在部署NEP5代币时此标准已经被检查妥当。
+## 创建智能合约地址   
 
-6. 点击 **Deploy** 键.
+如果合约需要接受资产交易，你需要使用合约脚本创建一个合约地址。
 
+1. 创建好钱包后，在 NEO-GUI 中点击鼠标右键，选择 `创建合约地址` -> `自定义`。
+2. 在 `导入自定义合约` 对话框中设置以下选项：
+   a. `形参列表`：参考 [智能合约参数和返回值](http://docs.neo.org/zh-cn/sc/tutorial/Parameter.md)
+   b. `脚本代码`：填写上一步复制的合约脚本代码。
+   c. `私钥`：可选参数，当合约执行过程中需要签名时，设置用于签名的私钥。
+3. 点击 `确定`。
 
-## 5 - 查看智能合约   
+## 调用合约
 
-1. 在主NEO钱包窗口上, 右键单击地址区域并选择 (Create Contract Add > Custom)
-2. 从 **Related Account** 下面部分选择您想要与合约关联的账户
-3. 在 **Parameter List** 区域, 填充 **Parameter List** 在步骤4中使用的值 **Deploy Smart Contract w/ Parameters** 区域.
-4. 填充 **Script** 字段中提供了第3步中提供的值**Deploy Smart Contract w/ Parameters**.
-5. 点击 **Confirm** 将合约加载到钱包窗口中.
+### 从合约中调用另一个合约
 
+要从合约中调用另一个合约，首先通过 AppCall 和要调用的合约的脚本散列来在 C# 中添加声明，然后就可以在代码中对其进行调用了。
 
-## 6 - 调用智能合约
+```c#
+[Appcall("XXXXXXXXXX")]//ScriptHash
+public static extern int AnotherContract(string arg);
 
-要在NEO区块链上调用智能合约，您将需要智能合约脚本哈希。
-1. 为了获得合同哈希,右键单击地址窗口中填写的合同帐户 **Watching the Smart Contract** 窗口.
-2. 选择 **View Contract** 打开一个包含智能合约信息的窗口。  复制 **Script Hash** 区域的值.
-3. 点击 **Advanced** 菜单选项并选择**Invoke Contract**.
-4. 用 **Script Hash** 填充字段与在步骤中复制的值 2.  举个例子, 你可以在**Section 3**中使用脚本哈希来调用Woolong 。
-5. 智能合约信息应该自动填入剩余的 **Invoke Function** 区域.
-6. 填充输入参数, 点击 **...** 按钮旁边的参数字段打开参数填充菜单。
-7. 选择左侧字段的参数，并在右下角字段填入变量值。
+public static void Main()
+{
+    AnotherContract("Hello");    
+}
+```
 
-  **例如，调用以下内容:**
-  * `6e616d65` 当调用 Woolong, 将返回 'Woolong'.
-    ```csharp
-    if (method == "name") return name;
-    ```
-  * `73796d626f6c` 将返回 'WNG'.
-    ```csharp
-     if (method == "symbol") return symbol;
-    ```
-  * `62616c616e63654f66, 5fe459481de7b82f0636542ffe5445072f9357a1261515d6d3173c07c762743b` 将返回测试网络上的Woolong当前余额。
-    ```csharp
-    if (method == "balanceOf") return Storage.Get(Storage.CurrentContext, (byte[]) args[0]);
-    ```
+### 调用已部署的合约
 
-8. 点击 **OK** 关闭参数输入窗口。
-9. 点击 **Invoke** 键调用智能合约。
+要调用已发布到区块链上的智能合约，您可以使用 NEO-GUI 进行以下操作：
 
-**提示:** 当前的标准桌面GUI不支持查看返回。  建议在执行事件时使用开发人员GUI。
+1. 在 NEO-GUI 中，右键点击合约地址，选择 `查看合约`。
 
- 
+2. 复制合约脚本并关闭对话框。
+
+3. 点击 `高级` -> `调用合约`。
+
+4. 将合约脚本填入 `ScriptHash`。
+
+   该合约相关信息会自动显示出来。
+
+5. 点击 `试运行`，可以测试该合约。确认无误，点击 `调用`。
+
+也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/api/invoke.md) 调用合约。
