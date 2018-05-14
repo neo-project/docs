@@ -48,7 +48,7 @@ For example, in the Java JVM or .NET CLR, source code will be compiled into the 
 
 ### Virtual machine architecture
 
-   ![](C:/neo-project/docfx/docs/assets/neo-vm.jpg)
+![neo-vm](../../assets/neo-vm.jpg)
 
 The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
 
