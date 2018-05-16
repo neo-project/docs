@@ -9,28 +9,34 @@
      public enum ContractParameterType: byte
      {
          /// <summary>
-         /// signature
+         /// Signature
          /// </summary>
-         Signature = 0,
-         Boolean = 1,
+         Signature = 0x00,
+         Boolean = 0x01,
          /// <summary>
          /// Integer
          /// </summary>
-         Integer = 2,
+         Integer = 0x02,
          /// <summary>
          /// 160-bit hash value
          /// </summary>
-         Hash160 = 3,
+         Hash160 = 0x03,
          /// <summary>
          /// 256-bit hash value
          /// </summary>
-         Hash256 = 4,
+         Hash256 = 0x04,
          /// <summary>
          /// byte array
          /// </summary>
-         ByteArray = 5,
-         PublicKey = 6,
+         ByteArray = 0x05,
+         PublicKey = 0x06,
+         String = 0x07,
 
+         /// <summary>
+         /// object array
+         /// </summary>
+         Array = 0x10,
+         InteropInterface = 0xf0,   
          Void = 0xff
      }
 ```
