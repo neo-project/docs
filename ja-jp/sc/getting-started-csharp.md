@@ -87,7 +87,7 @@ Githubで[neo-compiler](https://github.com/neo-project/neo-compiler)プロジェ
 スマートコントラクトを定義するエントリメソッドをすべて追加する準備が整いました。
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
     public static void Main ()// C#のMainは大文字で始まります
     {
