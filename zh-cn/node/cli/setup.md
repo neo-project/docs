@@ -91,7 +91,7 @@ dotnet neo-cli.dll
    ```
 dotnet neo-cli.dll --rpc
    ```
-记录智能合约日志，如 NEP-5 资产的交易信息等，可以输入参数 `--rpc`  或 `-l` 
+记录智能合约日志，如 NEP-5 资产的交易信息等，可以输入参数 `--log`  或 `-l` 
 
    ```
 dotnet neo-cli.dll --log
