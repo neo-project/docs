@@ -71,14 +71,33 @@ sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, use the [Neo version of LevelDB](https://github.com/neo-project/leveldb).
 
-3. Open the command line, navigate to the program directory, enter the following code to start the NEO node.
+## Start the NEO node
+
+Open the command line, navigate to the program directory, enter the following code to start the NEO node.
 
 ```
 dotnet neo-cli.dll
 ```
 
-Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can run the following code.
+Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
 ```
-dotnet neo-cli.dll /rpc
+dotnet neo-cli.dll --rpc
 ```
-4. If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
+To log the smart contract information, e.g. the NEP-5 assets transactions, you can add `--log` or `-l`, for example:
+
+```
+dotnet neo-cli.dll --log 
+```
+
+If you want to only connect seed nodes in the configuration file, enter the following:
+
+```
+dotnet neo-cli.dll --nopeers 
+```
+
+If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
+
+> [!Important]
+>
+> If you open the API service and the wallet in NEO-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
+
