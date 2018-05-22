@@ -107,7 +107,9 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `项目名.avm` 文件，该文件即是生成的 NEO 智能合约文件。
 
-![](../assets/compile_smart_contract.jpg)
+ `项目名.abi.json` 是智能合约的描述文档，文档中对合约的 ScriptHash、入口、方法、参数、返回值等进行了描述。关于更多智能合约 ABI 的信息，可以参考 [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki)。
+
+![](../assets/compile_smart_contract.png)
 
 >[!Note]
 >
