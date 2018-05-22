@@ -116,7 +116,7 @@
     - name: Introduction
       href: sc/introduction.md
     - name: Quick Start
-      href: sc/quickstart/getting-started-csharp.md
+      href: sc/quickstart/overview.md
       items:
       - name: Getting Started
         href: sc/quickstart/getting-started-csharp.md
@@ -133,12 +133,10 @@
           href: sc/quickstart/getting-started-python.md
       - name: Limitations
         href: sc/quickstart/limitation.md
-      - name: Test
+      - name: Unit Testing
         href: sc/quickstart/test.md
-      - name: Deploying the Smart Contract
+      - name: Deploying and Invoking Smart Contracts
         href: sc/quickstart/deploy-invoke.md
-      - name: Invoking the Smart Contract
-        href: sc/quickstart/call.md
     - name: Reference
       href: sc/reference/api.md
       items: 

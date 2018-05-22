@@ -1,108 +1,142 @@
-# Smart contract unit test
+# Unit Testing
 
-After reading the previous document, we have been able to use C# in Visual Studio 2015 to prepare a smart contract. How can we do unit tests after writing a smart contract?
+You can use the [invokeScript](../../node/cli/api/invokescript.md) method provided by NEO-CLI for unit testing.
 
-## Write unit tests
+### Testing tool
 
-For example, you create the following smart contract, which contains three parameters, the return value is int.
+A unit test is initiated by a POST request. This section we use a common POST tool POSTMAN to do the  testing. You can write a POST tool for testing as well. 
 
+After compiling your smart contract and getting the related script hash, you can use POSTMAN to test by following these steps:
+
+1. Configure the CLI address. Select POST in the list and enter the RPC interface address of NEO-CLI.
+
+2. Select **raw** and **JSON**, and configure as follows：
+
+   ```
+   {
+    "jsonrpc":"2.0",
+    "method":"invokescript",
+    "params":["03230fa0"],
+    "id":1
+   }
+   ```
+
+   Replace the string in `params` with the script hash of the smart contract to test. Click **Send** to start a testing. See the figure below:
+
+   ![img](../../../assets/test1.png)
+
+###  Example 1 - Testing a contract without parameters
+
+1. Write the following code and save the generated .avm file as  `d:\\1.avm`.
+
+    ```c#
+    public class Test01 : SmartContract
+    {
+        public static object Main()
+        {
+            var magicstr = "2018 02 21";
+            return magicstr;
+        }
+    }
+    ```
+
+
+2. Create an netcore project and import the NEO project. 
+
+   ![img](../../../assets/test2.png)
+
+   Write the following code to obtain the smart contract script hash:
+
+   ```c#
+   class Program
+       {
+           static void Main(string[] args)
+           {
+               var noparamAVM = System.IO.File.ReadAllBytes("d:\\1.avm");
+               var str = Neo.Helper.ToHexString(noparamAVM);
+               Console.WriteLine("AVM=" + str);
+               Console.ReadLine();
+           }
+   }
+   ```
+
+   After running above code you can get the contract script:       “52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566”.
+
+3. Use postman to test, as shown below:
+
+   ![img](../../../assets/test3.png)
+
+"state": The value "HALT, BREAK" indicates the test is successful. 
+
+Stack is the value left on the Stack, which is the bytearray corresponding to the string helloworld. 
+
+###  Example 2 - Testing a contract with parameters
+
+1. Write the following code and save the generated .avm file as `d:\\2.avm`。
+
+   ```c#
+   public class Test01 : SmartContract
+   {
+       public static object Main(string param1,int[] value)
+       {
+             var magicstr = "2018 02 21";
+             return value[0]+value[1];
+       }
+   }
+   ```
+
+
+2. Write the following code for testing:
+
+   ```c#
+    static void Main(string[] args)
+           {
+               var noparamAVM = System.IO.File.ReadAllBytes("d:\\2.avm");
+               var str = Neo.Helper.ToHexString(noparamAVM);
+
+               Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
+               sb.EmitPush(12);
+               sb.EmitPush(14);
+               sb.EmitPush(2);
+               sb.Emit(Neo.VM.OpCode.PACK);
+               sb.EmitPush("param1");
+               var _params = sb.ToArray();
+               var str2 = Neo.Helper.ToHexString(_params);
+
+               Console.WriteLine("AVM=" + str2 + str);
+               Console.ReadLine();
+           }
+   ```
+
+3. Use PostMan to test:
+
+   ![img](../../../assets/test4.png)
+
+
+### Example 3 - Testing a contract deployed on the blockchain
+
+Majority of steps are similar. Refer to the first two examples.
+
+The following is the code for testing：
 
 ```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-
-namespace Neo.SmartContract
+static void Main(string[] args)
 {
-    public class Test1: SmartContract
-    {
-        public static int Main (int a, int b, int c)
-        {
-            if (a> b)
-                return a * sum (b, c);
-            else
-                return sum (a, b) * c;
-        }
-
-        public static int sum (int a, int b)
-        {
-            return a + b;
-        }
-    }
+     //var noparamAVM = System.IO.File.ReadAllBytes("d:\\2.avm");
+     //var str = Neo.Helper.ToHexString(noparamAVM);
+     Neo.VM.ScriptBuilder sb = new Neo.VM.ScriptBuilder();
+     sb.EmitPush(12);
+     sb.EmitPush(14);
+     sb.EmitPush(2);
+     sb.Emit(Neo.VM.OpCode.PACK);
+     sb.EmitPush("param1");
+     //To call the deployed contract, add EmitAppCall at the end
+     var addr = Neo.UInt160.Parse("0x10ad2338f972e90406fd2ebea9a60f38f4aebd53");
+     sb.EmitAppCall(addr.ToArray());
+     var _params = sb.ToArray();
+     var str2 = Neo.Helper.ToHexString(_params);
+     Console.WriteLine("AVM=" + str2);
+     Console.ReadLine();
 }
 ```
 
-After compiling, generate the contract's `Test1.avm` file. We can create a unit test project and test `Test1.avm`.
-
-First create a C# Console App (.Net Framework) project with Visual Studio, with .NET Framework 4.6.2 or later. Then add a reference to `Neo.dll` and `neon.dll`.
-
-> [!Note]
-> These two files can be obtained by compiling [Neo](https://github.com/neo-project/neo) and [neo-vm](https://github.com/neo-project/neo-vm).
-
-> Alternatively, you can just add NuGet packages "NEO" and "Neo.VM" to your project. You can do that by right-clicking the contract project on the Solution Explorer, go to Browse, search NEO and install the required packages.
-
-```c#
-using System;
-using System.IO;
-using System.Linq;
-using Neo;
-using Neo.VM;
-using Neo.Cryptography;
-
-namespace ConsoleApplication1
-{
-    class program
-    {
-        static void Main(string[] args)
-        {
-            var engine = new ExecutionEngine(null, Crypto.Default);
-            engine.LoadScript(File.ReadAllBytes(@ "C: \ ... \ Test1.avm"));
-
-            using (ScriptBuilder sb = new ScriptBuilder())
-            {
-                sb.EmitPush(2); // corresponds to the parameter c
-                sb.EmitPush(4); // corresponds to the parameter b
-                sb.EmitPush(3); // corresponds to the parameter a
-                engine.LoadScript(sb.ToArray());
-            }
-
-            engine.Execute(); // start execution
-
-            var result = engine.EvaluationStack.Peek().GetBigInteger(); // set the return value here
-            Console.WriteLine($"Execution result {result}");
-            Console.ReadLine();
-        }
-    }
-}
-```
-
-Compile output: Execution result 14, as expected
-
-> [!Note]
->
-> If you encounter the following error after execution：
->
-> The type “BigInteger” is defined in an unreferenced assembly. You must add a reference to the assembly “System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089”
->
-> You can add a reference to “System.Numerics”  to solve the problem。
-
-Note: If you use the above code to pass the parameters, pay attention to the top of the stack corresponding to the first parameter, for convenience you can also pass the parameters with following code.S
-
-```c#
-using (ScriptBuilder sb = new ScriptBuilder())
-{
-    int[] parameter = {3, 4, 2};
-    parameter.Reverse().ToList().ForEach(p => sb.EmitPush(p));
-    engine.LoadScript(sb.ToArray());
-}
-```
-If the return value of the smart contract is not of type int, but is bool or other type, you need to set `engine.EvaluationStack.Peek (). GetBigInteger ()` to other values, as shown in Figure
-
-[](/assets/test_1.jpg)
-
-------
-
-### 📖 The document is being edited
-
-The document is being edited and we will complete it as soon as possible. 
-
-NEO is a community open source project, if you are interested, you can also contribute to the developer documents by creating Pull requests on GitHub, the documents for the project can be found at [github.com/neo-project/docs](https://github.com/neo-project/docs), thank you for your contribution.
