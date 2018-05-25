@@ -1,6 +1,6 @@
 # Limitations of Writing Smart Contracts
 
-### NEO-supported features in C##
+### NEO-supported features in C#
 
 When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NEOVM and Dotnet IL. 
 
