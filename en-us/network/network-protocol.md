@@ -46,11 +46,11 @@ Convention
 Data Type
 -------
 
-1. Blockchain
+1. <a name="blockchain"></a>Blockchain
 
    The blockchain is a kind of logical structure, which is connected in series with a one-way linked list. It is used to store the data of the whole network, such as transactions or assets.
 
-1. Block
+1. <a name="block"></a>Block
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -67,7 +67,7 @@ Data Type
 
    When calculating the hash value of the block, instead of calculating the entire block, only first seven fields in the block head will be calculated, which are version, PrevBlock, MerkleRoot, timestamp, and height, the nonce, NextMiner. Since MerkleRoot already contains the hash value of all transactions, the modification of transaction will influence the hash value of the block.
 
-   Data structure of block head:
+   <a name="block_head"></a>Data structure of block head:
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -84,7 +84,7 @@ Data Type
 
    The time-stamp of each block must be later than previous block's time stamp. Generally the difference of two block's time stamp is about 15 seconds and imprecision is allowed. The height of the block must be exactly equal to the height of the previous block plus 1.
 
-1. Transaction
+1. <a name="transaction"></a>Transaction
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -111,7 +111,7 @@ Data Type
 
    Each type of transaction, in addition to the public field, also has its own exclusive field. The following will describe these exclusive fields in detail.
 
-   + MinerTransaction
+   + <a name="miner_transaction"></a>MinerTransaction
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
@@ -121,7 +121,7 @@ Data Type
 
       Random number in the transaction is used to avoid hash collision.
 
-   + IssueTransaction
+   +<a name="issue_transaction"></a> IssueTransaction
 
       There are no special fields for an issue transaction.
 
@@ -131,13 +131,13 @@ Data Type
 
       Random number in the transaction is used to avoid hash collision.
 
-   + ClaimTransaction
+   + <a name="claim_transaction"></a>ClaimTransaction
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
       |34*?|Claims|tx_in[]|NEO for distribution|
 
-   + EnrollmentTransaction
+   + <a name="enrollment_transaction"></a>EnrollmentTransaction
 
       |Size|Field|DataType|Description|
       |---|---|---|---|
@@ -149,7 +149,7 @@ Data Type
 
       The way to cancel the registration is: Spend the deposit on the address of the PublicKey.
 
-   + RegisterTransaction
+   + <a name="register_transaction"></a>RegisterTransaction
 
       > [!Warning]
       Has been deactived and replaced by Neo.Asset.Create for the smart contract.
@@ -158,11 +158,11 @@ Data Type
 
       View [Alternative Smart Contract API](../sc/reference/api/neo.md)
 
-   + ContractTransaction
+   + <a name="contract_transaction"></a>ContractTransaction
 
       There are no special attributes for a contract transaction. This is a very common kind of transaction as it allows one wallet to send NEO to another. The `inputs` and `outputs` transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
 
-   + PublishTransaction
+   + <a name="publish_transaction"></a>PublishTransaction
 
       > [!Warning]
       Has been deactivated and replaced by Neo.Contract.Create for the smart contract.
@@ -171,7 +171,7 @@ Data Type
 
       View [Alternative Smart Contract API](../sc/reference/api/neo.md)
 
-   + Invoking a Transaction
+   + <a name="invocation_transaction"></a>Invocation Transaction
 
       | Size   | Field     | Data Type    | Description              |
       | ---- | ------ | ------- | --------------- |
@@ -180,7 +180,7 @@ Data Type
       | 8    | Gas    | int64   | Costs required to run the smart contract |
       | -    | -      | -       | Publics fields for transactions         |
 
-1. Transaction Attributes
+1. <a name="transaction_attributes"></a>Transaction Attributes
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -208,14 +208,14 @@ Data Type
 
    For CertUrl, DescriptionUrl, Description, Remark series, the data length must be clearly defined, and the length should not exceed 255;
 
-1. Input of Transaction
+1. <a name="transaction_input">Input of Transaction
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
    |32|PrevHash|uint256|Previous transaction's hash|
    |2|PrevIndex|uint16|Previous transaction's index|
 
-1. Output of Transaction
+1. <a name="transaction_output">Output of Transaction
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
@@ -225,7 +225,7 @@ Data Type
 
    Each transaction can have outputs up to 65536.
 
-1. Validation Script
+1. <a name="validation_script">Validation Script
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
