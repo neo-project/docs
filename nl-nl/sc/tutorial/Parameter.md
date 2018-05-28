@@ -3,38 +3,38 @@
 Bij het deployen of oproepen van een smart contract moet je de parameters van het smart contract aangeven. Smart contract-parameters zijn byte types, welke als volgt zijn gedefiniëerd:
 
 ```c#
-     /// <samenvatting>
+     /// <summary>
      /// Indicates the parameter type of the smart contract
-     /// </samenvatting>
+     /// </summary>
      public enum ContractParameterType: byte
      {
-         /// <samenvatting>
+         /// <summary>
          /// Signature (ondertekening)
-         /// </samenvatting>
+         /// </summary>
          Signature = 0x00,
          Boolean = 0x01,
-         /// <samenvatting>
+         /// <summary>
          /// Integer
-         /// </samenvatting>
+         /// </summary>
          Integer = 0x02,
-         /// <samenvatting>
+         /// <summary>
          /// 160-bit hashwaarde
-         /// </samenvatting>
+         /// </summary>
          Hash160 = 0x03,
-         /// <samenvatting>
+         /// <summary>
          /// 256-bit hashwaarde
-         /// </samenvatting>
+         /// </summary>
          Hash256 = 0x04,
-         /// <samenvatting>
+         /// <summary>
          /// byte-array
-         /// </samenvatting>
+         /// </summary>
          ByteArray = 0x05,
          PublicKey = 0x06,
          String = 0x07,
          
-         /// <samenvatting>
+         /// <summary>
          /// object-array
-         /// </samenvatting>
+         /// </summary>
          Array = 0x10,
          
          Void = 0xff
