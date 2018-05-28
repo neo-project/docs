@@ -7,19 +7,21 @@
 
 ## 参数说明
 
-asset_id：资产 ID（资产标识符），即该资产在注册时的交易 ID，如果是全局资产，该处为 Register Transaction 或 Publish Transaction 的交易 ID，如果是合约内部资产，该处为 Publish Transaction 的交易 ID（而不是 Script Hash）。
+asset_id：资产 ID（资产标识符），如果是全局资产，此处为注册资产时的 Register Transaction 或 Publish Transaction 的交易 ID，如果是合约内部资产，此处为合约的 Script Hash。
 
 如NEO为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
 NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-RPX Sale 为：c8c9696476091fd63f4b0214715abe3eb10f4882a2959d4592c1f3cace800c24
+RPX Sale 为：ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 
 其余资产 ID 可以通过 [CLI 命令](../cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
 ## 调用示例
 
-示例1：请求正文：
+示例1：查询全局资产的余额
+
+请求正文：
 
 ```json
 {
@@ -43,13 +45,29 @@ RPX Sale 为：c8c9696476091fd63f4b0214715abe3eb10f4882a2959d4592c1f3cace800c24
 }
 ```
 
-示例2：请求正文：
+响应说明：
+
+balance：钱包中该资产的真实余额。
+
+confirmed：钱包中该资产的已确认的金额，只有已确认的金额可以用来转账。
+
+balance 和 confirmed 二者可能会不相等，仅在从钱包中转出一笔钱，而且有找零未确认时时，confirmed 值会小于balance。当这笔交易确定后，二者会变得相等。
+
+
+> [!Note]
+> 当区块未完全同步时，返回的资产余额可能不是最新的，请确保使用该 API 时区块已经同步到最新高度。
+
+
+
+示例2：查询 NEP-5 资产的余额
+
+请求正文：
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "getbalance",
-  "params": ["c8c9696476091fd63f4b0214715abe3eb10f4882a2959d4592c1f3cace800c24"],
+  "params": ["ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9"],
   "id": 1
 }
 ```
@@ -67,11 +85,6 @@ RPX Sale 为：c8c9696476091fd63f4b0214715abe3eb10f4882a2959d4592c1f3cace800c24
 }
 ```
 
-响应说明：
-
-balance：钱包中该资产的真实余额。
-
-confirmed：钱包中该资产的已确认的金额，只有已确认的金额可以用来转账。
-
-balance 和 confirmed 二者可能会不相等，仅在从钱包中转出一笔钱，而且有找零未确认时时，confirmed 值会小于balance。当这笔交易确定后，二者会变得相等。
+> [!Note]
+> 当未同步到发布合约的区块时，执行该 API 会报错，只有当区块同步到发布该合约资产的区块时，才会返回正确的结果。当区块未完全同步时，返回的资产余额可能不是最新的，请确保使用该 API 时区块已经同步到最新高度。
 
