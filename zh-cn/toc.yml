@@ -20,7 +20,7 @@
     - name: NEO-GUI
       href: node/gui.md
     - name: NEO-CLI
-      href: node/cli/cli.md
+      href: node/cli/setup.md
       items:
       - name: 安装
         href: node/cli/setup.md
