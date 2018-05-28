@@ -1,23 +1,25 @@
 # getbalance 方法
 
-根据指定的资产编号，返回钱包中对应资产的余额信息。
+根据指定的资产编号，返回钱包中对应资产的余额信息。该方法适用于全局资产及符合 [NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准的合约资产。
 
 > [!Note]
 > 执行此命令前需要在 Neo-CLI 节点中打开钱包。
 
 ## 参数说明
 
-asset_id：资产 ID（资产标识符），即该资产在注册时的交易 ID。
+asset_id：资产 ID（资产标识符），即该资产在注册时的交易 ID，如果是全局资产，该处为 Register Transaction 或 Publish Transaction 的交易 ID，如果是合约内部资产，该处为 Publish Transaction 的交易 ID（而不是 Script Hash）。
 
 如NEO为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
 NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
+RPX Sale 为：c8c9696476091fd63f4b0214715abe3eb10f4882a2959d4592c1f3cace800c24
+
 其余资产 ID 可以通过 [CLI 命令](../cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
 ## 调用示例
 
-请求正文：
+示例1：请求正文：
 
 ```json
 {
@@ -28,7 +30,7 @@ NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 }
 ```
 
-响应正文：
+示例1：响应正文：
 
 ```json
 {
@@ -37,6 +39,30 @@ NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
   "result": {
     "balance": "1.01",
     "confirmed": "1.01"
+  }
+}
+```
+
+示例2：请求正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getbalance",
+  "params": ["c8c9696476091fd63f4b0214715abe3eb10f4882a2959d4592c1f3cace800c24"],
+  "id": 1
+}
+```
+
+示例2：响应正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "balance": "100",
+    "confirmed": "100"
   }
 }
 ```
