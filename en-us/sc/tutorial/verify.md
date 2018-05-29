@@ -1,10 +1,12 @@
-# Contract Authentication Tutorial
+# Verification Contract Tutorial
 
-This tutorial is based on Visual Studio 2017，please ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.0, please download and run the **test network** from [GitHub](https://github.com/neo-project/neo-gui/releases).
+When transferring assets out of a smart contract verification account, the consensus nodes execute the contract when validating the transaction. If the contract validation is successful (returns the result `true`), then the transaction is confirmed. Until the result `true` is received, the transaction will have status unconfirmed. 
 
-The latest **test network** client download address is [NEO-GUI](https://github.com/neo-project/neo-gui/releases).
+This tutorial is based on Visual Studio 2017. Ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.0. You need to download the latest [NEO-GUI](https://github.com/neo-project/neo-gui/releases) and run the **test network**.
 
-## Compile contract script
+## Compiling a contract script
+
+First of all, refer to [how to use C# to write a smart contract](../getting-started-csharp.md) to compile a smart contract file Test.avm using the following code. 
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -22,23 +24,17 @@ namespace Neo.SmartContract
 }
 ```
 
-> [!Note]
-> If you do not know how to write and generate smart contract scripts, see [How to use C# to prepare Smart Contract](../quickstart/getting-started-csharp.md)
->
+## Creating a wallet
 
-The above contract will be compiled into Test.avm, its contract script (Test.avm binary data) is: 52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
-
-You will learn how to abtain the contract script for an `.avm` file later in this tutorial.
-
-## Create a wallet
-
-Create a new wallet according to the tutorial shown below:
+In the NEO-GUI client, click `Wallet` -> `New Wallet` Database to create a new wallet, as shown below: 
 
 ![Create a wallet](../../../assets/verify_1.png)
 
 ## Obtaining the contract script
 
-There are many ways to obtain the contract script, one way is to read it directly from the `.avm` file using the C# code below.
+You can choose one of the following ways to obtain the contract script:
+
+- Use the following C# code to read it directly from the `.avm` file:
 
 ```c#
 byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
@@ -46,29 +42,32 @@ for (int i = 0; i < bytes.Length; i++)
     Console.Write(bytes[i].ToString("x2"));
 ```
 
-If you do no want to get the contract script through coding, then the client's `Deploy Contract` provides a simple way to obtain the contract code:
+You can get the contract script (Test.avm binary data) of Test.avm is: 52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
 
-Click on `Advanced`, `Deploy Contract`, click on the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier. You should see the contract script displayed in the `Code` box, as seen in figure. Copy this down again.
+- Use NEO-GUI to obtain the script:
+  1. Click  `Advanced`-> `Deploy Contract`
+  2. click the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier.
+  3.  Copy the contract script displayed in the `Code` box, as shown below.
 
 ![Obtaining the contract script](../../../assets/verify_5.png)
 
-## Create a contract address
+## Creating a contract address
 
-After creating your own wallet, click the right mouse button, and create a contract address with your generated contract script:
+1. After creating your own wallet, right-click in the address area and select `Create Contract Add` -> `Custom` to create a contract address with the contract script generated before:
 
-![Create a contract address](../../../assets/verify_6.png)
+   ![Create a contract address](../../../assets/verify_6.png)
 
-Bind the contract address to your account and fill in the corresponding parameters. Because our contract has a parameter for signature, you have to fill in `00` in `Parameter List` (for details, please see [Parameter](Parameter.md)), and then enter the contract script from previous step in the `Code` box. 
+2. In the Import Custom Contract dialog, specify the following:
 
-The reason to associate an account is to bind a contract with a public-private key pair, so when the contract needs to be signed, the client will automatically sign with the private key of the bound account. 
+   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](Parameter.md)),
+   2. Script: enter the contract script copied from previous step.
+   3. Private Key: Optional. When the contract needs to be signed, specify the private key used for signing.
 
-![Create a contract address](../../../assets/verify_7.png)
-
-After clicking `OK`, the smart contract authentication account is created successfully.
+3. After clicking `OK`, the smart contract authentication account is created successfully.
 
 ## Testing
 
-The following is a test of the smart contract authentication account, when transferring assets out of a smart contract account, the consensus nodes will execute the contract when validating the transaction. If the contract validation is successful (returns result `true`), then the transaction is confirmed. Until result `true` is received, the transaction will have status unconfirmed. The test method is to first transfer some assets to the contract authentication account, and then transfer it out.
+The following is a test of the smart contract authentication account. The test method is to first transfer some assets to the contract authentication account, and then transfer it out.
 
 > [!Note]
 > In order to ensure the accuracy of the test, do not have any other assets in the wallet. Otherwise you may not know whether the asset was transferred from the standard account or transferred from the contract account, unless you understand the client's change search algorithm and can confirm that the transaction is transferred from the smart contract address.
@@ -86,7 +85,6 @@ Transfer assets out from your smart contract account:
 
 ![Transfer the contract amount](../../../assets/verify_10.png)
 
+### Conclusion
 
-
-> [!Note]
-> The balance of the assets in the client is the sum of the balance in the standard account and the balance in the contract address, that is, assets of all addresses combined. Whether or not you can use the assets in the contract address depends on the result of the smart contract execution, if the contract is successful (the result is `true`) then the asset can be transferred out, otherwise it cannot be transferred.
+The balance of the assets in the client is the sum of the balance in the standard account and the balance in the contract address, that is, assets of all addresses combined. Whether or not you can use the assets in the contract address depends on the result of the smart contract execution, if the contract execution is successful (the result is `true`) then the asset can be transferred out, otherwise it cannot be transferred.

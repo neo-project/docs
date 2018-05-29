@@ -1,4 +1,4 @@
-# Deploying a Lock Contract
+# Lock Contract Tutorial
 
 Read the following tutorial before reading this article:
 
