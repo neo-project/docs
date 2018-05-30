@@ -43,14 +43,25 @@ Response body:
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "state": "HALT, BREAK",
-        "gas_consumed": "0.338",
+        "script": "141d48341f3e2f42b7f678726709249356dd69c4bf51c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "state": "FAULT, BREAK",
+        "gas_consumed": "0.011",
         "stack": [
             {
+                "type": "Array",
+                "value": [
+                    {
+                        "type": "ByteArray",
+                        "value": "1d48341f3e2f42b7f678726709249356dd69c4bf"
+                    }
+                ]
+            },
+            {
                 "type": "ByteArray",
-                "value": "00e1f505"
+                "value": "62616c616e63654f66"
             }
-        ]
+        ],
+        "tx": "d10136141d48341f3e2f42b7f678726709249356dd69c4bf51c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec000000000000000000000000"
     }
 }
 ```
