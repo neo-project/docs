@@ -41,12 +41,12 @@ Request body：
     "params": [
         [
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             }
@@ -65,12 +65,12 @@ Request body (system fee and change address included)
     "params": [
         [
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             }
@@ -89,47 +89,47 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "27b9a82ed519eec17c5520927b3f472e4df28b835c24dba25645e1650ed8d2ac",
+        "txid": "0x9c20c13f6b05691efbfd7e420b0edf470f8a5ae467e1e7ca7e11243c9b9fc333",
         "size": 322,
         "type": "ContractTransaction",
         "version": 0,
         "attributes": [],
         "vin": [
             {
-                "txid": "8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f",
+                "txid": "0x01aafdf395297f5214c1ca5d883e776af2cb63cc125eb6d48dadd1c90b152527",
                 "vout": 0
             }
         ],
         "vout": [
             {
                 "n": 0,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "1",
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
                 "n": 1,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "1",
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
                 "n": 2,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": "999998",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "value": "498",
+                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
             }
         ],
         "sys_fee": "0",
         "net_fee": "0",
         "scripts": [
             {
-                "invocation": "40844144eb6819cb094afee2db5e5da078cfc7bbe29dbc60e47b4c3b4bdf77a5fd97865ae9b5a8d8bb3fa20f1441a58a05f848b2ea49c6c0dbbfc5ed241b226665",
-                "verification": "210208c5203d32f960c54c225f140c1020408b114c15d29082fc959dac6874828fccac"
+                "invocation": "40c7debdad63c59952246aa4b397fc4f86d473d4c543654c9e3cff479e55acda78deb90b252a0638e6a6cc579f20d74649391ea845f2b5efcaed5e503c7c8a7fb6",
+                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
             }
         ]
     }
-}
+} 
 ```
 
 Response Description:
