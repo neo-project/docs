@@ -23,7 +23,7 @@ Response body:
   "id": 3,
   "result": {
       "port": 0,
-      "nonce": 156443862,
+      "nonce": 1546258664,
       "useragent": "/NEO:2.7.5/"
   }
 }
