@@ -27,7 +27,7 @@ Response body:
     "id": 1,
     "result": {
         "version": 0,
-        "script_hash": "1179716da2e9523d153a35fb3ad10c561b1e5b1a",
+        "script_hash": "0x1179716da2e9523d153a35fb3ad10c561b1e5b1a",
         "frozen": false,
         "votes": [],
         "balances": [
