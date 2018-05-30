@@ -29,7 +29,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendtoaddress",
-  "params": ["025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4", "AK4if54jXjSiJBs6jkfZjxAastauJtjjse", 1],
+  "params": ["c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b", "AK4if54jXjSiJBs6jkfZjxAastauJtjjse", 1],
   "id": 1
 }
 ```
@@ -38,43 +38,43 @@ Response body:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "Txid": "fbd69da6996cc0896691a35cba2d3b2e429205a12307cd2bdea5fbdf78dc9925",
-    "Size": 262,
-    "Type": "ContractTransaction",
-    "Version": 0,
-    "Attributes":[],
-    "Vin": [
-      { 
-        "Txid": "19fbe968be17f4bd7b7f4ce1d27e39c5d8a857bd3507f76c653d204e1e9f8e63",
-        "Vout": 0
-      }
-    ],
-    "Vout": [
-      {
-        "N": 0,
-        "Asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-        "Value": "1",
-        "Address": "AK4if54jXjSiJBs6jkfZjxAastauJtjjse"
-      },
-      {
-        "N": 1,
-        "Asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-        "Value": "4978980",
-        "Address": "AK4if54jXjSiJBs6jkfZjxAastauJtjjse"
-       }
-    ],
-    "Sys_fee": "0",
-    "Net_fee": "0",
-    "Scripts": [
-       {
-        "Invocation": "40f02345c7e90245F085d0c588433ca9e89c6df58f3636b5240288aab5f081b1c67c3cad5946890de9001fcfe8d8b748b647b116891e6f1fb2393cc2f1aba45a81",
-        "Verification": "21027b30333e0d0e6552ae6d1da9f9409f551e35ee9719305e945dc4dcba998456caac"
-        }
-     ]
-  }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
+        "size": 262,
+        "type": "ContractTransaction",
+        "version": 0,
+        "attributes": [],
+        "vin": [
+            {
+                "txid": "0x9c20c13f6b05691efbfd7e420b0edf470f8a5ae467e1e7ca7e11243c9b9fc333",
+                "vout": 2
+            }
+        ],
+        "vout": [
+            {
+                "n": 0,
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "value": "1",
+                "address": "AK4if54jXjSiJBs6jkfZjxAastauJtjjse"
+            },
+            {
+                "n": 1,
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "value": "497",
+                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
+            }
+        ],
+        "sys_fee": "0",
+        "net_fee": "0",
+        "scripts": [
+            {
+                "invocation": "4059e40a2040fe43bf8a40230e1f136dcfe7b3ca37d492ac8d6439615f7b88601c8d9b8077cd0e4f8c9f402d10a2782945bfa50e0ed3f57f7cceebd2f792453eb0",
+                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
+            }
+        ]
+    }
 }
 ```
 
