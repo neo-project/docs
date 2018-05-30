@@ -30,6 +30,7 @@ Response body:
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
+        "script": "00046e616d656711c4d1f4fba619f2628870d36e3a9773e874705b",
         "state": "HALT, BREAK",
         "gas_consumed": "0.125",
         "stack": [
@@ -37,7 +38,8 @@ Response body:
                 "type": "ByteArray",
                 "value": "5265642050756c736520546f6b656e20332e312e34"
             }
-        ]
+        ],
+        "tx": "d1011b00046e616d656711c4d1f4fba619f2628870d36e3a9773e874705b000000000000000000000000"
     }
 }
 ```
