@@ -41,12 +41,12 @@ Request body：
     "params": [
         [
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             }
@@ -89,43 +89,43 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "27b9a82ed519eec17c5520927b3f472e4df28b835c24dba25645e1650ed8d2ac",
+        "txid": "0x55ba819b50f5821298328f3bf9bb17e088afc900cf2ad7dbfc03d49940b5cf30",
         "size": 322,
         "type": "ContractTransaction",
         "version": 0,
         "attributes": [],
         "vin": [
             {
-                "txid": "8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f",
-                "vout": 0
+                "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
+                "vout": 1
             }
         ],
         "vout": [
             {
                 "n": 0,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "1",
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
                 "n": 1,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "1",
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
                 "n": 2,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": "999998",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "value": "495",
+                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
             }
         ],
         "sys_fee": "0",
         "net_fee": "0",
         "scripts": [
             {
-                "invocation": "40844144eb6819cb094afee2db5e5da078cfc7bbe29dbc60e47b4c3b4bdf77a5fd97865ae9b5a8d8bb3fa20f1441a58a05f848b2ea49c6c0dbbfc5ed241b226665",
-                "verification": "210208c5203d32f960c54c225f140c1020408b114c15d29082fc959dac6874828fccac"
+                "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
+                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
             }
         ]
     }
