@@ -51,27 +51,27 @@ Response body:
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
-    "Txid": "f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657",
+    "Txid": "0xf4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657",
     "Size": 262,
     "Type": "ContractTransaction",
     "Version": 0,
     "Attributes":[],
     "Vin": [
       {
-        "Txid": "abe82713f756eaeebf6fa6440057fca7c36b6c157700738bc34d3634cb765819",
+        "Txid": "0xabe82713f756eaeebf6fa6440057fca7c36b6c157700738bc34d3634cb765819",
         "Vout": 0
       }
      ],
      "Vout": [
       {
         "N": 0,
-        "Asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+        "Asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
         "Value": "2950",
         "Address": "AHCNSDkh2Xs66SzmyKGdoDKY752uyeXDrt"
       },
       {
         "N": 1,
-        "Asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+        "Asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
         "Value": "4050",
         "Address": "ALDCagdWUVV4wYoEzCcJ4dtHqtWhsNEEaR"
        }
@@ -84,7 +84,7 @@ Response body:
         "Verification": "2103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
       }
     ],
-    "Blockhash": "9c814276156d33f5dbd4e1bd4e279bb4da4ca73ea7b7f9f0833231854648a72c",
+    "Blockhash": "0x9c814276156d33f5dbd4e1bd4e279bb4da4ca73ea7b7f9f0833231854648a72c",
     "Confirmations": 144,
     "Blocktime": 1496719422
   }
