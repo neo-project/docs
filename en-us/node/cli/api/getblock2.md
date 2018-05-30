@@ -51,11 +51,11 @@ Response body:
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
-    "hash": "4c1e879872344349067c3b1a30781eeb4f9040d3795db7922f513f6f9660b9b2",
+    "hash": "0x4c1e879872344349067c3b1a30781eeb4f9040d3795db7922f513f6f9660b9b2",
     "size": 686,
     "version": 0,
-    "previousblockhash": "53ce15a53a184faa058be9008ece887d7f0b30a459342ce42753f73f9ed390e9",
-    "merkleroot": "9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
+    "previousblockhash": "0x53ce15a53a184faa058be9008ece887d7f0b30a459342ce42753f73f9ed390e9",
+    "merkleroot": "0x9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
     "time": 1476834896,
     "index": 10000,
     "nonce": "aa2c0fd5dc445445",
@@ -66,7 +66,7 @@ Response body:
     },
     "tx": [
       {
-        "txid": "9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
+        "txid": "0x9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
         "size": 10,
         "type": "MinerTransaction",
         "version": 0,
@@ -80,7 +80,7 @@ Response body:
       }
    ],
     "confirmations": 981987,
-    "nextblockhash": "c9a32cd215837c02dd72613bfad6ed064579e77bafd859907f87b3e67fa498cc"
+    "nextblockhash": "0xc9a32cd215837c02dd72613bfad6ed064579e77bafd859907f87b3e67fa498cc"
   }
 }
 ```
