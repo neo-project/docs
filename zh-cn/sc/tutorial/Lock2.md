@@ -6,7 +6,7 @@
 
 该合约可以部署到区块链上供其他人调用。本文将介绍如何在钱包中部署一个锁仓合约。
 
-另外本文是基于智能合约 2.0 的演示，请从 GitHub 中下载最新的客户端运行 （[Neo GUI ](https://github.com/neo-project/neo-gui/releases)）。
+另外本文是基于智能合约 2.7.4 的演示，请从 GitHub 中下载最新的客户端运行 （[Neo GUI ](https://github.com/neo-project/neo-gui/releases)）。
 
 ## 创建钱包
 

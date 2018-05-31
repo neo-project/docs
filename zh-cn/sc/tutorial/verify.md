@@ -2,7 +2,7 @@
 
 当从一个智能合约鉴权账户转出资产时，共识节点在验证交易时会执行该智能合约。如果合约验证成功（返回结果为 true），则交易确定。否则这笔交易无法完成，一直处于 “未确认”状态。
 
-本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.0 的演示，请从 GitHub 中下载最新的客户端运行（[Neo GUI](https://github.com/neo-project/neo-gui/releases)）。
+本教程是基于 Visual Studio 2017 中创建的示例，请确保 Visual Studio 升级到了 2017 版本。另外本教程是基于智能合约 2.7.4 的演示，请从 GitHub 中下载最新的客户端运行（[Neo GUI](https://github.com/neo-project/neo-gui/releases)）。
 
 ## 编译合约文件
 
@@ -61,9 +61,9 @@ namespace Neo.SmartContract
    b. 脚本代码：填写上一步复制的合约脚本代码。
    c. 私钥：可选参数，当合约执行过程中需要签名时，设置用于签名的私钥。
 
-![创建合约地址](assets/verify_7.png)
+   ![创建合约地址](assets/verify_7.png)
 
-5. 点击 ` 确定 ` 后，智能合约鉴权账户创建成功。
+3. 点击 ` 确定 ` 后，智能合约鉴权账户创建成功。
 
 
 ## 测试
