@@ -45,7 +45,7 @@ A numeric type, `VARINT`, is represented as `BigInteger` in the underlying imple
 Additionally, these are supported for C#  `BigInteger` ：
 
 ```c#
-ulongtotal_neo = 200;
+ulong total_neo = 200;
 BigInteger ico_neo = 300;
 BigInteger balance_neo = total_neo- ico_neo;
 ulongvalue = 150;
