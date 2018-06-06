@@ -51,27 +51,27 @@ verbose = 1，返回 JSON 格式的结果。
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
-    "txid": "f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657",
+    "txid": "oxf4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657",
     "size": 262,
     "type": "ContractTransaction",
     "version": 0,
     "attributes": [],
     "vin": [
       {
-        "txid": "abe82713f756eaeebf6fa6440057fca7c36b6c157700738bc34d3634cb765819",
+        "txid": "oxabe82713f756eaeebf6fa6440057fca7c36b6c157700738bc34d3634cb765819",
         "vout": 0
       }
     ],
     "vout": [
       {
         "n": 0,
-        "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+        "asset": "oxc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
         "value": "2950",
         "address": "AHCNSDkh2Xs66SzmyKGdoDKY752uyeXDrt"
       },
       {
         "n": 1,
-        "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+        "asset": "oxc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
         "value": "4050",
         "address": "ALDCagdWUVV4wYoEzCcJ4dtHqtWhsNEEaR"
       }
@@ -84,7 +84,7 @@ verbose = 1，返回 JSON 格式的结果。
         "verification": "2103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
       }
     ],
-    "blockhash": "9c814276156d33f5dbd4e1bd4e279bb4da4ca73ea7b7f9f0833231854648a72c",
+    "blockhash": "ox9c814276156d33f5dbd4e1bd4e279bb4da4ca73ea7b7f9f0833231854648a72c",
     "confirmations": 144,
     "blocktime": 1496719422
   }

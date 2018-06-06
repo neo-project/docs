@@ -51,11 +51,11 @@ verbose = 1，返回 JSON 格式的结果。
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
-    "hash": "773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e",
+    "hash": "0x773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e",
     "size": 686,
     "version": 0,
-    "previousblockhash": "282293a89587d2513ae82d5baf69a4afd68b8d2ac70e80f58246bc2ca8dfea2d",
-    "merkleroot": "2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
+    "previousblockhash": "0x282293a89587d2513ae82d5baf69a4afd68b8d2ac70e80f58246bc2ca8dfea2d",
+    "merkleroot": "0x2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
     "time": 1496721145,
     "index": 991956,
     "nonce": "2a551c84bd408f87",
@@ -66,7 +66,7 @@ verbose = 1，返回 JSON 格式的结果。
     },
     "tx": [
       {
-        "txid": "2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
+        "txid": "0x2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
         "size": 10,
         "type": "MinerTransaction",
         "version": 0,
@@ -80,7 +80,7 @@ verbose = 1，返回 JSON 格式的结果。
       }
     ],
     "confirmations": 20,
-    "nextblockhash": "0b08e2eeed05c70f27293521c47f7f60dfc29f9f299ae9909a8552a4a87db7a2"
+    "nextblockhash": "0x0b08e2eeed05c70f27293521c47f7f60dfc29f9f299ae9909a8552a4a87db7a2"
   }
 }
 ```
