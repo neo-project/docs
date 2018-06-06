@@ -22,7 +22,7 @@
     - name: NEO-CLI
       href: node/cli/cli.md
       items:
-      - name: Publish
+      - name: Publishing from source
         href: node/cli/publish.md
       - name: Installation
         href: node/cli/setup.md

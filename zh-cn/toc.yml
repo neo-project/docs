@@ -22,6 +22,8 @@
     - name: NEO-CLI
       href: node/cli/cli.md
       items:
+      - name: 发布
+        href: node/cli/publish.md
       - name: 安装
         href: node/cli/setup.md
       - name: NEO-CLI 命令参考
