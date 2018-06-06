@@ -44,7 +44,6 @@ params：传递给智能合约的参数。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "00046e616d65675f0e5a86edd8e1f62b68d2b3f7c0a761fc5a67dc",
         "state": "HALT, BREAK",
         "gas_consumed": "2.489",
         "stack": [
@@ -52,8 +51,7 @@ params：传递给智能合约的参数。
                 "type": "ByteArray",
                 "value": "576f6f6c6f6e67"
             }
-        ],
-        "tx": "d1011b00046e616d65675f0e5a86edd8e1f62b68d2b3f7c0a761fc5a67dc000000000000000000000000"
+        ]
     }
 }
 ```

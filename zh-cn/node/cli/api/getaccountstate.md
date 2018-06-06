@@ -27,12 +27,12 @@ address：账户地址，以 A 开头的 34 位长度的字符串，如 AJBENSwa
     "id": 1,
     "result": {
         "version": 0,
-        "script_hash": "0x1179716da2e9523d153a35fb3ad10c561b1e5b1a",
+        "script_hash": "1179716da2e9523d153a35fb3ad10c561b1e5b1a",
         "frozen": false,
         "votes": [],
         "balances": [
             {
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "94"
             }
         ]
