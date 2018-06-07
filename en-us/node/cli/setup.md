@@ -1,49 +1,13 @@
-# Installation and deployment of NEO node 
+# Installation of NEO-CLI 
 
-The above article describes two clients for nodes in the NEO network. One is [Neo-CLI](https://github.com/neo-project/neo-cli/releases) (the command line client - for developer use), and the other is [Neo-GUI](https://github.com/neo-project/neo-gui/releases) (the graphical interface client - for the advanced user)
+This section describes the procedure for installing the official NEO-CLI released package and starting the NEO node. Alternatively, you can directly publish NEO-CLI source from GitHub into an executable file. Especially when you use macOS, that is the only way to set up NEO-CLI. For more information refer to [Publishing from Source](publish.md).
 
-The deployment consensus node uses the `Neo-CLI`, a cross-platform program that runs in Windows, Linux and Docker.
+## Installing the environment
 
-|                                   | Neo-CLI |
-| --------------------------------- | ----------------- |
-| Windows 7 SP1 x64                 | ✅                 |
-| Windows Server 2008 R2 SP1        | ✅                 |
-| Red Hat Enterprise Linux 7 Server | ✅                 |
-| Ubuntu 14.04, 16.04, 16.10        | ✅                 |
-| Debian 8                          | ✅                 |
-| Fedora 23, 24                     | ✅                 |
-| CentOS 7.1 & Oracle Linux 7.1     | ✅                 |
-| openSUSE 13.2, 42.1               | ✅                 |
-| Docker                            | ✅                 |
+Install one of the following depending on your system:  
 
-> [!Note]
-> At present, NEO nodes do not work properly under Mac OS. In the future there will be support for Mac OS, please wait for further updates.
-
-## Run the environment
-
-Running of an NEO node requires installation of [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime), version 2.0 or above.
-
-### Windows system installation method
-
-In the Windows system, installation of . NET Core is very convenient, you can directly download and run.
-
-### Linux system installation method
-
-The following shows how .NET Core is installed in Red Hat Enterprise Linux 7 Server:
-
-> [!Note]
-> Other distributions of the Linux kernel installation method, please refer to [.NET Core installation tutorial](https://www.snetnet/core#linuxredhat)
-
-
-```
-subscription-manager repos --enable = rhel-7-server-dotnet-rpms
-yum install scl-utils
-```
-
-```
-yum install rh-dotnetcore11
-scl enable rh-dotnetcore11 bash
-```
+- For **Windows 7** and **Windows 10**, install [.NET Core](https://www.microsoft.com/net/download/windows) and [.NET Framework](https://www.microsoft.com/net/download/windows).
+- For  **Linux (ubuntu 17.10)**, install [.NET Core Runtime](https://www.microsoft.com/net/download/linux).
 
 After the installation is complete, you can run the following command to check whether the .NET Core environment was installed successfully.
 
@@ -57,29 +21,41 @@ dotnet run
 If you see the final output "Hello World!", The .Net Core installation is successful.
 
 
-## Installation of NEO node
+## Installing the NEO-CLI package
 
-1. Download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package on Github and unzip it.
+1. Download the latest [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package according to your operating system on Github and unzip it.
 
-> [!Note]
-> If you try to download and compile the Neo-CLI source directly on Github, you will find that `dotnet neo-cli.dll` will run incorrectly after compiling, and you will need to copy libleveldb.dll and sqlite3.dll to the same directory as neo-cli.dll under. These two files can be downloaded in the first step of the package.
-
-2. On Linux, install the LevelDB and SQLite3 dev packages. E.g. on Ubuntu:
+2. On Linux, install the LevelDB and SQLite3 dev packages. For example, on ubuntu 17.10 run the following:
 
 ```
-sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
+sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, use the [Neo version of LevelDB](https://github.com/neo-project/leveldb).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, you can skip this step as those files are already included in the installation package.
 
-## Start the NEO node
+## Starting the NEO node
 
-Open the command line, navigate to the program directory, enter the following code to start the NEO node.
+Open the command line, navigate to the neo-cli directory, and enter the following command to start the NEO node:
+
+On **Windows 10**:
 
 ```
 dotnet neo-cli.dll
 ```
 
-Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
+or 
+
+```
+neo-cli.exe
+```
+
+On **Linux (ubuntu 17.10)**:
+
+```
+dotnet neo-cli.dll
+```
+
+NEO-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
+
 ```
 dotnet neo-cli.dll --rpc
 ```
