@@ -26,6 +26,8 @@
         href: node/cli/publish.md
       - name: 安装
         href: node/cli/setup.md
+      - name: 节点列表
+        href: node/cli/seedlist.md
       - name: NEO-CLI 命令参考
         href: node/cli/cli.md
       - name: API 参考
