@@ -16,27 +16,7 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 
 ## Synchronizing blockchain data
 
-The client must be fully synchronized before use. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height. When you open a wallet, the wallet height data is displayed.  These numbers update regularly.
-
-![image](../../assets/gui_1.png)
-
-In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
-
-1. To begin, download the package located at [Client Downloads](https://neo.org/download) according to your network: chain.acc.zip for main net or chain.acc.test.zip for test net.
-
-2. Close the neo-gui client and copy chain.acc.zip to the neo-gui folder as shown in the figure below:
-
-   ![](../../assets/gui_58.png)
-
-   > [!Note]
-   >
-   > For the test net package chain.acc.test.zip, you need to rename the file to chain.acc.zip before placement.
-
-3. Re-open the neo-gui client, you can see the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain.   
-
-
-
-You can also use the NEO-CLI command `export blocks` to export the synchronized block data to a package. For more information,  see  [CLI Command Reference](cli/cli.md).
+The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see  [Synchronizing the blockchain faster](../../network/syncblocks.md).
 
 ## Wallet
 A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.

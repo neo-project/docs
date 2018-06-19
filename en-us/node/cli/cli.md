@@ -16,25 +16,7 @@ Square brackets `[]` is for optional parameters.
 The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
 The equal sign `=` indicates the default value of the optional parameter without an input.
 
-## Synchronizing blockchain data
-
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
-
-1. To begin, download the package located at [Client Downloads](https://neo.org/download) according to your network: chain.acc.zip for main net or chain.acc.test.zip for test net.
-
-2. Close the NEO-CLI client and copy chain.acc.zip to the neo-cli folder.
-
-   > [!Note]
-   >
-   > For the test net package chain.acc.test.zip, you need to rename the file to chain.acc.zip before placement.
-
-3. In the command line NEO-CLI directory, enter `dotnet neo-cli.dll` to open the wallet.
-
-4. Enter `show state` to view the status of block synchronization.
-
-   You can see the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain.   
-
-## 1. Console Instructions
+## Console Instructions
 
 | Command      | Function Description      |
 | ------- | --------- |
