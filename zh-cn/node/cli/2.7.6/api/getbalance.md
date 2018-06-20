@@ -27,7 +27,7 @@ RPX Sale 为：ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 {
   "jsonrpc": "2.0",
   "method": "getbalance",
-  "params": ["025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4"],
+  "params": ["c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b"],
   "id": 1
 }
 ```
