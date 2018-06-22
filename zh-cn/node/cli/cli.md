@@ -8,7 +8,7 @@
 
 首先我们先了解一下该命令行钱包有哪些命令，在命令行中输入 `help` ，回车，你会看到如图所示的命令列表。
 
-![](../../../assets/cli_2.png)
+![](../../../assets/neo-cli-276.png)
 
 下面是所有命令的说明，命令中尖括号 `<>` 表示的是参数，方括号 `[]` 表示的是可选参数，或符号 `|` 表示所填的参数可以是其中任意一种，等号 `=` 表示可选参数在不输入情况下的默认值。
 
@@ -39,7 +39,10 @@
 | import key \<wif\|path>                  | 导入私钥 / 批量导入私钥                       | 需要打开钱包 |
 | export key \[address] [path]             | 导出私钥                              | 需要打开钱包 |
 | send \<id\|alias> \<address> \<value>\|all [fee=0] | 向指定地址转账 参数分别为：资产 ID，对方地址，转账金额，手续费 | 需要打开钱包 |
-
+| import multisigaddress m pubkeys...      | 创建多方签名合约                              | 需要打开钱包 |
+| sign <jsonObjectToSign>                  | 签名  参数为：记录交易内容的json字符串                              | 需要打开钱包 |
+| relay <jsonObjectToSign>                 | 广播  参数为：记录交易内容的json字符串                              | 需要打开钱包 |
+  
 以下命令可能需要详细解释一下：
 
 👉 `upgrade wallet <path>` 
@@ -140,6 +143,19 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
 不知道资产 ID 怎么办？请输入 list asset 命令查看钱包中的所有资产。
 
+👉 `import multisigaddress m pubkeys...`
+
+以 m 个最小签名数量来创建多方签名的合约地址，例如两个公钥创建的多方签名地址， m 可以为 1 或 2， 后面的参数就是两方的公钥。
+
+👉 `sign <jsonObjectToSign>` 
+
+从签名数量为 1 以上的多方签名合约中提取资产时，需要多方进行签名，参数为记录这段交易的 json 字符串。 签名完整后才能广播出去。
+
+👉 `relay <jsonObjectToSign>` 
+
+签名完整后，可以将这段交易信息进行广播。参数同样为记录这段交易的 json 字符串。
+
+
 ## 查看节点信息
 
 | 命令                             | 功能说明                    |
@@ -148,6 +164,7 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 | show node                      | 显示当前已连接的节点地址和端口         |
 | show pool                      | 显示内存池中的交易（这些交易处于零确认的状态） |
 | export blocks [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步  |
+| export blocks <start> [count]  | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步  |
 ## 高级指令
 
 | 命令              | 功能说明 |
