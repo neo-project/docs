@@ -33,6 +33,69 @@
       - name: API Reference
         href: node/cli/apigen.md
         items:
+        - name: v2.7.6
+          href: node/cli/2.7.6/api.md
+          items:
+          - name: dumpprivkey
+            href: node/cli/2.7.6/api/dumpprivkey.md
+          - name: getaccountstate
+            href: node/cli/2.7.6/api/getaccountstate.md
+          - name: getapplicationlog
+            href: node/cli/2.7.6/api/getapplicationlog.md
+          - name: getassetstate
+            href: node/cli/2.7.6/api/getassetstate.md
+          - name: getbalance
+            href: node/cli/2.7.6/api/getbalance.md
+          - name: getbestblockhash
+            href: node/cli/2.7.6/api/getbestblockhash.md
+          - name: getblock
+            href: node/cli/2.7.6/api/getblock.md
+          - name: getblock
+            href: node/cli/2.7.6/api/getblock2.md
+          - name: getblockcount
+            href: node/cli/2.7.6/api/getblockcount.md
+          - name: getblockhash
+            href: node/cli/2.7.6/api/getblockhash.md
+          - name: getblocksysfee
+            href: node/cli/2.7.6/api/getblocksysfee.md
+          - name: getconnectioncount
+            href: node/cli/2.7.6/api/getconnectioncount.md
+          - name: getcontractstate
+            href: node/cli/2.7.6/api/getcontractstate.md
+          - name: getnewaddress
+            href: node/cli/2.7.6/api/getnewaddress.md
+          - name: getrawmempool
+            href: node/cli/2.7.6/api/getrawmempool.md
+          - name: getrawtransaction
+            href: node/cli/2.7.6/api/getrawtransaction.md
+          - name: getstorage
+            href: node/cli/2.7.6/api/getstorage.md
+          - name: gettxout
+            href: node/cli/2.7.6/api/gettxout.md
+          - name: getpeers
+            href: node/cli/2.7.6/api/getpeers.md
+          - name: getvalidators
+            href: node/cli/2.7.6/api/getvalidators.md
+          - name: getversion
+            href: node/cli/2.7.6/api/getversion.md
+          - name: invoke
+            href: node/cli/2.7.6/api/invoke.md
+          - name: invokefunction
+            href: node/cli/2.7.6/api/invokefunction.md
+          - name: invokescript
+            href: node/cli/2.7.6/api/invokescript.md
+          - name: listaddress
+            href: node/cli/2.7.6/api/listaddress.md
+          - name: sendfrom
+            href: node/cli/2.7.6/api/sendfrom.md
+          - name: sendrawtransaction
+            href: node/cli/2.7.6/api/sendrawtransaction.md
+          - name: sendtoaddress
+            href: node/cli/2.7.6/api/sendtoaddress.md
+          - name: sendmany
+            href: node/cli/2.7.6/api/sendmany.md
+          - name: validateaddress
+            href: node/cli/2.7.6/api/validateaddress.md
         - name: v2.7.4
           href: node/cli/2.7.4/api.md
           items:
