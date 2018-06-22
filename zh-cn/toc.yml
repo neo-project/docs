@@ -224,6 +224,8 @@
 - name: 交易所对接指南
   href: exchange/general.md
   items:
+    - name: v2.7.6
+      href: exchange/v2.7.6.md
     - name: v2.7.4
       href: exchange/v2.7.4.md
     - name: v2.7.3
