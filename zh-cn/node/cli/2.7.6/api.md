@@ -56,6 +56,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                             | 根据指定的散列和索引，返回对应的交易输出（零钱）信息   |          |
 | [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
 | [getversion](api/getversion.md)          |                                          | 获取查询节点的版本信息                  |          |
+| [getvalidators](api/getvalidators.md) | | 查看当前共识节点的信息 | |
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | 使用给定的参数以散列值调用智能合约            |          |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
@@ -66,7 +67,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | 批量转账命令                       | 需要打开钱包   |
 | submitblock                              | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
 | [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 NEO 地址            |          |
-| [getvalidators](api/getvalidators.md)    |                                          | 查看当前共识节点的信息            |          |
 
 
 ## GET 请求示例

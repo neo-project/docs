@@ -42,7 +42,7 @@
 | import multisigaddress m pubkeys...      | 创建多方签名合约                              | 需要打开钱包 |
 | sign <jsonObjectToSign>                  | 签名  参数为：记录交易内容的json字符串                              | 需要打开钱包 |
 | relay <jsonObjectToSign>                 | 广播  参数为：记录交易内容的json字符串                              | 需要打开钱包 |
-  
+
 以下命令可能需要详细解释一下：
 
 👉 `upgrade wallet <path>` 
