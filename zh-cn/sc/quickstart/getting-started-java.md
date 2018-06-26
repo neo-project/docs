@@ -55,15 +55,15 @@ neo-compiler 是 NeoContract 的编译器，可以将高级语言的代码编译
 
 注意：
 
-1.eclipse需安装maven插件并确认jdk版本与pom.xml中的设置一致。
+1.eclipse 需安装 maven 插件并确认 jdk 版本与 pom.xml 中的设置一致。
 
 2.同时须将 org.neo.smartcontract.framework 的 package 也 export 成名为 org.neo.smartcontract.framework.jar 的 jar 包并放在 neoj 的 ..\neoj\bin\Release\netcoreapp1.1\win10-x64\publish\ 目录下面。
 
-![](../assets/JavaFrameworkjar-1.jpg)
+![](.../assets/JavaFrameworkjar-1.jpg)
 
-![](../assets/JavaFrameworkjar-2.jpg)
+![](.../assets/JavaFrameworkjar-2.jpg)
 
-![](../assets/JavaFrameworkjar-3.jpg)
+![](.../assets/JavaFrameworkjar-3.jpg)
 
 创建一个类，如 Go.java，将如下代码粘贴到文件中。
 
