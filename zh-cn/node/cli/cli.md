@@ -40,8 +40,8 @@
 | export key \[address] [path]             | 导出私钥                              | 需要打开钱包 |
 | send \<id\|alias> \<address> \<value>\|all [fee=0] | 向指定地址转账 参数分别为：资产 ID，对方地址，转账金额，手续费 | 需要打开钱包 |
 | import multisigaddress m pubkeys...      | 创建多方签名合约                              | 需要打开钱包 |
-| sign <jsonObjectToSign>                  | 签名  参数为：记录交易内容的json字符串                              | 需要打开钱包 |
-| relay <jsonObjectToSign>                 | 广播  参数为：记录交易内容的json字符串                              | 需要打开钱包 |
+| sign \<jsonObjectToSign>            | 签名  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
+| relay \<jsonObjectToSign>                | 广播  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 
 以下命令可能需要详细解释一下：
 
@@ -164,7 +164,7 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 | show node                      | 显示当前已连接的节点地址和端口         |
 | show pool                      | 显示内存池中的交易（这些交易处于零确认的状态） |
 | export blocks [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步  |
-| export blocks <start> [count]  | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步  |
+| export blocks \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步  |
 ## 高级指令
 
 | 命令              | 功能说明 |

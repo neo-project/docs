@@ -40,8 +40,8 @@ Command | Function Description | Remarks |
 | export key \[address] [path] | Export private key | Need to open wallet |
 | send \<id\|alias> \<address> \<value> [fee=0]| Send to the specified address |Need to open wallet |
 | import multisigaddress m pubkeys... | Create a multi-signature contract |Need to open wallet |
-| sign <jsonObjectToSign> | Sign the transaction. The parameter is the json string that records the transaction information | Need to open wallet |
-| relay <jsonObjectToSign> | Broadcast the transaction. The parameter is the json string that records the transaction information | Need to open wallet |
+| sign \<jsonObjectToSign> | Sign the transaction. The parameter is the json string that records the transaction information | Need to open wallet |
+| relay \<jsonObjectToSign> | Broadcast the transaction. The parameter is the json string that records the transaction information | Need to open wallet |
 
 The following commands are explained in detail:
 
@@ -108,7 +108,7 @@ show state | Displays the current status of blockchain synchronization
 show node | Displays the address and port of connected nodes |
 show pool | Display the transactions in the memory pool (These transactions are in the state of zero confirmation)
 export blocks [path=chain.acc] | Exports the whole blockchain data. The exported data  can be used for offline synchronzation. |
-export blocks <start> [count] | Exports a specified number of block data from the specified block height. The exported data can be used for offline synchronization.
+export blocks \<start> [count] | Exports a specified number of block data from the specified block height. The exported data can be used for offline synchronization.
 
 ## Advanced instructions
 
