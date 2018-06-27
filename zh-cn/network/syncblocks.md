@@ -22,4 +22,4 @@
 
 ![](../../assets/cli_sync.png)
 
-也可以使用NEO-CLI 的 `export blocks` 命令，将同步好的区块数据导出成离线同步包。相关信息请参见 [CLI命令参考](../node/cli/cli.md) 。
+也可以使用NEO-CLI 的 `export blocks` 命令，将同步好的区块数据导出成离线同步包。 `export blocks` 后面无参数时默认导出所有区块数据。 当后面追加 `<start> [count]` 参数时，可以从指定区块高度导出指定数量的区块数据，方便备份和在原有区块数据上追加分布快速同步。相关信息请参见 [CLI命令参考](../node/cli/cli.md) 。
