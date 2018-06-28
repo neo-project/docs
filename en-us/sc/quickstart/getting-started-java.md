@@ -8,9 +8,9 @@ Smart contracts are written in high-level languages such as Java, C#, Python, Ko
 
 We currently recommend C# for developing smart contracts. The Java compiler is still in development but the current version (neoj) can handle basic methods.
 
-This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts. It also gives you an idea of ​​how to create a smart contract project and how to compile it.
+This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts. It also gives you an idea of how to create a smart contract project and how to compile it.
 
-Notes: The process involves the following steps:
+The process involves the following steps:
 1. Write Java code (.java) for classes that extend FunctionCode or VerificationCode which is part of the Neo Framework Library (JAR)
 2. Use the normal Java compiler to compile code into Java bytecode (.class)
 3. Build the neoj (C#) compiler that converts JVM code into AVM code (neoj.exe on Windows)
@@ -30,10 +30,14 @@ The most efficient way of getting these steps done is to download and compile al
 3. Download an IDE for Java (optional but recommended), e.g. IntelliJ or Eclipse.
 4. (Windows only) Download an IDE for C# - currently the neoj compiler needs to be built manually as it is not in wide distribution release format. Recommended is to get Visual Studio 2017 which is free.
 
+> [!Note]
+>
+> If using Eclipse, you need to install the plug-in maven and make sure the JDK version is the same as it configured in pom.xml.
+
 ## Development Tools
 
 
-#### 1. Visual Studio 2017 (Windows and Mac)
+#### Visual Studio 2017 (Windows and Mac)
 
 If you have already installed Visual Studio 2017 on your computer and checked for .NET Cross-Platform Development at the time of installation, you can skip this section.
 
@@ -45,7 +49,7 @@ The installation process is very simple, follow the operation prompts step-by-st
 
 ![](../../../assets/install_core_cross_platform_development_toolset.png)
 
-### 2. neo-compiler
+### neo-compiler
 
 Installation and configuration steps:
 
@@ -122,7 +126,28 @@ then execute `source ~/.profile` or `source ~/.bashrc`
 
 After the above installation is complete you can create a Java project (e.g. using Eclipse or IntelliJ).
 
-You need to compile the .jar package of smart contract from the neo java devpack project ([neo-devpack-java](https://github.com/neo-project/neo-devpack-java)) and add it as an external library.
+1. Compile the .jar package of smart contract from the neo java devpack project ([neo-devpack-java](https://github.com/neo-project/neo-devpack-java)) and add it as an external library.
+
+2. Export the package of `org.neo.smartcontract.framework` as the .jar package `org.neo.smartcontract.framework.jar` and put it under the directory ..\neoj\bin\Release\netcoreapp1.1\win10-x64\publish\
+
+   ![](../../../assets/JavaFrameworkjar-1.jpg)
+
+   ![](../../../assets/JavaFrameworkjar-2.jpg)
+
+   ![](../../../assets/JavaFrameworkjar-3.jpg)
+
+3. Create a class, e.g. Go.java, and paste the following code into the class file.
+
+   ```java
+   import org.neo.smartcontract.framework.SmartContract;
+   
+   public class Go extends SmartContract{
+   	public static void Main(byte[] signature)
+   	{
+   		
+   	}
+   }
+   ```
 
 
 ## Compile the Java Project
