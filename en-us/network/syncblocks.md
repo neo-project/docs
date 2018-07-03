@@ -22,4 +22,4 @@ Suppose you are using windows, you need to do the following:
 
      ![](../../assets/cli_sync.png)
 
-You can also use the NEO-CLI command `export blocks`, to export the synchronized block data to a package. For more information,  see CLI Command Line.
+You can also use the NEO-CLI command `export blocks`, to export the entire blockchain data to a package or export the specified number of block data from the specified block height . For more information,  see [CLI Command Line](../node/cli/cli.md).
