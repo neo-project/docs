@@ -317,13 +317,13 @@ The NEO-GUI client supports NEP-5 assets transactions. To make a NEP-5 asset tra
 
 Using NEO-GUI you can elect candidates and vote for NEO consensus nodes. After all the NEO consensus nodes reach a consensus through the DBFT algorithm, new blocks are generated. Voting for consensus nodes is conducted constantly in real time in the NEO blockchain. The main process is:
 
-1. NEO token holders register as candidates
+1. NEO nodes register as candidates
 2. NEO token holders vote for candidates
 3. NEO blockchain determines the consensus nodes based on the number of candidates and their votes cast.
 
 #### Election
 
-After the candidates are elected, the NEO token holders can vote for consensus nodes. It costs 1000 Gas for candidate registration.
+After the candidates are registered, the NEO token holders can vote for consensus nodes. It costs 1000 GAS for candidate registration.
 
 To register as a candidate:
 
