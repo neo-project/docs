@@ -332,7 +332,7 @@ To register as a candidate:
 
 ![image](../../assets/candidate.png)
 
-A message is displayed prompting the transaction is constructed successfully. Then you can check if the candidate has been successfully registered using the API [getvalidators](cli\2.7.6\api\getvalidators.md). As shown in the figure below, the candidates' public keys are displayed in the returned json response text.
+A message is displayed prompting the transaction is constructed successfully. Then you can check if the candidate has been successfully registered using the API [getvalidators](cli/2.7.6/api/getvalidators.md). As shown in the figure below, the candidates' public keys are displayed in the returned json response text.
 
 ![](../../assets/getvalidator1.png)
 
@@ -354,7 +354,7 @@ To vote:
 
 ![](../../assets/votemulti.png)
 
-On clicking OK a message is displayed prompting the transaction is constructed successfully.  You can use the API [getvalidators](cli\2.7.6\api\getvalidators.md) to check the candidate votes. As shown in the figure below, the account with the balance of 100000000 voted for the candidate with the public key 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b. Using the API [getvalidators](cli\2.7.6\api\getvalidators.md) you can see the public key and the corresponding votes are displayed in the returned response text.
+On clicking OK a message is displayed prompting the transaction is constructed successfully.  You can use the API [getvalidators](cli/2.7.6/api/getvalidators.md) to check the candidate votes. As shown in the figure below, the account with the balance of 100000000 voted for the candidate with the public key 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b. Using the API [getvalidators](cli/2.7.6/api/getvalidators.md) you can see the public key and the corresponding votes are displayed in the returned response text.
 
 ![](../../assets/vote.png)
 
