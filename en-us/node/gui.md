@@ -142,7 +142,7 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 
    ![image](../../assets/txid.png)
 
-   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#Signature).
+   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#signature).
 
 ### Signature
 
@@ -204,7 +204,7 @@ Take the operations made on A side as an example:
 
 #### Step 3 - Signing and broadcasting the transaction
 
-The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#sign).
+The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#signature).
 
 ## Advanced Features
 
