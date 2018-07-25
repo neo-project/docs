@@ -16,7 +16,7 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 
 ## Synchronizing blockchain data
 
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see  [Synchronizing the blockchain faster](../../network/syncblocks.md).
+The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see  [Synchronizing the blockchain faster](../network/syncblocks.md).
 
 ## Wallet
 A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
@@ -142,7 +142,7 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 
    ![image](../../assets/txid.png)
 
-   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#Signature).
+   For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#signature).
 
 ### Signature
 
@@ -204,7 +204,7 @@ Take the operations made on A side as an example:
 
 #### Step 3 - Signing and broadcasting the transaction
 
-The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#sign).
+The two sides sign and broadcast the transaction information to complete the process. For more information, refer to [signature](#signature).
 
 ## Advanced Features
 
@@ -332,7 +332,7 @@ To register as a candidate:
 
 ![image](../../assets/candidate.png)
 
-A message is displayed prompting the transaction is constructed successfully. Then you can check if the candidate has been successfully registered using the API [getvalidators](cli\2.7.6\api\getvalidators.md). As shown in the figure below, the candidates' public keys are displayed in the returned json response text.
+A message is displayed prompting the transaction is constructed successfully. Then you can check if the candidate has been successfully registered using the API [getvalidators](cli/2.7.6/api/getvalidators.md). As shown in the figure below, the candidates' public keys are displayed in the returned json response text.
 
 ![](../../assets/getvalidator1.png)
 
@@ -354,7 +354,7 @@ To vote:
 
 ![](../../assets/votemulti.png)
 
-On clicking OK a message is displayed prompting the transaction is constructed successfully.  You can use the API [getvalidators](cli\2.7.6\api\getvalidators.md) to check the candidate votes. As shown in the figure below, the account with the balance of 100000000 voted for the candidate with the public key 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b. Using the API [getvalidators](cli\2.7.6\api\getvalidators.md) you can see the public key and the corresponding votes are displayed in the returned response text.
+On clicking OK a message is displayed prompting the transaction is constructed successfully.  You can use the API [getvalidators](cli/2.7.6/api/getvalidators.md) to check the candidate votes. As shown in the figure below, the account with the balance of 100000000 voted for the candidate with the public key 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b. Using the API [getvalidators](cli/2.7.6/api/getvalidators.md) you can see the public key and the corresponding votes are displayed in the returned response text.
 
 ![](../../assets/vote.png)
 
