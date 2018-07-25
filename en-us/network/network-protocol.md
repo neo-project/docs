@@ -328,7 +328,7 @@ According to different orders Payload has different detailed format, see below:
 
    |Size|Field|DataType|Description|
    |---|---|---|---|
-   |36*?|Inventories|inv_vect[]|Data of inventories|
+   |36*?|Inventories|inv_vect|Data of inventories|
 
    The node can broadcast the object information it owns by this message. The message can be sent automatically or can be used to answer getblocks messages.
 
@@ -337,7 +337,7 @@ According to different orders Payload has different detailed format, see below:
    |Size|Field|DataType|Description|
    |---|---|---|---|
    |4|Type|uint32|Type of object|
-   |32|Hash|uint256|Hash of object|
+   |32|Hash|uint256[]|Hash of objects|
 
    Object types:
 
