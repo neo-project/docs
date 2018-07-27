@@ -282,7 +282,7 @@
       href: sc/trigger.md
     - name: System Fees
       href: sc/systemfees.md
-- name: Troubleshooting
+- name: FAQ
   href: faq.md
 - name: Document for Exchange Developers
   href: exchange/general.md

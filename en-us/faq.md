@@ -1,12 +1,12 @@
-# Troubleshooting
+# Frequently Asked Questions (FAQ)
 
 ## The basics
 
-##### What browsers are available for NEO blockchain?
+**What browsers are available for NEO blockchain?**
 
 You can access http://ndapp.org/ and find all the browsers listed in the Explorer tab.
 
-##### How can I obtain the NEP-5 assets TXID?
+**How can I obtain the NEP-5 assets TXID?**
 
 Currently we recommend you use the blockchain browser https://scan.nel.group to view the NEP-5 assets TXID.
 
@@ -16,9 +16,9 @@ Currently we recommend you use the blockchain browser https://scan.nel.group to 
 
 **Why is it prompted that there is no object's private key in the wallet when withdrawing assets from a multi-party signature contract which requires a minimum signature of 3?**
 
-After the private chain is set up, you need to make the same configurations in all four wallets, that is, add the multi-party signed address and then rebuild the wallet index. 
+After the private chain is set up, you need to make the same configurations in all four wallets, that is, add the multi-party signed addresses and then rebuild the wallet index. 
 
-## Smart Contract
+## Smart contract
 
 **Why is it prompted the NuGet package cannot be restored when I try to publish neon? Even if I use Visual Studio 2017, the problem still occurs.**
 
@@ -66,12 +66,12 @@ This is because you did not restart CMD after you changed the environment variab
 
 This is because you did not restart Visual Studio after modifying the environment variable. The Visual Studio still read the environment variable changed before. 
 
-To solve this, restart Visual Studio. If not solved, restart your system.
+To solve this problem, restart Visual Studio. If not solved, restart your system.
 
 **Why does smart contract complied with the old version of neon fail to run on the test net or main net?**
 
 NEO smart contracts require development framework, compiler, and NEOVM versions are consistent. The code compiled with the old framework and compiler may not be able to work in the new version of NEOVM. It does not affect the smart contracts already published on the blockchain. So before you start developing smart contracts, make sure you use the latest version of framework (e.g. NeoContractPlugin) and compiler (e.g. neon).
 
-Some parts of this article is excerpted from [NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7) . Thanks for **cybourgeoisie**'s contribution.
+Some parts of this article is excerpted from [NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7). Thanks for **cybourgeoisie**'s contribution.
 
 If you are still having trouble or you do not find a relevant issue, you can open an issue or pull request on [GitHub NEO Doc project](https://github.com/neo-project/docs).
