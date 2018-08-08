@@ -417,7 +417,7 @@ kbd{color:#fff;background-color:#333;border-radius:3px;-webkit-box-shadow:inset 
 kbd kbd{padding:0;font-size:100%;-webkit-box-shadow:none;box-shadow:none}
 pre{padding:9.5px;margin:0 0 10px;font-size:13px;word-break:break-all;word-wrap:break-word;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}
 .container,.container-fluid{margin-right:auto;margin-left:auto}
-pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;border-radius:0}
+pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;border-radius:0;line-height: 1.7;}
 .container,.container-fluid{padding-right:15px;padding-left:15px}
 .pre-scrollable{overflow-y:scroll}
 @media (min-width:992px){.container{width:970px}
@@ -643,7 +643,7 @@ caption{padding-top:8px;padding-bottom:8px;color:#777}
 .table>caption+thead>tr:first-child>td,.table>caption+thead>tr:first-child>th,.table>colgroup+thead>tr:first-child>td,.table>colgroup+thead>tr:first-child>th,.table>thead:first-child>tr:first-child>td,.table>thead:first-child>tr:first-child>th{border-top:0}
 .table>tbody+tbody{border-top:2px solid #ddd}
 .table .table{background-color:#fff}
-.table-condensed>tbody>tr>td,.table-condensed>tbody>tr>th,.table-condensed>tfoot>tr>td,.table-condensed>tfoot>tr>th,.table-condensed>thead>tr>td,.table-condensed>thead>tr>th{padding:5px}
+.table-condensed>tbody>tr>td,.table-condensed>tbody>tr>th,.table-condensed>tfoot>tr>td,.table-condensed>tfoot>tr>th,.table-condensed>thead>tr>td,.table-condensed>thead>tr>th{padding:8px}
 .table-bordered,.table-bordered>tbody>tr>td,.table-bordered>tbody>tr>th,.table-bordered>tfoot>tr>td,.table-bordered>tfoot>tr>th,.table-bordered>thead>tr>td,.table-bordered>thead>tr>th{border:1px solid #ddd}
 .table-bordered>thead>tr>td,.table-bordered>thead>tr>th{border-bottom-width:2px}
 .table-striped>tbody>tr:nth-of-type(odd){background-color:#f9f9f9}
@@ -1034,17 +1034,17 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 .navbar-default .btn-link{color:#777}
 .navbar-default .btn-link:focus,.navbar-default .btn-link:hover{color:#333}
 .navbar-default .btn-link[disabled]:focus,.navbar-default .btn-link[disabled]:hover,fieldset[disabled] .navbar-default .btn-link:focus,fieldset[disabled] .navbar-default .btn-link:hover{color:#ccc}
-.navbar-inverse{background-color:#222;border-color:#080808}
+.navbar-inverse{background:url("../nav-bg.jpg") no-repeat;background-size: cover;}
 .navbar-inverse .navbar-brand{color:#9d9d9d}
 .navbar-inverse .navbar-brand:focus,.navbar-inverse .navbar-brand:hover{color:#fff;background-color:transparent}
-.navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-text{color:#9d9d9d}
-.navbar-inverse .navbar-nav>li>a:focus,.navbar-inverse .navbar-nav>li>a:hover{color:#fff;background-color:transparent}
-.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.active>a:hover{color:#fff;background-color:#080808}
+.navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-text{color:#FFFFFF}
+.navbar-inverse .navbar-nav>li>a:focus,.navbar-inverse .navbar-nav>li>a:hover{color:#fff;background-color:transparent;text-shadow: 0px 0px 5px #FFF;}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.active>a:hover{color:#fff;text-shadow: 0 0 5px #FFF;}
 .navbar-inverse .navbar-nav>.disabled>a,.navbar-inverse .navbar-nav>.disabled>a:focus,.navbar-inverse .navbar-nav>.disabled>a:hover{color:#444;background-color:transparent}
-.navbar-inverse .navbar-toggle{border-color:#333}
-.navbar-inverse .navbar-toggle:focus,.navbar-inverse .navbar-toggle:hover{background-color:#333}
+/*.navbar-inverse .navbar-toggle{border-color:#333}*/
+.navbar-inverse .navbar-toggle:focus,.navbar-inverse .navbar-toggle:hover{opacity: 0.8}
 .navbar-inverse .navbar-toggle .icon-bar{background-color:#fff}
-.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{border-color:#101010}
+/*.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{border-color:#101010}*/
 .navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a:focus,.navbar-inverse .navbar-nav>.open>a:hover{color:#fff;background-color:#080808}
 @media (max-width:767px){.navbar-inverse .navbar-nav .open .dropdown-menu>.dropdown-header{border-color:#080808}
 .navbar-inverse .navbar-nav .open .dropdown-menu .divider{background-color:#080808}

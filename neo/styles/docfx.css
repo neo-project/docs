@@ -1,19 +1,20 @@
 ﻿/* Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the MIT License. See License.txt in the project root for license information. */
 html,
 body {
-  font-family: 'Segoe UI', Tahoma, Helvetica, sans-serif;
+  font-family: PingFang SC,'Segoe UI',Tahoma, "Microsoft YaHei",arial, sans-serif;
+  line-height:1.8;
   height: 100%;
 }
 button,
 a {
-  color: #337ab7;
+  color: #5BAB17;
   cursor: pointer;
 }
 button:hover,
 button:focus,
 a:hover,
 a:focus {
-  color: #23527c;
+  color: #388600;
   text-decoration: none;
 }
 a.disable,
@@ -21,6 +22,9 @@ a.disable:hover {
   text-decoration: none;
   cursor: default;
   color: #000000;
+}
+.alert a{
+  color: inherit;
 }
 
 /* workaround for leave space for fixed navbar with # anchor url*/
@@ -112,7 +116,7 @@ svg:hover path {
   margin-top: 5px;
 }
 .table {
-  margin-bottom: 10px;
+  margin: 15px 0;
 }
 table p {
   margin-bottom: 0;
@@ -127,7 +131,7 @@ h2,
 h3,
 .h3 {
   margin-top: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: 400;
 }
 h4,
@@ -204,6 +208,8 @@ article h1, article h2, article h3, article h4{
 
 article h4{
   border-bottom: 1px solid #ccc;
+  padding-bottom:5px;
+  margin-bottom: 10px;
 }
 
 article span.small.pull-right{
@@ -475,11 +481,12 @@ body .toc{
   text-decoration: inherit;
 }
 .toc .nav > li.active > a {
-  color: #337ab7;
+  color: #5BAB17;
+  text-shadow: 0 0 1px rgba(200,255,150,0.5);
 }
 .toc .nav > li.active > a:hover,
 .toc .nav > li.active > a:focus {
-  color: #23527c;
+  color: #388600;
 }
 
 .toc .nav > li> .expand-stub {
@@ -510,6 +517,8 @@ body .toc{
 .toc ul{
   font-size: 12px;
   margin: 0 0 0 3px;
+  line-height:1.5;
+  text-align: left;
 }
 
 .toc .level1 > li {
@@ -523,6 +532,19 @@ body .toc{
   margin: 5px 0 0 15px;
   font-size: 14px;
 }
+.toc .level2 {
+  margin: 5px 0 0 15px;
+  font-size: 14px;
+}
+.toc .level3 {
+  margin-left: 10px;
+}
+.toc .level4 {
+  margin-left: 8px;
+}
+.toc .level5 {
+  margin-left: 5px;
+}
 .toc-toggle {
   display: none;
   margin: 0 15px 0px 15px;
@@ -532,16 +554,15 @@ body .toc{
   top: 90px;
   width: 260px;
   background-color: #f1f1f1;
-  padding: 15px;
+  padding: 20px 10px 15px;
   border-left: 1px solid #e7e7e7;
   border-right: 1px solid #e7e7e7;
   z-index: 1;
 }
 .toc-filter {
-  border-radius: 5px;
   background: #fff;
   color: #666666;
-  padding: 5px;
+  padding: 5px 10px;
   position: relative;
   margin: 0 5px 0 5px;
 }
@@ -557,7 +578,8 @@ body .toc{
 .toc-filter > .filter-icon {
   position: absolute;
   top: 10px;
-  left: 5px;
+  left: 10px;
+  color: #5BAB17;
 }
 .article {
   margin-top: 120px;
@@ -631,7 +653,7 @@ body .toc{
 }
 .affix ul > li.active > a,
 .affix ul > li.active > a:before {
-  color: #337ab7;
+  color: #5BAB17;
 }
 .affix ul > li > a {
   padding: 5px 12px;
@@ -648,7 +670,7 @@ body .toc{
 }
 .affix > ul > li.active > a,
 .affix > ul > li.active > a:before {
-  color: #337ab7;
+  color: #5BAB17;
   font-weight: bold;
 }
 .affix ul ul > li > a {
@@ -713,7 +735,7 @@ footer {
   z-index: 1000;
 }
 .footer {
-  border-top: 1px solid #e7e7e7;
+  border-bottom: 10px solid #789D58;
   background-color: #f8f8f8;
   padding: 15px 0;
 }
