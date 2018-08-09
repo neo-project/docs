@@ -47,7 +47,7 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
  <b>图 1：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
-在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **议员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因为 **议员** 必须弃票，改变视图。
+在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **议员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因此 **议员** 必须弃票，改变视图。
 
   <p align="center"><img src="../../../assets/n4.png" width="400"><br>
 
@@ -155,13 +155,9 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
       - 交易是否只包含一笔开支（即交易是否避免了双重开支的情况？)
 
-    - **如果是有效的提案广播:**
-        <!-- -->
-            <prepareResponse, h, k, i, [block]sigi>
+    - **如果是有效的提案广播:** <prepareResponse, h, k, i, [block]sigi>
 
-    - **如果是无效的提案广播:**
-        <!-- -->
-            <ChangeView, h,k,i,k+1>
+    - **如果是无效的提案广播:** <ChangeView, h,k,i,k+1>
         ​	‘
            <p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
 
@@ -178,21 +174,16 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 > [!Note]
 >
 > 如果 (![timeout](../../../assets/consensus.timeout.png) ) 秒后在同一视图没有达成共识：
->   - 共识节点进行广播：
->
->   <!-- -->
->       <ChangeView, h,k,i,k+1>
-> ​    
+>   - ​共识节点进行广播：<ChangeView, h,k,i,k+1>    
 >
 >   - 一旦共识节点接收到至少 `s` 个表示相同视图改变的广播，就会增加视图 `v`， 并引发新一轮的共识。
->
 >
 
 ​	
 
 ## 引用
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
-2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
-3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
+- [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
+- [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
+- [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
 

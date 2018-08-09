@@ -1,6 +1,6 @@
 # Consensus
 
-## 1 - List of Terms
+## List of Terms
 
 * **Proof of Stake** `PoS` - A type of algorithm which uses network consensus to handle fault tolerance.
 
@@ -12,15 +12,15 @@
 
 * **View** `v` - The dataset used during a consensus activity in NEO `DBFT`
 
-## 2 - Roles
-**In the NEO consensus algorithm, Consensus Nodes are elected by NEO holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes**.
+## Roles
+In the NEO consensus algorithm, Consensus Nodes are elected by NEO holders and vote on validity of transactions.  These nodes have also been referred to as 'Bookkeepers'.  Moving forward, they will be referred to as Consensus Nodes.
 
   - <img style="vertical-align: middle" src="../../../assets/nNode.png" width="25"> **Consensus Node** - This node participates in the consensus activity.  During a consensus activity, consensus nodes take turns assuming the following two roles:
   - <img style="vertical-align: middle" src="../../../assets/speakerNode.png" width="25"> **Speaker** `(One)` - The **Speaker** is responsible for transmitting a block proposal to the system.
   - <img style="vertical-align: middle" src="../../../assets/cNode.png" width="25"> **Delegate** `(Multiple)` - **Delegates** are responsible for reaching a consensus on the transaction.
 
 
-## 3 - Introduction
+## Introduction
 
 One of the fundamental differences between blockchains is how they can guarantee fault tolerance given defective, non-honest activity on the network.
 
@@ -28,9 +28,7 @@ Traditional methods implemented using PoW can provide this guarantee as long as 
 
 NEO implements a Delegated Byzantine Fault Tolerance consensus algorithm which takes advantage of some PoS-like features(NEO holders vote on **Consensus Nodes**) which protects the network from Byzantine faults using minimal resources, while rejecting some of its issues.  This solution addresses performance and scalability issues associated with current blockchain implementations without a significant impact to the fault tolerance.
 
-
-
-## 4 - Theory
+## Theory
 
 The Byzantine Generals Problem is a classical problem in distributed computing.  The problem defines a number of **Delegates** that must all reach a consensus on the results of a **Speaker's** order.  In this system, we need to be careful because the **Speaker** or any number of **Delegates** could be traitorous.  A dishonest node may not send a consistent message to each recipient.  This is considered the most disastrous situation.  The solution to the problem requires that the **Delegates** identify if the **Speaker** is honest and what the actual command was as a group.
 
@@ -47,9 +45,7 @@ For the sake of discussion, we will describe a couple of scenarios.  In these si
 
   <p align="center"><img src="../../../assets/n4.png" width="400"><br> <b>Figure 2:</b> An n = 4 example with a dishonest <b>Delegate</b>.</p>
 
-  In **Figure 2**, we have a two loyal **Delegates** (66%).  All **Delegates** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Delegate**.  Based on the consensus of the two honest **Delegates**, we are able to determine that either the **Speaker** or right **Delegate** is dishonest in the system.
-
-  
+  In **Figure 2**, we have a two loyal **Delegates** (66%).  All **Delegates** received the same message from the honest **Speaker** and send their validation result, along with the message received from the speaker to each other **Delegate**.  Based on the consensus of the two honest **Delegates**, we are able to determine that either the **Speaker** or right **Delegate** is dishonest in the system.  
 
 
 ### **Dishonest Speaker** 
@@ -63,7 +59,7 @@ For the sake of discussion, we will describe a couple of scenarios.  In these si
   In the example posed by **Figure 4**, the blocks received by both the middle and right node are not validatable.  This causes them to defer for a new view which elects a new **Speaker** because they carry a 66% majority.  In this example, if the dishonest **Speaker** had sent honest data to two of the three **Delegates**, it would have been validated without the need for a view change.
 
 
-## 5 - Practical Implementation
+## Practical Implementation
 
 The practical implementation of DBFT in NEO uses an iterative consensus method to guarantee that consensus is reached.  The performance of the algorithm is dependent on the fraction of honest nodes in the system. **Figure 5** depicts the
 expected iterations as a function of the fraction of dishonest nodes.  
@@ -76,7 +72,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 **Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
 
 
-### 5.1 - Definitions
+### Definitions
 
 **Within the algorithm, we define the following:**
 
@@ -108,7 +104,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
      - `s = ((n - 1) - f)`
 
 
-### 5.2 - Requirements
+### Requirements
 
 **Within NEO, there are three primary requirements for consensus fault tolerance:**
 
@@ -118,9 +114,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 
 3. At least `s` **Delegates** are in same state (`h`,`k`) to begin a consensus activity
 
-
-
-### 5.3 - Algorithm
+### Algorithm
 **The algorithm works as follows:**
 
 1. A **Consensus Node** broadcasts a transaction to the entire network with the sender's signatures.
@@ -160,21 +154,16 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 
 ---
 
-**Note:**
+> [!Note]
+>
+>  If after   (![timeout](../../../assets/consensus.timeout.png) )  seconds on the same view without consensus:
+>   - **Consensus Node** broadcasts: <ChangeView, h,k,i,k+1>
+>
+>   - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.	
+>
 
- If after   (![timeout](../../../assets/consensus.timeout.png) )  seconds on the same view without consensus:
-  - **Consensus Node** broadcasts:
-
-  <!-- -->
-      <ChangeView, h,k,i,k+1>
-
-  - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.
-
-
-​	
-
-## 6 - References
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
-2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
-3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
+## References
+- [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
+- [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
+- [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
