@@ -5,6 +5,8 @@ NEO Documetation
 
 These multi-lingual documents are contributed by NEO community. We are only responsible for the maintenance of Chinese and English docs, which are regularly updated to the latest progress.
 
+<br><br>
+
 Ver documentación en [Español](es-es/whitepaper.md).
 
 [日本語](ja-jp/whitepaper.md)版ドキュメントを参照して下さい。
