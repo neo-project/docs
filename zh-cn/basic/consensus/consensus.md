@@ -2,22 +2,22 @@
 
 ## 术语说明
 
-* **权益证明** `PoS` 一种利用网络协商一致来处理容错的算法。
+* 权益证明 `PoS` ：一种利用网络协商一致来处理容错的算法。
 
-* **工作量证明** `PoW` 一种利用计算能力来处理容错的算法。
+* 工作量证明 `PoW` ：一种利用计算能力来处理容错的算法。
 
-* **拜占庭错误** `BF` 一个节点保持功能，但以不诚实甚至是恶意的方式来工作。
+* 拜占庭错误 `BF`： 一个节点保持功能，但以不诚实甚至是恶意的方式来工作。
 
-* **dBFT（一种改进的拜占庭容错算法）** `dBFT` NEO区块链中的共识算法，该算法通过多个共识节点的协商来达成共识，有良好的可用性和最终性。
+* dBFT（一种改进的拜占庭容错算法） `dBFT` ：NEO 区块链中的共识算法，该算法通过多个共识节点的协商来达成共识，有良好的可用性和最终性。
 
-* **视图** `V` 在dBFT算法中，一次共识从开始到结束所使用的数据集合，称为视图。
+* 视图 `V` ：在 dBFT 算法中，一次共识从开始到结束所使用的数据集合，称为视图。
 
 ## 规则
-在NEO的共识算法中，共识节点由NEO持有人股票选出，并对区块链中交易的有效性进行验证。过去这些节点被称作“记账人”，现在他们被称作“共识节点”。
+在 NEO 的共识算法中，共识节点由 NEO 持有人股票选出，并对区块链中交易的有效性进行验证。过去这些节点被称作“记账人”，现在他们被称作”共识节点”。
 
-  - <img style="vertical-align: middle" src="../../../assets/nNode.png" width="25"> **共识节点** —— 此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
-  - <img style="vertical-align: middle" src="../../../assets/speakerNode.png" width="25"> **议长** `（一人）` —— **议长** 负责向系统发送一个新的区块的提案。
-  - <img style="vertical-align: middle" src="../../../assets/cNode.png" width="25"> **议员** `（多人）` —— **议员** 负责对议长的提案进行投票，大于等于2/3的议员投票时，提案通过。
+  - <img style="vertical-align: middle" src="../../../assets/nNode.png" width="25"> 共识节点：此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
+  - <img style="vertical-align: middle" src="../../../assets/speakerNode.png" width="25"> 议长 `（一人）` ：**议长** 负责向系统发送一个新的区块的提案。
+  - <img style="vertical-align: middle" src="../../../assets/cNode.png" width="25"> 议员 `（多人）` ：**议员** 负责对议长的提案进行投票，大于等于2/3的议员投票时，提案通过。
 
 
 ## 介绍
@@ -29,8 +29,6 @@
 然而，由于这种模式依赖于大量的计算，这种机制可能会非常低效且不环保（算力消耗能源，需要硬件）。 这些依赖就是 PoW 方法的限制所在，最主要的就是扩展的成本。
 
 NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 的特点（NEO持有人需要对共识节点进行投票） 利用最小的资源来保障网络免受拜占庭故障的影响，同时也弥补了 PoS 的一些问题。该解决方案解决了与当前块链实现相关的性能和可扩展性问题，而不会对容错产生重大影响。
-
-
 
 ## 理论
 
@@ -47,15 +45,13 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
  <b>图 1：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
-在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **议员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因为 **议员** 必须弃票，改变视图。
+在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **议员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因此 **议员** 必须弃票，改变视图。
 
   <p align="center"><img src="../../../assets/n4.png" width="400"><br>
 
  <b>图 2：</b> 一个 n =4 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
 在图 2 中，我们有两个诚实的 **议员** (66%)。所有的 **议员** 从 **议长**  那里收到相同的消息，然后向其它 **议员** 发送消息和自己的验证结果。根据两位诚实 **议员** 的共识，我们可以确定 **议长** 或者右边的 **议员** 在系统中是不诚实的。
-
-
 
 ### **不诚实的议长** 
 
@@ -155,13 +151,9 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
       - 交易是否只包含一笔开支（即交易是否避免了双重开支的情况？)
 
-    - **如果是有效的提案广播:**
-        <!-- -->
-            <prepareResponse, h, k, i, [block]sigi>
+    - **如果是有效的提案广播:** <prepareResponse, h, k, i, [block]sigi>
 
-    - **如果是无效的提案广播:**
-        <!-- -->
-            <ChangeView, h,k,i,k+1>
+    - **如果是无效的提案广播:** <ChangeView, h,k,i,k+1>
         ​	‘
            <p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
 
@@ -178,21 +170,16 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 > [!Note]
 >
 > 如果 (![timeout](../../../assets/consensus.timeout.png) ) 秒后在同一视图没有达成共识：
->   - 共识节点进行广播：
->
->   <!-- -->
->       <ChangeView, h,k,i,k+1>
-> ​    
+>   - ​共识节点进行广播：<ChangeView, h,k,i,k+1>    
 >
 >   - 一旦共识节点接收到至少 `s` 个表示相同视图改变的广播，就会增加视图 `v`， 并引发新一轮的共识。
->
 >
 
 ​	
 
 ## 引用
-1. [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
-2. [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
-3. [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
+- [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
+- [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
+- [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
 

@@ -44,44 +44,47 @@ All consensus nodes are required to maintain a state table to record current con
 
 Set the time intervals of block generation as t, under normal circumstances, the algorithm executes in the following procedures：
 
-1) A node broadcasts transaction data to the entire network, attached with the sender signature;
+1. A node broadcasts transaction data to the entire network, attached with the sender signature;
 
-2) All bookkeeping nodes monitors transaction data broadcasting independently and stores the data in its memory respectively; 
+2. All bookkeeping nodes monitors transaction data broadcasting independently and stores the data in its memory respectively; 
 
-3) After the time t, the speaker sends 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
+3. After the time t, the speaker sends 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉； 
 
-4) After receiving the proposal, congressmen i send 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒,ℎ,𝑣,𝑖,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>〉 ;
+4. After receiving the proposal, congressmen i send 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒,ℎ,𝑣,𝑖,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>〉 ;
 
-​5) Any node, upon receiving at least 𝑛 − 𝑓  〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, reaches a consensus and publishes a full block;
+5. Any node, upon receiving at least 𝑛 − 𝑓  〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, reaches a consensus and publishes a full block;
 
-6) Any node, after receiving the full block, deletes the transaction in question from its memory and begins the next round the consensus;
+6. Any node, after receiving the full block, deletes the transaction in question from its memory and begins the next round the consensus;
+
 
 It is required that, for all the consensus nodes, at least 𝑛 − 𝑓 nodes are in the same original state. This is to say, for all the nodes i, the block height h and View number v are the same. This is not difficult, consistency of h could be reached by synchronizing the blocks while consistency of v could reached by changing the View. Block synchronizing is not covered in this article. For View change, check next section.
 
 Nodes, after monitoring the broadcasting and receiving the proposal, shall validate the transactions. They cannot write an illegal transaction in the memory once the latter is exposed. If an illegal transaction is contained in the proposal, this round of consensus will be abandoned and the View change will take place immediately. The validation procedures are as follows:
 
-1) Is the data format of the transaction consistent with the system rules? If no, the transaction is ruled illegal;
+1. Is the data format of the transaction consistent with the system rules? If no, the transaction is ruled illegal;
 
-2) Is the transaction already in the blockchain? If yes, the transaction is ruled illegal;
+2. Is the transaction already in the blockchain? If yes, the transaction is ruled illegal;
 
-3) Are all the contract scripts of the transaction correctly executed? If no, the transaction is ruled illegal;
+3. Are all the contract scripts of the transaction correctly executed? If no, the transaction is ruled illegal;
 
-4) Is there multiple-spend in the transaction? If yes, the transaction is ruled illegal;
+4. Is there multiple-spend in the transaction? If yes, the transaction is ruled illegal;
 
-5) If the transaction had not been ruled illegal in the above procedures, it will be ruled legal;
+5. If the transaction had not been ruled illegal in the above procedures, it will be ruled legal;
+
 
 ### View Change 
 
 If, after 2<sup>𝑣+1</sup> ⋅ 𝑡 time interval, the nodes i cannot reach a consensus or should they receive proposals that contain illegal transactions, the View Change will take place: 
 
-1) Given k=1, 𝑣<sub>𝑘</sub> = 𝑣 + 𝑘 ;
+1. Given k=1, 𝑣<sub>𝑘</sub> = 𝑣 + 𝑘 ;
 
-2) Nodes i send View Change request 〈𝐶ℎ𝑎𝑛𝑔𝑒𝑉𝑖𝑒𝑤,ℎ,𝑣,𝑖,𝑣<sub>𝑘</sub>〉 ;
+2. Nodes i send View Change request 〈𝐶ℎ𝑎𝑛𝑔𝑒𝑉𝑖𝑒𝑤,ℎ,𝑣,𝑖,𝑣<sub>𝑘</sub>〉 ;
 
-3) Once any node receives at least 𝑛 − 𝑓  same v<sub>k</sub> from different i, the View Change is
-completed. Set 𝑣 = 𝑣<sub>𝑘</sub> and the consensus making begins;
+3. Once any node receives at least 𝑛 − 𝑓  same v<sub>k</sub> from different i, the View Change is
+   completed. Set 𝑣 = 𝑣<sub>𝑘</sub> and the consensus making begins;
 
-4) If, after 2<sup>𝑣+1</sup> ⋅ 𝑡 time interval, the View Change is not completed, the k will increase and back to step 2);
+4. If, after 2<sup>𝑣+1</sup> ⋅ 𝑡 time interval, the View Change is not completed, the k will increase and back to step 2);
+
 
 With the k increasing, the overtime waiting time will increase exponentially, so frequent View Change will be avoided and nodes are urged to reach consistency over v.
 
