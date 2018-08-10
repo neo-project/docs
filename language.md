@@ -1,26 +1,22 @@
-NEO Docs
-============
+NEO Documetation
+================
 
-docs.neo.org 是 NEO 全新的技术文档体验。
+这里是 NEO 社区的贡献者们翻译的多语言文档，但是我们不负责维护这些文档，要获取最新信息，建议您查看中英文文档。
 
-NEO 全部的技术文档都在这里，还有还有众多开发示例可供参考。
+These multi-lingual documents are contributed by NEO community. We are only responsible for the maintenance of Chinese and English docs, which are regularly updated to the latest progress.
 
-点击 [中文](zh-cn/index.md) 开始阅读中文技术文档。
+Ver documentación en [Español](es-es/whitepaper.md).
 
-See the [English](en-us/index.md) documentation.
+[日本語](ja-jp/whitepaper.md)版ドキュメントを参照して下さい。
 
-Ver documentación en [Español](es-es/index.md).
+[한국어](ko-kr/whitepaper.md) 문서를 참조하시길 바랍니다.
 
-[日本語](ja-jp/index.md)版ドキュメントを参照して下さい。
+[Deutsche](de-de/whitepaper.md) Dokumentation ansehen.
 
-[한국어](ko-kr/index.md) 문서를 참조하시길 바랍니다.
+Lees de [Nederlandse](nl-nl/whitepaper.md) documentatie.
 
-[Deutsche](de-de/index.md) Dokumentation ansehen.
+Acesse a documentação em português (brasileiro) [aqui](pt-br/whitepaper.md).
 
-Lees de [Nederlandse](nl-nl/index.md) documentatie.
+Voir la documentation en [Français](fr-fr/whitepaper.md).
 
-Acesse a documentação em português (brasileiro) [aqui](pt-br/index.md).
-
-Voir la documentation en [Français](fr-fr/index.md).
-
-Vedi la documentazione [Italiana](it-it/index.md).
+Vedi la documentazione [Italiana](it-it/whitepaper.md).

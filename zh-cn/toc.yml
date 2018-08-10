@@ -1,8 +1,8 @@
 ﻿- name: NEO 基础知识
-  href: index.md
+  href: whitepaper.md
   items:
     - name: NEO 白皮书
-      href: index.md
+      href: whitepaper.md
     - name: NEO Contract白皮书
       href: basic/neocontract.md
     - name: 共识机制

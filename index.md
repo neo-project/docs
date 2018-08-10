@@ -1,19 +1,5 @@
-NEO Docs
-============
-
-docs.neo.org 是 NEO 全新的技术文档体验。
-
-[全部语言](language.md)
-
-
-|                  | Verification              | Application                     | VerificationR              | ApplicationR               |
-| ---------------- | ------------------------- | ------------------------------- | -------------------------- | -------------------------- |
-| 中文名           | 验证触发器                 | 应用触发器                       | 待定                       | 待定                        |
-| 开发状态         | 已开发完成                 | 已开发完成                       | 已开发完成                  | 已开发完成                  |
-| 如何触发         | 转账触发                   | 发送 InvocationTransaction 触发  | 接收转账时触发              | 接收转账时触发              |
-| 交易与合约的顺序  | 先执行智能合约，后确认交易  | 先确认交易，后执行智能合约         | 先执行智能合约，后确认交易   | 先确认交易，后执行智能合约   |
-| 返回值           | 布尔                      | 任意                             | 布尔                       | 任意                       |
-| 智能合约存储区    | 只读                      | 读写                             | 只读                       | 读写                       |
-
-
-<link rel="stylesheet" href="styles/aaas.css">
+<script>
+var JsSrc = (navigator.language || navigator.browserLanguage) .toLowerCase();
+if(JsSrc!='zh-cn') JsSrc = 'en-us';
+window.location.href = '/'+JsSrc+'/index.html';
+</script>
