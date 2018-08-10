@@ -1,8 +1,8 @@
 ﻿- name: NEO Basics
-  href: index.md
+  href: whitepaper.md
   items:
     - name: NEO Whitepaper
-      href: index.md
+      href: whitepaper.md
     - name: NEO Contract Whitepaper
       href: basic/neocontract.md
     - name: Consensus
