@@ -13,6 +13,7 @@ body{line-height: 2.5;}
     border: 3px solid #F5f5f5;
     line-height: 1.6;
     font-size: 18px;
+    vertical:top;
 }
 .content .table-bordered td{
     background: #FBFBFB;
@@ -37,5 +38,14 @@ table a:hover{
 @media only screen and (min-width: 768px){
     #sidetoggle.collapse{
         display: none!important;
+    }
+}
+@media only screen and (max-width: 768px){
+    .content .table-bordered th {
+        font-size: 16px;
+    }
+    .content .table-bordered td{
+        line-height:1.6;
+        font-size: 13px;
     }
 }
