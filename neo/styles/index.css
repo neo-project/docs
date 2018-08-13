@@ -13,7 +13,8 @@ body{line-height: 2.5;}
     border: 3px solid #F5f5f5;
     line-height: 1.6;
     font-size: 18px;
-    vertical:top;
+    vertical-align:top;
+    width: 33%;
 }
 .content .table-bordered td{
     background: #FBFBFB;

@@ -18,7 +18,7 @@ $(function () {
   renderSidebar();
   renderAffix();
   renderFooter();
-  renderLogo();
+  setTimeout(renderLogo,100);
 
   window.refresh = function () {
     //highlight();
@@ -691,7 +691,7 @@ $(function () {
         // Replace image with new SVG
         $img.replaceWith($svg);
 
-      }, 'xml');
+      },'xml');
     });
   }
 

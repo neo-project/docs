@@ -4,6 +4,7 @@ body {
   font-family: PingFang SC,'Segoe UI',Tahoma, "Microsoft YaHei",arial, sans-serif;
   line-height:1.8;
   height: 100%;
+  /*word-break: break-all;*/
 }
 button,
 a {
@@ -26,7 +27,9 @@ a.disable:hover {
 .alert a{
   color: inherit;
 }
-
+code{
+  white-space: normal;
+}
 /* workaround for leave space for fixed navbar with # anchor url*/
 
 h1:before,
