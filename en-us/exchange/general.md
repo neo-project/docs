@@ -1,6 +1,6 @@
 # Document for Exchange Developers
 
-This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete related program development for NEO assets transactions. Before reading, maker sure you have read [NEO White Paper](../index.html) and understand the NEO background knowledge and technologies. 
+This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete necessary programing tasks for NEO assets transactions. Before reading, ensure that you have read [NEO White Paper](../index.html) and understand the NEO background knowledge and technologies. 
 
 > [!Note]
 >
