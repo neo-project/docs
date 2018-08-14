@@ -18,7 +18,7 @@ $(function () {
   renderSidebar();
   renderAffix();
   renderFooter();
-  setTimeout(renderLogo,100);
+  // renderLogo();
 
   window.refresh = function () {
     //highlight();
