@@ -18,7 +18,22 @@
     - name: NEO 节点介绍
       href: node/introduction.md
     - name: NEO-GUI
-      href: node/gui.md
+      href: node/gui/install.md
+      items:
+      - name: 下载客户端
+        href: node/gui/install.md
+      - name: 钱包
+        href: node/gui/wallet.md
+      - name: 交易
+        href: node/gui/transc.md
+      - name: 注册与分发资产
+        href: node/gui/asset.md
+      - name: 与智能合约交互
+        href: node/gui/sc.md
+      - name: 选举与投票
+        href: node/gui/vote.md
+      - name: 其它功能
+        href: node/gui/other.md
     - name: NEO-CLI
       href: node/cli/cli.md
       items:
