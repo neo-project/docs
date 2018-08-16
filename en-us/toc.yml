@@ -18,7 +18,22 @@
     - name: Introduction
       href: node/introduction.md
     - name: NEO-GUI
-      href: node/gui.md
+      href: node/gui/install.md
+      items:
+      - name: Installing the Client
+        href: node/gui/install.md
+      - name: Wallet
+        href: node/gui/wallet.md
+      - name: Transactions
+        href: node/gui/transc.md
+      - name: Registering and Distributing Assets
+        href: node/gui/asset.md
+      - name: Interacting with Smart Contracts
+        href: node/gui/sc.md
+      - name: Election and Voting
+        href: node/gui/vote.md
+      - name: Other Features
+        href: node/gui/other.md
     - name: NEO-CLI
       href: node/cli/cli.md
       items:
