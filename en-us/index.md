@@ -11,7 +11,7 @@ Here is an exhaustive library of NEO technical docs, including development examp
 
 | NEO Node                                                     | NEO Network                                                  | NEO   Utilities                        |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------- |
-| [Introduction](node/introduction.md)<br />[NEO-GUI](node/gui.md)<br />[NEO-CLI](node/cli/cli.md)<br />[API Reference](node/cli/apigen.md) | [Test Network](network/testnet.md)<br />[Private Chain](network/private-chain.md)<br />[Synchronizing the blockchain](network/syncblocks.md)<br />[Network Protocol](network/network-protocol.md) | [NEO SDK](utility/sdk/introduction.md) |
+| [Introduction](node/introduction.md)<br />[NEO-GUI](node/gui/install.md)<br />[NEO-CLI](node/cli/cli.md)<br />[API Reference](node/cli/apigen.md) | [Test Network](network/testnet.md)<br />[Private Chain](network/private-chain.md)<br />[Synchronizing the blockchain](network/syncblocks.md)<br />[Network Protocol](network/network-protocol.md) | [NEO SDK](utility/sdk/introduction.md) |
 
 | Smart Contract                                               | Document for Exchange Developers                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
