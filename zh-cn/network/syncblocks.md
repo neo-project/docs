@@ -6,7 +6,7 @@
 
 1. 进入 [客户端下载](https://neo.org/download) 页面，根据您使用的客户端和所在的网络选择下载对应的主网数据包或测试网数据包
 
-2. 关闭客户端。如果是全量数据包，需将 chain.acc.zip 复制到客户端程序目录下，即 neo-gui.exe 或 neo-cli.exe 所在文件夹。如果是增量数据包，需先解压后再将解压出来的文件放入客户端程序根目录。
+2. 关闭客户端。如果是全量数据包，需将 chain.acc.zip 复制到客户端程序目录下，即 neo-gui.exe 或 neo-cli.exe 所在文件夹。如果是增量数据包，需先同步到增量区间后再放入增量包， 然后将解压出来的 chain.xxx.acc 文件放入客户端程序根目录。
 
 3. 再次打开客户端查看同步状态：
 
@@ -14,7 +14,7 @@
 
    ![](../node/assets/gui_1.png)
 
-   - 对于NEO-CLI，输入 `open wallet <path>` 打开 NEO 命令行钱包后，输入 `show state` 查看区块同步状态，将发现此时同步速度明显加快。"Height" 后面的三个数值相同表示同步完成。
+   - 对于NEO-CLI，输入 `open wallet <path>` 打开 NEO 命令行钱包后，输入 `show state` 查看区块同步状态，当画面显示连接 node 数为 0 并且同步速度明显加快时， 说明已进入离线同步模式。 当 "Height" 后面的三个数值相同表示同步完成。
 
 ![](../../assets/cli_sync.png)
 
