@@ -8,14 +8,14 @@ body {
 }
 button,
 a {
-  color: #5BAB17;
+  color: #31AA77;
   cursor: pointer;
 }
 button:hover,
 button:focus,
 a:hover,
 a:focus {
-  color: #388600;
+  color: #31AA77;
   text-decoration: none;
 }
 a.disable,
@@ -485,12 +485,12 @@ body .toc{
   text-decoration: inherit;
 }
 .toc .nav > li.active > a {
-  color: #5BAB17;
+  color: #31AA77;
   text-shadow: 0 0 1px rgba(200,255,150,0.5);
 }
 .toc .nav > li.active > a:hover,
 .toc .nav > li.active > a:focus {
-  color: #388600;
+  color: #027450;
 }
 
 .toc .nav > li> .expand-stub {
@@ -583,7 +583,7 @@ body .toc{
   position: absolute;
   top: 10px;
   left: 10px;
-  color: #5BAB17;
+  color: #31AA77;
 }
 .article {
   margin-top: 120px;
@@ -657,7 +657,7 @@ body .toc{
 }
 .affix ul > li.active > a,
 .affix ul > li.active > a:before {
-  color: #5BAB17;
+  color: #31AA77;
 }
 .affix ul > li > a {
   padding: 5px 12px;
@@ -674,7 +674,7 @@ body .toc{
 }
 .affix > ul > li.active > a,
 .affix > ul > li.active > a:before {
-  color: #5BAB17;
+  color: #31AA77;
   font-weight: bold;
 }
 .affix ul ul > li > a {
@@ -739,7 +739,7 @@ footer {
   z-index: 1000;
 }
 .footer {
-  border-bottom: 10px solid #789D58;
+  border-bottom: 10px solid #027450;
   background-color: #f8f8f8;
   padding: 15px 0;
 }
