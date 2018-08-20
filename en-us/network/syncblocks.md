@@ -4,13 +4,12 @@ The client must be fully synchronized before use. In order to speed up network s
 
 Suppose you are using windows, you need to do the following:
 
-1. Download the package located at [Client Downloads](https://neo.org/download) according to your network and client: chain.acc.zip for main net or chain.acc.test.zip for test net.
+1. Close the NEO client and click [Download offline synchronized package](http://sync.ngd.network/) from the [Client Downloads](https://neo.org/download) page.
 
-2. Close the NEO client and copy chain.acc.zip to the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
+2. Download the full offline package or increment offline package according to your network.
 
-   > [!Note]
-   >
-   > For the test net package chain.acc.test.zip, you need to rename the file to chain.acc.zip before placement.
+   - For the full offline package, place it under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
+   - For the increment offline package, first you need to synchronize the client to the starting height of the increment offline package and then place the unzipped package under the neo-gui.exe or neo-cli.exe folder.
 
 3. Run the client and check the blocks downloading status.
 
@@ -18,7 +17,7 @@ Suppose you are using windows, you need to do the following:
 
    ![](../../assets/gui_1.png)
 
-   - For NEO-CLI，enter  `open wallet <path>` to open a wallet, and then enter  `show state` to check the blocks downloading status. You can see the client is downloading the block data at a very quick speed. When the three values after "Height" get to the same, it indicates the synchronization is almost completed.
+   - For NEO-CLI，enter  `open wallet <path>` to open a wallet, and then enter  `show state` to check the blocks downloading status. When you see the connected nodes is 0 and the synchronizing speed is greatly accelerated, that means the offline package is working. When the three values after "Height" get to the same, it indicates the synchronization is almost completed.
 
      ![](../../assets/cli_sync.png)
 
