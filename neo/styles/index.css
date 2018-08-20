@@ -28,12 +28,13 @@ table a{
     color: #333333;
 }
 table a:hover{
-    text-shadow: 0 0 2px rgba(200,255,150,0.8);
+    text-shadow: 0 0 2px rgba(100,215,150,0.8);
 }
 #moreLan a{
     font-size: 14px;
     font-weight: 400;
-    color: #5BAB17;
+    color: #31AA77;
+    text-shadow:0 0 2px rgba(150, 250, 150, 0.7);
 }
 
 @media only screen and (min-width: 768px){
