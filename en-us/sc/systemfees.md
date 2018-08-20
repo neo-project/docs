@@ -2,7 +2,7 @@
 
 ## Transaction fees
 
-There are currently no transaction fees. The user can however choose to pay transaction fee for priority.
+There are currently no transaction fees (limited to 21 transactions per block). The user can however choose to pay transaction fee for priority. Transaction fee is strongly recommended to avoid queue when free transactions are filled.
 
 ## Smart Contract Fees
 
