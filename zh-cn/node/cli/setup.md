@@ -2,23 +2,9 @@
 
 本文将介绍如何安装 NEO-CLI 的官方发布程序包以及启动 NEO 节点。你也可以选择直接从GitHub上下载 NEO-CLI 源代码并发布成可执行文件。如果使用macOS，则只能通过后一种方式安装运行 NEO-CLI。相关信息请参考 [发布 NEO-CLI 源码](publish.md)。
 
-## 安装运行环境
+## 配置要求
 
-根据所使用的系统选择对应的环境进行安装：
-
-- 对于 **Windows 7** and **Windows 10**，安装 [.NET Core](https://www.microsoft.com/net/download/windows) 和 [.NET Framework](https://www.microsoft.com/net/download/windows).
-- 对于 **Linux (ubuntu 17.10)**，安装 [.NET Core Runtime](https://www.microsoft.com/net/download/linux).
-
-安装完成后，可以运行以下命令来检测 .NET Core 环境是否安装成功 。
-
-```
-dotnet new console -o hwapp
-cd hwapp
-dotnet restore
-dotnet run
-```
-
-如果你看到最后输出 “Hello World!” 说明 .Net Core 安装成功。
+建议运行 NEO-CLI 的计算机配置固态硬盘，以免同步区块数据时速度太慢。
 
 
 ## 安装 NEO-CLI
@@ -51,25 +37,29 @@ neo-cli.exe
 
 **Linux (ubuntu 17.10)**:
 
+```
+./neo-cli
+```
+
+或
+
    ```
 dotnet neo-cli.dll
    ```
 
+> [!Note]
+>
+> 如果使用 dotnet，需要先安装 .net core 环境。
+
 如果想在启动节点的同时启动 API 服务，可以输入参数 `--rpc`  或 `/rpc` 或 `-r`
 
    ```
-dotnet neo-cli.dll --rpc
+neo-cli.dll --rpc
    ```
-记录智能合约日志，如 NEP-5 资产的交易信息等，可以输入参数 `--log`  或 `-l` 
-
-   ```
-dotnet neo-cli.dll --log
-   ```
-
 仅连接配置文件中的种子节点，可以输入参数 `--nopeers`
 
    ```
-dotnet neo-cli.dll --nopeers
+neo-cli.dll --nopeers
    ```
 
 如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
