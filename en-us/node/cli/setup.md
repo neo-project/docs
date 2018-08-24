@@ -2,23 +2,9 @@
 
 This section describes the procedure for installing the official NEO-CLI released package and starting the NEO node. Alternatively, you can directly publish NEO-CLI source from GitHub into an executable file. Especially when you use macOS, that is the only way to set up NEO-CLI. For more information refer to [Publishing from Source](publish.md).
 
-## Installing the environment
+## Hardware Requirment
 
-Install one of the following depending on your system:  
-
-- For **Windows 7** and **Windows 10**, install [.NET Core](https://www.microsoft.com/net/download/windows) and [.NET Framework](https://www.microsoft.com/net/download/windows).
-- For  **Linux (ubuntu 17.10)**, install [.NET Core Runtime](https://www.microsoft.com/net/download/linux).
-
-After the installation is complete, you can run the following command to check whether the .NET Core environment was installed successfully.
-
-```
-dotnet new console -o hwapp
-cd hwapp
-dotnet restore
-dotnet run
-```
-
-If you see the final output "Hello World!", The .Net Core installation is successful.
+A solid state disk with the computer running the NEO-CLI client  is recommended to avoid waiting too long when synchorizing blocks.
 
 
 ## Installing the NEO-CLI package
@@ -34,7 +20,7 @@ sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
 
 ## Starting the NEO node
 
-Open the command line, navigate to the neo-cli directory, and enter the following command to start the NEO node:
+Open the command line, navigate to the NEO-CLI directory, and enter the following command to start the NEO node:
 
 On **Windows 10**:
 
@@ -51,24 +37,28 @@ neo-cli.exe
 On **Linux (ubuntu 17.10)**:
 
 ```
+./neo-cli
+```
+
+or
+
+```
 dotnet neo-cli.dll
 ```
+
+> [!Note]
+>
+> If you  use dotnet install .net core in advance.
 
 NEO-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
 
 ```
-dotnet neo-cli.dll --rpc
+neo-cli.dll --rpc
 ```
-To log the smart contract information, e.g. the NEP-5 assets transactions, you can add `--log` or `-l`, for example:
-
-```
-dotnet neo-cli.dll --log 
-```
-
 If you want to only connect seed nodes in the configuration file, enter the following:
 
 ```
-dotnet neo-cli.dll --nopeers 
+neo-cli.dll --nopeers 
 ```
 
 If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
