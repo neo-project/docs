@@ -172,7 +172,7 @@ public static BigInteger TotalIcoNeo() => total_neo;
 
 C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别功能。
 
- `public delegate void acall(stringa);`
+ `public delegate void acall(string a);`
 
 一是可以用来定义事件：
 
@@ -251,6 +251,6 @@ public extern static Delegate ToDelegate(this byte[] source);
 public extern static byte[] ToScriptHash(this string address);
 ```
 
-例如， `“ABCD”.ToScriptHash();` 是合法的，因为编译器可以执行对 “ABCD” 的转换。
+例如， `“ASH……wk”.ToScriptHash();` 是合法的，因为编译器可以执行对 “ABCD” 的转换。
 
 而 `String xxx = "ASH……wk"; xxx.ToScriptHash();` 是非法的，因为编译器无法确定 XXX 的值。
