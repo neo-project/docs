@@ -45,10 +45,10 @@ C# 的基本类型有
 另外对 C# 的 `BigInteger` 也可以支持：
 
 ```c#
-ulongtotal_neo = 200;
+ulong total_neo = 200;
 BigInteger ico_neo = 300;
 BigInteger balance_neo = total_neo- ico_neo;
-ulongvalue = 150;
+ulong value = 150;
 ```
 
 需要注意在将数值类型转型为更小的类型时，编译为 AVM 之后并不会截断数值（byte）（ulong）
@@ -74,7 +74,7 @@ if (a1>= a2) ;
 if(a1 <= a2) ;
 ```
 
-​    支持整数的自增操作符：
+    支持整数的自增操作符：
 
 ```c#
 int k =100;

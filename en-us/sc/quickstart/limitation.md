@@ -48,7 +48,7 @@ Additionally, these are supported for C#  `BigInteger` ：
 ulong total_neo = 200;
 BigInteger ico_neo = 300;
 BigInteger balance_neo = total_neo- ico_neo;
-ulongvalue = 150;
+ulong value = 150;
 ```
 
 Note that when converting a numeric type to a smaller one, compiling to AVM does not truncate the value (byte) (ulong)
