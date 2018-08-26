@@ -2,13 +2,13 @@
 
 ### NEO 编译器支持的 C# 特性
 
-使用 C# 开发智能合约时，你无法使用 C# 的全部特性。会存在一些限制以及不支持的功能，这些限制的根源，来自于 NEOVM 和 Dotnet IL 的差异性。
+使用 C# 开发智能合约时，你无法使用 C# 的全部特性。会存在一些限制以及不支持的功能，这些限制的根源，来自于 NeoVM 和 Dotnet IL 的差异性。
 
-因为 NEOVM 更加精简，所以我们只能将有限的 C# /dotnet 特性编译为 AVM 文件。
+因为 NeoVM 更加精简，所以我们只能将有限的 C# / dotnet 特性编译为 AVM 文件。
 
 #### 关于类型
 
-NEOVM 有几种基本类型：
+NeoVM 有几种基本类型：
 
 - `ByteArray`
 - `Integer`
@@ -38,7 +38,7 @@ C# 的基本类型有
 
 `Int8 int16 int32 int64 uint8 uint16uint32 uint64`
 
-因为 NEOVM 只有一种 Integer，底层实现是 BigInteger，比 C# 的范围要大，所以这些整数类型均可使用。
+因为 NeoVM 只有一种 Integer，底层实现是 `BigInteger`，比 C# 的范围要大，所以这些整数类型均可使用。
 
 一种数值类型 `VARINT`，在底层实现时表现为 `BigInteger` 类型。
 
@@ -53,7 +53,7 @@ ulong value = 150;
 
 需要注意在将数值类型转型为更小的类型时，编译为 AVM 之后并不会截断数值（byte）（ulong）
 
-对所有整数类型支持数学运算符 +-*/% 加减乘除余：
+对所有整数类型支持数学运算符 + - * / % 加减乘除余：
 
 ```c#
 var a1 = abc + 1;
@@ -66,19 +66,19 @@ var a5 = abc % 2;
 对所有整数类型支持逻辑运算 大于、大于等于、小于、小于等于、等于、不等于：
 
 ```c#
-if (a1> a2) ;
-if (a2< a3) ;
-if (a3 ==a2) ;
-if (a3 !=a2) ;
-if (a1>= a2) ;
-if(a1 <= a2) ;
+if (a1 > a2) ;
+if (a2 < a3) ;
+if (a3 == a2) ;
+if (a3 != a2) ;
+if (a1 >= a2) ;
+if (a1 <= a2) ;
 ```
 
-    支持整数的自增操作符：
+支持整数的自增操作符：
 
 ```c#
-int k =100;
-for (int j = 0;j < 3; j++)
+int k = 100;
+for (int j = 0; j < 3; j++)
 {
    k += j;
 }
@@ -90,11 +90,11 @@ for (int j = 0;j < 3; j++)
 
 #### C# bool 类型的支持
 
-基本支持，底层行为和 INT 类似，false为 int 0。
+基本支持，底层行为和 INT 类似，false 为 int 0。
 
 #### C# char string 类型的支持
 
-不完全支持，由于在 NEOVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 AVM 的 string 实际是它的 UTF8 编码的 bytearray，请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
+不完全支持，由于在 NeoVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 AVM 的 string 实际是它的 UTF8 编码的 bytearray，请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
 
 尤其不要使用 string 处理中文。
 
@@ -131,16 +131,16 @@ public class info
 
 #### C# 数组的支持
 
-数组支持，行为基本和 C#一致。
+数组支持，行为基本和 C# 一致。
 
-Byte[] 例外，因为 byte[] 是 NEOVM 底层的特别类型。
+Byte[] 例外，因为 byte[] 是 NeoVM 底层的特别类型。
 
 对一般数组可以用的设置其中的值的操作
 
 ```c#
-short[] some= new short[17];
+short[] some = new short[17];
 some[1] = 12;
-returnsome;
+return some;
 ```
 
 对 Byte[] 不允许。
@@ -164,25 +164,25 @@ Dictionary 功能可以用 NEO DOTNET DEVPACK 中的 MAP 替代。
 临时变量不限，支持定义 const 变量和静态成员变量。支持静态成员变量直接赋初值。
 
 ```c#
-private const ulongtotal_neo = total_ico_usd / neo_to_usd * neo_decimals;
-publicstatic BigInteger TotalIcoNeo()=> total_neo;
+private const ulong total_neo = total_ico_usd / neo_to_usd * neo_decimals;
+public static BigInteger TotalIcoNeo() => total_neo;
 ```
 
 #### C# 委托和事件的支持
 
-C# 委托可以定义，定义的委托有两个功能，都是 NEOVM 的特别功能。
+C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别功能。
 
- `publicdelegate voidacall(stringa);`
+ `public delegate void acall(stringa);`
 
 一是可以用来定义事件：
 
- `publicstatic eventacall dododo;`
+ `public static event acall dododo;`
 
 调用这个事件则会被 NEO C# 编译器理解为调用 Notify 方法，可参考 NEP5 的通知事件。
 
  另一个是可以将一个 bytearray 转型为一个委托：
 
-`acallcall = (acall)new byte[] { 01, 02, 03 }.ToDelegate();`
+`acall call = (acall)new byte[] { 01, 02, 03 }.ToDelegate();`
 
 这就实现了对一个指定地址的智能合约的调用，参考 NEP4。
 
@@ -212,7 +212,7 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 
 ```c#
 [Appcall("97b9373228d508155d5bdf75cd4703dfb1137fe0")]
- public static extern bool AnotherContract(string arg, object[] args);
+public static extern bool AnotherContract(string arg, object[] args);
 ```
 
 #### SYSCALL特性
@@ -220,8 +220,8 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 调用一个具有 Syscall 特性的函数，实际上会调用对应的系统函数：
 
 ```c#
- [Syscall("Neo.Account.GetBalance")]
-  public extern long GetBalance(byte[] asset_id);
+[Syscall("Neo.Account.GetBalance")]
+public extern long GetBalance(byte[] asset_id);
 ```
 
 #### OPCALL 特性
@@ -230,16 +230,16 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 
 ```c#
 [OpCode(Neo.VM.OpCode.LEFT)]
- public extern static byte[] Take(byte[] good, int index);
+public extern static byte[] Take(byte[] good, int index);
 ```
 
 #### NONEMIT 特性
 
-执行一个具有 NonEMit 特性的函数，通常都是用来完成一些满足语法的转换，实际上在 NEOVM 底层并不需要转换。
+执行一个具有 NonEMit 特性的函数，通常都是用来完成一些满足语法的转换，实际上在 NeoVM 底层并不需要转换。
 
 ```c#
 [Nonemit]
- public extern static Delegate ToDelegate(this byte[] source);
+public extern static Delegate ToDelegate(this byte[] source);
 ```
 
 #### NonemitWithConvert 特性
@@ -248,9 +248,9 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 
 ```c#
 [NonemitWithConvert(ConvertMethod.ToScriptHash)]
- public extern static byte[] ToScriptHash(this string address);
+public extern static byte[] ToScriptHash(this string address);
 ```
 
 例如， `“ABCD”.ToScriptHash();` 是合法的，因为编译器可以执行对 “ABCD” 的转换。
 
-而 `Stringxxx;….;xxx.ToScriptHash();` 是非法的，因为编译器无法确定 XXX 的值。
+而 `String xxx = "ASH……wk"; xxx.ToScriptHash();` 是非法的，因为编译器无法确定 XXX 的值。
