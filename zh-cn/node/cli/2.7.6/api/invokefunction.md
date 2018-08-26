@@ -53,5 +53,39 @@ params：传递给智能合约操作的参数。
             }
         ]
     }
+
+```
+
+请求正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "invokefunction",
+  "params": [
+    "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "decimals"
+  ],
+  "id": 3
+}
+```
+
+响应正文：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "00c108646563696d616c7367f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "state": "HALT, BREAK",
+        "gas_consumed": "0.156",
+        "stack": [
+            {
+                "type": "Integer",
+                "value": "8"
+            }
+        ]
+    }
 }
 ```
