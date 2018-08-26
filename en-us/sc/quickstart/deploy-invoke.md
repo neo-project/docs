@@ -32,7 +32,7 @@ You need to create a smart contract account using the contract script hash if th
 
 1. After a wallet is created in NEO-GUI, right-click on the address area and select `Create Contract Address` -> `Custom`.
 2. Specify the following options：
-   a. `Parameter List`：refer to [Parameters and Return Values](http://docs.neo.org/zh-cn/sc/tutorial/Parameter.md)
+   a. `Parameter List`：refer to [Parameters and Return Values](../Parameter.md)
    b. `Script`：enter the contract script hash copied beforehand. 
    c. `Private Key`：optional. Specify the private key used for signing if the signature is required during contract execution.
 3. Click `Confirm`.
@@ -69,4 +69,4 @@ To invoke a smart contract that has been deployed in the blockchain, do the foll
 
 5. Click `Test ` to run the contract in a test environment. If no issue, click `Invoke`。
 
-You can also use the [invoke method](../../node/cli/api/invoke.md) provided in NEO-CLI to invoke the contract.
+You can also use the [invoke method](../../node/cli/latest-version/api/invoke.html) provided in NEO-CLI to invoke the contract.

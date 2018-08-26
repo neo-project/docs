@@ -32,7 +32,7 @@
 
 1. 创建好钱包后，在 NEO-GUI 中点击鼠标右键，选择 `创建合约地址` -> `自定义`。
 2. 在 `导入自定义合约` 对话框中设置以下选项：
-   a. `形参列表`：参考 [智能合约参数和返回值](http://docs.neo.org/zh-cn/sc/tutorial/Parameter.md)
+   a. `形参列表`：参考 [智能合约参数和返回值](../Parameter.md)
    b. `脚本代码`：填写上一步复制的合约脚本代码。
    c. `私钥`：可选参数，当合约执行过程中需要签名时，设置用于签名的私钥。
 3. 点击 `确定`。
@@ -69,4 +69,4 @@ public static void Main()
 
 5. 点击 `试运行`，可以测试该合约。确认无误，点击 `调用`。
 
-也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/api/invoke.md) 调用合约。
+也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/latest-version/api/invoke.html) 调用合约。
