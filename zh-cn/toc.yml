@@ -217,7 +217,7 @@
         - name: 使用 Python
           href: sc/quickstart/getting-started-python.md
       - name: 合约编写须知
-        href: sc/quickstart/notices.md
+        href: sc/quickstart/limitation.md
       - name: 测试
         href: sc/quickstart/test.md
       - name: 部署和调用合约

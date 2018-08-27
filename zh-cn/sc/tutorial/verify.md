@@ -6,7 +6,7 @@
 
 ## 编译合约文件
 
-首先，参考 [如何用 c# 编写智能合约](../getting-started-csharp.md)，使用如下示例内容编译生成一个智能合约文件，Test.avm。
+首先，参考 [如何用 c# 编写智能合约](../../quickstart/getting-started-csharp.md)，使用如下示例内容编译生成一个智能合约文件，Test.avm。
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -57,7 +57,7 @@ namespace Neo.SmartContract
 
 
 2. 在 `导入自定义合约` 对话框中设置以下选项：
-   a. 形参列表：参考 [智能合约参数和返回值](Parameter.md)，由于我们的合约中有一个 signature 参数，所以此处要填写 00 。
+   a. 形参列表：参考 [智能合约参数和返回值](../Parameter.md)，由于我们的合约中有一个 signature 参数，所以此处要填写 00 。
    b. 脚本代码：填写上一步复制的合约脚本代码。
    c. 私钥：可选参数，当合约执行过程中需要签名时，设置用于签名的私钥。
 

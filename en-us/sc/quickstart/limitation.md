@@ -2,13 +2,13 @@
 
 ### NEO-supported features in C#
 
-When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NEOVM and Dotnet IL. 
+When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NeoVM and Dotnet IL. 
 
-Because NEOVM is more compact, we can only compile limited C#/dotnet features into an AVM file.
+Because NeoVM is more compact, we can only compile limited C# / dotnet features into an AVM file.
 
 #### Data types
 
-NEOVM provides the following basic types：
+NeoVM provides the following basic types：
 
 - `ByteArray`
 - `Integer`
@@ -36,9 +36,9 @@ Because of the differences in the basic types of virtual machines, the basic typ
 
 #### C#  integral types
 
-`Int8 int16 int32 int64 uint8 uint16uint32 uint64`
+`Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 
-All these integer types are supported because NEOVM has only one integer type and the underlying implementation is BigInteger, which covers larger scope than C#. 
+All these integer types are supported because NeoVM has only one integer type and the underlying implementation is BigInteger, which covers larger scope than C#. 
 
 A numeric type, `VARINT`, is represented as `BigInteger` in the underlying implementation.
 
@@ -48,7 +48,7 @@ Additionally, these are supported for C#  `BigInteger` ：
 ulong total_neo = 200;
 BigInteger ico_neo = 300;
 BigInteger balance_neo = total_neo- ico_neo;
-ulongvalue = 150;
+ulong value = 150;
 ```
 
 Note that when converting a numeric type to a smaller one, compiling to AVM does not truncate the value (byte) (ulong)
@@ -66,19 +66,19 @@ var a5 = abc % 2;
 Logical operations are supported for all integer types：
 
 ```c#
-if (a1> a2) ;
-if (a2< a3) ;
-if (a3 ==a2) ;
-if (a3 !=a2) ;
-if (a1>= a2) ;
-if(a1 <= a2) ;
+if (a1 > a2) ;
+if (a2 < a3) ;
+if (a3 == a2) ;
+if (a3 != a2) ;
+if (a1 >= a2) ;
+if (a1 <= a2) ;
 ```
 
 Incremental operators are supported for integers：
 
 ```c#
-int k =100;
-for (int j = 0;j < 3; j++)
+int k = 100;
+for (int j = 0; j < 3; j++)
 {
    k += j;
 }
@@ -94,7 +94,7 @@ Basic support. The underlying behavior is similar to INT; false is int 0.
 
 #### C# char string types
 
-Not fully support. Unlike the string in C#, the string in NEOVM is treated as bytearray, thus the string compiled into AVM is actually its UTF8 encoded bytearray.  Do not use any string advanced handlers. Just treat string as a special type. Particularly do not use string to handle Chinese.
+Not fully support. Unlike the string in C#, the string in NeoVM is treated as bytearray, thus the string compiled into AVM is actually its UTF8 encoded bytearray.  Do not use any string advanced handlers. Just treat string as a special type. Particularly do not use string to handle Chinese.
 
 ```c#
 string ss3 = "ab";
@@ -131,14 +131,14 @@ Custom constructors are not supported, with the exception of extern constructors
 
 C# array is supported, and the behavior is similar to C#.
 
-Byte[] is an exception as it is a special type in the NEOVM underlying layer.
+Byte[] is an exception as it is a special type in the NeoVM underlying layer.
 
 Usually you can set the value in an array using the following:
 
 ```c#
 short[] some= new short[17];
 some[1] = 12;
-returnsome;
+return some;
 ```
 
 #### C# enumeration
@@ -160,25 +160,25 @@ The Dictionary function can be replaced with MAP in NEO DOTNET DEVPACK.
 Temporary variables are unrestricted. Defining const variables and static member variables are supported. Assigning initial values to static member variables is supported.
 
 ```c#
-private const ulongtotal_neo = total_ico_usd / neo_to_usd * neo_decimals;
-publicstatic BigInteger TotalIcoNeo()=> total_neo;
+private const ulong total_neo = total_ico_usd / neo_to_usd * neo_decimals;
+public static BigInteger TotalIcoNeo() => total_neo;
 ```
 
 #### C# delegates and events
 
-You can define two functions of C# delegates, which are special features of NEOVM.
+You can define two functions of C# delegates, which are special features of NeoVM.
 
- `publicdelegate voidacall(stringa);`
+ `public delegate void acall(string a);`
 
 One can be used to define events:
 
- `publicstatic eventacall dododo;`
+ `publics tatic event acall dododo;`
 
 When invoking this event, the NEO C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
 
  The other can be used to convert a bytearray to a delegate:
 
-`acallcall = (acall)new byte[] { 01, 02, 03 }.ToDelegate();`
+`acall call = (acall)new byte[] { 01, 02, 03 }.ToDelegate();`
 
 This implements a call to a smart contract with a specified address. Refer to NEP4.
 
@@ -208,7 +208,7 @@ Calling a function with the APPCALL attribute calls the specified smart contract
 
 ```c#
 [Appcall("97b9373228d508155d5bdf75cd4703dfb1137fe0")]
- public static extern bool AnotherContract(string arg, object[] args);
+public static extern bool AnotherContract(string arg, object[] args);
 ```
 
 #### SYSCALL
@@ -226,16 +226,16 @@ When a function with the OPCODE attribute is called, the call is translated into
 
 ```c#
 [OpCode(Neo.VM.OpCode.LEFT)]
- public extern static byte[] Take(byte[] good, int index);
+public extern static byte[] Take(byte[] good, int index);
 ```
 
 #### NONEMIT
 
-Executing a function with the NonEMit attribute is usually used to complete conversions that meet syntax rules. In fact, there is no need to make the conversion in the underlying NEOVM.
+Executing a function with the NonEMit attribute is usually used to complete conversions that meet syntax rules. In fact, there is no need to make the conversion in the underlying NeoVM.
 
 ```c#
 [Nonemit]
- public extern static Delegate ToDelegate(this byte[] source);
+public extern static Delegate ToDelegate(this byte[] source);
 ```
 
 #### NonemitWithConvert
@@ -244,9 +244,9 @@ Executing a function with the `NonemitWithConvert` attribute actually executes a
 
 ```c#
 [NonemitWithConvert(ConvertMethod.ToScriptHash)]
- public extern static byte[] ToScriptHash(this string address);
+public extern static byte[] ToScriptHash(this string address);
 ```
 
-For example,  `“ABCD”.ToScriptHash();` is valid as the compiler can make a conversion to “ABCD”.
+For example,  `“ASH……wk”.ToScriptHash();` is valid as the compiler can make a conversion to “ABCD”.
 
-However,  `Stringxxx;….;xxx.ToScriptHash();` is invalid as the compiler cannot determine the value of XXX.
+However,  `String xxx = "ASH……wk"; xxx.ToScriptHash();` is invalid as the compiler cannot determine the value of XXX.
