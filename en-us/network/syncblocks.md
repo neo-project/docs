@@ -1,15 +1,19 @@
 # Synchronizing the blockchain faster
 
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. 
+The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package. NEO official website provides two types of offline package:
+
+- Full offline package: contains all blockchain data since 0 block height in the format of chain.acc. It is applicable to the client running for the first time as well as the client which hasn't been synchronized up to the data range provided by increment offline packages.
+- Increment offline package: contains the data in a block height range to speed up synchronization of the client to the end height of the incremental package. It is applicable to the client which has been synchronized up to the block height within the increment offline packages coverage. The incremental package format is chain.xxx.acc, where xxx is the incremental package starting height.
 
 Suppose you are using windows, you need to do the following:
 
 1. Close the NEO client and click [Download offline synchronized package](http://sync.ngd.network/) from the [Client Downloads](https://neo.org/download) page.
 
-2. Download the full offline package or increment offline package according to your network.
+2. Download the full offline package or increment offline package according to your network, and then place the zip package (chain.acc.zip or chain.xxx.acc.zip) under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
 
-   - For the full offline package, place it under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
-   - For the increment offline package, first you need to synchronize the client to the starting height of the increment offline package and then place the unzipped package under the neo-gui.exe or neo-cli.exe folder.
+   > [!Note]
+   >
+   > Do not change the default offline package file name, otherwise it will not work for synchronization.
 
 3. Run the client and check the blocks downloading status.
 
