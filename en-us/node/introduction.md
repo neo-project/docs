@@ -1,18 +1,21 @@
-# NEO node introduction
+# NEO Node Introduction
 Nodes that store all of the blockchain are called “full-nodes”. They are connected to the blockchain through a P2P network. All the nodes in the blockchain network are equal, they act both as a client interface and as a server.
 
-There are two full-node programs. The first one is Neo-GUI, it has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. The second one is Neo-CLI, it provides an external API for basic wallet functions and is intended for NEO developers. It will also help other nodes achieve consensus with the network and will be involved in generating new blocks.
+There are two full-node programs:
 
-The NEO [network protocol](../network/network-protocol.md) will provide a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
+- Neo-GUI, which has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. 
+- Neo-CLI, which provides an external API for basic wallet functions and is intended for NEO developers. It also helps other nodes achieve consensus with the network and is involved in generating new blocks.
 
-## NEO node download address
+The NEO [network protocol](../network/network-protocol.md) provides a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
+
+## NEO client download address
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
 | Releases | [Official website](https://www.neo.org/download) or [Github](https://github.com/neo-project/neo-gui/releases) | [Github](https://github.com/neo-project/neo-cli/releases) |
 | Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
 
-## Comparison of GUI node and CLI node functions
+## GUI node and CLI node functions comparison
 
 |           | GUI  | CLI  |
 | --------- | ---- | ---- |
@@ -40,9 +43,15 @@ The NEO [network protocol](../network/network-protocol.md) will provide a low le
 | JSON-RPC |      | ✅    |
 | The consensus of the participating blocks |      | ✅    |
 
-## Port description
+## NEO-CLI security policy
 
-If you want an external program to access the node's API, an open firewall port is required. The following is a port description that can be set to fully open or open-on-demand.
+To enable an external program to access the node API, you need to open the firewall port. 
+
+> [!Note]
+>
+> To avoid the significant security risk, a whitelist or firewall must be used to block external server requests.
+
+NEO-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, you should set your own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
 
 |                    | Main Net | Test Net |
 | ------------------ | ------------ | ------------- |

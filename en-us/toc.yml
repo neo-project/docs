@@ -302,6 +302,8 @@
 - name: Document for Exchange Developers
   href: exchange/general.md
   items:
+    - name: v2.8.0
+      href: exchange/v2.8.0.md
     - name: v2.7.6
       href: exchange/v2.7.6.md
     - name: v2.7.4
