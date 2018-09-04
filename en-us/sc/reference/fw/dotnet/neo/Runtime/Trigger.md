@@ -12,7 +12,7 @@ Assembly：Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.TriggerType Trigger { get; }
 ```
 
-Attribute：[TriggerType](../TriggerType.md)。
+Attribute：[TriggerType](../TriggerType.md).
 
 ## Example
 
@@ -30,7 +30,7 @@ public static bool Main()
 }
 ```
 
-For details, refer to [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs)。
+For details, refer to [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs).
 
 
 

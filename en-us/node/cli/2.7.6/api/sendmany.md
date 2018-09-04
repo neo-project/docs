@@ -11,20 +11,20 @@ Bulk transfer order, and you can specify a change address.
 
 Outputs_array: Array, the data structure of each element in the array is as follows:
 
-​	{"asset": \<asset>,"value": \<value>,"address": \<address>}
+	{"asset": \<asset>,"value": \<value>,"address": \<address>}
 
-​	asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
+	asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
 
-​	For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+	For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
-​	For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+	For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-   The remaining asset IDs can be passed through the [CLI commandline](../cli.MD), the `list Asset` command query can also be queried in the block chain browser.
+   The remaining asset IDs can be passed through the [CLI commandline](../../cli.md), the `list Asset` command query can also be queried in the block chain browser.
 
 
-​	value：Transfer amount
+	value：Transfer amount
 
-​	address：destination address.
+	address：destination address.
 
 Fee: Handling fee, optional parameter, default is 0.
 

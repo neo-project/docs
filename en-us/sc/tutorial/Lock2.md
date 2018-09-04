@@ -110,7 +110,7 @@ for (int i = 0; i < bytes.Length; i++)
 
 1. Right-click on the address area and select `Create Contract Add` -> `Custom` to create a contract address with the contract script generated before.
 2. In the Import Custom Contract dialog, specify the following:
-   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](Parameter.md).
+   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](../Parameter.md).
    2. Script: enter the contract script copied from previous step.
    3. Private Key: Optional. When the contract needs to be signed, specify the private key used for signing.
 3. After clicking `OK`, the smart contract verification account is created successfully.

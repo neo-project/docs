@@ -6,7 +6,7 @@ Make sure you have done the following:
 
 - Confirmed that your contract should be deployed. For more information, refer to [Which smart contracts need to be deployed](overview.md##deploying-smart-contracts).
 - Compiled an .avm contract file.
-- Installed NEO-GUI and completed block synchronization. For more information, refer to [NEO-GUI](../../node/gui.md).
+- Installed NEO-GUI and completed block synchronization. For more information, refer to [NEO-GUI](../../node/gui/install.md).
 
 ## Deploying the smart contract
 
@@ -69,4 +69,4 @@ To invoke a smart contract that has been deployed in the blockchain, do the foll
 
 5. Click `Test ` to run the contract in a test environment. If no issue, click `Invoke`。
 
-You can also use the [invoke method](../../node/cli/latest-version/api/invoke.html) provided in NEO-CLI to invoke the contract.
+You can also use the [invoke method](../../node/cli/latest-version/api/invoke.md) provided in NEO-CLI to invoke the contract.

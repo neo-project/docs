@@ -25,7 +25,7 @@
 }
 ```
 
-JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../introduction.md)。
+JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../../introduction.md)。
 
 |                | 主网（Main Net） | 测试网（Test Net） |
 | -------------- | ------------ | ------------- |
@@ -128,11 +128,9 @@ http://somewebsite.com:10332
 
 ## 测试工具
 
-你可以用 Chrome 扩展程序中的 Postman 来方便地进行测试（安装 Chrome 扩展程序需要科学上网），下面是测试截图
+你可以用 Chrome 扩展程序中的 Postman 来方便地进行测试（安装 Chrome 扩展程序需要科学上网），下面是测试截图：
 
-![](../assets/api_2.jpg)
-
-![](../../../assets/api_3.jpg)
+![](../../../../assets/api_3.jpg)
 
 ## 其它
 

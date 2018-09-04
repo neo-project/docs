@@ -6,7 +6,7 @@ NeoGas（简称 GAS） 伴随着每个新区块的生成而产生，会按照 NE
 
 每一个 NEO 都有两种状态：unspent 和 spent。每一个未提取的 GAS 也有两种状态，available 和 unavailable。一个 NEO 的生命周期以转入地址起始，转出地址截止，转入时状态变为 unspent，转出时状态变为 spent。当 NEO 处于 unspent 状态时，所产生的 Gas 为 unavailable 状态，即不可提取。当 NEO 处于 spent 状态时，期间所产生的 GAS 变为 available，用户可以提取。如何将钱包中的所有 unavailable GAS 转为 available GAS 呢？很简单，将钱包中的所有 NEO 转到钱包中的任意一个地址即可。
 
-更多关于 GAS 的信息，请参考 [NEO 白皮书](../../index.html#neo-的管理模式)。
+更多关于 GAS 的信息，请参考 [NEO 白皮书](../../whitepaper.md#neo-的管理模式)。
 
 具体操作步骤为：
 

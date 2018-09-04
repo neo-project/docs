@@ -86,5 +86,5 @@ public class Go extends SmartContract{
 
 ![](../assets/2017-08-17_10-35-52.png)
 
-现在，你已经完成了 NEO 智能合约开发环境的配置，智能合约编写方法请参考 [NEO 智能合约教程](tutorial.md)
+现在，你已经完成了 NEO 智能合约开发环境的配置。
 

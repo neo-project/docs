@@ -6,7 +6,7 @@
 
 ## 编译合约文件
 
-首先，参考 [如何用 c# 编写智能合约](../../quickstart/getting-started-csharp.md)，使用如下示例内容编译生成一个智能合约文件，Test.avm。
+首先，参考 [如何用 c# 编写智能合约](../quickstart/getting-started-csharp.md)，使用如下示例内容编译生成一个智能合约文件，Test.avm。
 
 ```c#
 using Neo.SmartContract.Framework;

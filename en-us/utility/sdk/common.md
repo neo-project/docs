@@ -36,7 +36,7 @@ catch (Exception)
 }
 ```
 
-An exception is thrown when the address is wrong. Alternatively, you can use API to verify NEO addresses. For more information, refer to [validateaddress Method](../../node/cli/api/validateaddress.md).
+An exception is thrown when the address is wrong. Alternatively, you can use API to verify NEO addresses. For more information, refer to [validateaddress Method](../../node/cli/latest-version/api/validateaddress.md).
 
 ### Verifying WIF Private Key
 

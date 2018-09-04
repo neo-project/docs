@@ -15,7 +15,7 @@ For GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 For RPX Sale: ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 
-The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../cli.md) or in the Block Chain Browser.
+The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../../cli.md) or in the Block Chain Browser.
 
 ## Examples 
 
