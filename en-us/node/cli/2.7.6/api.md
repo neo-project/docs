@@ -27,7 +27,7 @@ To access the RPC server via HTTPS, you need to modify the configuration file co
 
 After the JSON-RPC server starts, it will monitor the following ports, corresponding to the Main and Test nets:
 
-For P2P and WebSocket information see [Node/Introduction](../introduction.md).
+For P2P and WebSocket information see [Node/Introduction](../../introduction.md).
 
 |                | Main Net | Test Net |
 | -------------- | -------- | -------- |
@@ -63,7 +63,7 @@ For P2P and WebSocket information see [Node/Introduction](../introduction.md).
 | [invokefunction](api/invokefunction.md)         | \<script_hash>  \<operation>  \<params>     | Invokes a smart contract at specified script hash, passing in an operation and its params |                              |
 | [invokescript](api/invokescript.md)             | \<script>                                   | Runs a script through the virtual machine and returns the results |                              |
 | [listaddress](api/listaddress.md)               |                                             | Lists all the addresses in the current wallet.               | Need to open the wallet      |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                      | Broadcast a transaction over the network. See the [network protocol](network-protocol.md) documentation. |                              |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                      | Broadcast a transaction over the network. See the [network protocol](../../../network/network-protocol.md) documentation. |                              |
 | [sendtoaddress](api/sendtoaddress.md)           | \<asset_id> \<address> \<value> [fee=0]     | Transfer to specified address                                | Need to open the wallet      |
 | [sendmany](api/sendmany.md)                     | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                                          | Need to open the wallet      |
 | submitblock                                     | \<hex>                                      | Submit new blocks                                            | Needs to be a consensus node |
@@ -128,9 +128,7 @@ After sending the request, you will get the following response：
 
 You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection), the following is a test screenshot:
 
-![image](../../../zh-cn/node/assets/api_2.jpg)
-
-![image](../../../assets/api_3.jpg)
+![image](../../../../assets/api_3.jpg)
 
 ## Other
 

@@ -218,4 +218,4 @@ For more information and to see working Java examples please refer here: [Java E
 ## Deploy smart contracts
 
 Once you are at this stage, the instructions are the same no matter what language you used to write the smart contracts.
-Follow this tutorial: [Deploy a lock contract](../tutorial/Lock2.html)
+Follow this tutorial: [Deploy a lock contract](../tutorial/Lock2.md)

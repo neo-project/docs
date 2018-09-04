@@ -6,7 +6,7 @@
 
 - 已确认您的合约需要部署。相关信息请参阅 [什么需要部署](overview.md#智能合约的部署)。
 - 已编译好一个 .avm 合约文件。
-- 已安装 NEO-GUI 并完成区块同步。相关信息请参阅 [使用 NEO-GUI 客户端](../../node/gui.md)。
+- 已安装 NEO-GUI 并完成区块同步。相关信息请参阅 [使用 NEO-GUI 客户端](../../node/gui/install.md)。
 
 ## 使用 NEO-GUI 部署智能合约
 
@@ -69,4 +69,4 @@ public static void Main()
 
 5. 点击 `试运行`，可以测试该合约。确认无误，点击 `调用`。
 
-也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/latest-version/api/invoke.html) 调用合约。
+也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/latest-version/api/invoke.md) 调用合约。

@@ -6,7 +6,7 @@
 
 ## 开发工具
 
-### 1. Visual Studio 2017
+### Visual Studio 2017
 
 如果你的计算机中已经安装过 Visual Studio 2017，并且在安装时勾选了 `.NET Core 跨平台开发 ` 可跳过本小节。如果你电脑中安装的是 Visual Studio 2015，则无法进行下一步，请升级 Visual Studio。
 
@@ -18,7 +18,7 @@
 
 ![](../assets/install_core_cross_platform_development_toolset.jpg)
 
-### 2. NeoContractPlugin 插件
+### NeoContractPlugin 插件
 
 安装方法：
 
@@ -26,7 +26,7 @@
 
 ![](../assets/download_and_install_smart_contract_plugin.jpg)
 
-### 3. neo-compiler
+### neo-compiler
 
 安装和配置方法：
 
@@ -37,30 +37,22 @@
 
 ![](../assets/publish_and_profile_settings.jpg)
 
-neon 项目默认的发布平台为 win10-x64，如果你不是 Windows10 系统，需要修改发布平台，用文本编译器打开 neon.csproj 文件，将 `<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>` 更改为目标平台，如 `<RuntimeIdentifiers>win7-64\</RuntimeIdentifiers>`，然后用 VS 重新发布该项目即可。详细 RID 可以参考 [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
+neon 项目默认的发布平台为 win10-x64，如果你不是 Windows10 系统，需要修改发布平台，用文本编译器打开 neon.csproj 文件，将 `<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>` 更改为目标平台，如 `<RuntimeIdentifiers>win7-64\</RuntimeIdentifiers>`，然后用 VS 重新发布该项目即可。详细 RID 可以参考 [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)。
 
-> [!Note]
->
-> 常见问题：
->
-> [发布 neon 时提示 NuGet 错误](../../faq.md#发布-neon-时提示-nuget-错误)
->
-> [无法复制 neon.dll](../../faq.md#无法复制-neondll)
+发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件。
 
-发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件
-
-然后需要添加 path，让任何位置都能访问这个 exe 程序
+然后需要添加 path，让任何位置都能访问这个 exe 程序。
 
 添加 path 方法：
 
-Windows10：按 Windows + S 键，输入“环境变量”，选择 “编辑账户的环境变量” 回车
+Windows10：按 Windows + S 键，输入环境变量，选择 `编辑账户的环境变量` 回车
 
-Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统设置`，`环境变量`
+Windows7 SP1 - Windows8.1 系统：右击 `计算机` ->`属性` ->`高级系统设置` ->`环境变量`
 
 ![](../assets/2017-06-07_12-07-03.png)
 
 
-然后选择 Path, 点击 ` 编辑 `
+然后选择 Path, 点击 ` 编辑 `:
 
 ![](../assets/environment_variable.png)
 
@@ -78,12 +70,6 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 ![](../assets/powershell_enviornment_variabled_updated_correctly.png)
 
-> [!Note]
->
-> 常见问题：
->
-> [缺少 api-ms-win-core-console-l2-1-0.dll 文件](../../faq.md#缺少-api-ms-win-core-console-l2-1-0dll-文件)
-
 
 ## 创建项目
 
@@ -94,12 +80,6 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 创建项目好后，会自动生成一个 c# 文件，默认的类继承于 SmartContract，如图
 
 ![](../assets/smart_contract_function_code.png)
-
-> [!Note]
->
-> 常见问题：
->
-> [新建的 NeoContract 项目找不到 Neo 命名空间](../../faq.md#新建的-neocontract-项目找不到-neo-命名空间)
 
 ## 编译项目
 
@@ -113,9 +93,7 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机`，`属性`，`高级系统
 
 >[!Note]
 >
->常见问题：
->
->[编译 NeoContract 时卡在 Start NeoContract converter 这一步](../../faq.md#编译-neocontract-时卡在-start-neocontract-converter-这一步)
+>关于在配置智能合约开发环境中遇到的常见问题，可以参考 [FAQ](../../faq.md#智能合约)。
 
-现在，你已经完成了 NEO 智能合约开发环境的配置，更多智能合约编写方法请参考 [NEO 智能合约教程](../tutorial.md)
+现在，你已经完成了 NEO 智能合约开发环境的配置。
 

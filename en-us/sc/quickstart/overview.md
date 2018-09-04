@@ -44,7 +44,7 @@ From the programming language perspective, only when a smart contract will be us
 
 #### How to deploy?
 
-The deployment of smart contracts is performed by invoking API through a Publish transaction or Invocation transaction. We recommend you use NEO-GUI to deploy smart contracts. For more information, refer to [Depolying and Invoking Smart Contracts](deploy-invoke.md).
+Smart contracts are deployed by invoking API through an Invocation transaction (The Publish transaction for deployment of the old version system has been deprecated). We recommend you use NEO-GUI to deploy smart contracts. For more information, refer to [Depolying and Invoking Smart Contracts](deploy-invoke.md).
 
 Deploying and invoking smart contracts will cost fees. For more information, refer to [System Fees](../systemfees.md).
 

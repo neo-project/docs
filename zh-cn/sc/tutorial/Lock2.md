@@ -2,7 +2,7 @@
 
 锁仓合约实现一个这样的功能：指定一个时间戳（timestamp），在区块链系统的时间到达该指定的时间之前，任何人也不能从该合约中将资金取出，当区块链系统的时间过了指定的时间后，合约持有者可以将资金取出。 
 
-代码中通过区块链中最新区块的时间来获得当前时间（误差大约在 15 秒以内）。详情可参考 [Blockchain 类](http://docs.neo.org/zh-cn/sc/reference/fw/dotnet/neo/Blockchain.html)，   [Header 类](http://docs.neo.org/zh-cn/sc/reference/fw/dotnet/neo/Header.html)。
+代码中通过区块链中最新区块的时间来获得当前时间（误差大约在 15 秒以内）。详情可参考 [Blockchain 类](../reference/fw/dotnet/neo/Blockchain.md)，   [Header 类](../reference/fw/dotnet/neo/Header.md)。
 
 该合约可以部署到区块链上供其他人调用。本文将介绍如何在钱包中部署一个锁仓合约。
 

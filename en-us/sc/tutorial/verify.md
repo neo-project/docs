@@ -6,7 +6,7 @@ This tutorial is based on Visual Studio 2017. Ensure that your Visual Studio is 
 
 ## Compiling a contract script
 
-First of all, refer to [how to use C# to write a smart contract](../getting-started-csharp.md) to compile a smart contract file Test.avm using the following code. 
+First of all, refer to [how to use C# to write a smart contract](../quickstart/getting-started-csharp.md) to compile a smart contract file Test.avm using the following code. 
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -59,7 +59,7 @@ You can get the contract script (Test.avm binary data) of Test.avm is: 52c56b6c7
 
 2. In the Import Custom Contract dialog, specify the following:
 
-   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](Parameter.md)),
+   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](../Parameter.md)),
    2. Script: enter the contract script copied from previous step.
    3. Private Key: Optional. When the contract needs to be signed, specify the private key used for signing.
 
