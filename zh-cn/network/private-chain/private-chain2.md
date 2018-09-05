@@ -220,7 +220,7 @@ SeedList 表示种子节点的 IP 地址和端口号，IP 地址输入 localhost
 
 如图所示：
 
-![](..\..\..\assets\privatechain_demo.png)
+![](../../../assets/privatechain_demo.png)
 
 ## 7、停止私有链
 
