@@ -180,7 +180,11 @@
     - name: 测试网
       href: network/testnet.md
     - name: 搭建私有链
-      href: network/private-chain.md
+      items:
+        - name: 搭建私有链
+          href: network/private-chain/private-chain.md
+        - name: 搭建私有链（简易方法）
+          href: network/private-chain/private-chain2.md
     - name: 快速同步区块
       href: network/syncblocks.md
     - name: 网络协议
