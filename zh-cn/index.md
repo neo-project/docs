@@ -10,7 +10,7 @@ NEO 全部的技术文档都在这里，还有众多开发示例可供参考
 
 | NEO 节点                                                     | NEO 网络                                                     | NEO 开发工具                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------- |
-| [节点介绍](node/introduction.md)<br />[NEO-GUI](node/gui/install.md)<br />[NEO-CLI](node/cli/cli.md)<br />[API 参考](node/cli/apigen.md) | [测试网](network/testnet.md)<br />[搭建私有链](network/private-chain.md)<br />[快速同步区块](network/syncblocks.md)<br />[网络协议](network/network-protocol.md) | [NEO SDK](utility/sdk/introduction.md) |
+| [节点介绍](node/introduction.md)<br />[NEO-GUI](node/gui/install.md)<br />[NEO-CLI](node/cli/cli.md)<br />[API 参考](node/cli/apigen.md) | [测试网](network/testnet.md)<br />[搭建私有链](network/private-chain/private-chain.md)<br />[快速同步区块](network/syncblocks.md)<br />[网络协议](network/network-protocol.md) | [NEO SDK](utility/sdk/introduction.md) |
 
 | 智能合约                                                     | 交易所对接文档                                               |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
