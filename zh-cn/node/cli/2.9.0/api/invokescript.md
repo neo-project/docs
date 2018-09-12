@@ -18,7 +18,7 @@ script：一个由虚拟机运行的脚本，与 InvocationTransaction 中携带
 {
   "jsonrpc": "2.0",
   "method": "invokescript",
-  "params": ["00046e616d656711c4d1f4fba619f2628870d36e3a9773e874705b"],
+  "params": ["00046e616d656724058e5e1b6008847cd662728549088a9ee82191"],
   "id": 3
 }
 ```
@@ -30,16 +30,16 @@ script：一个由虚拟机运行的脚本，与 InvocationTransaction 中携带
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "00046e616d656711c4d1f4fba619f2628870d36e3a9773e874705b",
+        "script": "00046e616d656724058e5e1b6008847cd662728549088a9ee82191",
         "state": "HALT, BREAK",
-        "gas_consumed": "0.125",
+        "gas_consumed": "0.161",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "5265642050756c736520546f6b656e20332e312e34"
+                "value": "4e45503520474153"
             }
         ],
-        "tx": "d1011b00046e616d656711c4d1f4fba619f2628870d36e3a9773e874705b000000000000000000000000"
+        "tx": "d1011b00046e616d656724058e5e1b6008847cd662728549088a9ee82191000000000000000000000000"
     }
 }
 ```
