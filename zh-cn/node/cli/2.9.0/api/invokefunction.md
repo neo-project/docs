@@ -23,12 +23,12 @@ params：传递给智能合约操作的参数。
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "af7c7328eee5a275a3bcaee2bf0cf662b5e739be",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "bfc469dd56932409677278f6b7422f3e1f34481d"
+        "value": "91b83e96f2a7c4fdf0c1688441ec61986c7cae26"
       }
     ]
   ],
@@ -43,17 +43,18 @@ params：传递给智能合约操作的参数。
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "141d48341f3e2f42b7f678726709249356dd69c4bf51c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "script": "1426ae7c6c9861ec418468c1f0fdc4a7f2963eb89151c10962616c616e63654f6667be39e7b562f60cbfe2aebca375a2e5ee28737caf",
         "state": "HALT, BREAK",
-        "gas_consumed": "0.338",
+        "gas_consumed": "0.311",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "00ab510d"
+                "value": "262bec084432"
             }
-        ]
+        ],
+        "tx": "d101361426ae7c6c9861ec418468c1f0fdc4a7f2963eb89151c10962616c616e63654f6667be39e7b562f60cbfe2aebca375a2e5ee28737caf000000000000000000000000"
     }
-
+}
 ```
 
 请求正文：
@@ -63,7 +64,7 @@ params：传递给智能合约操作的参数。
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "af7c7328eee5a275a3bcaee2bf0cf662b5e739be",
     "decimals"
   ],
   "id": 3
@@ -77,15 +78,16 @@ params：传递给智能合约操作的参数。
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "00c108646563696d616c7367f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "script": "00c108646563696d616c7367be39e7b562f60cbfe2aebca375a2e5ee28737caf",
         "state": "HALT, BREAK",
-        "gas_consumed": "0.156",
+        "gas_consumed": "0.174",
         "stack": [
             {
                 "type": "Integer",
                 "value": "8"
             }
-        ]
+        ],
+        "tx": "d1012000c108646563696d616c7367be39e7b562f60cbfe2aebca375a2e5ee28737caf000000000000000000000000"
     }
 }
 ```
