@@ -1,10 +1,6 @@
 # getapplicationlog Method
 
-Returns the contract log based on the specified txid. 
-
-> [!Note]
->
-> You need to run the command `dotnet neo-cli.dll --log` to enable logging before invoking this method. The complete contract logs are stored under the ApplicationLogs directory.
+Returns the contract log based on the specified txid. The complete contract logs are stored under the ApplicationLogs directory.
 
 ## Parameter Description
 
