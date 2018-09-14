@@ -4,6 +4,8 @@
 
 `dotnet neo-cli.dll /rpc`
 
+## 修改配置文件
+
 若要通过 HTTPS 的方式访问 RPC 服务器，需要在启动节点前修改配置文件 `config.json`，并设置域名、证书和密码：
 
 ```json
@@ -21,9 +23,25 @@
       "SslCert": "YourSslCertFile.xxx",
       "SslCertPassword": "YourPassword"
     }
-  }
-}
+  ...
 ```
+
+如果要调用与钱包相关的 API，也需要先修改配置文件 `config.json`，将 unlockwallet 改为 true 的状态，并填写对象钱包的文件名和密码，如下所示：
+
+```json
+...
+"UnlockWallet": {
+      "Path": "YourWallet.json",
+      "Password": "YourPassword",
+      "StartConsensus": false,
+      "IsActive": true
+    }
+...
+```
+
+完成配置后打开 NEO-CLI，客户端会在同步到最新区块后自动打开已配置的钱包并进行钱包索引同步。
+
+## 监听端口
 
 JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../../introduction.md)。
 
@@ -57,6 +75,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
 | [getversion](api/getversion.md)          |                                          | 获取查询节点的版本信息                  |          |
 | [getvalidators](api/getvalidators.md) | | 查看当前共识节点的信息 | |
+| [getwalletheight](api/getwalletheight.md) | | 获取当前钱包索引高度 | |
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | 使用给定的参数以散列值调用智能合约            |          |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |

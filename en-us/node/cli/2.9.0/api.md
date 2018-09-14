@@ -4,6 +4,8 @@ Each node in the Neo-CLI provides an API interface for obtaining blockchain data
 
 `dotnet neo-cli.dll /rpc`
 
+## Configuring the config.json file
+
 To access the RPC server via HTTPS, you need to modify the configuration file config.json before starting the node and set the domain name, certificate, and password:
 
 ```json
@@ -24,6 +26,26 @@ To access the RPC server via HTTPS, you need to modify the configuration file co
   }
 }                                      
 ```
+
+To invoke some API methods that require you to open a wallet, you also need to make the following changes in `config.json` before starting the node:
+
+- Change the UnlockWallet status `IsActive` to `true`.
+- Specify the file name and password of the desired wallet.
+
+```json
+...
+"UnlockWallet": {
+      "Path": "YourWallet.json",
+      "Password": "YourPassword",
+      "StartConsensus": false,
+      "IsActive": true
+    }
+...
+```
+
+Thereafter, when you open NEO-CLI, the client will automatically open the specified wallet and download the wallet index after it has been synchronized to the latest block height. 
+
+## Listening ports 
 
 After the JSON-RPC server starts, it will monitor the following ports, corresponding to the Main and Test nets:
 
@@ -59,11 +81,13 @@ For P2P and WebSocket information see [Node/Introduction](../../introduction.md)
 | [getpeers](api/getpeers.md)                     |                                             | Gets a list of nodes that are currently connected/disconnected by this node |                              |
 | [getversion](api/getversion.md)                 |                                             | Gets version information of this node                        |                              |
 | [getvalidators](api/getvalidators.md)           |                                             | Gets NEO consensus nodes information                         |                              |
+| [getwalletheight](api/getwalletheight.md)       |                                             | Gets the current wallet index height.                        |                              |
 | [invoke](api/invoke.md)                         | \<script_hash>  \<params>                   | Invokes a smart contract at specified script hash with the given parameters |                              |
 | [invokefunction](api/invokefunction.md)         | \<script_hash>  \<operation>  \<params>     | Invokes a smart contract at specified script hash, passing in an operation and its params |                              |
 | [invokescript](api/invokescript.md)             | \<script>                                   | Runs a script through the virtual machine and returns the results |                              |
 | [listaddress](api/listaddress.md)               |                                             | Lists all the addresses in the current wallet.               | Need to open the wallet      |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                      | Broadcast a transaction over the network. See the [network protocol](../../../network/network-protocol.md) documentation. |                              |
+| [sendfrom](api/sendfrom.md)                     | \<asset_id> \<address> \<value> [fee=0]     | Transfers from the specified address to the destination address. |                              |
 | [sendtoaddress](api/sendtoaddress.md)           | \<asset_id> \<address> \<value> [fee=0]     | Transfer to specified address                                | Need to open the wallet      |
 | [sendmany](api/sendmany.md)                     | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                                          | Need to open the wallet      |
 | submitblock                                     | \<hex>                                      | Submit new blocks                                            | Needs to be a consensus node |
