@@ -15,6 +15,6 @@ Here is an exhaustive library of NEO technical docs, including development examp
 
 | Smart Contract                                               | Document for Exchange Developers                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction](sc/introduction.md)<br />[Quick Start](sc/quickstart/overview.md)<br />[Reference](sc/reference/api.md)<br />[Samples and Tutorials](sc/tutorial/HelloWorld.md)<br />[Contract Triggers](sc/trigger.md)<br />[System Fees](sc/systemfees.md) | [Version 2.8.0](exchange/v2.8.0.md)<br />[Version 2.7.6](exchange/v2.7.6.md)<br />[Version 2.7.4](exchange/v2.7.4.md)<br />[Version 2.7.3](exchange/v2.7.3.md)<br />[Version 2.7.1](exchange/v2.7.1.md)<br />[Version 2.6.0](exchange/v2.6.0.md) |
+| [Introduction](sc/introduction.md)<br />[Quick Start](sc/quickstart/overview.md)<br />[Reference](sc/reference/api.md)<br />[Samples and Tutorials](sc/tutorial/HelloWorld.md)<br />[Contract Triggers](sc/trigger.md)<br />[System Fees](sc/systemfees.md) | [Version 2.9.0](exchange/v2.9.0.md)<br />[Version 2.8.0](exchange/v2.8.0.md)<br />[Version 2.7.6](exchange/v2.7.6.md) |
 
 <link rel="stylesheet" href="../styles/index.css">

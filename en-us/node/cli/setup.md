@@ -13,10 +13,17 @@ A solid state disk with the computer running the NEO-CLI client  is recommended 
 
 2. On Linux, install the LevelDB and SQLite3 dev packages. For example, on ubuntu 17.10 run the following:
 
-```
-sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
-```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On Windows, you can skip this step as those files are already included in the installation package.
+   ```
+   sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
+   ```
+
+   On Windows, you can skip this step as those files are already included in the installation package.
+
+3. From Github, download [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) and [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) in [Plugins](https://github.com/neo-project/neo-plugins/releases) to ensure you get the complete functionality of transaction log API and private chain building.
+
+4. Create a new Plugins folder (The first letter is capitalized) under the neo-cli root directory and copy the unzipped plugins into it. 
+
+   ![](..\..\..\assets\plugins.png)&nbsp;&nbsp;&nbsp;
 
 ## Starting the NEO node
 

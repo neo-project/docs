@@ -48,6 +48,69 @@
       - name: API 参考
         href: node/cli/apigen.md
         items:
+        - name: v2.9.0
+          href: node/cli/2.9.0/api.md
+          items:
+          - name: dumpprivkey
+            href: node/cli/2.9.0/api/dumpprivkey.md
+          - name: getaccountstate
+            href: node/cli/2.9.0/api/getaccountstate.md
+          - name: getapplicationlog
+            href: node/cli/2.9.0/api/getapplicationlog.md
+          - name: getassetstate
+            href: node/cli/2.9.0/api/getassetstate.md
+          - name: getbalance
+            href: node/cli/2.9.0/api/getbalance.md
+          - name: getbestblockhash
+            href: node/cli/2.9.0/api/getbestblockhash.md
+          - name: getblock
+            href: node/cli/2.9.0/api/getblock.md
+          - name: getblock
+            href: node/cli/2.9.0/api/getblock2.md
+          - name: getblockcount
+            href: node/cli/2.9.0/api/getblockcount.md
+          - name: getblockhash
+            href: node/cli/2.9.0/api/getblockhash.md
+          - name: getblocksysfee
+            href: node/cli/2.9.0/api/getblocksysfee.md
+          - name: getconnectioncount
+            href: node/cli/2.9.0/api/getconnectioncount.md
+          - name: getcontractstate
+            href: node/cli/2.9.0/api/getcontractstate.md
+          - name: getnewaddress
+            href: node/cli/2.9.0/api/getnewaddress.md
+          - name: getrawmempool
+            href: node/cli/2.9.0/api/getrawmempool.md
+          - name: getrawtransaction
+            href: node/cli/2.9.0/api/getrawtransaction.md
+          - name: getstorage
+            href: node/cli/2.9.0/api/getstorage.md
+          - name: gettxout
+            href: node/cli/2.9.0/api/gettxout.md
+          - name: getpeers
+            href: node/cli/2.9.0/api/getpeers.md
+          - name: getvalidators
+            href: node/cli/2.9.0/api/getvalidators.md
+          - name: getversion
+            href: node/cli/2.9.0/api/getversion.md
+          - name: invoke
+            href: node/cli/2.9.0/api/invoke.md
+          - name: invokefunction
+            href: node/cli/2.9.0/api/invokefunction.md
+          - name: invokescript
+            href: node/cli/2.9.0/api/invokescript.md
+          - name: listaddress
+            href: node/cli/2.9.0/api/listaddress.md
+          - name: sendfrom
+            href: node/cli/2.9.0/api/sendfrom.md
+          - name: sendrawtransaction
+            href: node/cli/2.9.0/api/sendrawtransaction.md
+          - name: sendtoaddress
+            href: node/cli/2.9.0/api/sendtoaddress.md
+          - name: sendmany
+            href: node/cli/2.9.0/api/sendmany.md
+          - name: validateaddress
+            href: node/cli/2.9.0/api/validateaddress.md
         - name: v2.8.0
           href: node/cli/2.8.0/api.md
           items:
@@ -174,67 +237,6 @@
             href: node/cli/2.7.6/api/sendmany.md
           - name: validateaddress
             href: node/cli/2.7.6/api/validateaddress.md
-        - name: v2.7.4
-          href: node/cli/2.7.4/api.md
-          items:
-          - name: dumpprivkey
-            href: node/cli/2.7.4/api/dumpprivkey.md
-          - name: getaccountstate
-            href: node/cli/2.7.4/api/getaccountstate.md
-          - name: getapplicationlog
-            href: node/cli/2.7.4/api/getapplicationlog.md
-          - name: getassetstate
-            href: node/cli/2.7.4/api/getassetstate.md
-          - name: getbalance
-            href: node/cli/2.7.4/api/getbalance.md
-          - name: getbestblockhash
-            href: node/cli/2.7.4/api/getbestblockhash.md
-          - name: getblock
-            href: node/cli/2.7.4/api/getblock.md
-          - name: getblock
-            href: node/cli/2.7.4/api/getblock2.md
-          - name: getblockcount
-            href: node/cli/2.7.4/api/getblockcount.md
-          - name: getblockhash
-            href: node/cli/2.7.4/api/getblockhash.md
-          - name: getblocksysfee
-            href: node/cli/2.7.4/api/getblocksysfee.md
-          - name: getconnectioncount
-            href: node/cli/2.7.4/api/getconnectioncount.md
-          - name: getcontractstate
-            href: node/cli/2.7.4/api/getcontractstate.md
-          - name: getnewaddress
-            href: node/cli/2.7.4/api/getnewaddress.md
-          - name: getrawmempool
-            href: node/cli/2.7.4/api/getrawmempool.md
-          - name: getrawtransaction
-            href: node/cli/2.7.4/api/getrawtransaction.md
-          - name: getstorage
-            href: node/cli/2.7.4/api/getstorage.md
-          - name: gettxout
-            href: node/cli/2.7.4/api/gettxout.md
-          - name: getpeers
-            href: node/cli/2.7.4/api/getpeers.md
-          - name: getversion
-            href: node/cli/2.7.4/api/getversion.md
-          - name: invoke
-            href: node/cli/2.7.4/api/invoke.md
-          - name: invokefunction
-            href: node/cli/2.7.4/api/invokefunction.md
-          - name: invokescript
-            href: node/cli/2.7.4/api/invokescript.md
-          - name: listaddress
-            href: node/cli/2.7.4/api/listaddress.md
-          - name: sendfrom
-            href: node/cli/2.7.4/api/sendfrom.md
-          - name: sendrawtransaction
-            href: node/cli/2.7.4/api/sendrawtransaction.md
-          - name: sendtoaddress
-            href: node/cli/2.7.4/api/sendtoaddress.md
-          - name: sendmany
-            href: node/cli/2.7.4/api/sendmany.md
-          - name: validateaddress
-            href: node/cli/2.7.4/api/validateaddress.md
     - name: NEO-Python
       href: node/python.md
 - name: NEO 网络
@@ -369,16 +371,9 @@
 - name: 交易所对接指南
   href: exchange/general.md
   items:
+    - name: v2.9.0
+      href: exchange/v2.9.0.md
     - name: v2.8.0
       href: exchange/v2.8.0.md
     - name: v2.7.6
       href: exchange/v2.7.6.md
-    - name: v2.7.4
-      href: exchange/v2.7.4.md
-    - name: v2.7.3
-      href: exchange/v2.7.3.md
-    - name: v2.7.1
-      href: exchange/v2.7.1.md
-    - name: v2.6.0
-      href: exchange/v2.6.0.md
-  
