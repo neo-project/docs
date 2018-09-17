@@ -23,7 +23,7 @@ A solid state disk with the computer running the NEO-CLI client  is recommended 
 
 4. Create a new Plugins folder (The first letter is capitalized) under the neo-cli root directory and copy the unzipped plugins into it. 
 
-   ![](..\..\..\assets\plugins.png)&nbsp;&nbsp;&nbsp;
+   ![](../../../assets/plugins.png)&nbsp;&nbsp;&nbsp;
 
 ## Starting the NEO node
 
