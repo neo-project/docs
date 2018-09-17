@@ -18,6 +18,10 @@
    ```
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。
+   
+ 3.从 Github 上下载 [Plugins](https://github.com/neo-project/neo-plugins/releases) 中的 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) 和 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) 以保证交易日志 api 和私链搭建功能的完整性。
+使用方法：在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
+
 
 ## 启动 NEO 节点
 
