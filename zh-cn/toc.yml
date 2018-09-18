@@ -245,6 +245,7 @@
     - name: 测试网
       href: network/testnet.md
     - name: 搭建私有链
+      href: network/private-chain/private-chain.md
       items:
         - name: 搭建私有链
           href: network/private-chain/private-chain.md
@@ -262,8 +263,14 @@
       items:
       - name: 欢迎使用 NEO SDK
         href: utility/sdk/introduction.md
-      - name: NEO SDK 常见用法
-        href: utility/sdk/common.md
+      - name: 常见数据类型转换
+        href: utility/sdk/format.md
+      - name: 账户
+        href: utility/sdk/account.md
+      - name: 钱包
+        href: utility/sdk/wallet.md
+      - name: 交易
+        href: utility/sdk/tx.md
 - name: 智能合约
   href: sc/introduction.md
   items:
