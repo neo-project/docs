@@ -23,7 +23,7 @@
 
 4. 在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
 
-   ![](..\..\..\assets\plugins.png)
+   ![plugins.png](../../../assets/plugins.png)
 
 
 ## 启动 NEO 节点
