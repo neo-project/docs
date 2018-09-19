@@ -16,9 +16,9 @@
 
 2.[ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip)：同步离线包的插件，发布的版本中已经自带。（交易所必备）
 
-3.[RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip)：禁用一切 RPC。（可选）
+3.[RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip)：禁用一切 RPC 服务。（可选）
 
-4.[SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip)：搭建私链的策略规则。（搭建私链时必备）
+4.[SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip)：共识的简单策略规则。（搭建私链时必备）
 
 5.[StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip)：导出 neo-cli 状态数据。（可选）
 
