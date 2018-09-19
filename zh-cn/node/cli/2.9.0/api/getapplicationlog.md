@@ -14,7 +14,7 @@ txid：交易ID
 {
   "jsonrpc": "2.0",
   "method": "getapplicationlog",
-  "params": ["0x0d03ad35eb8b0bb2e43e18896d22cd2a77fe54fc0b00794fb295bcf96257d0e3"],
+  "params": ["0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07"],
   "id": 1
 }
 ```
@@ -26,34 +26,45 @@ txid：交易ID
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0x0d03ad35eb8b0bb2e43e18896d22cd2a77fe54fc0b00794fb295bcf96257d0e3",
-        "vmstate": "HALT, BREAK",
-        "gas_consumed": "2.932",
-        "stack": [],
-        "notifications": [
+        "txid": "0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07",
+        "executions": [
             {
-                "contract": "0xac116d4b8d4ca55e6b6d4ecce2192039b51cccc5",
-                "state": {
-                    "type": "Array",
-                    "value": [
-                        {
-                            "type": "ByteArray",
-                            "value": "7472616e73666572"
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "45fc40a091bd0de5e5408e3dbf6b023919a6f7d9"
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "96da23f79685e1611b99633f7a37bf07b542d42b"
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "00345cd65804"
+                "trigger": "Application",
+                "contract": "0x0110a8f666bcc650dc0b544e71c31491b061c79e",
+                "vmstate": "HALT, BREAK",
+                "gas_consumed": "2.855",
+                "stack": [
+                    {
+                        "type": "Integer",
+                        "value": "1"
+                    }
+                ],
+                "notifications": [
+                    {
+                        "contract": "0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "ByteArray",
+                                    "value": "7472616e73666572"
+                                },
+                                {
+                                    "type": "ByteArray",
+                                    "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
+                                },
+                                {
+                                    "type": "ByteArray",
+                                    "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
+                                },
+                                {
+                                    "type": "ByteArray",
+                                    "value": "00e1f50500000000"
+                                }
+                            ]
                         }
-                    ]
-                }
+                    }
+                ]
             }
         ]
     }
