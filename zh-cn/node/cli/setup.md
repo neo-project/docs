@@ -41,7 +41,7 @@ NEO 节点的初始安装部署包含以下步骤：
 
 4. 在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
 
-   ![plugins.png](../../assets/plugins.png)
+   ![plugins.png](../../../assets/plugins.png)
 
 5. 在启动 neo-cli 前需先配置 config.json 文件，以允许调用钱包相关 api 以及开启自动绑定并打开钱包的功能。下面是一个标准设置的例子。
 
