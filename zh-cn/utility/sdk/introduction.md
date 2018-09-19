@@ -4,7 +4,7 @@
 
 此文档是完全[开源](https://github.com/neo-project/docs)的。 可通过任何方式参与此文档，如创建问题、编写文档等。
 
-该文档适用于 NEO 2.7.1 版本。与 Visual Studio 2017 结合使用时，可以更方便地使用 NEO SDK 来开发软件。 
+该文档适用于 NEO 2.9.0 版本。与 Visual Studio 2017 结合使用时，可以更方便地使用 NEO SDK 来开发软件。 
 
 ## 下载地址：
 
