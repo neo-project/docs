@@ -8,14 +8,18 @@
 
 ## 了解 neo-cli v2.9 插件新特性
 
-从 neo-cli v2.9 开始，一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 neo-cli 时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 applicationlogs 等一系列繁琐的指令，为交易所部署提供了很大的方便。点击此处下载 [Plugins](https://github.com/neo-project/neo-plugins/releases)
+从 neo-cli v2.9 开始，一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 neo-cli 时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 applicationlogs 等一系列繁琐的指令，为交易所部署提供了很大的方便。点击此处下载 [Plugins](https://github.com/neo-project/neo-plugins/releases)。
 
 插件目前有 5 个，分别是：
 
 1.[ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip)：在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为 LevelDB 的存储形式。（交易所必备）
+
 2.[ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip)：同步离线包的插件，发布的版本中已经自带。（交易所必备）
+
 3.[RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip)：禁用一切 RPC。（可选）
+
 4.[SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip)：搭建私链的策略规则。（搭建私链时必备）
+
 5.[StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip)：导出 neo-cli 状态数据。（可选）
 
 ## 安装 NEO-CLI
