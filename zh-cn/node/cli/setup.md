@@ -6,23 +6,7 @@
 
 建议运行 NEO-CLI 的计算机配置固态硬盘，以免同步区块数据时速度太慢。
 
-## 了解 neo-cli v2.9 插件新特性
-
-从 neo-cli v2.9 开始，一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 neo-cli 时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 applicationlogs 等一系列繁琐的指令，为交易所部署提供了很大的方便。点击此处下载 [Plugins](https://github.com/neo-project/neo-plugins/releases)。
-
-插件目前有 5 个，分别是：
-
-1.[ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip)：在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为 LevelDB 的存储形式。（交易所必备）
-
-2.[ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip)：同步离线包的插件，发布的版本中已经自带。（交易所必备）
-
-3.[RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip)：禁用一切 RPC 服务。（可选）
-
-4.[SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip)：共识的简单策略规则。（搭建私链时必备）
-
-5.[StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip)：导出 neo-cli 状态数据。（可选）
-
-## 安装 NEO-CLI
+## 安装客户端
 
 1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
 
@@ -34,11 +18,21 @@
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
 
-3. 从 GitHub 上下载 [Plugins](https://github.com/neo-project/neo-plugins/releases) 中的 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) 和 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) 以保证交易日志 API 和私链搭建功能的完整性。
+## （可选）安装插件
 
-4. 在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
+从 NEO-CLI 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 NEO-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 applicationlogs 等一系列繁琐的指令，为交易所部署提供了很大的方便。点击此处下载 [Plugins](https://github.com/neo-project/neo-plugins/releases)。
 
-   ![plugins.png](../../../assets/plugins.png)
+| 插件                                                         | 功能                                                         |                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- |
+| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选     |
+| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) | 同步离线包，已包含在发布的版本中。                           | 必选           |
+| [RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip) | 禁用一切 RPC 服务。                                          | 可选           |
+| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链时必选 |
+| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选           |
+
+要安装插件，在 neo-cli 根目录下新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
+
+![plugins.png](../../../assets/plugins.png)
 
 
 ## 启动 NEO 节点
