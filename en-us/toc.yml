@@ -55,7 +55,7 @@
             href: node/cli/2.9.0/api/dumpprivkey.md
           - name: getaccountstate
             href: node/cli/2.9.0/api/getaccountstate.md
-          - name: getapplicationlog
+          - name: getapplicationlog (plug-in)
             href: node/cli/2.9.0/api/getapplicationlog.md
           - name: getassetstate
             href: node/cli/2.9.0/api/getassetstate.md
@@ -71,6 +71,8 @@
             href: node/cli/2.9.0/api/getblockcount.md
           - name: getblockhash
             href: node/cli/2.9.0/api/getblockhash.md
+          - name: getblockheader
+            href: node/cli/2.9.0/api/getblockheader.md
           - name: getblocksysfee
             href: node/cli/2.9.0/api/getblocksysfee.md
           - name: getconnectioncount
@@ -93,6 +95,8 @@
             href: node/cli/2.9.0/api/getvalidators.md
           - name: getversion
             href: node/cli/2.9.0/api/getversion.md
+          - name: getwalletheight
+            href: node/cli/2.9.0/api/getwalletheight.md
           - name: invoke
             href: node/cli/2.9.0/api/invoke.md
           - name: invokefunction
