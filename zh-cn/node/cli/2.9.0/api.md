@@ -56,7 +56,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 导出指定地址的私钥                    | 需要打开钱包   |
 | [getaccountstate](api/getaccountstate.md) | \<address>                               | 根据账户地址，查询账户资产信息              |          |
-| [getapplicationlog](api/getapplicationlog.md) | \<txid> [verbose=0]                      | 根据指定的交易 ID 获取合约日志            | 需安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) 插件 |
 | [getassetstate](api/getassetstate.md) | \<asset_id>                              | 根据指定的资产编号，查询资产信息             |          |
 | [getbalance](api/getbalance.md)          | \<asset_id>                              | 根据指定的资产编号，返回钱包中对应资产的余额信息     | 需要打开钱包   |
 | [getbestblockhash](api/getbestblockhash.md) |                                          | 获取主链中高度最大的区块的散列              |          |

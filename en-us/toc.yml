@@ -55,8 +55,6 @@
             href: node/cli/2.9.0/api/dumpprivkey.md
           - name: getaccountstate
             href: node/cli/2.9.0/api/getaccountstate.md
-          - name: getapplicationlog (plug-in)
-            href: node/cli/2.9.0/api/getapplicationlog.md
           - name: getassetstate
             href: node/cli/2.9.0/api/getassetstate.md
           - name: getbalance
@@ -241,6 +239,8 @@
             href: node/cli/2.7.6/api/sendmany.md
           - name: validateaddress
             href: node/cli/2.7.6/api/validateaddress.md
+    - name: NEO Plug-ins
+      href: node/plugin.md
     - name: NEO-Python
       href: node/python.md
 - name: NEO Network
