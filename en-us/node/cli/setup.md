@@ -19,22 +19,6 @@ A solid state disk with the computer running the NEO-CLI client  is recommended 
 
    On Windows, you can skip this step as those files are already included in the installation package.
 
-## (Optional) Installing plug-ins
-
-Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. The user can select the desired extension functionality instead of invoking it with additional parameters every time starting neo-cli, thus avoiding many human errors and some tedious instructions such as opening a wallet and calling applicationlogs. Click [here](https://github.com/neo-project/neo-plugins/releases) to download Plugins.
-
-| Plug-in                                                      | Description                                                  |                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ |
-| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) | Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB. | Mandatory for exchanges              |
-| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) | Synchronizes the client using offline packages. This plug-in is included in the release package. | Mandatory                            |
-| [RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip) | Disables all RPC services.                                   | Optional                             |
-| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) | Enables policies for consensus.                              | Mandatory for building private chain |
-| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip) | Exports NEO-CLI status data.                                 | Optional                             |
-
-To install the plug-in, create a new **Plugins** folder (The first letter is capitalized) under the neo-cli root directory and copy the unzipped plugins into it. 
-
-![](../../../assets/plugins.png)&nbsp;&nbsp;&nbsp;
-
 ## Starting the NEO node
 
 Open the command line, navigate to the NEO-CLI directory, and enter the following command to start the NEO node:
