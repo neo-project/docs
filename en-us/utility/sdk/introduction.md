@@ -2,7 +2,7 @@
 
 You can use NEO SDK to develop various applications based on NEO, for example, wallet client, games, etc. With use of NEO SDK, your project can work in the existing environment without needing to move to NeoVM. For information about developing in NeoVM, refer to [Smart Contract](../../sc/introduction.md). 
 
-This document is applicable to NEO 2.7.1. It is easier to use NEO SDK to develop applications in Visual Studio 2017.
+The NEO SDK version used in later topics is 2.9.0. It is easier to use NEO SDK to develop applications in Visual Studio 2017.
 
 ## Download
 
