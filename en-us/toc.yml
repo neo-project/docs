@@ -264,6 +264,12 @@
         href: utility/sdk/introduction.md
       - name: Common Uses
         href: utility/sdk/common.md
+      - name: Account
+        href: utility/sdk/account.md
+      - name: Wallet
+        href: utility/sdk/wallet.md
+      - name: Transaction Construction
+        href: utility/sdk/tx.md
 - name: Smart Contract
   href: sc/introduction.md
   items:
