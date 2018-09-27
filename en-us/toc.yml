@@ -250,6 +250,11 @@
       href: network/testnet.md
     - name: Private Chain
       href: network/private-chain.md
+      items:
+        - name: Build a private chain
+          href: network/private-chain/private-chain.md
+        - name: Build a private chain (a simple way)
+          href: network/private-chain/private-chain2.md
     - name: Synchronizing the blockchain faster
       href: network/syncblocks.md
     - name: Network Protocol

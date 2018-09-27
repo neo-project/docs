@@ -1,30 +1,30 @@
-# 搭建私有链的简易方法
+# A simple way to build a private chain
 
-上篇文章介绍了标准的搭建私有链的方法，使用 4 台电脑或虚拟机。这篇文章我们将介绍一种更为简单的方法，在一台 Windows 系统的电脑上搭建私有链。
+In previous document we described the standard way to build a private chain using four computers or virtual machines. In this document we will introduce an easier way to build a private chain on a windows system computer.
 
-## 安装节点
+## Installing NEO node
 
-首先安装 NEO-CLI，并将节点文件复制为 4 份，文件夹名分别命名为 node1、node2、node3、node4。
+Install NEO-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, respectively.
 
-安装过程请参考 [NEO 节点的安装部署](../../node/cli/setup.md)。 
+For more information refer to [Installation of NEO-CLI](../../node/cli/setup.md). 
 
-## 安装插件
+## Installing plug-in
 
-要使节点达成共识，需要安装 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) 插件启用共识策略，详细信息请参考 [安装插件](../../node/plugin.md#安装插件)。
+Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) the plug-in to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/plugin.md#installing-plug-ins).
 
-## 创建钱包文件
+## Creating wallet files
 
-使用 NEO-CLI 或 NEO-GUI 创建 4 个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于 4 个节点的文件夹中。具体方法可参照 NEO-CLI 或 NEO-GUI 的使用说明。
+From NEO-CLI or NEO-GUI create four wallets, 1.json, 2.json, 3.json, and 4.json, and place each in the folder of four nodes. 
 
-## 修改 config.json
+## Modifying config.json
 
-在每个节点下的 config.json 文件中进行如下修改：
+Make the following configurations in config.json of each node:
 
-- 设置每个端口不重复且不被其它程序占用。
-- 设置 UnlockWallet 下的参数 Path 为钱包路径，Password 为钱包密码，StartConsensus 和 IsActive 为 true。
+- Specify the ports so that each port is not duplicated and is not occupied by other applications.
+- In "UnlockWallet" specify the wallet path, wallet password, and set  StartConsensus and IsActive as true.
 
 
-可参照下面的配置：
+You can refer to the following example：
 
 **node1/config.json**
 
@@ -138,18 +138,18 @@
 }
 ```
 
-## 修改 protocal.json
+## Modifying protocal.json
 
-在每个节点下的 protocal.json 文件中，对以下参数进行修改，并保证所有节点的配置一致。
+Configure the following parameters in each node protocal.json. Ensure the configuration in each file is consistent.
 
-- Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
+- Magic : The private chain ID, which can be any integer in the range of [0 - 4294967295].
 
-- StandbyValidators ：备用共识节点的公钥，这里输入 4 个钱包的公钥。
+- StandbyValidators: The public key of the alternate consensus node, where the public key of four wallets is entered.
 
-- SeedList ：种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 config.json 中配置的 4 个 P2P Port。
+- SeedList: The IP address and port number of the seed node. Specify the IP address as `localhost` and the ports as four P2P ports configured before in config.json.
 
 
-可参照下面的配置：
+You can refer to the following example：
 
 ```json
 {
@@ -179,11 +179,11 @@
 }
 ```
 
-## 创建快捷启动
+## Creating a shortcut to start
 
-为了方便启动私链，创建一个记事本文件，输入 `dotnet neo-cli.dll /rpc` 然后重命名为 1Run.cmd。将其复制到 4 个节点目录下。
+Create a notepad file for ease of starting the private chain. In the file, enter `dotnet neo-cli.dll /rpc`  , rename it as 1Run.cmd, and then place it under the folder of each node.
 
-到此，私有链已经搭建完成了，所有修改过的文件结构如下
+At this point the private chain has been set up. All the files  we modified are as follows:
 
 ```
 ├─node1
@@ -211,20 +211,20 @@
         protocol.json
 ```
 
-## 启动私有链
+## Starting the private chain
 
-进入每个节点目录，双击 `1Run.cmd`，如图所示：
+Enter each node directory and double-click `1Run.cmd`.
 
 ![](../../../assets/privatechain_demo.png)
 
-## 停止私有链
+## Stopping the private chain
 
-在任务栏中右击 `命令提示符`，点击 `关闭所有窗口`。
+Right-click the command prompt in the taskbar and click `Close all Windows`.
 
-## 提取私有链中的 NEO/GAS
+## Withdrawing NEO/GAS
 
-参照 [提取 NEO、NeoGas](../private-chain.md#5提取-neoneogas)。
+Refer to [Extracting NEO and GAS](../private-chain.md#5-extracting-neo-and-gas).
 
-最后：
+Tips：
 
-[https://github.com/chenzhitong/NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 这个项目中是已经配置好的私有链，已提取了 NEO 和 GAS，节点版本为 2.8.0，可以下载后直接使用。
+[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for download for your convenience. The NEO and GAS have been withdrawn. The NEO node version is 2.8.0.
