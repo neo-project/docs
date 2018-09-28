@@ -227,4 +227,4 @@ Refer to [Extracting NEO and GAS](../private-chain.md#5-extracting-neo-and-gas).
 
 Tips：
 
-[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for download for your convenience. The NEO and GAS have been withdrawn. The NEO node version is 2.8.0.
+[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The NEO node version is 2.8.0.
