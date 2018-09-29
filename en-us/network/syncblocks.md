@@ -2,8 +2,8 @@
 
 The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package. NEO official website provides two types of offline package:
 
-- Full offline package: contains all blockchain data since 0 block height in the format of chain.acc. It is applicable to the client running for the first time as well as the client which hasn't been synchronized up to the data range provided by increment offline packages.
-- Increment offline package: contains the data in a block height range to speed up synchronization of the client to the end height of the incremental package. It is applicable to the client which has been synchronized up to the block height within the increment offline packages coverage. The incremental package format is chain.xxx.acc, where xxx is the incremental package starting height.
+- Full offline package: contains all blockchain data since 0 block height in the format of chain.acc  or chain.0.acc. It is applicable to the client running for the first time as well as the client which hasn't been synchronized up to the data range provided by increment offline packages.
+- Increment offline package: contains the data in a block height range to speed up synchronization of the client to the end height of the incremental package. It is applicable to the client which has been synchronized up to the block height within the increment offline packages coverage. The incremental package format is chain.xxx.acc, where xxx is the incremental package starting height. For example, chain.2600000. acc is the package exported from the height of 2.6 million blocks.
 
 Suppose you are using windows, you need to do the following:
 
@@ -13,7 +13,9 @@ Suppose you are using windows, you need to do the following:
 
    > [!Note]
    >
-   > Do not change the default offline package file name, otherwise it will not work for synchronization.
+   > - You must neither change the default offline package file name  (chain.acc.zip or chain.xxx.acc.zip) nor unzip the package , otherwise it will not work for synchronization.
+   >
+   > - For NEO-CLI clients earlier than 2.9.0, the client cannot be reached as it is synchronizing with the offline package, thus the connected nodes is 0 and you cannot invoke APIs from the client until it has completed synchronization.
 
 3. Run the client and check the blocks downloading status.
 
