@@ -34,7 +34,7 @@ After compiling your smart contract and getting the related script hash, you can
     {
         public static object Main()
         {
-            var magicstr = "2018 02 21";
+            var magicstr = "Hello, World!";
             return magicstr;
         }
     }
@@ -68,7 +68,7 @@ After compiling your smart contract and getting the related script hash, you can
 
 "state": The value "HALT, BREAK" indicates the test is successful. 
 
-Stack is the value left on the Stack, which is the bytearray corresponding to the string helloworld. 
+Stack is the value left on the Stack, which is the bytearray corresponding to the string "Hello, World!".
 
 ###  Example 2 - Testing a contract with parameters
 
