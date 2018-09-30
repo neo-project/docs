@@ -13,7 +13,7 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
    ```c#
    mkdir NeoContractDemo
    cd ./NeoContractDemo/
-   dotnet new library
+   dotnet new classlib
    rm ./Class1.cs
    vim NeoContractDemo.cs
    ```
