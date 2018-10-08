@@ -13,19 +13,17 @@
    ```c#
    mkdir NeoContractDemo
    cd ./NeoContractDemo/
-   dotnet new library
+   dotnet new classlib
    rm ./Class1.cs
    vim NeoContractDemo.cs
    ```
-
-   ![](../../../assets/create_neo_contract.png)
 
 2. 键入下面代码后按 `ESC`+`wq!` 保存退出。
 
    ```c#
    using Neo.SmartContract.Framework;
    using Neo.SmartContract.Framework.Services.Neo;
-
+   
    public class NeoContractDemo: SmartContract
    {
        public static bool Main()

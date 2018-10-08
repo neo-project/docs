@@ -34,7 +34,7 @@
     {
         public static object Main()
         {
-            var magicstr = "2018 02 21";
+            var magicstr = "Hello, World!";
             return magicstr;
         }
     }
@@ -70,7 +70,7 @@
 
 "state": "HALT, BREAK" 表示测试成功。
 
-Stack 是留在栈上的值，此值为 string helloworld 对应的 bytearray。
+Stack 是留在栈上的值，此值为 string “Hello, World!” 对应的 bytearray。
 
 ###  示例2 - 测试有参数合约
 
