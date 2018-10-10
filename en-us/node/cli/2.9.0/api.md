@@ -81,7 +81,7 @@ For P2P and WebSocket information see [Node/Introduction](../../introduction.md)
 | [getpeers](api/getpeers.md)                     |                                             | Gets a list of nodes that are currently connected/disconnected by this node |                              |
 | [getversion](api/getversion.md)                 |                                             | Gets version information of this node                        |                              |
 | [getvalidators](api/getvalidators.md)           |                                             | Gets NEO consensus nodes information                         |                              |
-| [getwalletheight](api/getwalletheight.md)       |                                             | Gets the current wallet index height.                        |                              |
+| [getwalletheight](api/getwalletheight.md)       |                                             | Gets the current wallet index height.                        |  Need to open the wallet |
 | [invoke](api/invoke.md)                         | \<script_hash>  \<params>                   | Invokes a smart contract at specified script hash with the given parameters |                              |
 | [invokefunction](api/invokefunction.md)         | \<script_hash>  \<operation>  \<params>     | Invokes a smart contract at specified script hash, passing in an operation and its params |                              |
 | [invokescript](api/invokescript.md)             | \<script>                                   | Runs a script through the virtual machine and returns the results |                              |
