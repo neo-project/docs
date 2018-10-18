@@ -19,7 +19,7 @@ https://medium.com/coinmonks/building-a-neo-python-api-server-on-windows-wsl-ubu
 
 ### Smart contract
 
-How to write NEO Smart Contracts - A complete step-by-step guide(***C#***) <br>
+How to write NEO Smart Contracts - A complete step-by-step guide (***C#***) <br>
 https://github.com/abalu/NeoSmartAddress/wiki
 
 Practical tips in developing NEO Smart Contracts (***C#***) <br>
@@ -71,10 +71,10 @@ https://youtu.be/A-antyGwYnQ
 Neo nodes by *DaveOnBlocks* <br>
 https://www.youtube.com/watch?v=001-ccJYqoM&list=PLNv3b6c4QaignIZZi2pDmoBO1YtgwZfCe
 
-Creating a NEP-5 token by *DaveOnBlocks*(***C#***) <br>
+Creating a NEP-5 token by *DaveOnBlocks* (***C#***) <br>
 https://www.youtube.com/watch?v=ib6XKzg0LaI&list=PLNv3b6c4QaihURdVsaXw91gaxPwyK5duC
 
-Neo ICO tutorial video series by *DaveOnBlocks*(***C#***) <br>
+Neo ICO tutorial video series by *DaveOnBlocks* (***C#***) <br>
 https://www.youtube.com/watch?v=tCU14stqcFM&list=PLNv3b6c4QaighpWLJ0UtVK348h8IlIuLb
 
 NEO Dev tutorials *by Nick Fujita* (***Python***) <br>
