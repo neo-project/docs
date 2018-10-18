@@ -4,7 +4,7 @@ body{line-height: 2.5;}
 .article.grid-right{margin-left: 0;margin-right: 0;}
 
 .content .table-bordered{
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     border: 3px solid #F5f5f5;
     font-size: 15px;
     letter-spacing: 1px;
