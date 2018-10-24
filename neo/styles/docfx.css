@@ -10,6 +10,8 @@ button,
 a {
   color: #31AA77;
   cursor: pointer;
+  word-break: break-all;
+  display:inline-block;
 }
 button:hover,
 button:focus,
