@@ -33,12 +33,12 @@ $(function () {
     $('table').addClass('table table-bordered table-striped table-condensed');
   }
 
-  // Styling for alerts.
-  function renderAlerts() {
-    $('.NOTE, .TIP').addClass('alert alert-info');
-    $('.WARNING').addClass('alert alert-warning');
-    $('.IMPORTANT, .CAUTION').addClass('alert alert-danger');
-  }
+    // Styling for alerts.
+    function renderAlerts() {
+        $('.NOTE, .TIP').addClass('alert alert-info');
+        $('.WARNING').addClass('alert alert-warning');
+        $('.IMPORTANT, .CAUTION').addClass('alert alert-danger');
+    }
 
   // Anchorjs 3.2.2 fails when title content contains '<' and '>'.
   // TODO: enable this when anchorjs fixes this issue

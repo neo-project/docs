@@ -252,3 +252,5 @@ paket-files/
 *.sln.iml
 /_site/
 /*.json
+neo/styles/docfx.js
+*.js
