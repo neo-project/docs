@@ -242,7 +242,34 @@
     - name: NEO 客户端插件
       href: node/plugin.md
     - name: NEO-Python
-      href: node/python.md
+      href: node/python/overview.md
+      items:
+        - name: 概述
+          href: node/python/overview.md
+        - name: 安装 （Ubuntu/OSX）
+          href: node/python/install.md
+        - name: 安装 （Windows）
+          href: node/python/installwin.md
+        - name: NEO-Python SeedList
+          href: node/python/seedlist.md
+        - name: 基本用法
+          href: node/python/basic.md
+        - name: Prompt
+          href: node/python/prompt.md
+        - name: 设置和日志
+          href: node/python/logging.md
+        - name: neo.Core.TX.Transaction
+          href: node/python/transaction.md
+        - name: 与智能合约交互
+          href: node/python/smartcont.md
+        - name: Application vs. Verification
+          href: node/python/verify.md
+        - name: 数据类型
+          href: node/python/datatype.md
+        - name: 测试
+          href: node/python/tests.md
+        - name: 测试装置
+          href: node/python/fixtures.md
 - name: NEO 网络
   href: network/testnet.md
   items:
