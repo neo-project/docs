@@ -82,7 +82,7 @@ conda install pycrypto==2.6.1
 
 ## 安装 neo-python
 
-导航到 neo-python 目录并安装其它依耐项，使用以下命令：
+导航到 neo-python 目录并安装其它依赖项，使用以下命令：
 
 ```
 pip install -r requirements.txt
