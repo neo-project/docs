@@ -1,6 +1,5 @@
 # NEO Documentation
 
-<span id="moreLan" class="pull-right">[More Language](../language.md)</span>
 Here is an exhaustive library of NEO technical docs, including development examples for your reference.
 
 

@@ -21,82 +21,82 @@
 
 1. 拉取最新 [neo-python-privnet-unittest](https://hub.docker.com/r/cityofzion/neo-python-privnet-unittest/tags/) image：
 
-```
-docker pull cityofzion/neo-python-privnet-unittest:v0.0.xx
-```
+   ```
+   docker pull cityofzion/neo-python-privnet-unittest:v0.0.xx
+   ```
 
-2. 运行 image： 
+2. 运行 image：
 
-```
-docker run --rm -d --name neo-privnet-unittest -p 20333-20336:20333-20336/tcp -p 30333-30336:30333-30336/tcp dautt/neo-privnet-unittest:v0.0.xx``
-```
+   ```
+   docker run --rm -d --name neo-privnet-unittest -p 20333-20336:20333-20336/tcp -p 30333-30336:30333-30336/tcp dautt/neo-privnet-unittest:v0.0.xx``
+   ```
 
 3. 清除当前 `unittest` 链：
 
-```
-rm -rf ~/.neopython/Chains/unittest
-rm -rf ~/.neopython/Chains/unittest_notif
-```
+   ```
+   rm -rf ~/.neopython/Chains/unittest
+   rm -rf ~/.neopython/Chains/unittest_notif
+   ```
 
 4. 激活你的虚拟环境：
 
-```
-source venv/bin/activate
-```
+   ```
+   source venv/bin/activate
+   ```
 
 5. 启动 NEO 节点：
 
-```
-python prompt.py -u
-```
+   ```
+   python prompt.py -u
+   ```
 
-6. 使用以下钱包生成交易
+6. 使用以下钱包生成交易：
 
-```
-neo-test-coz.wallet     (pwd = coz)
-neo-test1-bc.wallet     (pwd = 1234567890)
-neo-test2-bc.wallet     (pwd = 1234567890)
-neo-test1-w.wallet      (pwd = 1234567890)
-neo-test2-w.wallet      (pwd = 1234567890)
-neo-test3-w.wallet      (pwd = 1234567890)
-```
+   ```
+   neo-test-coz.wallet     (pwd = coz)
+   neo-test1-bc.wallet     (pwd = 1234567890)
+   neo-test2-bc.wallet     (pwd = 1234567890)
+   neo-test1-w.wallet      (pwd = 1234567890)
+   neo-test2-w.wallet      (pwd = 1234567890)
+   neo-test3-w.wallet      (pwd = 1234567890)
+   ```
 
-（要添加直接依赖 `BlockchainFixtureTestCase` 的新测试，请使用 `-bc.wallet` 类型的钱包。要添加直接依赖 `WalletFixtureTestCase` 的新测试，请使用 `-w.wallet` 类型的钱包）
+   （要添加直接依赖 `BlockchainFixtureTestCase` 的新测试，请使用 `-bc.wallet` 类型的钱包。要添加直接依赖 `WalletFixtureTestCase` 的新测试，请使用 `-w.wallet` 类型的钱包）
 
 7. 如果你需要创建一个新智能合约，考虑使用这里现有的合约：
 
-```
-fixtures/UnitTest-SM.zip
-```
+   ```
+   fixtures/UnitTest-SM.zip
+   ```
 
-（如果以上 zip 包中没有新合约的源代码，请添加。）
+   （如果以上 zip 包中没有新合约的源代码，请添加。）
 
 8. 如果你已经在 `neo-python-privnet-unittest` 映像上部署了一个新合约，请在指定合约名称时使用 test 为前缀，这样可以使用以下命令查找出所有部署在映像上的合约：
 
-```
-contract search test
-```
+   ```
+   contract search test
+   ```
 
 9. 当你对新的单元测试满意后，保存测试，然后重启 docker 映像并重新部署你的测试。然后通过增加版本号 (xx+1) 创建一个新的映像：
 
-```
-docker commit  neo-privnet-unittest dautt/neo-privnet-unittest:v0.0.xx+1
-```
+   ```
+   docker commit  neo-privnet-unittest dautt/neo-privnet-unittest:v0.0.xx+1
+   ```
 
-这样做的原因是我们需要使映像尽可能小。你的映像文件可能在不经意间积累了几天或几周的新块，例如，在分阶段执行新测试时，这会不必要地增加映像的大小。我们的测试装置在构建系统中被重置和提取20多次，所以任何尺寸的增加都会增加延迟 20倍或更多。
+   这样做的原因是我们需要使映像尽可能小。你的映像文件可能在不经意间积累了几天或几周的新块，例如，在分阶段执行新测试时，这会不必要地增加映像的大小。我们的测试装置在构建系统中被重置和提取20多次，所以任何尺寸的增加都会增加延迟 20倍或更多。
 
 10. 通过增加数字后缀创建测试装置 (x+1)：
 
-```
-notif_fixtures_vx+1.tar.gz
-fixtures_vx+1.tar.gz
-```
+    ```
+    notif_fixtures_vx+1.tar.gz
+    fixtures_vx+1.tar.gz
+    ```
 
 11. 在如下文件的静态类变量中更新装置名称：
 
-```
-neo.Utils.BlockchainFixtureTestCase.py
-neo.api.REST.test_rest_api.py
-```
+    ```
+    neo.Utils.BlockchainFixtureTestCase.py
+    neo.api.REST.test_rest_api.py
+    ```
 
 12. 创建一个新的PR，链接到新的映像和新建的测试装置。
