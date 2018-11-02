@@ -7,7 +7,7 @@ Transfers to the specified address.
 
 ## Parameter Description
 
-Asset_id: Asset ID (asset identifier), which is the transaction ID of the RegistTransaction when the asset is registered.
+`Asset_id`: Asset ID (asset identifier), which is the transaction ID of the RegistTransaction when the asset is registered.
 
 For NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
@@ -15,11 +15,11 @@ For GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../../cli.md) or in the Block Chain Browser.
 
-Address: Payment address
+`Address`: Payment address
 
-Value: Amount transferred
+`Value`: Amount transferred
 
-Fee: Fee, default value is 0 (optional parameter)
+`Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
 
 ## Example
 
