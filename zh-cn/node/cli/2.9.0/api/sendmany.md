@@ -12,20 +12,20 @@
 outputs_array：数组，数组中的每个元素的数据结构如下：
 
 	{"asset": \<asset>,"value": \<value>,"address": \<address>}
-
+	
 	asset：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
-
+	
 	如 NEO 为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-
+	
 	NeoGas 为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
+	
 	其余资产 ID 可以通过 [CLI 命令](../../cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
-
+	
 	value：转账金额。
-
+	
 	address：收款地址。
 
-fee：手续费，可选参数，默认为 0。
+fee：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
 
 change_address：找零地址，可选参数，默认为钱包中第一个标准地址。
 
