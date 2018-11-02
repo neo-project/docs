@@ -21,7 +21,7 @@ to: destination address.
 
 value：Transfer amount
 
-fee：Handling fee, optional parameter, default is 0.
+fee：Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
 
 Change_address: Change address, optional parameter, default is the first standard address in the wallet.
 
