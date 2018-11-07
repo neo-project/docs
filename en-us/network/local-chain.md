@@ -23,9 +23,10 @@ NEO-local will start several containers, being:
 
 ### Simple setup
 Having docker and docker-compose installed:
-  - Clone the repository:  https://github.com/CityOfZion/neo-local
-  - Run ```./neo-local/docker-compose up ``` from terminal or powershell
-  - After the setup is done, check if everything is running by accessing `http://localhost:4000` using your browser.
+  1. Clone the repository:  https://github.com/CityOfZion/neo-local
+  2. Change to the newly cloned directory on your machine: ```cd ./neo-local ```
+  3. Run ```./docker-compose up ``` from terminal or powershell
+  4. After the setup is done, check if everything is running by accessing `http://localhost:4000` using your browser.
 
 
 Please check  [Neo-local wiki](https://github.com/CityOfZion/neo-local/wiki) for more information.
