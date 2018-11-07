@@ -1,6 +1,6 @@
 # 在 Windows 系统中安装
 
-以下安装说明针对带有 MSYS2 环境和 Visual Studio 2017 的 Windows 7 x64 系统，也适用于大多数 Windows 发行版。
+以下安装说明针对带有 MSYS2 环境和 Visual Studio 2017 的 Windows 7 x64 系统，也适用于大多数 Windows 发行版。你也可以选择使用 Ubuntu 安装一个 Linux 子系统（ 更多信息参见 [这里](https://medium.com/@gubanotorious/installing-and-running-neo-python-on-windows-10-284fb518b213)）。
 
 > [!Note]
 >

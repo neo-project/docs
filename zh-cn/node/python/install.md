@@ -159,7 +159,7 @@ python3.6 -m venv venv
 source venv/bin/activate
 
 # install the package in an editable form
-(venv) pip install -e
+(venv) pip install -e .
 ```
 
 ### 从 Git 更新 neo-python

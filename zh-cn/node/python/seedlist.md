@@ -53,7 +53,7 @@ json
 
 ### 更新 Windows WSL (Ubuntu) 上的 NEO-Python 节点列表
 
-如果是在 Ubuntu 上运行 neo-python ，你应该使用了 venv。你需要修改 `lib/python3.6/site-packages/neo/data`路径下 venv 目录里的 protocol.mainnet.json 文件。如果该路径不存在，说明你尚未在当前 venv 中使用该文件，那么你可以到 neo/data 路径下的 neo-python 文件夹中修改此文件。或者你也可以删除 venv 文件夹，修改父文件，新建一个 venv 文件夹（`python -m venv venv`）并激活 venv，然后使用 `pip install e .` 重新安装。
+如果是在 Ubuntu 上运行 neo-python ，你应该使用了 venv。你需要修改 venv 目录里 `lib/python3.6/site-packages/neo/data` 路径下的 protocol.mainnet.json 文件。如果该路径不存在，说明你尚未在当前 venv 中使用该文件，那么你可以到 neo/data 路径下的 neo-python 文件夹中修改此文件。或者你也可以删除 venv 文件夹，修改父文件，新建一个 venv 文件夹（`python -m venv venv`）并激活 venv，然后使用 `pip install e .` 重新安装。
 
 ## 更新 SeedList
 

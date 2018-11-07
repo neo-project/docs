@@ -36,15 +36,15 @@ CONTRACT_DESTROY = "SmartContract.Contract.Destroy"
 
 事件处理程序总是收到参数 neo.EventHub.SmartContractEvent 的一个实例，其包含有关当前事件的所有信息。SmartContractEvent 具有以下属性：
 
-| 属性                  | 数据类型     | 描述                                       |
-| ------------------- | -------- | ---------------------------------------- |
-| `event_type`        | str      | `neo.EventHub.SmartContractEvent`中的一个事件类型 |
-| `contract_hash`     | UInt160  | 合约散列值                                    |
-| `tx_hash`           | UInt256  | 事务散列值                                    |
-| `block_number`      | int      | 收到此事件的区块号                                |
+| 属性                | 数据类型 | 描述                                                         |
+| ------------------- | -------- | ------------------------------------------------------------ |
+| `event_type`        | str      | `neo.EventHub.SmartContractEvent`中的一个事件类型            |
+| `contract_hash`     | UInt160  | 合约散列值                                                   |
+| `tx_hash`           | UInt256  | 交易散列值                                                   |
+| `block_number`      | int      | 收到此事件的区块号                                           |
 | `event_payload`     | object[] | 对象列表，取决于智能合约发出的数据类型（例如，使用Runtime.Notify）。 |
-| `execution_success` | bool     | 方法调用是否成功                                 |
-| `test_mode`         | bool     | 这个事件是否由本地TestInvoke调度，而不是从区块链接收          |
+| `execution_success` | bool     | 方法调用是否成功                                             |
+| `test_mode`         | bool     | 这个事件是否由本地TestInvoke调度，而不是从区块链接收         |
 
 ## neo.contrib.smartcontract.SmartContract
 
