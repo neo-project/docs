@@ -4,7 +4,7 @@ The .NET Framework is an encapsulation of the Smart Contract API so that .NET pr
 
 ## Interoperability Layer Methods
 
-The namespace for interoperability layer is divided into `Neo.SmartContract.Framework.Services.NEO` and `Neo.SmartContract.Framework.Services.System`. Click on the links for more details. 
+The namespace for interoperability layer is divided into `Neo.SmartContract.Framework.Services.NEO` and `Neo.SmartContract.Framework.Services.System`. Click on the links for more details.
 
 | Namespace                  | description                              |
 | -------------------------- | ---------------------------------------- |
@@ -26,6 +26,22 @@ The `SmartContract` class provides us with the hash algorithms and signature met
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Hashes the input bytes using SHA256, followed by RIPEMD160 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Hashes the input bytes twice using SHA256 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | Verifies the signature using the given pubkey |
+
+**Note:** These methods are available through inheritance. If you can't find these methods, make sure your class inherits from the SmartContract class.
+
+### Serialization and Deserialization
+
+You can use extension methods in order to persist and retrieve objects from the SmartContract storage.
+
+
+|                                          | Name                         | Description                              |
+| ---------------------------------------- | ---------------------------- | ---------------------------------------- |
+| | Serialize(this object[])  | Converts the object array into a byte array                |
+| | Deserialize(this byte[]) | Converts an byte array into an object array |
+
+You can find an example [here](https://github.com/Red4Sec/NEO-SmartVote/blob/master/CSharp/SmartVote.cs).
+
+
 
 ### Byte Array Helper Methods
 
