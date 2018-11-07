@@ -27,6 +27,21 @@ SmartContract 类提供了一些散列算法以及验签方法等。
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | 对传入的 byte 数组进行两次 Sha256 运算                      |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | 通过公钥和已签名的数据来验证验证是否通过                    |
 
+> [!Note]
+>
+> 以上方法通过继承获得。如果找不到这些方法，请检查你的类是否继承自 SmartContract 类。
+
+### 序列化与反序列化
+
+你可以使用扩展方法来从 SmartContract 存储中持久存储和检索对象。
+
+|      | 名称                     | 说明                     |
+| ---- | ------------------------ | ------------------------ |
+|      | Serialize(this object[]) | 将对象数组转换为字节数组 |
+|      | Deserialize(this byte[]) | 将字节数组转换为对象数组 |
+
+可以参见 [这里](https://github.com/Red4Sec/NEO-SmartVote/blob/master/CSharp/SmartVote.cs) 的示例。
+
 ### byte 数组的扩展方法
 
 下面的这些方法是智能合约 .net 框架中的 Helper 类提供给 byte 数组的一些 ` 扩展方法 `。
