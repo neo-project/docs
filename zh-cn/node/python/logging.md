@@ -6,7 +6,7 @@ neo-python提供一个设置模块，可以用来配置以下事情：
 - 日志：
 
   - 智能合约事件日志
-  - 日志文件（可选择旋转）
+  - 日志文件（可切换）
   - Loglevel
 
 要更改设置，导入设置示例：
@@ -90,7 +90,7 @@ settings.set_logfile(your_logfile_path, 1e7, 3)
 
 ### 记录自定义代码
 
-neo-python 使用 [logzero](https://logzero.readthedocs.io/) 进行记录。要在现有的neo日志记录配置中使用alogger，只需从logzero导入日志记录器，如下所示：
+neo-python 使用 [logzero](https://logzero.readthedocs.io/) 进行记录。要在现有的 neo 日志记录配置中使用 logger，只需从logzero 导入 logger，如下所示：
 
 ```
 from logzero import logger
