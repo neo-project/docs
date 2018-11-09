@@ -15,4 +15,4 @@ NEO 官方的技术文档都在这里，还有众多开发示例可供参考。
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [智能合约与 NeoVM](sc/introduction.md)<br />[快速入门](sc/quickstart/overview.md)<br />[开发参考](sc/reference/api.md)<br />[合约示例](sc/tutorial/HelloWorld.md)<br />[合约触发器](sc/trigger.md)<br />[系统使用费](sc/systemfees.md) | [Version 2.9.0](exchange/v2.9.0.md)<br />[Version 2.8.0](exchange/v2.8.0.md)<br />[Version 2.7.6](exchange/v2.7.6.md) |
 
-NEO 社区也贡献了众多的教程，点击 [这里](../communitydoc.md) 查看。<link rel="stylesheet" href="../styles/index.css">
+NEO 社区也贡献了众多的教程，点击 [这里](../communitydoc_cn.md) 查看。<link rel="stylesheet" href="../styles/index.css">
