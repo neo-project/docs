@@ -1,6 +1,6 @@
 # ExecutionEngine.ScriptContainer 属性
 
-获得该智能合约的脚本容器（最开始的触发者），通常是一笔交易，如果该合约是被合约账户转账来触发的，那 ScriptContainer 便是该转账交易，如果该合约是被 Invocation Transaction 来触发的话，那那 ScriptContainer 便是该 Invocation Transaction 交易。
+获得该智能合约的脚本容器（最开始的触发者），通常是一笔交易，如果该合约是被合约账户转账来触发的，那 ScriptContainer 便是该转账交易，如果该合约是被 Invocation Transaction 来触发的话，那 ScriptContainer 便是该 Invocation Transaction 交易。
 
 命名空间：[Neo.SmartContract.Framework.Services.System](../../System.md)
 
