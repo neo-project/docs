@@ -170,5 +170,5 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 | 命令              | 功能说明 |
 | --------------- | ---- |
 | start consensus | 启动共识 |
-启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain.md)。
+启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
 
