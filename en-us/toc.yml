@@ -275,6 +275,8 @@
         href: utility/sdk/wallet.md
       - name: Transaction Construction
         href: utility/sdk/tx.md
+    - name: Blockchain Explorers
+      href: utility/explorers.md
 - name: Smart Contract
   href: sc/introduction.md
   items:
@@ -304,17 +306,17 @@
         href: sc/quickstart/deploy-invoke.md
     - name: Reference
       href: sc/reference/api.md
-      items: 
+      items:
       - name: API Reference
         href: sc/reference/api.md
-        items: 
+        items:
         - name: NEO
           href: sc/reference/api/neo.md
         - name: System
           href: sc/reference/api/System.md
       - name: Framework
         href: sc/reference/fw.md
-        items: 
+        items:
         - name: .NET Framework
           href: sc/reference/fw/dotnet.md
           items:
@@ -360,7 +362,7 @@
                 href: sc/reference/fw/dotnet/System/ExecutionEngine.md
     - name: Samples and Tutorials
       href: sc/tutorial/HelloWorld.md
-      items: 
+      items:
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
       - name: Lock Contract
@@ -388,4 +390,3 @@
       href: exchange/v2.8.0.md
     - name: v2.7.6
       href: exchange/v2.7.6.md
-  

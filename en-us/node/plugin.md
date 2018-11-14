@@ -5,14 +5,14 @@ Since NEO 2.9.0 some additional functionalities are individually encapsulated in
 | Plug-in                                                      | Description                                                  |                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ |
 | [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) | Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB. | Mandatory for exchanges              |
-| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) | Synchronizes the client using offline packages. This plug-in is included in the release package. | Mandatory                            |
-| [RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip) | Disables all RPC services.                                   | Optional                             |
+| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) | Synchronizes the client using offline packages. This plug-in is included in the release package. | Optional                            |
+| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip) | Improves RPC security.                                   | Optional                             |
 | [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) | Enables policies for consensus.                              | Mandatory for building private chain |
 | [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip) | Exports NEO-CLI status data.                                 | Optional                             |
 
 ## Installing plug-ins
 
-To install the plug-in, create a new **Plugins** folder (The first letter is capitalized) under the client root directory neo-cli root directory and copy the unzipped plugins into it. 
+To install the plug-in, create a new **Plugins** folder (The first letter is capitalized) under the client root directory neo-cli root directory and copy the unzipped plugins into it.
 
 ![plugins.png](../../assets/plugins.png)
 
