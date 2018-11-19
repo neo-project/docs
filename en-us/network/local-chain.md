@@ -1,10 +1,9 @@
-### Local blockchain
+# Local Blockchain
 You can choose to use a local network for development purposes. To do this, we recommend you to check [NEO-Local](https://github.com/CityOfZion/neo-local).
 
 **Note:** This is used for development purposes only, neo components used in these docker images may not be the latest available. **Always test your smart-contract using the Testnet.**
 
 **Docker Required**
-<br/>
 This projects uses Docker and Docker-compose. It works on MacOS, Linux and Windows machines.
 Fore more information related to Docker, please check their [official website](https://www.docker.com/).
 
@@ -21,7 +20,7 @@ NEO-local will start several containers, being:
   - A wallet with GAS;
   - Developer faucet (to obtain extra GAS);
 
-### Simple setup
+## Simple setup
 Having docker and docker-compose installed:
   1. Clone the repository:  https://github.com/CityOfZion/neo-local
   2. From terminal or powershell change to the newly cloned directory on your machine: ```cd ./neo-local ```. 
