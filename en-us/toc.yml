@@ -255,6 +255,8 @@
           href: network/private-chain/private-chain.md
         - name: Build a private chain (a simple way)
           href: network/private-chain/private-chain2.md
+    - name: Local Blockchain
+      href: network/local-chain.md
     - name: Synchronizing the blockchain faster
       href: network/syncblocks.md
     - name: Network Protocol

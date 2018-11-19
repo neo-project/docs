@@ -282,6 +282,8 @@
           href: network/private-chain/private-chain.md
         - name: 搭建私有链（简易方法）
           href: network/private-chain/private-chain2.md
+    - name: 快速搭建本地网络
+      href: network/neolocal.md
     - name: 快速同步区块
       href: network/syncblocks.md
     - name: 网络协议
@@ -302,6 +304,8 @@
         href: utility/sdk/wallet.md
       - name: 交易
         href: utility/sdk/tx.md
+    - name: 区块链浏览器
+      href: utility/explorers.md
 - name: 智能合约
   href: sc/introduction.md
   items:
@@ -396,7 +400,7 @@
         href: sc/tutorial/Domain.md
       - name: 鉴权合约示例教程
         href: sc/tutorial/verify.md
-      - name: 锁仓合约的部署
+      - name: 锁仓合约示例教程
         href: sc/tutorial/Lock2.md
     - name: 参数和返回值
       href: sc/Parameter.md
