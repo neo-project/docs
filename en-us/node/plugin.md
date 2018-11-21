@@ -22,7 +22,7 @@ To install the plug-in, create a new **Plugins** folder (The first letter is cap
 
 Returns the contract log based on the specified txid. The complete contract logs are stored under the ApplicationLogs directory.
 
-This method is provided by the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) plugin. You need to install the plugin before invoking the method.
+This method is provided by the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin. You need to install the plugin before invoking the method.
 
 #### Parameter Description
 

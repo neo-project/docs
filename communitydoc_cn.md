@@ -36,19 +36,21 @@
 
 [如何创建 NEO 轻客户端](http://neofans.org/2018/10/29/creating-a-light-client-for-neo/)
 
-[开发NEO智能合约的步骤流程](http://neofans.org/2018/11/08/the-workflows-of-developing-neo-smart-contracts/)
+[开发 NEO 智能合约的步骤流程](http://neofans.org/2018/11/08/the-workflows-of-developing-neo-smart-contracts/)
+
+[针对 .NET 开发者的 NEO 区块链快速入门系列课程（***C#***）](https://bbs.neldev.net/forum-2.htm)
+
+[NEO 智能合约的调试（***C#***）](http://neofans.org/2018/09/17/3/)
+
+[开发 NEO 智能合约的实用技巧（***C#***）](http://neofans.org/2018/11/15/practical-tips-in-developing-neo-smart-contracts/)
+
+[NEO 智能合约调试流程说明（***C#***）](https://bbs.neldev.net/?thread-43.htm)	
 
 [入门 NEO 智能合约（***Python***）](https://bbs.neldev.net/thread-103.htm) 
 
 [编写智能合约之环境搭建（***Python***）](http://neofans.org/2018/09/21/neo-python-1/)
 
 [编写智能合约之合约开发（***Python***）](http://neofans.org/2018/09/21/neo-python-2/)
-
-[针对 .NET 开发者的 NEO 区块链快速入门系列课程（***C#***）](https://bbs.neldev.net/forum-2.htm)
-
-[NEO 智能合约的调试（***C#***）](http://neofans.org/2018/09/17/3/)
-
-[NEO 智能合约调试流程说明（***C#***）](https://bbs.neldev.net/?thread-43.htm)	
 
 [使用 GO 语言在 NEO 私有链发行 NEP-5 Token 的开发指南（***Go***）](http://neofans.org/2018/10/25/neo-token-contract-nep-5-in-go/)
 
