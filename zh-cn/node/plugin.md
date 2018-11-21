@@ -4,11 +4,11 @@
 
 | 插件                                                         | 功能                                                         |              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ |
-| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选   |
-| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) | 同步离线包，已包含在发布的版本中。                           | 必选         |
-| [RpcDisabled](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/RpcDisabled.zip) | 禁用一切 RPC 服务。                                          | 可选         |
-| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选 |
-| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选         |
+| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选   |
+| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ImportBlocks.zip) | 同步离线包，已包含在发布的版本中。                           | 必选         |
+| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选         |
+| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选 |
+| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选         |
 
 ## 安装插件
 
@@ -22,7 +22,7 @@
 
 根据指定的 NEP-5 交易 ID 获取合约日志。完整的合约日志会记录到 ApplicationLogs 目录。
 
-此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ApplicationLogs.zip) 插件才可以调用。
+此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) 插件才可以调用。
 
 #### 参数说明
 
