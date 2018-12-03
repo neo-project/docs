@@ -13,7 +13,7 @@
 2. 对于 Linux 系统，需要安装 LevelDB 和 SQLite3 开发包。例如，在 ubuntu 17.10 上输入以下命令：
 
    ```
-   sudo apt-get install libleveldb-dev sqlite3 -dev libunwind8-dev
+   sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
    ```
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
