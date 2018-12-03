@@ -1,4 +1,4 @@
-# 搭建私有链的简易方法
+# 快速搭建私有链
 
 上篇文章介绍了标准的搭建私有链的方法，使用 4 台电脑或虚拟机。这篇文章我们将介绍一种更为简单的方法，在一台 Windows 系统的电脑上搭建私有链。
 
@@ -10,18 +10,22 @@
 
 ## 安装插件
 
-要使节点达成共识，需要安装 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) 插件启用共识策略，详细信息请参考 [安装插件](../../node/plugin.md#安装插件)。
+要使节点达成共识，需要安装 SimplePolicy 插件启用共识策略。
+
+1. 下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) 插件并解压。
+2. 将文件夹 Plugins 拷贝四份，分别放置到四个节点文件夹中。
 
 ## 创建钱包文件
 
-使用 NEO-CLI 或 NEO-GUI 创建 4 个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于 4 个节点的文件夹中。具体方法可参照 NEO-CLI 或 NEO-GUI 的使用说明。
+使用 NEO-CLI 或 NEO-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
 
 ## 修改 config.json
 
 在每个节点下的 config.json 文件中进行如下修改：
 
 - 设置每个端口不重复且不被其它程序占用。
-- 设置 UnlockWallet 下的参数 Path 为钱包路径，Password 为钱包密码，StartConsensus 和 IsActive 为 true。
+- 设置 UnlockWallet 下的参数 `Path` 为钱包文件名，`Password` 为钱包密码。
+- 设置 `StartConsensus` 和 `IsActive` 为 `true`。
 
 
 可参照下面的配置：
@@ -213,17 +217,15 @@
 
 ## 启动私有链
 
-进入每个节点目录，双击 `1Run.cmd`，如图所示：
+进入每个节点目录，双击 `1Run.cmd`，当共识过程如图所示，表示私链成功建立：
 
 ![](../../../assets/privatechain_demo.png)
 
-## 停止私有链
-
-在任务栏中右击 `命令提示符`，点击 `关闭所有窗口`。
+如果关闭所有窗口，将停止私有链。
 
 ## 提取私有链中的 NEO/GAS
 
-参照 [提取 NEO、NeoGas](../private-chain.md#5提取-neoneogas)。
+请参考 [提取 NEO 和 GAS](../private-chain.md#提取-neo-和-gas)。
 
 最后：
 
