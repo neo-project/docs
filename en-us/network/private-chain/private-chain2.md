@@ -1,10 +1,10 @@
-# A simple way to build a private chain
+# Build a private chain in a simple way
 
 In previous document we described the standard way to build a private chain using four computers or virtual machines. In this document we will introduce an easier way to build a private chain on a windows system computer.
 
 ## Installing NEO node
 
-Install NEO-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, respectively.
+Install NEO-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
 
 For more information refer to [Installation of NEO-CLI](../../node/cli/setup.md). 
 
@@ -21,7 +21,8 @@ From NEO-CLI or NEO-GUI create four wallets, 1.json, 2.json, 3.json, and 4.json,
 Make the following configurations in config.json of each node:
 
 - Specify the ports so that each port is not duplicated and is not occupied by other applications.
-- In "UnlockWallet" specify the wallet path, wallet password, and set  StartConsensus and IsActive as true.
+- In "UnlockWallet" specify the wallet path and wallet password.
+- Set  StartConsensus and IsActive as true.
 
 
 You can refer to the following example：
@@ -144,7 +145,7 @@ Configure the following parameters in each node protocal.json. Ensure the config
 
 - Magic : The private chain ID, which can be any integer in the range of [0 - 4294967295].
 
-- StandbyValidators: The public key of the alternate consensus node, where the public key of four wallets is entered.
+- StandbyValidators: The public key of the alternate consensus node. Enter the public keys of four wallets.
 
 - SeedList: The IP address and port number of the seed node. Specify the IP address as `localhost` and the ports as four P2P ports configured before in config.json.
 
@@ -213,17 +214,15 @@ At this point the private chain has been set up. All the files  we modified are 
 
 ## Starting the private chain
 
-Enter each node directory and double-click `1Run.cmd`.
+Enter each node directory and double-click `1Run.cmd`. When the consensus process goes as shown below, the private chain is set up successfully.
 
 ![](../../../assets/privatechain_demo.png)
 
-## Stopping the private chain
-
-Right-click the command prompt in the taskbar and click `Close all Windows`.
+The private chain is terminated if you close all the windows. 
 
 ## Withdrawing NEO/GAS
 
-Refer to [Extracting NEO and GAS](../private-chain.md#5-extracting-neo-and-gas).
+Refer to [Extracting NEO and GAS](../private-chain.md#extracting-neo-and-gas).
 
 Tips：
 
