@@ -1,4 +1,4 @@
-# Build a private chain in a simple way
+# Build a private chain in an easy way
 
 In previous document we described the standard way to build a private chain using four computers or virtual machines. In this document we will introduce an easier way to build a private chain on a windows system computer.
 
@@ -222,7 +222,7 @@ The private chain is terminated if you close all the windows.
 
 ## Withdrawing NEO/GAS
 
-Refer to [Extracting NEO and GAS](../private-chain.md#extracting-neo-and-gas).
+Refer to [Withdrawing NEO and GAS](private-chain.md#withdrawing-neo-and-gas).
 
 Tips：
 

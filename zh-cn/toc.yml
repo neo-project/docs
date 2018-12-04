@@ -280,7 +280,7 @@
       items:
         - name: 搭建私有链
           href: network/private-chain/private-chain.md
-        - name: 搭建私有链（简易方法）
+        - name: 快速搭建私有链
           href: network/private-chain/private-chain2.md
     - name: 快速搭建本地网络
       href: network/neolocal.md

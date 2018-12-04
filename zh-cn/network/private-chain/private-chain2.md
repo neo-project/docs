@@ -225,7 +225,7 @@
 
 ## 提取私有链中的 NEO/GAS
 
-请参考 [提取 NEO 和 GAS](../private-chain.md#提取-neo-和-gas)。
+请参考 [提取 NEO 和 GAS](private-chain.md#提取-neo-和-gas)。
 
 最后：
 

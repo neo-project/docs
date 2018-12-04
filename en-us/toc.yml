@@ -253,7 +253,7 @@
       items:
         - name: Build a private chain
           href: network/private-chain/private-chain.md
-        - name: Build a private chain (a simple way)
+        - name: Build a private chain in an easy way
           href: network/private-chain/private-chain2.md
     - name: Local Blockchain
       href: network/local-chain.md
