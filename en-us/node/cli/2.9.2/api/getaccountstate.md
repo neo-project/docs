@@ -1,6 +1,6 @@
 # getaccountstate Method
 
-Queries the account asset information, according to the account address.
+Queries global assets (NEO, GAS, and etc.) of the account, according to the account address.
 
 ## Parameter Description
 
