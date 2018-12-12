@@ -29,12 +29,16 @@ The equal sign `=` indicates the default value of the optional parameter without
 
 Command | Function Description | Remarks |
 | ---------------------------------------- | -------------------------------- | ------ |
-| create wallet \<path> | Create wallet file |
-| open wallet \<path> | Open wallet file |
-| rebuild wallet index | | Need to open wallet |
+| create wallet \<path> | Create a wallet file |
+| open wallet \<path> | Open a wallet file |
+| upgrade wallet \<path> | Upgrade old wallet files| |
+| rebuild index |Rebuild the wallet index | Need to open wallet |
 | list address | list all the accounts in the wallet | Need to open wallet |
 | list asset | List all assets in the wallet | Need to open wallet |
 | list key | List all public keys in your wallet | Need to open wallet |
+| show utxo \[id|alias] | List UTXO of the specified asset in the wallet | Need to open wallet |
+| show gas | List all the GAS in your wallet | Need to open wallet |
+| claim gas \[all] | Claim the available GAS in your wallet | Need to open wallet |
 | create address [n = 1] | Create address / batch create address | Need to open wallet |
 | import key \<wif\|path> | Import private key / bulk import of private keys | Need to open wallet |
 | export key \[address] [path] | Export private key | Need to open wallet |
@@ -45,6 +49,15 @@ Command | Function Description | Remarks |
 
 The following commands are explained in detail:
 
+👉 `upgrade wallet <path>` 
+
+This command is used to upgrade the old wallet files.
+
+```
+neo>upgrade wallet cli.db3
+Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3
+```
+
 👉 `rebuild index`
 
 This command is used to rebuild the wallet index.
@@ -54,9 +67,46 @@ There is a field in the wallet that records the height of the current wallet syn
 
 The newly created wallet does not need to rebuild the wallet index, only the imported private key is required to rebuild the wallet index.
 
+👉 `show utxo [id|alias]`
+
+This command is used to list the UTXO of the specified assets, as shown below:
+
+```
+neo>show utxo neo
+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:2
+total: 1 UTXOs
+neo>show utxo gas
+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:1
+total: 1 UTXOs
+neo>show utxo 025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4
+8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f:0
+total: 1 UTXOs
+```
+
+👉 `show gas` 
+
+This command is used to list all the gas in your wallet. The result is as shown below:
+
+```
+unavailable: 133.024
+  available: 10.123
+```
+
+Where `unavailable` represents the GAS that cannot be claimed and `available` represents the claimable GAS. 
+
+- This command does not show the GAS that has been claimed. Use `list asset` instead.
+
+👉 `claim gas[all]` 
+
+This command is used to claim available GAS in your wallet. The execution is carried out by a special  Claim Transaction. The client will print the Claim Transaction ID after you enter the command. 
+
+If no parameter is appended, GAS from the first 50 addresses in the wallet is claimed. If `all` is specified, all the GAS in the wallet is claimed.
+
+After executing  `claim gas`, you will find GAS has been increased in the result of `list asset`.
+
 👉 `create address [n = 1]`
 
-This command can be used to create a new address. One can also enter 'create address 100' to create 100 new addresses in batches; Batch creation of the address will be automatically exported to the address.txt file.
+This command is used to create a new address. One can also enter 'create address 100' to create 100 new addresses in batches; Batch creation of the address will be automatically exported to the address.txt file.
 
 👉 `export key [address] [path]`
 
