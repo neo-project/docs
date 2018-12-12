@@ -34,7 +34,7 @@
 | list key                                 | 列出钱包中的所有公钥                        | 需要打开钱包 |
 | show utxo [id\|alias]                    | 列出钱包中指定资产的 UTXO                   | 需要打开钱包 |
 | show gas                                 | 列出钱包中的所有可提取及不可提取的 GAS             | 需要打开钱包 |
-| claim gas                                | 提取钱包中的所有可提取的 GAS                  | 需要打开钱包 |
+| claim gas [all]                          | 提取钱包中的前50笔 / 所有可提取的 GAS             | 需要打开钱包 |
 | create address [n=1]                     | 创建地址 / 批量创建地址                       | 需要打开钱包 |
 | import key \<wif\|path>                  | 导入私钥 / 批量导入私钥                       | 需要打开钱包 |
 | export key \[address] [path]             | 导出私钥                              | 需要打开钱包 |
@@ -101,7 +101,7 @@ unavailable: 133.024
 
 👉 `claim gas` 
 
-提取钱包中的所有可提取的 GAS，该过程是通过一个特殊的交易 Claim Transaction 完成的，输入命令后，客户端会输出 Claim Transaction 的 ID（提取 GAS 这笔交易的 ID）。
+提取钱包中的所有可提取的 GAS，该过程是通过一个特殊的交易 Claim Transaction 完成的，输入命令后，客户端会输出 Claim Transaction 的 ID（提取 GAS 这笔交易的 ID）。用户可以有两种选择，如末尾不带参数，则默认claim 钱包前50个地址中的 GAS。如果用户加上参数[all]，则会提取钱包中所有地址的 GAS。
 
 执行完 claim gas 命令后，再执行 list asset 会显示 GAS 有增加。
 
