@@ -32,7 +32,7 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 如果你是开发人员，可以申请用于测试网的 NEO 和 GAS。 在测试网部署一条合约需要花费500个测试 GAS。  
 
-1. 填写申请表 (https://www.neo.org/Testnet/Create) ，指定你的公钥和Email。
+1. 填写申请表 (https://neo.org/testcoin/apply) ，指定你的公钥和Email。
 
    大约三天后，你将收到一封电子邮件。其中包含合约地址和另一个公钥。 
 
