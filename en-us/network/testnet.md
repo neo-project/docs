@@ -48,7 +48,7 @@ The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE
   ![image](../../assets/neo_gas_0.jpg)
 
 ### STEP 2 - Fill in the request
-Complete the form here: https://www.neo.org/Testnet/Create specifying your EMAIL and PUBLIC key.
+Complete the form here: https://neo.org/testcoin/apply specifying your EMAIL and PUBLIC key.
 After a day or so you will be sent an email containing a "Multi-party signed address" and the PUBLIC key of the sender. See Advanced Features, Multi-party signed address.
 
 ### STEP 3 - Create a multi-party signed address
