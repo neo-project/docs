@@ -22,3 +22,5 @@ Acesse a documentação em português (brasileiro) [aqui](pt-br/whitepaper.md).
 Voir la documentation en [Français](fr-fr/whitepaper.md).
 
 Vedi la documentazione [Italiana](it-it/whitepaper.md).
+
+[Русская](ru-ru/whitepaper.md) документация.
