@@ -1,0 +1,1 @@
+Документацию по Python см. в проекте [neo-python](https://github.com/CityOfZion/neo-python/blob/master/README.rst). 
