@@ -1,8 +1,8 @@
-# Document for Exchange Developers
+# Документация для разработчиков биржи криптовалют
 
-This document is intended to guide exchange developers to set up NEO nodes on the exchange server and complete necessary programing tasks for NEO assets transactions. Before reading, ensure that you have read [NEO White Paper](../whitepaper.md) and understand the NEO background knowledge and technologies. 
+Данный документ предназначен для того, чтобы помогать разработчикам биржи криптовалют настраивать узлы NEO на сервере биржы и выполнять необходимые задачи программирования для проведения транзакций активов NEO. Перед чтением убедитесь, что вы ознакомились с  [NEO White Paper](../whitepaper.md) и имеете понятие о базовых знаниях и технологиях NEO.
 
 > [!Note]
 >
-> Different versions of NEO-CLI are different in ways of interfacing with exchanges. Please note the version behavior differences before upgrading your client version.
+> Версии NEO-CLI используют разные способы взаимодействия с биржами. Обратите внимание на данные различия в версиях перед обновлением вашего клиента.
 
