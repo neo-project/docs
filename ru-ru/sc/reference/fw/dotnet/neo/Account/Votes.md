@@ -1,6 +1,6 @@
 # Account.Votes Property
 
-Returns the information on the votes that this account has casted for others.
+Возвращает информацию о голосах, которые данная учетная запись отдала за другие учетные записи.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[][] Votes {get; set;}
 ```
 
-Attribute value: An array of public keys of accounts voted for, where the public key is a byte array of length 33.
+Значение атрибута: Массив открытых ключей счетов, которые проголосовали (открытый ключ – это байтовый массив, имеющий длину 33).
 
 
 

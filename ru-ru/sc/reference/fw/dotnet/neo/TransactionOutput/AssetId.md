@@ -1,6 +1,6 @@
 # TransactionOutput.AssetId Property
 
-Returns the asset ID of the transaction output.
+Возвращает ID актива выхода транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] AssetId {get;}
 ```
 
-Attribute value: Asset ID as a byte array of length 32.
+Значение атрибута: ID актива в виде байтового массива, имеющего длину 32.
 
 
 

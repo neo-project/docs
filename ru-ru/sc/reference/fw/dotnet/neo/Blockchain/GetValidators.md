@@ -1,6 +1,6 @@
 # Blockchain.GetValidators Method ()
 
-Returns the public keys of the validators (consensus nodes).
+Возвращает открытые ключи валидаторов (узлов консенсуса).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public static extern byte[][] GetValidators()
 ```
 
-Return Value: A public key array, each element being a byte array of length 33.
+Возвращаемое значение: Массив из открытых ключей, каждый элемент которого является байтовым массивом, имеющим длину 33.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

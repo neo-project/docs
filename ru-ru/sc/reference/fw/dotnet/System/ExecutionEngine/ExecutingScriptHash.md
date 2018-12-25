@@ -1,6 +1,6 @@
 # ExecutionEngine.ExecutingScriptHash Property
 
-Returns the scripthash of the executing contract.
+Возвращает хэш скрипта выполняющего контракта.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] ExecutingScriptHash {get;}
 ```
 
-Attribute value: Scripthash as a byte array of length 33.
+Значение атрибута: Хэш скрипта в виде байтового массива, имеющего длину 33.
 
 
 

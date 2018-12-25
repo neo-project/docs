@@ -1,6 +1,6 @@
 # Blockchain.GetHeader Method (byte[])
 
-Returns a block header given a block hash.
+Возвращает заголовок блока при наличии хэша блока.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(byte[] hash)
 ```
 
-Parameters: Block Hash as a byte array of length 32.
+Параметры: Хэш блока в виде байтового массива, имеющего длину 32.
 
-Return Value: [Header](../Header.md).
+Возвращаемое значение: [Header](../Header.md).
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

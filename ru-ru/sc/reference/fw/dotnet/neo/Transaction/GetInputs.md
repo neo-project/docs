@@ -1,6 +1,6 @@
 # Transaction.GetInputs Method ()
 
-Returns all transaction inputs for the transaction.
+Возвращает все входы транзакции для транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.TransactionInput[] GetInputs()
 ```
 
-Return Value: All transaction inputs for the current transaction as a [TransactionInput](../TransactionInput.md) array.
+Возвращаемое значение: Все входы транзакции для текущей транзакции в виде массива [TransactionInput](../TransactionInput.md) array.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

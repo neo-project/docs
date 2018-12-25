@@ -1,10 +1,10 @@
 # Asset.Renew Method (byte[])
 
-For asset renewal.
+Для продления актива.
 
-This method is new in version 2.0; after registration, assets will need to pay an annual fee, otherwise it will enter the frozen state.
+Данный метод является новым для версии 2.0. После регистрации активов необходимо заплатить годовую комиссию, иначе они будут заморожены.
 
-When the asset expires, it is necessary to renew the asset. When the asset is not frozen, the renewal fee will extend the date from the expiration date of the asset. When the asset is frozen, the renewal fee will be considered from the point of payment. Therefore, there will be no arrears after paying the renewal fee.
+Когда срок действия актива истекает, необходимо его продлить. Если актив не заморожен, комиссия за продление продлит срок его действия, отталкиваясь от даты истечения срока. Если актив заморожен, комиссия за продление продлит срок его действия, начиная с момента оплаты комиссии. Таким образом, задолженность будет невозможна после оплаты комиссии за продление.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -16,11 +16,11 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Renew (byte years)
 ```
 
-Parameters: Renewal period, one year is equal to 2,000,000 blocks, byte type.
+Параметры: Период обновления (один год равен 2 000 000 блоков, байтовый тип).
 
-Return Value: The height of the block where the asset can be used until, after the renewal.
+Возвращаемое значение: Высота блока, где актив может быть использован до, после обновления.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

@@ -1,6 +1,6 @@
 # Account.ScriptHash Property
 
-Obtain the scripthash of the contract account.
+Получает хэш скрипта учетной записи (счета) контракта.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] ScriptHash {get;}
 ```
 
-Attribute value: Byte array of length 20.
+Значение атрибута: Байтовый массив, имеющий длину 20.
 
 
 

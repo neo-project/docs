@@ -1,9 +1,9 @@
 # StorageContext.CallingContract Enumeration
 
-Caller's storage context.
+Контекст хранилища инициатора вызова.
 
 > [!Caution]
-> Note: deprecated in version 2.0.
+> Обратите внимание: устарел в версии 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -20,7 +20,7 @@ public enum StorageContext: byte
 }
 ```
 
-Enumeration value: 2.
+Перечисляемое значение: 2.
 
 
 

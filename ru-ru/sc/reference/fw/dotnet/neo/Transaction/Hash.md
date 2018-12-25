@@ -1,6 +1,6 @@
 # Transaction.Hash Property
 
-Returns the transaction hash.
+Возвращает хэш транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Hash {get;}
 ```
 
-Attribute value: Transaction hash as a byte array of length 32.
+Значение атрибута: Хэш транзакции в виде байтового массива, имеющего длину 32.
 
 
 

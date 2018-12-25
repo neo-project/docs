@@ -1,6 +1,6 @@
 # Transaction.GetAttributes Method ()
 
-Returns all attributes of the transaction.
+Возвращает все атрибуты транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.TransactionAttribute[] GetAttributes()
 ```
 
-Return Value: All attributes of the current transaction, as a [TransactionAttribute](../TransactionAttribute.md) array.
+Возвращаемое значение: Все атрибуты текущей транзакции в виде массива [TransactionAttribute](../TransactionAttribute.md) array.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

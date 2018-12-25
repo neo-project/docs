@@ -1,6 +1,6 @@
 # Runtime.Notify Method (params object[])
 
-Similar to Runtime.Log, this notifies the client by the executing smart contract. This method can trigger an event on the client but will require the client to be compatible.
+Данный метод аналогичен Runtime.Log: он уведомляет клиента, выполняющего смарт-контракт. метод может инициировать событие в клиенте (однако клиент должен быть совместимым).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public static extern void Notify(params object[] state)
 ```
 
-Parameters: 
+Параметры: 
 
-state: The notification message, can be of any length and any type.
+state: Сообщение-уведомление (может быть любой длины и типа).
 
-## Example
+## Пример
 
 ```c#
 public class Contract1 : FunctionCode

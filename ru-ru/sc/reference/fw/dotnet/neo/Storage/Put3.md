@@ -1,6 +1,6 @@
 # Storage.Put Method (StorageContext, string, byte[])
 
-Inserts a given value to the given key in the persistent store.
+Добавляет данное значение в данный ключ в постоянном хранилище..
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,17 +12,17 @@ Assembly: Neo.SmartContract.Framework
 public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, byte[] value)
 ```
 
-Parameters:
+Параметры:
 
-Context: Storage context as a [StorageContext](../StorageContext.md).
+Context: Контекст хранилища в виде [StorageContext](../StorageContext.md).
 
-Key: Key as a string.
+Key: Ключ в виде строки.
 
-Value: Value as a byte array.
+Value: Значение в виде байтового массива.
 
-Return value: void.
+Возвращаемое значение: void.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

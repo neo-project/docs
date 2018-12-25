@@ -1,6 +1,6 @@
 # Blockchain.GetAsset Method (byte[])
 
-Returns an asset on the blockchain given an asset ID.
+Возвращает актив в блокчейне при наличии ID актива.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Asset GetAsset (byte[] asset_id)
 ```
 
-Parameters: Asset ID as a byte array of length 32.
+Параметры: ID актива в виде байтового массива, имеющего длину 32.
 
-Return Value: [Asset](../Asset.md).
+Возвращаемое значение: [Asset](../Asset.md).
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode
@@ -30,7 +30,7 @@ public class Contract1: FunctionCode
 }
 ```
 
-The asset ID can be obtained in advance and passed in as a parameter into smart contracts. The following uses the SDK to covert the hexstring into a byte array.
+ID актива можно получить заранее и передать его в качестве параметра в смарт-контракт. Следующий код использует SDK, чтобы преобразовать шестнадцатеричную строку в байтовый массив.
 
 ```c#
 Static void Main(string[] args)

@@ -1,6 +1,6 @@
 # Asset.ScriptHash Property
 
-Returns the administrator (contract address) of the asset. The administrator has the right to modify attributes of the asset (such as total amount, name, etc.).
+Возвращает администратора (адрес контракта) данного актива. Администратор имеет право модифицировать атрибуты актива (такие как total, name и т.д).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Admin {get;}
 ```
 
-Attribute value: Byte array of length 20.
+Значение атрибута: Байтовый массив, имеющий длину 20.
 
 
 

@@ -1,6 +1,6 @@
 # Enrollment.PublicKey Property
 
-Returns the public key of the bookkeeper.
+Возвращает открытый ключ буккипера.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] PublicKey {get;}
 ```
 
-Attribute value: the public key of the bookkeeper as a byte array of length 33.
+Значение атрибута: открытый ключ буккипера в виде байтового массива, имеющего длину 33.
 
 
 

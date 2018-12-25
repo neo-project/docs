@@ -1,8 +1,8 @@
 # Contract.Create Method (byte[], byte[], byte, bool, string, string, string, string, string)
 
-Calling this method in a smart contract will publish a new contract.
+Вызов данного метода в смарт-контракте инициирует опубликование нового контракта..
 
-This is a replacement for PublishTransaction in version 2.0.
+Заменяет PublishTransaction в версии 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,29 +14,29 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Contract CreateContract(byte[] script, byte[] parameter_list, byte return_type, bool need_storage, string name, string version, string author, string email, string description)
 ```
 
-Parameters:
+Параметры:
 
-script: The contract bytecode as a byte array.
+script: Байт-код контракта в виде байтового массива.
 
-parameter_list: Parameter list as a byte array. Refer to [Smart Contract Parameters and Return Values](../../../../../Parameter.md).
+parameter_list: Список параметров в виде байтового массива. См. [Smart Contract Parameters and Return Values](../../../../../Parameter.md).
 
-return_type: Return type as a byte. Refer to [Smart Contract Parameters and Return Values](../../../../../Parameter.md).
+return_type: Тип возвращаемого значения в виде байта. См. [Smart Contract Parameters and Return Values](../../../../../Parameter.md).
 
-need_storage: If the contract requires a persistent store, boolean.
+need_storage: Если контракту требуется постоянное хранилище; булево значение.
 
-name: The name of the contract as a string.
+name: Имя контракта в виде строки.
 
-version: The version as a string.
+version: Версия в виде строки.
 
-author: The author name as a string.
+author: Имя автора в виде строки.
 
-email: The author email as a string.
+email: Email автора в виде строки.
 
-description: The description of the contract as a string.
+description: Описание контракта в виде строки.
 
-Return value: [Contract](../Contract.md).
+Возвращаемое значение: [Contract](../Contract.md).
 
-## Example
+## Пример
 
 ```c#
 public class Contract1 : FunctionCode

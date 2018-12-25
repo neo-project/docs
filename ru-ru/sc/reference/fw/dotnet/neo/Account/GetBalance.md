@@ -1,6 +1,6 @@
 # Account.GetBalance Method (byte[])
 
-Obtain the balance of specified assets in the account through the asset ID.
+Возвращает баланс указанных активов на счете с помощью ID актива.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern long GetBalance (byte[] asset_id)
 ```
 
-Parameters: Asset ID, the transaction ID of the RegisterTransaction when the asset is registered. It is a byte array of length 32.
+Параметры: ID актива, ID транзакции RegisterTransaction (когда регистрируется актив). Это байтовый массив, имеющий длину 32.
 
-Return value: The balance of the assets in the account as a long, equal to the actual amount multiplied by 100,000,000.
+Возвращаемое значение: Баланс активов на счете в виде длинного числа (равен фактической сумме, умноженной на 100 000 000).
 
 ## Example
 

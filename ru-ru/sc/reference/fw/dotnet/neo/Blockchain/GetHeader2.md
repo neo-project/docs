@@ -1,6 +1,6 @@
 # Blockchain.GetHeader Method (uint)
 
-Returns a block header given a block height.
+Возвращает заголовок блока при наличии высоты блока.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(uint height)
 ```
 
-Parameters: Block Height as an unsigned integer.
+Параметры: Высота блока в виде целого числа без знака.
 
-Return Value: [Header](../Header.md).
+Возвращаемое значение: [Header](../Header.md).
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

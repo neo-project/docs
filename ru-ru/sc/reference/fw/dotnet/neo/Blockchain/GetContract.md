@@ -1,6 +1,6 @@
 # Blockchain.GetContract Method (byte[])
 
-Returns the contract contents given a contract script hash.
+Возвращает содержание контракта при наличии хэша скрипта контракта.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContract(byte[] script_hash)
 ```
 
-Parameters: Scripthash as a byte array of length 20.
+Параметры: Хэш скрипта в виде байтового массива, имеющего длину 20.
 
-Return Value: [Contract](../Contract.md).
+Возвращаемое значение: [Contract](../Contract.md).
 
-## Example
+## Пример
 
 ```
 

@@ -1,6 +1,6 @@
 # Runtime.Trigger Attribute
 
-Gets the trigger type for the smart contract, verification contract or application contract. 
+Получает тип триггера для смарт-контракта (верификационный или прикладной контракт). 
 
 Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly：Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.TriggerType Trigger { get; }
 ```
 
-Attribute：[TriggerType](../TriggerType.md).
+Атрибут：[TriggerType](../TriggerType.md).
 
-## Example
+## Пример
 
 ```c#
 public static bool Main()
@@ -30,7 +30,7 @@ public static bool Main()
 }
 ```
 
-For details, refer to [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs).
+Более подробно см. в [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs).
 
 
 

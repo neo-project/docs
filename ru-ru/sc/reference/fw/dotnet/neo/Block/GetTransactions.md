@@ -1,6 +1,6 @@
 # Block.GetTransactions Method ()
 
-Returns all the transactions in the current block.
+Возвращает все транзакции в текущем блоке.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.Transaction[] GetTransactions()
 ```
 
-Return Value: Transaction array as Transaction[].
+Возвращаемое значение: Массив транзакций в виде Transaction[].
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode
