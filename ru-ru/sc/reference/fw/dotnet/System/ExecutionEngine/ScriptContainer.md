@@ -1,6 +1,6 @@
 # ExecutionEngine.ScriptContainer Property
 
-Returns the script container of the current contract (The initial trigger). This is usually a transaction, if this contract was triggered by a transaction from a contract account, then the ScriptContainer will be of that transaction. If the current contract was trigger by an Invocation Transaction, then the ScriptContainer will be of that Invocation Transaction's.
+Возвращает контейнер скрипта текущего контракта (начальный триггер). Обычно это транзакция, если данный контракт был инициирован транзакцией из счета контракта, то ScriptContainer будет относиться к этой транзакции. Если текущий контракт был инициирован Invocation Transaction, то ScriptContainer будет относиться к этой Invocation Transaction.
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.IScriptContainer ScriptContainer {get;}
 ```
 
-Attribute value: ScriptContainer as a IScriptContainer. If you know the trigger is a Transaction, you can cast this into a [Transaction](../../neo/Transaction.md).
+Значение атрибута: Контейнер скрипта в виде IScriptContainer. Если вы знаете, что триггером является Transaction, то вы можете привести его к типу [Transaction](../../neo/Transaction.md).
 
 
 

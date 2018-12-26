@@ -1,8 +1,8 @@
 # Validator.Register Method (byte[])
 
-Register as a bookkeeper. This is only registration, you will require votes in order to be selected.
+Только регистрирует в качестве буккипера (для того чтобы стать буккипером, необходимо, чтобы за вас проголосовали).
 
-This method replaces RegisterTransaction in version 2.0.
+Данный метод заменяет RegisterTransaction в версии 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,13 +14,13 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Validator Register(byte[] pubkey)
 ```
 
-Parameters:
+Параметры:
 
-pubkey：Public key as a byte array of length 33.
+pubkey：Публичный ключ в виде байтового массива длиной 33 символа.
 
-Return value: [Validator](../Validator.md)
+Возвращаемое значение: [Validator](../Validator.md)
 
-## Example
+## Пример
 
 ```c#
 public class Contract1 : FunctionCode

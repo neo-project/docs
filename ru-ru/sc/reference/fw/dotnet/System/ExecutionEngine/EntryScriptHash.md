@@ -1,6 +1,6 @@
 # ExecutionEngine.EntryScriptHash Property
 
-Returns the scripthash of the entry points of the contract(in the contract invocation chain)
+Возвращает хэш скрипта входных точек контракта (в цепочке вызова контракта)
 
 Namespace: [Neo.SmartContract.Framework.Services.System](../../System.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] EntryScriptHash {get;}
 ```
 
-Attribute value: Scripthash as a byte array of length 33.
+Значение атрибута: Хэш скрипта в виде байтового массива, имеющего длину 33.
 
 
 

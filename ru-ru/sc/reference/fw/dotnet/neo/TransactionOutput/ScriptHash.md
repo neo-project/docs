@@ -1,6 +1,6 @@
 # TransactionOutput.ScriptHash Property
 
-Returns the scripthash of the transaction output.
+Возвращает хэш скрипта выхода транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] ScriptHash {get;}
 ```
 
-Attribute value: Scripthash as a byte array of length 20.
+Значение атрибута: Хэш скрипта в виде байтового массива, имеющего длину 20.
 
 
 

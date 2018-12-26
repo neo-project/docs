@@ -1,6 +1,6 @@
 # Asset.Issuer Property
 
-Returns the issuer (contract address) of the asset. The issuer has the right to issue assets.
+Возвращает эмитента (адрес контракта) данного актива. Эмитент имеет право выпускать активы.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Issuer {get;}
 ```
 
-Attribute value: Byte array of length 20.
+Значение атрибута: Байтовый массив, имеющий длину 20.
 
 
 

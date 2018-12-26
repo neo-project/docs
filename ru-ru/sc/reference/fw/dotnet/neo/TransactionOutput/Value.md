@@ -1,6 +1,6 @@
 # TransactionOutput.Value Property
 
-Returns the amount in the transaction output.
+Возвращает сумму в выходе транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern long value {get;}
 ```
 
-Attribute value: Amount as a long integer, the actual value being the returned amount multipled by 100,000,000.
+Значение атрибута: Сумма в виде длинного целого числа (фактическое значение – это возвращаемая сумма, умноженная на 100 000 000).
 
 
 

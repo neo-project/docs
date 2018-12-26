@@ -1,6 +1,6 @@
 # TransactionAttribute.Usage Property
 
-Returns the purpose of the transaction.
+Возвращает цель транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte Usage {get;}
 ```
 
-Attribute value: The purpose of the transaction as a byte array.
+Значение атрибута: Цель транзакции в виде байтового массива.
 
 Purposes:
 

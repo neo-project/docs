@@ -1,6 +1,6 @@
 # TransactionAttribute.Hash Property
 
-Returns data outside of the purpose of transaction.
+Возвращает данные, не относящиеся к цели транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Data {get;}
 ```
 
-Attribute value: Data as a byte array.
+Значение атрибута: Данные в виде байтового массива.
 
 
 

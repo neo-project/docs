@@ -1,6 +1,6 @@
 # Block.GetTransaction Method (int)
 
-Returns the transaction specified in the current block by index.
+Возвращает транзакцию, указанную индексом в текущей высоте блока.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction(int index)
 ```
 
-Parameters: the index of the transaction in the block as an integer.
+Параметры: индекс транзакции в блоке в виде целого числа.
 
-Return Value: Transaction as a [Transaction](../Transaction.md) Type.
+Возвращаемое значение: Транзакция в виде типа [Transaction](../Transaction.md) Type.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

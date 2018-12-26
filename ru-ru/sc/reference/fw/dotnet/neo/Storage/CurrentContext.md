@@ -1,8 +1,8 @@
 # Storage.CurrentContext Property
 
-Returns the current store context. After obtaining the store context, the object can be passed as an argument to other contracts (as a way of authorization), allowing other contracts to perform read/write operations on the persistent store of the current contract.
+Возвращает текущий контекст хранилища. После получения контекста хранения объект можно передать в качестве аргумента другим контрактам (как способ авторизации), что позволит им выполнять операции чтения/ записи для постоянного хранилища текущего контракта.
 
-Note: This is different from the 1.6 version.
+Примечание: Отличается от версии 1.6.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,7 +14,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext {get;}
 ```
 
-Attribute value: Current storage context as a [StorageContext](../StorageContext.md).
+Значение атрибута: текущий контекст хранилища в виде [StorageContext](../StorageContext.md).
 
 
 

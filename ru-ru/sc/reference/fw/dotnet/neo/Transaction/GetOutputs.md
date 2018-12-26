@@ -1,6 +1,6 @@
 # Transaction.GetOutputs Method ()
 
-Returns all transaction outputs for the transaction.
+Возвращает все выходы транзакции для транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern Neo.SmartContract.Framework.Services.Neo.TransactionOutput[] GetOutputs()
 ```
 
-Return Value: All transaction outputs for the current transaction as a [TransactionOutput](../TransactionOutput.md) array.
+Возвращаемое значение: Все выходы транзакции для текущей транзакции в виде массива [TransactionOutput](../TransactionOutput.md) array.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

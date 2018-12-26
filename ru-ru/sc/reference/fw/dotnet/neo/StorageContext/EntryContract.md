@@ -3,7 +3,7 @@
 The storage context of the contract entry point (the starting point of the contract invocation chain).
 
 > [!Caution]
-> Note: deprecated in version 2.0.
+> Обратите внимание: устарел в версии 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

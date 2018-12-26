@@ -1,6 +1,6 @@
 # Asset.Precision property
 
-Returns the smallest division of the asset, or the number of decimal places the asset can have.
+Возвращает самое маленькое деление актива или количество  знаков после запятой (точки), которое может иметь актив.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte Precision {get;}
 ```
 
-Attribute value: Byte array of length 20.
+Значение атрибута: Байтовый массив, имеющий длину 20.
 
 
 

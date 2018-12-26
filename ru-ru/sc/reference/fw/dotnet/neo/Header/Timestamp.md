@@ -1,6 +1,6 @@
 # Header.Timestamp Property
 
-Returns the timestamp of the block.
+Возвращает временную метку блока.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Timestamp {get;}
 ```
 
-Attribute value: UNIX timestamp as an unsigned integer.
+Значение атрибута: Временная метка UNIX.
 
 
 

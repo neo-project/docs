@@ -1,6 +1,6 @@
 # Block.GetTransactionCount Method ()
 
-Returns the number of transactions in the current block.
+Возвращает число транзакций в текущем блоке.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern int GetTransactionCount()
 ```
 
-Return value: Number of transactions as an integer.
+Возвращаемое значение: Число транзакций в виде целого числа.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

@@ -1,6 +1,6 @@
 # Storage.Get Method (StorageContext, byte[])
 
-Returns a value from the persistent store based on the given key.
+Возвращает значение из постоянного хранилища на основе данного ключа.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,15 +12,15 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Get(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key)
 ```
 
-Parameters:
+Параметры:
 
-Context: Storage context as a [StorageContext](../StorageContext.md).
+Context: Контекст хранилища в виде [StorageContext](../StorageContext.md).
 
-Key: Key as a byte array.
+Key: Ключ в виде байтового массива.
 
-Return Value: The value corresponding to the key as a byte array.
+Возвращаемое значение: Значение, соответствующее ключу в виде байтового массива.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

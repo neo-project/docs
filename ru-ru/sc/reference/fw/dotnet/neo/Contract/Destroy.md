@@ -1,8 +1,8 @@
 # Contract.Destroy Method ()
 
-Destruction of smart contracts. The smart contract published to the blockchain cannot be destroyed from outside, thus if the contract needs to be destroyed, the logic needs to be written during development.
+Удаление смарт-контракта. Смарт-контракт, опубликованный в блокчейн, не может быть разрушен средствами извне, поэтому, если смарт-контракт необходимо будет удалить, во время разработки следует написать логику для его удаления.
 
-When the contract is destroyed, the storage area of the old contract is destroyed as well. If the contract is moved, the contents in the old storage area are copied to the new contract storage area.
+Когда контракт удаляется, то и удаляется зона хранения старого контракта. Если контракт переносится, то содержащееся в старой зоне хранения копируется в зону хранения нового контракта.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,7 +14,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern void Destroy()
 ```
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode

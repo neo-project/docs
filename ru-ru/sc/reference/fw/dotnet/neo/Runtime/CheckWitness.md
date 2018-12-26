@@ -1,6 +1,6 @@
 # Runtime.CheckWitness Method (byte[])
 
-Verifies that the transactions / block of the calling contract has validated the required scripthashes.
+Верифицирует, что транзакции / блок вызывающего контракта валидировал(и) необходимые хэши скрипта.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,13 +12,13 @@ Assembly: Neo.SmartContract.Framework
 public static extern bool CheckWitness(byte[] hashOrPubkey)
 ```
 
-Parameters:
+Параметры:
 
-hashOrPubkey: scripthash as a byte array of length 20 or public key as a byte array of length 33.
+hashOrPubkey: хэши скрипта в виде байтового массива, имеющего длину 20, или открытый ключ в виде байтового массива, имеющего длину 33.
 
-Return value: Whether if the verification has been done, boolean.
+Возвращаемое значение: Если была проведена верификация; булево значение.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1 : FunctionCode

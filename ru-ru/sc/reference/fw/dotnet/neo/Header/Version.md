@@ -1,6 +1,6 @@
 # Header.Version Property
 
-Return the version number of the block.
+Возвращает номер версии блока.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Version {get;}
 ```
 
-Attribute value: Version number as an unsigned integer.
+Значение атрибута: Номер версии в виде целого числа без знака.
 
 
 

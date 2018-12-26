@@ -1,6 +1,6 @@
 # Header.Index Property
 
-Return the block height.
+Возвращает высоту блока.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern uint Index {get;}
 ```
 
-Attribute value: Block height as an unsigned integer.
+Значение атрибута: Высота блока в виде целого числа без знака.
 
 
 

@@ -1,6 +1,6 @@
 # Transaction.Type Property
 
-Returns the transaction type.
+Возвращает тип транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern byte Type {get;}
 ```
 
-Attribute value: Transaction type as a byte.
+Значение атрибута: Тип транзакции в виде байта.
 
-Types:
+Типы:
 
 ```c#
 // consensus transaction, special transaction for allocating byte charges

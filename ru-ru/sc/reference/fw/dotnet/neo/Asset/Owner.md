@@ -1,6 +1,6 @@
 # Asset.Owner Property
 
-Returns the public key of the owner of the asset.
+Возвращает открытый ключ владельца данного актива.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern byte[] Owner {get;}
 ```
 
-Attribute value: Byte array of length 33
+Значение атрибута: Байтовый массив, имеющий длину 33
 
 
 

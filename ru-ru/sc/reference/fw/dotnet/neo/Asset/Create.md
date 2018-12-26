@@ -1,8 +1,8 @@
 # Asset.CreateAsset Method (byte, string, long, byte, byte[], byte[], byte[])
 
-This method registers an asset on the Neo blockchain.
+Данный метод регистрирует актив в блокчейне Neo.
 
-This method replaces the RegisterTransaction in version 2.0.
+Данный метод заменяет RegisterTransaction в версии 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,25 +14,25 @@ Assembly: Neo.SmartContract.Framework
 public static extern Neo.SmartContract.Framework.Services.Neo.Asset Create(byte asset_type, string name, long amount, byte precision, byte[] owner, byte[] admin, byte[] issuer)
 ```
 
-Parameters:
+Параметры:
 
-asset_type: An asset type as a byte. For details, please refer to [AssetType](../Asset/AssetType.md).
+asset_type: Тип актива в виде байта. Более подробно см. в [AssetType](../Asset/AssetType.md).
 
-name: The name of the asset as a string.
+name: Имя актива в виде строки.
 
-amount: The amount of assets as a long. The input value here should be the intended value multipled by 100,000,000.
+amount: Сумма активов в виде длинного числа. Входное значение здесь должно быть предполагаемым значением, умноженным на 100,000,000.
 
-precision: The smallest division of the asset，or the number of decimals places that the asset can take as byte.
+precision: Самое маленькое деление актива или количество  знаков после запятой (точки),  которые актив может иметь в виде байта.
 
-owner: The public key of the owner as a byte array of length 33.
+owner: Открытый ключ владельца в виде байтового массива, имеющего длину 33.
 
-admin: The contract address of the adminstrator as a byte array of length 20.
+admin: Адрес контракта администратора в виде байтового массива, имеющего длину 20.
 
-issuer: The contract address of the issuer as a byte array of length 20.
+issuer: Адрес контракта эмитента в виде байтового массива, имеющего длину 20.
 
-Return value: The newly registered asset as an [Asset](../Asset.md) object.
+Возвращаемое значение: Только что зарегистрированный актив в виде объекта [актива](../Asset.md).
 
-## Example
+## Пример
 
 ```c#
 public class Contract1 : FunctionCode

@@ -1,6 +1,6 @@
 # Asset.AssetType Property
 
-Returns the type of the asset.
+Возвращает тип данного актива.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,9 +12,9 @@ Assembly: Neo.SmartContract.Framework
 public extern byte AssetType {get;}
 ```
 
-Attribute value: The enumeration value of the asset class (not the enumeration name).
+Значение атрибута: Перечисляемое значение класса актива (а не перечисляемое имя).
 
-The enumeration of the asset class is defined as follows:
+Перечисление класса актива определяется следующим образом:
 
 ```c#
 public enum AssetType: byte

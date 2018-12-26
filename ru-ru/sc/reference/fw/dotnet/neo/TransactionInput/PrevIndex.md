@@ -1,6 +1,6 @@
 # TransactionInput.PrevIndex Property
 
-Returns the index of this input in the output list of the previous transaction.
+Возвращает индекс данного входа в списке выходов предыдущей транзакции.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public extern ushort PrevIndex {get;}
 ```
 
-Attribute value: Index number starting from 0 as an unsigned short integer.
+Значение атрибута: Номер индекса (начиная с 0) в виде короткого целого числа без знака.
 
 
 

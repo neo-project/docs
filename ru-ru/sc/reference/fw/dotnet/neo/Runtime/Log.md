@@ -1,6 +1,6 @@
 # Runtime.Log Method (string)
 
-Sends a log message to the client executing the smart contract. This method can trigger an event on the client but will require the client to be compatible.
+Отправляет сообщение журнала клиенту, выполняющему смарт-контракт. Данный метод может инициировать событие в клиенте (однако клиент должен быть совместимым).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,11 +12,11 @@ Assembly: Neo.SmartContract.Framework
 public static extern void Log(string message)
 ```
 
-Parameters: 
+Параметры: 
 
-message: Log as a string.
+message: Журнал в виде строки.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1 : FunctionCode

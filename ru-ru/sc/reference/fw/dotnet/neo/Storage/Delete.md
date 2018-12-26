@@ -1,6 +1,6 @@
 # Storage.Delete Method (StorageContext, byte[])
 
-Deletes a value from the peristent store based on the given key.
+Удаляет значение из постоянного хранилища на основе данного ключа.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,15 +12,15 @@ Assembly: Neo.SmartContract.Framework
 public extern void Delete(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key)
 ```
 
-Parameters:
+Параметры:
 
-Context: Storage context as a [StorageContext](../StorageContext.md).
+Context: Контекст хранилища в виде [StorageContext](../StorageContext.md).
 
-Key: Key as a byte array.
+Key: Ключ в виде байтового массива.
 
-Return value: void.
+Возвращаемое значение: void.
 
-## Example
+## Пример
 
 ```c#
 public class Contract1: FunctionCode
