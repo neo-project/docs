@@ -27,7 +27,7 @@ The basic types that can be directly generated from AVM code are only：
 
 The basic types of C# are:
 
-- `Int8 int16 int32 int64 uint8 uint16uint32 uint64`
+- `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 - `float double`
 - `Boolean`
 - `Char String`
@@ -47,7 +47,7 @@ Additionally, these are supported for C#  `BigInteger` ：
 ```c#
 ulong total_neo = 200;
 BigInteger ico_neo = 300;
-BigInteger balance_neo = total_neo- ico_neo;
+BigInteger balance_neo = total_neo - ico_neo;
 ulong value = 150;
 ```
 
@@ -136,7 +136,7 @@ Byte[] is an exception as it is a special type in the NeoVM underlying layer.
 Usually you can set the value in an array using the following:
 
 ```c#
-short[] some= new short[17];
+short[] some = new short[17];
 some[1] = 12;
 return some;
 ```
@@ -172,7 +172,7 @@ You can define two functions of C# delegates, which are special features of NeoV
 
 One can be used to define events:
 
- `publics tatic event acall dododo;`
+ `public static event acall dododo;`
 
 When invoking this event, the NEO C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
 
@@ -247,6 +247,6 @@ Executing a function with the `NonemitWithConvert` attribute actually executes a
 public extern static byte[] ToScriptHash(this string address);
 ```
 
-For example,  `“ASH……wk”.ToScriptHash();` is valid as the compiler can make a conversion to “ABCD”.
+For example,  `"ASH……wk".ToScriptHash();` is valid as the compiler can make a conversion to "ABCD".
 
 However,  `String xxx = "ASH……wk"; xxx.ToScriptHash();` is invalid as the compiler cannot determine the value of XXX.

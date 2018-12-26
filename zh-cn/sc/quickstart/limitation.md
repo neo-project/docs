@@ -27,7 +27,7 @@ NeoVM 有几种基本类型：
 
 C# 的基本类型有
 
-- `Int8 int16 int32 int64 uint8 uint16uint32 uint64`
+- `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 - `float double`
 - `Boolean`
 - `Char String`
@@ -36,7 +36,7 @@ C# 的基本类型有
 
 #### C# 整数类型的支持
 
-`Int8 int16 int32 int64 uint8 uint16uint32 uint64`
+`Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 
 因为 NeoVM 只有一种 Integer，底层实现是 `BigInteger`，比 C# 的范围要大，所以这些整数类型均可使用。
 
@@ -47,7 +47,7 @@ C# 的基本类型有
 ```c#
 ulong total_neo = 200;
 BigInteger ico_neo = 300;
-BigInteger balance_neo = total_neo- ico_neo;
+BigInteger balance_neo = total_neo - ico_neo;
 ulong value = 150;
 ```
 
@@ -251,6 +251,6 @@ public extern static Delegate ToDelegate(this byte[] source);
 public extern static byte[] ToScriptHash(this string address);
 ```
 
-例如， `“ASH……wk”.ToScriptHash();` 是合法的，因为编译器可以执行对 “ABCD” 的转换。
+例如， `"ASH……wk".ToScriptHash();` 是合法的，因为编译器可以执行对 "ABCD" 的转换。
 
 而 `String xxx = "ASH……wk"; xxx.ToScriptHash();` 是非法的，因为编译器无法确定 XXX 的值。
