@@ -1,14 +1,12 @@
 # Frequently Asked Questions (FAQ)
 
-[TOC]
-
 ## The basics
 
-##### **What is NEO？**
+**What is NEO？**
 
 NEO is a distributed network which utilizes blockchain technology and digital identity to digitize assets and automate the management of digital assets using smart contracts. NEO network has two tokens, NEO representing the right to manage NEO blockchain and GAS representing the right to use the NEO Blockchain. 
 
-##### **What developer communities does NEO have?**
+**What developer communities does NEO have?**
 
 NEO has a large number of worldwide developer communities that have been contributing to NEO development for a long time. Following are some representative communities:
 
@@ -18,21 +16,21 @@ NEO has a large number of worldwide developer communities that have been contrib
 - **NSPCC**，the St. Petersburg developer community, russia：https://www.nspcc.ru/en/
 - **KeyMakers**，the Japanese developer community：https://github.com/keymakers
 
-##### **What is GAS？How to acquire GAS？**
+**What is GAS？How to acquire GAS？**
 
 GAS represents the right to use the Neo Blockchain. NEO network charges GAS for the new assets issuance as well as for smart contract running and storage. In the genesis block GAS is 0 and it is generated as new blocks generate. Once NEO is acquired, GAS is generated in the system following the algorithms. GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. NEO holders can initiate a claim transaction at any time to claim available GAS to the NEO address.
 
-##### **Can I transfer GAS to my own account to make it claimable?** 
+**Can I transfer GAS to my own account to make it claimable?** 
 
 Yes. You can do that even if there is just one address in your wallet.
 
-##### **What consensus algorithms does NEO use？**
+**What consensus algorithms does NEO use？**
 
 NEO utilizes a delegated Byzantine Fault Tolerance (dBFT) algorithm which provides a  𝑓 = ⌊ (𝑛−1) / 3 ⌋  fault tolerance to a consensus system that comprises n nodes. 
 
 There are two types of nodes in this mechanism, the ordinary node and the consensus node. Ordinary nodes vote for consensus nodes based on the proportion of NEO they own. When a consensus needs to be passed, a speaker is randomly selected to decide the proposal, and then other consensus nodes vote according to the dBFT algorithm. If more than 2/3 of nodes agree to the proposal, the consensus is reached; otherwise, the speaker is re-elected and the voting process is repeated.  
 
-##### **How to become a NEO consensus node？Is there any incentives？**
+**How to become a NEO consensus node？Is there any incentives？**
 
 NEO consensus nodes are elected by NEO holders. For more information see https://neo-ngd.github.io/reference/How-To-Become-NEO-Consensus-Node.html
 
@@ -44,7 +42,7 @@ You can access http://ndapp.org/ and find all the browsers listed in the Explore
 
 NEO has two asset types. One is global assets which manages assets using the UTXO model. The other is NEP-5 assets which manages assets using the BALANCE model. Both NEO and GAS are UTXO assets that can be traded directly. NEP-5 is a contract asset that is traded by invoking the smart contract. You can use NEO-GUI to register and issue a new UTXO asset. To issue a new NEP-5 asset you need to write a smart contract.
 
-##### **How to view NEP-5 assets in NEO-CLI？**
+**How to view NEP-5 assets in NEO-CLI？**
 
 In NEO-CLI you can just list UTXO assets using `list asset`. To view NEP-5 assets invoke the API `getbalance`.
 
@@ -54,45 +52,45 @@ NEP-5 is a token standard that specifies the token issuance in NEO smart contrac
 
 ## Clients
 
-##### **Why didn't I see any change in the account after I transferred assets to it using NEO-GUI?**
+**Why didn't I see any change in the account after I transferred assets to it using NEO-GUI?**
 
 Firstly check the transaction record in NEO-GUI to see if the transfer transaction has been confirmed. If confirmed, then check if your client has been synchronized up to the latest block height and rebuild the wallet index if the problem still exists.  
 
-##### **Why doesn't the downloaded offline package work?**
+**Why doesn't the downloaded offline package work?**
 
-Read the instructions at http://docs.neo.org/zh-cn/network/syncblocks.html and make sure the following:
+Read the instructions in [Synchronizing the blockchain faster](http://docs.neo.org/zh-cn/network/syncblocks.html) and make sure the following:
 
 - You have downloaded the proper package
 - You have directly placed the downloaded file (chain.0.acc.zip or chain.xxx.acc.zip) under the root directory of NEO-CLI or NEO-GUI without modifying the file name
 - You have installed the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) plugin.
 
-##### **How do I know my client has been fully synchronized? **
+**How do I know my client has been fully synchronized? **
 
 Use the blockchain browser to check the latest block height and then look at the wallet height in your client. If the two heights are the same, your client is fully synchronized. 
 
-##### **How to make a watch-only wallet？**
+**How to make a watch-only wallet？**
 
 In NEO-CLI create a new address, then right-click to import the watch-only address and enter the address you want to monitor. Then you can see each transaction information in the transaction record. You need to rebuild the wallet index after importing the address.
 
-##### **Is it possible to transfer assets to multiple addresses in one transaction?**
+**Is it possible to transfer assets to multiple addresses in one transaction?**
 
 Yes. Refer to [Transactions](node/gui/transc.md).
 
-##### **What are the hardware requirements for the computer running NEO node in the main net?**
+**What are the hardware requirements for the computer running NEO node in the main net?**
 
 A dual-core CPU, 8G memory, and a solid state drive with a minimum of 100G or more are required. The hard disk needs to be expanded on demand to prevent the inode from overflowing.
 
-##### **Is it possible to start NEO-CLI from background？**
+**Is it possible to start NEO-CLI from background？**
 
 You can write some scripts, such as creating a Notepad file on Windows, typing `dotnet neo-cli.dll /rpc` and saving it as a .cmd file or using the screen command on linux.
 
 ## Development
 
-##### **How to apply for test tokens?**
+**How to apply for test tokens?**
 
 Go to https://neo.org/testcoin/apply and fill out the application form. If the application is accepted, you will be notified in three to five workdays.
 
-##### **How to build a private chain?**
+**How to build a private chain?**
 
 To build a private chain, you have the following options：
 
@@ -102,7 +100,7 @@ To build a private chain, you have the following options：
 
 You can also refer to the [community tutorial](http://docs.neo.org/communitydoc.html) to learn more options.
 
-##### **Which languages can I use to develop smart contracts?**
+**Which languages can I use to develop smart contracts?**
 
 NEO supports a variety of mainstream programming languages and can be developed using C#, Python, Go, JS, and Jave. Currently in the NEO ecosystem, the infrastructure for C# and Python is extremely well-developed and various compilers are provided for developers.
 
