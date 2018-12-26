@@ -44,7 +44,7 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 
 使用 NEO-CLI 中的 `list asset` 只能显示 UTXO 资产，想要看到 NEP-5 资产，需要调用 API `getbalance`。
 
-**NEP-5 和 NEP-6 区别？**
+**NEP-5 和 NEP-6 区别是什么？**
 
 NEP-5 是一种通证标准，是针对在 NEO 的智能合约中发布通证的规范。而 NEP-6 是一种钱包标准，包括钱包的格式，里面参数的定义，钱包地址的创建规则等。NEP-6 标准适用于现在的几个版本，包括 2.7.6。NEO 客户端支持两种格式的钱包，一种是 sqlite 钱包（格式为.db3），另一种是 NEP-6 钱包（格式为.json）。考虑到处理速度，强烈建议交易所使用 sqlite 钱包。
 
@@ -52,11 +52,11 @@ NEP-5 是一种通证标准，是针对在 NEO 的智能合约中发布通证的
 
 **为什么使用 NEO-GUI 转账后没有看到资产变化？**
 
-在 NEO-GUI 种点击“交易记录”查看该笔交易是否已确认，如果已确认，查看你的客户端是否已同步到最高区块高度以及重建钱包索引。
+在 NEO-GUI 中点击“交易记录”查看该笔交易是否已确认，如果已确认，查看你的客户端是否已同步到最高区块高度以及重建钱包索引。
 
 **为什么下载了离线同步包后没有加速同步速度？**
 
-请参考 http://docs.neo.org/zh-cn/network/syncblocks.html ，并确认：
+请参考 [快速同步区块](network/syncblocks.md)，并确认：
 
 - 您下载了正确的离线包
 - 下载的压缩包文件（ chain.0.acc.zip 或 chain.xxx.acc.zip） 直接放置到了客户端 NEO-CLI 或 NEO-GUI 根目录下
@@ -74,7 +74,7 @@ NEP-5 是一种通证标准，是针对在 NEO 的智能合约中发布通证的
 
 ##### **是否可以在一次交易中给多个地址进行转账？**
 
-可以。请参考 [交易](http://docs.neo.org/zh-cn/node/gui/transc.html)。
+可以。请参考 [交易](node/gui/transc.md)。
 
 **主网节点部署机器的配置要求是什么？**
 
@@ -164,4 +164,4 @@ NEO 智能合约需要的 开发框架、编译器、NeoVM 版本要求一致。
 
 你需要将 neo-devpack-java-master 打包成 jar 包并放入 neoj 的 \neoj\bin\Release\netcoreapp1.1\win10-x64\publish\
 
-本文部分内容摘自文章：[NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7) 感谢 **cybourgeoisie** 的贡献。
+本节部分内容摘自文章：[NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7) 感谢 **cybourgeoisie** 的贡献。
