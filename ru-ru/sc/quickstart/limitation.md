@@ -27,7 +27,7 @@ NeoVM предоставляет следующие базовые типы да
 
 Базовые типы данных C#:
 
-- `Int8 int16 int32 int64 uint8 uint16uint32 uint64`
+- `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 - `float double`
 - `Boolean`
 - `Char String`
@@ -47,7 +47,7 @@ NeoVM предоставляет следующие базовые типы да
 ```c#
 ulong total_neo = 200;
 BigInteger ico_neo = 300;
-BigInteger balance_neo = total_neo- ico_neo;
+BigInteger balance_neo = total_neo - ico_neo;
 ulong value = 150;
 ```
 
@@ -108,7 +108,7 @@ var d = ss.Substring(1, 2);
 
 Поддерживаются: конкатенация строк, взятие массива фиксированной длины (etch length) и операции intercept для байтов. Строки на английском языке поддерживаются так же, как строки в C#, однако строки на китайском не поддерживаются.
 
-Поскольку другие типы, которые необходимо форматировать как строки, не поддерживаются, результаты `“abc”+1.ToString()` и C# отличаютс.
+Поскольку другие типы, которые необходимо форматировать как строки, не поддерживаются, результаты `"abc"+1.ToString()` и C# отличаютс.
 
 Тип char поддерживается как целочисленный тип.
 
@@ -174,7 +174,7 @@ public static BigInteger TotalIcoNeo() => total_neo;
 
 Одна из функций может быть использована для определения событий:
 
- `publics tatic event acall dododo;`
+ `publics static event acall dododo;`
 
 При вызове данного события компилятор NEO для C# считает его методом Notify. См. событие уведомления NEP5.
 
@@ -250,7 +250,7 @@ public extern static Delegate ToDelegate(this byte[] source);
 public extern static byte[] ToScriptHash(this string address);
 ```
 
-Например,  `“ASH……wk”.ToScriptHash();` допустимо, поскольку компилятор может провести преобразование в “ABCD”.
+Например,  `"ASH……wk".ToScriptHash();` допустимо, поскольку компилятор может провести преобразование в "ABCD".
 
 Однако,  `String xxx = "ASH……wk"; xxx.ToScriptHash();` недопустимо, поскольку компилятор не может определить значение XXX.
 
