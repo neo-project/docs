@@ -76,7 +76,7 @@
           - name: getconnectioncount
             href: node/cli/2.9.2/api/getconnectioncount.md
           - name: getcontractstate
-            href: node/cli/2.8.2/api/getcontractstate.md
+            href: node/cli/2.9.2/api/getcontractstate.md
           - name: getnewaddress
             href: node/cli/2.9.2/api/getnewaddress.md
           - name: getrawmempool
