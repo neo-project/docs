@@ -7,27 +7,26 @@ Bulk transfer order, and you can specify a change address.
 
 ## Parameter Description
 
-`<outputs_array> \[fee=0] \[change_address]`
+`<outputs_array>[fee=0][change_address]`
 
-`Outputs_array`: Array, the data structure of each element in the array is as follows:
+- `Outputs_array`: Array, the data structure of each element in the array is as follows:
 
-	{"asset": \<asset>,"value": \<value>,"address": \<address>}
-	
-	asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
-	
-	For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-	
-	For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+  `{"asset": <asset>,"value": <value>,"address": <address>}`
+  - asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
 
-The remaining asset IDs can be passed through the [CLI commandline](../../cli.md), the `list Asset` command query can also be queried in the block chain browser.
+    For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
+    For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-	value：Transfer amount
-	address：destination address.
+    The remaining asset IDs can be passed through the [CLI commandline](../../cli.md), the `list Asset` command query can also be queried in the block chain browser.
 
-`Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
+  - value：Transfer amount
 
-`Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
+  - address：destination address.
+
+- `Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
+
+- `Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
 
 ## Example
 
