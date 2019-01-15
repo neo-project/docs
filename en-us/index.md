@@ -6,7 +6,7 @@ Here is an exhaustive library of NEO technical docs, including development examp
 
 | NEO Basics                                                   |
 | ------------------------------------------------------------ |
-| [Whitepaper](whitepaper.md)<br />[Consensus](basic/consensus/whitepaper.md)<br />[FAQ](faq.md) |
+| [About NEO](basic/about.md)<br />[Whitepaper](whitepaper.md)<br />[Consensus](basic/consensus/whitepaper.md)<br />[FAQ](faq.md) |
 
 | NEO Node                                                     | NEO Network                                                  | NEO Utilities                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
