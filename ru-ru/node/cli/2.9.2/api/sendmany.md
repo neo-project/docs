@@ -1,37 +1,34 @@
-# sendmany Method
+# Метод sendmany 
 
-Bulk transfer order, and you can specify a change address.
+Перевод актива на несколько адресов с указанием адреса для перевода сдачи.
 
-> [!Note]
-> You need to open the wallet in the NEO-CLI node before executing this command.
 
-## Parameter Description
+> [!Примечание]
+> Этот вызов требует открытого кошелька.
 
-`<outputs_array> \[fee=0] \[change_address]`
+## Принимаемые параметры
 
-`Outputs_array`: Array, the data structure of each element in the array is as follows:
+`<outputs_array> [fee=0] [change_address]`
 
-	{"asset": \<asset>,"value": \<value>,"address": \<address>}
+- `outputs_array`: массив, каждый элемент которого имеет следующую структуру:
+
+	`{"asset": <asset>,"value": <value>,"address": <address>}`
 	
-	asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
-	
-	For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-	
-	For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+	- asset：ID актива， `RegisterTransaction` ID, полученный в результате регистрации этого актива.<br>
+	 Для NEO：`c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b`.<br>
+	 Для NeoGas：`602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7`.<br>
+     ID других активов можно узнать при помощи [командной строки CLI](../../cli.md). Помимо этого, можно выполнить запрос `list Asset` в блокчейн-браузере.
 
-The remaining asset IDs can be passed through the [CLI commandline](../../cli.md), the `list Asset` command query can also be queried in the block chain browser.
+	- value：количество средств для перевода.
+	- address： адрес кошелька получателя.
 
+- `fee`: опциональный параметр. Добавление комиссии поднимает приоритет транзакции в сети. По умолчанию комиссия равна 0, минимальная комиссия составляет 0.00000001.
 
-	value：Transfer amount
-	address：destination address.
+- `change_address`: адрес для возвращения сдачи. Опциональный параметр, по умолчанию равный первому адресу кошелька.
 
-`Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
+## Примеры
 
-`Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
-
-## Example
-
-Request body：
+Пример запроса.
 
 ```json
 {
@@ -55,7 +52,7 @@ Request body：
 }
 ```
 
-Request body (system fee and change address included)
+Пример запроса с комиссией в систему и адресом для зачисления сдачи.
 
 ```json
 {
@@ -81,7 +78,7 @@ Request body (system fee and change address included)
 }
 ```
 
-Response body:
+Пример ответа.
 
 ```json
 {
@@ -131,10 +128,9 @@ Response body:
 }
 ```
 
-Response Description:
+Описание ответа.
 
-Returns the transaction details as above if the transaction was sent successfully; otherwise the transaction is failed.
-
-If the JSON format is incorrect, a Parse error is returned.
-If the signature is incomplete, a pending transaction is returned.
-If the balance is insufficient, an error message is returned.
+Ответ выше содержит детали успешно сформированной транзакции. Если транзакция сформирована неправильно, возвращается ошибка:
+- если формат JSON некорректный, возвращается ошибка парсинга (`Parse error`)
+- если транзакция некорректно подписана (`signature`), возвращается незавершенная (`pending`) транзакция
+- если средств недостаточно, возвращается сообщение об ошибке.

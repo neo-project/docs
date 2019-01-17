@@ -1,38 +1,34 @@
-# sendmany Method
+# Метод sendmany 
 
-Bulk transfer order, and you can specify a change address.
-
-> [!Note]
-> You need to open the wallet in the NEO-CLI node before executing this command.
-
-## Parameter Description
-
-\<outputs_array> \[fee=0] \[change_address]
-
-Outputs_array: Array, the data structure of each element in the array is as follows:
-
-	{"asset": \<asset>,"value": \<value>,"address": \<address>}
-
-	asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
-
-	For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-
-	For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-   The remaining asset IDs can be passed through the [CLI commandline](../../cli.md), the `list Asset` command query can also be queried in the block chain browser.
+Перевод актива на несколько адресов с указанием адреса для перевода сдачи.
 
 
-	value：Transfer amount
+> [!Примечание]
+> Этот вызов требует открытого кошелька.
 
-	address：destination address.
+## Принимаемые параметры
 
-Fee: Handling fee, optional parameter, default is 0.
+`<outputs_array> [fee=0] [change_address]`
 
-Change_address: Change address, optional parameter, default is the first standard address in the wallet.
+- `outputs_array`: массив, каждый элемент которого имеет следующую структуру:
 
-## Example
+	`{"asset": <asset>,"value": <value>,"address": <address>}`
+	
+	- asset：ID актива， `RegisterTransaction` ID, полученный в результате регистрации этого актива.<br>
+	 Для NEO：`c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b`.<br>
+	 Для NeoGas：`602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7`.<br>
+     ID других активов можно узнать при помощи [командной строки CLI](../../cli.md). Помимо этого, можно выполнить запрос `list Asset` в блокчейн-браузере.
 
-Request body：
+	- value：количество средств для перевода.
+	- address： адрес кошелька получателя.
+
+- `fee`: опциональный параметр. Добавление комиссии поднимает приоритет транзакции в сети. По умолчанию комиссия равна 0, минимальная комиссия составляет 0.00000001.
+
+- `change_address`: адрес для возвращения сдачи. Опциональный параметр, по умолчанию равный первому адресу кошелька.
+
+## Примеры
+
+Пример запроса.
 
 ```json
 {
@@ -41,12 +37,12 @@ Request body：
     "params": [
         [
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": 1,
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             }
@@ -56,7 +52,7 @@ Request body：
 }
 ```
 
-Request body (system fee and change address included)
+Пример запроса с комиссией в систему и адресом для зачисления сдачи.
 
 ```json
 {
@@ -82,60 +78,59 @@ Request body (system fee and change address included)
 }
 ```
 
-Response body:
+Пример ответа.
 
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "27b9a82ed519eec17c5520927b3f472e4df28b835c24dba25645e1650ed8d2ac",
+        "txid": "0x55ba819b50f5821298328f3bf9bb17e088afc900cf2ad7dbfc03d49940b5cf30",
         "size": 322,
         "type": "ContractTransaction",
         "version": 0,
         "attributes": [],
         "vin": [
             {
-                "txid": "8674c38082e59455cf35cee94a5a1f39f73b617b3093859aa199c756f7900f1f",
-                "vout": 0
+                "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
+                "vout": 1
             }
         ],
         "vout": [
             {
                 "n": 0,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "1",
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
                 "n": 1,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
                 "value": "1",
                 "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
             },
             {
                 "n": 2,
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": "999998",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "value": "495",
+                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
             }
         ],
         "sys_fee": "0",
         "net_fee": "0",
         "scripts": [
             {
-                "invocation": "40844144eb6819cb094afee2db5e5da078cfc7bbe29dbc60e47b4c3b4bdf77a5fd97865ae9b5a8d8bb3fa20f1441a58a05f848b2ea49c6c0dbbfc5ed241b226665",
-                "verification": "210208c5203d32f960c54c225f140c1020408b114c15d29082fc959dac6874828fccac"
+                "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
+                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
             }
         ]
     }
 }
 ```
 
-Response Description:
+Описание ответа.
 
-Returns the transaction details as above if the transaction was sent successfully; otherwise the transaction is failed.
-
-If the JSON format is incorrect, a Parse error is returned.
-If the signature is incomplete, a pending transaction is returned.
-If the balance is insufficient, an error message is returned.
+Ответ выше содержит детали успешно сформированной транзакции. Если транзакция сформирована неправильно, возвращается ошибка:
+- если формат JSON некорректный, возвращается ошибка парсинга (`Parse error`)
+- если транзакция некорректно подписана (`signature`), возвращается незавершенная (`pending`) транзакция
+- если средств недостаточно, возвращается сообщение об ошибке.
