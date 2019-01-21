@@ -1,29 +1,29 @@
-# About NEO
+# О NEO
 
-## Brief introduction of NEO
+## Краткое введение в NEO
 
-#### Roadmap of NEO
+#### Дорожная карта NEO
 
 <https://neonewstoday.com/general/looking-back-on-2-years-of-the-neo-mainnet/>
 
-- Jun. 2014   Antshares was founded. 
-- Jun. 2015   Open sourced on GitHub.
-- Sep. 2015  White Paper was released.
-- Nov. 2015  TestNet launch.
-- Apr. 2016   The original consensus mechanism dBFT was released.
-- Oct. 2016  MainNet launch.
-- Nov. 2016  Antshares VM was released.
-- May 2017   NEO technical documentation website was launched. 
-- Jun. 2017  Antshares was rebranded as NEO.
-- Aug. 2017   NEO Enhancement Proposals were officially launched.
-- Oct. 2017  NEP-5 Token Standard was developed. 
-- Oct. 2017  Red Pulse issued NEP-5 token on the NEO blockchain for the first time. 
-- Dec. 2017  "NEO Sponsor Giveback Plan" started.
-- Jan. 2018  NEO held the first DevCon in San Francisco.
-- Jul. 2018   NEO started network decentralization.
-- Jul. 2018   NEO started NEO 3.0 development. 
+- Jun. 2014  Основание Antshares. 
+- Jun. 2015  Публикация кода на GitHub.
+- Sep. 2015  Публикация White Paper.
+- Nov. 2015  Запуск TestNet.
+- Apr. 2016  Выпуск оригинального механизма консенсуса dBFT.
+- Oct. 2016  Запуск MainNet.
+- Nov. 2016  Релиз Antshares VM.
+- May. 2017  Запуск сайта с технической документации NEO. 
+- Jun. 2017  Antshares был переименован в NEO.
+- Aug. 2017  Официально стартовали предложения по усовершенствованию NEO.
+- Oct. 2017  Разработан стандарт NEP-5 Token. 
+- Oct. 2017  Red Pulse впервые выпустил токен NEP-5 на блокчейне NEO. 
+- Dec. 2017  Запущен "NEO Sponsor Giveback Plan".
+- Jan. 2018  NEO провел первый DevCon в Сан-Франциско.
+- Jul. 2018  NEO начала децентрализацию сети.
+- Jul. 2018  NEO начал разработку NEO 3.0. 
 
-#### Organizational structure of NEO
+#### Организационная структура NEO
 
 <https://neo.org/team>
 
@@ -46,9 +46,9 @@
 - **NEO Global Development**
 - **NEO Global Capital** 
 
-#### Features of NEO
+#### Особенности NEO
 
-- **-dBFT:** Original consensus mechanism created by NEO Blockchain
+- **-dBFT:** Оригинальный механизм консенсуса, созданный NEO Blockchain
 
   <https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works>
 
@@ -56,34 +56,34 @@
 
   <https://hackernoon.com/what-is-neo-and-what-is-gas-5b9828a1aa65>
 
-  - NEO: represents the right to manage the network, was produced once in first NEO block，minimum unit is 1, can`t be subdivided
-  - GAS: fuel token for the realization of NEO network resource control, will produce with every block. 
+  - NEO: представляет право управлять сетью, был произведен раз в первом NEO блоке, минимальный размер 1, невозможно разделить
+  - GAS: топливный токен для реализации управления ресурсами сети NEO, будет производиться с каждым блоком. 
 
-#### NEO is a friendly platform
+#### NEO - дружественная платформа
 
 - **Developer-friendly**
-  - Smart contract system is friendly, using many mainstream programming languages, such as c#, python, go, javascript
+  - Система смартконтрактов является дружественной, используя многие основные языки программирования, такие как c#, python, go, javascript
 
     <https://docs.neo.org/zh-cn/sc/introduction.html>
 
-  - provide NeoVM(can be implemented on any blockchain environments even on non-blockchain environments)
+  - представлен NeoVM (может быть реализован на любых blockchain средах, даже на не-blockchain средах)
 
-  - Devpack(compiler, IDE, SDK. etc)
+  - Devpack (compiler, IDE, SDK. etc)
 
 - **Eco-friendly**
 
   <https://medium.com/neo-smart-economy/the-darkest-hour-is-just-before-the-dawn-4c5dff22acb7>
-  - more than 70 dApps in NEO eco system
+  - более 70 dApps запущенных в экосистеме NEO
 
     <http://ndapp.org/>
 
-  - more than 50 global developer activities in 2018
+  - более чем 50 глобальных мероприятий для разработчиков в 2018 году
 
     <https://www.reddit.com/r/NEO/comments/a8e5cw/an_eventful_year_over_75_days_of_neo_meetups/>
 
 - **Community-friendly**
 
-  NEO is a community-driven projects and invests a lot in supporting communities. 
+  NEO это проект развиваемый сообществом, поэтому вкладывается много инвестиций в поддержку сообществ.
 
   <https://medium.com/neo-smart-economy/a-walk-through-of-neo-community-development-in-2018-bc8920bb604d>
   - CoZ(City of Zion): <https://cityofzion.io>
@@ -94,9 +94,9 @@
   - NEXT: <https://neonext.club>
   - NNT(NEO NEWS TODAY): <https://neonewstoday.com>
 
-## Reference Links
+## Ссылки
 
-**NEO Website**
+**Вебсайт NEO**
 
 <https://neo.org> 
 
@@ -116,7 +116,7 @@
 
 <https://www.youtube.com/channel/UCl1AwEDN0w5lTmfJEMsY5Vw/videos> 
 
-**NEO News**
+**Новости NEO**
 
 <https://neonewstoday.com> 
 
@@ -128,7 +128,7 @@
 
 <https://discord.io/neo>
 
-## Recent News
+## Последние новости
 
 **NEO DevCon 2019**
 
@@ -136,7 +136,7 @@
 
 <https://www.coinspeaker.com/neo-is-becoming-the-most-developer-friendly-blockchain-for-smart-economy-vision/>
 
-**NEO Network Decentralization**
+**Децентрализация сети NEO**
 
 <https://neo.org/blog/details/4125>
 
@@ -158,19 +158,19 @@
 
 <https://neo.org/blog/details/4091>
 
-**Mainnet lanuched 2 years**
+**Mainnet запущен 2 года назад**
 
 <https://neonewstoday.com/general/looking-back-on-2-years-of-the-neo-mainnet/>
 
 <https://medium.com/neo-smart-economy/2-year-anniversary-of-neo-mainnet-in-stable-operation-71c566c2f514>
 
-**NEO Vulnerability Bounty Program**
+**Программа по поиску уязвимостей в NEO**
 
 <https://neo.org/dev/bounty>
 
 <https://neo.org/blog/details/4105>
 
-**NGD monthly report**
+**NGD ежемесячный отчёт**
 
 Dec. 2018: <https://neo.org/blog/details/4127>
 

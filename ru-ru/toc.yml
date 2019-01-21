@@ -1,6 +1,8 @@
 ﻿- name: Основы NEO
   href: whitepaper.md
   items:
+    - name: О NEO
+      href: basic/about.md
     - name: NEO Whitepaper
       href: whitepaper.md
     - name: NEO Contract Whitepaper
