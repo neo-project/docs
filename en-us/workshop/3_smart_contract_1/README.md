@@ -6,7 +6,7 @@
 </p>
 
 <p align="center" style="font-size: 48px;">
-  <strong>Workshop 003: Smart Contracts 1: Writing, Deploying, and Invoking</strong>
+  <strong>Workshop 003: Smart Contracts 1 - Writing, Deploying, and Invoking</strong>
 </p>
 
 # Introduction

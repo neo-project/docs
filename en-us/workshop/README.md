@@ -24,7 +24,7 @@ The goal of the workshops section is to provide the community with a central rep
 ## Workshops
 * [001 Introduction to Neo](./1_introduction_to_neo/README.md)
 * [002 Development Environments](./2_development_environment/README.md)
-* [003 Smart Contracts 2](./3_smart_contract_1/README.md)
+* [003 Smart Contracts 1](./3_smart_contract_1/README.md)
 * [004 Smart Contracts 2](./4_smart_contract_2/README.md)
 * [005 Smart Contract Interfacing](./5_smart_contract_interfacing/README.md)
 * [006 Hackathon](./6_hackathon/README.md)

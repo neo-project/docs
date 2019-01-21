@@ -6,7 +6,7 @@
 </p>
 
 <p align="center" style="font-size: 48px;">
-  <strong>Workshop 004: Smart Contracts 2: Decentralized Application Architectures and Design Considerations</strong>
+  <strong>Workshop 004: Smart Contracts 2 - Decentralized Application Architectures and Design Considerations</strong>
 </p>
 
 # Introduction
