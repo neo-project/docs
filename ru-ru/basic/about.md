@@ -13,14 +13,14 @@
 - Apr. 2016  Выпуск оригинального механизма консенсуса dBFT.
 - Oct. 2016  Запуск MainNet.
 - Nov. 2016  Релиз Antshares VM.
-- May. 2017  Запуск сайта с технической документации NEO. 
+- May. 2017  Запуск сайта с технической документацией NEO. 
 - Jun. 2017  Antshares был переименован в NEO.
 - Aug. 2017  Официально стартовали предложения по усовершенствованию NEO.
 - Oct. 2017  Разработан стандарт NEP-5 Token. 
 - Oct. 2017  Red Pulse впервые выпустил токен NEP-5 на блокчейне NEO. 
 - Dec. 2017  Запущен "NEO Sponsor Giveback Plan".
 - Jan. 2018  NEO провел первый DevCon в Сан-Франциско.
-- Jul. 2018  NEO начала децентрализацию сети.
+- Jul. 2018  NEO начал децентрализацию сети.
 - Jul. 2018  NEO начал разработку NEO 3.0. 
 
 #### Организационная структура NEO
@@ -48,7 +48,7 @@
 
 #### Особенности NEO
 
-- **-dBFT:** Оригинальный механизм консенсуса, созданный NEO Blockchain
+- **-dBFT:** Оригинальный механизм консенсуса, созданный NEO блокчейн
 
   <https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works>
 
@@ -66,7 +66,7 @@
 
     <https://docs.neo.org/zh-cn/sc/introduction.html>
 
-  - представлен NeoVM (может быть реализован на любых blockchain средах, даже на не-blockchain средах)
+  - представлен NeoVM (может быть реализован на любых блокчейн средах, даже на не-блокчейн средах)
 
   - Devpack (compiler, IDE, SDK. etc)
 
