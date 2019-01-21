@@ -57,7 +57,7 @@
   <https://hackernoon.com/what-is-neo-and-what-is-gas-5b9828a1aa65>
 
   - NEO: represents the right to manage the network, was produced once in first NEO block，minimum unit is 1, can`t be subdivided
-  - GAS: fuel token for the realization of NEO network resource control, will produce with every block. 
+  - GAS: fuel token for the realization of NEO network resource control, will be produced with every block. 
 
 #### NEO is a friendly platform
 

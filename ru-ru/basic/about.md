@@ -62,7 +62,7 @@
 #### NEO - дружественная платформа
 
 - **Developer-friendly**
-  - Система смарт-контрактов является дружественной, используя многие основные языки программирования, такие как c#, python, go, javascript
+  - Система смарт-контрактов является дружелюбной, используя многие основные языки программирования, такие как c#, python, go, javascript
 
     <https://docs.neo.org/zh-cn/sc/introduction.html>
 
@@ -83,7 +83,7 @@
 
 - **Community-friendly**
 
-  NEO это проект развиваемый сообществом, поэтому вкладывается много инвестиций в поддержку сообществ.
+  NEO это проект, развиваемый сообществом, и он много вкладывает в поддержку сообществ.
 
   <https://medium.com/neo-smart-economy/a-walk-through-of-neo-community-development-in-2018-bc8920bb604d>
   - CoZ(City of Zion): <https://cityofzion.io>
