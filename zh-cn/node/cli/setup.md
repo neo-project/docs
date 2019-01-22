@@ -17,6 +17,39 @@
    ```
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
+
+3. 在启动 neo-cli 前需先配置 config.json 文件，以允许调用钱包相关 api 以及开启自动绑定并打开钱包的功能。下面是一个标准设置的例子。
+
+```
+  {
+  "ApplicationConfiguration": {
+    "Paths": {
+      "Chain": "Chain_{0}",
+      "Index": "Index_{0}"
+    },
+    "P2P": {
+      "Port": 10333,
+      "WsPort": 10334
+    },
+    "RPC": {
+      "BindAddress": "127.0.0.1",
+      "Port": 10332,
+      "SslCert": "",
+      "SslCertPassword": ""
+    },
+    "UnlockWallet": {
+      "Path": "wallet.json",
+      "Password": "11111111",
+      "StartConsensus": false,
+      "IsActive": true
+    }
+  }
+}
+```
+> [!Note]
+>
+> 在neo-cli2.9.1中新增了 BindAddress 选项，默认为本地127.0.0.1。可以绑定指定网卡的 ipv4 地址以允许远程调用 rpc。若没有指定对象，则可以设成 0.0.0.0。
+> 钱包打开后才可以调用与钱包相关的 api，config.json 提供了自动开启钱包的选项，不过不是必须项。Path 是钱包的路径， Password 是钱包的密码， IsActive 设为 true 意味着允许自动打开钱包。
    
 ## 安装插件
 
@@ -24,6 +57,8 @@
 请参见 [NEO 客户端插件](../plugin.md)选取所需要的插件进行下载。然后在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
 
 ![plugins.png](../../../assets/plugins.png)
+
+
 
 ## 启动 NEO 节点
 
