@@ -1,6 +1,8 @@
 ﻿- name: NEO 基础知识
   href: whitepaper.md
   items:
+    - name: 关于 NEO
+      href: basic/about.md
     - name: NEO 白皮书
       href: whitepaper.md
     - name: NEO Contract白皮书

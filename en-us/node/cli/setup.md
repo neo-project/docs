@@ -19,6 +19,14 @@ A solid state disk with the computer running the NEO-CLI client  is recommended 
 
    On Windows, you can skip this step as those files are already included in the installation package.
 
+## Installing plugins
+
+Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. 
+
+Refer to [Plug-ins for NEO Client](../plugin.md) to figure out the plugins you need to use and download the desired plugins. Then create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
+
+![](../../../assets/plugins.png)
+
 ## Starting the NEO node
 
 Open the command line, navigate to the NEO-CLI directory, and enter the following command to start the NEO node:
