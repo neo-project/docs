@@ -43,4 +43,4 @@
 
 ## 部署与调用合约
 
-已编译好的智能合约，可以通过 NEO-GUI 在 NEO 区块链上部署和调用。详细内容，请参见 [部署和调用智能合约](/sc/quickstart/deploy-invoke.md)。
+已编译好的智能合约，可以通过 NEO-GUI 在 NEO 区块链上部署和调用。详细内容，请参见 [部署和调用智能合约](/zh-cn/sc/quickstart/deploy-invoke.md)。
