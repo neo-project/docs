@@ -165,4 +165,4 @@ export blocks \<start> [count] | Exports a specified number of block data from t
 Command | Function Description |
 | --------------- | ---- |
 Start consensus | Begin consensus
-Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain.md) for further details.
+Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain/private-chain.md) for further details.
