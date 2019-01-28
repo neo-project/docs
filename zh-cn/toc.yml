@@ -51,7 +51,7 @@
         href: node/cli/apigen.md
         items:
         - name: v2.9.0（或以上版本）
-          href: node/cli/latest-version/api.md
+          href: node/cli/2.9.4/api.md
           items:
           - name: dumpprivkey
             href: node/cli/2.9.4/api/dumpprivkey.md
