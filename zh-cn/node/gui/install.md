@@ -14,6 +14,13 @@
 >
 > Windows 10 之前版本的系统需要安装 [.NET Framework 4.7.1](https://www.microsoft.com/net/download/framework) 。
 
+## 安装插件
+
+要使客户端能够进行离线同步，需要安装 ImportBlocks 插件：
+
+1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) 插件并解压。
+2. 在 NEO-GUI 根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
+
 ## 快速同步区块数据
 
 客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../../network/syncblocks.md)。

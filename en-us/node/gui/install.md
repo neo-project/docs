@@ -14,6 +14,13 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 >
 > Pre-Windows 10 systems require [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) to be installed.
 
+## Installing plugin
+
+You need to install the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) plugin to enable NEO-GUI to synchronize with the offline package.
+
+1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) and unzip it.
+2. Create a new Plugins folder (The first letter is capitalized) under the NEO-GUI root directory and copy the unzipped plugin into it. 
+
 ## Synchronizing blockchain data
 
 The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see [Synchronizing the blockchain faster](../../network/syncblocks.md).
