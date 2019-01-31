@@ -6,15 +6,14 @@ Open the command line, navigate to the directory where NEO-CLI is located, and e
 
 This tutorial will introduce all the commands in the command line wallet. You can manipulate your wallet with commands for creating a wallet, importing and exporting of private key, transferring, starting consensus, etc.
 
-We will first explore the various commands listed in the command line. In the command line, enter `help` followed by a return command, and you will see a list of commands as shown.
+To view all the commands, enter `help` in the command line.
 
-![image](../../../assets/neo-cli-276.png)
-
-The following is a description of all the commands and the order of the brackets:
-Angular brackets `<>` indicate a parameter.
-Square brackets `[]` is for optional parameters.
-The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
-The equal sign `=` indicates the default value of the optional parameter without an input.
+> [!Note]
+>
+> - Angular brackets `<>` indicate a parameter.
+> - Square brackets `[]` is for optional parameters.
+> - The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
+> - The equal sign `=` indicates the default value of the optional parameter without an input.
 
 ## Console Instructions
 
