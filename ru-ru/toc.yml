@@ -51,7 +51,7 @@
         href: node/cli/apigen.md
         items:
         - name: v2.9.2 / 2.9.1 / 2.9.0
-          href: node/cli/2.9.0/api.md
+          href: node/cli/2.9.4/api.md
           items:
           - name: dumpprivkey
             href: node/cli/2.9.2/api/dumpprivkey.md
