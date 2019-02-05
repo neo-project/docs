@@ -13,6 +13,13 @@
 > Клиент NEO-GUI совместим со следующими версиями Windows: Windows 7 (Пакет обновления 1) / Windows 8 / Windows 10.
 >
 > Системы Pre-Windows 10 требуют установки [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework).
+		
+## Установка плагина
+
+Вам необходимо установить плагин [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) чтобы позволить NEO-GUI синхронизироваться с автономным пакетом.
+
+1. Скачайте [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) и распакуйте архив.
+2. Создайте каталог Plugins (первая буква в верхнем регистре) в корневом каталоге клиента и скопируйте туда распакованные данные. 
 
 ## Синхронизация данных блокчейна 
 
