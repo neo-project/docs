@@ -17,6 +17,7 @@
 * <b>Infrastructure Requirements:</b>
 	* (Required) Whiteboard or Projector
 	* (Required) High-Speed Internet Connection
+	* (Required) Deployment of an Eventnet for workshop use
 * <b>Instructor Prework:</b>
 	* (Required) Workshop content review
 	* (Required) Fill out the [worksheet](./Worksheet.md) for students
@@ -31,33 +32,36 @@ This workshop covers how to use the Neo development environment to develop basic
 
 
 ## Tools
-* <i><b>Note:</b> Tools are flagged with language designators for clarity.  Depending on your implementation path, you may be using cross language libraries (for example, writing a smart contract in python, but interfacing in javascript). </i>
-
-#### Writing a contract
-* C#
-* Python
-* Typescript
-* Golang
-
-#### Deploying a contract
-* C#
-* Python
-* Typescript
-* Javascript
-* Golang
-
-#### Interfacing with the contract
-* Python
-* Typescript
-* Javascript
-* Golang
+* <i><b>Note:</b> All code examples are flagged with a language and tool for clarity.  Depending on your implementation path, you may be using cross language libraries (for example, writing a smart contract in python, but interfacing in javascript). </i>
 
 ## Introduction and Setup
-* 10 minutes
+In this course we will be walking students through smart contract development including writing, deploying, and invoking.  We will primarily be using NEP5 contracts as examples, but will cover additional contracts to provide feature coverage.  When developing a smart contract for Neo, its important to understand that the contract deployment workflow has an intermediary step where the contract code is compiled from its native language into a .avm file containing bytecode which the neoVM interprets.  
 
+
+<p align="center">
+  <img 
+	src="../2_development_environment/assets/workflow.png" 
+	alt="Neo">
+</p>
+	
+	
 ## Writing a contract
 * Overview of contract
-* NEP5 example w/ links to multiple languages
+
+
+
+### Examples:
+
+#### C#:
+* [Vanilla NEP-5 template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template)
+* [Moonlight NEP-5 template](https://github.com/Moonlight-io/moonlight-ico-template)
+* [Neo Docs Samples](https://docs.neo.org/en-us/sc/tutorial/HelloWorld.html)
+	
+#### Python:
+* [NEX NEP-5 Template](https://github.com/nash-io/neo-ico-template)
+
+
+
 * Output example .avm and bytecode
 
 ## Deploying a Contract
@@ -73,3 +77,5 @@ This workshop covers how to use the Neo development environment to develop basic
 ### Local Invokes v. Published Invokes
 * Differences in how each works
 * How to leverage the difference in your architecture
+
+### Notification Events
