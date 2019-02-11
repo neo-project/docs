@@ -8,6 +8,8 @@ NEO 客户端必须先完成与区块链的同步才能正常使用。由于区�
 >
 > 1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) 插件并解压。
 > 2. 在客户端根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
+>
+> 另外，对于 NEO-CLI 2.9.4 及之后版本，你也可以使用 `install ImportBlocks` 命令自动安装插件。
 
 ## 第一步 - 获取离线包
 
