@@ -25,7 +25,7 @@ Do the following on four virtual machines:
 ## Creating wallet files
 
 1. Create four wallet files, wallet1.db3 - wallet4.db3, using NEO-CLI or NEO-GUI. The following screenshot shows the creation with NEO-CLI.
-2. Record the public keys of four wallets, i.e. directly copy them on the screen and save to a txt file or use `list key` in [CLI Command](../node/cli/cli.md) to view the public key, and then copy it.
+2. Record the public keys of four wallets, i.e. directly copy them on the screen and save to a txt file or use `list key` in [CLI Command](../../node/cli/cli.md) to view the public key, and then copy it.
 3. Copy the four wallet files into each of the four virtual machines neo-cli folder.
 
 ![image](../../../assets/privatechain_3.png)
