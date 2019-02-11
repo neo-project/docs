@@ -56,7 +56,7 @@ yum install -y readline-devel leveldb-devel libffi-devel gcc-c++ redhat-rpm-conf
 
 ### Windows
 
-在 Windows 操作系统上安装 `neo-python` 需要进行特别的操作，还可能遇到一些常见问题需要解决，相关内容请查看 [Installation (Windows)](installwindows.html)
+在 Windows 操作系统上安装 `neo-python` 需要进行特别的操作，还可能遇到一些常见问题需要解决，相关内容请查看 [Installation (Windows)](installwin.md)
 
 ### OSX
 
