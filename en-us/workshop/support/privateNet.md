@@ -25,9 +25,9 @@ This document will outline the process for deploying a remote privatenet/eventne
 4. execute:
 
 ```bash
-    wget https://github.com/neo-project/docs/tree/feature/workshops/en-us/workshop/support/deployEventnet.sh
-
-    ./deployEventnet.sh
+    wget https://raw.githubusercontent.com/neo-project/docs/feature/workshops/en-us/workshop/support/deployEventnet.sh
+    sudo chmod +x deployEventnet.sh
+    sudo ./deployEventnet.sh
 ```
 
 You should now be able to access the applications at the following:
