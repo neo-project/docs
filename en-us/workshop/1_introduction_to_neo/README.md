@@ -25,3 +25,14 @@
 
 ## Outline
 In this workshop, we will cover the foundations of the blockchain: Basic operating principles, the consensus algorithm, and key differentiators which can be leveraged when developing a decentralized application on the platform. This workshop attempts to provide the information required for an individual to make sound judgment call on whether something belongs on a blockchain and whether any of the unique Neo offerings can be leveraged.
+
+## Introduction
+* 5 minutes
+## What is Neo?
+* 10 minutes
+## The Ecosystem
+* 15 minutes
+## The Consensus Algorithm
+* 20 minutes
+## Key Differentiators
+* 10 minutes

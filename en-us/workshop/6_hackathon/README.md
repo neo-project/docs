@@ -28,3 +28,16 @@
 
 ## Outline
 This document outlines the complete technical execution of a hackathon from setup to finish. The goal is to provide a step-by-step procedure to significantly improve the experience of both the team running the hackathon and the participants.
+
+## Setup
+   * Definition of duration and awards
+   * Event-net deployment
+## Running the Hackathon
+   * Average audience knowledge level
+   * Running workshops
+   * Clearly communicating information
+   * Team formation and project planning
+   * Review of projects by Instructors
+   * Distribution of Gas for deployment
+   * Project review
+
