@@ -105,9 +105,9 @@ For this workshop, we <b>HIGHLY</b> recommend that students use clean AWS EC2 in
 	
 	#### 2.1 C# (neo-gui):
 	
-	    * Make sure the application is closed
-	    * In the application root directory, populate your privatenet domain in the "Seedlist" attribute in protocol.json
-	    * Start the application
+	* Make sure the application is closed
+	* In the application root directory, populate your privatenet domain in the "Seedlist" attribute in protocol.json
+	* Start the application
 		
 	#### 2.2 Python (neo-python):
 	```bash
