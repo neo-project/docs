@@ -58,7 +58,7 @@ Firstly check the transaction record in NEO-GUI to see if the transfer transacti
 
 **Why doesn't the downloaded offline package work?**
 
-Read the instructions in [Synchronizing the blockchain faster](http://docs.neo.org/zh-cn/network/syncblocks.html) and make sure the following:
+Read the instructions in [Synchronizing the blockchain faster](network/syncblocks.md) and make sure the following:
 
 - You have downloaded the proper package
 - You have directly placed the downloaded file (chain.0.acc.zip or chain.xxx.acc.zip) under the root directory of NEO-CLI or NEO-GUI without modifying the file name
@@ -96,7 +96,7 @@ To build a private chain, you have the following options：
 
 - Use a virtual machine to build a private chain on a cloud server. See [here](network/private-chain/private-chain.md).
 - Quickly build a private chain on one Windows serve. See [here](network/private-chain/private-chain2.md).
-- Quickly build a private chain with neo-local. See [here](network/neolocal.md).
+- Quickly build a private chain with neo-local. See [here](network/local-chain.md).
 
 You can also refer to the [community tutorial](http://docs.neo.org/communitydoc.html) to learn more options.
 
