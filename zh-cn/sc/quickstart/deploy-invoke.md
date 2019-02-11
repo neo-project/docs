@@ -69,4 +69,4 @@ public static void Main()
 
 5. 点击 `试运行`，可以测试该合约。确认无误，点击 `调用`。
 
-也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/latest-version/api/invoke.html) 调用合约。
+也可以使用 NEO-CLI 提供的 [invoke 方法](../../node/cli/latest-version/api/invoke.md) 调用合约。
