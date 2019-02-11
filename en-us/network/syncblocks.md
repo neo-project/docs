@@ -9,7 +9,7 @@ The client must be fully synchronized before use. In order to speed up network s
 > 1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) and unzip it.
 > 2. Create a new Plugins folder (The first letter is capitalized) under the client root directory and copy the unzipped plugin into it.
 >
-> Alternatively (neo-cli 2.9.4+) you can use the "install ImportBlocks" command to automatically install the plugin.
+> Alternatively (for NEO-CLI 2.9.4 and later versions) you can use the "install ImportBlocks" command to automatically install the plugin.
 >
 
 ## Step 1 - Download the offline package
