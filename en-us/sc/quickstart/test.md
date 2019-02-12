@@ -1,6 +1,6 @@
 # Unit Testing
 
-You can use the [invokeScript](../../node/cli/latest-version/api/invokescript.html) method provided by NEO-CLI for unit testing.
+You can use the [invokeScript](../../node/cli/latest-version/api/invokescript.md) method provided by NEO-CLI for unit testing.
 
 ### Testing tool
 

@@ -1,6 +1,6 @@
 # 智能合约的单元测试
 
-可以使用 NEO-CLI 提供的 [invokeScript](../../node/cli/latest-version/api/invokescript.html) 方法来进行单元测试。
+可以使用 NEO-CLI 提供的 [invokeScript](../../node/cli/latest-version/api/invokescript.md) 方法来进行单元测试。
 
 ### 单元测试工具
 

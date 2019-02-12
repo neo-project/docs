@@ -16,7 +16,7 @@ catch (Exception)
 }
 ```
 
-当地址错误的时候，会抛出异常。也可以用 API 来进行地址校验，[参考教程](../../node/cli/latest-version/api/validateaddress.html)。
+当地址错误的时候，会抛出异常。也可以用 API 来进行地址校验，[参考教程](../../node/cli/latest-version/api/validateaddress.md)。
 
 ### WIF 格式私钥校验
 
