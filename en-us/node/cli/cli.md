@@ -149,6 +149,31 @@ This command is used to sign when withdrawing assets from a multi-signed address
 
 After signing completed, this command can be used to broadcast the transaction information.  The parameter is the json string that records the transaction information. 
 
+## Plugin commands
+
+| Command                 | Function Description           |
+| ----------------------- | ------------------------------ |
+| install [Plugin name]   | Install the specified plugin   |
+| uninstall [Plugin name] | Uninstall the specified plugin |
+
+👉 `install [Plugin name]`
+
+Following are examples for Installing a plugin. The uninstallation operation is similar.
+
+```
+neo>install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Install successful, please restart neo-cli.
+```
+
+```
+neo>install ApplicationLogs
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Install successful, please restart neo-cli.
+```
+
+For information about all plugins refer to  [Plug-ins for NEO Client](../plugin.md).
+
 ## View the node information
 
 Command | Function Description |
