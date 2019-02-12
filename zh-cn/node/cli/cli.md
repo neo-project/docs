@@ -41,7 +41,7 @@
 | sign \<jsonObjectToSign>            | 签名  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 | relay \<jsonObjectToSign>                | 广播  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 
-
+### 命令说明
 👉 `upgrade wallet <path>` 
 
 升级旧版钱包文件
@@ -161,7 +161,7 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 | install [Plugin name]                    | 安装指定插件                            |        |
 | uninstall [Plugin name]                    | 卸载指定插件                            |        |
 
-
+### 命令说明
 👉 `install [Plugin name]` 
 
 安装指定插件，如下所示。卸载插件与此类似。
