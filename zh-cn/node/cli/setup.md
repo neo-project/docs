@@ -59,7 +59,14 @@
 
 ![plugins.png](../../../assets/plugins.png)
 
+对于 NEO-CLI 2.9.4 及之后版本，支持使用内部命令自动下载或卸载插件，操作更为简便。例如：
 
+```
+install ImportBlocks
+uninstall ApplicationLogs
+
+```
+在安装完毕后，请重启 NEO-CLI 以使插件生效。
 
 ## 启动 NEO 节点
 
