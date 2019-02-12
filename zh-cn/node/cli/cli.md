@@ -41,7 +41,32 @@
 | sign \<jsonObjectToSign>            | 签名  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 | relay \<jsonObjectToSign>                | 广播  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 
+## 插件安装
+
+| 命令                                       | 功能说明                              | 备注     |
+| ---------------------------------------- | --------------------------------- | ------ |
+| install [Plugin name]                    | 安装指定插件                            |        |
+| uninstall [Plugin name]                    | 卸载指定插件                            |        |
+
 以下命令可能需要详细解释一下：
+
+👉 `install [Plugin name]` 
+
+安装指定插件，卸载插件同理
+
+```
+neo>install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Install successful, please restart neo-cli.
+
+```
+```
+neo>install ApplicationLogs
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Install successful, please restart neo-cli.
+
+```
+以上只是示例插件，更多插件请访问[NEO 客户端插件](../plugin.md)。
 
 👉 `upgrade wallet <path>` 
 
