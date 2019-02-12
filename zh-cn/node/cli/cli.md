@@ -41,8 +41,7 @@
 | sign \<jsonObjectToSign>            | 签名  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 | relay \<jsonObjectToSign>                | 广播  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 
-以下命令可能需要详细解释一下：
-
+### 命令说明
 👉 `upgrade wallet <path>` 
 
 升级旧版钱包文件
@@ -64,7 +63,7 @@ Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3
 
 👉 `show utxo [id|alias]`
 
-列出钱包中指定资产的 UTXO，示例如入输出如下所示：
+列出钱包中指定资产的 UTXO，示例输出如下所示：
 
 ```
 neo>show utxo neo
@@ -155,6 +154,31 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
 签名完整后，可以将这段交易信息进行广播。参数同样为记录这段交易的 json 字符串。
 
+## 插件安装
+
+| 命令                                       | 功能说明                              | 备注     |
+| ---------------------------------------- | --------------------------------- | ------ |
+| install [Plugin name]                    | 安装指定插件                            |        |
+| uninstall [Plugin name]                    | 卸载指定插件                            |        |
+
+### 命令说明
+👉 `install [Plugin name]` 
+
+安装指定插件，如下所示。卸载插件与此类似。
+
+```
+neo>install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Install successful, please restart neo-cli.
+
+```
+```
+neo>install ApplicationLogs
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Install successful, please restart neo-cli.
+
+```
+以上只是示例插件，更多插件请访问 [NEO 客户端插件](../plugin.md)。
 
 ## 查看节点信息
 
@@ -165,6 +189,7 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 | show pool                      | 显示内存池中的交易（这些交易处于零确认的状态） |
 | export blocks [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步  |
 | export blocks \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步  |
+
 ## 高级指令
 
 | 命令              | 功能说明 |
