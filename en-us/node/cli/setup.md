@@ -62,6 +62,15 @@ Refer to [Plug-ins for NEO Client](../plugin.md) to figure out the plugins you n
 
 ![](../../../assets/plugins.png)
 
+For NEO-CLI 2.9.4 and later, it is easier to automatically install or uninstall the plugin using commands, for example:
+
+```
+install ImportBlocks
+uninstall ApplicationLogs
+```
+
+After installation, restart NEO-CLI for the plugin to take effect.
+
 ## Starting the NEO node
 
 Open the command line, navigate to the NEO-CLI directory, and enter the following command to start the NEO node:
