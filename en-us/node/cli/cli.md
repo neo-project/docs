@@ -172,7 +172,7 @@ Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2
 Install successful, please restart neo-cli.
 ```
 
-For information about all plugins refer to  [Plug-ins for NEO Client](../plugin.md)。
+For information about all plugins refer to  [Plug-ins for NEO Client](../plugin.md).
 
 ## View the node information
 
