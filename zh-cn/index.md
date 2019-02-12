@@ -1,7 +1,7 @@
 # NEO Documentation
 NEO 官方的技术文档都在这里，还有众多开发示例可供参考。
 
-
+要深入了解 NEO 的技术细节，请点击 [这里](https://docs.neo.org/developerguide/zh/index.html)。
 
 | 基础知识                                                     |
 | ------------------------------------------------------------ |
