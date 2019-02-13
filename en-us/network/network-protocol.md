@@ -198,15 +198,18 @@ Data Type
    |0x02-0x03|ECDH02-ECDH03|Public key for ECDH key exchange|
    |0x20|Script|Additional validation of transactions|
    |0x30|Vote|For voting
-   |0x80|CertUrl|Url address of certificate|
    |0x81|DescriptionUrl|Url address of description|
    |0x90|Description|Brief description|
    |0xa1-0xaf|Hash1-Hash15|Used to store custom hash values|
    |0xf0-0xff|Remark-Remark15|Remarks|
 
-   For ContractHash, ECDH series, Hash series, data length is fixed to 32 bytes and length field is omitted;
+   For ContractHash, ECDH series, Hash series, the data length is fixed to 32 bytes and length field is omitted;
+   
+   For Script, the data length is fixed to 20 bytes for address storage;
+   
+   For DescriptionUrl, the data length must be clearly defined, and the length should not exceed 255 bytes;
 
-   For CertUrl, DescriptionUrl, Description, Remark series, the data length must be clearly defined, and the length should not exceed 255;
+   For Description and Remark series, the data length must be clearly defined, and the length should not exceed 65535 bytes.
 
 1. Input of Transaction
 
