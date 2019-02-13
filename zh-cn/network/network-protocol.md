@@ -199,7 +199,6 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 | 0x02-0x03 | ECDH02-ECDH03   | 用于 ECDH 密钥交换的公钥 |
 | 0x20      | Script          | 用于对交易进行额外的验证    |
 | 0x30      | Vote            | 用于投票选出记账人       |
-| 0x80      | CertUrl         | 证书地址            |
 | 0x81      | DescriptionUrl  | 外部介绍信息地址        |
 | 0x90      | Description     | 简短的介绍信息         |
 | 0xa1-0xaf | Hash1-Hash15    | 用于存放自定义的散列值     |
@@ -207,9 +206,11 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 
 对于 ContractHash，ECDH 系列，Vote，Hash 系列，数据长度固定为 32 字节，length 字段省略；
 
-对于 Script，必须明确给出数据长度，且长度不能超过 65535；
+对于 Script，数据长度固定为 20 字节，存放地址；
 
-对于 CertUrl，DescriptionUrl，Description，Remark 系列，必须明确给出数据长度，且长度不能超过 255。
+对于 DescriptionUrl，必须明确给出数据长度，且长度不能超过 255 字节；
+
+对于 Description 和 Remark 系列，必须明确给出数据长度， 且长度不能超过 65535 字节。
 
 ### 交易输入
 
