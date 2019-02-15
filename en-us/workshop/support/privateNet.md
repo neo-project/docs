@@ -35,3 +35,5 @@ You should now be able to access the applications at the following:
 * <b>Neo-Local-Faucet:</b> {{public IP}}:4002
 * <b>Neo Node RPC:</b> {{public IP}}:20333
 
+<i><b>Note:</b> For a stable/long term development environment, it is recommended to use a volume size of at least 20GB </i>
+
