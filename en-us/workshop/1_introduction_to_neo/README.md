@@ -74,7 +74,7 @@ pprint.pprint(res.json())
 
 <b>A structured version can be found [here](https://neoscan.io/block/96FABD2F37ABED4FF1D6FA8901E9EF7C508F0EBD156417FA0F9FE4F1AA8DC2B7)</b>
 
-```json
+```
 {u'id': 0,
  u'jsonrpc': u'2.0',
  u'result': {u'confirmations': 4,
@@ -177,7 +177,7 @@ The neo platform supports two different models to persistant objects (as of NEO 
 The UTXO model is common to many blockchain platforms, but in Neo, developers have the ability to deploy their own.  UTXO is the model used by the native assets (NEO and GAS) and classically forms a chain of interlinked transactions within the blocks on the platform.  To calculate an the asset balance of an address, each transaction in the transaction chain for an address is analyzed as a series of `diffs` to determine the balance at a block height. To support this, balance changing invocations are <b>WRITE</b>  Below, we see an example of how this is presented in the transactions on the platform.
 
 In the above block, we find a number of different transactions including multiple <b>GAS CLAIMS</b> and a UTXO transfer of NEO here:
-```json
+```
 {u'attributes': [],
                       u'net_fee': u'0',
                       u'scripts': [{u'invocation': u'40ddcf4abd2c9832e9f5350bd70802132fefaf40669a12961e3ca07f2c7a8e9068e55f401f723839e727c198ef3f0d60807bfc4b32358f23c157e2a3f2bca773c9',
@@ -205,7 +205,7 @@ res = requests.post(host, data = json.dumps(query), timeout=4)
 pprint.pprint(res.json())
 ```
 
-```json
+```
  {u'attributes': [],
                       u'net_fee': u'0',
                       u'scripts': [{u'invocation': u'40a39ddcf0de88b36ea1181857298e9d8eec0218a415888a0b8d04e2a960bec50f89e2af3f77c32fb41f8061f2d776e0be8d10bcc1831f835eab19da7d6e972225',
