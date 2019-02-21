@@ -36,7 +36,7 @@ catch (Exception)
 }
 ```
 
-Когда адрес неверен, генерируется исключение. Для верификации адресов NEO вы можете использовать также API. Дополнительную информацию см. в [validateaddress Method](../../node/cli/latest-version/api/validateaddress.html).
+Когда адрес неверен, генерируется исключение. Для верификации адресов NEO вы можете использовать также API. Дополнительную информацию см. в [validateaddress Method](../../node/cli/latest-version/api/validateaddress.md).
 
 ### Верификация закрытого ключа WIF 
 

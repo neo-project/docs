@@ -16,7 +16,7 @@ catch (Exception)
 }
 ```
 
-Если адрес неверен, генерируется исключение. Для верификации адреса вы можете использовать также API. Дополнительную информацию см. в [validateaddress](../../node/cli/latest-version/api/validateaddress.html).
+Если адрес неверен, генерируется исключение. Для верификации адреса вы можете использовать также API. Дополнительную информацию см. в [validateaddress](../../node/cli/latest-version/api/validateaddress.md).
 
 ### Верификация закрытого ключа WIF 
 

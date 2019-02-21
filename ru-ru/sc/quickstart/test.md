@@ -1,6 +1,6 @@
 # Unit-тестирование
 
-Вы можете воспользоваться методом NEO-CLI [invokeScript](../../node/cli/latest-version/api/invokescript.html), предназначенным для unit-тестирования.
+Вы можете воспользоваться методом NEO-CLI [invokeScript](../../node/cli/latest-version/api/invokescript.md), предназначенным для unit-тестирования.
 
 
 ### Инструменты для тестирования
