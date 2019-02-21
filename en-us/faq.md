@@ -64,7 +64,7 @@ Read the instructions in [Synchronizing the blockchain faster](network/syncblock
 - You have directly placed the downloaded file (chain.0.acc.zip or chain.xxx.acc.zip) under the root directory of NEO-CLI or NEO-GUI without modifying the file name
 - You have installed the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) plugin.
 
-**How do I know my client has been fully synchronized? **
+**How do I know my client has been fully synchronized?**
 
 Use the blockchain browser to check the latest block height and then look at the wallet height in your client. If the two heights are the same, your client is fully synchronized. 
 
