@@ -6,7 +6,7 @@ For more NEO technical details, click [here](https://docs.neo.org/developerguide
 
 | NEO Basics                                                   |
 | ------------------------------------------------------------ |
-| [About NEO](basic/about.md)<br />[Whitepaper](whitepaper.md)<br />[Consensus](basic/consensus/whitepaper.md)<br />[FAQ](faq.md) |
+| [About NEO](basic/about.md)<br />[Whitepaper](whitepaper.md)<br />[Consensus](basic/consensus/whitepaper.md)<br />[Workshops](workshop/README.md)<br />[FAQ](faq.md) |
 
 | NEO Node                                                     | NEO Network                                                  | NEO Utilities                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
