@@ -149,6 +149,31 @@ Send c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b AeSHyuirtX
 
 После того, как процедура подписания завершена, данная команда может быть использована для трансляции информации о транзакции. Параметром является строка json, которая записывает информацию о транзакции.
 
+## Команды работы с плагинами
+
+| Команда                 | Описание                       |
+| ----------------------- | ------------------------------ |
+| install [Plugin name]   | Установить указанный плагин    |
+| uninstall [Plugin name] | Удалить указанный плагин       |
+
+ `install [Plugin name]`
+
+Следуйте указанным ниже примерам для установки плагина. Операция удаления происходит аналогично.
+
+```
+neo>install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Install successful, please restart neo-cli.
+```
+
+```
+neo>install ApplicationLogs
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Install successful, please restart neo-cli.
+```
+
+Получить информацию о всех плагинах можно на странице [Плагины клиента NEO](../plugin.md).
+
 ## Просмотр информации об узле 
 
 Command | Function Description |
