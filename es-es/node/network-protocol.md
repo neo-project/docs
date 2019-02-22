@@ -153,7 +153,7 @@ Los gestores de activos pueden crear los activos que se han registrado en la cad
    + PublishTransaction
 
       > [!Note]
-      > Ha sido desactivda y reemplazada por Neo.Contract.Create para el contrato inteligente.
+      > Ha sido desactivada y reemplazada por Neo.Contract.Create para el contrato inteligente.
       > Consultar [Alternative .NET Smart Contract Framework](../sc/fw/dotnet/Neo/Contract/Create.md)
       > Consultar [Alternative Smart Contract API](../sc/api/Neo.md)
 
