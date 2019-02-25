@@ -25,7 +25,7 @@ This document will outline the process for deploying a remote privatenet/eventne
 4. execute:
 
 ```bash
-    wget https://raw.githubusercontent.com/neo-project/docs/feature/workshops/en-us/workshop/support/deployEventnet.sh
+    wget https://raw.githubusercontent.com/neo-project/docs/master/en-us/workshop/support/deployEventnet.sh
     sudo chmod +x deployEventnet.sh
     sudo ./deployEventnet.sh
 ```
