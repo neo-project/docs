@@ -35,7 +35,7 @@ Command | Function Description | Remarks |
 | list address | list all the accounts in the wallet | Need to open wallet |
 | list asset | List all assets in the wallet | Need to open wallet |
 | list key | List all public keys in your wallet | Need to open wallet |
-| show utxo \[id|alias] | List UTXO of the specified asset in the wallet | Need to open wallet |
+| show utxo \[id\|alias] | List UTXO of the specified asset in the wallet | Need to open wallet |
 | show gas | List all the GAS in your wallet | Need to open wallet |
 | claim gas \[all] | Claim the available GAS in your wallet | Need to open wallet |
 | create address [n = 1] | Create address / batch create address | Need to open wallet |
