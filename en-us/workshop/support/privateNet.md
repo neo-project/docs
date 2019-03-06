@@ -30,6 +30,9 @@ This document will outline the process for deploying a remote privatenet/eventne
     sudo ./deployEventnet.sh
 ```
 
+   **Note:** If you are not running the privatenet locally, make sure to configure the faucet address as outlined [here](https://github.com/CityOfZion/neo-local/wiki/Customising-the-Faucet)
+
+
 You should now be able to access the applications at the following:
 * <b>Neoscan:</b> {{public IP}}:4000
 * <b>Neo-Local-Faucet:</b> {{public IP}}:4002
