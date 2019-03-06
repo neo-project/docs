@@ -95,8 +95,9 @@ from boa.builtins import concat
 # TOKEN SETTINGS
 # -------------------------------------------
 
-OWNER = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 # Script hash of the contract owner
+# Use: np-utils --address-to-scripthash {{address}} 
+OWNER = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
 
 # Name of the Token
 TOKEN_NAME = 'NEP5 Standard'
