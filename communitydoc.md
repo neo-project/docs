@@ -4,12 +4,16 @@ This is a collection of tutorials from the NEO community.
 
 ## Documentation
 
-### NEO basics
+### NEO Basics
 
 *NEO Research* - Understanding multi-signature addresses: <br>
 https://medium.com/neoresearch/understanding-multisig-on-neo-df9c9c1403b1
 
-### NEO node
+### NEO Technology
+
+[Delegated Byzantine Fault Tolerance: Technical details, challenges and perspectives](https://docs.neo.org/en-us/08_dbft.pdf)
+
+### NEO Nodes
 
 Accessing NEO API with Postman RPC (***Ubuntu/Windows***) <br>
 https://github.com/taomo-eo/docs/blob/master/Becoming_Consensus_Node/Using%20RPC%20to%20Call%20NEO%20API.md
@@ -17,7 +21,7 @@ https://github.com/taomo-eo/docs/blob/master/Becoming_Consensus_Node/Using%20RPC
 Building a NEO-Python API server on Windows WSL (***Ubuntu***) <br>
 https://medium.com/coinmonks/building-a-neo-python-api-server-on-windows-wsl-ubuntu-dfd62185ae9e
 
-### Smart contract
+### Smart Contracts
 
 How to write NEO Smart Contracts - A complete step-by-step guide (***C#***) <br>
 https://github.com/abalu/NeoSmartAddress/wiki
