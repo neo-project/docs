@@ -329,7 +329,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
    - `[fee]`：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
    - `change_address`：找零地址，可选参数，默认为钱包中第一个标准地址。
 
-   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../node/cli/2.10.0/api/sendmany.md)。
+   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../node/cli/latest-version/api/sendmany.md)。
 
 5. 从返回的 Json 格式交易详情中提取交易 ID，记录在数据库中。
 
