@@ -204,7 +204,7 @@ NEO-CLI 提供以下功能：
 
 - 用户第一次充值（NEO/NEO GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
 
-  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress 方法](../node/cli/2.10.0/api/getnewaddress.md) 实现。程序会返回创建的地址。
+  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress 方法](../node/cli/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
 
 - 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/NEO GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 
