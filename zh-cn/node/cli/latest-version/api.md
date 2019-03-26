@@ -54,6 +54,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                       | 参数                                       | 说明                           | 备注       |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
+| [claimgas](api/claimgas.md) | [address] | 提取钱包中的 GAS | 需要打开钱包 |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 导出指定地址的私钥                    | 需要打开钱包   |
 | [getaccountstate](api/getaccountstate.md) | \<address>                               | 根据账户地址，查询账户资产信息              |          |
 | [getassetstate](api/getassetstate.md) | \<asset_id>                              | 根据指定的资产编号，查询资产信息             |          |
@@ -73,9 +74,11 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | 根据合约脚本散列和存储的 key，返回存储的 value |          |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                             | 根据指定的散列和索引，返回对应的交易输出（零钱）信息   |          |
 | [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
+| [getunclaimedgas](api/getunclaimedgas.md) | | 显示钱包中未提取的 GAS 数量。 | 需要打开钱包 |
 | [getversion](api/getversion.md)          |                                          | 获取查询节点的版本信息                  |          |
 | [getvalidators](api/getvalidators.md) | | 查看当前共识节点的信息 | |
 | [getwalletheight](api/getwalletheight.md) | | 获取当前钱包索引高度 | 需要打开钱包 |
+| [importprivkey](api/getwalletheight.md) | | 导入私钥到钱包 | 需要打开钱包 |
 | [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | 使用给定的参数以散列值调用智能合约            |          |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
