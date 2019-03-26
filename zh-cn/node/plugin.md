@@ -4,11 +4,13 @@
 
 | 插件                                                         | 功能                                                         |              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ |
-| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选   |
-| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ImportBlocks.zip) | 同步离线包。                           | 必选         |
-| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选         |
-| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选 |
-| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选         |
+| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选   |
+| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip) | 同步离线包。                                                 | 必选         |
+| [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip) | 提供钱包相关的 RPC 功能。                                    | 必选         |
+| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选 |
+| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选         |
+| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选         |
+| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | 提供 NEP-5 余额及交易历史的 RPC 查询功能。                   | 可选         |
 
 ## 安装插件
 
