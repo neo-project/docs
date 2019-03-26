@@ -1,6 +1,6 @@
 # claimgas 方法
 
-提取 gas。
+提取钱包中的 GAS。
 
 > [!Note]
 > 执行此命令前需要在 Neo-CLI 节点中打开钱包。
