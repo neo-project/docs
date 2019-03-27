@@ -145,6 +145,12 @@ If you are not sure of the asset ID, please enter the list asset command to view
 
 The command is used to create a multi-party signed address. m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2, and the parameter followed are the two parties public keys.
 
+For example:
+
+```
+import multisigaddress 1 037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630d 03b34a4be80db4a38f62bb41d63f9b1cb664e5e0416c1ac39db605a8e30ef270cc
+```
+
 👉 `sign <jsonObjectToSign>` 
 
 This command is used to sign when withdrawing assets from a multi-signed address which requires multiple signatures. The parameter is the json string that records the transaction information. The translation can be broadcasted only after signing is completed.
