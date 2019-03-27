@@ -153,6 +153,10 @@ Here we want to send the NEO from the contract address to the normal address.
 
 Open the wallet you want to transfer GAS to and click `Advanced`->`Claim GAS`-> `Claim`. 
 
+> [!Note]
+>
+> GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
+
 ![image](../../../assets/privatechain_21.png)
 
 The next operation is similar to the transfer of the NEO. Copy the code that has insufficient signatures, open the second wallet and the third wallet successively to complete transaction signing and broadcasting. 
