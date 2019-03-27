@@ -93,7 +93,11 @@ unavailable: 133.024
 
 Where `unavailable` represents the GAS that cannot be claimed and `available` represents the claimable GAS. 
 
-- This command does not show the GAS that has been claimed. Use `list asset` instead.
+> [!Note]
+>
+> - This command does not show the GAS that has been claimed. Use `list asset` instead.
+> - GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
+>
 
 👉 `claim gas[all]` 
 
