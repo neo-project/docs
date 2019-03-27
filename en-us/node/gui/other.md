@@ -4,6 +4,8 @@
 
 GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
 
+NEO has two status: unspent and spent. Unclaimed GAS has two status accordingly: unavailable and available. When NEO are transferred to an account, their status are unspent, the GAS generated during this period are unavailable for claiming. When NEO are transferred out their status become spent and related GAS become available. How to make the GAS in your account available? Transfer the NEO to any address in your wallet.
+
 The specific steps are:
 
 1. Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
