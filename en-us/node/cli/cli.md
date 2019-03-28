@@ -93,7 +93,11 @@ unavailable: 133.024
 
 Where `unavailable` represents the GAS that cannot be claimed and `available` represents the claimable GAS. 
 
-- This command does not show the GAS that has been claimed. Use `list asset` instead.
+> [!Note]
+>
+> - This command does not show the GAS that has been claimed. Use `list asset` instead.
+> - GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
+>
 
 👉 `claim gas[all]` 
 
@@ -140,6 +144,12 @@ If you are not sure of the asset ID, please enter the list asset command to view
 👉 `import multisigaddress m pubkeys...`
 
 The command is used to create a multi-party signed address. m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2, and the parameter followed are the two parties public keys.
+
+For example:
+
+```
+import multisigaddress 1 037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630d 03b34a4be80db4a38f62bb41d63f9b1cb664e5e0416c1ac39db605a8e30ef270cc
+```
 
 👉 `sign <jsonObjectToSign>` 
 
