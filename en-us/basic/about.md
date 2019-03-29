@@ -22,6 +22,8 @@
 - Jan. 2018  NEO held the first DevCon in San Francisco.
 - Jul. 2018   NEO started network decentralization.
 - Jul. 2018   NEO started NEO 3.0 development. 
+- Feb. 2019  NEO held the second DevCon in Seattle.
+- Mar. 2019  NEO held the Game Conference in Tokyo.
 
 #### Organizational structure of NEO
 
@@ -37,14 +39,25 @@
 
     <https://medium.com/neo-smart-economy/da-hongfei-interviewed-by-wsjs-neanda-salvaterra-at-web-summit-lisbon-f8d4ab460eb7>
 
+    <https://bitcoinist.com/neo-founder-blockchain-interview/>
+
+    <https://www.ccn.com/neo-da-hongfei-top-crypto-blockchain-2020>
+
   - Erik Zhang 
 
     <https://www.ccn.com/why-neo-co-founder-erik-zhang-says-ethereum-will-overtake-bitcoin/>
 
     <https://medium.com/neo-smart-economy/erik-zhang-chain-view-interview-english-transcript-698ee17fa8bd>
 
+    <https://www.newsbtc.com/2019/03/03/zhang-neo-3-0/>
+
+    <https://bitcoinist.com/neo-3-0-cryptocurrency-devcon/>
+
 - **NEO Global Development**
+
 - **NEO Global Capital** 
+
+  <https://www.ngc.fund/>
 
 #### Features of NEO
 
@@ -52,7 +65,11 @@
 
   <https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works>
 
+  <https://docs.neo.org/en-us/08_dbft.pdf>
+
 - **Dual Token: NEO&GAS**
+
+  <https://docs.neo.org/en-us/whitepaper.html#neo-management-model>
 
   <https://hackernoon.com/what-is-neo-and-what-is-gas-5b9828a1aa65>
 
@@ -86,13 +103,16 @@
   NEO is a community-driven projects and invests a lot in supporting communities. 
 
   <https://medium.com/neo-smart-economy/a-walk-through-of-neo-community-development-in-2018-bc8920bb604d>
-  - CoZ(City of Zion): <https://cityofzion.io>
-  - NEL(New economy lab): <https://nel.group/index-En.html>
+  - CoZ (City of Zion): <https://cityofzion.io>
+  - NEL (NewEconoLabs): <https://nel.group/index-En.html>
   - NeoResearch: <http://neoresearch.io>
-  - NSPCC(NEO Saint Petersburg Competence Center): <https://nspcc.ru/en/>
+  - NSPCC (NEO Saint Petersburg Competence Center): <https://nspcc.ru/en/>
+  - NNT (NEO NEWS TODAY): <https://neonewstoday.com>
+  - Red4Sec (Security partner): <https://red4sec.com/en>
+  - NEO-ONE: <https://neo-one.io>
+  - neow3j: <https://github.com/neow3j>
   - Keymakers: <https://neo-jp.org/en/>
   - NEXT: <https://neonext.club>
-  - NNT(NEO NEWS TODAY): <https://neonewstoday.com>
 
 ## Reference Links
 
@@ -130,11 +150,39 @@
 
 ## Recent News
 
+**NEO 3.0**
+
+<https://neo.org/blog/details/4091>
+
+<https://www.newsbtc.com/2019/03/03/zhang-neo-3-0/>
+
+<https://bitcoinist.com/neo-3-0-cryptocurrency-devcon/>
+
+**dBFT 2.0**
+
+<https://docs.neo.org/en-us/08_dbft.pdf>
+
+<https://neonewstoday.com/development/ngd-releases-neo-cli-2-10-0-update-with-dbft-2-0-testnet-deployment-march-18th/>
+
+**NEO GameCon**
+
+<https://neonewstoday.com/general/recap-of-neo-gamecon-in-akihabara-tokyo/>
+
+<https://www.blockchaingamer.biz/features/9528/neo-tokyo-games-conference-follow-the-action-right-here/>
+
 **NEO DevCon 2019**
 
 <https://devcon.neo.org>
 
-<https://www.coinspeaker.com/neo-is-becoming-the-most-developer-friendly-blockchain-for-smart-economy-vision/>
+<https://www.youtube.com/watch?v=2zNQGTF-PNo&lc=z22cin24ppbjylmqa04t1aokgqcaegruraxfd2qpcqevrk0h00410>
+
+<https://thenextweb.com/hardfork/2019/02/21/neo-microsoft-dev-blockchain/>
+
+<https://ambcrypto.com/neo-3-0-promises-a-smarter-economy-backed-by-ecosystem-overhaul-and-technological-revolution/>
+
+<https://cointelegraph.com/news/neo-blockchain-platform-opens-seattle-office-headed-by-ex-microsoft-exec>
+
+<https://nulltx.com/neo-devcon-seattle-the-top-takeaways-from-the-chinese-ethereum/>
 
 **NEO Network Decentralization**
 
@@ -146,6 +194,8 @@
 
 <https://neonewstoday.com/general/neo-st-petersburg-competency-center-announces-neo-distributed-storage-system/>
 
+<https://neonewstoday.com/development/neo-spcc-demos-neofs-candidate-proof-of-concept-following-devcon-presentation/>
+
 **NeoVM**
 
 <https://medium.com/neo-smart-economy/upgrade-of-neovm-36ee232835d9>
@@ -153,10 +203,6 @@
 <https://medium.com/neo-smart-economy/a-deep-dive-into-neovm-neocontract-e470c2c3afb0>
 
 <https://www.youtube.com/watch?v=fLppte-guYE>
-
-**NEO 3.0**
-
-<https://neo.org/blog/details/4091>
 
 **Mainnet lanuched 2 years**
 
@@ -171,6 +217,10 @@
 <https://neo.org/blog/details/4105>
 
 **NGD monthly report**
+
+Feb. 2019: <https://neo.org/blog/details/4133>
+
+Jan. 2019: <https://neo.org/blog/details/4130>
 
 Dec. 2018: <https://neo.org/blog/details/4127>
 
