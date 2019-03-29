@@ -22,6 +22,8 @@
  - 2018年1月 NEO 在旧金山举办了第一届 DevCon。
  - 2018年7月 NEO 开始网络去中心化。
  - 2018年7月 NEO 开始 NEO 3.0 开发。
+ - 2019年2 月 NEO 在西雅图举办了第二届 DevCon。
+ - 2019年3月 NEO 在东京召开了游戏大会。
 
 #### NEO 组织结构
 
@@ -37,14 +39,25 @@
 
     <https://medium.com/neo-smart-economy/da-hongfei-interviewed-by-wsjs-neanda-salvaterra-at-web-summit-lisbon-f8d4ab460eb7>
 
+    <https://bitcoinist.com/neo-founder-blockchain-interview/>
+
+    <https://www.ccn.com/neo-da-hongfei-top-crypto-blockchain-2020>
+
   - 张铮文
 
     <https://www.ccn.com/why-neo-co-founder-erik-zhang-says-ethereum-will-overtake-bitcoin/>
 
     <https://medium.com/neo-smart-economy/erik-zhang-chain-view-interview-english-transcript-698ee17fa8bd>
 
+    <https://www.newsbtc.com/2019/03/03/zhang-neo-3-0/>
+
+    <https://bitcoinist.com/neo-3-0-cryptocurrency-devcon/>
+
 - **NEO Global Development**
+
 - **NEO Global Capital** 
+
+  <https://www.ngc.fund/>
 
 #### NEO 特性
 
@@ -52,12 +65,16 @@
 
   <https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works>
 
+  <https://docs.neo.org/en-us/08_dbft.pdf>
+
 - **双通证: NEO&GAS**
+
+  <https://docs.neo.org/en-us/whitepaper.html#neo-management-model>
 
   <https://hackernoon.com/what-is-neo-and-what-is-gas-5b9828a1aa65>
 
-  - NEO: 代表网络的管理权，在创世块中生成，最小单位为 1，不可再分割。
-  - GAS: 燃料代币，用于实现对 NEO 网络使用时的资源控制。随着每个区块的生成产生。 
+  - NEO：代表网络的管理权，在创世块中生成，最小单位为 1，不可再分割。
+  - GAS：燃料代币，用于实现对 NEO 网络使用时的资源控制。随着每个区块的生成产生。 
 
 #### 平台友好
 
@@ -88,13 +105,16 @@
 
   <https://medium.com/neo-smart-economy/a-walk-through-of-neo-community-development-in-2018-bc8920bb604d>
 
-  - CoZ(City of Zion): <https://cityofzion.io>
-  - NEL(新经济实验室): <https://nel.group/index-En.html>
+  - CoZ（City of Zion）: <https://cityofzion.io>
+  - NEL（新经济实验室）: <https://nel.group/index-En.html>
   - NeoResearch: <http://neoresearch.io>
-  - NSPCC(NEO 圣彼得堡技术中心): <https://nspcc.ru/en/>
+  - NSPCC（NEO 圣彼得堡技术中心）: <https://nspcc.ru/en/>
+  - NNT（NEO NEWS TODAY）: <https://neonewstoday.com>
+  - Red4Sec（Security partner）: <https://red4sec.com/en>
+  - NEO-ONE: <https://neo-one.io>
+  - neow3j: <https://github.com/neow3j>
   - Keymakers: <https://neo-jp.org/en/>
   - NEXT: <https://neonext.club>
-  - NNT(NEO NEWS TODAY): <https://neonewstoday.com>
 
 ## 相关参考
 
@@ -132,11 +152,39 @@
 
 ## 近期新闻
 
+**NEO 3.0**
+
+<https://neo.org/blog/details/4091>
+
+<https://www.newsbtc.com/2019/03/03/zhang-neo-3-0/>
+
+<https://bitcoinist.com/neo-3-0-cryptocurrency-devcon/>
+
+ **dBFT 2.0**
+
+<https://docs.neo.org/en-us/08_dbft.pdf>
+
+<https://neonewstoday.com/development/ngd-releases-neo-cli-2-10-0-update-with-dbft-2-0-testnet-deployment-march-18th/>
+
+ **NEO GameCon**
+
+<https://neonewstoday.com/general/recap-of-neo-gamecon-in-akihabara-tokyo/>
+
+<https://www.blockchaingamer.biz/features/9528/neo-tokyo-games-conference-follow-the-action-right-here/>
+
 **NEO DevCon 2019**
 
 <https://devcon.neo.org>
 
-<https://www.coinspeaker.com/neo-is-becoming-the-most-developer-friendly-blockchain-for-smart-economy-vision/>
+<https://www.youtube.com/watch?v=2zNQGTF-PNo&lc=z22cin24ppbjylmqa04t1aokgqcaegruraxfd2qpcqevrk0h00410>
+
+<https://thenextweb.com/hardfork/2019/02/21/neo-microsoft-dev-blockchain/>
+
+<https://ambcrypto.com/neo-3-0-promises-a-smarter-economy-backed-by-ecosystem-overhaul-and-technological-revolution/>
+
+<https://cointelegraph.com/news/neo-blockchain-platform-opens-seattle-office-headed-by-ex-microsoft-exec>
+
+<https://nulltx.com/neo-devcon-seattle-the-top-takeaways-from-the-chinese-ethereum/>
 
 **NEO 网络去中心化**
 
@@ -148,6 +196,8 @@
 
 <https://neonewstoday.com/general/neo-st-petersburg-competency-center-announces-neo-distributed-storage-system/>
 
+<https://neonewstoday.com/development/neo-spcc-demos-neofs-candidate-proof-of-concept-following-devcon-presentation/>
+
 **NeoVM**
 
 <https://medium.com/neo-smart-economy/upgrade-of-neovm-36ee232835d9>
@@ -155,10 +205,6 @@
 <https://medium.com/neo-smart-economy/a-deep-dive-into-neovm-neocontract-e470c2c3afb0>
 
 <https://www.youtube.com/watch?v=fLppte-guYE>
-
-**NEO 3.0**
-
-<https://neo.org/blog/details/4091>
 
 **主网上线两周年**
 
@@ -174,6 +220,10 @@
 
 **NGD 月报**
 
+Feb. 2019: <https://neo.org/blog/details/4133>
+
+Jan. 2019: <https://neo.org/blog/details/4130>
+
 Dec. 2018: <https://neo.org/blog/details/4127>
 
 Nov. 2018: <https://neo.org/blog/details/4123>
@@ -183,3 +233,4 @@ Oct. 2018: <https://neo.org/blog/details/4120>
 Sep. 2018: <https://neo.org/blog/details/4109>
 
 Aug. 2018: <https://neo.org/blog/details/4103>
+
