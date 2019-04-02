@@ -69,7 +69,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 
 <img src="../../../assets/consensus.iterations.png" width="800">
 
-**Figure 5:** Monto-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
+**Figure 5:** Monte-Carlo Simulation of the DBFT algorithm depicting the iterations required to reach consensus. {100 Nodes; 100,000 Simulated Blocks with random honest node selection}
 
 
 ### Definitions
