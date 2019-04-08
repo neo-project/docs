@@ -12,7 +12,7 @@
 
 要使节点达成共识，需要安装 SimplePolicy 插件启用共识策略。
 
-1. 下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) 插件并解压。
+1. 下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) 插件并解压。
 2. 将文件夹 Plugins 拷贝四份，分别放置到四个节点文件夹中。
 
 ## 创建钱包文件
@@ -142,9 +142,9 @@
 }
 ```
 
-## 修改 protocal.json
+## 修改 protocol.json
 
-在每个节点下的 protocal.json 文件中，对以下参数进行修改，并保证所有节点的配置一致。
+在每个节点下的 protocol.json 文件中，对以下参数进行修改，并保证所有节点的配置一致。
 
 - Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 
@@ -229,4 +229,4 @@
 
 最后：
 
-[https://github.com/chenzhitong/NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 这个项目中是已经配置好的私有链，已提取了 NEO 和 GAS，节点版本为 2.8.0，可以下载后直接使用。
+[https://github.com/chenzhitong/NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 这个项目中是已经配置好的私有链，已提取了 NEO 和 GAS，节点版本为 2.9.4，可以下载后直接使用。

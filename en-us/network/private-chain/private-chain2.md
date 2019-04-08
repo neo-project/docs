@@ -10,7 +10,7 @@ For more information refer to [Installation of NEO-CLI](../../node/cli/setup.md)
 
 ## Installing plug-in
 
-Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/SimplePolicy.zip) the plug-in to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/plugin.md#installing-plug-ins).
+Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) the plug-in to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/plugin.md#installing-plug-ins).
 
 ## Creating wallet files
 
@@ -139,9 +139,9 @@ You can refer to the following example：
 }
 ```
 
-## Modifying protocal.json
+## Modifying protocol.json
 
-Configure the following parameters in each node protocal.json. Ensure the configuration in each file is consistent.
+Configure the following parameters in each node protocol.json. Ensure the configuration in each file is consistent.
 
 - Magic : The private chain ID, which can be any integer in the range of [0 - 4294967295].
 
@@ -226,4 +226,4 @@ Refer to [Withdrawing NEO and GAS](private-chain.md#withdrawing-neo-and-gas).
 
 Tips：
 
-[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The NEO node version is 2.8.0.
+[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The NEO node version is 2.9.4.

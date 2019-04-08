@@ -163,6 +163,7 @@ After signing completed, this command can be used to broadcast the transaction i
 
 | Command                 | Function Description           |
 | ----------------------- | ------------------------------ |
+| plugins                 | List loaded plugins            |
 | install [Plugin name]   | Install the specified plugin   |
 | uninstall [Plugin name] | Uninstall the specified plugin |
 
@@ -198,5 +199,14 @@ export blocks \<start> [count] | Exports a specified number of block data from t
 
 Command | Function Description |
 | --------------- | ---- |
-Start consensus | Begin consensus
+| broadcast addr <ip> <port> | Relay an `addr` message |
+| broadcast block <hash\|height> | Relay a `block` message |
+| broadcast tx \<hash> | Relay a `tx` message |
+| broadcast getdata \<inventory type> \<hash> | Relay a `getdata` message |
+| broadcast inv \<inventory type> \<hash> | Relay an `inv` message |
+| broadcast getblocks \<start hash> | Relay a `getblocks` message |
+| broadcast getheaders \<start hash> | Relay a `getheaders` message |
+| invoke \<script hash> \<command> [param 1] [param n] | Invoke a command on a smart contract |
+| change view \<view number> | Set view of consensus to specific value |
+Start consensus | Begin consensus 
 Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain/private-chain.md) for further details.

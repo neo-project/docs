@@ -378,3 +378,17 @@ According to different orders Payload has different detailed format, see below:
    |----|---------|--------- |----------------- |
    |32 *?|HashStart|uint256[]|Node is known as the latest block hash|
    |32|hashStop|uint256|Request the last block|
+
+1. ping / pong
+
+   Sending a `ping` message with the following payload.. 
+
+   |Size|field|data type|description|
+   |----|---------|--------- |----------------- |
+   |4|LastBlockIndex|uint32|local blockchain height of sender|
+   |4|Timestamp|uint32|UTC timestamp|
+   |4|Nonce|uint32|random int|
+   
+   ..can expect a `pong` reply with a similar payload.
+   
+   The `Nonce` field shall be set to the `Nonce` value received in the payload from the `ping` command.
