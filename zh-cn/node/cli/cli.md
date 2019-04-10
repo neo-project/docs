@@ -19,6 +19,42 @@
 | clear   | 清除屏幕      |
 | exit    | 退出程序      |
 
+## 合约操作
+
+| 命令                                       | 功能说明                              | 备注     |
+| ---------------------------------------- | --------------------------------- | ------ |
+| deploy \<avmFilePath>...<contractDescription>    | 发布合约                            |        |
+| invoke \<scripthash>...<command>                 | 调用合约                            |        |
+  
+### 命令说明
+👉 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
+
+发布合约
+
+```
+neo> deploy Nep-5.avm 0710 05 true false false test 1.0.0 Owen neo@neo.org nep-5-example                 
+VM State: HALT, BREAK
+Gas Consumed: 500
+Evaluation Stack: [{"type":"InteropInterface"}]
+
+Signed and relayed transaction with hash=0x93e33d6f3f8fa285688ecd7082559c4aa2c8024f67d7609c8c9d7047f7fd639c
+```
+
+👉 `invoke <scripthash> <command> [optionally quoted params separated by space]` 
+
+调用合约
+
+```
+neo> invoke 2a1ebf403a94ce2cf6cd826eb32fbf75ee6f3fdc deploy
+Invoking script with: '00c1066465706c6f7967dc3f6fee75bf2fb36e82cdf62cce943a40bf1e2a'
+VM State: HALT
+Gas Consumed: 2.221
+Evaluation Stack: [{"type":"Integer","value":"1"}]
+
+Signed and relayed transaction with hash=0x42f59d2752675e80b965d90c4f4a865c9dbe0a26e5f14fa9e086ea62ddb80c06
+```
+
+
 ## 钱包操作
 
 | 命令                                       | 功能说明                              | 备注     |
