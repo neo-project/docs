@@ -61,6 +61,7 @@ Signed and relayed transaction with hash=0x42f59d2752675e80b965d90c4f4a865c9dbe0
 | ---------------------------------------- | --------------------------------- | ------ |
 | create wallet \<path>                    | 创建钱包文件                            |        |
 | open wallet \<path>                      | 打开钱包文件                            |        |
+| close wallet \<path>                      | 关闭钱包文件                            |        |
 | upgrade wallet \<path>                   | 升级旧版钱包文件                          |        |
 | rebuild index                            | 重建钱包索引                            | 需要打开钱包 |
 | list address                             | 列出钱包中的所有账户                        | 需要打开钱包 |
