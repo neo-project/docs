@@ -13,9 +13,7 @@ NEO 客户端必须先完成与区块链的同步才能正常使用。由于区�
 
 ## 第一步 - 获取离线包
 
-1. 关闭客户端，直接进入[离线包下载页面](http://sync.ngd.network/)。也可从 [客户端下载](https://neo.org/download) 页面点击 **Download offline synchronized package** 进入。
-
-   ![](../../assets/syncblocks_1.png)
+1. 关闭客户端，进入[离线包下载页面](https://sync.ngd.network/)。
 
 2. 在离线包下载页面，根据你所在网络点击 **主网** 或 **测试网** 标签，然后选择以下一种离线包进行下载 （无需解压）：
 
