@@ -50,7 +50,7 @@
       - name: API Reference
         href: node/cli/apigen.md
         items:
-        - name: v2.10.0
+        - name: v2.10.1
           href: node/cli/latest-version/api.md
           items:
           - name: claimgas

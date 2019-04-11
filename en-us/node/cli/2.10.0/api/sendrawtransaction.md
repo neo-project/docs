@@ -19,37 +19,20 @@ Request body:
 }
 ```
 
-Response body if successful:
+Response body:
 
 ```json
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": true
-}
-```
-
-Response body if not successful:
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "error": {
-        "code": -501,
-        "message": "Block or transaction already exists and cannot be sent repeatedly."
-    }
+  "result": false
 }
 ```
 
 Response Description:
 
-When result is false, the current transaction has failed to broadcast and an exception is raised. The following error codes can be expected
+When the result is true, the current transaction has been successfully broadcasted to the network.
 
-Error code | Message |
-| --------------- | ---- |
-| -501 | Block or transaction already exists and cannot be sent repeatedly. |
-| -502 | The memory pool is full and no more transactions can be sent. |
-| -503 | The block cannot be validated. |
-| -504 | Block or transaction validation failed. |
-| -505 | One of the Policy filters failed. |
-| -500 | Unknown error.
+When result is false, the current transaction has failed to broadcast. There are many reasons for this, such as double spend, incomplete signature, etc.
+
+In this example, a confirmed transaction was already broadcasted, so the second broadcast failed due to double spend.

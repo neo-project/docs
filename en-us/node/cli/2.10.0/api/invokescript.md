@@ -31,7 +31,7 @@ Response body:
     "id": 3,
     "result": {
         "script": "00046e616d656724058e5e1b6008847cd662728549088a9ee82191",
-        "state": "HALT",
+        "state": "HALT, BREAK",
         "gas_consumed": "0.161",
         "stack": [
             {
