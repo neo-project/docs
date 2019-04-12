@@ -24,12 +24,49 @@ To view all the commands, enter `help` in the command line.
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
+## Contract operations
+
+| Command                 | Function Description |
+| ----------------------- | -------------------- |
+| deploy <avmFilePath>... | Deploy a contract    |
+| invoke <scripthash>...  | Invoke a contract    |
+
+### 命令说明
+
+👉 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>`
+
+ To deploy a contract: 
+
+```
+neo> deploy Nep-5.avm 0710 05 true false false test 1.0.0 Owen neo@neo.org nep-5-example                 
+VM State: HALT, BREAK
+Gas Consumed: 500
+Evaluation Stack: [{"type":"InteropInterface"}]
+
+Signed and relayed transaction with hash=0x93e33d6f3f8fa285688ecd7082559c4aa2c8024f67d7609c8c9d7047f7fd639c
+```
+
+ 👉 `invoke <scripthash> <command> [optionally quoted params separated by space]`
+
+ To invoke a contract:
+
+```
+neo> invoke 2a1ebf403a94ce2cf6cd826eb32fbf75ee6f3fdc deploy
+Invoking script with: '00c1066465706c6f7967dc3f6fee75bf2fb36e82cdf62cce943a40bf1e2a'
+VM State: HALT
+Gas Consumed: 2.221
+Evaluation Stack: [{"type":"Integer","value":"1"}]
+
+Signed and relayed transaction with hash=0x42f59d2752675e80b965d90c4f4a865c9dbe0a26e5f14fa9e086ea62ddb80c06
+```
+
 ## Wallet operation
 
 Command | Function Description | Remarks |
 | ---------------------------------------- | -------------------------------- | ------ |
 | create wallet \<path> | Create a wallet file |
 | open wallet \<path> | Open a wallet file |
+| close wallet | Close the current wallet |
 | upgrade wallet \<path> | Upgrade old wallet files| |
 | rebuild index |Rebuild the wallet index | Need to open wallet |
 | list address | list all the accounts in the wallet | Need to open wallet |
