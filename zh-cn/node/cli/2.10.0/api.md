@@ -52,6 +52,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 ## 命令列表
 
+
+
 | 方法                                       | 参数                                       | 说明                           | 备注       |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
 | [claimgas](api/claimgas.md) | [address] | 提取钱包中的 GAS | 需要打开钱包 |
@@ -84,12 +86,11 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
 | [listaddress](api/listaddress.md)        |                                          | 列出当前钱包内的所有地址                 | 需要打开钱包   |
-| [listplugins](api/listplugins.md) | | 列出节点已加载的所有插件。                           |  |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |          |
 | [sendfrom](api/sendfrom.md)              | \<asset_id> \<from>\<to> \<value> [fee=0] | 从指定地址，向指定地址转账                | 需要打开钱包   |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | 向指定地址转账                      | 需要打开钱包   |
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | 批量转账命令                       | 需要打开钱包   |
-| [submitblock](api/submitblock.md) | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
+| [submitblock]((api/submitblock.md)) | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
 | [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 NEO 地址            |          |
 
 

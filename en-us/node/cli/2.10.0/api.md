@@ -79,6 +79,7 @@ For P2P and WebSocket information see [Node/Introduction](../../introduction.md)
 | [getrawtransaction](api/getrawtransaction.md)   | \<txid> [verbose=0]                         | Returns the corresponding transaction information based on the specified hash value |                              |
 | [getunclaimedgas](api/getunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. | Need to open the wallet |
 | [getstorage](api/getstorage.md)                 | \<script_hash>  \<key>                      | Returns the stored value based on the contract script hash and key |                              |
+| [gettransactionheight](api/gettransactionheight.md) | \<txid> | Returns the block index in which the transaction is found. | |
 | [gettxout](api/gettxout.md)                     | \<txid> \<n>                                | Returns the corresponding transaction output (change) information based on the specified hash and index |                              |
 | [getpeers](api/getpeers.md)                     |                                             | Gets a list of nodes that are currently connected/disconnected by this node |                              |
 | [getversion](api/getversion.md)                 |                                             | Gets version information of this node                        |                              |
@@ -93,7 +94,7 @@ For P2P and WebSocket information see [Node/Introduction](../../introduction.md)
 | [sendfrom](api/sendfrom.md)                     | \<asset_id> \<address> \<value> [fee=0]     | Transfers from the specified address to the destination address. | Need to open the wallet |
 | [sendtoaddress](api/sendtoaddress.md)           | \<asset_id> \<address> \<value> [fee=0]     | Transfer to specified address                                | Need to open the wallet      |
 | [sendmany](api/sendmany.md)                     | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                                          | Need to open the wallet      |
-| submitblock                                     | \<hex>                                      | Submit new blocks                                            | Needs to be a consensus node |
+| [submitblock](api/submitblock.md)    | \<hex>                                      | Relay a new block to the network            | Needs to be a consensus node |
 | [validateaddress](api/validateaddress.md)       | \<address>                                  | Verify that the address is a correct NEO address             |                              |
 
 ## GET request example

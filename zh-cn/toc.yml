@@ -50,7 +50,7 @@
       - name: API 参考
         href: node/cli/apigen.md
         items:
-        - name: v2.10.0
+        - name: v2.10.1
           href: node/cli/latest-version/api.md
           items:
           - name: claimgas
@@ -89,6 +89,8 @@
             href: node/cli/latest-version/api/getrawtransaction.md
           - name: getstorage
             href: node/cli/latest-version/api/getstorage.md
+          - name: gettransactionheight
+            href: node/cli/latest-version/api/gettransactionheight.md
           - name: gettxout
             href: node/cli/latest-version/api/gettxout.md
           - name: getpeers
@@ -109,6 +111,8 @@
             href: node/cli/latest-version/api/invokefunction.md
           - name: invokescript
             href: node/cli/latest-version/api/invokescript.md
+          - name: listplugins
+            href: node/cli/latest-version/api/listplugins.md
           - name: listaddress
             href: node/cli/latest-version/api/listaddress.md
           - name: sendfrom
@@ -119,8 +123,85 @@
             href: node/cli/latest-version/api/sendtoaddress.md
           - name: sendmany
             href: node/cli/latest-version/api/sendmany.md
+          - name: submitblock
+            href: node/cli/latest-version/api/submitblock.md
           - name: validateaddress
             href: node/cli/latest-version/api/validateaddress.md
+        - name: v2.10.0
+          href: node/cli/2.10.0/api.md
+          items:
+          - name: claimgas
+            href: node/cli/2.10.0/api/claimgas.md
+          - name: dumpprivkey
+            href: node/cli/2.10.0/api/dumpprivkey.md
+          - name: getaccountstate
+            href: node/cli/2.10.0/api/getaccountstate.md
+          - name: getassetstate
+            href: node/cli/2.10.0/api/getassetstate.md
+          - name: getbalance
+            href: node/cli/2.10.0/api/getbalance.md
+          - name: getbestblockhash
+            href: node/cli/2.10.0/api/getbestblockhash.md
+          - name: getblock
+            href: node/cli/2.10.0/api/getblock.md
+          - name: getblock
+            href: node/cli/2.10.0/api/getblock2.md
+          - name: getblockcount
+            href: node/cli/2.10.0/api/getblockcount.md
+          - name: getblockheader
+            href: node/cli/2.10.0/api/getblockheader.md
+          - name: getblockhash
+            href: node/cli/2.10.0/api/getblockhash.md
+          - name: getblocksysfee
+            href: node/cli/2.10.0/api/getblocksysfee.md
+          - name: getconnectioncount
+            href: node/cli/2.10.0/api/getconnectioncount.md
+          - name: getcontractstate
+            href: node/cli/2.10.0/api/getcontractstate.md
+          - name: getnewaddress
+            href: node/cli/2.10.0/api/getnewaddress.md
+          - name: getrawmempool
+            href: node/cli/2.10.0/api/getrawmempool.md
+          - name: getrawtransaction
+            href: node/cli/2.10.0/api/getrawtransaction.md
+          - name: getstorage
+            href: node/cli/2.10.0/api/getstorage.md
+          - name: gettransactionheight
+            href: node/cli/2.10.0/api/gettransactionheight.md
+          - name: gettxout
+            href: node/cli/2.10.0/api/gettxout.md
+          - name: getpeers
+            href: node/cli/2.10.0/api/getpeers.md
+          - name: getunclaimedgas
+            href: node/cli/2.10.0/api/getunclaimedgas.md
+          - name: getvalidators
+            href: node/cli/2.10.0/api/getvalidators.md
+          - name: getversion
+            href: node/cli/2.10.0/api/getversion.md
+          - name: getwalletheight
+            href: node/cli/2.10.0/api/getwalletheight.md
+          - name: importkey
+            href: node/cli/2.10.0/api/importkey.md
+          - name: invoke
+            href: node/cli/2.10.0/api/invoke.md
+          - name: invokefunction
+            href: node/cli/2.10.0/api/invokefunction.md
+          - name: invokescript
+            href: node/cli/2.10.0/api/invokescript.md
+          - name: listaddress
+            href: node/cli/2.10.0/api/listaddress.md
+          - name: sendfrom
+            href: node/cli/2.10.0/api/sendfrom.md
+          - name: sendrawtransaction
+            href: node/cli/2.10.0/api/sendrawtransaction.md
+          - name: sendtoaddress
+            href: node/cli/2.10.0/api/sendtoaddress.md
+          - name: sendmany
+            href: node/cli/2.10.0/api/sendmany.md
+          - name: submitblock
+            href: node/cli/2.10.0/api/submitblock.md
+          - name: validateaddress
+            href: node/cli/2.10.0/api/validateaddress.md
         - name: v2.9.0+
           href: node/cli/2.9.4/api.md
           items:
