@@ -52,6 +52,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 ## 命令列表
 
+
+
 | 方法                                       | 参数                                       | 说明                           | 备注       |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
 | [claimgas](api/claimgas.md) | [address] | 提取钱包中的 GAS | 需要打开钱包 |
@@ -68,6 +70,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 根据指定的索引，返回截止到该区块前的系统手续费      |          |
 | [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |          |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |          |
+| [getnep5balances](api/getnewaddress.md) | \<address> | 返回指定地址内的所有 NEP-5 资产余额。 | |
+| [getnep5transfers](api/getnewaddress.md) | \<address> | 返回指定地址内的所有 NEP-5 交易记录。 | |
 | [getnewaddress](api/getnewaddress.md)    |                                          | 创建一个新的地址                     | 需要打开钱包   |
 | [getrawmempool](api/getrawmempool.md)    |                                          | 获取内存中未确认的交易列表                |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |          |

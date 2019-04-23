@@ -81,6 +81,10 @@
             href: node/cli/latest-version/api/getconnectioncount.md
           - name: getcontractstate
             href: node/cli/latest-version/api/getcontractstate.md
+          - name: getnep5balances
+            href: node/cli/latest-version/api/getnep5balances.md
+          - name: getnep5transfers
+            href: node/cli/latest-version/api/getnep5transfers.md
           - name: getnewaddress
             href: node/cli/latest-version/api/getnewaddress.md
           - name: getrawmempool
