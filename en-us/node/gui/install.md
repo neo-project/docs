@@ -12,7 +12,7 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 >
 > The NEO-GUI client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 >
-> Pre-Windows 10 systems require [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) to be installed.
+> You must install [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) on your windows system.
 
 ## Installing plugin
 
