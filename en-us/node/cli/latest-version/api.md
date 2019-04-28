@@ -74,6 +74,8 @@ For P2P and WebSocket information see [Node/Introduction](../../introduction.md)
 | [getblocksysfee](api/getblocksysfee.md)         | \<index>                                    | Returns the system fees before the block according to the specified index |                              |
 | [getconnectioncount](api/getconnectioncount.md) |                                             | Gets the current number of connections for the node          |                              |
 | [getcontractstate](api/getcontractstate.md)     | \<script_hash>                              | Returns information about the contract based on the specified script hash |                              |
+| [getnep5balances](api/getnep5balances.md) | \<address> | Returns the balance of all NEP-5 assets in the specified address. | |
+| [getnep5transfers](api/getnep5transfers.md) | \<address> | Returns all the NEP-5 transaction information occurred in the specified address. | |
 | [getnewaddress](api/getnewaddress.md)           |                                             | Creates a new address                                        | Need to open the wallet      |
 | [getrawmempool](api/getrawmempool.md)           |                                             | Gets a list of unconfirmed transactions in memory            |                              |
 | [getrawtransaction](api/getrawtransaction.md)   | \<txid> [verbose=0]                         | Returns the corresponding transaction information based on the specified hash value |                              |
