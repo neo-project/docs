@@ -19,6 +19,41 @@ A solid state disk with the computer running the NEO-CLI client  is recommended 
 
    On Windows, you can skip this step as those files are already included in the installation package.
 
+## Configuring config.json
+
+Before starting NEO-CLI, you need to configure the config.json file to enable automatic binding and opening of the wallet. You can invoke the wallet related API only when the wallet is opened. The following is an configuration example, where `Path` is the wallet path, `Password` is the wallet password, and `IsActive` is set to `true` to allow the wallet to be opened automatically.
+
+```
+  {
+  "ApplicationConfiguration": {
+    "Paths": {
+      "Chain": "Chain_{0}",
+      "Index": "Index_{0}"
+    },
+    "P2P": {
+      "Port": 10333,
+      "WsPort": 10334
+    },
+    "RPC": {
+      "BindAddress": "127.0.0.1",
+      "Port": 10332,
+      "SslCert": "",
+      "SslCertPassword": ""
+    },
+    "UnlockWallet": {
+      "Path": "wallet.json",
+      "Password": "11111111",
+      "StartConsensus": false,
+      "IsActive": true
+    }
+  }
+}
+```
+
+> [!Note]
+>
+> The BindAddress option has been added to NEO-CLI 2.9.1, which defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0.
+
 ## Installing plugins
 
 Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. 
@@ -26,6 +61,15 @@ Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulate
 Refer to [Plug-ins for NEO Client](../plugin.md) to figure out the plugins you need to use and download the desired plugins. Then create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
 
 ![](../../../assets/plugins.png)
+
+For NEO-CLI 2.9.4 and later, it is easier to automatically install or uninstall the plugin using commands, for example:
+
+```
+install ImportBlocks
+uninstall ApplicationLogs
+```
+
+After installation, restart NEO-CLI for the plugin to take effect.
 
 ## Starting the NEO node
 

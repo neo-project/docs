@@ -2,11 +2,18 @@
 
 NEO 客户端必须先完成与区块链的同步才能正常使用。由于区块链数据庞大，客户端同步时间通常很久，建议采用离线同步包加速同步过程。
 
+> [!Note]
+>
+> NEO 客户端需要先安装 ImportBlocks 插件才能进行离线同步，请确认您已经安装好插件：
+>
+> 1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) 插件并解压。
+> 2. 在客户端根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
+>
+> 另外，对于 NEO-CLI 2.9.4 及之后版本，你也可以使用 `install ImportBlocks` 命令自动安装插件。
+
 ## 第一步 - 获取离线包
 
-1. 关闭客户端，直接进入[离线包下载页面](http://sync.ngd.network/)。也可从 [客户端下载](https://neo.org/download) 页面点击 **Download offline synchronized package** 进入。
-
-   ![](../../assets/syncblocks_1.png)
+1. 关闭客户端，进入[离线包下载页面](https://sync.ngd.network/)。
 
 2. 在离线包下载页面，根据你所在网络点击 **主网** 或 **测试网** 标签，然后选择以下一种离线包进行下载 （无需解压）：
 

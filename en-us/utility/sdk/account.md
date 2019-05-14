@@ -16,7 +16,7 @@ catch (Exception)
 }
 ```
 
-If the address is wrong, an exception is thrown. You can also use API to verify the adderss. For more information refer to [validateaddress](../../node/cli/latest-version/api/validateaddress.html).
+If the address is wrong, an exception is thrown. You can also use API to verify the adderss. For more information refer to [validateaddress](../../node/cli/latest-version/api/validateaddress.md).
 
 ### Verifying WIF private key
 

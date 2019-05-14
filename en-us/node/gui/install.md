@@ -12,7 +12,14 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 >
 > The NEO-GUI client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
 >
-> Pre-Windows 10 systems require [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) to be installed.
+> You must install [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) on your windows system.
+
+## Installing plugin
+
+You need to install the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) plugin to enable NEO-GUI to synchronize with the offline package.
+
+1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) and unzip it.
+2. Create a new Plugins folder (The first letter is capitalized) under the NEO-GUI root directory and copy the unzipped plugin into it. 
 
 ## Synchronizing blockchain data
 

@@ -6,15 +6,14 @@ Open the command line, navigate to the directory where NEO-CLI is located, and e
 
 This tutorial will introduce all the commands in the command line wallet. You can manipulate your wallet with commands for creating a wallet, importing and exporting of private key, transferring, starting consensus, etc.
 
-We will first explore the various commands listed in the command line. In the command line, enter `help` followed by a return command, and you will see a list of commands as shown.
+To view all the commands, enter `help` in the command line.
 
-![image](../../../assets/neo-cli-276.png)
-
-The following is a description of all the commands and the order of the brackets:
-Angular brackets `<>` indicate a parameter.
-Square brackets `[]` is for optional parameters.
-The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
-The equal sign `=` indicates the default value of the optional parameter without an input.
+> [!Note]
+>
+> - Angular brackets `<>` indicate a parameter.
+> - Square brackets `[]` is for optional parameters.
+> - The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
+> - The equal sign `=` indicates the default value of the optional parameter without an input.
 
 ## Console Instructions
 
@@ -25,18 +24,55 @@ The equal sign `=` indicates the default value of the optional parameter without
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
+## Contract operations
+
+| Command                 | Function Description |
+| ----------------------- | -------------------- |
+| deploy <avmFilePath>... | Deploy a contract    |
+| invoke <scripthash>...  | Invoke a contract    |
+
+### 命令说明
+
+👉 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>`
+
+ To deploy a contract: 
+
+```
+neo> deploy Nep-5.avm 0710 05 true false false test 1.0.0 Owen neo@neo.org nep-5-example                 
+VM State: HALT, BREAK
+Gas Consumed: 500
+Evaluation Stack: [{"type":"InteropInterface"}]
+
+Signed and relayed transaction with hash=0x93e33d6f3f8fa285688ecd7082559c4aa2c8024f67d7609c8c9d7047f7fd639c
+```
+
+ 👉 `invoke <scripthash> <command> [optionally quoted params separated by space]`
+
+ To invoke a contract:
+
+```
+neo> invoke 2a1ebf403a94ce2cf6cd826eb32fbf75ee6f3fdc deploy
+Invoking script with: '00c1066465706c6f7967dc3f6fee75bf2fb36e82cdf62cce943a40bf1e2a'
+VM State: HALT
+Gas Consumed: 2.221
+Evaluation Stack: [{"type":"Integer","value":"1"}]
+
+Signed and relayed transaction with hash=0x42f59d2752675e80b965d90c4f4a865c9dbe0a26e5f14fa9e086ea62ddb80c06
+```
+
 ## Wallet operation
 
 Command | Function Description | Remarks |
 | ---------------------------------------- | -------------------------------- | ------ |
 | create wallet \<path> | Create a wallet file |
 | open wallet \<path> | Open a wallet file |
+| close wallet | Close the current wallet |
 | upgrade wallet \<path> | Upgrade old wallet files| |
 | rebuild index |Rebuild the wallet index | Need to open wallet |
 | list address | list all the accounts in the wallet | Need to open wallet |
 | list asset | List all assets in the wallet | Need to open wallet |
 | list key | List all public keys in your wallet | Need to open wallet |
-| show utxo \[id|alias] | List UTXO of the specified asset in the wallet | Need to open wallet |
+| show utxo \[id\|alias] | List UTXO of the specified asset in the wallet | Need to open wallet |
 | show gas | List all the GAS in your wallet | Need to open wallet |
 | claim gas \[all] | Claim the available GAS in your wallet | Need to open wallet |
 | create address [n = 1] | Create address / batch create address | Need to open wallet |
@@ -94,7 +130,11 @@ unavailable: 133.024
 
 Where `unavailable` represents the GAS that cannot be claimed and `available` represents the claimable GAS. 
 
-- This command does not show the GAS that has been claimed. Use `list asset` instead.
+> [!Note]
+>
+> - This command does not show the GAS that has been claimed. Use `list asset` instead.
+> - GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
+>
 
 👉 `claim gas[all]` 
 
@@ -142,6 +182,12 @@ If you are not sure of the asset ID, please enter the list asset command to view
 
 The command is used to create a multi-party signed address. m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2, and the parameter followed are the two parties public keys.
 
+For example:
+
+```
+import multisigaddress 1 037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630d 03b34a4be80db4a38f62bb41d63f9b1cb664e5e0416c1ac39db605a8e30ef270cc
+```
+
 👉 `sign <jsonObjectToSign>` 
 
 This command is used to sign when withdrawing assets from a multi-signed address which requires multiple signatures. The parameter is the json string that records the transaction information. The translation can be broadcasted only after signing is completed.
@@ -149,6 +195,32 @@ This command is used to sign when withdrawing assets from a multi-signed address
 👉 `relay <jsonObjectToSign>` 
 
 After signing completed, this command can be used to broadcast the transaction information.  The parameter is the json string that records the transaction information. 
+
+## Plugin commands
+
+| Command                 | Function Description           |
+| ----------------------- | ------------------------------ |
+| plugins                 | List loaded plugins            |
+| install [Plugin name]   | Install the specified plugin   |
+| uninstall [Plugin name] | Uninstall the specified plugin |
+
+👉 `install [Plugin name]`
+
+Following are examples for Installing a plugin. The uninstallation operation is similar.
+
+```
+neo>install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Install successful, please restart neo-cli.
+```
+
+```
+neo>install ApplicationLogs
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Install successful, please restart neo-cli.
+```
+
+For information about all plugins refer to  [Plug-ins for NEO Client](../plugin.md).
 
 ## View the node information
 
@@ -164,5 +236,14 @@ export blocks \<start> [count] | Exports a specified number of block data from t
 
 Command | Function Description |
 | --------------- | ---- |
-Start consensus | Begin consensus
-Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain.md) for further details.
+| broadcast addr <ip> <port> | Relay an `addr` message |
+| broadcast block <hash\|height> | Relay a `block` message |
+| broadcast tx \<hash> | Relay a `tx` message |
+| broadcast getdata \<inventory type> \<hash> | Relay a `getdata` message |
+| broadcast inv \<inventory type> \<hash> | Relay an `inv` message |
+| broadcast getblocks \<start hash> | Relay a `getblocks` message |
+| broadcast getheaders \<start hash> | Relay a `getheaders` message |
+| invoke \<script hash> \<command> [param 1] [param n] | Invoke a command on a smart contract |
+| change view \<view number> | Set view of consensus to specific value |
+Start consensus | Begin consensus 
+Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain/private-chain.md) for further details.

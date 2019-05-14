@@ -2,11 +2,19 @@
 
 The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height. This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain.
 
+> [!Note]
+>
+> Before the NEO client can synchronize block data with the offline package, you must install the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) plugin:
+>
+> 1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) and unzip it.
+> 2. Create a new Plugins folder (The first letter is capitalized) under the client root directory and copy the unzipped plugin into it.
+>
+> Alternatively (for NEO-CLI 2.9.4 and later versions) you can use the "install ImportBlocks" command to automatically install the plugin.
+>
+
 ## Step 1 - Download the offline package
 
-1. Close the NEO client and click [Download offline synchronized package](http://sync.ngd.network/) from the [Client Downloads](https://neo.org/download) page.
-
-   ![](../../assets/syncblocks_1.png)
+1. Close the NEO client and go to [offline synchronized package](http://sync.ngd.network/) downloading page.
 
 2. From the offline package downloading page, click **Mainnet** or **Testnet** according to your network and then download one of the following packages (no need to unzip the package):
 

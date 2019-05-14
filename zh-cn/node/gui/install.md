@@ -12,7 +12,14 @@
 >
 > 客户端适应系统为： Windows 7 SP1 / Windows 8 / Windows 10。
 >
-> Windows 10 之前版本的系统需要安装 [.NET Framework 4.7.1](https://www.microsoft.com/net/download/framework) 。
+> 请确认你的 Windows 系统已安装 [.NET Framework 4.7.1](https://www.microsoft.com/net/download/framework) 。
+
+## 安装插件
+
+要使客户端能够进行离线同步，需要安装 ImportBlocks 插件：
+
+1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) 插件并解压。
+2. 在 NEO-GUI 根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
 
 ## 快速同步区块数据
 

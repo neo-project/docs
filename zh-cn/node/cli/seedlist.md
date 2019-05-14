@@ -61,7 +61,7 @@
 
 
 ### 编辑 protocol 文件
-为了告知 NEO-CLI 新的节点列表，需要将前面几个地址粘贴到 `protocol.json`，以下是示例的 protocal.json 文件。
+为了告知 NEO-CLI 新的节点列表，需要将前面几个地址粘贴到 `protocol.json`，以下是示例的 protocol.json 文件。
 ```json
 {
   "ProtocolConfiguration": {

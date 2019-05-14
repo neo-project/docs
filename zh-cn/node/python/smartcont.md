@@ -128,7 +128,7 @@ Saved output to docs/source/example/sample1.avm
 
 创建并测试命令更加常用，它可以在编译文件后执行和检测结果，只是其语法要复杂些。
 
-查看 ContractParameterType 列表：[ContractParameterTypes](../../data-types.html#contractparametertypes)
+查看 ContractParameterType 列表：[ContractParameterTypes](datatype.md#contractparametertypes)
 
 该命令语法为:
 

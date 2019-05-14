@@ -1,16 +1,14 @@
 # CLI 命令参考
 
-打开命令行，定位到 NEO-CLI 所在目录，输入下面代码即可启动 NEO 的命令行钱包（即 NEO 节点）。
+打开命令行，定位到 NEO-CLI 所在目录，输入下面代码即可启动 NEO 的命令行钱包。
 
 `dotnet neo-cli.dll`
 
-本篇教程将介绍命令行钱包的所有命令，你可以通过输入命令的形式操作钱包，如创建打开钱包、导入导出私钥、转账、启动共识等。
+本篇教程将介绍命令行钱包的所有命令，你可以通过输入命令的形式操作钱包，如创建打开钱包、导入导出私钥、转账、启动共识等。在命令行中输入 `help` 可以查看所有命令。
 
-首先我们先了解一下该命令行钱包有哪些命令，在命令行中输入 `help` ，回车，你会看到如图所示的命令列表。
-
-![](../../../assets/neo-cli-276.png)
-
-下面是所有命令的说明，命令中尖括号 `<>` 表示的是参数，方括号 `[]` 表示的是可选参数，或符号 `|` 表示所填的参数可以是其中任意一种，等号 `=` 表示可选参数在不输入情况下的默认值。
+> [!Note]
+>
+> 命令中尖括号 `<>` 表示参数，方括号 `[]` 表示可选参数，或符号 `|` 表示所填的参数可以是其中任意一种，等号 `=` 表示可选参数在不输入情况下的默认值。
 
 ## 控制台指令
 
@@ -21,12 +19,49 @@
 | clear   | 清除屏幕      |
 | exit    | 退出程序      |
 
+## 合约操作
+
+| 命令                                       | 功能说明                              | 备注     |
+| ---------------------------------------- | --------------------------------- | ------ |
+| deploy \<avmFilePath>...<contractDescription>    | 发布合约                            |        |
+| invoke \<scripthash>...<command>                 | 调用合约                            |        |
+  
+### 命令说明
+👉 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
+
+发布合约
+
+```
+neo> deploy Nep-5.avm 0710 05 true false false test 1.0.0 Owen neo@neo.org nep-5-example                 
+VM State: HALT, BREAK
+Gas Consumed: 500
+Evaluation Stack: [{"type":"InteropInterface"}]
+
+Signed and relayed transaction with hash=0x93e33d6f3f8fa285688ecd7082559c4aa2c8024f67d7609c8c9d7047f7fd639c
+```
+
+👉 `invoke <scripthash> <command> [optionally quoted params separated by space]` 
+
+调用合约
+
+```
+neo> invoke 2a1ebf403a94ce2cf6cd826eb32fbf75ee6f3fdc deploy
+Invoking script with: '00c1066465706c6f7967dc3f6fee75bf2fb36e82cdf62cce943a40bf1e2a'
+VM State: HALT
+Gas Consumed: 2.221
+Evaluation Stack: [{"type":"Integer","value":"1"}]
+
+Signed and relayed transaction with hash=0x42f59d2752675e80b965d90c4f4a865c9dbe0a26e5f14fa9e086ea62ddb80c06
+```
+
+
 ## 钱包操作
 
 | 命令                                       | 功能说明                              | 备注     |
 | ---------------------------------------- | --------------------------------- | ------ |
 | create wallet \<path>                    | 创建钱包文件                            |        |
 | open wallet \<path>                      | 打开钱包文件                            |        |
+| close wallet                             | 关闭钱包文件                            |        |
 | upgrade wallet \<path>                   | 升级旧版钱包文件                          |        |
 | rebuild index                            | 重建钱包索引                            | 需要打开钱包 |
 | list address                             | 列出钱包中的所有账户                        | 需要打开钱包 |
@@ -43,8 +78,7 @@
 | sign \<jsonObjectToSign>            | 签名  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 | relay \<jsonObjectToSign>                | 广播  参数为：记录交易内容的 json 字符串                            | 需要打开钱包 |
 
-以下命令可能需要详细解释一下：
-
+### 命令说明
 👉 `upgrade wallet <path>` 
 
 升级旧版钱包文件
@@ -66,7 +100,7 @@ Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3
 
 👉 `show utxo [id|alias]`
 
-列出钱包中指定资产的 UTXO，示例如入输出如下所示：
+列出钱包中指定资产的 UTXO，示例输出如下所示：
 
 ```
 neo>show utxo neo
@@ -157,6 +191,31 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
 签名完整后，可以将这段交易信息进行广播。参数同样为记录这段交易的 json 字符串。
 
+## 插件安装
+
+| 命令                                       | 功能说明                              | 备注     |
+| ---------------------------------------- | --------------------------------- | ------ |
+| install [Plugin name]                    | 安装指定插件                            |        |
+| uninstall [Plugin name]                    | 卸载指定插件                            |        |
+
+### 命令说明
+👉 `install [Plugin name]` 
+
+安装指定插件，如下所示。卸载插件与此类似。
+
+```
+neo>install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Install successful, please restart neo-cli.
+
+```
+```
+neo>install ApplicationLogs
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Install successful, please restart neo-cli.
+
+```
+以上只是示例插件，更多插件请访问 [NEO 客户端插件](../plugin.md)。
 
 ## 查看节点信息
 
@@ -167,6 +226,7 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 | show pool                      | 显示内存池中的交易（这些交易处于零确认的状态） |
 | export blocks [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步  |
 | export blocks \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步  |
+
 ## 高级指令
 
 | 命令              | 功能说明 |

@@ -92,7 +92,7 @@ Before the completion of View Change, the original View v is still valid, so unn
 
 ### Flow Chart
 
-![](~/assets/consensus_flowchart.jpg)
+![Flow Chart](/assets/consensus_flowchart.jpg)
 
 ## Fault Tolerance Capacity 
 

@@ -71,4 +71,4 @@ public static void Main()
 
 5. Кликните `Test `, чтобы выполнить контракт в тестовой среде. Если вы не получили ошибок, кликните по`Invoke`.
 
-Для вызова контракта вы можете использовать также метод NEO-CLI [invoke method](../../node/cli/latest-version/api/invoke.html).
+Для вызова контракта вы можете использовать также метод NEO-CLI [invoke method](../../node/cli/latest-version/api/invoke.md).
