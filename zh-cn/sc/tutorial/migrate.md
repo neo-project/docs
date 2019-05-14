@@ -8,7 +8,7 @@
 如果要使用合约迁移的功能需要在原有合约中实现迁移接口，如下：
 ```c#
        	...
-		public static object Main(string method, params object[] args)
+	public static object Main(string method, params object[] args)
         {
 
             ...
@@ -36,7 +36,7 @@
             }
             ...
         }
-		private static Boolean Migrate(byte[] script, 
+	private static Boolean Migrate(byte[] script, 
             byte[] plist, 
             byte rtype, 
             ContractPropertyState cps, 
