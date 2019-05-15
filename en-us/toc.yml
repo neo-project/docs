@@ -409,6 +409,8 @@
         href: sc/tutorial/verify.md
       - name: Deploying a Lock Contract
         href: sc/tutorial/Lock2.md
+      - name: Migrating Smart Contracts
+        href: sc/tutorial/migrate.md
     - name: Parameters and Return Values
       href: sc/Parameter.md
     - name: Contract Triggers
