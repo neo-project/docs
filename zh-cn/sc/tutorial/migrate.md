@@ -67,17 +67,17 @@
 如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](../quickstart/deploy-invoke.md)。
 
 ## 进行合约迁移
-首先准备好新旧合约的 ScriptHash，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
+首先准备好新合约的Script，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
 
 > [!Note]
 >
-> 要获取合约的 ScriptHash，可以在 NEO GUI 中点击`高级`>`部署合约`，然后`加载`合约。
+> 要获取合约的 Script，可以在 NEO GUI 中点击`高级`>`部署合约`，然后`加载`合约, 复制合约的内容备用。
 
 1. 在 NEO-GUI 中，点击 `高级` > `调用合约`，输入旧合约的 ScriptHash, 可以查看到已部署的旧合约信息。
 
    ![调用合约](assets/migrate_m1.png)
 
-2. 点击 `调用`，输入调用 Migrate 接口所需要的参数。
+2. 点击 `调用`，输入调用 Migrate 接口所需要的参数。这里第一个参数为之前复制的新合约内容。
 
    ![输入参数](assets/migrate_m2.png)
 
