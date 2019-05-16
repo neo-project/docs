@@ -67,17 +67,17 @@ To enable migration function, you need to implement the migrate interface in the
 If you want to migrate the contract later, you must implement the migrate interface in the contract prior to deployment. For more information, refer to [Deploying and Invoking Smart Contracts](../quickstart/deploy-invoke.md).
 
 ## Migrating the contract
-With your old and new contracts script hash in hand, let's invoke the migrate interface in your old contract using NEO-GUI.
+With your new contract in hand, let's invoke the migrate interface in your old contract using NEO-GUI.
 
 > [!Note]
 >
-> To obtain the contract ScriptHash, you can go to NEO-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the contract.
+> To obtain the contract script and scripthash, you can go to NEO-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the contract, copy all content of the contract and scripthash for later use.
 
-1. In NEO-GUI, click `Advanced` > `Deploy Contract`，and enter the old contract ScriptHash. The deployed contract information is displayed.
+1. In NEO-GUI, click `Advanced` > `Invoke Contract`，and enter the old contract ScriptHash. The deployed contract information is displayed.
 
    ![调用合约](assets/migrate_m1.png)
 
-2. Click `Invoke` and then enter necessary parameters required for invoking the migrate interface.
+2. Click `Invoke` and then enter necessary parameters required for invoking the migrate interface. Here I use content of new contract as the first parameter.
 
    ![输入参数](assets/migrate_m2.png)
 
@@ -87,7 +87,7 @@ With your old and new contracts script hash in hand, let's invoke the migrate in
 
    ![](assets/migrate_m3.png)
 
-4. Click `Invoke` and wait for block's verification.
+4. Click `Invoke` and wait for blockchain's verification.
 5. Once the transaction confirmed, enter the new contract ScriptHash in the Invoke Contract window. The new contract information is displayed. 
 
    ![新合约](assets/migrate_m4.png)
