@@ -8,7 +8,7 @@ This tutorial is based on:
 - NeoSmartContractPlugin v2.9.3
 - The latest [Neo-GUI](https://github.com/neo-project/neo-gui/releases)
 
-## Implement the migrate interface
+## Implementing the migrate interface
 To enable migration function, you need to implement the migrate interface in the contract, as shown below:
 ```c#
        	...
