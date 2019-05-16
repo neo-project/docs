@@ -67,32 +67,30 @@
 如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](../quickstart/deploy-invoke.md)。
 
 ## 进行合约迁移
-首先准备好新旧合约的 ScriptHash，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
+首先准备好新合约，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
 
-> [!Note]
->
-> 要获取合约的 ScriptHash，可以在 NEO GUI 中点击`高级`>`部署合约`，然后`加载`合约。
+1. 在 NEO-GUI 中，点击 `高级` > `部署合约`，然后 `加载` 新合约。复制合约脚本和 ScriptHash 备用。
 
-1. 在 NEO-GUI 中，点击 `高级` > `调用合约`，输入旧合约的 ScriptHash, 可以查看到已部署的旧合约信息。
+2. 点击 `高级` > `调用合约`，输入旧合约的 ScriptHash, 可以查看到已部署的旧合约信息。
 
    ![调用合约](assets/migrate_m1.png)
 
-2. 点击 `调用`，输入调用 Migrate 接口所需要的参数。
+3. 点击 `调用`，输入调用 Migrate 接口所需要的参数。注意第一个参数输入之前复制的新合约脚本。
 
    ![输入参数](assets/migrate_m2.png)
 
-3. 输入完成后点击 `试运行` 查看结果。
+4. 输入完成后点击 `试运行` 查看结果。
 
    可以看到返回1-True，手续费为 491 GAS。
 
    ![试运行](assets/migrate_m3.png)
 
-4. 点击 `调用`，等待区块确认交易。
-5. 确认后，在调用合约界面输入新的合约 ScriptHash，可以查看到新的合约内容。
+5. 点击 `调用`，等待区块链确认交易。
+6. 确认后，在调用合约界面输入新的合约 ScriptHash，可以查看到新的合约内容。
 
    ![新合约](assets/migrate_m4.png)
 
-6. 再输入旧合约 ScriptHash，发现已经查询不到了。
+7. 再输入旧合约 ScriptHash，发现已经查询不到了。
 
    ![旧合约](assets/migrate_m5.png)
 
