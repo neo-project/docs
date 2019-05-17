@@ -69,31 +69,30 @@ If you want to migrate the contract later, you must implement the migrate interf
 ## Migrating the contract
 With your new contract in hand, let's invoke the migrate interface in your old contract using NEO-GUI.
 
-> [!Note]
->
-> To obtain the contract script and scripthash, you can go to NEO-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the contract, copy all content of the contract and scripthash for later use.
+1. In NEO-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the new contract. Copy the contract script and scripthash for later use.
 
-1. In NEO-GUI, click `Advanced` > `Invoke Contract`，and enter the old contract ScriptHash. The deployed contract information is displayed.
+2. Click `Advanced` > `Invoke Contract`，and enter the old contract ScriptHash. The deployed contract information is displayed.
 
    ![调用合约](assets/migrate_m1.png)
 
-2. Click `Invoke` and then enter necessary parameters required for invoking the migrate interface. Here I use content of new contract as the first parameter.
+3. Click `Invoke` and then enter necessary parameters required for invoking the migrate interface. Note that the first parameter value must be filled with the new contract script obtained in the first step.
 
    ![输入参数](assets/migrate_m2.png)
 
-3. Once completed, click `Test` to view the result.
+4. Once completed, click `Test` to view the result.
 
    You will find the value 1-True is returned and the invoking fee is 491 GAS.
 
    ![](assets/migrate_m3.png)
 
-4. Click `Invoke` and wait for blockchain's verification.
-5. Once the transaction confirmed, enter the new contract ScriptHash in the Invoke Contract window. The new contract information is displayed. 
+5. Click `Invoke` and wait for blockchain's verification.
+
+6. Once the transaction confirmed, enter the new contract ScriptHash in the Invoke Contract window. The new contract information is displayed. 
 
    ![新合约](assets/migrate_m4.png)
 
-6. Enter the old contract ScriptHash again，you will no longer find the information displayed. 
+7. Enter the old contract ScriptHash again，you will no longer find the information displayed. 
 
    ![旧合约](assets/migrate_m5.png)
 
-That indicates the storage has been migrated from the old contract into the new contract, and meanwhile the old contract has been destroyed.
+That indicates the storage has been migrated from the old contract into the new contract, and meanwhile the old contract has been destroyed.d
