@@ -1,6 +1,6 @@
 # getunclaimed 方法
 
-返回未 claim 的 GAS 数量。
+返回指定地址中未提取的 GAS 数量。
 
 ## 参数说明
 
