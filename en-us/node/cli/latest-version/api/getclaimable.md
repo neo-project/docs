@@ -1,14 +1,14 @@
-# getclaimable 方法
+# getclaimable Method
 
-返回指定地址内可以 claim 的 GAS 信息。
+Returns claimable GAS information of the specified address.
 
-## 参数说明
+## Parameters Description
 
-`address`：指定要查询的账户地址。
+`address`：Specifiies the address you want to query.
 
-## 调用示例
+## Example
 
-请求正文：
+Request body:
 
 ```json
 {
@@ -19,7 +19,7 @@
 }
 ```
 
-响应正文：
+Response body:
 
 ```json
 {
