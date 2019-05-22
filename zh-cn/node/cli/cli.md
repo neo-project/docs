@@ -25,7 +25,7 @@
 | ---------------------------------------- | --------------------------------- | ------ |
 | deploy \<avmFilePath>...<contractDescription>    | 发布合约                            |        |
 | invoke \<scripthash>...<command>                 | 调用合约                            |        |
-  
+
 ### 命令说明
 👉 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
 
@@ -193,12 +193,32 @@ send neo AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 
 ## 插件安装
 
-| 命令                                       | 功能说明                              | 备注     |
-| ---------------------------------------- | --------------------------------- | ------ |
-| install [Plugin name]                    | 安装指定插件                            |        |
-| uninstall [Plugin name]                    | 卸载指定插件                            |        |
+| 命令                    | 功能说明         | 备注 |
+| ----------------------- | ---------------- | ---- |
+| plugins                 | 显示已加载的插件 |      |
+| install [Plugin name]   | 安装指定插件     |      |
+| uninstall [Plugin name] | 卸载指定插件     |      |
 
 ### 命令说明
+
+👉 `plugins`
+
+显示所有已加载的插件。
+
+```
+neo> plugins
+Loaded plugins:
+RpcSystemAssetTrackerPlugin
+RpcNep5Tracker
+RpcSecurity
+StatesDumper
+CoreMetrics
+ImportBlocks
+RpcWallet
+ApplicationLogs
+SimplePolicyPlugin
+```
+
 👉 `install [Plugin name]` 
 
 安装指定插件，如下所示。卸载插件与此类似。
