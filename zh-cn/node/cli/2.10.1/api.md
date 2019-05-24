@@ -70,6 +70,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 根据指定的索引，返回截止到该区块前的系统手续费      |          |
 | [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |          |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |          |
+| [getnep5balances](api/getnewaddress.md) | \<address> | 返回指定地址内的所有 NEP-5 资产余额。 | |
+| [getnep5transfers](api/getnewaddress.md) | \<address> | 返回指定地址内的所有 NEP-5 交易记录。 | |
 | [getnewaddress](api/getnewaddress.md)    |                                          | 创建一个新的地址                     | 需要打开钱包   |
 | [getrawmempool](api/getrawmempool.md)    |                                          | 获取内存中未确认的交易列表                |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |          |
@@ -86,6 +88,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
 | [listaddress](api/listaddress.md)        |                                          | 列出当前钱包内的所有地址                 | 需要打开钱包   |
+| [listplugins](api/listplugins.md) | | 列出节点已加载的所有插件。                           |  |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |          |
 | [sendfrom](api/sendfrom.md)              | \<asset_id> \<from>\<to> \<value> [fee=0] | 从指定地址，向指定地址转账                | 需要打开钱包   |
 | [sendtoaddress](api/sendtoaddress.md)    | \<asset_id> \<address> \<value> [fee=0]  | 向指定地址转账                      | 需要打开钱包   |

@@ -204,6 +204,24 @@ After signing completed, this command can be used to broadcast the transaction i
 | install [Plugin name]   | Install the specified plugin   |
 | uninstall [Plugin name] | Uninstall the specified plugin |
 
+👉 `plugins`
+
+This command is used to list all the loaded plugins.
+
+```
+neo> plugins
+Loaded plugins:
+RpcSystemAssetTrackerPlugin
+RpcNep5Tracker
+RpcSecurity
+StatesDumper
+CoreMetrics
+ImportBlocks
+RpcWallet
+ApplicationLogs
+SimplePolicyPlugin
+```
+
 👉 `install [Plugin name]`
 
 Following are examples for Installing a plugin. The uninstallation operation is similar.

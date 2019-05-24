@@ -50,7 +50,7 @@
       - name: API Reference
         href: node/cli/apigen.md
         items:
-        - name: v2.10.1
+        - name: v2.10.2
           href: node/cli/latest-version/api.md
           items:
           - name: claimgas
@@ -77,10 +77,14 @@
             href: node/cli/latest-version/api/getblockhash.md
           - name: getblocksysfee
             href: node/cli/latest-version/api/getblocksysfee.md
+          - name: getclaimable
+            href: node/cli/latest-version/api/getclaimable.md
           - name: getconnectioncount
             href: node/cli/latest-version/api/getconnectioncount.md
           - name: getcontractstate
             href: node/cli/latest-version/api/getcontractstate.md
+          - name: getmetricblocktimestamp
+            href: node/cli/latest-version/api/getmetricblocktimestamp.md
           - name: getnep5balances
             href: node/cli/latest-version/api/getnep5balances.md
           - name: getnep5transfers
@@ -101,14 +105,18 @@
             href: node/cli/latest-version/api/getpeers.md
           - name: getunclaimedgas
             href: node/cli/latest-version/api/getunclaimedgas.md
+          - name: getunclaimed
+            href: node/cli/latest-version/api/getunclaimed.md
+          - name: getunspents
+            href: node/cli/latest-version/api/getunspents.md
           - name: getvalidators
             href: node/cli/latest-version/api/getvalidators.md
           - name: getversion
             href: node/cli/latest-version/api/getversion.md
           - name: getwalletheight
             href: node/cli/latest-version/api/getwalletheight.md
-          - name: importkey
-            href: node/cli/latest-version/api/importkey.md
+          - name: importprivkey
+            href: node/cli/latest-version/api/importprivkey.md
           - name: invoke
             href: node/cli/latest-version/api/invoke.md
           - name: invokefunction
@@ -131,6 +139,87 @@
             href: node/cli/latest-version/api/submitblock.md
           - name: validateaddress
             href: node/cli/latest-version/api/validateaddress.md
+        - name: v2.10.1
+          href: node/cli/2.10.1/api.md
+          items:
+          - name: claimgas
+            href: node/cli/2.10.1/api/claimgas.md
+          - name: dumpprivkey
+            href: node/cli/2.10.1/api/dumpprivkey.md
+          - name: getaccountstate
+            href: node/cli/2.10.1/api/getaccountstate.md
+          - name: getassetstate
+            href: node/cli/2.10.1/api/getassetstate.md
+          - name: getbalance
+            href: node/cli/2.10.1/api/getbalance.md
+          - name: getbestblockhash
+            href: node/cli/2.10.1/api/getbestblockhash.md
+          - name: getblock
+            href: node/cli/2.10.1/api/getblock.md
+          - name: getblock
+            href: node/cli/2.10.1/api/getblock2.md
+          - name: getblockcount
+            href: node/cli/2.10.1/api/getblockcount.md
+          - name: getblockheader
+            href: node/cli/2.10.1/api/getblockheader.md
+          - name: getblockhash
+            href: node/cli/2.10.1/api/getblockhash.md
+          - name: getblocksysfee
+            href: node/cli/2.10.1/api/getblocksysfee.md
+          - name: getconnectioncount
+            href: node/cli/2.10.1/api/getconnectioncount.md
+          - name: getcontractstate
+            href: node/cli/2.10.1/api/getcontractstate.md
+          - name: getnep5balances
+            href: node/cli/2.10.1/api/getnep5balances.md
+          - name: getnep5transfers
+            href: node/cli/2.10.1/api/getnep5transfers.md
+          - name: getnewaddress
+            href: node/cli/2.10.1/api/getnewaddress.md
+          - name: getrawmempool
+            href: node/cli/2.10.1/api/getrawmempool.md
+          - name: getrawtransaction
+            href: node/cli/2.10.1/api/getrawtransaction.md
+          - name: getstorage
+            href: node/cli/2.10.1/api/getstorage.md
+          - name: gettransactionheight
+            href: node/cli/2.10.1/api/gettransactionheight.md
+          - name: gettxout
+            href: node/cli/2.10.1/api/gettxout.md
+          - name: getpeers
+            href: node/cli/2.10.1/api/getpeers.md
+          - name: getunclaimedgas
+            href: node/cli/2.10.1/api/getunclaimedgas.md
+          - name: getvalidators
+            href: node/cli/2.10.1/api/getvalidators.md
+          - name: getversion
+            href: node/cli/2.10.1/api/getversion.md
+          - name: getwalletheight
+            href: node/cli/2.10.1/api/getwalletheight.md
+          - name: importprivkey
+            href: node/cli/2.10.1/api/importprivkey.md
+          - name: invoke
+            href: node/cli/2.10.1/api/invoke.md
+          - name: invokefunction
+            href: node/cli/2.10.1/api/invokefunction.md
+          - name: invokescript
+            href: node/cli/2.10.1/api/invokescript.md
+          - name: listplugins
+            href: node/cli/2.10.1/api/listplugins.md
+          - name: listaddress
+            href: node/cli/2.10.1/api/listaddress.md
+          - name: sendfrom
+            href: node/cli/2.10.1/api/sendfrom.md
+          - name: sendrawtransaction
+            href: node/cli/2.10.1/api/sendrawtransaction.md
+          - name: sendtoaddress
+            href: node/cli/2.10.1/api/sendtoaddress.md
+          - name: sendmany
+            href: node/cli/2.10.1/api/sendmany.md
+          - name: submitblock
+            href: node/cli/2.10.1/api/submitblock.md
+          - name: validateaddress
+            href: node/cli/2.10.1/api/validateaddress.md
         - name: v2.10.0
           href: node/cli/2.10.0/api.md
           items:
@@ -184,8 +273,8 @@
             href: node/cli/2.10.0/api/getversion.md
           - name: getwalletheight
             href: node/cli/2.10.0/api/getwalletheight.md
-          - name: importkey
-            href: node/cli/2.10.0/api/importkey.md
+          - name: importprivkey
+            href: node/cli/2.10.0/api/importprivkey.md
           - name: invoke
             href: node/cli/2.10.0/api/invoke.md
           - name: invokefunction
@@ -422,6 +511,8 @@
 - name: Document for Exchange Developers
   href: exchange/general.md
   items:
+    - name: v2.10.2
+      href: exchange/v2.10.2.md
     - name: v2.10.0
       href: exchange/v2.10.0.md
     - name: v2.9.4
