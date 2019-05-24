@@ -72,18 +72,18 @@ For P2P and WebSocket information see [Node/Introduction](../../introduction.md)
 | [getblockhash](api/getblockhash.md)             | \<index>                                    | Returns the hash value of the corresponding block based on the specified index |                              |
 | [getblockheader](api/getblockheader.md)         | \<hash> [verbose=0]                         | Returns the corresponding block header information according to the specified script hash |                              |
 | [getblocksysfee](api/getblocksysfee.md)         | \<index>                                    | Returns the system fees before the block according to the specified index |                              |
-| [getclaimable](getclaimable.md) | \<address> | Returns claimable GAS information of the specified address. | |
+| [getclaimable](api/getclaimable.md) | \<address> | Returns claimable GAS information of the specified address. | |
 | [getconnectioncount](api/getconnectioncount.md) |                                             | Gets the current number of connections for the node          |                              |
 | [getcontractstate](api/getcontractstate.md)     | \<script_hash>                              | Returns information about the contract based on the specified script hash |                              |
-| [getmetricblocktimestamp](getmetricblocktimestamp.md) | \<blocks numbers>  \<endHeight> | Returns timestamps of the specified block and its previous n blocks. | |
+| [getmetricblocktimestamp](api/getmetricblocktimestamp.md) | \<blocks numbers>  \<endHeight> | Returns timestamps of the specified block and its previous n blocks. | |
 | [getnep5balances](api/getnep5balances.md) | \<address> | Returns the balance of all NEP-5 assets in the specified address. | |
 | [getnep5transfers](api/getnep5transfers.md) | \<address> | Returns all the NEP-5 transaction information occurred in the specified address. | |
 | [getnewaddress](api/getnewaddress.md)           |                                             | Creates a new address                                        | Need to open the wallet      |
 | [getrawmempool](api/getrawmempool.md)           |                                             | Gets a list of unconfirmed transactions in memory            |                              |
 | [getrawtransaction](api/getrawtransaction.md)   | \<txid> [verbose=0]                         | Returns the corresponding transaction information based on the specified hash value |                              |
-| [getunclaimed](getunclaimed.md) | \<address> | Returns unclaimed GAS amount of the specified address. | |
+| [getunclaimed](api/getunclaimed.md) | \<address> | Returns unclaimed GAS amount of the specified address. | |
 | [getunclaimedgas](api/getunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. | Need to open the wallet |
-| [getunspents](getunspents.md) | \<address> | Returns information of the unspent UTXO assets at the specified address. |  |
+| [getunspents](api/getunspents.md) | \<address> | Returns information of the unspent UTXO assets at the specified address. |  |
 | [getstorage](api/getstorage.md)                 | \<script_hash>  \<key>                      | Returns the stored value based on the contract script hash and key |                              |
 | [gettransactionheight](api/gettransactionheight.md)| \<txid>                                  | Returns the block index in which the transaction is found. ||
 | [gettxout](api/gettxout.md)                     | \<txid> \<n>                                | Returns the corresponding transaction output (change) information based on the specified hash and index |                              |

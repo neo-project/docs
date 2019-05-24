@@ -73,7 +73,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getclaimable](api/getclaimable.md) | <address> | 根据指定地址，返回可以 claim 的 GAS 信息。 | |
 | [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |          |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |          |
-| [getmetricblocktimestamp](getmetricblocktimestamp.md) | \<blocks numbers>  \<endHeight> | 返回指定区块高度及之前 n 个区块的 timestamp。 | |
+| [getmetricblocktimestamp](api/getmetricblocktimestamp.md) | \<blocks numbers>  \<endHeight> | 返回指定区块高度及之前 n 个区块的 timestamp。 | |
 | [getnep5balances](api/getnewaddress.md) | \<address> | 返回指定地址内的所有 NEP-5 资产余额。 | |
 | [getnep5transfers](api/getnewaddress.md) | \<address> | 返回指定地址内的所有 NEP-5 交易记录。 | |
 | [getnewaddress](api/getnewaddress.md)    |                                          | 创建一个新的地址                     | 需要打开钱包   |
@@ -83,9 +83,9 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [gettransactionheight](api/gettransactionheight.md) | \<txid> | 获取交易高度。 | |
 | [gettxout](api/gettxout.md)              | \<txid> \<n>                             | 根据指定的散列和索引，返回对应的交易输出（零钱）信息   |          |
 | [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
-| [getunclaimed](getunclaimed.md) | \<address> | 返回地址中未提取的 GAS 数量。 | |
+| [getunclaimed](api/getunclaimed.md) | \<address> | 返回地址中未提取的 GAS 数量。 | |
 | [getunclaimedgas](api/getunclaimedgas.md) | | 显示钱包中未提取的 GAS 数量。 | 需要打开钱包 |
-| [getunspents](getunspents.md) | \<address> | 返回指定账户中未花费的 UTXO 资产信息。 |  |
+| [getunspents](api/getunspents.md) | \<address> | 返回指定账户中未花费的 UTXO 资产信息。 |  |
 | [getversion](api/getversion.md)          |                                          | 获取查询节点的版本信息                  |          |
 | [getvalidators](api/getvalidators.md) | | 查看当前共识节点的信息 | |
 | [getwalletheight](api/getwalletheight.md) | | 获取当前钱包索引高度 | 需要打开钱包 |
