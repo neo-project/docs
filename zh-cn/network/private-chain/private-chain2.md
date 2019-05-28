@@ -226,7 +226,3 @@
 ## 提取私有链中的 NEO/GAS
 
 请参考 [提取 NEO 和 GAS](private-chain.md#提取-neo-和-gas)。
-
-最后：
-
-[https://github.com/chenzhitong/NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 这个项目中是已经配置好的私有链，已提取了 NEO 和 GAS，节点版本为 2.9.4，可以下载后直接使用。
