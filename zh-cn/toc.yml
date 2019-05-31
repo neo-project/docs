@@ -401,11 +401,11 @@
     - name: 搭建私有链
       href: network/private-chain/private-chain.md
       items:
-        - name: 搭建私有链
+        - name: 使用虚拟机搭建
           href: network/private-chain/private-chain.md
-        - name: 快速搭建私有链
+        - name: 使用单台 Windows 主机搭建
           href: network/private-chain/private-chain2.md
-        - name: 更快速地搭建私有链
+        - name: 使用单节点快速搭建
           href: network/private-chain/private-chain3.md
     - name: 快速搭建本地网络
       href: network/neolocal.md
