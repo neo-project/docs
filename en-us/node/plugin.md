@@ -38,7 +38,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getapplicationlog",
-  "params": ["0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07"],
+  "params": ["b6377ca56ff74ea5416469094f56ab7abd6caa46c0b5eb16b9c1998b567ff1e3"],
   "id": 1
 }
 ```
@@ -50,22 +50,17 @@ Response body：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07",
+        "txid": "0xb6377ca56ff74ea5416469094f56ab7abd6caa46c0b5eb16b9c1998b567ff1e3",
         "executions": [
             {
                 "trigger": "Application",
-                "contract": "0x0110a8f666bcc650dc0b544e71c31491b061c79e",
-                "vmstate": "HALT, BREAK",
-                "gas_consumed": "2.855",
-                "stack": [
-                    {
-                        "type": "Integer",
-                        "value": "1"
-                    }
-                ],
+                "contract": "0x23c3aaaa31a0c373c23505157e9fb2665c7065ec",
+                "vmstate": "HALT",
+                "gas_consumed": "2.931",
+                "stack": [],
                 "notifications": [
                     {
-                        "contract": "0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263",
+                        "contract": "0x1578103c13e39df15d0d29826d957e85d770d8c9",
                         "state": {
                             "type": "Array",
                             "value": [
@@ -75,15 +70,15 @@ Response body：
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
+                                    "value": "235a717ed7ed18a43de47499c3d05b8d4a4bcf3a"
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
+                                    "value": "0b2f7cac1d57b9f535d35da1a5421015e4e32b19"
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "00e1f50500000000"
+                                    "value": "00f44a4f9df66d01"
                                 }
                             ]
                         }
