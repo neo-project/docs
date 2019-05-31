@@ -2,15 +2,17 @@
 
 从 NEO 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 NEO-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。点击此处下载 [Plugins](https://github.com/neo-project/neo-plugins/releases)。
 
-| 插件                                                         | 功能                                                         |              |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------ |
-| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选   |
-| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip) | 同步离线包。                                                 | 必选         |
-| [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip) | 提供钱包相关的 RPC 功能。                                    | 必选         |
-| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选 |
-| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选         |
-| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选         |
-| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | 提供 NEP-5 余额及交易历史的 RPC 查询功能。                   | 可选         |
+| 插件                                                         | 功能                                                         |                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------------------- |
+| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip) | 在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。 | 交易所必选                                         |
+| [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip) | 查询历史区块的时间戳。                                       | 交易所推荐使用                                     |
+| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip) | 同步离线包。                                                 | 必选                                               |
+| [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip) | 提供钱包相关的 RPC 功能。                                    | 必选                                               |
+| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选，且从 NEO-CLI 2.10.2 开始，交易所必选 |
+| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选                                               |
+| [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) | 查询 UTXO 资产相关信息。                                     | 交易所推荐使用                                     |
+| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选                                               |
+| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | 提供 NEP-5 余额及交易历史的 RPC 查询功能。                   | 可选                                               |
 
 ## 安装插件
 
@@ -38,7 +40,7 @@ txid：交易ID
 {
   "jsonrpc": "2.0",
   "method": "getapplicationlog",
-  "params": ["0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07"],
+  "params": ["b6377ca56ff74ea5416469094f56ab7abd6caa46c0b5eb16b9c1998b567ff1e3"],
   "id": 1
 }
 ```
@@ -50,22 +52,17 @@ txid：交易ID
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07",
+        "txid": "0xb6377ca56ff74ea5416469094f56ab7abd6caa46c0b5eb16b9c1998b567ff1e3",
         "executions": [
             {
                 "trigger": "Application",
-                "contract": "0x0110a8f666bcc650dc0b544e71c31491b061c79e",
-                "vmstate": "HALT, BREAK",
-                "gas_consumed": "2.855",
-                "stack": [
-                    {
-                        "type": "Integer",
-                        "value": "1"
-                    }
-                ],
+                "contract": "0x23c3aaaa31a0c373c23505157e9fb2665c7065ec",
+                "vmstate": "HALT",
+                "gas_consumed": "2.931",
+                "stack": [],
                 "notifications": [
                     {
-                        "contract": "0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263",
+                        "contract": "0x1578103c13e39df15d0d29826d957e85d770d8c9",
                         "state": {
                             "type": "Array",
                             "value": [
@@ -75,15 +72,15 @@ txid：交易ID
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
+                                    "value": "235a717ed7ed18a43de47499c3d05b8d4a4bcf3a"
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
+                                    "value": "0b2f7cac1d57b9f535d35da1a5421015e4e32b19"
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "00e1f50500000000"
+                                    "value": "00f44a4f9df66d01"
                                 }
                             ]
                         }
