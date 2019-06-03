@@ -30,7 +30,7 @@ The installation process is very simple, just follow the operation prompts step-
 
 Installation method:
 
-Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the NeoContractPlugin (this step requires internet access).
+Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the latest stable version of NeoContractPlugin (Currently it is 2.9.3). This step requires internet access.
 
 ![download and install NEO smart contract plugin](../../../assets/download_and_install_smart_contract_plugin.png)
 
@@ -107,11 +107,11 @@ After you compile it successfully you will see `SmartContract1.avm` in the `bin/
 
 > [!Note]
 >
-> - Given that neon compiles .dll with nep-8 by default, which conflicts with nep-5, thus we need to execute .avm using neon compatible mode; otherwise the contract cannot be invoked properly.
+> - Given that neon compiles .dll with nep-8 by default, which conflicts with previous versions of NeoVM, you need to execute .dll using the neon compatible mode; otherwise the contract cannot be invoked properly.
 >
->   Open Power Shell or command prompt (CMD), enter bin/Debug directory and input the following command:
+>     Open Power Shell or command prompt (CMD), enter bin/Debug directory and input the following command:
 >
->   `neon yourcontractname.dll --compatible`
+>     `neon yourcontractname.dll --compatible`
 >
 > - For other issues you encounter during the process of setting up the smart contract development environment, refer to [FAQ](../../faq.md).
 
