@@ -107,7 +107,7 @@ After you compile it successfully you will see `SmartContract1.avm` in the `bin/
 
 > [!Note]
 >
-> - Given that neon compiles .dll with nep-8 by default, which conflicts with previous versions of NeoVM, you need to execute .dll using the neon compatible mode; otherwise the contract cannot be invoked properly.
+> - Given that neon compiles .dll with nep-8 by default, which conflicts with older versions of NeoVM, you need to execute .dll using the neon compatible mode; otherwise the contract cannot be invoked properly.
 >
 >     Open Power Shell or command prompt (CMD), enter bin/Debug directory and input the following command:
 >
