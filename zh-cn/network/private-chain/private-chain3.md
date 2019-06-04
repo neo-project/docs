@@ -145,26 +145,26 @@ NEO-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 3. 配置 config.json 文件，设置端口与 NEO-CLI 的端口不冲突。如果端口冲突，NEO-GUI 将无法与 NEO-CLI 同时运行。
 
-   ```json
-   {
-     "ApplicationConfiguration": {
-       "Paths": {
-         "Chain": "Chain_{0}",
-         "Index": "Index_{0}",
-         "CertCache": "Certs"
-       },
-       "P2P": {
-         "Port": 60001,
-         "WsPort": 60002
-       },
-       "Urls": {
-         "AddressUrl": "https://neoscan.io/address/{0}",
-         "AssetUrl": "https://neoscan.io/api/main_net/v1/get_asset/{0}",
-         "TransactionUrl": "https://neoscan.io/transaction/{0}"
-       }
-     }
-   }
-   ```
+```json
+{
+  "ApplicationConfiguration": {
+    "Paths": {
+      "Chain": "Chain_{0}",
+      "Index": "Index_{0}",
+      "CertCache": "Certs"
+    },
+    "P2P": {
+      "Port": 60001,
+      "WsPort": 60002
+    },
+    "Urls": {
+      "AddressUrl": "https://neoscan.io/address/{0}",
+      "AssetUrl": "https://neoscan.io/api/main_net/v1/get_asset/{0}",
+      "TransactionUrl": "https://neoscan.io/transaction/{0}"
+    }
+  }
+}
+```
 
 运行 NEO-GUI，打开 a.json，如果左下角有连接数不为零，而且一直在同步区块，表示该客户端已经成功地连接到了私有链中。
 
