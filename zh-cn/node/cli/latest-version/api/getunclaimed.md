@@ -2,6 +2,10 @@
 
 返回指定地址中未提取的 GAS 数量。
 
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+
 ## 参数说明
 
 address：要查询的账户地址，该地址需为标准地址。

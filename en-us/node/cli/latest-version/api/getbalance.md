@@ -3,7 +3,9 @@
 Returns the balance of the corresponding asset in the wallet, based on the specified asset number. This method applies to global assets and the contract assets that conform to NEP-5 standards. 
 
 > [!Note]
-> You need to open the wallet in the NEO-CLI node before you execute this command.
+>
+> - You need to open the wallet in the NEO-CLI node before you execute this command.
+> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ## Parameter Description
 

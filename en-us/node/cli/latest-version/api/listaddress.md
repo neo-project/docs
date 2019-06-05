@@ -3,7 +3,9 @@
 Lists all the addresses in the current wallet.
 
 > [!Note]
-> You need to open the wallet in the NEO-CLI node before invoking this method.
+>
+> - You need to open the wallet in the NEO-CLI node before invoking this method.
+> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ## Example
 

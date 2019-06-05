@@ -3,7 +3,9 @@
 Transfer from the specified address to the destination address.
 
 > [!Note]
-> You need to open the wallet in the NEO-CLI node before executing this command.
+>
+> - You need to open the wallet in the NEO-CLI node before executing this command.
+> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ## Parameter Description
 

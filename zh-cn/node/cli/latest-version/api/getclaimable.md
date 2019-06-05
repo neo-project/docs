@@ -2,6 +2,10 @@
 
 返回指定地址内可以 claim 的 GAS 信息。
 
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+
 ## 参数说明
 
 `address`：指定要查询的账户地址。
