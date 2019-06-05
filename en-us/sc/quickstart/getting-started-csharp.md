@@ -9,6 +9,7 @@ We currently recommend C# for developing smart contracts (though we support or p
 This section contains a short tutorial that guides you in configuring the C# development environment for NEO smart contracts. It also gives you an idea of ​​how to create a smart contract project and how to compile it.
 
    > [!Note]
+   >
    > At present, all the projects have been upgraded to the Visual Studio 2017 version. If you want to use Visual Studio 2015 to create intelligent contracts, refer to [how to use C # to write NEOs intelligent contract for VS2015](getting-started-2015.md).
 
 ## Development Tools
@@ -29,7 +30,7 @@ The installation process is very simple, just follow the operation prompts step-
 
 Installation method:
 
-Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the NeoContractPlugin (this step requires internet access).
+Open Visual Studio 2017, open Tools, click on Extensions and Updates, click on the Online tab on the left side of the window, search NEO in the search box on the top right corner of the window, download the latest stable version of NeoContractPlugin (Currently it is 2.9.3). This step requires internet access.
 
 ![download and install NEO smart contract plugin](../../../assets/download_and_install_smart_contract_plugin.png)
 
@@ -103,5 +104,15 @@ public class Contract1 : SmartContract
 After you compile it successfully you will see `SmartContract1.avm` in the `bin/Debug` directory, which is the file that is generated as the NEO smart contract.
 
 ![compile smart contract](../../../assets/compile_smart_contract.png)
+
+> [!Note]
+>
+> - Given that neon compiles .dll with nep-8 by default, which conflicts with older versions of NeoVM, you need to execute .dll using the neon compatible mode; otherwise the contract cannot be invoked properly.
+>
+>     Open Power Shell or command prompt (CMD), enter bin/Debug directory and input the following command:
+>
+>     `neon yourcontractname.dll --compatible`
+>
+> - For other issues you encounter during the process of setting up the smart contract development environment, refer to [FAQ](../../faq.md).
 
 Now that you have completed the configuration of the NEO smart contract development environment.

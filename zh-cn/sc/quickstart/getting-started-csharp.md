@@ -22,7 +22,7 @@
 
 安装方法：
 
-打开 Visual Studio 2017，打开 ` 工具 `， ` 扩展和更新 ` ，在左侧点击 ` 联机 ` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）
+打开 Visual Studio 2017，打开 ` 工具 `> ` 扩展和更新 ` ，在左侧点击 ` 联机 `  > 搜索 Neo > 安装 NeoContractPlugin 插件的最新稳定版（目前为 2.9.3）。该过程需要联网。
 
 ![](../assets/download_and_install_smart_contract_plugin.jpg)
 
@@ -93,7 +93,13 @@ Windows7 SP1 - Windows8.1 系统：右击 `计算机` ->`属性` ->`高级系统
 
 >[!Note]
 >
->关于在配置智能合约开发环境中遇到的常见问题，可以参考 [FAQ](../../faq.md#智能合约)。
+>- 由于 neon 默认使用 nep-8 的模式编译 dll，与旧版本 NeoVM 不兼容，所以我们需要用编译器的 compatible 模式编译，否则调用合约时会出错。
+>
+>    打开Power Shell 或命令提示符（CMD），进入 bin/Debug 目录，输入如下命令:
+>
+>    `neon yourcontractname.dll --compatible`
+>
+>- 关于在配置智能合约开发环境中遇到的常见问题，可以参考 [FAQ](../../faq.md#智能合约)。
 
 现在，你已经完成了 NEO 智能合约开发环境的配置。
 
