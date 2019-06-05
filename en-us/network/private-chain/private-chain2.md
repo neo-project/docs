@@ -1,4 +1,4 @@
-# Build a private chain in an easy way
+# Build a private chain with one computer
 
 In previous document we described the standard way to build a private chain using four computers or virtual machines. In this document we will introduce an easier way to build a private chain on a windows system computer.
 

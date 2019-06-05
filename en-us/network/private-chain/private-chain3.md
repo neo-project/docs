@@ -1,6 +1,6 @@
 # Build a private chain with one node
 
-NEO-CLI 2.10.2 supports generating blocks without consensus nodes, which means you can set up a private chain with one node. when running in a single node mode. 
+NEO-CLI 2.10.2 supports generating blocks without consensus nodes, which means you can set up a private chain with one node. 
 
 You can directly download the project [NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) to run a private chain quickly. Note that this project assumes you use Windows 10 and has [.NetFramework 4.7.1](https://www.microsoft.com/net/download/dotnet-framework-runtime) installed. 
 
@@ -80,10 +80,10 @@ You can refer to the following example：
 
 ## Modifying protocol.json
 
-Configure the following parameters in NEO-CLI protocol.json. Thereafter, if you configure other nodes ensure the configuration in each file is consistent.
+Configure the following parameters in NEO-CLI protocol.json. If you configure other nodes later ensure the configuration in each file is consistent.
 
 - Magic: The private chain ID, which can be any integer in the range of [0 - 4294967295].
-- StandbyValidators ：The public key of the alternate consensus node. Enter the public keys of the wallet a.json (It is single node mode when there is only one public key included in StandbyValidators).
+- StandbyValidators ：The public key of the alternate consensus node. Enter the public key of the wallet a.json (It is single node mode when there is only one public key included in StandbyValidators).
 - SeedList: The IP address and port number of the seed node. Specify the IP address as `localhost` and the ports as the P2P port configured in config.json.
 
 You can refer to the following example：
@@ -158,6 +158,7 @@ Start NEO-GUI and open a.json, if you see the connection number in the lower lef
 
 1. In NEO-GUI, right-click on the blank area of account page, click `Create Contract Address` -> `Multi-Signature`.
 2. Enter the public key and set the minimum number of signatures to 1. Click `Confirm`. 
-3. Click Wallet -> Rebuild wallet index.
+3. Click `Wallet` -> `Rebuild wallet index`.
 
-Now you should see the contract address has 100 million NEO shares. Since this multi-signature address only requires one signature, you can transfer NEO and claim GAS from the contract address as you tranfer them from a standard address.
+Now you should see the contract address has 100 million NEO shares. Since this multi-signature address only requires one signature, operations of transferring assets from the contract address is as same as transferring assets from a standard address.
+

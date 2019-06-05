@@ -374,10 +374,12 @@
     - name: Private Chain
       href: network/private-chain/private-chain.md
       items:
-        - name: Build a private chain
+        - name: Build a private chain with virtual machines
           href: network/private-chain/private-chain.md
-        - name: Build a private chain in an easy way
+        - name: Build a private chain with one computer
           href: network/private-chain/private-chain2.md
+        - name: Build a private chain with one node
+          href: network/private-chain/private-chain3.md
     - name: Local Blockchain
       href: network/local-chain.md
     - name: Synchronizing the blockchain faster
