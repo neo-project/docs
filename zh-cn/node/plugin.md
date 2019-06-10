@@ -12,7 +12,7 @@
 | [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选                                               |
 | [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) | 查询 UTXO 资产相关信息。                                     | 交易所推荐使用                                     |
 | [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选                                               |
-| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | 提供 NEP-5 余额及交易历史的 RPC 查询功能。                   | 可选                                               |
+| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | 提供 NEP-5 余额及交易历史的 RPC 查询功能。                   | 交易所推荐使用                                               |
 
 ## 安装插件
 
