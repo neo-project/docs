@@ -2,6 +2,10 @@
 
 返回指定地址内的所有 NEP-5 交易记录。
 
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+
 ## 参数说明
 
 address：要查看交易记录的地址。

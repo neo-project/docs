@@ -4,7 +4,8 @@ Returns the result after calling a smart contract at scripthash with the given o
 
 > [!Note]
 >
-> This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+> - This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ## Parameter Description
 

@@ -3,7 +3,9 @@
 根据指定的资产编号，返回钱包中对应资产的余额信息。该方法适用于全局资产及符合 [NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准的合约资产。
 
 > [!Note]
-> 执行此命令前需要在 Neo-CLI 节点中打开钱包。
+>
+> - 执行此命令前需要在 Neo-CLI 节点中打开钱包。
+> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
 
 ## 参数说明
 

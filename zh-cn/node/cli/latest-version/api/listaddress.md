@@ -4,7 +4,8 @@
 
 > [!Note]
 >
-> 执行此命令前需要在 Neo-CLI 节点中打开钱包。
+> - 执行此命令前需要在 Neo-CLI 节点中打开钱包。
+> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
 
 ## 调用示例
 

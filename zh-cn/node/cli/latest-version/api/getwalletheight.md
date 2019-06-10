@@ -2,6 +2,10 @@
 
 获取当前钱包索引高度。
 
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+
 ## 调用示例
 
 请求正文：

@@ -2,6 +2,10 @@
 
 Returns timestamps of the specified block and its previous n blocks.
 
+> [!Note]
+>
+> This method is provided by the plugin [CoreMetrics](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+
 ## Parameter Description
 
 `blocks numbers`：Set the number of blocks you want to query forward.

@@ -2,6 +2,10 @@
 
 Returns all the NEP-5 transaction information occurred in the specified address.
 
+> [!Note]
+>
+> This method is provided by the plugin [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+
 ## Parameter Description
 
 address：The address to query the transaction information.

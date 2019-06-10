@@ -3,7 +3,9 @@
 Exports the private key of the specified address.
 
 > [!Note]
-> You need to open the wallet in the NEO-CLI node before you execute this command.
+>
+> - You need to open the wallet in the NEO-CLI node before you execute this command.
+> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ## Parameter Description
 

@@ -4,7 +4,8 @@ Gets the amount of unclaimed GAS in the wallet.
 
 > [!Note] 
 >
-> Before you can invoke this method you must open the wallet in NEO-CLI.
+> - Before you can invoke this method you must open the wallet in NEO-CLI.
+> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ## Example
 
