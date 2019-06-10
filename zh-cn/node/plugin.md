@@ -8,7 +8,7 @@
 | [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip) | 查询历史区块的时间戳。                                       | 交易所推荐使用                                     |
 | [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip) | 同步离线包。                                                 | 必选                                               |
 | [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip) | 提供钱包相关的 RPC 功能。                                    | 必选                                               |
-| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip) | 启用共识的简单策略。                                         | 搭建私链必选，且从 NEO-CLI 2.10.2 开始，交易所必选 |
+| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip) | 过滤非法交易。                                         | 必选                                                 |
 | [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip) | 提升 RPC 安全。                                              | 可选                                               |
 | [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) | 查询 UTXO 资产相关信息。                                     | 交易所推荐使用                                     |
 | [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | 导出 NEO-CLI 状态数据。                                      | 可选                                               |
