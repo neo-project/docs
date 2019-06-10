@@ -12,7 +12,7 @@ Since NEO 2.9.0 some additional functionalities are individually encapsulated in
 | [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcDisabled.zip) | Improves RPC security.                                       | Optional                                                     |
 | [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) | 查询 UTXO 资产相关信息。                                     | Recommended for exchanges                                    |
 | [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | Exports NEO-CLI status data.                                 | Optional                                                     |
-| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | Enquiries NEP-5 balance and transactions history of accounts through RPC | Optional                                                     |
+| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | Enquiries NEP-5 balance and transactions history of accounts through RPC | Recommended for exchanges                                                     |
 
 ## Installing plug-ins
 
