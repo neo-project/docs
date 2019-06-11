@@ -16,7 +16,7 @@ This article introduces features of NeoContract and explores non-technical detai
 
 ### Certainty
 
-If a program is running on different computers, or at different times on the same computer, the behavior of the program is deterministic if the same input is guaranteed to produce the same output, and vice versa.
+If a program is running on different computers, or at different times on the same computer, the behavior of the program is deterministic if the same input is guaranteed to produce the same output.
 
 Blockchain is a multi-party storage, and computational method, where the data within this distributed system is the result of reliable calculations, that cannot be tampered with. Smart contracts operate within the multi-node, distributed blockchain network. If a smart contract is non-deterministic, the results of different nodes may be inconsistent. As a result, consensus between the nodes cannot be reached, and the network becomes stagnant. Therefore, in the design of a smart contract system, there is a need to rule out any factors which may lead to non-deterministic behavior.
 
