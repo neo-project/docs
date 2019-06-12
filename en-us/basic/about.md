@@ -63,7 +63,7 @@
 
 - **-dBFT:** Original consensus mechanism created by NEO Blockchain
 
-  <https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works>
+  [https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works](https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works)
 
   <https://docs.neo.org/en-us/08_dbft.pdf>
 
