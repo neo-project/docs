@@ -32,7 +32,7 @@ The NEO [network protocol](../network/network-protocol.md) provides a low level 
 | Transfer | ✅    | ✅    |
 | Transaction (Asset swap)  | ✅    |      |
 | Create a multi-party signature contract | ✅    |      |
-| Create a custom smart contract | ✅    |      |
+| Create a custom smart contract | ✅    | ✅     |
 | Signature | ✅    |      |
 | Election Consensus Node | ✅    |      |
 | Voting | ✅    |      |
