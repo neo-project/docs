@@ -18,7 +18,7 @@ txid：交易ID
 {
   "jsonrpc": "2.0",
   "method": "getapplicationlog",
-  "params": ["b6377ca56ff74ea5416469094f56ab7abd6caa46c0b5eb16b9c1998b567ff1e3"],
+  "params": ["92b1ecc0e8ca8d6b03db7fe6297ed38aa5578b3e6316c0526b414b453c89e20d"],
   "id": 1
 }
 ```
@@ -30,17 +30,22 @@ txid：交易ID
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xb6377ca56ff74ea5416469094f56ab7abd6caa46c0b5eb16b9c1998b567ff1e3",
+        "txid": "0x92b1ecc0e8ca8d6b03db7fe6297ed38aa5578b3e6316c0526b414b453c89e20d",
         "executions": [
             {
                 "trigger": "Application",
-                "contract": "0x23c3aaaa31a0c373c23505157e9fb2665c7065ec",
+                "contract": "0x6ec33f0d370617dd85e51d31c483b6967074249d",
                 "vmstate": "HALT",
-                "gas_consumed": "2.931",
-                "stack": [],
+                "gas_consumed": "2.912",
+                "stack": [
+                    {
+                        "type": "Integer",
+                        "value": "1"
+                    }
+                ],
                 "notifications": [
                     {
-                        "contract": "0x1578103c13e39df15d0d29826d957e85d770d8c9",
+                        "contract": "0x78e6d16b914fe15bc16150aeb11d0c2a8e532bdd",
                         "state": {
                             "type": "Array",
                             "value": [
@@ -50,15 +55,15 @@ txid：交易ID
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "235a717ed7ed18a43de47499c3d05b8d4a4bcf3a"
+                                    "value": "d086ac0ed3e578a1afd3c0a2c0d8f0a180405be2"
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "0b2f7cac1d57b9f535d35da1a5421015e4e32b19"
+                                    "value": "002ba7f83fd4d3975dedb84de27345684bea2996"
                                 },
                                 {
                                     "type": "ByteArray",
-                                    "value": "00f44a4f9df66d01"
+                                    "value": "0065cd1d00000000"
                                 }
                             ]
                         }
