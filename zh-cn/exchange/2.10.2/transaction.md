@@ -1,235 +1,16 @@
-# 交易所对接指南
+# 处理资产交易
 
-> [NEO CLI v2.10.2](https://github.com/neo-project/neo-cli/releases/tag/v2.10.2) 已将钱包相关 RPC API 移至 RpcWallet 插件，请在使用前确保此插件已安装，以保证 API 的正常使用。
-
-交易所对接需要完成以下操作：
-
-- [在服务器中部署 NEO 节点](#在服务器中部署-neo-节点)
-- [使用 neo-cli 客户端](#使用-neo-cli-客户端)
-- [处理资产交易](#处理资产交易)
-- [给用户分发 GAS](#给用户分发-gas)
-
-## 在服务器中部署 NEO 节点
-
-NEO 节点的初始安装部署包含以下步骤：
-
-1. 安装 NEO 节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，2.0 或以上版本。
-
-2. 在 GitHub 上下载 [neo-cli](https://github.com/neo-project/neo-cli/releases) 程序包并启动 NEO 节点。
-
-3. 安装 ImportBlocks, ApplicationLogs 和 RpcWallet 插件， 以保证交易日志 API 和自动读取离线包的完整性。可选择以下一种方法安装：
-
-   - 适用于所有 NEO-CLI 版本：
-
-      1. 从 GitHub 上下载以下插件：
-
-         - [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip)
-         - [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip)
-         - [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip)
-         - [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip)
-         - [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip)（推荐）
-         - [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip)（推荐）
-         - [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/tree/master/RpcNep5Tracker) （推荐）
-
-      2. 在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
-
-         ![PluginsForExchange.png](../../assets/PluginsForExchange.png)
-
-   - 适用于 NEO-CLI 2.9.4 及之后版本，使用以下命令自动进行安装：
-
-     ```
-     install ImportBlocks
-     install ApplicationLogs
-     install RpcWallet
-     install SimplePolicy
-     install RpcSystemAssetTracker
-     install CoreMetrics
-     install RpcNep5Tracker
-     ```
-
-   > [!Note]
-   >
-   > - 从 NEO-CLI 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，提升了节点的安全性，稳定性和灵活性。关于插件的详细信息，请参见 [NEO 客户端插件](../node/plugin.md)。
-   > - ApplicationLogs 插件需在初始同步之前就必须安装，否则会遗漏安装前已同步区块中交易日志的内容。
-
-4. 在启动 NEO-CLI 前需先配置 config.json 文件中的以下参数：
-
-   - BindAddress：默认为本地127.0.0.1。可以绑定指定网卡的 ipv4 地址以允许远程调用 rpc。若没有指定对象，则可以设成 0.0.0.0。
-   - UnlockWallet：可选。可以设置开启自动绑定并打开钱包的功能。Path 是钱包的路径， Password 是钱包的密码， IsActive 设为 true 意味着允许自动打开钱包。
-
-   下面是一个标准设置的例子。
-
-```
-  {
-  "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "Index": "Index_{0}"
-    },
-    "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "BindAddress": "0.0.0.0",
-      "Port": 10332,
-      "SslCert": "",
-      "SslCertPassword": ""
-    },
-    "UnlockWallet": {
-      "Path": "",
-      "Password": "",
-      "StartConsensus": false,
-      "IsActive": false
-    },
-    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
-  }
-}
-
-...
-
-```
-> [!Note]
-   >
-   > - 如需使用自动打开钱包的功能，可以在 UnlockWallet 一栏填入 "Path" 如 "1.db3" 和 "Password" 如 "11111111"，并将 "IsActive" 设为 true.
-   > - 注意 "Password" 为明文, 请确保防火墙打开并处于安全环境, 请谨慎使用。
-
-
-更多详细内容，请参阅 [NEO 节点的安装部署](../node/cli/setup.md)。
-
-## 使用 NEO-CLI 客户端
-
-NEO-CLI 作为客户端，在 P2P 网络中充当一个普通节点，同时，该程序也是一个跨平台的钱包，处理各种资产的相关交易。
-
-### NEO-CLI 安全策略
-
-> [!Warning]
->
-> 强制要求：交易所必须使用白名单或防火墙以屏蔽外部服务器请求，否则会有重大安全隐患。
-
-neo-cli 本身不提供远程开关钱包功能，打开钱包时也没有验证过程。因此，安全策略由交易所根据自身情况制定。由于钱包要一直保持打开状态以便处理用户的提现，因此，从安全角度考虑，钱包必须运行在独立的服务器上，并参考下表配置好端口防火墙。
-
-|                    | Mainnet | Testnet |
-| ------------------ | ------- | ------- |
-| JSON-RPC via HTTPS | 10331   | 20331   |
-| JSON-RPC via HTTP  | 10332   | 20332   |
-| P2P                | 10333   | 20333   |
-| websocket          | 10334   | 20334   |
-
-
-### 关于 NEO-CLI
-
-NEO-CLI 是为开发者提供的命令行客户端，开发者可以通过两种方式与之交互：
-
-- 使用 CLI（命令行界面）的命令，如创建钱包，创建地址等。
-- 通过程序的 RPC 请求，如向指定地址转账，获得指定高度的区块信息，获得指定的交易等。
-
-NEO-CLI 提供以下功能：
-
-- 作为命令行钱包，管理资产。
-
-  要启动钱包，在 neo-cli 程序目录下输入以下命令：
-
-  ```
-  dotnet neo-cli.dll
-  ```
-
-  要查看所有命令，在 neo-cli 程序目录下输入以下命令：
-
-  ```
-  help
-  ```
-
-  更多信息，请参阅 [CLI 命令参考](../node/cli/cli.md)。
-
-- 提供一系列 API 接口，用于从节点获取区块链数据。接口通过 [JSON-RPC](http://www.jsonrpc.org/specification) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
-
-  如果想启动节点的同时开启 API，在 neo-cli 程序目录下输入以下命令(如果需要applicationglogs,在启动时必须添加下面的引数)：
-
-  ```
-  dotnet neo-cli.dll --rpc
-  ```
-
-  要查看更多 API 信息，请参阅 [API 参考](../node/cli/apigen.md)。
-
-- 提供 NEP5 资产的交易信息
-
-> [!Note]
->
-> 同步 NEP-5 资产的 log 已无需在启动 neo-cli 时输入额外的参数，但需安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) 插件，开启 --rpc 时自动获取。
-
-具体步骤请参考 [neo-cli 安装](../node/cli/setup.md)。
-
-- 提供直接连接种子节点功能
-
-  如果打开 neo-cli 后，连接数一直为 0，可以直接连接种子节点同步区块：
-
-  ```
-  dotnet neo-cli.dll --nopeers
-  ```
-- 功能列表
-
-| #    | 步骤                                  | 输入命令             |
-| ---- | :------------------------------------ | -------------------- |
-| 1    | 运行客户端                            | `dotnet neo-cli.dll` |
-| 2    | 打开 RPC 接口，记录 NEP5 资产交易信息 | `--rpc` 或 `-r` 或 `/rpc` |
-
-
-> [!Note]
->
-> 功能可叠加，例如需要以上所有功能都开启，那么输入命令：
-> `dotnet neo-cli.dll --rpc --nopeers`
-
-
-### 创建钱包
-
-交易所需要创建一个在线钱包管理用户充值地址。钱包是用来存储账户（包含公钥和私钥）、合约地址等信息，是用户持有资产的最重要的凭证，一定要保管好钱包文件和钱包密码，不要丢失或泄露。 交易所不需要为每个地址创建一个钱包文件，通常一个钱包文件可以存储用户所有充值地址。也可以使用一个冷钱包（离线钱包）作为更安全的存储方式。
-
-> [!Note]
->
-> neo-cli 钱包支持两种格式的钱包，一种是一直使用的 sqlite 钱包（格式为.db3），另一种是新支持的 [NEP6 标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) 钱包（格式为.json）。建议交易所使用 sqlite 钱包。
-
-请按照以下步骤创建钱包：
-
-1. 输入命令 `create wallet <path>` 。
-
-   其中 \<path\> 为钱包路径及名称，扩展名根据所使用的钱包种类来设定，可以是 .db3 也可以是 .json（如无扩展名，则钱包格式为 NEP6 钱包）。如 create wallet /home/mywallet.db3。
-
-2. 设置钱包密码。
-
-### 生成充值地址
-
-一个钱包可以存储多个地址，交易所需要为每个用户生成一个充值地址。
-
-充值地址有两种生成方式：
-
-- 用户第一次充值（NEO/NEO GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
-
-  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress 方法](../node/cli/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
-
-- 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/NEO GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
-
-  要批量创建地址，执行 NEO- CLI 的 create address [n] 命令，地址会自动导出到 address.txt 文件。
-  方括号为可选参数，默认值为 1。例如要一次创建 100 个地址，输入 `create address 100`。
-
-
-> [!Note]
->
-> 无论采用哪种方式，交易所需要将生成的地址导入到数据库中，作为充值地址分配给用户。一般建议交易所采用第二种方式，这样可以减少外界对钱包的操作，有利于钱包的稳定运行。
-
-## 处理资产交易
-
-### 简介
+## 简介
 
 NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，使用 UTXO 模型来管理资产。另一种是合约资产，例如：NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这两种类型资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
-   ![query.png](assets/query.png)
+   ![query.png](../assets/query.png)
 
-   ![deposit.png](assets/deposit.png)
+   ![deposit.png](../assets/deposit.png)
 
-   ![withdraw.png](assets\withdraw.png)
+   ![withdraw.png](../assets\withdraw.png)
 
-### 网络手续费
+## 网络手续费
 
 使用 NEO 区块链时需要花费网络手续费。收取手续费的根本目的是为了阻止恶意交易与网络攻击，在当前机制下，对于普通用户的正常交易一般不会造成额外手续费的负担。默认收费规则如下：
 
@@ -265,17 +46,15 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 </table>
 
 
-
-
 > [!Note]
 >
 > - 如果交易所使用 send 命令发送交易到用户地址时自定义了手续费，则只收取两项手续费中价格较高者。
 > - NEO-CLI 2.10.2 的 RpcWallet 插件新增了 config.json 配置文件，对于使用 RPC 命令发送的交易，可以在该文件中自定义手续费上限，对用户资产提供保护。如果交易需要花费的手续费没有超过设定的上限，则正常上链，否则交易会失败。
 >
 
-### 处理全局资产交易
+## 处理全局资产交易
 
-#### 查询
+### 查询
 
 一般来讲，交易所充值地址里的余额并不等于用户在交易所里的余额，有以下原因：
   - 在转账或提现时，NEO 钱包会从一个或多个地址中找到即能满足需求又使用总输入最小的零钱作为本次交易的输入，而不会将指定地址的零钱作为交易输入（除非交易所重写了 NEO 钱包的部分代码使其满足自身需求）。
@@ -283,9 +62,9 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 
 所以交易所由于自身管理钱包产生的查询地址余额需求和用户的查询账户余额请求是不同的。
 
-##### 交易所查询用户地址余额
+#### 交易所查询用户地址余额
 
-要查询用户地址全局资产余额，交易所需要调用getaccountstate api获取用户地址余额。
+要查询用户地址全局资产余额，交易所需要调用 `getaccountstate` API 获取用户地址余额。
 
 ##### getaccountstate
 
@@ -300,7 +79,7 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 }
 ```
 
-params参数中填写的是用户地址。
+params 参数中填写的是用户地址。
 
 发送请求后，将收到如下响应：
 
@@ -325,24 +104,26 @@ params参数中填写的是用户地址。
 
 返回值 "asset" 对应资产 ID ，value对应资产金额。
 
-##### 处理用户查询账户余额请求
+#### 处理用户查询账户余额请求
 
 用户实际在交易所里的余额，应当记录在交易所的数据库里。
 交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额。
 
-#### 充值
+### 充值
 
 关于用户充值，交易所需要了解以下内容：
 
 - NEO 区块链只有一条主链，没有侧链，不会分叉，也不会有孤立区块。
 - 所有记录在 NEO 区块链中的交易都是不可篡改的，即一个确认就代表充值成功。
 - NEO 地址中不仅包含 NEO 和 NEO GAS 两种资产，还可以有许多种用户自己发行的全局资产（如股权、Token 等），交易所记录用户充值时需要判断充值资产的资产类型，以免把其它资产的充值当成 NEO 或 GAS，或把 NEO 和 GAS 的充值弄混。
-- NEO 钱包是一个全节点，要保持在线才能同步区块，可以通过 neo-cli 的 `show state` 命令查看区块同步状态，例如,  
-```
-NEO>show state
-Height: 99/99/99, Nodes: 10
-```
-含义为：钱包高度 99/ 区块高度 99/ 区块头高度 99，连接节点数为 10.
+- NEO 钱包是一个全节点，要保持在线才能同步区块，可以通过 NEO-CLI 的 `show state` 命令查看区块同步状态，例如,  
+
+  ```
+  NEO>show state
+  Height: 99/99/99, Nodes: 10
+  ```
+
+  含义为：钱包高度 99/ 区块高度 99/ 区块头高度 99，连接节点数为 10.
 
 > [!Note]
 >
@@ -350,11 +131,11 @@ Height: 99/99/99, Nodes: 10
 
 - 交易所内的用户之间转账不需要通过区块链，而可以直接修改数据库中的用户余额进行，只有充值提现才上链。
 
-##### 充值记录
+#### 充值记录
 
 交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易。如果有充值交易就要修改数据库中的用户余额。
 
-NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信息的功能，该方法中的 \<index\> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock 方法](../node/cli/latest-version/api/getblock2.md)。
+NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信息的功能，该方法中的 \<index\> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock 方法](../../node/cli/latest-version/api/getblock2.md)。
 
 获取的区块信息中包含了交易输入和交易输出，交易所需要记录下所有和自己相关的交易，作为用户充值提现的交易记录。如果发现在交易的输出中有属于交易所的地址，则要修改数据库中该充值地址对应的用户 NEO 或 GAS 余额。
 
@@ -368,17 +149,17 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 > - NEO 系统中的一切事务都以交易为单位进行记录。
 >
 
-#### 提现
+### 提现
 
 关于用户提现，交易所需要完成以下操作：
 
-1. 在 neo-cli 中，执行 `open wallet <path>` 命令打开钱包。
+1. 在 NEO-CLI 中，执行 `open wallet <path>` 命令打开钱包。
 
 2. 记录用户提现，修改用户账户余额。
 
 3. （可选）客服处理提现申请。
 
-4. 使用 NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value> [fee=0] [change_address]` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress 方法](../node/cli/latest-version/api/sendtoaddress.md)。
+4. 使用 NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value> [fee=0] [change_address]` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress 方法](../../node/cli/latest-version/api/sendtoaddress.md)。
 
    - `<asset_id>` ：资产 ID
    - `<address>` ：提现地址
@@ -386,7 +167,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
    - `[fee]`：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
    - `change_address`：找零地址，可选参数，默认为钱包中第一个标准地址。
 
-   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../node/cli/latest-version/api/sendmany.md)。
+   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../../node/cli/latest-version/api/sendmany.md)。
 
 5. 从返回的 Json 格式交易详情中提取交易 ID，记录在数据库中。
 
@@ -397,15 +178,15 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 > [!Note]
 >
 > -  \<value\> 为实际金额，并非乘以 10^8 后的金额。
-> -  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在 neo-cli 中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在 neo-cli 状态一直为 unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
+> -  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在 NEO-CLI 中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在 NEO-CLI 状态一直为 unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
 
-### 处理 NEP-5 资产交易
+## 处理 NEP-5 资产交易
 
-#### 查询
+### 查询
 
 与全局资产同理，交易所由于自身管理钱包产生的查询地址余额需求和用户的查询账户余额请求是不同的。
 
-##### 交易所查询用户地址余额
+#### 交易所查询用户地址余额
 
 要查询用户账户余额，交易所需要进行以下操作：
 
@@ -413,7 +194,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 2. 向 NEO RPC 服务器发送文件请求。
 3. 根据返回值计算出用户余额。
 
-##### invokefunction
+#### invokefunction
 
 在 JSON 文件中，invokefunction 的请求正文通常为以下格式：
 
@@ -469,9 +250,9 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
   因此，你需要把 account 作为 "balanceOf" 方法的一个参数。
 
-##### 调用示例
+### 调用示例
 
-##### **调用 balanceOf**
+#### **调用 balanceOf**
 
 假设用户账户地址是 AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR，你需要将其转换为 Hash160 类型并将此参数构造为 JSON 对象，如下所示:
 
@@ -524,9 +305,9 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 }
 ```
 
-返回值”00c2eb0b“ 可以转化为整数**200000000**。
+返回值”00c2eb0b“ 可以转化为整数 **200000000**。
 
-##### **调用 decimals**
+#### **调用 decimals**
 
 请求正文：
 
@@ -565,7 +346,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 返回值为整数 **8**。
 
-##### **调用 symbol**
+#### **调用 symbol**
 
 请求正文:
 
@@ -604,31 +385,27 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 返回值 "525058" 可以被转换为币种符号 "RPX"。
 
-##### **计算用户余额**
+#### **计算用户余额**
 
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 200000000/10⁸ RPX = 2 RPX
 
-##### 处理用户查询账户余额请求
+#### 处理用户查询账户余额请求
 
 与全局资产同理，用户的帐户余额从交易所数据库中获得。
 
-#### 充值
+### 充值
 
 对交易所来说，捕获 NEP-5 类资产的充值交易，其方法与全局资产非常类似。
 1. 通过 getblock api 获取每个区块的详情，其中便包括该区块中所有交易的详情；
 2. 分析每笔交易的交易类型，过滤出所有类型为"InvocationTransaction"的交易，任何非"InvocationTransaction"类型的交易都不可能成为 NEP-5 类型资产的转账交易；
 3. 调用 getapplicationlog api 获取每笔"InvocationTransaction"交易的详情，分析交易内容完成用户充值。
 
-##### 调用 getapplicationlog api
+#### 调用 getapplicationlog
 
-使用 [getapplicationlog](../node/plugin.md#getapplicationlog-方法) 这个 api 来获取交易信息。
+使用 [getapplicationlog](../../node/plugin.md#getapplicationlog-方法) 这个 API 来获取交易信息。
 
-可以看到在根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 api 来读取。
-
-> [!Note]
->
-> -  v2.9 之后版本的 response 结构较之前有所变化，需要注意！
+可以看到在根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
 
 以下是一个 API 调用结果：
 
@@ -734,22 +511,22 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 >
 > 关于文件中 transfer 通知格式的转换，可以参考工具 [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools)。
 
-### 提现
+## 提现
 
-交易所可以通过以下一种方式发送 NEP-5 资产给用户，客户端侧必须打开钱包才能使用以下 api：
+交易所可以通过以下一种方式发送 NEP-5 资产给用户，客户端侧必须打开钱包才能使用以下 API：
 
 - neo-cli 命令： `send`
 - RPC 方法： `sendfrom`
 - RPC 方法： `sendtoaddress`
 - RPC 方法： `sendmany`
 
-#### neo-cli 命令：send
+### neo-cli 命令：send
 
-##### 语法
+#### 语法
 
 `send <txid|script hash> <address> <value> [fee = 0] [change_address]`
 
-##### 参数
+#### 参数
 
 - `txid|script hash`：资产 ID。
 - `address`：付款地址。
@@ -759,7 +536,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 该命令会检查钱包密码。
 
-##### 示例
+#### 示例
 
 要将 100 RPX 转账到地址 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b，并提升转账优先级，输入以下命令：
 
@@ -771,7 +548,7 @@ send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N6
 NEO txid: 0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-#### RPC 方法：sendfrom
+### RPC 方法：sendfrom
 
  "params"  包含一个至少 4 个参数的数组。
 
@@ -823,7 +600,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 }
 ```
 
-#### RPC 方法：sendtoaddress
+### RPC 方法：sendtoaddress
 
  "params"  包含一个至少 3 个参数的数组。
 
@@ -885,7 +662,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 }
 ```
 
-#### RPC 方法：sendmany
+### RPC 方法：sendmany
 
 "params"  包含一个至少一个参数的数组。
 
@@ -968,84 +745,8 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 }
 ```
 
-### 相关参考
+## 相关参考
 
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")  
 [数据转换示例](https://github.com/PeterLinX/NeoDataTransformation)
-
-## 给用户分发 GAS
-
-交易所可以选择是否给用户分发 GAS。GAS 用来支付 NEO 区块链的记账费和附加服务费。
-
-### 什么是 GAS ?
-
-NEOGAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权。GAS 会随着每个新区块的生成而产生，依照既定的缓慢衰减的发行速度，经历总量从 0 到 1 亿的过程，约 22 年达到 1 亿总量。只要获得 NEO，GAS 便会在系统中按照算法自动生成。
-
-每一个 NEO 都有两种状态：unspent 和 spent。每一个 GAS 也有两种状态，unavailable 和 available。一个 NEO 的生命周期以转入地址起始，转出地址截止，转入时状态变为 unspent，转出时状态变为 spent。当 NEO 处于 unspent 状态时，所产生的 GAS 为 unavailable 状态，即不可提取。当 NEO 处于 spent 状态时，期间所产生的 GAS 变为 available，用户可以提取。
-
-### 计算可提取的 GAS 总量
-
-- 可提取的*GAS = f(neo_amount, Δt_const)*
-
-  -  Δt_const = t_end - t_start
-    -  t_end =NEO 变为 spent 状态时刻
-    -  t_start =NEO 变为 unspent 状态时刻
-
-  由于 Δt 是定量，所以可提取的 GAS 也是一个定量。可提取 GAS 的大小取决于所持有的 NEO 数量以及两个状态的时间差。
-
-
-- 不可提取的*GAS = f(neo_amount, Δt_var)*
-
-  - Δt_var = t - t_start
-    - t 为当前时刻
-    - t_start =NEO 变为 unspent 状态时刻
-
-  由于 t 是变量，所以不可提取的 GAS 也随时间增长而不停增长，是一个变量。
-
-### 给用户分发 GAS
-
-假设交易所的所有地址都在一个钱包里，下图显示了交易所向某用户 A 分发 GAS 的流程和计算公式：
-
-
-
-![gasflow](../node/assets/gasflow.png)
-
-
-
-快照间隔越短，计算越精确。如果快照时间间隔不均匀，可以采用加权平均算法。
-
-### RPC 方法
-
-以下 RPC 方法可以帮助交易所查询用户 GAS 信息。要查看调用的 JSON 文件示例，点击表格中的链接。
-
-| 方法                                                         | 描述                                                         | 参数           |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- |
-| [getunclaimedgas](../node/cli/latest-version/api/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。                      |                |
-| [getunclaimed](../node/cli/latest-version/api/getunclaimed.md) | 显示指定地址中未提取的 GAS 数量。                            | \<address>     |
-| [claimgas](../node/cli/latest-version/api/claimgas.md)       | 提取钱包中的 GAS。默认将 GAS 提取到钱包第一个标准地址，也可以将 GAS 提取到指定地址。 | [address] 可选 |
-| [getclaimable](../node/cli/latest-version/api/getclaimable.md) | 显示指定地址内可以 claim 的 GAS 信息。                       | \<address>     |
-| [getunspents](../node/cli/latest-version/api/getunspents.md) | 返回指定账户中未花费的 UTXO 资产（如 NEO、GAS）信息。        | \<address>     |
-
-### 用户提取 GAS
-
-用户将地址中的 NEO 完成一次转账即可提取 GAS，例如： 地址 A 中有 NEO，GAS 为不可提取状态， 那么只需要将 NEO 转给自己，GAS 即可变为可提取状态。
-
-具体提取步骤和命令请参见下表。
-
-| #    | 步骤                                       | 输入命令                                     |
-| ---- | :--------------------------------------- | ---------------------------------------- |
-| 1    | 运行客户端                                    | `dotnet neo-cli.dll --rpc`                     |
-| 2    | 查看客户端版本                                  | `version`                                |
-| 3    | 查看客户端同步高度（Height: 区块高度 / 区块头高度，Nodes: 连接节点数量）。 | `show state`                             |
-| 4    | 创建钱包                                     | `create wallet /home/NeoNode/test.db3`   |
-| 5    | 打开钱包                                     | `open wallet /home/NeoNode/test.db3`     |
-| 6    | 查看钱包里的地址列表                               | `list address`                           |
-| 7    | 查看钱包资产                                   | `list asset`                             |
-| 8    | 获取钱包 GAS 余额详情                              | `show gas`                               |
-| 9    | 给自己的钱包地址 （如 AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1）转账，通过给自己转账将 GAS 状态变为可提取状态 | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
-| 10   | 再次获取钱包 GAS 余额详情，此时所有 GAS 都为可提取状态           | `show GAS`                               |
-| 11   | 提取 GAS                                   | `claim gas [all]`                              |
-| 12   | 再次查看钱包余额，确认提取成功                          | `list asset`                             |
-
-
 

@@ -1,226 +1,18 @@
-# Document for Exchange Developers
+# Dealing with Assets Transactions
 
-In general, an exchange needs to do the following：
-
-- [Deploying a NEO Node on Server](#deploying-a-neo-node-on-server)
-- [Using NEO-CLI](#using-neo-cli)
-- [Dealing with Assets Transactions](#dealing-with-assets-transactions)
-- [Distributing GAS to Users](#distributing-gas-to-users)
-
-## Deploying a NEO Node on Server
-
-To depoly the NEO node, do the following:
-
-1. Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 2.0 and the later version.
-
-2. From GitHub, download the [NEO-CLI](https://github.com/neo-project/neo-cli/releases) program and enable the NEO node.
-
-3. Install the ImportBlocks and ApplicationLogs plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package. You can choose one of the following:
-
-   - For all NEO-CLI versions：
-
-     1. From GitHub download following plugins:
-
-        - [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip)
-        - [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip)
-        - [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip)
-        - [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip)
-        - [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) (Recommended)
-        - [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip) (Recommended)
-        - [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/tree/master/RpcNep5Tracker) (Recommended)
-
-     2. Create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
-
-        ![PluginsForExchange.png](C:/neo-project/docfx/docs/assets/PluginsForExchange.png)
-
-   - For NEO-CLI 2.9.4 and later, use the following commands：
-
-     ```
-     install ImportBlocks
-     install ApplicationLogs
-     install RpcWallet
-     install SimplePolicy
-     install RpcSystemAssetTracker
-     install CoreMetrics
-     install RpcNep5Tracker 
-     ```
-
-   > [!Note]
-   >
-   > - Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Plug-ins for NEO Client](../node/plugin.md).
-   > - You must install the ApplicationLogs plug-in before synchronizing the NEO client, otherwise the log in the blocks synchronized before will be lost.
-
-4. Before running NEO-CLI, you need to configure the following parameters in the config.json file:
-
-   - BindAddress: It defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0. 
-   - UnlockWallet: Optional. You can enable automatic binding and opening of the wallet. The following is an configuration example, where `Path` is the wallet path, `Password` is the wallet password, and `IsActive` is set to `true` to allow the wallet to be opened automatically. 
-
-   ```
-    {
-     "ApplicationConfiguration": {
-       "Paths": {
-         "Chain": "Chain_{0}",
-         "Index": "Index_{0}"
-       },
-       "P2P": {
-         "Port": 10333,
-         "WsPort": 10334
-       },
-       "RPC": {
-         "Port": 10332,
-         "SslCert": "",
-         "SslCertPassword": ""
-       },
-       "UnlockWallet": {
-         "Path": "",
-         "Password": "",
-         "StartConsensus": false,
-         "IsActive": false
-       },
-        "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
-     } 
-   }
-   ```
-
-> [!Note]
->
-> If you want to enable automatic opening of a wallet, specify the parameter "Path" and "Password" with the corresponding wallet information, and set "IsActive" to true. But be cautious before you do that, make sure your firewall is open and safe as Password specified in the file is in clear text.
-
-For more information, refer to [Installation and deployment of NEO node](../node/cli/setup.md).
-
-## Using NEO-CLI
-
-The NEO-CLI client works as an normal node in the P2P network and meanwhile a cross-platform wallet handling various assets transactions. 
-
-### NEO-CLI Security Policies
-
-> [!Warning]
->
-> The exchange must use a white list or firewall to block external server requests; otherwise there will be a significant security risk.
-
-NEO-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, exchanges should set their own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
-
-|                    | Mainnet | Testnet |
-| ------------------ | ------- | ------- |
-| JSON-RPC via HTTPS | 10331   | 20331   |
-| JSON-RPC via HTTP  | 10332   | 20332   |
-| P2P                | 10333   | 20333   |
-| websocket          | 10334   | 20334   |
-
-### About NEO-CLI
-
-NEO-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
-
-- Using the CLI (command-line interface) commands. For example, you can create a wallet, generate an address, etc.
-- Using the Remote Procedure Call (RPC). For example, you can transfer to the designated address, acquire the block information of the designated height, acquire the information of the designated trade, etc.
-
-NEO-CLI provides the following features： 
-
-- As a wallet, manages assets through the command-line.
-
-  To enable the wallet，enter the following command under the NEO-CLI directory：
-
-
-  ```
-  dotnet neo-cli.dll
-  ```
-
-  To check all the available commands, enter the following command：
-
-  ```
-  help
-  ```
-
-  For more information, refer to [CLI Command Reference](../node/cli/cli.md).
-
-- Provides APIs to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
-
-  To start a node which provides RPC service, enter the following command under the NEO-CLI directory：
-
-  ```
-  dotnet neo-cli.dll --rpc
-  ```
-
-  For more API information, refer to [API Reference](../node/cli/apigen.md).
-
-
-- Provides transaction information of NEP-5 assets.
-
-  > [!Note]
-  >
-  > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [NEO-CLI Installation](../node/cli/setup.md).
-
-- Connects to seed nodes directly
-
-  If the connections number is always 0 after opening the NEO-CLI, you can directly connect seed nodes to synchronize blocks using the following command：
-
-  ```
-  dotnet neo-cli.dll --nopeers
-  ```
-
-| #    | Function                                                  | Command                   |
-| ---- | --------------------------------------------------------- | ------------------------- |
-| 1    | Run NEO-CLI                                               | `dotnet neo-cli.dll`      |
-| 2    | Open RPC and log the NEP-5 assets transaction information | `--rpc` or `-r` or `/rpc` |
-
-> [!Note]
->
-> You can enable multiple functions, for example, to enable all the above functions, enter the following:
->
-> ```
-> dotnet neo-cli.dll --rpc --nopeers
-> ```
-
-### Creating a Wallet
-
-The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data. Exchanges do not have to create a wallet for every address. An online wallet usually keeps all deposit addresses of users. A cold wallet (offline wallet) is another storage option which provides better security.
-
-> [!Note]
->
-> NEO-CLI supports wallets in two formats: the sqlite wallet (.db3) and the new [NEP6 standard](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) wallet (.json). For exchanges the sqlite wallet is recommended.
-
-To create a wallet, do the following：
-
-1. enter  `create wallet <path>`.
-
-   <path> is the wallet path and wallet file name. The file extension can be .db3 or .json, depending on the wallet type you are using, for example,  `create wallet /home/mywallet.db3`. If the file extension is not specified, the NEP6 format (.json) is used by default. 
-
-2. Set a password for the wallet. 
-
-### Generating Deposit Addresses
-
-A wallet can store multiple addresses. The exchange needs to generate a deposit address for each user. 
-
-There are two methods to generate deposit addresses: 
-
-- When the user deposit (NEO/NEO GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is that it's not convenient for backup.
-
-  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](../node/cli/latest-version/api/getnewaddress.md). The created address is returned.
-
-- The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
-  To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.
-  [n] is optional. Its default value is 1. For example, to generate 100 addresses at a time, enter `create address 100`.
-
-
-> [!Note]
->
-> Either way, the exchange must import the addresses into the database and distribute them to users. It is generally recommend the exchange use the second way, so as to reduce the external controls and run the wallet more stably.
-
-## Dealing with Assets Transactions
-
-### Overview
+## Overview
 
 NEO has two types of digital assets. One is global assets, e.g. NEO, GAS, which are managed by UTXO. The other is contract assets, e.g. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of these two types of assets.
 
 Following flow charts show the work processes of these operations:
 
-![](assets/query.png)
+![](../assets/query.png)
 
-![](assets/deposit.png)
+![](../assets/deposit.png)
 
-![](assets\withdraw.png)
+![](../assets/withdraw.png)
 
-### Network fee
+## Network fee
 
 For the purpose of preventing malicious transactions and network attacks, network fees are charged when using the NEO blockchain. Under the current mechanism, normal transactions for ordinary users do not increase additional fees. The default charging rules are as follows:
 
@@ -262,9 +54,9 @@ For the purpose of preventing malicious transactions and network attacks, networ
 > - If the exchange specifies fee when using the send command/method to send the transaction to the user's address, only the higher of the two fees is charged.
 > - A configuration file config.json is added in NEO-CLI 2.10.2 RpcWallet plugin to allow you to specify the fee limit for transactions sent using RPC commands. If the transaction fee does not exceed the fee limit, it will be processed on blockchain normally; otherwise the transaction will fail.
 
-### Dealing with Global Assets Transactions
+## Dealing with Global Assets Transactions
 
-#### Querying User Balance
+### Querying User Balance
 
 In general, the balance of a deposit address in the exchange is not equal to the balance the user has in the exchange. It may because：
 
@@ -273,7 +65,7 @@ In general, the balance of a deposit address in the exchange is not equal to the
 
 Therefore, the way for a exchange itself to query balance of the user deposit address is different than the way it deal with the user's request of balance querying. 
 
-##### Querying the user deposit address balance
+#### Querying the user deposit address balance
 
 The exchange can query global assets of a user deposit address by invoking  the getaccountstate API.
 
@@ -315,11 +107,11 @@ After sending the request, the following response text is returned:
 
  Where "asset" is the asset ID  and value is the asset balance.
 
-##### Dealing with users' queries
+#### Dealing with users' queries
 
 The actual user balance in the exchange is recorded in the exchange database. The exchange needs to write programs to monitor each transaction of each block, record all deposits and withdrawals transactions in the database, and modify the user balance in the database accordingly.
 
-#### Dealing with User Deposits 
+### Dealing with User Deposits 
 
 Regarding user deposits, the exchange needs to note the following: 
 
@@ -344,11 +136,11 @@ Regarding user deposits, the exchange needs to note the following:
 
 - In the exchange, the transfer between users should not be recorded through the blockchain. In general, the user's balance are modified in the database directly. Only deposits and withdrawals should be recorded on the blockchain.
 
-##### Deposit Records
+#### Deposit Records
 
 The exchange needs to write code to monitor every transaction in a block and record all the transactions related to the exchange addresses in the database. If a deposit occurs, the user's balance should be updated. 
 
-Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](../node/cli/latest-version/api/getblock2.md).
+Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](../../node/cli/latest-version/api/getblock2.md).
 
 The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
 
@@ -360,7 +152,7 @@ The block information includes the transactions input and output. The exchange n
 > - NEO system takes the transaction as a record unit.
 >
 
-#### Dealing with User Withdrawals 
+### Dealing with User Withdrawals 
 
 To deal with the user withdrawals for global assets, the exchange needs to do the following:
 
@@ -370,7 +162,7 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
 
 3. (Optional) Customer service deals with withdrawal application.
 
-4. Send transaction to the user's withdrawal address using the NEO-CLI API method, `sendtoaddress <asset_id> <address> <value> [fee=0] [Change_address]`. For more information, refer to  [sendtoaddress Method](../node/cli/2.9.2/api/sendtoaddress.md).
+4. Send transaction to the user's withdrawal address using the NEO-CLI API method, `sendtoaddress <asset_id> <address> <value> [fee=0] [Change_address]`. For more information, refer to  [sendtoaddress Method](../../node/cli/2.9.2/api/sendtoaddress.md).
 
    - `<asset_id>` : Asset ID
    - `<address>` : Withdrawal address
@@ -378,7 +170,7 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
    - `[fee]`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
    - `Change_address`: Change address, optional parameter, default is the first standard address in the wallet
 
-   You can also send the transaction to a batch of addresses using API [sendmany Method](../node/cli/2.9.2/api/sendmany.md).
+   You can also send the transaction to a batch of addresses using API [sendmany Method](../../node/cli/2.9.2/api/sendmany.md).
 
 5. Extract the transaction ID from the returned transaction details in the JSON format,  and then record in the database.
 
@@ -391,13 +183,13 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
 > -  The <value> here refers to the actual amount, instead of the amount multiplied by 10^8.
 > -  NEO transfer amount must be an integer; otherwise, the transfer will remain unconfirmed although the transaction can be constructed in NEO-CLI, and will thus affect the wallet change status and cause sending failure of other transactions.  In this situation, you need to rebuild wallet index, so as to recalculate the transactions and change of the wallet.
 
-### Dealing with NEP-5 Assets Transactions
+## Dealing with NEP-5 Assets Transactions
 
-#### Querying User Balance
+### Querying User Balance
 
 Similar to global assets, the way for a exchange itself to query balance of the user deposit address is different than the way it deal with the user's request of balance querying. 
 
-##### Querying the user deposit address balance
+#### Querying the user deposit address balance
 
 To query the user's balance, the exchange needs to do the following:
 
@@ -600,11 +392,11 @@ It returns "525058" which can be converted to string "RPX".
 According to all the returned values,  we can calculate the user balance as follows:
 The balance = 200000000/10<sup>8</sup> RPX = 2 RPX
 
-##### Dealing with users' queries
+#### Dealing with users' queries
 
 The actual user balance is retrieved from the exchange database. 
 
-#### Dealing with User Deposits
+### Dealing with User Deposits
 
 Similar to global assets, the exchange can get the user deposits information of the NEP-5 assets by doing the following:
 
@@ -612,7 +404,7 @@ Similar to global assets, the exchange can get the user deposits information of 
 2. Analyze each transaction type and filter out all transactions of the type "InvocationTransaction". Any transaction other than "InvocationTransaction" can not be a transfer transaction of NEP-5 assets.
 3. Invoke the `getapplicationlog` API to get the details of each "InvocationTransaction" transaction and analyze the transaction content to complete the user deposit.
 
-##### Invoking getapplicationlog
+#### Invoking getapplicationlog
 
 This API is used to get transaction information.
 
@@ -725,7 +517,7 @@ The parameters related to a transaction in the file are the following:
 >
 > You can write a tool to convert the values in the notification file into a more readable format. For your reference this is an example: [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools).
 
-#### Dealing with User Withdrawals
+### Dealing with User Withdrawals
 
 The exchange can choose one of the following way to send NEP-5 assets to users: 
 
@@ -734,7 +526,7 @@ The exchange can choose one of the following way to send NEP-5 assets to users:
 - RPC method: `sendtoaddress`
 - RPC method: `sendmany`
 
-##### NEO-CLI Command: send
+#### NEO-CLI Command: send
 
 ##### Syntax
 
@@ -960,78 +752,8 @@ After sending the request, you will get the following response：
 }
 ```
 
-#### See Also
+## See Also
 
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
 
 [Data Transformation Examples](https://github.com/PeterLinX/NeoDataTransformation)
-
-## Distributing GAS to Users
-
-The exchange can determine whether to distribute GAS to users. GAS is used to pay to the NEO blockchain for recording and additional services. 
-
-### What is GAS ?
-
-NeoGas (abbreviated as GAS) represents the right to use the Neo Blockchain. There will be 100 million GAS in total. GASs are generated along with every new block. The issuance will slow down according to a set slowly-decreasing pace, while GAS will go through a generating process to grow from zero to 100 million. Once NEO is acquired, GAS will be generated in the system following the algorithms.
-
-### Calculating the Available GAS Amount
-
-- Available *GAS = f(neo_amount, Δt_const)*
-
-  -  Δt_const = t_end - t_start
-    -  t_end = the moment that Neo goes into the state of spent
-    -  t_start = the moment that Neo goes into the state of unspent
-
-  Δt_const is fixed, thus the available Gas is of a fixed amount too. And this amount is a function of the amount of Neo held by the user and the duration between the moments that he or she transferred this amount of Neo into and out of his or her address. 
-
-
-- Unavailable *GAS = f(neo_amount, Δt_var)*
-
-  - Δt_var = t - t_start
-    - t is the current time
-    - t_start = the moment that Neo goes into the state of unspent
-
-  The current time is a variable, so the amount of the unavailable GAS also grows through time, which means it is a variable.
-
-### Distributing GAS to Users
-
-Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
-
-
-![gasflow_en](../sc/assets/gasflow_en.png)
-
-The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
-
-### RPC methods
-
-NEO provides a set of RPC methods to help exchanges query users' GAS information. For details, click the desired method link in the table below. 
-
-| Method                                                       | Description                                                  | Parameter          |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------ |
-| [getunclaimedgas](../node/cli/latest-version/api/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet.      |                    |
-| [getunclaimed](../node/cli/latest-version/api/getunclaimed.md) | Returns the unclaimed GAS amount of the specified address.   | \<address>         |
-| [claimgas](../node/cli/latest-version/api/claimgas.md)       | Claims GAS and send them to the first standard address in the wallet by default. You can also specify an address to receive these GAS. | [address] Optional |
-| [getclaimable](../node/cli/latest-version/api/getclaimable.md) | Returns claimable GAS information of the specified address.  | \<address>         |
-| [getunspents](../node/cli/latest-version/api/getunspents.md) | Returns information of the unspent NEO and GAS amount at the specified address. | \<address>         |
-
-### Claiming GAS
-
-GAS becomes claimable after the user transfer his or her NEO. For example, **someone has NEO in address A and GAS are not claimable, he transfer his NEO to himself (address A) then the NEO GAS are claimable.**
-
-The following table lists the GAS claiming steps and corresponding commands.
-
-| #    | Steps                                                        | Command                                         |
-| ---- | :----------------------------------------------------------- | ----------------------------------------------- |
-| 1    | Run NEO-CLI                                                  | `dotnet neo-cli.dll --rpc`                      |
-| 2    | Check the client version                                     | `version`                                       |
-| 3    | Check the synchronized height of the client ( Height: height/header height, Nodes: amount of connected nodes). | `show state`                                    |
-| 4    | Create a wallet                                              | `create wallet /home/NeoNode/test.db3`          |
-| 5    | Open the wallet created in the last step                     | `open wallet /home/NeoNode/test.db3`            |
-| 6    | Check the address list in the wallet                         | `list address`                                  |
-| 7    | Check the assets in the wallet                               | `list asset`                                    |
-| 8    | Check the GAS balances details in the wallet                 | `show gas`                                      |
-| 9    | Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1） to change the status of Gas to be claimable. | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
-| 10   | Get the details of the balances of GAS in the wallet again. Now the status of all the GAS should be available to claim. | `show gas`                                      |
-| 11   | Claim GAS.                                                   | `claim gas [all]`                               |
-| 12   | Check balance again.                                         | `list asset`                                    |
-
