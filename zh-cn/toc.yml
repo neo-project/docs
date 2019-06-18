@@ -541,7 +541,16 @@
   href: exchange/general.md
   items:
     - name: v2.10.2
-      href: exchange/v2.10.2.md
+      href: exchange/2.10.2/deploynode.md
+      items:
+      - name: 部署 NEO 节点
+        href: exchange/2.10.2/deploynode.md
+      - name: 使用 NEO-CLI 客户端
+        href: exchange/2.10.2/client.md
+      - name: 处理资产交易
+        href: exchange/2.10.2/transaction.md
+      - name: 给用户分发 GAS
+        href: exchange/2.10.2/gas.md
     - name: v2.10.0
       href: exchange/v2.10.0.md
     - name: v2.9.4
@@ -558,3 +567,5 @@
       href: exchange/v2.8.0.md
     - name: v2.7.6
       href: exchange/v2.7.6.md
+    - name: 更新记录
+      href: exchange/changelog.md
