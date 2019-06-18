@@ -38,12 +38,13 @@ To view all the commands, enter `help` in the command line.
  To deploy a contract: 
 
 ```
-neo> deploy Nep-5.avm 0710 05 true false false test 1.0.0 Owen neo@neo.org nep-5-example                 
-VM State: HALT, BREAK
+neo> deploy Nep-5.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello   
+Script hash: 0xee91a961c1464d43c4e80a44a447698973cb818b
+VM State: HALT
 Gas Consumed: 500
 Evaluation Stack: [{"type":"InteropInterface"}]
 
-Signed and relayed transaction with hash=0x93e33d6f3f8fa285688ecd7082559c4aa2c8024f67d7609c8c9d7047f7fd639c
+Signed and relayed transaction with hash=0x81dae9680b75befb450920bdc8693cba34c913aa421cd1226ed1620555c95f23
 ```
 
  👉 `invoke <scripthash> <command> [optionally quoted params separated by space]`
@@ -51,13 +52,14 @@ Signed and relayed transaction with hash=0x93e33d6f3f8fa285688ecd7082559c4aa2c80
  To invoke a contract:
 
 ```
-neo> invoke 2a1ebf403a94ce2cf6cd826eb32fbf75ee6f3fdc deploy
-Invoking script with: '00c1066465706c6f7967dc3f6fee75bf2fb36e82cdf62cce943a40bf1e2a'
+neo> invoke ee91a961c1464d43c4e80a44a447698973cb818b deploy
+Invoking script with: '00c1066465706c6f79678b81cb73896947a4440ae8c4434d46c161a991ee'
 VM State: HALT
-Gas Consumed: 2.221
+Gas Consumed: 2.191
 Evaluation Stack: [{"type":"Integer","value":"1"}]
 
-Signed and relayed transaction with hash=0x42f59d2752675e80b965d90c4f4a865c9dbe0a26e5f14fa9e086ea62ddb80c06
+relay tx(no|yes): yes
+Signed and relayed transaction with hash=0x69edfe59bd1cfdb8fecc7eb5623bc44d785a4897cdbee78f9d276924d9ad3946
 ```
 
 ## Wallet operation
