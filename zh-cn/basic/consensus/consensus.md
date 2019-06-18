@@ -39,7 +39,7 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 为了讨论，我们将描述一些情景。 在这些简单的例子中，我们假设每个节点沿着从 **议长** 发送过来的消息发送。 此技工也用于DBFT，对系统至关重要。 我们将仅描述功能系统与功能失效系统之间的区别。 有关更详细的说明，请参阅参考资料。
 
 
-### **诚实的议长**
+### 诚实的议长
 
   <p align="center"><img src="../../../assets/n3.png" width="300"><br>
 
@@ -53,7 +53,7 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
 在图 2 中，我们有两个诚实的 **议员** (66%)。所有的 **议员** 从 **议长**  那里收到相同的消息，然后向其它 **议员** 发送消息和自己的验证结果。根据两位诚实 **议员** 的共识，我们可以确定 **议长** 或者右边的 **议员** 在系统中是不诚实的。
 
-### **不诚实的议长** 
+### 不诚实的议长
 
   <p align="center"><img src="../../../assets/g3.png" width="300"><br> 
 
@@ -134,12 +134,10 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
    <p align="center"><img src="../../../assets/consensus2.png" width="450"><br> <b>图 7:</b> <b>议长</b> 确定且设置好视图 </p>
 
   **等待** `t` 秒。
-​	
-5. 议长广播提案
-    <!-- -->
-        <prepareRequest, h, k, p, bloc, [block]sigp>
 
-     <p align="center"><img src="../../../assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
+5. 议长广播提案 <prepareRequest, h, k, p, bloc, [block]sigp>
+
+   <p align="center"><img src="../../../assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
 
 6. 议员收到提案并验证：
 
@@ -154,8 +152,8 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
     - **如果是有效的提案广播:** <prepareResponse, h, k, i, [block]sigi>
 
     - **如果是无效的提案广播:** <ChangeView, h,k,i,k+1>
-        ​	‘
-           <p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
+
+   <p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
 
 7. 在收到 `s` 数量的 'prepareResponse' 广播后，众议员达成共识并发布一个区块。
 
@@ -170,12 +168,12 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 > [!Note]
 >
 > 如果 (![timeout](../../../assets/consensus.timeout.png) ) 秒后在同一视图没有达成共识：
->   - ​共识节点进行广播：<ChangeView, h,k,i,k+1>    
+>   - 共识节点进行广播：<ChangeView, h,k,i,k+1>    
 >
 >   - 一旦共识节点接收到至少 `s` 个表示相同视图改变的广播，就会增加视图 `v`， 并引发新一轮的共识。
 >
 
-​	
+
 
 ## 引用
 - [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
