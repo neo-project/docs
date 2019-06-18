@@ -137,7 +137,7 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
 5. 议长广播提案 <prepareRequest, h, k, p, bloc, [block]sigp>
 
-<p align="center"><img src="../../../assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
+   <p align="center"><img src="../../../assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
 
 6. 议员收到提案并验证：
 
@@ -153,13 +153,13 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
     - **如果是无效的提案广播:** <ChangeView, h,k,i,k+1>
 
-<p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
+   <p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
 
 7. 在收到 `s` 数量的 'prepareResponse' 广播后，众议员达成共识并发布一个区块。
 
 8. 议员签名该区块
 
-<p align="center"><img src="../../../assets/consensus5.png" width="500"><br> <b>图 10:</b> 达成共识，获批议员签名区块，并将其绑定到链上。</p>
+   <p align="center"><img src="../../../assets/consensus5.png" width="500"><br> <b>图 10:</b> 达成共识，获批议员签名区块，并将其绑定到链上。</p>
 
 9. 当一个共识节点收到一个完整区块时，当前的视图数据被清除，并开始新一轮的共识。
 
