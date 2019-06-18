@@ -514,7 +514,16 @@
   href: exchange/general.md
   items:
     - name: v2.10.2
-      href: exchange/v2.10.2.md
+      href: exchange/2.10.2/deploynode.md
+      items:
+      - name: Deploying NEO nodes
+        href: exchange/2.10.2/deploynode.md
+      - name: Use NEO-CLI
+        href: exchange/2.10.2/client.md
+      - name: Dealing with assets transactions
+        href: exchange/2.10.2/transaction.md
+      - name: Distribute GAS to uses
+        href: exchange/2.10.2/gas.md
     - name: v2.10.0
       href: exchange/v2.10.0.md
     - name: v2.9.4
@@ -531,3 +540,5 @@
       href: exchange/v2.8.0.md
     - name: v2.7.6
       href: exchange/v2.7.6.md
+    - name: Changelog
+      href: exchange/changelog.md
