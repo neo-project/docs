@@ -1,6 +1,6 @@
 # 智能合约的单元测试
 
-可以使用 NEO-CLI 提供的 [invokeScript](../../node/cli/latest-version/api/invokescript.md) 方法来进行单元测试。
+可以使用 NEO-CLI 提供的 [invokeScript](../node/cli/latest-version/api/invokescript.md) 方法来进行单元测试。
 
 ### 单元测试工具
 
@@ -23,7 +23,7 @@
 
    将 `params` 中的字符串替换为要测试的智能合约的脚本，点 **Send** 开始测试。参考下图：
 
-   ![img](../../../assets/test1.png)
+   ![img](../../assets/test1.png)
 
 ###  示例 1 - 测试无参数合约
 
@@ -45,7 +45,7 @@
 
 2. 创建一个 netcore 项目，引入 Neo 项目。
 
-   ![img](../../../assets/test2.png)
+   ![img](../../assets/test2.png)
 
    编写如下代码获取合约脚本：
 
@@ -66,7 +66,7 @@
 
 3. 使用 postman 进行测试，如下图所示：
 
-   ![img](../../../assets/test3.png)
+   ![img](../../assets/test3.png)
 
 "state": "HALT, BREAK" 表示测试成功。
 
@@ -112,7 +112,7 @@ Stack 是留在栈上的值，此值为 string “Hello, World!” 对应的 byt
 
 3. 使用 PostMan 进行测试：
 
-   ![img](../../../assets/test4.png)
+   ![img](../../assets/test4.png)
 
 
 ### 示例 3 - 测试已经部署到链上的合约
