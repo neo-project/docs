@@ -14,7 +14,7 @@ The client must be fully synchronized before use. In order to speed up network s
 
 ## Step 1 - Download the offline package
 
-1. Close the NEO client and go to [offline synchronized package](http://sync.ngd.network/) downloading page.
+1. Close the NEO client and go to [offline synchronized package](https://sync.ngd.network/) downloading page.
 
 2. From the offline package downloading page, click **Mainnet** or **Testnet** according to your network and then download one of the following packages (no need to unzip the package):
 

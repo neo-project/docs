@@ -11,7 +11,7 @@
 
 ## Шаг 1 – Загрузите офф-лайн пакет
 
-1. Закройте клиент NEO и щелкните кнопкой мыши по [Download offline synchronized package](http://sync.ngd.network/)  со страницы [Client Downloads](https://neo.org/download).
+1. Закройте клиент NEO и щелкните кнопкой мыши по [Download offline synchronized package](https://sync.ngd.network/)  со страницы [Client Downloads](https://neo.org/download).
 
    ![](../../assets/syncblocks_1.png)
 
