@@ -505,8 +505,6 @@
         href: sc/tutorial/migrate.md
     - name: Parameters and Return Values
       href: sc/Parameter.md
-    - name: Contract Triggers
-      href: sc/trigger.md
     - name: System Fees
       href: sc/systemfees.md
 - name: FAQ

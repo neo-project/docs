@@ -529,8 +529,6 @@
         href: sc/tutorial/migrate.md
     - name: 参数和返回值
       href: sc/Parameter.md
-    - name: 智能合约触发器
-      href: sc/trigger.md
     - name: 系统使用费
       href: sc/systemfees.md
 - name: 常见问题
