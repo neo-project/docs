@@ -435,7 +435,7 @@
   href: sc/introduction.md
   items:
     - name: 快速入门
-      href: sc/quickstart/overview.md
+      href: sc/getting started/introduction.md
       items:
       - name: 介绍
         href: sc/getting started/introduction.md

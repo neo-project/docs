@@ -19,15 +19,15 @@ From the language point of view, the difference between NEO Smart Contract 2.0 a
 The languages that are currently supported are:
 
 - C#, VB.Net, F#
-
 - Java, Kotlin
 - Python
+- GO
+- JavaScript
 
 The languages that we plan to support include:
 
-- C, C++, Golang
+- C, C++
 
-- JavaScript
 
 With multiple-language support, more than 90% of developers can directly participate in the development of an NEO smart contract without the need to learn a new language. Existing business system code might even be directly ported to the blockchain. We envision that this will greatly increase the overall popularity of the future blockchain.
 
@@ -48,7 +48,7 @@ For example, in the Java JVM or .NET CLR, source code will be compiled into the 
 
 ### Virtual machine architecture
 
-![neo-vm](../../assets/neo-vm.jpg)
+![neo-vm](../../../assets/neo-vm.jpg)
 
 The above diagram is the system architecture diagram of the Neo Virtual Machine (NeoVM), where the deployment in the dashed box is the core of the virtual machine.
 
@@ -72,9 +72,9 @@ In addition, the interoperable service layer also provides a persistent storage 
 
 A smart contract can be programmed to charge a certain fee, divided into deployment costs and execution costs.
 
-Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (currently 500 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](systemfees.md#smart-contract-fees).
+Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](systemfees.md#smart-contract-fees).
 
-## A simple smart contract
+## Some simple smart contracts (C#)
 
 Here are some simple smart contracts:
 
