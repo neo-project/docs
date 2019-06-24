@@ -16,7 +16,7 @@ We may use NEO-GUI to deploy the newly generated contract file.
 
    For NEP-5 asset contract, the argument is written as 0710 and the return value is 05.
 
-   Detailed rules can be referred to  [Smart Contract Parameters and Return Values](../../sc/Parameter.html)。
+   Detailed rules can be referred to  [Smart Contract Parameters and Return Values](../Parameter.md).
 
    Check the box of `required to create a storage area` as according to NEP-5 standard, storage areas are used to maintain accounts.
 
@@ -26,7 +26,7 @@ We may use NEO-GUI to deploy the newly generated contract file.
 
 5. Click `trial run` in the popped up contract invocation interface. Double check and click `invoke`.
 
-   Contract deployment costs about 100-1000 GAS, which is further explained in [system fees](../../sc/systemfees.html). 
+   Contract deployment costs about 100-1000 GAS, which is further explained in [system fees](../systemfees.md). 
 
 Upon successful deployment, your smart contract is now released to the blockchain.
 

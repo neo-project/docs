@@ -259,8 +259,6 @@ private static byte[] Query(string domain){
 
 In many, if not all cases, you will probably be wanting to validate whether the address invoking your contract code is really who they say they are.
 
-[![img](/neo-ngd/NEO-Tutorial/raw/master/en/9-smartContract/imgs/check.jpg)]()  
-
 The `Runtime.CheckWitness` method accepts a single parameter which represents the address that you would like to validate against the address used to invoke the contract code. In more deeper detail, it verifies that the transactions / block of the calling contract has validated the required script hashes.
 
 Usually this method is used to check whether an specified address is the the contract caller,  and then the address can be used to do store change or something else.

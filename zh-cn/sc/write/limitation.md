@@ -1,40 +1,12 @@
 # 合约编写须知
 
-### NEO 编译器支持的 C# 特性
+## NEO 编译器支持的 C# 特性
 
 使用 C# 开发智能合约时，你无法使用 C# 的全部特性。会存在一些限制以及不支持的功能，这些限制的根源，来自于 NeoVM 和 Dotnet IL 的差异性。
 
 因为 NeoVM 更加精简，所以我们只能将有限的 C# / dotnet 特性编译为 AVM 文件。
 
-#### 关于类型
-
-NeoVM 有几种基本类型：
-
-- `ByteArray`
-- `Integer`
-- `Boolean`
-- `Array`
-- `Struct`
-- `Map`
-- `Interface`
-
-而从 AVM 代码中能直接产生的基本类型只有：
-
-- `ByteArray`（Integer 和 Boolean 均由 ByteArray 表示）
-- `Array`
-- `Struct`
-- `Map`
-
-C# 的基本类型有
-
-- `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
-- `float double`
-- `Boolean`
-- `Char String`
-
-因为虚拟机层次基本类型的差异，使得 C# 基本类型并不能完全支持，使用中会有一些特殊情况。
-
-#### C# 整数类型的支持
+### C# 整数类型的支持
 
 `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 
@@ -84,15 +56,15 @@ for (int j = 0; j < 3; j++)
 }
 ```
 
-#### C# 浮点类型的支持
+### C# 浮点类型的支持
 
 不支持
 
-#### C# bool 类型的支持
+### C# bool 类型的支持
 
 基本支持，底层行为和 INT 类似，false 为 int 0。
 
-#### C# char string 类型的支持
+### C# char string 类型的支持
 
 不完全支持，由于在 NeoVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 AVM 的 string 实际是它的 UTF8 编码的 bytearray，请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
 
@@ -113,7 +85,7 @@ var d = ss.Substring(1, 2);
 
 char 类型作为整数支持。
 
-#### C# class 和 结构体的支持
+### C# class 和 结构体的支持
 
 支持 C# class 和结构体定义。
 
@@ -129,7 +101,7 @@ public class info
 
 不支持自定义构造函数，使用 OPCALL 特性的 extern 构造函数例外。
 
-#### C# 数组的支持
+### C# 数组的支持
 
 数组支持，行为基本和 C# 一致。
 
@@ -145,13 +117,13 @@ return some;
 
 对 Byte[] 不允许。
 
-#### C# 枚举的支持
+### C# 枚举的支持
 
 支持仅作为数值使用时定义枚举。
 
 不支持格式化为 String，以及从 String 解析等。
 
-#### C# 容器的支持
+### C# 容器的支持
 
 不支持 C# 常用的 LIST Dictionary 容器。
 
@@ -159,7 +131,7 @@ LIST 功能可以用数组替代。
 
 Dictionary 功能可以用 NEO DOTNET DEVPACK 中的 MAP 替代。
 
-#### C# 变量的支持
+### C# 变量的支持
 
 临时变量不限，支持定义 const 变量和静态成员变量。支持静态成员变量直接赋初值。
 
@@ -168,7 +140,7 @@ private const ulong total_neo = total_ico_usd / neo_to_usd * neo_decimals;
 public static BigInteger TotalIcoNeo() => total_neo;
 ```
 
-#### C# 委托和事件的支持
+### C# 委托和事件的支持
 
 C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别功能。
 
@@ -186,27 +158,27 @@ C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别�
 
 这就实现了对一个指定地址的智能合约的调用，参考 NEP4。
 
-### C# 开发约定
+## C# 开发约定
 
-#### C# 的导出要求
+### C# 的导出要求
 
 NEO C# 编译器要求一个智能合约有且只有一个名为 Main 的 public static 函数作为入口点。
 
 其它要导出的函数都应该为 public static，且不可重名。
 
-#### C# 的委托和定义
+### C# 的委托和定义
 
 C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持。
 
 分别对应 NEO 智能合约的通知与 NEP4。
 
-#### 内置特性
+### 内置特性
 
 如果你观察 NEO DEVPACK 会看到很多 extern 的外部函数，实际上他们并没有外部实现，只是不需要实现。他们由特性标记功能。
 
 也可以在你的智能合约代码中使用这些功能。
 
-#### APPCALL特性
+### APPCALL特性
 
 调用一个具有 APPCALL 特性的函数，会调用指定的智能合约。
 
@@ -215,7 +187,7 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 public static extern bool AnotherContract(string arg, object[] args);
 ```
 
-#### SYSCALL特性
+### SYSCALL特性
 
 调用一个具有 Syscall 特性的函数，实际上会调用对应的系统函数：
 
@@ -224,7 +196,7 @@ public static extern bool AnotherContract(string arg, object[] args);
 public extern long GetBalance(byte[] asset_id);
 ```
 
-#### OPCALL 特性
+### OPCALL 特性
 
 调用一个具有 OPCODE 特性的函数时，该调用会被翻译成一条指令：
 
@@ -233,7 +205,7 @@ public extern long GetBalance(byte[] asset_id);
 public extern static byte[] Take(byte[] good, int index);
 ```
 
-#### NONEMIT 特性
+### NONEMIT 特性
 
 执行一个具有 NonEMit 特性的函数，通常都是用来完成一些满足语法的转换，实际上在 NeoVM 底层并不需要转换。
 
@@ -242,7 +214,7 @@ public extern static byte[] Take(byte[] good, int index);
 public extern static Delegate ToDelegate(this byte[] source);
 ```
 
-#### NonemitWithConvert 特性
+### NonemitWithConvert 特性
 
 当执行一个具有 `NonemitWithConvert` 特性的函数时，实际只是执行一个转换。这个函数的入参必须是一个常数，因为这个转换是在编译阶段执行的。
 

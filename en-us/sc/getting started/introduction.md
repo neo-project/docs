@@ -72,7 +72,7 @@ In addition, the interoperable service layer also provides a persistent storage 
 
 A smart contract can be programmed to charge a certain fee, divided into deployment costs and execution costs.
 
-Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](systemfees.md#smart-contract-fees).
+Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](../systemfees.md).
 
 ## Some simple smart contracts (C#)
 
@@ -100,8 +100,8 @@ The return value of the contract is always `false`, indicating that the assets o
 
 For more examples please see:
 
-[Hello World](tutorial/HelloWorld.md)
+[Hello World](../tutorial/HelloWorld.md)
 
-[Lock (lock)](tutorial/lock.md)
+[Lock (lock)](../tutorial/lock.md)
 
-[Domain (Domain Name System)](tutorial/Domain.md)
+[Domain (Domain Name System)](../tutorial/Domain.md)

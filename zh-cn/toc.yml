@@ -432,9 +432,9 @@
     - name: 区块链浏览器
       href: utility/explorers.md
 - name: 智能合约
-  href: sc/introduction.md
+  href: sc/getting started/introduction.md
   items:
-    - name: 快速入门
+    - name: 快速入门（C#）
       href: sc/getting started/introduction.md
       items:
       - name: 介绍
@@ -447,9 +447,22 @@
         href: sc/getting started/develop.md
       - name: 部署并调用合约
         href: sc/getting started/deploy.md
+    - name: 开发环境
+      href: sc/devenv/getting-started-csharp-mac.md
+      items:
+      - name: 在 macOS 上使用 C# 编写合约
+        href: sc/devenv/getting-started-csharp-mac.md
+      - name: 在 ubuntu 上使用 C# 编写合约
+        href: sc/devenv/getting-started-csharp-ubuntu.md
+      - name: 使用 Java 编写合约
+        href: sc/devenv/getting-started-java.md
+      - name: 使用 python 编写合约
+        href: sc/devenv/getting-started-python.md
     - name: 合约编写
       href: sc/write/limitation.md
       items:
+      - name: 合约编写基础
+        href: sc/write/basics.md
       - name: 编写限制
         href: sc/write/limitation.md
     - name: 测试
@@ -525,8 +538,8 @@
         href: sc/tutorial/verify.md
       - name: 锁仓合约示例教程
         href: sc/tutorial/Lock2.md
-      - name: 合约迁移
-        href: sc/tutorial/migrate.md
+    - name: 合约迁移
+      href: sc/migrate.md
     - name: 参数和返回值
       href: sc/Parameter.md
     - name: 系统使用费

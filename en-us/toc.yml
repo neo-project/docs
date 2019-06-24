@@ -405,14 +405,11 @@
     - name: Blockchain Explorers
       href: utility/explorers.md
 - name: Smart Contract
-  href: sc/introduction.md
+  href: sc/getting started/introduction.md
   items:
     - name: Getting Started
       href: sc/getting started/introduction.md
       items:
-      - name: Getting Started
-        href: sc/quickstart/getting-started-csharp.md
-        items:
       - name: Overview
         href: sc/getting started/introduction.md
       - name: Before you begin
@@ -423,15 +420,28 @@
         href: sc/getting started/develop.md
       - name: Deploying and invoking the contract
         href: sc/getting started/deploy.md
-    - name: Writing smart contracts
-      href: sc/write/limitation.md
+    - name: Development Environment
+      href: sc/devenv/getting-started-2015.md
       items:
+      - name: Using C# on macOS
+        href: sc/devenv/getting-started-csharp-mac.md
+      - name: Using C# on ubuntu
+        href: sc/devenv/getting-started-csharp-ubuntu.md
+      - name: Using Java
+        href: sc/devenv/getting-started-java.md
+      - name: Using Python
+        href: sc/devenv/getting-started-python.md
+    - name: Writing smart contracts
+      href: sc/write/basics.md
+      items:
+      - name: Basics
+        href: sc/write/basics.md
       - name: Limitations
-        href: sc/quickstart/limitation.md
+        href: sc/write/limitation.md
     - name: Unit Testing
-      href: sc/quickstart/test.md
+      href: sc/test.md
     - name: Deploying and Invoking Smart Contracts
-      href: sc/quickstart/deploy-invoke.md
+      href: sc/deploy-invoke.md
     - name: Reference
       href: sc/reference/api.md
       items:
@@ -501,8 +511,8 @@
         href: sc/tutorial/verify.md
       - name: Deploying a Lock Contract
         href: sc/tutorial/Lock2.md
-      - name: Migrating Smart Contracts
-        href: sc/tutorial/migrate.md
+    - name: Migrating Smart Contracts
+      href: sc/migrate.md
     - name: Parameters and Return Values
       href: sc/Parameter.md
     - name: System Fees

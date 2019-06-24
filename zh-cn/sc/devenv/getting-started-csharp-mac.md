@@ -1,4 +1,4 @@
-# 在 macOS 上如何用 C# 编写智能合约
+# 在 macOS 上使用 C# 编写合约
 
 ### 1. Visual Studio for Mac 
 
@@ -82,7 +82,7 @@ public class Class1: SmartContract
 Unhandled Exception: System.TypeInitializationException: The type initializer for 'Crypto' threw an exception. ---> System.TypeInitializationException: The type initializer for 'CryptoInitializer' threw an exception. ---> System.DllNotFoundException: Unable to load DLL 'System.Security.Cryptography.Native': The specified module could not be found.
 ```
 
-不要紧，这是 .NET Core 在 macOS 上的已经问题，也是个普遍现象，按照如下办法可修复：
+这是 .NET Core 在 macOS 上的已知问题，按照如下办法可修复：
 
 打开 `终端`，输入以下命令
 

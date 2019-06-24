@@ -6,7 +6,7 @@ This tutorial is based on Visual Studio 2017. Ensure that your Visual Studio is 
 
 ## Compiling a contract script
 
-First of all, refer to [how to use C# to write a smart contract](../quickstart/getting-started-csharp.md) to compile a smart contract file Test.avm using the following code. 
+First of all, refer to [Developing an NEP-5 contract](../getting started/develop.md) to compile a smart contract file Test.avm using the following code. 
 
 ```c#
 using Neo.SmartContract.Framework;

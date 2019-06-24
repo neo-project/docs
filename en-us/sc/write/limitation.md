@@ -1,40 +1,12 @@
 # Limitations of Writing Smart Contracts
 
-### NEO-supported features in C#
+## NEO-supported features in C#
 
 When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NeoVM and Dotnet IL. 
 
 Because NeoVM is more compact, we can only compile limited C# / dotnet features into an AVM file.
 
-#### Data types
-
-NeoVM provides the following basic types：
-
-- `ByteArray`
-- `Integer`
-- `Boolean`
-- `Array`
-- `Struct`
-- `Map`
-- `Interface`
-
-The basic types that can be directly generated from AVM code are only：
-
-- `ByteArray`（Both Integer and Boolean are represented by ByteArray）
-- `Array`
-- `Struct`
-- `Map`
-
-The basic types of C# are:
-
-- `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
-- `float double`
-- `Boolean`
-- `Char String`
-
-Because of the differences in the basic types of virtual machines, the basic types of C# are not fully supported, and there are some special situations in use.
-
-#### C#  integral types
+### C#  integral types
 
 `Int8 int16 int32 int64 uint8 uint16 uint32 uint64`
 
@@ -84,15 +56,15 @@ for (int j = 0; j < 3; j++)
 }
 ```
 
-#### C# floating point types
+### C# floating point types
 
 Not support.
 
-#### C# bool types
+### C# bool types
 
 Basic support. The underlying behavior is similar to INT; false is int 0.
 
-#### C# char string types
+### C# char string types
 
 Not fully support. Unlike the string in C#, the string in NeoVM is treated as bytearray, thus the string compiled into AVM is actually its UTF8 encoded bytearray.  Do not use any string advanced handlers. Just treat string as a special type. Particularly do not use string to handle Chinese.
 
@@ -111,7 +83,7 @@ Since there is no support for other types to be formatted as strings, the result
 
 char type is supported as the integer type. 
 
-#### C# class and structure
+### C# class and structure
 
 C# class and structure definition is supported.
 
@@ -127,7 +99,7 @@ Defining custom member functions is not supported, with the exception of extern 
 
 Custom constructors are not supported, with the exception of extern constructors that use the OPCALL attribute.
 
-#### C# array
+### C# array
 
 C# array is supported, and the behavior is similar to C#.
 
@@ -141,13 +113,13 @@ some[1] = 12;
 return some;
 ```
 
-#### C# enumeration
+### C# enumeration
 
 Defining enumerations is supported only when used as a numeric value.
 
 Formatting to String and parsing from String are not supported.
 
-#### C# containers
+### C# containers
 
 C# common LIST Dictionary containers are not supported.  
 
@@ -155,7 +127,7 @@ The LIST function can be replaced by an array.
 
 The Dictionary function can be replaced with MAP in NEO DOTNET DEVPACK.
 
-#### C# variables
+### C# variables
 
 Temporary variables are unrestricted. Defining const variables and static member variables are supported. Assigning initial values to static member variables is supported.
 
@@ -164,7 +136,7 @@ private const ulong total_neo = total_ico_usd / neo_to_usd * neo_decimals;
 public static BigInteger TotalIcoNeo() => total_neo;
 ```
 
-#### C# delegates and events
+### C# delegates and events
 
 You can define two functions of C# delegates, which are special features of NeoVM.
 
@@ -182,27 +154,27 @@ When invoking this event, the NEO C# compiler regards it as the Notify method. R
 
 This implements a call to a smart contract with a specified address. Refer to NEP4.
 
-### C# development convention
+## C# development convention
 
-#### C# export requirements
+### C# export requirements
 
 NEO C# compile requires that a smart contract has only one Main function as the entry point.
 
 Other functions to be exported should be public static and have unique name. 
 
-#### C# delegation and definition
+### C# delegation and definition
 
 C# delegates and events have special features. Refer to the C# delegates and events section.  
 
 C# delegates and events correspond to NEO smart contract notification and NEP4 respectively.
 
-#### Built-in attributes
+### Built-in attributes
 
 You may find there are lots of extern external functions of NEO DEVPACK. In fact, they have no external implementation because they do not need to be implemented. They are marked by features.
 
 You can use these functions in your smart contracts.
 
-#### APPCALL
+### APPCALL
 
 Calling a function with the APPCALL attribute calls the specified smart contract.
 
@@ -211,7 +183,7 @@ Calling a function with the APPCALL attribute calls the specified smart contract
 public static extern bool AnotherContract(string arg, object[] args);
 ```
 
-#### SYSCALL
+### SYSCALL
 
 Calling a function with the Syscall attribute actually calls the corresponding system function:
 
@@ -220,7 +192,7 @@ Calling a function with the Syscall attribute actually calls the corresponding s
   public extern long GetBalance(byte[] asset_id);
 ```
 
-#### OPCALL
+### OPCALL
 
 When a function with the OPCODE attribute is called, the call is translated into an instruction:
 
@@ -229,7 +201,7 @@ When a function with the OPCODE attribute is called, the call is translated into
 public extern static byte[] Take(byte[] good, int index);
 ```
 
-#### NONEMIT
+### NONEMIT
 
 Executing a function with the NonEMit attribute is usually used to complete conversions that meet syntax rules. In fact, there is no need to make the conversion in the underlying NeoVM.
 
@@ -238,7 +210,7 @@ Executing a function with the NonEMit attribute is usually used to complete conv
 public extern static Delegate ToDelegate(this byte[] source);
 ```
 
-#### NonemitWithConvert
+### NonemitWithConvert
 
 Executing a function with the `NonemitWithConvert` attribute actually executes a conversion. The input to this function must be a constant as the conversion is performed in the phase of compilation.
 
