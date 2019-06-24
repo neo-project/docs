@@ -204,7 +204,7 @@
 
 <https://www.youtube.com/watch?v=fLppte-guYE>
 
-**Mainnet lanuched 2 years**
+**Mainnet launched 2 years ago**
 
 <https://neonewstoday.com/general/looking-back-on-2-years-of-the-neo-mainnet/>
 
