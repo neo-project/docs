@@ -250,9 +250,9 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
   因此，你需要把 account 作为 "balanceOf" 方法的一个参数。
 
-### 调用示例
+#### 调用示例
 
-#### **调用 balanceOf**
+##### **调用 balanceOf**
 
 假设用户账户地址是 AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR，你需要将其转换为 Hash160 类型并将此参数构造为 JSON 对象，如下所示:
 
@@ -307,7 +307,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 返回值”00c2eb0b“ 可以转化为整数 **200000000**。
 
-#### **调用 decimals**
+##### **调用 decimals**
 
 请求正文：
 
@@ -346,7 +346,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 返回值为整数 **8**。
 
-#### **调用 symbol**
+##### **调用 symbol**
 
 请求正文:
 
@@ -385,7 +385,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 返回值 "525058" 可以被转换为币种符号 "RPX"。
 
-#### **计算用户余额**
+##### **计算用户余额**
 
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 200000000/10⁸ RPX = 2 RPX
@@ -511,7 +511,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 >
 > 关于文件中 transfer 通知格式的转换，可以参考工具 [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools)。
 
-## 提现
+### 提现
 
 交易所可以通过以下一种方式发送 NEP-5 资产给用户，客户端侧必须打开钱包才能使用以下 API：
 
@@ -520,13 +520,13 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 - RPC 方法： `sendtoaddress`
 - RPC 方法： `sendmany`
 
-### neo-cli 命令：send
+#### neo-cli 命令：send
 
-#### 语法
+##### 语法
 
 `send <txid|script hash> <address> <value> [fee = 0] [change_address]`
 
-#### 参数
+##### 参数
 
 - `txid|script hash`：资产 ID。
 - `address`：付款地址。
@@ -536,7 +536,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 该命令会检查钱包密码。
 
-#### 示例
+##### 示例
 
 要将 100 RPX 转账到地址 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b，并提升转账优先级，输入以下命令：
 
@@ -548,7 +548,7 @@ send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N6
 NEO txid: 0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-### RPC 方法：sendfrom
+#### RPC 方法：sendfrom
 
  "params"  包含一个至少 4 个参数的数组。
 
@@ -600,7 +600,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 }
 ```
 
-### RPC 方法：sendtoaddress
+#### RPC 方法：sendtoaddress
 
  "params"  包含一个至少 3 个参数的数组。
 
@@ -662,7 +662,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 }
 ```
 
-### RPC 方法：sendmany
+#### RPC 方法：sendmany
 
 "params"  包含一个至少一个参数的数组。
 
