@@ -14,6 +14,7 @@ For more NEO technical details, click [here](https://docs.neo.org/developerguide
 
 | Smart Contract                                               | Document for Exchange Developers                             |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction](sc/introduction.md)<br />[Quick Start](sc/quickstart/overview.md)<br />[Reference](sc/reference/api.md)<br />[Samples and Tutorials](sc/tutorial/HelloWorld.md)<br />[Contract Triggers](sc/trigger.md)<br />[System Fees](sc/systemfees.md) | [Version 2.10.2](exchange/2.10.2/deploynode.md)<br />[Version 2.10.0](exchange/v2.10.0.md)<br />[Version 2.9.4](exchange/v2.9.4.md)<br />[Version 2.9.3](exchange/v2.9.3.md)<br />[Version 2.9.2](exchange/v2.9.2.md)<br />[Version 2.9.1](exchange/v2.9.1.md)<br />[Version 2.9.0](exchange/v2.9.0.md)<br /> |
+| [Getting Started](sc/getting started/introduction.md)<br />[Writing Smart Contracts](sc/write/basics.md)<br />[Reference](sc/reference/api.md)<br />[Samples and Tutorials](sc/tutorial/HelloWorld.md)<br />[Depoying and Invoking Contracts](sc/deploy-invoke.md)<br />[System Fees](sc/systemfees.md) | [Version 2.10.2](exchange/2.10.2/deploynode.md)<br />[Version 2.10.0](exchange/v2.10.0.md)<br />[Version 2.9.4](exchange/v2.9.4.md)<br />[Version 2.9.3](exchange/v2.9.3.md)<br />[Version 2.9.2](exchange/v2.9.2.md)<br />[Version 2.9.1](exchange/v2.9.1.md)<br />[Version 2.9.0](exchange/v2.9.0.md)<br /> |
+
 
 The NEO community has also contributed a wide variety of tutorials. Click [here](../communitydoc.md).<link rel="stylesheet" href="../styles/index.css">

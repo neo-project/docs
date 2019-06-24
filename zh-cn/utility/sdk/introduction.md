@@ -1,6 +1,6 @@
 # 欢迎使用 NEO SDK
 
-可使用 NEO SDK 来开发各种基于 NEO 的应用，如钱包客户端，游戏等。 引用 NEO SDK 后，您的项目仍可在原有的环境中运行，而非在 NeoVM 中运行，如果想开发在 NeoVM 中运行的程序，请参考 [NEO 智能合约](../../sc/introduction.md)。 
+可使用 NEO SDK 来开发各种基于 NEO 的应用，如钱包客户端，游戏等。 引用 NEO SDK 后，您的项目仍可在原有的环境中运行，而非在 NeoVM 中运行，如果想开发在 NeoVM 中运行的程序，请参考 [NEO 智能合约](../../sc/getting started/introduction.md)。 
 
 此文档是完全[开源](https://github.com/neo-project/docs)的。 可通过任何方式参与此文档，如创建问题、编写文档等。
 
