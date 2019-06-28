@@ -432,21 +432,21 @@
     - name: 区块链浏览器
       href: utility/explorers.md
 - name: 智能合约
-  href: sc/getting started/introduction.md
+  href: sc/gettingstarted/introduction.md
   items:
     - name: 快速入门（C#）
-      href: sc/getting started/introduction.md
+      href: sc/gettingstarted/introduction.md
       items:
       - name: 介绍
-        href: sc/getting started/introduction.md
+        href: sc/gettingstarted/introduction.md
       - name: 准备工作
-        href: sc/getting started/prerequisites.md
+        href: sc/gettingstarted/prerequisites.md
       - name: 搭建网络环境
-        href: sc/getting started/enviroment.md
+        href: sc/gettingstarted/enviroment.md
       - name: 开发 NEP-5 合约
-        href: sc/getting started/develop.md
+        href: sc/gettingstarted/develop.md
       - name: 部署并调用合约
-        href: sc/getting started/deploy.md
+        href: sc/gettingstarted/deploy.md
     - name: 开发环境
       href: sc/devenv/getting-started-csharp-mac.md
       items:
