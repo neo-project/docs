@@ -405,21 +405,21 @@
     - name: Blockchain Explorers
       href: utility/explorers.md
 - name: Smart Contract
-  href: sc/getting started/introduction.md
+  href: sc/gettingstarted/introduction.md
   items:
     - name: Getting Started
-      href: sc/getting started/introduction.md
+      href: sc/gettingstarted/introduction.md
       items:
       - name: Overview
-        href: sc/getting started/introduction.md
+        href: sc/gettingstarted/introduction.md
       - name: Before you begin
-        href: sc/getting started/prerequisites.md
+        href: sc/gettingstarted/prerequisites.md
       - name: Seting up local network
-        href: sc/getting started/enviroment.md
+        href: sc/gettingstarted/enviroment.md
       - name: Developing an NEP-5 contract
-        href: sc/getting started/develop.md
+        href: sc/gettingstarted/develop.md
       - name: Deploying and invoking the contract
-        href: sc/getting started/deploy.md
+        href: sc/gettingstarted/deploy.md
     - name: Development Environment
       href: sc/devenv/getting-started-2015.md
       items:
