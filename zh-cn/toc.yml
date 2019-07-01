@@ -530,8 +530,6 @@
       items: 
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
-      - name: Lock（锁仓合约）
-        href: sc/tutorial/Lock.md
       - name: Domain（域名系统）
         href: sc/tutorial/Domain.md
       - name: 鉴权合约示例教程

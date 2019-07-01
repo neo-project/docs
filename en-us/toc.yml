@@ -503,8 +503,6 @@
       items:
       - name: Hello World
         href: sc/tutorial/HelloWorld.md
-      - name: Lock Contract
-        href: sc/tutorial/Lock.md
       - name: Domain (Domain Name System)
         href: sc/tutorial/Domain.md
       - name: Contract Authentication Tutorial
