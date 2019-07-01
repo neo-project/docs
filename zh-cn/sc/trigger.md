@@ -83,11 +83,11 @@ public static byte[] FunctionC(params object[] args)
 
 ### VerificationR
 
-待补充，关于 VerificationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) 。
+已弃用，关于 VerificationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/master/nep-7.mediawiki) 。
 
 ### ApplicationR
 
-待补充，关于 ApplicationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) 。
+已弃用，关于 ApplicationR 触发器可以参考 [此文](https://github.com/neo-project/proposals/blob/master/nep-7.mediawiki) 。
 
 ### 其它说明
 
@@ -122,7 +122,7 @@ public static bool FunctionA(params object[] args)
 |                  | Verification               | Application                     | VerificationR              | ApplicationR               |
 | ---------------- | -------------------------- | ------------------------------- | -------------------------- | -------------------------- |
 | 中文名           | 验证触发器                 | 应用触发器                      | 待定                       | 待定                       |
-| 开发状态         | 已开发完成                 | 已开发完成                      | 已开发完成                 | 已开发完成                 |
+| 开发状态         | 已开发完成                 | 已开发完成                      | 已弃用                     | 已弃用                     |
 | 如何触发         | 转账触发                   | 发送 InvocationTransaction 触发 | 接收转账时触发             | 接收转账时触发             |
 | 交易与合约的顺序 | 先执行智能合约，后确认交易 | 先确认交易，后执行智能合约      | 先执行智能合约，后确认交易 | 先确认交易，后执行智能合约 |
 | 返回值           | 布尔                       | 任意                            | 布尔                       | 任意                       |
