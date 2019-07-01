@@ -17,7 +17,7 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</td>
-            <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
+            <td><a href="cli/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
             <td>交易所必选</td>
         </tr>
         <tr>
@@ -25,7 +25,7 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>查询历史区块的时间戳。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
+            <td><a href="cli/latest-version/api/getmetricblocktimestamp.md">getmetricblocktimestamp</a></td>
             <td>交易所推荐使用</td>
         </tr>
         <tr>
@@ -41,20 +41,20 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>提供钱包相关的 RPC 功能。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">claimgas</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">dumpprivkey</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getbalance</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getnewaddress</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getunclaimedgas</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getwalletheight</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">importprivkey</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">listaddress</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">sendfrom</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">sendmany</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">sendtoaddress</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">invoke</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">invokefunction</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">invokescript</a></td>
+            <td><a href="cli/latest-version/api/getmetricblocktimestamp.md">claimgas</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">dumpprivkey</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getbalance</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getnewaddress</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getunclaimedgas</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getwalletheight</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">importprivkey</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">listaddress</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">sendfrom</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">sendmany</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">sendtoaddress</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">invoke</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">invokefunction</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">invokescript</a></td>
             <td>必选</td>
         </tr>
         <tr>
@@ -78,9 +78,9 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>查询 UTXO 资产相关信息。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getunclaimed</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getclaimable</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getunspents</a></td>
+            <td><a href="cli/latest-version/api/getmetricblocktimestamp.md">getunclaimed</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getclaimable</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getunspents</a></td>
             <td>交易所推荐使用</td>
         </tr>
         <tr>
@@ -96,8 +96,8 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getnep5balances</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getnep5transfers</a></td>
+            <td><a href="cli/latest-version/api/getmetricblocktimestamp.md">getnep5balances</a><br><a
+                    href="cli/latest-version/api/getmetricblocktimestamp.md">getnep5transfers</a></td>
             <td>交易所推荐使用</td>
         </tr>
     </tbody>
