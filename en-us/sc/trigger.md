@@ -81,11 +81,11 @@ The success and failure of InvocationTransaction is not necessarily related to t
 
 ### VerificationR
 
-To be added. For information about VerificationR, refer to [here](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) .
+Deprecated. For information about VerificationR, refer to [here](https://github.com/neo-project/proposals/blob/master/nep-7.mediawiki) .
 
 ### ApplicationR
 
-To be added. For information about ApplicationR, refer to [here](https://github.com/neo-project/proposals/blob/597f0dc53a80bbedb14974c8168f8df288c1d82e/nep-7.mediawiki) .
+Deprecated. For information about ApplicationR, refer to [here](https://github.com/neo-project/proposals/blob/master/nep-7.mediawiki) .
 
 ### Multiple triggers in a smart contract
 
@@ -120,7 +120,7 @@ The following is a comparison of these smart contract triggers.
 |                    | Verification                                                 | Application                                                  | VerificationR                                                | ApplicationR                                                 |
 | ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Name               | Verification trigger                                         | Application trigger                                          | TBD                                                          | TBD                                                          |
-| Status             | Development completed                                        | Development completed                                        | Development completed                                        | Development completed                                        |
+| Status             | Development completed                                        | Development completed                                        | Deprecated                                        | Deprecated                                        |
 | Trigger method     | Triggered when sending a transfer                            | Triggered when sending InvocationTransaction                 | Triggered when receiving a transfer                          | Triggered when receiving a transfer                          |
 | Contract execution | Executes the smart contract first and then confirms the transaction | Confirms the transaction first and then executes the smart contract | Executes the smart contract first and then confirms the transaction | Confirms the transaction first and then executes the smart contract |
 | Return value       | Boolean                                                      | Any                                                          | Boolean                                                      | Any                                                          |
