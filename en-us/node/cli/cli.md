@@ -38,8 +38,8 @@ To view all the commands, enter `help` in the command line.
  To deploy a contract: 
 
 ```
-neo> deploy Nep-5.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello   
-Script hash: 0xee91a961c1464d43c4e80a44a447698973cb818b
+neo> deploy Template.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello 
+Script hash: 0xee91a961c1464d43c4e80a44a447698973cb818b 
 VM State: HALT
 Gas Consumed: 500
 Evaluation Stack: [{"type":"InteropInterface"}]
