@@ -32,7 +32,7 @@
 发布合约
 
 ```
-neo> deploy ICO_Template.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello   
+neo> deploy Template.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello   
 Script hash: 0xee91a961c1464d43c4e80a44a447698973cb818b
 VM State: HALT
 Gas Consumed: 500

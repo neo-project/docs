@@ -59,6 +59,8 @@
             href: node/cli/latest-version/api/dumpprivkey.md
           - name: getaccountstate
             href: node/cli/latest-version/api/getaccountstate.md
+          - name: getapplicationlog.md
+            href: node/cli/latest-version/api/getapplicationlog.md
           - name: getassetstate
             href: node/cli/latest-version/api/getassetstate.md
           - name: getbalance
