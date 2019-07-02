@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>NEO 白皮书</title>
+    <meta name="twitter:title" content="NEO 技术文档" />
+    <meta name="twitter:description" content="NEO 技术文档" />
+    <meta name="twitter:image" content="https://neo-cdn.azureedge.net/images/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="apple-touch-icon">
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="shortcut icon">
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="icon">
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="bookmark" />
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="https://neo-cdn.azureedge.net/css/vs.css" rel="stylesheet" />
+    <link href="en-us/css/site.css" rel="stylesheet" />
+    <link href="en-us/css/code.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <div class="body-content">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://neo.org">官网</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="javascript:" onclick="language('en-us')">English</a>
+                            <a class="dropdown-item" href="javascript:" onclick="language('zh-cn')">中文</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="language.html">Other Language</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 d-none">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container-fluid" style="margin-top: 61px">
+            <div class="row d-flex">
+                <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
+ 
+                </div>
+                <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
+                        <p>这里是 NEO 社区的贡献者们翻译的多语言文档，但是我们不负责维护这些文档，要获取最新信息，建议您查看中英文文档。</p>
+                        <p>These multi-lingual documents are contributed by NEO community. We are only responsible for the maintenance of Chinese and English docs, which are regularly updated to the latest progress.</p>
+                        <p><br></p>
+                        <p>Ver documentación en <a href="es-es/whitepaper.html">Español</a>.</p>
+                        <p><a href="ja-jp/whitepaper.html">日本語</a>版ドキュメントを参照して下さい。</p>
+                        <p><a href="ko-kr/whitepaper.html">한국어</a> 문서를 참조하시길 바랍니다.</p>
+                        <p><a href="de-de/whitepaper.html">Deutsche</a> Dokumentation ansehen.</p>
+                        <p>Lees de <a href="nl-nl/whitepaper.html">Nederlandse</a> documentatie.</p>
+                        <p>Acesse a documentação em português (brasileiro) <a href="pt-br/whitepaper.html">aqui</a>.</p>
+                        <p>Voir la documentation en <a href="fr-fr/whitepaper.html">Français</a>.</p>
+                        <p>Vedi la documentazione <a href="it-it/whitepaper.html">Italiana</a>.</p>
+                        <p><a href="ru-ru/whitepaper.html">Русская</a> документация.</p>
+                </main>
+                <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center p-5">
+        <ul>
+            <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+            <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+        </ul>
+        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+        <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        <img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-logo.svg" alt="NEO Logo" />
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script>
+        text_replace(".with-space");
+        hljs.initHighlightingOnLoad();
+        $(".catalog nav span").click(function () {
+            if ($(this).attr('data-icon') == "+")
+                $(this).attr('data-icon', "-");
+            else
+                $(this).attr('data-icon', "+");
+            $(this).next("nav").toggle();
+        });
+        var pathName = decodeURI(location.pathname);
+        pathName = pathName.replace(/\w{2}-\w{2}\//, "").replace(".html", "");
+        var link = $(".catalog").find("[data-path='" + pathName.substr(1) + "']")[0];
+
+        $(link).addClass("active");
+        $(link).parents().show();
+        $(link).parents().prev().attr('data-icon', "-");
+
+        highLightHash(decodeURI(location.hash));
+        function highLightHash(hash) {
+            $(".side-nav a").removeClass("active");
+            $(".side-nav [href='" + hash + "']").addClass("active");
+            $(hash).next().show();
+        }
+        $(".side-nav a").click(function (e) {
+            $(".side-nav a").removeClass("active");
+            $(e.target).addClass("active");
+        })
+
+
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
+
+        var clipboard = new ClipboardJS('.btn-clipboard');
+        clipboard.on('success', function (t) {
+            $(t.trigger).attr("title", "Copied!").tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle");
+        });
+        clipboard.on("error", function (t) {
+            var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
+            var n = "Press " + e + "C to copy";
+            $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
+        });
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+        function language(lang) {
+            var rgExp = /\w{2}-\w{2}/;
+            if (location.href.search(rgExp) >= 0)
+                location.href = location.href.replace(rgExp, lang.match(rgExp)[0]);
+            else
+                location.href = lang;
+        }
+    $('[data-toggle="tooltip"]').tooltip();
+    function showCatalog() {
+        if ($('.catalog').hasClass('show'))
+            $('.catalog').removeClass('show');
+        else
+            $('.catalog').addClass('show');
+    }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130525731-2');
+    </script>
+</body>
+</html>
