@@ -1,15 +1,15 @@
 {
   "ApplicationConfiguration": [
     {
-      "origin": "zh-cn",
+      "origin": "docs\\zh-cn",
       "template": "template\\zh-cn",
-      "destination": "wwwroot\\zh-cn",
+      "destination": "wwwroot\\docs\\zh-cn",
       "git": "https://github.com/neo-project/docs/blob/master/zh-cn/"
     },
     {
-      "origin": "en-us",
+      "origin": "docs\\en-us",
       "template": "template\\en-us",
-      "destination": "wwwroot\\en-us",
+      "destination": "wwwroot\\docs\\en-us",
       "git": "https://github.com/neo-project/docs/blob/master/en-us/"
     }
   ]
