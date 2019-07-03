@@ -1,6 +1,6 @@
-﻿main {
+﻿/*main {
     letter-spacing: .06em;
-}
+}*/
 .hljs {
     background: #f8f9fa;
 }
@@ -26,6 +26,7 @@
         padding: 1.5rem;
     }
 }
+
 h1 {
     border-bottom: 1px solid #f0f0f0;
     padding-bottom: .8rem;
@@ -56,6 +57,7 @@ p, li {
     background-color: #f8f9fa;
     margin-bottom: 1em;
 }
+
     .div-collapse p:last-child {
         margin-bottom: 0;
     }
@@ -88,6 +90,7 @@ h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
     height: 4rem;
     margin-top: -4rem;
 }
+
 h1, h2, h3, h4, h5, h6 {
     line-height: 2;
     pointer-events: none;
@@ -122,16 +125,30 @@ h1, h2, h3, h4, h5, h6 {
     border-left-color: #d9534f;
 }
 
-.bd-callout-warning h4 {
-    color: #f0ad4e;
-}
-
 .bd-callout-info h4 {
     color: #5bc0de;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.bd-callout-warning h4 {
+    color: #f0ad4e;
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
 
 .bd-callout-danger h4 {
     color: #d9534f;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.bd-callout-info .bd-content-title, .bd-callout-warning .bd-content-title, .bd-callout-danger .bd-content-title {
+    display: inline-block;
+}
+
+.bd-callout-warning h4 i, .bd-callout-info h4 i, .bd-callout-danger h4 i {
+    margin-right: .2em;
 }
 
 .bd-callout dl, .bd-callout ol, .bd-callout ul {

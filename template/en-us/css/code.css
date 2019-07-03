@@ -122,17 +122,30 @@ h1, h2, h3, h4, h5, h6 {
     border-left-color: #d9534f;
 }
 
-.bd-callout-warning h4 {
-    color: #f0ad4e;
-}
-
 .bd-callout-info h4 {
     color: #5bc0de;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.bd-callout-warning h4 {
+    color: #f0ad4e;
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
 
 .bd-callout-danger h4 {
     color: #d9534f;
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
+.bd-callout-info .bd-content-title, .bd-callout-warning .bd-content-title, .bd-callout-danger .bd-content-title {
+    display: inline-block;
+}
+
+    .bd-callout-warning h4 i, .bd-callout-info h4 i, .bd-callout-danger h4 i {
+        margin-right: .2em;
+    }
 
 .bd-callout dl, .bd-callout ol, .bd-callout ul {
     margin-bottom: 0;

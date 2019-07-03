@@ -4,13 +4,25 @@
       "origin": "docs\\zh-cn",
       "template": "template\\zh-cn",
       "destination": "wwwroot\\docs\\zh-cn",
-      "git": "https://github.com/neo-project/docs/blob/master/zh-cn/"
+      "git": "https://github.com/neo-project/docs/blob/master/docs/zh-cn/"
     },
     {
       "origin": "docs\\en-us",
       "template": "template\\en-us",
       "destination": "wwwroot\\docs\\en-us",
-      "git": "https://github.com/neo-project/docs/blob/master/en-us/"
+      "git": "https://github.com/neo-project/docs/blob/master/docs/en-us/"
+    },
+    {
+      "origin": "faq\\zh-cn",
+      "template": "template\\zh-cn",
+      "destination": "wwwroot\\faq\\zh-cn",
+      "git": "https://github.com/neo-project/docs/blob/master/faq/zh-cn/"
+    },
+    {
+      "origin": "faq\\en-us",
+      "template": "template\\en-us",
+      "destination": "wwwroot\\faq\\en-us",
+      "git": "https://github.com/neo-project/docs/blob/master/faq/en-us/"
     }
   ]
 }
