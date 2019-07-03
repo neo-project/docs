@@ -102,6 +102,6 @@ For more examples please see:
 
 [Hello World](../tutorial/HelloWorld.md)
 
-[Lock (lock)](../tutorial/lock.md)
+[Lock (lock)](../tutorial/lock2.md)
 
 [Domain (Domain Name System)](../tutorial/Domain.md)

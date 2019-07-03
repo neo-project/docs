@@ -107,7 +107,7 @@ public static bool Main()
 
 [Hello World](../tutorial/HelloWorld.md)
 
-[Lock（锁仓合约）](../tutorial/Lock.md)
+[Lock（锁仓合约）](../tutorial/Lock2.md)
 
 [Domain（域名系统）](../tutorial/Domain.md)
 
