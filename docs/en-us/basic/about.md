@@ -81,7 +81,7 @@
 - **Developer-friendly**
   - Smart contract system is friendly, using many mainstream programming languages, such as c#, python, go, javascript
 
-    <https://docs.neo.org/zh-cn/sc/introduction.html>
+    <https://docs.neo.org/en-us/sc/introduction.html>
 
   - provide NeoVM(can be implemented on any blockchain environments even on non-blockchain environments)
 
