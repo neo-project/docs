@@ -250,5 +250,6 @@ paket-files/
 # JetBrains Rider
 wwwroot
 NeoDocsBuilder.*
+*.dll
 _site/
 docfx.json
