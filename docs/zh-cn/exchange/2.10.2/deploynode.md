@@ -49,7 +49,7 @@ install RpcNep5Tracker
 
 下面是一个标准设置的例子。
 
-```
+```json
   {
   "ApplicationConfiguration": {
     "Paths": {
