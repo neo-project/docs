@@ -36,6 +36,8 @@ Reference: [Introduction of NEO node](../node/introduction.md).
 ## Method of getting TEST GAS and TEST NEO
 If you are a developer, you can ask for NEO and GAS on the TestNet. You will need 500 Test GAS to deploy a contract to the TestNet.  
 
+Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https://neowish.ngd.network/). If you need more than that, you'll have to request it manually:
+
 - Fill in the request form (https://www.neo.org/Testnet/Create) specifying your PUBLIC key and EMAIL.
 - A day or so later you will receive an email with an Contract Address and a second PUBLIC KEY. 
 - Create/Add a multi-sig address in your wallet.
