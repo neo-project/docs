@@ -1,33 +1,4 @@
 {
-  "rename": {
-    "basic": "NEO 基础知识",
-    "node": "NEO 节点",
-    "consensus": "共识机制",
-    "gui": "NEO-GUI",
-    "cli": "NEO-CLI",
-    "latest-version": "v2.10.2",
-    "api": "API 参考",
-    "python": "NEO-Python",
-    "network": "NEO 网络",
-    "private-chain": "搭建私有链",
-    "sdk": "NEO SDK",
-    "utility": "NEO 工具",
-    "sc": "智能合约",
-    "quickstart": "快速开始",
-    "reference": "开发参考",
-    "fw": ".NET 框架",
-    "neo": "NEO",
-    "tutorial": "合约示例与教程",
-    "exchange": "交易所对接指南",
-    "devenv": "开发环境",
-    "getting started": "如何开始",
-    "write": "合约编写",
-    "faq": "常见问题"
-  },
-  "hidden": [
-    "assets",
-    ".vs"
-  ],
   "collapse":[
     "basic.md",
     "client.md",
