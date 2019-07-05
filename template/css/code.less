@@ -21,6 +21,15 @@ main {
         margin-bottom: 0;
         background-color: transparent;
         border: 0;
+        font-size: 1rem;
+
+        .hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-meta-keyword, .hljs-doctag, .hljs-name {
+            font-weight: normal;
+        }
+
+        .hljs-title, .hljs-section {
+            font-weight: normal;
+        }
     }
 
     @media (min-width: 576px) {
@@ -33,9 +42,8 @@ h1 {
     padding-bottom: .8rem;
     margin-bottom: 1.2rem;
 }
-
-pre {
-    margin-bottom: 0;
+h2, h3, h4, h5, h6 {
+    margin: .7em 0 .2em;
 }
 
 p, li {
@@ -97,16 +105,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.25rem;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    border: 1px solid #eee;
+    border-left: 1px solid #eee;
     border-left-width: .25rem;
-    border-radius: .25rem;
 
+    h4 .anchorjs-link {
+        display: none;
+    }
     p:last-child {
         margin-bottom: 0;
-    }
-
-    code {
-        border-radius: .25rem;
     }
 }
 
@@ -183,11 +189,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #818a91;
     background-color: transparent;
     border: 0;
-    border-radius: .25rem;
 
     &:hover {
         color: #fff;
-        background-color: @link-hover;
+        background-color: @link;
     }
 }
 

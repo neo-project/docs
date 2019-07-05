@@ -2,7 +2,7 @@
 
 从 NEO 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 NEO-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。点击此处下载 [Plugins](https://github.com/neo-project/neo-plugins/releases)。
 
-<table class="table table-bordered table-striped table-condensed">
+<table class="table table-hover">
     <thead>
         <tr>
             <th style="width: 25%;">插件</th>
