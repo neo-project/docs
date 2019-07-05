@@ -10,58 +10,35 @@
 
 ## 实现 Migrate 接口
 要使用合约迁移的功能，需要在原有合约中实现迁移接口，如下所示：
-```c#
-       	...
-	public static object Main(string method, params object[] args)
-        {
 
-            ...
-            if (method == "migrate")
-            {
-                if (args.Length < 9) return false;
-                byte[] script = (byte[])args[0];
-                byte[] plist = (byte[])args[1];
-                byte rtype = (byte)args[2];
-                ContractPropertyState cps = (ContractPropertyState)args[3];
-                string name = (string)args[4];
-                string version = (string)args[5];
-                string author = (string)args[6];
-                string email = (string)args[7];
-                string description = (string)args[8];
-                return Migrate(script, 
-                               plist, 
-                               rtype, 
-                               cps, 
-                               name, 
-                               version, 
-                               author, 
-                               email, 
-                               description);
-            }
-            ...
-        }
-	private static Boolean Migrate(byte[] script, 
-            byte[] plist, 
-            byte rtype, 
-            ContractPropertyState cps, 
-            string name, 
-            string version, 
-            string author, 
-            string email, 
-            string description)
-        {
-            var contract = Contract.Migrate(script, 
-                plist,
-                rtype, 
-                cps, 
-                name, 
-                version,
-                author, 
-                email, 
-                description);
-            return true;
-        }
-       	... // 省略了部分代码
+```c#
+public static object Main(string method, params object[] args)
+{
+    ...
+    if (method == "migrate")
+    {
+        if (args.Length < 9) return false;
+        byte[] script = (byte[])args[0];
+        byte[] plist = (byte[])args[1];
+        byte rtype = (byte)args[2];
+        ContractPropertyState cps = (ContractPropertyState)args[3];
+        string name = (string)args[4];
+        string version = (string)args[5];
+        string author = (string)args[6];
+        string email = (string)args[7];
+        string description = (string)args[8];
+        return Migrate(script, plist, rtype, cps, name, version, author, email, description);
+    }
+    ...
+}
+
+private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, ContractPropertyState cps, string name, string version, string author, string email, string description)
+{
+    var contract = Contract.Migrate(script, plist,rtype, cps, name, version, author, email, description);
+    return true;
+}
+
+... // 省略了部分代码
 ```
 
 如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](deploy-invoke.md)。
@@ -79,13 +56,12 @@
 
    ![输入参数](assets/migrate_m2.png)
 
-4. 输入完成后点击 `试运行` 查看结果。
-
-   可以看到返回1-True，手续费为 491 GAS。
+4. 输入完成后点击 `试运行` 查看结果，可以看到返回1-True，手续费为 491 GAS。
 
    ![试运行](assets/migrate_m3.png)
 
 5. 点击 `调用`，等待区块链确认交易。
+
 6. 确认后，在调用合约界面输入新的合约 ScriptHash，可以查看到新的合约内容。
 
    ![新合约](assets/migrate_m4.png)

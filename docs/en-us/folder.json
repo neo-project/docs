@@ -29,9 +29,5 @@
     ".vs"
   ],
   "collapse":[
-    "faq/basic.md",
-    "faq/client.md",
-    "faq/dev.md",
-    "faq/sc.md"
   ]
 }

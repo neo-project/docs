@@ -2,26 +2,30 @@
   "ApplicationConfiguration": [
     {
       "origin": "docs\\zh-cn",
-      "template": "template\\zh-cn",
+      "template": "template",
       "destination": "wwwroot\\docs\\zh-cn",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/docs/zh-cn/"
     },
     {
       "origin": "docs\\en-us",
-      "template": "template\\en-us",
+      "template": "template",
       "destination": "wwwroot\\docs\\en-us",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/docs/en-us/"
     },
     {
       "origin": "faq\\zh-cn",
-      "template": "template\\zh-cn",
+      "template": "template",
       "destination": "wwwroot\\faq\\zh-cn",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/faq/zh-cn/"
     },
     {
       "origin": "faq\\en-us",
-      "template": "template\\en-us",
+      "template": "template",
       "destination": "wwwroot\\faq\\en-us",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/faq/en-us/"
     }
   ]

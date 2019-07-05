@@ -6,8 +6,7 @@ NEO adopts a P2P network structure, in which nodes can communicate with each oth
 
 The network protocol of NEO is roughly similar to bitcoin’s, however, data structures such as blocks or transactions are quite different.
 
-Convention
-----
+## Convention
 
 1. Byte Order
 
@@ -43,8 +42,7 @@ Convention
 
    Data in NEO such as amount or price are 64 bit fixed-point number and the precision of decimal part is 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
 
-Data Type
--------
+## Data Type
 
 1. Blockchain
 
@@ -239,8 +237,7 @@ Data Type
 
    In a transaction, the hash value of the contract script code must be consistent with the transaction output, which is part of the validation. The later section will describe the execution process of the script in detail.
 
-Network Message
--------
+## Network Message
 
 All network messages are sent in this structure:
 

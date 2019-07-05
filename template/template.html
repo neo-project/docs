@@ -22,25 +22,25 @@
     <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link href="https://neo-cdn.azureedge.net/css/vs.css" rel="stylesheet" />
-    <link href="{depth}lib/font-awesome/css/all.min.css" rel="stylesheet" />
-    <link href="{depth}css/site.less" rel="stylesheet/less" type="text/css" />
-    <link href="{depth}css/code.less" rel="stylesheet/less" type="text/css" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.less" rel="stylesheet/less" type="text/css" />
+    <link href="/css/code.less" rel="stylesheet/less" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <div class="body-content">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{depth}index.html"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+            <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/docs">技术文档</a>
+                        <a class="nav-link" href="/docs">Documentation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tutorial">教程</a>
+                        <a class="nav-link" href="/tutorial">Tutorial</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/faq">FAQ</a>
@@ -48,12 +48,15 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="javascript:" onclick="language('zh-cn')">中文</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="javascript:" onclick="language('en-us')">English</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 d-none">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
@@ -62,13 +65,13 @@
                 <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
                     {catalog}
                 </div>
-                <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
-                    <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">显示 / 隐藏目录</a>
+                <main class="col-12 col-md-9 col-lg-8 p-3 p-sm-4 p-md-5">
+                    <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
                     {body}
                 </main>
                 <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
-                    <a href="{git}" class="contribution-link d-block">改进该文档</a>
-                    <div class="side-nav-text">本文内容</div>
+                    <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
+                    <div class="side-nav-text">In this article</div>
                     <div id="navbar-sidenav">
                         {sideNav}
                     </div>
@@ -93,41 +96,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.js"></script>
     <script>
-        //为中文和英文之间添加空格
-        text_replace(".with-space");
-        //代码高亮
-        hljs.initHighlightingOnLoad();
-        //目录展开和收起
-        $(".catalog nav span").click(function () {
-            if ($(this).hasClass('expand'))
-                $(this).removeClass('expand');
-            else
-                $(this).addClass('expand');
-            $(this).next("nav").toggle("fast");
-        });
-        //根据网址自动展开到对应目录
-        var pathName = decodeURI(location.pathname);
-        pathName = pathName.replace(/.*?\/\w{2}-\w{2}\//, "").replace(".html", "");
-        var link = $(".catalog").find("[data-path='" + pathName + "']")[0];
-        $(link).addClass("active");
-        $(link).parents().show();
-        $(link).parents().prev().addClass('expand');
-        //懒加载
-        $('[data-original]').lazyload({
-            threshold: 200,
-            effect: "fadeIn"
-        });
-        //代码复制
-        var clipboard = new ClipboardJS('.btn-clipboard');
-        clipboard.on('success', function (t) {
-            $(t.trigger).attr("title", "Copied!").tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle");
-        });
-        clipboard.on("error", function (t) {
-            var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
-            var n = "Press " + e + "C to copy";
-            $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
-        });
         //适用于FAQ的根据标题展开收缩
         if (_collapse) {
             $("h2").click(function (e) {
@@ -135,36 +106,6 @@
                 $(e.target).parents("h2").next().toggle("fast");
             });
         }
-        //语言切换
-        function language(lang) {
-            var rgExp = /\/\w{2}-\w{2}\//;
-            if (location.href.search(rgExp) >= 0)
-                location.href = location.href.replace(rgExp, `/${lang}/`);
-            else
-                location.href = lang;
-        }
-        //工具提示
-        $('[data-toggle="tooltip"]').tooltip();
-        //小屏时显示隐藏目录
-        function showCatalog() {
-            if ($('.catalog').hasClass('show'))
-                $('.catalog').removeClass('show');
-            else
-                $('.catalog').addClass('show');
-        }
-        //为块引用添加图标
-        $(".bd-callout-info h4").prepend("<i class='fas fa-info-circle'></i>");
-        $(".bd-callout-warning h4").prepend("<i class='fas fa-exclamation-circle'></i>");
-        $(".bd-callout-danger h4").prepend("<i class='fas fa-exclamation-triangle'></i>");
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-130525731-2');
     </script>
 </body>
 </html>
