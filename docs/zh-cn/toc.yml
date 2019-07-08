@@ -138,32 +138,32 @@
     href: /docs/zh-cn/node/plugin.md
   - name: NEO-Python
     items:
-      - name: 概述
-        href: /docs/zh-cn/node/python/overview.md
-      - name: 安装 （Ubuntu/OSX）
-        href: /docs/zh-cn/node/python/install.md
-      - name: 安装 （Windows）
-        href: /docs/zh-cn/node/python/installwin.md
-      - name: NEO-Python SeedList
-        href: /docs/zh-cn/node/python/seedlist.md
-      - name: 基本用法
-        href: /docs/zh-cn/node/python/basic.md
-      - name: Prompt
-        href: /docs/zh-cn/node/python/prompt.md
-      - name: 设置和日志
-        href: /docs/zh-cn/node/python/logging.md
-      - name: neo.Core.TX.Transaction
-        href: /docs/zh-cn/node/python/transaction.md
-      - name: 与智能合约交互
-        href: /docs/zh-cn/node/python/smartcont.md
-      - name: Application vs. Verification
-        href: /docs/zh-cn/node/python/verify.md
-      - name: 数据类型
-        href: /docs/zh-cn/node/python/datatype.md
-      - name: 测试
-        href: /docs/zh-cn/node/python/tests.md
-      - name: 测试装置
-        href: /docs/zh-cn/node/python/fixtures.md
+    - name: 概述
+      href: /docs/zh-cn/node/python/overview.md
+    - name: 安装 （Ubuntu/OSX）
+      href: /docs/zh-cn/node/python/install.md
+    - name: 安装 （Windows）
+      href: /docs/zh-cn/node/python/installwin.md
+    - name: NEO-Python SeedList
+      href: /docs/zh-cn/node/python/seedlist.md
+    - name: 基本用法
+      href: /docs/zh-cn/node/python/basic.md
+    - name: Prompt
+      href: /docs/zh-cn/node/python/prompt.md
+    - name: 设置和日志
+      href: /docs/zh-cn/node/python/logging.md
+    - name: neo.Core.TX.Transaction
+      href: /docs/zh-cn/node/python/transaction.md
+    - name: 与智能合约交互
+      href: /docs/zh-cn/node/python/smartcont.md
+    - name: Application vs. Verification
+      href: /docs/zh-cn/node/python/verify.md
+    - name: 数据类型
+      href: /docs/zh-cn/node/python/datatype.md
+    - name: 测试
+      href: /docs/zh-cn/node/python/tests.md
+    - name: 测试装置
+      href: /docs/zh-cn/node/python/fixtures.md
 - name: NEO 网络
   items:
   - name: 测试网
