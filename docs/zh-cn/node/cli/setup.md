@@ -97,20 +97,20 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>提供钱包相关的 RPC 功能。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">claimgas</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">dumpprivkey</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getbalance</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getnewaddress</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getunclaimedgas</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getwalletheight</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">importprivkey</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">listaddress</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">sendfrom</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">sendmany</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">sendtoaddress</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">invoke</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">invokefunction</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">invokescript</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">claimgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">dumpprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getbalance</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnewaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunclaimedgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getwalletheight</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">importprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">listaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendfrom</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendmany</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendtoaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invoke</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invokefunction</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invokescript</a></td>
             <td>必选</td>
         </tr>
         <tr>
@@ -134,9 +134,9 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>查询 UTXO 资产相关信息。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getunclaimed</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getclaimable</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getunspents</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunclaimed</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getclaimable</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunspents</a></td>
             <td>交易所推荐使用</td>
         </tr>
         <tr>
@@ -152,16 +152,17 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getnep5balances</a><br><a
-                    href="cli/latest-version/api/getmetricblocktimestamp.html">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5transfers</a></td>
             <td>交易所推荐使用</td>
         </tr>
     </tbody>
 </table>
 
+
 要安装插件，在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
 
-![plugins.png](../../../assets/plugins.png)
+![plugins.png](../../assets/plugins.png)
 
 对于 NEO-CLI 2.9.4 及之后版本，支持使用内部命令自动下载或卸载插件，操作更为简便。例如：
 
@@ -202,6 +203,8 @@ dotnet neo-cli.dll
 
 > [!Note]
 >
+> ##### 注意
+>
 > 如果使用 dotnet，需要先安装 .net core 环境。
 
 如果想在启动节点的同时启动 API 服务，可以输入参数 `--rpc`  或 `/rpc` 或 `-r`
@@ -217,10 +220,12 @@ neo-cli.dll --nopeers
 
 如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
 
-> [!Important]
+> [!CAUTION]
 >
-> 请注意，如果开通了 API 服务，并且在 NEO-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
+> ##### 重要
+>
+> 如果开通了 API 服务，并且在 NEO-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
 
 ## 快速同步区块数据
 
-客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../../network/syncblocks.md)。
+客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。

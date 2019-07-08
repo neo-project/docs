@@ -15,9 +15,9 @@
 ## 规则
 在 NEO 的共识算法中，共识节点由 NEO 持有人投票选出，并对区块链中交易的有效性进行验证。过去这些节点被称作“记账人”，现在他们被称作”共识节点”。
 
-  - <img style="vertical-align: middle" src="../../../assets/nNode.png" width="25"> 共识节点：此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
-  - <img style="vertical-align: middle" src="../../../assets/speakerNode.png" width="25"> 议长 `（一人）` ：**议长** 负责向系统发送一个新的区块的提案。
-  - <img style="vertical-align: middle" src="../../../assets/cNode.png" width="25"> 议员 `（多人）` ：**议员** 负责对议长的提案进行投票，大于等于2/3的议员投票时，提案通过。
+  - <img style="vertical-align: middle" src="../../assets/nNode.png" width="25"> 共识节点：此节点参与共识行为。 在共识行为中, 共识节点轮流担任以下两个角色：
+  - <img style="vertical-align: middle" src="../../assets/speakerNode.png" width="25"> 议长 `（一人）` ：**议长** 负责向系统发送一个新的区块的提案。
+  - <img style="vertical-align: middle" src="../../assets/cNode.png" width="25"> 议员 `（多人）` ：**议员** 负责对议长的提案进行投票，大于等于2/3的议员投票时，提案通过。
 
 
 ## 介绍
@@ -41,13 +41,15 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
 ### 诚实的议长
 
-  <p align="center"><img src="../../../assets/n3.png" width="300"><br>
+  <p align="center"><img src="../../assets/n3.png" width="300"><br>
+
 
  <b>图 1：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
 在图 1 中，我们有一个诚实的 **议员** (50%)。两个 **议员** 从 **议长**  那里收到相同的消息，然而，由于其中一个 **议员** 不是诚实的，诚实的议员只能确定有不诚实的节点，但无法识别它是 **议长** 还是 **议员**。因此 **议员** 必须弃票，改变视图。
 
-  <p align="center"><img src="../../../assets/n4.png" width="400"><br>
+  <p align="center"><img src="../../assets/n4.png" width="400"><br>
+
 
  <b>图 2：</b> 一个 n =4 的例子中存在一个不诚实的 <b>议员</b>。</p>
 
@@ -55,13 +57,15 @@ NEO实现了一种委托的拜占庭容错共识算法，它借鉴了一些 PoS 
 
 ### 不诚实的议长
 
-  <p align="center"><img src="../../../assets/g3.png" width="300"><br> 
+  <p align="center"><img src="../../assets/g3.png" width="300"><br> 
+
 
  <b>图 3：</b> 一个 n = 3 的例子中存在一个不诚实的 <b>议长</b>。</p>
 
 在图 3 中，不诚实的是  **议长**，这和图 1 中描述的案例有同样的结论。**议员** 无法确定哪个节点是不诚实的。
 
-  <p align="center"><img src="../../../assets/g4.png" width="400"><br> 
+  <p align="center"><img src="../../assets/g4.png" width="400"><br> 
+
 
  <b>图 4：</b> 一个 n = 4 的例子中存在一个不诚实的 <b>议长</b>。</p>
 
@@ -74,8 +78,7 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
 请注意，图5没有低于66.66%的共识节点诚信。在这个临界点和33.33%的共识节点诚信之间，有一个无人地带，那里无法达成共识。低于33.33%的共识节点诚信，不诚实的节点（假设它们达成共识）能够自己达成共识，并成为系统中新的真理点。
 
-
-<img src="../../../assets/consensus.iterations.png" width="800">
+<img src="../../assets/consensus.iterations.png" width="800">
 
 **图5:** DBFT算法的 Monto-Carlo 模拟，描绘了达成共识所需的迭代。 {100 个节点；100,000 个模拟区块随机选择诚实节点}
 
@@ -123,7 +126,7 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
 1. 共识节点使用发送者的签名向全网广播一个交易。
 
-   <p align="center"><img src="../../../assets/consensus1.png" width="450"><br> <b>图 6:</b>一个 <b>共识节点</b> 收到交易并在系统中广播 </p>
+   <p align="center"><img src="../../assets/consensus1.png" width="450"><br> <b>图 6:</b>一个 <b>共识节点</b> 收到交易并在系统中广播 </p>
 
 2. 共识节点将交易数据记录到本地存储器中。
 
@@ -131,13 +134,13 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
 4. 议长确定。
 
-   <p align="center"><img src="../../../assets/consensus2.png" width="450"><br> <b>图 7:</b> <b>议长</b> 确定且设置好视图 </p>
+   <p align="center"><img src="../../assets/consensus2.png" width="450"><br> <b>图 7:</b> <b>议长</b> 确定且设置好视图 </p>
 
   **等待** `t` 秒。
 
 5. 议长广播提案 <prepareRequest, h, k, p, bloc, [block]sigp>
 
-   <p align="center"><img src="../../../assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
+   <p align="center"><img src="../../assets/consensus3.png" width="450"><br> <b>图 8:</b><b>议长</b> 提出区块提案，由<b>众议员审阅</b>。</p>
 
 6. 议员收到提案并验证：
 
@@ -153,13 +156,13 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
     - **如果是无效的提案广播:** <ChangeView, h,k,i,k+1>
 
-   <p align="center"><img src="../../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
+   <p align="center"><img src="../../assets/consensus4.png" width="500"><br> <b>图 9:</b><b>议员</b> 审阅区块提案并响应 </p>
 
 7. 在收到 `s` 数量的 'prepareResponse' 广播后，众议员达成共识并发布一个区块。
 
 8. 议员签名该区块
 
-   <p align="center"><img src="../../../assets/consensus5.png" width="500"><br> <b>图 10:</b> 达成共识，获批议员签名区块，并将其绑定到链上。</p>
+   <p align="center"><img src="../../assets/consensus5.png" width="500"><br> <b>图 10:</b> 达成共识，获批议员签名区块，并将其绑定到链上。</p>
 
 9. 当一个共识节点收到一个完整区块时，当前的视图数据被清除，并开始新一轮的共识。
 
@@ -167,7 +170,7 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
 > [!Note]
 >
-> 如果 (![timeout](../../../assets/consensus.timeout.png) ) 秒后在同一视图没有达成共识：
+> 如果 (![timeout](../../assets/consensus.timeout.png) ) 秒后在同一视图没有达成共识：
 >   - 共识节点进行广播：<ChangeView, h,k,i,k+1>    
 >
 >   - 一旦共识节点接收到至少 `s` 个表示相同视图改变的广播，就会增加视图 `v`， 并引发新一轮的共识。

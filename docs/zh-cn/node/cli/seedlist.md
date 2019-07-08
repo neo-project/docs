@@ -37,7 +37,7 @@
 ### 活跃节点
 如何寻找活跃节点呢？***City of Zion*** 的技术人员创建了一个优秀 [资源](https://github.com/CityOfZion/neo-mon) 用来不间断地对世界各地的节点进行 ping 操作，可以通过 [tracker](http://monitor.cityofzion.io/) 查看。
 
-![seedlist](../../../assets/seedlist.png)
+![seedlist](../../assets/seedlist.png)
 在上图中可以看到可用节点列表，最新的节点显示在最上方。通常，绿色并显示  `yes` 的节点为活跃节点。
 
 我们会根据以下端口的标准协议进行选择，比如我们会选择上图中的节点 1 而不选节点3，因为节点 1符合标准而节点 3 不符合。
