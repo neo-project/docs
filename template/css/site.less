@@ -21,11 +21,9 @@ html {
         font-family: Segoe UI,SegoeUI,Segoe WP,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif,PingFang SC,'Segoe UI',Tahoma, "Microsoft YaHei",arial, sans-serif;
     }
 }
-.body-content {
-    min-height: 100%;
-    padding-bottom: 20rem;
+.navbar{
+    padding: 0.5rem 3rem;
 }
-
 nav .logo {
     width: 5.7rem;
 }
@@ -34,7 +32,7 @@ nav .logo {
     border-right: 1px solid rgba(0,0,0,.1);
     overflow: auto;
     position: sticky;
-    height: calc(100vh - 4rem);
+    height: 100%;
     top: 4rem;
     .nav-pills .nav-link{
         border-radius: 0;
@@ -66,6 +64,7 @@ nav .logo {
 
     & > nav nav {
         display: none;
+        overflow: hidden;
     }
 
     &.show {
@@ -79,6 +78,9 @@ nav .logo {
     margin-top: 1rem;
     margin-bottom: 1rem;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.navbar {
+    padding: .5rem 3rem;
 }
 
 .side-nav {
@@ -121,7 +123,7 @@ nav .logo {
     display: block;
     padding-top: .15em;
     padding-bottom: .15em;
-    color: #333;
+    color: #777;
     font-size: .9rem;
     border-radius: 0;
     overflow-x: hidden;
@@ -138,20 +140,19 @@ nav .logo {
     background-color: #f0f0f0;
 }
 
-
-
 footer {
-    height: 20rem;
-    margin-top: -20rem;
-    background-color: #333;
-    color: #ddd;
-    font-size: 1rem;
-    overflow: hidden;
+    position: fixed;
+    justify-content: space-between;
+    padding: 0.5rem 3rem;
+    display: none;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     ul {
         list-style: none;
         padding: 0;
-        margin-left: -0.7rem;
+        margin: 0;
 
         & > :nth-child(n+2):before {
             margin-right: 0.7rem;
@@ -161,10 +162,6 @@ footer {
 
     li {
         display: inline-block;
-        list-style: none;
-        padding-left: 0.7rem;
-        margin-left: -0.7rem;
-        margin-top: 0.7rem;
 
         &:before {
             content: "";
@@ -174,17 +171,17 @@ footer {
         }
     }
 
+    p {
+        margin: 0;
+    }
+
     a {
         text-decoration: none;
-        color: #ddd;
+        color: @link;
 
         &:hover {
             text-decoration: none;
-            color: #fff;
+            color: @link-hover;
         }
-    }
-
-    .logo {
-        width: 2.8rem;
     }
 }

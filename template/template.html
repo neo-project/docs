@@ -28,58 +28,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
-    <div class="body-content">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/docs">Documentation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tutorial">Tutorial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faq">FAQ</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:" onclick="language('zh-cn')">中文</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:" onclick="language('en-us')">English</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0 d-none">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:" onclick="language('en-us')">English</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5 mb-5">
+                {catalog}
             </div>
-        </nav>
-        <div class="container-fluid" style="margin-top: 61px">
-            <div class="row d-flex">
-                <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
-                    {catalog}
-                </div>
-                <main class="col-12 col-md-9 col-lg-8 p-3 p-sm-4 p-md-5">
-                    <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
-                    {body}
-                </main>
-                <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
-                    <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
-                    <div class="side-nav-text">In this article</div>
-                    <div id="navbar-sidenav">
-                        {sideNav}
-                    </div>
+            <main class="col-12 col-md-9 col-lg-8 p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                {body}
+            </main>
+            <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
+                <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    {sideNav}
                 </div>
             </div>
         </div>
     </div>
-    <footer class="text-center p-5">
+    <footer class="bg-light">
         <ul>
             <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
             <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
@@ -87,7 +85,6 @@
         </ul>
         <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
         <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
-        <img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-logo.svg" alt="NEO Logo" />
     </footer>
     <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>

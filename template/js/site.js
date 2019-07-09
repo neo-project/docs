@@ -63,8 +63,19 @@ $(function () {
     $(".bd-callout-warning h4").prepend("<i class='fas fa-exclamation-circle'></i>");
     $(".bd-callout-danger h4").prepend("<i class='fas fa-exclamation-triangle'></i>");
 });
+
 //Google Analyse
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'UA-130525731-2');
+
+//滚动到底部显示页脚
+$(window).scroll(function () { 
+    if ($(document).height() - ($(window).scrollTop() + $(window).height()) < 1) {
+        $("footer").attr("style", "display:flex");
+    }
+    else {
+        $("footer").attr("style", "display:none");
+    }
+});

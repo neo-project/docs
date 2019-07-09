@@ -1,4 +1,6 @@
-﻿- name: NEO 基础知识
+﻿- name: 站点地图
+  href: /docs/zh-cn/index.md
+- name: NEO 基础知识
   items:
   - name: 关于 NEO
     href: /docs/zh-cn/basic/about.md
