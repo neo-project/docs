@@ -14,35 +14,39 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 
 使用 NEO 区块链时需要花费网络手续费。收取手续费的根本目的是为了阻止恶意交易与网络攻击，在当前机制下，对于普通用户的正常交易一般不会造成额外手续费的负担。默认收费规则如下：
 
-<table>
-  <tr>
-    <th>交易类型</th>
-    <th>交易大小 (byte）</th>
-    <th>手续费 (GAS)</th>
-  </tr>
-  <tr>
-    <td rowspan="2">资产交易 (除 ClaimTransaction 以外)</td>
-    <td>&lt;= 1024</td>
-    <td>0</td>
-  </tr>
-  <tr>
-    <td>&gt; 1024</td>
-    <td>交易大小&times;0.00001 + 0.001<br></td>
-  </tr>
-  <tr>
-    <td rowspan="2">发布或调用合约（上链交易）</td>
-    <td>&lt;= 1024</td>
-    <td>0.001</td>
-  </tr>
-  <tr>
-    <td>&gt; 1024</td>
-    <td>交易大小&times;0.00001 + 0.001</td>
-  </tr>
-  <tr> 
-    <td rowspan="3">ClaimTransaction</td>
-    <td>所有</td> 
-    <td>0</td> 
-  </tr>   
+<table class='table table-hover'>
+    <thead>
+        <tr>
+            <th>交易类型</th>
+            <th>交易大小 (byte）</th>
+            <th>手续费 (GAS)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">资产交易 (除 ClaimTransaction 以外)</td>
+            <td>&lt;= 1024</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>&gt; 1024</td>
+            <td>交易大小&times;0.00001 + 0.001<br></td>
+        </tr>
+        <tr>
+            <td rowspan="2">发布或调用合约（上链交易）</td>
+            <td>&lt;= 1024</td>
+            <td>0.001</td>
+        </tr>
+        <tr>
+            <td>&gt; 1024</td>
+            <td>交易大小&times;0.00001 + 0.001</td>
+        </tr>
+        <tr>
+            <td rowspan="3">ClaimTransaction</td>
+            <td>所有</td>
+            <td>0</td>
+        </tr>
+    </tbody>
 </table>
 
 
