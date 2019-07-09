@@ -9,11 +9,11 @@
 2. 选择以下一种操作：
 
    1. 要给单个地址转账，点击 `+` ，输入转账信息，如资产类型，转入地址和金额。
-   2. 要给多个地址转账，点击![gui_icon](C:\neo-project\docfx\docs\zh-cn\node\assets\gui_icon.png)，输入地址和金额并以空格分隔，如下图所示：
+   2. 要给多个地址转账，点击![gui_icon](../../node/assets/gui_icon.png)，输入地址和金额并以空格分隔，如下图所示：
 
    ![](../assets/gui_10.png)
 
-3. 点击`确定`，如果需要，可以点击![](C:/neo-project/docfx/docs/zh-cn/node/assets/gui_remark.png)填写备注信息，备注信息会记录到 NEO 区块链上。
+3. 点击`确定`，如果需要，可以点击![](../../node/assets/gui_remark.png)填写备注信息，备注信息会记录到 NEO 区块链上。
 
 4. 检查转账信息，确认无误点击 `确定`。
 

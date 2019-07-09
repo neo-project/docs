@@ -7,7 +7,7 @@
 
 ## 安装插件
 
-从 NEO-CLI 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，提升了节点的安全性，稳定性和灵活性。关于插件的详细信息，请参见 [NEO 客户端插件](../../node/plugin.md)。
+从 NEO-CLI 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，提升了节点的安全性，稳定性和灵活性。关于插件的详细信息，请参见 [安装插件](../../node/cli/setup.md)。
 
 交易所需要安装以下插件，以保证 API 的正常使用和自动读取离线包的完整性：
 
@@ -21,7 +21,7 @@
 
 在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
 
-![PluginsForExchange.png](../../../assets/PluginsForExchange.png)
+![PluginsForExchange.png](../../assets/PluginsForExchange.png)
 
 对于 NEO-CLI 2.9.4 及之后版本，可以使用以下命令自动进行安装：
 
@@ -86,3 +86,4 @@ install RpcNep5Tracker
 
 
 更多详细内容，请参阅 [NEO 节点的安装部署](../../node/cli/setup.md)。
+

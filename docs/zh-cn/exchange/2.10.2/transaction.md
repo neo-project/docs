@@ -48,6 +48,8 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 
 > [!Note]
 >
+> ##### 注意
+>
 > - 如果交易所使用 send 命令发送交易到用户地址时自定义了手续费，则只收取两项手续费中价格较高者。
 > - NEO-CLI 2.10.2 的 RpcWallet 插件新增了 config.json 配置文件，对于使用 RPC 命令发送的交易，可以在该文件中自定义手续费上限，对用户资产提供保护。如果交易需要花费的手续费没有超过设定的上限，则正常上链，否则交易会失败。
 >
@@ -127,6 +129,8 @@ params 参数中填写的是用户地址。
 
   > [!Note]
   >
+  > ##### 注意
+  >
   > 假设该节点与 P2P 网络充分连接，当区块高度 = 区块头高度时，代表节点同步完成。当钱包高度 = 区块高度 = 区块头高度时，代表节点同步完成且钱包索引建立完成。
 
 - 交易所内的用户之间转账不需要通过区块链，而可以直接修改数据库中的用户余额进行，只有充值提现才上链。
@@ -135,13 +139,15 @@ params 参数中填写的是用户地址。
 
 交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易。如果有充值交易就要修改数据库中的用户余额。
 
-NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信息的功能，该方法中的 \<index\> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock 方法](../../node/cli/latest-version/api/getblock2.md)。
+NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信息的功能，该方法中的 \<index\> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock 方法](../../reference/rpc/latest-version/api/getblock2.md)。
 
 获取的区块信息中包含了交易输入和交易输出，交易所需要记录下所有和自己相关的交易，作为用户充值提现的交易记录。如果发现在交易的输出中有属于交易所的地址，则要修改数据库中该充值地址对应的用户 NEO 或 GAS 余额。
 
 也有交易所采用另一种方式：如果发现在交易的输出中有属于交易所的地址，先在数据库中记录下充值记录，待几个确认后再修改用户余额。如果不是为了与其它区块链操作方式统一，并不推荐这么做。
 
 > [!Note]
+>
+> ##### 注意
 >
 > - getblockcount 返回的是主链中的区块数量，getblock \<index\> 第一个参数是区块索引，区块索引 = 区块高度 = 区块数量 - 1，所以如果 getblockcount 返回 1234，调用 getblock 1234 将获取不到结果，而应该调用 getblock 1233。
 > - 交易所充值提现交易的交易类型可以是 InvocationTransaction,也可以是 ContractTransaction（无论是充值 NEO 还是 GAS），交易所在遍历区块中的所有交易时，只需关心每笔交易的 vout 是否有值。
@@ -159,7 +165,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 
 3. （可选）客服处理提现申请。
 
-4. 使用 NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value> [fee=0] [change_address]` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress 方法](../../node/cli/latest-version/api/sendtoaddress.md)。
+4. 使用 NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value> [fee=0] [change_address]` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress 方法](../../reference/rpc/latest-version/api/sendtoaddress.md)。
 
    - `<asset_id>` ：资产 ID
    - `<address>` ：提现地址
@@ -167,7 +173,7 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
    - `[fee]`：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
    - `change_address`：找零地址，可选参数，默认为钱包中第一个标准地址。
 
-   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../../node/cli/latest-version/api/sendmany.md)。
+   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../../reference/rpc/latest-version/api/sendmany.md)。
 
 5. 从返回的 Json 格式交易详情中提取交易 ID，记录在数据库中。
 
@@ -176,6 +182,8 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
    类似充值时对区块链的监控，提现也一样，监控时若发现区块中的某个交易 ID 与提现记录中的交易 ID 相等，则该交易已经确认，即提现成功。
 
 > [!Note]
+>
+> ##### 注意
 >
 > -  \<value\> 为实际金额，并非乘以 10^8 后的金额。
 > -  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在 NEO-CLI 中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在 NEO-CLI 状态一直为 unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
@@ -402,7 +410,7 @@ symbol
 
 #### 调用 getapplicationlog
 
-使用 [getapplicationlog](../../node/plugin.md#getapplicationlog-方法) 这个 API 来获取交易信息。
+使用 [getapplicationlog](../../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
 
 可以看到在根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
 
@@ -460,6 +468,8 @@ symbol
 
 > [!Note]
 >
+> ##### 注意
+>
 > -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项"vmstate"是否正确。
 > -  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
@@ -480,6 +490,8 @@ symbol
 - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为"e3069da508f128069a0cd2544b0728ccbacdfb43"，经过转换，为字符串 "AcUGxiaPjCiD74VWiFqPzudJHZo4QMza5Q"。
 
   > [!Note]
+  >
+  > ##### 注意
   >
   > NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
 

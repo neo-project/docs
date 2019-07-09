@@ -17,7 +17,7 @@
 
 ![](../assets/candidate.png)     
 
-将看到交易构造成功提示。可以使用 API [getvalidators](..\cli\2.7.6\api\getvalidators.md) 查看是否成功成为候选人，候选人公钥会显示在该API的响应正文中 （publickey）：
+将看到交易构造成功提示。可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.md) 查看是否成功成为候选人，候选人公钥会显示在该API的响应正文中 （publickey）：
 
 ![](../assets/getvalidator1.png)
 
@@ -40,7 +40,7 @@
 
    ![](../assets/votemulti.png)
 
-将看到交易构造成功提示。可以使用 API [getvalidators](..\cli\2.7.6\api\getvalidators.md) 查看候选人票数。如下图所示，从余额为 100000000 的账户投票给候选人（公钥 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b）， 通过 API getvalidators 可以查看到返回的响应正文中显示出该公钥与对应的的票数。
+将看到交易构造成功提示。可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.md) 查看候选人票数。如下图所示，从余额为 100000000 的账户投票给候选人（公钥 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b）， 通过 API getvalidators 可以查看到返回的响应正文中显示出该公钥与对应的的票数。
 
 ![](../assets/vote.png)
 

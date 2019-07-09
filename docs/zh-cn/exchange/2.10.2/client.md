@@ -6,7 +6,7 @@ NEO-CLI 作为客户端，在 P2P 网络中充当一个普通节点，同时，�
 
 > [!Warning]
 >
-> #### 安全警告
+> ##### 警告
 >
 > 交易所必须使用白名单或防火墙以屏蔽外部服务器请求，否则会有重大安全隐患。
 
@@ -53,17 +53,9 @@ NEO-CLI 提供以下功能：
   dotnet neo-cli.dll --rpc
   ```
 
-  要查看更多 API 信息，请参阅 [API 参考](../../node/cli/apigen.md)。
+  要查看更多 API 信息，请参阅 [API 参考](../../reference/rpc/apigen.md)。
 
-- 提供 NEP5 资产的交易信息
-
-  > [!Note]
-  >
-  > #### 插件提示
-  >
-  > 同步 NEP-5 资产的 log 已无需在启动 neo-cli 时输入额外的参数，但需安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) 插件，开启 --rpc 时自动获取。
-
-  具体步骤请参考 [neo-cli 安装](../../node/cli/setup.md)。
+- 提供 NEP5 资产的交易信息。
 
 - 提供直接连接种子节点功能
 
@@ -80,6 +72,8 @@ NEO-CLI 提供以下功能：
   | 2   | 打开 RPC 接口，记录 NEP5 资产交易信息 | `--rpc` 或 `-r` 或 `/rpc` |
 
   > [!Note]
+  >
+  > ##### 注意
   >
   > 功能可叠加，例如需要以上所有功能都开启，那么输入命令：
   > `dotnet neo-cli.dll --rpc --nopeers`
@@ -109,7 +103,7 @@ NEO-CLI 提供以下功能：
 
 - 用户第一次充值（NEO/NEO GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
 
-  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress 方法](../../node/cli/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
+  要动态创建地址，可以使用 NEO-CLI API 的 [getnewaddress 方法](../../reference/rpc/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
 
 - 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/NEO GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 
@@ -118,6 +112,8 @@ NEO-CLI 提供以下功能：
 
 
 > [!Note]
+>
+> ##### 注意
 >
 > 无论采用哪种方式，交易所需要将生成的地址导入到数据库中，作为充值地址分配给用户。一般建议交易所采用第二种方式，这样可以减少外界对钱包的操作，有利于钱包的稳定运行。
 

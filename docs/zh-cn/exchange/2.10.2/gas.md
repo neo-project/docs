@@ -45,11 +45,11 @@ NEOGAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权�
 
 | 方法                                                         | 描述                                                         | 参数           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- |
-| [getunclaimedgas](../../node/cli/latest-version/api/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。                      |                |
-| [getunclaimed](../../node/cli/latest-version/api/getunclaimed.md) | 显示指定地址中未提取的 GAS 数量。                            | \<address>     |
-| [claimgas](../../node/cli/latest-version/api/claimgas.md)    | 提取钱包中的 GAS。默认将 GAS 提取到钱包第一个标准地址，也可以将 GAS 提取到指定地址。 | [address] 可选 |
-| [getclaimable](../../node/cli/latest-version/api/getclaimable.md) | 显示指定地址内可以 claim 的 GAS 信息。                       | \<address>     |
-| [getunspents](../../node/cli/latest-version/api/getunspents.md) | 返回指定账户中未花费的 UTXO 资产（如 NEO、GAS）信息。        | \<address>     |
+| [getunclaimedgas](../../reference/rpc/latest-version/api/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。                      |                |
+| [getunclaimed](../../reference/rpc/latest-version/api/getunclaimed.md) | 显示指定地址中未提取的 GAS 数量。                            | \<address>     |
+| [claimgas](../../reference/rpc/latest-version/api/claimgas.md) | 提取钱包中的 GAS。默认将 GAS 提取到钱包第一个标准地址，也可以将 GAS 提取到指定地址。 | [address] 可选 |
+| [getclaimable](../../reference/rpc/latest-version/api/getclaimable.md) | 显示指定地址内可以 claim 的 GAS 信息。                       | \<address>     |
+| [getunspents](../../reference/rpc/latest-version/api/getunspents.md) | 返回指定账户中未花费的 UTXO 资产（如 NEO、GAS）信息。        | \<address>     |
 
 ## 用户提取 GAS
 
