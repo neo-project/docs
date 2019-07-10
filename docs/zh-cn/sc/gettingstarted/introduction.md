@@ -55,7 +55,7 @@ NEO 智能合约在部署或者执行的时候都要缴纳一定的手续费，�
 
 部署费用是指开发者将一个智能合约部署到区块链上需要向区块链系统支付一定的费用，根据合约所需功能，系统将收取100~ 1000 GAS 的费用，并作为系统收益。
 
-执行费用是指每执行一条智能合约的指令都会向 NEO 系统支付一定的执行费用。具体收费标准请参阅 [智能合约费用](../systemfees.md)。
+执行费用是指每执行一条智能合约的指令都会向 NEO 系统支付一定的执行费用。具体收费标准请参阅 [智能合约费用](../fees.md)。
 
 ## 一些简单的智能合约（C#）
 
@@ -83,10 +83,10 @@ public static bool Main()
 
 更多示例请查看：
 
-[Hello World](../tutorial/HelloWorld.md)
+[Hello World](../sample/HelloWorld.md)
 
-[Lock（锁仓合约）](../tutorial/Lock2.md)
+[Lock（锁仓合约）](../sample/Lock2.md)
 
-[Domain（域名系统）](../tutorial/Domain.md)
+[Domain（域名系统）](../sample/Domain.md)
 
 

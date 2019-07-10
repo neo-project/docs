@@ -43,7 +43,7 @@
 
 ## 监听端口
 
-JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../../introduction.md)。
+JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../../../node/introduction.md)。
 
 |                | 主网（Main Net） | 测试网（Test Net） |
 | -------------- | ------------ | ------------- |

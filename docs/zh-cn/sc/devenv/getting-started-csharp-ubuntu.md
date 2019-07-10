@@ -39,7 +39,7 @@
    dotnet add package Neo.SmartContract.Framework --version 2.5.4
    ```
 
-   ![](../../../assets/neo_addpackage.png)
+   ![](../../assets/neo_addpackage.png)
 
 4. 编译智能合约项目：
 
@@ -47,7 +47,7 @@
    dotnet publish -o ../testlib
    ```
 
-   ![](../../../assets/build_neo_contract_project.png)
+   ![](../../assets/build_neo_contract_project.png)
 
 ## 生成编译器
 
@@ -56,7 +56,7 @@
     cd  ./neo-compiler/neon
     dotnet publish -o ../../testlib
 
-![](../../../assets/build_neo_neoa.png)
+![](../../assets/build_neo_neoa.png)
 
 ## 生成 .avm 文件
 
@@ -65,6 +65,6 @@
     mkdir ../output
     cp NeoContractDemo.avm ../output/NeoContractDemo.avm
 
-![](../../../assets/neo_contract_build_avm.png)
+![](../../assets/neo_contract_build_avm.png)
 
 (完整脚本参考)[https://raw.githubusercontent.com/hunjixin/NeoContractBuildScriptOnUbuntu/master/SmartContract.sh]

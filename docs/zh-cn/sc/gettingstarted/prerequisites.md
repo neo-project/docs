@@ -2,7 +2,7 @@
 
 本文将以在 NEO 区块链上发布一个 NEP-5 资产为例，一步步带领开发者完成开发环境的搭建和配置，编写智能合约以及在私链上部署和调用合约。
 
-NEO 有两个全节点客户端：NEO-GUI 和 NEO-CLI。本教程将使用 NEO-CLI 搭建私链供节点连接，使用 NEO-GUI 发布智能合约，关于客户端的详细信息，可参考 [NEO 节点介绍](https://docs.neo.org/zh-cn/node/introduction.html)。
+NEO 有两个全节点客户端：NEO-GUI 和 NEO-CLI。本教程将使用 NEO-CLI 搭建私链供节点连接，使用 NEO-GUI 发布智能合约，关于客户端的详细信息，可参考 [NEO 节点介绍](../../node/introduction.md)。
 
 ## 系统环境
 

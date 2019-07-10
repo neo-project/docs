@@ -18,9 +18,9 @@ public static extern Neo.SmartContract.Framework.Services.Neo.Contract CreateCon
 
 script：合约代码，字节数组。
 
-parameter_list：参数列表，字节数组，可参考 [智能合约参数和返回值](../../../../../Parameter.md)。
+parameter_list：参数列表，字节数组，可参考 [智能合约参数和返回值](../../../../../../sc/deploy/Parameter.md)。
 
-return_type：返回值，字节，可参考 [智能合约参数和返回值](../../../../../Parameter.md)。
+return_type：返回值，字节，可参考 [智能合约参数和返回值](../../../../../../sc/deploy/Parameter.md)。
 
 need_storage：是否需要持久化存储区，布尔值。
 

@@ -197,9 +197,9 @@ neo-cli.exe
 
 或
 
-   ```
+```
 dotnet neo-cli.dll
-   ```
+```
 
 > [!Note]
 >
@@ -207,14 +207,14 @@ dotnet neo-cli.dll
 
 如果想在启动节点的同时启动 API 服务，可以输入参数 `--rpc`  或 `/rpc` 或 `-r`
 
-   ```
+```
 neo-cli.dll --rpc
-   ```
+```
 仅连接配置文件中的种子节点，可以输入参数 `--nopeers`
 
-   ```
+```
 neo-cli.dll --nopeers
-   ```
+```
 
 如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
 

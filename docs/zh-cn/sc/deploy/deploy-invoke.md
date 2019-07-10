@@ -14,14 +14,14 @@
 
 智能合约的部署是通过 Invocation 交易调用 API 来部署（旧版的系统中是以 Publish 交易来部署的，目前已经弃用）。通常的做法是通过 NEO-GUI 的智能合约发布功能来部署合约。
 
-部署智能合约以及调用智能合约均会产生费用，详情请参见 [系统手续费](systemfees.md)。
+部署智能合约以及调用智能合约均会产生费用，详情请参见 [系统手续费](../fees.md)。
 
 ## 准备工作
 在开始部署之前，请确认您已经完成以下工作：
 
 - 已确认您的合约需要部署。
 - 已编译好一个 .avm 合约文件。
-- 已安装 NEO-GUI 并完成区块同步。相关信息请参阅 [使用 NEO-GUI 客户端](../node/gui/install.md)。
+- 已安装 NEO-GUI 并完成区块同步。相关信息请参阅 [使用 NEO-GUI 客户端](../../node/gui/install.md)。
 
 ## 使用 NEO-GUI 部署智能合约
 
@@ -39,7 +39,7 @@
 
 4. 完成所有参数填写后，点击 `部署`。
 
-   部署合约需要花费100 ~1000 GAS，详情请参见 [系统手续费](systemfees.md)。
+   部署合约需要花费100 ~1000 GAS，详情请参见 [系统手续费](../fees.md)。
 
 ## 创建智能合约地址   
 
@@ -86,5 +86,5 @@ public static void Main()
 
 5. 点击 `试运行`，可以测试该合约。确认无误，点击 `调用`。
 
-也可以使用 NEO-CLI 提供的 [invoke 方法](../node/cli/latest-version/api/invoke.md) 调用合约。
+也可以使用 NEO-CLI 提供的 [invoke 方法](../../reference/rpc/latest-version/api/invoke.md) 调用合约。
 

@@ -8,7 +8,7 @@ NEO-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 ## 安装节点
 
-首先安装 NEO-CLI 2.10.2，安装过程请参考 [NEO 节点的安装部署](https://docs.neo.org/zh-cn/node/cli/setup.html)。
+首先安装 NEO-CLI 2.10.2，安装过程请参考 [NEO 节点的安装部署](../../node/cli/setup.md)。
 
 ## 安装插件
 

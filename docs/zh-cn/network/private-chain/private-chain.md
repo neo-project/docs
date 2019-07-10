@@ -89,11 +89,11 @@ NEO 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 如果上述操作成功，可以运行 `show state` 来查看节点状态。若高度发生变化，则说明共识过程正常。4个节点的共识过程如图所示：
 
-![](../../../assets/privatechain_8.png)
+![](../../assets/privatechain_8.png)
 
 4 个节点即使关掉一台依然可以达成共识，如图所示
 
-![](../../../assets/privatechain_9.png)
+![](../../assets/privatechain_9.png)
 
 ## 提取 NEO 和 GAS
 

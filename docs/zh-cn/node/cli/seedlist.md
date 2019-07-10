@@ -50,6 +50,7 @@
 | P2P via WebSocket  | 10334        | 20334         |
 
 以下是选出的几个 (任意数量) 活跃节点地址：
+
 - `seed3.aphelion-neo.com`
 - `seed4.aphelion-neo.com`
 - `node2.ams2.bridgeprotocol.io`
@@ -62,6 +63,7 @@
 
 ### 编辑 protocol 文件
 为了告知 NEO-CLI 新的节点列表，需要将前面几个地址粘贴到 `protocol.json`，以下是示例的 protocol.json 文件。
+
 ```json
 {
   "ProtocolConfiguration": {
@@ -120,6 +122,7 @@
   }
 }
 ```
+
 请注意，我们在每个地址的末尾添加了 `:10333` ，以告知 NEO-CLI 使用 P2P 协议进行连接。
 
 到此，你就可以像往常一样启动 NEO-CLI 了。

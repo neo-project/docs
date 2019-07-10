@@ -1,6 +1,6 @@
 # 在 macOS 上使用 C# 编写合约
 
-### 1. Visual Studio for Mac 
+## Visual Studio for Mac 
 
 如果你的计算机中已经安装过 Visual Studio for Mac ，可跳过本小节。
 
@@ -17,7 +17,7 @@
 > [!Note]
 > 基本安装全程大约需要几十分钟，如果勾选了 Android / iOS / macOS 平台，其安装时间可能会需要数小时，而且由于网络情况，可能会失败 N 次，所以不建议勾选平台组件。
 
-### 2. 新建项目
+## 新建项目
 
 打开 Visual Studio for Mac，新建项目，选择 .NET Standard Library（.NET Core → Library）。
 
@@ -51,7 +51,7 @@ public class Class1: SmartContract
 
 示例里项目名为 test1，编译后会生成 test1.dll，之后会用到这个文件。
 
-### 3. neo-compiler
+## neo-compiler
 
 在 GitHub 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目，用 Visual Studio for Mac 打开该解决方案，编译其中的 neon 项目
 
@@ -68,13 +68,13 @@ public class Class1: SmartContract
 
 发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
 
-### 4. .NET Core
+## .NET Core
 
 下载并安装  [.NET Core 2.0.3](https://www.microsoft.com/net/download/macos )。
 
 ![](../assets/mac8.png)
 
-### 5. 输入命令
+输入命令
 
 直接用 dotnet neon.dll test1.dll 编译会提示如下错误：
 
@@ -96,7 +96,7 @@ sudo install_name_tool -add_rpath /usr/local/opt/openssl/lib /usr/local/share/do
 
 [https://stackoverflow.com/questions/39133356](https://stackoverflow.com/questions/39133356)
 
-### 6. 编译
+## 编译
 
 打开 `终端`，用 `cd` 命令进入第三步最后的文件夹中，输入
 

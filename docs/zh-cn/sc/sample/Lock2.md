@@ -2,7 +2,7 @@
 
 锁仓合约实现一个这样的功能：指定一个时间戳（timestamp），在区块链系统的时间到达该指定的时间之前，任何人也不能从该合约中将资金取出，当区块链系统的时间过了指定的时间后，合约持有者可以将资金取出。 
 
-代码中通过区块链中最新区块的时间来获得当前时间（误差大约在 15 秒以内）。详情可参考 [Blockchain 类](../reference/fw/dotnet/neo/Blockchain.md)，   [Header 类](../reference/fw/dotnet/neo/Header.md)。
+代码中通过区块链中最新区块的时间来获得当前时间（误差大约在 15 秒以内）。详情可参考 [Blockchain 类](../../reference/scapi/fw/dotnet/neo/Blockchain.md)，   [Header 类](../../reference/scapi/fw/dotnet/neo/Header.md)。
 
 该合约可以部署到区块链上供其他人调用。本文将介绍如何在钱包中部署一个锁仓合约。
 
@@ -111,7 +111,7 @@ namespace Neo.SmartContract
 
 1. 创建完钱包后，在客户端中点击鼠标右键 -> `创建合约地址` -> `自定义`，使用上一步生成的合约脚本创建合约地址。
 2. 在 `导入自定义合约` 对话框中设置以下选项：
-   a. 形参列表：参考 [智能合约参数和返回值](../Parameter.md)，由于我们的合约中有一个 signature 参数，所以此处要填写 00 。
+   a. 形参列表：参考 [智能合约参数和返回值](../deploy/Parameter.md)，由于我们的合约中有一个 signature 参数，所以此处要填写 00 。
    b. 脚本代码：填写上一步复制的合约脚本代码。
    c. 私钥：可选参数，当合约执行过程中需要签名时，设置用于签名的私钥。
 
