@@ -58,7 +58,7 @@
 
 下表列出了所有插件，选取所需要的插件进行下载。
 
-<table class="table table-bordered table-striped table-condensed">
+<table class="table table-hover">
     <thead>
         <tr>
             <th style="width: 25%;">插件</th>
