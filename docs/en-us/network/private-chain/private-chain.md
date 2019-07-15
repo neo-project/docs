@@ -6,11 +6,12 @@ This section guides you to build a private chain using four virtual machines and
 
 The deployment of an NEO private chain requires at least four servers to reach a consensus, where each server corresponds to a consensus node and a dedicated NEO wallet. Here we created four Windows virtual machines on Azure, the size is Standard DS1 v2 (1 core, 3.5 GB RAM). 
 
-![image](../../../assets/privatechain_1.png)
+![image](../../assets/privatechain_1.png)
 
 After creating the four virtual machines, open the port 10331-10334 by adding new rules from   `firewall` ->`advanced setting`-> `inbound rules`.
 
 > [!Note]
+>
 > If you create a virtual machine on a cloud server, you need to log into the administrative backend of the virtual machine and set up a network security group:  `network interface`-> `network security group` ->`inbound security rules`-> `add` ->add the port 10331-10334.
 
 Record the IP addresses after the four virtual machines have been created.
@@ -28,7 +29,7 @@ Do the following on four virtual machines:
 2. Record the public keys of four wallets, i.e. directly copy them on the screen and save to a txt file or use `list key` in [CLI Command](../../node/cli/cli.md) to view the public key, and then copy it.
 3. Copy the four wallet files into each of the four virtual machines neo-cli folder.
 
-![image](../../../assets/privatechain_3.png)
+![image](../../assets/privatechain_3.png)
 
 ## Modifying configuration files
 
@@ -84,11 +85,11 @@ Do the following on four virtual machines:
 
 In the four virtual machines run the command line and enter the neo-cli directory. Run the command to start the node:`Dotnet neo-cli.dll /rpc`. The wallet is opened automatically and the consensus process is started. If everything goes all right the four nodes will begin a consensus process as shown below:
 
-![image](../../../assets/privatechain_8.png)
+![image](../../assets/privatechain_8.png)
 
 Four nodes can still achieve consensus, even if one machine is turned off, as shown:
 
-![image](../../../assets/privatechain_9.png)
+![image](../../assets/privatechain_9.png)
 
 
 
@@ -114,16 +115,17 @@ From NEO-GUI, open four wallets in turn and do the following:
 
 2. Enter the four public keys and set the minimum number of signatures to 3 (the number of consensus nodes/2 + 1). Click `Confirm`. 
 
-   ![image](../../../assets/privatechain_12.png)
+   ![image](../../assets/privatechain_12.png)
 
 3. Click Wallet -> Rebuild wallet index.
 
    > [!Note]
+   >
    > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully  .
 
 Now you should see the contract address has 100 million NEO shares.
 
-![image](../../../assets/privatechain_14.png)
+![image](../../assets/privatechain_14.png)
 
 ### Transferring NEO to a normal address
 
@@ -147,7 +149,7 @@ Here we want to send the NEO from the contract address to the normal address.
 
    Once the transfer transaction begins broadcasting it will take a while for successful remittance to the account.
 
-![image](../../../assets/privatechain_20.png)
+![image](../../assets/privatechain_20.png)
 
 ### Transferring GAS to a normal address
 
@@ -157,10 +159,10 @@ Open the wallet you want to transfer GAS to and click `Advanced`->`Claim GAS`-> 
 >
 > GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
 
-![image](../../../assets/privatechain_21.png)
+![image](../../assets/privatechain_21.png)
 
 The next operation is similar to the transfer of the NEO. Copy the code that has insufficient signatures, open the second wallet and the third wallet successively to complete transaction signing and broadcasting. 
 
 After successful extraction the GAS will enter the first standard address of the wallet (i.e. the top wallet address) where you initiated the extraction of the GAS, as shown.
 
-![image](../../../assets/privatechain_26.png)
+![image](../../assets/privatechain_26.png)

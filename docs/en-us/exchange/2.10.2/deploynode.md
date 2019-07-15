@@ -7,7 +7,7 @@
 
 ## Install plugins
 
-Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Plug-ins for NEO Client](../../node/plugin.md).
+Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Installing plugins](../../node/cli/setup.md).
 
 Exchanges need to install the following plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package:
 
@@ -21,7 +21,7 @@ Exchanges need to install the following plugins to get the complete functionalit
 
 Create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
 
-![PluginsForExchange.png](C:/neo-project/docfx/docs/assets/PluginsForExchange.png)
+![PluginsForExchange.png](../../assets/PluginsForExchange.png)
 
 For NEO-CLI 2.9.4 and later, you can install plugins using CLI commands：
 

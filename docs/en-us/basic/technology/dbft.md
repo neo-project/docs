@@ -1,12 +1,8 @@
 # A Byzantine Fault Tolerance Algorithm for Blockchain 
 
-Erik Zhang
-
-erik@vcage.com 
-
 ## Abstract 
 
-​This article proposes an improved Byzantine Fault Tolerance algorithm, adjusted for a blockchain system. Hypothetically, in this system, messages may subject to loss, damage, latency, and repetition. Also, the sending order may not necessarily be consistent with the receiving order of messages. The activities of nodes could be arbitrary, they may join and quit the network at any time; they may also dump and falsify information or simply stop working. Artificial or non-artificial glitches may occur as well. Our algorithm provides a  𝑓 = ⌊ (𝑛−1) / 3 ⌋  fault tolerance to a consensus system that comprises n nodes. This tolerance capacity includes security and usability and is suited for any network environment. 
+This article proposes an improved Byzantine Fault Tolerance algorithm, adjusted for a blockchain system. Hypothetically, in this system, messages may subject to loss, damage, latency, and repetition. Also, the sending order may not necessarily be consistent with the receiving order of messages. The activities of nodes could be arbitrary, they may join and quit the network at any time; they may also dump and falsify information or simply stop working. Artificial or non-artificial glitches may occur as well. Our algorithm provides a  𝑓 = ⌊ (𝑛−1) / 3 ⌋  fault tolerance to a consensus system that comprises n nodes. This tolerance capacity includes security and usability and is suited for any network environment. 
 
 ## Overview 
 
@@ -32,13 +28,13 @@ Integrity and Authenticity of information transmission are ensured with cryptogr
 
 ## The Algorithm 
 
-​Our algorithm ensures security as well as usability. With erroneous nodes in the consensus making no more than ⌊ (𝑛−1) / 3 ⌋ , the functionality and stability of the system is guaranteed. In it, 𝑛 = |𝑅| suggests the total number of nodes joined in the consensus making while R stands for the set of consensus nodes. Given 𝑓 = ⌊ (𝑛−1) / 3 ⌋ , f stands for the maximum number of erroneous nodes allowed in the system. In fact, the total ledger is maintained by bookkeeping nodes while ordinary nodes do not participate in the consensus making. This is to show the entire consensus making procedures.
+Our algorithm ensures security as well as usability. With erroneous nodes in the consensus making no more than ⌊ (𝑛−1) / 3 ⌋ , the functionality and stability of the system is guaranteed. In it, 𝑛 = |𝑅| suggests the total number of nodes joined in the consensus making while R stands for the set of consensus nodes. Given 𝑓 = ⌊ (𝑛−1) / 3 ⌋ , f stands for the maximum number of erroneous nodes allowed in the system. In fact, the total ledger is maintained by bookkeeping nodes while ordinary nodes do not participate in the consensus making. This is to show the entire consensus making procedures.
 
 All consensus nodes are required to maintain a state table to record current consensus status. The data set used for a consensus from its beginning to its end is called a View. If consensus cannot be reached within the current View, a View Change will be required. We identify each View with a number v, starting from 0 and it may increase till achieving the consensus.
 
-​We identify each consensus node with a number, starting from 0, the last node is numbered n − 1. For each round of consensus making, a node will play speaker of the house while other nodes play congressmen. The speaker’s number p will be determined by the following algorithm: Hypothetically the current block height is h, then 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, p’s value range will be  0 ≤ 𝑝 < 𝑛 .
+We identify each consensus node with a number, starting from 0, the last node is numbered n − 1. For each round of consensus making, a node will play speaker of the house while other nodes play congressmen. The speaker’s number p will be determined by the following algorithm: Hypothetically the current block height is h, then 𝑝 = (ℎ − 𝑣) 𝑚𝑜𝑑 𝑛, p’s value range will be  0 ≤ 𝑝 < 𝑛 .
 
-​A new block will be generated with each round of consensus, with at least 𝑛 − 𝑓 signatures from bookkeeping nodes. Upon the generation of a block, a new round of consensus making shall begin, resetting v=0.
+A new block will be generated with each round of consensus, with at least 𝑛 − 𝑓 signatures from bookkeeping nodes. Upon the generation of a block, a new round of consensus making shall begin, resetting v=0.
 
 ###  General Procedures 
 
@@ -92,11 +88,11 @@ Before the completion of View Change, the original View v is still valid, so unn
 
 ### Flow Chart
 
-![Flow Chart](/assets/consensus_flowchart.jpg)
+![Flow Chart](../../assets/consensus_flowchart.jpg)
 
 ## Fault Tolerance Capacity 
 
-​Our algorithm provides 𝑓 = ⌊ (𝑛−1) / 3 ⌋ fault tolerance to a consensus system that comprises n nodes. This tolerance capacity includes security and usability and is suite for any network environment.
+Our algorithm provides 𝑓 = ⌊ (𝑛−1) / 3 ⌋ fault tolerance to a consensus system that comprises n nodes. This tolerance capacity includes security and usability and is suite for any network environment.
 
 Request data from nodes contain sender signatures, so malicious bookkeeping nodes cannot falsify requests. Instead, they will try to reverse the system status back to the past, forcing the system to fork.
 

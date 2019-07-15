@@ -60,21 +60,110 @@ Since NEO 2.9.0 some additional functionalities are individually encapsulated in
 
 Download the plugins you need from the following table.
 
-| Plug-in                                                      | Description                                                  |                           |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------- |
-| [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip) | Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB. | Mandatory for exchanges   |
-| [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip) | 查询历史区块的时间戳。                                       | Recommended for exchanges |
-| [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip) | Synchronizes the client using offline packages.              | Mandatory                 |
-| [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip) | Provides wallet-specific RPC functionalities.                | Mandatory                 |
-| [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip) | Enables policies for filtrate illegal transactions           | Mandatory                 |
-| [RpcSecurity](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcDisabled.zip) | Improves RPC security.                                       | Optional                  |
-| [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) | 查询 UTXO 资产相关信息。                                     | Recommended for exchanges |
-| [StatesDumper](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip) | Exports NEO-CLI status data.                                 | Optional                  |
-| [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip) | Enquiries NEP-5 balance and transactions history of accounts through RPC | Recommended for exchanges |
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th style="width: 25%;">Plugin</th>
+            <th style="width: 35%;">Description</th>
+            <th style="width: 20%;">API Included</th>
+            <th style="width: 20%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip">ApplicationLogs</a>
+            </td>
+            <td>Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB.</td>
+            <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
+            <td>Mandatory for exchanges</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip">CoreMetrics</a>
+            </td>
+            <td>Enquiries the timestamp of history blocks.</td>
+            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
+            <td>Recommended for exchanges</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip">ImportBlocks</a>
+            </td>
+            <td>Synchronizes the client using offline packages.</td>
+            <td></td>
+            <td>Mandatory</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip">RpcWallet</a>
+            </td>
+            <td>Provides wallet-specific RPC functionalities.</td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">claimgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">dumpprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getbalance</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnewaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunclaimedgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getwalletheight</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">importprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">listaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendfrom</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendmany</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendtoaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invoke</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invokefunction</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invokescript</a></td>
+            <td>Mandatory</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip">SimplePolicy</a>
+            </td>
+            <td>Enables policies for filtrate illegal transactions</td>
+            <td></td>
+            <td>Mandatory</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip">RpcSecurity</a>
+            </td>
+            <td>Improves RPC security.</td>
+            <td></td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
+            </td>
+            <td>Enquiries the UTXO assets related information.</td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunclaimed</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getclaimable</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunspents</a></td>
+            <td>Recommended for exchanges</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip">StatesDumper</a>
+            </td>
+            <td>Exports NEO-CLI status data.</td>
+            <td></td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+            </td>
+            <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5transfers</a></td>
+            <td>Recommended for exchanges</td>
+        </tr>
+    </tbody>
+</table>
 
 To install plugins, create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
 
-![](../../../assets/plugins.png)
+![](../../assets/plugins.png)
 
 For NEO-CLI 2.9.4 and later, it is easier to automatically install or uninstall the plugin using commands, for example:
 
@@ -130,10 +219,10 @@ neo-cli.dll --nopeers
 
 If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
 
-> [!Important]
+> [!Caution]
 >
 > If you open the API service and the wallet in NEO-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
 
 ## Synchronizing blockchain data
 
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see  [Synchronizing the blockchain faster](../../network/syncblocks.md).
+The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see  [Synchronizing the blockchain faster](../syncblocks.md).

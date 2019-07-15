@@ -140,7 +140,7 @@ Regarding user deposits, the exchange needs to note the following:
 
 The exchange needs to write code to monitor every transaction in a block and record all the transactions related to the exchange addresses in the database. If a deposit occurs, the user's balance should be updated. 
 
-Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](../../node/cli/latest-version/api/getblock2.md).
+Developers can use the  `getblock <index> [verbose]` method of NEO-CLI API to retrieve the block information. `<index>` is the block index. `[verbose]` is 0 by default. When `[verbose]` is 0, the method returns the serialized block information in Hexadecimal. You should deserialize the hex string to get the detailed information of the block. When `[verbose]` is 1, the method returns the detailed information of the corresponding block in JSON format. For more information, refer to [getblock Method](../../reference/rpc/latest-version/api/getblock2.md).
 
 The block information includes the transactions input and output. The exchange needs to record all its related transactions. The transactions output is in fact the transaction records of the withdrawals of a user. When the exchange sees any of its addresses in the output of the transactions, it updates the NEO/GAS balance of the corresponding user who owns this deposit address. Some exchanges may also do as follows: if it finds an address within the exchange as the output of the transaction, then it records the deposit in its database and modifies the user’s balance after several confirmations (Unless it needs to comply with the operation of other blockchains, this way is not recommended) . 
 
@@ -162,7 +162,7 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
 
 3. (Optional) Customer service deals with withdrawal application.
 
-4. Send transaction to the user's withdrawal address using the NEO-CLI API method, `sendtoaddress <asset_id> <address> <value> [fee=0] [Change_address]`. For more information, refer to  [sendtoaddress Method](../../node/cli/2.9.2/api/sendtoaddress.md).
+4. Send transaction to the user's withdrawal address using the NEO-CLI API method, `sendtoaddress <asset_id> <address> <value> [fee=0] [Change_address]`. For more information, refer to  [sendtoaddress Method](../../reference/rpc/latest-version/api/sendtoaddress.md).
 
    - `<asset_id>` : Asset ID
    - `<address>` : Withdrawal address
@@ -170,7 +170,7 @@ To deal with the user withdrawals for global assets, the exchange needs to do th
    - `[fee]`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
    - `Change_address`: Change address, optional parameter, default is the first standard address in the wallet
 
-   You can also send the transaction to a batch of addresses using API [sendmany Method](../../node/cli/2.9.2/api/sendmany.md).
+   You can also send the transaction to a batch of addresses using API [sendmany Method](../../reference/rpc/latest-version/api/sendmany.md).
 
 5. Extract the transaction ID from the returned transaction details in the JSON format,  and then record in the database.
 

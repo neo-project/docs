@@ -1,6 +1,6 @@
 # Test network
 
-The TestNet is an environment where the user can develop, commission and test programs. Testing programs on the testnet incurs the network fee of testnet GAS (not real GAS!!). Testnet NEO and GAS can be applied free of charge, on the official website, detailed instruction are below.
+The TestNet is an environment where the user can develop, commission and test programs. Testing programs on the testnet incurs the network fee of testnet GAS (not real GAS!). Testnet NEO and GAS can be applied free of charge, on the official website, detailed instruction are below.
 
 All the blockchain of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
 
@@ -27,11 +27,11 @@ Reference: [Introduction of NEO node](../node/introduction.md).
 
 1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
-![image](../../assets/testnet_1.png)
+![image](../assets/testnet_1.png)
 
 2. Copy the contents of the program (GUI) directory `config.testnet.json` into the `config.json` as shown in Figure
 
-![image](../../assets/testnet_2_v2.png)
+![image](../assets/testnet_2_v2.png)
 
 ## Method of getting TEST GAS and TEST NEO
 If you are a developer, you can ask for NEO and GAS on the TestNet. You will need 500 Test GAS to deploy a contract to the TestNet.  
@@ -45,7 +45,7 @@ If you are a developer, you can ask for NEO and GAS on the TestNet. You will nee
 In NEO the address and PUBLIC key are different.  
 The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE key.)
 
-  ![image](../../assets/neo_gas_0.jpg)
+  ![image](../assets/neo_gas_0.jpg)
 
 ### STEP 2 - Fill in the request
 Complete the form here: https://neo.org/testcoin/apply specifying your EMAIL and PUBLIC key.
@@ -59,7 +59,7 @@ To access the assets, in your neo-gui you will create a "Multi-party signed addr
 
 1. From NEO-GUI, right-click on the account area and select `Create Contract Address` -> `Multi-Signature`.
 
-  ![image](../../assets/neo_gas_1.jpg)
+  ![image](../assets/neo_gas_1.jpg)
 
 2. In the public key list, enter the public keys used for signing. (PUB Key of sender and your PUB key) 
 3. Specify the minimal number of signatures to be  `1`.
@@ -67,7 +67,7 @@ To access the assets, in your neo-gui you will create a "Multi-party signed addr
 
 The contract address specified in the email is created and displayed in the account page.
 
-![image](../../assets/neo_gas_2.jpg)
+![image](../assets/neo_gas_2.jpg)
 
 You will see the quantity of NEO and/or GAS shown beside the Contact address.
 
@@ -78,7 +78,7 @@ You will see the quantity of NEO and/or GAS shown beside the Contact address.
 
 2. From NEO-GUI menu, select `Transaction` -> `Transfer`
 
-![image](../../assets/neo_gas_3.png)
+![image](../assets/neo_gas_3.png)
 
 3. Select the Asset and the amount to send and the account you want to transfer the asset to. 
 

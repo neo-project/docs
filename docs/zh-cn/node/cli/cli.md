@@ -124,8 +124,6 @@ unavailable: 133.024
 
 > [!NOTE]
 >
-> ##### 注意
->
 > 这里不包含已提取的 GAS，查看已提取的 GAS 请用 list asset 命令。
 
 要将钱包中的所有 unavailable GAS 转为 available GAS ，只需将钱包中的所有 NEO 转到钱包中的任意一个地址即可。

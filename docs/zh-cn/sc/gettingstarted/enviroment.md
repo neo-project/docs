@@ -24,5 +24,5 @@ NEO 官方提供了供用户开发、调试和测试的测试网（Test Net）�
 
 ## 继续阅读
 
-[开发 NEP-5 合约](develop.md)
+[开发示例合约](develop.md)
 

@@ -6,6 +6,8 @@ The NEO-CLI client works as an normal node in the P2P network and meanwhile a cr
 
 > [!Warning]
 >
+> #### Warning
+>
 > The exchange must use a white list or firewall to block external server requests; otherwise there will be a significant security risk.
 
 NEO-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, exchanges should set their own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
@@ -51,7 +53,7 @@ NEO-CLI provides the following features：
   dotnet neo-cli.dll --rpc
   ```
 
-  For more API information, refer to [API Reference](../../node/cli/apigen.md).
+  For more API information, refer to [API Reference](../../reference/rpc/cli/apigen.md).
 
 
 - Provides transaction information of NEP-5 assets.
@@ -105,7 +107,7 @@ There are two methods to generate deposit addresses:
 
 - When the user deposit (NEO/NEO GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is that it's not convenient for backup.
 
-  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](../../node/cli/latest-version/api/getnewaddress.md). The created address is returned.
+  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](../../reference/rpc/latest-version/api/getnewaddress.md). The created address is returned.
 
 - The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
   To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.

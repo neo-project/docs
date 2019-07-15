@@ -5,7 +5,7 @@ You can choose to use a local network for development purposes. To do this, we r
 
 **Docker Required**
 This projects uses Docker and Docker-compose. It works on MacOS, Linux and Windows machines.
-Fore more information related to Docker, please check their [official website](https://www.docker.com/).
+Fore more information related to Docker, check their [official website](https://www.docker.com/).
 
 
 ![](../../assets/neolocal.png)

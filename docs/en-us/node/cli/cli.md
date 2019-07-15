@@ -98,12 +98,9 @@ Wallet file upgrade complete. Old file has been auto-saved at: cli.old.db3
 
 👉 `rebuild index`
 
-This command is used to rebuild the wallet index.
-Why is it necessary to rebuild the wallet index?
+This command is used to rebuild the wallet index, which forces the wallet to sync up transactions from the block height of 0. Rebuilding the wallet index is not for a newly created wallet but for the cases when you import a private key or the assets in your wallet is not displayed properly. 
 
-There is a field in the wallet that records the height of the current wallet sync block. For each new one, the wallet client synchronizes the blocks and updates the assets, and transactions in the wallet. Assuming that the current, recorded block height is 100, then you execute the import key command to import the private key, the wallet still calculates your asset from the block height of 100. If the imported address has some transactions when the block height is less than 100, the transactions and the corresponding assets will not be reflected in the wallet, so the wallet index should be rebuilt, forcing the wallet to calculate your assets from the block height of 0.
-
-The newly created wallet does not need to rebuild the wallet index, only the imported private key is required to rebuild the wallet index.
+Additionally, in the event that the transaction in your wallet is not confirmed for some reason, but the assets have already been deducted and this is not confirmed by the whole blockchain, you can remove the unconfirmed transaction to show the asset amount correctly by rebuilding the wallet index.
 
 👉 `show utxo [id|alias]`
 
@@ -240,7 +237,7 @@ Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2
 Install successful, please restart neo-cli.
 ```
 
-For information about all plugins refer to  [Plug-ins for NEO Client](../plugin.md).
+For information about all plugins refer to  [Install Plug-ins](setup.md).
 
 ## View the node information
 
@@ -266,4 +263,4 @@ Command | Function Description |
 | invoke \<script hash> \<command> [param 1] [param n] | Invoke a command on a smart contract |
 | change view \<view number> | Set view of consensus to specific value |
 Start consensus | Begin consensus 
-Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain/private-chain.md) for further details.
+Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. Please refer to [Private chain](../../network/private-chain/solo.md) for further details.

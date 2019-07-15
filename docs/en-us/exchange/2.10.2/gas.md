@@ -40,11 +40,11 @@ NEO provides a set of RPC methods to help exchanges query users' GAS information
 
 | Method                                                       | Description                                                  | Parameter          |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------ |
-| [getunclaimedgas](../../node/cli/latest-version/api/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet.      |                    |
-| [getunclaimed](../../node/cli/latest-version/api/getunclaimed.md) | Returns the unclaimed GAS amount of the specified address.   | \<address>         |
-| [claimgas](../../node/cli/latest-version/api/claimgas.md)    | Claims GAS and send them to the first standard address in the wallet by default. You can also specify an address to receive these GAS. | [address] Optional |
-| [getclaimable](../../node/cli/latest-version/api/getclaimable.md) | Returns claimable GAS information of the specified address.  | \<address>         |
-| [getunspents](../../node/cli/latest-version/api/getunspents.md) | Returns information of the unspent NEO and GAS amount at the specified address. | \<address>         |
+| [getunclaimedgas](../../reference/rpc/latest-version/api/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet.      |                    |
+| [getunclaimed](../../reference/rpc/latest-version/api/getunclaimed.md) | Returns the unclaimed GAS amount of the specified address.   | \<address>         |
+| [claimgas](../../reference/rpc/api/claimgas.md)              | Claims GAS and send them to the first standard address in the wallet by default. You can also specify an address to receive these GAS. | [address] Optional |
+| [getclaimable](../../reference/rpc/latest-version/api/getclaimable.md) | Returns claimable GAS information of the specified address.  | \<address>         |
+| [getunspents](../../reference/rpc/latest-version/api/getunspents.md) | Returns information of the unspent NEO and GAS amount at the specified address. | \<address>         |
 
 ## Claiming GAS
 

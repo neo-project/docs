@@ -46,7 +46,7 @@ NeoVM is the virtual machine that executes the NEO smart contract code. We are t
 
 For example, in the Java JVM or .NET CLR, source code will be compiled into the relevant bytecode and then run on the corresponding virtual machine. The JVM or CLR will run the bytecode, which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result.
 
-### Charge mode
+## Charging Model
 
 A smart contract can be programmed to charge a certain fee, divided into deployment costs and execution costs.
 

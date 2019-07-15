@@ -41,7 +41,7 @@ By updating the SeedList with addresses of nodes that we're certain are alive, w
 ####  Live nodes
 And how do we find out which nodes are alive? The good folks at ***City of Zion*** has created an excellent [resource](https://github.com/CityOfZion/neo-mon) that constantly pings nodes all around the world. The results are displayed on this [tracker](http://monitor.cityofzion.io/).
 
-![seedlist](../../../assets/seedlist.png)
+![seedlist](../../assets/seedlist.png)
 Here we see a list of nodes that are available. The latest ones are pushed to the top.
 *2* tells us if the node is responding. Generally, we take the ones that say `yes` and are green in color.
 
@@ -131,3 +131,4 @@ And that's it! You can now start neo-cli as usual.
 
 ### Reference tools
 If the above steps are too tedious, there's also a script written that automatically updates the `protocol.json`. Check it out [here](https://github.com/HandsomeJeff/neo-cli-protocol-maker).
+
