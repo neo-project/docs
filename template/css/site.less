@@ -30,12 +30,16 @@ nav .logo {
 
 .catalog {
     border-right: 1px solid rgba(0,0,0,.1);
-    overflow: auto;
     position: sticky;
     height: 100%;
     top: 4rem;
-    .nav-pills .nav-link{
+
+    .nav-pills .nav-link {
         border-radius: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     span::before {
@@ -84,7 +88,6 @@ nav .logo {
 }
 
 .side-nav {
-    overflow: auto;
     position: sticky;
     height: calc(100vh - 4rem);
     top: 4rem;
@@ -117,6 +120,10 @@ nav .logo {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .side-nav a:not(.contribution-link) {

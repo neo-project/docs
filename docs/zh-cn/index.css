@@ -15,3 +15,6 @@
 hr{
     margin: 2.5rem 0 !important;
 }
+.table-hover tbody tr:hover{
+    background: transparent !important;
+}
