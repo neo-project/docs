@@ -62,7 +62,7 @@
       href: /docs/zh-cn/node/python/prompt.md
 - name: NEO 网络
   items:
-  - name: 测试网
+  - name: 主网与测试网
     href: /docs/zh-cn/network/testnet.md
   - name: 搭建私有链
     items:
