@@ -19,6 +19,11 @@ $(function () {
     $(link).addClass("active");
     $(link).parents().show();
     $(link).parents().prev().addClass('expand');
+    //导航栏高亮
+    var href = pathName.split('/')[1];
+    $(".navbar-nav [href='/" + href + "']").each(function () {
+        $(this).addClass("active");
+    });
 });
 //懒加载
 $(function () {
@@ -71,11 +76,14 @@ gtag('js', new Date());
 gtag('config', 'UA-130525731-2');
 
 //滚动到底部显示页脚
-$(window).scroll(function () { 
+function showFooter()
+{
     if ($(document).height() - ($(window).scrollTop() + $(window).height()) < 1) {
         $("footer").attr("style", "display:flex");
     }
     else {
         $("footer").attr("style", "display:none");
     }
-});
+}
+setTimeout(showFooter,1000);
+$(window).scroll(showFooter);
