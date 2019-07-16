@@ -46,6 +46,7 @@ Here we see a list of nodes that are available. The latest ones are pushed to th
 *2* tells us if the node is responding. Generally, we take the ones that say `yes` and are green in color.
 
 We try to follow the standard protocol for ports.
+
 |                    | Main Net | Test Net |
 | ------------------ | ------------ | ------------- |
 | JSON-RPC via HTTPS | 10331        | 20331         |
@@ -56,6 +57,7 @@ We try to follow the standard protocol for ports.
 With that, we will choose the first node over the third node, since *1* adheres the convention and *3* does not.
 
 We will choose the following live node addresses:
+
 - `seed3.aphelion-neo.com`
 - `seed4.aphelion-neo.com`
 - `node2.ams2.bridgeprotocol.io`
@@ -67,6 +69,7 @@ The main port neo-cli works with is `10333`. Currently, we are pinging `RPC` onl
 
 #### Editing the protocol
 To let NEO-CLI know the new SeedList, we will paste the addresses chosen before into `protocol.json`
+
 ```json
 {
   "ProtocolConfiguration": {
@@ -125,6 +128,7 @@ To let NEO-CLI know the new SeedList, we will paste the addresses chosen before 
   }
 }
 ```
+
 Notice that we've added `:10333` to the end of each of the addresses, to tell NEO-CLI that to connect using the `P2P` protocol.
 
 And that's it! You can now start neo-cli as usual.

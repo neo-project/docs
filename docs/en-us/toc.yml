@@ -119,7 +119,7 @@
     - name: About NEO SDK
       href: /docs/en-us/tooldev/sdk/introduction.md
     - name: Common Uses
-      href: /docs/en-us/tooldev/sdk/format.md
+      href: /docs/en-us/tooldev/sdk/common.md
     - name: Account
       href: /docs/en-us/tooldev/sdk/account.md
     - name: Wallet

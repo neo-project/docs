@@ -50,7 +50,7 @@ For example, in the Java JVM or .NET CLR, source code will be compiled into the 
 
 A smart contract can be programmed to charge a certain fee, divided into deployment costs and execution costs.
 
-Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](../systemfees.md).
+Deployment costs refers to the need for a developer to pay a fee to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. Read more about smart contract fees [here](../fees.md).
 
 ## Some simple smart contracts (C#)
 
