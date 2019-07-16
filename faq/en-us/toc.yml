@@ -1,8 +1,8 @@
 ﻿- name: Basic
-  href: /faq/zh-cn/basic.md
+  href: /faq/en-us/basic.md
 - name: Client
-  href: /faq/zh-cn/client.md
+  href: /faq/en-us/client.md
 - name: Develope
-  href: /faq/zh-cn/dev.md
+  href: /faq/en-us/dev.md
 - name: Smart Contract
-  href: /faq/zh-cn/sc.md
+  href: /faq/en-us/sc.md
