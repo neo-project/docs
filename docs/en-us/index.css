@@ -1,0 +1,20 @@
+.table thead th{
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 1.5rem !important;
+    font-weight: normal;
+    padding: .5rem 0 !important;
+}
+.table-hover tbody tr:hover {
+    background-color: transparent !important;
+}
+.table td {
+    border: none !important;
+    padding: .3rem 0 !important;
+}
+hr{
+    margin: 2.5rem 0 !important;
+}
+.table-hover tbody tr:hover{
+    background: transparent !important;
+}
