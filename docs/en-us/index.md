@@ -7,7 +7,7 @@ For more NEO technical details, click [here](https://docs.neo.org/developerguide
 
 | NEO Introduction | NEO Node | NEO Network |
 | ------- | --------| -------- |
-| [Whitepaper](whitepaper.md) | [Introduction](node/introduction.md) | [Test Net](network/testnet.md) |
+| [Whitepaper](whitepaper.md) | [Introduction](node/introduction.md) | [Main Net & Test Net](network/testnet.md) |
 | [Consensus](basic/technology/consensus.md) | [NEO-GUI](node/gui/install.md) | [Private Chain - solo mode](network/private-chain/solo.md) |
 | [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [Private Chain - local host](network/private-chain/private-chain2.md) |
 | [NeoContract](basic/technology/neocontract.md) | [Synchronizing the blockchain](node/syncblocks.md) | [Private Chain - virtual machine](network/private-chain/private-chain.md) |
