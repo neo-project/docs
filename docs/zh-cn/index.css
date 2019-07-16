@@ -5,6 +5,9 @@
     font-weight: normal;
     padding: .5rem 0 !important;
 }
+.table{
+    border-bottom: none !important;
+}
 .table-hover tbody tr:hover {
     background-color: transparent !important;
 }
