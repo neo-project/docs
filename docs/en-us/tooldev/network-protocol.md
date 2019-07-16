@@ -149,7 +149,7 @@ The network protocol of NEO is roughly similar to bitcoin’s, however, data str
 
    + RegisterTransaction
 
-      > [!Caution]
+      > [!Warning]
       >
       > Has been deactived and replaced by Neo.Asset.Create for the smart contract.
 
@@ -163,7 +163,7 @@ The network protocol of NEO is roughly similar to bitcoin’s, however, data str
 
    + PublishTransaction
 
-      > [!Caution]
+      > [!Warning]
       >
       > Has been deactivated and replaced by Neo.Contract.Create for the smart contract.
 

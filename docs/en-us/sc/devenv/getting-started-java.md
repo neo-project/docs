@@ -185,7 +185,8 @@ You should now have a HelloWorld.class in the same directory as HelloWorld.java
 **Windows:**
 
 Then using neoj, run cmd.exe and execute:
-> neoj.exe HelloWorld.class
+
+`neoj.exe HelloWorld.class`
 
 **Linux:**
 
@@ -195,7 +196,7 @@ Copy the jar into the dotnet's folder. For example:
 
 and then call
 
-> dotnet run HelloWorld.class
+`dotnet run HelloWorld.class`
 
 **Mac OS:**
 
@@ -208,7 +209,7 @@ Also copy HelloWorld.class to the neoj folder. For example:
 
 Then from the neoj folder call
 
-> dotnet run HelloWorld.class
+`dotnet run HelloWorld.class`
 
 
 If successful, it will create HelloWorld.avm which you can now use as smart contract bytecode.

@@ -2,7 +2,10 @@
 
 The NEO Namespace contains an API provided by the NEO blockchain. Methods of the API allow querying the blockchain and manipulation of the persistent store.
 
-Note: `New` and `Deprecated` tags denote changes between version 1.6 and version 2.0.
+> [!Note]
+>
+>  `New` and `Deprecated` tags denote changes between version 1.6 and version 2.0.
+>
 
 ## Read-only API
 
@@ -115,4 +118,6 @@ This type of API will modify the status of the smart contract
 | Neo.Storage.Put                | Inserts a value into the persistent store based off the given key |
 | Neo.Storage.Delete             | Deletes a value from the persistent store based off the given key |
 
-Note: The source code for the above API can be found under `NEO` in the [`SmartContract/StateMachine.cs`](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateMachine.cs) file.
+> [!Note]
+>
+> The source code for the above API can be found under `NEO` in the [`SmartContract/StateMachine.cs`](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateMachine.cs) file.

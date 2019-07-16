@@ -4,7 +4,7 @@
 
 NEO Official provides a test net for development, debugging and testing purposes. Besides, users may also choose to set up their own private chain where they can operate more flexibly with plenty of test tokens.  You can choose one of the following way to set up your private chain:
 
-- [Set up a private chain using vertual machines](../../network/private-chain/private-chain.md)
+- [Set up a private chain using virtual machines](../../network/private-chain/private-chain.md)
 - [Set up a private chain on a Windows host](../../network/private-chain/private-chain2.md)
 - [Set up a private chain with one node](../../network/private-chain/solo.md) (Applicable to NEO-CLI 2.10.2 and the later)
 
@@ -24,5 +24,5 @@ Now we will create a new wallet file named 0.json and place it in the root direc
 
 ## What's next?
 
-[Developing an NEP-5 contract](develop.md)
+[Compiling a contract sample](develop.md)
 

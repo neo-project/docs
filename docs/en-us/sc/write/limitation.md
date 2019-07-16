@@ -1,4 +1,4 @@
-# Limitations of Writing Smart Contracts
+# Smart Contract Writing Limitations
 
 ## NEO-supported features in C#
 

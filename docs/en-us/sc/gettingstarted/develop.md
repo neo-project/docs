@@ -1,4 +1,4 @@
-# Developing an NEP-5 contract
+# Compiling a contract sample
 
 So far, we have learned how to build a private chain and connect nodes to the chain. The following part will proceed to environment configuration, NEO smart contract coding and compilation and NEO smart contract deployment and invocation on private chain using C# and Windows 10. 
 

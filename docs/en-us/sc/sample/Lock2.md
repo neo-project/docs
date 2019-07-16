@@ -121,7 +121,7 @@ for (int i = 0; i < bytes.Length; i++)
 
 The following is a test of the smart contract verification account. Our testing process is to first transfer some assets into the account address, then transfer them out.
 
-> [! Note]
+> [!Note]
 >
 > In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
 

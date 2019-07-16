@@ -9,4 +9,6 @@ The System namespace is the API provided by the Smart Contract Execution Engine 
 | System.ExecutionEngine.GetCallingScriptHash | Get the scripthash of the caller for this smart contract |
 | System.ExecutionEngine.GetEntryScriptHash | Get the scripthash of the entry point for the smart contract (the starting point of the contract call chain) |
 
-Note: The source code for the API above can be found under `Neo.VM` in the `src\Neo.VM\InteropService.cs` file.
+> [!Note]
+>
+> The source code for the API above can be found under `Neo.VM` in the `src\Neo.VM\InteropService.cs` file.

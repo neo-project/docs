@@ -2,8 +2,9 @@
 
 Used to indicate the data structure of the bookkeeper's registration transaction.
 
-> [!Caution]
-> Note: Deprecated in version 2.0.
+> [!Warning]
+>
+> Deprecated in version 2.0.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

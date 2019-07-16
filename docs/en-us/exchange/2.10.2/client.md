@@ -4,9 +4,9 @@ The NEO-CLI client works as an normal node in the P2P network and meanwhile a cr
 
 ### NEO-CLI Security Policies
 
-> [!Warning]
+> [!Caution]
 >
-> #### Warning
+> #### Caution
 >
 > The exchange must use a white list or firewall to block external server requests; otherwise there will be a significant security risk.
 

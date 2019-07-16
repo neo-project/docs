@@ -10,6 +10,7 @@ This tutorial is based on:
 
 ## Implementing the migrate interface
 To enable migration function, you need to implement the migrate interface in the contract, as shown below:
+
 ```c#
        	...
 	public static object Main(string method, params object[] args)
