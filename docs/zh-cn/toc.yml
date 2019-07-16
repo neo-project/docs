@@ -257,9 +257,9 @@
     - name: API 参考
       items: 
       - name: NEO
-        href: /docs/zh-cn/sc/reference/api/neo.md
+        href: /docs/zh-cn/reference/scapi/api/neo.md
       - name: System
-        href: /docs/zh-cn/sc/reference/api/System.md
+        href: /docs/zh-cn/reference/scapi/api/System.md
     - name: 框架
       items: 
       - name: .net 框架
@@ -267,38 +267,38 @@
         - name: NEO
           items:
           - name: Account
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Account.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
           - name: Asset
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Asset.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.md
           - name: Block
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Block.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
           - name: Blockchain
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Blockchain.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.md
           - name: Contract
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Contract.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
           - name: Enrollment
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Enrollment.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Enrollment.md
           - name: Header
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Header.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.md
           - name: Runtime
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Runtime.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
           - name: Storage
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Storage.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
           - name: StorageContext
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/StorageContext.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.md
           - name: Transaction
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Transaction.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.md
           - name: TransactionAttribute
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/TransactionAttribute.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.md
           - name: TransactionInput
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/TransactionInput.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.md
           - name: TransactionOutput
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/TransactionOutput.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.md
           - name: TriggerType
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/TriggerType.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.md
           - name: Validator
-            href: /docs/zh-cn/sc/reference/fw/dotnet/neo/Validator.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Validator.md
         - name: System
           items:
           - name: ExecutionEngine
-            href: /docs/zh-cn/sc/reference/fw/dotnet/System/ExecutionEngine.md
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md

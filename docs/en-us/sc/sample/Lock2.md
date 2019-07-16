@@ -1,8 +1,8 @@
-# Lock Contract Tutorial
+# Lock Contract
 
 A lock contract specifies a certain timestamp, before which no one is allowed to withdraw assets from the contract. Once the time specified is reached, the contract owners can then withdraw the assets.
 
-The current time obtained through the contract is the time of the latest block in the blockchain (the error is about 15 seconds). For details, refer to [Blockchain class](../reference/fw/dotnet/neo/Blockchain.md), [Header class](../reference/fw/dotnet/neo/Header.md).
+The current time obtained through the contract is the time of the latest block in the blockchain (the error is about 15 seconds). For details, refer to [Blockchain class](../../reference/scapi/fw/dotnet/neo/Blockchain.md), [Header class](../../reference/scapi/fw/dotnet/neo/Header.md).
 
 This section describes how to deploy a lock contract in the blockchain, so that it can be called by others. 
 
@@ -12,13 +12,13 @@ In addition, this tutorial is based on the demo of Smart Contract 2.7.4. You nee
 
 In NEO-GUI, click `Wallet` -> `New Wallet Database ` to create a wallet.
 
-![](../../../assets/lock2_1.png)
+![](../../assets/lock2_1.png)
 
 ## Getting the public key
 
 The newly created wallet will automatically generate a standard account. Right-click on the account, view the private key, and copy the public key from the second line, as shown in the figure:
 
-![](../../../assets/lock2_2.png)
+![](../../assets/lock2_2.png)
 
 Here we write a local program to convert the public key into a byte array, as follows:
 
@@ -104,24 +104,25 @@ for (int i = 0; i < bytes.Length; i++)
   2. click the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier.
   3. Copy the contract script displayed in the `Code` box, as shown below.
 
-![](../../../assets/lock2_5.png)
+![](../../assets/lock2_5.png)
 
 ## Creating a contract address
 
 1. Right-click on the address area and select `Create Contract Add` -> `Custom` to create a contract address with the contract script generated before.
 2. In the Import Custom Contract dialog, specify the following:
-   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](../Parameter.md).
+   1. Parameter List: Because our contract has a parameter for signature, you should fill in `00`. For details, refer to [Parameter](../deploy/Parameter.md).
    2. Script: enter the contract script copied from previous step.
    3. Private Key: Optional. When the contract needs to be signed, specify the private key used for signing.
 3. After clicking `OK`, the smart contract verification account is created successfully.
 
-![](../../../assets/lock2_8.png)
+![](../../assets/lock2_8.png)
 
 ## Test
 
 The following is a test of the smart contract verification account. Our testing process is to first transfer some assets into the account address, then transfer them out.
 
 > [! Note]
+>
 > In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
 
 ### Transfer assets to contract address
@@ -132,7 +133,7 @@ Open a wallet with assets on **testnet** and transfer a certain amount of assets
 
 Transfer assets from your smart contract account:
 
-![Transfer contract amount](../../../assets/lock2_11.png)
+![Transfer contract amount](../../assets/lock2_11.png)
 
 ### Conclusion
 

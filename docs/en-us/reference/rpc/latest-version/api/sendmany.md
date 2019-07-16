@@ -20,7 +20,7 @@ Bulk transfer order, and you can specify a change address.
 
     For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-    The remaining asset IDs can be passed through the [CLI commandline](../../cli.md), the `list Asset` command query can also be queried in the block chain browser.
+    The remaining asset IDs can be passed through the [CLI commandline](../../../../node/cli/cli.md), the `list Asset` command query can also be queried in the block chain browser.
 
   - value：Transfer amount
 

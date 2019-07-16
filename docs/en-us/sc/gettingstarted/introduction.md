@@ -78,8 +78,9 @@ The return value of the contract is always `false`, indicating that the assets o
 
 For more examples please see:
 
-[Hello World](../tutorial/HelloWorld.md)
+[Hello World](../sample/HelloWorld.md)
 
-[Lock (lock)](../tutorial/lock2.md)
+[Lock (lock)](../sample/lock2.md)
 
-[Domain (Domain Name System)](../tutorial/Domain.md)
+[Domain (Domain Name System)](../sample/Domain.md)
+

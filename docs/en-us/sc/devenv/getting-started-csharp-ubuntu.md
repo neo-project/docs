@@ -18,7 +18,7 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
    vim NeoContractDemo.cs
    ```
 
-   ![](../../../assets/create_neo_contract.png)
+   ![](../../assets/create_neo_contract.png)
 
 2. In NeoContractDemo.cs, enter the following code and then press `ESC`+`wq!` .
 
@@ -41,7 +41,7 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
    dotnet add package Neo.SmartContract.Framework --version 2.5.4
    ```
 
-   ![](../../../assets/neo_addpackage.png)
+   ![](../../assets/neo_addpackage.png)
 
 4. Compile the smart contract project：
 
@@ -49,7 +49,7 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
    dotnet publish -o ../testlib
    ```
 
-   ![](../../../assets/build_neo_contract_project.png)
+   ![](../../assets/build_neo_contract_project.png)
 
 ## Generate the compiler
 
@@ -58,7 +58,7 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
     cd  ./neo-compiler/neon
     dotnet publish -o ../../testlib
 
-![](../../../assets/build_neo_neoa.png)
+![](../../assets/build_neo_neoa.png)
 
 ## Generate the .avm file
 
@@ -67,6 +67,6 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
     mkdir ../output
     cp NeoContractDemo.avm ../output/NeoContractDemo.avm
 
-![](../../../assets/neo_contract_build_avm.png)
+![](../../assets/neo_contract_build_avm.png)
 
 For complete scripts, refer to https://raw.githubusercontent.com/hunjixin/NeoContractBuildScriptOnUbuntu/master/SmartContract.sh

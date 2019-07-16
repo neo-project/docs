@@ -16,14 +16,14 @@ From the programming language perspective, only when a smart contract will be us
 
 Smart contracts are deployed by invoking API through an Invocation transaction (The Publish transaction for deployment of the old version system has been deprecated). We recommend you use NEO-GUI to deploy smart contracts. 
 
-Deploying and invoking smart contracts will cost fees. For more information, refer to [System Fees](systemfees.md).
+Deploying and invoking smart contracts will cost fees. For more information, refer to [Fees](../fees.md).
 
 ## Before you start
 Make sure you have done the following:
 
 - Confirmed that your contract should be deployed. 
 - Compiled an .avm contract file.
-- Installed NEO-GUI and completed block synchronization. For more information, refer to [NEO-GUI](../node/gui/install.md).
+- Installed NEO-GUI and completed block synchronization. For more information, refer to [NEO-GUI](../../node/gui/install.md).
 
 ## Deploying the smart contract
 
@@ -41,7 +41,7 @@ Make sure you have done the following:
 
 4. Click `Deploy`.
 
-   Deploying a smart contract costs 100 ~1000 GAS. For more information, refer to [System Fees](systemfees.md).
+   Deploying a smart contract costs 100 ~1000 GAS. For more information, refer to [Fees](../fees.md).
 
 ## Creating a smart contract account   
 
@@ -86,4 +86,4 @@ To invoke a smart contract that has been deployed in the blockchain, do the foll
 
 5. Click `Test ` to run the contract in a test environment. If no issue, click `Invoke`。
 
-You can also use the [invoke method](../node/cli/latest-version/api/invoke.md) provided in NEO-CLI to invoke the contract.
+You can also use the [invoke method](../../reference/rpc/latest-version/api/invoke.md) provided in NEO-CLI to invoke the contract.

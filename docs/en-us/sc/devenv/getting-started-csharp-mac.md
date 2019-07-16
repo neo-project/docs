@@ -1,18 +1,18 @@
 # How to write smart contracts in C# on macOS
 
-### 1. Visual Studio for Mac 
+### Visual Studio for Mac 
 
 If you already have Visual Studio for Mac installed on your computer, skip this section. Otherwise, download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)
 
 Just check the basic functions when installing, without selecting the platform specific components.
 
-![](../../../assets/mac1.png)
+![](../../assets/mac1.png)
 
 ![](../assets/mac2.png)
 
-![](../../../assets/mac3.png)
+![](../../assets/mac3.png)
 
-### 2. Building NEO smartcontract framework
+### Building NEO smartcontract framework
 Unlike on Windows where they can get the `Neo.Smartcontract.Framework` via `NuGet`, on OSX we have to compile it ourselves or step 6 (see below) will fail when using any of the NEO smartcontract specific methods.
 
 Download [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) from GitHub. Open `neo-devpack-dotnet.sln`. You might receive errors about "Unknown solution item type" for the Installer and 2 Template projects, these can be safely ignored. Dismiss the warning dialog and right click on the `Neo.Smartcontract.Framework` project, choose `Build`. Note the location where the `Neo.Smartcontract.Framework.dll` is saved, we will need this location in the next step. i.e.
@@ -20,18 +20,19 @@ Download [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet)
 <neo-devpack-dotnet download folder>/bin/Debug/netstandard2.0/Neo.SmartContract.Framework.dll.
 ```
 
-### 3. New Project
+### New Project
 
 Open Visual Studio for Mac，create a new project, and select .NET Standard Library（.NET Core → Library）。
 
-![](../../../assets/mac4.png)
+![](../../assets/mac4.png)
 
 > [!Note]
+>
 > When you create a new project, select 2.0 for the .NET Core version.
 
 Next, expand the project，right click on `Dependencies` and choose `Edit references...`. Go to the `.NET Assembly` tab, choose `Browse` and add the `Neo.Smartcontract.Framework.dll` from the location saved in Step 2. 
 
-![](../../../assets/mac5.png)
+![](../../assets/mac5.png)
 
 Check the checkbox and press ok to close the dialog. Next, write the following sample code in your Class1.cs file.
 
@@ -52,7 +53,7 @@ In the menu choose `Build`，`Build All` to compile the corresponding code. A .d
 
 In the example the contract is named `sample_contract`. After compilation the file `sample_contract.dll` is created that we'll use in the next section.
 
-### 4. neo-compiler
+### neo-compiler
 
 Download [neo-compiler](https://github.com/neo-project/neo-compiler) from GitHub. Before opening the solution in Visual studio we first have to edit the `neon.csproj` to alter the runtime identifiers. Locate the file at `/neo-compiler/neon/neon.csproj`, open it using a text editor and replace 
 ```
@@ -65,14 +66,14 @@ with
 Next open the `neo-compiler` solution and build the project. You'll now find `neon.dll` under `/bin/Debug/netcoreapp2.0/`.
 
 
-### 5. .NET Core
+### .NET Core
 
 Download and install  [.NET Core 2.0.3](https://www.microsoft.com/net/download/macos) if you haven't already done so.
 
 ![](../assets/mac8.png)
 
 
-### 6. Compiling your smart contract to .avm
+### Compiling your smart contract to .avm
 
 The basic syntax is 
 

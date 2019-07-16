@@ -2,7 +2,9 @@
 
 A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
 
-> [!Important]
+> [!WARNING]
+>
+> #### Warning
 >
 > Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
 
@@ -10,7 +12,7 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 
 1. Click `Wallet`, `New Wallet Database`.
 
-   ![image](../../../assets/gui_2.png)
+   ![image](../../assets/gui_2.png)
 
 2. Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
 
@@ -59,7 +61,7 @@ Clicking on the `Transaction History` tab you can view all the transaction recor
 
 1. Every time the client is re-opened, you need to click `open wallet database` to select which wallet file to open, as the picture shows:
 
-   ![image](../../../assets/gui_5.png)
+   ![image](../../assets/gui_5.png)
 
 2. Click `Browse` to select the wallet (usually the default is the last open wallet)
 
@@ -77,7 +79,7 @@ Clicking on the `Transaction History` tab you can view all the transaction recor
 
 You can modify the wallet password.
 
-![image](../../../assets/gui_6.png)
+![image](../../assets/gui_6.png)
 
 After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
 

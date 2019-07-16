@@ -149,12 +149,13 @@ The network protocol of NEO is roughly similar to bitcoin’s, however, data str
 
    + RegisterTransaction
 
-      > [!Warning]
-      Has been deactived and replaced by Neo.Asset.Create for the smart contract.
+      > [!Caution]
+      >
+      > Has been deactived and replaced by Neo.Asset.Create for the smart contract.
 
-      View [Alternative .NET Smart Contract Framework](../sc/reference/fw/dotnet/neo/Asset/Create.md)
+      View [Alternative .NET Smart Contract Framework](../reference/scapi/fw/dotnet/neo/Asset/Create.md)
 
-      View [Alternative Smart Contract API](../sc/reference/api/neo.md)
+      View [Alternative Smart Contract API](../reference/scapi/api/neo.md)
 
    + ContractTransaction
 
@@ -162,12 +163,13 @@ The network protocol of NEO is roughly similar to bitcoin’s, however, data str
 
    + PublishTransaction
 
-      > [!Warning]
-      Has been deactivated and replaced by Neo.Contract.Create for the smart contract.
+      > [!Caution]
+      >
+      > Has been deactivated and replaced by Neo.Contract.Create for the smart contract.
 
-      View [Alternative .NET Smart Contract Framework](../sc/reference/fw/dotnet/neo/Contract/Create.md)
+      View [Alternative .NET Smart Contract Framework](../reference/scapi/fw/dotnet/neo/Contract/Create.md)
 
-      View [Alternative Smart Contract API](../sc/reference/api/neo.md)
+      View [Alternative Smart Contract API](../reference/scapi/api/neo.md)
 
    + Invoking a Transaction
 

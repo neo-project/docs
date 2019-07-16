@@ -9,17 +9,17 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 2. Do one of the following:
 
    1. To transfer to a single address, click  `+` and enter the transfer information, e.g. assets type, recipient address, and amount.
-   2. To transfer to a batch of addresses, click ![image](../../../assets/gui_icon.png) and enter pairs of the address and amount separated by a space, as shown below: 
+   2. To transfer to a batch of addresses, click ![image](../../assets/gui_icon.png) and enter pairs of the address and amount separated by a space, as shown below: 
 
-   ![image](../../../assets/gui_15.png)
+   ![image](../../assets/gui_15.png)
 
-3. Click `OK`. If need be, click ![image](../../../assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
+3. Click `OK`. If need be, click ![image](../../assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
 
 4. Double-check the transfer information and then click `OK`.
 
    For token asset transfer, the transaction is completed with the transaction ID displayed.
 
-   ![image](../../../assets/txid.png)
+   ![image](../../assets/txid.png)
 
    For equity asset transfer, signatures are required for completing the transaction. Copy the  transaction information that appears and send it to the other party. The other party of the transaction needs to sign and broadcast in NEO-GUI to complete the transaction. For more information, refer to [Signature](#signature).
 
@@ -34,11 +34,11 @@ For transactions involving equity allocation and asset exchange, the signature i
 
    At the same time, the `Broadcast` button is displayed.
 
-   ![image](../../../assets/signature.png)
+   ![image](../../assets/signature.png)
 
 3. Click  `Broadcast`. The transaction is sent successfully and will be completed once confirmed by NEO blockchain.
 
-![image](../../../assets/gui_30.png)
+![image](../../assets/gui_30.png)
 
 ## Assets Exchange
 
@@ -59,7 +59,7 @@ Take the operations made on A side as an example:
 
 3. Click `Initiate` to generate the transaction request. Cope the request that appears and send it to B. Then click `Close`.
 
-   ![image](../../../assets/tranrequest.png)
+   ![image](../../assets/tranrequest.png)
 
 4. The merging request page is displayed. Wait for the transaction request sent from B.
 
@@ -71,7 +71,7 @@ Take the operations made on A side as an example:
 
 1. In the merging request page, paste the request sent from B into the counterparty request field. Click `Validate`.
 
-   ![image](../../../assets/gui_20.png)
+   ![image](../../assets/gui_20.png)
 
 2. Verify the transaction information. Click `Accept` if no issue.
 

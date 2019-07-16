@@ -53,7 +53,7 @@ NEO-CLI provides the following features：
   dotnet neo-cli.dll --rpc
   ```
 
-  For more API information, refer to [API Reference](../../reference/rpc/cli/apigen.md).
+  For more API information, refer to [API Reference](../../reference/rpc/apigen.md).
 
 
 - Provides transaction information of NEP-5 assets.

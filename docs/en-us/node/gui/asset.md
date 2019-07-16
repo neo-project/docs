@@ -22,7 +22,7 @@ There are two types of assets, Token and Share. Taking Token assets as an exampl
 
    - Issuer: The address of the asset to be distributed.
 
-     ![image](../../../assets/gui_43.png)
+     ![image](../../assets/gui_43.png)
 
 2. Assets registration is implemented by invoking the smart contract. In the Invoke Contract page, click `Test` . 
 
@@ -56,4 +56,4 @@ Within the upper limits of the total amount set by the asset creator, the asset 
 
    Once the distribution is complete, you can see the user-created assets is displayed in your wallet.
 
-![image](../../../assets/gui_46.png)
+![image](../../assets/gui_46.png)

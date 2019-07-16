@@ -1,6 +1,6 @@
 # Unit Testing
 
-You can use the [invokeScript](../node/cli/latest-version/api/invokescript.md) method provided by NEO-CLI for unit testing.
+You can use the [invokeScript](../reference/rpc/latest-version/api/invokescript.md) method provided by NEO-CLI for unit testing.
 
 ### Testing tool
 
@@ -23,7 +23,7 @@ After compiling your smart contract and getting the related script hash, you can
 
    Replace the string in `params` with the script hash of the smart contract to test. Click **Send** to start a testing. See the figure below:
 
-   ![img](../../assets/test1.png)
+   ![img](../assets/test1.png)
 
 ###  Example 1 - Testing a contract without parameters
 
@@ -43,7 +43,7 @@ After compiling your smart contract and getting the related script hash, you can
 
 2. Create an netcore project and import the NEO project. 
 
-   ![img](../../assets/test2.png)
+   ![img](../assets/test2.png)
 
    Write the following code to obtain the smart contract script hash:
 
@@ -64,7 +64,7 @@ After compiling your smart contract and getting the related script hash, you can
 
 3. Use postman to test, as shown below:
 
-   ![img](../../assets/test3.png)
+   ![img](../assets/test3.png)
 
 "state": The value "HALT, BREAK" indicates the test is successful. 
 
@@ -110,7 +110,7 @@ Stack is the value left on the Stack, which is the bytearray corresponding to th
 
 3. Use PostMan to test:
 
-   ![img](../../assets/test4.png)
+   ![img](../assets/test4.png)
 
 
 ### Example 3 - Testing a contract deployed on the blockchain

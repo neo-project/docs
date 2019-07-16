@@ -18,9 +18,9 @@ Parameters:
 
 script: The contract bytecode as a byte array.
 
-parameter_list: Parameter list as a byte array. Refer to [Smart Contract Parameters and Return Values](../../../../../Parameter.md).
+parameter_list: Parameter list as a byte array. Refer to [Smart Contract Parameters and Return Values](../../../../../../sc/deploy/Parameter.md).
 
-return_type: Return type as a byte. Refer to [Smart Contract Parameters and Return Values](../../../../../Parameter.md).
+return_type: Return type as a byte. Refer to [Smart Contract Parameters and Return Values](../../../../../../sc/deploy/Parameter.md).
 
 need_storage: If the contract requires a persistent store, boolean.
 

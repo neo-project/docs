@@ -23,4 +23,4 @@ You need to install the [ImportBlocks](https://github.com/neo-project/neo-plugin
 
 ## Synchronizing blockchain data
 
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see [Synchronizing the blockchain faster](../../network/syncblocks.md).
+The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see [Synchronizing the blockchain faster](../syncblocks.md).

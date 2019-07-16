@@ -10,7 +10,7 @@ For more information refer to [Installation of NEO-CLI](../../node/cli/setup.md)
 
 ## Installing plug-in
 
-Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) the plug-in to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/plugin.md#installing-plug-ins).
+Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) the plug-in to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/cli/setup.md).
 
 ## Creating wallet files
 
@@ -216,7 +216,7 @@ At this point the private chain has been set up. All the files  we modified are 
 
 Enter each node directory and double-click `1Run.cmd`. When the consensus process goes as shown below, the private chain is set up successfully.
 
-![](../../../assets/privatechain_demo.png)
+![](../../assets/privatechain_demo.png)
 
 The private chain is terminated if you close all the windows. 
 
