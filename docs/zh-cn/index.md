@@ -5,11 +5,11 @@ NEO 官方的技术文档都在这里，还有众多开发示例可供参考。
 
 | NEO 介绍 | NEO 节点 | NEO 网络 |
 | ------- | --------| -------- |
-| [关于 NEO](basic/about.md) | [节点介绍](node/introduction.md) | [测试网](network/testnet.md) |
-| [白皮书](whitepaper.md) | [NEO-GUI](node/gui/install.md) | [搭建私有链 - 单节点](network/private-chain/solo.md) |
-| [共识机制](basic/technology/consensus.md) | [NEO-CLI](node/cli/setup.md) | [搭建私有链 - 本地主机](network/private-chain/private-chain2.md) |
-| [NeoVM](basic/technology/neovm.md) | [NEO-Python](node/python/overview.md) | [搭建私有链 - 虚拟机](network/private-chain/private-chain.md) |
-| [NeoContract](basic/technology/neocontract.md) | [快速同步区块](node/syncblocks.md) | [Neo-local](network/private-chain/neolocal.md) |
+| [白皮书](whitepaper.md) | [节点介绍](node/introduction.md) | [测试网](network/testnet.md) |
+| [共识机制](basic/technology/consensus.md) | [NEO-GUI](node/gui/install.md) | [搭建私有链 - 单节点](network/private-chain/solo.md) |
+| [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [搭建私有链 - 本地主机](network/private-chain/private-chain2.md) |
+| [NeoContract](basic/technology/neocontract.md) | [NEO-Python](node/python/overview.md) | [搭建私有链 - 虚拟机](network/private-chain/private-chain.md) |
+|  | [快速同步区块](node/syncblocks.md) | [Neo-local](network/private-chain/neolocal.md) |
 
 ------
 

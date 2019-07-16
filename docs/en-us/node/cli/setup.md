@@ -219,7 +219,7 @@ neo-cli.dll --nopeers
 
 If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
 
-> [!Caution]
+> [!Warning]
 >
 > If you open the API service and the wallet in NEO-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
 

@@ -2,8 +2,6 @@
   href: /docs/zh-cn/index.md
 - name: NEO 介绍
   items:
-  - name: 关于 NEO
-    href: /docs/zh-cn/basic/about.md
   - name: NEO 白皮书
     href: /docs/zh-cn/basic/whitepaper.md
   - name: NEO 技术

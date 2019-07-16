@@ -2,9 +2,9 @@
 
 A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
 
-> [!WARNING]
+> [!CAUTION]
 >
-> #### Warning
+> #### Caution
 >
 > Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
 
@@ -36,7 +36,9 @@ Right-click on the account and select `View Private Key` to check the account in
 
 - Public key: Each private key has a matching public key (Note: Public key, and private key information can be viewed by right clicking on the address.)
 
-> [!Important]
+> [!CAUTION]
+>
+> #### Caution
 >
 > At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
 

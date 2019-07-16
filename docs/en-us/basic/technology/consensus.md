@@ -125,7 +125,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 3. The first view `v` of the consensus activity is initialized.
 
 4. The **Speaker** is identified. **Wait** `t` seconds.
-<p align="center"><img src="../../assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
+     <p align="center"><img src="../../assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
 
 5. The **Speaker** broadcasts the proposal : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
@@ -157,6 +157,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 > [!Note]
 >
 >  If after   (![timeout](../../assets/consensus.timeout.png) )  seconds on the same view without consensus:
+>  
 >   - **Consensus Node** broadcasts: <ChangeView, h,k,i,k+1>
 >
 >   - Once a **Consensus Node** receives at least `s` number of broadcasts denoting the same change of view, it increments the view `v`, triggering a new round of consensus.	

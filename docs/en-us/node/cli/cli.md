@@ -31,7 +31,7 @@ To view all the commands, enter `help` in the command line.
 | deploy <avmFilePath>... | Deploy a contract    |
 | invoke <scripthash>...  | Invoke a contract    |
 
-### 命令说明
+### Command Description
 
 👉 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>`
 

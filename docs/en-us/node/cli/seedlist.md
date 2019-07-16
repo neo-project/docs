@@ -68,7 +68,7 @@ The main port neo-cli works with is `10333`. Currently, we are pinging `RPC` onl
 
 
 #### Editing the protocol
-To let NEO-CLI know the new SeedList, we will paste the addresses chosen before into `protocol.json`
+To let NEO-CLI know the new SeedList, we will paste the addresses chosen before into `protocol.json`.
 
 ```json
 {
@@ -128,7 +128,6 @@ To let NEO-CLI know the new SeedList, we will paste the addresses chosen before 
   }
 }
 ```
-
 Notice that we've added `:10333` to the end of each of the addresses, to tell NEO-CLI that to connect using the `P2P` protocol.
 
 And that's it! You can now start neo-cli as usual.

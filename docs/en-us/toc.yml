@@ -2,8 +2,6 @@
   href: /docs/en-us/index.md
 - name: NEO Introduction
   items:
-  - name: About NEO
-    href: /docs/en-us/basic/about.md
   - name: NEO Whitepaper
     href: /docs/en-us/basic/whitepaper.md
   - name: NEO Technology
@@ -40,31 +38,31 @@
       href: /docs/en-us/node/gui/other.md
   - name: NEO-CLI
     items:
-    - name: Publishing from source
+    - name: Publishing from Source
       href: /docs/en-us/node/cli/publish.md
     - name: Installation
       href: /docs/en-us/node/cli/setup.md
     - name: SeedList
       href: /docs/en-us/node/cli/seedlist.md
-    - name: NEO-CLI Command line
+    - name: NEO-CLI Command Line
       href: /docs/en-us/node/cli/cli.md
 - name: NEO Network
   items:
-  - name: Test Net
+  - name: Main Net & Test Net
     href: /docs/en-us/network/testnet.md
-  - name: Private Chain
+  - name: Setting up Private Chain
     items:
     - name: Solo Mode
       href: /docs/en-us/network/private-chain/solo.md
-    - name: 使用虚拟机搭建
+    - name: Multiple Nodes (virtual machines)
       href: /docs/en-us/network/private-chain/private-chain.md
-    - name: 在本地主机搭建
+    - name: Multiple Nodes (local host)
       href: /docs/en-us/network/private-chain/private-chain2.md
     - name: Neo-local
       href: /docs/en-us/network/private-chain/neolocal.md
 - name: Smart Contract Development
   items:
-  - name: Getting Started Guide（C#）
+  - name: Getting Started (C#)
     items:
     - name: Introduction
       href: /docs/en-us/sc/gettingstarted/introduction.md
