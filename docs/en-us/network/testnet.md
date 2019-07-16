@@ -1,6 +1,8 @@
-# Test network
+# Main Net & Test Net
 
-The TestNet is an environment where the user can develop, commission and test programs. Testing programs on the testnet incurs the network fee of testnet GAS (not real GAS!). Testnet NEO and GAS can be applied free of charge, on the official website, detailed instruction are below.
+The NEO node runs on the main net by default. The Main net is a block chain network that has been officially launched and operates independently.  
+
+The Test net is an environment where the user can develop, commission and test programs. Testing programs on the testnet incurs the network fee of testnet GAS (not real GAS!). Testnet NEO and GAS can be applied free of charge, on the official website, detailed instruction are below.
 
 All the blockchain of the test network are independent of the main network. If you develop a simple smart contract or try to register assets, the use of testnet should suffice. After the testing is complete, the development can be moved to the NEO mainnet online operation.
 
@@ -35,6 +37,8 @@ Reference: [Introduction of NEO node](../node/introduction.md).
 
 ## Method of getting TEST GAS and TEST NEO
 If you are a developer, you can ask for NEO and GAS on the TestNet. You will need 500 Test GAS to deploy a contract to the TestNet.  
+
+Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https://neowish.ngd.network/). If you need more than that, you'll have to request it manually:
 
 - Fill in the request form (https://www.neo.org/Testnet/Create) specifying your PUBLIC key and EMAIL.
 - A day or so later you will receive an email with an Contract Address and a second PUBLIC KEY. 
