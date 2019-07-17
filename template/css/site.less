@@ -34,10 +34,11 @@ nav .logo {
 }
 
 .catalog {
-    border-right: 1px solid rgba(0,0,0,.1);
+    border-right: 1px solid rgba(0, 0, 0, .1);
     position: sticky;
-    height: 100%;
+    height: calc(100vh);
     top: 4rem;
+    overflow: auto;
 
     .nav-pills .nav-link {
         border-radius: 0;
@@ -59,7 +60,6 @@ nav .logo {
     }
 
     i {
-        transition: all .3s;
         margin-right: .3rem;
         margin-left: -.6rem;
     }
