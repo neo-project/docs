@@ -13,18 +13,21 @@ $(function () {
     });
 });
 //根据网址自动展开到对应目录
-$(function () {
+var cachedOnload = window.onload;
+window.onload = function () {
+    cachedOnload();
     var pathName = decodeURI(location.pathname);
     var link = $(".catalog").find("[href='" + pathName + "']")[0];
     $(link).addClass("active");
-    $(link).parents().show();
+    $(link).parents("nav").show("fast");
     $(link).parents().prev().addClass('expand');
     //导航栏高亮
     var href = pathName.split('/')[1];
     $(".navbar-nav [href='/" + href + "']").each(function () {
         $(this).addClass("active");
     });
-});
+};
+
 //懒加载
 $(function () {
     $('[data-original]').lazyload({

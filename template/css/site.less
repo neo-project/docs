@@ -45,6 +45,9 @@ nav .logo {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     span::before {
@@ -74,6 +77,7 @@ nav .logo {
     & > nav nav {
         display: none;
         overflow: hidden;
+        max-width: 100%;
     }
 
     &.show {
