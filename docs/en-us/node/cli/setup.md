@@ -211,12 +211,6 @@ NEO-CLI provides a series of APIs for external access. If you want to start the 
 ```
 neo-cli.dll --rpc
 ```
-If you want to only connect seed nodes in the configuration file, enter the following:
-
-```
-neo-cli.dll --nopeers 
-```
-
 If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
 
 > [!CAUTION]
