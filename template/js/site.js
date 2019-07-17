@@ -49,7 +49,7 @@ $(function () {
         var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
         var n = "Press " + e + "C to copy";
 
-        $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
+        $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle");
     });
 });
 //语言切换
