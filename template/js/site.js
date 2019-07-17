@@ -2,14 +2,27 @@
 text_replace(".with-space");
 //代码高亮
 hljs.initHighlightingOnLoad();
-//目录展开和收起
+//目录展开和折叠
 $(function () {
     $(".catalog nav span").click(function () {
-        if ($(this).hasClass('expand'))
+        var currentExpand = $(this).hasClass('expand');
+        //折叠所有旁系目录
+        $(".catalog nav nav").hide();
+        $(".catalog nav span").removeClass('expand');
+        //展开所有父目录
+        $(this).parents("nav").prev().addClass('expand');
+        $(this).parents("nav").show();
+        //折叠所有子目录
+        $(this).children("nav").prev().removeClass('expand');
+        $(this).children("nav").hide();
+        //展开或折叠当前目录
+        if (currentExpand) {
             $(this).removeClass('expand');
-        else
+            $(this).next("nav").hide();
+        } else {
             $(this).addClass('expand');
-        $(this).next("nav").toggle("fast");
+            $(this).next("nav").show();
+        }
     });
 });
 //根据网址自动展开到对应目录
@@ -21,8 +34,9 @@ window.onload = function () {
     var pathName = decodeURI(location.pathname);
     var link = $(".catalog").find("[href='" + pathName + "']")[0];
     $(link).addClass("active");
+    $(link).parents("nav").show();
     setTimeout(function(){ //为 less 编译预留时间
-        $(link).parents("nav").show("fast");
+        $(link).parents("nav").show();
     }, 200);
     $(link).parents().prev().addClass('expand');
     //导航栏高亮
