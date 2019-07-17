@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="">
+    <meta name="generator" content="NeoDocsBuilder">
+</head>
+
+<body>
+    <script>
+        var savelang = localStorage.getItem("lang");
+        var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
+        if (lang != 'zh-cn') lang = 'en-us';
+        location.href = "/articles/" + lang + "/index.html";
+    </script>
+</body>
+
+</html>

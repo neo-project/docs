@@ -248,9 +248,8 @@ paket-files/
 .fake/
 
 # JetBrains Rider
-.idea/
-*.sln.iml
-/_site/
-/*.json
-neo/styles/docfx.js
-*.js
+wwwroot
+NeoDocsBuilder.*
+*.dll
+_site/
+docfx.json
