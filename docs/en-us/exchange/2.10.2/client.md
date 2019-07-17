@@ -62,13 +62,6 @@ NEO-CLI provides the following features：
   >
   > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [NEO-CLI Installation](../../node/cli/setup.md).
 
-- Connects to seed nodes directly
-
-  If the connections number is always 0 after opening the NEO-CLI, you can directly connect seed nodes to synchronize blocks using the following command：
-
-  ```
-  dotnet neo-cli.dll --nopeers
-  ```
 
 | #    | Function                                                  | Command                   |
 | ---- | --------------------------------------------------------- | ------------------------- |
