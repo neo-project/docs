@@ -5,7 +5,7 @@
 ## 社区区块链浏览器
 ### [Neoscan](https://neoscan.io/)
 
-![](../../assets/neoscan.png)
+![](../assets/neoscan.png)
 
 **API 文档:** https://neoscan.io/docs/index.html <br/>
 **GitHub:** https://github.com/CityOfZion/neo-scan
@@ -13,18 +13,18 @@
 
 
 ### [NeoTracker](https://neotracker.io/)
-![](../../assets/neotracker.png)
+![](../assets/neotracker.png)
 
 **GitHub:** https://github.com/neotracker/neotracker
 
 ### [Scan](https://scan.nel.group/#mainnet)
-![](../../assets/scan.png)
+![](../assets/scan.png)
 
 **API 文档:** http://www.xiaoyaoji.cn/share/1H0gjTDtfk/ - Chinese only <br/>
 **GitHub:** https://github.com/NewEconoLab/NELBrowser-Web
 
 ### [StateBrowser](https://state.otcgo.cn/?idx=0)
-![](../../assets/statebrowser.png)
+![](../assets/statebrowser.png)
 
 **API 文档:**
 https://otcgo.github.io/doc/ <br/>
@@ -32,6 +32,6 @@ https://otcgo.github.io/doc/ <br/>
 
 
 ### [Antcha.in](http://antcha.in/) - 仅支持中文
-![](../../assets/antcha.png)
+![](../assets/antcha.png)
 
 更多区块链浏览器，请查看 http://ndapp.org/ 下的 Explorer 页面。

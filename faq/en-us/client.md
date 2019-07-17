@@ -6,7 +6,7 @@ Firstly check the transaction record in NEO-GUI to see if the transfer transacti
 
 ## Why doesn't the downloaded offline package work?
 
-Read the instructions in [Synchronizing the blockchain faster](../network/syncblocks.md) and make sure the following:
+Read the instructions in [Synchronizing the blockchain faster](../../docs/en-us/node/syncblocks.md) and make sure the following:
 
 - You have downloaded the proper package
 - You have directly placed the downloaded file (chain.0.acc.zip or chain.xxx.acc.zip) under the root directory of NEO-CLI or NEO-GUI without modifying the file name
@@ -22,7 +22,7 @@ In NEO-CLI create a new address, then right-click to import the watch-only addre
 
 ## Is it possible to transfer assets to multiple addresses in one transaction?
 
-Yes. Refer to [Transactions](../node/gui/transc.md).
+Yes. Refer to [Transactions](../../docs/en-us/node/gui/transc.md).
 
 ## What are the hardware requirements for the computer running NEO node in the main net?
 

@@ -2,17 +2,18 @@
 
 ## 如何申请测试币？
 
-访问 https://neo.org/testcoin/apply 并填写申请表单。如果申请成功，你将在三到五个工作日内收到通知。
+你可以在 [NGD faucet](https://neowish.ngd.network/) 上每天自动领取最多1000 个 GAS 和 1000 个 NEO。如果需要更多测试币，可以访问 https://neo.org/testcoin/apply 并填写申请表单。如果申请成功，你将在三到五个工作日内收到通知。
 
 ## 有哪些方法可以搭建私链：
 
 要搭建私链，有以下方法可供选择：
 
-- 在云服务器上使用虚拟机搭建私链，详情参见 [用虚拟机搭建私有链](../network/private-chain/private-chain.md)。
-- 在一台 windows服务器上快速搭建，详情参见 [快速搭建私有链](../network/private-chain/private-chain2.md)。
-- 使用 neo-local 快速搭建，详情参见 [快速搭建本地网络](../network/neolocal.md)。
+- [单节点模式快速搭建](../../docs/zh-cn/network/private-chain/solo.md)
+- [在本地主机搭建私有链](../../docs/zh-cn/network/private-chain/private-chain2.md)
+- [用虚拟机搭建私有链](../../docs/zh-cn/network/private-chain/private-chain.md)
+- [使用 neo-local 快速搭建本地网络](../../docs/zh-cn/network/private-chain/neolocal.md)
 
-还可以参见 [社区文档](../communitydoc.md)，学习更多私链搭建方法。
+还可以参见 [社区文章](../../articles/zh-cn/index.md)，学习更多私链搭建方法。
 
 ## 可以使用哪些语言开发智能合约？
 

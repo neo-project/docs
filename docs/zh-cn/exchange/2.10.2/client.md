@@ -53,7 +53,7 @@ NEO-CLI 提供以下功能：
   dotnet neo-cli.dll --rpc
   ```
 
-  要查看更多 API 信息，请参阅 [API 参考](../../reference/rpc/apigen.md)。
+  要查看更多 API 信息，请参阅 [API 参考](../../reference/rpc/latest-version/api.md)。
 
 - 提供 NEP5 资产的交易信息。
 

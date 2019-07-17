@@ -161,6 +161,8 @@
 - name: 开发参考
   items:
   - name: RPC API
+    - name: API Reference
+      href:  /docs/zh-cn/reference/rpc/latest-version/api.md
     - name: v2.10.2
       items:
       - name: claimgas

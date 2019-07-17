@@ -2,17 +2,18 @@
 
 ## How to apply for test tokens?
 
-Go to https://neo.org/testcoin/apply and fill out the application form. If the application is accepted, you will be notified in three to five workdays.
+Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https://neowish.ngd.network/). If you need more than that, go to https://neo.org/testcoin/apply and fill out the application form. If the application is accepted, you will be notified in three to five workdays.
 
 ## How to build a private chain?
 
 To build a private chain, you have the following options：
 
-- Use a virtual machine to build a private chain on a cloud server. See [here](../network/private-chain/private-chain.md).
-- Quickly build a private chain on one Windows serve. See [here](../network/private-chain/private-chain2.md).
-- Quickly build a private chain with neo-local. See [here](../network/local-chain.md).
+- Quickly build a private chain with one node. See [here](../../docs/en-us/network/private-chain/solo.md).
+- Use a virtual machine to build a private chain on a cloud server. See [here](../../docs/en-us/network/private-chain/private-chain.md).
+- Quickly build a private chain on your local host. See [here](../../docs/en-us/network/private-chain/private-chain2.md).
+- Quickly build a private chain using neo-local. See [here](../../docs/en-us/network/private-chain/neolocal.md).
 
-You can also refer to the [community tutorial](../communitydoc.md) to learn more options.
+You can also refer to the [community articles](../../articles/en-us/index.md) to learn more options.
 
 ## Which languages can I use to develop smart contracts?
 

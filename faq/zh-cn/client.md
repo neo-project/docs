@@ -6,7 +6,7 @@
 
 ## 为什么下载了离线同步包后没有加速同步速度？
 
-请参考 [快速同步区块](../network/syncblocks.md)，并确认：
+请参考 [快速同步区块](../../docs/zh-cn/node/syncblocks.md)，并确认：
 
 - 您下载了正确的离线包
 - 下载的压缩包文件（ chain.0.acc.zip 或 chain.xxx.acc.zip） 直接放置到了客户端 NEO-CLI 或 NEO-GUI 根目录下
@@ -24,7 +24,7 @@
 
 ## 是否可以在一次交易中给多个地址进行转账？
 
-可以。请参考 [交易](../node/gui/transc.md)。
+可以。请参考 [交易](../../docs/zh-cn/node/gui/transc.md)。
 
 ## 主网节点部署机器的配置要求是什么？
 
