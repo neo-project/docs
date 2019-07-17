@@ -125,8 +125,9 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 3. The first view `v` of the consensus activity is initialized.
 
 4. The **Speaker** is identified. **Wait** `t` seconds.
-     <p align="center"><img src="../../assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
-
+     
+<p align="center"><img src="../../assets/consensus2.png" width="450"><br/> <b>Figure 7:</b> A <b>Speaker</b> has been identified and the view has been set.</p>
+     
 5. The **Speaker** broadcasts the proposal : `<prepareRequest, h, k, p, bloc, [block]sigp>`
 
      <p align="center"><img src="../../assets/consensus3.png" width="450"><br> <b>Figure 8:</b> The <b>Speaker</b> mints a block proposal for review by the <b>Delegates</b>. </p>
@@ -164,7 +165,7 @@ Note that the **Figure 5** does not extend below 66.66% **Consensus nodes** hone
 >
 
 ## References
-- [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
+- [A Byzantine Fault Tolerance Algorithm for Blockchain](dbft.md)
 - [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 - [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 

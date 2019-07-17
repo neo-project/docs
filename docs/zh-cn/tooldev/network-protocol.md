@@ -140,6 +140,7 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 **EnrollmentTransaction**
 
 > [!Warning]
+>
 > 已弃用，已被智能合约的 Neo.Blockchain.RegisterValidator 所替代。
 
 查看 [替代的 .NET 智能合约框架](../reference/scapi/fw/dotnet/neo/Validator/Register.md)
@@ -149,6 +150,7 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 **RegisterTransaction**
 
 > [!Warning]
+>
 > 已弃用，已被智能合约的 Neo.Blockchain.CreateAsset 所替代。
 
 查看 [替代的 .NET 智能合约框架](../reference/scapi/fw/dotnet/neo/Asset/Create.md)
@@ -162,11 +164,12 @@ NEO 系统中的一切事务都以交易为单位进行记录。交易有以下�
 **PublishTransaction**
 
 > [!Warning]
+>
 > 已弃用，已被智能合约的 Neo.Blockchain.CreateContract 所替代。
 
-查看 [替代的 .NET 智能合约框架](../sc/reference/fw/dotnet/neo/Contract/Create.md)
+查看 [替代的 .NET 智能合约框架](../reference/scapi/fw/dotnet/neo/Asset/Create.md)
 
-查看 [替代智能合约 API ](../sc/reference/api/neo.md)
+查看 [替代智能合约 API ](../reference/scapi/api/neo.md)
 
 **InvocationTransaction**
 
