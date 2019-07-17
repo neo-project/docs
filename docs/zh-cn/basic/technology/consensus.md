@@ -179,7 +179,7 @@ DBFT 在 NEO 中的实际实现使用迭代共识方法来保证达成共识。�
 
 
 ## 引用
-- [A Byzantine Fault Tolerance Algorithm for Blockchain](whitepaper.md)
+- [A Byzantine Fault Tolerance Algorithm for Blockchain](dbft.md)
 - [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 - [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)
 
