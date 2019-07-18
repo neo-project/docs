@@ -9,7 +9,7 @@ Claims GAS in the wallet.
 
 ## Parameter Description
 
-address (optional): The address that you want to send the claimed GAS to. This address should be a standard address. 
+address (optional): The address that you want to send the claimed GAS to. This address should be a standard address. If no address is specified, the claimed GAS will be sent to the first standard address in the wallet by default.
 
 ## Example
 
