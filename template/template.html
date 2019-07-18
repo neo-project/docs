@@ -28,7 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1 px-3 px-sm-4 px-md-5">
         <a class="navbar-brand" href="https://neo.org"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
     </nav>
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
-            <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5 mb-5">
+            <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
                 {catalog}
             </div>
             <main class="col-12 col-md-9 col-lg-8 p-3 p-sm-4 p-md-5">
@@ -80,14 +80,16 @@
             </div>
         </div>
     </div>
-    <footer class="bg-light">
-        <ul>
-            <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
-            <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
-            <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
-        </ul>
-        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
-        <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+    <footer>
+        <div class="bg-light d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
     </footer>
     <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
