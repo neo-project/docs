@@ -1,58 +1,52 @@
-<center><h2> NEO-CLI </h2></center>
+# NEO-CLI 结构
 
-　neo 是一个基于点对点网络的区块链系统。它提供基于 UTXO 模型的数字资产记账功能，以及一个基于 neo 虚拟机的智能合约的执行环境。 本章将描述网络中节点程序 neo-cli 的整体结构和基本行为。
+NEO 是一个基于点对点网络的区块链系统。它提供基于 UTXO 模型的数字资产记账功能，以及一个基于 NEO 虚拟机的智能合约的执行环境。 本文将描述网络中节点程序 NEO-CLI 的整体结构和基本行为。
 
 ## 整个网络
 
-[![neo p2p network](../images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
+[![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
 
-　网络中的每个节点运行一个 neo-cli 程序或者协议兼容程序。其中参与共识的是共识节点。不参与共识的是非共识节点。关于共识将在后续章节中描述。
+网络中的每个节点运行一个 NEO-CLI 程序或者协议兼容程序。其中参与共识的是共识节点。不参与共识的是非共识节点。
 
-## neo-cli
+## NEO-CLI
 
-　neo-cli 的结构如下图。（由于版本升级，部分结构可能会有变化 ）
+NEO-CLI 的结构如下图。（由于版本升级，部分结构可能会有变化 ）
 
-[![neo-cli structure](../images/neo_cli_structure/neo-cli.png)](../images/neo_cli_structure/neo-cli.png)
+[![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
 
-### neo-cli命令行
-　neo-cli 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。可以通过下述链接找到 neo-cli 的命令的详细说明。
-
-<http://docs.neo.org/en-us/node/cli/cli.html>
+### NEO-CLI 命令行
+NEO-CLI 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。更多信息，请参考 [NEO-CLI 命令行](../node/cli/cli.md)。
 
 
 ### 账本 API
 
-　账本API定义了UTXO模型的基本数据类型，包括交易，区块，记账人等基础数据结构，细节在后续章节中介绍。或者请查看API文档了解细节。
+账本 API 定义了 UTXO 模型的基本数据类型，包括交易，区块，记账人等基础数据结构。
 
 ### 钱包
 
-　neo的官方实现提供两种格式的钱包，一种是sqlite数据库格式的钱包，另一种是NEP-6钱包。sqlite格式钱包的优点是性能相对较好，缺点是适用的平台不如 NEP-6 钱包更广泛。
+neo的官方实现提供两种格式的钱包，一种是sqlite数据库格式的钱包，另一种是NEP-6钱包。sqlite格式钱包的优点是性能相对较好，缺点是适用的平台不如 NEP-6 钱包更广泛。
 
 ### LevelDBStore / Blockchain
 
-　基于leveldb实现的区块链数据管理模块。向其它部分提供区块链数据的存储和查询服务。
+基于leveldb实现的区块链数据管理模块。向其它部分提供区块链数据的存储和查询服务。
 
 ### LocalNode
 
-　节点的网络通信的模块。负责与网络中的其它节点交换信息。细节将在后续章节中介绍。
+节点的网络通信的模块。负责与网络中的其它节点交换信息。细节将在后续章节中介绍。
 
 ### RpcServer
 
-　一个向外提供 RPC 调用接口的模块。可以通过下述链接查看 RPC 编程接口的细节。
-
-<http://docs.neo.org/en-us/node/cli/2.9.0/api.html>
-
-
+一个向外提供 RPC 调用接口的模块。关于 RPC 接口的细节，参见 [RPC API](../reference/rpc/latest-version/api.md)。
 
 ### ConsensusService
 
-　在 neo 的网络中，只有共识节点需要启动共识服务。共识节点通过点对点网络与其它共识节点交换信息，完成区块链中生成新的区块的过程。
+在 neo 的网络中，只有共识节点需要启动共识服务。共识节点通过点对点网络与其它共识节点交换信息，完成区块链中生成新的区块的过程。
 
-　细节将在后续章节中介绍。
+细节将在后续章节中介绍。
 
 ### Plugin
 
-　通过插件的形式实现区块链中一些特定模块的逻辑，方便特定功能的定制和调试。包括下述四个种类。
+通过插件的形式实现区块链中一些特定模块的逻辑，方便特定功能的定制和调试。包括下述四个种类。
  - **ILogPlugin** : 智能合约的执行结果存储插件。
  - **IPolicyPlugin** : 生成新区块时交易的排序策略插件。
  - **IRpcPlugin** : 执行RPC调用的插件。
@@ -63,11 +57,9 @@
 　Neo 实现的虚拟机。用来执行验证脚本和智能合约。细节将在后续章节中介绍。
 ApplicationEngine 是对 Neo VM 的一层封装。Neo VM 被设计成一个独立的模块。可以在区块链之外部署。而 ApplicationEngine 与区块链本身的联系更加紧密。
 
----
-
 ## 配置文件
 
-　neo-cli 的节点程序在执行过程中会访问下述配置文件。
+NEO-CLI 的节点程序在执行过程中会访问下述配置文件。
 
  - **config.json** : 基础配置文件
  - **protocol.json** : 协议配置文件
@@ -125,7 +117,7 @@ ApplicationEngine 是对 Neo VM 的一层封装。Neo VM 被设计成一个独�
 
 ### protocol.json
 
-　定义协议级的变量、备用共识节点公钥列表、种子节点列表、系统手续费价格。
+定义协议级的变量、备用共识节点公钥列表、种子节点列表、系统手续费价格。
 
 ```json
 {
@@ -182,13 +174,13 @@ protocol.mainnet.json 和 protocol.testnet.json 是两个备份文件，分别�
 
 > [!NOTE]
 > 1. 2.7.6 曾经使用过临时文件 peers.dat 保存已知的其它节点 IP 地址，2.9.0开始不再使用了。
-> 2. neo-cli 运行过程中如果异常终止，那么会将错误内容写入文件 error.log，方便查看错误原因。
+> 2. NEO-CLI 运行过程中如果异常终止，那么会将错误内容写入文件 error.log，方便查看错误原因。
 
 ---
 
 ## 启动的基本过程
 
-### neo-cli 的启动过程。
+### NEO-CLI 的启动过程
 
 1. 初始化 LevelDBStore，创建或者打开 leveldb 数据库。
 
@@ -235,15 +227,8 @@ protocol.mainnet.json 和 protocol.testnet.json 是两个备份文件，分别�
 
 ### JSON-RPC 服务的初始化过程
 
-1. 在指定的网卡地址和端口监听。如果有设置则启用安全链接(https)
+在指定的网卡地址和端口监听。如果有设置则启用安全链接(https)
 
 ### 其他的初始化过程
 
-1. 初始化所有的插件。
-
-插件的种类请参考下述链接。
-<http://docs.neo.org/en-us/node/plugin.html>
-
-> [!NOTE]
-> 如果发现有死链接，请联系 <feedback@neo.org>
-
+初始化所有的插件。关于插件的种类，请参考 [安装插件](../node/cli/setup.md)。
