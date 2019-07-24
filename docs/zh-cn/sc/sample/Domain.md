@@ -65,4 +65,4 @@ namespace Neo.SmartContract
 
 上面的代码实现了对域名的查询、注册、转让、删除。
 
-最新代码可参考 [GitHub](https://github.com/neo-project/examples/blob/master/Domain/Domain.cs)。
+最新代码可参考 [GitHub](https://github.com/neo-project/examples/blob/master/csharp/Domain/Domain.cs)。
