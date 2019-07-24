@@ -1,28 +1,27 @@
-<center> <h2> 编码算法 </h2> </center>
+# 编码算法
 
-##  Base58
+## Base58
 
-　Base58是一种将非可视字符与可视化字符(ASCII)相互转化的编解码方法。实现了数据的压缩、便于阅读，适用于抗自动监视的传输系统的底层编码机制，但缺乏效验机制，无法检测出传输过程中字符串的遗漏，需要配合改进算法Base58Check使用。
+Base58是一种将非可视字符与可视化字符(ASCII)相互转化的编解码方法。实现了数据的压缩、便于阅读，适用于抗自动监视的传输系统的底层编码机制，但缺乏效验机制，无法检测出传输过程中字符串的遗漏，需要配合改进算法Base58Check使用。
 
-　Base58采用数字、大写字母、小写字母（去除歧义字符 0 (零), O (大写字母O), I (大写的字母i) and l (小写的字母L) ），总计58个字符作为编码的字母表。
+Base58采用数字、大写字母、小写字母（去除歧义字符 0 (零), O (大写字母O), I (大写的字母i) and l (小写的字母L) ），总计58个字符作为编码的字母表。
 
-　neo使用的字母表为：**123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
+neo使用的字母表为：**123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
 
 接口定义：
 
-1.  编码方法：把byte[]数据编码成Base58字符串String数据
+- 编码方法：把byte[]数据编码成Base58字符串String数据
 
 ```c#
 string Encode(byte[] input)
 ```
 
 
-2.  解码方法：Base58字符串String解码成byte[]数据
+- 解码方法：Base58字符串String解码成byte[]数据
 
 ```c#
 byte[] Decode(string input)
 ```
-
 
 **编码步骤**：
 
@@ -50,26 +49,24 @@ Example:
 | --- | --- |
 | <nobr>AXaXZjZGA3qhQRTCsyG5uFKr9HeShgVhTF</nobr> |  [0x17, 0xad, 0x5c, 0xac, 0x59, 0x6a, 0x1e, 0xf6, 0xc1, 0x8a, 0xc1, 0x74, 0x6d, 0xfd, 0x30, 0x4f, 0x93, 0x96, 0x43, 0x54, 0xb5, 0x78, 0xa5, 0x83, 0x22] |
 
-应用场景：
+**应用场景**：
 
-1.  为Base58Check编解码方法提供服务。
-
-
+为Base58Check编解码方法提供服务。
 
 ## Base58Check
 
 
-　   Base58Check是基于Base58的改进型编解码方法。通过对原数据添加数据的哈希值作为盐，弥补了Base58缺少效验机制的缺点。
+Base58Check是基于Base58的改进型编解码方法。通过对原数据添加数据的哈希值作为盐，弥补了Base58缺少效验机制的缺点。
 
 接口定义：
 
-1. 编码方法：把 byte[] 数据编码成带效验功能 Base58 字符串 String 数据
+- 编码方法：把 byte[] 数据编码成带效验功能 Base58 字符串 String 数据
 
 ```c#
 string Base58CheckEncode(byte[] input)
 ```
 
-2.  解码方法：把带效验功能 Base58 字符串 String 解码成 byte[] 数据
+- 解码方法：把带效验功能 Base58 字符串 String 解码成 byte[] 数据
 
 ```c#
 byte[] Base58CheckDecode(string input)
@@ -97,7 +94,7 @@ Example:
 | <nobr>AXaXZjZGA3qhQRTCsyG5uFKr9HeShgVhTF</nobr>   |  [0x17, 0xad, 0x5c, 0xac, 0x59, 0x6a, 0x1e, 0xf6, 0xc1, 0x8a, 0xc1, 0x74, 0x6d, 0xfd, 0x30, 0x4f, 0x93, 0x96, 0x43, 0x54, 0xb5] |
 
 
-应用场景：
+**应用场景**：
 
 1. 导入、导出输出wif格式的密钥     
 

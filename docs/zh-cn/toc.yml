@@ -126,6 +126,43 @@
     - name: 锁仓合约
       href: /docs/zh-cn/sc/sample/Lock2.md
 - name: NEO工具开发
+  - name: 基本概念
+    - name: 区块模型
+      - name: 区块
+        href: /docs/zh-cn/tooldev/concept/blockchain/block.md
+      - name: 通证
+        href: /docs/zh-cn/tooldev/concept/blockchain/token_model.md
+      - name: UTXO
+        href: /docs/zh-cn/tooldev/concept/blockchain/utxo.md
+      - name: 账户与资产
+        href: /docs/zh-cn/tooldev/concept/blockchain/account_asset.md
+      - name: 验证人
+        href: /docs/zh-cn/tooldev/concept/blockchain/validator.md      
+    - name: 收费模型
+      href: /docs/zh-cn/tooldev/concept/charging_model.md
+    - name: 交易
+      href: /docs/zh-cn/tooldev/concept/transaction.md
+    - name: 钱包
+      href: /docs/zh-cn/tooldev/concept/wallets.md
+    - name: 共识机制
+      - name: 概述
+        href: /docs/zh-cn/tooldev/concept/consensus/readme.md
+      - name: 共识算法
+        href: /docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.md
+      - name: 共识协议
+        href: /docs/zh-cn/tooldev/concept/consensus/consensus_protocol.md
+      - name: 投票
+        href: /docs/zh-cn/tooldev/concept/consensus/vote_validator.md
+    - name: 密码学
+      href:
+      - name: 编码算法
+        href:  /docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.md
+      - name: 哈希算法
+        href: /docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.md
+      - name: 加密算法
+        href: /docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
+  - name: NEO-CLI 结构
+    href:  /docs/zh-cn/tooldev/neo_cli_structure.md
   - name: NEO SDK
     items:
     - name: 欢迎使用 NEO SDK
@@ -138,10 +175,17 @@
       href: /docs/zh-cn/tooldev/sdk/wallet.md
     - name: 交易
       href: /docs/zh-cn/tooldev/sdk/tx.md
-  - name: 区块链浏览器
-    href: /docs/zh-cn/tooldev/explorers.md
-  - name: 网络协议
-    href: /docs/zh-cn/tooldev/network-protocol.md
+  - name: 进阶知识
+    - name: NeoVM
+      href: /docs/zh-cn/tooldev/advanced/neo_vm.md
+    - name: 网络协议
+      href: /docs/zh-cn/tooldev/advanced/network-protocol.md
+    - name: 交易流程
+      href: /docs/zh-cn/tooldev/advanced/tx_execution.md
+    - name: 梅克尔树
+      href: /docs/zh-cn/tooldev/advanced/merkle_tree.md
+    - name: 布隆过滤器
+      href: /docs/zh-cn/tooldev/advanced/bloom_filter.md
 - name: 交易所对接指南
   items:
   - name: 概述

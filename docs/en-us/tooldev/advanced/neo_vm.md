@@ -1,10 +1,10 @@
-<center> <h2> Neo Virtual Machine</h2> </center>
+# NEO Virtual Machine
 
-&emsp;&emsp;NeoVM is a lightweighted, general-purpose virtual machine that executes NEO smart contract code. The concept of virtual machine described in this paper is in narrow sense, it's not a simulation of physical machine by operating system. Unlike VMware or Hyper-V, it's mainly aimed at specific usage.
+NeoVM is a lightweighted, general-purpose virtual machine that executes NEO smart contract code. The concept of virtual machine described in this paper is in narrow sense, it's not a simulation of physical machine by operating system. Unlike VMware or Hyper-V, it's mainly aimed at specific usage.
 
-&emsp;&emsp;For example, in JVM or CLR of .Net, source code will be compiled into relevant bytecodes, and be executed on the corresponding virtual machine. JVM or CLR will read instructions, decode, execute and write results back. Those steps are very similar to the concepts on real physical machines. The binary instructions are still running on the physical machine. It takes instructions from memory and transmits them to the CPU through the bus, then decodes, executes and stores the results.
+For example, in JVM or CLR of .Net, source code will be compiled into relevant bytecodes, and be executed on the corresponding virtual machine. JVM or CLR will read instructions, decode, execute and write results back. Those steps are very similar to the concepts on real physical machines. The binary instructions are still running on the physical machine. It takes instructions from memory and transmits them to the CPU through the bus, then decodes, executes and stores the results.
 
-# Virtual Device
+## Virtual Device
 [![../images/neo_vm/nvm.jpg](../images/neo_vm/nvm.jpg)](../images/neo_vm/nvm.jpg)
 
 The graph above is the system architecture of NeoVM, which includes execution engine, memory, interoperable services.
@@ -47,7 +47,7 @@ NeoVM uses stacks as its temporary storage. NeoVM has four types of stacks: `Inv
 * After all scripts executed, the results will be saved in the `ResultStack`.
 
 
-# Interoperable service layer
+## Interoperable service layer
 
 The right part of the graph above is the virtual machine's interoperable service layer, which provides API for smart contract to access data on the blockchain. By using these API, smart contract can access information in a block , information in a transaction, and information of an asset.
 
@@ -55,7 +55,7 @@ In addition, the interoperable service layer provides a persistent storage for e
 
 The detail of interoperable services are describled in the "Smart Contract" section.
 
-# Built-in data types
+## Built-in data types
 
 NeoVM has seven built-in data types:
 
@@ -79,7 +79,7 @@ private bool value;
 ```
 
 
-# Instructions
+## Instructions
 
 NeoVM has implemented 113 instructions (and four unrealized instructions). The categories are as follows:
 
@@ -88,7 +88,7 @@ NeoVM has implemented 113 instructions (and four unrealized instructions). The c
 | 25 | 9| 16| 5 | 5 | 25 | 7  | 14 | 5 | 2 |
 
 
-## 1. Constant
+## Constant
 
 The constant instructions mainly complete the function of pushing constants or arrays into the `EvaluationStack`.
 
@@ -131,7 +131,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Alias:   |  `PUSHT` is an alias for `PUSH1`      |
 | Function:   | Push a BigInteger into the `EvaluationStack`, the value of which is equal to 1\~16. |
 
-## 2. Flow Control
+## Flow Control
 
 It's used to control the running process of NeoVM, including jump, call and other instructions.
 
@@ -198,9 +198,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Bytecode: | 0x69                                                                                                 |
 | Function:   | Tail call (no longer returning back to the current execution environment after the call). </br>  Call the specified interoperable function whose name is specified by the string after this instruction. |
 
-
-
-## 3. Stack Operation
+## Stack Operation
 
 Copy, remove and swap the elements of the stack.
 
@@ -339,9 +337,7 @@ Copy, remove and swap the elements of the stack.
 | Output:   | X0 X1 X0                              |
 
 
-
-
-## 4. String Operation
+## String Operation
 
 ### CAT
 
@@ -389,7 +385,7 @@ Copy, remove and swap the elements of the stack.
 | Output:   | X len(X)                         |
 
 
-## 5. Logical Operation
+## Logical Operation
 
 ### INVERT
 
@@ -436,7 +432,7 @@ Copy, remove and swap the elements of the stack.
 | Input:   | AB                                           |
 | Output:   | Equals(A,B)                                  |
 
-## 6. Arithmetic Operation
+## Arithmetic Operation
 
 ### INC
 
@@ -663,7 +659,7 @@ Copy, remove and swap the elements of the stack.
 | Input:   | XAB                                          |
 | Output:   | A\<=X&&X\<B                                  |
 
-## 7. Cryptography
+## Cryptography
 
 It has implemented hash operation and signature verification and so on.
 
@@ -731,7 +727,7 @@ It has implemented hash operation and signature verification and so on.
 | Output:   | Verify(Sm-1 ... S2 S1 S0 m Kn-1 ... K2 K1 K0 n)                             |
 | Note:   | For any 𝑆𝑖∈{𝑆0,…, 𝑆𝑚−1}, there exists a 𝐾𝑗∈{𝐾0, … , 𝐾𝑛−1}</br> makes Verify(𝑆𝑖, 𝐾𝑗) ==1, then V=1; otherwise, V=0. |
 
-## 8. Advanced Data Structure
+## Advanced Data Structure
 
 It has implemented common operations for array, map, struct, etc.
 
@@ -861,7 +857,7 @@ It has implemented common operations for array, map, struct, etc.
 | Input:   | Map or Array                              |
 | Output:   | [Value1 Value2... Value n]              |
 
-## 9. Stack Isolation
+## Stack Isolation
 
 ### CALL_I
 
@@ -898,7 +894,7 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode: | 0xE4                 |
 | Function:   | The tail call form of CALL_ED. |
 
-## 10. Exception Processing
+## Exception Processing
 
 ### THROW
 
@@ -914,5 +910,6 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode: | 0xF1                                                             |
 | Function:   | Read a boolean value from the top of the stack, and if it's False, then set the virtual machine state to `FAULT`. |
 
-
-Note: The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack`.
+> [!Note]
+>
+> The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack`.

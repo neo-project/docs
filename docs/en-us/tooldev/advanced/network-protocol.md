@@ -1,21 +1,23 @@
-<center><h2> Network Structure: P2P </h2></center>
+# Network Structure: P2P
 
-&emsp;&emsp;NEO uses P2P network structure and TCP/IP protocol for transmission.
+NEO uses P2P network structure and TCP/IP protocol for transmission.
 There are 2 types of node in the network, ordinary node and consensus node. The former can perform transaction/block broadcasting, receiving and relaying, while the later can furthermore perform block construction.
 Neo's network protocol standard is similiar to that of Bitcoin, but varies a lot in block / transaction data structure.
 
 > [!NOTE]
-> * In NEO network, seed node is not equal to consensus node. It's a kind of ordinary node which provides node list query service to other nodes.
-> * NEO network also supports WebSocket connection and supports constructing node in a LAN by UPnP protocol using IGD (Optional).
+>
+> - In NEO network, seed node is not equal to consensus node. It's a kind of ordinary node which provides node list query service to other nodes.
+> - NEO network also supports WebSocket connection and supports constructing node in a LAN by UPnP protocol using IGD (Optional).
 
-## Transmission Protocol and Port:
+## Transmission Protocol and Port
 
 | Protocol | Port (Main net) | Port (Test net) |
-| --- | --- |
+| --- | --- | --- |
 | TCP/IP | 10333 | 20333 |
 | WebSocket | 10334 | 20334 |
 
-> [!TIP]
+> [!Note]
+>
 > Port can be set to any unused one when constructing NEO private chain. Ports of nodes in a private chain can also be different.
 
 ## Message
@@ -30,7 +32,7 @@ Message's basic format is as follows:
 | uint | Payload Checksum | Payload verification to avoid falsification and transmission errors |
 | byte[] | Payload | Message text, varying by message type |
 
-## Command List:
+## Command List
 
 | <nobr>Name</nobr> | <nobr>Uniqueness</nobr> | <nobr>High priority</nobr> | <nobr>Reserved</nobr> | Description |
 | --- | --- | --- | --- | --- |
@@ -60,8 +62,8 @@ Message's basic format is as follows:
 
 
 > [!NOTE]
-> * Uniqueness：Only one such message in message queue at the same time.
-> * High priority：System need to guarantee higher priority to transmit for a message with higher priority.
+> - Uniqueness：Only one such message in message queue at the same time.
+> - High priority：System need to guarantee higher priority to transmit for a message with higher priority.
 
 ## Conversation protocol
 
@@ -115,7 +117,4 @@ Message's basic format is as follows:
 | ... | ... | ... |
 
 
-Referrence: <http://docs.neo.org/en-us/network/network-protocol.html#network-message>
 
-> [!NOTE]
-> In case of dead links, please contact <feedback@neo.org>

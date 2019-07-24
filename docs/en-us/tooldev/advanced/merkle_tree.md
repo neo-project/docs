@@ -1,8 +1,8 @@
-﻿<center><h2> Merkle Tree </h2></center>
+# Merkle Tree
 
-　Merkle tree is such a kind of binary tree: it's able to quickly check and induce massive data, and verify the completeness of block transaction records. NEO uses Merkle tree to construct block model. NEO's block head stores the Merkle root of all transactions within the block. Block data area stores transaction array.
+Merkle tree is such a kind of binary tree: it's able to quickly check and induce massive data, and verify the completeness of block transaction records. NEO uses Merkle tree to construct block model. NEO's block head stores the Merkle root of all transactions within the block. Block data area stores transaction array.
 
-[![MerkleTree01](../../images/blockchain_paradigm/MerkleTree01.png)](../../images/blockchain_paradigm/MerkleTree01.png)
+[![MerkleTree01](../images/blockchain_paradigm/MerkleTree01.png)](../../images/blockchain_paradigm/MerkleTree01.png)
 
 Attribute of Merkle tree：
 
@@ -14,18 +14,15 @@ Attribute of Merkle tree：
 
 Transaction verification principle:
 
-　Transcation001's validity can be verified by comparing original Top Hash value with the value computed from Transcation001, Transcation002 and Hash1(The direct child of Top Hash on the right side).
+Transcation001's validity can be verified by comparing original Top Hash value with the value computed from Transcation001, Transcation002 and Hash1(The direct child of Top Hash on the right side).
 
 
 Scenarios：
 
-1. A Merkle tree root is built when constructing a block header
+- A Merkle tree root is built when constructing a block header
 
-2. Use SPV wallet to verify block data.
+- Use SPV wallet to verify block data.
 
 Reference:
 
-1. <https://en.wikipedia.org/wiki/Merkle_tree>
-
-> [!NOTE]
-> In case of dead links, please contact <feedback@neo.org>
+<https://en.wikipedia.org/wiki/Merkle_tree>

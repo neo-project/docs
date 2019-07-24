@@ -1,12 +1,12 @@
-﻿<center> <h2> Encoding Algorithm </h2> </center>
+# Encoding Algorithm
 
 ##  Base58
 
-　Base58 is a group of encoding/decoding schemes used to switch data between binary format(hexdecimal) and alphanumeric text format(ASCII). Base58 enables data compressing, is easy to identify, and is suitable for constructing encoding mechanism of transmission system that is anti-auto-monitoring. However, for the lack of verification, it can not detect error during transmission. Thus Base58Check, an improved scheme is required.
+Base58 is a group of encoding/decoding schemes used to switch data between binary format(hexdecimal) and alphanumeric text format(ASCII). Base58 enables data compressing, is easy to identify, and is suitable for constructing encoding mechanism of transmission system that is anti-auto-monitoring. However, for the lack of verification, it can not detect error during transmission. Thus Base58Check, an improved scheme is required.
 
-　The base58's alphabet includes single digit numbers (From 1 to 9), and English letters except O(capitalized o) / I(capitalized i) / l(lower-cased L). These letters are ommited to avoid misreading.
+The base58's alphabet includes single digit numbers (From 1 to 9), and English letters except O(capitalized o) / I(capitalized i) / l(lower-cased L). These letters are ommited to avoid misreading.
 
-　Neo's base58 alphabet is as follows: **123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
+Neo's base58 alphabet is as follows: **123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
 
 Interface definition：
 
@@ -52,11 +52,11 @@ Example:
 
 Scenarios：
 
-1.  Serves Base58Check encoding / decoding method.
+Serves Base58Check encoding / decoding method.
 
 ## Base58Check
 
-　  Base58Check is an improved encoding / decoding algorithm base on Base58. Base58Check solved the lack of checking mechanism in Base58, by adding hash value to original data as salt.
+Base58Check is an improved encoding / decoding algorithm base on Base58. Base58Check solved the lack of checking mechanism in Base58, by adding hash value to original data as salt.
 
 
 Interface definition:
@@ -97,8 +97,8 @@ Example:
 
 Scenarios：
 
-1. Import / export WIF format secret key
+- Import / export WIF format secret key
 
-2. Switch between contract script hash and address
+- Switch between contract script hash and address
 
-3. Import / export NEP2 format secret key
+- Import / export NEP2 format secret key

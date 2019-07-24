@@ -1,13 +1,16 @@
-﻿<center><h2> Transaction Execution </h2></center>
+# Transaction Execution
 
-&emsp;&emsp;Transaction is the only designed method for interaction process within block chain network. Actions like asset registration, transferring, deploying and invoking smart contract, etc, are all proceesed based on transaction in NEO.
+Transaction is the only designed method for interaction process within block chain network. Actions like asset registration, transferring, deploying and invoking smart contract, etc, are all proceesed based on transaction in NEO.
+
 NEO transaction, similiar to the designing in Bitcoin, includes 3 important parts: input, output and scripts. These items stand for asset income, outflow and verification for UTXO (Unspent Transaction Output). The input-output combination is the basis of asset flow's chain structure.
 
 
 ## General Process
 
 [![tx_flow_graph](../images/tx_execution/tx_flow_graph.jpg)](../images/tx_execution/tx_flow_graph.jpg)
+
 A transaction is created using NEO-Cli, Neo-RPC, or NEO-GUI. Fulfilled transaction data is signed, and then broadcasted over the whole network.
+
 Consensus nodes will verify this new transaction and put it into memory pool upon receiving. A specified speaker node will pack the transaction into a new block. Finally, this transaction is processed over the whole network after new block is broadcasted. Over process is briefly shown as follows:
 
 [![tx_process_flow](../images/tx_execution/tx_process_flow_en.jpg)](../images/tx_execution/tx_process_flow_en.jpg)
@@ -23,7 +26,7 @@ Consensus nodes will verify this new transaction and put it into memory pool upo
 5. Transaction processing: the new block is broadcasted and processed over the whole network
 
 
-### (1) Transaction construction
+### Transaction construction
 
 
 Transaction can be constructed via Neo-CLI, NEO-RPC, or NEO-GUI, and completed by wallet.
@@ -31,34 +34,27 @@ Transaction can be constructed via Neo-CLI, NEO-RPC, or NEO-GUI, and completed b
 
 1. Via NEO-CLI commands
 
-```bash
-send <id|alias> <address> <value>|all [fee=0]
-```
+   ```bash
+   send <id|alias> <address> <value>|all [fee=0]
+   ```
 
-&emsp;&emsp;where
+   where
 
- - id|alias：asset id or alias
- - address：receiver's address
- - value: transfering amount or `all` for the whole amount
- - fee：transfer charge, default value = 0
+   - id|alias：asset id or alias
+   - address：receiver's address
+   - value: transfering amount or `all` for the whole amount
+   - fee：transfer charge, default value = 0
 
+2. Via NEO-RPC calling
 
-2、via NEO-RPC calling
+   - sendfrom: transferring from a specified address to another specified one.
+   - sendtoaddress: transferring to a specified address.
+   - sendmany：bulk transferring order
+   Detailed info can be found at [API Reference](../../reference/rpc/latest-version/api.md)。 
 
-
-+ sendfrom: transferring from a specified address to another specified one.
-
-+ sendtoaddress: transferring to a specified address.
-
-+ sendmany：bulk transferring order
-
-    
-&emsp;&emsp;Detailed info can be found at [NEO Documentation: API Reference](http://docs.neo.org/en-us/node/cli/apigen.html)。 
-
-
-3、via NEO-GUI
-    
-&emsp;&emsp;Detailed info can be found at [NEO Documentation: NEO GUI Transactions](http://docs.neo.org/en-us/node/gui/transc.html)。
+3. Via NEO-GUI
+  
+    Detailed info can be found at [NEO GUI Transactions](../../node/gui/transc.md)。
 
 
 Transaction construction interface by wallet:
@@ -94,9 +90,7 @@ where,
 
 4. If small change exists, create corresponding output.
 
-
-
-### (2) Signing verification
+### Signing verification
 
 
 It has been mentioned in previous chapters that, an account address, actually stands for a piece of `OpCode.CHECKSIG` or `OpCode.CHECKMULTISIG`[contract code](./wallets.md#3_address), and signature parameters are needed upon execution. A classic UTXO transferring transaction is actually a piece of script that unlocks input address. Successfully unlocking all inputs means transaction is successfully accomplished. Upon NEO transaction's verification, corresponding scripts are required as well. Therefore, corresponding script parameters, such as transaction signature parameters, are needed for script execution. These parameters as well as related scripts are eventually encapsulated into transaction's [Witness](./blockchain/transaction.md#witness) list.
@@ -114,7 +108,7 @@ Transaction signature is actually, adding address scripts' signature parameters,
 4. Add signature parameters to corresponding position in parameter list as follows:
 
     1. If input script is multi-signature, construct corresponding `ContextItem` object according to input script contract (`ContextItem` is an encapsultion of script contract parameters).
-        
+      
         1. Check to be verified address public key in address script byte code. If signature address is not included, signature fails.
 
         2. Save the signature.
@@ -131,8 +125,6 @@ Transaction signature is actually, adding address scripts' signature parameters,
 
 5. If all script parameters are completed, so is the transaction's witness list (Need to sign other corresponding account addresses and supplement signature parameters in case of multi-signature).
 
-
-
 **Transaction Verification**
 
 1. **Legality Verification**
@@ -144,7 +136,7 @@ Transaction signature is actually, adding address scripts' signature parameters,
    3. Whether asset exists or has expired.
 
    4. Whether transferring amont is correct, and then compare input amount and output amount.
-      
+     
        1. If transferring fee exists, input.GAS > output.GAS
 
        2. In case of extracting GAS from NEO, input.GAS < output.GAS
@@ -156,7 +148,7 @@ Transaction signature is actually, adding address scripts' signature parameters,
    6. Whether transaction transferring fee is enough
 
    7. Whether transaction attributes is proper.
-    
+   
       1. If transaction attribute includes `TransactionAttributeUsage.ECDH02` or `TransactionAttributeUsage.ECDH03`, verification fails.
 
 
@@ -187,13 +179,13 @@ Occasions where transaction verification is needed:
 
 
 > [!NOTE]
-> 1. Provide parameters for scripts that need to be verified. Then execute the script in NVM. If Script passes verification then true is returned.
-> 2. Every address is a code fragment with `OptCode.CHECKSIG`, so signature parameters are required upon execution. Similiarly, multi-signed address uses `OptCode.CHECKMULTISIG` method with specified quantity of signature parameters.
-> 3. Every to-be-verified script within transactions contains tx.output.scriptHash (payee's address script of input transaction) pointed by input. This ensures only corresponding wallet is able to spend this UTXO.
-> 4. For customised scripthash, need to provide parameters accordingly beforehand for verification.
+> - Provide parameters for scripts that need to be verified. Then execute the script in NVM. If Script passes verification then true is returned.
+> - Every address is a code fragment with `OptCode.CHECKSIG`, so signature parameters are required upon execution. Similiarly, multi-signed address uses `OptCode.CHECKMULTISIG` method with specified quantity of signature parameters.
+> - Every to-be-verified script within transactions contains tx.output.scriptHash (payee's address script of input transaction) pointed by input. This ensures only corresponding wallet is able to spend this UTXO.
+> - For customised scripthash, need to provide parameters accordingly beforehand for verification.
 
 
-### (3) Broadcasting
+### Broadcasting
 
 The node where the wallet is located, will broadcast the transaction through the P2P network.
 
@@ -203,7 +195,7 @@ The node where the wallet is located, will broadcast the transaction through the
 **Broadcasting Steps**：
 
 
-1. If consensus module is started by local node, it runs [New transaction event in consensus module](./consensus/consensus_protocol.md#6_tx_handler).
+1. If consensus module is started by local node, it runs [New transaction event in consensus module](../concept/consensus/consensus_protocol.md#6_tx_handler).
 
 2. Node will verify the transaction and add it into memory pool before broadcasting.
 
@@ -228,7 +220,7 @@ The node where the wallet is located, will broadcast the transaction through the
 7. Remote node will go to step 1 and start relaying process upon receiving transaction data.
 
 
-### (4) Transaction Encapsulation
+### Transaction Encapsulation
 
 During consensus process, speaker raise a proposal about transaction encapsulation, and finally broadcast new block to network.
 
@@ -239,11 +231,11 @@ During consensus process, speaker raise a proposal about transaction encapsulati
 3. If more than `N-f` nodes vote for the new block, then the new block will be generated and broadcasted.
 
 
-### (5) Transaction Processing
+### Transaction Processing
 
 Node will verify and persist new blocks upon receiving. Transaction processing methods varies with transaction type, i.e. voting transaction, contract execution transaction, asset registration transaction, etc.
 
-* **BLock processing in Core.Blockchain**
+**BLock processing in Core.Blockchain**
 
 Transaction processing method in block persist process:
 
@@ -271,8 +263,7 @@ Transaction processing method in block persist process:
 
 12. After all these processes, it persists the data.
 
-
-* **BLock processing by Wallet**
+**BLock processing by Wallet**
 
 Wallet starts a thread listening to new blocks. It will updates transaction status, unconfirmed transaction list and account data according to asset changes as follows:
 
@@ -284,13 +275,7 @@ Wallet starts a thread listening to new blocks. It will updates transaction stat
 
 4. Trigger asset changing event.
 
-    1. Remove confirmed new transactions from unconfirmed transaction list.
-
-
-&nbsp;
-&nbsp;
-
--------------------
+    Remove confirmed new transactions from unconfirmed transaction list.
 
 
 ## Processing of special transactions
@@ -311,11 +296,10 @@ NEO transanction is defined as follows：
 
 
 > [!NOTE]
+>
 > **Transaction system fee**: Different transactions have different system fees. The detail is defined in configuration file `protocol.json`. Collected system fee is distributed to NEO holders, how this is done will be explained later in the guide.
 >
 > **Transaction network fee**: `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`. In consensus activity, the network fee will be the reward for the Speaker, who packages transactions into a block. The network fee is stored in the first transaction (`MinerTransaction`) of the block. The higher the network fee is, the easier the transaction will be packaged into the new created block.
-
-&nbsp;
 
 ### Common attributes
 
@@ -341,7 +325,7 @@ TransactionAttributes is a member variable of Transaction, which stands for tran
 |---|-------|------|------|
 | 1 | Usage | TransactionAttributeUsage | Specified transaction attribute's usage   |
 | 0\|1 | length | uint8 | data length (optional) |
-| ? | Data | byte[length] | external data for specified usage | 
+| ? | Data | byte[length] | external data for specified usage |
 
 All types of TransactionAttributeUsage is shown as follows：
 
@@ -414,14 +398,14 @@ Other processing steps are the same with a basic transaction.
 Special transaction to issue assets. Assets can be issued by asset creator as long as its overall amount does not overpass the specified limit. Issued asset can be used in a transaction. Asset issuing consumes an amount of GAS as system fee.
 
 > [!NOTE]
-> 1. If version >= 1, system fee is 0.
-> 2. If the assset type in output list is NEO or GAS, system fee is 0. Otherwise it is 500 GAS as defined in `protocol.json`.
+> - If version >= 1, system fee is 0.
+> - If the assset type in output list is NEO or GAS, system fee is 0. Otherwise it is 500 GAS as defined in `protocol.json`.
 
 
 **Transaction Verification**
 
 1. **Legality Verification**
- 
+
    1. It executes common legality verification first.
 
    2. Then it checks the sum of asset input and output.
@@ -474,13 +458,7 @@ Here, **the amount of GAS of an NEO tx.output**
 
 [![tx_claim_gas](../images/tx_execution/tx_claim_gas.jpg)](../images/tx_execution/tx_claim_gas.jpg)
 
-<!--
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-$$
-Gas = \sum_{h=M+1}^{N} (BlockBonus(h) + SystemFee(h)) * \frac{tx.output.NEO}{10^8}
-$$
--->
 
 [![formula_gas](../images/tx_execution/formula_gas.jpg)](../images/tx_execution/formula_gas.jpg)
 
@@ -507,14 +485,13 @@ $$
 
 
 > [!NOTE]
+>
 > Rewarded Gas of an NEO transaction, equals (block Gas reward + block system fee) * percentage of transaction NEO in the block, for all blocks within unspent height interval.
-
-
 
 **Transaction verification**
 
 1. **Legality Verification**
-   
+  
    1. Common legality verification.
 
    2. Verification fails if there exists duplicated transactions within Claims.
@@ -529,7 +506,7 @@ $$
 
 2. **Script Verification**
 
-    1. Claimer's hash within Claims will be verified in common script verification steps.
+    Claimer's hash within Claims will be verified in common script verification steps.
 
 Other processing steps are the same as basic transaction.
 
@@ -542,7 +519,7 @@ Other processing steps are the same as basic transaction.
 | ? | PublicKey | ECPoint | Validator's public key |
 |  -  | - | -  | fields of common Transaction |
 
-Special transaction to enroll to be a validator, for detailed information please refer to [Election and Voting](./consensus/vote_validator.md).
+Special transaction to enroll to be a validator, for detailed information please refer to [Election and Voting](../concept/consensus/vote_validator.md).
 
 ### StateTransaction
 
@@ -561,7 +538,7 @@ Descriptor type contains following information:
 | ? | Field | field value | byte[] | When Type = `0x40`, Field is 'Votes'<br/>When Type = `0x48`, Field is 'Registered` |
 | ? | Value | The value | byte[] | When Type = 0x40, Value stores the list of voting addresses<br/> When Type = 0x48, Store the Boolean value of the validator |
 
-Special transaction for validator / consensus node voting. Validator candidate registration costs 1000 GAS. For detailed information please refer to [Election and Voting](./consensus/vote_validator.md).
+Special transaction for validator / consensus node voting. Validator candidate registration costs 1000 GAS. For detailed information please refer to [Election and Voting](../concept/consensus/vote_validator.md).
 
 
 ### ContractTransaction
@@ -602,16 +579,10 @@ Special transaction for smart contract invocation. With `invoke/invokefunction/i
 
 | InvokeTransaction Usage | Script | Attributes | Attribute content |
 |--------------|------------|--------------|
-| Invoking smart contract | contract script | null |   | 
-| Publishing smart contract | Neo.Contract.Create  | null |   | 
+| Invoking smart contract | contract script | null |   |
+| Publishing smart contract | Neo.Contract.Create  | null |   |
 | Asset Registration | Neo.Asset.Create | not null | TransactionAttributeUsage.Script, Asset holder's address scripthash. |
 | GUI transferring | NEP-5 asset: transaferring script <br/>Global asset: null  | not null | TransactionAttributeUsage.Script，transferring payee address(es) <br/> TransactionAttributeUsage.Remark, remark data |
-<!--
-Deleted according to the modification in Chinese version commit ca7a5ee2d523ffe0c4a61eb507c456e748b05679
-| CLI transferring except `sendall` | same as above | not null |  TransactionAttributeUsage.Script, transferring account address(es) |
--->
-
-
 **Transaction creating**
 
 1. Construct corresponding execution script according to usage, and assign to `InvocationTransaction.Script`.
@@ -625,20 +596,13 @@ Deleted according to the modification in Chinese version commit ca7a5ee2d523ffe0
 **Transaction Verification**
 
 1. **Legality verification**
-
-    1. Verification fails if consumed Gas cannot be divided by 10^8 (In other words Gas amount must be integer format Fixed8. Decimal value is not acceptable).
-
-    2. Common verification
+1. Verification fails if consumed Gas cannot be divided by 10^8 (In other words Gas amount must be integer format Fixed8. Decimal value is not acceptable).
+  
+2. Common verification
 
 Other processing steps are the same as a basic transaction.
 
-
-
-NEO smart contract requires certain system fee upon publishing and execution. Publishing fee is the amount of system fee needed to publish a smart contract onto block chain (See [System Fees](https://docs.neo.org/en-us/sc/systemfees.html) for current value). Execution fee is the amount of system fee needed every time a smart contract is executed. Detailed information please refer to [Smart Contract System Fee](http://docs.neo.org/en-us/sc/systemfees.html).
-
-
-> [!NOTE]
-> In case of dead links, please contact <feedback@neo.org>
+NEO smart contract requires certain system fee upon publishing and execution. Publishing fee is the amount of system fee needed to publish a smart contract onto block chain. Execution fee is the amount of system fee needed every time a smart contract is executed. Detailed information please refer to [Fees](../../sc/fees.md).
 
 
 

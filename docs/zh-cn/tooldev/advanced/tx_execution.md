@@ -1,6 +1,7 @@
-﻿<center><h2> 交易流程 </h2></center>
+# 交易流程
 
-&emsp;&emsp;交易，是区块链网络交互操作的唯一方式，包括发布资产，转账，部署智能合约，合约调用等等，都是基于交易的方式进行操作处理。
+交易，是区块链网络交互操作的唯一方式，包括发布资产，转账，部署智能合约，合约调用等等，都是基于交易的方式进行操作处理。
+
 NEO中的交易，也是采用类似比特币交易的设计，每一笔交易都包含三个重要部分：input, output, scripts。 input代表资金来源，output代表资金流出，scripts是对input所引用UTXO（Unspent Transaction Output）的解锁，通过这种 input-output 组合方式，将资产的每一笔流动都形成了一条链条结构。
 
 
@@ -24,42 +25,36 @@ NEO中的交易，也是采用类似比特币交易的设计，每一笔交易�
 5. 交易处理： 经共识出块广播，交易被全网节点执行处理
 
 
-### （1）创建交易
+### 创建交易
 
 
 用户可通过Neo-CLI, NEO-RPC, 或NEO-GUI 创建交易，最后经钱包，构建出完整的交易。
 
+- 通过NEO-CLI指令
+  
+  ```
+   send <id|alias> <address> <value>|all [fee=0]
+  ```
+  
+  其中
+  
+  - id|alias：资产ID或名称
+  - address：对方地址
+  - value: 转账金额，也可以用all表示所有资产
+  - fee：手续费，缺省值为0
 
-1、通过NEO-CLI指令
+- 
+  通过NEO-RPC调用
+  - sendfrom：从指定地址，向指定地址转账。
 
-```bash
-send <id|alias> <address> <value>|all [fee=0]
-```
+  - sendtoaddress：向指定地址转账。
 
-&emsp;&emsp;其中
+  - sendmany：批量转账命令，并且可以指定找零地址。
 
- - id|alias：资产ID或名称
- - address：对方地址
- - value: 转账金额，也可以用all表示所有资产
- - fee：手续费，缺省值为0
+   具体用法请参考 [API 参考](../../reference/rpc/latest-version/api.md)。 
+- 通过NEO-GUI界面
 
-
-2、通过NEO-RPC调用
-
-
-+ sendfrom：从指定地址，向指定地址转账。
-
-+ sendtoaddress：向指定地址转账。
-
-+ sendmany：批量转账命令，并且可以指定找零地址。
-
-    
-&emsp;&emsp;具体用法请参照[NEO Documentation: API 参考](http://docs.neo.org/zh-cn/node/cli/apigen.html)。 
-
-
-3、通过NEO-GUI界面
-    
-&emsp;&emsp;具体操作请参照[NEO Documentation: NEO GUI 交易](http://docs.neo.org/zh-cn/node/gui/transc.html)。
+  具体操作请参考 [交易](../../node/gui/transc.md)。
 
 
 钱包构建完整交易接口定义：
@@ -95,9 +90,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 4. 若有零钱剩余时，设置找零的output
 
-
-
-### （2）签名验证
+### 签名验证
 
 
 在前面的章节提到，一个账户地址，实际上代表的就是一段`OpCode.CHECKSIG`或者`OpCode.CHECKMULTISIG`[合约代码](./wallets.md#3_address)，执行时需要提供签名参数。经典的UTXO交易转账时，实际上是对输入地址脚本进行执行解锁，执行成功则表示对交易的输入引用成功。在NEO交易验证时，也需要对涉及的脚本进行执行验证，故在执行前，需提供相应的脚本所需参数，如交易签名参数。这些参数与对应的脚本，最终被封装在交易的[见证人(Witness)](./blockchain/transaction.md#witness)列表中。
@@ -115,7 +108,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 4. 添加签名参数，存放到参数列表对应位置上，具体步骤如下：
 
     1. 若输入脚本是多重签名，则根据输入脚本合约Contract创建`ContextItem`（`ContextItem`是对一个脚本合约的参数封装）。
-        
+      
         1. 解析地址脚本字节码中包含的待签名地址公钥，若签名地址不再其中，则签名失败。
 
         2. 保存该签名
@@ -132,8 +125,6 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 5. 若所有的脚本参数已齐全，则得到交易的见证人列表。（如，多重签名情况下，还需要别的账户地址进行签名，补充签名参数）
 
-
-
 **交易验证**
 
 1. **合法性验证**
@@ -145,7 +136,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
    3. 检查资产是否存在，是否过期
 
    4. 检查转账金额是否正确，intputs 金额 与 outputs金额关系
-      
+     
        1. 当交易有手续费时，input.GAS > output.GAS
 
        2. 当持有NEO提取GAS分红时 input.GAS < output.GAS
@@ -157,14 +148,14 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
    6. 交易手续费是否足够
 
    7. 交易属性是否匹配
-    
+   
       1. 若交易属性包含`TransactionAttributeUsage.ECDH02`或`TransactionAttributeUsage.ECDH03`时，校验失败
 
 
 2. **交易脚本校验**
 
    1. 获取交易中待校验脚本的hash列表，包括如下脚本：
-    
+   
       1. input中的tx的output的scriptHash（收款人地址），即解锁UTXO。
 
       2. output中涉及到的特殊资产`AssetType.DutyFlag`的收款人地址。
@@ -188,13 +179,13 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 
 > [!NOTE]
-> 1. 对需要验证的脚本，提供好参数，最后通过NVM进行执行，若都返回 True , 则脚本通过验证。
-> 2. 每一个地址，都是一段`OptCode.CHECKSIG`代码段，执行的时候，都需要签名参数。类似的多签合约地址，调用的是 `OptCode.CHECKMULTISIG` 方法，需要指定数量的签名参数。
-> 3. 每一笔交易的待验证脚本，都包括 input 所指向的tx.output.scriptHash 脚本（即，输入交易的收款人的地址脚本)，这样确保了，只有对应的钱包才能使用该笔UTXO。
-> 4. 当遇到自定义的地址脚本时，需要按照对方的脚本形参，提前准备好参数（不一定是签名参数）进行验证。
+> - 对需要验证的脚本，提供好参数，最后通过NVM进行执行，若都返回 True , 则脚本通过验证。
+> - 每一个地址，都是一段`OptCode.CHECKSIG`代码段，执行的时候，都需要签名参数。类似的多签合约地址，调用的是 `OptCode.CHECKMULTISIG` 方法，需要指定数量的签名参数。
+> - 每一笔交易的待验证脚本，都包括 input 所指向的tx.output.scriptHash 脚本（即，输入交易的收款人的地址脚本)，这样确保了，只有对应的钱包才能使用该笔UTXO。
+> - 当遇到自定义的地址脚本时，需要按照对方的脚本形参，提前准备好参数（不一定是签名参数）进行验证。
 
 
-### （3）广播推送
+### 广播推送
 
 钱包所在节点，将进行P2P广播该交易。
 
@@ -204,7 +195,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 **广播步骤**：
 
 
-1. 若本地节点启动了共识模块，则触发[共识模块的新交易事件](./consensus/consensus_protocol.md#6_tx_handler)。
+1. 若本地节点启动了共识模块，则触发[共识模块的新交易事件](../concept/consensus/consensus_protocol.md#6_tx_handler)。
 
 2. 本地节点在广播交易前，会先对交易进行校验，并添加到内存池中
 
@@ -229,7 +220,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 7. 远程节点收到交易数据后, 回到步骤1执行，进行转发广播。
 
 
-### （4）交易打包
+### 交易打包
 
 共识过程中，议长将打包该交易进行提案投票，最后将新块广播到网络上。
 
@@ -240,11 +231,11 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 3. 若有超过 `N-f` 个节点投票赞同，则新块完成出块，进行广播新块
 
 
-### （5）交易处理
+### 交易处理
 
 节点接收到新块后，验证块，最后进行持久化块操作。其中，对不同的交易进行不同的处理，比如投票，执行合约交易，发布资产等等。
 
-* **Core.Blockchain 对block的处理**
+**Core.Blockchain 对block的处理**
 
 随着对block的persist操作，每种交易的最终处理，也在该过程进行处理:
 
@@ -272,8 +263,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 12. 持久化各数据
 
-
-* **Wallet 对 Block中的交易处理**
+**Wallet 对 Block中的交易处理**
 
 钱包将启动一个线程，监听新来的block，更新相关资产变动账户，交易状态，以及未确认交易队列。处理如下：
 
@@ -284,14 +274,8 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 3. 移除Claim交易，在跟踪地址与交易；
 
 4. 触发资产变动事件。
- 
+
     1. 从未确认队列中，移除确认的新交易
-
-
-&nbsp;
-&nbsp;
-
--------------------
 
 
 ## 特殊交易的处理
@@ -312,11 +296,10 @@ NEO中定义的交易类型如下所示：
 
 
 > [!NOTE]
+>
 > **交易手续费**： 不同的交易类型，不同的收费标准，设置在配置文件`protocol.json`中，最后分红给持有NEO用户。
 >
 > **交易网络费**： `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`， 共识过程中，对议长打包交易的奖励，存于共识新块的第一笔交易`MinerTransaction`中。交易的网络费设置的越高，越容易被打包。
-
-&nbsp;
 
 
 ### 共同特征
@@ -326,7 +309,7 @@ NEO中定义的交易类型如下所示：
 * **交易属性**
 
 交易的属性列表和最大属性数量16，交易类型（如前文所示），版本（默认为1），等等
- 
+
 
 * **交易的功能性**
 
@@ -344,7 +327,7 @@ Attributes 是Transaction类别的一个变量，表示该交易所具备的额�
 |---|-------|------|------|
 | 1 | Usage | TransactionAttributeUsage | 属性类型 |
 | 0\|1 | length | uint8 | 	数据长度（特定情况下会省略） |
-| ? | Data | byte[length] | 特定于用途的外部数据 | 
+| ? | Data | byte[length] | 特定于用途的外部数据 |
 
 TransactionAttributeUsage，表示交易属性用途，数据结构如下：
 
@@ -403,7 +386,7 @@ TransactionAttributeUsage，表示交易属性用途，数据结构如下：
 | 20 | Admin | 管理员地址脚本hash | UInt160 |  |
 |  -  | - | - | -  | 	交易的公共字段  |
 
- 
+
 资产登记交易。系统在创世区块调用RegisterTransaction发行了两种资产：NEO Coin（旧称小蚁股，AntShare，简称NEO）和NEO Gas（旧称小蚁币，AntCoin，简称GAS）。注意，用户在GUI创建资产种类时，实际调用的是InvocationTransaction。
 
 
@@ -414,7 +397,7 @@ Amount 为发行总量，共有2种模式：
    2. **不限量模式**：当Amount等于-1时，表示当前资产可以由创建者无限量发行。这种模式的自由度最大，但是公信力最低。
 
 
-处理流程与一般流程一致
+处理流程与一般流程一致。
 
 ### IssueTransaction
 
@@ -423,14 +406,14 @@ Amount 为发行总量，共有2种模式：
 
 
 > [!NOTE]
-> 1. 当版本大于等于1时，手续费为0。
-> 2. 当输出列表中的资产种类为NEO或GAS时，手续费为0；否则手续费为500GAS。
+> - 当版本大于等于1时，手续费为0。
+> - 当输出列表中的资产种类为NEO或GAS时，手续费为0；否则手续费为500GAS。
 
 
 **交易验证**
 
 1. **合法性验证**
- 
+
    1. 先进行一般交易的合法性验证
 
    2. 计算资产输入，输出差值变化情况
@@ -443,7 +426,7 @@ Amount 为发行总量，共有2种模式：
 
 2. **脚本验证**
 
-    1. 在进行一般交易的脚本验证时，会包含发行人的脚本验证
+    在进行一般交易的脚本验证时，会包含发行人的脚本验证
 
 
 其他处理流程，与一般流程一致。
@@ -465,8 +448,6 @@ Amount 为发行总量，共有2种模式：
 
 用户进行Claim时，实际上是找到已花费尚未Claim的NEO交易（系统维护了一份spentcoins集合——已花费尚未claim的交易），对其进行计算可以增发的Gas，并将Gas转账到用户钱包地址。
 
-
-
 **交易创建**
 
 1. 从spentcoins（已花费尚未claim的交易）中，选择要进行claim的output，并作为 ClaimTransaction的 claims值。
@@ -482,13 +463,7 @@ Amount 为发行总量，共有2种模式：
 
 [![tx_claim_gas](../images/tx_execution/tx_claim_gas.jpg)](../images/tx_execution/tx_claim_gas.jpg)
 
-<!--
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-$$
-Gas = \sum_{h=M+1}^{N} (BlockBonus(h) + SystemFee(h)) * \frac{tx.output.NEO}{10^8}
-$$
--->
 
 [![formula_gas](../images/tx_execution/formula_gas.jpg)](../images/tx_execution/formula_gas.jpg)
 
@@ -515,14 +490,13 @@ $$
 
 
 > [!NOTE]
+>
 > 一笔交易产生的Gas，等于该交易从未花费到花费的区块高度差内，每个区块的奖励 + 区块系统手续费的之和 乘以该交易NEO的总量占比。
-
-
 
 **交易验证**
 
 1. **合法性验证**
-   
+  
    1. 先进行一般交易的合法性验证；
 
    2. 若Claims包含重复交易时，返回false；
@@ -536,7 +510,7 @@ $$
 
 2. **脚本验证**
 
-    1. 在进行一般交易的脚本验证时，会包含Claims交易的收款人地址脚本
+    在进行一般交易的脚本验证时，会包含Claims交易的收款人地址脚本
 
 
 后续处理流程，与一般流程一致。
@@ -550,7 +524,7 @@ $$
 | ? | PublicKey | 记账人的公钥 | ECPoint | 用于分配的 NEO |
 |  -  | - | - | -  | 	交易的公共字段  |
 
-报名成为验证人的特殊交易，具体操作请参阅[选举与投票](./consensus/vote_validator.md)。
+报名成为验证人的特殊交易，具体操作请参阅 [选举与投票](../concept/consensus/vote_validator.md)。
 
 ### StateTransaction
 
@@ -571,7 +545,7 @@ $$
 
 
 
-申请验证人或共识节点投票的交易。用户可以在NEO GUI报名成为验证人，成为验证人后就可以根据投票数竞选成为共识节点。报名成为验证人需要花费手续费 1000 GAS。具体操作请参阅[选举与投票](./consensus/vote_validator.md)。
+申请验证人或共识节点投票的交易。用户可以在NEO GUI报名成为验证人，成为验证人后就可以根据投票数竞选成为共识节点。报名成为验证人需要花费手续费 1000 GAS。具体操作请参阅[选举与投票](../concept/consensus/vote_validator.md)。
 
 
 ### ContractTransaction
@@ -611,13 +585,11 @@ $$
 调用智能合约的特殊交易。用户可以通过NEO API的`invoke/invokefunction/invokescript`指令，或者NEO GUI，根据输入的智能合约信息创建InvocationTransaction对象并调用。注意，用户在GUI创建资产和发布智能合约时，实际调用的是InvocationTransaction。
 
 | InvokeTX用途 | 调用脚本 | Attributes | 包含属性 |
-|--------------|------------|--------------|
-| 执行智能合约 | 调用合约的脚本  |  空 |   | 
-| 发布合约 | Neo.Contract.Create  |   空  |   | 
+|--------------|------------|--------------|--------------|
+| 执行智能合约 | 调用合约的脚本  |  空 |   |
+| 发布合约 | Neo.Contract.Create  |   空  |   |
 | 资产注册 | Neo.Asset.Create |  非空 | TransactionAttributeUsage.Script,资产所有者的地址脚本hash，数目 1 |
 | GUI 转账 | NEP-5资产时，调用合约transfer方法；<br/>全局资产时，为空  |  非空 | TransactionAttributeUsage.Script，转账账户地址，数目若干 <br/> TransactionAttributeUsage.Remark，备注数据，数目 1 |
-
-
 
 **交易创建**
 
@@ -641,13 +613,7 @@ $$
 
 后续处理流程，与一般流程一致。
 
-
-
-NEO 智能合约在部署或者执行的时候都要缴纳一定的手续费，分为部署费用和执行费用。部署费用是指开发者将一个智能合约部署到区块链上需要向区块链系统支付一定的费用（目前是 500 Gas）。执行费用是指每执行一条智能合约的指令都会向 NEO 系统支付一定的执行费用。具体收费标准请参阅[智能合约费用](http://docs.neo.org/zh-cn/sc/systemfees.html)。
-
-
-> [!NOTE]
-> 如果发现有死链接，请联系 <feedback@neo.org>
+NEO 智能合约在部署或者执行的时候都要缴纳一定的手续费，分为部署费用和执行费用。部署费用是指开发者将一个智能合约部署到区块链上需要向区块链系统支付一定的费用（目前是 500 Gas）。执行费用是指每执行一条智能合约的指令都会向 NEO 系统支付一定的执行费用。具体收费标准请参阅 [智能合约费用](../../sc/fees.md)。
 
 
 

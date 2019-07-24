@@ -112,6 +112,43 @@
     - name: Lock Contract
       href: /docs/en-us/sc/sample/Lock2.md
 - name: NEO Tools Development
+  - name: Main Concepts
+    - name: Blockchain Models
+      - name: Block
+        href: /docs/en-us/tooldev/concept/blockchain/block.md
+      - name: Tokens
+        href: /docs/en-us/tooldev/concept/blockchain/token_model.md
+      - name: UTXO
+        href: /docs/en-us/tooldev/concept/blockchain/utxo.md
+      - name: Account and Asset
+        href: /docs/en-us/tooldev/concept/blockchain/account_asset.md
+      - name: Validator
+        href: /docs/en-us/tooldev/concept/blockchain/validator.md      
+    - name: Charging Model
+      href: /docs/en-us/tooldev/concept/charging_model.md
+    - name: Transaction
+      href: /docs/en-us/tooldev/concept/transaction.md
+    - name: Wallet
+      href: /docs/en-us/tooldev/concept/wallets.md
+    - name: Consensus
+      - name: Overview
+        href: /docs/en-us/tooldev/concept/consensus/readme.md
+      - name: Consensus Algorithm
+        href: /docs/en-us/tooldev/concept/consensus/consensus_algorithm.md
+      - name: Consensus Protocol
+        href: /docs/en-us/tooldev/concept/consensus/consensus_protocol.md
+      - name: Vote
+        href: /docs/en-us/tooldev/concept/consensus/vote_validator.md
+    - name: Cryptography
+      href:
+      - name: Encode Algorithm
+        href:  /docs/en-us/tooldev/concept/cryptography/encode_algorithm.md
+      - name: Hash Algorithm
+        href: /docs/en-us/tooldev/concept/cryptography/hash_algorithm.md
+      - name: Encryption Algorithm
+        href: /docs/en-us/tooldev/concept/cryptography/encryption_algorithm.md
+  - name: NEO-CLI Structure
+    href:  /docs/en-us/tooldev/neo_cli_structure.md
   - name: NEO SDK
     items:
     - name: About NEO SDK
@@ -124,10 +161,17 @@
       href: /docs/en-us/tooldev/sdk/wallet.md
     - name: Transaction Construction
       href: /docs/en-us/tooldev/sdk/tx.md
-  - name: Blockchain Explorers
-    href: /docs/en-us/tooldev/explorers.md
-  - name: Network Protocol
-    href: /docs/en-us/tooldev/network-protocol.md
+  - name: Advanced Topics
+    - name: NeoVM
+      href: /docs/en-us/tooldev/advanced/neo_vm.md
+    - name: Network Protocol
+      href: /docs/en-us/tooldev/advanced/network-protocol.md
+    - name: Transaction Process
+      href: /docs/en-us/tooldev/advanced/tx_execution.md
+    - name: Merkel Tree
+      href: /docs/en-us/tooldev/advanced/merkle_tree.md
+    - name: Bloom Filter
+      href: /docs/en-us/tooldev/advanced/bloom_filter.md
 - name: Document for Exchange Developers
   items:
   - name: Overview

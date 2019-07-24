@@ -98,7 +98,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [invokescript](api/invokescript.md)             | \<script>                                   | Runs a script through the virtual machine and returns the results |                              |
 | [listaddress](api/listaddress.md)               |                                             | Lists all the addresses in the current wallet.               | Need to open the wallet      |
 | [listplugins](api/listplugins.md)               |                                             | Returns a list of plugins loaded by the node.||
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                      | Broadcast a transaction over the network. See the [network protocol](../../../tooldev/network-protocol.md) documentation. |                              |
+| [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                      | Broadcast a transaction over the network. |                              |
 | [sendfrom](api/sendfrom.md)                     | \<asset_id> \<address> \<value> [fee=0]     | Transfers from the specified address to the destination address. | Need to open the wallet |
 | [sendtoaddress](api/sendtoaddress.md)           | \<asset_id> \<address> \<value> [fee=0]     | Transfer to specified address                                | Need to open the wallet      |
 | [sendmany](api/sendmany.md)                     | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                                          | Need to open the wallet      |

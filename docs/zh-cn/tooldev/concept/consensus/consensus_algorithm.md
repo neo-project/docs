@@ -1,6 +1,6 @@
-﻿<center><h2> dBFT算法介绍 </h2></center>
+# dBFT算法介绍
 
-&emsp;&emsp;PBFT(Practical Byzantine Fault Tolerance)[1]算法能够有效解决分布式可信共识问题，但是当投票节点越来越多时，性能下降越厉害，其算法时间复杂度为 O(n<sup>2</sup>), n是节点个数。 NEO在PBFT算法的基础上改良，提出结合POS模式特点的DBFT(Delegated Byzantine Fault Tolerant)[3]算法，利用区块链实时投票，决定下一轮共识节点，即授权少数节点出块，其他节点作为普通节点验证和接收区块信息。
+PBFT(Practical Byzantine Fault Tolerance)[1]算法能够有效解决分布式可信共识问题，但是当投票节点越来越多时，性能下降越厉害，其算法时间复杂度为 O(n<sup>2</sup>), n是节点个数。 NEO在PBFT算法的基础上改良，提出结合POS模式特点的DBFT(Delegated Byzantine Fault Tolerant)[3]算法，利用区块链实时投票，决定下一轮共识节点，即授权少数节点出块，其他节点作为普通节点验证和接收区块信息。
 
 
 ## 基本概念
@@ -15,7 +15,7 @@
 
 ## 算法流程
 
- 
+
 ### 符号定义
 
 - N: 本轮共识节点总个数。
@@ -46,13 +46,13 @@
    1. 加载内存池交易
 
    2. 加载[`IPolicyPlugin`插件](https://github.com/neo-project/neo-plugins)，对交易进行排序和过滤。(其中，每个区块500笔交易，免费20笔交易，在插件中完成过滤)
-   
+  
    3. 计算总交易的网络手续费（`= input.GAS - output.GAS - 交易系统费 `)，将其作为当前议长的`MinerTransaction`奖励。
-   
+  
    4. 结合上面的交易和以前的验证人投票情况，计算出下一个区块的共识节点，并将多方签名脚本hash赋值给`block.NextConsensus`，锁定下一区块的共识节点。
-   
+  
    5. 设置block的时间戳为当前时间，并计算议长对block的签名
-   
+  
    6. 广播`PrepareRequset`共识消息
 
    7. 广播`inv`消息，附带上除`MinerTransaction`外的交易hash。（通知其他节点，同步要打包的交易数据）
@@ -66,16 +66,16 @@
 [![dbft_two_phase](../../images/consensus/dbft_two_phase.jpg)](../../images/consensus/dbft_two_phase.jpg)
 
 算法可以划分为三阶段。<BR/>
-1）`PRE-PREPARE`预准备阶段，本轮的议长负责向其他议员广播`Prepare-Request`消息， 发起提案。<BR/>
-2）`PREPARE`准备阶段，议员向外广播`Prepare-Response`消息，发起投票，当一个共识节点收到不少于`N-f`个〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>签名, 则进入第三阶段。<BR/>
-3）`PERSIST`出块阶段， 负责向外广播新块，并进入下一轮共识。<BR/>
+
+1. `PRE-PREPARE`预准备阶段，本轮的议长负责向其他议员广播`Prepare-Request`消息， 发起提案。<BR/>
+2. `PREPARE`准备阶段，议员向外广播`Prepare-Response`消息，发起投票，当一个共识节点收到不少于`N-f`个〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>签名, 则进入第三阶段。<BR/>
+3. `PERSIST`出块阶段， 负责向外广播新块，并进入下一轮共识。<BR/>
 
 
 > [!Note]
+>
 > 1. 刚启动区块链网络时，默认读取配置文件`protocol.json`的备用共识节点列表`StandbyValidators`.
 > 2. 与普通块不一样，创世块并非共识节点出块，而是默认为区块链第一个区块。创世块中的`NextConsensus`指定了下一个块的共识节点为`StandbyValidators`的多方签名脚本hash。
-
-
 
 ### 视图更换
 
@@ -96,8 +96,6 @@
 
 随着 𝑘 的增加，超时的等待时间也会呈指数级增加，可以避免频繁的视图更换操作，并使各节点尽快对 𝑣 达成一致。 而在视图更换达成之前，原来的 𝑣 依然有效，避免因偶然性的网络延迟超时而导致不必要的视图更换。 
 
-
-
 [1] [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)<br/>
 [2] [共识机制图解](http://docs.neo.org/zh-cn/basic/consensus/consensus.html)<br/>
 [3] [一种用于区块链的拜占庭容错算法](http://docs.neo.org/zh-cn/basic/consensus/whitepaper.html)<br/>
@@ -105,8 +103,5 @@
 [5] [Consensus Plugin](https://github.com/neo-project/neo-plugins)
 
 
-
-> [!NOTE]
-> 如果发现有死链接，请联系 <feedback@neo.org>
 
 

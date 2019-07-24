@@ -1,14 +1,14 @@
-﻿<center><h2>投票，验证人，议员，议长</h2></center>
+# 投票，验证人，议员，议长
 
 
-&emsp;&emsp;NEO的POS模式，体现在 (1) 任何人都可以发起交易申请成为验证人，(2) 任何人都可以通过持有NEO对申请验证人进行投票，决定共识节点和个数。根据投票情况，按照本章介绍的算法，计算出共识节点。同时，投票是一个动态持续过程，若投票的账户发生NEO资产变动，之前被投票地址的投票数也会发生变动，共识节点也相应产生变动。
+NEO的POS模式，体现在 (1) 任何人都可以发起交易申请成为验证人，(2) 任何人都可以通过持有NEO对申请验证人进行投票，决定共识节点和个数。根据投票情况，按照本章介绍的算法，计算出共识节点。同时，投票是一个动态持续过程，若投票的账户发生NEO资产变动，之前被投票地址的投票数也会发生变动，共识节点也相应产生变动。
 
-&emsp;&emsp;同时，NEO的每一个区块，都带了指向参与下一轮出块的共识节点的多方签名脚本hash的`NextConsensus`字段，即当前交易，决定下一轮共识节点。
+同时，NEO的每一个区块，都带了指向参与下一轮出块的共识节点的多方签名脚本hash的`NextConsensus`字段，即当前交易，决定下一轮共识节点。
 
 ## 投票
 
 
-&emsp;&emsp;在NEO中，可以通过两种特殊类型交易发起投票。一是，`EnrollmentTransaction` 直接申请成为验证人。二是，`StateTransaction` 进行投票或申请成为验证人。 当用户选择了被投票人进行投票时，实际上包括两部分投票，一是共识节点个数（= 被投票人个数）的投票（= 持有NEO的个数），另外是被投票人的投票（ = 持有NEO的个数）。
+在NEO中，可以通过两种特殊类型交易发起投票。一是，`EnrollmentTransaction` 直接申请成为验证人。二是，`StateTransaction` 进行投票或申请成为验证人。 当用户选择了被投票人进行投票时，实际上包括两部分投票，一是共识节点个数（= 被投票人个数）的投票（= 持有NEO的个数），另外是被投票人的投票（ = 持有NEO的个数）。
 
 
 ### EnrollmentTransaction
@@ -36,6 +36,7 @@
 1. 登记该申请验证人信息
 
 > [!Warning]
+>
 > 已弃用， 已被`StateTransaction` 所替代。 目前交易处理保留，为了兼容以前的交易，但是交易验证被设置为恒定`false`, 即不再接受新的`EnrollmentTransaction`交易。
 
 
@@ -58,17 +59,15 @@
 | 尺寸  |   字段  | 类型 |  说明 |
 |-------|---------|------|-------|
 | 1  | Type |  StateType | `0x40`--投票， `0x48`--申请验证人 |
-| 20/30 |  Key | byte[] |  当`Field = "Votes"`时， 存放投票人地址的脚本hash， `Key`代表投票人; 当`Field = "Registered"`时， 存放公钥， `Key`代表申请人  | 
+| 20/30 |  Key | byte[] |  当`Field = "Votes"`时， 存放投票人地址的脚本hash， `Key`代表投票人; 当`Field = "Registered"`时， 存放公钥， `Key`代表申请人  |
 | ? | Field | string |  当`Type = 0x40`时， `Field = "Votes"`; <br/>当`Type = 0x48`时， `Field = "Registered"`; |
 | ? | Value | byte[] | 当`Type = 0x40`时， 代表投票地址列表； <br/> 当`Type = 0x48`时， 代表验证人是否已注册的布尔值  |
-
-
 
 #####  **交易校验**
 
 1. 对交易的`StateDescriptor`进行验证，包括如下：
    1. 检验 `StateDescriptor.Type` 与  `StateDescriptor.Field` 是否匹配
-  
+   
    2. 若`StateDescriptor.Type = 0x40`，即进行投票：
        1. 检查投票账户`StateDescriptor.Key` 是否是非冻结账户，且持有NEO个数大于0，否则返回false。
        
@@ -89,10 +88,9 @@
     3. 若投票人之前投过的投票人数 与 当前投票人数不一致时，则共识节点个数的票数，也做类似处理，旧的减少票数，新的增加票数。
 
 
-> [!IMPORTANT]
+> [!WARNING]
+>
 > 当一个投票用户的NEO资产发生变动时，相应的其投票数也做同样变动。
-
-
 
 ## 验证人到议员
 
@@ -102,33 +100,20 @@
 
 ### 共识节点个数
 
-<!--
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
--->
-
 
 根据用户的投票情况，共识节点个数的投票得到类似如下图形式：
 
 
 [![calculate_consensus_count_0](../../images/consensus/calculate_consensus_count_0.jpg)](../../images/consensus/calculate_consensus_count_0.jpg)
 
-
 按照如下公式，转化成概率分布函数 F（离散函数）， 其中投票数的占比即为共识个数 i 的概率。
-<!--
-$$
-F_i = \frac{\sum_{j = 1}^i Vote_j }{\sum_{k = 1}^N Vote_k}
-$$
--->
+
 [![formula_vote](../../images/consensus/formula_vote.jpg)](../../images/consensus/formula_vote.jpg)
 
 [![calculate_consensus_count_1](../../images/consensus/calculate_consensus_count_1.jpg)](../../images/consensus/calculate_consensus_count_1.jpg)
 
 在概率分布函数上，截取F ∈ [0.25, 0.75]覆盖到的共识节点个数，再对这些点求取期望值，最后与备用共识节点个数比较取最大值，得到最终的共识节点个数。公式如下：
-<!--
-$$
-Count = max( \sum_{i = \lceil A \rceil}^{\lceil B \rceil} i *  \frac{ min(0.75, F_i) - max( F_{i - 1}, 0.25 ) }{ 0.5 }, StandbyValidators.Length)
-$$
--->
+
 [![formula_vote_count](../../images/consensus/formula_vote_count.jpg)](../../images/consensus/formula_vote_count.jpg)
 
 - 其中，⌈A⌉ 代表第一个 F<sub>i</sub> >= 0.25 的点， 
@@ -137,6 +122,7 @@ $$
 - StandbyValidators 代表备用共识节点列表
 
 > [!Note]
+>
 > 过滤掉共识节点个数中，过大和过小的点，避免对均值造成的过大或过小的影响，故我们只考虑中间部分的投票情况。
 
 
@@ -147,6 +133,7 @@ $$
 
 
 > [!Note]
+>
 > 创世块作为第一个块，其`NextConsensus`被设定为备用共识节点的2/3多方签名脚本hash值。
 
 ## 议员到议长

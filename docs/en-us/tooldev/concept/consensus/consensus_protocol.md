@@ -1,4 +1,4 @@
-<center><h2>Consensus Protocol</h2></center>
+# Consensus Protocol
 
 ## Consensus Message Format
 
@@ -77,8 +77,6 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
   6. After receiving the `consensus` message, the node C triggers the consensus module to process the message, and forwards the consensus message, and then returns to step 2.
 
-
-
 ### Inv message format
 
 | Size | Field | Type  | Description |
@@ -90,11 +88,13 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 | Length | Payload | byte[] | Format: `0xe0` + `0x00000001` + `ConsensusPayload.Hash` |
 
 > [!Note] 
+>
 > Payload's format： `inv.type + inv.payloads.length + inv.payload`
 > `inv` message's payload has three types as follow:
-> 1. `0x01`: Transaction. inv.payload is assigned to transaction's hash.
-> 2. `0x02`: Block.  inv.payload is assigned to `ConsensusPayload` message's hash.
-> 3. `0xe0`: Consensus. inv.payload is assigned to block's hash.
+>
+> - `0x01`: Transaction. inv.payload is assigned to transaction's hash.
+> - `0x02`: Block.  inv.payload is assigned to `ConsensusPayload` message's hash.
+> - `0xe0`: Consensus. inv.payload is assigned to block's hash.
 
 
 ### Getdata message format
@@ -108,6 +108,7 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 | Length | Payload | byte[] | Format: `0xe0` + `0x00000001` + `ConsensusPayload.Hash` |
 
 > [!Note]
+>
 > The `getdata` message is mainly used to get the specific content in `inv` message.
 
 
@@ -183,7 +184,7 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
    2. Timeout time starts from 30 seconds. Timeout interval doubles when each timeout happens.
 
 5. On receiving a **New Block**
- 
+
    1. resetting consensus process
 
 6. On receiving a **New Transaction** for consensus

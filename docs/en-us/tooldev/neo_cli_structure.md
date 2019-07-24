@@ -1,57 +1,53 @@
-<center><h2> NEO-CLI </h2></center>
+# NEO-CLI Structure
 
-　Neo is a blockchain system based on a peer-to-peer network. It provides digital asset accounting based on the UTXO model and an execution environment for smart contracts based on the neo virtual machine. This chapter describes the overall structure and basic behavior of the node program neo-cli in the network.
+Neo is a blockchain system based on a peer-to-peer network. It provides digital asset accounting based on the UTXO model and an execution environment for smart contracts based on the neo virtual machine. This chapter describes the overall structure and basic behavior of the node program NEO-CLI in the network.
 
-## Whole Network
+## The Whole Network
 
-[![neo p2p network](../images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
+[![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
 
-　Each node in the network runs a neo-cli program or a protocol-compatible program. Among them, the consensus nodes involved in the consensus. Non-consensus nodes are not involved in the consensus. The consensus will be described in subsequent chapters.
+Each node in the network runs a NEO-CLI program or a protocol-compatible program. Among them, the consensus nodes involved in the consensus. Non-consensus nodes are not involved in the consensus. The consensus will be described in subsequent chapters.
 
-## neo-cli
+## NEO-CLI
 
-　The structure of neo-cli is shown below. (Some structures may change due to version upgrade)
+The structure of NEO-CLI is shown below. (Some structures may change due to version upgrade)
 
-[![neo-cli structure](../images/neo_cli_structure/neo-cli.png)](../images/neo_cli_structure/neo-cli.png)
+[![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
 
-### neo-cli command line tools
-　Neo-cli is a command line program. Provides basic functionality for interacting with the blockchain through the command line console. A detailed description of the neo-cli command can be found at the link below.
-
-<http://docs.neo.org/en-us/node/cli/cli.html>
+### NEO-CLI command line tools
+Neo-CLI is a command line program. Provides basic functionality for interacting with the blockchain through the command line console. 
 
 
 ### Ledger API
 
-　The ledger API defines the basic data types of the UTXO model, including basic data structures such as transaction, block, and validator. The details are described in subsequent chapters. Or check the API documentation for details.
+The ledger API defines the basic data types of the UTXO model, including basic data structures such as transaction, block, and validator. The details are described in subsequent chapters. Or check the API documentation for details.
 
 ### Wallets
 
-　The official implementation of neo provides two types of wallets, one is the sqlite database format wallet, and the other is the NEP-6 wallet. The advantage of the sqlite format wallet is that the performance is relatively better. The disadvantage is that the applicable platform is not as wide as the NEP-6 wallet.
+The official implementation of neo provides two types of wallets, one is the sqlite database format wallet, and the other is the NEP-6 wallet. The advantage of the sqlite format wallet is that the performance is relatively better. The disadvantage is that the applicable platform is not as wide as the NEP-6 wallet.
 
 ### LevelDBStore / Blockchain
 
-　Blockchain data management module based on leveldb. Provides storage and query services of blockchain data to the other parts.
+Blockchain data management module based on leveldb. Provides storage and query services of blockchain data to the other parts.
 
 ### LocalNode
 
-　It is the module for network communication between nodes. It is responsible for exchanging information with other nodes in the network. Details will be covered in subsequent chapters.
+It is the module for network communication between nodes. It is responsible for exchanging information with other nodes in the network. Details will be covered in subsequent chapters.
 
 ### RpcServer
 
-　A module that provides an RPC interface to outer system. The details of the RPC programming interface can be found at the link below.
-
-<http://docs.neo.org/en-us/node/cli/2.9.0/api.html>
+A module that provides an RPC interface to outer system. The details of the RPC programming interface can be found at the link below. For more information, refer to [RPC API](../reference/rpc/latest-version/api.md).
 
 
 ### ConsensusService
 
-　In neo's network, only consensus nodes need to start consensus service. The consensus node exchanges information with other consensus nodes through the peer-to-peer network to complete the process of generating new blocks in the blockchain.
+In neo's network, only consensus nodes need to start consensus service. The consensus node exchanges information with other consensus nodes through the peer-to-peer network to complete the process of generating new blocks in the blockchain.
 
-　Details will be covered in subsequent chapters.
+Details will be covered in subsequent chapters.
 
 ### Plugin
 
-　The logic of some specific modules in the blockchain is implemented in the form of a plug-in to facilitate customization and debugging of specific functions. The following four categories are included.
+The logic of some specific modules in the blockchain is implemented in the form of a plug-in to facilitate customization and debugging of specific functions. The following four categories are included.
  - **ILogPlugin** : The storage plugin for execution result of smart contracts.
  - **IPolicyPlugin** : The sorting strategy plugin for transaction when generating new blocks.
  - **IRpcPlugin** : A plugin for RPC module.
@@ -59,22 +55,22 @@
 
 ### NeoVM
 
-　A virtual machine implemented by Neo. Used to execute verification scripts and smart contracts. Details will be covered in subsequent chapters.
+A virtual machine implemented by Neo. Used to execute verification scripts and smart contracts. Details will be covered in subsequent chapters.
 
-　The ApplicationEngine is a layer of encapsulation of the Neo VM. The Neo VM is designed as a standalone module. Can be deployed outside of the blockchain. ApplicationEngine is more closely linked to the blockchain itself.
+The ApplicationEngine is a layer of encapsulation of the Neo VM. The Neo VM is designed as a standalone module. Can be deployed outside of the blockchain. ApplicationEngine is more closely linked to the blockchain itself.
 
 ---
 
 ## Configuration files
 
-　The node program neo-cli accesses the following configuration files during execution.
+The node program NEO-CLI accesses the following configuration files during execution.
 
  - **config.json** : Basic configuration file
  - **protocol.json** : Protocol configuration file
 
 ### config.json
 
-　It defines basic configurations such as database path, network configuration, and startup settings.
+It defines basic configurations such as database path, network configuration, and startup settings.
 
 
 ```json
@@ -120,12 +116,12 @@ Property Description:
  - UnlockWallet/Password : The password to unlock the wallet file when starting the network node.<BR>
  - UnlockWallet/StartConsensus : Whether to automatically start consensus when starting a network node. Auto-starting consensus relies on automatically unlocking the wallet.<BR>
 
-　config.mainnet.json and config.testnet.json are two backup files that store the configuration for the mainnet and testnet.
+config.mainnet.json and config.testnet.json are two backup files that store the configuration for the mainnet and testnet.
 
 
 ### protocol.json
 
-　It defines protocol-level variables, public keys of alternate consensus nodes, list of seed nodes, and system fee prices.
+It defines protocol-level variables, public keys of alternate consensus nodes, list of seed nodes, and system fee prices.
 
 ```json
 {
@@ -181,14 +177,13 @@ Property Description:
 protocol.mainnet.json and protocol.testnet.json are two backup files that store the configuration for the mainnet and the testnet.
 
 > [!NOTE]
-> 1. In neo-cli 2.7.6 a temporary file peers.dat was used to save IP addresses of known nodes, neo-cli 2.9.0+ no longer uses the file.
-> 2. If neo-cli meets an exception during execution and is terminated, the error's content will be written to a file (error.log) for debugging.
-
----
+> 
+> - In NEO-CLI 2.7.6 a temporary file peers.dat was used to save IP addresses of known nodes, NEO-CLI 2.9.0+ no longer uses the file.
+> - If NEO-CLI meets an exception during execution and is terminated, the error's content will be written to a file (error.log) for debugging.
 
 ## Brief startup process
 
-### neo-cli startup
+### NEO-CLI startup
 
 1. Initialize LevelDBStore and create or open the leveldb database.
 
@@ -234,15 +229,9 @@ protocol.mainnet.json and protocol.testnet.json are two backup files that store 
 
 ### JSON-RPC service Initialization
 
-1. Listen on the specified address and port. Enable secure links (https) if specified.
+Listen on the specified address and port. Enable secure links (https) if specified.
 
 ### Other Initialization
 
-1. Initialize all plugins.
+Initialize all plugins. For more information about plugins, refer to [Install Plugins](../node/cli/setup.md).
 
-Please refer to the links below for the description of plugins.
-
-<http://docs.neo.org/en-us/node/plugin.html>
-
-> [!NOTE]
-> In case of dead links, please contact <feedback@neo.org>

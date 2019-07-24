@@ -1,11 +1,11 @@
-<center><h2>交易</h2></center>
+# 交易
 
 
-&emsp;&emsp;Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个NEO系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成InvPayload信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x01`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x02`)和共识数据包(`InventoryType = 0xe0`)。
+Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个NEO系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成InvPayload信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x01`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x02`)和共识数据包(`InventoryType = 0xe0`)。
 
 ## **数据结构**
 
-&emsp;&emsp;一笔普通交易的数据结构如下：
+一笔普通交易的数据结构如下：
 
 | 字节数 | 字段 | 类型 | 描述 |
 |-----|-----|------|-------|
@@ -17,26 +17,25 @@
 | 60 * ? | Outputs | tx_out[] | 输出 |
 | ?*? | Scripts | Witness[] | 用于验证该交易的脚本列表 |
 
-
 ### Input
 
-&emsp;&emsp;Input数组中存放了每一个输入的信息。每笔交易中可以有多个Input，也可能没有Input。在之后会提到的MinerTransaction中Input就为空。Input的数据结构如下： 
+Input数组中存放了每一个输入的信息。每笔交易中可以有多个Input，也可能没有Input。在之后会提到的MinerTransaction中Input就为空。Input的数据结构如下： 
 
 | 字节数 | 字段 | 类型 | 描述 |
 |---|-------|------|------|
 | 32 | PrevHash | UInt256 | 被引用交易的散列值 |
-| 2 | PrevIndex | ushort | 被引用交易输出的索引 | 
+| 2 | PrevIndex | ushort | 被引用交易输出的索引 |
 
 PrevHash和PrevIndex合起来就可以找到这个Input对应于哪个交易的第几个Output。从而Input和Output之间可以连接起来，构成了UTXO模型的基础。UTXO模型的具体信息请参见`UTXO模型`部分。
 
 ### Output
 
-&emsp;&emsp;每个交易中最多只能包含 65536 个Output，代表资金转出。Output的数据结构如下：
+每个交易中最多只能包含 65536 个Output，代表资金转出。Output的数据结构如下：
 
 | 字节数 | 字段 | 类型 | 描述 |
 |---|-------|------|------|
 | 32 | AssetId | UIntBase | 资产Id |
-| ?  | Value | BigDecimal | 转账金额 | 
+| ?  | Value | BigDecimal | 转账金额 |
 | 20 | ScriptHash | UInt160 | 地址，即账户地址或合约地址 |
 
 ### Attribute
@@ -62,31 +61,31 @@ TransactionAttributeUsage，交易属性使用表数据结构如下：
 | Remark-Remark15 | 0xf0-0xff | 备注 |
 
 
-&emsp;&emsp;ContractHash、ECDH02-03、Vote和Hash1-15的数据长度固定为 32 字节，所以省略length字段。Script固定20字节，存放地址。而DescriptionUrl必须明确给出数据长度，且长度不能超过 255字节。Description和Remark1-15，也必须明确给出数据长度， 且最大存储不超过 65535字节。
+ContractHash、ECDH02-03、Vote和Hash1-15的数据长度固定为 32 字节，所以省略length字段。Script固定20字节，存放地址。而DescriptionUrl必须明确给出数据长度，且长度不能超过 255字节。Description和Remark1-15，也必须明确给出数据长度， 且最大存储不超过 65535字节。
 
 ### Witness
 
 
-&emsp;&emsp;每笔交易(transaction，tx)对象在被放进block时，需经过数字签名，确保在后续传输和处理中能随时验证交易是否被篡改。Neo采用的ECDSA数字签名方法。交易的转帐转出方地址，为ECDSA签名时所用的公钥publicKey。Neo系统没有使用比特币中的SegWit，每笔交易都包含自己的Script.witness，而Script.Witness使用的是智能合约。
+每笔交易(transaction，tx)对象在被放进block时，需经过数字签名，确保在后续传输和处理中能随时验证交易是否被篡改。Neo采用的ECDSA数字签名方法。交易的转帐转出方地址，为ECDSA签名时所用的公钥publicKey。Neo系统没有使用比特币中的SegWit，每笔交易都包含自己的Script.witness，而Script.Witness使用的是智能合约。
 
-&emsp;&emsp;见证人，实际上是可执行的验证脚本。`InvocationScript` 脚本传递了`VerificationScript`脚本所需要的参数。只有当脚本执行返回真时，验证成功。
+见证人，实际上是可执行的验证脚本。`InvocationScript` 脚本传递了`VerificationScript`脚本所需要的参数。只有当脚本执行返回真时，验证成功。
 
 | 字节数 | 字段 | 类型 | 描述 |
 |--|-------|------|------|
 | ?  | InvocationScript | byte[] |调用脚本，补全脚本参数 |
-| ?  | VerificationScript | byte[] | 验证脚本  | 
+| ?  | VerificationScript | byte[] | 验证脚本  |
 
 
-&emsp;&emsp;调用脚本进行压栈操作相关的指令，用于向验证脚本传递参数（如签名等）。脚本解释器会先执行调用脚本代码，然后再执行验证脚本代码。
+调用脚本进行压栈操作相关的指令，用于向验证脚本传递参数（如签名等）。脚本解释器会先执行调用脚本代码，然后再执行验证脚本代码。
 
-&emsp;&emsp;`Block.NextConsensus`所代表的多方签名脚本，填充签名参数后的可执行脚本，如下图所示，[`Opt.CHECKMULTISIG`](../neo_vm.md#checkmultisig) 在NVM内部执行时，完成对签名以及公钥之间的多方签名校验。
+`Block.NextConsensus`所代表的多方签名脚本，填充签名参数后的可执行脚本，如下图所示，[`Opt.CHECKMULTISIG`](../neo_vm.md#checkmultisig) 在NVM内部执行时，完成对签名以及公钥之间的多方签名校验。
 
-[![nextconsensus_witness](../../images/blockchain/nextconsensus_witness.jpg)](../../images/blockchain/nextconsensus_witness.jpg)
+[![nextconsensus_witness](../images/blockchain/nextconsensus_witness.jpg)](../../images/blockchain/nextconsensus_witness.jpg)
 
 
 ## **交易类型**
 
-&emsp;&emsp;Neo中一共定义了9种不同类型的交易，包括MinerTransaction、RegisterTransaction、IssueTransaction和ContractTransaction等。
+Neo中一共定义了9种不同类型的交易，包括MinerTransaction、RegisterTransaction、IssueTransaction和ContractTransaction等。
 
 
 | 编号 | 类型名 | 值  | 系统费用 |用途 |  解释  |
@@ -95,11 +94,11 @@ TransactionAttributeUsage，交易属性使用表数据结构如下：
 |  2  | RegisterTransaction | 0x40 | 10000/0 | 注册资产，仅用于NEO和GAS | 已弃用 |
 |  3  | IssueTransaction | 0x01 | 500/0 | 分发资产 |
 |  4  | ClaimTransaction | 0x02 | 0 | 提取GAS | 每个区块的奖励分发 |
-|  5  | StateTransaction | 0x90 | *  | 验证人选举统计选票时使用 | 
+|  5  | StateTransaction | 0x90 | *  | 验证人选举统计选票时使用 |
 |  6  | EnrollmentTransaction | 0x20 | 1000 | 报名成为验证人 | 已弃用 |
 |  7  | ContractTransaction | 0x80 | 0 | 转账时用 | 最常用的交易类型 |
 |  8  | PublishTransaction | 0xd0 | 500*n |应用合约发布交易 | 已弃用 |
-|  9  | InvocationTransaction | 0xd1 | 0 | 合约调用交易 | 用来调用合约，部署合约后或生成新资产之后会使用 | 
+|  9  | InvocationTransaction | 0xd1 | 0 | 合约调用交易 | 用来调用合约，部署合约后或生成新资产之后会使用 |
 
 
 详细交易处理流程，见“交易流程”章节。
@@ -107,13 +106,11 @@ TransactionAttributeUsage，交易属性使用表数据结构如下：
 
 ## **如何使用交易**
 
-&emsp;&emsp;以上这9种交易并不能完成所有的功能实现，比如部署合约和生成NEO和GAS以外的NEP5新资产时，通过系统调用来完成，以InvocationTransaction交易的形式来将这个事情加入到区块链中。下面给出的创世块的生成例子，展示了使用提供的交易类型完成资产注册。
-
-<!-- 第二个例子是生成NEP5资产，展示了系统调用和合约的方式生成新资产。 -->
+以上这9种交易并不能完成所有的功能实现，比如部署合约和生成NEO和GAS以外的NEP5新资产时，通过系统调用来完成，以InvocationTransaction交易的形式来将这个事情加入到区块链中。下面给出的创世块的生成例子，展示了使用提供的交易类型完成资产注册。
 
 ### 例1：生成创始块
 
-&emsp;&emsp;创世块（GenesisBlock）是默认已经定义在代码中不可修改的区块链的第一个区块，高度为0。在创世块中注册了NEO和GAS资产，并分发了NEO资产。注意，只有NEO和GAS是使用RegisterTransaction完成注册，其他全局资产和NEP5代币都是通过系统调用的方式生成。
+创世块（GenesisBlock）是默认已经定义在代码中不可修改的区块链的第一个区块，高度为0。在创世块中注册了NEO和GAS资产，并分发了NEO资产。注意，只有NEO和GAS是使用RegisterTransaction完成注册，其他全局资产和NEP5代币都是通过系统调用的方式生成。
 
 创始块的区块头信息如下：
 
@@ -204,9 +201,4 @@ TransactionAttributeUsage，交易属性使用表数据结构如下：
 | 20 | ScriptHash | UInt160 |  收款脚本hash |  备用共识节点多方签名合约地址 |
 
 
-<!-- ### 例2：生成NEP-5资产
 
-&emsp;&emsp;ICO_template
-
-&emsp;&emsp;应用合约触发器Application Trigger，就是通过
- -->

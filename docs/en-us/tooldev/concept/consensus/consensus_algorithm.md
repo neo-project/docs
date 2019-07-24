@@ -1,6 +1,6 @@
-<center><h2> The dBFT Algorithm </h2></center>
+# The dBFT Algorithm
 
-&emsp;&emsp;The dBFT(Delegated Byzantine Fault Tolerant) algorithm is based on PBFT(Practical Byzantine Fault Tolerance) algorithm, which is more suitable in blockchain than the latter. PBFT algorithm can solve distributed network consensus effectively, but the more nodes join consensus, the quicker the performance drops, as the time complexity is O(n<sup>2</sup>). For this reason, NEO proposes an algorithm named dBFT, which combines the characteristics of dPoS. By voting on the blockchain, it decides the name list of consensus nodes for next round, namely authorizing a few nodes to reach consensus and create new block, the other nodes will act as ordinary nodes to receive and verify blocks.
+The dBFT(Delegated Byzantine Fault Tolerant) algorithm is based on PBFT(Practical Byzantine Fault Tolerance) algorithm, which is more suitable in blockchain than the latter. PBFT algorithm can solve distributed network consensus effectively, but the more nodes join consensus, the quicker the performance drops, as the time complexity is O(n<sup>2</sup>). For this reason, NEO proposes an algorithm named dBFT, which combines the characteristics of dPoS. By voting on the blockchain, it decides the name list of consensus nodes for next round, namely authorizing a few nodes to reach consensus and create new block, the other nodes will act as ordinary nodes to receive and verify blocks.
 
 
 * **Consensus Node**: This node participates in the consensus activity, make a block proposal and vote.
@@ -18,7 +18,7 @@
 
 ## Algorithm Flow
 
- 
+
 ### Symbolic Definition
 
 - N: The number of active consensus nodes.
@@ -75,15 +75,16 @@ Assume the total number of active consensus nodes is `N`, up to `f` fault tolera
 
 [![dbft_two_phase](../../images/consensus/dbft_two_phase_en.jpg)](../../images/consensus/dbft_two_phase_en.jpg)
 
-
 The algorithm can be divided into three stages.<BR/>
-1) `PRE-PREPARE`, the speaker of this round is responsible for broadcasting `Prepare-request` message to the delegates and initiating the proposal block.<BR/>
-2) `PREPARE`, on receiving `PRE-PREPARE`, the delegates broadcast `Prepare-Response` if the proposal block is verified successfully. When a consensus node receives at least `N-f` 〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, it enters the third stage.<BR/>
-3) `PERSIST`, the node publishes a new block and enter the next consensus round.<BR/>
+
+1. `PRE-PREPARE`, the speaker of this round is responsible for broadcasting `Prepare-request` message to the delegates and initiating the proposal block.<BR/>
+2. `PREPARE`, on receiving `PRE-PREPARE`, the delegates broadcast `Prepare-Response` if the proposal block is verified successfully. When a consensus node receives at least `N-f` 〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, it enters the third stage.<BR/>
+3. `PERSIST`, the node publishes a new block and enter the next consensus round.<BR/>
 
 > [!Note]
-> 1. At the very beginning of the blockchain network, `StandbyValidators` are read from the configuration file `protocol.json` as backup validators. For there isn't any enrolled validator yet.
-> 2. Unlike ordinary block, the Genesis block is the first block in the blockchain by default, which is not published by consensus nodes. In the Genesis block, the field `NextConsensus` is set to the hash value of `StandbyValidators`, so the consensus nodes for the next block is determined.
+>
+> - At the very beginning of the blockchain network, `StandbyValidators` are read from the configuration file `protocol.json` as backup validators. For there isn't any enrolled validator yet.
+> - Unlike ordinary block, the Genesis block is the first block in the blockchain by default, which is not published by consensus nodes. In the Genesis block, the field `NextConsensus` is set to the hash value of `StandbyValidators`, so the consensus nodes for the next block is determined.
 
 ### View Change
 
@@ -111,8 +112,5 @@ With the increase of k, the waiting time before another change view will increas
 [5] [Consensus Plugin](https://github.com/neo-project/neo-plugins)
 
 
-
-> [!NOTE]
-> In case of dead links, please contact <feedback@neo.org>
 
 

@@ -1,4 +1,4 @@
-﻿<center><h2>共识协议</h2></center>
+# 共识协议
 
 ## 共识消息格式
 
@@ -93,11 +93,13 @@
 | length   | Payload | byte[] | `0xe0` + `0x00000001` + `ConsensusPayload.Hash` |
 
 > [!Note] 
+>
 > Payload格式为： `inv.type + inv.payloads.length + inv.payload`
 > `inv` 消息的payload，有三种类型:
-> 1. `0x01`: 交易， inv.payload存放为交易hash列表
-> 2. `0x02`: 区块， inv.payload 存放共识消息`ConsensusPayload`的hash列表
-> 3. `0xe0`: 共识， inv.payload 存放区块的hash列表
+>
+> - `0x01`: 交易， inv.payload存放为交易hash列表
+> - `0x02`: 区块， inv.payload 存放共识消息`ConsensusPayload`的hash列表
+> - `0xe0`: 共识， inv.payload 存放区块的hash列表
 
 
 ### getdata 消息格式
@@ -111,6 +113,7 @@
 | length   | Payload | byte[] | `0xe0` + `0x00000001` + `ConsensusPayload.Hash` |
 
 > [!Note] 
+>
 > `getdata` 消息主要用来获取 `inv`消息附带hash列表对应的具体内容。
 
 
@@ -153,7 +156,7 @@
    6. 收下议长附带的签名
 
    7. 检查内存池已经包含提案block所需的交易。
-      
+     
       1. 若交易已经在区块链中，或共识交易过滤插件校验失败，则认为交易数据不对，发起`ChangeView`消息.
 
       2. 否则收下该交易，存放到共识上下文中。
@@ -169,38 +172,29 @@
 
    10.  若缺少`block`中的交易时，则广播`getdata`消息，附带缺少交易的hash列表。
 
-
-
 2. **PrepareResponse** 议员对议长发的`PrepareRequest`消息回应，并附带了对block的签名：
-  
-   1. 若对方签名已经收到过，则忽略。
-
-   2. 若在此之前尚未收到 `PrepareRequest` 消息时，则先收下该签名（后续收到PrepareRequest时，进行过滤）。否则进入步骤 3）。
-
-   3. 校验对方的签名，若通过，则收下签名，否则忽略。
-
-   4. 检查签名数，若已经满足`N-f`个签名，则出新块，向网络广播`block`。
-
-
+  1. 若对方签名已经收到过，则忽略。
+   
+2. 若在此之前尚未收到 `PrepareRequest` 消息时，则先收下该签名（后续收到PrepareRequest时，进行过滤）。否则进入步骤 3）。
+   
+3. 校验对方的签名，若通过，则收下签名，否则忽略。
+   
+4. 检查签名数，若已经满足`N-f`个签名，则出新块，向网络广播`block`。
 
 3. **Changeview** 议员或者议长，在遇到超时（议长第一次超时例外，发送`PrepareRequest`消息），或者校验失败时，则发送`ChangeView`消息。议员，议长收到`ChangeView`消息做如下处理：
-
-   1. 若新视图编号，小于该议员之前的视图编号，则忽略。
+1. 若新视图编号，小于该议员之前的视图编号，则忽略。
    
    2. 若有不少于`N-f`个议员的视图编号等于新视图编号时，则切换视图成功，当前议员重置共识流程，视图编号为新的视图编号。
 
-
-
 4. **onTimeout** 消息处理
-
-   1. 若是议长超时，第一次超时发送`PrepareRequest`消息，后续则发起`ChangeView`消息。
-
-   2. 若是议员超时，则直接发送`ChangeView`消息
+1. 若是议长超时，第一次超时发送`PrepareRequest`消息，后续则发起`ChangeView`消息。
+   
+2. 若是议员超时，则直接发送`ChangeView`消息
 
 
 5. **NewBlock** 事件处理
- 
-   1. 重置共识过程。
+
+   重置共识过程。
 
 6. **New Tx** 事件处理
 

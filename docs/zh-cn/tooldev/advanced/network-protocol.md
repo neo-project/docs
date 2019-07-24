@@ -1,370 +1,124 @@
-# 网络协议
+# 网络架构：P2P
 
-在网络结构上，NEO 采用点对点网络结构，并使用 TCP 协议进行通讯。
+在网络结构上，NEO 采用点对点网络结构，并使用 TCP/IP 协议进行通讯。
 
 网络中存在两种节点类型，分别是普通节点和共识节点。普通节点可以广播、接收和转发交易、区块等，而共识节点可以创建区块。
 
 NEO 的网络协议规范与比特币的协议大致类似，但在区块、交易等的数据结构上有很大的不同。
 
-## 约定
-
-### 字节序
-
-NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码，只有 IP 地址和端口号采用大端序 (Big Endian) 编码。
-
-### 散列
-
-NEO 系统中会用到 2 种不同的散列函数：SHA256 和 RIPEMD160。前者用于生成较长的散列值，而后者用于生成较短的散列值。通常生成一个对象的散列值时，会运用两次散列函数，例如要生成区块或交易的散列时，会计算两次 SHA256；生成合约地址时，会先计算脚本的 SHA256 散列，然后再计算上一个散列的 RIPEMD160 散列。
-
-此外，区块中还会用到一种散列树 (Merkle Tree) 的结构，它将每一笔交易的散列两两相接后再计算一次散列，并重复以上过程直到只剩下一个根散列 (Merkle Root)。
-
-### 变长类型
-
-varint：变长整数，可以根据表达的值进行编码以节省空间。
-
-| 值             | 长度   | 格式            |
-| ------------- | ---- | ------------- |
-| < 0xfd        | 1    | uint8         |
-| <= 0xffff     | 3    | 0xfd + uint16 |
-| <= 0xffffffff | 5    | 0xfe + uint32 |
-| > 0xffffffff  | 9    | 0xff + uint64 |
-
-varstr：变长字符串，由一个变长整数后接字符串构成。字符串采用 UTF8 编码。
-
-| 尺寸     | 字段     | 数据类型          | 说明            |
-| ------ | ------ | ------------- | ------------- |
-| ?      | length | varint        | 字符串的长度，以字节为单位 |
-| length | string | uint8[length] | 字符串本身         |
-
-array：数组，由一个变长整数后接元素序列构成。
-
-### 定点数
-
-NEO 系统中的金额、价格等数据，统一采用 64 位定点数，小数部分精确到 10<sup>-8</sup>，可表示的范围是：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)
-
-## 数据结构
-
-### 区块链
-
-区块链是一种逻辑结构，它以单向链表的形式将区块串联起来，用于存放全网的交易、资产等数据。
-
-### 区块
-
-| 尺寸   | 字段            | 数据类型    | 说明                    |
-| ---- | ------------- | ------- | --------------------- |
-| 4    | Version       | uint32  | 区块版本，目前为 0            |
-| 32   | PrevBlock     | uint256 | 前一个区块的散列值             |
-| 32   | MerkleRoot    | uint256 | 交易列表的根散列              |
-| 4    | Timestamp     | uint32  | 时间戳                   |
-| 4    | Index         | uint32  | 区块高度（区块索引） = 区块数量 - 1 |
-| 8    | ConsensusData | uint64  | 共识数据（共识节点生成的伪随机数）     |
-| 20   | NextConsensus | uint160 | 下一个区块的记账合约的散列值        |
-| 1    | -             | uint8   | 固定为 1                 |
-| ?    | Script        | script  | 用于验证该区块的脚本            |
-| ?*?  | Transactions  | tx[]    | 交易列表                  |
-
-在计算区块散列时，并不会把整个区块都计算在内，而是只计算区块头的前 7 个字段：Version, PrevBlock, MerkleRoot, Timestamp, Height, Nonce, NextMiner。由于 MerkleRoot 已经包含了所有交易的散列值，因此修改交易也会改变区块的散列值。
-
-区块头的数据结构如下：
-
-| 尺寸   | 字段            | 数据类型    | 说明                    |
-| ---- | ------------- | ------- | --------------------- |
-| 4    | Version       | uint32  | 区块版本，目前为 0            |
-| 32   | PrevBlock     | uint256 | 前一个区块的散列值             |
-| 32   | MerkleRoot    | uint256 | 交易列表的根散列              |
-| 4    | Timestamp     | uint32  | 时间戳                   |
-| 4    | Index         | uint32  | 区块高度（区块索引） = 区块数量 - 1 |
-| 8    | ConsensusData | uint64  | 共识数据（共识节点生成的伪随机数）     |
-| 20   | NextConsensus | uint160 | 下一个区块的记账合约的散列值        |
-| 1    | -             | uint8   | 固定为 1                 |
-| ?    | Script        | script  | 用于验证该区块的脚本            |
-| 1    | -             | uint8   | 固定为 0                 |
-
-每个区块的时间戳必须晚于前一个区块的时间戳，一般两个区块的时间戳相差 15 秒左右，但是也允许出现不精确的情况。区块的高度值必须恰好等于前一个区块的高度值加一。
-
-### 交易
-
-| 尺寸   | 字段         | 数据类型      | 说明           |
-| ---- | ---------- | --------- | ------------ |
-| 1    | Type       | uint8     | 交易类型         |
-| 1    | Version    | uint8     | 交易版本，目前为 0   |
-| ?    | -          | -         | 特定于交易类型的数据   |
-| ?*?  | Attributes | tx_attr[] | 该交易所具备的额外特性  |
-| 34*? | Inputs     | tx_in[]   | 输入           |
-| 60*? | Outputs    | tx_out[]  | 输出           |
-| ?*?  | Scripts    | script[]  | 用于验证该交易的脚本列表 |
-
-NEO 系统中的一切事务都以交易为单位进行记录。交易有以下几种类型：
-
-| 值    | 名称                    | 系统费用     | 说明                     |
-| ---- | --------------------- | -------- | ---------------------- |
-| 0x00 | MinerTransaction      | 0        | 用于分配字节费的交易             |
-| 0x01 | IssueTransaction      | 500\|0   | 用于分发资产的交易              |
-| 0x02 | ClaimTransaction      | 0        | 用于分配 NeoGas 的交易             |
-| 0x20 | EnrollmentTransaction | 1000     | (已弃用) 用于报名成为共识候选人的特殊交易 |
-| 0x40 | RegisterTransaction   | 10000\|0 | (已弃用) 用于资产登记的交易        |
-| 0x80 | ContractTransaction   | 0        | 合约交易，这是最常用的一种交易        |
-| 0xd0 | PublishTransaction    | 500*n    | (已弃用)智能合约发布的特殊交易       |
-| 0xd1 | InvocationTransaction | 0        | 调用智能合约的特殊交易            |
-
-每一种类型的交易除了具有交易的公共字段之外，还会具有自己的专属字段。关于不同类型交易的专属字段，下文会有详细说明。
-
-**MinerTransaction**
-
-| 尺寸   | 字段    | 数据类型   | 说明      |
-| ---- | ----- | ------ | ------- |
-| -    | -     | -      | 交易的公共字段 |
-| 4    | Nonce | uint32 | 随机数     |
-| -    | -     | -      | 交易的公共字段 |
-
-每一个区块的第一笔交易必然是 MinerTransaction。它用于将当前区块中所有的交易手续费奖励给记账人。
-
-交易中的随机数用于防止出现散列冲突。
-
-**IssueTransaction**
-
-资产发行交易没有额外的特殊字段。
-
-资产管理员可以通过资产发行交易，将已经登记过的资产在 NEO 区块链上制造出来，并发送到任意地址。
-
-特别的，如果发行的资产是 NEO，那么这笔交易将可以免费发送。
-
-**ClaimTransaction**
-
-| 尺寸   | 字段     | 数据类型    | 说明       |
-| ---- | ------ | ------- | -------- |
-| -    | -      | -       | 交易的公共字段  |
-| 34*? | Claims | tx_in[] | 用于分配的 NEO |
-| -    | -      | -       | 交易的公共字段  |
-
-**EnrollmentTransaction**
-
-> [!Warning]
+> [!NOTE]
 >
-> 已弃用，已被智能合约的 Neo.Blockchain.RegisterValidator 所替代。
+> ・NEO 网络中的种子节点不是共识节点，它们是普通节点的一种，向其它节点提供询问节点列表的服务。<BR>
+> ・NEO 网络还支持 WebSocket 链接，以及通过 UPnP 协议来实现在局域网提供节点服务(Optional)。
 
-查看 [替代的 .NET 智能合约框架](../reference/scapi/fw/dotnet/neo/Validator/Register.md)
+## 通讯协议和端口：
 
-查看 [替代智能合约 API ](../reference/scapi/api/neo.md)
+| 协议 | 端口(主网) | 端口(测试网) |
+| --- | --- |
+| TCP/IP | 10333 | 20333 |
+| WebSocket | 10334 | 20334 |
 
-**RegisterTransaction**
-
-> [!Warning]
+> [!NOTE]
 >
-> 已弃用，已被智能合约的 Neo.Blockchain.CreateAsset 所替代。
+> 搭建 NEO 私有链时，可以设置端口为任意未使用的端口。节点之间也可以使用不同的端口。
+
+## 报文：Message
 
-查看 [替代的 .NET 智能合约框架](../reference/scapi/fw/dotnet/neo/Asset/Create.md)
+报文(Message)的基本格式如下
 
-查看 [替代智能合约 API ](../reference/scapi/api/neo.md)
+| 类型 | 名称 | 说明 |
+| --- | --- | --- |
+| uint | Magic | 魔法数字用来避免网络冲突 |
+| string(12) | Command | 字符串报文名称(不足12个字节时补零) |
+| int | Payload length | Payload 长度 |
+| uint | Payload Checksum | Payload 校验，避免篡改和传输错误 |
+| byte[] | Payload | 报文的正文内容，根据报文种类不同而不同 |
 
-**ContractTransaction**
+## 命令列表(Command List)：
 
-合约交易没有任何特殊的地方。
+| <nobr>名称</nobr> | <nobr>唯一性</nobr> | <nobr>高优先级</nobr> | <nobr>保留</nobr> | 说明 |
+| --- | --- | --- | --- | --- |
+| addr | 〇 |  |  | 应答 getaddr 消息。发送最多不超过200条成功连接的节点地址和端口号。|
+| block |  |  |  | 应答 getdata 消息。返回指定哈希值的Block。 |
+| consensus |  | 〇 |  | 应答 getdata 消息。返回指定哈希值的共识数据。 |
+| filteradd |  | 〇 |  | 向bloom_filter添加数据。用与轻量级钱包。 |
+| filterclear |  | 〇 |  | 清空bloom_filter。用与轻量级钱包。 |
+| filterload |  | 〇 |  | 初始化bloom_filter。用与轻量级钱包。 |
+| getaddr | 〇 | 〇 |  | 询问其它节点的地址和端口号。 |
+| getblocks | 〇 |  |  | 指定开始和结尾的哈希值，获取若干连续区块的详细信息。 |
+| getdata |  |  |  | 询问其它节点获取指定种类和哈希的Inventory对象。<br>目前有以下场景发送getdata消息。<br>1)共识过程中发送获取交易(Transaction)的请求。<br>2)收到inv消息以后发送getdata消息。 |
+| getheaders | 〇 |  |  | 在两个节点创建连接以后，少的一方向多的一方请求区块头。 |
+| headers |  |  |  | 应答 getheaders 消息。最多发送不超过2000条区块头。 |
+| inv |  |  |  | 发送指定种类和哈希值的若干个Inventory的哈希值数组（只有哈希值，没有完整数据）。Inventory的种类包括区块(Block)、交易(Transaction)、共识(Consensus)。目前有以下场景发送inv消息。<br>1)共识过程中发送交易。<br>2)应答 getblocks 消息。发送少于500个区块。<br>3)应答 mempool 消息。发送整个内存池中的交易。<br>4)传递(Relay)一个Inventory。<br>5)传递(Relay)一批交易。 |
+| mempool | 〇 | 〇 |  | 请求对方节点整个内存池中的交易。 |
+| tx |  |  |  | 应答 getdata 消息。返回指定哈希值的Transaction。 |
+| verack | - | 〇 | - | 第二个指令：握手应答Version。 |
+| version | - | 〇 | - | 第一个指令：携带区块头高度等信息。 |
+| alert |  | 〇 | 〇 | 未实现 |
+| merkleblock |  |  | 〇 | 发送已经实现，接收未实现。用于轻量级钱包。 |
+| notfound |  |  | 〇 | 未实现 |
+| ping |  |  | 〇 | 未实现 |
+| pong |  |  | 〇 | 未实现 |
+| reject |  |  | 〇 | 未实现 |
+| 其它 |  |  | 〇 | 忽略 |
 
-**PublishTransaction**
+> [!NOTE]
+> * 唯一性：同一时间在消息队列中只有一条此消息在排队。
+> * 高优先级：系统需要保证高优先级的消息在网络中优先传播，优先处理。
 
-> [!Warning]
->
-> 已弃用，已被智能合约的 Neo.Blockchain.CreateContract 所替代。
+## 对话协议
 
-查看 [替代的 .NET 智能合约框架](../reference/scapi/fw/dotnet/neo/Asset/Create.md)
+1. 首先 neo 节点会与种子节点连接。
 
-查看 [替代智能合约 API ](../reference/scapi/api/neo.md)
+2. 节点连接成功后，首先会发送 version 消息，并等待接收 version 消息。version中携带区块高度。
 
-**InvocationTransaction**
+3. 然后会发送 verack 消息，并等待接收 verack 消息，完成握手。
 
+4. 如果自己的区块头高度小于对方的区块高度，则向对方发送 getheaders 消息。
 
-| 尺寸   | 字段     | 数据类型    | 说明              |
-| ---- | ------ | ------- | --------------- |
-| -    | -      | -       | 交易的公共字段         |
-| ?    | Script | uint8[] | 所调用的智能合约的脚本     |
-| 8    | Gas    | int64   | 运行所调用的智能合约需要的费用 |
-| -    | -      | -       | 交易的公共字段         |
+5. 对方收到 getheaders 消息后，通过 headers 消息应答发送不超过2000个区块头。
 
+6. 如果区块头已经同步完成，而区块高度低于对方，则向对方发送 getblocks 消息。
 
-### 交易特性
+7. 对方收到 getblocks 消息后，通过 inv 消息应答发送不超过500个区块的哈希值。
 
-| 尺寸     | 字段     | 数据类型          | 说明             |
-| ------ | ------ | ------------- | -------------- |
-| 1      | Usage  | uint8         | 用途             |
-| 0\|1   | length | uint8         | 数据长度（特定情况下会省略） |
-| length | Data   | uint8[length] | 特定于用途的外部数据     |
+8. 收到 inv 消息后，通过哈希值判定本地是否需要。如果需要则发送 getdata 消息申请区块。
 
-有时候交易中会需要包含一些供外部使用的数据，这些数据将统一被放置在交易特性字段中。
+9. 对方收到 getdata 消息之后，发送 block 消息发送区块的完整内容。
 
-每个交易特性可以有不同的用途：
+10. neo 节点每5秒检查一次连接数，如果连接数不足10个，会主动去连接后备连接节点。后备连接节点不足时，会向已经连接的节点发送 getaddr 消息询问网络中的其它节点的信息。
 
-| 值         | 名称              | 说明              |
-| --------- | --------------- | --------------- |
-| 0x00      | ContractHash    | 外部合同的散列值        |
-| 0x02-0x03 | ECDH02-ECDH03   | 用于 ECDH 密钥交换的公钥 |
-| 0x20      | Script          | 用于对交易进行额外的验证    |
-| 0x30      | Vote            | 用于投票选出记账人       |
-| 0x81      | DescriptionUrl  | 外部介绍信息地址        |
-| 0x90      | Description     | 简短的介绍信息         |
-| 0xa1-0xaf | Hash1-Hash15    | 用于存放自定义的散列值     |
-| 0xf0-0xff | Remark-Remark15 | 备注              |
+11. 对方节点收到 getaddr 消息后，通过 addr 消息应答发送不超过200个节点的地址和端口号。
 
-对于 ContractHash，ECDH 系列，Vote，Hash 系列，数据长度固定为 32 字节，length 字段省略；
+12. 对于共识信息、区块、交易这些较大的数据，通过哈希值管理来避免同时从不同节点获取多分重复的数据。
 
-对于 Script，数据长度固定为 20 字节，存放地址；
+13. 节点有义务将收到的共识信息、区块、交易这些信息通过 inv 消息转发给其它节点。
 
-对于 DescriptionUrl，必须明确给出数据长度，且长度不能超过 255 字节；
+## 对话序列实例
 
-对于 Description 和 Remark 系列，必须明确给出数据长度， 且长度不能超过 65535 字节。
+| 消息方向 | 消息种类 | 说明 |
+| --- | --- | --- |
+| send | version | 发送 version 进行第一次握手 |
+| receive | version | 接收 version 进行第一次握手 |
+| send | verack | 发送 verack 进行第二次握手 |
+| receive | verack | 接收 verack 进行第二次握手 |
+| send | getheaders | 发送 getheaders 获取区块头 |
+| receive | headers | 接收 区块头 |
+| send | getblocks | 发送 getblocks 获取区块 |
+| receive | inv(blocks) | 收到 inv 若干区块的哈希值 |
+| send | getdata(blocks) | 发送 getdata 获取若干区块的完整区块 |
+| receive | inv(consensus) | 收到 inv 一个共识数据的哈希值 |
+| send | getdata(consensus) | 发送 getdata 获取指定哈希值的共识数据 |
+| receive | consensus | 收到一个完整的共识数据 |
+| send | inv(consensus) | 将收到的共识的哈希值转发给其它节点 |
+| receive | block | 收到一个完整的区块 |
+| send | inv(block) | 转发区块的哈希 |
+| receive | block | 收到一个完整的区块 |
+| send | inv(block) | 转发区块的哈希 |
+| receive | block | 收到一个完整的区块 |
+| send | inv(block) | 转发区块的哈希 |
+| ... | ... | ... |
 
-### 交易输入
 
-| 尺寸   | 字段        | 数据类型    | 说明        |
-| ---- | --------- | ------- | --------- |
-| 32   | PrevHash  | uint256 | 引用交易的散列值  |
-| 2    | PrevIndex | uint16  | 引用交易输出的索引 |
 
-### 交易输出
 
-| 尺寸   | 字段         | 数据类型    | 说明   |
-| ---- | ---------- | ------- | ---- |
-| 32   | AssetId    | uint256 | 资产编号 |
-| 8    | Value      | int64   | 金额   |
-| 20   | ScriptHash | uint160 | 收款地址 |
-
-每个交易中最多只能包含 65536 个输出。
-
-### 验证脚本
-
-| 尺寸   | 字段           | 数据类型    | 说明     |
-| ---- | ------------ | ------- | ------ |
-| ?    | StackScript  | uint8[] | 栈脚本代码  |
-| ?    | RedeemScript | uint8[] | 合约脚本代码 |
-
-栈脚本中只能包含压栈操作指令，用于向合约脚本传递参数（如签名等）。脚本解释器会先执行栈脚本代码，然后执行合约脚本代码。
-
-在一笔交易中，合约脚本代码的散列值必须与交易输出中的一致，这是验证的一部分。关于脚本执行的过程，后文会详细阐述。
-
-## 网络消息
-
-所有的网络消息都通过以下消息结构来发送：
-
-| 尺寸     | 字段       | 数据类型          | 说明          |
-| ------ | -------- | ------------- | ----------- |
-| 4      | Magic    | uint32        | 协议标识号       |
-| 12     | Command  | char[12]      | 命令          |
-| 4      | length   | uint32        | Payload 的长度 |
-| 4      | Checksum | uint32        | 校验和         |
-| length | Payload  | uint8[length] | 消息内容        |
-
-已定义的 Magic 值：
-
-| 值          | 说明   |
-| ---------- | ---- |
-| 0x00746e41 | 正式网  |
-| 0x74746e41 | 测试网  |
-
-Command 采用 utf8 编码，长度为 12 字节，多余部分用 0 填充。
-
-Checksum 是 Payload 两次 SHA256 散列后的前 4 个字节。
-
-Payload 根据不同的命令有不同的详细格式，见下文。
-
-### version
-
-| 尺寸   | 字段          | 数据类型   | 说明              |
-| ---- | ----------- | ------ | --------------- |
-| 4    | Version     | uint32 | 协议版本，目前为 0      |
-| 8    | Services    | uint64 | 节点提供的服务，目前为 1   |
-| 4    | Timestamp   | uint32 | 当前时间            |
-| 2    | Port        | uint16 | 监听的端口，如果不监听则为 0 |
-| 4    | Nonce       | uint32 | 用于区分相同公网 IP 的节点 |
-| ?    | UserAgent   | varstr | 客户端标识           |
-| 4    | StartHeight | uint32 | 区块链高度           |
-| 1    | Relay       | bool   | 是否接收并转发         |
-
-一个节点收到连接请求时，它立即宣告其版本。在通信双方都得到对方版本之前，不会有其他通信。
-
-### verack
-
-节点收到 version 消息后，立刻回复一个 verack 作为应答。
-
-此消息没有 payload。
-
-## getaddr
-
-向一个节点请求一批新的活动节点，以增加自身的连接数。
-
-此消息没有 payload。
-
-### addr
-
-| 尺寸   | 字段          | 数据类型       | 说明         |
-| ---- | ----------- | ---------- | ---------- |
-| 30*? | AddressList | net_addr[] | 网络上其他节点的地址 |
-
-节点收到 getaddr 消息后，返回一个 addr 消息作为应答，提供网络上已知节点的信息。
-
-### getheaders
-
-| 尺寸   | 字段        | 数据类型      | 说明                |
-| ---- | --------- | --------- | ----------------- |
-| 32*? | HashStart | uint256[] | 节点已知的最新 block 散列  |
-| 32   | HashStop  | uint256   | 请求的最后一个 block 的散列 |
-
-向一个节点请求包含编号 HashStart 到 HashStop 的至多 2000 个 block 的 header 包。要获取之后的 block 散列，需要重新发送 getheaders 消息。这个消息用于快速下载不包含相关交易的 blockchain。
-
-### headers
-
-| 尺寸   | 字段      | 数据类型     | 说明   |
-| ---- | ------- | -------- | ---- |
-| ?*?  | Headers | header[] | 区块头  |
-
-节点收到 getheaders 消息后，返回一个 headers 消息作为应答，提供请求的区块头。
-
-### getblocks
-
-| 尺寸   | 字段        | 数据类型      | 说明                |
-| ---- | --------- | --------- | ----------------- |
-| 32*? | HashStart | uint256[] | 节点已知的最新 block 散列  |
-| 32   | HashStop  | uint256   | 请求的最后一个 block 的散列 |
-
-向一个节点请求包含编号从 HashStart 到 HashStop 的 block 列表的 inv 消息。若 HashStart 到 HashStop 的 block 数超过 500，则在 500 处截止。欲获取后面的 block 散列，需要重新发送 getblocks 消息。
-
-### inv
-
-| 尺寸   | 字段     | 数据类型      | 说明   |
-| ---- | ------ | --------- | ---- |
-| 1    | Type   | uint8     | 清单类型 |
-| 32*? | Hashes | uint256[] | 清单   |
-
-节点通过此消息可以广播它拥有的对象信息。这个消息可以主动发送，也可以用于应答 getbloks 消息。
-
-清单类型有以下几种：
-
-| 值    | 名称        | 说明   |
-| ---- | --------- | ---- |
-| 0x01 | TX        | 交易   |
-| 0x02 | Block     | 区块   |
-| 0xe0 | Consensus | 共识数据 |
-
-### getdata
-
-| 尺寸   | 字段     | 数据类型      | 说明   |
-| ---- | ------ | --------- | ---- |
-| 1    | Type   | uint8     | 清单类型 |
-| 32*? | Hashes | uint256[] | 清单   |
-
-向一个节点请求指定的对象，它通常在接收到 inv 包并滤去已知元素后发送。
-
-### block
-
-| 尺寸   | 字段    | 数据类型  | 说明   |
-| ---- | ----- | ----- | ---- |
-| ?    | Block | block | 区块   |
-
-向一个节点发送一个区块，用于响应请求数据的 getdata 消息。
-
-### tx
-
-| 尺寸   | 字段          | 数据类型 | 说明   |
-| ---- | ----------- | ---- | ---- |
-| ?    | Transaction | tx   | 交易   |
-
-向一个节点发送一笔交易，用于响应请求数据的 getdata 消息。

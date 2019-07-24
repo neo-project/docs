@@ -1,8 +1,8 @@
-<center><h2>Validator</h2></center>
+# Validator
 
 In NEO, the holders can enroll themselves to be validators (consensus node candidates), and then be voted as consensus nodes. In NEO system, the voting of validators and number of consensus nodes are stored in blockchain.
 
-### **Validator**
+## Validator
 
 Validator, the candidate of consensus node, decided by the voting of NEO holders.
 
@@ -13,7 +13,7 @@ Validator, the candidate of consensus node, decided by the voting of NEO holders
 | 8 | Votes | Fixed8 |  |
 
 
-### **Validator_Count**
+## Validator_Count
 
 The voting record of number of consensus nodes.
 

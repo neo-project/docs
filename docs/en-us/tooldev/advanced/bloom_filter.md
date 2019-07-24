@@ -1,8 +1,8 @@
-﻿<center><h2> Bloom Filter </h2></center>
+# Bloom Filter
 
-　Bloom filter is proposed by Bloom in 1970. It's actually a wide binary vector and a series of random mapping functions. Bloom filter can be used to check whether an item is within a set. Its effectiveness and query time is much better than common algorithms. The disadvantage is that there is a certain misrecognition rate and difficulty in deleting.
+Bloom filter is proposed by Bloom in 1970. It's actually a wide binary vector and a series of random mapping functions. Bloom filter can be used to check whether an item is within a set. Its effectiveness and query time is much better than common algorithms. The disadvantage is that there is a certain misrecognition rate and difficulty in deleting.
 
-　NEO uses Bloom filter to verify transactions for SPV wallet.
+NEO uses Bloom filter to verify transactions for SPV wallet.
 
 Steps:
 
@@ -18,4 +18,4 @@ Steps:
 
 Scenarios：
 
-  1. Transaction data verification for SPV wallet
+Transaction data verification for SPV wallet

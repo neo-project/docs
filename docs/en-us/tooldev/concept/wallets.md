@@ -1,32 +1,30 @@
-<!--
+# 钱包
 
-<center><h2> 钱包 </h2></center>
-
-&emsp;&emsp;钱包是Neo的基础组件，是用户接入Neo网络的载体，负责完成与之相关一系列的工作和任务。Neo的钱包可以自行设计和修改，但需要满足一定的规则和范式。
+钱包是Neo的基础组件，是用户接入Neo网络的载体，负责完成与之相关一系列的工作和任务。Neo的钱包可以自行设计和修改，但需要满足一定的规则和范式。
 
 
 ## **钱包中的数据格式**
-&emsp;&emsp;Neo钱包主要处理地址(Address)、私钥(Private Key)、公钥(Public Key)、脚本哈希(ScriptHash)和WIF这五种数据。它们之间可以相互转化。
+Neo钱包主要处理地址(Address)、私钥(Private Key)、公钥(Public Key)、脚本哈希(ScriptHash)和WIF这五种数据。它们之间可以相互转化。
 
-&emsp;&emsp;NEP <=> WIF <=> Private Key => Public Key => ScriptHash <=> Address
+NEP <=> WIF <=> Private Key => Public Key => ScriptHash <=> Address
 
-&emsp;&emsp;这里给出一个更清楚的图示，还要给出每个数据的长度和使用情况。
+这里给出一个更清楚的图示，还要给出每个数据的长度和使用情况。
 
-&emsp;&emsp;同比特币一样，私钥是最关键的保密数据，公钥可以由私钥算得，反之不可。同私钥等价的NEP和WIF也应该妥善保管。而可由公钥推出的ScriptHash和Address都是公开的。他们用在不同的场合。比如，Address类似一个银行卡号，在用户做转账时使用。ScriptHash则用在具体交易信息中的Input和Output。
+同比特币一样，私钥是最关键的保密数据，公钥可以由私钥算得，反之不可。同私钥等价的NEP和WIF也应该妥善保管。而可由公钥推出的ScriptHash和Address都是公开的。他们用在不同的场合。比如，Address类似一个银行卡号，在用户做转账时使用。ScriptHash则用在具体交易信息中的Input和Output。
 
-### 1. 私钥
+### 私钥
 
-&emsp;&emsp;私钥是一个随机生成的位于1和n之间的任何数字（n是⼀个常数，略小于2的256次方），一般用一个256bit(32字节)数表示。在NEO中私钥主要采用两种编码格式：
+私钥是一个随机生成的位于1和n之间的任何数字（n是⼀个常数，略小于2的256次方），一般用一个256bit(32字节)数表示。在NEO中私钥主要采用两种编码格式：
 
-1. **hexstring格式**
+- **hexstring格式**
 
-&emsp;&emsp;hexstring格式是将byte[]数据使用16进制字符表示的字符串。
+hexstring格式是将byte[]数据使用16进制字符表示的字符串。
 
-2. **wif格式**
+- **wif格式**
 
-&emsp;&emsp;wif格式是在原有32字节数据前后添加前缀0x80和后缀0x01,并做Base58Check编码的字符串
+wif格式是在原有32字节数据前后添加前缀0x80和后缀0x01,并做Base58Check编码的字符串
 
-[![Base58Check编解码](../../images/blockchain/wallets/privateKey-wif.png)](../../images/blockchain/wallets/privateKey-wif.png)
+[![Base58Check编解码](../images/blockchain/wallets/privateKey-wif.png)](../../images/blockchain/wallets/privateKey-wif.png)
 
 Example: 
 
@@ -36,19 +34,19 @@ Example:
 | hexstring | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962 |
 | wif | L3tgppXLgdaeqSGSFw1Go3skBiy8vQAM7YMXvTHsKQtE16Dw58cV |
 
-### 2. 公钥
+### 公钥
 
-​&emsp;&emsp;公钥是通过ECC算法将私钥运算得到的一个点（x,y）。该点的x、y坐标都可以用32字节数据表示。neo与比特币稍有不同，neo选取了secp256r1曲线作为其ECC算法的参数。在neo中公钥有两种编码格式：
+公钥是通过ECC算法将私钥运算得到的一个点（x,y）。该点的x、y坐标都可以用32字节数据表示。neo与比特币稍有不同，neo选取了secp256r1曲线作为其ECC算法的参数。在neo中公钥有两种编码格式：
 
-1. **非压缩型公钥**
+- **非压缩型公钥**
 
-    0x04+x坐标（32字节）+y坐标（32字节）
+0x04+x坐标（32字节）+y坐标（32字节）
 
-2. **压缩型公钥**
+- **压缩型公钥**
 
-    0x02/0x03+x坐标（32字节）
+0x02/0x03+x坐标（32字节）
 
-&emsp;&emsp;Example:
+Example:
 
 | 格式 | 数值 |
 |----------|:-------------:|
@@ -59,15 +57,16 @@ Example:
 <a name="3_address"/>
 
 > [!NOTE]
+>
 > 上面的公钥（非压缩型）因为太长而成为多行，实际数据是连接的。
 
-### 3. 地址
+### 地址
 
-&emsp;&emsp;地址是由公钥经过一系列转换得到的一串由数字和字母构成的字符串。在neo中，公钥到地址的转换步骤如下：
+地址是由公钥经过一系列转换得到的一串由数字和字母构成的字符串。在neo中，公钥到地址的转换步骤如下：
 
 1. 构建地址脚本合约(脚本合约格式：
 
-&emsp;&emsp;`0x21`(1字节,代表Opcode中PushBytes指令)+压缩型公钥(33字节) + `0xac`（1字节,代表Opcode中 CheckSig指令))
+`0x21`(1字节,代表Opcode中PushBytes指令)+压缩型公钥(33字节) + `0xac`（1字节,代表Opcode中 CheckSig指令))
 
 2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
 
@@ -75,7 +74,7 @@ Example:
 
 4. 对字节数据做Base58Check编码
 
-&emsp;&emsp;Example：
+Example：
 
 | 格式 | 数值 |
 |----------|:-------------:|
@@ -83,17 +82,15 @@ Example:
 | 压缩型公钥 | 035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
 | 地址 | AXaXZjZGA3qhQRTCsyG5uFKr9HeShgVhTF  |
 
-### 4. 数字证书
-&emsp;&emsp;数字证书是一个经证书授权中心数字签名的包含公开密钥拥有者信息以及公开密钥的文件。
+### 数字证书
+数字证书是一个经证书授权中心数字签名的包含公开密钥拥有者信息以及公开密钥的文件。
 Neo使用的是X509格式的证书。
-
-
 
 ## **钱包文件**
 
-### 1. db3钱包文件
+###  db3钱包文件
 
-&emsp;&emsp;db3钱包文件是neo采用sqlite技术存储数据所使用存储文件，文件尾缀名：`.db3`。 文件中主要存储以下四个属性：
+db3钱包文件是neo采用sqlite技术存储数据所使用存储文件，文件尾缀名：`.db3`。 文件中主要存储以下四个属性：
 
 - `PasswordHash`：密码的哈希，由密码做sha256得到
 
@@ -103,11 +100,11 @@ Neo使用的是X509格式的证书。
 
 - `Version`：版本
 
-&emsp;&emsp;db3钱包采用对称加密AES相关技术作为钱包的加密和解密方法。
+db3钱包采用对称加密AES相关技术作为钱包的加密和解密方法。
 
-### 2. NEP6钱包文件
+### NEP6钱包文件
 
-&emsp;&emsp;NEP6钱包文件是neo满足NEP6标准的钱包存储数据所使用存储文件，文件尾缀名：`.json`。 json文件格式如下：
+NEP6钱包文件是neo满足NEP6标准的钱包存储数据所使用存储文件，文件尾缀名：`.json`。 json文件格式如下：
 
 ```json
 {
@@ -153,7 +150,7 @@ Neo使用的是X509格式的证书。
 }
 ```
 
-&emsp;&emsp;属性说明：
+属性说明：
 
 * name:名称
 
@@ -189,14 +186,14 @@ Neo使用的是X509格式的证书。
 
 * extra：钱包其他扩展
 
-&emsp;&emsp;NEP6钱包采用了以scrypt为核心算法的相关技术作为钱包的加密和解密方法。
+NEP6钱包采用了以scrypt为核心算法的相关技术作为钱包的加密和解密方法。
 
 **加密过程**：
 
 1. 由公钥计算地址，并获取SHA256(SHA256(Address))的前四个字节作为地址哈希。
 
 2. 使用Scrypt算法算出一个derivedkey，并将其64个字节数据分成2半，作为derivedhalf1和derivedhalf2。Scrypt所使用参数如下：
- 
+
 	- 密文：输入的密码（UTF-8格式）
 	- 盐：地址哈希
 	- n：16384
@@ -230,7 +227,7 @@ Neo使用的是X509格式的证书。
 
 8. 把该私钥做ECC求出公钥，并生成地址，对该地址做2次Sha256然后取结果的前四字节判断其是否与addresshash相同，相同则是正确的私钥。（参考NEP2）
 
-&emsp;&emsp;相关详细技术请参照neo文档中的NEP2和NEP6提案。
+相关详细技术请参照neo文档中的NEP2和NEP6提案。
 
 ​        NEP2提案：<https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki>
 
@@ -266,17 +263,15 @@ Neo使用的是X509格式的证书。
 
 ## **两种节点类型对应的钱包**
 
+### 全节点钱包
 
+全节点钱包是对区块链数据的完整备份，保存了链上的所有数据，同时也参与了P2P网络的构建，因此需要占用较大的存储空间。neo-cli、neo-gui都是全节点钱包。
 
-### 1. 全节点钱包
+### 轻钱包
 
-&emsp;&emsp;全节点钱包是对区块链数据的完整备份，保存了链上的所有数据，同时也参与了P2P网络的构建，因此需要占用较大的存储空间。neo-cli、neo-gui都是全节点钱包。
+SPV钱包又可称为“轻钱包”，不同于全节点钱包，它不存储全部区块的数据，只存储区块头数据，并通过使用布隆过滤器和梅克尔树等算法来实现相关数据的验证。能有效节约存储空间，多用在手机App端或轻客户端。若需要开发SPV钱包，可参考NEO网络协议相关接口实现。
 
-### 2. 轻钱包
-
-&emsp;&emsp;SPV钱包又可称为“轻钱包”，不同于全节点钱包，它不存储全部区块的数据，只存储区块头数据，并通过使用布隆过滤器和梅克尔树等算法来实现相关数据的验证。能有效节约存储空间，多用在手机App端或轻客户端。若需要开发SPV钱包，可参考NEO网络协议相关接口实现。
-
-&emsp;&emsp;使用方式：
+使用方式：
 
    1. SPV钱包向全节点发送布隆过滤器，并由全节点加载布隆过滤器
 
@@ -287,8 +282,3 @@ Neo使用的是X509格式的证书。
    4. SPV钱包用梅克尔树路径验证交易数据有效性（待确认）
 
    5. SPV钱包向全节点发送指令清除布隆过滤器，全节点清除过滤器。
-
-> [!NOTE]
-> 如果发现有死链接，请联系 <feedback@neo.org>
-
--->
