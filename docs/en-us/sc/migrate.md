@@ -1,4 +1,8 @@
-# Migrating Smart Contracts
+# Contract Migration and Destruction
+
+Smart contracts support to be migrated or destroyed after release. Before you can do that you need to reserve the specific interfaces in the old contracts.
+
+## Contract Migration
 
 In some cases you want to upgrade the smart contracts deployed on the blockchain or migrate the storage of a contract into another new contract, you need to migrate smart contracts.
 
@@ -8,7 +12,7 @@ This tutorial is based on:
 - NeoSmartContractPlugin v2.9.3
 - The latest [Neo-GUI](https://github.com/neo-project/neo-gui/releases)
 
-## Implementing the migrate interface
+### Implementing the migrate interface
 To enable migration function, you need to implement the migrate interface in the contract, as shown below:
 
 ```c#
@@ -67,7 +71,7 @@ To enable migration function, you need to implement the migrate interface in the
 
 If you want to migrate the contract later, you must implement the migrate interface in the contract prior to deployment. For more information, refer to [Deploying and Invoking Smart Contracts](deploy/deploy-invoke.md).
 
-## Migrating the contract
+### Migrating the contract
 With your new contract in hand, let's invoke the migrate interface in your old contract using NEO-GUI.
 
 1. In NEO-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the new contract. Copy the contract script and scripthash for later use.
@@ -96,4 +100,16 @@ With your new contract in hand, let's invoke the migrate interface in your old c
 
    ![旧合约](assets/migrate_m5.png)
 
-That indicates the storage has been migrated from the old contract into the new contract, and meanwhile the old contract has been destroyed.d
+That indicates the storage has been migrated from the old contract into the new contract, and meanwhile the old contract has been destroyed.
+
+## Contract Destruction
+
+To destroy a contract, you need to reserve the destruction interface in the contract.
+
+The contract destruction mainly calls the `Neo.Contract.Destroy` method:
+
+```c#
+void Destroy();
+```
+
+The `Destroy` method accepts no parameters, and it will delete contract and the storage area.
