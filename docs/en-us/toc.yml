@@ -44,7 +44,7 @@
       href: /docs/en-us/node/cli/setup.md
     - name: SeedList
       href: /docs/en-us/node/cli/seedlist.md
-    - name: NEO-CLI Command Line
+    - name: Command Line
       href: /docs/en-us/node/cli/cli.md
 - name: NEO Network
   items:
@@ -90,14 +90,16 @@
       href: /docs/en-us/sc/write/basics.md
     - name: Limitations
       href: /docs/en-us/sc/write/limitation.md
+    - name: NEP-5
+      href: /docs/en-us/sc/write/nep5.md
   - name: Deploying and Invoking Smart Contracts
     - name: Deploying and Invoking Smart Contracts
       href: /docs/en-us/sc/deploy/deploy-invoke.md
     - name: Parameters and Return Values
       href: /docs/en-us/sc/deploy/Parameter.md
-  - name: Unit Testing
+  - name: Testing
     href: /docs/en-us/sc/test.md
-  - name: Migrating Smart Contracts
+  - name: Contract Migration and Destruction
     href: /docs/en-us/sc/migrate.md
   - name: Fees
     href: /docs/en-us/sc/fees.md
@@ -162,7 +164,7 @@
     - name: Transaction Construction
       href: /docs/en-us/tooldev/sdk/tx.md
   - name: Advanced Topics
-    - name: NeoVM
+    - name: NeoVM Instructions
       href: /docs/en-us/tooldev/advanced/neo_vm.md
     - name: Network Protocol
       href: /docs/en-us/tooldev/advanced/network-protocol.md

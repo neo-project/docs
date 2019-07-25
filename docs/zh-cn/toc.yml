@@ -44,7 +44,7 @@
       href: /docs/zh-cn/node/cli/setup.md
     - name: 节点列表
       href: /docs/zh-cn/node/cli/seedlist.md
-    - name: NEO-CLI 命令参考
+    - name: 命令参考
       href: /docs/zh-cn/node/cli/cli.md
   - name: NEO-Python
     items:
@@ -104,6 +104,8 @@
       href: /docs/zh-cn/sc/write/basics.md
     - name: 编写限制
       href: /docs/zh-cn/sc/write/limitation.md
+    - name: NEP-5
+      href: /docs/zh-cn/sc/write/nep5.md
   - name: 部署和调用合约
     - name: 部署合约
       href: /docs/zh-cn/sc/deploy/deploy-invoke.md
@@ -111,7 +113,7 @@
       href: /docs/zh-cn/sc/deploy/Parameter.md
   - name: 测试
     href: /docs/zh-cn/sc/test.md
-  - name: 合约迁移
+  - name: 合约迁移与销毁
     href: /docs/zh-cn/sc/migrate.md
   - name: 手续费
     href: /docs/zh-cn/sc/fees.md
@@ -165,9 +167,9 @@
     href:  /docs/zh-cn/tooldev/neo_cli_structure.md
   - name: NEO SDK
     items:
-    - name: 欢迎使用 NEO SDK
+    - name: 关于 NEO SDK
       href: /docs/zh-cn/tooldev/sdk/introduction.md
-    - name: 常见数据类型转换
+    - name: 数据类型转换
       href: /docs/zh-cn/tooldev/sdk/format.md
     - name: 账户
       href: /docs/zh-cn/tooldev/sdk/account.md
@@ -176,7 +178,7 @@
     - name: 交易
       href: /docs/zh-cn/tooldev/sdk/tx.md
   - name: 进阶知识
-    - name: NeoVM
+    - name: NeoVM 指令集
       href: /docs/zh-cn/tooldev/advanced/neo_vm.md
     - name: 网络协议
       href: /docs/zh-cn/tooldev/advanced/network-protocol.md
@@ -205,7 +207,7 @@
 - name: 开发参考
   items:
   - name: RPC API
-    - name: API Reference
+    - name: API 参考
       href:  /docs/zh-cn/reference/rpc/latest-version/api.md
     - name: v2.10.2
       items:
