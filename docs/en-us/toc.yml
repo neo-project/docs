@@ -10,12 +10,8 @@
       href: /docs/en-us/basic/technology/neovm.md
     - name: NEO Contract
       href: /docs/en-us/basic/technology/neocontract.md
-    - name: Consensus
-      items:
-      - name: Consensus Whitepaper
-        href: /docs/en-us/basic/technology/dbft.md
-      - name: Consensus Diagram
-        href: /docs/en-us/basic/technology/consensus.md
+    - name: Consensus Whitepaper
+      href: /docs/en-us/basic/technology/dbft.md
 - name: NEO Node
   items:
   - name: Introduction

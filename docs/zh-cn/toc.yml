@@ -10,12 +10,8 @@
       href: /docs/zh-cn/basic/technology/neovm.md
     - name: NEO Contract白皮书
       href: /docs/zh-cn/basic/technology/neocontract.md
-    - name: 共识机制
-      items:
-      - name: 共识机制白皮书
-        href: /docs/zh-cn/basic/technology/dbft.md
-      - name: 共识机制图解
-        href: /docs/zh-cn/basic/technology/consensus.md
+    - name: 共识机制白皮书
+      href: /docs/zh-cn/basic/technology/dbft.md
 - name: NEO 节点
   items:
   - name: NEO 节点介绍

@@ -1,4 +1,4 @@
-# dBFT算法介绍
+# 共识算法
 
 PBFT(Practical Byzantine Fault Tolerance)[1]算法能够有效解决分布式可信共识问题，但是当投票节点越来越多时，性能下降越厉害，其算法时间复杂度为 O(n<sup>2</sup>), n是节点个数。 NEO在PBFT算法的基础上改良，提出结合POS模式特点的DBFT(Delegated Byzantine Fault Tolerant)[3]算法，利用区块链实时投票，决定下一轮共识节点，即授权少数节点出块，其他节点作为普通节点验证和接收区块信息。
 
