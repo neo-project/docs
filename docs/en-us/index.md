@@ -1,28 +1,24 @@
 Here is an exhaustive library of NEO technical docs, including development examples for your reference.
 
-For more NEO technical details, click [here](https://docs.neo.org/developerguide/en/index.html).
+------
+
+
+| NEO Introduction | NEO Node | NEO Network | Smart Contract |
+| ------- | --------| -------- | -------- |
+| [Whitepaper](basic/whitepaper.md) | [Introduction](node/introduction.md) | [Main Net & Test Net](network/testnet.md) | [Getting Started](sc/gettingstarted/introduction.md) |
+| [Consensus](basic/technology/consensus.md) | [NEO-GUI](node/gui/install.md) | [Private Chain - solo mode](network/private-chain/solo.md) | [Writing Smart Contracts](sc/write/basics.md) |
+| [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [Private Chain - local host](network/private-chain/private-chain2.md) | [Depoying and Invoking Contracts](sc/deploy/deploy-invoke.md) |
+| [NeoContract](basic/technology/neocontract.md) | [Synchronizing the blockchain](node/syncblocks.md) | [Private Chain - virtual machine](network/private-chain/private-chain.md) | [Migrating Contracts](sc/migrate.md) |
+|  |  | [Neo-local](network/private-chain/neolocal.md) | [View All](sc/gettingstarted/introduction.md) |
 
 ------
 
 
-| NEO Introduction | NEO Node | NEO Network |
-| ------- | --------| -------- |
-| [Whitepaper](basic/whitepaper.md) | [Introduction](node/introduction.md) | [Main Net & Test Net](network/testnet.md) |
-| [Consensus](basic/technology/consensus.md) | [NEO-GUI](node/gui/install.md) | [Private Chain - solo mode](network/private-chain/solo.md) |
-| [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [Private Chain - local host](network/private-chain/private-chain2.md) |
-| [NeoContract](basic/technology/neocontract.md) | [Synchronizing the blockchain](node/syncblocks.md) | [Private Chain - virtual machine](network/private-chain/private-chain.md) |
-|  |  | [Neo-local](network/private-chain/neolocal.md) |
-
-------
-
-
-| Smart Contract Development                                   | Reference                                         | Document for Exchange Developers                |
-| ------------------------------------------------------------ | ------------------------------------------------- | ----------------------------------------------- |
-| [Getting Started](sc/gettingstarted/introduction.md)         | [RPC API](reference/rpc/latest-version/api.md)    | [Version 2.10.2](exchange/2.10.2/deploynode.md) |
-| [Writing Smart Contracts](sc/write/basics.md)                | [Smart Contract API](reference/scapi/api.md)      |                                                 |
-| [Depoying and Invoking Contracts](sc/deploy/deploy-invoke.md) | [Smart Contract Framework](reference/scapi/fw.md) |                                                 |
-| [Migrating Contracts](sc/migrate.md)                         |                                                   |                                                 |
-| [Contract Samples](sc/sample/HelloWorld.md)                  |                                                   |                                                 |
-| [Fees](sc/fees.md)                                           |                                                   |                                                 |
+| NEO Tools Development                                | Reference                                         | Document for Exchange Developers                |      |
+| ---------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------- | ---- |
+| [Main Concepts](tooldev/concept/blockchain/block.md) | [RPC API](reference/rpc/latest-version/api.md)    | [Version 2.10.2](exchange/2.10.2/deploynode.md) |      |
+| [NEO-CLI Structure](tooldev/neo_cli_structure.md)    | [Smart Contract API](reference/scapi/api.md)      |                                                 |      |
+| [NEO SDK](tooldev/sdk/introduction.md)               | [Smart Contract Framework](reference/scapi/fw.md) |                                                 |      |
+| [Advanced Topics](tooldev/advanced/neo_vm.md)        |                                                   |                                                 |      |
 
 <link href="index.css" rel="stylesheet" />

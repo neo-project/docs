@@ -1,4 +1,8 @@
-# 合约迁移
+# 合约迁移与销毁
+
+合约支持在发布之后进行迁移或销毁，但需要在合约里预留某些接口。
+
+## 合约迁移
 
 当需要将原来已经部署使用的合约进行升级或者想将旧合约的存储区迁移到新合约的时候，需要用到合约迁移的功能。
 
@@ -8,7 +12,7 @@
 - 智能合约框架 NeoSmartContractPlugin v2.9.3
 - 最新版 [Neo-GUI](https://github.com/neo-project/neo-gui/releases)
 
-## 实现 Migrate 接口
+### 实现 Migrate 接口
 要使用合约迁移的功能，需要在原有合约中实现迁移接口，如下所示：
 
 ```c#
@@ -43,7 +47,7 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
 
 如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](deploy/deploy-invoke.md)。
 
-## 进行合约迁移
+### 进行合约迁移
 首先准备好新合约，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
 
 1. 在 NEO-GUI 中，点击 `高级` > `部署合约`，然后 `加载` 新合约。复制合约脚本和 ScriptHash 备用。
@@ -71,4 +75,16 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
    ![旧合约](assets/migrate_m5.png)
 
 此时旧合约的存储区已迁移到新的合约上，旧合约被销毁。
+
+## 合约销毁
+
+智能合约支持在发布之后进行销毁操作，但需要在旧合约内预留销毁接口。
+
+合约销毁主要调用了 Neo.Contract.Destroy 方法:
+
+```c#
+void Destroy();
+```
+
+Destroy 方法不需要参数，调用该方法后，合约将会被删除，如果合约有存储区，则存储区也将被删除。之后合约将不可用。
 

@@ -1,10 +1,10 @@
-# Unit Testing
+# Testing
 
-You can use the [invokeScript](../reference/rpc/latest-version/api/invokescript.md) method provided by NEO-CLI for unit testing.
+You can use the [invokeScript](../reference/rpc/latest-version/api/invokescript.md) method provided by NEO-CLI for testing.
 
 ### Testing tool
 
-A unit test is initiated by a POST request. This section we use a common POST tool POSTMAN to do the  testing. You can write a POST tool for testing as well. 
+A test is initiated by a POST request. This section we use a common POST tool POSTMAN to do the  testing. You can write a POST tool for testing as well. 
 
 After compiling your smart contract and getting the related script hash, you can use POSTMAN to test by following these steps:
 

@@ -1,10 +1,10 @@
-# 智能合约的单元测试
+# 测试
 
-可以使用 NEO-CLI 提供的 [invokeScript](../reference/rpc/latest-version/api/invokescript.md) 方法来进行单元测试。
+可以使用 NEO-CLI 提供的 [invokeScript](../reference/rpc/latest-version/api/invokescript.md) 方法来进行测试。
 
-### 单元测试工具
+### 测试工具
 
-发起单元测试就是一条 POST 请求，本文使用一个通用的 POST 工具，POSTMAN 来进行测试。你也可以自己编写一个 POST 工具。
+发起测试就是一条 POST 请求，本文使用一个通用的 POST 工具，POSTMAN 来进行测试。你也可以自己编写一个 POST 工具。
 
 编写好智能合约并获取合约脚本后，可使用 POSTMAN 进行测试，基本步骤如下：
 

@@ -72,7 +72,7 @@ Download the plugins you need from the following table.
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB.</td>
             <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -88,7 +88,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/ImportBlocks.zip">ImportBlocks</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip">ImportBlocks</a>
             </td>
             <td>Synchronizes the client using offline packages.</td>
             <td></td>
@@ -96,7 +96,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcWallet.zip">RpcWallet</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>Provides wallet-specific RPC functionalities.</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">claimgas</a><br><a
@@ -117,7 +117,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip">SimplePolicy</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/SimplePolicy.zip">SimplePolicy</a>
             </td>
             <td>Enables policies for filtrate illegal transactions</td>
             <td></td>
@@ -125,7 +125,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcSecurity.zip">RpcSecurity</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSecurity.zip">RpcSecurity</a>
             </td>
             <td>Improves RPC security.</td>
             <td></td>
@@ -143,7 +143,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports NEO-CLI status data.</td>
             <td></td>
@@ -151,7 +151,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5balances</a><br><a
@@ -160,6 +160,7 @@ Download the plugins you need from the following table.
         </tr>
     </tbody>
 </table>
+
 
 To install plugins, create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
 
