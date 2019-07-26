@@ -5,7 +5,7 @@ For more NEO technical details, click [here](https://docs.neo.org/developerguide
 ------
 
 
-| NEO Introduction | NEO Node | NEO Network | Smart Contract Development |
+| NEO Introduction | NEO Node | NEO Network | Smart Contract |
 | ------- | --------| -------- | -------- |
 | [Whitepaper](basic/whitepaper.md) | [Introduction](node/introduction.md) | [Main Net & Test Net](network/testnet.md) | [Getting Started](sc/gettingstarted/introduction.md) |
 | [Consensus](basic/technology/consensus.md) | [NEO-GUI](node/gui/install.md) | [Private Chain - solo mode](network/private-chain/solo.md) | [Writing Smart Contracts](sc/write/basics.md) |
