@@ -16,11 +16,11 @@ For more NEO technical details, click [here](https://docs.neo.org/developerguide
 ------
 
 
-| NEO Tools Development                                | Reference                                         | Document for Exchange Developers                |
-| ---------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------- |
-| [Main Concepts](tooldev/concept/blockchain/block.md) | [RPC API](reference/rpc/latest-version/api.md)    | [Version 2.10.2](exchange/2.10.2/deploynode.md) |
-| [NEO-CLI Structure](tooldev/neo_cli_structure.md)    | [Smart Contract API](reference/scapi/api.md)      |                                                 |
-| [NEO SDK](tooldev/sdk/introduction.md)               | [Smart Contract Framework](reference/scapi/fw.md) |                                                 |
-| [Advanced Topics](tooldev/advanced/neo_vm.md)        |                                                   |                                                 |
+| NEO Tools Development                                | Reference                                         | Document for Exchange Developers                |      |
+| ---------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------- | ---- |
+| [Main Concepts](tooldev/concept/blockchain/block.md) | [RPC API](reference/rpc/latest-version/api.md)    | [Version 2.10.2](exchange/2.10.2/deploynode.md) |      |
+| [NEO-CLI Structure](tooldev/neo_cli_structure.md)    | [Smart Contract API](reference/scapi/api.md)      |                                                 |      |
+| [NEO SDK](tooldev/sdk/introduction.md)               | [Smart Contract Framework](reference/scapi/fw.md) |                                                 |      |
+| [Advanced Topics](tooldev/advanced/neo_vm.md)        |                                                   |                                                 |      |
 
 <link href="index.css" rel="stylesheet" />
