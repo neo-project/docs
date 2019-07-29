@@ -21,11 +21,10 @@
     <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
-    <link href="https://neo-cdn.azureedge.net/css/vs.css" rel="stylesheet" />
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
-    <link href="/css/site.less" rel="stylesheet/less" type="text/css" />
-    <link href="/css/code.less" rel="stylesheet/less" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
+    <link href="/css/vs.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+    <link href="/css/code.min.css" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1 px-3 px-sm-4 px-md-5">
@@ -64,14 +63,14 @@
     </nav>
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
-            <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
+            <div class="d-none d-md-block catalog py-2 py-md-5">
                 {catalog}
             </div>
-            <main class="col-12 col-md-9 col-lg-8 p-3 p-sm-4 p-md-5">
+            <main class="p-3 p-sm-4 p-md-5">
                 <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
                 {body}
             </main>
-            <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
                 <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
                 <div class="side-nav-text">In this article</div>
                 <div id="navbar-sidenav">
@@ -99,7 +98,7 @@
     <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
-    <script src="/js/site.js"></script>
+    <script src="/js/site.min.js"></script>
     <script>
         //适用于FAQ的根据标题展开收缩
         if (_collapse) {
