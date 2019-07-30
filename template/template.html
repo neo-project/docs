@@ -22,12 +22,10 @@
     <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
-    <link href="/css/vs.min.css" rel="stylesheet" />
     <link href="/css/site.min.css" rel="stylesheet" />
-    <link href="/css/code.min.css" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light py-1 px-3 px-sm-4 px-md-5">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
         <a class="navbar-brand" href="https://neo.org"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,7 +61,7 @@
     </nav>
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
-            <div class="d-none d-md-block catalog py-2 py-md-5">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
                 {catalog}
             </div>
             <main class="p-3 p-sm-4 p-md-5">
@@ -79,8 +77,11 @@
             </div>
         </div>
     </div>
+    <div class="lightbulb" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
     <footer>
-        <div class="bg-light d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
             <ul class="d-none d-md-block">
                 <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
                 <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>

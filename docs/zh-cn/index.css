@@ -1,7 +1,7 @@
 .table thead th{
     background-color: transparent !important;
     border: none !important;
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
     font-weight: normal;
     padding: .5rem 0 !important;
     width: 25% !important;
@@ -21,4 +21,14 @@ hr{
 }
 .table-hover tbody tr:hover{
     background: transparent !important;
+}
+@media only screen and (max-width: 960px) {
+    .table thead th {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .table thead th {
+        font-size: 1rem;
+    }
 }
