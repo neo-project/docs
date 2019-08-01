@@ -179,6 +179,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 
 > [!NOTE]
+>
 > - 对需要验证的脚本，提供好参数，最后通过NVM进行执行，若都返回 True , 则脚本通过验证。
 > - 每一个地址，都是一段`OptCode.CHECKSIG`代码段，执行的时候，都需要签名参数。类似的多签合约地址，调用的是 `OptCode.CHECKMULTISIG` 方法，需要指定数量的签名参数。
 > - 每一笔交易的待验证脚本，都包括 input 所指向的tx.output.scriptHash 脚本（即，输入交易的收款人的地址脚本)，这样确保了，只有对应的钱包才能使用该笔UTXO。
@@ -275,7 +276,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 4. 触发资产变动事件。
 
-    1. 从未确认队列中，移除确认的新交易
+    从未确认队列中，移除确认的新交易
 
 
 ## 特殊交易的处理
@@ -306,22 +307,21 @@ NEO中定义的交易类型如下所示：
 
 所有的交易类型均派生自Neo.Core.Transaction类型。在该类型里，提供了一些共有的功能和特征，如：
 
-* **交易属性**
+* 交易属性
 
-交易的属性列表和最大属性数量16，交易类型（如前文所示），版本（默认为1），等等
+  交易的属性列表和最大属性数量16，交易类型（如前文所示），版本（默认为1），等等
 
+* 交易的功能性
 
-* **交易的功能性**
+   输入/输出列表，验证该交易的脚本列表，网络/系统费用，每一个交易输入所引用的交易输出，获取需要校验的脚本散列值，获取交易后各资产的变化量，交易验证，等等
 
- 输入/输出列表，验证该交易的脚本列表，网络/系统费用，每一个交易输入所引用的交易输出，获取需要校验的脚本散列值，获取交易后各资产的变化量，交易验证，等等
+* 交易的读写操作
 
-* **交易的读写操作**
+  ReflectionCache，Size，序列化/反序列化，等等
 
-ReflectionCache，Size，序列化/反序列化，等等
+* TransactionAttribute
 
-* **TransactionAttribute**
-
-Attributes 是Transaction类别的一个变量，表示该交易所具备的额外特性。数据结构如下：
+  Attributes 是Transaction类别的一个变量，表示该交易所具备的额外特性。数据结构如下：
 
 | 尺寸 | 字段 | 类型 | 描述 |
 |---|-------|------|------|
