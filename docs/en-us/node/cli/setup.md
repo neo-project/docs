@@ -127,7 +127,7 @@ Download the plugins you need from the following table.
             <td><a
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSecurity.zip">RpcSecurity</a>
             </td>
-            <td>Improves RPC security.</td>
+            <td>Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file.</td>
             <td></td>
             <td>Optional</td>
         </tr>
@@ -160,6 +160,7 @@ Download the plugins you need from the following table.
         </tr>
     </tbody>
 </table>
+
 
 
 To install plugins, create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
