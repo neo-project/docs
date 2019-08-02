@@ -6,7 +6,7 @@ Here is an exhaustive library of NEO technical docs, including development examp
 | NEO Introduction | NEO Node | NEO Network | Smart Contract |
 | ------- | --------| -------- | -------- |
 | [Whitepaper](basic/whitepaper.md) | [Introduction](node/introduction.md) | [Main Net & Test Net](network/testnet.md) | [Getting Started](sc/gettingstarted/introduction.md) |
-| [Consensus](basic/technology/consensus.md) | [NEO-GUI](node/gui/install.md) | [Private Chain - solo mode](network/private-chain/solo.md) | [Writing Smart Contracts](sc/write/basics.md) |
+| [Consensus](basic/technology/dbft.md) | [NEO-GUI](node/gui/install.md) | [Private Chain - solo mode](network/private-chain/solo.md) | [Writing Smart Contracts](sc/write/basics.md) |
 | [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [Private Chain - local host](network/private-chain/private-chain2.md) | [Depoying and Invoking Contracts](sc/deploy/deploy-invoke.md) |
 | [NeoContract](basic/technology/neocontract.md) | [Synchronizing the blockchain](node/syncblocks.md) | [Private Chain - virtual machine](network/private-chain/private-chain.md) | [Migrating Contracts](sc/migrate.md) |
 |  |  | [Neo-local](network/private-chain/neolocal.md) | [View All](sc/gettingstarted/introduction.md) |
