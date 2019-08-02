@@ -125,7 +125,7 @@
             <td><a
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSecurity.zip">RpcSecurity</a>
             </td>
-            <td>提升 RPC 安全。</td>
+            <td>对HTTP Request进行base64加密，提升RPC请求的安全性。需要在该插件的config.json文件中设置username和password</td>
             <td></td>
             <td>可选</td>
         </tr>
