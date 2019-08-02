@@ -1,107 +1,237 @@
-# 共识算法
+# dBFT 2.0 算法
 
-PBFT(Practical Byzantine Fault Tolerance)[1]算法能够有效解决分布式可信共识问题，但是当投票节点越来越多时，性能下降越厉害，其算法时间复杂度为 O(n<sup>2</sup>), n是节点个数。 NEO在PBFT算法的基础上改良，提出结合POS模式特点的DBFT(Delegated Byzantine Fault Tolerant)[3]算法，利用区块链实时投票，决定下一轮共识节点，即授权少数节点出块，其他节点作为普通节点验证和接收区块信息。
+NEO 在PBFT[9]（Practical Byzantine Fault Tolerance， 实用拜占庭容错）算法的基础上，提出了dBFT[10]（delegated Byzantine Fault Tolerance， 委托拜占庭容错）共识算法。算法根据区块链实时投票情况，决定下一轮参与共识的节点，有效降低了算法耗时，从而提高了出块速度，同时降低了交易确认周期。2019年3月又在原dBFT算法的基础上提出了升级版算法dBFT2.0，引入了三阶段共识机制和恢复机制，进一步提升了算法的鲁棒性和安全性。
+
+## 共识术语
+
+| **名称** | 定义                                                         |
+| -------- | ------------------------------------------------------------ |
+| 共识节点 | 具有发起新块提案和提案投票权限的节点                         |
+| 普通节点 | 具有转账、交易权限和全网账本，但不能发起区块提案与投票       |
+| 议长     | 负责向其他节点广播新块提案                                   |
+| 议员     | 参与共识出块的账户，负责对新块提案进行投票                   |
+| 候选人   | 被提名有权参与共识节点投票的账户                             |
+| 共识节点 | 从候选人中被选出的，参与共识的账户                           |
+| 视图     | 一轮共识从开始到结束所使用的数据集。视图编号*v*，从 0 开始，本轮共识失败时*v* 逐渐递增，直到新的提案通过后重置 |
+
+## 共识消息
+
+dBFT 2.0算法包含6种共识消息：
+
+| **名称**            | **描述**                                     |
+| ------------------- | -------------------------------------------- |
+| Prepare  Request    | 发起新一轮共识的信息                         |
+| Prepare  Response   | 用来通知其他节点已获取构建区块的全部交易信息 |
+| Commit              | 通知其他节点已获取了足够多的Prepare Response |
+| Change View Request | 尝试改变视图的信息                           |
+| Recovery Request    | 同步共识状态的请求                           |
+| Recovery Message    | 对Recovery Request的响应信息                 |
+
+## 共识流程
+
+### 三阶段共识流程
+
+![](../../images/consensus/1.png)
+
+如图所示，一轮共识具有以下4个步骤：
+
+1. 议长发起共识，广播Prepare Request；
+2. 接收到Prepare Request后，议员广播Prepare Response；
+3. 接收到足够多的Prepare Response后，共识节点广播Commit；
+4. 接收到足够多的Commit后，共识节点产生新块并广播。
+
+这里引入两个变量：
+
+​                                 ![](../../images/consensus/2.png) 
+
+其中，*N*为共识节点的总数。
+
+常规情况的算法流程如下图所示。
+
+![](../../images/consensus/3.png)
+
+##### 1) 初始化本地共识信息
+
+1. 重置共识上下文；
+2. 设置编号为 *(h - v) mod N*  的共识节点为本轮共识的议长，其中，*h*为区块高度，*v*为当前视图编号，*N*为共识节点数目；
+3. 设置超时时间，议长为  *T<sub>block</sub>* （区块周期，当前为15s），议员为 2<sup>v+1</sup> *T<sub>block</sub>  ；
+4. 向其他节点发送 Recovery Request 获取当前共识状态。
+
+##### 2) 各共识节点超时前监听网络，收集交易信息
+
+##### 3) 发起共识
+
+- 议长：
+  1. 在 *T<sub>block</sub>* 后按照共识策略从内存池中选取交易，取哈希打包为Prepare Request并广播，发起新一轮共识；
+  2. 将选出的交易信息每500个打包并广播；
+  3. 将超时时间设置为 (2<sup>v+1</sup> - k(v))*T<sub>block</sub> ，其中![](../../images/consensus/4.png)   。
+
+- 议员：
+
+   - 若在超时前接收到议长发出的Prepare Request：
+   
+     1. 验证消息的合法性，以及是否符合本地共识状态；
+   
+     2. 将本节点的超时时间延长![](../../images/consensus/5.png)   ；
+   
+     3. 更新本地共识状态；
+   
+     4. 对于消息包含的交易哈希，尝试从内存池或未确认的交易中获取相应交易，并添加至共识模块；
+   
+     5. 向其他节点查询步骤4中未在本地找到的交易信息。
+   
+   - 若没有在超时前接收到议长发出的Prepare Request，则会尝试改变视图。
+
+##### 4) 广播Prepare Response
+
+- 议员若在超时前收集到Prepare Request中全部交易信息:
+  1. 对于每一条交易信息：若交易验证失败或不符合共识策略，尝试改变视图；否则将交易添加至共识模块；
+  2. 广播Prepare Response信息；
+  3. 将本节点的超时时间延长![](../../images/consensus/5.png)。
+- 否则，尝试改变视图。
+
+##### 5) 收集Prepare Response & 广播Commit
+
+- 议长以及接收到Prepare Request的议员，若在超时前收集到至少*M*个议员的Prepare Response：
+   - 对于每一条Prepare Response：
+     1. 验证消息的合法性，以及是否符合本地共识状态；
+     2. 将本节点的超时时间延长![](../../images/consensus/5.png)。
+   - 广播 Commit 信息。
+- 否则，尝试改变视图。
+
+##### 6) 收集Commit信息 & 出块
+
+- 每个已收集齐Prepare Request中交易信息的共识节点，若在超时前收集到至少*M*个共识节点的Commit：
+   - 对于每一条Commit：
+     1. 验证消息的合法性，以及是否符合本地共识状态；
+     2. 将本节点的超时时间延长![](../../images/consensus/6.png)。
+   - 生成并广播新块。
+- 否则，广播Recovery Message，并将超时时间设置为 2*T<sub>block</sub>  。
+
+##### 7)  回到第1步，开始下一轮共识
+
+### Change View Request 消息
+
+#### 触发场景
+
+- 议员在验证交易出现问题时，会广播Change View Request尝试更换议长;
+
+- 议员等待议长的Prepare Request超时，或等待Prepare Response超时，广播Change View Request信息尝试更换议长。
 
 
-## 基本概念
+#### 流程
 
-* 共识节点： 具有发起新块提案，提案投票权限的节点。
-* 普通节点： 具有转账，交易权限和全网账本，但不能发起区块提案与投票。
-* 议长：负责向其他节点，广播新块提案。
-* 议员：参与共识出块的节点，负责对新块提案进行投票，当票数不少于 N-𝑓 时，则提案通过。
-* 验证人： 被投票选举参与共识的节点，共识候选节点。
-* 视图： 一轮共识从开始到结束所使用的数据集。视图编号 v，从 0 开始，本轮共识失败时 v 逐渐递增，直到新的提案通过后清零。
+![](../../images/consensus/8.png)
 
+1. 将超时时间设置为 2<sup>v+2</sup> * T<sub>block</sub>  ；
 
-## 算法流程
+2. 若已经发出Commit信息的节点和故障节点（超过一个区块高度没有收到过其共识信息的共识节点）数目之和大于*F*，则广播Recovery Request信息；
+
+3. 否则，广播Change View Request信息，并检查已收到的Change View Request数目：若超过*M*个共识节点就更换视图达成共识，则改变本地视图，初始化本地共识信息，并根据新的视图编号确认下一轮议长。
 
 
-### 符号定义
+#### 处理逻辑
 
-- N: 本轮共识节点总个数。
-- f：最大容错节点个数， 为 ⌊(N-1)/3⌋。
-- v: 视图编号，从0开始。
-- ℎ：当前共识的区块高度。
-- p: 议长编号，`p = (h - v) mod N`。
-- i：议员节点编号，等于本轮共识列表中的序号。
-- t: 出块时间。配置在文件`protocol.json`中的`SecondsPerBlock`值，默认15秒钟。
-- 𝑏𝑙𝑜𝑐𝑘： 提案的新块。
-- 〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>: 第i个共识节点对𝑏𝑙𝑜𝑐𝑘的签名。
+当共识节点收到Change View Request时：
 
+1. 若信息的视图不大于本地视图，该信息作为Recovery Request处理；
 
-### 一般流程
+2. 验证消息的合法性；
 
+3. 检查已收到的Change View Request数目：若超过*M*个共识节点就更换视图达成共识，则改变本地视图，初始化本地共识信息，并根据新的视图编号确认下一轮议长。
 
-假设当前共识节点总数N, 最多 f 个容错节点。 刚开始时，至少具有 N-𝑓 个节点处于相同的视图编号v, 区块高度 ℎ = 当前区块高度。（若没有处在同一高度，可通过P2P之间区块同步，最终达成一致； 若视图编号不一致时，可通过更换视图最终达成一致）。共识算法的流程如下：
+![](../../images/consensus/9.png)
 
-1. 用户通过钱包发起一笔交易，如转账，发布智能合约，智能合约调用等。
+### Recovery Request 消息
 
-2. 钱包对交易进行签名，并发给节点P2P广播；
+#### 触发情景
 
-3. 共识节点收到该笔交易，存放到内存池；
+- 开启共识节点会广播Recovery Request信息，以同步至最新共识状态；
 
-4. 在某一轮共识中，某议长经过时间 t 后，将内存池交易，打包到新𝑏𝑙𝑜𝑐𝑘中，并广播 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,
-〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉  新块提案；
-
-   1. 加载内存池交易
-
-   2. 加载[`IPolicyPlugin`插件](https://github.com/neo-project/neo-plugins)，对交易进行排序和过滤。(其中，每个区块500笔交易，免费20笔交易，在插件中完成过滤)
-  
-   3. 计算总交易的网络手续费（`= input.GAS - output.GAS - 交易系统费 `)，将其作为当前议长的`MinerTransaction`奖励。
-  
-   4. 结合上面的交易和以前的验证人投票情况，计算出下一个区块的共识节点，并将多方签名脚本hash赋值给`block.NextConsensus`，锁定下一区块的共识节点。
-  
-   5. 设置block的时间戳为当前时间，并计算议长对block的签名
-  
-   6. 广播`PrepareRequset`共识消息
-
-   7. 广播`inv`消息，附带上除`MinerTransaction`外的交易hash。（通知其他节点，同步要打包的交易数据）
-
-5. 议员，在收到该提案与验证后，广播 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒,ℎ,𝑣,𝑖,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>〉 投票消息
-
-6. 当任意一个议员（包括议长），在收到 𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡 和 𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒 至少 N-𝑓 个〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>签名（包括自己的签名）后，即达成共识，开始发布新块，并广播；
-
-7. 任意一个节点收到该新块后，将上面交易从内存池中删除，并记录该区块内容。 若是共识节点收到新区块后，则进入下一轮共识。
-
-[![dbft_two_phase](../../images/consensus/dbft_two_phase.jpg)](../../images/consensus/dbft_two_phase.jpg)
-
-算法可以划分为三阶段。<BR/>
-
-1. `PRE-PREPARE`预准备阶段，本轮的议长负责向其他议员广播`Prepare-Request`消息， 发起提案。<BR/>
-2. `PREPARE`准备阶段，议员向外广播`Prepare-Response`消息，发起投票，当一个共识节点收到不少于`N-f`个〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>签名, 则进入第三阶段。<BR/>
-3. `PERSIST`出块阶段， 负责向外广播新块，并进入下一轮共识。<BR/>
+- 发起Change View Request的时候，若缺少足够的活跃共识节点连接（已经发出Commit信息的节点和故障节点数目之和大于*F*）的时候，向网络广播Recovery Request消息，以将数据同步至最新共识状态。
 
 
-> [!Note]
->
-> 1. 刚启动区块链网络时，默认读取配置文件`protocol.json`的备用共识节点列表`StandbyValidators`.
-> 2. 与普通块不一样，创世块并非共识节点出块，而是默认为区块链第一个区块。创世块中的`NextConsensus`指定了下一个块的共识节点为`StandbyValidators`的多方签名脚本hash。
+#### 处理逻辑
 
-### 视图更换
+共识节点收到Recovery Request时，只有满足以下条件，才会生成并广播Recovery Message。
 
-在开放的P2P网络环境共识过程中，可能会遇到网络延迟超时，恶意节点发送假数据等，议员可以发起更换视图消息，若收到不少于N-f个更换视图消息时，则进入新的视图和新的议长，重新进行区块共识。
+- 本节点在本轮共识发送过Commit信息；
+-  或编号在议员列表中在以下范围内：![](../../images/consensus/7.png)，其中 *j* 为 Recovery Request 发起者的编号。
 
+![](../../images/consensus/10.png)
 
-[![dbft_state_graph](../../images/consensus/dbft_state_graph.jpg)](../../images/consensus/dbft_state_graph.jpg)
+### Recovery Message 消息
 
-当节点 𝑖 在经过 2<sup>𝑣+1</sup> ⋅ 𝑡 的时间间隔后仍未达成共识，或接收到包含非法交易的提案后，开始进入视图更换流程： 
+#### 内容
 
-1. 令 𝑘 = 1，𝑣<sub>𝑘 </sub>= 𝑣 + 𝑘； 
+- 不超过*M*个议员的上次Change View Request信息；
 
-2. 节点 𝑖 发出视图更换请求 〈𝐶ℎ𝑎𝑛𝑔𝑒𝑉𝑖𝑒𝑤,ℎ,𝑣,𝑖,𝑣<sub>𝑘</sub>〉； 
+- 本节点和其他共识节点Prepare Request/Response信息；
 
-3. 任意节点收到至少 2𝑓+1 个来自不同 𝑖 的相同 𝑣<sub>𝑘</sub> 后，视图更换达成，令 𝑣 = 𝑣<sub>𝑘</sub> 并开始共识；
-
-4. 若经过 2<sup>𝑣<sub>𝑘 </sub>+1</sup> ⋅ 𝑡 的时间间隔后，视图更换仍未达成，则 𝑘 递增并回到第 2 步； 
-
-随着 𝑘 的增加，超时的等待时间也会呈指数级增加，可以避免频繁的视图更换操作，并使各节点尽快对 𝑣 达成一致。 而在视图更换达成之前，原来的 𝑣 依然有效，避免因偶然性的网络延迟超时而导致不必要的视图更换。 
-
-[1] [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)<br/>
-[2] [共识机制图解](http://docs.neo.org/zh-cn/basic/consensus/consensus.html)<br/>
-[3] [一种用于区块链的拜占庭容错算法](http://docs.neo.org/zh-cn/basic/consensus/whitepaper.html)<br/>
-[4] [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)<br/>
-[5] [Consensus Plugin](https://github.com/neo-project/neo-plugins)
+- 各共识节点的Commit信息。
 
 
+#### 触发情景
+
+- 收到Recovery Request，且本节点发送过Commit信息，或编号在议员列表中在以下范围内：![](../../images/consensus/7.png)，其中 *j* 为Recovery Request发起者的编号；
+
+- 收到Change View Request信息时，若信息的视图不大于本地视图，该信息作为Recovery Request处理；
+
+- 等待Commit超时，通过发送Recovery Message，再次广播Commit信息（常见于网络问题）；
 
 
+#### 处理逻辑
+
+1. 验证消息的合法性，以及本地共识状态：消息的视图大于本地视图，且本节点已经在本轮发送过Commit，则忽略该消息；
+
+2. 否则，若信息的视图大于本地视图：处理信息中包含的Change View Request；
+
+3. 若信息的视图等于本地视图：
+
+   - 处理信息中包含的Prepare Request：
+
+     1. 若本地未发送或接受到Prepare Request，接收信息中包含的Prepare Request；
+
+     2. 否则，若本节点为议长，广播Prepare Request信息。
+
+   - 处理信息中包含的Prepare Response。
+
+4. 若信息的视图小于等于本地视图：处理信息中包含的Commit。
+
+![](../../images/consensus/11.png)
+
+Change View Request，Recovery Request和Recovery Message机制能够避免网络原因导致的超时，异常节点（作恶节点，故障节点等非正常共识节点）等问题带来的影响。
+
+## dBFT 2.0 的容错性
+
+共识节点个数为*N*的dBFT2.0共识系统可以最多容忍*F*个异常节点。系统的每个共识操作（Commit，Change View，出块等）需要至少*M*个节点达成共识，只要系统中的正常共识节点不少于*M*，共识进程就可以不断进行下去。比如，在一个*N* = 4 的共识系统中，只需  4 − ⌊ (4−1) / 3 ⌋ =3  个正常共识节点，就可以保证系统的正常工作。
+
+## dBFT 2.0 的终局性
+
+dBFT 2.0针对旧版本可能产生分叉的问题进行修正，从根本上杜绝了分叉的可能性。这是由于：
+
+- 出块的必需条件包括，对于该新块提案，收到至少*M*个共识节点的Commit信息；
+
+- 已经发出Commit的共识节点将不会改变视图；
+
+
+因此产生一个新块意味着：
+
+- 已经有至少*M*个共识节点对该块的提案做过签名并发出Commit信息，且这些共识节点的视图不会变化；
+
+- 其他共识节点的数量不足产生另一个不同的区块。
+
+
+因此可以保证新块的唯一性。
+
+## 共识策略
+
+共识流程中的以下场景会使用共识策略：
+
+- 当节点接收到来自其他节点的交易信息时，需要验证该交易是否满足现有共识策略的过滤条件，以便过滤掉不符合策略的交易；
+
+- 共识模块接收到交易信息时，需要验证该交易是否满足共识策略；若不满足，则尝试改变视图；
+
+- 启动共识时，需要使用共识策略对共识模块中的交易进行过滤。在将未确认的交易过滤后，才能将交易添加到内存池中；
+
+- 议长在生成新的Prepare Request时，需要通过共识策略从当前内存池中筛选出可以上链的交易。

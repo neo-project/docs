@@ -1,116 +1,227 @@
-# The dBFT Algorithm
+# dBFT 2.0 Algorithm
 
-The dBFT(Delegated Byzantine Fault Tolerant) algorithm is based on PBFT(Practical Byzantine Fault Tolerance) algorithm, which is more suitable in blockchain than the latter. PBFT algorithm can solve distributed network consensus effectively, but the more nodes join consensus, the quicker the performance drops, as the time complexity is O(n<sup>2</sup>). For this reason, NEO proposes an algorithm named dBFT, which combines the characteristics of dPoS. By voting on the blockchain, it decides the name list of consensus nodes for next round, namely authorizing a few nodes to reach consensus and create new block, the other nodes will act as ordinary nodes to receive and verify blocks.
+NEO proposes dBFT [10] (delegated Byzantine Fault Tolerance) consensus algorithm based on PBFT [9] (Practical Byzantine Fault Tolerance) algorithm. Algorithm dBFT determines validator set according to real-time blockchain voting, which effectively enhances the effectiveness of the algorithm, bringing block time and transaction confirmation time savings. dBFT2.0 as an upgraded version was released in Mar. 2019, which improves robustness and safety by introducing 3-stage consensus as well as a recovery mechanism.
 
+## Terms
 
-* **Consensus Node**: This node participates in the consensus activity, make a block proposal and vote.
+| **Term**  | **Definition**                                               |
+| --------- | ------------------------------------------------------------ |
+| Speaker   | Validator in charge of creating and broadcasting a proposal block to the network |
+| Delegate  | Validator responsible for voting on the block proposal       |
+| Candidate | Account nominated for validator election                     |
+| Validator | Account elected from candidates to take part in consensus    |
+| View      | Referred to the dataset used during a round of consensus. View number *V* starts from 0 in each round and increases progressively upon consensus   failure until the approval of the block proposal, and then is reset to 0. |
 
-* **Ordinary Node**: This node can transfer, make a transaction, but does not participate in the consensus activity.
+## Consensus Message
 
-* **Speaker(Unique in each round)**: The Speaker is responsible to create and transmit a proposal block to the system.
+Six types of consensus messages are defined in dBFT2.0:
 
-* **Delegates(Multiple)**: Delegates are responsible for voting on the proposal block. The proposal will be accepted if more than `2f+1` consensus nodes vote it. `f` is the limit of Byzantine nodes. More details is in Symbolic Definition below.
+| **Message**           | **Definition**                                               |
+| --------------------- | ------------------------------------------------------------ |
+| Prepare   Request     | Message to start a new round of consensus                    |
+| Prepare   Response    | Message informing   other validators that all necessary transactions have been collected for   block creation |
+| Commit                | Message informing   other validators that enough   Prepare Response messages have been collected |
+| Change   View Request | Message of view   changing attempt                           |
+| Recovery   Request    | Request for   consensus data synchronization                 |
+| Recovery   Message    | Response to Recovery Request message                         |
 
-* **Validator candidate**: Nodes participating in elections. Candidate nodes for consensus activity.
+## Consensus Flow
 
-* **View**: The dataset used during one consensus activity. The view number start from 0 in each round, and the number will increase when it failed to reach consensus in a round.
+### 3-Stage Consensus Flow
 
+![](../../images/consensus/1.png)
 
-## Algorithm Flow
+A round of consensus consists of 4 steps, as shown in the Figure above.
 
+1. Speaker starts consensus by broadcasting a Prepare Request message,
+2. Delegates broadcast Prepare Response after receiving the Prepare Request message,
+3. Validators broadcast Commit after receiving enough Prepare Response messages,
+4. Validators produce & broadcast a new block after receiving enough Commit messages.
 
-### Symbolic Definition
+Here we introduce two variables as follows:
 
-- N: The number of active consensus nodes.
+​                             ![](../../images/consensus/2.png)       
 
-- f：The threshold of dishonest consensus nodes (Byzantine nodes) in the system. No more than ⌊(N-1)/3⌋.
+where *N* is the number of validators.
 
-- v: The view number, start from 0.
+A normal algorithm flow is shown below.
 
-- h：The current block height during consensus activity.
+![](../../images/consensus/3.png)
 
-- p: The index of Speaker in array. `p = (h - v) mod N`
+##### 1)  Initialize local consensus information
 
-- i：The index of consensus node in array. 
+1. Initialize consensus context,
 
-- t: The block interval, config in `protocol.json/SecondsPerBlock`, default 15 seconds.
+2. Set the validator whose index equals  *(h - v) mod N*  as the speaker. Here h is current block height, v is the current view, and N is the number of validators,
 
-- 𝑏𝑙𝑜𝑐𝑘：The proposal block
+3. Set speaker's timeout to  *T<sub>block</sub>*  *(Block* time, currently 15s) and delegates' timeout to  2<sup>v+1</sup> *T<sub>block</sub> ,
 
-- 〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>: The block's signature of the `i`th consensus node.
+4. Broadcast the Recovery Request message to acquire the current consensus context.
 
-### General Procedures
+##### 2)  Validators listen to the network and collect transactions until timeout
 
+##### 3)  Start consensus
 
-Assume the total number of active consensus nodes is `N`, up to `f` fault tolerance nodes. At the begin, the nodes have the same view number `v = 0`, and block height `h = current block height`. If not at the same height, it can be achieved by block synchronization between P2Ps. The process involved in the consensus algorithm is as follows:
+- For speaker:
 
-1. A user initiate a transaction through a wallet.(to transfer or to deploy smart contract, to issue new asset, etc.)
+  1. Select transactions from memory pool according to consensus policy after *T<sub>block</sub>* . Create and broadcast Prepare Request message with these transactions' hash to start a new round of consensus,
 
-2. The wallet signs the transaction data, and broadcasts it to the p2p network.
+  2. Package and broadcast each 500 selected transactions,
 
-3. The consensus nodes receive the transaction, and put into the memory pool.
+  3. Set timeout to (2<sup>v+1</sup> - k(v))*T<sub>block</sub>  , where ![](../../images/consensus/4.png)   
 
-4. In a certain round of consensus, the speaker packages transactions from the memory pool into a new proposal block, then broadcasts it as 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑞𝑢𝑒𝑠𝑡,ℎ,𝑣,𝑝,𝑏𝑙𝑜𝑐𝑘,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑝</sub>〉.
+- For delegates:
 
-   1. Load all the transactions in memory pool.
+   - In case of receiving Prepare Request from the speaker before timeout:
 
-   2. Load [`IPolicyPlugin`](https://github.com/neo-project/neo-plugins) plugin, sort and filter the transactions.
+     1. Verify the validity of the message and whether it conforms to the local consensus context,
 
-   3. Calculate the network fee (`= inputs.GAS - outputs.GAS - transactions_system_fee `), and take it as the reward for the current Speaker in `MinerTransaction`.
+     2. Prolong local timeout by  ![](../../images/consensus/5.png) *,*
 
-   4. Combine the above transactions and the previous validators votes to calculate the hash of next round consensus nodes, and assign the hash of multi-signature script to `block.NextConsensus`, locking the consensus nodes of the next round.
+     3. Update local consensus context,
 
-   5. Set the timestamp of block to the current time and calculate the signature of the speaker.
-   
-   6. Broadcast the `PrepareRequest` messsage.
+     4. For each hash contained in the message, attempt to acquire corresponding transactions from memory pool or unverified transaction pool, and add these transactions to consensus context,
 
-   7. Broadcast an `inv` message, attached with transaction's hash except `MinerTransaction`, to notify other nodes to synchronize the transactions in the proposal block.
+     5. Ask for transactions not found in step 4 from other nodes.
 
-5. Delegates recieve the proposal block, and verify it, then broadcast 〈𝑃𝑟𝑒𝑝𝑎𝑟𝑒𝑅𝑒𝑠𝑝𝑜𝑛𝑠𝑒,ℎ,𝑣,𝑖,〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>〉 message.
+- Otherwise, attempt to change view.
 
-6. Any consensus node, on receiving at least `n-f` 〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub> , reaches a consensus and publishes the new block.
+##### 4)  Broadcast Prepare Response
 
-7. Any node, on receiving a new block, deletes all transactions in the block from memory pool. If the node is a consensus node, then it starts the next round consensus.
+- If a delegate collects all transactions required in Prepare Request before timeout
 
+  1. For each transaction received, in case of transaction verification failure or against consensus policy, attempt to change view, otherwise add the transaction to consensus context,
 
-[![dbft_two_phase](../../images/consensus/dbft_two_phase_en.jpg)](../../images/consensus/dbft_two_phase_en.jpg)
+  2. Broadcast Prepare Response message,
 
-The algorithm can be divided into three stages.<BR/>
+  3. Prolong local timeout by ![](../../images/consensus/5.png)
 
-1. `PRE-PREPARE`, the speaker of this round is responsible for broadcasting `Prepare-request` message to the delegates and initiating the proposal block.<BR/>
-2. `PREPARE`, on receiving `PRE-PREPARE`, the delegates broadcast `Prepare-Response` if the proposal block is verified successfully. When a consensus node receives at least `N-f` 〈𝑏𝑙𝑜𝑐𝑘〉<sub>𝜎𝑖</sub>, it enters the third stage.<BR/>
-3. `PERSIST`, the node publishes a new block and enter the next consensus round.<BR/>
+- Otherwise, attempt to change view.
 
-> [!Note]
->
-> - At the very beginning of the blockchain network, `StandbyValidators` are read from the configuration file `protocol.json` as backup validators. For there isn't any enrolled validator yet.
-> - Unlike ordinary block, the Genesis block is the first block in the blockchain by default, which is not published by consensus nodes. In the Genesis block, the field `NextConsensus` is set to the hash value of `StandbyValidators`, so the consensus nodes for the next block is determined.
+##### 5)  Collect Prepare Response and broadcast Commit
 
-### View Change
+- For the speaker and delegates who have received Prepare Request, if Prepare Response messages from M different delegates are received before timeout:
 
-As the process of consensus is in an open p2p network environment, there are cases that no consensus can be reached. For example a key consensus message is delayed in the network, or a dishonest node sends illegal data, etc. The consensus nodes can initiate a `ChangeView` proposal in such situations. They will enter a new view with new speaker, and restart consensus, after receiving at least `N-f` `ChangeView` messages with the same view number.
+   - For each Prepare Response message received:
 
-[![dbft_state_graph](../../images/consensus/dbft_state_graph.jpg)](../../images/consensus/dbft_state_graph.jpg)
+     1. Verify the validity of the message and whether it conforms to the local consensus context,
 
-The View-Change process will be initiated, when one consensus node could not reach consensus in 2<sup>v+1</sup>⋅ 𝑡  time interval, or it received an illegal proposal(invalid transactions).
+     2. Prolong local timeout by ![](../../images/consensus/5.png)
 
-1. Given 𝑘 = 1, 𝑣<sub>𝑘 </sub>= 𝑣 + 𝑘； 
+   - Broadcast Commit message.
 
-2. The `𝑖`th node initiate a 〈𝐶ℎ𝑎𝑛𝑔𝑒𝑉𝑖𝑒𝑤,ℎ,𝑣,𝑖,𝑣<sub>𝑘</sub>〉 proposal.
+- Otherwise, attempt to change view.
 
-3. When any one node received at least `N-f` `ChangeView` with the same 𝑣<sub>𝑘</sub> from different consensus nodes, the View Change will be completed. Set 𝑣 = 𝑣<sub>𝑘</sub> and start the consensus process.
+##### 6) Collect Commit message and create new block
 
-4. If the View Change is not completed in 2<sup>𝑣<sub>𝑘 </sub>+1</sup> ⋅ 𝑡 time interval, then increase k and back to step 2).
+- For each validator already having all transactions required in Prepare Request message, in case of Commit messages from M different validators received:
 
+   - For each Commit message received:
 
-With the increase of k, the waiting time before another change view will increase exponentially, which can avoid frequent View Change and make the nodes reach agreement within a reasonable time. The original view `v` is still valid until the completion of View Change, avoiding unnecessary View Change due to accidental network latency.
+     1. Verify the validity of the message and whether it conforms to the local consensus context,
 
-[1] [A Byzantine Fault Tolerance Algorithm for Blockchain](http://docs.neo.org/zh-cn/basic/consensus/whitepaper.html)<br/>
-[2] [Consensus Diagram](http://docs.neo.org/zh-cn/basic/consensus/consensus.html)<br/>
-[3] [Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)<br/>
-[4] [The Byzantine Generals Problem](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/The-Byzantine-Generals-Problem.pdf)<br/>
-[5] [Consensus Plugin](https://github.com/neo-project/neo-plugins)
+     2. Prolong local timeout by ![](../../images/consensus/6.png)
 
+   - Create and broadcast the new block
 
+- Otherwise, broadcast the Recovery Message, and set the timeout to 2*T<sub>block</sub>
 
+##### 7)  Go back to step 1 to start a new round of consensus.
 
+### Change View Request
+
+#### Triggering conditions
+
+- If the transaction verification fails, the delegate will broadcast Change View Request attempting to replace speaker.
+
+- In case of timeout while waiting for Prepare Request or Prepare Response, the delegate will broadcast Change View Request, attempting to replace the speaker.
+
+#### Flow
+
+![](../../images/consensus/8.png)
+
+1. Set the timeout to 2<sup>v+2</sup> * T<sub>block</sub> 
+
+2. If the sum of nodes with Commit sent and fault nodes ( referring to the validators from which n o other validator receives messages during a block time ) is greater than F , broadcast Recovery Request message,
+
+3. Otherwise, broadcast Change View Request message, and check the amount of Change View Request received. If not less than M validators reach consensus upon view changing, change local view, initialize local consensus context, and determine the next round's speaker according to new view.
+
+#### Process flow
+
+When a validator receives Change View Request message:
+
+1. If the message's view is not greater than the local view, this message will be handled as Recovery Request,
+2. Verify the validity of the message,
+3. Check the amount of Change View Request received. If not less than M validators reach consensus upon view changing, change the local view, initialize local consensus context, and determine next round's speaker according to new view.
+
+![](../../images/consensus/9.png)
+
+### Recovery Request Message
+
+#### Triggering conditions
+
+- Broadcast Recovery Request message upon enabling the consensus policy to update local consensus context.
+
+- Upon creating Change View Request, if there are not enough active validators (sum of nodes with Commit sent and fault nodes is greater than F), broadcast Recovery Request message to update the local consensus context. 
+
+#### Process flow
+
+Upon receiving Recovery Request, a validator will generate and broadcast Recovery Message only if the following conditions are met:
+
+- This node has already broadcast Commit message,
+
+- This node's index belongs to the given interval: ![](../../images/consensus/7.png) , where j is the index of Recovery Request sender.
+
+![](../../images/consensus/10.png)
+
+### Recovery Message
+
+#### Content
+
+- Change View Request messages from no more than M delegates,
+
+- Prepare Request/Response messages,
+
+- Commit messages.
+
+#### Triggering conditions
+
+- Upon receiving Recovery Request message, if this node has already broadcast Commit message or its index belongs to the given interval:![](../../images/consensus/7.png) , where j is the index of Recovery Request sender,
+
+- Upon receiving Change View Request message, if the message's view is not greater than the local view, this message is handled as Recovery Request,
+
+- In case of a timeout while waiting for Commit message, broadcast Recovery Message to resend Commit message (common in network issues)
+
+#### Process flow
+
+1. Verify the validity of the message and the local consensus context. If the message's view is greater than the local view, and this node has already sent Commit message, ignore this message 
+
+2. Otherwise, if the message's view is greater than the local view, handle Change View Request messages inside, 
+
+3. If the message's view equals local view:
+
+   - Handle Prepare Request message inside
+
+     1. If this node has neither sent nor received Prepare Request message, handle Prepare Request message inside,
+
+     2. Otherwise if this node is the speaker, broadcast Prepare Request message.
+
+   - Handle Prepare Response messages inside.
+
+4. If the message view is not greater than the local view, handle Commit messages inside.
+
+![](../../images/consensus/11.png)
+
+The mechanism with Change View Request, Recovery Request and Recovery Message can keep consensus safe from timeout caused by the network, abnormal nodes (malicious nodes, fault nodes, etc.) and other issues.
+
+## Consensus Policy
+
+Consensus policy is used in the following scenarios:
+
+- Upon receiving transactions from other nodes, nodes will perform verification to filter out transactions against consensus policy.
+
+- Upon receiving transactions, the consensus module needs to verify whether these transactions satisfy the consensus policy. If not, it will attempt to change the view.
+
+- Validator needs to filter transactions in its context upon enabling the consensus policy. Only confirmed transactions can be added into the memory pool.
+
+- The speaker needs to select transactions from memory pool according to the consensus policy for new Prepare Request.

@@ -10,7 +10,7 @@
       href: /docs/en-us/basic/technology/neovm.md
     - name: NEO Contract
       href: /docs/en-us/basic/technology/neocontract.md
-    - name: Consensus Whitepaper
+    - name: Consensus Mechanism
       href: /docs/en-us/basic/technology/dbft.md
 - name: NEO Node
   items:
@@ -129,8 +129,6 @@
     - name: Wallet
       href: /docs/en-us/tooldev/concept/wallets.md
     - name: Consensus
-      - name: Overview
-        href: /docs/en-us/tooldev/concept/consensus/readme.md
       - name: Consensus Algorithm
         href: /docs/en-us/tooldev/concept/consensus/consensus_algorithm.md
       - name: Consensus Protocol
