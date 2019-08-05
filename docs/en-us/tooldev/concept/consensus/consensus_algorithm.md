@@ -1,6 +1,6 @@
 # dBFT 2.0 Algorithm
 
-NEO proposes dBFT [10] (delegated Byzantine Fault Tolerance) consensus algorithm based on PBFT [9] (Practical Byzantine Fault Tolerance) algorithm. Algorithm dBFT determines validator set according to real-time blockchain voting, which effectively enhances the effectiveness of the algorithm, bringing block time and transaction confirmation time savings. dBFT2.0 as an upgraded version was released in Mar. 2019, which improves robustness and safety by introducing 3-stage consensus as well as a recovery mechanism.
+NEO proposes dBFT (delegated Byzantine Fault Tolerance) consensus algorithm based on PBFT (Practical Byzantine Fault Tolerance) algorithm. Algorithm dBFT determines validator set according to real-time blockchain voting, which effectively enhances the effectiveness of the algorithm, bringing block time and transaction confirmation time savings. dBFT2.0 as an upgraded version was released in Mar. 2019, which improves robustness and safety by introducing 3-stage consensus as well as a recovery mechanism.
 
 ## Terms
 
