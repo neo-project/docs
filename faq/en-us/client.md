@@ -48,7 +48,7 @@ You can write some scripts, such as creating a Notepad file on Windows, typing `
 
 ##I can't see my NEO in my wallet! Is it gone?
 
-1. Most of the time,  whenever your NEO or GAS is not showing up in your wallet, the problem lies with the wallet. To make sure your NEO is safe, you can check your  balance on a NEO blockchain explorer, such as [https://neoscan.io/](http://antcha.in/).
+1. Most of the time,  whenever your NEO or GAS is not showing up in your wallet, the problem lies with the wallet. To make sure your NEO is safe, you can check your  balance on a NEO blockchain explorer, such as <https://neoscan.io/>.
 
 2. Make sure your wallet is fully synchronized. If it is, and there is still no NEO in your wallet, then:
 

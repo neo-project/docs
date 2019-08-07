@@ -46,11 +46,7 @@ You can access http://ndapp.org/ and find all the browsers listed in the Explore
 
 ## How can I check the status of my transaction?
 
-You can check it on any NEO blockchain explorer, such as [https://neoscan.io/](http://antcha.in/).
-
-## Is there a central point where I can find important dates/delays?
-
-See the Daily Thread at the NEO subreddit: <https://www.reddit.com/r/NEO/>
+You can check it on any NEO blockchain explorer, such as <https://neoscan.io/>.
 
 ## Is there an equivalent of ERC-20 standard for NEO?
 
@@ -68,7 +64,7 @@ In NEO-CLI you can just list UTXO assets using `list asset`. To view NEP-5 asset
 
 NEP-5 is a token standard that specifies the token issuance in NEO smart contract. NEP-6 is a wallet standard that specifies the wallet format, the definition of parameters in it, the creation rules of wallet address and so on. NEP-6 is applicable to several current NEO client versions including 2.7.6. The NEO client supports wallets in two formats,  sqlite wallet (in .db3) and NEP-6 wallet (in .json). Considering the processing speed, the sqlite wallet is strongly recommended for exchanges. 
 
-## Can you store NEO the same way as Bitcoin? I am      nervous about the storage safety.
+## Can you store NEO the same way as Bitcoin? I am nervous about the storage safety.
 
 Yes. If you are holding NEO, then you are always keeping it online. Storing private keys offline means your coins are safe and can not be touched.
 
@@ -80,7 +76,7 @@ There is no transfer fee for now. You can transfer NEO or GAS without extra cost
 
 It depends on the exchange rules; right now, there is no transfer fee in the NEO system. However, exchanges can take a fee when transferring from an exchange.
 
-## If I keep my NEO on an exchange, can I still get my      GAS?
+## If I keep my NEO on an exchange, can I still get my GAS?
 
 This depends on the exchange; some (like [Binance](https://www.binance.com/)) have chosen to give users their GAS when you leave your NEO on the exchange, while others (like [Bittrex](https://www.bittrex.com/)) keep the GAS for themselves. If you want to make sure you receive your Gas, move your NEO to a private wallet and manually claim your GAS.
 
