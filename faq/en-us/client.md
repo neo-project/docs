@@ -1,4 +1,4 @@
-# Clients and Wallets
+# Client and Wallet
 
 ## Why can't I see any change in the account after I transfer assets to it using NEO-GUI?
 
@@ -61,8 +61,8 @@ You can write some scripts, such as creating a Notepad file on Windows, typing `
 1. Please confirm with the crypto currency exchange from which you made the transfer that the transaction was successful. If so:
 2. Please check the status of your transaction/account on a blockchain explorer:
 
-   - Once a transaction ID has been generated and the ID can be seen on the blockchain explorer, the transaction is successful and said amount has been transferred to your account. If the wallet does not display the correct balance, it is likely not fully synchronised. To check whether this is true, see Question 6. For instructions how to speed up the syncing process, see Question 8.
-- If you cannot find the transaction on the blockchain explorer, please contact the party sending said NEO/GAS, since the transaction was not completed.
+   - Once a transaction ID has been generated and the ID can be seen on the blockchain explorer, the transaction is successful and said amount has been transferred to your account. If the wallet does not display the correct balance, it is likely not fully synchronized. To check whether this is true, see preceding questions.
+   - If you cannot find the transaction on the blockchain explorer, please contact the party sending said NEO/GAS, since the transaction was not completed.
 
 ## When I call the RPC method invoke, the result returned is not correct. Why?
 
