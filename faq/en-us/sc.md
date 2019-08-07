@@ -32,9 +32,9 @@ If you still cannot solve the issue, try this way:
 
 Before you publish the C# smart contract compiler, make sure you have done the following:
 
-- Install .net core 2.1 the latest version
-- If using VS2017, select the target as win10-64
-- If using VS2019, change the target to win10-64 and then select the "Self-contained deployment" mode. 
+- Installed .net core 2.1 the latest version
+- If using VS2017, selected the target as win10-64
+- If using VS2019, changed the target to win10-64 and then selected the "Self-contained deployment" mode. 
 
 ## After publishing neon in Windows 7 and setting the environment variable, why is it prompted that api-ms-win-core-console-l2-1-0.dll is missing when I am running neon?
 
