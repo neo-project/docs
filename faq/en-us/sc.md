@@ -55,3 +55,12 @@ NEO smart contracts require development framework, compiler, and NEOVM versions 
 Some parts of this article is excerpted from [NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7). Thanks for **cybourgeoisie**'s contribution.
 
 If you are still having trouble or you do not find a relevant issue, you can open an issue or pull request on [GitHub NEO Doc project](https://github.com/neo-project/docs).
+
+## I have deployed my contract successfully, but why do I fail to invoke it? 
+
+This issue is caused by confliction between the old NEOVM opcodes and the new NEP-8 opcodes with which neon compiles contracts. To solve it, you need to compile the contract in compatible mode:
+
+1. Publish the C# compiler neon.exe and add its path to environment parameter
+2. Compile and build the contract in Visual Studio 2017
+3. Compile the contract in compatible mode in your command line: `neon contract.dll --compatible`
+4. Deploy the new contract file after it is generated.
