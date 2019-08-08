@@ -8,6 +8,14 @@
 2. 打开 Power Shell 或命令提示符（CMD）。
 3. 转到 neo-compiler 根目录，运行 `nuget restore` 。
 
+## 为什么我发布C#智能合约编译器失败？
+
+在发布C#智能合约编译器之前，请确认你进行了以下操作：
+
+- 已安装最新 .net core 2.1版本；
+- 使用 VS2017 发布时，选择目标为 win10-64;
+- 使用 VS2019 发布时，修改目标为 win10-64，并选择 “独立” 部署模式
+
 ## 为什么我发布 neon 项目出现如下错误提示：无法复制文件”obj\Release\netcoreapp1.0\win10-x64\neon.dll“，原因是找不到该文件？
 
 这可能是 VS 2017 （如 15.4，15.5）的一个 Bug，此时需要手动将 `\obj\Release\netcoreapp1.0\neon.dll` 文件复制到 `\obj\Release\netcoreapp1.0\win10-x64\` 文件夹中，然后重新发布即可。
@@ -47,3 +55,12 @@ NEO 智能合约需要的 开发框架、编译器、NeoVM 版本要求一致。
 你需要将 neo-devpack-java-master 打包成 jar 包并放入 neoj 的 \neoj\bin\Release\netcoreapp1.1\win10-x64\publish\
 
 本节部分内容摘自文章：[NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7) 感谢 **cybourgeoisie** 的贡献。
+
+## 我成功部署了合约，为什么调用失败了？
+
+这是因为合约使用新的NEP-8 opcodes进行编译，不兼容旧的NEOVM opcodes。要解决这个问题，需要在兼容模式下编译合约：
+
+1. 发布 C# 编译器 neon.exe 添加其路径到环境变量
+2. 通过 Visual Studio 2017 编译并构建合约
+3. 在兼容模式下编译合约，使用命令： `neon contract.dll --compatible`
+4. 编译成功后使用新生成的合约文件部署合约

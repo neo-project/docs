@@ -1,8 +1,8 @@
-﻿- name: Basic
+﻿- name: General
   href: /faq/en-us/basic.md
-- name: Client
+- name: Client and Wallet
   href: /faq/en-us/client.md
-- name: Developer
+- name: Development
   href: /faq/en-us/dev.md
 - name: Smart Contract
   href: /faq/en-us/sc.md

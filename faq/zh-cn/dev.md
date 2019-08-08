@@ -30,3 +30,11 @@ NEO 支持多种主流编程语言，可以使用 C#、Python、Go、JS 和 Jave
 ## 搭建私链后，从多方签名合约中提取资产， 为什么签名时显示钱包中没有对象的私钥？
 
 搭建私链后，在 (n/2+1) 个共识节点的钱包中都需要进行相同的操作：添加多方签名地址和重建钱包索引。
+
+## NEO 提供了哪些 SDK 供开发者使用？
+
+针对主流高级语言如C#、JavaScript、Java等，NEO 开发社区开发并维护了多样的NEO SDK，如下所示：
+
+- C# SDK: [neo](https://github.com/neo-project/neo)
+- JavaScript SDK: [neon-js](http://cityofzion.io/neon-js/)
+- Java SDK: [neow3j](https://github.com/neow3j)

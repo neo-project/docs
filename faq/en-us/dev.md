@@ -15,7 +15,7 @@ To build a private chain, you have the following options：
 
 You can also refer to the [community articles](../../articles/en-us/index.md) to learn more options.
 
-## Which languages can I use to develop smart contracts?
+## What languages can I use to develop smart contracts?
 
 NEO supports a variety of mainstream programming languages and can be developed using C#, Python, Go, JS, and Jave. Currently in the NEO ecosystem, the infrastructure for C# and Python is extremely well-developed and various compilers are provided for developers.
 
@@ -30,3 +30,12 @@ Currently we recommend you use the blockchain browser https://scan.nel.group to 
 ## Why is it prompted that there is no object's private key in the wallet when withdrawing assets from a multi-party signature contract?
 
 After the private chain is set up, you need to make the same configurations in all (n/2+1) wallets (n is the node number), that is, add the multi-party signed addresses and then rebuild the wallet index. 
+
+## What SDKs are provided for developers?
+
+NEO developer communities have developed and maintained various NEO SDKs for many mainstream languages including C#, JavaScript, Java, and etc. You can check them here:
+
+- C# SDK: [neo](https://github.com/neo-project/neo)
+- JavaScript SDK: [neon-js](http://cityofzion.io/neon-js/)
+- Java SDK: [neow3j](https://github.com/neow3j)
+
