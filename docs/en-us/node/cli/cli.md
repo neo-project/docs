@@ -15,7 +15,7 @@ To view all the commands, enter `help` in the command line.
 > - The pipe symbol `|` separates multiple parameters where any one of them can be used at your choice.
 > - The equal sign `=` indicates the default value of the optional parameter without an input.
 
-## Console Instructions
+## Console Commands
 
 | Command      | Function Description      |
 | ------- | --------- |
@@ -24,7 +24,7 @@ To view all the commands, enter `help` in the command line.
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
-## Contract operations
+## Contract Commands
 
 | Command                 | Function Description |
 | ----------------------- | -------------------- |
@@ -62,7 +62,7 @@ relay tx(no|yes): yes
 Signed and relayed transaction with hash=0x69edfe59bd1cfdb8fecc7eb5623bc44d785a4897cdbee78f9d276924d9ad3946
 ```
 
-## Wallet operation
+## Wallet Commands
 
 Command | Function Description | Remarks |
 | ---------------------------------------- | -------------------------------- | ------ |
@@ -195,7 +195,7 @@ This command is used to sign when withdrawing assets from a multi-signed address
 
 After signing completed, this command can be used to broadcast the transaction information.  The parameter is the json string that records the transaction information. 
 
-## Plugin commands
+## Plugin Commands
 
 | Command                 | Function Description           |
 | ----------------------- | ------------------------------ |
@@ -249,7 +249,7 @@ show pool | Display the transactions in the memory pool (These transactions are 
 export blocks [path=chain.acc] | Exports the whole blockchain data. The exported data  can be used for offline synchronzation. |
 export blocks \<start> [count] | Exports a specified number of block data from the specified block height. The exported data can be used for offline synchronization.
 
-## Advanced instructions
+## Advanced Commands
 
 Command | Function Description |
 | --------------- | ---- |
