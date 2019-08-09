@@ -45,7 +45,7 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
 ... // 省略了部分代码
 ```
 
-如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](deploy/deploy-invoke.md)。
+如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](deploy/deploy.md)。
 
 ### 进行合约迁移
 首先准备好新合约，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
