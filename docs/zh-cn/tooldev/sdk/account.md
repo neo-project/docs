@@ -1,6 +1,4 @@
-# NEO SDK - 账户相关用法
-
-注：本文档中使用的 NEO SDK 版本为 2.9.0
+# 账户相关用法
 
 ### NEO 地址校验
 
@@ -71,5 +69,4 @@ public void Generate(byte[] publicKey)
 ```
 
 
-
-更多 NEO SDK 常见用法正在补充中……
+更多常见用法正在补充中。
