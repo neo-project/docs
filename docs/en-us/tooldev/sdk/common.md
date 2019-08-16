@@ -1,4 +1,6 @@
-# NEO SDK Common Uses
+# NEO SDK Common Usages
+
+## Conversion between commonly used data types
 
 ### Conversion between hexadecimal strings and byte arrays
 
@@ -21,6 +23,37 @@ uint timestamp = date.ToTimestamp();
 DateTime date2 = timestamp.ToDateTime();
 Console.WriteLine(date2.ToString());
 ```
+
+### Conversion between Address and Script Hash
+
+```c#
+UInt160 scriptHash = "AK4LdT5ZXR9DQZjfk5X6Xy79mE8ad8jKAW".ToScriptHash();
+string address = scriptHash.ToAddress();
+```
+
+If Script Hash is a big-endian string，the following method can be used to convert it to Address:
+
+```c#
+string address = new UInt160("0x9121e89e8a0849857262d67c8408601b5e8e0524".Remove(0, 2).HexToBytes().Reverse().ToArray()).ToAddress();
+```
+
+### Conversion between big-endian and little-endian
+
+```c#
+//big-endian 2 little-endian
+Console.WriteLine("0x4701ee0b674ff2d8893effc2607be85327733c1f".Remove(0, 2).HexToBytes().Reverse().ToHexString());
+//little-endian 2 big-endian
+Console.WriteLine("0x" + "1f3c732753e87b60c2ff3e89d8f24f670bee0147".HexToBytes().Reverse().ToHexString());
+```
+
+### Conversion between hexadecimal strings and BigInteger
+
+```c#
+BigInteter bigInt = new BigInteger("00e1f505".HexToBytes());
+string hexStr = new BigInteger(100000000).ToByteArray().ToHexString();
+```
+
+## Commonly used verifications
 
 ### Verifying NEO Addresses
 
@@ -54,6 +87,8 @@ catch (Exception)
 
 An exception is thrown when the private key is wrong.
 
+## Public Key and Private Key related operations
+
 ### Generating Public Key and Private Key
 
 ```c#
@@ -67,7 +102,7 @@ using (CngKey key = CngKey.Create(CngAlgorithm.ECDsaP256, null, new CngKeyCreati
 }
 ```
 
-### Generating address by Private Key
+### Generating Address by Private Key
 
 ```c#
 public void Generate(byte[] privateKey)
@@ -79,7 +114,7 @@ public void Generate(byte[] privateKey)
 }
 ```
 
-### Generating address by Public Key
+### Generating Address by Public Key
 
 ```c#
 public void Generate(byte[] publicKey)
@@ -89,6 +124,8 @@ public void Generate(byte[] publicKey)
     Console.WriteLine($"The standard address {sc.Address} is created");
 }
 ```
+
+## Wallet File related operations
 
 ### Creating a Wallet File
 
@@ -129,4 +166,5 @@ catch (Exception)
 
 An exception is thrown if the password to unlock the wallet is wrong. 
 
-This document is in editing for adding more common uses of NEO SDK.
+## More is on the way
+This document is in editing for adding more common usages of NEO SDK.
