@@ -71,7 +71,7 @@ catch (Exception)
 
 如果地址是错误的，验证会抛出异常。另外，你也可以使用API来验证NEO地址。更多信息请参考[validateaddress 方法](../../reference/rpc/latest-version/api/validateaddress.md)。
 
-### Verifying WIF Private Key
+### 验证 WIF 格式私钥
 
 ```c#
 try
@@ -166,4 +166,5 @@ catch (Exception)
 
 如果用于打开钱包的密码是错误的，将会抛出异常。
 
+## 期待更多
 更多 NEO SDK 用法正在补充中。
