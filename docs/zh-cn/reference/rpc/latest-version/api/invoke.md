@@ -19,22 +19,22 @@ params：传递给智能合约的参数。
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "invoke",
-  "params": [
-"dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f",
-[
-  {
-    "type": "String",
-    "value": "name"
-  },
-  {
-    "type":"Boolean",
-    "value": false
-  }
-]
-  ],
-  "id": 1
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": [
+        "dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f",
+        [
+            {
+                "type": "String",
+                "value": "name"
+            },
+            {
+                "type": "Boolean",
+                "value": false
+            }
+        ]
+    ],
+    "id": 1
 }
 ```
 
