@@ -179,6 +179,7 @@ Occasions where transaction verification is needed:
 
 
 > [!NOTE]
+> 
 > - Provide parameters for scripts that need to be verified. Then execute the script in NVM. If Script passes verification then true is returned.
 > - Every address is a code fragment with `OptCode.CHECKSIG`, so signature parameters are required upon execution. Similiarly, multi-signed address uses `OptCode.CHECKMULTISIG` method with specified quantity of signature parameters.
 > - Every to-be-verified script within transactions contains tx.output.scriptHash (payee's address script of input transaction) pointed by input. This ensures only corresponding wallet is able to spend this UTXO.
@@ -398,6 +399,7 @@ Other processing steps are the same with a basic transaction.
 Special transaction to issue assets. Assets can be issued by asset creator as long as its overall amount does not overpass the specified limit. Issued asset can be used in a transaction. Asset issuing consumes an amount of GAS as system fee.
 
 > [!NOTE]
+> 
 > - If version >= 1, system fee is 0.
 > - If the assset type in output list is NEO or GAS, system fee is 0. Otherwise it is 500 GAS as defined in `protocol.json`.
 
@@ -578,11 +580,12 @@ Special transaction for smart contract publishing. Processing steps are the same
 Special transaction for smart contract invocation. With `invoke/invokefunction/invokescript` command in NEO API or NEO GUI, user can create InvocationTransaction object according to input smart contract information. Note, InvocationTransaction is actually used for GUI asset creation and smart contract publishing.
 
 | InvokeTransaction Usage | Script | Attributes | Attribute content |
-|--------------|------------|--------------|
+|----|-------|------|------|
 | Invoking smart contract | contract script | null |   |
 | Publishing smart contract | Neo.Contract.Create  | null |   |
 | Asset Registration | Neo.Asset.Create | not null | TransactionAttributeUsage.Script, Asset holder's address scripthash. |
 | GUI transferring | NEP-5 asset: transaferring script <br/>Global asset: null  | not null | TransactionAttributeUsage.Script，transferring payee address(es) <br/> TransactionAttributeUsage.Remark, remark data |
+
 **Transaction creating**
 
 1. Construct corresponding execution script according to usage, and assign to `InvocationTransaction.Script`.

@@ -62,6 +62,7 @@ Message's basic format is as follows:
 
 
 > [!NOTE]
+> 
 > - Uniqueness：Only one such message in message queue at the same time.
 > - High priority：System need to guarantee higher priority to transmit for a message with higher priority.
 
