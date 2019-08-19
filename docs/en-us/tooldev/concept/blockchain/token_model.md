@@ -1,4 +1,4 @@
-# Neo Blockchain Model
+# NEO Token Models
 
 ### Native Token
 
