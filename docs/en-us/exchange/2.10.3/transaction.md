@@ -52,12 +52,10 @@ For the purpose of preventing malicious transactions and network attacks, networ
 </table>
 
 
-
-
 > [!Note]
 >
 > - If the exchange specifies fee when using the send command/method to send the transaction to the user's address, only the higher of the two fees is charged.
-> - A configuration file config.json is added in NEO-CLI 2.10.2 RpcWallet plugin to allow you to specify the fee limit for transactions sent using RPC commands. If the transaction fee does not exceed the fee limit, it will be processed on blockchain normally; otherwise the transaction will fail.
+> - A configuration file config.json is added in NEO-CLI 2.10.2+ RpcWallet plugin to allow you to specify the fee limit for transactions sent using RPC commands. If the transaction fee does not exceed the fee limit, it will be processed on blockchain normally; otherwise the transaction will fail.
 
 ## Dealing with Global Assets Transactions
 

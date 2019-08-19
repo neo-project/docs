@@ -4,7 +4,7 @@ Returns the block index in which the transaction is found.
 
 ## Parameter Description
 
-txid：Transaction id.
+Txid: Transaction ID
 
 ## Example
 
@@ -14,7 +14,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "gettransactionheight",
-  "params": ["9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29"],
+  "params": ["9ae1fd32d525eff2a1bb1fc8d0cd2cfb4cc97a06a232bb87fc58e4fe3bc2a845"],
   "id": 1
 }
 ```
@@ -25,7 +25,7 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": 10000
+    "result": 251488
 }
 ```
 

@@ -186,7 +186,7 @@
   items:
   - name: 概述
     href:  /docs/zh-cn/exchange/general.md
-  - name: v2.10.2
+  - name: v2.10.3
     items:
     - name: 部署 NEO 节点
       href: /docs/zh-cn/exchange/2.10.2/deploynode.md
@@ -203,7 +203,7 @@
   - name: RPC API
     - name: API 参考
       href:  /docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: v2.10.2
+    - name: v2.10.3
       items:
       - name: claimgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/claimgas.md
