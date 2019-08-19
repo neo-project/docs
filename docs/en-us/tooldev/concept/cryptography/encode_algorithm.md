@@ -10,18 +10,18 @@ Neo's base58 alphabet is as follows: **123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefgh
 
 Interface definition：
 
-1.  Encoding method: Encoding byte[] format data into Base58 string format.
+1. Encoding method: Encoding byte[] format data into Base58 string format.
 
-```c#
-string Encode(byte[] input)
-```
+   ```c#
+   string Encode(byte[] input)
+   ```
 
 
-2.  Decoding Method: Decoding Base58 string format data into byte[] format
+2. Decoding Method: Decoding Base58 string format data into byte[] format
 
-```c#
-byte[] Decode(string input)
-```
+   ```c#
+   byte[] Decode(string input)
+   ```
 
 
 **Encoding Steps**：
@@ -63,15 +63,15 @@ Interface definition:
 
 1. Encoding method: encode byte array data into checkable Base58 string format.
 
-```c#
-string Base58CheckEncode(byte[] input)
-```
+   ```c#
+   string Base58CheckEncode(byte[] input)
+   ```
 
-2.  Decoding method：decode checkable Base58 string data into byte array format.
+2. Decoding method：decode checkable Base58 string data into byte array format.
 
-```c#
-byte[] Base58CheckDecode(string input)
-```
+   ```c#
+   byte[] Base58CheckDecode(string input)
+   ```
 **Encoding Steps**:
 
 1.  Encode input byte array twice with Sha256 to get a hashed byte array. Take the first 4 bytes of the hash as checksum and append it to the end of original byte array.
