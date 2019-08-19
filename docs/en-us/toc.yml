@@ -172,7 +172,7 @@
   items:
   - name: Overview
     href:  /docs/en-us/exchange/general.md
-  - name: v2.10.2
+  - name: v2.10.3
     items:
     - name: Deploying NEO nodes
       href: /docs/en-us/exchange/2.10.2/deploynode.md
@@ -189,7 +189,7 @@
   - name: RPC API
     - name: API Reference
       href:  /docs/en-us/reference/rpc/latest-version/api.md
-    - name: v2.10.2
+    - name: v2.10.3
       items:
       - name: claimgas
         href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
