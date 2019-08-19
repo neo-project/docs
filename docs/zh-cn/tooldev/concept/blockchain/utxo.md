@@ -10,12 +10,8 @@
 > - 当持有NEO提取GAS分红时 input.GAS < output.GAS
 > - 当发行资产时，input.Asset < output. Asset
 
-上是对能解锁`Output.scriptHash`的output进行消费，并在新交易的见证人上填充其签名参数。账户地址，实际上就是脚本hash的base58check处理，代表的是一段签名认证脚本，如下图。 [`Op.CheckSig`](../neo_vm.md#checksig) 执行时需要公钥和签名两个参数，在地址脚本中，已经包含公钥参数，故在交易中只需要补充签名参数。
+UTXO转账其实是对能解锁`Output.scriptHash`的output进行消费，并在新交易的见证人上填充其签名参数。账户地址，实际上就是脚本hash的base58check处理，代表的是一段签名认证脚本，如下图。 
+
+[`Op.CheckSig`](../neo_vm.md#checksig) 执行时需要公钥和签名两个参数，在地址脚本中，已经包含公钥参数，故在交易中只需要补充签名参数。
 
 [![utxo](../../images/blockchain/account_scripthash.jpg)](../../images/blockchain/account_scripthash.jpg)
-
-
-
-
-
-

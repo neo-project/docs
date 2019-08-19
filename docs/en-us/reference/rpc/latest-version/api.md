@@ -1,6 +1,6 @@
 # API Reference
 
-Each node in the Neo-CLI provides an API interface for obtaining blockchain data from a node, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
+Each NEO-CLI node provides an API interface for obtaining blockchain data from it, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
 
 `dotnet neo-cli.dll /rpc`
 
@@ -107,9 +107,9 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 
 ## GET request example
 
-A typical JSON-RPC GET request format is as follows:
+The format of a typical JSON-RPC GET request is as follows:
 
-The following is an example of how to get the number of blocks in the main chain.
+Here is an example of how to get the number of blocks in the main chain.
 
 Request URL:
 
@@ -131,7 +131,7 @@ After sending the request, you will get the following response:
 
 The format of a typical JSON-RPC Post request is as follows:
 
-The following is an example of how to get the number of blocks in the main chain.
+Here is an example of how to get the number of blocks in the main chain.
 
 Request URL:
 
@@ -162,7 +162,7 @@ After sending the request, you will get the following response：
 
 ## Test tools
 
-You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection), the following is a test screenshot:
+You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection). A test screenshot is shown below:
 
 ![image](../../../assets/api_3.jpg)
 
