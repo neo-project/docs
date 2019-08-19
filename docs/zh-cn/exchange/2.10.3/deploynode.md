@@ -37,7 +37,7 @@ install RpcNep5Tracker
 
 > [!Note]
 >
-> - NEO CLI v2.10.2 已将钱包相关 RPC API 移至 RpcWallet 插件，请在使用前确保此插件已安装，以保证 API 的正常使用。
+> - NEO CLI v2.10.2 及之后版本已将钱包相关 RPC API 移至 RpcWallet 插件，请在使用前确保此插件已安装，以保证 API 的正常使用。
 > - ApplicationLogs 插件需在初始同步之前就必须安装，否则会遗漏安装前已同步区块中交易日志的内容。
 
 ## 修改配置文件
