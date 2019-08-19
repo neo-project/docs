@@ -1,8 +1,8 @@
 # Transaction
 
-Transaction is the basic operation model of the whole NEO network. Wallets, smart contracts and accounts interact with NEO network through transactions. The most basic function of a transaction is transfer.
+Transaction is the basic operation model of the whole NEO network. Wallets, smart contracts and accounts interact with NEO network through transactions. In NEO's P2P network, information is packed as `InvPayload` for transferring (Inv is abbreviation of Inventory). Different payloads have their special data, thus three types of inventory types are created. `InventoryType = 0x01` means transaction data is packed into `InvPayload`. Besides, there are block data package (`InventoryType = 0x02`) and consensus data package (`InventoryType = 0x03`).
 
-## **Structure**
+## Structure
 
 The basic data structure of a transaction is as following:
 
@@ -14,12 +14,11 @@ The basic data structure of a transaction is as following:
 | ?*? | Attributes | tx_attr[] | Additional features that the transaction has |
 | 34*? | Inputs | tx_in[] | Input |
 | 60 * ? | Outputs | tx_out[] | Output |
-| ?*? | Scripts | Witness[] | List of scripts used to validate the transaction |
-
+| ?\*? | Scripts | Witness[] | List of scripts used to validate the transaction |
 
 ### Input
 
-Input specifies the source of assets. there may be serveral Inputs in each transaction, the Inputs of `MinerTransaction` is empty. The data structure of Input as follows: 
+Input specifies the source of assets. There can be zero or multiple Inputs in each transaction. The Input of `MinerTransaction` is empty. The data structure of Input is shown as follows: 
 
 | Size | Field | Type | Description |
 |---|-------|------|------|
@@ -28,10 +27,9 @@ Input specifies the source of assets. there may be serveral Inputs in each trans
 
 The combination of `PrevHash` and `PrevIndex` are called a coin reference. It reference to a previous Unspent Transaction Output(UTXO). For more details, read "UTXO" section.
 
-
 ### Output
 
-Each transaction can have up to 65536 outputs. An output represents the transfer result of any asset. The data structure of output is as follows:
+Each transaction can have up to 65536 outputs. An output represents the transfer result of any asset. The data structure of output is shown as follows:
 
 | Size | Field | Type | Description |
 |---|-------|------|------|
@@ -44,7 +42,7 @@ Each transaction can have up to 65536 outputs. An output represents the transfer
 | Size | Field | Type | Description |
 |---|-------|------|------|
 | 1 | Usage | byte | Usage |
-| 0\|1 | length | uint8 | Length of data(it will be omitted in specific circumstances) |
+| 0\|1 | length | uint8 | Length of data (It will be omitted in specific circumstances) |
 | ? | Data | byte[length] | External data |
 
 TransactionAttributeUsage, each transaction attribute has different usages:
@@ -64,12 +62,11 @@ TransactionAttributeUsage, each transaction attribute has different usages:
 For ContractHash, ECDH series, Hash series, data length is fixed to 32 bytes and length field is omitted; <br/>
 For Script, data length is fixed to 20 bytes and length field is omitted; <br/>
 For DescriptionUrl, the data length must be clearly defined, and the length should not exceed 255;<br/>
-For Description, Remark series, the data length must be clearly defined, and the length should not exceed 65535;
+For Description, Remark series, the data length must be clearly defined, and the length should not exceed 65535.
 
 ### Witness
 
-Before each transaction is added into a block, it needs to be digitally signed to ensure that it will not be modified during transmission. NEO uses ECDSA digital signature method. The scriptHash of the transaction output is a public key used for ECDSA signature. NEO does not use SegWit in Bitcoin. Each transaction contains its own `Script.Witness`, while the `Script.Witness` actually is actually a smart contract.
-
+Before each transaction is added into a block, it needs to be digitally signed to ensure that it will not be modified during transmission. NEO uses ECDSA digital signature method. The script hash of the transaction output is the public key used for ECDSA signature. NEO does not use SegWit in Bitcoin. Each transaction contains its own `Script.Witness`, while the `Script.Witness` is actually a smart contract.
 
 Witness is an executable verification script. The `InvocationScript` provides the parameters for the `VerificationScript` to execute.  Verification succeeds only when the script execution returns true.
 
@@ -78,7 +75,6 @@ Witness is an executable verification script. The `InvocationScript` provides th
 | ?  | InvocationScript | byte[] |Invocation script |
 | ?  | VerificationScript | byte[] | Verification script  |
 
-
 Invocation script performs stack operation instructions, provides parameters for verification script (eg, signatures). The script interpreter executes the invocation script code first, and then the verification script code.
 
 `Block.NextConsensus` represents the script hash of multi-signature contract ([`Opt.CHECKMULTISIG`](../neo_vm.md#checkmultisig)), which needs the signatures of the consensus nodes, shown in the following figure. When executed in NVM internally, it completes the verification of signatures and public keys.
@@ -86,7 +82,7 @@ Invocation script performs stack operation instructions, provides parameters for
 [![nextconsensus_witness](../images/blockchain/nextconsensus_witness_en.jpg)](../../images/blockchain/nextconsensus_witness_en.jpg)
 
 
-## **Transaction Type**
+## Transaction Type
 
 In NEO, there are 9 types of transaction, includes MinerTransaction, RegisterTransaction,IssueTransaction and ContractTransaction and so on.
 
@@ -99,14 +95,12 @@ In NEO, there are 9 types of transaction, includes MinerTransaction, RegisterTra
 |  5  | StateTransaction | 0x90 | *  | Enroll as validator candidate or vote validators |
 |  6  | EnrollmentTransaction | 0x20 | 1000 | Enroll as validator candidate | Deprecated |
 |  7  | ContractTransaction | 0x80 | 0 | Contract transaction | The most commonly used transaction |
-|  8  | PublishTransaction | 0xd0 | 500*n | To publish a smart contract | Deprecated |
+|  8  | PublishTransaction | 0xd0 | 500\*n | To publish a smart contract | Deprecated |
 |  9  | InvocationTransaction | 0xd1 | 0 | A transaction to invoke a smart contract |  |
-
 
 The details of transaction processing, please read "Transaction Execution" section.
 
-
-## **How to use transaction**
+## How to use transaction
 
 The following example of Genesis Block generation shows the usage of a transaction.
 
@@ -127,7 +121,7 @@ The block head of Genesis block is as follows:
 | 20  | NextConsensus  | UInt160 | The script hash of consensus nodes' multi-signature contract in the next round.   |
 | 1  | -- | uint8 | It's fixed as 1 |
 |  ?   | Witness  | Witness | `0x51`, respresenting `OptCode.PUSHT`, always return TRUE. |
-|  ?*? | **Transactions**  | Transaction[] | It stored four txs as following. |
+|  ?\*? | **Transactions**  | Transaction[] | It stored four txs as following. |
 
 The first transaction of each block must be `MinerTransaction`, which is used for distribution of transaction's network fees in the block.
 
@@ -136,10 +130,10 @@ The first transaction of each block must be `MinerTransaction`, which is used fo
 | 1 | Type    | uint8 | `0x00` |
 | 1 | Version | uint8  | `0` |
 | 8 | Nonce | ulong  | `2083236893` |
-| ?*? | Attributes | tx_attr[] |    Empty |
-| 34*? | Inputs | tx_in[]  | Empty |
-| 60 * ? | Outputs | tx_out[]  | Empty |
-| ?*? | Scripts | Witness[]  | Empty |
+| ?\*? | Attributes | tx_attr[] |    Empty |
+| 34\*? | Inputs | tx_in[]  | Empty |
+| 60\*? | Outputs | tx_out[]  | Empty |
+| ?\*? | Scripts | Witness[]  | Empty |
 
 The second transaction is a `RegisterTransaction`, which registers NEO asset.
 
@@ -153,12 +147,12 @@ The second transaction is a `RegisterTransaction`, which registers NEO asset.
 | 1 | Precision | byte   | `0` |
 | ? | Owner | ECPoint  |  |
 | 32 | Admin | UInt160   | `0x51`.toScriptHash |
-| ?*? | Attributes | tx_attr[]  |    Empty |
-| 34*? | Inputs | tx_in[]  | Empty |
-| 60 * ? | Outputs | tx_out[]  | Empty |
-| ?*? | Scripts | Witness[]  | Empty |
+| ?\*? | Attributes | tx_attr[]  |    Empty |
+| 34\*? | Inputs | tx_in[]  | Empty |
+| 60\*? | Outputs | tx_out[]  | Empty |
+| ?\*? | Scripts | Witness[]  | Empty |
 
-The name of `NEO`  = `[{"lang":"zh-CN","name":"小蚁股"},{"lang":"en","name":"AntShare"}]`
+The name of `NEO` = `[{"lang":"zh-CN","name":"小蚁股"},{"lang":"en","name":"AntShare"}]`
 
 The third transaction is another `RegisterTransaction`, which registers GAS asset.
 
@@ -172,10 +166,10 @@ The third transaction is another `RegisterTransaction`, which registers GAS asse
 | 1 | Precision | byte   | `8` |
 | ? | Owner | ECPoint   | |
 | 32 | Admin | UInt160   | `0x00`.toScriptHash, representing `OpCode.PUSHF` script |
-| ?*? | Attributes | tx_attr[]  |    Empty |
-| 34*? | Inputs | tx_in[]  | Empty |
-| 60 * ? | Outputs | tx_out[]  | Empty |
-| ?*? | Scripts | Witness[]  | Empty |
+| ?\*? | Attributes | tx_attr[]  |    Empty |
+| 34\*? | Inputs | tx_in[]  | Empty |
+| 60\*? | Outputs | tx_out[]  | Empty |
+| ?\*? | Scripts | Witness[]  | Empty |
 
 The name of `GAS` =  `[{"lang":"zh-CN","name":"小蚁币"},{"lang":"en","name":"AntCoin"}]`
 
@@ -185,10 +179,10 @@ The fourth transaction is an `IssueTransaction`, which issues NEO to contract ad
 |----|-----|-------|------|------|
 | 1   | Type    | byte  | `0x01` |
 | 1 | Version | byte  | `0` |
-| ?*? | Attributes | tx_attr[] |    Empty |
-| 34*? | Inputs | tx_in[]  | Empty |
-| 60 * ? | Outputs | tx_out[] | has one output, see the below table |
-| ?*? | Scripts | Witness[]  | `0x51`, representing `OpCode.PUSHT` |
+| ?\*? | Attributes | tx_attr[] |    Empty |
+| 34\*? | Inputs | tx_in[]  | Empty |
+| 60\*? | Outputs | tx_out[] | has one output, see the below table |
+| ?\*? | Scripts | Witness[]  | `0x51`, representing `OpCode.PUSHT` |
 
 The output defines the transfer of all NEO tokens to the multi-signature contract address of the standby validators(consensus nodes). The scripts are empty, meaning that the transactions do not need to be validated because it is a Genesis block transaction.
 
@@ -197,5 +191,3 @@ The output defines the transfer of all NEO tokens to the multi-signature contrac
 | 1   | AssetId    | byte  | `0x00`, representing `NEO` token. |
 | 8 | Value | Fix8  | `100000000` |
 | 20 | ScriptHash | UInt160 |   The script hash of standby consensus nodes' multi-signature contract. |
-
-
