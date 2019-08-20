@@ -1,24 +1,24 @@
 # Wallets
 
-Wallets is a basic component of NEO and the bridge for users to access NEO network. It's responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
+Wallets are basic components of NEO and the bridges for users to access NEO network. They are responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
 
-NEO wallets can be redesigned and modified on their own, but need to meet the following rules and patterns.
+You can redesign and modify NEO wallets following your own thoughts, but the below rules and patterns must be followed.
 
-##  Format
+## Format
 
-###Private Key
+### Private Key
 
-A private key is a random value generated between 1 and N(N is a constant, less than 2^256 slightly), and is represented by a 256 bit (32 bytes) number generally.
+A private key is a random value generated between 1 and n (n is a constant, less than 2^256 slightly), and is represented by a 256 bit (32 bytes) number generally.
 
-There are two main encoding formats for private keys in NEO.
+There are two main encoding formats for private keys in NEO:
 
-- **Hexstring Format**
+- Hexstring Format
 
    The hexstring format is a string that uses hexadecimal characters to represent byte array.
 
-- **Wif Format**
+- Wif Format
 
-   The wif format is to add prefix `0x80` and suffix `0x01` in the original 32-bit data, and get string of Base58Check encoding.
+   The wif format is to add prefix `0x80` and suffix `0x01` in the original 32-byte data, and get the string after Base58Check encoding.
 
 [![Base58Check Encode](../images/wallets/privateKey-wif-en.png)](../images/wallets/privateKey-wif-en.png)
 
@@ -32,15 +32,15 @@ There are two main encoding formats for private keys in NEO.
 
 ### Public Key
 
-The public key is a point (x, y) obtained through the ECC algorithm with the private key. The X, Y points can be represented by 32-byte data. Different from bitcoin, NEO chooses secp256r1 as the curve of the ECC algorithm. There are two public key formats as following.
+The public key is a point (X, Y) calculated through the ECC algorithm with the private key. The X, Y coordinates can be represented by 32-byte data. Different from Bitcoin, NEO chooses secp256r1 as the curve of the ECC algorithm. There are two public key formats in NEO:
 
-- **Uncompressed Public Key**
+- Uncompressed Public Key
 
     0x04 + X (32 bytes) +  Y (32 bytes) 
 
-- **Compressed Public Key**
+- Compressed Public Key
 
-    0x02/0x03 + X (32 bytes)
+    0x02 + X (32 bytes) or 0x03 + X (32 bytes)
 
 Example:
 
@@ -51,25 +51,22 @@ Example:
 | Public Key (Uncompressed)  | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74<br>faab3a2b61a35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f  |
 
 > [!NOTE]
-> The above public key was splited into multiple lines, for its too large. Actually they are in one line.
-
-<a name="3_address"/>
+> 
+> The above uncompressed public key is splited into multiple lines, since it's too long. Actually it's in one line.
 
 ### Address
 
-Address is a string of numbers and letters from a series of transformations of the public key.
-
-In NEO, the steps, from public key to address conversion are as follows:
+Address is a string of numbers and letters after a series of transformations of the public key. In NEO, the steps of conversion from a public key to an address are as follows:
 
 1. Build the address script contract, the script format:
 
-`0x21` (1 byte, representing `OptCode.PUSHBYTES21`) +  compressed public key (33 bytes) + `0xac` (1 byte, representing `OptCode.CHECKSIG`)
+    `0x21` (1 byte, representing `OptCode.PUSHBYTES21`) + compressed public key (33 bytes) + `0xac` (1 byte, representing `OptCode.CHECKSIG`)
 
-2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
+2. Calculate script hash of the contract (20 bytes, obtained from once SHA256, then once RIPEMD160 hash operation of the script). 
 
 3. Add the version prefix in the hash. (Currently, the NEO version is `0x17`)
 
-4. Make Base58Check encoding for the above byte data.
+4. Use Base58Check encoding for the above byte data.
 
 Example：
 
@@ -81,29 +78,27 @@ Example：
 
 ### Digital Certificate
 
-Digital certificate is a document that is digitally signed by the certificate authority(CA) and contains the information of the public key's owner and the public key.
+A digital certificate is a document that is digitally signed by the certificate authority(CA) and contains the information of the public key's owner and the public key. NEO certificates use X509 format.
 
-NEO certificates use X509 format.
+## Wallet Files
 
-## Wallet File
+### db3 wallet files
 
-### db3 wallet file
+A db3 wallet file uses SQLite to store data, and the file name extension is `.db3`. The file mainly stores the following four attributes:
 
-db3 wallet file uses SQLite to store data, and the file suffix is `.db3`. The file mainly stores the following four attributes:
+- `PasswordHash`: the hash of the passowrd, by using SHA256 hash operation.
 
-- `PasswordHash` is the hash of the passowrd, by using SHA256 method.
+- `IV`: an initial vector of AES, randomly generated.
 
-- `IV` is an initial vector of AES, randomly generated.
+- `MasterKey`: an encrypted ciphertext, obtained by encrypting the private key using AES256 algorithm with `PasswordKey`, `IV` parameters.
 
-- `MasterKey` is an encrypted ciphertext, obtained by encrypting the private key by AES256 method with `PasswordKey`, `IV` parameters.
+- `Version`: the version of the wallet
 
-- `Version` of the wallet
+db3 wallet uses the AES (symmetrical encryption) for encryption and decryption.
 
-db3 wallet uses the AES (symmetrical encryption) as its encryption and decryption method.
+### NEP6 wallet files
 
-### NEP6 wallet file
-
-NEP6 wallet file meets the NEP6 standard, and the file suffix is `.json`. The JSON format is as follows:
+An NEP6 wallet file complies with the NEP6 standard, and the file name extension is `.json`. The JSON format is as follows:
 
 ```json
 {
@@ -149,23 +144,49 @@ NEP6 wallet file meets the NEP6 standard, and the file suffix is `.json`. The JS
 }
 ```
 
-- `name` is a label that the user has given to the wallet file.
+**Description of attributes**:
 
-- `version` is currently fixed at 1.0 and will be used for functional upgrades in the future.
+- `name`: a label that the user has given to the wallet file
 
-- `scrypt` (n/r/p) are scrypt parameters for scrypt algorithm used for encrypting and decrypting the private keys in the wallet.
+- `version`: currently fixed at 1.0, may be changed for functional upgrades in the future
 
-- `accounts` is an array of Account objects which describe the details of each account in the wallet.
+- `scrypt` (n/r/p): three parameters of scrypt algorithm to regulate calculation performance
 
-- `extra` is an object that is defined by the implementer of the client to store extra data. This field can be `null`.
+- `accounts`: a list of accounts which describe the details of each account in the wallet
 
-NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and decryption.
+- `address`: the standard NEO address of each account
 
-**Encryption steps**：
+- `label`: a short description of the account, can be `null`
 
-1. The address is derived from the public key, and the address hash is computed by `SHA256(SHA256(Address))`
+- `isDefault`: means if this account is the default account in the wallet
 
-2. Calculate a `derivedkey` by the scrypt algorithm, and divide the 64-byte data into two halves as `derivedhalf1` and `derivedhalf2`. Scrypt uses the following parameters:
+- `lock`: means if this account is locked or not
+
+- `key`: nep2Key encrypted according to NEP2
+
+- `contract`: details of the address script contract
+
+- `script`:  the script (represented in a hexdecimal string) of the address script contract 
+
+- `parameters`: a list of contract parameters
+
+- `parameters.name`: name of the contract parameter
+
+- `type`: type of the contract parameter
+
+- `deployed`: means if this contract is deployed or not
+
+- `accounts.extra`: extra attributes of the account, can be `null`
+
+- `extra`: extra attributes of the wallet, can be `null`
+
+An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and decryption.
+
+**Encryption steps**:
+
+1. The address is derived from the public key, and the address hash is the first four bytes of `SHA256(SHA256(Address))`
+
+2. Calculate a `derivedkey` by the scrypt algorithm, and divide the 64-byte data into two halves as `derivedhalf1` and `derivedhalf2` Scrypt uses the following parameters:
 
     - ciphertext: The entered password (UTF-8 format)
 	- salt: address hash
@@ -174,29 +195,29 @@ NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and de
 	- p: 8
 	- length: 64
 
-3. Do private key xor `derivedhalf1`, and then get `encryptedkey` by using AES256 to encrypt it with `derivedhalf2`.
+3. Do xor operation on the private key and `derivedhalf1`, and then get `encryptedkey` by using AES256 to encrypt it with `derivedhalf2`
 
-4. Stitch data according to the following format and obtain `NEP2Key` by Base58Check encoding.
+4. Concatenate data according to the following format and obtain `NEP2Key` by using Base58Check encoding of it
 
 	`0x01` + `0x42` + `0xe0` + address hash + `encryptedkey`
 
 **Decryption steps**：
 
-1. Decode NEP2Key with Base58Check.
+1. Decode NEP2Key by using Base58Check decoding
 
-2. Check whether the length of decoded data is 39, and the first three bytes are `0x01`, `0x42` and `0xe0`.
+2. Check whether the length of decoded data is 39 bytes, and the first three bytes (data[0-2]) are `0x01`, `0x42` and `0xe0`
 
 3. Take data[3-6] as `addresshash`
 
-4. Put the password and addresshash into the Scrypt algorithm. Specify the result length to 64. Then get the Derivedkey.
+4. Put the password and addresshash into the Scrypt algorithm. Specify the result length to 64. Then get the `derivedkey`
 
-5. Take Derivedkey[0-31] as `Derivedhalf1`, and Derivedkey[32-63] as `Derivedhalf2`.
+5. Take Derivedkey[0-31] as `Derivedhalf1`, and Derivedkey[32-63] as `Derivedhalf2`
 
-6. Take data[7-38] as `Encryptedkey` (32 bytes), and decrypt it by AES256 method with `Derivedhalf2` as the initial vector.
+6. Take data[7-38] as `Encryptedkey` (32 bytes), and decrypt it using AES256 with `derivedhalf2` as the initial vector
 
-7. Xor the decrypted data and `Derivedhalf1` to obtain the private key. 
+7. Do xor operation on the decrypted data and `derivedhalf1` to obtain the private key
 
-8. Get the public key from the private key with ECC algorithm, and then get the address. Check whether the first four bytes of the result of SHA256(SHA256(Address)) is equal to the `addresshash`. If it's the same, then you get the correct private key.
+8. Get the public key from the private key with ECC algorithm, and then get the address. Check whether the first four bytes of the result of `SHA256(SHA256(Address))` is equal to the `addresshash`. If it's the same, then you get the correct private key
 
 More details about NEP2 and NEP6 proposals are in the NEO document.
 
@@ -231,7 +252,6 @@ NEP6 proposal：<https://github.com/neo-project/proposals/blob/master/nep-6.medi
 | Deploy smart contract     |  Deploy smart contract |
 | Test smart contract     | Test smart contract |
 
-
 ## Wallet software
 
 ### Full-node wallet
@@ -244,7 +264,7 @@ NEO-CLI and NEO-GUI are all full-node wallet.
 
 The SPV (Simplified Payment Verification) wallet is different from full-node wallet. It dosen't store all block data, only block header data, and verifies the data by using bloom filter and merkle tree algorithm. It's mostly used in mobile app or light client, as it can save storage space effectively.
 
-If need to develop SPV wallet, can refer to the NEO network protocol interface.
+For developing SPV wallet, refer to the NEO network protocol interface.
 
 Usage:
 
@@ -252,7 +272,7 @@ Usage:
 
    2. The SPV wallet sends the bloom filter's parameters to the full node, and the full node load the parameters. (Optional)
 
-   3. The SPV wallet queries transaction from the full node, the full node returns the transaction data after filtering with the bloom filter and the constructed merkle tree path.
+   3. The SPV wallet queries transactions from the full node, and the full node returns the transaction data after filtering with the bloom filter and the constructed merkle tree path.
 
    4. The SPV wallet uses the merkle tree path to verify the transaction data.
 
