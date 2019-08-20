@@ -1,4 +1,4 @@
-# Voting, Validators, and Speaker
+# Voting, Validators, Delegates and Speaker
 
 The PoS model of NEO is embodied in: (1) Anyone can initiate a transaction to apply for being a validator candidate (as long as they are willing to pay for the system fee); (2) Anyone who holds the NEO token can vote to deside which validator candidate can become a consensus node and the number of consensus nodes at anytime. The votes of consensus nodes are calculated by an algorithm described in this chapter. And voting is a dynamic and continuous process. If the NEO asset of a voter is changed (e.g.the NEO is transferred to another address), the number of votes at the previous voting address will also change, and the list of consensus nodes will change accordingly.
 
