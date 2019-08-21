@@ -1,18 +1,18 @@
 # 关于NEO SDK
 
-可使用 NEO SDK 来开发各种基于 NEO 的应用，如钱包客户端，游戏等。 引用 NEO SDK 后，您的项目仍可在原有的环境中运行，而非在 NeoVM 中运行，如果想开发在 NeoVM 中运行的程序，请参考 [NEO 智能合约](../../sc/gettingstarted/introduction.md)。 
+可使用NEO SDK来开发各种基于NEO的应用，如钱包客户端，游戏等。 引用NEO SDK后，您的项目仍可在原有的环境中运行，而非在NeoVM中运行，如果想开发在 NeoVM中运行的程序，请参考[NEO 智能合约](../../sc/gettingstarted/introduction.md)。 
 
-此文档是完全[开源](https://github.com/neo-project/docs)的。 可通过任何方式参与此文档，如创建问题、编写文档等。
+此文档是完全[开源](https://github.com/neo-project/docs)的。可通过任何方式参与此文档，如创建问题、编写文档等。
 
-该文档适用于 NEO 2.9.0 版本。与 Visual Studio 2017 结合使用时，可以更方便地使用 NEO SDK 来开发软件。 
+该文档适用于NEO 2.9.0版本。与Visual Studio 2017结合使用时，可以更方便地使用NEO SDK来开发软件。 
 
 ## 下载：
 
 1. 在Visual Studio 2017中新建.NET项目（项目的.NET版本不能低于NEO SDK所使用的.NET版本）
-2. 在项目中右键`管理 NuGet 程序包`
-3. 在搜索框中搜索`NEO`，然后安装即可
+2. 在项目中右键“管理 NuGet 程序包”
+3. 在搜索框中搜索"NEO"，然后安装即可
 
-此外，你也可以在 [这里](https://www.nuget.org/packages/Neo/2.7.1) 下载 NuGet 安装包来手动安装。
+此外，你也可以在[这里](https://www.nuget.org/packages/Neo/2.7.1)下载NuGet安装包来手动安装。
 
 ## 项目构成
 
