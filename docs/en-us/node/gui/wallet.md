@@ -20,9 +20,6 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 
 4. Click `OK` and the wallet is successfully created, which by default comes with a standard account. 
 
-   > [!Note]
-   >
-   > Due to the role of change mechanism, the remainder of the assets is transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
 
 ## Viewing the wallet information
 
