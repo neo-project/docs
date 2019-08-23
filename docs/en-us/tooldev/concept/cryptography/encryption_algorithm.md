@@ -1,22 +1,21 @@
-# Encrypt Algorithm
+# Encryption Algorithm
 
 ## ECC Algorithm
 
-Elliptic Curve Cryptography (ECC) algorithm is a kind of asymmetric cryptography algorithm. With the irreversible feature of K=k*G process (K: public key, G: base point (constant)), it can prevent solving private key from public key by brutal force. With the same length of secret key, ECC has higher security level and saves computing power compared to other cryptography algorithms such as RSA. ECC combined with other algorithms, is widely used in signing fields, i.e. ECDSA digital signature.
+Elliptic Curve Cryptography (ECC) algorithm is a kind of asymmetric encryption algorithm. With the irreversible feature of K=k\*G process (K: public key, G: base point (constant)), it can prevent solving private key from public key by brutal force. With the same length of secret key, ECC has higher security level and saves computing resource compared to other encryption algorithms such as RSA. ECC combined with other algorithms, is widely used in signing fields, i.e. ECDSA digital signature.
 
 Same as Bitcoin, NEO adopts ECC as public key generating algorithm. NEO defines a special secp256r1-standard elliptic curve with parameters:
 
-Prime Ｑ: 00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
+Prime Q: 00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
 
-Parameter Ａ: 00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
+Parameter A: 00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
 
 Parameter B: 005AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B
 
-Order Ｎ：00FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
+Order N：00FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
 
 Base Point G：(0x6B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C296,
 　　　　　0x4FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5)
-
 
 Example:
 
@@ -24,7 +23,7 @@ Example:
 | --- | --- |
 | private key |  c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962 |
 | public key (compressed) |  035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
-| <nobr>public key(uncompressed)</nobr> | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a 35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f |
+| public key (uncompressed) | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a 35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f |
 
 > [!NOTE]
 >
@@ -36,18 +35,16 @@ Scenarios:
 
 - Signing and signature verification
 
-Reference：
-
-A relatively easy to understand primer on elliptic curve cryptography](https://arstechnica.com/information-technology/2013/10/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/)
+For more information, refer to [A relatively easy to understand primer on elliptic curve cryptography](https://arstechnica.com/information-technology/2013/10/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/).
 
 
 ## ECDSA signing
 
-Elliptic curve digital signature algorithm (ECDSA) is a simulation of Digital Signature Algorithm (DSA) by ECC algorithm. Its advantage includes fast speed, reliable strength and short signature.
+Elliptic Curve Digital Signature Algorithm (ECDSA) is a simulation of Digital Signature Algorithm (DSA) by ECC algorithm. Its advantage includes fast speed, reliable strength and short signature.
 
 Brief steps are as follows:
 
-Assume private key, public key and base point as k, K and G, respectively. We know that K = k*G according to ECC algorithm.
+Assume private key, public key and base point as k, K and G, respectively. We know that K = k\*G according to ECC algorithm.
 
 Signing procedure:
 
@@ -67,7 +64,6 @@ Verification procedure:
 
 Deduction is as follows:
 
-
 [![formula_ecdsa](../../images/blockchain_paradigm/formula_ecdsa.jpg)](../../images/blockchain_paradigm/formula_ecdsa.jpg)
 
 Example:
@@ -81,7 +77,7 @@ Example:
 
 > [!NOTE]
 >
-> public key and signature above is in single line.
+> public key and signature above are both in a single line.
 
 Scenarios：
 
@@ -89,10 +85,9 @@ Scenarios：
 
 - Consensus.
 
-
 ## AES Encryption
 
-Advanced Encryption Standard (AES) is a kind block cipher algorithm in symmetric cryptography algorithms. It's block size can be 128, 192, 256. AES's advantages include: (1) fast processing speed, (2) whole process can be described in math, (3) Currently no effective cracking method.
+Advanced Encryption Standard (AES) is a kind of block cipher algorithm in symmetric encryption algorithms. Its block size can be 128, 192, 256. AES has the following advantages: (1) fast processing speed, (2) whole process can be described in math, (3) currently no effective cracking method.
 
 NEO uses 256-bit AES encryption algorithm, where encryption mode is ECB and filling method is NoPadding.
 

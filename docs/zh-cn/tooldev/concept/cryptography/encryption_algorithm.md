@@ -2,21 +2,20 @@
 
 ## ECC椭圆曲线加密
 
-ECC椭圆曲线加密算法是一种非对称加密算法。利用其 K=k*G 过程不可逆的特性（其中K为公钥，G为基点（常数点）），可以预防通过公钥暴力求解私钥。相较于 RSA 等其他加密算法，在相同密钥长度情况下，其具备更高的安全性，同时更节约算力。ECC 结合其他算法广泛应用于签名等领域，例如 ECDSA 数字签名。
+ECC椭圆曲线素数加密算法是一种非对称加密算法。利用其K=k\*G过程不可逆的特性（其中K为公钥，G为基点（常数点）），可以预防通过公钥暴力求解私钥。相较于RSA等其他加密算法，在相同密钥长度情况下，其具备更高的安全性，同时更节约算力。ECC结合其他算法广泛应用于签名等领域，例如 ECDSA 数字签名。
 
-NEO 与比特币一样都采用 ECC 作为其公钥生成算法，NEO 采用了 secp256r1 标准所定义的一条特殊的椭圆曲线，使用的参数：
+NEO与比特币一样都采用ECC作为其公钥生成算法，NEO采用了secp256r1标准所定义的一条特殊的椭圆曲线，使用的参数：
 
-素数Ｑ：00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
+素数素数Q：00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
 
-椭圆曲线的系数Ａ：00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
+椭圆曲线的系数A：00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFC
 
-椭圆曲线的系数Ｂ：005AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B
+椭圆曲线的系数B：005AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B
 
-阶数Ｎ：00FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
+阶数N：00FFFFFFFF00000000FFFFFFFFFFFFFFFFBCE6FAADA7179E84F3B9CAC2FC632551
 
 基点G：(0x6B17D1F2E12C4247F8BCE6E563A440F277037D812DEB33A0F4A13945D898C296,
 　　　　0x4FE342E2FE1A7F9B8EE7EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5)
-
 
 Example:
 
@@ -24,7 +23,7 @@ Example:
 | --- | --- |
 | 私钥   |  c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962 |
 | 公钥(压缩型) |  035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
-| <nobr>公钥(非压缩型)</nobr> | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a 35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f |
+| 公钥(非压缩型) | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a 35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f |
 
 > [!NOTE]
 >
@@ -36,9 +35,7 @@ Example:
 
 - 签名和验证签名
 
-参考文献：
-
-[一个关于椭圆曲线密码学的初级读本 ](https://arstechnica.com/information-technology/2013/10/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/)
+更多信息，请参考[一个关于椭圆曲线密码学的初级读本 ](https://arstechnica.com/information-technology/2013/10/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/)。
 
 
 ## ECDSA 签名
@@ -61,12 +58,11 @@ Example:
 
    1. 接收方收到消息M、以及签名{r·G=(x,y), s}。
 
-   2. 根据消息求哈希h。
+   2. 根据消息M求哈希h。
    
    3. 使用发送方公钥K计算：h·G/s + x·K/s，并与r·G比较，如相等即验签成功。
 
 推导原理如下：
-
 
 [![formula_ecdsa](../../images/blockchain_paradigm/formula_ecdsa.jpg)](../../images/blockchain_paradigm/formula_ecdsa.jpg)
 
@@ -88,7 +84,6 @@ Example:
 - 交易的签名。
 
 - 共识
-
 
 ## AES 加密
 
