@@ -84,21 +84,25 @@ Invocation script performs stack operation instructions, provides parameters for
 
 ## Transaction Type
 
-In NEO, there are 9 types of transaction, includes MinerTransaction, RegisterTransaction,IssueTransaction and ContractTransaction and so on.
+In NEO, there are 9 types of transaction.
 
-| Index | Type | Value  | Fee | Usage |  Description  |
-|------|--------|-----|----------|-------|----------|
-|  1  | MinerTransaction | 0x00 | 0 | Assign byte fees |
-|  2  | RegisterTransaction | 0x40 | 10000/0 | To register assets | Deprecated |
-|  3  | IssueTransaction | 0x01 | 500/0 | To issue asset |
-|  4  | ClaimTransaction | 0x02 | 0 | To claim GAS | |
-|  5  | StateTransaction | 0x90 | *  | Enroll as validator candidate or vote validators |
-|  6  | EnrollmentTransaction | 0x20 | 1000 | Enroll as validator candidate | Deprecated |
-|  7  | ContractTransaction | 0x80 | 0 | Contract transaction | The most commonly used transaction |
-|  8  | PublishTransaction | 0xd0 | 500\*n | To publish a smart contract | Deprecated |
-|  9  | InvocationTransaction | 0xd1 | 0 | A transaction to invoke a smart contract |  |
+| Type | Value  | System Fee (GAS) |  Description  |
+|--------|-----|----------|----------|
+| MinerTransaction | 0x00 | 0 |The first transaction of a block, used to allocate byte fees|
+| RegisterTransaction | 0x40 | 10000/0 | (Deprecated) Registers assets |
+| IssueTransaction | 0x01 | 500/0 |Issues assets|
+| ClaimTransaction | 0x02 | 0 | Claims GAS |
+| StateTransaction | 0x90 | 1000/0 |Enrolls as a validator candidate or votes for consensus nodes|
+| EnrollmentTransaction | 0x20 | 1000 | (Deprecated) Enroll as validator candidate |
+| ContractTransaction | 0x80 | 0 | The most commonly used transaction |
+| PublishTransaction | 0xd0 | 500\*n | (Deprecated) Publishes smart contracts |
+| InvocationTransaction | 0xd1 | Fees vary with execution instructions. | Invokes smart contracts |
 
-The details of transaction processing, please read "Transaction Execution" section.
+> [!NOTE]
+>
+> Transaction system fee: Different transactions have different system fees. The detail is defined in the configuration file `protocol.json`. Collected system fees are distributed to NEO holders, how this is done will be explained later in the guide.
+>
+> Transaction network fee: `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`. In consensus activity, the network fee will be the reward for the Speaker, who packages transactions into a block. The network fee is stored in the first transaction (`MinerTransaction`) of the block. The higher the network fee is, the easier the transaction will be packaged into the new created block.
 
 ## How to use transaction
 
