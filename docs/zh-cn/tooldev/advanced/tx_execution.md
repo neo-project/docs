@@ -281,27 +281,6 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 ## 特殊交易的处理
 
-NEO中定义的交易类型如下所示：
-
-| 名称 | 交易手续费(单位GAS) | 描述 |
-| --------   | :-----:   | :----: |
-| MinerTransaction | 0 | 用于分配字节费的交易  |
-| RegisterTransaction | 10000/0 | (已弃用) 用于资产登记的交易   |
-| IssueTransaction | 500/0 | 用于分发资产的交易   |
-| ClaimTransaction | 0 | 用于分配 NeoGas 的交易   |
-| EnrollmentTransaction | 1000 | (已弃用) 用于报名成为共识候选人的特殊交易   |
-| StateTransaction | 1000/0 | 申请见证人或共识节点投票   |
-| ContractTransaction | 0 | 合约交易，这是最常用的一种交易   |
-| PublishTransaction | 500*n | (已弃用) 智能合约发布的特殊交易   |
-| InvocationTransaction | 具体的指令GAS消耗 | 调用智能合约的特殊交易   |
-
-
-> [!NOTE]
->
-> **交易手续费**： 不同的交易类型，不同的收费标准，设置在配置文件`protocol.json`中，最后分红给持有NEO用户。
->
-> **交易网络费**： `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`， 共识过程中，对议长打包交易的奖励，存于共识新块的第一笔交易`MinerTransaction`中。交易的网络费设置的越高，越容易被打包。
-
 
 ### 共同特征
 
@@ -392,9 +371,9 @@ TransactionAttributeUsage，表示交易属性用途，数据结构如下：
 
 Amount 为发行总量，共有2种模式：
 
-   1. **限量模式**：当Amount为正数时，表示当前资产的最大总量为Amount，且不可修改（股权在未来可能会支持扩股或增发，会考虑需要公司签名或一定比例的股东签名认可）。
+   - **限量模式**：当Amount为正数时，表示当前资产的最大总量为Amount，且不可修改（股权在未来可能会支持扩股或增发，会考虑需要公司签名或一定比例的股东签名认可）。
 
-   2. **不限量模式**：当Amount等于-1时，表示当前资产可以由创建者无限量发行。这种模式的自由度最大，但是公信力最低。
+   - **不限量模式**：当Amount等于-1时，表示当前资产可以由创建者无限量发行。这种模式的自由度最大，但是公信力最低。
 
 
 处理流程与一般流程一致。
@@ -613,8 +592,4 @@ Amount 为发行总量，共有2种模式：
 
 
 后续处理流程，与一般流程一致。
-
-NEO 智能合约在部署或者执行的时候都要缴纳一定的手续费，分为部署费用和执行费用。部署费用是指开发者将一个智能合约部署到区块链上需要向区块链系统支付一定的费用（目前是 500 Gas）。执行费用是指每执行一条智能合约的指令都会向 NEO 系统支付一定的执行费用。具体收费标准请参阅 [智能合约费用](../../sc/fees.md)。
-
-
 
