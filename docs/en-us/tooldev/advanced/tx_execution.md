@@ -264,27 +264,7 @@ Wallet starts a thread listening to new blocks. It will updates transaction stat
 
 5. Remove confirmed new transactions from unconfirmed transaction list.
 
-## Processing of special transactions
-
-NEO transanction is defined as follows：
-
-| Name | Transaction fee (unit: GAS) | Description |
-| --------   | :-----:   | :----: |
-| MinerTransaction | 0 | used for collected system fee distribution |
-| RegisterTransaction | 10000/0 | (Deprecated) used for asset registration |
-| IssueTransaction | 500/0 | used for asset distribution |
-| ClaimTransaction | 0 | used for NeoGas distribution |
-| EnrollmentTransaction | 1000 | (Deprecated) used for consensus candidate enrollment |
-| StateTransaction | 1000/0 | used for validator enrollment or consensus node voting |
-| ContractTransaction | 0 | used for contract transaction, a most common transaction category |
-| PublishTransaction | 500\*n | (Deprecated) used for smart contract publishing |
-| InvocationTransaction | GAS consumption varies | used for invocating smart contract |
-
-> [!NOTE]
->
-> **Transaction system fee**: Different transactions have different system fees. The details are defined in the configuration file `protocol.json`. Collected system fee is distributed to NEO holders, how this is done will be explained later in the guide.
->
-> **Transaction network fee**: `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`. In consensus activity, the network fee will be the reward for the Speaker, who packages transactions into a block. The network fee is stored in the first transaction (`MinerTransaction`) of the block. The higher the network fee is, the easier the transaction will be packed into the new created block.
+## Processing special transactions
 
 ### Common attributes
 
@@ -572,7 +552,3 @@ Special transaction for smart contract invocation. With `invoke/invokefunction/i
     2. Common verification
 
 Other processing steps are the same as a basic transaction.
-
-Certain system fee needs to be payed when publish and execute a NEO smart contract. Publishing fee is the amount of system fee needed to publish a smart contract on the block chain. Execution fee is the amount of system fee needed every time a smart contract is executed. 
-
-For more detailed information, refer to [Fees](../../sc/fees.md).

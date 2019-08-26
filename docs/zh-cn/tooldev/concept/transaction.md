@@ -84,21 +84,27 @@ Description和Remark1-15，也必须明确给出数据长度，且最大存储�
 
 ## 交易类型
 
-Neo中一共定义了9种不同类型的交易，包括MinerTransaction、RegisterTransaction、IssueTransaction和ContractTransaction等。
+NEO 中一共定义了9种不同类型的交易，如下表所示。
 
-| 编号 | 类型名 | 值  | 系统费用 |用途 |  解释  |
-|------|--------|-----|----------|-------|----------|
-|  1  | MinerTransaction | 0x00 | 0 | 创建“矿工”交易 | 块的第一条交易，用于分配字节费的交易 |
-|  2  | RegisterTransaction | 0x40 | 10000/0 | 注册资产，仅用于NEO和GAS | 已弃用 |
-|  3  | IssueTransaction | 0x01 | 500/0 | 分发资产 |
-|  4  | ClaimTransaction | 0x02 | 0 | 提取GAS | 每个区块的奖励分发 |
-|  5  | StateTransaction | 0x90 | *  | 验证人选举统计选票时使用 |
-|  6  | EnrollmentTransaction | 0x20 | 1000 | 报名成为验证人 | 已弃用 |
-|  7  | ContractTransaction | 0x80 | 0 | 转账时用 | 最常用的交易类型 |
-|  8  | PublishTransaction | 0xd0 | 500\*n |应用合约发布交易 | 已弃用 |
-|  9  | InvocationTransaction | 0xd1 | 0 | 合约调用交易 | 用来调用合约，部署合约后或生成新资产之后会使用 |
+| 编号 | 类型名 | 值  | 系统费用(GAS) |  描述  |
+|------|--------|-----|----------|----------|
+|  1  | MinerTransaction | 0x00 | 0 | 块的第一条交易，用于分配字节费的交易 |
+|  2  | RegisterTransaction | 0x40 | 10000/0 | （已弃用）注册资产，仅用于NEO和GAS |
+|  3  | IssueTransaction | 0x01 | 500/0 |分发资产|
+|  4  | ClaimTransaction | 0x02 | 0 | 提取GAS |
+|  5  | StateTransaction | 0x90 | 1000/0 |申请见证人或共识节点投票|
+|  6  | EnrollmentTransaction | 0x20 | 1000 | (已弃用) 报名成为共识候选人 |
+|  7  | ContractTransaction | 0x80 | 0 | 合约交易，这是最常用的一种交易 |
+|  8  | PublishTransaction | 0xd0 | 500\*n | (已弃用) 智能合约发布 |
+|  9  | InvocationTransaction | 0xd1 | 具体的指令GAS消耗 | 调用合约，部署合约后或生成新资产之后会使用 |
 
-详细交易处理流程，见“交易流程”章节。
+关于详细的交易处理流程，请参见 [交易流程](../advanced/tx_execution.md)。
+
+> [!NOTE]
+>
+> 系统手续费： 不同的交易类型，不同的收费标准，设置在配置文件`protocol.json`中，最后分红给持有NEO用户。
+>
+> 交易网络费： `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`， 共识过程中，对议长打包交易的奖励，存于共识新块的第一笔交易`MinerTransaction`中。交易的网络费设置得越高，越容易被打包。
 
 ## 如何使用交易
 

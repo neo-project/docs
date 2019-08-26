@@ -1,25 +1,65 @@
 # 收费模型
 
-NEO生态的各参与方，在使用NEO网络时，需要支付网络费(Network Fee)和系统费(System Fee)，数量单位GAS。网络费将作为选举的共识节点出块奖励，而系统费和GAS的区块奖励，将作为持有NEO的用户权益分红，可通过`ClaimTransaction`交易提取相应GAS到对应账户。费用分配如下图描述。
+用户在使用 NEO 网络时，需要支付一定的费用，总手续费包含系统费(System Fee)和网络费(Network Fee)，费用单位为 GAS。费用分配如下图所示。
 
 [![economic model](../images/blockchain/economic_model.jpg)](../../images/blockchain/economic_model.jpg)
 
-参照"交易"部分，一笔交易的inputs和outputs的数据信息中给出了相关地址上交易前后的GAS数量。总手续费可由其差值得出：
 
-总手续费 = 网络费 + 系统费 = sum(inputs 中的 GAS) - sum(outputs 中的 GAS)
 
 ### 网络费
 
-网络费，作为支付交易被打包确认的费用，用户可自行设定网络费。理论上，每单位字节的网络费越高，越容易被打包确认。在当前主网上，一个块最多支持500笔交易，其中提供最多20笔免费交易。
+网络费是用户向 NEO 网络提交交易时支付的费用，用户可自行设定网络费。理论上，每单位字节的网络费越高，越容易被打包确认。在当前主网上，一个块最多支持500笔交易，其中提供最多20笔免费交易。网络费将作为共识节点的出块奖励。
+
+默认收费规则如下：
+
+<table class='table table-hover'>
+    <thead>
+        <tr>
+            <th>交易类型</th>
+            <th>交易大小 (byte）</th>
+            <th>手续费 (GAS)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">除 ClaimTransaction 以外的所有交易</td>
+            <td>&lt;= 1024</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>&gt; 1024</td>
+            <td>交易大小&times;0.00001 + 0.001<br></td>
+        </tr>
+        <tr>
+            <td rowspan="3">ClaimTransaction</td>
+            <td>所有</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table>
+
+
+> [!Note]
+>
+> - 如果用户发送交易时自定义了手续费，则只收取两项手续费中价格较高者。
+> - NEO-CLI 2.10.2 及之后版本的 RpcWallet 插件新增了 config.json 配置文件，对于使用 RPC 命令发送的交易，可以在该文件中自定义手续费上限。如果交易需要花费的手续费没有超过设定的上限，则正常上链，否则交易会失败。
 
 ### 系统费
-系统费，作为支付交易被NEO网络执行消耗的资源费用。由两部分计算。首先，在系统配置文件`protocol.json`中设置的特殊交易的系统费，包括如下： 
+系统费是交易在虚拟机中执行消耗的资源费用，费用总额受合约脚本的指令数量和指令类型影响。系统费将作为持有 NEO 的用户权益分红。
 
-| 交易类型              |     系统费    |
-|-----------------------|---------------|
-| EnrollmentTransaction |      1000     |
-| IssueTransaction      |       500     |
-| PublishTransaction    |       500     |
-| RegisterTransaction   |     10000     |
+在 NEO 中定义的特殊交易的系统费如下表所示： 
 
-其次，运行智能合约时，产生的系统调用或虚拟机对指令的执行，都将产生费用。该费用也被归入到系统费中。具体收费标准参见 [手续费](../../sc/fees.md)。
+| 交易 | 系统手续费 (GAS) | 描述 |
+| --------   | :-----:   | :----: |
+| MinerTransaction | 0 | 分配字节费  |
+| RegisterTransaction | 10000 | (已弃用) 资产登记   |
+| IssueTransaction | 500 | 分发资产   |
+| ClaimTransaction | 0 | 提取 GAS |
+| EnrollmentTransaction | 1000 | (已弃用) 报名成为共识候选人   |
+| StateTransaction | 1000 | 申请见证人或共识节点投票   |
+| ContractTransaction | 0 | 合约交易，这是最常用的一种交易   |
+| PublishTransaction | 500 | (已弃用) 发布智能合约 |
+| InvocationTransaction | 具体的指令GAS消耗 | 调用智能合约   |
+
+此外，运行智能合约时，产生的系统调用或虚拟机对指令的执行，也会产生系统费用。具体收费信息请参见 [手续费](../../sc/fees.md)。
+
