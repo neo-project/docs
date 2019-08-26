@@ -175,13 +175,13 @@
   - name: v2.10.3
     items:
     - name: Deploying NEO nodes
-      href: /docs/en-us/exchange/2.10.2/deploynode.md
+      href: /docs/en-us/exchange/2.10.3/deploynode.md
     - name: Using NEO-CLI
-      href: /docs/en-us/exchange/2.10.2/client.md
+      href: /docs/en-us/exchange/2.10.3/client.md
     - name: Dealing with assets transactions
-      href: /docs/en-us/exchange/2.10.2/transaction.md
+      href: /docs/en-us/exchange/2.10.3/transaction.md
     - name: Distribute GAS to uses
-      href: /docs/en-us/exchange/2.10.2/gas.md 
+      href: /docs/en-us/exchange/2.10.3/gas.md 
   - name: Changelog
     href: /docs/en-us/exchange/changelog.md
 - name: Reference
