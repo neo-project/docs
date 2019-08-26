@@ -2,16 +2,15 @@
 
 ## Claiming GAS
 
-GAS is generated with each new block and will be allocated to the address of NEO holders. (The number within the brackets of the balance of assets is the number of GAS that can be claimed) At any time, the NEO holder can initiate a claim to redeem these GAS to the corresponding address of the NEO. At the moment, only the PC version of the client has the functionality to extract GAS.
+GASs are generated with generation of each new block and are allocated to the address of NEO holders. At any time, the NEO holder can initiate a claim to redeem GASs to the corresponding address of the NEO. 
 
-NEO has two status: unspent and spent. Unclaimed GAS has two status accordingly: unavailable and available. When NEO are transferred to an account, their status are unspent, the GAS generated during this period are unavailable for claiming. When NEO are transferred out their status become spent and related GAS become available. How to make the GAS in your account available? Transfer the NEO to any address in your wallet.
+Unclaimed GAS has two states, unavailable and available, which corresponds to the two states of NEO, unspent and spent. When NEOs are transferred to an account, their states are unspent, the GASs generated during this period are unavailable for claiming. When NEOs are transferred out their states become spent and related GAS become available. How to make the GAS in your account available? Transfer the NEO to any address in your wallet.
 
-The specific steps are:
+To claim GAS, do the following:
 
-1. Transfer all the NEO within the wallet using a transfer operation. (It is possible to send the NEO straight to the current address) Once the claim for the GAS is settled, the GAS can be withdrawn. (Refer to the white paper for technical explanation of this process).
-2. Click `Advanced`, `Claim GAS`, `Claim All`.
-
-![image](../../assets/gui_37.png)
+1. Transfer all the NEO within the wallet. It is possible to send the NEO back to the current address Once the claim for the GAS is settled, the GAS can be withdrawn. 
+2. Click `Advanced  ` -> `Claim GAS`
+3. Enter the address to receive the GAS and then click `Claim All`.
 
 ## Requesting a certificate
 
