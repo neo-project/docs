@@ -1,65 +1,61 @@
 # NEO-CLI Structure
 
-Neo is a blockchain system based on a peer-to-peer network. It provides digital asset accounting based on the UTXO model and an execution environment for smart contracts based on the neo virtual machine. This chapter describes the overall structure and basic behavior of the node program NEO-CLI in the network.
+NEO is a blockchain system based on a peer-to-peer network. It provides a digital asset ledge based on the UTXO model and an execution environment for smart contracts based on the NEO virtual machine. This chapter describes the overall structure and basic behavior of the node program NEO-CLI in the network.
 
 ## The Whole Network
 
 [![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
 
-Each node in the network runs a NEO-CLI program or a protocol-compatible program. Among them, the consensus nodes involved in the consensus. Non-consensus nodes are not involved in the consensus. The consensus will be described in subsequent chapters.
+Each node in the network runs a NEO-CLI program or a protocol-compatible program. Among them, the consensus nodes are involved in the consensus process. Non-consensus nodes are not involved in the consensus process. The consensus process will be described in subsequent chapters.
 
 ## NEO-CLI
 
-The structure of NEO-CLI is shown below. (Some structures may change due to version upgrade)
+The structure of NEO-CLI is shown below. (Some parts of structure may change due to version upgrade)
 
 [![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
 
 ### NEO-CLI command line tools
-Neo-CLI is a command line program. Provides basic functionality for interacting with the blockchain through the command line console. 
 
+Neo-CLI is a command line program which provides basic functionality for interacting with the blockchain through the command line console. For more information, refer to [NEO-CLI command line tools](../node/cli/cli.md).
 
 ### Ledger API
 
-The ledger API defines the basic data types of the UTXO model, including basic data structures such as transaction, block, and validator. The details are described in subsequent chapters. Or check the API documentation for details.
+The ledger API defines the basic data types of the UTXO model, including basic data structures such as transaction, block, and validator. The details are covered in subsequent chapters.
 
 ### Wallets
 
-The official implementation of neo provides two types of wallets, one is the sqlite database format wallet, and the other is the NEP-6 wallet. The advantage of the sqlite format wallet is that the performance is relatively better. The disadvantage is that the applicable platform is not as wide as the NEP-6 wallet.
+NEO officially provides two types of wallets, one is the sqlite database format wallet, and the other is the NEP-6 wallet. The advantage of the sqlite format wallet is that its performance is relatively better. The disadvantage is that its compatible platforms are not as many as the NEP-6 wallet.
 
 ### LevelDBStore / Blockchain
 
-Blockchain data management module based on leveldb. Provides storage and query services of blockchain data to the other parts.
+Blockchain data management module based on leveldb which provides storage and query services of blockchain data to the other parts.
 
 ### LocalNode
 
-It is the module for network communication between nodes. It is responsible for exchanging information with other nodes in the network. Details will be covered in subsequent chapters.
+It is the module for network communication between nodes. It is responsible for exchanging information with other nodes in the network. Details are covered in subsequent chapters.
 
 ### RpcServer
 
-A module that provides an RPC interface to outer system. The details of the RPC programming interface can be found at the link below. For more information, refer to [RPC API](../reference/rpc/latest-version/api.md).
-
+A module that provides an interface for RPC requests. For more information, refer to [RPC API](../reference/rpc/latest-version/api.md).
 
 ### ConsensusService
 
-In neo's network, only consensus nodes need to start consensus service. The consensus node exchanges information with other consensus nodes through the peer-to-peer network to complete the process of generating new blocks in the blockchain.
-
-Details will be covered in subsequent chapters.
+In NEO's network, only consensus nodes need to start consensus service. The consensus node exchanges information with other consensus nodes through the peer-to-peer network to complete the process of generating new blocks in the blockchain. Details will be covered in subsequent chapters.
 
 ### Plugin
 
-The logic of some specific modules in the blockchain is implemented in the form of a plug-in to facilitate customization and debugging of specific functions. The following four categories are included.
+The logic of some specific modules in the blockchain is implemented in the form of a plugin to facilitate customization and debugging of specific functions. The following four categories are included:
+
  - **ILogPlugin** : The storage plugin for execution result of smart contracts.
- - **IPolicyPlugin** : The sorting strategy plugin for transaction when generating new blocks.
+ - **IPolicyPlugin** : The sorting strategy plugin for transactions when generating new blocks.
  - **IRpcPlugin** : A plugin for RPC module.
  - **IPersistencePlugin** : The customized behavior plugin when the node receives a new block and saves it to the local database.
 
 ### NeoVM
 
-A virtual machine implemented by Neo. Used to execute verification scripts and smart contracts. Details will be covered in subsequent chapters.
+A virtual machine implemented by NEO. It's used to execute verification scripts and smart contracts. Details will be covered in subsequent chapters.
 
-The ApplicationEngine is a layer of encapsulation of the Neo VM. The Neo VM is designed as a standalone module. Can be deployed outside of the blockchain. ApplicationEngine is more closely linked to the blockchain itself.
-
----
+The ApplicationEngine is a layer of encapsulation of the NEO VM. The NEO VM is designed as a standalone module which can be deployed outside of the blockchain. ApplicationEngine is more closely linked to the blockchain itself.
 
 ## Configuration files
 
@@ -71,7 +67,6 @@ The node program NEO-CLI accesses the following configuration files during execu
 ### config.json
 
 It defines basic configurations such as database path, network configuration, and startup settings.
-
 
 ```json
 {
@@ -100,28 +95,26 @@ It defines basic configurations such as database path, network configuration, an
 }
 ```
 
+Attribute Description:
 
-Property Description:
+ - Paths/Chain : The prefix of storage directory for the blockchain database. The suffix of the storage directory is an 8-digit hexadecimal called the MagicNumber. MagicNumber will be mentioned later.
+ - Paths/Index : The prefix of storage directory for the wallet index.
+ - P2P/Port: The listening port number of the TCP/IP protocol connection between network nodes.
+ - P2P/WsPort : The listening port number of the WebSocket protocol connection between network nodes.
+ - RPC/BindAddress : The listening IP address of the JSON-RPC service.
+ - RPC/Port : The listening port number of the JSON-RPC service.
+ - RPC/SslCert : Authentication of the secure connection of the JSON-RPC service. When the default is empty, no secure connection is used.
+ - RPC/SslCertPassword : The password for the secure connection of the JSON-RPC service. When the default is empty, no secure connection is used.
+ - UnlockWallet/IsActive : Whether to automatically unlock the wallet when starting the network node.
+ - UnlockWallet/Path : The path of the wallet file to unlock when starting the network node.
+ - UnlockWallet/Password : The password to unlock the wallet file when starting the network node.
+ - UnlockWallet/StartConsensus : Whether to automatically start consensus when starting a network node. Auto-starting consensus relies on automatically unlocking the wallet.
 
- - Paths/Chain : The prefix of storage directory for the blockchain database. The suffix of the storage directory is an 8-digit hexadecimal called the MagicNumber. MagicNumber will be mentioned later.<BR>
- - Paths/Index : The prefix of storage directory for the wallet index.<BR>
- - P2P/Port: The listening port number of the TCP/IP protocol connection between network nodes.<BR>
- - P2P/WsPort : The listening port number of the WebSocket protocol connection between network nodes.<BR>
- - RPC/BindAddress : The listening IP address of the JSON-RPC service.<BR>
- - RPC/Port : The listening port number of the JSON-RPC service.<BR>
- - RPC/SslCert : Authentication of the secure connection of the JSON-RPC service. When the default is empty, no secure connection is used.<BR>
- - RPC/SslCertPassword : The password for the secure connection of the JSON-RPC service. When the default is empty, no secure connection is used.<BR>
- - UnlockWallet/IsActive : Whether to automatically unlock the wallet when starting the network node.<BR>
- - UnlockWallet/Path : The path of the wallet file to unlock when starting the network node.<BR>
- - UnlockWallet/Password : The password to unlock the wallet file when starting the network node.<BR>
- - UnlockWallet/StartConsensus : Whether to automatically start consensus when starting a network node. Auto-starting consensus relies on automatically unlocking the wallet.<BR>
-
-config.mainnet.json and config.testnet.json are two backup files that store the configuration for the mainnet and testnet.
-
+`config.mainnet.json` and `config.testnet.json` are two backup files that store the configuration for the mainnet and testnet.
 
 ### protocol.json
 
-It defines protocol-level variables, public keys of alternate consensus nodes, list of seed nodes, and system fee prices.
+It defines protocol-level variables, public keys of spare consensus nodes, list of seed nodes, and system fee prices.
 
 ```json
 {
@@ -165,9 +158,9 @@ It defines protocol-level variables, public keys of alternate consensus nodes, l
 }
 ```
 
-Property Description:
+Attribute Description:
 
- - Magic : Magic Number. Mainnet: 7630401 (0x00746E41) Testnet: 1953787457 (0x74746E41) When building a private chain network, the magic number can be changed to any integer, but the magic number used by all the nodes in the same network must be the same.
+ - Magic : Magic Number. Mainnet: 7630401 (0x00746E41) Testnet: 1953787457 (0x74746E41). When building a private chain network, the magic number can be changed to any integer, but the magic number used by all the nodes in the same network must be the same.
  - AddressVersion : The address version. Fixed value 23
  - SecondsPerBlock : The block interval. The consensus nodes in the same network must have the same value.
  - StandbyValidators: A list of public keys of the alternate consensus node.
@@ -178,7 +171,7 @@ protocol.mainnet.json and protocol.testnet.json are two backup files that store 
 
 > [!NOTE]
 > 
-> - In NEO-CLI 2.7.6 a temporary file peers.dat was used to save IP addresses of known nodes, NEO-CLI 2.9.0+ no longer uses the file.
+> - In NEO-CLI 2.7.6, a temporary file peers.dat was used to save IP addresses of known nodes, NEO-CLI 2.9.0+ no longer uses the file.
 > - If NEO-CLI meets an exception during execution and is terminated, the error's content will be written to a file (error.log) for debugging.
 
 ## Brief startup process
@@ -197,41 +190,40 @@ protocol.mainnet.json and protocol.testnet.json are two backup files that store 
 
 6. When the system exits, stop the RPC service. Stop the LocalNode and peer-to-peer network communication. Close the leveldb database.
 
-### LevelDBStore Initialization
+### LevelDBStore initialization
 
 1. Open the leveldb database or create the database if it does not exist.
 
 2. Read the data format version number. If the version number is less than 2.9.1, clear the database and then write the latest version number.
 
-### Blockchain Initialization
+### Blockchain initialization
 
 1. Read the list of block headers of the blockchain from the database and save them in memory for fast index access (header_index).
 
 2. If there is no block information in the database, write the genesis block to the database.
 
-### LocalNode Initialization
+### LocalNode initialization
 
 1. Scan the IP address of all local network adapters and save them.
 
 2. Start a background loop and check the number of connections to other peers every 5 seconds. If it is less than the maximum number of connections (10), it will try to connect to more peers. If the information of other peers are unknown, it will connect to the seed nodes and then ask for the addresses and port number of other peers.
 
-3. If the device is in a LAN behind a NAT and does not have an IP address on the internet, it will try to discover the external IP address and set up a new port mapping using the Internet Gateway Device Protocol(IGD) implemented as part of UPnp. Then it'll start listening on port for TCP/IP connections and start listening on port for websocket connections on the external IP address.
+3. If the device is in a LAN behind a NAT and does not have an IP address on the internet, it will try to discover the external IP address and set up a new port mapping using the Internet Gateway Device Protocol(IGD) implemented as part of UPnp. Then it will start listening on port for TCP/IP connections and start listening on port for websocket connections on the external IP address.
 
 4. Start listening on port locally and accept TCP/IP connections from other peers.
 
 5. Start the WebSocket service locally and accept WebSocket connections from other peers.
 
-### ConsensusService Initialization
+### ConsensusService initialization
 
   1. Initialize the consensus context
 
-  2. Listen to the consensus message and process it
+  2. Listen to consensus messages and process them
 
-### JSON-RPC service Initialization
+### JSON-RPC service initialization
 
 Listen on the specified address and port. Enable secure links (https) if specified.
 
-### Other Initialization
+### Other initialization
 
 Initialize all plugins. For more information about plugins, refer to [Install Plugins](../node/cli/setup.md).
-

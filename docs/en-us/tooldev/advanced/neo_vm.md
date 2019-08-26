@@ -8,12 +8,11 @@ NeoVM has seven built-in data types:
 |------|------|
 | Boolean |  Implemented as two byte arrays, `TRUE` and `FALSE`.  |
 | Integer | Implemented as a `BigInteger` value.  |
-| ByteArray |Implemented as a byte array.  |
+| ByteArray |Implemented as a `byte[]`.  |
 | Array |  Implemented as a `List<StackItem>`, the `StackItem` is an abstract class, and all the built-in data types are inherited from it. |
 | Struct |  Inherited from Array, a `Clone` method is added and `Equals` method is overridden. |
 | Map | Implemented as a key-value pair `Dictionary<StackItem, StackItem>`.  |
 | InteropInterface |  Interoperable interface |
-
 
 ```c#
 // boolean type
@@ -23,15 +22,15 @@ private static readonly byte[] FALSE = new byte[0];
 private bool value;
 ```
 
-
 ## Instructions
 
-NeoVM has implemented 113 instructions (and four unrealized instructions). The categories are as follows:
+NeoVM has implemented 113 instructions (and four unimplemented instructions). The categories are as follows:
 
 | Constant | Flow Control | Stack Operation | String Operation | Logical Operation | Arithmetic Operation | Cryptography | Advanced Data Structure |Stack Isolation| Exception Processing |
 | ---- | -------- | ------ | ------ | -------- | -------- | ------ | -------- | ------ | ---- |
 | 25 | 9| 16| 5 | 5 | 25 | 7  | 14 | 5 | 2 |
 
+Details of each instruction in each category are introduced as follows.
 
 ### Constant
 
@@ -63,25 +62,25 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSHM1                                   |
 |----------|------------------------------------------|
 | Bytecode: | 0x4F                                     |
-| Function:   | Push a BigInteger of `-1`  into the `EvaluationStack`. |
+| Function:   | Push a BigInteger of `-1` into the `EvaluationStack`. |
 
 #### PUSHN
 | Instruction   | PUSH1\~PUSH16                               |
 |----------|---------------------------------------------|
 | Bytecode: | 0x51\~0x60                                  |
-| Alias:   |  `PUSHT` is an alias for `PUSH1`      |
+| Alias:   |  `PUSHT`    |
 | Function:   | Push a BigInteger into the `EvaluationStack`, the value of which is equal to 1\~16. |
 
 ### Flow Control
 
-It's used to control the running process of NeoVM, including jump, call and other instructions.
+It's used to control the execution process of NeoVM, including jump, call and other instructions.
 
 #### NOP
 
 | Instruction   | NOP                                         |
 |----------|---------------------------------------------|
 | Bytecode: | 0x61                                        |
-| Function:   | Empty operation, but will add 1 to the instruction counter. |
+| Function:   | Empty operation, but it will add 1 to the instruction counter. |
 
 #### JMP
 
@@ -95,7 +94,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPIF                                                                                                                |
 |----------|-------------------------------------------------------------|
 | Bytecode: | 0x63      |
-| Function:   | When the top element of the `EvaluationStack` isn't 0, then jump to the specified offset, which is specified by 2 bytes after this instruction. </br> Whether the condition determines true or not, the top element of the stack will be removed.  |
+| Function:   | When the top element of the `EvaluationStack` isn't 0, then jump to the specified offset, which is specified by 2 bytes after this instruction.<br> Whether the condition is true or false, the top element of the stack will be removed.  |
 
 #### JMPIFNOT
 
@@ -116,7 +115,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | RET                                                                                              |
 |----------|--------------------------------------------------------------------------------------------------|
 | Bytecode: | 0x66                                                                                             |
-| Function:   | Remove the top element of the `InvocationStack` and set the instruction counter point to the next frame of the stack. </br> If the `InvocationStack` is empty, the virtual machine enters `HALT` state.  |
+| Function:   | Remove the top element of the `InvocationStack` and set the instruction counter point to the next frame of the stack.<br> If the `InvocationStack` is empty, the virtual machine enters `HALT` state.  |
 
 #### APPCALL
 
@@ -137,11 +136,11 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | TAILCALL                                                                                             |
 |----------|------------------------------------------------------------------------------------------------------|
 | Bytecode: | 0x69                                                                                                 |
-| Function:   | Tail call (no longer returning back to the current execution environment after the call). </br>  Call the specified interoperable function whose name is specified by the string after this instruction. |
+| Function:   | Tail call (no longer returning back to the current execution environment after the call).<br> Call the specified interoperable function whose name is specified by the string after this instruction. |
 
 ### Stack Operation
 
-Copy, remove and swap the elements of the stack.
+It's used to copy, remove and swap the elements of the stack.
 
 #### DUPFROMALTSTACK
 
@@ -196,7 +195,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | DEPTH                                  |
 |----------|----------------------------------------|
 | Bytecode: | 0x74                                   |
-| Function:   | Push the numbe of elements in the `EvaluationStack` into the top of the `EvaluationStack`. |
+| Function:   | Push the number of elements in the `EvaluationStack` into the top of the `EvaluationStack`. |
 
 #### DROP
 
@@ -277,7 +276,6 @@ Copy, remove and swap the elements of the stack.
 | Input:   | X1 X0                                 |
 | Output:   | X0 X1 X0                              |
 
-
 ### String Operation
 
 #### CAT
@@ -324,7 +322,6 @@ Copy, remove and swap the elements of the stack.
 | Function:   | Push the length of the top string element to the `EvaluationStack` top.  |
 | Input:   | X                                |
 | Output:   | X len(X)                         |
-
 
 ### Logical Operation
 
@@ -805,21 +802,21 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | CALL_I                 |
 |----------|-----------------------|
 | Bytecode: | 0xE0                  |
-| Function:   | Call a new execution context, the script is the script of the current  execution context, pcount specifies the number of parameters, and rvcount specifies the number of results. Jump to the new execution context. |
+| Function:   | Call a new execution context, the script is the script of the current execution context,<br> pcount specifies the number of parameters, and rvcount specifies the number of results.<br> Jump to the new execution context. |
 
 #### CALL_E
 
 | Instruction   | CALL_E                 |
 |----------|-----------------------|
 | Bytecode: | 0xE1                  |
-| Function:   | Call a new execution context, the script is specified by the 20-bit hash after the instruction, pcount specifies the number of parameters, and rvcount specifies the number of results. Jump to the new execution context. |
+| Function:   | Call a new execution context, the script is specified by the 20-byte hash after the instruction,<br> pcount specifies the number of parameters, and rvcount specifies the number of results.<br> Jump to the new execution context. |
 
 #### CALL_ED
 
 | Instruction   | CALL_ED                 |
 |----------|-----------------------|
 | Bytecode: | 0xE2                  |
-| Function:   | Call a new execution context, the script is specified by the Hash at the top of the evaluation stack, pcount specifies the number of parameters, and rvcount specifies the number of results. Jump to the new execution context. |
+| Function:   | Call a new execution context, the script is specified by the Hash at the top of the evaluation stack,<br> pcount specifies the number of parameters, and rvcount specifies the number of results.<br> Jump to the new execution context. |
 
 #### CALL_ET
 
@@ -853,4 +850,4 @@ It has implemented common operations for array, map, struct, etc.
 
 > [!Note]
 >
-> The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack`.
+> The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack` using `PUSH()`.
