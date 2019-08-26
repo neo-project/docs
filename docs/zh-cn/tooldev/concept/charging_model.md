@@ -22,7 +22,7 @@
     </thead>
     <tbody>
         <tr>
-            <td rowspan="2">资产交易 (除 ClaimTransaction 以外)</td>
+            <td rowspan="2">除 ClaimTransaction 以外的所有交易</td>
             <td>&lt;= 1024</td>
             <td>0</td>
         </tr>
@@ -31,21 +31,13 @@
             <td>交易大小&times;0.00001 + 0.001<br></td>
         </tr>
         <tr>
-            <td rowspan="2">发布或调用合约（上链交易）</td>
-            <td>&lt;= 1024</td>
-            <td>0.001</td>
-        </tr>
-        <tr>
-            <td>&gt; 1024</td>
-            <td>交易大小&times;0.00001 + 0.001</td>
-        </tr>
-        <tr>
             <td rowspan="3">ClaimTransaction</td>
             <td>所有</td>
             <td>0</td>
         </tr>
     </tbody>
 </table>
+
 
 > [!Note]
 >

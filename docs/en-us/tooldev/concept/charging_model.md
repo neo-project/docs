@@ -20,7 +20,7 @@ The default charging rules are as follows:
     </thead>
     <tbody>
         <tr>
-            <td rowspan="2">Assets transactions (except ClaimTransaction)</td>
+            <td rowspan="2">Non-ClaimTransaction transactions</td>
             <td>&lt;= 1024</td>
             <td>0</td>
         </tr>
@@ -29,21 +29,13 @@ The default charging rules are as follows:
             <td>Transaction size&times;0.00001 + 0.001<br></td>
         </tr>
         <tr>
-            <td rowspan="2">Deploy or invoke contracts on blockchain</td>
-            <td>&lt;= 1024</td>
-            <td>0.001</td>
-        </tr>
-        <tr>
-            <td>&gt; 1024</td>
-            <td>Transaction size&times;0.00001 + 0.001</td>
-        </tr>
-        <tr>
             <td rowspan="3">ClaimTransaction</td>
             <td>All</td>
             <td>0</td>
         </tr>
     </tbody>
 </table>
+
 
 
 > [!Note]
