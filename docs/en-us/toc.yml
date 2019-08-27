@@ -180,7 +180,7 @@
       href: /docs/en-us/exchange/2.10.3/client.md
     - name: Dealing with assets transactions
       href: /docs/en-us/exchange/2.10.3/transaction.md
-    - name: Distribute GAS to uses
+    - name: Distributing GAS to users
       href: /docs/en-us/exchange/2.10.3/gas.md 
   - name: Changelog
     href: /docs/en-us/exchange/changelog.md
@@ -328,3 +328,5 @@
           items:
           - name: ExecutionEngine
             href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: NEO C# SDK (v2.9.3.0)
+    href: https://docs.neo.org/developerguide/en/api/
