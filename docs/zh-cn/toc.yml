@@ -171,6 +171,8 @@
       href: /docs/zh-cn/tooldev/sdk/wallet.md
     - name: 交易
       href: /docs/zh-cn/tooldev/sdk/tx.md
+  - name: 大小端序的使用
+    href:  /docs/zh-cn/tooldev/endian.md
   - name: 进阶知识
     - name: NeoVM 指令集
       href: /docs/zh-cn/tooldev/advanced/neo_vm.md
