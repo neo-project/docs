@@ -17,7 +17,9 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
   - 大端序：0x 946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - 小端序：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
-要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用 [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)。
+要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用:
+- [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
+- NEO SDK，详情请参见 [NEO SDK - 常见数据类型转换](sdk/conversion.md)
 
 ### 合约的ScriptHash
 每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。NEO的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收全局资产或者NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
@@ -49,7 +51,7 @@ var outputs = new List<TransactionOutput>{ new TransactionOutput()
 
 如果传入的地址，参数类型为Hash160，需要使用**大端序**的地址ScriptHash。
 
-    ```
+```
     {
         "jsonrpc": "2.0",
         "method": "invokefunction",
@@ -65,7 +67,8 @@ var outputs = new List<TransactionOutput>{ new TransactionOutput()
         ],
         "id": 3
     }
-    ```
+```
+
 如果参数类型为ByteArray，需要使用**小端序**的地址ScriptHash。
 
 ```
