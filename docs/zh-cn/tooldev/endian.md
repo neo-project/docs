@@ -19,7 +19,7 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
 
 要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下一种方法:
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
-- NEO SDK，详情请参见 [NEO SDK - 常见数据类型转换](sdk/conversion.md)
+- NEO SDK，详情请参见 [常见数据类型转换](sdk/conversion.md)
 
 ### 合约的ScriptHash
 每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。NEO的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收全局资产或者NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
