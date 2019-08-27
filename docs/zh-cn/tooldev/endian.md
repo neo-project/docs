@@ -17,7 +17,7 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
   - 大端序：0x 946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - 小端序：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
-要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用:
+要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下一种方法:
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
 - NEO SDK，详情请参见 [NEO SDK - 常见数据类型转换](sdk/conversion.md)
 
