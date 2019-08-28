@@ -1,4 +1,4 @@
-# Dealing with Assets Transactions
+# Dealing with Asset Transactions
 
 ## Overview
 
