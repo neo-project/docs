@@ -17,6 +17,7 @@ Let's look at a standard wallet address and corresponding scripthash strings in 
   - Little endian：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
 To convert between the wallet address and scripthash, or between big endian and little endian byte order, use one of the following:
+
 - [DataTransformationTools](https://peterlinx.github.io/DataTransformationTools/)
 - NEO SDK (See [Data Conversion](sdk/conversion.md))
 
@@ -28,7 +29,7 @@ When a contract has been deployed a scripthash is generated as a unified identif
 - CGas contract address：AScKxyXmNtEnTLTvbVhNQyTJmgytxhwSnM
 
 ## Usage scenarios
-The wallet address is commonly used in the transaction of global assets transfer or smart contracts invoking.
+The wallet address is commonly used in the transaction of global assets transfer or smart contract invocation.
 ### Global assets transfer
 In the case that you construct a global asset transfer transaction (ContractTransaction) using NEO SDK, you need to construct related Output for the asset receiver. As shown below, you should fill in TransactionOutput with **big-endian** scripthash of the address receiving assets.
 
@@ -41,7 +42,7 @@ var outputs = new List<TransactionOutput>{ new TransactionOutput()
 }}.ToArray();
 ```
 
-### Smart contract invoking
+### Smart contract invocation
 When invoking a smart contract that requires a wallet address scripthash be passed, note that you should use the correct endianness.
 
 #### Invoking contract through RPC
@@ -79,7 +80,7 @@ If data type is ByteArray, you should enter **little-endian** scripthash of the 
         "balanceOf",
         [
         {
-            "type": "ByteArray", //数据类型ByteArray
+            "type": "ByteArray", //The Data type is ByteArray
             "value": "e4f124b1c3b23553f07cebfb852b2a60aa6c6d94" //The address scripthash is little endian
         }
         ]
