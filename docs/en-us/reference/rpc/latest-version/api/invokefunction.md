@@ -9,11 +9,11 @@ Returns the result after calling a smart contract at scripthash with the given o
 
 ## Parameter Description
 
-scripthash: Smart contract scripthash
+`scripthash`: Smart contract scripthash. Note that endianness of the scripthash you should use depends on data type of the passed address. If data type is Hash160, then you should enter big-endian scripthash; If data type is ByteArray, you should enter little-endian scripthash.
 
-operation: The operation name (string)
+`operation`: The operation name (string)
 
-params: The parameters to be passed into the smart contract operation
+`params`: The parameters to be passed into the smart contract operation
 
 ## Example
 

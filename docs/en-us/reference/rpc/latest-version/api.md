@@ -93,7 +93,6 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getvalidators](api/getvalidators.md)           |                                             | Gets NEO consensus nodes information                         |                              |
 | [getwalletheight](api/getwalletheight.md)       |                                             | Gets the current wallet index height.                        |  Need to open the wallet |
 | [importprivkey](api/importprivkey.md) | \<key> | Imports the private key to the wallet. | Need to open the wallet |
-| [invoke](api/invoke.md)                         | \<script_hash>  \<params>                   | Invokes a smart contract at specified script hash with the given parameters |                              |
 | [invokefunction](api/invokefunction.md)         | \<script_hash>  \<operation>  \<params>     | Invokes a smart contract at specified script hash, passing in an operation and its params |                              |
 | [invokescript](api/invokescript.md)             | \<script>                                   | Runs a script through the virtual machine and returns the results |                              |
 | [listaddress](api/listaddress.md)               |                                             | Lists all the addresses in the current wallet.               | Need to open the wallet      |

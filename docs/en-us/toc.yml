@@ -149,8 +149,8 @@
     items:
     - name: About NEO SDK
       href: /docs/en-us/tooldev/sdk/introduction.md
-    - name: Common Uses
-      href: /docs/en-us/tooldev/sdk/common.md
+    - name: Data Conversion
+      href: /docs/en-us/tooldev/sdk/conversion.md
     - name: Account
       href: /docs/en-us/tooldev/sdk/account.md
     - name: Wallet
@@ -259,8 +259,6 @@
         href: /docs/en-us/reference/rpc/latest-version/api/getwalletheight.md
       - name: importprivkey
         href: /docs/en-us/reference/rpc/latest-version/api/importprivkey.md
-      - name: invoke
-        href: /docs/en-us/reference/rpc/latest-version/api/invoke.md
       - name: invokefunction
         href: /docs/en-us/reference/rpc/latest-version/api/invokefunction.md
       - name: invokescript

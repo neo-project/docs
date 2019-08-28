@@ -164,7 +164,7 @@
     - name: 关于 NEO SDK
       href: /docs/zh-cn/tooldev/sdk/introduction.md
     - name: 数据类型转换
-      href: /docs/zh-cn/tooldev/sdk/format.md
+      href: /docs/zh-cn/tooldev/sdk/conversion.md
     - name: 账户
       href: /docs/zh-cn/tooldev/sdk/account.md
     - name: 钱包
@@ -273,8 +273,6 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.md
       - name: importprivkey
         href: /docs/zh-cn/reference/rpc/latest-version/api/importprivkey.md
-      - name: invoke
-        href: /docs/zh-cn/reference/rpc/latest-version/api/invoke.md
       - name: invokefunction
         href: /docs/zh-cn/reference/rpc/latest-version/api/invokefunction.md
       - name: invokescript
