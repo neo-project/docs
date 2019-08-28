@@ -344,3 +344,5 @@
           items:
           - name: ExecutionEngine
             href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: NEO C# SDK (v2.9.3.0)
+    href: https://docs.neo.org/developerguide/zh/api/
