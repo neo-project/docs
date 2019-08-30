@@ -56,6 +56,8 @@
       href: /docs/zh-cn/node/python/basic.md
     - name: Prompt
       href: /docs/zh-cn/node/python/prompt.md
+  - name: 快速同步区块数据 
+    href: /docs/zh-cn/node/syncblocks.md
 - name: NEO 网络
   items:
   - name: 主网与测试网
@@ -342,5 +344,5 @@
           items:
           - name: ExecutionEngine
             href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
-  - name: NEO C# SDK (v2.9.3.0)
+  - name: SDK API (C#)
     href: https://docs.neo.org/developerguide/zh/api/
