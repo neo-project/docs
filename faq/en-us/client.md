@@ -54,7 +54,7 @@ You can write some scripts, such as creating a Notepad file on Windows, typing `
 
    - **NEO GUI wallet**: Re-index your wallet.
 
-   - **NEON wallet**: Refresh your wallet.
+   - **Light wallet, e.g. NEON wallet**: Refresh your wallet.
 
 ##I have sent x amount of NEO/GAS to my wallet, but it has not arrived yet. Why?
 
