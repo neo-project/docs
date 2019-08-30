@@ -99,20 +99,19 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>Provides wallet-specific RPC functionalities.</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">claimgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getwalletheight</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendfrom</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">sendtoaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invoke</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invokefunction</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">invokescript</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/claimgas.md">claimgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/dumpprivkey.md">dumpprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getbalance.md">getbalance</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnewaddress.md">getnewaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getunclaimedgas.md">getunclaimedgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getwalletheight.md">getwalletheight</a><br><a
+                    href="../../reference/rpc/latest-version/api/importprivkey.md">importprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/listaddress.md">listaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendfrom.md">sendfrom</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendmany.md">sendmany</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendtoaddress.md">sendtoaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokefunction.md">invokefunction</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokescript.md">invokescript</a></td>
             <td>Mandatory</td>
         </tr>
         <tr>
@@ -160,6 +159,7 @@ Download the plugins you need from the following table.
         </tr>
     </tbody>
 </table>
+
 
 
 
