@@ -42,9 +42,11 @@
       href: /docs/en-us/node/cli/seedlist.md
     - name: Command Line
       href: /docs/en-us/node/cli/cli.md
+  - name: Synchronizing the blockchain faster 
+    href: /docs/zh-cn/node/syncblocks.md
 - name: NEO Network
   items:
-  - name: Main Net & Test Net
+  - name: Main Net and Test Net
     href: /docs/en-us/network/testnet.md
   - name: Setting up Private Chain
     items:
@@ -328,5 +330,5 @@
           items:
           - name: ExecutionEngine
             href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
-  - name: NEO C# SDK (v2.9.3.0)
+  - name: SDK API (C#)
     href: https://docs.neo.org/developerguide/en/api/

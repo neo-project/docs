@@ -1,4 +1,4 @@
-# Main Net & Test Net
+# Main Net and Test Net
 
 The NEO node runs on the main net by default. The Main net is a block chain network that has been officially launched and operates independently.  
 
