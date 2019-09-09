@@ -170,8 +170,6 @@
       href: /docs/en-us/tooldev/advanced/tx_execution.md
     - name: Merkel Tree
       href: /docs/en-us/tooldev/advanced/merkle_tree.md
-    - name: Bloom Filter
-      href: /docs/en-us/tooldev/advanced/bloom_filter.md
 - name: Document for Exchange Developers
   items:
   - name: Overview
