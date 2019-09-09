@@ -17,7 +17,7 @@ NeoVM has seven built-in data types:
 ```c#
 // boolean type
 private static readonly byte[] TRUE = { 1 };
-private static readonly byte[] FALSE = new byte[0];
+private static readonly byte[] FALSE = { 0 };
 
 private bool value;
 ```

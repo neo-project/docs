@@ -17,7 +17,7 @@ NeoVM内置的数据类型一共有7种：
 ```c#
 // boolean 类型
 private static readonly byte[] TRUE = { 1 };
-private static readonly byte[] FALSE = new byte[0];
+private static readonly byte[] FALSE = { 0 };
 
 private bool value;
 ```
