@@ -184,8 +184,6 @@
       href: /docs/zh-cn/tooldev/advanced/tx_execution.md
     - name: 梅克尔树
       href: /docs/zh-cn/tooldev/advanced/merkle_tree.md
-    - name: 布隆过滤器
-      href: /docs/zh-cn/tooldev/advanced/bloom_filter.md
 - name: 交易所对接指南
   items:
   - name: 概述
