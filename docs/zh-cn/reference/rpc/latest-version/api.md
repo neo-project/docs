@@ -1,6 +1,6 @@
 # API 参考
 
-每个 NEO 节点 Neo-CLI 都可选的提供了一套 API 接口，用于从节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。要启动一个提供 RPC 服务的节点，可运行以下命令：
+每个 NEO-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。要启动一个提供 RPC 服务的节点，可运行以下命令：
 
 `dotnet neo-cli.dll /rpc`
 
@@ -87,7 +87,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getvalidators](api/getvalidators.md) | | 查看当前共识节点的信息 | |
 | [getwalletheight](api/getwalletheight.md) | | 获取当前钱包索引高度 | 需要打开钱包 |
 | [importprivkey](api/getwalletheight.md) | | 导入私钥到钱包 | 需要打开钱包 |
-| [invoke](api/invoke.md)                  | \<script_hash>  \<params>                | 使用给定的参数以散列值调用智能合约            |          |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
 | [listaddress](api/listaddress.md)        |                                          | 列出当前钱包内的所有地址                 | 需要打开钱包   |

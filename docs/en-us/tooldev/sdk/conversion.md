@@ -1,6 +1,4 @@
-# NEO SDK Common Usages
-
-## Conversion between commonly used data types
+# Conversion between commonly used data types
 
 ### Conversion between hexadecimal strings and byte arrays
 

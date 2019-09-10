@@ -87,4 +87,4 @@ NEOFAN - 技术文章：http://neofans.org/category/docs/
 
 NEL - 精品文章：https://bbs.neldev.net/forum-2.htm
 
-国外社区教程集锦：http://docs.neo.org/communitydoc.html
+国外社区教程集锦：https://docs.neo.org/articles/en-us/index.html

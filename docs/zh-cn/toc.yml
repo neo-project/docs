@@ -56,6 +56,8 @@
       href: /docs/zh-cn/node/python/basic.md
     - name: Prompt
       href: /docs/zh-cn/node/python/prompt.md
+  - name: 快速同步区块数据 
+    href: /docs/zh-cn/node/syncblocks.md
 - name: NEO 网络
   items:
   - name: 主网与测试网
@@ -166,13 +168,15 @@
     - name: 关于 NEO SDK
       href: /docs/zh-cn/tooldev/sdk/introduction.md
     - name: 数据类型转换
-      href: /docs/zh-cn/tooldev/sdk/format.md
+      href: /docs/zh-cn/tooldev/sdk/conversion.md
     - name: 账户
       href: /docs/zh-cn/tooldev/sdk/account.md
     - name: 钱包
       href: /docs/zh-cn/tooldev/sdk/wallet.md
     - name: 交易
       href: /docs/zh-cn/tooldev/sdk/tx.md
+  - name: 大小端序的使用
+    href:  /docs/zh-cn/tooldev/endian.md
   - name: 进阶知识
     - name: NeoVM 指令集
       href: /docs/zh-cn/tooldev/advanced/neo_vm.md
@@ -182,22 +186,20 @@
       href: /docs/zh-cn/tooldev/advanced/tx_execution.md
     - name: 梅克尔树
       href: /docs/zh-cn/tooldev/advanced/merkle_tree.md
-    - name: 布隆过滤器
-      href: /docs/zh-cn/tooldev/advanced/bloom_filter.md
 - name: 交易所对接指南
   items:
   - name: 概述
     href:  /docs/zh-cn/exchange/general.md
-  - name: v2.10.2
+  - name: v2.10.3
     items:
     - name: 部署 NEO 节点
-      href: /docs/zh-cn/exchange/2.10.2/deploynode.md
+      href: /docs/zh-cn/exchange/2.10.3/deploynode.md
     - name: 使用 NEO-CLI 客户端
-      href: /docs/zh-cn/exchange/2.10.2/client.md
+      href: /docs/zh-cn/exchange/2.10.3/client.md
     - name: 处理资产交易
-      href: /docs/zh-cn/exchange/2.10.2/transaction.md
+      href: /docs/zh-cn/exchange/2.10.3/transaction.md
     - name: 给用户分发 GAS
-      href: /docs/zh-cn/exchange/2.10.2/gas.md 
+      href: /docs/zh-cn/exchange/2.10.3/gas.md 
   - name: 更新记录
     href: /docs/zh-cn/exchange/changelog.md
 - name: 开发参考
@@ -205,7 +207,7 @@
   - name: RPC API
     - name: API 参考
       href:  /docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: v2.10.2
+    - name: v2.10.3
       items:
       - name: claimgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/claimgas.md
@@ -273,8 +275,6 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.md
       - name: importprivkey
         href: /docs/zh-cn/reference/rpc/latest-version/api/importprivkey.md
-      - name: invoke
-        href: /docs/zh-cn/reference/rpc/latest-version/api/invoke.md
       - name: invokefunction
         href: /docs/zh-cn/reference/rpc/latest-version/api/invokefunction.md
       - name: invokescript
@@ -344,3 +344,5 @@
           items:
           - name: ExecutionEngine
             href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: SDK API (C#)
+    href: https://docs.neo.org/developerguide/zh/api/

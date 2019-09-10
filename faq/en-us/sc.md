@@ -28,6 +28,14 @@ If you still cannot solve the issue, try this way:
 2. Run Power Shell or command line (CMD) 
 3. Go to the NeoContract root and run `nuget restore`.
 
+## Why do I fail to publish C# smart contract compiler?
+
+Before you publish the C# smart contract compiler, make sure you have done the following:
+
+- Installed .net core 2.1 the latest version
+- If using VS2017, selected the target as win10-64
+- If using VS2019, changed the target to win10-64 and then selected the "Self-contained deployment" mode. 
+
 ## After publishing neon in Windows 7 and setting the environment variable, why is it prompted that api-ms-win-core-console-l2-1-0.dll is missing when I am running neon?
 
 This is caused by the publishing system configuration. As the default publishing system for the neon project is win 10-x64, when you publish neon in Windows 7 the missing .dll file is prompted. 
@@ -55,3 +63,12 @@ NEO smart contracts require development framework, compiler, and NEOVM versions 
 Some parts of this article is excerpted from [NEO Contract Development - Common Pitfalls using Windows 7](https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7). Thanks for **cybourgeoisie**'s contribution.
 
 If you are still having trouble or you do not find a relevant issue, you can open an issue or pull request on [GitHub NEO Doc project](https://github.com/neo-project/docs).
+
+## I have deployed my contract successfully, but why do I fail to invoke it? 
+
+This issue is caused by confliction between the old NEOVM opcodes and the new NEP-8 opcodes with which neon compiles contracts. To solve it, you need to compile the contract in compatible mode:
+
+1. Publish the C# compiler neon.exe and add its path to environment parameter
+2. Compile and build the contract in Visual Studio 2017
+3. Compile the contract in compatible mode in your command line: `neon contract.dll --compatible`
+4. Deploy the new contract file after it is generated.

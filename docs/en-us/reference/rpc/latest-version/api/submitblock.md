@@ -30,6 +30,7 @@ Response body if successful:
 ```
 
 Response body if not successful:
+
 ```json
 {
     "jsonrpc": "2.0",
@@ -43,7 +44,7 @@ Response body if not successful:
 
 Response Description:
 
-When result is false, the block has failed to broadcast and an exception is raised. The following error codes can be expected
+When result is false, the block has failed to broadcast and an exception is raised. The following error codes can be expected:
 
 Error code | Message |
 | --------------- | ---- |

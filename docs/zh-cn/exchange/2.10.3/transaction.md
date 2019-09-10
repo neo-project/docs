@@ -24,22 +24,13 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
     </thead>
     <tbody>
         <tr>
-            <td rowspan="2">资产交易 (除 ClaimTransaction 以外)</td>
+            <td rowspan="2">除 ClaimTransaction 以外的所有交易</td>
             <td>&lt;= 1024</td>
             <td>0</td>
         </tr>
         <tr>
             <td>&gt; 1024</td>
             <td>交易大小&times;0.00001 + 0.001<br></td>
-        </tr>
-        <tr>
-            <td rowspan="2">发布或调用合约（上链交易）</td>
-            <td>&lt;= 1024</td>
-            <td>0.001</td>
-        </tr>
-        <tr>
-            <td>&gt; 1024</td>
-            <td>交易大小&times;0.00001 + 0.001</td>
         </tr>
         <tr>
             <td rowspan="3">ClaimTransaction</td>
@@ -50,10 +41,11 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 </table>
 
 
+
 > [!Note]
 >
 > - 如果交易所使用 send 命令发送交易到用户地址时自定义了手续费，则只收取两项手续费中价格较高者。
->- NEO-CLI 2.10.2 的 RpcWallet 插件新增了 config.json 配置文件，对于使用 RPC 命令发送的交易，可以在该文件中自定义手续费上限，对用户资产提供保护。如果交易需要花费的手续费没有超过设定的上限，则正常上链，否则交易会失败。
+>- NEO-CLI 2.10.2 及之后版本的 RpcWallet 插件新增了 config.json 配置文件，对于使用 RPC 命令发送的交易，可以在该文件中自定义手续费上限，对用户资产提供保护。如果交易需要花费的手续费没有超过设定的上限，则正常上链，否则交易会失败。
 > 
 
 ## 处理全局资产交易

@@ -9,7 +9,7 @@
 
 ## 参数说明
 
-scripthash：智能合约脚本散列值。
+scripthash：智能合约脚本散列值。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160, 输入大端序 scripthash; 如果数据类型为 ByteArray，则输入小端序 scripthash。
 
 operation：操作名称（字符串）。
 

@@ -1,110 +1,104 @@
-# 钱包
+# Wallets
 
-钱包是Neo的基础组件，是用户接入Neo网络的载体，负责完成与之相关一系列的工作和任务。Neo的钱包可以自行设计和修改，但需要满足一定的规则和范式。
+Wallets are basic components of NEO and the bridges for users to access NEO network. They are responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
 
+You can redesign and modify NEO wallets following your own thoughts, but the below rules and patterns must be followed.
 
-## **钱包中的数据格式**
-Neo钱包主要处理地址(Address)、私钥(Private Key)、公钥(Public Key)、脚本哈希(ScriptHash)和WIF这五种数据。它们之间可以相互转化。
+## Format
 
-NEP <=> WIF <=> Private Key => Public Key => ScriptHash <=> Address
+### Private Key
 
-这里给出一个更清楚的图示，还要给出每个数据的长度和使用情况。
+A private key is a random value generated between 1 and n (n is a constant, less than 2^256 slightly), and is represented by a 256 bit (32 bytes) number generally.
 
-同比特币一样，私钥是最关键的保密数据，公钥可以由私钥算得，反之不可。同私钥等价的NEP和WIF也应该妥善保管。而可由公钥推出的ScriptHash和Address都是公开的。他们用在不同的场合。比如，Address类似一个银行卡号，在用户做转账时使用。ScriptHash则用在具体交易信息中的Input和Output。
+There are two main encoding formats for private keys in NEO:
 
-### 私钥
+- Hexstring Format
 
-私钥是一个随机生成的位于1和n之间的任何数字（n是⼀个常数，略小于2的256次方），一般用一个256bit(32字节)数表示。在NEO中私钥主要采用两种编码格式：
+   The hexstring format is a string that uses hexadecimal characters to represent byte array.
 
-- **hexstring格式**
+- Wif Format
 
-hexstring格式是将byte[]数据使用16进制字符表示的字符串。
+   The wif format is to add prefix `0x80` and suffix `0x01` in the original 32-byte data, and get the string after Base58Check encoding.
 
-- **wif格式**
+[![Base58Check Encode](../images/wallets/privateKey-wif-en.png)](../images/wallets/privateKey-wif-en.png)
 
-wif格式是在原有32字节数据前后添加前缀0x80和后缀0x01,并做Base58Check编码的字符串
+ Example: 
 
-[![Base58Check编解码](../images/blockchain/wallets/privateKey-wif.png)](../../images/blockchain/wallets/privateKey-wif.png)
-
-Example: 
-
-| 格式 | 数值 |
+| Format | Value |
 |---|---|
 | byte[] | [0xc7,0x13,0x4d,0x6f,0xd8,0xe7,0x3d,0x81,0x9e,0x82,0x75,<br>0x5c,0x64,0xc9,0x37,0x88,0xd8,0xdb,0x09,0x61,0x92,0x9e,<br>0x02,0x5a,0x53,0x36,0x3c,0x4c,0xc0,0x2a,0x69,0x62] |
 | hexstring | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962 |
-| wif | L3tgppXLgdaeqSGSFw1Go3skBiy8vQAM7YMXvTHsKQtE16Dw58cV |
+| wif | L3tgppXLgdaeqSGSFw1Go3skBiy8vQAM7YMXvTHsKQtE16PBncSU |
 
-### 公钥
+### Public Key
 
-公钥是通过ECC算法将私钥运算得到的一个点（x,y）。该点的x、y坐标都可以用32字节数据表示。neo与比特币稍有不同，neo选取了secp256r1曲线作为其ECC算法的参数。在neo中公钥有两种编码格式：
+The public key is a point (X, Y) calculated through the ECC algorithm with the private key. The X, Y coordinates can be represented by 32-byte data. Different from Bitcoin, NEO chooses secp256r1 as the curve of the ECC algorithm. There are two public key formats in NEO:
 
-- **非压缩型公钥**
+- Uncompressed Public Key
 
-0x04+x坐标（32字节）+y坐标（32字节）
+    0x04 + X (32 bytes) +  Y (32 bytes) 
 
-- **压缩型公钥**
+- Compressed Public Key
 
-0x02/0x03+x坐标（32字节）
+    0x02 + X (32 bytes) or 0x03 + X (32 bytes)
 
 Example:
 
-| 格式 | 数值 |
+| Format | Value |
 |----------|:-------------:|
-| 私钥 | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962|
-| 公钥（压缩型） | 035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
-| 公钥（非压缩型） | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74<br>faab3a2b61a35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f  |
-
-<a name="3_address"/>
+| Private Key | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962|
+| Public Key (Compressed) | 035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
+| Public Key (Uncompressed)  | 045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74<br>faab3a2b61a35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f  |
 
 > [!NOTE]
->
-> 上面的公钥（非压缩型）因为太长而成为多行，实际数据是连接的。
+> 
+> The above uncompressed public key is splited into multiple lines, since it's too long. Actually it's in one line.
 
-### 地址
+### Address
 
-地址是由公钥经过一系列转换得到的一串由数字和字母构成的字符串。在neo中，公钥到地址的转换步骤如下：
+Address is a string of numbers and letters after a series of transformations of the public key. In NEO, the steps of conversion from a public key to an address are as follows:
 
-1. 构建地址脚本合约(脚本合约格式：
+1. Build the address script contract, the script format:
 
-`0x21`(1字节,代表Opcode中PushBytes指令)+压缩型公钥(33字节) + `0xac`（1字节,代表Opcode中 CheckSig指令))
+    `0x21` (1 byte, representing `OptCode.PUSHBYTES21`) + compressed public key (33 bytes) + `0xac` (1 byte, representing `OptCode.CHECKSIG`)
 
-2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
+2. Calculate script hash of the contract (20 bytes, obtained from once SHA256, then once RIPEMD160 hash operation of the script). 
 
-3. 在地址脚本合约哈希前添加版本号（ 目前neo所使用的协议版本是23所以对应字节为0x17）
+3. Add the version prefix in the hash. (Currently, the NEO version is `0x17`)
 
-4. 对字节数据做Base58Check编码
+4. Use Base58Check encoding for the above byte data.
 
 Example：
 
-| 格式 | 数值 |
+| Format | Value |
 |----------|:-------------:|
-| 私钥 | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962|
-| 压缩型公钥 | 035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
-| 地址 | AXaXZjZGA3qhQRTCsyG5uFKr9HeShgVhTF  |
+| Private Key | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962|
+| Public Key (Compressed) | 035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a |
+| Address | AXaXZjZGA3qhQRTCsyG5uFKr9HeShgVhTF  |
 
-### 数字证书
-数字证书是一个经证书授权中心数字签名的包含公开密钥拥有者信息以及公开密钥的文件。
-Neo使用的是X509格式的证书。
+### Digital Certificate
 
-## **钱包文件**
+A digital certificate is a document that is digitally signed by the certificate authority(CA) and contains the information of the public key's owner and the public key. NEO certificates use X509 format.
 
-###  db3钱包文件
+## Wallet Files
 
-db3钱包文件是neo采用sqlite技术存储数据所使用存储文件，文件尾缀名：`.db3`。 文件中主要存储以下四个属性：
+### db3 wallet files
 
-- `PasswordHash`：密码的哈希，由密码做sha256得到
+A db3 wallet file uses SQLite to store data, and the file name extension is `.db3`. The file mainly stores the following four attributes:
 
-- `IV`：AES的初始向量，随机生成
+- `PasswordHash`: the hash of the passowrd, by using SHA256 hash operation.
 
-- `MasterKey`：加密密文，由PasswordHash、 IV对私钥做AES256加密得到
+- `IV`: an initial vector of AES, randomly generated.
 
-- `Version`：版本
+- `MasterKey`: an encrypted ciphertext, obtained by encrypting the private key using AES256 algorithm with `PasswordKey`, `IV` parameters.
 
-db3钱包采用对称加密AES相关技术作为钱包的加密和解密方法。
+- `Version`: the version of the wallet
 
-### NEP6钱包文件
+db3 wallet uses the AES (symmetrical encryption) for encryption and decryption.
 
-NEP6钱包文件是neo满足NEP6标准的钱包存储数据所使用存储文件，文件尾缀名：`.json`。 json文件格式如下：
+### NEP6 wallet files
+
+An NEP6 wallet file complies with the NEP6 standard, and the file name extension is `.json`. The JSON format is as follows:
 
 ```json
 {
@@ -150,135 +144,136 @@ NEP6钱包文件是neo满足NEP6标准的钱包存储数据所使用存储文件
 }
 ```
 
-属性说明：
+**Description of attributes**:
 
-* name:名称
+- `name`: a label that the user has given to the wallet file
 
-* version：版本
+- `version`: currently fixed at 1.0, may be changed for functional upgrades in the future
 
-* scrypt（n/r/p）：scrypt算法设置CPU性能的三个参数
+- `scrypt` (n/r/p): three parameters of scrypt algorithm to regulate calculation performance
 
-* accounts：钱包所包含的账户的集合
+- `accounts`: a list of accounts which describe the details of each account in the wallet
 
-* address:账户地址
+- `address`: the standard NEO address of each account
 
-* label：标题
+- `label`: a short description of the account, can be `null`
 
-* isDefault：是否默认账户
+- `isDefault`: means if this account is the default account in the wallet
 
-* lock：是否打开
+- `lock`: means if this account is locked or not
 
-* key：按照NEP2标准加密的密钥nep2Key
+- `key`: nep2Key encrypted according to NEP2
 
-* contract：地址脚本合约的详细内容
+- `contract`: details of the address script contract
 
-* script：地址脚本合约的字节
+- `script`:  the script (represented in a hexdecimal string) of the address script contract 
 
-* parameters：地址脚本合约的参数表
+- `parameters`: a list of contract parameters
 
-* contract/name：地址脚本合约参数的名称
+- `parameters.name`: name of the contract parameter
 
-* type：地址脚本合约参数的类型
+- `type`: type of the contract parameter
 
-* deployed：是否部署
+- `deployed`: means if this contract is deployed or not
 
-* accounts/extra：账户其他扩展属性
+- `accounts.extra`: extra attributes of the account, can be `null`
 
-* extra：钱包其他扩展
+- `extra`: extra attributes of the wallet, can be `null`
 
-NEP6钱包采用了以scrypt为核心算法的相关技术作为钱包的加密和解密方法。
+An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and decryption.
 
-**加密过程**：
+**Encryption steps**:
 
-1. 由公钥计算地址，并获取SHA256(SHA256(Address))的前四个字节作为地址哈希。
+1. The address is derived from the public key, and the address hash is the first four bytes of `SHA256(SHA256(Address))`
 
-2. 使用Scrypt算法算出一个derivedkey，并将其64个字节数据分成2半，作为derivedhalf1和derivedhalf2。Scrypt所使用参数如下：
+2. Calculate a `derivedkey` by the scrypt algorithm, and divide the 64-byte data into two halves as `derivedhalf1` and `derivedhalf2` Scrypt uses the following parameters:
 
-	- 密文：输入的密码（UTF-8格式）
-	- 盐：地址哈希
-	- n：16384
-	- r：8
-	- p：8
-	- length：64
+    - ciphertext: The entered password (UTF-8 format)
+	- salt: address hash
+	- n: 16384
+	- r: 8
+	- p: 8
+	- length: 64
 
-3. 把私钥和derivedhalf1做异或，然后用derivedhalf2对其做AES256加密得到encryptedkey
+3. Do xor operation on the private key and `derivedhalf1`, and then get `encryptedkey` by using AES256 to encrypt it with `derivedhalf2`
 
-4. 按照以下格式拼接数据，并对其做Base58Check编码得到NEP2Key
+4. Concatenate data according to the following format and obtain `NEP2Key` by using Base58Check encoding of it
 
-    `0x01` + `0x42` + `0xe0` + `地址哈希` + `encryptedkey`
+	`0x01` + `0x42` + `0xe0` + address hash + `encryptedkey`
 
+**Decryption steps**：
 
-**解密过程**：
+1. Decode NEP2Key by using Base58Check decoding
 
-1. 对NEP2key做Base58Check解码。
+2. Check whether the length of decoded data is 39 bytes, and the first three bytes (data[0-2]) are `0x01`, `0x42` and `0xe0`
 
-2. 验证解码后数据长度为39，以及前3个字节（data[0-2]是否为0x01、0x42、0xe0）
+3. Take data[3-6] as `addresshash`
 
-3. 取data[3-6]作为addresshash
+4. Put the password and addresshash into the Scrypt algorithm. Specify the result length to 64. Then get the `derivedkey`
 
-4. 把密码、addresshash代入Scrypt算法指定结果长度为64求出导出密钥Derivedkey
+5. Take Derivedkey[0-31] as `Derivedhalf1`, and Derivedkey[32-63] as `Derivedhalf2`
 
-5. 把Derivedkey前32字节作为导出半数1 Derivedhalf1，后32字节作为导出半数2 Derivedhalf2
+6. Take data[7-38] as `Encryptedkey` (32 bytes), and decrypt it using AES256 with `derivedhalf2` as the initial vector
 
-6. 取data[7-38]作为加密密钥Encryptedkey（32字节），并用
-导出半数2 Derivedhalf2作为初始向量对其进行AES256解密
+7. Do xor operation on the decrypted data and `derivedhalf1` to obtain the private key
 
-7. 把解密结果与导出半数1 Derivedhalf1做异或处理求得私钥
+8. Get the public key from the private key with ECC algorithm, and then get the address. Check whether the first four bytes of the result of `SHA256(SHA256(Address))` is equal to the `addresshash`. If it's the same, then you get the correct private key
 
-8. 把该私钥做ECC求出公钥，并生成地址，对该地址做2次Sha256然后取结果的前四字节判断其是否与addresshash相同，相同则是正确的私钥。（参考NEP2）
+More details about NEP2 and NEP6 proposals are in the NEO document.
 
-相关详细技术请参照neo文档中的NEP2和NEP6提案。
+NEP2 proposal: <https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki>
 
-​        NEP2提案：<https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki>
+NEP6 proposal：<https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki>
 
-​        NEP6提案：<https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki>
+## Wallet Function
 
-## **钱包功能**
-
-| 功能名称         | 功能描述                                                     |
+| Function Name   |  Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
-| 导入钱包文件     | 使钱包软件加载指定钱包文件内的数据，建议兼容NEO所使用的两种格式文件：.db3和.json |
-| 导出钱包文件     | 将用户的账户列表信息（包含私钥、密码、地址等信息）存入指定钱包文件内。建议使用NEO所使用的两种格式文件：.db3和.json |
-| 解锁钱包         | 验证用户密码，预防泄密                                       |
-| 创建私钥         | 生成私钥，建议使用安全的随机源生成                           |
-| 导入私钥         | 向钱包内添加新的私钥，可以使用wif格式、数字证书导入          |
-| 导出私钥         | 导出钱包内账户的私钥                                         |
-| 生成公钥         | 根据私钥生成公钥，使用ECC算法生成                            |
-| 生成地址         | 根据私钥生成地址                                             |
-| 导入地址         | 向钱包内添加新的地址（账户）                                 |
-| 导出地址         | 导出钱包内账户的地址                                         |
-| 导入离线同步数据 | 加载chain.acc内的区块数据，减少同步时间                      |
-| 导出离线同步数据 | 导出本地的区块数据，需满足chain.acc格式                      |
-| 同步区块数据     | 同步最新的区块数据                                           |
-| 转账             | 向其他地址转账                                               |
-| 签名             | 给多方签名合约签名                                           |
-| 提取gas          | 提取账户所持有的neo新分配到的gas                             |
-| 显示余额         | 显示账户余额                                                 |
-| 显示交易         | 显示交易记录                                                 |
-| 构建多方签名合约 | 创建多方签名合约                                             |
-| 扩展功能         |                                                              |
-| 部署智能合约     | 发布智能合约                                                 |
-| 测试智能合约     | 测试智能合约                                                 |
+| Import wallet file     |  Import the account information from the specified wallet file   |
+| Export wallet file     |  Store the account information (including private key, password, address, etc.) in the specified wallet file such as db3 wallet file, nep6 json file.  			  |
+| Unlock wallet         | Verify user password to prevent leaks                   |
+| Create private key         | Recommend safe random generator			     	  |
+| Import private key         | Add new private key to the wallet with wif format or digital certificate   |
+| Export private key         | Export accounts' private key         			  |
+| Generate public key         | Obtain public key by ECC algorithm with private key |
+| Generate address         |  Generate address based on private key               |
+| Import address         | Add new address to the wallet  						  |
+| Export address         | Export accounts' address                               |
+| Import offline data |  Load block data in `chain.acc` file to reduce synchronization time    |
+| Export offline data | Export block data in `chain.acc` file 				  |
+| Synchronize block data     |                                        		      |
+| Transfer             | Transfer to other addresses                              |
+| Sign             | Sign data, such as transactions                              |
+| Claim Gas          | Claim the newly allocated gas from the neo held by the account |
+| Get balance         | Show the balance of current wallet  |
+| Get transaction         | Show transaction history of current wallet |
+| Construct multi-signature contract | Construct multi-signature contract  |
+| Extend         |                                                                |
+| Deploy smart contract     |  Deploy smart contract |
+| Test smart contract     | Test smart contract |
 
+## Wallet software
 
-## **两种节点类型对应的钱包**
+### Full-node wallet
 
-### 全节点钱包
+The full-node wallet is a complete backup of blockchain data, which saves all the onchain data and participates in p2p network, therefore it needs a large storage space.
 
-全节点钱包是对区块链数据的完整备份，保存了链上的所有数据，同时也参与了P2P网络的构建，因此需要占用较大的存储空间。neo-cli、neo-gui都是全节点钱包。
+NEO-CLI and NEO-GUI are all full-node wallet.
 
-### 轻钱包
+### SPV wallet
 
-SPV钱包又可称为“轻钱包”，不同于全节点钱包，它不存储全部区块的数据，只存储区块头数据，并通过使用布隆过滤器和梅克尔树等算法来实现相关数据的验证。能有效节约存储空间，多用在手机App端或轻客户端。若需要开发SPV钱包，可参考NEO网络协议相关接口实现。
+The SPV (Simplified Payment Verification) wallet is different from full-node wallet. It dosen't store all block data, only block header data, and verifies the data by using bloom filter and merkle tree algorithm. It's mostly used in mobile app or light client, as it can save storage space effectively.
 
-使用方式：
+For developing SPV wallet, refer to the NEO network protocol interface.
 
-   1. SPV钱包向全节点发送布隆过滤器，并由全节点加载布隆过滤器
+Usage:
 
-   2. SPV钱包向全节点发送布隆过滤器参数，并由全节点加载相应布隆过滤器参数（可选）。
+   1. The SPV wallet sends a bloom filter to the full node, and the full node loads the bloom filter.
 
-   3. SPV钱包向全节点用区块hash查询交易数据，全节点使用布隆过滤器过滤后返回交易数据以及构建的梅克尔树路径（待确认）
-   
-   4. SPV钱包用梅克尔树路径验证交易数据有效性（待确认）
+   2. The SPV wallet sends the bloom filter's parameters to the full node, and the full node load the parameters. (Optional)
 
-   5. SPV钱包向全节点发送指令清除布隆过滤器，全节点清除过滤器。
+   3. The SPV wallet queries transactions from the full node, and the full node returns the transaction data after filtering with the bloom filter and the constructed merkle tree path.
+
+   4. The SPV wallet uses the merkle tree path to verify the transaction data.
+
+   5. The SPV wallet sends `clear the bloom filter` instruction to the full node, and the full node clear it.

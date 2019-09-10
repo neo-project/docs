@@ -16,9 +16,10 @@ Here is an exhaustive library of NEO technical docs, including development examp
 
 | NEO Tools Development                                | Reference                                         | Document for Exchange Developers                |      |
 | ---------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------- | ---- |
-| [Main Concepts](tooldev/concept/blockchain/block.md) | [RPC API](reference/rpc/latest-version/api.md)    | [Version 2.10.2](exchange/2.10.2/deploynode.md) |      |
+| [Main Concepts](tooldev/concept/blockchain/block.md) | [RPC API](reference/rpc/latest-version/api.md)    | [Version 2.10.3](exchange/2.10.3/deploynode.md) |      |
 | [NEO-CLI Structure](tooldev/neo_cli_structure.md)    | [Smart Contract API](reference/scapi/api.md)      |                                                 |      |
 | [NEO SDK](tooldev/sdk/introduction.md)               | [Smart Contract Framework](reference/scapi/fw.md) |                                                 |      |
+| [Big and Little Endian Usage](tooldev/endian.md)     |                                                   |                                                 |      |
 | [Advanced Topics](tooldev/advanced/neo_vm.md)        |                                                   |                                                 |      |
 
 <link href="index.css" rel="stylesheet" />

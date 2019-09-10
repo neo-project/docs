@@ -4,10 +4,10 @@ This document is intended to guide exchange developers to set up NEO nodes on th
 
 This document contains the following topics：
 
-- Deploying NEO nodes on server
-- Using NEO-CLI to create wallets and deposit addresses
-- Dealing with assets transactions including 
-- Distributing GAS to users
+- [Deploying NEO nodes on server](2.10.3/deploynode.md)
+- [Using NEO-CLI to create wallets and deposit addresses](2.10.3/client.md)
+- [Dealing with asset transactions](2.10.3/transaction.md)
+- [Distributing GAS to users](2.10.3/gas.md)
 
 > [!Note]
 >

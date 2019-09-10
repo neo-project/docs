@@ -1,9 +1,8 @@
 # 交易
 
+NEO区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个NEO系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在NEO的P2P网络传输中，信息被打包成`InvPayload`信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x01`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x02`)和共识数据包(`InventoryType = 0xe0`)。
 
-Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个NEO系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成InvPayload信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x01`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x02`)和共识数据包(`InventoryType = 0xe0`)。
-
-## **数据结构**
+## 数据结构
 
 一笔普通交易的数据结构如下：
 
@@ -15,7 +14,7 @@ Neo区块去掉区块头部分就是一串交易构成的区块主体，因而�
 | ?*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |
 | 34*? | Inputs | tx_in[] | 输入 |
 | 60 * ? | Outputs | tx_out[] | 输出 |
-| ?*? | Scripts | Witness[] | 用于验证该交易的脚本列表 |
+| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 |
 
 ### Input
 
@@ -60,21 +59,21 @@ TransactionAttributeUsage，交易属性使用表数据结构如下：
 | Hash1 - Hash15 | 0xa1-0xaf | 用于存放自定义的散列值 |
 | Remark-Remark15 | 0xf0-0xff | 备注 |
 
-
-ContractHash、ECDH02-03、Vote和Hash1-15的数据长度固定为 32 字节，所以省略length字段。Script固定20字节，存放地址。而DescriptionUrl必须明确给出数据长度，且长度不能超过 255字节。Description和Remark1-15，也必须明确给出数据长度， 且最大存储不超过 65535字节。
+ContractHash、ECDH02-03、Vote和Hash1-15的数据长度固定为 32 字节，所以省略length字段。<br/>
+Script固定20字节，存放地址。<br/>
+DescriptionUrl必须明确给出数据长度，且长度不能超过 255字节。<br/>
+Description和Remark1-15，也必须明确给出数据长度，且最大存储不超过 65535字节。
 
 ### Witness
 
-
 每笔交易(transaction，tx)对象在被放进block时，需经过数字签名，确保在后续传输和处理中能随时验证交易是否被篡改。Neo采用的ECDSA数字签名方法。交易的转帐转出方地址，为ECDSA签名时所用的公钥publicKey。Neo系统没有使用比特币中的SegWit，每笔交易都包含自己的Script.witness，而Script.Witness使用的是智能合约。
 
-见证人，实际上是可执行的验证脚本。`InvocationScript` 脚本传递了`VerificationScript`脚本所需要的参数。只有当脚本执行返回真时，验证成功。
+见证人，实际上是可执行的验证脚本。`InvocationScript`脚本传递了`VerificationScript`脚本所需要的参数。只有当脚本执行返回真时，验证成功。
 
 | 字节数 | 字段 | 类型 | 描述 |
 |--|-------|------|------|
 | ?  | InvocationScript | byte[] |调用脚本，补全脚本参数 |
 | ?  | VerificationScript | byte[] | 验证脚本  |
-
 
 调用脚本进行压栈操作相关的指令，用于向验证脚本传递参数（如签名等）。脚本解释器会先执行调用脚本代码，然后再执行验证脚本代码。
 
@@ -83,28 +82,31 @@ ContractHash、ECDH02-03、Vote和Hash1-15的数据长度固定为 32 字节，�
 [![nextconsensus_witness](../images/blockchain/nextconsensus_witness.jpg)](../../images/blockchain/nextconsensus_witness.jpg)
 
 
-## **交易类型**
+## 交易类型
 
-Neo中一共定义了9种不同类型的交易，包括MinerTransaction、RegisterTransaction、IssueTransaction和ContractTransaction等。
+NEO 中一共定义了9种不同类型的交易，如下表所示。
 
+| 编号 | 类型名 | 值  | 系统费用(GAS) |  描述  |
+|------|--------|-----|----------|----------|
+|  1  | MinerTransaction | 0x00 | 0 | 块的第一条交易，用于分配字节费的交易 |
+|  2  | RegisterTransaction | 0x40 | 10000/0 | （已弃用）注册资产，仅用于NEO和GAS |
+|  3  | IssueTransaction | 0x01 | 500/0 |分发资产|
+|  4  | ClaimTransaction | 0x02 | 0 | 提取GAS |
+|  5  | StateTransaction | 0x90 | 1000/0 |申请见证人或共识节点投票|
+|  6  | EnrollmentTransaction | 0x20 | 1000 | (已弃用) 报名成为共识候选人 |
+|  7  | ContractTransaction | 0x80 | 0 | 合约交易，这是最常用的一种交易 |
+|  8  | PublishTransaction | 0xd0 | 500\*n | (已弃用) 智能合约发布 |
+|  9  | InvocationTransaction | 0xd1 | 具体的指令GAS消耗 | 调用合约，部署合约后或生成新资产之后会使用 |
 
-| 编号 | 类型名 | 值  | 系统费用 |用途 |  解释  |
-|------|--------|-----|----------|-------|----------|
-|  1  | MinerTransaction | 0x00 | 0 | 创建“矿工”交易 | 块的第一条交易，用于分配字节费的交易 |
-|  2  | RegisterTransaction | 0x40 | 10000/0 | 注册资产，仅用于NEO和GAS | 已弃用 |
-|  3  | IssueTransaction | 0x01 | 500/0 | 分发资产 |
-|  4  | ClaimTransaction | 0x02 | 0 | 提取GAS | 每个区块的奖励分发 |
-|  5  | StateTransaction | 0x90 | *  | 验证人选举统计选票时使用 |
-|  6  | EnrollmentTransaction | 0x20 | 1000 | 报名成为验证人 | 已弃用 |
-|  7  | ContractTransaction | 0x80 | 0 | 转账时用 | 最常用的交易类型 |
-|  8  | PublishTransaction | 0xd0 | 500*n |应用合约发布交易 | 已弃用 |
-|  9  | InvocationTransaction | 0xd1 | 0 | 合约调用交易 | 用来调用合约，部署合约后或生成新资产之后会使用 |
+关于详细的交易处理流程，请参见 [交易流程](../advanced/tx_execution.md)。
 
+> [!NOTE]
+>
+> 系统手续费： 不同的交易类型，不同的收费标准，设置在配置文件`protocol.json`中，最后分红给持有NEO用户。
+>
+> 交易网络费： `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`， 共识过程中，对议长打包交易的奖励，存于共识新块的第一笔交易`MinerTransaction`中。交易的网络费设置得越高，越容易被打包。
 
-详细交易处理流程，见“交易流程”章节。
-
-
-## **如何使用交易**
+## 如何使用交易
 
 以上这9种交易并不能完成所有的功能实现，比如部署合约和生成NEO和GAS以外的NEP5新资产时，通过系统调用来完成，以InvocationTransaction交易的形式来将这个事情加入到区块链中。下面给出的创世块的生成例子，展示了使用提供的交易类型完成资产注册。
 
@@ -125,22 +127,19 @@ Neo中一共定义了9种不同类型的交易，包括MinerTransaction、Regist
 | 20  | NextConsensus | 下一个共识地址 | UInt160 | 参与下一轮出块的共识节点的多方签名合约地址   |
 | 1  | - | - | uint8 | 	固定为 1   |
 |  ?   | Witness | 见证人 |  Witness |  `0x51`, 代表`PUSHT`指令，返回永真 |
-|  ?*? | **Transactions** | 交易 |  Transaction[] | 目前存了4笔交易， 见后续表 |
-
+|  ?\*? | **Transactions** | 交易 |  Transaction[] | 目前存了4笔交易， 见后续表 |
 
 第一笔交易，MinerTransaction，即“挖矿”交易。所有的block的第一笔交易，都必须是MinerTransaction。Neo中没有挖矿的概念，这里主要记录一个区块的网络费奖励。
-
 
 | 尺寸 | 字段 | 名称  | 类型 | 值 |
 |----|-----|-------|------|------|
 | 1   | Type    | uint8 | 交易类型 | `0x00` |
 | 1 | Version | uint8 |  交易版本号 | `0` |
 | 8 | Nonce | ulong | nonce  | `2083236893` |
-| ?*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34*? | Inputs | tx_in[] | 输入 | 空 |
-| 60 * ? | Outputs | tx_out[] | 输出 | 空 |
-| ?*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
-
+| ?\*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
+| 34\*? | Inputs | tx_in[] | 输入 | 空 |
+| 60\*? | Outputs | tx_out[] | 输出 | 空 |
+| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
 
 第二笔交易，RegisterTransaction，注册NEO代币
 
@@ -154,13 +153,12 @@ Neo中一共定义了9种不同类型的交易，包括MinerTransaction、Regist
 | 1 | Precision | byte | 精度  | `0` |
 | ? | Owner | ECPoint | 所有者公钥  |  |
 | 32 | Admin | UInt160 | 管理者  | `0x51`.toScriptHash |
-| ?*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34*? | Inputs | tx_in[] | 输入 | 空 |
-| 60 * ? | Outputs | tx_out[] | 输出 | 空 |
-| ?*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
+| ?\*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
+| 34\*? | Inputs | tx_in[] | 输入 | 空 |
+| 60\*? | Outputs | tx_out[] | 输出 | 空 |
+| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
 
 `NEO`名称定义 = `[{"lang":"zh-CN","name":"小蚁股"},{"lang":"en","name":"AntShare"}]`
-
 
 第三笔交易，RegisterTransaction，注册GAS代币
 
@@ -174,10 +172,10 @@ Neo中一共定义了9种不同类型的交易，包括MinerTransaction、Regist
 | 1 | Precision | byte | 精度  | `8` |
 | ? | Owner | ECPoint | 所有者公钥  | |
 | 32 | Admin | UInt160 | 管理者  | `0x00`.toScriptHash, 即 `OpCode.PUSHF`指令脚本 |
-| ?*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34*? | Inputs | tx_in[] | 输入 | 空 |
-| 60 * ? | Outputs | tx_out[] | 输出 | 空 |
-| ?*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
+| ?\*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
+| 34\*? | Inputs | tx_in[] | 输入 | 空 |
+| 60\*? | Outputs | tx_out[] | 输出 | 空 |
+| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
 
 `GAS`名称定义 =  `[{"lang":"zh-CN","name":"小蚁币"},{"lang":"en","name":"AntCoin"}]`
 
@@ -199,6 +197,3 @@ Neo中一共定义了9种不同类型的交易，包括MinerTransaction、Regist
 | 1   | AssetId    | byte | 资产类型 | `0x00`， 即NEO代币 |
 | 8 | Value | Fix8 |  转账总量 | `100000000` |
 | 20 | ScriptHash | UInt160 |  收款脚本hash |  备用共识节点多方签名合约地址 |
-
-
-

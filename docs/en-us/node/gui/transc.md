@@ -13,9 +13,21 @@ Transfers assets to a recipient address. If the transferred asset type is equity
 
    ![image](../../assets/gui_15.png)
 
-3. Click `OK`. If need be, click ![image](../../assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
+3. Click `OK`. 
 
-4. Double-check the transfer information and then click `OK`.
+4. (Optional) Click Advanced to unfold the panel and set the following options:
+
+   - Transfer from：Select an address from which you want to transfer fund out.
+   - Fee：The default value is 0. Set a fee if you want to raise the priority of this transaction.
+   - Change address：When you send funds from your wallet, the specified amount of funds are sent to the intended address and the remainder of the funds are send to the change address specified here. 
+
+   > [!Note]
+   >
+   > It is not supported to set a watch-only addresses in the wallet as the change address.
+
+5. (Optional) Click ![image](../../assets/gui_remark.png)  to enter transaction related information that will be recorded on the NEO blockchain.  
+
+6. Double-check the transfer information and then click `OK`.
 
    For token asset transfer, the transaction is completed with the transaction ID displayed.
 
