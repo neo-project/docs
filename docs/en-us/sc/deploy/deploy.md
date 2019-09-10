@@ -1,4 +1,4 @@
-# Deploying and Invoking Smart Contracts
+# Deploying Smart Contracts
 
 When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the NEO blockchain using NEO-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 tokens. 
 
