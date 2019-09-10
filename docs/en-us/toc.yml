@@ -91,8 +91,10 @@
     - name: NEP-5
       href: /docs/en-us/sc/write/nep5.md
   - name: Deploying and Invoking Smart Contracts
-    - name: Deploying and Invoking Smart Contracts
-      href: /docs/en-us/sc/deploy/deploy-invoke.md
+    - name: Deploying Smart Contracts
+      href: /docs/en-us/sc/deploy/deploy.md
+    - name: Invoking Smart Contracts
+      href: /docs/en-us/sc/deploy/invoke.md
     - name: Parameters and Return Values
       href: /docs/en-us/sc/deploy/Parameter.md
   - name: Testing

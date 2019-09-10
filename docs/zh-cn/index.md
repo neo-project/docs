@@ -7,7 +7,7 @@ NEO 官方的技术文档都在这里，还有众多开发示例可供参考。
 | ------- | --------| -------- | ------- |
 | [白皮书](basic/whitepaper.md) | [节点介绍](node/introduction.md) | [主网和测试网](network/testnet.md) | [快速入门](sc/gettingstarted/introduction.md) |
 | [共识机制](basic/technology/dbft.md) | [NEO-GUI](node/gui/install.md) | [搭建私有链 - 单节点](network/private-chain/solo.md) | [合约编写](sc/write/basics.md) |
-| [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [搭建私有链 - 本地主机](network/private-chain/private-chain2.md) | [部署与调用合约](sc/deploy/deploy-invoke.md) |
+| [NeoVM](basic/technology/neovm.md) | [NEO-CLI](node/cli/setup.md) | [搭建私有链 - 本地主机](network/private-chain/private-chain2.md) | [部署与调用合约](sc/deploy/deploy.md) |
 | [NeoContract](basic/technology/neocontract.md) | [NEO-Python](node/python/overview.md) | [搭建私有链 - 虚拟机](network/private-chain/private-chain.md) | [合约迁移](sc/migrate.md) |
 |  | [快速同步区块](node/syncblocks.md) | [Neo-local](network/private-chain/neolocal.md) | [查看更多](sc/sample/HelloWorld.md) |
 
