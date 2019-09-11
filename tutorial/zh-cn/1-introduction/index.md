@@ -1,13 +1,13 @@
 ---
 layout: post
-lang: cn
+lang: en
 lang-ref: NEO-intro
 ---
 
-- NEO介绍
-   - 加密算法与加密货币介绍
+- Introduction to NEO
+   - The introduction of Cryptography and CryptoCurrency
    - NEO
-       - 历史
-       - 白皮书
-       - 特性
-       - 文档
+       - History
+       - White Paper
+       - Features
+       - Documentations
