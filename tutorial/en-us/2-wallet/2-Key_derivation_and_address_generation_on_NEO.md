@@ -28,7 +28,7 @@ Base58 is similar to the common Base64 encoding scheme, except that it removes n
 ```
 
 A full implementation of NEO's check encoding (written in Go) can be seen below:
-```
+```Go
 func b58checkencode(ver uint8, b []byte) (s string) {
 	/* Prepend version */
 	bcpy := append([]byte{ver}, b...)
@@ -72,7 +72,7 @@ The steps to perform the check encoding can be broken down as follows:
 
 So to go from the original private key described above to the WIF format we can use this simple function:
 
-```
+```Go
 // ToWIF converts a NEO private key to a Wallet Import Format string.
 func (priv *PrivateKey) ToWIF() (wif string) {
 	/* See https://en.bitcoin.it/wiki/Wallet_import_format */
@@ -160,7 +160,7 @@ To calculate a NEO address from transaction script:
 3. Use Base58 check to encode previous output with the version 0x17 (meaning result will start with A)
 
 Below you will find example code to generate a NEO address from a public key:
-```
+```Go
 // ToNeoAddress converts a NEO public key to a NEO address string.
 func (pub *PublicKey) ToNeoAddress() (address string) {
 	/* Convert the public key to bytes */

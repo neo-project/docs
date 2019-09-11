@@ -30,7 +30,7 @@ Read more about the transaction attributes:
 
 Example transaction:
 
-```json
+```javascript
 {
    "txid":"0xee85d489e4428a538f39c1903771e1f222a383f8327c96ed19cc02079149a1fd",
    "size":665,
@@ -102,7 +102,7 @@ Depending on the transaction type, it is possible to add attributes. For each at
 
 Example:
 
-```json
+```javascript
 {
    "attributes":[
       {
@@ -165,7 +165,7 @@ For each output in the array of outputs a unique index `n` will be calculated. E
 
 Example:
 
-```json
+```javascript
 {
    "vout":[
       {
@@ -196,7 +196,7 @@ Once an output from a previous transaction is used as input, it will be consider
 
 Example:
 
-```json
+```javascript
 {
    "vin":[
       {
@@ -219,7 +219,7 @@ If the transaction is a `ContractTransaction` with assets attached in the `input
 
 Example:
 
-```json
+```javascript
 {
    "scripts":[
       {

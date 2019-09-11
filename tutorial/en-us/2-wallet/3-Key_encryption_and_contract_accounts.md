@@ -1,9 +1,9 @@
-## Private key encryption (NEP-6 Files)
+## Private key encryption (NEP-2) and Wallet files (NEP-6)
 Storing raw private keys on disk is a security liability. Anyone that that has access to a raw private key can drain these funds. It would be more secure if these keys were encrypted via a password. For this reason we have the NEP-2 standard format (https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki)
 
-This encrypted key provides an additional layer of security to the raw private key, requiring an attacker to acquire both the encrypted key and the password in order to access the funds. This is good, but it is often the case that one might need to have multiple wallets, which means that they have multiple keys. Storing each NEP-2 encrypted key would be very cumbersome, so instead we can create a file structure that would allow for all of these encrypted keys to be stored in the same place.
+This encrypted key provides an additional layer of security to the raw private key, requiring an attacker to acquire both the encrypted key and the password in order to access the funds. This is good, but it is often the case that one might need to have multiple accounts, which means that they have multiple keys. Storing each NEP-2 encrypted key would be very cumbersome, so instead we can create a file structure that would allow for all of these encrypted keys to be stored in the same place.
 
-This standard allows for a standardized way of importing wallets into various blockchain clients and contains the additional security guarantees of the NEP-2 format.
+The NEP-6 wallet standard allows for a standardized way of importing addresses into various blockchain clients and contains the additional security guarantees of the NEP-2 format.
 
 A full specification of the file format can be found here. (https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki). It follows a JSON structure that contains information about the private/public key pairs, as well as metadata about each account. The metadata details contains information such as which wallet should be used as the default, the encryption parameters, and any other relevant metadata. 
 
@@ -60,7 +60,7 @@ Calculate the scripthash (and address): 4d0c0932fa032debdceaaf5cd8086cf3f882961f
 
 This contract information can also be stored in the NEP-6 file, which allows a user to keep track of accounts that are not necessarily associated with a single private key. More complex account types can be created using NEO's scripting capabilities. 
 
-Multi-signatures are currently supported in the NEO-GUI wallet.
+Multi-signatures are currently supported in the [NEO-GUI](https://github.com/neo-project/neo-gui) and [neo-python](https://github.com/CityOfZion/neo-python) clients.
 
 ### NEO DB3
 NEO db3 is a legacy file format that was previously supported in NEO-GUI prior to the introduction of the NEP-6 file format. It is highly reccommended to upgrade to NEP-6 file format, which can be done in NEO-GUI.

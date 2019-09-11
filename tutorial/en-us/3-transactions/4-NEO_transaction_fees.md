@@ -14,7 +14,7 @@ Transactions larger than 1024 bytes require 0.001 GAS as a base fee, in addition
 Priority for transactions in the mempool is determined by the fee paid per byte. The network fee can be collected and distributed by the validator to any contract address.
 
 ### System fee
-The system fee is a fixed fee calculated by [transaction type](3-NEO_transaction_types.md) and instructions to be executed by the NEO virtual machine. Generally speaking, transaction costs scale with the network resources required. There is a system fee discount of `10` GAS for each transaction, so most user interaction with the network and smart contracts will be free.
+The system fee is a fixed fee calculated by [transaction type](3-NEO_transaction_types.md) and instructions to be executed by the NEO virtual machine. Generally speaking, transaction costs scale with the network resources required. There is a system fee discount of `10` GAS for each transaction, so most user interaction with the network and smart contracts will be free. Unlike network fees, system fees are distributed to NEO holders.
 
 #### System calls
 
