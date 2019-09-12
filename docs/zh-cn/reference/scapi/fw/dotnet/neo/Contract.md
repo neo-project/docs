@@ -34,4 +34,4 @@ public class Contract
 
 通过 [Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) 方法来发布智能合约到区块链上，并返回 Contract 对象。
 
-通过 [Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) 方法来更新智能合约，并返回 Contract 对象。
+通过 [Contract.Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) 方法来更新智能合约，并返回 Contract 对象。
