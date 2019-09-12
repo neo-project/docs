@@ -32,4 +32,4 @@ The Contract object can be constructed through [Blockchain.GetContract(byte[])](
 
 [Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) publishes the contract onto the blockchain and returns a Contract object.
 
-[Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) renews the contract and returns a Contract object.
+[Contract.Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) renews the contract and returns a Contract object.
