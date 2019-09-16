@@ -17,6 +17,22 @@
       "git": "https://github.com/neo-project/docs/blob/master/docs/en-us/"
     },
     {
+      "origin": "tutorial\\zh-cn",
+      "template": "template",
+      "destination": "wwwroot\\tutorial\\zh-cn",
+      "catalog": "tutorial\\zh-cn\\toc.yml",
+      "webRoot": "wwwroot",
+      "git": "https://github.com/neo-project/docs/blob/master/tutorial/zh-cn/"
+    },
+    {
+      "origin": "tutorial\\en-us",
+      "template": "template",
+      "destination": "wwwroot\\tutorial\\en-us",
+      "catalog": "tutorial\\en-us\\toc.yml",
+      "webRoot": "wwwroot",
+      "git": "https://github.com/neo-project/docs/blob/master/tutorial/en-us/"
+    },
+    {
       "origin": "faq\\zh-cn",
       "template": "template",
       "destination": "wwwroot\\faq\\zh-cn",
