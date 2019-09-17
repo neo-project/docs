@@ -1,105 +1,99 @@
-﻿- name: Introduction to NEO
-  - name: Introduction
-    href: /tutorial/en-us/1-introduction/1-Introduction_to_NEO.md
-  - name: Cryptography, Blockchain, and Smart Contracts
-    href: /tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.md
-  - name: NEO Fundamentals
-    href: /tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.md
-  - name: NEO Tutorial
-    href: /tutorial/en-us/1-introduction/4-NEO_Tutorial.md
-- name: Wallet
-  - name: Introduction
-    href: /tutorial/en-us/2-wallet/1-Introduction_to_wallets.md
-  - name: Keys and Addresses
-    href: /tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.md
-  - name: Private key encryption and Wallet files
-    href: /tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.md
-  - name: The UTXO and Account models
-    href: /tutorial/en-us/2-wallet/4-UTXO_and_account_models.md
-  - name: Additional Resources
-    href: /tutorial/en-us/2-wallet/resource.md
-- name: Transactions
-  href: /tutorial/en-us/3-transactions/index.md
-  - name: Introduction
-    href: /tutorial/en-us/3-transactions/1-Introduction_to_transactions.md
-  - name: Structure of NEO transactions
-    href: /tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.md
-  - name: NEO transaction types
-    href: /tutorial/en-us/3-transactions/3-NEO_transaction_types.md
-  - name: Transaction fees
-    href: /tutorial/en-us/3-transactions/4-NEO_transaction_fees.md
-  - name: Additional Resources
-    href: /tutorial/en-us/3-transactions/resource.md
-- name: Blocks
-  href: /tutorial/en-us/4-blocks/index.md
-  - name: Introduction
-    href: /tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.md
-  - name: Structure of a Block
-    href: /tutorial/en-us/4-blocks/2-Structure_of_a_block.md
-  - name: Block Creation and Broadcasting
-    href: /tutorial/en-us/4-blocks/3-Block_creation_broadcasting.md
-  - name: Block Validation and Processing
-    href: /tutorial/en-us/4-blocks/4-Block_validation_processing.md
-  - name: Additional Resources - Merkle Trees
-    href: /tutorial/en-us/4-blocks/resource.md
-- name: Network
-  href: /tutorial/en-us/5-network/index.md
-  - name: Introduction
-    href: /tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.md
-  - name: Developing a NEO Ping using Golang
-    href: /tutorial/en-us/5-network/2-Developing_a_NEO_ping_using_Golang.md
-  - name: Additional Resources
-    href: /tutorial/en-us/5-network/resource.md
-- name: Persistence
-  - name: Introduction
-    href: /tutorial/en-us/6-persistence/1-persistence.md
-  - name: Developing a NEO Ping using Golang
-    href: /tutorial/en-us/6-persistence/2-levelDB_data_structure.md
-- name: Consensus
-  href: /tutorial/en-us/7-consensus/index.md
-  - name: Introduction
-    href: /tutorial/en-us/7-consensus/1-Introduction_to_consensus.md
-  - name: PoW and PoS
-    href: /tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.md
-  - name: pBFT and dBFT
-    href: /tutorial/en-us/7-consensus/3-PBFT_and_DBFT.md
-  - name: dBFT Consensus Examples and Scenarios
-    href: /tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.md
-  - name: Additional Resources
-    href: /tutorial/en-us/7-consensus/resource.md
-- name: Smart Contract
-  - name: Introduction
-    href: /tutorial/en-us/9-smartContract/What_is_smart_contract.md
-  - name: Setting up Development Enviroment
-    href: /tutorial/en-us/9-smartContract/Development_set_up.md
-  - name: Smart Contract Basics
-    href: /tutorial/en-us/9-smartContract/Smart_Contract_basics.md
-  - name: Make your NEP-5 Token
-    - name: Introduction to NEP-5
-      href: /tutorial/en-us/9-smartContract/What_is_nep5.md
-    - name: Implementation of NEP-5
-      href: /tutorial/en-us/9-smartContract/Implementation_of_NEP5.md
-    - name: ITO(Initial Token Offering)
-      href: /tutorial/en-us/9-smartContract/Give_an_ITO.md
-    - name: UTXO basics
-      href: /tutorial/en-us/9-smartContract/UTXO.md
+﻿- name: NEO 介绍
+  - name: 简介
+    href: /tutorial/zh-cn/1-introduction/1-Introduction_to_NEO.md
+  - name: 密码学、区块链和智能合约
+    href: /tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.md
+  - name: NEO 基础知识
+    href: /tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.md
+  - name: NEO 教程
+    href: /tutorial/zh-cn/1-introduction/4-NEO_Tutorial.md
+- name: 钱包
+  - name: 介绍
+    href: /tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.md
+  - name: NEO私钥和地址生成
+    href: /tutorial/zh-cn/2-wallet/2-Key_derivation_and_address_generation_on_NEO.md
+  - name: 加密私钥与创建合约账户
+    href: /tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.md
+  - name: UTXO模型与账户模型
+    href: /tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.md
+  - name: 相关资源
+    href: /tutorial/zh-cn/2-wallet/resource.md
+- name: 交易
+  - name: 介绍
+    href: /tutorial/zh-cn/3-transactions/1-Introduction_to_transactions.md
+  - name: NEO 交易结构
+    href: /tutorial/zh-cn/3-transactions/2-Structure_of_NEO_transactions.md
+  - name: NEO 交易类型
+    href: /tutorial/zh-cn/3-transactions/3-NEO_transaction_types.md
+  - name: 交易手续费
+    href: /tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.md
+  - name: 相关资源
+    href: /tutorial/zh-cn/3-transactions/resource.md
+- name: 区块
+  - name: 介绍
+    href: /tutorial/zh-cn/4-blocks/1-Introduction_to_blocks_and_blockchain.md
+  - name: 区块结构
+    href: /tutorial/zh-cn/4-blocks/2-Structure_of_a_block.md
+  - name: 区块创建与广播
+    href: /tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.md
+  - name: 区块验证
+    href: /tutorial/zh-cn/4-blocks/4-Block_validation_processing.md
+  - name: 相关资源 - 梅克树
+    href: /tutorial/zh-cn/4-blocks/resource.md
+- name: NEO 网络
+  - name: NEO网络协议介绍
+    href: /tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.md
+  - name: 使用Golang实现NEO ping功能
+    href: /tutorial/zh-cn/5-network/2-Developing_a_NEO_ping_using_Golang.md
+  - name: 相关资源
+    href: /tutorial/zh-cn/5-network/resource.md
+- name: 持久性
+  - name: 介绍
+    href: /tutorial/zh-cn/6-persistence/1-persistence.md
+  - name: LevelDB 区块链数据结构
+    href: /tutorial/zh-cn/6-persistence/2-levelDB_data_structure.md
+- name: 共识机制
+  - name: 介绍
+    href: /tutorial/zh-cn/7-consensus/1-Introduction_to_consensus.md
+  - name: 工作量证明与权益证明
+    href: /tutorial/zh-cn/7-consensus/2-Proof_of_work_and_proof_of_stake.md
+  - name: pBFT 与 dBFT
+    href: /tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.md
+  - name: dBFT 共识示例与场景
+    href: /tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.md
+  - name: 相关资源
+    href: /tutorial/zh-cn/7-consensus/resource.md
+- name: 智能合约
+  - name: 介绍
+    href: /tutorial/zh-cn/9-smartContract/What_is_smart_contract.md
+  - name: 搭建开发环境
+    href: /tutorial/zh-cn/9-smartContract/Development_set_up.md
+  - name: 智能合约基础知识
+    href: /tutorial/zh-cn/9-smartContract/Smart_Contract_basics.md
+  - name: 创建 NEP-5 合约
+    - name: 介绍
+      href: /tutorial/zh-cn/9-smartContract/What_is_nep5.md
+    - name: 实现 NEP-5
+      href: /tutorial/zh-cn/9-smartContract/Implementation_of_NEP5.md
+    - name: ITO
+      href: /tutorial/zh-cn/9-smartContract/Give_an_ITO.md
+    - name: UTXO 基础
+      href: /tutorial/zh-cn/9-smartContract/UTXO.md
   - name: CGAS
-    - name: What is CGAS
-      href: /tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.md
-    - name: Global asset and NEP-5
-      href: /tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.md
-    - name: UTXO model
-      href: /tutorial/en-us/9-smartContract/cgas/3_utxo_model.md
-    - name: Trigger
-      href: /tutorial/en-us/9-smartContract/cgas/4_trigger.md
-    - name: Mint and Refund
-      href: /tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.md
-    - name: Signature and Verification
-      href: /tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.md
-    - name: Transaction Invocation
-      href: /tutorial/en-us/9-smartContract/cgas/7_invocation.md
-  - name: Write NEO smart contract with Python
-    - name: Installing and Setting up the Environment
-      href: /tutorial/en-us/9-smartContract/neopython/part1_setup.md
-    - name: Wallet Operations and Smart Contracts
-      href: /tutorial/en-us/9-smartContract/neopython/part2_neopy.md
+    - name: 什么是 CGAS
+      href: /tutorial/zh-cn/9-smartContract/cgas/1_what_is_cgas.md
+    - name: 全局资产与 NEP-5
+      href: /tutorial/zh-cn/9-smartContract/cgas/2_global_asset_and_nep5.md
+    - name: UTXO 模型
+      href: /tutorial/zh-cn/9-smartContract/cgas/3_utxo_model.md
+    - name: 触发器
+      href: /tutorial/zh-cn/9-smartContract/cgas/4_trigger.md
+    - name: 铸币与退款
+      href: /tutorial/zh-cn/9-smartContract/cgas/5_minttokens_and_refund.md
+    - name: 签名与验证
+      href: /tutorial/zh-cn/9-smartContract/cgas/6_signature_and_verification.md
+    - name: 交易调用
+      href: /tutorial/zh-cn/9-smartContract/cgas/7_invocation.md
+  - name: NEO Python 快速入门
+    href: /tutorial/zh-cn/9-smartContract/neo_python_quickstart_cn.md
+

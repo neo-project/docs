@@ -1,15 +1,4 @@
----
-layout: post
-lang: cn
-lang-ref: network-index
----
-
-## 目录
-
-1. [NEO网络协议介绍](1-NEO网络协议介绍.md)
-2. [使用Golang实现NEO ping功能](2-使用Golang实现NEO-ping功能.md)
-
-## 更多资源
+# 更多资源
 ### 更多网络链接与文档
 
 * [https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0)
