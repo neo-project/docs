@@ -1,15 +1,14 @@
-# NEO Tutorial
+# 关于 NEO
 
-## Introduction to NEO
+[NEO](https://neo.org/) 是一个公共且全球开源的区块链项目，旨在促进智能经济的创建。
 
-[NEO](https://neo.org/) is a public and global open-source blockchain project that aims to facilitate the creation of a Smart Economy. 
+实现智能经济是 NEO 的愿景，通过采用数字资产和数字身份，使用智能合约对数字资产进行自动化免信任的管理，这将给未来的商业模式带来彻底变革。
 
-The Smart Economy is a vision for the future where business is revolutionized by the adoption of digital assets and identities, allowing for the automated and trustless management of those assets through the use of smart contracts. 
+NEO （最初叫小蚁）是由是达鸿飞和张铮文创建的。作为非营利项目 NEO 基金会的联合创始人，两人负责 NEO区块链的持续开发。NEO基金会的执行机构是NEO Global Development (NGD)，致力于开发 NEO 协议及其支持的生态系统。目前 NGD 有两个办事处，总部设在上海，第二个办事处设在美国西雅图。
 
-NEO, originally AntShares, was founded by Da Hongfei and Erik Zhang. As co-founders of the non-profit NEO Foundation, the two oversee the ongoing development of the NEO blockchain. NEO Foundation’s execution arm is NEO Global Development (NGD), which is committed to the development of the NEO protocol and its supporting ecosystem. There are currently two NGD offices; a head office located in Shanghai, and a second office based in Seattle, US.
+NGD 拥有一个由 [核心开发人员](https://neo.org/team) 组成的团队，他们主要负责协议开发。同时，NEO 也鼓励及奖励个人开发者的贡献。
 
-NGD maintains [a team of core developers](https://neo.org/team) who are primarily responsible for protocol development, though NEO both encourages and rewards contributions from independent developers.
+NEO是一个社区驱动的项目，它促成了分布在世界各地的社区开发团队的创建并提供资助。 这些团队除了为 NEO 上的开发人员提供面向用户的应用程序（如钱包或工具），还为 NEO 核心基础架构的开发做出了贡献。
 
-NEO is a community-driven project, which has led to the creation and funding of numerous community development groups distributed around the world. These teams contribute to the development of NEO's core infrastructure, in addition to producing user facing applications such as wallets or tooling for developers looking to build on NEO.
+[阅读下一节](2-Cryptography_Blockchain_and_Smart_Contracts.md) 或者 [返回目录](README.md#contents)。
 
-[Next chapter](2-Cryptography_Blockchain_and_Smart_Contracts.md) or [return to contents](README.md#contents).
