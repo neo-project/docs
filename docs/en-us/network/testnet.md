@@ -27,6 +27,12 @@ Reference: [Introduction of NEO node](../node/introduction.md).
 
 ## Method of switching to test network
 
+After downloading NEO client, you can switch the client to connect to test net by modifying the client configuration file. Here we take NEO-GUI for an example:
+
+> [!Note]
+>
+> NEO3 clients can only connect to test net for the moment as the NEO3 main net has not launched yet.
+
 1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
 ![image](../assets/testnet_1.png)
@@ -35,7 +41,10 @@ Reference: [Introduction of NEO node](../node/introduction.md).
 
 ![image](../assets/testnet_2_v2.png)
 
+
+
 ## Method of getting TEST GAS and TEST NEO
+
 If you are a developer, you can ask for NEO and GAS on the TestNet. You will need 500 Test GAS to deploy a contract to the TestNet.  
 
 Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https://neowish.ngd.network/). If you need more than that, you'll have to request it manually:
@@ -87,6 +96,4 @@ You will see the quantity of NEO and/or GAS shown beside the Contact address.
 3. Select the Asset and the amount to send and the account you want to transfer the asset to. 
 
 ## Alternatives to the TestNet
-Testing your Smart Contract on the TestNet is a good idea before publishing it on the LIVE network but earlier in your development cycle you should consider using other methods to test your Smart Contacts such as:
-- Using Neo.VM if developing in C# with Visual Studio
-- Running you own PRIVATE Testnet
+Testing your Smart Contract on the TestNet is a good idea before publishing it on the LIVE network but earlier in your development cycle you should consider using other methods to test your Smart Contacts such as running you own PRIVATE Testnet.

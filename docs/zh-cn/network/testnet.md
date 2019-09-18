@@ -16,21 +16,23 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 ## 切换到测试网
 
-下载NEO客户端后，可以通过修改客户端的配置文件来让客户端在主网和测试网中切换。
+下载NEO客户端后，可以通过修改客户端的配置文件来让客户端在主网和测试网中切换。以下步骤以 NEO-GUI为例，NEO-CLI操作相同。
 
-1. 将程序目录下的 `protocol.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图。
+1. 将客户端目录下的 `protocol.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图。
 
 
 ![](../assets/testnet_1_v2.png)
 
-2. 将程序（GUI）目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图
+2. 将客户端（GUI）目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图
 
 
 ![](../assets/testnet_2_v2.png)
 
 > [!NOTE]
 >
-> 旧版客户端此步是将 `neo-gui.testnet.config` 里的内容复制到 `neo-gui.exe.config`（替换原有配置文件）。
+> - 旧版客户端此步是将 `neo-gui.testnet.config` 里的内容复制到 `neo-gui.exe.config`（替换原有配置文件）。
+>
+> - NEO3客户端目前只能接入测试网，主网尚未上线。
 
 ## 申请测试网 GAS 和 NEO
 
@@ -86,10 +88,7 @@ NEO 的测试网（Test Net）是官方提供的，专供用户来开发、调�
 
 ## 其它测试方法
 
-在发布智能合约到主网前，使用测试网进行试验无疑是个好办法，但是在开发初期，您还可以考虑其他测试方式，例如：
-
-- 使用NEO虚拟机，对于在Visual Studio中的C#开发
-- 运行您自己的私人测试网
+在发布智能合约到主网前，使用测试网进行试验无疑是个好办法，但是在开发初期，您还可以考虑其他测试方式，例如运行您自己的私人测试网。
 
 
 
