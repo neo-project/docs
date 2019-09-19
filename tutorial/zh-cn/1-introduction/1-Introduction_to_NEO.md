@@ -10,5 +10,5 @@ NGD 拥有一个由 [核心开发人员](https://neo.org/team) 组成的团队�
 
 NEO是一个社区驱动的项目，它促成了分布在世界各地的社区开发团队的创建并提供资助。 这些团队除了为 NEO 上的开发人员提供面向用户的应用程序（如钱包或工具），还为 NEO 核心基础架构的开发做出了贡献。
 
-[阅读下一节](2-Cryptography_Blockchain_and_Smart_Contracts.md) 或者 [返回目录](README.md#contents)。
+[阅读下一节](2-Cryptography_Blockchain_and_Smart_Contracts.md) 或者 [返回目录](../index.md)。
 

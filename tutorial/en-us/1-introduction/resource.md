@@ -1,4 +1,4 @@
-## Additional Resources
+# Additional Resources
 
 ### Useful NEO Documentation
 

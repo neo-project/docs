@@ -1,4 +1,4 @@
-## Keys and Addresses
+# Keys and Addresses
 Now that we know what a wallet actually is, how do we actually generate one? First we generate a private key, which is simply a 64 character hexadecimal string. This represents a number between the range 0 and 2^256 (1.15792089e77). From this number, the rest of the “Account” information is derived. For our purposes an account will consist of your Private Key, WIF (Wallet Import Format), public key, and address.
 
 This random source can technically be generated from any source of entropy, but it SHOULD be generated through some form of cryptographic number generation. Most modern programming languages support some form of Private Key Generation via a secure random function available in a standard library.
@@ -192,5 +192,5 @@ func (pub *PublicKey) ToNeoAddress() (address string) {
 
 The script hash is typically used in smart contracts as the public identifier, as opposed to the address. Since the use of byte arrays is common, it makes a lot more sense as the Base58 encoded versions is meant to be read by humans, not computers!
 
-[Next chapter](3-Key_encryption_and_contract_accounts.md) or [return to contents](README.md#contents).
+[Go to next section](3-Key_encryption_and_contract_accounts.md) or [return to contents](../index.md).
 

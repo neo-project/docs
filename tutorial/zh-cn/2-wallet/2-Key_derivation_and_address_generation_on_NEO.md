@@ -1,11 +1,11 @@
-## 密钥和地址
+# 密钥和地址
 现在我们已经对钱包的本质有所了解，那么我们又该如何生成一个钱包呢？ 首先，我们要生成一个私钥，它是一个64字符长的十六进制字符串， 代表的是范围在0到2 ^ 256（1.15792089e77）之间的数字。 利用私钥可以可以推出 “账户”的其余部分信息。 账户中将包含私钥，WIF（钱包导入格式），公钥和地址。
 
 技术上来说，这个随机的数据源可以来自任何熵源，但它应该由某种形式的加密数字生成算法来生成。 大多数现代编程语言都会通过标准库中提供的安全随机函数来生成私钥。
 
 对钱包软件而言，第一个真正的难题是从生成的私钥中推出账户的其他所有信息。 下面让我们详细介绍下如何生成这些信息。
 
-### WIF
+## WIF
 WIF相对来说比较好理解。 在实际操作中，最终生成的私钥可能是这样的：
 ```
 0C28FCA386C7A227600B2FE50B7CAEEC86D3BF1FBE471BE89827E19D72AA1D 
@@ -26,7 +26,7 @@ Base58与常见的Base64编码方案类似，只不过它除去了非字母数�
 ```
 
 下面是用Go语言编写的NEO检验编码的完整实现
-```
+```go
 func b58checkencode(ver uint8, b []byte) (s string) {
 	/* 在原有的字节数据前添加前缀：版本号*/
 	bcpy := append([]byte{ver}, b...)
@@ -70,7 +70,7 @@ func b58checkencode(ver uint8, b []byte) (s string) {
 
 因此，要将上面描述的原始私钥转换成WIF格式，我们可以使用以下这个简单的函数
 
-```
+```go
 // ToWIF 会将NEO的私钥转换成WIF字符串
 func (priv *PrivateKey) ToWIF() (wif string) {
 	/* 查看 https://en.bitcoin.it/wiki/Wallet_import_format */
@@ -158,7 +158,7 @@ NEO地址由地址脚本生成，该脚本定义了谁可以花费交易输出�
 3. 在输出的脚本哈希前添加版本号0x17，之后做Base58Check编码（意味着结果将以字符A开头）
 
 以下是从公钥生成NEO地址的示例代码：
-```
+```go
 // ToNeoAddress将NEO公钥转换为NEO地址字符串。
 func (pub *PublicKey) ToNeoAddress() (address string) {
 	/* 将公钥转换成字节数据 */
@@ -190,4 +190,5 @@ func (pub *PublicKey) ToNeoAddress() (address string) {
 
 智能合约中通常使用的公共标识符是脚本哈希，而不是地址。由于字节数组在计算机中是很常见的，因此更具有意义，而进行Base58编码则是为了具有更高的可读性。
 
-[下一节](3-密钥加密与合约账户.md)或者[返回目录](README.md#目录)
+[阅读下一节](3-Key_encryption_and_contract_accounts.md)或者[返回目录](../index.md)
+

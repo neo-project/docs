@@ -1,8 +1,8 @@
-## NEO Fundamentals
+# NEO Fundamentals
 
 NEO is a public blockchain that offers smart contract functionality, allowing developers to build decentralized applications that can manage digital assets and identities. It is often compared to [Ethereum](https://www.ethereum.org/), the largest and most well known smart contract platform, however the two have many fundamental differences that set them apart.
 
-### Dual Token Model
+## Dual Token Model
 
 Although NEO can support an unlimited number of digital assets created by contracts, it has two assets that are native to the network itself; NEO and GAS.
 
@@ -10,7 +10,7 @@ NEO, referred to as the governance token, is used to elect consensus nodes via t
 
 In return, NEO holders receive GAS, the second native asset on the NEO blockchain. GAS is the utility token, used to pay for operations on the network. This includes system fees, such as the cost of deploying a smart contract, and also network fees that are used to give priority to a transaction.
 
-### Consensus and Transaction Finality
+## Consensus and Transaction Finality
 
 Unlike the majority of current blockchains that use variants of PoW (Proof-of-Work) or PoS (Proof-of-Stake) for their respective consensus mechanisms, NEO uses an original consensus mechanism known as dBFT (delegated Byzantine Fault Tolerance).
 
@@ -22,10 +22,11 @@ In dBFT, NEO owners vote to elect a set of consensus nodes; a delegated group re
 
 As each potential block must receive full network consensus in this manner before being accepted, transactions in NEO have absolute finality as soon as they are confirmed in a single block. This prevents transactions from being reversed by preventing forks, allowing for immediate settlement of all transactions on the network.
 
-### Contract Languages
+## Contract Languages
 
 In an effort to be as developer-friendly as possible, NEO supports a diverse list of programming languages that can be used to create smart contracts. Currently, NEO allows contracts to be created in C#, Java, Python, Golang, JavaScript/TypeScript, and other languages.
 
 Contracts in NEO are compiled to NVM bytecode before being deployed to the NEO blockchain. When called, these deployed contracts are interpreted and executed by NeoVM.
 
-[Next chapter](4-NEO_Tutorial.md) or [return to contents](README.md#contents).
+[Go to next chapter](../2-wallet/1-Introduction_to_wallets.md) or [return to contents](../index.md).
+

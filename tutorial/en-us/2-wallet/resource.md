@@ -1,4 +1,4 @@
-## Additional Resources
+# Additional Resources
 
 ### Creating a wallet
 There are several options available to you when creating a new wallet.

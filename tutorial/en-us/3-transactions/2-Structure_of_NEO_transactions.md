@@ -149,7 +149,7 @@ An output `vout` is an amount of an asset transferred to an address as a result 
 |-----------------------------|-------------------------------------------------------------------------------------------------|
 | `IssueTransaction`          | Requires the transaction to be signed by the asset administrative contract                      |
 | `ClaimTransaction`          | Requires one or more unclaimed outputs to be referenced in the transaction `claims` attribute   |
-| `MinerTransaction`          | Requires `inputs` to be empty and the amount in `outputs` to match all system fees in the block |           
+| `MinerTransaction`          | Requires `inputs` to be empty and the amount in `outputs` to match all system fees in the block |
 
 All other transactions require one or more unspent outputs to be referenced in the transaction `inputs` attribute.
 
@@ -257,4 +257,5 @@ The verification script with a multi-signature contract is constructed with the 
 
 To maintain performance it is required to have the same order for public keys and signatures during the verification of a multi-signature contract.
 
-[Next chapter](3-NEO_transaction_types.md) or [return to contents](README.md#contents).
+[Go to next chapter](3-NEO_transaction_types.md) or [return to contents](../index.md).
+

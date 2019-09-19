@@ -1,3 +1,4 @@
+# 交易结构
 
 NEO交易是一个带有网络操作指令的签名数据包，例如，将资产转移到另一个地址。区块链账本中的每个NEO区块都包含有一个或多个交易，使得每个区块可以对交易进行批处理。
 
@@ -76,19 +77,32 @@ NEO交易是一个带有网络操作指令的签名数据包，例如，将资�
 
 NEO中有几种不同类型的交易。 每种类型都具有不同的用途和特性。
 
--可用的交易:
+可用的交易:
+
   - `ContractTransaction`
+
   - `InvocationTransaction`
+
   - `ClaimTransaction`
+
   - `MinerTransaction`
+
   - `StateTransaction`
--不应再使用的已弃用的交易：
+
+不应再使用的已弃用的交易：
+
   - `RegisterTransaction`
+
   - `EnrollmentTransaction`
+
   - `IssueTransaction`
--已删除的交易：
+
+已删除的交易：
+
   - `PublishTransaction`
+
   - `VotingTransaction`
+
   - `AgencyTransaction`
 
 ### version
@@ -155,7 +169,7 @@ NEO中有几种不同类型的交易。 每种类型都具有不同的用途和�
 |-----------------------------|-------------------------------------------------------------------------------------------------|
 | `IssueTransaction`          |要求交易由资产管理合约签名                   |
 | `ClaimTransaction`          |需要在交易的`claims`属性中引用一个或多个未提取的输出   |
-| `MinerTransaction`          |要求`inputs`为空，并且`outputs`中的金额与区块中的所有系统费相匹配|                                                                 
+| `MinerTransaction`          |要求`inputs`为空，并且`outputs`中的金额与区块中的所有系统费相匹配|
 
 所有其他交易都需要在交易的`inputs`属性中引用一个或多个未花费的输出。
 
@@ -270,4 +284,5 @@ NEO中有几种不同类型的交易。 每种类型都具有不同的用途和�
 
 为了保证性能，在验证多签名合约时，公钥和签名的顺序必须保持一致。
 
-[下一节](3-NEO交易类型.md)或者[返回目录](README.md#目录)
+[阅读下一节](3-NEO_transaction_types.md)或者[返回目录](../index.md)
+

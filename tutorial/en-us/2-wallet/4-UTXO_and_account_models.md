@@ -1,5 +1,8 @@
-## UTXO Model
+# UTXO and Account Model
+
 One of the main functions of a wallet is to facilitate the transfer of assets. Assets on NEO are divided into two categories; UTXO-based (Unspent transaction outputs) and account-based. In NEO, NEO and GAS follow the UTXO model, while NEP-5 tokens follow the account model. Lets explore both in more detail.
+
+## UTXO Model
 
 First, let us consider a simple example where a user has 10 NEO. This 10 NEO actually consists of multiple UTXOs. The sum of all the UTXOs must equal 10. For example this 10 NEO may be consist of 3 UTXOs. UTXO_1 is worth 2 NEO, UTXO_2 is worth 3 NEO, and UTXO_3 is worth 5 NEO, which sums up to the total balance of 10 NEO. So if we need to send someone 3 NEO then we can simply use UTXO_2 3 as the input of the transaction, and the recipient receives as an output one UTXO that is also worth 3 NEO.
 
@@ -18,4 +21,4 @@ The account model, which is adopted by other blockchain platforms such as Ethere
 
 NEP-5 token contracts deployed on the NEO network typically follow the account model of balance storage. They do not have any associated UTXO data, and changes in balance state are handled via smart contract executions. These executions are interpreted by the NEO virtual machine, and recorded in the smart contract storage area.
 
-[Return to contents](README.md#contents).
+[Go to next chapter](../3-transactions/1-Introduction_to_transactions.md) or [Return to contents](../index.md).

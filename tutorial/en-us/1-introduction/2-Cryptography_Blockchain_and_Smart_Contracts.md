@@ -1,4 +1,4 @@
-## Cryptography, Blockchain, and Smart Contracts
+# Cryptography, Blockchain, and Smart Contracts
 
 Cryptography is one of the fundamental pillars of blockchain, referring to a branch of mathematics and computer science that can be used to protect information or validate the authenticity of a given piece of data.
 
@@ -14,4 +14,5 @@ Smart contracts are executed automatically and deterministically, ensuring that 
 
 A good resource with a more detailed primer on blockchain technology and its implications can be found [here](https://www2.deloitte.com/insights/us/en/topics/emerging-technologies/blockchain-technical-primer.html).
 
-[Next chapter](3-Fundamentals_of_NEO.md) or [return to contents](README.md#contents).
+[Go to next section](3-Fundamentals_of_NEO.md) or [return to contents](../index.md).
+

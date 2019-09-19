@@ -1,31 +1,32 @@
-## NEO Fundamentals
+# NEO 基础知识
 
-NEO is a public blockchain that offers smart contract functionality, allowing developers to build decentralized applications that can manage digital assets and identities. It is often compared to [Ethereum](https://www.ethereum.org/), the largest and most well known smart contract platform, however the two have many fundamental differences that set them apart.
+NEO 是一个公有链，提供智能合约功能供开发者构建去中心化的应用程序，管理数字资产和身份。NEO 常被拿来与世界知名的智能合约平台[以太坊](https://www.ethereum.org/)进行比较，但两者其实有很多本质区别。
 
-### Dual Token Model
+## 双通证模式
 
-Although NEO can support an unlimited number of digital assets created by contracts, it has two assets that are native to the network itself; NEO and GAS.
+尽管 NEO 支持由合约创建无数个数字资产，但其自身拥有两种原生资产：NEO 和 GAS。
 
-NEO, referred to as the governance token, is used to elect consensus nodes via the use of a voting mechanism. NEO owners can be considered as the managers of the NEO network, responsible for selecting which candidates are best suited to participate in the creation and validation of blocks.
+NEO，作为治理通证，用于通过投票机制选举共识节点。NEO 的所有者可被视为 NEO 网络的管理者，负责选择最适合参与区块创建和验证的候选人。
 
-In return, NEO holders receive GAS, the second native asset on the NEO blockchain. GAS is the utility token, used to pay for operations on the network. This includes system fees, such as the cost of deploying a smart contract, and also network fees that are used to give priority to a transaction.
+作为回报，NEO 持有者获得 GAS，NEO 上的另一个原生资产。 GAS 是实用通证，用于支付网络上的操作，包括系统费用，例如部署智能合约，以及用于优先处理交易的网络费用。
 
-### Consensus and Transaction Finality
+## 共识和交易终局性
 
-Unlike the majority of current blockchains that use variants of PoW (Proof-of-Work) or PoS (Proof-of-Stake) for their respective consensus mechanisms, NEO uses an original consensus mechanism known as dBFT (delegated Byzantine Fault Tolerance).
+与当前大部分区块链使用基于工作证明（PoW）或权益证明（PoS）的共识机制不同，NEO 采用了被称为dBFT（委托拜占庭容错）的原始共识机制。
 
-PoW- and PoS-based consensus mechanisms encourage a large number of participants to propose blocks to the network. Conflicts are resolved through the use of forks, with the longest chain considered to be the truthful chain. 
+基于PoW 和 PoS 的共识机制鼓励大量参与者向网络提交区块。通过分叉来解决冲突，认为最长的链是可信的。
 
-In these blockchains, transactions within blocks are finalized over time in a probabilistic manner through the use of confirmations. The more blocks have been added to the blockchain since the block containing a given transaction, the less likely that transaction will be nullified by a fork.
+在这些区块链中，区块内的交易通过确认以概率方式随时间确定。从区块包含给定交易以来，向区块链添加的区块越多，该交易被分叉取消的可能性就越小。
 
-In dBFT, NEO owners vote to elect a set of consensus nodes; a delegated group responsible for producing blocks. Each block in NEO must be agreed on by a 2/3 majority of consensus nodes before it is committed to the blockchain. 
+而在 dBFT 中，由 NEO 所有者投票选出一组共识节点，委托组负责产生区块。NEO 的每个区块必须得到网路中 2/3 以上共识节点的同意才能提交到区块链中。
 
-As each potential block must receive full network consensus in this manner before being accepted, transactions in NEO have absolute finality as soon as they are confirmed in a single block. This prevents transactions from being reversed by preventing forks, allowing for immediate settlement of all transactions on the network.
+由于每个潜在的区块在被接受之前必须以这种方式获得全网共识，因此 NEO 上的交易一旦在单个区块中被确认就具有绝对的终局性。这解决了分叉问题，防止了交易被逆转，从而使得网络中的交易被迅速处理。
 
-### Contract Languages
+## 合约编写语言
 
-In an effort to be as developer-friendly as possible, NEO supports a diverse list of programming languages that can be used to create smart contracts. Currently, NEO allows contracts to be created in C#, Java, Python, Golang, JavaScript/TypeScript, and other languages.
+为了尽可能对开发者友好，NEO 支持使用多种编程语言创建智能合约。 目前，NEO 支持 C＃，Java，Python，Golang，JavaScript / TypeScript 和其他语言。
 
-Contracts in NEO are compiled to NVM bytecode before being deployed to the NEO blockchain. When called, these deployed contracts are interpreted and executed by NeoVM.
+在部署到 NEO 区块链之前，NEO 上的合约被编译为 NVM 字节码。调用时，这些已部署的合约由 NeoVM 解析和执行。
 
-[Next chapter](4-NEO_Tutorial.md) or [return to contents](README.md#contents).
+[阅读下一章](../2-wallet/1-Introduction_to_wallets.md) 或者 [返回目录](../index.md)。
+
