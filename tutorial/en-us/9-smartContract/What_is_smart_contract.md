@@ -1,16 +1,12 @@
----
-layout: post
-lang: en
-lang-ref: what-is-smart-contract
----
 
-
-# What is smart contract
+# What is smart contract?
 
 ## The popularity of smart contract
 
 Have you heard about smart contract before? Recently, the word "smart contract" is discussed by everyone who are interested in the blockchain or even those who do not know blockchain. The concept of smart contract was pointed by Nick Szabo in 1994
 
+> [!Note]
+>
 > A smart contract is a computerized transaction protocol that executes the terms of a contract. The general objectives are to satisfy common contractual conditions.
 
 He called these new contracts "smart", because they are far more functional than their paper-based ancestors. No use of artificial intelligence is implied. A smart contract is a set of promises, specified in digital form, including protocols within which the parties perform on these promises.

@@ -1,4 +1,4 @@
-### LevelDB Blockchain Data Structure
+# LevelDB Blockchain Data Structure
 The current implementation of NEO in C# uses LevelDB, a fast key-value database, to persist blockchain information. This DB is used for both system data, like blocks and transactions, but also for smart contract data.  
 When the node receives a message that triggers a change in state (like a new block or header), it retrieves and updates a snapshot, commiting its results when the operation is done.   
 Below we have a simplified example of how this is happens:
@@ -8,7 +8,7 @@ Below we have a simplified example of how this is happens:
 
 
 
-#### LevelDB Table Structure
+## LevelDB Table Structure
 The data is stored using the structured provided by the classes from the [Ledger](https://github.com/neo-project/neo/tree/master-2.x/neo/Ledger) package. Using a `prefix` to separate each 'table'.
 
 We can see here the prefixes used in neo (C#):
@@ -35,7 +35,7 @@ We can see here the prefixes used in neo (C#):
 The prefixes can be found [here](https://github.com/neo-project/neo/blob/master/neo/Persistence/LevelDB/Prefixes.cs).
 
 
-##### Memory Pool
+### Memory Pool
 The memory pool is a collection in memory used to track transactions that are not yet committed/persisted.
 When looking for a transaction, the node will always check first if the transaction is in the memory pool, before checking the device storage.
 
@@ -44,7 +44,7 @@ When looking for a transaction, the node will always check first if the transact
 If the `Storage`  returns a null transaction, either the transaction does not exist (if the node is fully synchronized), or the transaction must be retrieved from other nodes.
 
 
-#### 0x01 - Blocks 
+### 0x01 - Blocks 
 
 ```CSharp
 private void OnNewHeaders(Header[] headers)
@@ -89,7 +89,7 @@ public static bool ContainsBlock(this IPersistence persistence, UInt256 hash)
  public bool IsBlock => Hashes.Length > 0;
 ```
 
-#### 0x02 - Transactions
+### 0x02 - Transactions
 All transactions are stored under the Transactions prefix. The transactions are added individually by the consensus nodes and then committed in one block, these can be retrieved individually or in batches.
 
 ```CSharp
@@ -135,11 +135,11 @@ private bool AddTransaction(Transaction tx, bool verify)
 
 ```
 
+### 0x40 - Accounts
 
-#### 0x40 - Accounts
 NEO uses this collection to track user balance, but without tracking UTXO.
 
-#### 0x44 - (Unspent) Coins collections
+### 0x44 - (Unspent) Coins collections
 A transaction is considered "unspent" if this it is not referenced as input by some transaction. The node keeps track of these unspent coins to validate transactions but doesn't group it by account, meaning it can determine if a coin is spendable, but it cannot get all spendable coins for a specific account. The role of tracking the spendable coins by account is done by the wallet or an indexer service like [neoscan](neoscan.io) or [neotracker](neotracker.io).
 
 This collection is used to determine if the coin is spendable. Here is how it's done in C#:
@@ -161,7 +161,7 @@ public static bool IsDoubleSpend(this IPersistence persistence, Transaction tx)
 
 Note that at this moment, we are not checking the memory pool. This is done before the `IsDoubleSpend` check.
 
-#### 0x45 - Spent Coins
+### 0x45 - Spent Coins
 NEO tracks the spent coins in order to allow users to `claim GAS`. The claimable GAS is calculated based on interval of blocks between the block where the transaction was created to the moment it is spent.   
 This means that, to be able to Claim GAS, you need to use that transaction. It is common to send it to yourself to "unlock" the claimable GAS.
 
@@ -188,7 +188,7 @@ public Dictionary<ushort, SpentCoin> GetUnclaimed(UInt256 hash)
 
 ```
 
-#### 0x48 - Validators
+### 0x48 - Validators
 This collection is used to verify a block, since it is required to know the validators public keys in order to validate the multiple signatures contained in a block.  
 
 ```CSharp
@@ -230,7 +230,7 @@ private void Fill()
         }
 ```
 
-#### 0x4c - (Native) Assets
+### 0x4c - (Native) Assets
 This collection has information about native assets registered using the **Register Transaction** to allow or deny **Issue Transactions**.  
 This collection is also used by wallets to retrieve token information (name, symbol, etc.).
 
@@ -293,7 +293,7 @@ public virtual bool Verify(Snapshot snapshot, IEnumerable<Transaction> mempool)
 
 ```
 
-#### 0x50 - Contract
+### 0x50 - Contract
 This collection is where the Smart Contract code and meta-data is stored.
 Contracts are deployed using an **InvocationTransaction** and saved under this prefix, where all code(script) and meta-data is stored. Note that the storage used by the contracts is put elsewhere (0x70 prefix), however, this is the collection used by a node to check if the contract, can use the storage or execute a dynamic invoke.
 
@@ -334,7 +334,7 @@ private bool CheckDynamicInvoke()
 
 ```
 
-#### 0x70 - Smart Contract Storage
+### 0x70 - Smart Contract Storage
 This part of the storage is reserved for Smart Contract custom data storage. In this collection, we use the SmartContract script-hash as base prefix to all `Get` call executed by the ExecutionContext.
 
 Here is an example of it's usage. Note that it also sends the context script-hash in order to retrieve the data:
@@ -358,7 +358,7 @@ protected bool Storage_Get(ExecutionEngine engine)
 }
 ```
 
-#### 0x80 - Header hash list
+### 0x80 - Header hash list
 NEO nodes sync block headers and block transactions separately, this means that first nodes download a list of headers (referenced by its hash), and pull the transactions list for each of this blocks separately, including getting this information from multiple nodes.  
 Note that the `Block` collections is also changed when we get new headers because a block is a header with transactions.
 
@@ -392,10 +392,10 @@ private void OnNewHeaders(Header[] headers)
 ```
 
 
-#### 0x90 - Validators count
+### 0x90 - Validators count
 
+### 0xc0 - Current block
 
-#### 0xc0 - Current block
 The current block represents the highest block verified block, with it's transactions. We store it this information to know the latest (higher) synchronized block.
 The current blockchain height is defined by the height of the object in this key.
 
@@ -405,7 +405,7 @@ public uint Height => BlockHashIndex.Get().Index;
 
 Remember: A block **is** a block-header with additional information (transactions), so the block hash is always the same as it's block-header hash.
 
-#### 0xc1 - Current header
+### 0xc1 - Current header
 This prefix is used to store the latest(higher) block header. This is considered meta-data and is used only to help the node to synchronize it's data.
 
 ```CSharp
@@ -451,7 +451,7 @@ public Blockchain(NeoSystem system, Store store)
 }
 ```
 
-#### 0xf0 - System version
+### 0xf0 - System version
 The `SYS_Version` prefix is used to track the current system version. This check is used to ensure that the data we are using is compatible with our system.
 
 We can see it's usage in node code [here](https://github.com/neo-project/neo/blob/master/neo/Persistence/LevelDB/LevelDBStore.cs) and also at wallet level [here]()
@@ -533,3 +533,5 @@ public WalletIndexer(string path)
 thread.Start();
 }
 ```
+
+[Read next chapter](../7-consensus.md/1-Introduction_to_consensus.md) or [return to contents](../index.md)

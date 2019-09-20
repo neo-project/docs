@@ -180,8 +180,6 @@ Decimal numbers are stored as 64 bit fixed-point number with a precision of 10<s
 
 More information on fixed point numbers please check [here](http://www-inst.eecs.berkeley.edu/~cs61c/sp06/handout/fixedpt.html).
 
-
-
 ### Data Structures
 #### Arrays
 #### Maps
@@ -493,14 +491,10 @@ Contract transactions have Type `0x80`. The verification script used is usually 
 
 ##### Invocation Transaction
 Test invoke
+
 Attach system fees
+
 Attach network fees
 
-##### Other transaction types
-#### Signatures (Witnesses)
+[Read next section](2-levelDB_data_structure.md) or [return to contents](../index.md)
 
-### Invocation examples
-#### Native asset transfer
-#### NEP-5 asset transfer
-#### Multiple transfers in a single transaction
-#### Multi-signature verification

@@ -1,4 +1,4 @@
-## The Roots of Proof-of-Work
+# The Roots of Proof-of-Work
 
 Proof-of-Work was first mentioned by Satoshi Nakamoto as a mechanism that could combine CPU usage with voting, namely one-CPU-one-vote. The basic idea behind this is to create a protocol in which blocks are generating every `X` seconds. If blocks are generated faster or slower, difficulty would be altered.
 
@@ -28,4 +28,4 @@ The power of voting can even remove those that are acting as promised.
 Summarizing this, we should see that coordination is the core for reaching agreement in decentralized scenarios.
 Coordination not in the sense of a centralized coordinator, but in the sense that multiple goals are considered when a decision is being taken.
 
-[Next chapter](3-PBFT_and_DBFT.md) or [return to contents](README.md#contents).
+[Read next chapter](3-PBFT_and_DBFT.md) or [return to contents](../index.md).

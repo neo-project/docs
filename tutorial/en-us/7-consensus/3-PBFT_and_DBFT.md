@@ -1,3 +1,5 @@
+# pBFT and dBFT
+
 ## Practical Byzantine Fault Tolerance (pBFT)
 
 It has been argued that implementing a consensus fully based on an asynchronous system is not possible, in the work of  *M. Fischer, N. Lynch, and M. Paterson*, "Impossibility of
@@ -5,12 +7,7 @@ Distributed Consensus With One Faulty Process", in the Journal of the ACM, in 19
 
 In this sense, we must rely on a basic notion of synchrony for providing liveness.
 
-possible [9].
- We guarantee liveness, i.e., clients
-
-A brief summary of the pBFT follows of states can be seen in the ![Neo Specification](https://github.com/NeoResearch/yellowpaper/blob/master/sections/graphviz-images/graphviz-pbft.jpg?raw=true).
-
-pBFT was designed for....
+A brief summary of the pBFT follows of states can be seen below: ![Neo Specification](https://github.com/NeoResearch/yellowpaper/blob/master/sections/graphviz-images/graphviz-pbft.jpg?raw=true)
 
 ## Delegated Byzantine Fault Tolerance (dBFT)
 
@@ -35,9 +32,7 @@ This problem has been called as the **indefatigable miners problem** (defined be
 
 ### Blocking changing views and giving the network extra time
 
-For preserving liveness, and additional property needed to be ensured:
-
-- Nodes should be blocked to commit their signatures if they do not believe in the current network topology (asked `change_view`).
+For preserving liveness, and additional property needed to be ensured: Nodes should be blocked to commit their signatures if they do not believe in the current network topology (asked `change_view`).
 
 However, in practice, summed up with the Commit phase locking, the dBFT had lost liveness in some case in which nodes were just with network problems.
 A workaround for this problem was to introduce a counting mechanism for checking committed nodes (easy to check) and failed nodes (those that you have not been in touch in the last blocks).
@@ -46,4 +41,5 @@ This mechanism ensured an extra layer of protection before asking for changing v
 Along with this, another strategy that has been designed was to avoid `change_views` when nodes are seeing progress on the network.
 In this sense, each time that nodes shared signed information between them, extra timeout are added to their internal timers, summarizing that nodes are reaching agreements and communicating between them.
 
-[Next chapter](4-Examples_and_consensus_scenarios_for_dBFT.md) or [return to contents](README.md#contents).
+[Go to next section](4-Examples_and_consensus_scenarios_for_dBFT.md) or [return to contents](../index.md).
+

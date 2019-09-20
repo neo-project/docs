@@ -1,6 +1,8 @@
+# dBFT 共识示例与场景
+
 ## Watch-only模式的共识节点
 
-正如可以在[网络教程](linkToNetworkTODO)中验证的那样，NEO网络以完全分布式的方式运行，如上图所示，摘自[Medium文章](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
+正如可以在[网络教程](../5-network/1-Introduction_to_the_NEO_network_protocol.md)中验证的那样，NEO网络以完全分布式的方式运行，如上图所示，摘自[Medium文章](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
 
 ![转发交易，直至达到共识节点（绿色）](https://cdn-images-1.medium.com/max/800/1*vKbm_Di8GgQep8SyKeAWNw.png)
 
@@ -8,7 +10,7 @@
 
 ![仅限监视节点的信息](./watch-only-node.png)
 
-在这个图中，该Watch-Only节点还具有RPC功能。值得注意的是，节点可以具有其他特性并整理任意管理该客户端的节点所需的信息，如[教程](./linkToPluginsTodo)中所强调的那样。
+在这个图中，该Watch-Only节点还具有RPC功能。值得注意的是，节点可以具有其他特性并整理任意管理该客户端的节点所需的信息。
 
 ## dBFT 场景
 
@@ -101,4 +103,5 @@
 
 后者将产生以下地址：`AbU69m8WUZJSWanfr1Cy66cpEcsmMcX7BR`
 
-[返回目录](README.md#目录)
+[阅读下一章](../9-smartContract/What_is_smart_contract.md) 或 [返回目录](README.md#目录)
+

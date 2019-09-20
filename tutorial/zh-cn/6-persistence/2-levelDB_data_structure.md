@@ -1,9 +1,9 @@
-### LevelDB 区块链数据结构
+# LevelDB 区块链数据结构
 NEO当前的C#实现使用了高效的键值数据库LevelDB来持久化区块链数据。LevelDB既可用于存储系统数据，例如区块和交易，也可用于智能合约相关的数据的持久化。当节点接收到一条会触发状态改变的消息时（比如说一个新的区块或者区块头），它会检索并更新快照信息，并在操作结束后提交结果。下图是相关过程的简单的示例：
 
 ![snapshot](persistence_snapshot.png)
 
-#### LevelDB 表结构
+## LevelDB 表结构
 数据使用[Ledger](https://github.com/neo-project/neo/tree/master-2.x/neo/Ledger)包中的类定义的结构进行存储。使用`前缀`来区分各个`表`。
 
 此处我们可以看到neo（C#）中使用的前缀信息：
@@ -27,7 +27,7 @@ NEO当前的C#实现使用了高效的键值数据库LevelDB来持久化区块�
 
 可以点击 [此处](https://github.com/neo-project/neo/blob/master/neo/persistence/leveldb/prefixes.cs)查看更多前缀信息。
 
-#### 内存池
+### 内存池
 
 内存池是内存中用于跟踪那些还没有提交/持久化交易的集合。在查找交易时，节点始终都会先查找交易是否在内存池中，之后再查找节点的存储区。
 
@@ -35,7 +35,7 @@ NEO当前的C#实现使用了高效的键值数据库LevelDB来持久化区块�
 
 如果`Storage`返回一个空交易，则说明该交易要么不存在（如果节点已经完全同步），要么必须从其他节点那里获取该交易。
 
-#### 0x01 - 区块
+### 0x01 - 区块
 
 ```CSharp
 private void OnNewHeaders(Header[] headers)
@@ -77,7 +77,7 @@ public static bool ContainsBlock(this IPersistence persistence, UInt256 hash)
  public bool IsBlock => Hashes.Length > 0;
 ```
 
-#### 0x02 - 交易
+### 0x02 - 交易
 
 所有交易都存储在前缀为`交易`的表下。共识节点负责打包各个交易到区块中，之后再提交该区块。可以通过单个或者批量的形式检索这些交易。
 
@@ -123,10 +123,10 @@ private bool AddTransaction(Transaction tx, bool verify)
 ```
 
 
-#### 0x40 – 账户
+### 0x40 – 账户
 NEO使用账户来跟踪用户的余额信息，但不会跟踪UTXO。
 
-#### 0x44 - (未花费) 代币集合
+### 0x44 - (未花费) 代币集合
 如果某个交易没有被其他交易作为输入引用，那么这个交易就是“未花费”的交易。节点会跟踪这些未花费的代币以便对交易执行验证操作，但不会按账户对交易进行分组，这意味着节点可以确定一个代币是否是可花费的，但不能获取特定账户的所有可花费的代币。通过账户跟踪可花费代币的功能是由钱包或[neoscan](neoscan.io)/[neosracker](neosracker.io)这样的可构建索引的服务提供的。
 
 这个集合可以用来确定代币是否是可花费的。以下是C#中的实现方法：
@@ -147,7 +147,7 @@ public static bool IsDoubleSpend(this IPersistence persistence, Transaction tx)
 
 请注意，此时我们没有查看内存池。这个操作是在`IsDoublesPend`方法执行前完成的。
 
-#### 0x45 - 已花费代币
+### 0x45 - 已花费代币
 
 NEO会跟踪那些已花费的代币，以便用户可以`提取GAS`。可提取的GAS是根据交易创建时所处的区块高度与交易花费时所处区块高度之间的高度差计算出来的。这意味着，要想提取GAS，你需要花费该笔交易。通常情况下，可以将该笔交易发送给自己从而`解锁`这些可提取的GAS。
 
@@ -174,7 +174,7 @@ public Dictionary<ushort, SpentCoin> GetUnclaimed(UInt256 hash)
 
 ```
 
-#### 0x48 – 验证人
+### 0x48 – 验证人
 在验证区块时会使用到这个集合，因为需要知道验证人的公钥才能对区块中包含的多个签名进行验证。 
 
 ```CSharp
@@ -187,7 +187,7 @@ UInt160[] IVerifiable.GetScriptHashesForVerifying(Snapshot snapshot)
 }
 ```
 
-#### 0x4c - (原生) 资产
+### 0x4c - (原生) 资产
 该集合包含使用 **Register Transaction** 来注册原生资产的相关信息，从而决定是否允许执行 **Issue Transactions**。
 
 钱包模块也会用到这个集合，来检索token的信息（名称、符号等）。
@@ -251,7 +251,7 @@ public virtual bool Verify(Snapshot snapshot, IEnumerable<Transaction> mempool)
 
 ```
 
-#### 0x50 – 合约
+### 0x50 – 合约
 该集合用于存储智能合约代码和元数据。通过**InvocationTransaction**交易来部署合约，并在以`合约`为前缀的表下存储合约的相关数据，包括全部的代码（脚本）和元数据。请注意，合约使用的存储区位于其他位置（0x70的前缀下），但是，节点会使用这个集合来判断合约是否可以使用存储区或执行动态调用。
 
 当前这个集合还没有被弃用，但是，由于计划将元数据移动到`Manifest`文件中，因此该集合有可能在不久的将来会被弃用。
@@ -290,7 +290,7 @@ private bool CheckDynamicInvoke()
 
 ```
 
-#### 0x70 – 智能合约存储区
+### 0x70 – 智能合约存储区
 这部分的存储区是为智能合约自定义的数据存储而保留的。在此集合中，我们使用智能合约的脚本哈希作为执行上下文中执行的所有`Get`调用的基础前缀。
 
 下面是它的用法示例。请注意，还需发送上下文的脚本哈希以便检索数据：
@@ -315,7 +315,7 @@ protected bool Storage_Get(ExecutionEngine engine)
 }
 ```
 
-#### 0x80 – 区块头哈希列表
+### 0x80 – 区块头哈希列表
 NEO节点会分别对区块头和区块交易进行同步，这意味着节点首先会下载一个区块头构成的列表（通过哈希来引用），然后再获取各个区块相应的交易列表，包括从其他节点获取这些信息。
 
 请注意，在接收到新的区块头时，`区块`集合也会发生变化，因为区块实际上就是由一个区块头和多个交易构成的。
@@ -348,8 +348,8 @@ private void OnNewHeaders(Header[] headers)
 ```
 
 
-#### 0x90 – 验证人个数
-#### 0xc0 – 当前区块
+### 0x90 – 验证人个数
+### 0xc0 – 当前区块
 当前区块表示已通过验证的且包含交易数据的区块高度最大的那个区块。存储当前区块的信息是为了获取已同步的最新（最高的）的区块。区块链的高度就是当前区块的高度。
 
 ``` CSharp
@@ -358,7 +358,7 @@ public uint Height => BlockHashIndex.Get().Index;
 
 请牢记：区块**是**一个带有额外信息（交易）的区块头，因此区块哈希始终与它的区块头哈希相同。
 
-#### 0xC1 - 当前区块头
+### 0xC1 - 当前区块头
 
 该前缀用于存储最新（最高）的区块头信息。这属于元数据信息，且仅用于帮助节点同步数据。
 
@@ -405,7 +405,7 @@ public Blockchain(NeoSystem system, Store store)
 }
 ```
 
-#### 0xF0 - 系统版本
+### 0xF0 - 系统版本
 前缀`SYS_Version`用于跟踪当前的系统版本。该项检查用于确保我们使用的数据是与系统是兼容的。
 
 可以点击[此处](https://github.com/neo-project/neo/blob/master/neo/persistence/leveldb/leveldbstore.cs)的节点代码以及[此处](https://github.com/neo-ngd/NEO-Tutorial/blob/5bb96cfdcb03cda1f9b4ac68daf927ad5fd33516/en/6-persistence)的钱包模块查看它的用法。
@@ -487,3 +487,5 @@ public WalletIndexer(string path)
 thread.Start();
 }
 ```
+
+[阅读下一章](../7-consensus/1-Introduction_to_consensus.md)或[返回目录](../index.md)

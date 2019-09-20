@@ -1,6 +1,6 @@
 # Additional Resources
 
-## Further networking links and Literature
+### Further networking links and Literature
 * [https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0)
 * [https://github.com/neo-ngd/NEO-Tutorial](https://github.com/neo-ngd/NEO-Tutorial)
 * [https://en.wikipedia.org/wiki/NEO_(cryptocurrency)](https://en.wikipedia.org/wiki/NEO_(cryptocurrency))

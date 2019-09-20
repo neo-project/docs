@@ -1,6 +1,8 @@
+# Examples and consensus scenarios for dBFT
+
 ## Watch-only consensus nodes
 
-As could be verified in the [Network tutorial](linkToNetworkTODO), NEO network operates in a fully distributed fashion, such as this figure above, extracted from this [Medium Article](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
+As could be verified in the [Network tutorial](../5-network/1-Introduction_to_the_NEO_network_protocol.md), NEO network operates in a fully distributed fashion, such as this figure above, extracted from this [Medium Article](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
 
 ![Transaction is retransmitted until it reaches the Consensus Nodes (green)](https://cdn-images-1.medium.com/max/800/1*vKbm_Di8GgQep8SyKeAWNw.png)
 
@@ -11,7 +13,7 @@ Nodes with special feature can be designed for just monitoring the CN P2P messag
 ![Info from a watch only node](./watch-only-node.png)
 
 In this figure, this Watch-Only node also has the feature of RPC.
-It is noteworthy that nodes can have special features and summarize any information desired by those that manage that client, as already emphasized in the [Tutorial](./linkToPluginsTodo).
+It is noteworthy that nodes can have special features and summarize any information desired by those that manage that client.
 
 ## dBFT consensus scenarios
 
@@ -106,4 +108,4 @@ Let's take the first node (N1) previous described and create a multi-signatures 
 
 The latter would result in the following Address: `AbU69m8WUZJSWanfr1Cy66cpEcsmMcX7BR`
 
-[Return to contents](README.md#contents).
+[Go to next chapter](../9-smartContract/What_is_smart_contract.md) or [Return to contents](../index.md).
