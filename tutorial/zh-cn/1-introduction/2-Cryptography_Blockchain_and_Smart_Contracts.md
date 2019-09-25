@@ -14,4 +14,4 @@
 
 关于更详细的区块链入门技术，可参考 [这里](https://www2.deloitte.com/insights/us/en/topics/emerging-technologies/blockchain-technical-primer.html)。
 
-[阅读下一节](3-Fundamentals_of_NEO.md) 或者 [返回目录](../index.md)。
+[阅读下节](3-Fundamentals_of_NEO.md) 或者 [返回目录](../index.md)。

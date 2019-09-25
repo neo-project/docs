@@ -4,7 +4,7 @@ lang: cn
 lang-ref: Implementation_of_NEP5
 ---
 
-# 实现NEP-5
+# 实现 NEP-5
 
 
 >
@@ -59,7 +59,7 @@ public static byte Decimals() => 8;
 ```csharp
 [DisplayName("symbol")]
 public static string Symbol() => "MYT"; //通证的符号
-```      
+```
 
 我们还需要定义一个转账事件，该事件也在 `NEP-5` 标准中指定了。
 
@@ -72,16 +72,10 @@ public static event Action<byte[], byte[], BigInteger> Transferred;
 
 需要注意的是，在通证化的智能合约中，资产以键值对的形式存储在存储区中，其中键是地址，值是余额。下面的表格可以说明这一点。
 
-
-
 | 地址 |   值 |
 |--|--|
 | address1 | 1000 |
 | address2 | 200 |
-
-
-
-
 
 ```csharp
 //代表总供应量的静态只读值
@@ -194,7 +188,7 @@ private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] c
   }
 ```
 
-现在NEP-5通证已经完成，可以在我们的[私有链](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/Development_set_up.md)上测试了。你可以点击[此处](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/sourceCode/NEP5.cs)查看源码。
+现在NEP-5通证已经完成，可以在我们的私有链上测试了。你可以点击[此处](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/sourceCode/NEP5.cs)查看源码。
 
 编译NEP5.cs并获得avm文件后，部署它。如果合约已经部署在区块链上的话，那么首先调用deploy方法，该方法会初始化通证的totalSupply变量。
 
@@ -227,6 +221,11 @@ private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] c
 
 自己定义一个新的NEP-5通证。
 
-## 下一步骤
+## 阅读下节
 
 在本教程中，你已经了解了NEP-5的标准，以及如何通过定义自己的通证来实现NEP-5标准。现在我们可以扩展这一步骤来[发起我们的通证，并公开发布](Give_an_ITO.md)。
+
+## 返回上节
+
+要返回上节查看什么是NEP5，点击[这里](What_is_nep5.md)。
+

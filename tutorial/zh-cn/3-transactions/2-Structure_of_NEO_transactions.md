@@ -284,5 +284,5 @@ NEO中有几种不同类型的交易。 每种类型都具有不同的用途和�
 
 为了保证性能，在验证多签名合约时，公钥和签名的顺序必须保持一致。
 
-[阅读下一节](3-NEO_transaction_types.md)或者[返回目录](../index.md)
+[阅读下节](3-NEO_transaction_types.md)或者[返回目录](../index.md)
 

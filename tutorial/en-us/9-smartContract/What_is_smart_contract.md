@@ -21,7 +21,7 @@ Let's compare the smart contract with vending machines. In the real world, after
 
 ## The merit of smart contract
 
-- Autonomy.
+- Autonomy
 Smart contract are independently running on the computers which spread the world and no rely on any centrailized system.
 - Trust
 The trust is based on the distributed ledgers that execute and validates the contract.
@@ -32,7 +32,7 @@ The decentralized processing of smart contract let the procedure of business can
 - Economy
 Smart contract eliminated the need for a vast chain of middlemen includes lawyers, witness and other intermediatries.
 
-## NEO  smart contract
+## NEO smart contract
 
 The NEO Smart Contract  includes the following features: certainty, high performance, and expandability. The contract types include: validation contracts, function contracts, and application contracts.
 
@@ -84,4 +84,5 @@ In this smart contract tutorial, developers can understand the theory behind the
 
 ## Next Step
 
-Now, let's begin to learn the smart contract development. The first thing to do is [Set up your Private Chain](Development_privateChain.md)
+Now, let's begin to learn the smart contract development. The first thing to do is [Set up your Private Chain](Development_privateChain.md).
+

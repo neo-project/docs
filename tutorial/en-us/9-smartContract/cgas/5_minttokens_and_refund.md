@@ -1,4 +1,6 @@
-#### Part of the code for MintTokens
+# MintTokens and Refund
+
+## Part of the code for MintTokens
 
 ```c#
 var tx = ExecutionEngine.ScriptContainer as Transaction;
@@ -72,7 +74,7 @@ There are three parameters in Transferred method, namely sender, receiver, and t
 
 Additional fees are allowed for users in MintTokens. The code only checks the GAS part of the transaction outputs transferred to the CGAS contract. The GAS included in the user’s transaction inputs and the changed GAS is not counted.
 
-#### Part of the code for Refund
+## Part of the code for Refund
 
 Recall the introduction in the method description: Users exchange CGAS to GAS in two steps. The first step is to initiate an InvocationTransaction, which contains a GAS transferred from the CGAS address to the CGAS address (the transfer amount is the amount of GAS the user want to refund), and invoke the refund method (parameter is the refunder's Script Hash). When the contract invocation is successful, the CGAS equal to the refunded amount will be automatically ruined, and the output with index 0 of the transaction will be marked as belonging to the user. In the second step, the user creates a transaction that takes the UTXO marked in the first step as the transaction input and own address as output, thus taking the GAS from the CGAS address.
 

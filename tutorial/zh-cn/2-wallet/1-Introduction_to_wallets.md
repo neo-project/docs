@@ -39,5 +39,5 @@
 
 下一节，我们会了解一些NEO密钥架构设计的相关细节。
 
-[阅读下一节](2-Key_derivation_and_address_generation_on_NEO.md)或者[返回目录](../index.md)
+[阅读下节](2-Key_derivation_and_address_generation_on_NEO.md)或者[返回目录](../index.md)
 

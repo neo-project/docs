@@ -190,5 +190,5 @@ func (pub *PublicKey) ToNeoAddress() (address string) {
 
 智能合约中通常使用的公共标识符是脚本哈希，而不是地址。由于字节数组在计算机中是很常见的，因此更具有意义，而进行Base58编码则是为了具有更高的可读性。
 
-[阅读下一节](3-Key_encryption_and_contract_accounts.md)或者[返回目录](../index.md)
+[阅读下节](3-Key_encryption_and_contract_accounts.md)或者[返回目录](../index.md)
 

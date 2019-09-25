@@ -15,4 +15,4 @@ NEO 教程是面向 NEO 开发者和学习者的完整学习教程，旨在为�
 - [智能合约](9-smartContract/What_is_smart_contract.md)
 
 ## 其他智能合约开发资料
-- [Neo-python 教程](9-smartContract/neopython/part1_setup.md)
+- [NEO Python 快速入门](9-smartContract/neo_python_quickstart_cn.md)

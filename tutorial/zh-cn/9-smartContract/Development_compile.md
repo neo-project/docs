@@ -25,7 +25,7 @@ lang-ref: Development_compile
   <img src="imgs/20190219-140640.png" />
  </p>
 
- > [!!!!**注意**]
+ > [!Caution]
 >
 > 由于neon默认使用nep-8编译.dll文件，这会与nep-5发生冲突，因此我们需要使用nep-5兼容的方法执行.avm。
 >
@@ -78,5 +78,9 @@ lang-ref: Development_compile
 
 如果调用成功，账户余额中将减少相应的GAS数。
 
-## 下一步骤
-**恭喜你!**, 你已经成功地设置了私有网络并调用了你的第一个智能合约。现在让我们开始学习[NEO 智能合约的基础知识并开发你的第一个合约。](Smart_Contract_basics.md)
+## 阅读下节
+你已经成功地设置了私有网络并调用了你的第一个智能合约。现在让我们开始学习[NEO 智能合约的基础知识并开发你的第一个合约](Smart_Contract_basics.md)。
+
+## 返回上节
+
+要返回上节搭建开发环境，点击[这里](Development_set_up.md)。

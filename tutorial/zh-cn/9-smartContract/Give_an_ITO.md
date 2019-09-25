@@ -16,11 +16,10 @@ lang-ref: Give_an_ITO
 >
 > 2. MintToken函数的实现
 >
->
 
 ## 什么是ITO（首次通证发行）
 
-我们已经知道什么是 `NEP-5` 通证以及如何 [实现](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/What_is_nep5.md)NEP-5通证。 NEP-5通证可用于在用户之间进行转账的资产。但是，仅仅发行此类 `NEP-5` 通证对资产发行人而言并不能盈利，因为你必须手动将此类资产与外部世界进行链接。在NEO中，允许你在 `NEP-5` 通证和NEO等全局资产之间进行交易。
+我们已经知道什么是 `NEP-5` 通证以及如何实现NEP-5通证。 NEP-5通证可用于在用户之间进行转账的资产。但是，仅仅发行此类 `NEP-5` 通证对资产发行人而言并不能盈利，因为你必须手动将此类资产与外部世界进行链接。在NEO中，允许你在 `NEP-5` 通证和NEO等全局资产之间进行交易。
 
 ITO代表首次通证发行。通过这个过程，你可以对资产进行数字化或通证化，并通过互联网公开发布。这意味着你可以通过任何资产的价值创建业务、公司或项目。通过ITO，你可以生成代表你的资产的数字代币或通证。你可以不断地以电子方式转移这些代币或者通证。
 
@@ -63,8 +62,6 @@ private static ulong CurrentSwapRate()
 ## MintToken
 
 `MintToken` 方法是ITO合约中最重要的方法（要学习的内容还有很多）。考虑一下这种情况，项目已经发布并将其通证作为该项目的一部分对外提供。客户可以将手头上的NEO捐赠给该项目，同时将获得该项目的部分 `NEP-5` 通证。这个过程我们称之为 `MintToken`。
-
-
 
 现在让我们实现 `MintToken` 函数。首先，在 `MintToken` 方法中，我们必须首先获取 `交易` 对象，这是该智能合约的脚本容器。
 
@@ -120,5 +117,10 @@ return true;
 ```
 
 
-## 下一步骤
-现在你已经成功地完成了你的第一个ITO，同时也熟悉了智能合约的大部分内容，下一部分内容涉及到更为复杂的合约，[即CGAS](https://github.com/neo-ngd/NEO-Tutorial/blob/master/9-smartContract/cgas/1_what_is_cgas.md)。
+## 阅读下节
+现在你已经成功地完成了你的第一个ITO，同时也熟悉了智能合约的大部分内容，下一部分内容涉及到更为复杂的合约，[即CGAS](cgas/1_what_is_cgas.md)。
+
+## 返回上节
+
+要返回上节查看如何实现NEP5合约，点击[这里](Implementation_of_NEP5.md)。
+

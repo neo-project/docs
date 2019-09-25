@@ -12,7 +12,7 @@ In simple terms, NEP-5 assets have the advantages of high degree of freedom, sup
 
 For an introduction to NEP-5, you can refer to previous tutorials or [GitHub](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki).
 
-Here is a systematic comparison of the two assets
+Here is a systematic comparison of the two assets.
 
 |                          | Global assets                | NEP-5 assets               |
 | ------------------------ | ----------------------- | ------------------------ |
@@ -25,12 +25,10 @@ Here is a systematic comparison of the two assets
 | Functions                     | Simple                    | Complicated                     |
 | Identification via digital certificates       | Support                    | Not support                   |
 | Transfer through smart contracts | No                    | yes                       |
-|                          |                         |                          |
-|                          |                         |                          |
 
 
 ## Next Step
-In order to learn the how the UTXO is working in CGAS, we move to [here](3_utxo_model.md)
+In order to learn how the UTXO is working in CGAS, we move to [here](3_utxo_model.md)。
 
 ## Previous Step
 If you want to know what is CGAS, click [here](1_what_is_cgas.md).

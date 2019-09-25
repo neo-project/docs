@@ -1,4 +1,4 @@
-# Invoke CGAS
+# Invoking CGAS
 
 In all of CGAS's code, the code invoking CGAS is of high difficulty, even as much as that of Refund.
 
@@ -99,4 +99,5 @@ It is recommended that developers should debug locally by steps when constructin
 
 
 ## Previous Step
-To learn the function of mint tokens and refund, click [here](6_signature_and_verification.md)
+[签名与验证](6_signature_and_verification.md)
+

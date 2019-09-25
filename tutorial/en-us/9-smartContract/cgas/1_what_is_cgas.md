@@ -56,7 +56,7 @@ Other notices implemented by the contract:
 
 <a name="note-zh"></a>
 
-> [Note]
+> [!Note]
 >
 > In mintTokens, the Inputs and Outputs of InvocationTransaction should not exceed 60. Otherwise, the fee required for execution will exceed the free 10 GAS. If a large number of GAS’s UTXO needs to be exchanged as CGAS, it is recommended to make a normal transfer to merge UTXO first, and then perform mintTokens.
 
@@ -87,7 +87,7 @@ CGAS Contract Address: AK4LdT5ZXR9DQZjfk5X6Xy79mE8ad8jKAW
 Known Issues: `transferAPP` method naming not canonical
 
 ## Next Step
-Now we are going to learn [global asset and nep5](2_global_asset_and_nep5.md)
+Now we are going to learn [global asset and nep5](2_global_asset_and_nep5.md).
 
 ## Previous Step
 If you want to learn NEP5, click [here](What_is_nep5.md).

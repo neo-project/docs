@@ -11,4 +11,4 @@
 
 得益于dBFT共识机制，NEO区块链不会受到这种行为的影响，并且根据算法的终局性，NEO永远都不会出现分叉，因此也不会出现区块链存在两个有效版本的情况。有关共识机制的更多信息，可以阅读[白皮书](https://docs.neo.org/en-us/basic/consension/whitepaper.html)。
 
-[下一节](2-区块结构.md)或者[返回目录](README.md#目录)
+[阅读下节](2-Structure_of_a_block.md)或者[返回目录](../index.md)

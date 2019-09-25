@@ -79,3 +79,4 @@ The *asset* type is `NEO`, the amount is your preferred amount to transfer, and 
 
  ## Previous Step
  If you are not clear with the idea of smart contract, click [here](What_is_smart_contract.md)
+

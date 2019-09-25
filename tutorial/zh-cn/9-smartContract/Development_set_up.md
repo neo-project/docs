@@ -14,8 +14,6 @@ NEO C#的开发人员是非常幸运的，因为NEO区块链本身是基于C#搭
 
 对于非windows用户，如MAC和Linux用户，最好的选择是使用在线编辑器和编译器，这样更便于智能合约的开发和部署。这部分内容在这篇[文档]( https://medium.com/neweconolab/with-neoray-neo-smart-contract-development-has-never-been-easier-edad41cc3ae6)中有详细说明。
 
-
-
 ### Windows
 
 为了建立一个NEO私有网络和开发环境，开发人员必须安装一些依赖项:
@@ -77,5 +75,12 @@ NEO C#的开发人员是非常幸运的，因为NEO区块链本身是基于C#搭
  <p align="center">
   <img src="imgs/20190219-120735.png" />
  </p>
-
 然而，上面只演示了一种简单的数据存储方法——使用键值对的方法在私有存储区域中存储数据。
+
+## 阅读下节
+
+你已经完成开发环境搭建，下节我们将介绍[编译，部署和调用合约](Development_compile.md)。
+
+## 返回上节
+
+要返回上节查看如何搭建一个私链，点击[这里](Development_privateChain.md)。

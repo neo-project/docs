@@ -37,7 +37,7 @@ NEP-5 规范中的方法：
 | ------------------ | ----------- | ------------------------------------------- | ------------------------------------------------------------ |
 | getRefundTarget    | byte[] txId | byte[]                                      | 获得某个 UTXO 是谁待退回的，参数为 UTXO 中的交易 ID（确定一个 UTXO 由 txId 和 output 索引共同完成，这里 output 索引默认为 0），返回值为这个 UTXO 的退回者，他可以将这个 UTXO 作为交易输入，将 GAS 从 CGAS 地址中取走。 |
 | getTxInfo          | byte[] txId | [TransferInfo](NeoContract/TransferInfo.cs) | 获得某个交易 ID 的详细转账信息，在以下 4 种情况中可记录 TxInfo：mintTokens, Refund, transfer, transferAPP。 |
-| mintTokens         | ---         | bool                                        | CGAS 的铸币方法。用户通过发起 InvocationTransaction，将 GAS 转给 CGAS 合约地址，并且调用 mintTokens 完成 GAS 到 CGAS 的转换工作。合约调用成功后，用户资产中将会增加与兑换的 GAS 数额相等的 CGAS。[注意事项](#note-zh) |
+| mintTokens         | ---         | bool                                        | CGAS 的铸币方法。用户通过发起 InvocationTransaction，将 GAS 转给 CGAS 合约地址，并且调用 mintTokens 完成 GAS 到 CGAS 的转换工作。合约调用成功后，用户资产中将会增加与兑换的 GAS 数额相等的 CGAS。 |
 | refund             | byte[] from | bool                                        | 用户将 CGAS 提取，变成 GAS 总共分两步。第一步，发起一笔 InvocationTransaction 其中包含一笔从 CGAS 地址到 CGAS 地址的 GAS 转账（转账金额为用户想退回的 GAS 的数量），并调用 refund 方法（参数为退回者的 Script Hash）。合约调用成功后，将自动销毁与退回数量相等的 CGAS，并把该交易的第 0 号 output 标记为所属于该用户。第二步，用户构造一个交易将第一步标记过的 UTXO 作为交易输入，交易输出为用户自己的地址，从而将 GAS 从 CGAS 地址中取走。 |
 | supportedStandards | ---         | string                                      | NEP-10 规范，返回合约所支持的 NEP 标准，返回值为常量，数组格式：`{ "NEP-5", "NEP-7", "NEP-10" }` |
 
@@ -55,7 +55,7 @@ NEP-5 规范中的通知：
 
 <a name="note-zh"></a>
 
-> [注意]
+> [!Note]
 >
 > 在 mintTokens 的时候请注意，InvocationTransaction 的 Inputs 和 Output 加起来不应该超过60个，否则在执行时所需的手续费会超过 10 GAS 的免费额度。如果有大量 GAS 的 UTXO 需要换成 CGAS，建议先进行一个普通转账，将 UTXO 合并，然后再进行 mintTokens 操作。
 
@@ -84,3 +84,11 @@ Script Hash: [0x9121e89e8a0849857262d67c8408601b5e8e0524](https://neotracker.io/
 CGAS Contract Address: AK4LdT5ZXR9DQZjfk5X6Xy79mE8ad8jKAW
 
 Known Issues: `transferAPP` method naming not canonical
+
+## 阅读下节
+
+下节我们将介绍 [全局资产和NEP5](2_global_asset_and_nep5.md)。
+
+## 返回上节
+
+如果要返回上节查看 NEP5 知识，点击[这里](What_is_nep5.md)。

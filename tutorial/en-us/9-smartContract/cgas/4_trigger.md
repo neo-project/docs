@@ -1,4 +1,6 @@
-#### The trigger part of Verification
+# Triggers
+
+## The trigger part of Verification
 
 This part of the code is executed in the first two steps of refund. If the execution is successful, the transaction is confirmed; otherwise it will not be confirmed.
 
@@ -45,7 +47,7 @@ Q: Since the prevHash read from the store is the final criterion, what is the ju
 
 A: the operation of storage area will cost more fees, so we take the two-level judgment. First, the low-fee judgment is performed, and then we conduct the high-fee judgment.
 
-**The code for the second step of refund**
+### **The code for the second step of refund**
 
 The user should be able to withdraw the respectively amount of the token when value can be read from the storage area, but cannot withdraw the rest of the token in CGAS. Therefore, the number of inputs and outputs is limited here; only one input and one output are allowed in the refund operation.
 
@@ -91,7 +93,7 @@ This removes the restriction that the UTXO to be taken must be used as the first
 
 Only one input and one output are allowed
 
-**Code for the first step of refund**
+### **Code for the first step of refund**
 
 When no refund is detected in all inputs, the user is considered to be performing the first step of refund.
 
@@ -155,7 +157,7 @@ Where User1 is the user's address and Token1 is some other worthless global asse
 
 The security of smart contracts is no less than the security of financial softwares, which needs to be considered very comprehensively when writing to avoid vulnerability.
 
-#### The trigger part of Application
+## The trigger part of Application
 
 This part is very simple. It is the standard smart contract format, that is, executing different methods according to the type of the method.
 
@@ -190,7 +192,7 @@ if (Runtime.Trigger == TriggerType.Application)
 
 Remarkably, the ExecutionEngine.CallingScriptHash method means to obtain the upper level of the contract invocation chain, which is the contract invoking CGAS. This method needs to be executed in the first place. If it is executed in the Transfer method, the obtained value may not be the scriptHash of the upper level of the invocation chain.
 
-#### The trigger part of VerificationR
+## The trigger part of VerificationR
 
 ```c#
 if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refusing to accept other assets

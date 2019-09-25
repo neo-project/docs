@@ -1,4 +1,6 @@
-#### MintTokens 部分代码
+# 铸币与退款
+
+## MintTokens 部分代码
 
 ```c#
 var tx = ExecutionEngine.ScriptContainer as Transaction;
@@ -43,24 +45,26 @@ foreach (var output in outputs)
 
 接下来的代码是进行计算用户向 CGAS 合约转账了多少 GAS，这里对所有交易输出进行了遍历，如果转的地址是 CGAS 地址，并且转的资产是 GAS，则进行统计。
 
-获取了用户总共向 CGAS 合约转了多少 GAS 之后，就要做两件事件:
+获取了用户总共向 CGAS 合约转了多少 GAS 之后，就要做两件事:
 
-１、修改 CGAS 的总量
+1. 修改 CGAS 的总量
 
-```c#
-StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-var totalSupply = contract.Get("totalSupply").AsBigInteger(); 
-totalSupply += value;
-contract.Put("totalSupply", totalSupply);
-```
 
-２、给用户分按兑换比例发 CGAS
+   ```c#
+   StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+   var totalSupply = contract.Get("totalSupply").AsBigInteger(); 
+   totalSupply += value;
+   contract.Put("totalSupply", totalSupply);
+   ```
 
-```c#
-StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-var amount = asset.Get(sender).AsBigInteger();
-asset.Put(sender, amount + value);
-```
+2. 给用户分按兑换比例发 CGAS
+
+
+   ```c#
+   StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
+   var amount = asset.Get(sender).AsBigInteger();
+   asset.Put(sender, amount + value);
+   ```
 
 最后触发转账的事件，通知客户端无中生有地给一个用户进行了转账，也就是分发资产。
 
@@ -72,7 +76,7 @@ Transferred 的参数有 3 个，分别是 转账人、收款人、转账金额�
 
 用户如果想在 MintTokens 的时候附加一些手续费，也是可以的，代码中只检测转给 CGAS 合约的交易输出中的 GAS 部分，用户交易输入中包含的 GAS，以及找零的 GAS 程序是不进行统计的。
 
-#### Refund 部分代码
+## Refund 部分代码
 
 回顾一下方法说明中的介绍：用户将 CGAS 提取，变成 GAS 总共分两步。第一步，发起一笔 InvocationTransaction 其中包含一笔从 CGAS 地址到 CGAS 地址的 GAS 转账（转账金额为用户想退回的 GAS 的数量），并调用 refund 方法（参数为退回者的 Script Hash）。合约调用成功后，将自动销毁与退回数量相等的 CGAS，并把该交易的第 0 号 output 标记为所属于该用户。第二步，用户构造一个交易将第一步标记过的 UTXO 作为交易输入，交易输出为用户自己的地址，从而将 GAS 从 CGAS 地址中取走。
 
@@ -150,3 +154,11 @@ Refunded(tx.Hash, from);
 ```
 
 最后记录下交易 ID，方便查询，触发 Transferrd 事件，方便区块链浏览器和客户端处理。然后记下这个 UTXO 是谁退回的，为 refund 第二步做准备。
+
+## 阅读下节
+
+下节我们将介绍 [签名与验证](6_signature_and_verification.md)。
+
+## 返回上节
+
+如果要返回上节了解触发器，点击[这里](4_trigger.md)。

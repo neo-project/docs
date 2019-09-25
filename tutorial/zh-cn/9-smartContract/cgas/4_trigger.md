@@ -1,4 +1,6 @@
-#### Verification 触发器部分代码
+# 触发器
+
+## Verification 触发器部分代码
 
 这部分代码在 refund 第一步和 refund 第二步的时候执行，执行成功后交易确认，执行失败后交易不确认。
 
@@ -45,7 +47,7 @@ foreach (var input in inputs)
 
 答：存储区操作会花费较多手续费，所以将判断分为两级，先进行手续费低的判断，再进行手续费高的判断。
 
-**refund 第二步的代码**
+### **refund 第二步的代码**
 
 当从存储区中读取到后，用户就可以将这笔钱取走，但是不能将 CGAS 中其余的钱取走，所以这里对 inputs 和 outputs 的数量进行了限制，在 refund 操作中只允许一个 input 和一个 output。
 
@@ -90,7 +92,7 @@ return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
 
 只允许一个 input 和一个 output
 
-**refund 第一步的代码**
+### **refund 第一步的代码**
 
 当所有的 inputs 中都没有检测到标记为 refund 的时候，就认为用户在执行 refund 第一步的操作。
 
@@ -154,7 +156,7 @@ User1 100 Token1             User1 100 GAS
 
 智能合约的安全性不亚于金融软件的安全性，在编写时需要考虑得很全面，才能避免出现漏洞。
 
-#### Application 触发器部分代码
+## Application 触发器部分代码
 
 这块就很简单了，就是标准的智能合约的格式，通过 method 的不同来执行不同的方法。
 
@@ -189,7 +191,7 @@ if (Runtime.Trigger == TriggerType.Application)
 
 需要注意的是，ExecutionEngine.CallingScriptHash 该方法的意思是获取合约调用链的上一级，也就是调用 CGAS 的合约，该方法需要在一开始执行，如果是在 Transfer 方法里面执行，获取的值可能不是调用链上一级的 ScriptHash。
 
-#### VerificationR 触发器部分代码
+## VerificationR 触发器部分代码
 
 ```c#
 if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refusing to accept other assets
@@ -206,3 +208,11 @@ if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refu
 ```
 
 这个触发器目前还没有实现，是对 NEP-7 的向后兼容，如果节点支持 NEP-7，它在 CGAS 收到转账的时候会进行验证，返回 false 代表拒绝接收这笔转账，返回 true 代表接收这笔转账。在什么情况下拒绝接受转账呢？就是用户转了一些奇奇怪怪的资产，因为用户如果误转了其它资产到 CGAS 地址，他是无法将其取出的，所以这段代码就是加以限制。但目前主网上还不支持 NEP-7，所以暂时不起作用。
+
+## 阅读下节
+
+下节我们将介绍 [铸币与退款](5_minttokens_and_refun.md)。
+
+## 返回上节
+
+如果要返回上节了解CGAS中的UTXO模型，点击[这里](3_utxo_model.md)。

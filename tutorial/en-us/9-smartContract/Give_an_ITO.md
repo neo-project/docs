@@ -16,7 +16,6 @@ lang-ref: Give_an_ITO
 >
 > 2. Implementation of MintToken function
 >
->
 
 ## What is ITO (Initial Token Offering)
 
@@ -124,7 +123,7 @@ return true;
 
 
 ## Next Step
-Now you have successfully make your first ITO and famailiar with the most ideas of smart contract, the next one will be more difficult contract [which is CGAS.](cgas/1_what_is_cgas.md)
+Now you have successfully make your first ITO and familiar with the most ideas of smart contract, the next one will be more difficult contract [which is CGAS.](cgas/1_what_is_cgas.md)
 
 ## Previous Step
 If you want to know how to implement the NEP5, click [here](Implementation_of_NEP5.md).

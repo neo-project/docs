@@ -81,7 +81,7 @@ curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d
 "confirmations": 117,
 "nextblockhash": "0x77875e7a3d255c3fc82070c51c7999487fb927dfec6a158b5d1dcd4031ee1c5c"
 ```
- 
+
 ## 界面呈现
 
 可以使用区块浏览器来以一种对用户更为友好的方式查看区块信息。Neoscan.io就是其中一个选择，上面所说的区块可以点击[这个URL](https://neoscan.io/block/ad83d993ca2d9783ca86a000b39920c2508ccae7b7db11806646a4832bc50)来查看。区块包含的信息和交易如下所示。调用脚本和验证脚本信息没有在图中显示，在[区块验证 & 处理](4-Block_validation_processing.md)一节有详细的讨论。
@@ -144,4 +144,4 @@ curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d
 
  -  ***nextblockhash***：下一个区块的哈希，从而形成由区块构成的链表。区块结构中不包含这个字段，它是由节点发起RPC请求同步区块时计算得出的。
 
- [下一节](3-区块创建与广播.md)或者[返回目录](README.md#目录)
+ [阅读下节](3-Block_creation_broadcasting.md)或者[返回目录](../index.md)

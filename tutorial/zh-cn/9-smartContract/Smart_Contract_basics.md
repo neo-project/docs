@@ -118,10 +118,6 @@ C#的基本类型是:
 -   `Boolean`
 -   `Char String`
 
-
-
-
-
 ## 第一个智能合约
 
 分析完之前那个基本的hello world合约后，我们来分析一下这个具有真实意义的智能合约。这里我们提供了一个非常简单的DNS系统，它是用C#编写的。DNS的主要功能是为用户存储域名。除了事件外，它包含了上面所说的所有概念。我们可以研究一下这个合约，学习如何开发一个基本的智能合约。源代码在这里:
@@ -274,8 +270,6 @@ private static byte[] Query(string domain){
 }
 ```
 
-
-
 ## CheckWitness
 
 在许多情况下(如果不是所有情况)，你可能希望对调用合约代码的地址进行验证。
@@ -316,6 +310,10 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 
 在上面的 `DNS` 智能合约中，有一个delete方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 `Storage.Delete` 方法来删除相应的键值对。请实现这个功能。
 
-## 下一步骤
+## 阅读下节
 
-太棒了!你刚完成了第一个智能合约。现在让我们学习下[NEP 5 Token](What_is_nep5.md)的相关知识
+你刚完成了第一个智能合约。现在让我们学习下[NEP 5 Token](What_is_nep5.md)的相关知识
+
+## 返回上节
+
+要返回上节查看如何编译和部署合约，点击[这里](Development_compile.md)

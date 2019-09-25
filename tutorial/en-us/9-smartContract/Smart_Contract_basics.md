@@ -129,10 +129,6 @@ The basic types of C# are:
 -   `Boolean`
 -   `Char String`
 
-
-
-
-
 ## Your first NEO contract
 
 After analysing the basic hello world contract, let us move to your first real-world smart contract. Here we provide a very simple DNS system which was written in C#. The main function of the DNS is store the domain for users. It contains all the points above except the events. We can investigate this smart contract to learn how to make a basic smart contract. The source code is here:
@@ -247,8 +243,6 @@ public static bool FunctionA(params object[] args)
 
 ```
 
-
-
 In our `DNS smart contract`, the first function is the `main` function which is the main entry of the smart contract. The main function reads the first argument as operation and the remaining as other arguments.
 
 ```csharp
@@ -280,8 +274,6 @@ private static byte[] Query(string domain){
 	return Storage.Get(Storage.CurrentContext, domain);
 }
 ```
-
-
 
 ## CheckWitness
 In many, if not all cases, you will probably be wanting to validate whether the address invoking your contract code is really who they say they are.

@@ -5,8 +5,6 @@
     href: /tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.md
   - name: NEO Fundamentals
     href: /tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.md
-  - name: NEO Tutorial
-    href: /tutorial/en-us/1-introduction/4-NEO_Tutorial.md
   - name: Additional Resources
     href: /tutorial/en-us/1-introduction/resource.md
 - name: Wallet
@@ -43,10 +41,8 @@
   - name: Additional Resources
     href: /tutorial/en-us/4-blocks/resource.md
 - name: Network
-  - name: Introduction
+  - name: NEO Network and Protocol
     href: /tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.md
-  - name: Developing a NEO Ping using Golang
-    href: /tutorial/en-us/5-network/2-Developing_a_NEO_ping_using_Golang.md
   - name: Additional Resources
     href: /tutorial/en-us/5-network/resource.md
 - name: Persistence
@@ -68,8 +64,12 @@
 - name: Smart Contract
   - name: Introduction
     href: /tutorial/en-us/9-smartContract/What_is_smart_contract.md
+  - name: Setting up a Private Chain
+    href: /tutorial/en-us/9-smartContract/Development_privateChain.md
   - name: Setting up Development Enviroment
     href: /tutorial/en-us/9-smartContract/Development_set_up.md
+  - name: Contract Invoking and Deployment
+    href: /tutorial/zh-cn/9-smartContract/Development_compile.md
   - name: Smart Contract Basics
     href: /tutorial/en-us/9-smartContract/Smart_Contract_basics.md
   - name: Make your NEP-5 Token

@@ -18,7 +18,7 @@ lang-ref: Implementation_of_NEP5
 > 2. Use your NEP-5 Token on the NEO-Gui
 >
 
-First of all, we define a readonly property owner to present the owner of the contract. The is the `Owner` and it is a `20` length byte array.
+First of all, we define a readably property owner to present the owner of the contract. The is the `Owner` and it is a `20` length byte array.
 
 ```csharp
 // Here string "xxx" stands for the address you assigned as the onwer of address.
@@ -60,7 +60,7 @@ public static byte Decimals() => 8;
 ```csharp
 [DisplayName("symbol")]
 public static string Symbol() => "MYT"; //symbol of the token
-```      
+```
 
 We also need  define a Transfer event which is also specified in the `NEP-5` standard.
 
@@ -73,16 +73,10 @@ Now. Let's define the totalSupply method of the contract. Before that, we should
 
 It is worth noticing that, in tokenized smart contract, the asset is stored in the storage as the key is the address and the value is the balance. Here is the table which may declare it.
 
-
-
 | Address |   value |
 |--|--|
 | address1 | 1000 |
 | address2 | 200 |
-
-
-
-
 
 ```csharp
 //Static readonly value of total supply value

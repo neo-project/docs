@@ -178,3 +178,7 @@ GAS 的免费额度。如果数量小于 10，则不收取手续费，如果大�
 
 其中通知部分如何转成可读的数据，参见 [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools) 项目。
 
+## 返回上节
+
+[签名与验证](6_signature_and_verification.md)
+

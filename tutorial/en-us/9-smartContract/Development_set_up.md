@@ -7,17 +7,16 @@ lang-ref: Development_set_up
 
 # C# Smart contract development environment
 
->
-> **Objective**: Meet the development requirements
->
-> **Main points**:
->
-> 1. System requirement
->
-> 2. Visual Studio Setup
->
-> 3. Neo-Compiler
->
+>**Objective**: Meet the development requirements
+> 
+>**Main points**:
+> 
+>1. System requirement
+> 
+>2. Visual Studio Setup
+> 
+>3. Neo-Compiler
+> 
 
 
 For NEO C# developers, it is very fortune for them  because  NEO blockchain is build based on the C# and therefore, from compiler to toolbox, the C# development environment has been widely supported and it is very easy for those .NET developers begin to learn NEO Smart contract development. It is also easy for users who did not get touch with C# to begin his smart contract and Dapp.
@@ -26,8 +25,6 @@ For NEO C# developers, it is very fortune for them  because  NEO blockchain is b
 For smart contract using C#, the best way is to develop with a local development environment with a IDE which support the NEO smart contract. Luckily, NEO is preparing a number of tools that achieve this. The only requirement for that is the operating system of your computer is Windows, preferred Windows 10 64 bit.
 
 For non-windows users, such as MAC and Linux users, the best choice is to use the online editor and compiler which is more convenient for smart contract developing and deploying. This will be detailed in this [document](https://medium.com/neweconolab/with-neoray-neo-smart-contract-development-has-never-been-easier-edad41cc3ae6).
-
-
 
 ### Windows
 
@@ -96,3 +93,4 @@ Nevertheless, the above only demonstrates a simple data storage method - to stor
 
 ## Previous Step
 If you are not set up the private chain yet , you may first click [here](Development_privateChain.md).
+

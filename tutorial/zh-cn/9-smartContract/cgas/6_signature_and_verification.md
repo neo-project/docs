@@ -12,17 +12,17 @@ CGAS 执行的过程大体上可以分两步，第一步是执行交易中的验
 
 refund 第一步时的交易结构:
 
-> [说明]
+> [!Note]
 >
-> Type: InvocationTransaction
+> - Type: InvocationTransaction
 >
-> Input: 来自 CGAS 合约地址
+> - Input: 来自 CGAS 合约地址
 >
-> Output: 转到 CGAS 合约地址 (与 input 相同)
+> - Output: 转到 CGAS 合约地址 (与 input 相同)
 >
-> Script: 调用 refund 方法，设置参数为退回者的 Script Hash
+> - Script: 调用 refund 方法，设置参数为退回者的 Script Hash
 >
-> Scripts: 需要两个 witness: 1、CGAS 合约的 witness; 2、用户的 witness（附加见证人）
+> - Scripts: 需要两个 witness: 1、CGAS 合约的 witness; 2、用户的 witness（附加见证人）
 
 ```c#
 {
@@ -121,3 +121,12 @@ refund 第一步时的交易结构:
 ```
 
 首先是 16 进制的 21，对应 10 进制的 33，后面 33 位是个字节数组（其实是公钥），最后一个 0xac 意思是 CHECKSIG，意思是验证签名，就这么简单。
+
+## 阅读下节
+
+下节我们将介绍 [如何调用CGAS合约](7_invocation.md)。
+
+## 返回上节
+
+如果要返回上节了解铸币和退款函数，点击[这里](5_minttokens_and_refund.md)。
+

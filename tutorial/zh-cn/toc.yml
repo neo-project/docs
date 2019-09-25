@@ -5,8 +5,8 @@
     href: /tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.md
   - name: NEO 基础知识
     href: /tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.md
-  - name: NEO 教程
-    href: /tutorial/zh-cn/1-introduction/4-NEO_Tutorial.md
+  - name: 更多资源
+    href: /tutorial/zh-cn/1-introduction/resource.md
 - name: 钱包
   - name: 介绍
     href: /tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.md
@@ -16,7 +16,7 @@
     href: /tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.md
   - name: UTXO模型与账户模型
     href: /tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.md
-  - name: 相关资源
+  - name: 更多资源
     href: /tutorial/zh-cn/2-wallet/resource.md
 - name: 交易
   - name: 介绍
@@ -27,7 +27,7 @@
     href: /tutorial/zh-cn/3-transactions/3-NEO_transaction_types.md
   - name: 交易手续费
     href: /tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.md
-  - name: 相关资源
+  - name: 更多资源
     href: /tutorial/zh-cn/3-transactions/resource.md
 - name: 区块
   - name: 介绍
@@ -38,14 +38,12 @@
     href: /tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.md
   - name: 区块验证
     href: /tutorial/zh-cn/4-blocks/4-Block_validation_processing.md
-  - name: 相关资源 - 梅克树
+  - name: 更多资源 - 梅克树
     href: /tutorial/zh-cn/4-blocks/resource.md
 - name: NEO 网络
-  - name: NEO网络协议介绍
+  - name: NEO协议和网络
     href: /tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.md
-  - name: 使用Golang实现NEO ping功能
-    href: /tutorial/zh-cn/5-network/2-Developing_a_NEO_ping_using_Golang.md
-  - name: 相关资源
+  - name: 更多资源
     href: /tutorial/zh-cn/5-network/resource.md
 - name: 持久性
   - name: 介绍
@@ -61,13 +59,17 @@
     href: /tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.md
   - name: dBFT 共识示例与场景
     href: /tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.md
-  - name: 相关资源
+  - name: 更多资源
     href: /tutorial/zh-cn/7-consensus/resource.md
 - name: 智能合约
   - name: 介绍
     href: /tutorial/zh-cn/9-smartContract/What_is_smart_contract.md
+  - name: 搭建私链
+    href: /tutorial/zh-cn/9-smartContract/Development_privateChain.md
   - name: 搭建开发环境
     href: /tutorial/zh-cn/9-smartContract/Development_set_up.md
+  - name: 编译、调用与部署
+    href: /tutorial/zh-cn/9-smartContract/Development_compile.md
   - name: 智能合约基础知识
     href: /tutorial/zh-cn/9-smartContract/Smart_Contract_basics.md
   - name: 创建 NEP-5 合约

@@ -12,17 +12,17 @@ The following is an example of the transaction for the first step of the refund.
 
 Transaction structure for the first step of the refund:
 
-> [note]
+> [!Note]
 >
-> Type: InvocationTransaction
+> - Type: InvocationTransaction
 >
-> Input: transfer from the contract address of CGAS
+> - Input: transfer from the contract address of CGAS
 >
-> Output: transfer to the contract address of CGAS (same as input)
+> - Output: transfer to the contract address of CGAS (same as input)
 >
-> Script: invoke the refund method, setting the parameter to the refunder's Script Hash
+> - Script: invoke the refund method, setting the parameter to the refunder's Script Hash
 >
-> Scripts: need two witnesses: 1、 witness of CGAS contract ; 2、witness of the user（additional witness）
+> - Scripts: need two witnesses: 1、 witness of CGAS contract ; 2、witness of the user（additional witness）
 
 ```c#
 {
@@ -122,7 +122,8 @@ Take a look at the second set of verification scripts:
 
 0x21 corresponds to decimal 33, the next 33 bits is a byte array (actually a public key), and the last 0xac means CHECKSIG, which means verifying the signature, and that’s it.
 ## Next Step
-Now let us know how to [invoke this CGAS contracy](7_invocation.md)
+Now let us know how to [invoke this CGAS contract](7_invocation.md)
 
 ## Previous Step
-To learn the function of mint token and refund, click [here](6_signature_and_verification.md)
+To learn the function of mint token and refund, click [here](5_minttokens_and_refund.md).
+
