@@ -211,7 +211,7 @@ if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refu
 This trigger has not been implemented yet, which is backward compatible with NEP-7. If the node supports NEP-7, it will verify when the transfer is received by CGAS. Return false if the transfer is refused, true otherwise. What can result in the transfer being refused? In case the user transfers some strange assets, as if the user mistakenly transfers other assets to the CGAS address, he cannot withdraw them, so this code is limited. However, NEP-7 is not currently supported on the main network, so it does not work for the time being.
 
 ## Next Step
-Now let us move to function of [mint token and refund](5_minttokens_and_refun.md).
+Now let us move to function of [mint token and refund](5_minttokens_and_refund.md).
 
 ## Previous Step
 If you want to know how is UTXO model working in the CGAS, click [here](3_utxo_model.md).

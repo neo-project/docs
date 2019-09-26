@@ -91,4 +91,4 @@ Known Issues: `transferAPP` method naming not canonical
 
 ## 返回上节
 
-如果要返回上节查看 NEP5 知识，点击[这里](What_is_nep5.md)。
+如果要返回上节查看 NEP5 知识，点击[这里](../What_is_nep5.md)。

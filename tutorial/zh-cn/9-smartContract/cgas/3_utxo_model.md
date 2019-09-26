@@ -1,6 +1,6 @@
 # 在CGAS中使用UTXO
 
-正如在[UTXO基础知识](https://github.com/neo-ngd/NEO-Tutorial/blob/master/9-smartContract/UTXO.md)中所解释的，NEO系统中使用的全局资产是基于模型UTXO的，NEO中使用的交易可以划分为交易输入和交易输出两种。 
+正如在[UTXO基础知识](../UTXO.md)中所解释的，NEO系统中使用的全局资产是基于模型UTXO的，NEO中使用的交易可以划分为交易输入和交易输出两种。 
 
 在CGAS中，UTXO以多种方式使用。第一种用法是`MintToken`方法，可以用来获取全局资产。
 

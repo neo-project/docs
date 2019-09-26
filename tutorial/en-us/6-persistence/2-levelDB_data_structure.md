@@ -534,4 +534,4 @@ thread.Start();
 }
 ```
 
-[Read next chapter](../7-consensus.md/1-Introduction_to_consensus.md) or [return to contents](../index.md)
+[Read next chapter](../7-consensus/1-Introduction_to_consensus.md) or [return to contents](../index.md)

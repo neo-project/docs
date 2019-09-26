@@ -69,7 +69,7 @@ private static ulong CurrentSwapRate()
 Transaction tx = (Transaction)ExecutionEngine.ScriptContainer;
 ```
 
-接下来，我们必须获取该交易的 `引用` 。这里，引用代表该交易输入的相应输出。获取引用后，我们将验证发送到合约地址（this.address）的输出是否为NEO。确认后，我们可以通过此 `TransactionOutput` 对象的 `ScriptHash` 获取相应的 `发送者` 地址。我们可以在[UTXO](https://github.com/neo-ngd/NEO-Tutorial/blob/master/9-smartContract/UTXO.md)中了解有关 `引用` 、 `输入` 和` 输出`的更多信息。
+接下来，我们必须获取该交易的 `引用` 。这里，引用代表该交易输入的相应输出。获取引用后，我们将验证发送到合约地址（this.address）的输出是否为NEO。确认后，我们可以通过此 `TransactionOutput` 对象的 `ScriptHash` 获取相应的 `发送者` 地址。我们可以在[UTXO](UTXO.md)中了解有关 `引用` 、 `输入` 和` 输出`的更多信息。
 
 ```csharp
 TransactionOutput reference = tx.GetReferences()[0];

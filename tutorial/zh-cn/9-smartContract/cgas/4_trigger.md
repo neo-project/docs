@@ -211,7 +211,7 @@ if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refu
 
 ## 阅读下节
 
-下节我们将介绍 [铸币与退款](5_minttokens_and_refun.md)。
+下节我们将介绍 [铸币与退款](5_minttokens_and_refund.md)。
 
 ## 返回上节
 

@@ -6,7 +6,7 @@ As Merkle roots are found in the block headers on NEO, it is recommended to fami
 
 ## Introduction to Merkle tree
 
-![Merkle tree](C:/neo-project/docs/tutorial/en-us/4-blocks/merkle-tree.png)
+![Merkle tree](merkle-tree.png)
 
 A Merkle tree is a tree in which leaves of the tree are hashed in couples. So the hashes of L1 and L2 are hashed together, and the hashes of L3 and L4 get hashed together. Then the process is recursively applied to those hashes, until only 1 hash value is left, the Root of the tree. It is mostly visualized using an upside-down tree, with the Root at the top, branches coming down, and the leaves at the bottom. Using a Merkle tree, it is efficient to verify if a specific data point is part of the full tree. For more information on Merkle trees in general, visit [Wikipedia](https://en.wikipedia.org/wiki/Merkle_tree).
 

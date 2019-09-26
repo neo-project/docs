@@ -5,7 +5,7 @@
 This workshop assumes intermediate knowledge of the command line.
 
 This portion involves installing and setting up the environment.
-This is part 1 of the workshop. [Part 2](https://github.com/loubohan/NEO-Tutorial/blob/master/neo_docs_neopython_tutorial/part2_neopy.md) is for command line operations and smart contract development. This portion involves interacting with the neo-python command line.
+This is part 1 of the workshop. [Part 2](part2_neopy.md) is for command line operations and smart contract development. This portion involves interacting with the neo-python command line.
 
 ## Task 0 - Installation Pre-requisites
 Before you start, make sure you have the following:
@@ -57,7 +57,7 @@ The process will go in the following order:
 2. Running NEO Python
 
 
-#### 1.1 Setting up the Docker Container
+#### Setting up the Docker Container
 (On MacOS, omit sudo for the following commands)
 Pull the latest image from Docker hub <br> `sudo docker pull cityofzion/neo-privatenet`.
 
@@ -74,7 +74,7 @@ Start the container with the command <br>
 
 *Stop the container with* <br> `sudo docker rm -f neo-privatenet`.
 
-#### 1.2 Running NEO Python
+#### Running NEO Python
 *If you don't have git, run `sudo apt-get install git`*
 
 Navigate to a directory of your choice and download the neo-python repository at https://github.com/CityOfZion/neo-python/releases/tag/v0.7.1.
@@ -100,8 +100,8 @@ You should see something like this:
 
 ![task 1 screenshot](assets/initialising.png)
 
-You are now ready to move on to [Part 2](https://github.com/HandsomeJeff/neo-python-workshop/blob/master/part2_neopy.md).
+You are now ready to move on to [Part 2](part2_neopy.md).
 
-## Acknowledgements
+## Acknowedgements
 
 Special Thanks to [Peter Lin](https://github.com/peterlinx), [Jon](https://github.com/jonathanlimwj) and [Chris Hager](https://github.com/metachris).

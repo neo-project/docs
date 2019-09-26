@@ -19,7 +19,7 @@ lang-ref: Give_an_ITO
 
 ## What is ITO (Initial Token Offering)
 
-We already know what is a `NEP-5` token how to [implement](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/What_is_nep5.md) your NEP-5 token. The NEP-5 token is used as an asset which can used to transfer between users. However, only issue such a `NEP-5` token is not profitable for issuer because you have to link this asset to outside world manually. In NEO, there is a way for your to trade between `NEP-5` token  and global asset such as NEO.
+We already know what is a `NEP-5` token how to [implement](What_is_nep5.md) your NEP-5 token. The NEP-5 token is used as an asset which can used to transfer between users. However, only issue such a `NEP-5` token is not profitable for issuer because you have to link this asset to outside world manually. In NEO, there is a way for your to trade between `NEP-5` token  and global asset such as NEO.
 
 ITO stands for Initial Token Offering. With this process, you can digitize or tokenize your asset and make it publicly available through the internet. This means you can start a business, company or project with any asset value. Via ITO, you generate digital coins or tokens which represent your asset. Consecutively, you can electronically transfer these coins or tokens.
 
@@ -71,7 +71,7 @@ Now let us implement the `MintToken` function. Firstly, in the `MintToken` metho
 Transaction tx = (Transaction)ExecutionEngine.ScriptContainer;
 ```
 
-Next, we have to get the `references` of this transaction. Here, a reference stands for the corresponding output for the inputs of the transaction. After get the references，we’re verifying that the output that is sent to the contract address (this.address) is NEO. After confirm this, we can get the corresponding `sender` address through the `ScriptHash` of this `TransactionOutput` object. We can learn more about `reference`,`inputs` and `outputs` in the [UTXO](https://github.com/neo-ngd/NEO-Tutorial/blob/master/9-smartContract/UTXO.md).
+Next, we have to get the `references` of this transaction. Here, a reference stands for the corresponding output for the inputs of the transaction. After get the references，we’re verifying that the output that is sent to the contract address (this.address) is NEO. After confirm this, we can get the corresponding `sender` address through the `ScriptHash` of this `TransactionOutput` object. We can learn more about `reference`,`inputs` and `outputs` in the [UTXO](UTXO.md).
 
 ```csharp
 TransactionOutput reference = tx.GetReferences()[0];
@@ -127,3 +127,4 @@ Now you have successfully make your first ITO and familiar with the most ideas o
 
 ## Previous Step
 If you want to know how to implement the NEP5, click [here](Implementation_of_NEP5.md).
+

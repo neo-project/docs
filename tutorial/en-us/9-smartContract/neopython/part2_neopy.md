@@ -2,12 +2,13 @@
 # NEO Smart Contract Workshop (Part 2)
 *by [Steve](https://github.com/HandsomeJeff) for NEO*
 
-This is part 2 of the workshop. [Part 1](https://github.com/loubohan/NEO-Tutorial/blob/master/neo_docs_neopython_tutorial/part1_setup.md) is for installation. This portion involves interacting with neo-python command line and smart contract examples.
+This is part 2 of the workshop. [Part 1](part1_setup.md) is for installation. This portion involves interacting with neo-python command line and smart contract examples.
 
 
 ## Task 2 - Wallet Operations
 
-#### 2.1 help
+help
+
 Type `help` to get a list of available commands. Here's what you'll see:
 
 ```
@@ -69,7 +70,7 @@ testinvoke {contract hash} [{params} or --i] (--attach-neo={amount}, --attach-ga
 debugstorage {on/off/reset}
 ```
 
-#### 2.2 Opening a Wallet
+### Opening a Wallet
 
 Now it is time to open a wallet to perform some functionos that would otherwise be unavailable. We'll be using a sample wallet that comes with the Docker container. Run the command `open wallet neo-privnet.sample.wallet`. The password is `coz`.
 
@@ -97,9 +98,7 @@ Now, if you enter the command `wallet again`, you'll see that we have 160k Gas i
 
 *If there is anything wrong with your wallet, you can rebuild it with* `wallet rebuild`.
 
-
-
-#### 2.3 Creating a new Wallet
+Creating a new Wallet
 
 Let's try creating a personal wallet. The command is `create wallet {path}`, where {path} is the location where you want to store the wallet. I entered `create wallet stevewallet`, because I'm Steve and this is my wallet. Enter a password twice (at least 10 characters long). It is stored in the same directory
 
@@ -107,7 +106,7 @@ Let's try creating a personal wallet. The command is `create wallet {path}`, whe
 
 As you can see, there is no NEO and Gas here. Let's fix that, shall we?
 
-#### 2.4 Sending Tokens
+### Sending Tokens
 
 To send tokens to a wallet, we first need to know the address of the wallet. From `wallet`, we can see that my wallet address is `AbsZKotUNrshTg6DTs6FjhuP4xsKJMosw9`.
 
@@ -160,7 +159,7 @@ We should have 5 files inside:
 5. 5-calculator.py
 
 
-#### 3.1 Hello World
+### Hello World
 The first program most programmers write is `hello world`. It's simple, efficient, and we can easily see the output.
 
 On the NEO blockchain, the contract goes in the following order:
@@ -168,7 +167,7 @@ On the NEO blockchain, the contract goes in the following order:
 2. Deploy
 3. Invoke
 
-##### 3.1.1 Build Contract
+Build Contract
 
 First, enter the command `config sc-events on`. Then try the command <br>`build smart-contracts/1-print.py test ff ff False False False`.
 
@@ -215,7 +214,7 @@ Since our `hello world` program requires no input, output, storage, or special r
 
 We see something called `1-print.avm`. What's this `.avm`? Well, NEO cannot read and execute python programs natively, only `.avm` programs. So a compiler has to compile our `.py` file into a `.avm` file before we can deploy it.
 
-##### 3.1.2 Deploy Contract
+#### Deploy Contract
 Now that we have a proper `.avm` smart contract, it's time to deploy it!
 
 For that, we'll run the command <br> `import contract smart-contracts/1-print.avm ff ff False False False`
@@ -237,7 +236,7 @@ Enter the password and wait for about 15-20 seconds, or till you see a bunch of 
 
 We have now successfully deployed `hello world` to our blockchain!
 
-##### 3.1.3 Invoke Contract
+#### Invoke Contract
 
 To invoke our contract, we're gonna need our contract hash. To see our contract hash, try searching for your contract with the command `contract search {contract info}`. For me, `{contract info}` will be `steve`.
 
@@ -253,7 +252,7 @@ After a few seconds, you should see a bunch of text pop up:
 
 Once again under `SmartContract.Runtime.Log`, there is a 'Hello World' printed. We have successfully invoked a smart contract from our blockchain!
 
-#### 3.2 Print and Notify
+### Print and Notify
 
 Now let's go through the second smart contract.
  <br>`build smart-contracts/2-print-and-notify.py test ff ff False False False`
@@ -262,7 +261,7 @@ Now let's go through the second smart contract.
 
 Here we see the difference between `print()`, `log()`, and `notify()`. The first two functions are essentially the same - they both appear under `SmartContract.Runtime.Log`. `notify()`, however, appears under `SmartContract.Runtime.Notify`. In addition, it can display multiple arguments.
 
-#### 3.3 Calculator
+### Calculator
 
 Now let's try something a little different: a calculator program that takes in multiple inputs and returns a value. This contract takes in three parameters: string, integer, integer. It then returns an integer. Hence our input parameter is 070202 and return type is 02.
  <br>`build smart-contracts/3-calculator.py test 070202 02 False False False add 1 2`
@@ -283,7 +282,7 @@ At this point, let's invoke our contract and make it, say, multiply 3 with 7. <b
 
 As we can see, 3 multiplied by 7 gives 21.
 
-#### 3.4 Storage
+Storage
 
 Next up, we have a program that always remembers. First, run `debugstorage on`.
 
@@ -317,7 +316,7 @@ Repeating the same command will increment the value each time.
 The difference between this and the test environment is that we cannot reset the contract once it's on the blockchain, given the way the contract is coded. Meaning the value can never decrease or be reset.
 
 
-#### 3.5 Domain Name Service
+#### Domain Name Service
 
 Our last contract example involves working Domain Name Services (DNS) on our blockchain. That is to say, we can register our wallet addresses with unique names. This example will be a culmination of everything we have learnt so far.
 
@@ -333,7 +332,7 @@ For the next part, we'll test out the various functionalities of this contract:
 3. Delete a domain name
 4. Transfer ownership of a domain name
 
-##### 3.5.1 Register a Domain Name
+Register a Domain Name
 
 To register a wallet address, we need to invoke `register` and enter a name and address. The command looks something like this: `testinvoke {contract_hash} register ['{name}', '{address}']`. We can only register the current wallet that is open.
 
@@ -344,8 +343,7 @@ Let's say I want to assign the name 'steve.com' to the my sample wallet address 
 
 Here we see a 1, which indicates success.
 
-
-##### 3.5.2 Query a Domain Name
+Query a Domain Name
 
 Now, let's check if our address is really registered with the domain name 'steve.com'. For that I enter the command <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 query ['steve.com']`
 
@@ -363,7 +361,7 @@ Here we see the result `23ba2703c53263e8d6e522dc32203339dcd8eee9`, which is tota
 
 As we can see, the ByteArray `23ba2703c53263e8d6e522dc32203339dcd8eee9` does correspond to the string `AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y`, which is our wallet address!
 
-##### 3.5.3 Delete a Domain Name
+#### Delete a Domain Name
 
 If we ever get sick of 'steve.com', we can delete it from this contract. The command is <br> `testinvoke 0x37c7ed02c81dbe6109e7b45b8fbbf43f585a71d2 delete ['steve.com']`
 
@@ -375,7 +373,7 @@ Again, we see a 1, which indicates that the action has been successfully execute
 
 This time, the contract does not return a ByteArray (**1**), and we get an additional message (**2**).
 
-##### 3.5.4 Transfer Ownership of a Domain Name
+#### Transfer Ownership of a Domain Name
 
 Lastly, we're gonna try "gifting" our domain name to another wallet address. For this, we need another wallet address, different from our own. For convenience, I'll create a new wallet and look for its address. `create wallet domainwallet`
 
@@ -400,7 +398,7 @@ We get the ByteArray `dfea3015502e02ff4f389f62bada617d7c12f906`.
 
 Once we plug it into the conversion tool, we see the address `AcBpsw14KnwT66oBnfxWFRgRL4QJcyWMMn`, which is our domainwallet.
 
-## 4. End
+## End
 
 At this point, we have gone through some basic operations on the neo-python command prompt. You should have a clearer idea of how to deploy and call smart contracts to the NEO blockchain. The next step would be to check out our [Discord](https://discord.gg/bXhmTGp) channel and engage with the rest of our community.
 

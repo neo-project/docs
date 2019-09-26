@@ -189,7 +189,7 @@ private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] c
   }
 ```
 
-Now the NEP-5 Token has been finished and it can be tested on our [privateNet](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/Development_set_up.md). You can also view source code [here](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/sourceCode/NEP5.cs)
+Now the NEP-5 Token has been finished and it can be tested on our [privateNet](Development_set_up.md). You can also view source code [here](https://github.com/neo-ngd/NEO-Tutorial/blob/steven/smartContract/sourceCode/NEP5.cs)
 
 After compile the NEP5.cs and get the avm file, deploy it. And if the contract is already deployed on the blockchain, first invoke the deploy method which initial the totalSupply of the token.
 <p align="center">

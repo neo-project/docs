@@ -1,6 +1,6 @@
 # UTXO usage in the CGAS
 
-As explained in the [UTXO basics](https://github.com/neo-ngd/NEO-Tutorial/blob/master/9-smartContract/UTXO.md), the global asset used in the NEO system is UTXO based and the transaction used in the NEO is divided into transaction input and transaction output.
+As explained in the [UTXO basics](../UTXO.md), the global asset used in the NEO system is UTXO based and the transaction used in the NEO is divided into transaction input and transaction output.
 
 In the CGAS, the UTXO is used in several way. The first usage is in the `MintToken` method, which is to receive the global asset here.
 
