@@ -161,9 +161,9 @@
       href: /docs/en-us/tooldev/sdk/wallet.md
     - name: Transaction Construction
       href: /docs/en-us/tooldev/sdk/tx.md
-   - name: Big and Little Endian Usage
+  - name: Big and Little Endian Usage
      href: /docs/en-us/tooldev/endian.md
- - name: Advanced Topics
+  - name: Advanced Topics
     - name: NeoVM Instructions
       href: /docs/en-us/tooldev/advanced/neo_vm.md
     - name: Network Protocol

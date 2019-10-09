@@ -4,7 +4,7 @@ For a user to begin interacting with NEO or other blockchains, they must first c
 
 Although a wallet is used to access NEO, GAS, and other NEO-based tokens, the name "wallet" is actually a misnomer. At its core, a wallet is a cryptographic public/private key pair which is used to sign and authenticate database transactions that occur on the NEO network.
 
-Let's first consider how a user would perform a write operation on a traditional centralized database, and compare it to how a user would perform a write operation on the NEO blockchain. This should help clear up the misconception that coins are stored on a wallet, as opposed to them being stored in the blockckchain.
+Let's first consider how a user would perform a write operation on a traditional centralized database, and compare it to how a user would perform a write operation on the NEO blockchain. This should help clear up the misconception that coins are stored on a wallet, as opposed to them being stored in the blockchain.
 
 ## Centralized Database
 In client/server architecture, a user would first create an account using identity credentials such as an email/password combination. These credentials are then stored on the service's database. When the user logs in to the service they receive a session token in their local environment which allows them to perform write operations on the services database.
