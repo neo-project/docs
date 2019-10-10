@@ -10,14 +10,23 @@
     <meta name="application-name" content="neo.org">
     <meta name="renderer" content="ie-stand">
     <title>{title}</title>
-    <meta name="twitter:title" content="NEO 技术文档" />
-    <meta name="twitter:description" content="NEO 技术文档" />
-    <meta name="twitter:image" content="https://neo-cdn.azureedge.net/images/twitter-img.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="apple-touch-icon">
-    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="shortcut icon">
-    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="icon">
-    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="bookmark" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
     <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
@@ -26,12 +35,15 @@
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
-        <a class="navbar-brand" href="https://neo.org"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/docs">Documentation</a>
                 </li>
@@ -41,16 +53,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/faq">FAQ</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="margin-right: 100px">
                     <a class="nav-link" href="/articles">Articles</a>
                 </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:" onclick="language('zh-cn')">中文</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:" onclick="language('en-us')">English</a>
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 d-none">
