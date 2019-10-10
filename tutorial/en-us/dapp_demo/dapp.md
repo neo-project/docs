@@ -13,7 +13,7 @@ In this tutorial we are going to build your first Dapp on the NEO, which is an o
 
 The main purpose of this demo is to writing the smart contract and using the javascript to handle the front-end logic for its usage.
 
-First of all, we need to write the smart contract part. The general idea of this NEO game shop is each item  in the shop has an ID, and the shop offer a kind of coupon which we can exchange from the store and then buy these items. Therefore, we can use the most part of [ITO](https://neo-ngd.github.io/NEO-Tutorial/en/9-smartContract/Give_an_ITO.html#give-an-ito-initial-token-offering) contract, to let players exchange the coupon within the store, and then use the coupon to buy the Item.
+First of all, we need to write the smart contract part. The general idea of this NEO game shop is each item in the shop has an ID, and the shop offer a kind of coupon which we can exchange from the store and then buy these items. Therefore, we can use the most part of [ITO](https://neo-ngd.github.io/NEO-Tutorial/en/9-smartContract/Give_an_ITO.html#give-an-ito-initial-token-offering) contract, to let players exchange the coupon within the store, and then use the coupon to buy the Item.
 
 
 ### Constant properties
@@ -81,7 +81,7 @@ public static object exchange_token()
 
 ```
 
-The code above is the whole exchange_token function. First of all, it has to extract the transaction  of current smart contract invocation and get the UTXO that points to this smart contract, and check if it is sending NEO.
+The code above is the whole exchange_token function. First of all, it has to extract the transaction of current smart contract invocation and get the UTXO that points to this smart contract, and check if it is sending NEO.
 
 ```csharp
 
@@ -91,7 +91,7 @@ if (reference.AssetId.AsBigInteger() != AssetId.AsBigInteger()) return false;
 
 ```
 
-Next step is to calculate how much `NEO` the user wants to exchange the NEP5 token. To get it, just get all the outpus and to check if the outputs script is the smart contract address. For more detail about transaction, inputs and outputs, see this [UTXO](https://github.com/neo-ngd/NEO-Tutorial/blob/master/en/9-smartContract/UTXO.md).
+Next step is to calculate how much `NEO` the user wants to exchange the NEP5 token. To get it, just get all the output and to check if the outputs script is the smart contract address. For more detail about transaction, inputs and outputs, see this [UTXO](https://github.com/neo-ngd/NEO-Tutorial/blob/master/en/9-smartContract/UTXO.md).
 
 ```csharp
 // get the total amount of Neo
