@@ -43,7 +43,7 @@
     - name: Command Line
       href: /docs/en-us/node/cli/cli.md
   - name: Synchronizing the blockchain faster 
-    href: /docs/en-us/node/syncblocks.md
+    href: /docs/zh-cn/node/syncblocks.md
 - name: NEO Network
   items:
   - name: Main Net and Test Net
