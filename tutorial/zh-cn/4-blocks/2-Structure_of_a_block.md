@@ -5,6 +5,7 @@
 ```
 curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d '{ "jsonrpc": "2.0", "id": 1, "method": "getblock", "params": ["ad83d993ca2d9783ca86a000b39920c20508c8ccae7b7db11806646a4832bc50",1] }'
 ```
+
 下面是上述请求返回的部分结果信息，去掉了请求的元数据且只选择了区块中的一个交易进行说明。然而，这些信息对于我们理解区块结构已经足够了。cURL请求的完整响应可以点击[此处](neo-block.json)查看。
 
 ## 区块示例
@@ -106,7 +107,7 @@ curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d
 
 由于区块始终通过区块头的哈希引用到前一个区块，因此前一个区块的任意交易发生的任意更改都会导致前一个区块的[默克尔根节点](resource.md)的哈希发生变化。由于在计算区块头哈希时使用了默克尔根节点的哈希，因此交易上的任意更改都会完全改变区块头哈希。这个哈希会完全不同于之前的值，因此会改变下一个区块所指向的父块。这样就可以很容易地检测到变化，因为它会有效地打破链结构。这可以使得所有其他节点检测并忽略这些作恶的区块，从而确保了网络的安全性。在比特币这样的基于工作量证明的区块链，要接受恶意区块，就意味着需要重新计算恶意块*以及*之后所有区块的全部Nonces，以产生比当前区块链更长的链，从而让其他所有节点接受该链有效这一事实。这就是为什么区块高度越低安全性越低的原因，一般规则是在确定一笔交易的最终性之前先等待6个区块的时间。在比特币中通常需要等待约1小时（6 x 10分钟/区块）。
 
-然而NEO使用了[dBFT](https://docs.neo.org/en-us/basic/consensus/whitepaper.html)机制，一旦区块上链就具有终局性。黑客要想提交一个作恶的区块，他需要获得66％的共识节点的同意才能在作恶的区块链上构建出下一个区块，并将作恶的区块头设置为新区块的 “前一个区块的哈希”。
+然而NEO使用了[dBFT](../../../docs/zh-cn/basic/technology/dbft.md)机制，一旦区块上链就具有终局性。黑客要想提交一个作恶的区块，他需要获得66％的共识节点的同意才能在作恶的区块链上构建出下一个区块，并将作恶的区块头设置为新区块的 “前一个区块的哈希”。
 
 - ***merkleroot***: 区块中交易列表的默克尔树根节点的哈希值。
 - ***time***: 区块时间是区块创建时的Unix纪元时间。 Unix纪元时间是自大纪元 -  1970年1月1日格林尼治标准时间00:00:00以来的秒数。
@@ -122,6 +123,7 @@ curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d
 ### 交易类型
 
 以下是区块中可能出现的交易类型：
+
 * **MinerTransaction**：每个区块中的第一个交易必须是MinerTransaction。 它用于将当前区块的所有交易费用奖励给验证人。
 * **IssueTransaction**：用于发行资产。 资产管理者可以通过IssueTransaction交易来创建已经在NEO区块链上注册过的资产，并将其发送到任意地址。
 * **ClaimTransaction**：NEO的持有者可以通过调用该交易来提取那些尚未提取过的NeoGas。
@@ -144,4 +146,6 @@ curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d
 
  -  ***nextblockhash***：下一个区块的哈希，从而形成由区块构成的链表。区块结构中不包含这个字段，它是由节点发起RPC请求同步区块时计算得出的。
 
- [阅读下节](3-Block_creation_broadcasting.md)或者[返回目录](../index.md)
+## 阅读下节
+
+ [区块创建与广播](3-Block_creation_broadcasting.md)
