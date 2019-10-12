@@ -15,7 +15,11 @@
 
 虽然前面提到的活性已经被证明可用于pBFT机制，但是dBFT的工作场景是现实中一个具有状态机副本机制的大型公有链。其中共享信息的性质不同，且信息不可泄露。为此，精细设计的恢复机制是dBFT机制的一部分。
 
-下图为当前dBFT 2.0的状态图![这里](https://github.com/NeoResearch/yellowpaper/blob/master/sections/graphviz-images/graphviz-dbft-v2-recover.jpg?raw=true)一区块终局性
+下图为当前dBFT 2.0的状态图
+
+![这里](https://github.com/NeoResearch/yellowpaper/blob/master/sections/graphviz-images/graphviz-dbft-v2-recover.jpg?raw=true)
+
+## 一区块终局性
 
 一区块终局性为现实世界的应用程序带来了显著的优势。例如，终端用户，商家和交易所可以确保他们的交易已被最终处理，并且不可能被撤销。虽然NEO生态系统是为托管的去中心化应用程序（DApps）设计的，但值得注意的是，持久化的SC交易（涉及状态机复制（SMR）并且是部分DApp的核心功能）会带来一系列独特的挑战。由于共识节点无法公开和显示任何重复区块的信息，因此保证区块终局性是一项棘手的任务。从这个意义上讲，只有当大多数共识节点已经达成协议时，才应提供区块的签名。
 
@@ -35,4 +39,7 @@
 
 同时，设计的另一个策略是当节点看到网络有进展时，避免`更改视图`。每次节点与其他节点共享签名信息时，会将额外的超时信息添加到它们的内部计时器中，表明节点正在参与共识并与其他节点进行通信。
 
-[阅读下节](4-Examples_and_consensus_scenarios_for_dBFT.md)或者[返回目录](../index.md)
+## 阅读下节
+
+[dBFT 共识示例与场景](4-Examples_and_consensus_scenarios_for_dBFT.md)
+

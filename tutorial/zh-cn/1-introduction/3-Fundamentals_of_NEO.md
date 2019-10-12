@@ -28,5 +28,7 @@ NEO，作为治理通证，用于通过投票机制选举共识节点。NEO 的�
 
 在部署到 NEO 区块链之前，NEO 上的合约被编译为 NVM 字节码。调用时，这些已部署的合约由 NeoVM 解析和执行。
 
-[阅读下一章](../2-wallet/1-Introduction_to_wallets.md) 或者 [返回目录](../index.md)。
+## 阅读下节
+
+[了解钱包](../2-wallet/1-Introduction_to_wallets.md)
 

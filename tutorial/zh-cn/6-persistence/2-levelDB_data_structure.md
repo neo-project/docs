@@ -64,7 +64,9 @@ private void OnNewHeaders(Header[] headers)
         }
 ```
 
-**重要提示**: 通过网络发送给其他外部节点的`区块`在持久层中称为`修剪块`。
+> [!Caution]
+>
+> 通过网络发送给其他外部节点的`区块`在持久层中称为`修剪块`。
 
 ```CSharp
 public static bool ContainsBlock(this IPersistence persistence, UInt256 hash)
@@ -269,6 +271,7 @@ internal bool CheckStorageContext(StorageContext context)
 ```
 
 下面是在运行时进行的验证，从而确保合约设置了动态调用的标志位：
+
 ```CSharp
 private bool CheckDynamicInvoke()
 {
@@ -488,4 +491,7 @@ thread.Start();
 }
 ```
 
-[阅读下一章](../7-consensus/1-Introduction_to_consensus.md)或[返回目录](../index.md)
+## 阅读下节
+
+[共识机制介绍](../7-consensus/1-Introduction_to_consensus.md)
+
