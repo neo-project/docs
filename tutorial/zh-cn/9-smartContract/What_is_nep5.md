@@ -119,7 +119,5 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ## 阅读下节
 现在让我们[实现一个NEP-5通证](Implementation_of_NEP5.md)。
 
-## 返回上节
-
 如果要返回上节查看智能合约基础知识，点击[这里](Smart_Contract_basics.md)。
 

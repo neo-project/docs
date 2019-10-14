@@ -30,6 +30,4 @@ NEP 全称 NEO Enhancement Proposals，NEP-5 指的是 NEO 的第 5 号改进提
 
 下节我们将介绍 [UTXO是如何在CGAS中工作的](3_utxo_model.md)。
 
-## 返回上节
-
 如果要返回上节了解 CGAS 知识，点击[这里](1_what_is_cgas.md)。

@@ -126,7 +126,5 @@ refund 第一步时的交易结构:
 
 下节我们将介绍 [如何调用CGAS合约](7_invocation.md)。
 
-## 返回上节
-
 如果要返回上节了解铸币和退款函数，点击[这里](5_minttokens_and_refund.md)。
 

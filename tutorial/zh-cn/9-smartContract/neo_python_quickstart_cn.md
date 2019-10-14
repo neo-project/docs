@@ -2,26 +2,12 @@
 
 本教程适合初步接触 NEO 的 Python 开发者快速入门使用，如想进行更全面的学习可移步我们的 [技术文档](http://docs.neo.org/zh-cn/index.html)。为避免遇到不必要的麻烦，建议按照教程的顺序一步步进行。
 
-* * *
+> [!Note]
+>
+> 在NEO Python中我们使用NEO-CLI。
+> 相关项目：[neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc)、[neo-boa](https://github.com/CityOfZion/neo-boa)
 
-- 写在开始之前：
-
-NEO节点介绍：
-
-全节点（full nodes）是存储 NEO 区块链全部数据的节点，通过 P2P 的方式与区块链网络连接，在区块链网络中，所有的全节点都是平等的，既充当客户端又充当服务器。
-NEO 有两个全节点程序：
-
-1. NEO-GUI: 
-面向普通用户，提供图形界面，具有除共识外的所有功能。
-2. NEO-CLI:
-面向开发者，提供命令行界面，具有一些钱包操作的基本功能，除此之外    还会对外提供 API，可以与其它节点达成共识，参与区块的生成。
-
-在NEO Python中我们使用NEO-CLI。
-相关项目：[neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc)、[neo-boa](https://github.com/CityOfZion/neo-boa)
-
-* * *
-
-## 关于NEO Python：
+## 关于NEO Python
 
 目的：
  1. 将[NEO Project](https://github.com/neo-project)从C#完全移植到 Python 
@@ -44,45 +30,46 @@ NEO-Python目前的功能:
 文档：
  更多信息可见[Docs](https://neo-python.readthedocs.io/en/latest/)
 
+## 你将会学到什么
 
-* * *
+- 部署 NEO Python 环境
+- 管理钱包
+- 搭建私链
+- 编写、部署和调用智能合约
 
-- 你将会学到什么：
-1. 部署 NEO Python 环境
-2. 管理钱包
-3. 搭建私链
-4. 编写、部署和调用智能合约
+## 你需要准备什么
 
-* * *
+- Linux / macOS
+- [Docker](https://github.com/yeasy/docker_practice)
+- [LevelDB](http://leveldb.org/)
+- [Python3.6 (or higher)](https://www.python.org/downloads/)
 
-## 你需要准备：
-1. Linux / macOS
-2. [Docker](https://github.com/yeasy/docker_practice)
-3. [LevelDB](http://leveldb.org/)
-4. [Python3.6 (or higher)](https://www.python.org/downloads/)
+> [!Note]
+>
+> Docker 是一个开源的应用引擎容器，让开发者可以打包应用及其以来包到一个可移植的容器（Container）中，再发布到 Linux 机器上，实现虚拟化，容器之间不会有任何接口，以保持独立。在 NEO Python 中，我们将用Docker打包 NEO 私链，用于开发。
 
-> Docker 是一个开源的应用引擎容器，让开发者可以打包应用及其以来包到一个可移植的容器（Container）中，再发布到 Linux 机器上，实现虚拟化，容器之间不会有任何接口，以保持独立。在 NEO Python 中，我们将用Docker打包 NEO 私链，用于开发。安装 Docker：
-> 
-> ```shell
->     sudo apt-get install curl
->     sudo curl -sSL https://get.docker.com/ | sh
->     sudo apt-get update && apt-get upgrade
->     sudo service docker start
-> ```
-> 
-> LevelDB是一种适用于写多读少的KV数据库，安装 LevelDB：
-> 
-> ```shell
->     brew install leveldb
-> ```
+安装 Docker：
+
+```shell
+sudo apt-get install curl
+sudo curl -sSL https://get.docker.com/ | sh
+sudo apt-get update && apt-get upgrade
+sudo service docker start
+```
+
+LevelDB是一种适用于写多读少的KV数据库，安装 LevelDB：
+
+```shell
+brew install leveldb
+```
 
 在 CentOS, RHEL, Fedora 上安装 Python 可参考[此处](https://tecadmin.net/install-python-3-6-on-centos/)。
 
-* * *
+
 
 ## 第一步：环境配置
 
-### 1.1 创建私链
+### 创建私链
 
 安装 Docker 容器（Container），从 Docker Hub 下载最新的镜像：
 
@@ -154,7 +141,7 @@ NEO-Python目前的功能:
 输入“help”得到可用命令的列表。
 
 -   ![avatar](./NeoPythonGuide/1.png)
-    
+  
 
 ### 2.2 打开钱包
 
