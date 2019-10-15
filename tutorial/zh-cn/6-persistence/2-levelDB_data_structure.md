@@ -1,4 +1,5 @@
 # LevelDB 区块链数据结构
+
 NEO当前的C#实现使用了高效的键值数据库LevelDB来持久化区块链数据。LevelDB既可用于存储系统数据，例如区块和交易，也可用于智能合约相关的数据的持久化。当节点接收到一条会触发状态改变的消息时（比如说一个新的区块或者区块头），它会检索并更新快照信息，并在操作结束后提交结果。下图是相关过程的简单的示例：
 
 ![snapshot](persistence_snapshot.png)
@@ -132,6 +133,7 @@ NEO使用账户来跟踪用户的余额信息，但不会跟踪UTXO。
 如果某个交易没有被其他交易作为输入引用，那么这个交易就是“未花费”的交易。节点会跟踪这些未花费的代币以便对交易执行验证操作，但不会按账户对交易进行分组，这意味着节点可以确定一个代币是否是可花费的，但不能获取特定账户的所有可花费的代币。通过账户跟踪可花费代币的功能是由钱包或[neoscan](neoscan.io)/[neosracker](neosracker.io)这样的可构建索引的服务提供的。
 
 这个集合可以用来确定代币是否是可花费的。以下是C#中的实现方法：
+
 ``` CSharp
 public static bool IsDoubleSpend(this IPersistence persistence, Transaction tx)
 {

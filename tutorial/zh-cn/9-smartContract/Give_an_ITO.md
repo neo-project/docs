@@ -57,6 +57,8 @@ private static ulong CurrentSwapRate()
     }
 }
 ```
+> [!Note]
+>
 > 在这个 `CurrentSwapRate` 	的代码片段中，只返回了基本汇率，但是，在真实的ITO中，由于时间周期不同，程序可以返回不同的兑换汇率。
 
 ## MintToken
@@ -119,8 +121,6 @@ return true;
 
 ## 阅读下节
 现在你已经成功地完成了你的第一个ITO，同时也熟悉了智能合约的大部分内容，下一部分内容涉及到更为复杂的合约，[即CGAS](cgas/1_what_is_cgas.md)。
-
-## 返回上节
 
 要返回上节查看如何实现NEP5合约，点击[这里](Implementation_of_NEP5.md)。
 

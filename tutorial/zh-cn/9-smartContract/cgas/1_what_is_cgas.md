@@ -89,6 +89,4 @@ Known Issues: `transferAPP` method naming not canonical
 
 下节我们将介绍 [全局资产和NEP5](2_global_asset_and_nep5.md)。
 
-## 返回上节
-
 如果要返回上节查看 NEP5 知识，点击[这里](../What_is_nep5.md)。

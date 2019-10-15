@@ -47,7 +47,7 @@ foreach (var input in inputs)
 
 答：存储区操作会花费较多手续费，所以将判断分为两级，先进行手续费低的判断，再进行手续费高的判断。
 
-### **refund 第二步的代码**
+### refund 第二步的代码
 
 当从存储区中读取到后，用户就可以将这笔钱取走，但是不能将 CGAS 中其余的钱取走，所以这里对 inputs 和 outputs 的数量进行了限制，在 refund 操作中只允许一个 input 和一个 output。
 
@@ -92,7 +92,7 @@ return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
 
 只允许一个 input 和一个 output
 
-### **refund 第一步的代码**
+### refund 第一步的代码
 
 当所有的 inputs 中都没有检测到标记为 refund 的时候，就认为用户在执行 refund 第一步的操作。
 
@@ -212,7 +212,5 @@ if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refu
 ## 阅读下节
 
 下节我们将介绍 [铸币与退款](5_minttokens_and_refund.md)。
-
-## 返回上节
 
 如果要返回上节了解CGAS中的UTXO模型，点击[这里](3_utxo_model.md)。

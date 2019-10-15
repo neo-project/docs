@@ -204,8 +204,8 @@ private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] c
 <p align="center">
 	<img src="imgs/20190222-153941.png"/>
 </p>
-
-让我们测试一下NEP-5标准中的另一个转账方法。打开调用功能选项卡并填写相应的参数。字符串部分是要调用的智能合约方法。这里是 `transfer` 。在数组中，参数是 `from` 、`to` 、`amount` 。`from` 地址和 `to` 地址的格式是字节数组，可以由钱包地址进行转换。例如，点击这个[工具链接](https://peterlinx.github.io/DataTransformationTools/)，它可以将钱包地址转换成字节数组。对于 `amount` 参数，不要忘了将小数乘以10^8。这里我想把我的NEP-5通证从我的账户转250000000个到其他账户。
+让我们测试一下NEP-5标准中的另一个转账方法。打开调用功能选项卡并填写相应的参数。字符串部分是要调用的智能合约方法。这里是 `transfer` 。在数组中，参数是 `from` 、`to` 、`amount` 。`from` 地址和 `to` 地址的格式是字节数组，可以由钱包地址进行转换。例如，点击这个[工具链接](https://peterlinx.github.io/DataTransformationTools/)，它可以将钱包地址转换成字节数组。对于 `amount` 参数，不要忘了将小数乘以10^8。
+这里我想把我的NEP-5通证从我的账户转250000000个到其他账户。
 
 <p align="center">
 	<img src="imgs/20190222-155235.png"/>
@@ -224,8 +224,6 @@ private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] c
 ## 阅读下节
 
 在本教程中，你已经了解了NEP-5的标准，以及如何通过定义自己的通证来实现NEP-5标准。现在我们可以扩展这一步骤来[发起我们的通证，并公开发布](Give_an_ITO.md)。
-
-## 返回上节
 
 要返回上节查看什么是NEP5，点击[这里](What_is_nep5.md)。
 

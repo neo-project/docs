@@ -159,6 +159,4 @@ Refunded(tx.Hash, from);
 
 下节我们将介绍 [签名与验证](6_signature_and_verification.md)。
 
-## 返回上节
-
 如果要返回上节了解触发器，点击[这里](4_trigger.md)。

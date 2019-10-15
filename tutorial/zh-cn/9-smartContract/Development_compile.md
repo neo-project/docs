@@ -35,6 +35,8 @@ lang-ref: Development_compile
 > neon SmartContractDemo.dll --compatible
 > ```
 
+> [!Note]
+>
 > 新的`SmartContractDemo.avm`文件和 `SmartContractDemo.abi.json` 文件将覆盖相应的旧文件。
 
 ## 部署合约
@@ -80,7 +82,5 @@ lang-ref: Development_compile
 
 ## 阅读下节
 你已经成功地设置了私有网络并调用了你的第一个智能合约。现在让我们开始学习[NEO 智能合约的基础知识并开发你的第一个合约](Smart_Contract_basics.md)。
-
-## 返回上节
 
 要返回上节搭建开发环境，点击[这里](Development_set_up.md)。

@@ -65,7 +65,5 @@ enter node4 folder，double click 1Run.cmd
 
 完成私链搭建后，接下来让我们[设置开发环境](Development_set_up.md)。
 
-## 返回上节
-
 如果对智能合约不太了解，请返回上节 [什么是智能合约](What_is_smart_contract.md)。
 
