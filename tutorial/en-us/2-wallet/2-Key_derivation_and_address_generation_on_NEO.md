@@ -28,6 +28,7 @@ Base58 is similar to the common Base64 encoding scheme, except that it removes n
 ```
 
 A full implementation of NEO's check encoding (written in Go) can be seen below:
+
 ```Go
 func b58checkencode(ver uint8, b []byte) (s string) {
 	/* Prepend version */
@@ -63,7 +64,9 @@ func b58checkencode(ver uint8, b []byte) (s string) {
 	return s
 }
 ```
+
 The steps to perform the check encoding can be broken down as follows:
+
 1. Prepend the version byte
 2. Double hash the resulting hex using SHA256
 3. Append the first four bytes of the hash to the prepended version
@@ -94,15 +97,18 @@ We can see that WIF is an encoding algorithm of the private key which provides b
 Generally cryptocurrencies use the form of cryptography called Elliptic-curve cryptography. It is used to derive public key from private key whilst being computationally infeasible to do the opposite.
 
 The form of elliptic curve equation is the following:
+
 *y^2 = x^3 + ax + b*
 
 Bitcoin uses an elliptic curve called secp256k1, while NEO uses secp256r1, where k -- means Koblitz and r -- means Random.
 Essentially, secp256k1's parameters were chosen in a way that allows more efficient calculation (for a very small security trade-off), while secp256r1's parameters were chosen randomly.
 
 The secp256k1 equation is:
+
 *y^2 = x^3 + 7*
 
 The secp256r1 equation is:
+
 *y^2 = x^3 - 3x + b*, where *b* is *41058363725152142129326129780047268409114441015993725554835256314039467401291*
 
 Because of the large *b* used in secp256r1, below we will use secp256k1 for explanation, but in principle it is the same.
@@ -160,6 +166,7 @@ To calculate a NEO address from transaction script:
 3. Use Base58 check to encode previous output with the version 0x17 (meaning result will start with A)
 
 Below you will find example code to generate a NEO address from a public key:
+
 ```Go
 // ToNeoAddress converts a NEO public key to a NEO address string.
 func (pub *PublicKey) ToNeoAddress() (address string) {
@@ -192,5 +199,7 @@ func (pub *PublicKey) ToNeoAddress() (address string) {
 
 The script hash is typically used in smart contracts as the public identifier, as opposed to the address. Since the use of byte arrays is common, it makes a lot more sense as the Base58 encoded versions is meant to be read by humans, not computers!
 
-[Go to next section](3-Key_encryption_and_contract_accounts.md) or [return to contents](../index.md).
+## What's next?
+
+[Private key and Wallet files](3-Key_encryption_and_contract_accounts.md) 
 

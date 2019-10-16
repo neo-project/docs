@@ -28,5 +28,7 @@ In an effort to be as developer-friendly as possible, NEO supports a diverse lis
 
 Contracts in NEO are compiled to NVM bytecode before being deployed to the NEO blockchain. When called, these deployed contracts are interpreted and executed by NeoVM.
 
-[Go to next chapter](../2-wallet/1-Introduction_to_wallets.md) or [return to contents](../index.md).
+## What's next?
+
+[Understanding Wallets](../2-wallet/1-Introduction_to_wallets.md)
 

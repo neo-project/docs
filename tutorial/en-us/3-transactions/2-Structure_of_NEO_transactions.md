@@ -18,6 +18,7 @@ Each transaction has a minimum set of attributes.
 For all transactions, the unique transaction hash `txid` (uint256) and `size` (uint8) parameters will be calculated.
 
 Read more about the transaction attributes:
+
 - [type](#type)
 - [version](#version)
 - [attributes](#attributes)
@@ -257,5 +258,7 @@ The verification script with a multi-signature contract is constructed with the 
 
 To maintain performance it is required to have the same order for public keys and signatures during the verification of a multi-signature contract.
 
-[Go to next chapter](3-NEO_transaction_types.md) or [return to contents](../index.md).
+## What's next?
+
+[Transaction Types](3-NEO_transaction_types.md)
 
