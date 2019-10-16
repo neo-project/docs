@@ -317,5 +317,4 @@ In the above `DNS` smart contract, there is a delete method. The general idea is
 ## Next step
 Great! Your just finished your first smart contract. Now let us move on to the [NEP 5 Token](What_is_nep5.md)
 
-## Previous Step
 If you are not familiar with how to compile and deploy the smart contract, you may first click [here](Development_compile.md).

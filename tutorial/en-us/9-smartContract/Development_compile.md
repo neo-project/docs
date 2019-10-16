@@ -98,5 +98,4 @@ If invoke successfully, the gas will be reduced in the account balance.
 ## Next Step
 **Congratulations!**, you set up your private network and invoke your first smart contract successfully. Now let's begin to learn [the basic of NEO smart contract and get your first one.](Smart_Contract_basics.md)
 
-## Previous Step
 If you are not set up the IDE yet , you may first click [here](Development_set_up.md).

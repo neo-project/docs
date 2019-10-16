@@ -134,7 +134,7 @@ Below are the type of transactions that can occur in a block:
 - **ContractTransaction**: This is a very common kind of transaction as it allows one wallet to send NEO to another. The inputs and outputs transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
 - **InvocationTransaction**: Transaction type used to invoke a Smart Contract.
 
-### Transaction Structure
+### Transaction structure
 - **Type**: Type of the transaction, which must be one of the above. Furthermore, the first transaction of a block must always be of the type ***MinerTransaction***.
 - **Version**: Version used to define transactions. Currently at 0. Similar to block version, but on the level of a transaction.
 - **Attributes**: Additional features that the transaction has.
@@ -149,5 +149,5 @@ Below are the type of transactions that can occur in a block:
 
 ## What's next?
 
-[Block creation by Consensus Nodes](3-Block_creation_broadcasting.md)
+[Block Creation by Consensus Nodes](3-Block_creation_broadcasting.md)
 

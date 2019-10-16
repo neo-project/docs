@@ -98,7 +98,7 @@ Now, if you enter the command `wallet again`, you'll see that we have 160k Gas i
 
 *If there is anything wrong with your wallet, you can rebuild it with* `wallet rebuild`.
 
-Creating a new Wallet
+### Creating a new Wallet
 
 Let's try creating a personal wallet. The command is `create wallet {path}`, where {path} is the location where you want to store the wallet. I entered `create wallet stevewallet`, because I'm Steve and this is my wallet. Enter a password twice (at least 10 characters long). It is stored in the same directory
 
@@ -152,11 +152,12 @@ If you are working with command line and ssh, first install svn: sudo apt-get in
 ![smart contracts in neopy](assets/smartcontracts_in_neopy.png)
 
 We should have 5 files inside:
-1. 1-print.py
-2. 2-print-and-notify.py
-3. 3-storage.py
-4. 4-domain.py
-5. 5-calculator.py
+
+- 1-print.py
+- 2-print-and-notify.py
+- 3-storage.py
+- 4-domain.py
+- 5-calculator.py
 
 
 ### Hello World

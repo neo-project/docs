@@ -89,5 +89,4 @@ Known Issues: `transferAPP` method naming not canonical
 ## Next Step
 Now we are going to learn [global asset and nep5](2_global_asset_and_nep5.md).
 
-## Previous Step
 If you want to learn NEP5, click [here](../What_is_nep5.md).

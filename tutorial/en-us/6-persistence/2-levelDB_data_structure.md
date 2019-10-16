@@ -300,6 +300,7 @@ Contracts are deployed using an **InvocationTransaction** and saved under this p
 This collection is not deprecated yet, however, with plans of moving meta-data to a `Manifest` file, there is a chance this collection becomes depreciated in the near future.
 
 In the check below, not only we check if the Smart Contract exists, but also if it can use the storage (deploying a contract that uses the storage is more expensive).
+
 ``` CSharp
 internal bool CheckStorageContext(StorageContext context)
 {
@@ -311,6 +312,7 @@ internal bool CheckStorageContext(StorageContext context)
 ```
 
 Here is a verification done at runtime to ensure the contract has dynamic invoke flag:
+
 ```CSharp
 private bool CheckDynamicInvoke()
 {
@@ -338,6 +340,7 @@ private bool CheckDynamicInvoke()
 This part of the storage is reserved for Smart Contract custom data storage. In this collection, we use the SmartContract script-hash as base prefix to all `Get` call executed by the ExecutionContext.
 
 Here is an example of it's usage. Note that it also sends the context script-hash in order to retrieve the data:
+
 ```CSharp
 protected bool Storage_Get(ExecutionEngine engine)
 {
@@ -361,8 +364,6 @@ protected bool Storage_Get(ExecutionEngine engine)
 ### 0x80 - Header hash list
 NEO nodes sync block headers and block transactions separately, this means that first nodes download a list of headers (referenced by its hash), and pull the transactions list for each of this blocks separately, including getting this information from multiple nodes.  
 Note that the `Block` collections is also changed when we get new headers because a block is a header with transactions.
-
-
 
 ```CSharp
 private void OnNewHeaders(Header[] headers)
@@ -534,4 +535,7 @@ thread.Start();
 }
 ```
 
-[Read next chapter](../7-consensus/1-Introduction_to_consensus.md) or [return to contents](../index.md)
+## What's next?
+
+[Introduction to Consensus](../7-consensus/1-Introduction_to_consensus.md)
+

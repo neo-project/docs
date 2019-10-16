@@ -69,7 +69,7 @@
   - name: Setting up Development Enviroment
     href: /tutorial/en-us/9-smartContract/Development_set_up.md
   - name: Contract Invoking and Deployment
-    href: /tutorial/zh-cn/9-smartContract/Development_compile.md
+    href: /tutorial/en-us/9-smartContract/Development_compile.md
   - name: Smart Contract Basics
     href: /tutorial/en-us/9-smartContract/Smart_Contract_basics.md
   - name: Make your NEP-5 Token

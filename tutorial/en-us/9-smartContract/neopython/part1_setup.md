@@ -9,6 +9,7 @@ This is part 1 of the workshop. [Part 2](part2_neopy.md) is for command line ope
 
 ## Task 0 - Installation Pre-requisites
 Before you start, make sure you have the following:
+
 1. **Linux/Mac Operating System**
   - Tested on Ubuntu (v16.04 and newer), Mint v18.3, CentOS v7.5, macOS Sierra
 2. **Docker**
@@ -18,6 +19,7 @@ Before you start, make sure you have the following:
 It is possible to install and run NEO on your local machine but it is simple to download a Docker container and run the program from within the container. However, the Docker image might not always be updated with the newest version of NEO Python.
 
 For Docker installation, on Linux try running the following in terminal:
+
 ```
 sudo apt-get install curl
 sudo curl -sSL https://get.docker.com/ | sh
@@ -26,17 +28,20 @@ sudo service docker start
 ```
 
 For Docker on MacOS, if you don't have Homebrew and cask:
+
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap phinze/homebrew-cask
 brew install brew-cask
 ```
 With Homebrew:
+
 ```
 brew cask install docker
 ```
 
 If you don't have Python 3.6, and have no idea how to install it, run the following commands on Linux:
+
 ```
 sudo apt-get install software-properties-common python-software-properties
 sudo add-apt-repository ppa:deadsnakes/ppa
@@ -44,6 +49,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python3.6 python3.6-dev python3.6-venv libleveldb-dev libssl-dev g++
 ```
+
 *For CentOS users, you can refer to this [guide](https://tecadmin.net/install-python-3-6-on-centos/) on how to install Python 3.6*
 
 ## Task 1 - Getting Started
@@ -53,6 +59,7 @@ In this session, we'll be setting up a local private blockchain which allows us 
 This will be hosted entirely on our own machines!
 
 The process will go in the following order:
+
 1. Setting up the Docker Container
 2. Running NEO Python
 

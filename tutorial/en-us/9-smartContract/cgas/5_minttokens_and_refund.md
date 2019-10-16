@@ -47,22 +47,22 @@ The following code is to calculate the amount of GAS transferred to the CGAS con
 
 Once getting the total amount of GAS transferred by the user to the CGAS contract, we need to perform the next two operations:
 
-１、Modify the total amount of CGAS
+1. Modify the total amount of CGAS
 
-```c#
-StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-var totalSupply = contract.Get("totalSupply").AsBigInteger();
-totalSupply += value;
-contract.Put("totalSupply", totalSupply);
-```
+   ```c#
+   StorageMap contract =        Storage.CurrentContext.CreateMap(nameof(contract));
+   var totalSupply = contract.Get("totalSupply").AsBigInteger();
+   totalSupply += value;
+   contract.Put("totalSupply", totalSupply);
+   ```
 
-２、Distribute CGAS to the user according to the exchange proportion
+2. Distribute CGAS to the user according to the exchange proportion
 
-```c#
-StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-var amount = asset.Get(sender).AsBigInteger();
-asset.Put(sender, amount + value);
-```
+   ```c#
+   StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
+   var amount = asset.Get(sender).AsBigInteger();
+   asset.Put(sender, amount + value);
+   ```
 
 Finally, transfer event is triggered to notify the client to make a transfer to the user out of nowhere, that is, to distribute the asset.
 
@@ -156,5 +156,4 @@ Finally, the transaction ID is recorded to facilitate query and trigger Transfer
 ## Next Step
 Now let us move to the [signature and verification](6_signature_and_verification.md)
 
-## Previous Step
 To learn the function of trigger, click [here](4_trigger.md)

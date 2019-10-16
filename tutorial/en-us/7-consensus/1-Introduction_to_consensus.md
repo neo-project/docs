@@ -23,4 +23,6 @@ After reading this material, it is expected that you will learn:
 - Comprehend the design of a fully distributed network, in which consensus operates using digital signatures;
 - Understand the beauty of **one block finality**.
 
-[Read next section](2-Proof_of_work_and_proof_of_stake.md) or [return to contents](../index.md).
+## What's next?
+
+[PoW and PoS](2-Proof_of_work_and_proof_of_stake.md)

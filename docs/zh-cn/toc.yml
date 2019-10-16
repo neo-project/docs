@@ -8,13 +8,13 @@
     items：
     - name: NeoVM
       href: /docs/zh-cn/basic/technology/neovm.md
-    - name: NEO Contract白皮书
+    - name: NEO Contract
       href: /docs/zh-cn/basic/technology/neocontract.md
     - name: 共识机制
       href: /docs/zh-cn/basic/technology/dbft.md
 - name: NEO 节点
   items:
-  - name: NEO 节点介绍
+  - name: 节点介绍
     href: /docs/zh-cn/node/introduction.md
   - name: NEO-GUI
     items:
@@ -56,7 +56,7 @@
       href: /docs/zh-cn/node/python/basic.md
     - name: Prompt
       href: /docs/zh-cn/node/python/prompt.md
-  - name: 快速同步区块数据 
+  - name: 快速同步区块
     href: /docs/zh-cn/node/syncblocks.md
 - name: NEO 网络
   items:
@@ -88,13 +88,13 @@
       href: /docs/zh-cn/sc/gettingstarted/deploy.md
   - name: 开发环境
     items:
-    - name: 在 macOS 上使用 C# 编写合约
+    - name: macOS + C#
       href: /docs/zh-cn/sc/devenv/getting-started-csharp-mac.md
-    - name: 在 ubuntu 上使用 C# 编写合约
+    - name: ubuntu + C#
       href: /docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.md
-    - name: 使用 Java 编写合约
+    - name: Java
       href: /docs/zh-cn/sc/devenv/getting-started-java.md
-    - name: 使用 python 编写合约
+    - name: Python
       href: /docs/zh-cn/sc/devenv/getting-started-python.md
   - name: 合约编写
     items:
@@ -104,7 +104,7 @@
       href: /docs/zh-cn/sc/write/limitation.md
     - name: NEP-5
       href: /docs/zh-cn/sc/write/nep5.md
-  - name: 部署和调用合约
+  - name: 部署和调用
     - name: 部署合约
       href: /docs/zh-cn/sc/deploy/deploy.md
     - name: 调用合约
@@ -113,7 +113,7 @@
       href: /docs/zh-cn/sc/deploy/Parameter.md
   - name: 测试
     href: /docs/zh-cn/sc/test.md
-  - name: 合约迁移与销毁
+  - name: 合约迁移
     href: /docs/zh-cn/sc/migrate.md
   - name: 手续费
     href: /docs/zh-cn/sc/fees.md

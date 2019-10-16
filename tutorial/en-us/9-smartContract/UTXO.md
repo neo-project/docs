@@ -34,3 +34,7 @@ In the picture below, Alice gets 8 GAS's share from her hold NEO, which is recor
 </p>
 
 Let's view the transaction structure in NEO. AS show in the picture above, the `output` itself has an index attributes because it is located in a list of outputs. The `output` it self consists of `AssetId`,`Amount` and `ScriptHash` which is the receipt address. The `Input` structure is the source of a transaction and it contains a `PreHash` which points to the transaction it comes from and a `Preindex` which points to the corresponding output from previous transaction
+
+## Next Step
+
+[What is CGAS](cgas/1_what_is_cgas.md)

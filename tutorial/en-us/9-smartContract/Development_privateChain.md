@@ -1,9 +1,3 @@
----
-layout: post
-lang: en
-lang-ref: Development_privateChain
----
-
 # Private Network
 
 >
@@ -28,7 +22,7 @@ All the transaction and blocks can be viewed on the [NEO scan](https://neoscan-t
 In addition, building a private chain using four nodes and withdraw NEO and GAS from the private chain is a more convenient and fast way of developers like us who want to begin to learn how to develop the smart contract by step to step. By using such a private chain, developers do not have to worry about the GAS and also deploy and test on such a local network is much faster.
 
 
-#### set up your  private chain
+## Setting up your  private chain
 In this tutorial, our development is based on a simplified private Chain which can be downloaded in this [Github Repository](https://github.com/steven1227/NEO-Private-Net).
 
 This repository contains a configured private-chain and you can run it after downloads. The neo-cli in it version is 2.8.0. The gui version is 2.7.6
@@ -58,6 +52,7 @@ Open NEO-GUI and click `wallet` ->  `open wallet database`,  Open `1.json` which
 
 
 > [!Note]
+> 
 > Smart contract deployment and invocation cost GAS. Since GAS is generated with every new block generated, causing limited GAS generated on freshly-built private chains, therefore users are advised not to shut down private chains now in order to generate enough GAS in case of later use.
 
 You can try to create a new wallet and transfers money to it.
@@ -66,10 +61,11 @@ You can try to create a new wallet and transfers money to it.
 2. When the wallet is successfully created, right click the address in the standard account and select `view private key` tod view the account info (address, public key, private key).
 3. Copy the address for next step.
 4. Open the wallet `1.json` again and  click the `Transaction`, and then click the `+` symbol. Now lets add a new transaction.
-The *asset* type is `NEO`, the amount is your preferred amount to transfer, and the *payto* is the address from last step.
- <p align="center">
-  <img src="./imgs/20190219-113025.png" />
- </p>
+
+   The *asset* type is `NEO`, the amount is your preferred amount to transfer, and the *payto* is the address from last step.
+   <p align="center">
+   <img src="./imgs/20190219-113025.png" />
+   </p>
 
  5. After confirmation, you can view the transaction success and there will be a transaction id. Click the `Transaction History ID`. The transaction you just made will be occurred here and it may show `unconfirmed`. Wait for seconds and it will display the confirmation number which means the block is confirmed by the consensus nodes. After that, open the new wallet you created just now and you will find the balance changed.
  6. Open the wallet `1.json` again and you can view there is another global asset `GAS`. GAS is the fuel for deploying and running smart contract on the blockchain in NEO. Gas can be claimed by the `NEO` token holders. In the GUI, click the `Advanced` ->  `NEO Gas claim`, you will see the gas available for you to claim. Then just click `Claim`, the GAS will show in your account balance.
@@ -77,6 +73,5 @@ The *asset* type is `NEO`, the amount is your preferred amount to transfer, and 
  ## Next Step
  **Great!**, After set up the private Chain, next step is to [Set up the development tools.](Development_set_up.md)
 
- ## Previous Step
- If you are not clear with the idea of smart contract, click [here](What_is_smart_contract.md)
+If you are not clear with the idea of smart contract, click [here](What_is_smart_contract.md)
 

@@ -29,6 +29,7 @@ In this tutorial, we will focus on the other protocol, the [NEO protocol](https:
 Although many [core libraries of NEO](https://github.com/neo-project/neo) are written in C# or Python, for this tutorial we will use [Golang](https://golang.org/). The communication basics are the same for all languages.
 
 The NEO protocol defines However, ia header and a payload. Every message needs to be sent with this specific format, with a 24 bytes header and its payload:
+
 ```
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -187,10 +188,12 @@ With this information we can implement the NEO node ping. First we need to write
 Write an encoder and decoder for ping/version. Use the following template at [https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo_ping_template.go](https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo_ping_template.go) and complete the following two functions: `encodeVersion(userAgent string) []byte`, `encodePing() []byte`, `decodeVersion(b []byte) string`, which returns the user agent, and `decodePing(b []byte)`. Print relevant information to the console in the decoder.
 
 Hint: the timestamp can be encoded as:
+
 ```
 binary.LittleEndian.PutUint32(b[12:], uint32(time.Now().Unix()))
 ```
 and decoded as:
+
 ```
 fmt.Printf("time: %v\n", time.Unix(int64(binary.LittleEndian.Uint32(b[12:])), 0))
 ```
@@ -199,6 +202,7 @@ fmt.Printf("time: %v\n", time.Unix(int64(binary.LittleEndian.Uint32(b[12:])), 0)
 
 ### Putting It together
 First, connect to a NEO node that supports ping/pong. We will check for the correct version later on.
+
 ```
 func main() {
 	remote, err := net.Dial("tcp", "node1.plutolo.gy:10333") //check: http://monitor.cityofzion.io/
@@ -218,7 +222,9 @@ Now we send our version to the remote NEO node.
 	}
 	fmt.Printf("wrote version packet: %v, %d\n", packetVersion, n)
 ```
+
 We wrote the version and now we can expect the version from the remote host. In fact, some clients also send it right after connection is established.
+
 ```
 	//we get the version from the remote, display it
 	read := make([]byte, 24)
@@ -228,7 +234,9 @@ We wrote the version and now we can expect the version from the remote host. In 
 	n, err = io.ReadFull(remote, read) //read payload
 	userAgent := decodeVersion(read)
 ```
+
 On receiving the version from the NEO node, we additionally check the checksum to ensure that they match. The checksum is the first 4 bytes of the double SHA256 hash of the payload.
+
 ```
 	tmp := sha256.Sum256(read)
 	hash := sha256.Sum256(tmp[:])
@@ -238,7 +246,9 @@ On receiving the version from the NEO node, we additionally check the checksum t
 		panic(errors.New("checksum mismatch in version!"))
 	}
 ```
+
 Since ping/pong was only implemented recently, we need to make sure that we ask a supported version. It looks that the versions use semantic versioning. However, the Python implementation uses different versioning, so we should also check which user agent is used. As there is no other implementation with such a high version 2.10.1, we can just check this version (its quick and dirty :).
+
 ```
 	//check if we have a good version
 	start := strings.Index(userAgent, ":")
@@ -274,7 +284,9 @@ Since we sent a version packet, we need to get the verack and we also need to se
 		panic(errors.New("checksum mismatch in verack!"))
 	}
 ```
+
 After the version/verack, we can now send the ping. Without the versions, no commands can be sent.
+
 ```
 	/////// send ping
 	packet2 := encodeHeader("ping", encodePing())
@@ -284,7 +296,9 @@ After the version/verack, we can now send the ping. Without the versions, no com
 	}
 	fmt.Printf("wrote ping: %v, %d\n", packet2, n)
 ```
+
 After sending the ping, we can expect a pong message.
+
 ```
 	//////// receive pong
 	read = make([]byte, 36)
@@ -304,6 +318,7 @@ After sending the ping, we can expect a pong message.
 	remote.Close()
 }
 ```
+
 ---
 **Exercise 4**:
 Merge your encoder/decoder code with the main function from the template and run it on the MainNet. What can you see?
@@ -490,4 +505,6 @@ func decodePing(b []byte) {
 
 ```
 
-[Read next chapter](../6-persistence/1-persistence.md) or [Return to contents](../index.md).
+## What's next?
+
+[Persistence](../6-persistence/1-persistence.md)
