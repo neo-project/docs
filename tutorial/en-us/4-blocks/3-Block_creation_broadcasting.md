@@ -1,10 +1,10 @@
-## Block creation by Consensus Nodes
-As discussed in [Part 1](1-Introduction_to_blocks_and_blockchain.md), NEO uses the dBFT mechanism to generate new blocks. In short, this means there are a selected amount of consensus nodes, elected by the network, which are required to reach a 2/3 majority agreement on any new potential block.
+# Block Creation by Consensus Nodes
+As discussed in [Introduction to blocks and blockchain](1-Introduction_to_blocks_and_blockchain.md), NEO uses the dBFT mechanism to generate new blocks. In short, this means there are a selected amount of consensus nodes, elected by the network, which are required to reach a 2/3 majority agreement on any new potential block.
 
-For each new block that needs to be generated, one of these nodes is elected as the speaker. In the best case scenario, where we have no Byzantine nodes, the speaker node will propose a new block and distribute it to all other consensus nodes for agreement. When the speaker node receives enough signatures from other consensus nodes, the block is propagated to the network and final. For more details on the dBFT consensus mechanism, have a look at the [whitepaper](https://docs.neo.org/en-us/basic/consensus/whitepaper.html).
+For each new block that needs to be generated, one of these nodes is elected as the speaker. In the best case scenario, where we have no Byzantine nodes, the speaker node will propose a new block and distribute it to all other consensus nodes for agreement. When the speaker node receives enough signatures from other consensus nodes, the block is propagated to the network and final. For more details on the dBFT consensus mechanism, have a look at the [whitepaper](../../../docs/en-us/basic/technology/dbft.md).
 
 ## The new block
-When a user wants to send a transaction, typically his wallet will create and sign the transaction and send that to either an RPC or P2P node. Both RPC and P2P nodes will relay (valid) transactions across the network, where they eventually reach one of the consensus nodes. More can be read in the section [5. Network](../5-network/). [This medium post](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0) also gives a great summary of this mechanism.
+When a user wants to send a transaction, typically his wallet will create and sign the transaction and send that to either an RPC or P2P node. Both RPC and P2P nodes will relay (valid) transactions across the network, where they eventually reach one of the consensus nodes. More can be read in the section [Network](../5-network/1-Introduction_to_the_NEO_network_protocol.md). [This medium post](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0) also gives a great summary of this mechanism.
 
 Once the valid transaction has arrived at the consensus nodes, it is stored and sorted in the mempool. When creating a new block, transactions will be selected from this mempool to be included. Every block can contain up to 500 transactions, from which the first one always is of the type [MinerTransaction](../3-transaction/types.md#minertransaction).
 
@@ -27,11 +27,15 @@ The source address had an UTXO containing 119.99999987 GAS and wanted to send 60
 
 ## System fees
 A transaction fee is used to gain priority on the network. There are, however, fees with other specific purposes, known as system fees.
+
 - ***Smart Contract Creation*** The current fee to deploy a new contract on the Mainnet ranges between 100-1000 GAS based on the required functions (such as storage or dynamic invocation) and size. For structured development, it is advised to start development on a [local private TestNet](https://github.com/CityOfZion/neo-local). Once the Smart Contract is stable, you can apply for TestNet funds [here](https://neo.org/testcoin/apply), for final validation. After you are certain that your Smart Contract is implemented correctly, only then should you deploy it onto the Mainnet, as this process is irrevokable. This means that the GAS paid for deployment will not be returned, even if you destroy the contract.
 
-- ***Smart Contract Execution*** To be able to execute a Smart contract, the nodes need to perform specific computations for you. In order to compensate the nodes for this effort, a system fee should be added to the transaction that is executing the contract. Currently, the first 10 GAS of any system call is free, meaning no fee is required for contract invocations that require less than 10 GAS. [This page](https://docs.neo.org/en-us/sc/systemfees.html) gives the complete overview of the system fees required to execute a Smart Contract. For each operation, the required fee for the specific operation is mentioned.
+- ***Smart Contract Execution*** To be able to execute a Smart contract, the nodes need to perform specific computations for you. In order to compensate the nodes for this effort, a system fee should be added to the transaction that is executing the contract. Currently, the first 10 GAS of any system call is free, meaning no fee is required for contract invocations that require less than 10 GAS. [This page](../../../docs/en-us/sc/fees.md) gives the complete overview of the system fees required to execute a Smart Contract. For each operation, the required fee for the specific operation is mentioned.
 
 ## Block broadcasting
 Once the consensus nodes agree on a new block according to the dBFT mechanism, they will broadcast the new block to the entire network. Because of the characteristics of the dBFT consensus mechanism, block finality is achieved immediately in 1 single block. This means that all clients can interrogate the blockchain (any RPC or P2P node) immediately after a new block has been created, and be certain these transactions are final.
 
-[Next chapter](4-Block_validation_processing.md) or [return to contents](README.md#contents).
+## What's next?
+
+[Validation of blocks](4-Block_validation_processing.md)
+

@@ -22,15 +22,19 @@ Let's compare the smart contract with vending machines. In the real world, after
 ## The merit of smart contract
 
 - Autonomy
-Smart contract are independently running on the computers which spread the world and no rely on any centrailized system.
+  Smart contract are independently running on the computers which spread the world and no rely on any centrailized system.
+  
 - Trust
-The trust is based on the distributed ledgers that execute and validates the contract.
+  The trust is based on the distributed ledgers that execute and validates the contract.
+  
 - Robustness
-The smart contract is on the distributed network, loss or destroy of a single point is not working.
+  The smart contract is on the distributed network, loss or destroy of a single point is not working.
+  
 - Speed
-The decentralized processing of smart contract let the procedure of business can be finished in a short time.
+  The decentralized processing of smart contract let the procedure of business can be finished in a short time.
+  
 - Economy
-Smart contract eliminated the need for a vast chain of middlemen includes lawyers, witness and other intermediatries.
+  Smart contract eliminated the need for a vast chain of middlemen includes lawyers, witness and other intermediatries.
 
 ## NEO smart contract
 

@@ -41,5 +41,7 @@ This mechanism ensured an extra layer of protection before asking for changing v
 Along with this, another strategy that has been designed was to avoid `change_views` when nodes are seeing progress on the network.
 In this sense, each time that nodes shared signed information between them, extra timeout are added to their internal timers, summarizing that nodes are reaching agreements and communicating between them.
 
-[Go to next section](4-Examples_and_consensus_scenarios_for_dBFT.md) or [return to contents](../index.md).
+## What's next?
+
+[Examples and consensus scenarios for dBFT](4-Examples_and_consensus_scenarios_for_dBFT.md) 
 

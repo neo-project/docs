@@ -244,6 +244,7 @@ These transactions were used to emit the first NEO and GAS in the platform found
 
 #### Native asset emission in code
 The `GenesisBlock` code can be found [here](https://github.com/neo-project/neo/blob/41caff115c28d6c7665b2a7ac72967e7ce82e921/neo/Ledger/Blockchain.cs#L66).
+
 ``` CSharp
 public static readonly Block GenesisBlock = new Block
 {
@@ -296,6 +297,7 @@ public static readonly Block GenesisBlock = new Block
 ```
 
 NEO is represented as the "GoverningToken", and after it is registered, it is sent to the `Validators` multi-signature contract address:
+
 ``` CSharp
 public static readonly RegisterTransaction GoverningToken = new RegisterTransaction
 {
@@ -313,6 +315,7 @@ public static readonly RegisterTransaction GoverningToken = new RegisterTransact
 ```
 
 And GAS as the UtilityToken.
+
 ``` CSharp
 public static readonly RegisterTransaction UtilityToken = new RegisterTransaction
 {
@@ -341,6 +344,7 @@ NEO utilize the UTXO model in it's native assets, meaning that that to spend a c
 This reference is done using two properties: `PrevHash` and `PrevIndex`. The `PrevHash` references to a transaction hash and the `PrevIndex` points to the index in the TransactionOutput array in that transaction.
 
 In this transaction, one CoinReference (in `vin` array) is transformed into multiple TransactionOutputs (`vout`). Note that the last transaction is used to send the change back to the sender, so he/she can have another unspent transaction to be used in the future.
+
 ``` json
 {
     "jsonrpc": "2.0",
@@ -454,8 +458,6 @@ You can only spend the coins by pointing to them. This indexing is one of the ta
 
 Regular nodes do not offer an indexing service, however, a plugin is being built to add indexing functionality to C# nodes.
 
-
-
 #### Transaction Attribute
 Transactions may have special attributes, depending on their type. Transaction attributes are serialized after the `Version` field.
 
@@ -489,12 +491,6 @@ The serialization of a transaction varies depending on the action to be register
 ##### Contract Transaction
 Contract transactions have Type `0x80`. The verification script used is usually a 64 bytes signatures.
 
-##### Invocation Transaction
-Test invoke
+## What's next?
 
-Attach system fees
-
-Attach network fees
-
-[Read next section](2-levelDB_data_structure.md) or [return to contents](../index.md)
-
+[LevelDB Blockchain Data Structure](2-levelDB_data_structure.md)

@@ -91,6 +91,5 @@ Nevertheless, the above only demonstrates a simple data storage method - to stor
 ## Next Step
 **Congratulations!**, After set up the development tools, next step is to [compile the contract, deploy it and invoke it.](Development_compile.md)
 
-## Previous Step
 If you are not set up the private chain yet , you may first click [here](Development_privateChain.md).
 
