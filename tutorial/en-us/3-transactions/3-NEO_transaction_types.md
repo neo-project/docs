@@ -281,4 +281,7 @@ Example:
 ## Registering assets (deprecated)
 NEO supports the registration of native (UTXO) assets on the blockchain with the `RegisterTransaction` and `IssueTransaction` transaction types. NEO and GAS are both examples of these native assets. For digital asset registration it is more common now to use a (NEP-5 compatible) smart contract. Using a smart contract is more scalable and flexible than using native assets. The new token smart contract may be deployed to the blockchain with an [InvocationTransaction](#InvocationTransaction).
 
-[Go to Next chapter](4-NEO_transaction_fees.md) or [return to contents](../index.md).
+## What's next?
+
+[Transaction Fees](4-NEO_transaction_fees.md)
+
