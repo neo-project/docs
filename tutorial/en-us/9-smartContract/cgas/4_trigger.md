@@ -213,5 +213,4 @@ This trigger has not been implemented yet, which is backward compatible with NEP
 ## Next Step
 Now let us move to function of [mint token and refund](5_minttokens_and_refund.md).
 
-## Previous Step
 If you want to know how is UTXO model working in the CGAS, click [here](3_utxo_model.md).

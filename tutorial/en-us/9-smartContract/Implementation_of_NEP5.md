@@ -224,5 +224,4 @@ Define a new NEP5-token by yourself.
 
 In this tutorial, you have learned the standard of NEP-5 and how to implement the NEP-5 standard by define your own token. Now we can extend this step and go to [offer our token and make it publicly available](Give_an_ITO.md)
 
-## Previous Step
 If you want to know what is NEP5, click [here](What_is_nep5.md).

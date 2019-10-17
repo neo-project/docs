@@ -6,6 +6,7 @@ NEO平台支持的原生数据类型有Integer、Decimal和String、UInt160和UI
 ### 整数序列化
 
 根据存储的值，可使用可变长度的类型对整数进行编码：
+
 |数值|长度|格式|
 |---|---|---|
 |< 0xfd|1|uint8|
@@ -202,6 +203,7 @@ public static UInt160 ToScriptHash(this string address)
 ![persistence_header](persistence_header.png)
 
 区块头的可序列化数据结构如下所示：
+
 |长度|字段|数据类型|说明|
 |---|---|---|---|
 |4|**Version**|uint32|区块的版本号，当前为0 |
@@ -294,6 +296,7 @@ public static readonly Block GenesisBlock = new Block
 ```
 
 NEO为`治理代币`，注册后会被发送到`验证人`的多签合约地址中：
+
 ``` CSharp
 public static readonly RegisterTransaction GoverningToken = new RegisterTransaction
 {
@@ -311,6 +314,7 @@ public static readonly RegisterTransaction GoverningToken = new RegisterTransact
 ```
 
 而GAS是`功能代币`。
+
 ``` CSharp
 public static readonly RegisterTransaction UtilityToken = new RegisterTransaction
 {
@@ -337,6 +341,7 @@ public static readonly RegisterTransaction UtilityToken = new RegisterTransactio
 NEO的原生资产使用了UTXO模型，这意味着要想花费代币，你需要引用给你发送代币的那个交易。该引用使用了两个属性：`PrevHash`和`PrevIndex`。 `PrevHash`表示的是交易哈希，`PrevIndex`表示该交易在交易输出数组中所处的索引号。
 
 在该交易中，一个代币引用（在`vin`数组中）会被转换为多个交易输出（`vout`）。 请注意，最后一个交易输出用于将零钱发送回发送方，这样他/她就可以获得另一个未花费的交易，将来可以使用。
+
 ``` json
 {
     "jsonrpc": "2.0",
@@ -457,6 +462,7 @@ NEO的原生资产使用了UTXO模型，这意味着要想花费代币，你需�
 `MinerTransaction`有一个名为`nonce`的属性，用于避免哈希冲突。
 
 矿工交易中的特殊属性：
+
 |长度|字段|数据类型|描述|
 |---|---|---|---|
 |4|**Nonce**|uint32|随机数|
@@ -488,5 +494,7 @@ NEO的原生资产使用了UTXO模型，这意味着要想花费代币，你需�
 
 附加网络费
 
-[阅读下一节](2-levelDB_data_structure.md)或[返回目录](../index.md)
+## 阅读下节
+
+[LevelDB 区块链数据结构 ](2-levelDB_data_structure.md)
 

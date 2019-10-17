@@ -108,4 +108,7 @@ Let's take the first node (N1) previous described and create a multi-signatures 
 
 The latter would result in the following Address: `AbU69m8WUZJSWanfr1Cy66cpEcsmMcX7BR`
 
-[Go to next chapter](../9-smartContract/What_is_smart_contract.md) or [Return to contents](../index.md).
+## What's next?
+
+[What is smart contract?](../9-smartContract/What_is_smart_contract.md) 
+

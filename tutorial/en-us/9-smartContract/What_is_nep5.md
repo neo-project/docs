@@ -119,6 +119,5 @@ A token contract which burns tokens MUST trigger a <code>transfer</code> event w
 ## Next Step
 Now let us [implement a NEP5-Token!](Implementation_of_NEP5.md)
 
-## Previous Step
 If you want to learn the knowledge points of smart contract, click [here](Smart_Contract_basics.md).
 

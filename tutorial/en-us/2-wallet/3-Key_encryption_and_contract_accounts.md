@@ -1,4 +1,4 @@
-## Private key encryption (NEP-2) and Wallet files (NEP-6)
+# Private key encryption and Wallet files
 Storing raw private keys on disk is a security liability. Anyone that that has access to a raw private key can drain these funds. It would be more secure if these keys were encrypted via a password. For this reason we have the NEP-2 standard format (https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki)
 
 This encrypted key provides an additional layer of security to the raw private key, requiring an attacker to acquire both the encrypted key and the password in order to access the funds. This is good, but it is often the case that one might need to have multiple accounts, which means that they have multiple keys. Storing each NEP-2 encrypted key would be very cumbersome, so instead we can create a file structure that would allow for all of these encrypted keys to be stored in the same place.
@@ -16,7 +16,9 @@ The most common case for this type of account is a multi-signature account. A mu
 
 We can generate a simple contract for this account using NEO op codes. Suppose we want to create a multi-signature contract account for THREE different persons (public keys):
 
-**Important to note that we need to sort public keys by its ECPoint(X,Y) in ascending order before the operation otherwise we will get a different scripthash which leads to different NEO address.**
+> [!Warning]
+>
+> You need to sort public keys by its ECPoint(X,Y) in ascending order before the operation otherwise you will get a different scripthash which leads to different NEO address.
 
 ```
 //pubkey1
@@ -30,6 +32,7 @@ We can generate a simple contract for this account using NEO op codes. Suppose w
 ```
 
 We want to require at least TWO of them to sign the transactions. So we must create a custom script for this purpose. The script is as follows:
+
 ```
 // minimum number of signatures (2)
 PUSH OPCODE 52
@@ -63,8 +66,9 @@ This contract information can also be stored in the NEP-6 file, which allows a u
 Multi-signatures are currently supported in the [NEO-GUI](https://github.com/neo-project/neo-gui) and [neo-python](https://github.com/CityOfZion/neo-python) clients.
 
 ### NEO DB3
-NEO db3 is a legacy file format that was previously supported in NEO-GUI prior to the introduction of the NEP-6 file format. It is highly reccommended to upgrade to NEP-6 file format, which can be done in NEO-GUI.
+NEO db3 is a legacy file format that was previously supported in NEO-GUI prior to the introduction of the NEP-6 file format. It is highly reccommended to upgrade to NEP-6 file format, which can be done in [NEO-GUI](../../../docs/en-us/node/gui/wallet.md).
 
-https://docs.neo.org/en-us/node/gui/wallet.html
+## What's next?
 
-[Next chapter](4-UTXO_and_account_models.md) or [return to contents](README.md#contents).
+[UTXO and Account Model](4-UTXO_and_account_models.md)
+

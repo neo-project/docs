@@ -312,8 +312,6 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 
 ## 阅读下节
 
-你刚完成了第一个智能合约。现在让我们学习下[NEP 5 Token](What_is_nep5.md)的相关知识
+你刚完成了第一个智能合约。现在让我们学习下[NEP 5 Token](What_is_nep5.md)的相关知识。
 
-## 返回上节
-
-要返回上节查看如何编译和部署合约，点击[这里](Development_compile.md)
+要返回上节查看如何编译和部署合约，点击[这里](Development_compile.md)。

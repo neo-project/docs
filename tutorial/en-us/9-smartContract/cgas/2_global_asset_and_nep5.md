@@ -28,7 +28,6 @@ Here is a systematic comparison of the two assets.
 
 
 ## Next Step
-In order to learn how the UTXO is working in CGAS, we move to [here](3_utxo_model.md)。
+In order to learn how the UTXO is working in CGAS, we move to [here](3_utxo_model.md).
 
-## Previous Step
 If you want to know what is CGAS, click [here](1_what_is_cgas.md).

@@ -81,6 +81,4 @@ NEO C#的开发人员是非常幸运的，因为NEO区块链本身是基于C#搭
 
 你已经完成开发环境搭建，下节我们将介绍[编译，部署和调用合约](Development_compile.md)。
 
-## 返回上节
-
 要返回上节查看如何搭建一个私链，点击[这里](Development_privateChain.md)。

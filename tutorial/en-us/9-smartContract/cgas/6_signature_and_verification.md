@@ -124,6 +124,5 @@ Take a look at the second set of verification scripts:
 ## Next Step
 Now let us know how to [invoke this CGAS contract](7_invocation.md)
 
-## Previous Step
 To learn the function of mint token and refund, click [here](5_minttokens_and_refund.md).
 

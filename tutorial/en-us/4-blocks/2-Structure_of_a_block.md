@@ -1,12 +1,15 @@
-## Structure of a block
+# Structure of a block
 
 Below is the JSON dump of block #3649960 on the NEO MainNet. It can be obtained using the following command (NB: the node chosen is random and may stop working in the future. It can be replaced with any node on the NEO MainNet that accepts RPC requests):
+
 ```
 curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d '{ "jsonrpc": "2.0", "id": 1, "method": "getblock", "params": ["ad83d993ca2d9783ca86a000b39920c20508c8ccae7b7db11806646a4832bc50",1] }'
 ```
+
 Below is a shortened version of the result from the above request, leaving out request metadata and only showing one of the many transactions of the block. However, it shows sufficient information to help understand the structure of a block. The full response of the cURL request can be found [here](neo-block.json).
 
 ## Example block
+
 ```{
 "hash": "0xad83d993ca2d9783ca86a000b39920c20508c8ccae7b7db11806646a4832bc50",
 "size": 2139,
@@ -123,25 +126,28 @@ The body of a block contains all the transactions that are embodied in that bloc
 
 ### Transaction types
 Below are the type of transactions that can occur in a block:
-* **MinerTransaction**: The first transaction in each block must be the MinerTransaction. It is used to award all transaction fees of the current block to the validator.
-* **IssueTransaction**: Used to issue an asset. Asset managers can create the assets that have been registered in NEO's blockchain through IssueTransaction, and send them to any address.
-* **ClaimTransaction**: Transaction invoked to claim NeoGas that was not yet claimed for holding NEO.
-* **EnrollmentTransaction**: The transaction represents an enrollment form, which indicates that the sponsor of the transaction would like to sign up as a validator.
-* **ContractTransaction**: This is a very common kind of transaction as it allows one wallet to send NEO to another. The inputs and outputs transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
-* **InvocationTransaction**: Transaction type used to invoke a Smart Contract.
 
-### Transaction Structure
-* **Type**: Type of the transaction, which must be one of the above. Furthermore, the first transaction of a block must always be of the type ***MinerTransaction***.
-* **Version**: Version used to define transactions. Currently at 0. Similar to block version, but on the level of a transaction.
-* **Attributes**: Additional features that the transaction has.
-* **Inputs**: The transaction inputs. When sending NEO from one address to another, this refers to the UTXO of the NEO being sent by the sender.
-* **Outputs**: The transaction outputs. When sending NEO from one address to another, this creates new UTXO for the recipient to spend after this block has been mined.
-* **Scripts**: List of scripts used to validate the transaction. When sending NEO from one address to another, this validates the spending of any UTXO's that are referenced in the inputs.
+- **MinerTransaction**: The first transaction in each block must be the MinerTransaction. It is used to award all transaction fees of the current block to the validator.
+- **IssueTransaction**: Used to issue an asset. Asset managers can create the assets that have been registered in NEO's blockchain through IssueTransaction, and send them to any address.
+- **ClaimTransaction**: Transaction invoked to claim NeoGas that was not yet claimed for holding NEO.
+- **EnrollmentTransaction**: The transaction represents an enrollment form, which indicates that the sponsor of the transaction would like to sign up as a validator.
+- **ContractTransaction**: This is a very common kind of transaction as it allows one wallet to send NEO to another. The inputs and outputs transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
+- **InvocationTransaction**: Transaction type used to invoke a Smart Contract.
+
+### Transaction structure
+- **Type**: Type of the transaction, which must be one of the above. Furthermore, the first transaction of a block must always be of the type ***MinerTransaction***.
+- **Version**: Version used to define transactions. Currently at 0. Similar to block version, but on the level of a transaction.
+- **Attributes**: Additional features that the transaction has.
+- **Inputs**: The transaction inputs. When sending NEO from one address to another, this refers to the UTXO of the NEO being sent by the sender.
+- **Outputs**: The transaction outputs. When sending NEO from one address to another, this creates new UTXO for the recipient to spend after this block has been mined.
+- **Scripts**: List of scripts used to validate the transaction. When sending NEO from one address to another, this validates the spending of any UTXO's that are referenced in the inputs.
 
 ## Additional fields
 
 - ***confirmations***: The amount of blocks that were built on top of this block. Each time a new block is confirmed on top of the chain that contains this block, the latter block gets an extra confirmation. This field is not present in the block itself but is calculated by the node serving the RPC request for completeness.
-
 - ***nextblockhash***: The hash of the next block, resulting in a linked-list of blocks. This field is not present in the block itself but is calculated by the node serving the RPC request for completeness.
 
-[Next chapter](3-Block_creation_broadcasting.md) or [return to contents](README.md#contents).
+## What's next?
+
+[Block Creation by Consensus Nodes](3-Block_creation_broadcasting.md)
+

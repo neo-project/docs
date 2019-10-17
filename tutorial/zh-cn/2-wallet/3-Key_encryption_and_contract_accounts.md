@@ -51,13 +51,18 @@ PUSH OPCODE AE
 ```
 
 从而得到了如下的脚本
+
 ```
-5221036245f426b4522e8a2901be6ccc1f71e37dc376726cc6665d80c5997e240568fb210303897394935bb5418b1c1c4cf35513e276c6bd313ddd1330f113ec3dc34fbd0d2102e2baf21e36df2007189d05b9e682f4192a101dcdf07eed7d6313625a930874b453ae
+5221036245f426b4522e8a2901be6ccc1f71e37dc376726cc6665d80c5997
+e240568fb210303897394935bb5418b1c1c4cf35513e276c6bd313ddd1330
+f113ec3dc34fbd0d2102e2baf21e36df2007189d05b9e682f4192a101dcdf
+07eed7d6313625a930874b453ae
 ```
 
 然后，我们使用前面说过的方法计算该账户的脚本哈希和地址。
 
 计算脚本哈希（和地址）：
+
 4d0c0932fa032debdceaaf5cd8086cf3f882961f / AJetuB7TxUkSmRNjot1G7FL5dDpNHE6QLZ
 
 *多方签名示例由NEOResearch提供*
@@ -67,8 +72,9 @@ PUSH OPCODE AE
 NEO-GUI钱包目前支持多方签名。
 
 ### NEO DB3
-在引入NEP-6文件格式之前，NEO db3是NEO GUI所支持的一种遗留的文件格式。强烈建议升级到NEP-6文件格式，这可以在NEO-GUI中完成。
-https://docs.neo.org/en-us/node/gui/wallet.html
+在引入NEP-6文件格式之前，NEO db3是NEO GUI所支持的一种遗留的文件格式。强烈建议升级到NEP-6文件格式，这可以在 [NEO-GUI](../../../docs/zh-cn/node/gui/wallet.md) 中完成。
 
-[阅读下节](4-UTXO_and_account_models.md)或者[返回目录](../index.md)
+## 阅读下节
+
+[UTXO 与账户模型](4-UTXO_and_account_models.md)
 

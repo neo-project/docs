@@ -12,7 +12,7 @@
 public extern byte[] EntryScriptHash { get; }
 ```
 
-属性值：脚本散列，33字节的字节数组。
+属性值：脚本散列，20 字节的字节数组。
 
 
 

@@ -57,6 +57,8 @@ private static ulong CurrentSwapRate()
     }
 }
 ```
+> [!Note]
+>
 > In this code snippet of `CurrentSwapRate`, only the basic rate is retured, however, in the real life ITO, due to the different time period, the program can return different swap rate.
 
 ## MintToken
@@ -123,8 +125,7 @@ return true;
 
 
 ## Next Step
-Now you have successfully make your first ITO and familiar with the most ideas of smart contract, the next one will be more difficult contract [which is CGAS.](cgas/1_what_is_cgas.md)
+Now you have successfully make your first ITO and familiar with the most ideas of smart contract, the next one will be more difficult contract [which is CGAS](cgas/1_what_is_cgas.md).
 
-## Previous Step
 If you want to know how to implement the NEP5, click [here](Implementation_of_NEP5.md).
 

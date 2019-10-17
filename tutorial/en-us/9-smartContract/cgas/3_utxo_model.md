@@ -51,5 +51,4 @@ foreach (var input in inputs)
 ## Next Step
 In order to learn how the trigger is working in CGAS, we move to [here](4_trigger.md)
 
-## Previous Step
 If you want to know what is difference between global asset and NEP5, click [here](2_global_asset_and_nep5.md).

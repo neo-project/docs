@@ -32,5 +32,9 @@ NEO区块链支持原生资产，其中最重要的两个是NEO和GAS。原生�
 <p align="center">
     <img src="https://docs.neo.org/developerguide/en/images/blockchain/utxo_en.jpg"/>
 </p>
-
 让我们看一下NEO中的交易结构。如上图所示， `输出` 本身具有索引属性，因为它位于输出列表中。`输出` 由 `AssetId` 、`Amount` 和 `ScriptHash` 组成，ScriptHash是收款地址。`输入` 结构指示了交易的来源，它包含一个 `PreHash` ，它指向交易的来源，以及一个 `Preindex` ，它指向前一个交易的相应的输出。
+
+## 阅读下节
+
+[什么是 CGAS](cgas/1_what_is_cgas.md)
+

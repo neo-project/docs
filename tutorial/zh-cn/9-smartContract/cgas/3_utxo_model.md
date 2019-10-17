@@ -53,6 +53,4 @@ foreach (var input in inputs)
 
 下节我们将介绍 [CGAS中的触发器](4_trigger.md)。
 
-## 返回上节
-
 如果要返回上节了解全局资产与NEP5资产的区别，点击[这里](2_global_asset_and_nep5.md)。

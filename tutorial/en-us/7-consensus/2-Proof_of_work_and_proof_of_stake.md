@@ -28,4 +28,7 @@ The power of voting can even remove those that are acting as promised.
 Summarizing this, we should see that coordination is the core for reaching agreement in decentralized scenarios.
 Coordination not in the sense of a centralized coordinator, but in the sense that multiple goals are considered when a decision is being taken.
 
-[Read next chapter](3-PBFT_and_DBFT.md) or [return to contents](../index.md).
+## What's next?
+
+[pBFT and dBFT](3-PBFT_and_DBFT.md)
+

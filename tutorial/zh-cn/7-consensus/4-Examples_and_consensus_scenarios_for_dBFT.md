@@ -103,5 +103,7 @@
 
 后者将产生以下地址：`AbU69m8WUZJSWanfr1Cy66cpEcsmMcX7BR`
 
-[阅读下一章](../9-smartContract/What_is_smart_contract.md) 或 [返回目录](README.md#目录)
+## 阅读下节
+
+[什么是智能合约？](../9-smartContract/What_is_smart_contract.md)
 

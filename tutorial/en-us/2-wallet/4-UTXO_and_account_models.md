@@ -21,4 +21,7 @@ The account model, which is adopted by other blockchain platforms such as Ethere
 
 NEP-5 token contracts deployed on the NEO network typically follow the account model of balance storage. They do not have any associated UTXO data, and changes in balance state are handled via smart contract executions. These executions are interpreted by the NEO virtual machine, and recorded in the smart contract storage area.
 
-[Go to next chapter](../3-transactions/1-Introduction_to_transactions.md) or [Return to contents](../index.md).
+## What's next?
+
+[Introduction to transactions](../3-transactions/1-Introduction_to_transactions.md)
+
