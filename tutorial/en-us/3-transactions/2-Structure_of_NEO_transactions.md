@@ -247,14 +247,16 @@ The invocation script can push multiple signatures for a multi-signature contrac
 
 #### Verification script
 The verification script with a single signature is constructed with the following steps:
+
 1. `0x21` (PUSHBYTES33) followed by the 33 byte public key that corresponds to the signature
-1. `0xAC` (CHECKSIG) to verify the signature with the provided public key
+2. `0xAC` (CHECKSIG) to verify the signature with the provided public key
 
 The verification script with a multi-signature contract is constructed with the following steps:
+
 1. `0x52` (PUSH2) to `0x60` (PUSH16) to indicate the required amount of signatures
-1. `0x21` (PUSHBYTES33) followed by the first 33 byte public key for the multi-signature contract, repeated for each public key in the multi-signature contract
-1. `0x52` (PUSH2) to `0x60` (PUSH16) to indicate the total amount of public keys for the signature
-1. `0xAE` (CHECKMULTISIG) to verify the signatures with the provided public keys
+2. `0x21` (PUSHBYTES33) followed by the first 33 byte public key for the multi-signature contract, repeated for each public key in the multi-signature contract
+3. `0x52` (PUSH2) to `0x60` (PUSH16) to indicate the total amount of public keys for the signature
+4. `0xAE` (CHECKMULTISIG) to verify the signatures with the provided public keys
 
 To maintain performance it is required to have the same order for public keys and signatures during the verification of a multi-signature contract.
 
