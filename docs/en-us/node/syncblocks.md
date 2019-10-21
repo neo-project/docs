@@ -4,7 +4,7 @@ The client must be fully synchronized before use. In order to speed up network s
 
 > [!Note]
 >
-> Before the NEO client can synchronize block data with the offline package, you must install the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) plugin. For details, refer to the installation instructions of the client.
+> Before the NEO client can synchronize block data with the offline package, you must install the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) plugin. For details, refer to the installation instructions of the client.
 >
 
 ## Step 1 - Download the offline package
@@ -13,14 +13,14 @@ The client must be fully synchronized before use. In order to speed up network s
 
 2. From the offline package downloading page, click **Mainnet** or **Testnet** according to your network and then download one of the following packages (no need to unzip the package):
 
-   - **Full offline package**: contains the most complete blockchain data. It is applicable to the client running for the first time. The download file is chain.0.acc.zip.
+   - **Full offline package**: contains the most complete blockchain data. It is applicable to the client running for the first time. The download file is chain.acc.zip.
    - **Increment offline package**: contains data in the range from starting height to ending height of the package. It is applicable to the client which has been synchronized up to the block height within the increment offline package coverage. The download file is chain.xxx.acc.zip, where xxx is the package starting height, e.g. chain.1855770.acc.zip.
 
    ![](../assets/syncblocks_2.png)
 
 ## Step 2 - Place the offline package
 
-Place the downloaded package (chain.0.acc.zip or chain.xxx.acc.zip) under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
+Place the downloaded package (chain.acc.zip or chain.xxx.acc.zip) under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
 
 > [!Warning]
 >

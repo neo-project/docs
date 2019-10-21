@@ -28,7 +28,7 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 
 示例:
 
-```json
+```javascript
 {
    "txid":"0xdbf3ad80e483c56b996fcc1264384f87a86a889d3cc2c79888200d347923f6c6",
    "size":70,
@@ -79,7 +79,7 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 
 示例:
 
-```json
+```javascript
 {
    "txid":"0x30f90c7df4c02984bcdc11abd68ffef01557eed3ccadc1b653ab918842ecdfcc",
    "size":237,
@@ -130,7 +130,7 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 
 示例:
 
-```json
+```javascript
 {
    "txid":"0x3d5b91a488a12ec091fff743b1670c008cc1962f3aa98e760981016685e9c668",
    "size":211,
@@ -207,7 +207,7 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 
 示例:
 
-```json
+```javascript
 {
    "txid":"0x7031bbc63b5087ed1e84a7a6f02a4b5c7a998c800862f0b5d1e745128bdd152f",
    "size":271,
@@ -253,11 +253,11 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 
 #### Script
 
-`script`是要执行的NVM字节码。它可以是一个独立的脚本，已经部署的智能合约的调用，或者通过使用`neo.contract.create`指令部署新的智能合约。
+`script`是要执行的NVM字节码。它可以是一个独立的脚本，已经部署的使用 AppCall opcode 智能合约的调用，或者通过使用`neo.contract.create`指令部署新的智能合约。
 
 示例:
 
-```json
+```javascript
 {
    "txid":"0x1ae96d64e4d88a31f21f8a05a5370600efb3a7aa55e6fec6057f895f5ba91c16",
    "size":231,
@@ -292,7 +292,7 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 }
 ```
 
-## 注册资产
+## 注册资产（已弃用）
 
 NEO支持使用`RegisterTransaction`和`IssueTransaction`交易在区块链上注册原生（UTXO）资产。 NEO和GAS都属于这类原生资产。 对于数字资产的注册，现在更常见的是使用（NEP-5兼容）智能合约。 使用智能合约比使用原生资产有着更高的可扩展性和灵活性。 可以使用[InvocationTransaction](#InvocationTransaction)交易将新的代币智能合约部署到区块链上。
 
