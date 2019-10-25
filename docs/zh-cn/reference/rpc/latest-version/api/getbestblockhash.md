@@ -1,4 +1,4 @@
-# getbestblockhash 方法
+﻿# getbestblockhash 方法
 
 获取主链中高度最大的区块的散列。
 
@@ -28,4 +28,3 @@
 响应说明：
 
 result：主链中高度最大的区块的散列。
-
