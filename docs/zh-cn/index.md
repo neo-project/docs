@@ -20,12 +20,11 @@
 | [快速入门](sc/gettingstarted/introduction.md) | [开发环境](sc/devenv/getting-started-csharp-mac.md) | [合约编写](sc/write/basics.md) | [部署与调用](sc/deploy/deploy.md)   |
 | [测试](sc/test.md)                            | [合约迁移](sc/migrate.md)                           | [系统使用费](sc/fees.md)       | [合约示例](sc/sample/HelloWorld.md) |
 
-| NEO 工具开发                                                 |                                                            |                                              |                                             |
-| ------------------------------------------------------------ | ---------------------------------------------------------- | -------------------------------------------- | ------------------------------------------- |
-| [区块模型](tooldev/concept/blockchain/block.md)              | [收费模型](tooldev/concept/charging_model.md)              | [交易](tooldev/concept/transaction.md)       | [钱包](tooldev/concept/wallets.md)          |
-| [共识机制](tooldev/concept/consensus/consensus_algorithm.md) | [密码学](tooldev/concept/cryptography/encode_algorithm.md) | [NEO-CLI 结构](tooldev/neo_cli_structure.md) |                                             |
-| [NEO SDK](tooldev/sdk/introduction.md)                       | [大小端序的使用](tooldev/endian.md)                        |                                              |                                             |
-| [NeoVM 指令集](tooldev/advanced/neo_vm.md)                   | [网络协议](tooldev/advanced/network-protocol.md)           | [交易流程](tooldev/advanced/tx_execution.md) | [梅克尔树](tooldev/advanced/merkle_tree.md) |
+| NEO 工具开发                                    |                                               |                                                            |                                             |
+| ----------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
+| [区块模型](tooldev/concept/blockchain/block.md) | [收费模型](tooldev/concept/charging_model.md) | [密码学](tooldev/concept/cryptography/encode_algorithm.md) | [大小端序的使用](tooldev/concept/endian.md) |
+| [NEO-CLI 结构](tooldev/neo_cli_structure.md)    | [网络协议](tooldev/network-protocol.md)       | [共识机制](tooldev/consensus/consensus_algorithm.md)       | [钱包](tooldev/wallets.md)                  |
+| [交易](tooldev/transaction/transaction.md)      | [NEO SDK](tooldev/sdk/introduction.md)        |                                                            |                                             |
 
 | 交易所对接文档                                  |      |      |      |
 | ----------------------------------------------- | ---- | ---- | ---- |
@@ -34,6 +33,7 @@
 | 开发参考                                       |                                        |                                       |                                                             |
 | ---------------------------------------------- | -------------------------------------- | ------------------------------------- | ----------------------------------------------------------- |
 | [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/api.md) | [智能合约框架](reference/scapi/fw.md) | [SDK API (C#)](https://docs.neo.org/developerguide/zh/api/) |
+| [NeoVM 指令集](reference/neo_vm.md)            |                                        |                                       |                                                             |
 
 
 <link href="index.css" rel="stylesheet" />
