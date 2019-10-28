@@ -75,8 +75,8 @@ Therefore, the finality of the new block can be guaranteed at a given height.
 
 ## Further Reading
 
-[Consensus Algorithm](../../tooldev/concept/consensus/consensus_algorithm.md)
+[Consensus Algorithm](../../tooldev/consensus/consensus_algorithm.md)
 
-[Consensus Protocol](../../tooldev/concept/consensus/consensus_protocol.md)
+[Consensus Protocol](../../tooldev/consensus/consensus_protocol.md)
 
-[Voting](../../tooldev/concept/consensus/vote_validator.md)
+[Voting](../../tooldev/consensus/vote_validator.md)

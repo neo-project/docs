@@ -1,6 +1,6 @@
 # sendrawtransaction Method
 
-Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../../../../tooldev/advanced/network-protocol.md).
+Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../../../../tooldev/network-protocol.md).
 
 ## Parameter Description
 
