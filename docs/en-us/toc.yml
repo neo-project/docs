@@ -128,17 +128,6 @@
         href: /docs/en-us/tooldev/concept/blockchain/validator.md      
     - name: Charging Model
       href: /docs/en-us/tooldev/concept/charging_model.md
-    - name: Transaction
-      href: /docs/en-us/tooldev/concept/transaction.md
-    - name: Wallet
-      href: /docs/en-us/tooldev/concept/wallets.md
-    - name: Consensus
-      - name: Consensus Algorithm
-        href: /docs/en-us/tooldev/concept/consensus/consensus_algorithm.md
-      - name: Consensus Protocol
-        href: /docs/en-us/tooldev/concept/consensus/consensus_protocol.md
-      - name: Vote
-        href: /docs/en-us/tooldev/concept/consensus/vote_validator.md
     - name: Cryptography
       href:
       - name: Encode Algorithm
@@ -147,8 +136,26 @@
         href: /docs/en-us/tooldev/concept/cryptography/hash_algorithm.md
       - name: Encryption Algorithm
         href: /docs/en-us/tooldev/concept/cryptography/encryption_algorithm.md
+    - name: Big and Little Endian Usage
+       href: /docs/en-us/tooldev/concept/endian.md
   - name: NEO-CLI Structure
     href:  /docs/en-us/tooldev/neo_cli_structure.md
+  - name: Network Protocol
+    href: /docs/en-us/tooldev/network-protocol.md
+  - name: Consensus
+    - name: Consensus Algorithm
+      href: /docs/en-us/tooldev/consensus/consensus_algorithm.md
+    - name: Consensus Protocol
+      href: /docs/en-us/tooldev/consensus/consensus_protocol.md
+    - name: Vote
+      href: /docs/en-us/tooldev/consensus/vote_validator.md
+  - name: Wallet
+    href: /docs/en-us/tooldev/wallets.md
+  - name: Transaction
+    - name: Transaction
+      href: /docs/en-us/tooldev/transaction/transaction.md
+    - name: Transaction Process
+      href: /docs/en-us/tooldev/transaction/tx_execution.md
   - name: NEO SDK
     items:
     - name: About NEO SDK
@@ -161,17 +168,6 @@
       href: /docs/en-us/tooldev/sdk/wallet.md
     - name: Transaction Construction
       href: /docs/en-us/tooldev/sdk/tx.md
-  - name: Big and Little Endian Usage
-     href: /docs/en-us/tooldev/endian.md
-  - name: Advanced Topics
-    - name: NeoVM Instructions
-      href: /docs/en-us/tooldev/advanced/neo_vm.md
-    - name: Network Protocol
-      href: /docs/en-us/tooldev/advanced/network-protocol.md
-    - name: Transaction Process
-      href: /docs/en-us/tooldev/advanced/tx_execution.md
-    - name: Merkel Tree
-      href: /docs/en-us/tooldev/advanced/merkle_tree.md
 - name: Document for Exchange Developers
   items:
   - name: Overview
@@ -332,3 +328,5 @@
             href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: SDK API (C#)
     href: https://docs.neo.org/developerguide/en/api/
+  - name: NeoVM Instructions
+    href: /docs/en-us/reference/neo_vm.md

@@ -48,11 +48,11 @@ Transaction can be constructed via NEO-CLI, NEO-GUI or RPC requests, and complet
    
    - sendmany：bulk transferring command, can specify the change address
    
-   For detailed information, refer to[API Reference](../../reference/rpc/latest-version/api.md). 
+   For detailed information, refer to [API Reference](../../reference/rpc/latest-version/api.md). 
 
 3. Via NEO-GUI
   
-   For detailed information can be found at [NEO GUI Transactions](../../node/gui/transc.md)。
+   For detailed information can be found at [NEO GUI Transactions](../../node/gui/transc.md).
 
 Transaction construction interface in wallet:
 
@@ -184,7 +184,7 @@ The node where the wallet is located, will broadcast the transaction through the
 
 **Broadcasting Steps**：
 
-1. If consensus module is started by local node, it runs [New transaction event in consensus module](../concept/consensus/consensus_protocol.md#6_tx_handler).
+1. If consensus module is started by local node, it runs [New transaction event in consensus module](../consensus/consensus_protocol.md#6_tx_handler).
 
 2. Local node will verify the transaction and add it into memory pool before broadcasting:
 
@@ -472,7 +472,7 @@ Other processing steps are the same as basic transaction.
 | ? | PublicKey | ECPoint | Validator's public key |
 |  -  | - | -  | fields of common Transaction |
 
-Special transaction to enroll to be a validator, for detailed information please refer to [Election and Voting](../concept/consensus/vote_validator.md).
+Special transaction to enroll to be a validator, for detailed information please refer to [Election and Voting](../consensus/vote_validator.md).
 
 ### StateTransaction
 
@@ -491,7 +491,7 @@ Descriptor type contains following information:
 | ? | Field | field value | byte[] | When Type = `0x40`, Field is `Votes`<br/>When Type = `0x48`, Field is `Registered` |
 | ? | Value | The value | byte[] | When Type = `0x40`, Value stores the list of voting addresses<br/> When Type = `0x48`, Store the Boolean value of the validator |
 
-Special transaction for validator application / consensus node voting. Validator candidate registration costs 1000 GAS. For detailed information, refer to [Election and Voting](../concept/consensus/vote_validator.md).
+Special transaction for validator application / consensus node voting. Validator candidate registration costs 1000 GAS. For detailed information, refer to [Election and Voting](../consensus/vote_validator.md).
 
 ### ContractTransaction
 
@@ -548,7 +548,7 @@ Special transaction for smart contract invocation. With `invoke/invokefunction/i
 1. **Legality verification**
 
     1. Verification fails if consumed Gas cannot be divided by 10^8 (In other words Gas amount must be integer format Fixed8. Decimal value is not acceptable).
-  
+    
     2. Common verification
 
 Other processing steps are the same as a basic transaction.

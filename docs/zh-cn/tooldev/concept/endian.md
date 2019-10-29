@@ -20,7 +20,7 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
 要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下一种方法:
 
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
-- NEO SDK，详情请参见 [常见数据类型转换](sdk/conversion.md)
+- NEO SDK，详情请参见 [常见数据类型转换](../sdk/conversion.md)
 
 ### 合约的ScriptHash
 每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。NEO的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收全局资产或者NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
@@ -48,7 +48,7 @@ var outputs = new List<TransactionOutput>{ new TransactionOutput()
 
 #### 通过RPC接口调用合约
 
-这里以 [InvokeFunction](../reference/rpc/latest-version/api/invokefunction.html) 为例，调用 NEP-5 合约的 balanceOf 方法。
+这里以 [InvokeFunction](../../reference/rpc/latest-version/api/invokefunction.html) 为例，调用 NEP-5 合约的 balanceOf 方法。
 
 如果传入的地址，参数类型为Hash160，需要使用**大端序**的地址ScriptHash。
 
@@ -116,4 +116,4 @@ rpcClient.invokeScript(script)
     });
 ```
 
-合约执行完成后，可以通过[getapplicationlog 方法](../reference/rpc/latest-version/api/getapplicationlog.md) 查看执行日志，执行日志在输出地址的时候，是以ByteArray为数据类型，输出地址相对应的小端序ScriptHash。
+合约执行完成后，可以通过[getapplicationlog 方法](../../reference/rpc/latest-version/api/getapplicationlog.md) 查看执行日志，执行日志在输出地址的时候，是以ByteArray为数据类型，输出地址相对应的小端序ScriptHash。

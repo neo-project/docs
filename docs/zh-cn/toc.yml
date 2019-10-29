@@ -142,17 +142,6 @@
         href: /docs/zh-cn/tooldev/concept/blockchain/validator.md      
     - name: 收费模型
       href: /docs/zh-cn/tooldev/concept/charging_model.md
-    - name: 交易
-      href: /docs/zh-cn/tooldev/concept/transaction.md
-    - name: 钱包
-      href: /docs/zh-cn/tooldev/concept/wallets.md
-    - name: 共识机制
-      - name: 共识算法
-        href: /docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.md
-      - name: 共识协议
-        href: /docs/zh-cn/tooldev/concept/consensus/consensus_protocol.md
-      - name: 投票
-        href: /docs/zh-cn/tooldev/concept/consensus/vote_validator.md
     - name: 密码学
       href:
       - name: 编码算法
@@ -161,8 +150,26 @@
         href: /docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.md
       - name: 加密算法
         href: /docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
+    - name: 大小端序的使用
+      href:  /docs/zh-cn/tooldev/concept/endian.md
   - name: NEO-CLI 结构
     href:  /docs/zh-cn/tooldev/neo_cli_structure.md
+  - name: 网络协议
+    href: /docs/zh-cn/tooldev/network-protocol.md
+  - name: 共识机制
+    - name: 共识算法
+      href: /docs/zh-cn/tooldev/consensus/consensus_algorithm.md
+    - name: 共识协议
+      href: /docs/zh-cn/tooldev/consensus/consensus_protocol.md
+    - name: 投票
+      href: /docs/zh-cn/tooldev/consensus/vote_validator.md
+  - name: 钱包
+    href: /docs/zh-cn/tooldev/wallets.md
+  - name: 交易
+    - name: 交易
+      href: /docs/zh-cn/tooldev/transaction/transaction.md
+    - name: 交易流程
+      href: /docs/zh-cn/tooldev/transaction/tx_execution.md
   - name: NEO SDK
     items:
     - name: 关于 NEO SDK
@@ -175,17 +182,6 @@
       href: /docs/zh-cn/tooldev/sdk/wallet.md
     - name: 交易
       href: /docs/zh-cn/tooldev/sdk/tx.md
-  - name: 大小端序的使用
-    href:  /docs/zh-cn/tooldev/endian.md
-  - name: 进阶知识
-    - name: NeoVM 指令集
-      href: /docs/zh-cn/tooldev/advanced/neo_vm.md
-    - name: 网络协议
-      href: /docs/zh-cn/tooldev/advanced/network-protocol.md
-    - name: 交易流程
-      href: /docs/zh-cn/tooldev/advanced/tx_execution.md
-    - name: 梅克尔树
-      href: /docs/zh-cn/tooldev/advanced/merkle_tree.md
 - name: 交易所对接指南
   items:
   - name: 概述
@@ -346,3 +342,5 @@
             href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: SDK API (C#)
     href: https://docs.neo.org/developerguide/zh/api/
+  - name: NeoVM 指令集
+    href: /docs/zh-cn/reference/neo_vm.md
