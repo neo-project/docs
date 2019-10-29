@@ -38,8 +38,6 @@
       href: /docs/zh-cn/node/cli/publish.md
     - name: 安装
       href: /docs/zh-cn/node/cli/setup.md
-    - name: 节点列表
-      href: /docs/zh-cn/node/cli/seedlist.md
     - name: 命令参考
       href: /docs/zh-cn/node/cli/cli.md
   - name: NEO-Python
