@@ -75,7 +75,7 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB.</td>
-            <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>Mandatory for exchanges</td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>Enquiries the timestamp of history blocks.</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
             <td>Recommended for exchanges</td>
         </tr>
         <tr>
@@ -99,19 +99,19 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>Provides wallet-specific RPC functionalities.</td>
-            <td><a href="../../reference/rpc/latest-version/api/claimgas.md">claimgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.md">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getbalance.md">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnewaddress.md">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunclaimedgas.md">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/getwalletheight.md">getwalletheight</a><br><a
-                    href="../../reference/rpc/latest-version/api/importprivkey.md">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/listaddress.md">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendfrom.md">sendfrom</a><br><a
+            <td><a href="../../reference/rpc/latest-version/api/claimgas.html">claimgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">dumpprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getbalance.html">getbalance</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnewaddress.html">getnewaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getunclaimedgas.html">getunclaimedgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getwalletheight.html">getwalletheight</a><br><a
+                    href="../../reference/rpc/latest-version/api/importprivkey.html">importprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/listaddress.html">listaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendfrom.html">sendfrom</a><br><a
                     href="../../reference/rpc/latest-version/api/sendmany.md">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendtoaddress.md">sendtoaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokefunction.md">invokefunction</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokescript.md">invokescript</a></td>
+                    href="../../reference/rpc/latest-version/api/sendtoaddress.html">sendtoaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokefunction.html">invokefunction</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokescript.html">invokescript</a></td>
             <td>Mandatory</td>
         </tr>
         <tr>
@@ -135,9 +135,9 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>Enquiries the UTXO assets related information.</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunclaimed</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getclaimable</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getunspents</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getunclaimed.html">getunclaimed</a><br><a
+                    href="../../reference/rpc/latest-version/api/getclaimable.html">getclaimable</a><br><a
+                    href="../../reference/rpc/latest-version/api/getunspents.html">getunspents</a></td>
             <td>Recommended for exchanges</td>
         </tr>
         <tr>
@@ -153,12 +153,13 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
             <td>Recommended for exchanges</td>
         </tr>
     </tbody>
 </table>
+
 
 
 

@@ -73,7 +73,7 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</td>
-            <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>交易所必选</td>
         </tr>
         <tr>
@@ -81,7 +81,7 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>查询历史区块的时间戳。</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
             <td>交易所推荐使用</td>
         </tr>
         <tr>
@@ -97,19 +97,19 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>提供钱包相关的 RPC 功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/claimgas.md">claimgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.md">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getbalance.md">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnewaddress.md">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunclaimedgas.md">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/getwalletheight.md">getwalletheight</a><br><a
-                    href="../../reference/rpc/latest-version/api/importprivkey.md">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/listaddress.md">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendfrom.md">sendfrom</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendmany.md">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendtoaddress.md">sendtoaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokefunction.md">invokefunction</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokescript.md">invokescript</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/claimgas.html">claimgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">dumpprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getbalance.html">getbalance</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnewaddress.html">getnewaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getunclaimedgas.html">getunclaimedgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/getwalletheight.html">getwalletheight</a><br><a
+                    href="../../reference/rpc/latest-version/api/importprivkey.html">importprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/listaddress.html">listaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendfrom.html">sendfrom</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendmany.html">sendmany</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendtoaddress.html">sendtoaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokefunction.html">invokefunction</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokescript.html">invokescript</a></td>
             <td>必选</td>
         </tr>
         <tr>
@@ -133,9 +133,9 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>查询 UTXO 资产相关信息。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getunclaimed.md">getunclaimed</a><br><a
-                    href="../../reference/rpc/latest-version/api/getclaimable.md">getclaimable</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunspents.md">getunspents</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getunclaimed.html">getunclaimed</a><br><a
+                    href="../../reference/rpc/latest-version/api/getclaimable.html">getclaimable</a><br><a
+                    href="../../reference/rpc/latest-version/api/getunspents.html">getunspents</a></td>
             <td>交易所推荐使用</td>
         </tr>
         <tr>
@@ -151,12 +151,13 @@
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.md">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.md">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
             <td>交易所推荐使用</td>
         </tr>
     </tbody>
 </table>
+
 
 
 
