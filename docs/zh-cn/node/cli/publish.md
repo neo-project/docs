@@ -7,8 +7,9 @@
 ### 安装文件
 
 1. 根据系统选择以下文件进行安装： 
-   - **Linux (ubuntu 17.10)**, 安装 [.NET Core Runtime](https://www.microsoft.com/net/download/linux)。
-   - **Windows 7** / **Windows 10**，安装 [.NET Core](<https://www.microsoft.com/net/download/windows>) 和 [.NET Framework](https://www.microsoft.com/net/download/windows)。
+
+   - **Linux (ubuntu 18.04)**, 安装 [.NET Core Runtime](https://www.microsoft.com/net/download/linux)。
+   - **Windows 7** / **Windows 10**，安装 [.NET Core](https://www.microsoft.com/net/download/windows) 和 [.NET Framework](https://www.microsoft.com/net/download/windows)。
 
 2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
 
