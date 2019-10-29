@@ -189,7 +189,7 @@ Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3
 Install successful, please restart neo-cli.
 ```
 
-以上只是示例插件，更多插件请参考 [安装插件](setup.md)。
+以上只是示例插件，更多插件请参考 [安装插件](setup.md/#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6)。
 
 ### 使用插件
 
