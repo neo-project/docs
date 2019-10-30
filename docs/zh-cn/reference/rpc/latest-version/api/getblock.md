@@ -1,6 +1,6 @@
 ﻿# getblock 方法
 
-根据指定的散列值，返回对应的区块头信息。
+根据指定的散列值，返回对应的区块信息。
 
 ```json
 {
@@ -58,44 +58,44 @@ verbose = 1，返回 JSON 格式的结果。
 
 ```json
 {
-    "jsonrpc": "2.0", 
-    "id": "1", 
+    "jsonrpc": "2.0",
+    "id": "1",
     "result": {
-        "hash": "0x479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 
-        "size": 164, 
-        "version": 0, 
-        "previousblockhash": "0x0000000000000000000000000000000000000000000000000000000000000000", 
-        "merkleroot": "0x1657c69845a2d5d46d6cd722729a04f43e7c31b71e7b71853d7a15ec06af298e", 
-        "time": 1468595301, 
-        "index": 0, 
-        "nextconsensus": "AdhEBzaBZujuj5kEiwvKmMVy5ydqj3AC3V", 
+        "hash": "0x479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be",
+        "size": 164,
+        "version": 0,
+        "previousblockhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "merkleroot": "0x1657c69845a2d5d46d6cd722729a04f43e7c31b71e7b71853d7a15ec06af298e",
+        "time": 1468595301,
+        "index": 0,
+        "nextconsensus": "AdhEBzaBZujuj5kEiwvKmMVy5ydqj3AC3V",
         "witness": {
-            "invocation": "", 
+            "invocation": "",
             "verification": "51"
-        }, 
+        },
         "consensus_data": {
-            "primary": 0, 
+            "primary": 0,
             "nonce": "000000007c2bac1d"
-        }, 
+        },
         "tx": [
             {
-                "txid": "0xdd4372964d52e800e07b7d1c536a0ad29022edbf506603c01a4efa6cc0b4e1c6", 
-                "size": 55, 
-                "version": 0, 
-                "nonce": 0, 
-                "script": "68123e7fe8", 
-                "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt", 
-                "gas": "0", 
-                "net_fee": "0", 
-                "valid_until_block": 0, 
-                "attributes": [ ], 
+                "txid": "0xdd4372964d52e800e07b7d1c536a0ad29022edbf506603c01a4efa6cc0b4e1c6",
+                "size": 55,
+                "version": 0,
+                "nonce": 0,
+                "script": "68123e7fe8",
+                "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt",
+                "gas": "0",
+                "net_fee": "0",
+                "valid_until_block": 0,
+                "attributes": [ ],
                 "witness": {
-                    "invocation": "", 
+                    "invocation": "",
                     "verification": "51"
                 }
             }
-        ], 
-        "confirmations": 6180, 
+        ],
+        "confirmations": 6180,
         "nextblockhash": "0x1c00023b24ba5328918f4a0adc35607c8f97913fdda88b4eb4c571e7bc613bf4"
     }
 }

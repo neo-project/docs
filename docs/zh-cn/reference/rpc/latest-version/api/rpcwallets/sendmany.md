@@ -11,7 +11,7 @@
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "sendtoaddress",
+  "method": "sendmany",
   "params": [outputs_array,fee, change_address],
   "id": 1
 }

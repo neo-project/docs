@@ -26,7 +26,7 @@
     ...
   ```
 
-* **默认打开钱包:** 如果要调用与钱包相关的 API，也需要先修改配置文件 `config.json`，将:
+* **默认打开钱包:** 如果设置启动neo-cli时自动打开钱包，也需要先修改配置文件 `config.json`，将:
   - unlockwallet 改为 true 的状态，
   - 并填写对象钱包的文件名和密码，如下所示：
   ```json
@@ -95,7 +95,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getbalance](api/rpccwallets/getbalance.md) | \<asset_id> | 查询资产余额 | |
 | [getnewaddress](/api/rpcwallets/getnewaddress.md) |  | 创建一个新的地址 | |
 | [getunclaimedgas](/api/rpcwallets/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 | |
-| [getwalletheight](/api/rpcwallets/getwalletheight.md) |  | 获取当前钱包索引高度 | |
 | [importprivkey](/api/rpcwallets/importprivkey.md) | \<key> | 导入私钥到钱包 | |
 | [listaddress](/api/rpcwallets/listaddress.md) |  | 列出当前钱包内的所有地址 | |
 | [sendfrom](/api/rpcwallets/sendfrom.md) | \<asset_id>\<from>\<to>\<value>\[fee]\[change_address] | 从指定地址，向指定地址转账 | |
