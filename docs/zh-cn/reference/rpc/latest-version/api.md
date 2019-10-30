@@ -54,11 +54,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                       | 参数                                       | 说明                           | 备注       |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- | -------- |
-| [claimgas](api/claimgas.md) | [address] | 提取钱包中的 GAS | 需要打开钱包 |
 | [dumpprivkey](api/dumpprivkey.md)        | \<address>                               | 导出指定地址的私钥                    | 需要打开钱包   |
-| [getaccountstate](api/getaccountstate.md) | \<address>                               | 根据账户地址，查询账户资产信息              |          |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据指定的 NEP-5 交易 ID 获取合约日志。 | |
-| [getassetstate](api/getassetstate.md) | \<asset_id>                              | 根据指定的资产编号，查询资产信息             |          |
 | [getbalance](api/getbalance.md)          | \<asset_id>                              | 根据指定的资产编号，返回钱包中对应资产的余额信息     | 需要打开钱包   |
 | [getbestblockhash](api/getbestblockhash.md) |                                          | 获取主链中高度最大的区块的散列              |          |
 | [getblock](api/getblock.md)              | \<hash> [verbose=0]                      | 根据指定的散列值，返回对应的区块信息           |          |
@@ -67,7 +64,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblockhash](api/getblockhash.md)      | \<index>                                 | 根据指定的索引，返回对应区块的散列值           |          |
 | [getblockheader](api/getblockheader.md) | \<hash> [verbose=0] | 根据指定的散列值，返回对应的区块头信息。 | |
 | [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 根据指定的索引，返回截止到该区块前的系统手续费      |          |
-| [getclaimable](api/getclaimable.md) | <address> | 根据指定地址，返回可以 claim 的 GAS 信息。 | |
 | [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |          |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |          |
 | [getmetricblocktimestamp](api/getmetricblocktimestamp.md) | \<blocks numbers>  \<endHeight> | 返回指定区块高度及之前 n 个区块的 timestamp。 | |
@@ -78,14 +74,10 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |          |
 | [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | 根据合约脚本散列和存储的 key，返回存储的 value |          |
 | [gettransactionheight](api/gettransactionheight.md) | \<txid> | 获取交易高度。 | |
-| [gettxout](api/gettxout.md)              | \<txid> \<n>                             | 根据指定的散列和索引，返回对应的交易输出（零钱）信息   |          |
 | [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |          |
-| [getunclaimed](api/getunclaimed.md) | \<address> | 返回地址中未提取的 GAS 数量。 | |
 | [getunclaimedgas](api/getunclaimedgas.md) | | 显示钱包中未提取的 GAS 数量。 | 需要打开钱包 |
-| [getunspents](api/getunspents.md) | \<address> | 返回指定账户中未花费的 UTXO 资产信息。 |  |
 | [getversion](api/getversion.md)          |                                          | 获取查询节点的版本信息                  |          |
 | [getvalidators](api/getvalidators.md) | | 查看当前共识节点的信息 | |
-| [getwalletheight](api/getwalletheight.md) | | 获取当前钱包索引高度 | 需要打开钱包 |
 | [importprivkey](api/importprivkey.md) | | 导入私钥到钱包 | 需要打开钱包 |
 | [invokefunction](api/invokefunction.md)  | \<script_hash>  \<operation>  \<params>  | 以指定的脚本散列值调用智能合约，传入操作及参数      |          |
 | [invokescript](api/invokescript.md)      | \<script>                                | 通过虚拟机运行脚本并返回结果               |          |
