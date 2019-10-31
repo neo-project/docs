@@ -29,28 +29,22 @@
     ...
   ```
 
-<<<<<<< HEAD
-* **默认打开钱包:** 如果设置启动neo-cli时自动打开钱包，也需要先修改配置文件 `config.json`，将:
-  - unlockwallet 改为 true 的状态，
-  - 并填写对象钱包的文件名和密码，如下所示：
-=======
-### **配置钱包**
+### **默认打开钱包:**
+如果设置启动neo-cli时自动打开钱包，也需要先修改配置文件 `config.json`，将:
 
-如果要调用与钱包相关的 API，需要在 `config.json` 中进行以下配置：
+- unlockwallet 改为 true 的状态，
+- 并填写对象钱包的文件名和密码，如下所示：
 
-  - 将 unlockwallet 改为 true 的状态，
-  - 填写对象钱包的文件名和密码，如下所示：
->>>>>>> b505aa2619a867aa9d4adccf5b85f6e7424f21fc
-  ```json
-  ...
-  "UnlockWallet": {
-        "Path": "YourWallet.json",
-        "Password": "YourPassword",
-        "StartConsensus": false,
-        "IsActive": true
-      }
-  ...
-  ```
+```json
+...
+"UnlockWallet": {
+      "Path": "YourWallet.json",
+      "Password": "YourPassword",
+      "StartConsensus": false,
+      "IsActive": true
+    }
+...
+```
 
 完成配置后打开 NEO-CLI，客户端会在同步到最新区块后自动打开已配置的钱包并进行钱包索引同步。
 
