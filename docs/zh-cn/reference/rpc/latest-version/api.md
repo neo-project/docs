@@ -34,7 +34,7 @@
   - unlockwallet 改为 true 的状态，
   - 并填写对象钱包的文件名和密码，如下所示：
 =======
-### **配置钱包** 
+### **配置钱包**
 
 如果要调用与钱包相关的 API，需要在 `config.json` 中进行以下配置：
 
@@ -109,9 +109,9 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getunclaimedgas](/api/rpcwallets/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 | |
 | [importprivkey](/api/rpcwallets/importprivkey.md) | \<key> | 导入私钥到钱包 | |
 | [listaddress](/api/rpcwallets/listaddress.md) |  | 列出当前钱包内的所有地址 | |
-| [sendfrom](/api/rpcwallets/sendfrom.md) | \<asset_id>\<from>\<to>\<value>\[fee]\[change_address] | 从指定地址，向指定地址转账 | |
-| [sendmany](/api/rpcwallets/sendmany.md) | \<outputs_array>\[fee]\[change_address] | 批量转账命令 | |
-| [sendtoaddress](/api/rpcwallets/sendtoaddress.md) | \<asset_id>\<address>\<value>\[fee]\[change_address] | 向指定地址转账 | |
+| [sendfrom](/api/rpcwallets/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 | |
+| [sendmany](/api/rpcwallets/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 | |
+| [sendtoaddress](/api/rpcwallets/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 | |
 
 
 ## GET 请求示例
