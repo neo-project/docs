@@ -20,7 +20,7 @@
 
 ## 修改配置文件
 
-在启动 NEO-CLI 前需先配置 config.json 文件，开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。下面是一个标准设置的例子，其中 MaxGasInvoke 是允许通过 RPC 调用虚拟机执行消耗的最大 gas 数额，Path 是钱包的路径，Password 是钱包的密码，IsActive 设为 true 表示允许自动打开钱包。由于 NEO3 主网尚未开放，请用`config.testnet.json` 文件替换config.json文件。
+在启动 NEO-CLI 前需先配置 config.json 文件，开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。下面是一个标准设置的例子，其中 MaxGasInvoke 是允许通过 RPC 调用虚拟机执行消耗的最大 gas 数额，Path 是钱包的路径，Password 是钱包的密码，IsActive 设为 true 表示允许自动打开钱包。**由于 Neo3 主网尚未开放，请用`config.testnet.json` 文件替换config.json文件。**
 
 ```
   {
@@ -156,12 +156,17 @@
 使用内部命令自动下载或卸载插件，操作更为简便。例如：
 
 ```
-install ImportBlocks
-uninstall ApplicationLogs
-
+neo> install ImportBlocks
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/ImportBlocks.zip
+Install successful, please restart neo-cli.
 ```
 
-在安装完毕后，请重启 NEO-CLI 以使插件生效。
+```
+neo> uninstall RpcWallet
+Uninstall successful, please restart neo-cli.
+```
+
+在安装或卸载完毕后，请重启 NEO-CLI 使操作生效。
 
 ## 启动 NEO 节点
 
@@ -179,7 +184,7 @@ dotnet neo-cli.dll
 neo-cli.exe
 ```
 
-**Linux (ubuntu 18.04)**:
+**Linux (ubuntu 16.04/18.04)**:
 
 ```
 ./neo-cli
