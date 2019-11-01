@@ -152,7 +152,7 @@
             if (!k) $("#sResult").html("");
             $.ajax({
                 type: "GET",
-                url: url + "/?k=" + k + "&l=" + l,
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
                 success: function (data) {
