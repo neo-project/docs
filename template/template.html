@@ -27,8 +27,8 @@
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
 
-    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="https://neo3.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo3.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="/css/site.min.css" rel="stylesheet" />
@@ -45,16 +45,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/docs">Documentation</a>
+                    <a class="nav-link" href="/docs/index.html">Documentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                    <a class="nav-link" href="/tutorial/index.html">Tutorial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/faq">FAQ</a>
+                    <a class="nav-link" href="/faq/index.html">FAQ</a>
                 </li>
                 <li class="nav-item" style="margin-right: 100px">
-                    <a class="nav-link" href="/articles">Articles</a>
+                    <a class="nav-link" href="/articles/index.html">Articles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
@@ -69,6 +69,13 @@
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
             <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
                 {catalog}
             </div>
             <main class="p-3 p-sm-4 p-md-5">
@@ -98,12 +105,12 @@
             <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
         </div>
     </footer>
-    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
-    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
-    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://neo3.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo3.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo3.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo3.azureedge.net/js/jquery.lazyload.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://neo3.azureedge.net/js/text-autospace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
     <script src="/js/site.min.js"></script>
@@ -115,6 +122,58 @@
                 $(e.target).parents("h2").next().toggle("fast");
             });
         }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
