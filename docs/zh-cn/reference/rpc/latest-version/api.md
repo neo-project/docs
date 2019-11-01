@@ -4,50 +4,6 @@
 
 `dotnet neo-cli.dll /rpc`
 
-## 配置 NEO-CLI
-
-### **配置 HTTPS**
-
-如果要通过 HTTPS 的方式访问 RPC 服务器，需要在启动节点前修改配置文件 `config.json`，并设置域名、证书和密码，如下所示：
-
-
-  ```json
-  {
-    "ApplicationConfiguration": {
-      "Paths": {
-        "Chain": "Chain"
-      },
-      "P2P": {
-        "Port": 10333,
-        "WsPort": 10334
-      },
-      "RPC": {
-        "Port": 10331,
-        "SslCert": "YourSslCertFile.xxx",
-        "SslCertPassword": "YourPassword"
-      }
-    ...
-  ```
-
-### **默认打开钱包:**
-如果设置启动neo-cli时自动打开钱包，也需要先修改配置文件 `config.json`，将:
-
-- unlockwallet 改为 true 的状态，
-- 并填写对象钱包的文件名和密码，如下所示：
-
-```json
-...
-"UnlockWallet": {
-      "Path": "YourWallet.json",
-      "Password": "YourPassword",
-      "StartConsensus": false,
-      "IsActive": true
-    }
-...
-```
-
-完成配置后打开 NEO-CLI，客户端会在同步到最新区块后自动打开已配置的钱包并进行钱包索引同步。
-
 ## 监听端口
 
 JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../../../node/introduction.md)。
