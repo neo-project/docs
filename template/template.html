@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -69,6 +69,13 @@
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
             <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="search-bar">
+                    <span class="search-de">X</span>
+                    <input id="sInput" placeholder="search" />
+                    <div class="search-re">
+                        <ul id="sResult"></ul>
+                    </div>
+                </div>
                 {catalog}
             </div>
             <main class="p-3 p-sm-4 p-md-5">
@@ -115,6 +122,58 @@
                 $(e.target).parents("h2").next().toggle("fast");
             });
         }
+
+        $("#sInput").bind({
+            focus: function () {
+                searchBar();
+            },
+            keyup: function (e) {
+                clearTimeout();
+                if (e.which == 13) {
+                    searchBar();
+                }
+                setTimeout(searchBar, 300);
+            },
+            paste: function () {
+                searchBar();
+            }
+        });
+
+        $(".search-de").click(function () {
+            $("#sInput").val("");
+            $("#sResult").html("");
+        })
+
+        var url = window.location.origin;
+
+        function searchBar() {
+            k = $("#sInput").val();
+            l = localStorage.getItem("lang") || navigator.language || "en-us";
+            if (!k) $("#sResult").html("");
+            $.ajax({
+                type: "GET",
+                url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var html = ""
+
+                    if (data.length == 0) {
+                        html += "<li><a><span> No results found. </span></a></li > ";
+                    }
+                    for (i in data) {
+                        var _data = data[i];
+                        html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                        html += "<span>" + _data.Line + "</span></a></li>";
+                    }
+                    $("#sResult").html(html);
+                },
+                fail: function () {
+                    alert("fail");
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
