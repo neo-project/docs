@@ -31,7 +31,7 @@
 
 | Reference  | | | |
 | ---------------------------------------------- | -------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------- |
-| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Smart Contract Framework](reference/scapi/fw.md) | [SDK API (C#)](https://docs.neo.org/developerguide/zh/api/) |
+| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Smart Contract Framework](reference/scapi/fw.md) | [SDK API (C#)](https://docs.neo.org/developerguide/zh/api/index.html) |
 | [NeoVM Instructions](reference/neo_vm.md) |  |  |  |
 
 <link href="index.css" rel="stylesheet" />
