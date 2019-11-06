@@ -1,20 +1,19 @@
 ﻿# getblockheader Method
 
-Return the corresponding block header information according to the specified script hash.
+Returns the corresponding block header information according to the specified script hash.
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": [hash, verbose],
+  "params": [index, verbose],
   "id": 1
 }
-
 ```
 
 ## Parameter Description
 
-* hash: The block script hash.
+* Index: Block index (block height) = Number of blocks - 1.
 
 * verbose: Optional, the default value of verbose is 0. 
   * When verbose is 0, the serialized information of the block is returned in a hexadecimal string. If you want the detailed information, you will need to use the SDK for deserialization. 
@@ -28,7 +27,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": ["479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be"],
+  "params": [0],
   "id": 1
 }
 ```
@@ -51,7 +50,7 @@ Verbose = 1, return the result in JSON format.
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": ["479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 1],
+  "params": [0, 1],
   "id": 1
 }
 ```

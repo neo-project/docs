@@ -1,12 +1,21 @@
-# getstorage Method
+﻿# getstorage Method
 
-Returns the stored value, according to the contract script hash and the stored key.
+Return the stored value according to the contract script hash and the stored key.
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getstorage",
+  "params": [script_hash, key],
+  "id": 15
+}
+```
 
-script_hash: Contract script hash
+### Parameter Description
 
-key: The key to look up in storage (in hex string)
+* script_hash: Contract script hash
+
+* key: The key to look up in storage (in hex string)
 
 ## Example
 
@@ -30,4 +39,3 @@ Response body:
   "result": "4c696e"
 }
 ```
-
