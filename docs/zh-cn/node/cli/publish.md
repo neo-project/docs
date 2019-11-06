@@ -15,6 +15,10 @@
    ```
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
+> [!Note]
+>
+> - neo-cli master 分支仅针对开发中的 neo-cli 3.x 版本
+> - neo 主网节点版本为 neo-cli-2.X, 如果想切换到此版本，请切换分支: $ git checkout master-2.x
 
 3. 安装 levelDB:
 
