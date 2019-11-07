@@ -1,12 +1,22 @@
-# 安装 NEO-CLI
+# 安装
 
-本文将介绍如何安装 NEO-CLI 的官方发布程序包以及启动 NEO 节点。你也可以选择直接从 GitHub 上下载 NEO-CLI 源代码并发布成可执行文件。如果使用 macOS，则只能通过后一种方式安装运行 NEO-CLI。相关信息请参考 [发布 NEO-CLI 源码](publish.md)。
+你可以通过两种方式安装 NEO-CLI：
+
+- 直接下载 NEO-CLI 的官方发布程序包进行安装。
+- 或者下载 NEO-CLI 的源代码并发布成可执行文件，如果使用 macOS，则推荐此方式。
+
+下文将具体介绍这两种方式。
 
 ## 配置要求
 
-建议运行 NEO-CLI 的计算机配置固态硬盘，以免同步区块数据时速度太慢。
+运行 NEO-CLI 的计算机需具备以下配置，以获得较佳体验：
 
-## 安装客户端
+- Windows 10/ Linux (ubuntu16.04/18.04  centos)/ macos
+- 2CPU
+- 16G 内存
+- 50G（或以上） 固态硬盘
+
+## 安装 NEO-CLI 程序包
 
 1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
 
@@ -18,200 +28,110 @@
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
 
-## 修改配置文件
+## 通过源码发布 NEO-CLI 
 
-在启动 NEO-CLI 前需先配置 config.json 文件，开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。下面是一个标准设置的例子，其中 MaxGasInvoke 是允许通过 RPC 调用虚拟机执行消耗的最大 gas 数额，Path 是钱包的路径，Password 是钱包的密码，IsActive 设为 true 表示允许自动打开钱包。**由于 Neo3 主网尚未开放，请用`config.testnet.json` 文件替换config.json文件。**
+你也可以直接从 Github 下载 NEO-CLI 源码并进行发布。
 
-```
-  {
-  "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}"
-    },
-    "P2P": {
-      "Port": 20333,
-      "WsPort": 20334
-    },
-    "RPC": {
-      "BindAddress": "127.0.0.1",
-      "Port": 20332,
-      "SslCert": "",
-      "SslCertPassword": "",
-      "MaxGasInvoke": 10
-    },
-    "UnlockWallet": {
-      "Path": "wallet.json",
-      "Password": "11111111",
-      "StartConsensus": false,
-      "IsActive": true
-    }
-  }
-}
-```
+### 在 Windows 系统中发布
 
-> [!Note]
->
-> BindAddress 选项，默认为本地 127.0.0.1。若要允许远程调用 RPC，可以设成 0.0.0.0，此时为了保障节点的安全性，请务必设置好对应端口的防火墙策略。
+#### 安装文件
 
-## 安装插件
+1. 在 Windows 10 系统中，安装 [.NET Core](https://www.microsoft.com/net/download/windows) 和 [.NET Framework](https://www.microsoft.com/net/download/windows)。
 
-一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 NEO-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。
+2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
 
-下表列出了所有插件，选取所需要的插件进行下载。
+   ```
+   $ git clone https://github.com/neo-project/neo-cli.git
+   ```
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th style="width: 25%;">插件</th>
-            <th style="width: 35%;">功能</th>
-            <th style="width: 20%;">包含 API</th>
-            <th style="width: 20%;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/Applicationlogs.zip">ApplicationLogs</a>
-            </td>
-            <td>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
-            <td>交易所必选</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/CoreMetrics.zip">CoreMetrics</a>
-            </td>
-            <td>查询历史区块的时间戳。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getmetricblocktimestamp</a></td>
-            <td>交易所推荐使用</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/ImportBlocks.zip">ImportBlocks</a>
-            </td>
-            <td>同步离线包。</td>
-            <td></td>
-            <td>必选</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/RpcNep5Tracker.zip">RpcNep5Tracker</a>
-            </td>
-            <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.md">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.md">getnep5transfers</a></td>
-            <td>交易所推荐使用</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/RpcSecurity.zip">RpcSecurity</a>
-            </td>
-            <td>对 HTTP Request 进行 base64 加密，提升 RPC 请求的安全性。需要在该插件的 config.json 文件中设置 username 和 password。</td>
-            <td></td>
-            <td>可选</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/RpcWallet.zip">RpcWallet</a>
-            </td>
-            <td>提供钱包相关的 RPC 功能。</td>
-            <td><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.md">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getbalance.md">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnewaddress.md">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunclaimedgas.md">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/importprivkey.md">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/listaddress.md">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendfrom.md">sendfrom</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendmany.md">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendtoaddress.md">sendtoaddress</a></td>
-            <td>必选</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/StatesDumper.zip">StatesDumper</a>
-            </td>
-            <td>导出 NEO-CLI 状态数据。</td>
-            <td></td>
-            <td>可选</td>
-        </tr> 
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip">SystemLog</a>
-            </td>
-            <td>打印共识日志。</td>
-            <td></td>
-            <td>可选</td>
-        </tr>               
-    </tbody>
-</table>
+3. 复制 [LevelDB](https://github.com/neo-project/leveldb) 并放置到 neo-cli 文件夹下。
 
+#### 发布可执行文件
 
-
-
-将下载的插件放置在 neo-cli 根目录下，选择解压到当前文件夹，解压完成后的目录结构应如下图。
-
-![plugins.png](../../assets/plugins.png)
-
-使用内部命令自动下载或卸载插件，操作更为简便。例如：
+在命令行中运行以下命令：
 
 ```
-neo> install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/ImportBlocks.zip
-Install successful, please restart neo-cli.
+cd neo-cli
+dotnet restore
+dotnet publish -c release -r win10-x64
 ```
 
-```
-neo> uninstall RpcWallet
-Uninstall successful, please restart neo-cli.
-```
+### 在 Linux 系统中发布
 
-在安装或卸载完毕后，请重启 NEO-CLI 使操作生效。
+#### 安装文件
 
-## 启动 NEO 节点
+1. 在 Linux (ubuntu 18.04) 系统中，安装 [.NET Core Runtime](https://www.microsoft.com/net/download/linux)。
 
-打开命令行，定位到 NEO-CLI 所在目录，输入以下命令启动 NEO 节点 。
+2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
 
-**Windows 10**:
+   ```
+   $ git clone https://github.com/neo-project/neo-cli.git
+   ```
 
-```
-dotnet neo-cli.dll
-```
+3. 运行以下命令，安装 levelDB:
 
-或
+   ```
+   sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
+   ```
 
-```
-neo-cli.exe
-```
+#### 发布可执行文件
 
-**Linux (ubuntu 16.04/18.04)**:
+在命令行中运行以下命令：
 
 ```
-./neo-cli
+cd neo-cli
+dotnet restore
+dotnet publish -c release -r linux-x64
 ```
 
-或
+### 在 macOS 系统中发布
+
+#### 安装文件
+
+1. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
+
+   ```
+   $ git clone https://github.com/neo-project/neo-cli.git
+   ```
+
+2. 使用 `rocksdb` 命令下载 NEO 依赖库：
+
+   ```
+   $ git clone -b rocksdb-proxy https://github.com/ixje/neo.git
+   ```
+
+3. 使用 Homebrew 安装 `rocksdb`：
+
+   ```
+   $ brew install rocksdb
+   ```
+
+4. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
+
+#### 编译准备工作
+
+1. 打开 `neo-cli` 文件夹，在 Visual Studio 中运行 `neo-cli.sln` 。
+2. 右键单击 NEO-CLI 解决方案文件夹 `neo-cli (master)` ，点击 `Add` > `Add Existing Project...`
+3. 导航到 `neo` 文件夹并选择  `neo.csproj` 。
+4. 右键单击 NEO-CLI 项目依赖库文件夹并选择 `Edit References...`
+5. 选取 `neo` 并点击 `ok`
+6. 单击 菜单中的 `Restore NuGet Packages` 和 `Update NuGet Packages`
+7. 单击  `Build` 重新编译以免出错。
+
+#### 发布可执行文件
+
+在命令行中运行以下命令：
 
 ```
-dotnet neo-cli.dll
+cd neo-cli
+dotnet restore
+dotnet publish -c release -r osx-x64
 ```
 
-> [!Note]
->
-> 如果使用 dotnet，需要先安装 .net core 环境。
+进入编译完的文件所在目录：
+`$ cd neo-cli/bin/Release/netcoreapp2.0/osx-x64/publish`
+**以上路径可能需要根据用户实际路径进行更改*
 
-如果想在启动节点的同时启动 API 服务，可以输入参数 `--rpc`  或 `/rpc` 或 `-r`，如：
+## 阅读下节
 
-```
-dotnet neo-cli.dll --rpc
-```
-
-如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
-
-> [!WARNING]
->
-> 如果开通了 API 服务，并且在 NEO-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
-
-## 快速同步区块数据
-
-客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。
+[启动 NEO-CLI]()
