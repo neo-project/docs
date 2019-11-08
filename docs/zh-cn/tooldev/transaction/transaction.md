@@ -121,7 +121,7 @@ NEO 中一共定义了9种不同类型的交易，如下表所示。
 |  4  | Version | 区块版本 | uint | `0` |
 | 32   | PrevHash | 上一个区块Hash | UInt256 |  `0x0000000000000000000000000000000000000000000000000000000000000000` |
 |  32  | MerkleRoot | Merkle树Root | uint256 |`0x803ff4abe3ea6533bcc0be574efa02f83ae8fdc651c879056b0d9be336c01bf4`  |
-| 4  | Timestamp |  创世时间 | uint | 创世时间为：`2016-07-15 | 23:08:21` |
+| 4  | Timestamp |  创世时间 | uint | 创世时间为：`2016-07-15 23:08:21` |
 | 4   | Index | 创世块高度 | uint | `0` |
 |  8  | ConsensusData | Nonce | ulong | `2083236893`, 比特币创世块nonce值，向比特币致敬  |
 | 20  | NextConsensus | 下一个共识地址 | UInt160 | 参与下一轮出块的共识节点的多方签名合约地址   |
