@@ -17,7 +17,7 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 下面是一个标准设置的例子：
 
-```
+```json
   {
   "ApplicationConfiguration": {
     "Paths": {
@@ -52,7 +52,7 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 如果要通过 HTTPS 的方式访问 RPC 服务器，需要在启动节点前修改配置文件 `config.json`，并设置域名、证书和密码，如下所示： 
 
-```
+```json
 {
   "ApplicationConfiguration": {
     "Paths": {
@@ -113,15 +113,15 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
             </td>
             <td>提供钱包相关的 RPC 功能。</td>
             <td><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.md">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getbalance.md">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnewaddress.md">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunclaimedgas.md">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/importprivkey.md">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/listaddress.md">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendfrom.md">sendfrom</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendmany.md">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendtoaddress.md">sendtoaddress</a></td>
+                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">dumpprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/getbalance.html">getbalance</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnewaddress.html">getnewaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/getunclaimedgas.html">getunclaimedgas</a><br><a
+                    href="../../reference/rpc/latest-version/api/importprivkey.html">importprivkey</a><br><a
+                    href="../../reference/rpc/latest-version/api/listaddress.html">listaddress</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendfrom.html">sendfrom</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendmany.html">sendmany</a><br><a
+                    href="../../reference/rpc/latest-version/api/sendtoaddress.html">sendtoaddress</a></td>
             <td>必选</td>
         </tr>
         <tr>
@@ -129,7 +129,7 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/Applicationlogs.zip">ApplicationLogs</a>
             </td>
             <td>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>必选</td>
         </tr>
         <tr>
@@ -137,7 +137,7 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>查询历史区块的时间戳。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.md">getmetricblocktimestamp</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
             <td>推荐</td>
         </tr>
         <tr>
@@ -145,8 +145,8 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.md">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.md">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
             <td>推荐</td>
         </tr>
         <tr>
@@ -175,6 +175,7 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>               
     </tbody>
 </table>
+
 
 将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。
 
