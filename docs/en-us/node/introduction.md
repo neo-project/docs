@@ -6,7 +6,7 @@ There are two full-node programs:
 - Neo-GUI, which has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. 
 - Neo-CLI, which provides an external API for basic wallet functions and is intended for NEO developers. It also helps other nodes achieve consensus with the network and is involved in generating new blocks.
 
-The NEO [network protocol](../tooldev/advanced/network-protocol.md) provides a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
+The NEO [network protocol](../tooldev/network-protocol.md) provides a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending NEO without an open wallet.
 
 ## NEO client download address
 

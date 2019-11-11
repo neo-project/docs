@@ -4,7 +4,7 @@ Hash function, or hash algorithm, is a method creating digital finger print from
 
 Two different hash functions are used widely in the NEO system: SHA256 and RIPEMD160. The former is used to generate a longer hash value (32 bytes) and the latter is used to generate a shorter hash value (20 bytes). Usually when a hash value of an object is generated, hash functions are used twice. For example, when a hash of a block or transaction is generated, SHA256 is calculated twice; when a contract address is generated, the SHA256 hash of the script is calculated, then the NSPEMD160 hash of the previous hash is calculated. 
 
-In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one with the next and then hashes again, repeating this process until there is only one root hash (Merkle Root). For more information, refer to [Merkle Tree](../../advanced/merkle_tree.md).
+In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one with the next and then hashes again, repeating this process until there is only one root hash (Merkle Root). 
 
 ### RIPEMD160 
 

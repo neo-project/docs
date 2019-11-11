@@ -49,7 +49,7 @@ NEO中的交易，也是采用类似比特币交易的设计，每一笔交易�
   - sendmany：批量转账命令，并且可以指定找零地址
 
    具体用法请参考[API 参考](../../reference/rpc/latest-version/api.md)。
-   
+  
 3. 通过NEO-GUI界面
 
   具体操作请参考 [交易](../../node/gui/transc.md)。
@@ -184,7 +184,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 **广播步骤**：
 
-1. 若本地节点启动了共识模块，则触发[共识模块的新交易事件](../concept/consensus/consensus_protocol.md#6_tx_handler)。
+1. 若本地节点启动了共识模块，则触发[共识模块的新交易事件](../consensus/consensus_protocol.md#6_tx_handler)。
 
 2. 本地节点在广播交易前，会先对交易进行校验，并添加到内存池中：
 
@@ -472,7 +472,7 @@ GAS是由持有NEO用户进行Claim操作，进行增发GAS（并非每出一个
 | ? | PublicKey | 记账人的公钥 | ECPoint | 用于分配的NEO |
 |  -  | - | - | -  | 	交易的公共字段  |
 
-报名成为验证人的特殊交易，具体操作请参阅[选举与投票](../concept/consensus/vote_validator.md)。
+报名成为验证人的特殊交易，具体操作请参阅[选举与投票](../consensus/vote_validator.md)。
 
 ### StateTransaction
 
@@ -491,7 +491,7 @@ GAS是由持有NEO用户进行Claim操作，进行增发GAS（并非每出一个
 | ? | Field | 验证人表中的字段 | string | Type = `0x40`时， Field = `Votes`<br>Type = `0x48`时，Field = `Registered` |
 | ? | Value | 验证人表中Key所代表的<br>字段存放值 | byte[] | Type = `0x40`时，Value存放投票地址列表 <br> Type = `0x48`时，存放是否申请验证人的布尔值 |
 
-申请验证人或共识节点投票的交易。用户可以在NEO GUI报名成为验证人，成为验证人后就可以根据投票数竞选成为共识节点。报名成为验证人需要花费手续费 1000 GAS。具体操作请参阅[选举与投票](../concept/consensus/vote_validator.md)。
+申请验证人或共识节点投票的交易。用户可以在NEO GUI报名成为验证人，成为验证人后就可以根据投票数竞选成为共识节点。报名成为验证人需要花费手续费 1000 GAS。具体操作请参阅[选举与投票](../consensus/vote_validator.md)。
 
 ### ContractTransaction
 
