@@ -414,7 +414,7 @@ Install successful, please restart neo-cli.
 
 `[path=chain.acc]`：导出全部区块数据
 
-\`<start> [count]`：指定要导出数据的起始区块高度和区块数量
+`<start> [count]`：指定要导出数据的起始区块高度和区块数量
 
 ### dump storage
 
