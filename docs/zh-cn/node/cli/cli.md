@@ -288,7 +288,6 @@ address: AapRvH8FB2jx9S2fmwntAW4QYdXYyyeqQ9
 
 ```
 neo> import key key1.txt
-[4/4]
 ```
 
 如果是指定文件的话，文件里的私钥格式请参考 export key key.txt 的输出。
