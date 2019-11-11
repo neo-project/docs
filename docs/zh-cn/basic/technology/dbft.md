@@ -68,8 +68,9 @@ dBFT 2.0针对旧版本可能产生分叉的问题进行修正，从根本上杜
 
 ## 延伸阅读
 
-[共识算法](../../tooldev/concept/consensus/consensus_algorithm.md)
+[共识算法](../../tooldev/consensus/consensus_algorithm.md)
 
-[共识协议](../../tooldev/concept/consensus/consensus_protocol.md)
+[共识协议](../../tooldev/consensus/consensus_protocol.md)
 
-[投票](../../tooldev/concept/consensus/vote_validator.md)
+[投票](../../tooldev/consensus/vote_validator.md)
+

@@ -19,7 +19,7 @@ Let's look at a standard wallet address and corresponding scripthash strings in 
 To convert between the wallet address and scripthash, or between big endian and little endian byte order, use one of the following:
 
 - [DataTransformationTools](https://peterlinx.github.io/DataTransformationTools/)
-- NEO SDK (See [Data Conversion](sdk/conversion.md))
+- NEO SDK (See [Data Conversion](../sdk/conversion.md))
 
 ### The contract scripthash
 When a contract has been deployed a scripthash is generated as a unified identifier of the contract. The contract scripthash can be converted into the standard 20-byte address for receiving assets from transfer transactions. In that case the contract scripthash is used in big endian format. For example:
@@ -47,7 +47,7 @@ When invoking a smart contract that requires a wallet address scripthash be pass
 
 #### Invoking contract through RPC
 
-As an example, use [InvokeFunction](../reference/rpc/latest-version/api/invokefunction.html) to invoke the method balanceOf of an NEP-5 contract.
+As an example, use [InvokeFunction](../../reference/rpc/latest-version/api/invokefunction.md) to invoke the method balanceOf of an NEP-5 contract.
 
 If data type of the passed address is Hash160, you should enter **big-endian** scripthash of the address.
 
@@ -115,4 +115,4 @@ rpcClient.invokeScript(script)
     });
 ```
 
-After execution is finished, you can view the log using [getapplicationlog method](../reference/rpc/latest-version/api/getapplicationlog.html). The execution log outputs little-endian scripthash of the address as it uses the ByteArray data type.
+After execution is finished, you can view the log using [getapplicationlog method](../../reference/rpc/latest-version/api/getapplicationlog.md). The execution log outputs little-endian scripthash of the address as it uses the ByteArray data type.
