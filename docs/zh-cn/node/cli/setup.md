@@ -11,10 +11,12 @@
 
 运行 NEO-CLI 的计算机需具备以下配置，以获得较佳体验：
 
-- Windows 10/ Linux (ubuntu16.04/18.04  centos)/ macos
-- 2CPU
-- 16G 内存
-- 50G（或以上） 固态硬盘
+|          | 最低配置                                                  | 推荐配置                                                  |
+| -------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| 操作系统 | Windows 10<br/>Linux: Ubuntu16.04/18.04 或 CentOS 7.4/7.6 | Windows 10<br/>Linux: Ubuntu16.04/18.04 或 CentOS 7.4/7.6 |
+| CPU      | 双核                                                      | 四核                                                      |
+| 内存     | 8G                                                        | 16G                                                       |
+| 硬盘     | 50G 固定硬盘                                              | 100G 固定硬盘                                             |
 
 ## 安装 NEO-CLI 程序包
 
@@ -31,6 +33,11 @@
 ## 通过源码发布 NEO-CLI 
 
 你也可以直接从 Github 下载 NEO-CLI 源码并进行发布。
+
+> [!Note] 
+>
+> - neo-cli master 分支仅针对开发中的 neo-cli 3.x 版本
+> - NEO 主网节点版本为 neo-cli-2.X, 如果想切换到此版本，请切换到分支: $ git checkout master-2.x
 
 ### 在 Windows 系统中发布
 
@@ -134,4 +141,4 @@ dotnet publish -c release -r osx-x64
 
 ## 阅读下节
 
-[启动 NEO-CLI]()
+[配置与启动 NEO-CLI](config.md)
