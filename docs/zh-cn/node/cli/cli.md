@@ -35,22 +35,22 @@
 
 #### 钱包命令
 
-| 命令                                | 参数                             | 说明                                              |
-| ----------------------------------- | -------------------------------- | ------------------------------------------------- |
-| create wallet                       | \<path>                          | 创建钱包文件                                      |
-| open wallet                         | \<path>                          | 打开钱包文件                                      |
-| close wallet                        |                                  | 关闭钱包文件                                      |
-| [upgrade wallet](#a3e37bc6)         | \<path>                          | 升级旧版钱包文件                                  |
-| list address                        |                                  | 列出钱包中的所有账户。<br>需要打开钱包。          |
-| list asset                          |                                  | 列出钱包中的所有资产。<br/>需要打开钱包。         |
-| list key                            |                                  | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
-| [show gas](#a5a2cf04)               |                                  | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
-| [create address](#d95d227b)         | [n为正整数，不填默认为1]         | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
-| [import key](#f524475e)             | \<wif\|path>                     | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#f22deb13)             | \[address] [path]                | 导出私钥。<br/>需要打开钱包。                     |
-| [send](#fdac02d7)                   | \<id\|alias> \<address> \<value> | 向指定地址转账。<br/>需要打开钱包。               |
-| [import multisigaddress](#bab65cfc) | \<m pubkeys>                     | 创建多方签名合约。<br/>需要打开钱包。             |
-| [sign](#b208a3c0)                   | \<jsonObjectToSign>              | 对多方签名交易进行签名。<br/>需要打开钱包。       |
+| 命令                                | 参数                                          | 说明                                              |
+| ----------------------------------- | --------------------------------------------- | ------------------------------------------------- |
+| create wallet                       | \<path>                                       | 创建钱包文件                                      |
+| open wallet                         | \<path>                                       | 打开钱包文件                                      |
+| close wallet                        |                                               | 关闭钱包文件                                      |
+| [upgrade wallet](#a3e37bc6)         | \<path>                                       | 升级旧版钱包文件                                  |
+| list address                        |                                               | 列出钱包中的所有账户。<br>需要打开钱包。          |
+| list asset                          |                                               | 列出钱包中的所有资产。<br/>需要打开钱包。         |
+| list key                            |                                               | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
+| [show gas](#a5a2cf04)               |                                               | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
+| [create address](#d95d227b)         | [n为正整数，不填默认为1]                      | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
+| [import key](#f524475e)             | \<wif\|path>                                  | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
+| [export key](#f22deb13)             | \[address] [path]                             | 导出私钥。<br/>需要打开钱包。                     |
+| [send](#fdac02d7)                   | \<id\|alias> \<address> \<value>\|all [fee=0] | 向指定地址转账。<br/>需要打开钱包。               |
+| [import multisigaddress](#bab65cfc) | \<m pubkeys>                                  | 创建多方签名合约。<br/>需要打开钱包。             |
+| [sign](#b208a3c0)                   | \<jsonObjectToSign>                           | 对多方签名交易进行签名。<br/>需要打开钱包。       |
 
 #### 节点命令
 
@@ -124,6 +124,41 @@ Gas Consumed: 4320950
 Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
 
 relay tx(no|yes): no
+```
+
+### create wallet
+
+创建一个 .db3 或 .json 钱包文件。创建过程中需要设置钱包密码。
+
+##### 句法
+
+ `create wallet <path>` 
+
+##### 示例
+
+```
+neo> create wallet test.json
+password: *
+password: *
+address: ATGBeteuYJsHwUVt6xMdxZMV9Y7BkV51yn
+pubkey: 0399e96a2970c83e26ad66de36a4bad0512a62defd447e3e26723fac73d4072ba1
+```
+
+创建的钱包文件存放在 neo-cli 根目录下，如果要指定其它路径，需要先创建好文件夹。
+
+### open wallet
+
+打开指定路径的钱包文件。打开钱包时需要输入钱包密码。
+
+##### 句法
+
+ `open wallet <path>` 
+
+##### 示例
+
+```
+neo> open wallet test.json
+password: *
 ```
 
 ### upgrade wallet
