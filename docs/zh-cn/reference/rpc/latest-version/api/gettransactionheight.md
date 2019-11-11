@@ -1,10 +1,18 @@
-# gettransactionheight 方法
+﻿# gettransactionheight 方法
 
 获取交易高度。
 
-## 参数说明
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "gettransactionheight",
+  "params": [txid],
+  "id": 1
+}
+```
+### 参数说明
 
-txid：交易id。
+* txid：交易id。
 
 ## 调用示例
 
@@ -29,7 +37,3 @@ txid：交易id。
 }
 
 ```
-
-响应说明：
-
-返回该交易的高度。

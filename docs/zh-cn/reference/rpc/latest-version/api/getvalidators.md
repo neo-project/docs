@@ -1,4 +1,4 @@
-# getvalidators 方法
+﻿# getvalidators 方法
 
 获取当前 NEO 共识节点的信息及投票情况。
 

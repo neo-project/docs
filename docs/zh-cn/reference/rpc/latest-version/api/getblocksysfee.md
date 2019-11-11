@@ -1,10 +1,18 @@
-# getblocksysfee 方法
+﻿# getblocksysfee 方法
 
 根据指定的索引，返回截止到该区块前的系统手续费。
 
-## 参数说明
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getblocksysfee",
+  "params": [index],
+  "id": 1
+}
+```
+### 参数说明
 
-index：区块索引。
+* index：区块索引。
 
 ## 调用示例
 
