@@ -37,8 +37,8 @@
 
 | 命令                                | 参数                                          | 说明                                              |
 | ----------------------------------- | --------------------------------------------- | ------------------------------------------------- |
-| create wallet                       | \<path>                                       | 创建钱包文件                                      |
-| open wallet                         | \<path>                                       | 打开钱包文件                                      |
+| [create wallet](#b44b0773)          | \<path>                                       | 创建钱包文件                                      |
+| [open wallet](#c7ea48ba)            | \<path>                                       | 打开钱包文件                                      |
 | close wallet                        |                                               | 关闭钱包文件                                      |
 | [upgrade wallet](#a3e37bc6)         | \<path>                                       | 升级旧版钱包文件                                  |
 | list address                        |                                               | 列出钱包中的所有账户。<br>需要打开钱包。          |
@@ -464,4 +464,5 @@ Install successful, please restart neo-cli.
 
 > [!NOTE]
 >
-> 若需要查看共识过程日志，需要先安装 SystemLog 插件 。
+> 若需要查看共识过程日志，需要先安装 [SystemLog](https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip) 插件 。
+
