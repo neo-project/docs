@@ -11,12 +11,12 @@
 
 交易所需要安装以下插件，以保证 API 的正常使用和自动读取离线包的完整性：
 
-- [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip)
-- [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip)
-- [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip)
-- [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip)
-- [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip)（推荐）
-- [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip)（推荐）
+- [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ApplicationLogs.zip)
+- [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip)
+- [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcWallet.zip)
+- [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/SimplePolicy.zip)
+- [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSystemAssetTracker.zip)（推荐）
+- [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/CoreMetrics.zip)（推荐）
 - [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/tree/master/RpcNep5Tracker) （推荐）
 
 在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
