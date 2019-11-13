@@ -227,17 +227,17 @@ Following are examples for Installing a plugin. The uninstallation operation is 
 
 ```
 neo>install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
 Install successful, please restart neo-cli.
 ```
 
 ```
 neo>install ApplicationLogs
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ApplicationLogs.zip
 Install successful, please restart neo-cli.
 ```
 
-For information about all plugins refer to  [Install Plug-ins](setup.md).
+For information about all plugins refer to [Install Plug-ins](setup.md).
 
 ## View the node information
 

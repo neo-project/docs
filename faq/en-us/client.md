@@ -19,7 +19,7 @@ Read the instructions in [Synchronizing the blockchain faster](../../docs/en-us/
 
 - You have downloaded the proper package
 - You have directly placed the downloaded file (chain.0.acc.zip or chain.xxx.acc.zip) under the root directory of NEO-CLI or NEO-GUI without modifying the file name
-- You have installed the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) plugin.
+- You have installed the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) plugin.
 
 ## How do I know my client has been fully synchronized?
 

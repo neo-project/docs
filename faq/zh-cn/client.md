@@ -20,7 +20,7 @@ NEO-GUI需要下载整个区块链数据到你的电脑，而轻钱包使用API�
 - 您下载了正确的离线包
 - 下载的压缩包文件（ chain.0.acc.zip 或 chain.xxx.acc.zip） 直接放置到了客户端 NEO-CLI 或 NEO-GUI 根目录下
 - 您没有修改离线包文件名
-- 您已安装了 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ImportBlocks.zip) 插件
+- 您已安装了 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) 插件
 
 ## 如何确认客户端已经完全同步？
 
