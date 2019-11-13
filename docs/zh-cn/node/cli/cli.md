@@ -220,13 +220,13 @@ SimplePolicyPlugin
 
 ```
 neo>install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
 Install successful, please restart neo-cli.
 
 ```
 ```
 neo>install ApplicationLogs
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ApplicationLogs.zip
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ApplicationLogs.zip
 Install successful, please restart neo-cli.
 
 ```

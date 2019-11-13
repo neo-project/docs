@@ -18,8 +18,8 @@
 
 要使客户端能够进行离线同步，需要安装 ImportBlocks 插件：
 
-1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) 插件并解压。
-2. 在 NEO-GUI 根目录新建 Plugins 文件夹（注意首字母大写），将解压出来的插件拷贝到其中。
+1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) 插件并解压。
+2. 将解压出来的插件拷贝到NEO-GUI 根目录下。
 
 ## 快速同步区块数据
 
