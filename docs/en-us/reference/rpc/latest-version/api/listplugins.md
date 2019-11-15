@@ -1,6 +1,6 @@
-# listplugins method
+﻿# listplugins Method
 
-Returns a list of plugins loaded by the node.
+Return a list of plugins loaded by the node.
 
 ## Example
 

@@ -1,10 +1,19 @@
-# submitblock Method
+﻿# submitblock Method
 
-Broadcasts a raw block over the NEO network. 
+Broadcast a raw block in the NEO network.
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "submitblock",
+  "params": [hex],
+  "id": 1
+}
+```
 
-Hex: A hexadecimal string of a serialized block.
+### Parameter Description
+
+* hex: A hexadecimal string of a serialized block.
 
 ## Example
 
@@ -19,17 +28,19 @@ Request body:
 }
 ```
 
-Response body if successful:
+Response body in successful cases:
 
 ```json
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": true
+  "result": {
+    "hash":"64af42150db8b15db6778f3efbbd8713f443e7447f854aab854cb1941950c218"
+  }
 }
 ```
 
-Response body if not successful:
+Response body in unsuccessful cases:
 
 ```json
 {
@@ -41,12 +52,12 @@ Response body if not successful:
     }
 }
 ```
-
+s
 Response Description:
 
-When result is false, the block has failed to broadcast and an exception is raised. The following error codes can be expected:
+When result is false, the block has failed to broadcast and an exception occurs. The following error codes can be expected
 
-Error code | Message |
+| Error code | Message |
 | --------------- | ---- |
 | -501 | Block or transaction already exists and cannot be sent repeatedly. |
 | -502 | The memory pool is full and no more transactions can be sent. |
