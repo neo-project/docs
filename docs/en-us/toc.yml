@@ -34,12 +34,10 @@
       href: /docs/en-us/node/gui/other.md
   - name: NEO-CLI
     items:
-    - name: Publishing from Source
-      href: /docs/en-us/node/cli/publish.md
     - name: Installation
       href: /docs/en-us/node/cli/setup.md
-    - name: SeedList
-      href: /docs/en-us/node/cli/seedlist.md
+    - name: Configuring and Starting neo-cli
+      href: /docs/en-us/node/cli/config.md
     - name: Command Line
       href: /docs/en-us/node/cli/cli.md
   - name: Synchronizing the blockchain faster 
