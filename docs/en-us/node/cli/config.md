@@ -1,14 +1,21 @@
 # Configuring and Starting NEO-CLI 
 
-This document will walk you through the necessary configurations before running NEO-CLI and the steps to start NEO-CLI using commands. 
+After installation of NEO-CLI, this section we will walk you through the necessary configurations before running NEO-CLI and the steps to start NEO-CLI using commands. 
 
 ## Modifying configuration files
 
-
+NEO-CLI accesses two configuration files during execution: `config.json` and `protocol.json`. You need to make necessary configurations in these files before starting NEO-CLI. For  information about attributes of the files, refer to [NEO-CLI](../../tooldev/neo_cli_structure.md) structure. 
 
 ### Configuring a wallet
 
-Before starting NEO-CLI, you need to configure the config.json file to enable automatic binding and opening of the wallet. You can invoke the wallet related API only when the wallet is opened. The following is an configuration example, where `Path` is the wallet path, `Password` is the wallet password, and `IsActive` is set to `true` to allow the wallet to be opened automatically.
+Before you can invoke the wallet related API, you need to configure a wallet in the config.json file to enable NEO-CLI to open the wallet automatically when running. 
+
+- `MaxGasInvoke`: The maximum GAS amount allowed to be consumed when invoking virtual machine by RPC
+- `Path`: the wallet path
+- `Password`: the wallet password
+- `IsActive`: Set to `true` to allow NEO-CLI to open the wallet automatically.
+
+Here is an example:
 
 ```
   {
@@ -43,7 +50,7 @@ Before starting NEO-CLI, you need to configure the config.json file to enable au
 
 ### Configuring HTTPS
 
-如果要通过 HTTPS 的方式访问 RPC 服务器，需要在启动节点前修改配置文件 `config.json`，并设置域名、证书和密码，如下所示： 
+If you want to access the RPC server via HTTPS, you need to set the domain name, certificate,  and password in config.json before starting the node, as shown below:
 
 ```json
 {
@@ -63,9 +70,11 @@ Before starting NEO-CLI, you need to configure the config.json file to enable au
   ...
 ```
 
-### Collecting the node to network
+### Connecting the node to network
 
+As the NEO3 main net has not launched yet, you need to replace the main net configuration files by the corresponding test net files to connect the node to test net (i.e. replace `config.json` and `protocol.json` under NEO-CLI root directory by `config.testnet.json` and `protocol.testnet.json`, respectively). For more information refer to [Main net and Test net](../../network/testnet.md).
 
+If you want to connect the node to your private net, refer to [Setting up Private Chain](../../network/private-chain/solo.md) to modify the file `protocol.json`.
 
 ## Installing plugins
 

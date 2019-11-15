@@ -4,7 +4,7 @@
 
 `dotnet neo-cli.dll`
 
-本篇教程将介绍命令行钱包的所有命令，你可以通过输入命令操作钱包，如创建打开钱包、导入导出私钥、转账、启动共识等。
+本节将介绍命令行钱包的所有命令，你可以通过输入命令操作钱包，如创建打开钱包、导入导出私钥、转账、启动共识等。
 
 ## 命令概览
 
@@ -28,53 +28,53 @@
 
 #### 合约命令
 
-| 命令                | 参数                                                         | 说明     |
-| ------------------- | ------------------------------------------------------------ | -------- |
-| [deploy](#a043e768) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#cfcd191c) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
+| 命令              | 参数                                                         | 说明     |
+| ----------------- | ------------------------------------------------------------ | -------- |
+| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
 
 #### 钱包命令
 
-| 命令                                | 参数                                           | 说明                                              |
-| ----------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
-| [create wallet](#b44b0773)          | \<path>                                        | 创建钱包文件                                      |
-| [open wallet](#c7ea48ba)            | \<path>                                        | 打开钱包文件                                      |
-| close wallet                        |                                                | 关闭钱包文件                                      |
-| [upgrade wallet](#a3e37bc6)         | \<path>                                        | 升级旧版钱包文件                                  |
-| list address                        |                                                | 列出钱包中的所有账户。<br>需要打开钱包。          |
-| list asset                          |                                                | 列出钱包中的所有资产。<br/>需要打开钱包。         |
-| list key                            |                                                | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
-| [show gas](#a5a2cf04)               |                                                | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
-| [create address](#d95d227b)         | [n为正整数，不填默认为1]                       | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
-| [import key](#f524475e)             | \<wif\|path>                                   | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#f22deb13)             | \[address] [path]                              | 导出私钥。<br/>需要打开钱包。                     |
-| [send](#fdac02d7)                   | \<id\|alias> \<address> \<amount>\|all [fee=0] | 向指定地址转账。<br/>需要打开钱包。               |
-| [import multisigaddress](#bab65cfc) | \<m pubkeys>                                   | 创建多方签名合约。<br/>需要打开钱包。             |
-| [sign](#b208a3c0)                   | \<jsonObjectToSign>                            | 对多方签名交易进行签名。<br/>需要打开钱包。       |
+| 命令                                              | 参数                                           | 说明                                              |
+| ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
+| [create wallet](#create-wallet)                   | \<path>                                        | 创建钱包文件                                      |
+| [open wallet](#open-wallet)                       | \<path>                                        | 打开钱包文件                                      |
+| close wallet                                      |                                                | 关闭钱包文件                                      |
+| [upgrade wallet](#upgrade-wallet)                 | \<path>                                        | 升级旧版钱包文件                                  |
+| list address                                      |                                                | 列出钱包中的所有账户。<br>需要打开钱包。          |
+| list asset                                        |                                                | 列出钱包中的所有资产。<br/>需要打开钱包。         |
+| list key                                          |                                                | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
+| [show gas](#show-gas)                             |                                                | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
+| [create address](#create-address)                 | [n为正整数，不填默认为1]                       | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
+| [import key](#import-key)                         | \<wif\|path>                                   | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
+| [export key](#export-key)                         | \[address] [path]                              | 导出私钥。<br/>需要打开钱包。                     |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [fee=0] | 向指定地址转账。<br/>需要打开钱包。               |
+| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                                   | 创建多方签名合约。<br/>需要打开钱包。             |
+| [sign](#sign)                                     | \<jsonObjectToSign>                            | 对多方签名交易进行签名。<br/>需要打开钱包。       |
 
 #### 节点命令
 
-| 命令               | 参数                | 说明                                           |
-| ------------------ | ------------------- | ---------------------------------------------- |
-| show state         |                     | 显示当前区块链同步状态                         |
-| show pool          | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
-| [relay](#acc582ac) | \<jsonObjectToSign> | 将完成签名的交易信息进行广播。                 |
+| 命令            | 参数                | 说明                                           |
+| --------------- | ------------------- | ---------------------------------------------- |
+| show state      |                     | 显示当前区块链同步状态                         |
+| show pool       | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
+| [relay](#relay) | \<jsonObjectToSign> | 将完成签名的交易信息进行广播。                 |
 
 #### 插件命令
 
 | 命令                    | 参数       | 说明         |
 | ----------------------- | ---------------- | ---------------- |
-| [plugins](#a7789b0d)    |  | 显示已加载的插件 |
-| [install](#e3c109f2) | [Plugin name] | 安装指定插件     |
-| [uninstall](#e3c109f2) | [Plugin name] | 卸载指定插件     |
-| [export block[s]](#e6ec8c83) | [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步|
-| [export block[s]](#e6ec8c83) | \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步 |
-| [dump storage](#c6b38001) | \<key> | 导出全部或指定的状态量数据 |
+| [plugins](#plugins) |  | 显示已加载的插件 |
+| [install](#install) | [Plugin name] | 安装指定插件     |
+| [uninstall](#install) | [Plugin name] | 卸载指定插件     |
+| [export block[s]](#export-block-s-) | [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步|
+| [export block[s]](#export-block-s-) | \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步 |
+| [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
 #### 高级命令
 
-| 命令                         | 说明     |
-| ---------------------------- | -------- |
-| [start consensus](#d320b143) | 启动共识 |
+| 命令                                | 说明     |
+| ----------------------------------- | -------- |
+| [start consensus](#start-consensus) | 启动共识 |
 
 ## 命令说明
 
@@ -433,7 +433,7 @@ Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3
 Install successful, please restart neo-cli.
 ```
 
-以上只是示例插件，更多插件请参考 [安装插件](setup.md)。
+以上只是示例插件，更多插件请参考 [安装插件](config.md)。
 
 ###export block[s]
 

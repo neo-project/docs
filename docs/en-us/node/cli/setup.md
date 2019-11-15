@@ -14,7 +14,7 @@ The following table lists the minimum and recommended hardware requirements for 
 |           | Minimum                                              | Recommended                                          |
 | --------- | ---------------------------------------------------- | ---------------------------------------------------- |
 | System    | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 |
-| CPU       | 双核                                                 | 四核                                                 |
+| CPU       | Dual core                                            | Quad core                                            |
 | Memory    | 8G                                                   | 16G                                                  |
 | Hard Disk | 50G SSD hard drive                                   | 100G SSD hard drive                                  |
 
@@ -44,7 +44,7 @@ You can download and compile the Neo-CLI source directly from Github.
 #### Installing required files
 
 1. On Windows 10 install [.NET Core](<https://www.microsoft.com/net/download/windows>) and [.NET Framework](https://www.microsoft.com/net/download/windows).
-   
+  
 2. Git clone NEO-CLI source code from [Github](https://github.com/neo-project/neo-cli.git) or using the following command:
 
    ```
@@ -96,37 +96,12 @@ dotnet publish -c release -r linux-x64
 
 #### Installing required files
 
-1. Git clone [NEO-CLI](https://github.com/neo-project/neo-cli.git) and [NEO-CORE](https://github.com/neo-project/neo.git) source code from Github or use the following commands:
+1. Git clone [NEO-CLI](https://github.com/neo-project/neo-cli.git) source code from Github or use the following commands:
 
    ```
    $ git clone https://github.com/neo-project/neo-cli.git
-   $ git clone https://github.com/neo-project/neo.git
    ```
-2. Download the LevelDB to RocksDB patch file into the core project folder.
-  
-   ```
-   $ wget --directory-prefix=neo https://gist.githubusercontent.com/ixje/359fbffa62eddbbf2b9ca716bf958487/raw/f402fb76edb2767c22e5d65847347bf8dae6d7bd/0001-convert-leveldb-to-rocksdb.patch
-   ```
-
-3. Install RocksDB using Homebrew.
-
-   ```
-   $ brew install rocksdb
-   ```
-
 4. Install [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/).
-
-#### Setting up project code
-The NEO project is under constant development. As a result we have to make sure we checkout compatible `NEO-CLI` and `NEO-CORE` versions.
-
-1. Open a terminal and navigate to the `neo-cli` project folder
-2. Use `git tag` to view a list of available versions and checkout the version you like e.g. `git checkout tags/v2.9.4`
-3. Navigate to the `neo` core project folder (where the patch file is located) and repeat step 2. Make sure you checkout compatible versions!
-4. Apply the patch that changes the LevelDB wrapper to use RocksDB
-
-   ```
-   $ git apply 0001-convert-leveldb-to-rocksdb.patch
-   ```
 
 #### Setting up Visual Studio
 

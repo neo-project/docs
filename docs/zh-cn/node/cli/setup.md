@@ -101,19 +101,8 @@ dotnet publish -c release -r linux-x64
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
 
-2. 使用 `rocksdb` 命令下载 NEO 依赖库：
+2. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
 
-   ```
-   $ git clone -b rocksdb-proxy https://github.com/ixje/neo.git
-   ```
-
-3. 使用 Homebrew 安装 `rocksdb`：
-
-   ```
-   $ brew install rocksdb
-   ```
-
-4. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
 
 #### 编译准备工作
 
