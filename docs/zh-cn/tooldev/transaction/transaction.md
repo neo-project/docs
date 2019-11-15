@@ -98,7 +98,7 @@ NEO 中一共定义了9种不同类型的交易，如下表所示。
 |  8  | PublishTransaction | 0xd0 | 500\*n | (已弃用) 智能合约发布 |
 |  9  | InvocationTransaction | 0xd1 | 具体的指令GAS消耗 | 调用合约，部署合约后或生成新资产之后会使用 |
 
-关于详细的交易处理流程，请参见 [交易流程](../advanced/tx_execution.md)。
+关于详细的交易处理流程，请参见 [交易流程](tx_execution.md)。
 
 > [!NOTE]
 >
