@@ -1,6 +1,6 @@
 # CLI 命令参考
 
-打开命令行，定位到 neo-cli 所在目录，输入以下命令即可启动 NEO 的命令行钱包。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 NEO 的命令行钱包。
 
 `dotnet neo-cli.dll`
 
@@ -154,7 +154,7 @@ address: ATGBeteuYJsHwUVt6xMdxZMV9Y7BkV51yn
 pubkey: 0399e96a2970c83e26ad66de36a4bad0512a62defd447e3e26723fac73d4072ba1
 ```
 
-创建的钱包文件存放在 neo-cli 根目录下，如果要指定其它路径，需要先创建好文件夹。
+创建的钱包文件存放在 Neo-CLI 根目录下，如果要指定其它路径，需要先创建好文件夹。
 
 ### open wallet
 

@@ -1,22 +1,22 @@
-# NEO-CLI 结构
+# Neo-CLI 结构
 
-NEO是一个基于点对点网络的区块链系统。它提供基于UTXO模型的数字资产记账功能，以及一个基于NEO虚拟机的智能合约的执行环境。本文将描述网络中节点程序NEO-CLI的整体结构和基本行为。
+NEO是一个基于点对点网络的区块链系统。它提供基于UTXO模型的数字资产记账功能，以及一个基于NEO虚拟机的智能合约的执行环境。本文将描述网络中节点程序Neo-CLI的整体结构和基本行为。
 
 ## 整个网络
 
 [![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
 
-网络中的每个节点运行一个 NEO-CLI 程序或者协议兼容程序。其中参与共识的是共识节点。不参与共识的是非共识节点。
+网络中的每个节点运行一个 Neo-CLI 程序或者协议兼容程序。其中参与共识的是共识节点。不参与共识的是非共识节点。
 
-## NEO-CLI
+## Neo-CLI
 
-NEO-CLI的结构如下图。（由于版本升级，部分结构可能会有变化 ）
+Neo-CLI的结构如下图。（由于版本升级，部分结构可能会有变化 ）
 
 [![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
 
-### NEO-CLI 命令行
+### Neo-CLI 命令行
 
-NEO-CLI 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。更多信息，请参考[NEO-CLI 命令行](../node/cli/cli.md)。
+Neo-CLI 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。更多信息，请参考[Neo-CLI 命令行](../node/cli/cli.md)。
 
 ### 账本 API
 
@@ -59,7 +59,7 @@ ApplicationEngine是对NeoVM的一层封装。NeoVM被设计成一个独立的�
 
 ## 配置文件
 
-NEO-CLI的节点程序在执行过程中会访问下述配置文件。
+Neo-CLI的节点程序在执行过程中会访问下述配置文件。
 
  - **config.json** : 基础配置文件
  - **protocol.json** : 协议配置文件
@@ -171,12 +171,12 @@ protocol.mainnet.json 和 protocol.testnet.json 是两个备份文件，分别�
 
 > [!NOTE]
 > 
-> - NEO-CLI 2.7.6曾经使用过临时文件 peers.dat 保存已知的其它节点 IP 地址，2.9.0开始不再使用了。
-> - NEO-CLI运行过程中如果异常终止，那么会将错误内容写入文件error.log，方便查看错误原因。
+> - Neo-CLI 2.7.6曾经使用过临时文件 peers.dat 保存已知的其它节点 IP 地址，2.9.0开始不再使用了。
+> - Neo-CLI运行过程中如果异常终止，那么会将错误内容写入文件error.log，方便查看错误原因。
 
 ## 启动的基本过程
 
-### NEO-CLI 的启动过程
+### Neo-CLI 的启动过程
 
 1. 初始化LevelDBStore，创建或者打开leveldb数据库。
 

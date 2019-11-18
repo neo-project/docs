@@ -1,15 +1,15 @@
 # 安装
 
-你可以通过两种方式安装 NEO-CLI：
+你可以通过两种方式安装 Neo-CLI：
 
-- 直接下载 NEO-CLI 的官方发布程序包进行安装。
-- 或者下载 NEO-CLI 的源代码并发布成可执行文件，如果使用 macOS，则推荐此方式。
+- 直接下载 Neo-CLI 的官方发布程序包进行安装。
+- 或者下载 Neo-CLI 的源代码并发布成可执行文件，如果使用 macOS，则推荐此方式。
 
 下文将具体介绍这两种方式。
 
 ## 配置要求
 
-运行 NEO-CLI 的计算机需具备以下配置，以获得较佳体验：
+运行 Neo-CLI 的计算机需具备以下配置，以获得较佳体验：
 
 |          | 最低配置                                             | 推荐配置                                             |
 | -------- | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -18,7 +18,7 @@
 | 内存     | 8G                                                   | 16G                                                  |
 | 硬盘     | 50G 固定硬盘                                         | 100G 固定硬盘                                        |
 
-## 安装 NEO-CLI 程序包
+## 安装 Neo-CLI 程序包
 
 1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
 
@@ -30,9 +30,9 @@
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
 
-## 通过源码发布 NEO-CLI 
+## 通过源码发布 Neo-CLI 
 
-你也可以直接从 Github 下载 NEO-CLI 源码并进行发布。
+你也可以直接从 Github 下载 Neo-CLI 源码并进行发布。
 
 > [!Note] 
 >
@@ -107,9 +107,9 @@ dotnet publish -c release -r linux-x64
 #### 编译准备工作
 
 1. 打开 `neo-cli` 文件夹，在 Visual Studio 中运行 `neo-cli.sln` 。
-2. 右键单击 NEO-CLI 解决方案文件夹 `neo-cli (master)` ，点击 `Add` > `Add Existing Project...`
+2. 右键单击 Neo-CLI 解决方案文件夹 `neo-cli (master)` ，点击 `Add` > `Add Existing Project...`
 3. 导航到 `neo` 文件夹并选择  `neo.csproj` 。
-4. 右键单击 NEO-CLI 项目依赖库文件夹并选择 `Edit References...`
+4. 右键单击 Neo-CLI 项目依赖库文件夹并选择 `Edit References...`
 5. 选取 `neo` 并点击 `ok`
 6. 单击 菜单中的 `Restore NuGet Packages` 和 `Update NuGet Packages`
 7. 单击  `Build` 重新编译以免出错。
@@ -130,4 +130,4 @@ dotnet publish -c release -r osx-x64
 
 ## 阅读下节
 
-[配置与启动 NEO-CLI](config.md)
+[配置与启动 Neo-CLI](config.md)

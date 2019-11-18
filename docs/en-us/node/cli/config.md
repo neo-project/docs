@@ -1,19 +1,19 @@
-# Configuring and Starting NEO-CLI 
+# Configuring and Starting Neo-CLI 
 
-After installation of NEO-CLI, this section we will walk you through the necessary configurations before running NEO-CLI and the steps to start NEO-CLI using commands. 
+After installation of Neo-CLI, this section we will walk you through the necessary configurations before running Neo-CLI and the steps to start Neo-CLI using commands. 
 
 ## Modifying configuration files
 
-NEO-CLI accesses two configuration files during execution: `config.json` and `protocol.json`. You need to make necessary configurations in these files before starting NEO-CLI. For  information about attributes of the files, refer to [NEO-CLI](../../tooldev/neo_cli_structure.md) structure. 
+Neo-CLI accesses two configuration files during execution: `config.json` and `protocol.json`. You need to make necessary configurations in these files before starting Neo-CLI. For  information about attributes of the files, refer to [Neo-CLI](../../tooldev/neo_cli_structure.md) structure. 
 
 ### Configuring a wallet
 
-Before you can invoke the wallet related API, you need to configure a wallet in the config.json file to enable NEO-CLI to open the wallet automatically when running. 
+Before you can invoke the wallet related API, you need to configure a wallet in the config.json file to enable Neo-CLI to open the wallet automatically when running. 
 
 - `MaxGasInvoke`: The maximum GAS amount allowed to be consumed when invoking virtual machine by RPC
 - `Path`: the wallet path
 - `Password`: the wallet password
-- `IsActive`: Set to `true` to allow NEO-CLI to open the wallet automatically.
+- `IsActive`: Set to `true` to allow Neo-CLI to open the wallet automatically.
 
 Here is an example:
 
@@ -46,7 +46,7 @@ Here is an example:
 
 > [!Note]
 >
-> The BindAddress option has been added to NEO-CLI 2.9.1, which defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0.
+> The BindAddress option has been added to Neo-CLI 2.9.1, which defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0.
 
 ### Configuring HTTPS
 
@@ -72,7 +72,7 @@ If you want to access the RPC server via HTTPS, you need to set the domain name,
 
 ### Connecting the node to network
 
-As the NEO3 main net has not launched yet, you need to replace the main net configuration files by the corresponding test net files to connect the node to test net (i.e. replace `config.json` and `protocol.json` under NEO-CLI root directory by `config.testnet.json` and `protocol.testnet.json`, respectively). For more information refer to [Main net and Test net](../../network/testnet.md).
+As the NEO3 main net has not launched yet, you need to replace the main net configuration files by the corresponding test net files to connect the node to test net (i.e. replace `config.json` and `protocol.json` under Neo-CLI root directory by `config.testnet.json` and `protocol.testnet.json`, respectively). For more information refer to [Main net and Test net](../../network/testnet.md).
 
 If you want to connect the node to your private net, refer to [Setting up Private Chain](../../network/private-chain/solo.md) to modify the file `protocol.json`.
 
@@ -168,7 +168,7 @@ Download the plugins you need from the following table.
             <td><a
                     href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/StatesDumper.zip">StatesDumper</a>
             </td>
-            <td>Exports NEO-CLI status data.</td>
+            <td>Exports Neo-CLI status data.</td>
             <td></td>
             <td>Optional</td>
         </tr>
@@ -184,20 +184,20 @@ Download the plugins you need from the following table.
     </tbody>
 </table>
 
-To install plugins, create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
+To install plugins, create a new Plugins folder (The first letter is capitalized) under the Neo-CLI root directory and copy the unzipped plugins into it. 
 
 ![](../../assets/plugins.png)
 
 ### Downloading plugins using command
 
-For NEO-CLI 2.9.4 and later, it is easier to automatically install or uninstall the plugin using commands, for example:
+For Neo-CLI 2.9.4 and later, it is easier to automatically install or uninstall the plugin using commands, for example:
 
 ```
 install ImportBlocks
 uninstall ApplicationLogs
 ```
 
-After installation, restart NEO-CLI for the plugin to take effect.
+After installation, restart Neo-CLI for the plugin to take effect.
 
 ## Synchronizing blockchain data
 
@@ -205,7 +205,7 @@ The client must be fully synchronized before use. In order to speed up network s
 
 ## Starting the NEO node
 
-Open the command line, navigate to the NEO-CLI directory, and enter the following command to start the NEO node:
+Open the command line, navigate to the Neo-CLI directory, and enter the following command to start the NEO node:
 
 On **Windows 10**:
 
@@ -235,7 +235,7 @@ dotnet neo-cli.dll
 >
 > If you  use dotnet install .net core in advance.
 
-NEO-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
+Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
 
 ```
 neo-cli.dll --rpc
@@ -244,7 +244,7 @@ If you want the external program to access the node API need to open the firewal
 
 > [!CAUTION]
 >
-> If you open the API service and the wallet in NEO-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
+> If you open the API service and the wallet in Neo-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
 
 ## What's next?
 

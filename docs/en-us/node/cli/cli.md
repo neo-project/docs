@@ -1,6 +1,6 @@
 # CLI Command Reference
 
-Open the command line, navigate to the directory where NEO-CLI is located, and enter the following code to start the command line wallet (i.e. the NEO node).
+Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line wallet (i.e. the NEO node).
 
 `dotnet neo-cli.dll`
 
