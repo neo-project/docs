@@ -9,17 +9,17 @@
 
 Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Installing plugins](../../node/cli/setup.md).
 
-Exchanges need to install the following plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package:
+Go to [here](https://github.com/neo-project/neo-plugins/releases/) to download plugins. Exchanges need to install the following plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package:
 
-- [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip)
-- [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip)
-- [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip)
-- [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip)
-- [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip) (Recommended)
-- [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip) (Recommended)
-- [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/tree/master/RpcNep5Tracker) (Recommended)
+- ApplicationLogs
+- ImportBlocks
+- RpcWallet
+- SimplePolicy
+- RpcSystemAssetTracker (Recommended)
+- CoreMetrics (Recommended)
+- RpcNep5Tracker(Recommended)
 
-Create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it. 
+Copy the unzipped plugins into the NEO-CLI root directory, as shown below. 
 
 ![PluginsForExchange.png](../../assets/PluginsForExchange.png)
 

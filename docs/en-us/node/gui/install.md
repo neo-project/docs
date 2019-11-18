@@ -16,10 +16,10 @@ Download [NEO-GUI](https://neo.org/download) and extract the files to a location
 
 ## Installing plugin
 
-You need to install the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) plugin to enable NEO-GUI to synchronize with the offline package.
+You need to install the ImportBlocks plugin to enable NEO-GUI to synchronize with the offline package.
 
-1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.4/ImportBlocks.zip) and unzip it.
-2. Create a new Plugins folder (The first letter is capitalized) under the NEO-GUI root directory and copy the unzipped plugin into it. 
+1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) and unzip it.
+2. Under the NEO-GUI root directory copy the unzipped plugin into it. 
 
 ## Synchronizing blockchain data
 
