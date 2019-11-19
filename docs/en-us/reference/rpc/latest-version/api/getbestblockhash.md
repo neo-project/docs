@@ -1,10 +1,10 @@
 ﻿# getbestblockhash Method
 
-Return the hash of the latest block of the main chain.
+Returns the latest block hash of the main chain.
 
 ## Example
 
-Request body:
+##### Request body
 
 ```json
 {
@@ -15,7 +15,7 @@ Request body:
 }
 ```
 
-Response body:
+##### Response body
 
 ```json
 {
@@ -25,6 +25,6 @@ Response body:
 }
 ```
 
-Response Description:
+##### Response Description
 
-Result: The hash of the latest block of the main chain.
+Result: The latest block hash of the main chain.

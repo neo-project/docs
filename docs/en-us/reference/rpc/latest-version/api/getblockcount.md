@@ -1,6 +1,6 @@
 ﻿# getblockcount Method
 
-Get the block count of the main chain.
+Gets the block count of the main chain.
 
 ## Example
 

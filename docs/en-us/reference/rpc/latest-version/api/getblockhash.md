@@ -1,6 +1,6 @@
 ﻿# getblockhash Method
 
-Return the hash value of the corresponding block based on the specified index.
+Returns the hash value of the corresponding block based on the specified index.
 
 ```json
 {

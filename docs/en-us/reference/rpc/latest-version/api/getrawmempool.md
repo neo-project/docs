@@ -1,6 +1,6 @@
 ﻿# getrawmempool Method
 
-Obtain the list of confirmed / unconfirmed transactions in memory.
+Obtains a list of confirmed / unconfirmed transactions in memory.
 
 ```json
 {
@@ -13,9 +13,9 @@ Obtain the list of confirmed / unconfirmed transactions in memory.
 
 ### Parameter Description
 
-* shouldGetUnverified: Optional, the default value of shouldGetUnverified is 0. 
-  * When shouldGetUnverified is 0, the list of verified transaction hashes in memory pool is returned. 
-  * When shouldGetUnverified is 1, current block height as well as lists of verified / unverified transaction hashes in memory pool are returned.
+* shouldGetUnverified: Optional. The default value is 0. 
+  * When shouldGetUnverified is 0, a list of verified transaction hash strings in memory pool is returned. 
+  * When shouldGetUnverified is 1, current block height as well as lists of verified / unverified transaction hash strings in memory pool are returned.
 
 ## Example
 
@@ -48,7 +48,7 @@ These are the confirmed transactions received by nodes.
 
 Request body:
 
-Verbose = 1，current block height as well as lists of verified / unverified transaction hashes in memory pool are returned.
+When Verbose = 1，current block height as well as lists of verified / unverified transaction hashes in memory pool are returned.
 
 ```json
 {

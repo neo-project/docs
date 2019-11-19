@@ -1,6 +1,6 @@
 ﻿# gettransactionheight method
 
-Return the block index in which the transaction is found.
+Returns the block index in which the transaction is found.
 
 ```json
 {

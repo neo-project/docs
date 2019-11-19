@@ -1,6 +1,6 @@
 ﻿# getblocksysfee Method
 
-Return the system fees of the block, based on the specified index.
+Returns the system fees of the block based on the specified index.
 
 ```json
 {

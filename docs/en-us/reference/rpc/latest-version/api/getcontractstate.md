@@ -1,6 +1,6 @@
 ﻿# getcontractstate Method
 
-Query contract information with the contract script hash. 
+Queries the contract information with the contract script hash. 
 
 ```json
 {

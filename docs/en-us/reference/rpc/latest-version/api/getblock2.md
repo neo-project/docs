@@ -1,6 +1,6 @@
 ﻿# getblock Method
 
-Return the corresponding block information according to the specified index.
+Returns the corresponding block information according to the specified index.
 
 ```json
 {
@@ -15,9 +15,9 @@ Return the corresponding block information according to the specified index.
 
 * index: Block index (block height) = Number of blocks - 1.
 
-* verbose: Optional, the default value of verbose is 0. 
-   * When verbose is 0, the serialized information of the block is returned in a hexadecimal string. If you want the detailed information, you will need to use the SDK for deserialization.
-   * When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
+* verbose: Optional. The default value is 0. 
+   * When verbose is 0, serialized information of the block is returned in a hexadecimal string. If you need the detailed information, use SDK for deserialization.
+   * When verbose is 1, detailed information of the block is returned in Json format.
 
 ## Example
 
@@ -44,7 +44,7 @@ Response body:
 
 Request body:
 
-Verbose = 1, return the result in JSON format.
+Verbose = 1, returns the result in JSON format:
 
 ```json
 {

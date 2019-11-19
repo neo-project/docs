@@ -1,6 +1,6 @@
 ﻿# getvalidators Method
 
-Return the current NEO validators information and voting status. 
+Returns the current NEO validators information and voting status. 
 
 ## Example
 
@@ -73,4 +73,4 @@ Response body:
 
 - publickey: Candidate's public key
 - votes: Candidate's votes
-- active: If true, the candidate is among validators, Otherwise not.
+- active: If true, the candidate is among validators; otherwise not.

@@ -1,6 +1,6 @@
 ﻿# getstorage Method
 
-Return the stored value according to the contract script hash and the stored key.
+Returns the stored value according to the contract script hash and the stored key.
 
 ```json
 {
