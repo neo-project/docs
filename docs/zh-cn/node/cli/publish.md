@@ -18,7 +18,7 @@
 
 3. 安装 levelDB:
 
-   - 对于 Windows 系统，复制 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并放置到 neo-cli 文件夹下。
+   - 对于 Windows 系统，下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
    - 对于 Linux 系统，运行以下命令：
 
    ```
@@ -43,6 +43,7 @@ dotnet publish -c release -r linux-x64
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r win7-x64
+//进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝进来
 ```
 
 **Windows 10**:
@@ -51,6 +52,7 @@ dotnet publish -c release -r win7-x64
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r win10-x64
+//进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝进来
 ```
 
 ## 在 macOS 系统中发布
@@ -63,7 +65,7 @@ dotnet publish -c release -r win10-x64
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
 
-2. 复制 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并放置到 neo-cli 文件夹下。
+2. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
 
 3. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
 
@@ -76,6 +78,7 @@ dotnet publish -c release -r win10-x64
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r osx-x64
+//进入编译完的文件所在目录，将之前下载的 libleveldb.dylib 拷贝进来
 ```
 
 ## 启动 NEO 节点
