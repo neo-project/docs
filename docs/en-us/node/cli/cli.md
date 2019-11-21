@@ -87,7 +87,7 @@ Deploy a contract on the blockchain.
 
 `deploy <nefFilePath> [manifestFile]` 
 
-##### 参数
+##### Parameters
 
 - `nefFilePath`：Path to the executable file (.nef) of NeoVM.
 - `manifestFile`：Path to the file manifest.json, which records each interface information and configuration content of the contract.
@@ -110,7 +110,7 @@ Invoke a contract.
 
 `invoke <scripthash> <command> [optionally quoted params separated by space]` 
 
-##### 参数
+##### Parameters
 
 - `scripthash`：Contract hash to invoke.
 - `command`：Method name in the contract, which can be followed by input parameters separated by space. 
@@ -216,7 +216,7 @@ Create a new address. One can also enter `create address 100` to create 100 new 
 
 `create address [n]` 
 
-##### 参数
+##### Parameters
 
 `n`：Number of addresses to create. N is an integer and defaults to 1.
 
@@ -237,7 +237,7 @@ Export private key of the address to the specified file. The command also requir
 
  `export key [address] [path]`
 
-##### 参数
+##### Parameters
 
 - `address`：Address to export private key.
 - `path`：Path to the file used to store the private key.
@@ -283,7 +283,7 @@ Import a private key, or import a file with a number of private keys.
 
  `import key <wif|path>`
 
-##### 参数
+##### Parameters
 
 `wif|path`：The key to import or the file path.
 
@@ -309,7 +309,7 @@ Create a multi-party signed address.
 
 `import multisigaddress m pubkeys...`
 
-##### 参数
+##### Parameters
 
 - `m`：m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2.
 - `pubkeys`：Public keys of multiple parties involved.
@@ -329,7 +329,7 @@ Transfer the asset to the specified address. The command requires the verificati
 
 `send <id|alias> <address> <amount>|all [fee=0]`
 
-##### 参数
+##### Parameters
 
 - `id|alias`：asset ID or asset abbreviations, e.g. neo，gas
 - `address`：payment address
@@ -373,7 +373,7 @@ This command is used to sign when withdrawing assets from a multi-signed address
 
 `sign <jsonObjectToSign>` 
 
-##### 参数
+##### Parameters
 
 `jsonObjectToSign`：The json string that records the transaction information. 
 
@@ -393,7 +393,7 @@ After signing completed, this command can be used to broadcast the transaction i
 
 `relay <jsonObjectToSign>` 
 
-##### 参数
+##### Parameters
 
 `jsonObjectToSign`：The json string that records the transaction information.
 
@@ -454,7 +454,7 @@ Export the whole blockchain data or export the specified amount of block data fr
 
 `export block[s] <start> [count]`
 
-##### 参数
+##### Parameters
 
 `[path=chain.acc]`：Export the whole blockchain data.
 

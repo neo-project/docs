@@ -1,6 +1,6 @@
 ﻿# validateaddress Method
 
-Verify that the address is a valid NEO address.
+Verifies that the address is a valid NEO address.
 
 ```json
 {

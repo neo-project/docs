@@ -2,10 +2,12 @@
 
 Transfers to the specified address.
 
-> - You need to open the wallet in the Neo-CLI node before you execute this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) . You need to install the plugin before you can invoke the method.
-
-
+> [!Note]
+>
+> Before you can invoke this method you must:
+>
+> 1. Open the wallet in NEO-CLI
+> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
 ```json
 {
@@ -16,15 +18,11 @@ Transfers to the specified address.
 }
 ```
 
-
-
 ### Parameter Description
 
 * asset_id： Asset ID (asset identifier),  the script hash of NEP-5 contract
 * address：Payment address
 * value：Amount transferred
-
-
 
 ## Example
 
@@ -85,8 +83,8 @@ Response body:
 
 Response Description:
 
-Returning of the transaction details above, indicates that the transaction was sent successfully. If not, the transaction has failed to send.
+Returning of the transaction details above indicates that the transaction was sent successfully. If not, the transaction has failed to send.
 
-If the signature is incomplete, it will return the transaction to be signed.
+If the signature is incomplete, it returns the transaction to be signed.
 
-If the balance is insufficient, it will return an error message.
+If the balance is insufficient, it returns an error message.

@@ -1,6 +1,6 @@
 ﻿# sendrawtransaction Method
 
-Broadcast a transaction over the NEO network.
+Broadcasts a transaction over the NEO network.
 
 ```json
 {
@@ -12,7 +12,7 @@ Broadcast a transaction over the NEO network.
 ```
 ### Parameter Description
 
-* hex: A hexadecimal string that has been serialized after transaction signed in the program.
+* hex: A hexadecimal string that has been serialized after the transaction signed in the program.
 
 ## Example
 
@@ -54,7 +54,7 @@ Response body in unsuccessful cases:
 
 Response Description:
 
-When result is false, the current transaction has failed to broadcast and an exception occurs. The following error codes can be expected
+When result is false, the current transaction has failed to broadcast and an exception occurs. The following error codes can be expected:
 
 | Error code | Message |
 | --------------- | ---- |
@@ -63,4 +63,4 @@ When result is false, the current transaction has failed to broadcast and an exc
 | -503 | The block cannot be validated. |
 | -504 | Block or transaction validation failed. |
 | -505 | One of the Policy filters failed. |
-| -500 | Unknown error.
+| -500 | Unknown error.|

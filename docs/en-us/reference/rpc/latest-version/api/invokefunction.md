@@ -1,10 +1,10 @@
 ﻿# invokefunction Method
 
-Returns the result after calling a smart contract at scripthash with the given operation and parameters.
+Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 
 > [!Note]
 >
-> - This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+> - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
 > - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 

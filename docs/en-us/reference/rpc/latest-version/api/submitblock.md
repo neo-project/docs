@@ -1,6 +1,6 @@
 ﻿# submitblock Method
 
-Broadcast a raw block in the NEO network.
+Broadcasts a raw block in the NEO network.
 
 ```json
 {
@@ -52,7 +52,7 @@ Response body in unsuccessful cases:
     }
 }
 ```
-s
+
 Response Description:
 
 When result is false, the block has failed to broadcast and an exception occurs. The following error codes can be expected
@@ -64,4 +64,5 @@ When result is false, the block has failed to broadcast and an exception occurs.
 | -503 | The block cannot be validated. |
 | -504 | Block or transaction validation failed. |
 | -505 | One of the Policy filters failed. |
-| -500 | Unknown error.
+| -500 | Unknown error.|
+

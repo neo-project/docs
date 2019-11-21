@@ -187,94 +187,82 @@
   - name: RPC API
     - name: API Reference
       href:  /docs/en-us/reference/rpc/latest-version/api.md
-    - name: v2.10.3
+    - name: Wallet API
       items:
-      - name: claimgas
-        href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
       - name: dumpprivkey
         href: /docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
-      - name: getaccountstate
-        href: /docs/en-us/reference/rpc/latest-version/api/getaccountstate.md
-      - name: getapplicationlog
-        href: /docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
-      - name: getassetstate
-        href: /docs/en-us/reference/rpc/latest-version/api/getassetstate.md
       - name: getbalance
         href: /docs/en-us/reference/rpc/latest-version/api/getbalance.md
-      - name: getbestblockhash
-        href: /docs/en-us/reference/rpc/latest-version/api/getbestblockhash.md
-      - name: getblock
-        href: /docs/en-us/reference/rpc/latest-version/api/getblock.md
-      - name: getblock
-        href: /docs/en-us/reference/rpc/latest-version/api/getblock2.md
-      - name: getblockcount
-        href: /docs/en-us/reference/rpc/latest-version/api/getblockcount.md
-      - name: getblockheader
-        href: /docs/en-us/reference/rpc/latest-version/api/getblockheader.md
-      - name: getblockhash
-        href: /docs/en-us/reference/rpc/latest-version/api/getblockhash.md
-      - name: getblocksysfee
-        href: /docs/en-us/reference/rpc/latest-version/api/getblocksysfee.md
-      - name: getclaimable
-        href: /docs/en-us/reference/rpc/latest-version/api/getclaimable.md
-      - name: getconnectioncount
-        href: /docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
-      - name: getcontractstate
-        href: /docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
-      - name: getmetricblocktimestamp
-        href: /docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.md
-      - name: getnep5balances
-        href: /docs/en-us/reference/rpc/latest-version/api/getnep5balances.md
-      - name: getnep5transfers
-        href: /docs/en-us/reference/rpc/latest-version/api/getnep5transfers.md
       - name: getnewaddress
         href: /docs/en-us/reference/rpc/latest-version/api/getnewaddress.md
-      - name: getrawmempool
-        href: /docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
-      - name: getrawtransaction
-        href: /docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
-      - name: getstorage
-        href: /docs/en-us/reference/rpc/latest-version/api/getstorage.md
-      - name: gettransactionheight
-        href: /docs/en-us/reference/rpc/latest-version/api/gettransactionheight.md
-      - name: gettxout
-        href: /docs/en-us/reference/rpc/latest-version/api/gettxout.md
-      - name: getpeers
-        href: /docs/en-us/reference/rpc/latest-version/api/getpeers.md
       - name: getunclaimedgas
         href: /docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
-      - name: getunclaimed
-        href: /docs/en-us/reference/rpc/latest-version/api/getunclaimed.md
-      - name: getunspents
-        href: /docs/en-us/reference/rpc/latest-version/api/getunspents.md
-      - name: getvalidators
-        href: /docs/en-us/reference/rpc/latest-version/api/getvalidators.md
-      - name: getversion
-        href: /docs/en-us/reference/rpc/latest-version/api/getversion.md
-      - name: getwalletheight
-        href: /docs/en-us/reference/rpc/latest-version/api/getwalletheight.md
       - name: importprivkey
         href: /docs/en-us/reference/rpc/latest-version/api/importprivkey.md
-      - name: invokefunction
-        href: /docs/en-us/reference/rpc/latest-version/api/invokefunction.md
-      - name: invokescript
-        href: /docs/en-us/reference/rpc/latest-version/api/invokescript.md
-      - name: listplugins
-        href: /docs/en-us/reference/rpc/latest-version/api/listplugins.md
       - name: listaddress
         href: /docs/en-us/reference/rpc/latest-version/api/listaddress.md
       - name: sendfrom
         href: /docs/en-us/reference/rpc/latest-version/api/sendfrom.md
-      - name: sendrawtransaction
-        href: /docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.md
       - name: sendtoaddress
         href: /docs/en-us/reference/rpc/latest-version/api/sendtoaddress.md
       - name: sendmany
         href: /docs/en-us/reference/rpc/latest-version/api/sendmany.md
-      - name: submitblock
-        href: /docs/en-us/reference/rpc/latest-version/api/submitblock.md
-      - name: validateaddress
-        href: /docs/en-us/reference/rpc/latest-version/api/validateaddress.md
+    - name: claimgas
+      href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
+    - name: getapplicationlog
+      href: /docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
+    - name: getbestblockhash
+      href: /docs/en-us/reference/rpc/latest-version/api/getbestblockhash.md
+    - name: getblock
+      href: /docs/en-us/reference/rpc/latest-version/api/getblock.md
+    - name: getblock
+      href: /docs/en-us/reference/rpc/latest-version/api/getblock2.md
+    - name: getblockcount
+      href: /docs/en-us/reference/rpc/latest-version/api/getblockcount.md
+    - name: getblockheader
+      href: /docs/en-us/reference/rpc/latest-version/api/getblockheader.md
+    - name: getblockhash
+      href: /docs/en-us/reference/rpc/latest-version/api/getblockhash.md
+    - name: getblocksysfee
+      href: /docs/en-us/reference/rpc/latest-version/api/getblocksysfee.md
+    - name: getclaimable
+      href: /docs/en-us/reference/rpc/latest-version/api/getclaimable.md
+    - name: getconnectioncount
+      href: /docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
+    - name: getcontractstate
+      href: /docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
+    - name: getmetricblocktimestamp
+      href: /docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.md
+    - name: getnep5balances
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep5balances.md
+    - name: getnep5transfers
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep5transfers.md
+    - name: getrawmempool
+      href: /docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
+    - name: getrawtransaction
+      href: /docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
+    - name: getstorage
+      href: /docs/en-us/reference/rpc/latest-version/api/getstorage.md
+    - name: gettransactionheight
+      href: /docs/en-us/reference/rpc/latest-version/api/gettransactionheight.md
+    - name: getpeers
+      href: /docs/en-us/reference/rpc/latest-version/api/getpeers.md
+    - name: getvalidators
+      href: /docs/en-us/reference/rpc/latest-version/api/getvalidators.md
+    - name: getversion
+      href: /docs/en-us/reference/rpc/latest-version/api/getversion.md
+    - name: invokefunction
+      href: /docs/en-us/reference/rpc/latest-version/api/invokefunction.md
+    - name: invokescript
+      href: /docs/en-us/reference/rpc/latest-version/api/invokescript.md
+    - name: listplugins
+      href: /docs/en-us/reference/rpc/latest-version/api/listplugins.md
+    - name: sendrawtransaction
+      href: /docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.md
+    - name: submitblock
+      href: /docs/en-us/reference/rpc/latest-version/api/submitblock.md
+    - name: validateaddress
+      href: /docs/en-us/reference/rpc/latest-version/api/validateaddress.md
   - name: Smart Contract API
     - name: API Reference
       items: 

@@ -1,10 +1,10 @@
 ﻿# invokescript Method
 
-Return the result after passing a script through the VM.
+Returns the result after passing a script through the VM.
 
 > [!Note]
 >
-> - This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+> - This method is to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
 > - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
 ```json

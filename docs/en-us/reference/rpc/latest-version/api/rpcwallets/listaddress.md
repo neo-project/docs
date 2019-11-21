@@ -2,10 +2,12 @@
 
 Lists all the addresses in the current wallet.
 
-> - You need to open the wallet in the NEO-CLI node before invoking this method.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) . You need to install the plugin before you can invoke the method.
-
-
+> [!Note]
+>
+> Before you can invoke this method you must:
+>
+> 1. Open the wallet in NEO-CLI
+> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
 ## Example
 
@@ -47,4 +49,4 @@ Response description：
 
 address：The address in the wallet.
 
-watchonly： Indicates whether it is a watch only address.
+watchonly：Indicates whether it is a watch only address.
