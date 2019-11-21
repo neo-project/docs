@@ -18,7 +18,7 @@
 
 3. 安装 levelDB:
 
-   - 对于 Windows 系统，复制 [LevelDB](https://github.com/neo-project/leveldb) 并放置到 neo-cli 文件夹下。
+   - 对于 Windows 系统，复制 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并放置到 neo-cli 文件夹下。
    - 对于 Linux 系统，运行以下命令：
 
    ```
@@ -63,29 +63,10 @@ dotnet publish -c release -r win10-x64
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
 
-2. 使用 `rocksdb` 命令下载 NEO 依赖库：
+2. 复制 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并放置到 neo-cli 文件夹下。
 
-   ```
-   $ git clone -b rocksdb-proxy https://github.com/ixje/neo.git
-   ```
+3. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
 
-3. 使用 Homebrew 安装 `rocksdb`：
-
-   ```
-   $ brew install rocksdb
-   ```
-
-4. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
-
-### 编译准备工作
-
-1. 打开 `neo-cli` 文件夹，在 Visual Studio 中运行 `neo-cli.sln` 。
-2. 右键单击 NEO-CLI 解决方案文件夹 `neo-cli (master)` ，点击 `Add` > `Add Existing Project...`
-3. 导航到 `neo` 文件夹并选择  `neo.csproj` 。
-4. 右键单击 NEO-CLI 项目依赖库文件夹并选择 `Edit References...`
-5. 选取 `neo` 并点击 `ok`
-6. 单击 菜单中的 `Restore NuGet Packages` 和 `Update NuGet Packages`
-7. 单击  `Build` 重新编译以免出错。
 
 ### 发布可执行文件
 
