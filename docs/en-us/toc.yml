@@ -190,23 +190,23 @@
     - name: Wallet API
       items:
       - name: dumpprivkey
-        href: /docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/dumpprivkey.md
       - name: getbalance
-        href: /docs/en-us/reference/rpc/latest-version/api/getbalance.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/getbalance.md
       - name: getnewaddress
-        href: /docs/en-us/reference/rpc/latest-version/api/getnewaddress.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/getnewaddress.md
       - name: getunclaimedgas
-        href: /docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/getunclaimedgas.md
       - name: importprivkey
-        href: /docs/en-us/reference/rpc/latest-version/api/importprivkey.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/importprivkey.md
       - name: listaddress
-        href: /docs/en-us/reference/rpc/latest-version/api/listaddress.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/listaddress.md
       - name: sendfrom
-        href: /docs/en-us/reference/rpc/latest-version/api/sendfrom.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/sendfrom.md
       - name: sendtoaddress
-        href: /docs/en-us/reference/rpc/latest-version/api/sendtoaddress.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/sendtoaddress.md
       - name: sendmany
-        href: /docs/en-us/reference/rpc/latest-version/api/sendmany.md
+        href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/sendmany.md
     - name: claimgas
       href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
     - name: getapplicationlog
