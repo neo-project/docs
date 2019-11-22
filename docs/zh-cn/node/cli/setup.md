@@ -51,7 +51,7 @@
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
 
-3. 复制 [LevelDB](https://github.com/neo-project/leveldb) 并放置到 neo-cli 文件夹下。
+3. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
 
 #### 发布可执行文件
 
@@ -61,6 +61,7 @@
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r win10-x64
+//进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝进来
 ```
 
 ### 在 Linux 系统中发布
@@ -101,18 +102,9 @@ dotnet publish -c release -r linux-x64
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
 
-2. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
+2. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
 
-
-#### 编译准备工作
-
-1. 打开 `neo-cli` 文件夹，在 Visual Studio 中运行 `neo-cli.sln` 。
-2. 右键单击 Neo-CLI 解决方案文件夹 `neo-cli (master)` ，点击 `Add` > `Add Existing Project...`
-3. 导航到 `neo` 文件夹并选择  `neo.csproj` 。
-4. 右键单击 Neo-CLI 项目依赖库文件夹并选择 `Edit References...`
-5. 选取 `neo` 并点击 `ok`
-6. 单击 菜单中的 `Restore NuGet Packages` 和 `Update NuGet Packages`
-7. 单击  `Build` 重新编译以免出错。
+3. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
 
 #### 发布可执行文件
 
@@ -122,11 +114,8 @@ dotnet publish -c release -r linux-x64
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r osx-x64
+//进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝进来
 ```
-
-进入编译完的文件所在目录：
-`$ cd neo-cli/bin/Release/netcoreapp2.0/osx-x64/publish`
-**以上路径可能需要根据用户实际路径进行更改*
 
 ## 阅读下节
 

@@ -51,7 +51,7 @@ You can download and compile the Neo-CLI source directly from Github.
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
 
-3. Copy [NEO version of LevelDB](https://github.com/neo-project/leveldb) and place under the neo-cli folder.
+3. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
 
 
 #### Building the executable file
@@ -62,6 +62,7 @@ Run the following command in the command line:
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r win10-x64
+//Enter the directory where the compiled files are stored and copy the libleveldb.dll downloaded before to here.
 ```
 
 ### Setting up Neo-CLI on Linux
@@ -101,17 +102,10 @@ dotnet publish -c release -r linux-x64
    ```
    $ git clone https://github.com/neo-project/neo-cli.git
    ```
-4. Install [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/).
+   
+2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
 
-#### Setting up Visual Studio
-
-1. Open the `neo-cli` folder and launch `neo-cli.sln` in Visual Studio
-2. Right click on neo-cli's solution folder `neo-cli` and `Add` > `Add Existing Project...`
-3. Navigate to the `neo` folder and choose `neo.csproj` (located inside the sub folder `neo`)
-4. Right click on neo-cli's project `Dependencies` folder and choose `Edit References...`
-5. Click the checkmark on `neo` and press `ok`
-6. Click the `Project` menu bar and choose `Restore NuGet Packages`, once done choose `Update NuGet Packages`
-7. Click the `Build` menu bar to `Rebuild All` just in case of errors
+3. Install [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/).
 
 #### Building the executable file
 
@@ -121,11 +115,8 @@ Run the following in the command line:
 cd neo-cli
 dotnet restore
 dotnet publish -c release -r osx-x64
+//Enter the directory where the compiled files are stored and copy the libleveldb.dll downloaded before to here.
 ```
-
-Navigate to the directory where the compiled files are stored:
-`$ cd neo-cli/bin/Release/netcoreapp2.0/osx-x64/publish`
-**This path may be different depending on user configuration*
 
 ## What's next?
 

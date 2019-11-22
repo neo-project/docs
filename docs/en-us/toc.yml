@@ -207,8 +207,6 @@
         href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/sendtoaddress.md
       - name: sendmany
         href: /docs/en-us/reference/rpc/latest-version/api/rpcwallets/sendmany.md
-    - name: claimgas
-      href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
     - name: getapplicationlog
       href: /docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
     - name: getbestblockhash
