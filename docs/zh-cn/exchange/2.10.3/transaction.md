@@ -2,7 +2,7 @@
 
 ## 简介
 
-NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，使用 UTXO 模型来管理资产。另一种是合约资产，例如：NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这两种类型资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
+NEO3中只有一种资产，即NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这种类型资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
    ![query.png](../assets/query.png)
 
@@ -10,182 +10,80 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 
    ![withdraw.png](../assets\withdraw.png)
 
-## 网络手续费
+## 网络费
 
-使用 NEO 区块链时需要花费网络手续费。收取手续费的根本目的是为了阻止恶意交易与网络攻击，在当前机制下，对于普通用户的正常交易一般不会造成额外手续费的负担。默认收费规则如下：
+网络费是用户向NEO网路提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如下。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
 
-<table class='table table-hover'>
-    <thead>
-        <tr>
-            <th>交易类型</th>
-            <th>交易大小 (byte）</th>
-            <th>手续费 (GAS)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="2">除 ClaimTransaction 以外的所有交易</td>
-            <td>&lt;= 1024</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>&gt; 1024</td>
-            <td>交易大小&times;0.00001 + 0.001<br></td>
-        </tr>
-        <tr>
-            <td rowspan="3">ClaimTransaction</td>
-            <td>所有</td>
-            <td>0</td>
-        </tr>
-    </tbody>
-</table>
+   ![netfee](../assets/netfee.png)
+
+其中，VerficationCost为NeoVM验证交易签名执行的指令相对应的费用，tx.size为交易数据的字节长度，FeePerByte为交易每字节的费用，目前在PolicyContract定义为0.00001 GAS。
 
 
 
-> [!Note]
->
-> - 如果交易所使用 send 命令发送交易到用户地址时自定义了手续费，则只收取两项手续费中价格较高者。
->- NEO-CLI 2.10.2 及之后版本的 RpcWallet 插件新增了 config.json 配置文件，对于使用 RPC 命令发送的交易，可以在该文件中自定义手续费上限，对用户资产提供保护。如果交易需要花费的手续费没有超过设定的上限，则正常上链，否则交易会失败。
-> 
+## 系统费
 
-## 处理全局资产交易
+系统费是根据NeoVM要执行的指令计算得出的费用，请参考Github上NEO3开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/en/NeoVM#contrant>)，了解每个操作码的费用。NEO3中取消了每笔交易10GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+
+   ![sysfee](../assets/sysfee.png)
+
+## 操作码费用
+
+NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开发成本。
+
+- 与NEO2.x的比较
+
+   ![feecomparewith2x](../assets/feecomparewith2x.png)
+
+## 处理资产交易
 
 ### 查询
 
-一般来讲，交易所充值地址里的余额并不等于用户在交易所里的余额，有以下原因：
-
-- 在转账或提现时，NEO 钱包会从一个或多个地址中找到即能满足需求又使用总输入最小的零钱作为本次交易的输入，而不会将指定地址的零钱作为交易输入（除非交易所重写了 NEO 钱包的部分代码使其满足自身需求）。
-- 其他操作，例如交易所将一部分资产转移到交易所的冷钱包等。
-
-所以交易所由于自身管理钱包产生的查询地址余额需求和用户的查询账户余额请求是不同的。
+交易所由于自身管理钱包产生的查询地址余额需求和用户的查询账户余额请求是不同的。
 
 #### 交易所查询用户地址余额
 
-要查询用户地址全局资产余额，交易所需要调用 `getaccountstate` API 获取用户地址余额。
+要查询用户账户余额，有两种方式，第一种是调用RPC请求getnep5balances方法：
 
-##### getaccountstate
+前提条件： 安装RpcNep5Tracker插件
 
-在 JSON 文件中，getaccountstate 的请求正文通常为以下格式：
+#### getnep5balances
 
-```
+在 JSON 文件中，getnep5balances 的请求正文通常为以下格式：
+```json
 {
   "jsonrpc": "2.0",
-  "method": "getaccountstate",
-  "params": ["AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz"],
+  "method": "getnep5balances",
+  "params": ["1aada0032aba1ef6d1f07bbd8bec1d85f5380fb3"],
   "id": 1
 }
 ```
-
-params 参数中填写的是用户地址。
-
 发送请求后，将收到如下响应：
-
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "version": 0,
-        "script_hash": "0x1179716da2e9523d153a35fb3ad10c561b1e5b1a",
-        "frozen": false,
-        "votes": [],
-        "balances": [
+        "balance": [
             {
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "94"
+                "asset_hash": "a48b6e1291ba24211ad11bb90ae2a10bf1fcd5a8",
+                "amount": "50000000000",
+                "last_updated_block": 251604
+            },
+            {
+                "asset_hash": "1aada0032aba1ef6d1f07bbd8bec1d85f5380fb3",
+                "amount": "50000000000",
+                "last_updated_block": 251600
             }
-        ]
+        ],
+        "address": "AY6eqWjsUFCzsVELG7yG72XDukKvC34p2w"
     }
 }
 ```
 
-返回值 "asset" 对应资产 ID ，value对应资产金额。
+根据所有返回值，可以计算出用户余额为：
+用户余额 = 200000000/10⁸ NEO = 2 NEO
 
-#### 处理用户查询账户余额请求
-
-用户实际在交易所里的余额，应当记录在交易所的数据库里。
-交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额。
-
-### 充值
-
-关于用户充值，交易所需要了解以下内容：
-
-- NEO 区块链只有一条主链，没有侧链，不会分叉，也不会有孤立区块。
-- 所有记录在 NEO 区块链中的交易都是不可篡改的，即一个确认就代表充值成功。
-- NEO 地址中不仅包含 NEO 和 NEO GAS 两种资产，还可以有许多种用户自己发行的全局资产（如股权、Token 等），交易所记录用户充值时需要判断充值资产的资产类型，以免把其它资产的充值当成 NEO 或 GAS，或把 NEO 和 GAS 的充值弄混。
-- NEO 钱包是一个全节点，要保持在线才能同步区块，可以通过 NEO-CLI 的 `show state` 命令查看区块同步状态，例如,  
-
-  ```
-  NEO>show state
-  Height: 99/99/99, Nodes: 10
-  ```
-
-  含义为：钱包高度 99/ 区块高度 99/ 区块头高度 99，连接节点数为 10.
-
-  > [!Note]
-  >
-  > 假设该节点与 P2P 网络充分连接，当区块高度 = 区块头高度时，代表节点同步完成。当钱包高度 = 区块高度 = 区块头高度时，代表节点同步完成且钱包索引建立完成。
-  
-- 交易所内的用户之间转账不需要通过区块链，而可以直接修改数据库中的用户余额进行，只有充值提现才上链。
-
-#### 充值记录
-
-交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易。如果有充值交易就要修改数据库中的用户余额。
-
-NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信息的功能，该方法中的 \<index\> 为区块索引。[verbose] 默认值为 0，表示返回的是区块序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要反序列化。[verbose] 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。更多信息请参阅 [getblock 方法](../../reference/rpc/latest-version/api/getblock2.md)。
-
-获取的区块信息中包含了交易输入和交易输出，交易所需要记录下所有和自己相关的交易，作为用户充值提现的交易记录。如果发现在交易的输出中有属于交易所的地址，则要修改数据库中该充值地址对应的用户 NEO 或 GAS 余额。
-
-也有交易所采用另一种方式：如果发现在交易的输出中有属于交易所的地址，先在数据库中记录下充值记录，待几个确认后再修改用户余额。如果不是为了与其它区块链操作方式统一，并不推荐这么做。
-
-> [!Note]
->
-> - getblockcount 返回的是主链中的区块数量，getblock \<index\> 第一个参数是区块索引，区块索引 = 区块高度 = 区块数量 - 1，所以如果 getblockcount 返回 1234，调用 getblock 1234 将获取不到结果，而应该调用 getblock 1233。
->- 交易所充值提现交易的交易类型可以是 InvocationTransaction,也可以是 ContractTransaction（无论是充值 NEO 还是 GAS），交易所在遍历区块中的所有交易时，只需关心每笔交易的 vout 是否有值。
-> - 每个区块的第一个交易必定是 MinerTransaction，在遍历交易时可以忽略或跳过。
-> - NEO 系统中的一切事务都以交易为单位进行记录。
-> 
-
-### 提现
-
-关于用户提现，交易所需要完成以下操作：
-
-1. 在 NEO-CLI 中，执行 `open wallet <path>` 命令打开钱包。
-
-2. 记录用户提现，修改用户账户余额。
-
-3. （可选）客服处理提现申请。
-
-4. 使用 NEO-CLI API 中的 `sendtoaddress <asset_id> <address> <value> [fee=0] [change_address]` 方法 ，向用户提现地址发送交易。更多信息，请参阅 [sendtoaddress 方法](../../reference/rpc/latest-version/api/sendtoaddress.md)。
-
-   - `<asset_id>` ：资产 ID
-   - `<address>` ：提现地址
-   - `<value>` ：提现金额
-   - `[fee]`：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
-   - `change_address`：找零地址，可选参数，默认为钱包中第一个标准地址。
-
-   要向多个地址批量发送交易，可以使用 API [sendmany 方法](../../reference/rpc/latest-version/api/sendmany.md)。
-
-5. 从返回的 Json 格式交易详情中提取交易 ID，记录在数据库中。
-
-6. 等待区块链确认，确认后将提现记录标志为提现成功。
-
-   类似充值时对区块链的监控，提现也一样，监控时若发现区块中的某个交易 ID 与提现记录中的交易 ID 相等，则该交易已经确认，即提现成功。
-
-> [!Note]
->
-> -  \<value\> 为实际金额，并非乘以 10^8 后的金额。
->-  NEO 转账金额必须是整数。如果转账为小数（一般会提示“转账金额不能为小数”），在 NEO-CLI 中是可以成功构造该交易的。只是该交易发送至网络后，并不会被验证节点所确认。与此同时，这笔交易在 NEO-CLI 状态一直为 unconfirmed，会影响钱包的零钱状态，这样可能会导致其他交易无法正常发送。此时便需要重建钱包索引，即根据已同步的本地区块链数据重新计算钱包里的交易和零钱。
-
-## 处理 NEP-5 资产交易
-
-### 查询
-
-与全局资产同理，交易所由于自身管理钱包产生的查询地址余额需求和用户的查询账户余额请求是不同的。
-
-#### 交易所查询用户地址余额
-
-要查询用户账户余额，交易所需要进行以下操作：
+第二种是调用RPC请求invokefunction的方式：
 
 1. 编写 JSON 文件，使用 RPC API `invokefunction` 调用三个方法： `balanceOf`、`decimals`和 `symbol`。
 2. 向 NEO RPC 服务器发送文件请求。
@@ -217,6 +115,10 @@ NEO-CLI  API 中的 getblock \<index\> [verbose] 方法提供了获取区块信�
 **script hash**
 
 要查询的 NEP-5 币的散列值，例如，RPX 的散列值是：*0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*
+
+NEO散列值是： *0x43cf98eddbe047e198a3e5d57006311442a0ca15*       
+
+GAS散列值是：  *0xa1760976db5fcdfab2a9930e8f6ce875b2d18225*
 
 **method name**
 
@@ -392,7 +294,7 @@ symbol
 
 ### 充值
 
-对交易所来说，捕获 NEP-5 类资产的充值交易，其方法与全局资产非常类似。
+对交易所来说，捕获 NEP-5 类资产的充值交易
 1. 通过 getblock api 获取每个区块的详情，其中便包括该区块中所有交易的详情；
 2. 分析每笔交易的交易类型，过滤出所有类型为"InvocationTransaction"的交易，任何非"InvocationTransaction"类型的交易都不可能成为 NEP-5 类型资产的转账交易；
 3. 调用 getapplicationlog api 获取每笔"InvocationTransaction"交易的详情，分析交易内容完成用户充值。
@@ -458,7 +360,7 @@ symbol
 > [!Note]
 >
 > -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项"vmstate"是否正确。
->-  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
+> -  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
 - **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263"就是 QLC 资产的脚本哈希，是该资产在全网的唯一标识。
 
@@ -479,14 +381,14 @@ symbol
   > [!Note]
   >
   > NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
-  
+
   ```json
   {
     "type": "ByteArray",
     "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
   }
   ```
-  
+
 - 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"d142f89e93b2717426a8130c37dad93aad70cff5"，经过转换，为字符串 "AarM6q48K55EBHhuRRRPVsGByrqBKoQoWf"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
   ```json
   {
@@ -520,35 +422,33 @@ symbol
 
 ##### 语法
 
-`send <txid|script hash> <address> <value> [fee = 0] [change_address]`
+`send <txid|script hash> <address> <value> `
 
 ##### 参数
 
 - `txid|script hash`：资产 ID。
 - `address`：付款地址。
 - `value`：转账金额。
-- `fee`：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为 0.00000001。
-- `change_address`：找零地址，可选参数，默认为钱包中第一个标准地址。
 
 该命令会检查钱包密码。
 
 ##### 示例
 
-要将 100 RPX 转账到地址 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b，并提升转账优先级，输入以下命令：
+要将 100 RPX 转账到地址 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b，输入以下命令：
 
 ```
-send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100 0.00000001
+send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
 ```
 
-如果要转账全局资产，只需要将第一个参数改为 txid。例如，
-NEO txid: 0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+如果要转账neo/gas，只需要将第一个参数改为NEO/GAS对应的scriptHash。例如，
+NEO: 0x43cf98eddbe047e198a3e5d57006311442a0ca15
+GAS:  0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 
 #### RPC 方法：sendfrom
 
- "params"  包含一个至少 4 个参数的数组。
+ "params"  包含一个 4 个参数的数组。
 
-`"params":[script hash, address from, address to, amount, fee(optional), change address(optional)]`
+`"params":[script hash, address from, address to, amount ]`
 
 例如，要从地址 AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR 发送 1 RPX 到地址 AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h，编写如下 JSON 文件并发送给 RPC 服务器。
 
@@ -598,9 +498,9 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 #### RPC 方法：sendtoaddress
 
- "params"  包含一个至少 3 个参数的数组。
+ "params"  包含一个 3 个参数的数组。
 
-`"params":[script hash, address, amount, fee(optional), change address(optional)]`
+`"params":[script hash, address, amount ]`
 
 例如，要发送 1 RPX 到地址 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
 
@@ -613,9 +513,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
     "params":[
         "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
         "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg",
-        "1",
-        "0",
-        "ARkJ8QcVdYL68WRvN3wj3TSvXX8CgmC73Z"
+        "1"
     ],
     "id":1
 }
@@ -660,11 +558,11 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 #### RPC 方法：sendmany
 
-"params"  包含一个至少一个参数的数组。
+"params"  包含一个参数的数组，而且该参数为数组格式。
 
-`"params":[[], fee(optional), change address(optional)]`
+`"params":[[]]`
 
-例如，要发送 15.5 RPX 和 0.0001 GAS 到 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg ，且零钱地址`change address`也是 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要发送 15.5 RPX 和 0.0001 GAS 到 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -684,7 +582,7 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
                 "value":"0.0001",
                 "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
             }
-        ],"0.00001","AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+        ]
     ],
     "id":1
 }
@@ -746,4 +644,3 @@ GAS txid: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5") 
 
 [数据转换示例](https://github.com/PeterLinX/NeoDataTransformation)
-
