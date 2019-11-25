@@ -1,10 +1,10 @@
-# getvalidators Method
+﻿# getvalidators Method
 
-Returns the current NEO consensus nodes information and voting status. 
+Returns the current NEO validators information and voting status. 
 
 ## Example
 
-Request body：
+Request body:
 
 ```json
 {
@@ -15,7 +15,7 @@ Request body：
 }
 ```
 
-Response body：
+Response body:
 
 ```json
 {
@@ -71,4 +71,6 @@ Response body：
 }
 ```
 
-
+- publickey: Candidate's public key
+- votes: Candidate's votes
+- active: If true, the candidate is among validators; otherwise not.

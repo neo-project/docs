@@ -1,4 +1,4 @@
-# getconnectioncount Method
+﻿# getconnectioncount Method
 
 Gets the current number of connections for the node.
 

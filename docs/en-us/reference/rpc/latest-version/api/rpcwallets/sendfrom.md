@@ -1,31 +1,29 @@
-# sendfrom Method
+﻿# sendfrom Method
 
 Transfer from the specified address to the destination address.
 
 > [!Note]
 >
-> - You need to open the wallet in the NEO-CLI node before executing this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must:
+>
+> 1. Open the wallet in NEO-CLI
+> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sendfrom",
+  "params": [asset_id, from, to, value],
+  "id": 1
+}
+```
 
-asset_id：Asset ID（asset identifier），The RegistTransaction ID of the asset at the time of registration.
+### Parameter Description
 
-For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-
-For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-The remaining asset IDs can be passed through the CLI commandline, the list Asset command query can also be queried in the block chain browser.
-
-from：transfering address.
-
-to: destination address.
-
-value：Transfer amount
-
-fee：Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
-
-Change_address: Change address, optional parameter, default is the first standard address in the wallet.
+* asset_id：Asset ID（asset identifier）, the script hash of nep-5 contract.
+* from: transfering address.
+* to: destination address.
+* value：Transfer amount
 
 ## Example
 
@@ -40,7 +38,7 @@ Request body：
 }
 ```
 
-Request body
+Request body:
 
 ```json
 {
@@ -86,8 +84,6 @@ Request body
 
 Response Description:
 
-
 Returns the transaction details as above if the transaction was sent successfully; otherwise the transaction is failed.
 
-If the signature is incomplete, a pending transaction is returned.
-If the balance is insufficient, an error message is returned.
+If the signature is incomplete, a pending transaction is returned. If the balance is insufficient, an error message is returned.

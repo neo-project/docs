@@ -1,29 +1,28 @@
-# sendtoaddress Method
+﻿# sendtoaddress Method
 
 Transfers to the specified address.
 
 > [!Note]
 >
-> - You need to open the wallet in the Neo-CLI node before you execute this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must:
+>
+> 1. Open the wallet in NEO-CLI
+> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sendtoaddress",
+  "params": [asset_id,address,value],
+  "id": 1
+}
+```
 
-`Asset_id`: Asset ID (asset identifier), which is the transaction ID of the RegistTransaction when the asset is registered.
+### Parameter Description
 
-For NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-
-For GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../../../../node/cli/cli.md) or in the Block Chain Browser.
-
-`Address`: Payment address
-
-`Value`: Amount transferred
-
-`Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
-
-`Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
+* asset_id： Asset ID (asset identifier),  the script hash of NEP-5 contract
+* address：Payment address
+* value：Amount transferred
 
 ## Example
 
@@ -33,7 +32,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendtoaddress",
-  "params": ["c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b", "AK4if54jXjSiJBs6jkfZjxAastauJtjjse", 1],
+  "params": ["c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b","AK4if54jXjSiJBs6jkfZjxAastauJtjjse",1],
   "id": 1
 }
 ```
@@ -84,8 +83,8 @@ Response body:
 
 Response Description:
 
-Returning of the transaction details above, indicates that the transaction was sent successfully. If not, the transaction has failed to send.
+Returning of the transaction details above indicates that the transaction was sent successfully. If not, the transaction has failed to send.
 
-If the signature is incomplete, it will return the transaction to be signed.
+If the signature is incomplete, it returns the transaction to be signed.
 
-If the balance is insufficient, it will return an error message.
+If the balance is insufficient, it returns an error message.

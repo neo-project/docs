@@ -1,62 +1,38 @@
-# sendmany Method
+﻿# sendmany Method
 
 Bulk transfer order, and you can specify a change address.
 
 > [!Note]
 >
-> - You need to open the wallet in the NEO-CLI node before executing this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must:
+>
+> 1. Open the wallet in NEO-CLI
+> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sendmany",
+  "params": [outputs_array],
+  "id": 1
+}
+```
 
-`<outputs_array>[fee=0][change_address]`
+### Parameter Description
 
-- `Outputs_array`: Array, the data structure of each element in the array is as follows:
+* `outputs_array`：Array, the data structure of each element in the array is as follows:
 
-  `{"asset": <asset>,"value": <value>,"address": <address>}`
-  - asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
+  ```json
+  {"asset": <asset>,"value": <value>,"address": <address>}
+  ```
 
-    For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-
-    For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-    The remaining asset IDs can be passed through the [CLI commandline](../../../../node/cli/cli.md), the `list Asset` command query can also be queried in the block chain browser.
-
-  - value：Transfer amount
-
-  - address：destination address.
-
-- `Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
-
-- `Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
+  * `asset`：Asset ID（asset identifier）
+  * `value`：Transfer amount
+  * `address`：destination address.
 
 ## Example
 
 Request body：
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "sendmany",
-    "params": [
-        [
-            {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            }
-        ]
-    ],
-    "id": 1
-}
-```
-
-Request body (system fee and change address included)
 
 ```json
 {
@@ -124,7 +100,7 @@ Response body:
         "net_fee": "0",
         "scripts": [
             {
-                "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
+               "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
                 "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
             }
         ]
@@ -136,6 +112,4 @@ Response Description:
 
 Returns the transaction details as above if the transaction was sent successfully; otherwise the transaction is failed.
 
-If the JSON format is incorrect, a Parse error is returned.
-If the signature is incomplete, a pending transaction is returned.
-If the balance is insufficient, an error message is returned.
+If the JSON format is incorrect, a Parse error is returned. If the signature is incomplete, a pending transaction is returned. If the balance is insufficient, an error message is returned.

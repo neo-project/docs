@@ -6,18 +6,18 @@ Returns the corresponding block header information according to the specified sc
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": [hash, verbose],
+  "params": [index, verbose],
   "id": 1
 }
 ```
 
 ## Parameter Description
 
-* hash: The block script hash.
+* Index: Block index (block height) = Number of blocks - 1.
 
-* verbose: Optional, the default value is 0. 
+* verbose: Optional. The default value is 0. 
   * When verbose is 0, serialized information of the block is returned in a hexadecimal string. If you need the detailed information, use the SDK for deserialization. 
-  * When verbose is 1, detailed information of the block is returned in Json format. 
+  * When verbose is 1, detailed information of the block is returned in Json format.
 
 ## Example
 
@@ -27,7 +27,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": ["479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be"],
+  "params": [0],
   "id": 1
 }
 ```
@@ -50,7 +50,7 @@ Verbose = 1, returns the result in JSON format:
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": ["479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 1],
+  "params": [0, 1],
   "id": 1
 }
 ```

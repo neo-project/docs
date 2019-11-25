@@ -9,17 +9,17 @@
 
 从 NEO-CLI 2.9.0 开始，一些附加功能被独立封装在插件中用以调用，提升了节点的安全性，稳定性和灵活性。关于插件的详细信息，请参见 [安装插件](../../node/cli/setup.md)。
 
-交易所需要安装以下插件，以保证 API 的正常使用和自动读取离线包的完整性：
+交易所需要在[这里](https://github.com/neo-project/neo-plugins/releases/)下载安装以下插件，以保证 API 的正常使用和自动读取离线包的完整性：
 
-- [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip)
-- [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip)
-- [RpcWallet](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip)
-- [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip)
-- [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip)（推荐）
-- [CoreMetrics](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip)（推荐）
-- [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/tree/master/RpcNep5Tracker) （推荐）
+- ApplicationLogs
+- ImportBlocks
+- RpcWallet
+- SimplePolicy
+- RpcSystemAssetTracker（推荐）
+- CoreMetrics（推荐）
+- RpcNep5Tracker（推荐）
 
-在 neo-cli 根目录新建 Plugins 文件夹（注意首字母大写），然后将解压出来的插件拷贝到其中。
+将解压出来的插件拷贝到neo-cli 根目录即可，如下所示。
 
 ![PluginsForExchange.png](../../assets/PluginsForExchange.png)
 
