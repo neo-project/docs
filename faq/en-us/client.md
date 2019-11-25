@@ -46,7 +46,7 @@ A dual-core CPU, 8G memory, and a solid state drive with a minimum of 100G or mo
 
 You can write some scripts, such as creating a Notepad file on Windows, typing `dotnet neo-cli.dll /rpc` and saving it as a .cmd file or using the screen command on linux.
 
-##I can't see my NEO in my wallet! Is it gone?
+## I can't see my NEO in my wallet! Is it gone?
 
 1. Most of the time,  whenever your NEO or GAS is not showing up in your wallet, the problem lies with the wallet. To make sure your NEO is safe, you can check your  balance on a NEO blockchain explorer, such as <https://neoscan.io/>.
 
@@ -56,7 +56,7 @@ You can write some scripts, such as creating a Notepad file on Windows, typing `
 
    - **Light wallet, e.g. NEON wallet**: Refresh your wallet.
 
-##I have sent x amount of NEO/GAS to my wallet, but it has not arrived yet. Why?
+## I have sent x amount of NEO/GAS to my wallet, but it has not arrived yet. Why?
 
 1. Please confirm with the crypto currency exchange from which you made the transfer that the transaction was successful. If so:
 2. Please check the status of your transaction/account on a blockchain explorer:
