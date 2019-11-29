@@ -34,10 +34,10 @@
       href: /docs/en-us/node/gui/other.md
   - name: NEO-CLI
     items:
-    - name: Publishing from Source
-      href: /docs/en-us/node/cli/publish.md
     - name: Installation
       href: /docs/en-us/node/cli/setup.md
+    - name: Configuring and Starting Neo-CLI 
+      href: /docs/en-us/node/cli/config.md
     - name: SeedList
       href: /docs/en-us/node/cli/seedlist.md
     - name: Command Line

@@ -483,14 +483,6 @@ Install successful, please restart neo-cli.
 
 `<start> [count]`：指定要导出数据的起始区块高度和区块数量
 
-### dump storage
-
-导出全部或指定的状态量数据。
-
-##### 句法
-
-`dump storage <key>`
-
 ### start consensus
 
 启动共识。启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
