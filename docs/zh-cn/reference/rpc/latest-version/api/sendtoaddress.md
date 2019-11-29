@@ -4,28 +4,31 @@
 
 > [!Note]
 >
-> - 执行此命令前需要在 Neo-CLI 节点中打开钱包。
-> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+> 执行此命令前需要：
+>
+> -  在 NEO-CLI 节点中打开钱包。
+> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
 
-## 参数说明
+#### 参数
 
-asset_id：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
+- asset_id：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
 
-如NEO为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+  如NEO为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
 
-NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+  NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
-其余资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
+  其余资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
-address：收款地址。
+- address：收款地址。
 
-value：转账金额。
+- value：转账金额。
 
-fee：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
+- fee：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
 
-change_address：找零地址，可选参数，默认为钱包中第一个标准地址。
+- change_address：找零地址，可选参数，默认为钱包中第一个标准地址。
 
-## 调用示例
+
+#### 调用示例
 
 请求正文：
 

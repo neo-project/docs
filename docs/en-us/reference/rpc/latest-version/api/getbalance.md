@@ -4,10 +4,12 @@ Returns the balance of the corresponding asset in the wallet, based on the speci
 
 > [!Note]
 >
-> - You need to open the wallet in the NEO-CLI node before you execute this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must：
+>
+> - Open the wallet in NEO-CLI.
+> - Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). 
 
-## Parameter Description
+#### Parameters
 
 Asset_id: Asset ID (asset identifier), which is the transaction ID of Register Transaction or  Publish Transaction for global assets, or the script hash of the contract for contract assets.
 
@@ -19,7 +21,7 @@ For RPX Sale: ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 
 The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../../../../node/cli/cli.md) or in the Block Chain Browser.
 
-## Examples 
+#### Examples 
 
 ##### Example 1: Inquiring the balance of global assets
 

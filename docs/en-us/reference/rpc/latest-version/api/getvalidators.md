@@ -2,7 +2,7 @@
 
 Returns the current NEO consensus nodes information and voting status. 
 
-## Example
+#### Example
 
 Request body：
 

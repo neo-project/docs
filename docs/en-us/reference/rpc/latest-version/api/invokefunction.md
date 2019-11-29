@@ -7,15 +7,15 @@ Returns the result after calling a smart contract at scripthash with the given o
 > - This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
 > - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
-## Parameter Description
+#### Parameters
 
-`scripthash`: Smart contract scripthash. Note that endianness of the scripthash you should use depends on data type of the passed address. If data type is Hash160, then you should enter big-endian scripthash; If data type is ByteArray, you should enter little-endian scripthash.
+- `scripthash`: Smart contract scripthash. Note that endianness of the scripthash you should use depends on data type of the passed address. If data type is Hash160, then you should enter big-endian scripthash; If data type is ByteArray, you should enter little-endian scripthash.
+- `operation`: The operation name (string)
 
-`operation`: The operation name (string)
+- `params`: The parameters to be passed into the smart contract operation
 
-`params`: The parameters to be passed into the smart contract operation
 
-## Example
+#### Example
 
 Request body:
 

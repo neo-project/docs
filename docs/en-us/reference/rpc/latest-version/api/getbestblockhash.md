@@ -2,7 +2,7 @@
 
 Returns the hash of the tallest block in the main chain.
 
-## Example
+#### Example
 
 Request body:
 

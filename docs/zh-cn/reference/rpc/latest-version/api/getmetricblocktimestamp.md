@@ -6,13 +6,13 @@
 >
 > 此方法由插件提供，需要安装 [CoreMetrics](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
 
-## 参数说明
+#### 参数
 
-`blocks numbers`：设置返回时间戳的区块数量
+- `blocks numbers`：设置返回时间戳的区块数量
+- `endHeight`：设置截止区块高度
 
-`endHeight`：设置截止区块高度
 
-## 调用示例
+#### 调用示例
 
 请求正文：
 

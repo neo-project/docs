@@ -4,14 +4,16 @@ Claims GAS in the wallet.
 
 > [!Note] 
 >
-> - Before you can invoke this method you must open the wallet in NEO-CLI.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must：
+>
+> - Open the wallet in NEO-CLI.
+> - Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). 
 
-## Parameter Description
+#### Parameters
 
 address (optional): The address that you want to send the claimed GAS to. This address should be a standard address. If no address is specified, the claimed GAS will be sent to the first standard address in the wallet by default.
 
-## Example
+#### Example
 
 Request body:
 

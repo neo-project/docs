@@ -6,11 +6,11 @@ Returns claimable GAS information of the specified address.
 >
 > This method is provided by the plugin [RpcSystemAssetTracker](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
-## Parameters Description
+#### Parameters
 
 `address`：Specifiies the address you want to query.
 
-## Example
+#### Example
 
 Request body:
 

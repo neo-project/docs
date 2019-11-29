@@ -2,7 +2,7 @@
 
 Gets the number of blocks in the main chain.
 
-## Example
+#### Example
 
 Request body:
 

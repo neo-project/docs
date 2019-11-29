@@ -6,11 +6,11 @@ Returns the contract log based on the specified txid. The complete contract logs
 >
 > This method is provided by the plugin [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
-## Parameter Description
+#### Parameters
 
 txid：Transaction ID
 
-## Example
+#### Example
 
 Request body:
 

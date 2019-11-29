@@ -4,10 +4,12 @@
 
 > [!Note]
 >
-> - 执行此命令前需要在 Neo-CLI 节点中打开钱包。
-> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+> 执行此命令前需要：
+>
+> -  在 NEO-CLI 节点中打开钱包。
+> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
 
-## 参数说明
+#### 参数
 
 asset_id：资产 ID（资产标识符），如果是全局资产，此处为注册资产时的 Register Transaction 或 Publish Transaction 的交易 ID，如果是合约内部资产，此处为合约的 Script Hash。
 
@@ -19,9 +21,9 @@ RPX Sale 为：ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 
 其余资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
-## 调用示例
+#### 调用示例
 
-示例1：查询全局资产的余额
+**示例1：查询全局资产的余额**
 
 请求正文：
 
@@ -34,7 +36,7 @@ RPX Sale 为：ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 }
 ```
 
-示例1：响应正文：
+响应正文：
 
 ```json
 {
@@ -49,9 +51,10 @@ RPX Sale 为：ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
 
 响应说明：
 
-balance：钱包中该资产的真实余额。
+- balance：钱包中该资产的真实余额。
 
-confirmed：钱包中该资产的已确认的金额，只有已确认的金额可以用来转账。
+- confirmed：钱包中该资产的已确认的金额，只有已确认的金额可以用来转账。
+
 
 balance 和 confirmed 二者可能会不相等，仅在从钱包中转出一笔钱，而且有找零未确认时时，confirmed 值会小于balance。当这笔交易确定后，二者会变得相等。
 
@@ -60,9 +63,7 @@ balance 和 confirmed 二者可能会不相等，仅在从钱包中转出一笔�
 >
 > 当区块未完全同步时，返回的资产余额可能不是最新的，请确保使用该 API 时区块已经同步到最新高度。
 
-
-
-示例2：查询 NEP-5 资产的余额
+**示例2：查询 NEP-5 资产的余额**
 
 请求正文：
 
@@ -75,7 +76,7 @@ balance 和 confirmed 二者可能会不相等，仅在从钱包中转出一笔�
 }
 ```
 
-示例2：响应正文：
+响应正文：
 
 ```json
 {

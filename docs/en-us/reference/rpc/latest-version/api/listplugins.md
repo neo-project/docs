@@ -2,7 +2,7 @@
 
 Returns a list of plugins loaded by the node.
 
-## Example
+#### Example
 
 Request body:
 

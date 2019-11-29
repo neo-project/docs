@@ -4,14 +4,12 @@
 
 > [!Note]
 >
-> - 执行此命令前需要在 NEO-CLI 节点中打开钱包。
-> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+> 执行此命令前需要：
+>
+> -  在 NEO-CLI 节点中打开钱包。
+> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
 
-## 参数说明
-
-无。
-
-## 调用示例
+#### 调用示例
 
 请求正文：
 

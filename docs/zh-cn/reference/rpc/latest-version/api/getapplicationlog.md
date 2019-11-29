@@ -6,11 +6,11 @@
 >
 > 此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
 
-## 参数说明
+#### 参数
 
 txid：交易ID
 
-## 调用示例
+#### 调用示例
 
 请求正文：
 
@@ -75,5 +75,5 @@ txid：交易ID
 }
 ```
 
-说明：
+响应说明：
 其中 gas_consumed 表示该交易消耗的 gas 数量，即交易手续费。每笔交易会有10 gas 的免费额度。如果数量小于10，则不收取手续费，如果大于10，那么收取超过10的那部分作为手续费并向上取整。例如 gas_consumed = 12.3，那么实际收取的手续费为3 gas.

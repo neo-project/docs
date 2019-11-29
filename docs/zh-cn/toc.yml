@@ -34,10 +34,10 @@
       href: /docs/zh-cn/node/gui/other.md
   - name: NEO-CLI
     items:
-    - name: 发布
-      href: /docs/zh-cn/node/cli/publish.md
     - name: 安装
       href: /docs/zh-cn/node/cli/setup.md
+    - name: 配置与启动
+      href: /docs/zh-cn/node/cli/config.md
     - name: 节点列表
       href: /docs/zh-cn/node/cli/seedlist.md
     - name: 命令参考

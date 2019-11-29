@@ -2,7 +2,7 @@
 
 Returns the version information about the queried node.
 
-## Example
+#### Example
 
 Request body:
 

@@ -2,11 +2,11 @@
 
 Broadcasts a raw block over the NEO network. 
 
-## Parameter Description
+#### Parameters
 
 Hex: A hexadecimal string of a serialized block.
 
-## Example
+#### Example
 
 Request body:
 

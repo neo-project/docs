@@ -2,11 +2,11 @@
 
 Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../../../../tooldev/network-protocol.md).
 
-## Parameter Description
+#### Parameters
 
 Hex: A hexadecimal string that has been serialized, after the signed transaction in the program.
 
-## Example
+#### Example
 
 Request body:
 
