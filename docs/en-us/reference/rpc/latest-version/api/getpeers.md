@@ -2,7 +2,7 @@
 
 Gets the list of nodes that the node is currently connected/disconnected from.
 
-## Example
+#### Example
 
 Request body:
 

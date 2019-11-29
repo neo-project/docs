@@ -2,11 +2,11 @@
 
 Returns the hash value of the corresponding block, based on the specified index.
 
-## Parameter Description
+#### Parameters
 
 Index: Block index (block height)
 
-## Example
+#### Example
 
 Request body:
 

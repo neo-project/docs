@@ -2,11 +2,11 @@
 
 Returns the block index in which the transaction is found.
 
-## Parameter Description
+#### Parameters
 
 Txid: Transaction ID
 
-## Example
+#### Example
 
 Request body:
 

@@ -4,47 +4,6 @@ Each NEO-CLI node provides an API interface for obtaining blockchain data from i
 
 `dotnet neo-cli.dll /rpc`
 
-## Configuring the config.json file
-
-To access the RPC server via HTTPS, you need to modify the configuration file config.json before starting the node and set the domain name, certificate, and password:
-
-```json
-{
-  "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain"
-    },
-    "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "Port": 10331,
-      "SslCert": "YourSslCertFile.xxx",
-      "SslCertPassword": "YourPassword"
-    }
-  }
-}                                      
-```
-
-To invoke some API methods that require you to open a wallet, you also need to make the following changes in `config.json` before starting the node:
-
-- Change the UnlockWallet status `IsActive` to `true`.
-- Specify the file name and password of the desired wallet.
-
-```json
-...
-"UnlockWallet": {
-      "Path": "YourWallet.json",
-      "Password": "YourPassword",
-      "StartConsensus": false,
-      "IsActive": true
-    }
-...
-```
-
-Thereafter, when you open NEO-CLI, the client will automatically open the specified wallet and download the wallet index after it has been synchronized to the latest block height. 
-
 ## Listening ports 
 
 After the JSON-RPC server starts, it will monitor the following ports, corresponding to the Main and Test nets:

@@ -2,11 +2,11 @@
 
 Queries global assets (NEO, GAS, and etc.) of the account, according to the account address.
 
-## Parameter Description
+#### Parameters
 
 Account Address: A 34-characters length string beginning with A, such as AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz.
 
-## Example
+#### Example
 
 Request body:
 
