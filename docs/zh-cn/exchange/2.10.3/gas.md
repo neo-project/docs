@@ -13,7 +13,7 @@ GAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权。GA
 - 提取的*GAS = f(neo_amount, Δt_const)*
 
   -  Δt_const = t_end - t_start
-     -  t_end = 该地址的 NEO 本次发生转入或转出操作的时刻
+     -  t_end = 该地址的 NEO 此次发生转入或转出操作的时刻
      -  t_start = 该地址的 NEO 上次发生转入或转出操作的时刻
 
   由于 Δt 是定量，所以提取的 GAS 也是一个定量。提取 GAS 的大小取决于所持有的 NEO 数量以及两个状态的时间差。

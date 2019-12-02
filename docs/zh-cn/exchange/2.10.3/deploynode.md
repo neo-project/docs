@@ -12,13 +12,11 @@
 交易所需要在[这里](https://github.com/neo-project/neo-plugins/releases/)下载安装以下插件，以保证 API 的正常使用和自动读取离线包的完整性：
 
 - ApplicationLogs（必选）
-- CoreMetrics（推荐）
-- ImportBlocks
-- RpcNep5Tracker（推荐）
-- RpcSecurity
 - RpcWallet（必选）
-- StatesDumper
-- SystemLog
+- ImportBlocks（必选）
+- CoreMetrics（推荐）
+- RpcNep5Tracker（推荐）
+- RpcSecurity（推荐）
 
  将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。 
 
