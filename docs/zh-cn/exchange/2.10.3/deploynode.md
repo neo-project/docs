@@ -1,9 +1,9 @@
-# 在服务器中部署 NEO 节点
+# 在服务器中部署 Neo 节点
 
 ## 安装节点
 
-1. 安装 NEO 节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，2.0 或以上版本。
-2. 在 GitHub 上下载 [neo-cli](https://github.com/neo-project/neo-cli/releases) 程序包并启动 NEO 节点。
+1. 安装 Neo 节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，2.0 或以上版本。
+2. 在 GitHub 上下载 [neo-cli](https://github.com/neo-project/neo-cli/releases) 程序包并启动 Neo 节点。
 
 ## 安装插件
 
@@ -24,7 +24,7 @@
 
 ![PluginsForExchange.png](../../assets/PluginsForExchange.png)
 
-可以使用以下命令自动进行安装：
+也可以使用以下命令自动进行安装：
 
 ```
 install ApplicationLogs
@@ -44,9 +44,9 @@ install SystemLog
 
 ## 修改配置文件
 
-在启动 NEO-CLI 前需先配置 config.json 文件中的参数，请参阅 [配置与启动](../../node/cli/config.md)。
+在启动 Neo-CLI 前需先配置 config.json 文件中的参数，请参阅 [配置与启动](../../node/cli/config.md)。
 
 > [!Note]
 >
-> - 当设置自动打开钱包时，请确保防火墙打开并处于安全环境， 谨慎使用。
+> 当设置自动打开钱包时，请确保防火墙打开并处于安全环境， 谨慎使用。
 
