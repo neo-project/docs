@@ -1,12 +1,23 @@
-# getblock 方法
+﻿# getblock 方法
 
 根据指定的索引，返回对应的区块信息。
 
-## 参数说明
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getblock",
+  "params": [index, verbose],
+  "id": 1
+}
+```
 
-index：区块索引（区块高度） = 区块数 - 1。
+### 参数说明
 
-verbose：可选参数，verbose 默认值为 0，verbose 为 0 时返回的是区块的序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。verbose 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。
+* index：区块索引（区块高度） = 区块数 - 1。
+
+* verbose：可选参数，verbose 默认值为 0，
+  * verbose 为 0 时返回的是区块的序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
+  * verbose 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。
 
 ## 调用示例
 
@@ -16,7 +27,7 @@ verbose：可选参数，verbose 默认值为 0，verbose 为 0 时返回的是�
 {
   "jsonrpc": "2.0",
   "method": "getblock",
-  "params": [10000],
+  "params": [0],
   "id": 1
 }
 ```
@@ -25,9 +36,9 @@ verbose：可选参数，verbose 默认值为 0，verbose 为 0 时返回的是�
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": "00000000e990d39e3ff75327e42c3459a4300b7f7d88ce8e00e98b05aa4f183aa515ce53294d136abf69e02f49fc43e002a31ba2c702e062d8683a559032a03b1e9e909c50b6065810270000455444dcd50f2caa59e75d652b5d3827bf04c165bbe9ef95cca4bf5501fd4501405e31eb19b1feaeb27c3a5b95f568b9b256fefe0ea61f6296eb8af836c29597617fe81d23a8bf66309000e4c7568b7f43560f61e4ee6cd1f78a2a42f50a5008c240ccf73ce9f7f810273730bdfc786d346086a697cc06239e88e040ed2ec0583c7dbb6eccb8b8a74afbd75cfbaff06c051b7e82abe65f96f50a1673e1536f91a3d540618e43cce18c7c91b54b2a5e44ba1e4a71a8dd0af0ec95c8c4f05343e66129b150057a5f79399a92eda1226fddd254702ffc682309787ab241509b2244e410334070a5ac50d897bf39f98780f79fb1a2416c41dc2e202b4ad797bd0c70e2b57f1157c4ff5551ec6df58bec6244dc72a3f25cd1836e8cdd4c0d8c2e5ba7e2d8859b40ae80743c9a2a8e154671eb156266971439a9017e96ea072c848287a71b2d6a99a67ba50fc7935a6de4d8884794291fc6cebd77158954ef03b10d5d0a30b52bc9f1552102486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a7021024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d2102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae010000455444dc00000000"
+    "jsonrpc": "2.0", 
+    "id": "1", 
+    "result": "0000000000000000000000000000000000000000000000000000000000000000000000008e29af06ec157a3d85717b1eb7317c3ef4049a7222d76c6dd4d5a24598c6571665fc885700000000f071d5fc6d2e2978a45842f05b1ac970e87d197700015102001dac2b7c0000000000000000000568123e7fe8da1745e9b549bd0bfa1a569971c77eba30cd5a4b000000000000000000000000000000000000000000000151"
 }
 ```
 
@@ -39,7 +50,7 @@ verbose = 1，返回 JSON 格式的结果。
 {
   "jsonrpc": "2.0",
   "method": "getblock",
-  "params": [10000, 1],
+  "params": [0, 1],
   "id": 1
 }
 ```
@@ -48,42 +59,45 @@ verbose = 1，返回 JSON 格式的结果。
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "hash": "0x4c1e879872344349067c3b1a30781eeb4f9040d3795db7922f513f6f9660b9b2",
-    "size": 686,
-    "version": 0,
-    "previousblockhash": "0x53ce15a53a184faa058be9008ece887d7f0b30a459342ce42753f73f9ed390e9",
-    "merkleroot": "0x9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
-    "time": 1476834896,
-    "index": 10000,
-    "nonce": "aa2c0fd5dc445445",
-    "nextconsensus": "APyEx5f4Zm4oCHwFWiSTaph1fPBxZacYVR",
-    "script": {
-      "invocation": "405e31eb19b1feaeb27c3a5b95f568b9b256fefe0ea61f6296eb8af836c29597617fe81d23a8bf66309000e4c7568b7f43560f61e4ee6cd1f78a2a42f50a5008c240ccf73ce9f7f810273730bdfc786d346086a697cc06239e88e040ed2ec0583c7dbb6eccb8b8a74afbd75cfbaff06c051b7e82abe65f96f50a1673e1536f91a3d540618e43cce18c7c91b54b2a5e44ba1e4a71a8dd0af0ec95c8c4f05343e66129b150057a5f79399a92eda1226fddd254702ffc682309787ab241509b2244e410334070a5ac50d897bf39f98780f79fb1a2416c41dc2e202b4ad797bd0c70e2b57f1157c4ff5551ec6df58bec6244dc72a3f25cd1836e8cdd4c0d8c2e5ba7e2d8859b40ae80743c9a2a8e154671eb156266971439a9017e96ea072c848287a71b2d6a99a67ba50fc7935a6de4d8884794291fc6cebd77158954ef03b10d5d0a30b52bc9",
-      "verification": "552102486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a7021024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d2102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae"
-    },
-    "tx": [
-      {
-        "txid": "0x9c909e1e3ba03290553a68d862e002c7a21ba302e043fc492fe069bf6a134d29",
-        "size": 10,
-        "type": "MinerTransaction",
-        "version": 0,
-        "attributes": [],
-        "vin": [],
-        "vout": [],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [],
-        "nonce": 3695465541
-      }
-    ],
-    "confirmations": 981987,
-    "nextblockhash": "0xc9a32cd215837c02dd72613bfad6ed064579e77bafd859907f87b3e67fa498cc"
-  }
+    "jsonrpc": "2.0", 
+    "id": "1", 
+    "result": {
+        "hash": "0x479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 
+        "size": 164, 
+        "version": 0, 
+        "previousblockhash": "0x0000000000000000000000000000000000000000000000000000000000000000", 
+        "merkleroot": "0x1657c69845a2d5d46d6cd722729a04f43e7c31b71e7b71853d7a15ec06af298e", 
+        "time": 1468595301, 
+        "index": 0, 
+        "nextconsensus": "AdhEBzaBZujuj5kEiwvKmMVy5ydqj3AC3V", 
+        "witness": {
+            "invocation": "", 
+            "verification": "51"
+        }, 
+        "consensus_data": {
+            "primary": 0, 
+            "nonce": "000000007c2bac1d"
+        }, 
+        "tx": [
+            {
+                "txid": "0xdd4372964d52e800e07b7d1c536a0ad29022edbf506603c01a4efa6cc0b4e1c6", 
+                "size": 55, 
+                "version": 0, 
+                "nonce": 0, 
+                "script": "68123e7fe8", 
+                "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt", 
+                "gas": "0", 
+                "net_fee": "0", 
+                "valid_until_block": 0, 
+                "attributes": [ ], 
+                "witness": {
+                    "invocation": "", 
+                    "verification": "51"
+                }
+            }
+        ], 
+        "confirmations": 6180, 
+        "nextblockhash": "0x1c00023b24ba5328918f4a0adc35607c8f97913fdda88b4eb4c571e7bc613bf4"
+    }
 }
 ```
-
-
-

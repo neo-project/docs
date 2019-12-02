@@ -1,4 +1,4 @@
-# getconnectioncount 方法
+﻿# getconnectioncount 方法
 
 获取节点当前的连接数。
 
@@ -24,4 +24,3 @@
   "result": 10
 }
 ```
-

@@ -1,4 +1,4 @@
-# listplugins 方法
+﻿# listplugins 方法
 
 显示节点已加载的插件列表。
 

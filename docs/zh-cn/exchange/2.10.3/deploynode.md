@@ -31,8 +31,6 @@ install ImportBlocks
 install RpcNep5Tracker
 install RpcSecurity
 install RpcWallet
-install StatesDumper
-install SystemLog
 ```
 
 > [!Note]

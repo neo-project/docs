@@ -1,14 +1,23 @@
-# getblocksysfee Method
+﻿# getblocksysfee Method
 
-Returns the system fees of the block, based on the specified index.
+Returns the system fees of the block based on the specified index.
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getblocksysfee",
+  "params": [index],
+  "id": 1
+}
+```
 
-index：Block index
+### Parameter Description
+
+* index: Block index
 
 ## Example
 
-Request body：
+Request body:
 
 ```json
 {
@@ -29,6 +38,6 @@ Response body:
 }
 ```
 
-Response description：
+Response description:
 
-result：The system fees of the block, in NeoGas units.
+result: The system fees of the block in NeoGas units.

@@ -1,12 +1,21 @@
-# getstorage 方法
+﻿# getstorage 方法
 
 根据合约脚本散列和存储的 key，返回存储的 value。
 
-## 参数说明
+```json
+{
+	"jsonrpc": "2.0",
+	"method": "getstorage",
+	"params": [script_hash, key],
+	"id": 15
+}
+```
 
-script_hash: 合约脚本散列。
+### 参数说明
 
-key: 存储区的键。（需要转化为hex string）
+* script_hash: 合约脚本散列。
+
+* key: 存储区的键。（需要转化为hex string）
 
 ## 调用示例
 
@@ -30,4 +39,3 @@ key: 存储区的键。（需要转化为hex string）
 	"result": "4c696e"
 }
 ```
-

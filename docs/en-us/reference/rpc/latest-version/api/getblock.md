@@ -1,12 +1,23 @@
-# getblock Method
+﻿# getblock Method
 
-The corresponding block information is returned according to the specified hash value.
+Returns the corresponding block information according to the specified hash.
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getblock",
+  "params": [hash, verbose],
+  "id": 1
+}
+```
 
-Hash: Block hash value.
+### Parameter Description
 
-Verbose: Optional, the default value of verbose is 0. When verbose is 0, the serialized information of the block is returned, represented by a hexadecimal string. If you need to get detailed information, you will need to use the SDK for deserialization. When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
+* hash: Block hash string.
+
+* verbose: Optional. The default value is 0. 
+  * When verbose is 0, serialized information of the block is returned in a hexadecimal string. If you need the detailed information, use SDK for deserialization. 
+  * When verbose is 1, detailed information of the block is returned in Json format.
 
 ## Example
 
@@ -16,7 +27,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblock",
-  "params": ["773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e"],
+  "params": ["479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be"],
   "id": 1
 }
 ```
@@ -27,19 +38,19 @@ Response body:
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": "000000002deadfa82cbc4682f5800ec72a8d8bd6afa469af5b2de83a51d28795a893222816f8081bf1054136cca420f807f844a958b2dea482dfc99d2538ef9c77d13320f9263659d4220f00878f40bd841c552a59e75d652b5d3827bf04c165bbe9ef95cca4bf5501fd450140b514d8562ad3badac0e097a502a43c58e23c75029dad8ccdb3b1ce221067d73d5612950e38c7565d6b166ef62894399a6f152c38a1bdb8c7d3715f75f20c1c7340e443f55108c5eefd99f954e06b21e97a4f0cf64dbd4e52426c27f7046cd880d6a7b1a507131c39afa48b9cac16411d6f84ec2f0b5d9977e5f1e3ce760a127b31409b8a52714b37a3b0970a19b4fb2669d2aa41ea85e05e68dfb03a197d505282dd53846ca58b1457504c65759a9ceb8f84f5148dec71727e9c743e986092728174401862c08611338be8e352b9110b2bb6d11ce0485286d857162deb417f1cb920d6727f8e6edbe1b7fce8d9b122523d5b45cfd02ab1ca002a58e28c8903ad764a84409dfcbda69cef1164936212e8e5d91965c8a976dc8dbcb5ea7d2f2d2f0105dadb902924559fede016a1f76a2c7ab0ff89a6446b0c19c88375906c8b9eccb61bc1f1552102486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a7021024c7b7fb6c310fccf1ba33b082519d82964ea93868d67666 2d4a59ad548df0e7d2102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae010000878f40bd00000000"
+  "result": "0000000000000000000000000000000000000000000000000000000000000000000000008e29af06ec157a3d85717b1eb7317c3ef4049a7222d76c6dd4d5a24598c6571665fc885700000000f071d5fc6d2e2978a45842f05b1ac970e87d197700015102001dac2b7c0000000000000000000568123e7fe8da1745e9b549bd0bfa1a569971c77eba30cd5a4b000000000000000000000000000000000000000000000151"
 }
 ```
 
 Request body:
 
-Verbose = 1, returns the result in JSON format.
+verbose = 1，returns the result in JSON format:
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "getblock",
-  "params": ["773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e", 1],
+  "params": ["479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 1],
   "id": 1
 }
 ```
@@ -48,39 +59,45 @@ Response body:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "hash": "0x773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e",
-    "size": 686,
-    "version": 0,
-    "previousblockhash": "0x282293a89587d2513ae82d5baf69a4afd68b8d2ac70e80f58246bc2ca8dfea2d",
-    "merkleroot": "0x2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
-    "time": 1496721145,
-    "index": 991956,
-    "nonce": "2a551c84bd408f87",
-    "nextconsensus": "APyEx5f4Zm4oCHwFWiSTaph1fPBxZacYVR",
-    "script": {
-      "invocation": "40b514d8562ad3badac0e097a502a43c58e23c75029dad8ccdb3b1ce221067d73d5612950e38c7565d6b166ef62894399a6f152c38a1bdb8c7d3715f75f20c1c7340e443f55108c5eefd99f954e06b21e97a4f0cf64dbd4e52426c27f7046cd880d6a7b1a507131c39afa48b9cac16411d6f84ec2f0b5d9977e5f1e3ce760a127b31409b8a52714b37a3b0970a19b4fb2669d2aa41ea85e05e68dfb03a197d505282dd53846ca58b1457504c65759a9ceb8f84f5148dec71727e9c743e986092728174401862c08611338be8e352b9110b2bb6d11ce0485286d857162deb417f1cb920d6727f8e6edbe1b7fce8d9b122523d5b45cfd02ab1ca002a58e28c8903ad764a84409dfcbda69cef1164936212e8e5d91965c8a976dc8dbcb5ea7d2f2d2f0105dadb902924559fede016a1f76a2c7ab0ff89a6446b0c19c88375906c8b9eccb61bc1",
-      "verification": "552102486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a7021024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d2102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae"
-    },
-    "tx": [
-      {
-        "txid": "0x2033d1779cef38259dc9df82a4deb258a944f807f820a4cc364105f11b08f816",
-        "size": 10,
-        "type": "MinerTransaction",
-        "version": 0,
-        "attributes":[],
-        "vin":[],
-        "vout":[],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts":[],
-        "nonce": 3175124871
-       }
-    ],
-    "confirmations": 20,
-    "nextblockhash": "0x0b08e2eeed05c70f27293521c47f7f60dfc29f9f299ae9909a8552a4a87db7a2"
-  }
+    "jsonrpc": "2.0", 
+    "id": "1", 
+    "result": {
+        "hash": "0x479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 
+        "size": 164, 
+        "version": 0, 
+        "previousblockhash": "0x0000000000000000000000000000000000000000000000000000000000000000", 
+        "merkleroot": "0x1657c69845a2d5d46d6cd722729a04f43e7c31b71e7b71853d7a15ec06af298e", 
+        "time": 1468595301, 
+        "index": 0, 
+        "nextconsensus": "AdhEBzaBZujuj5kEiwvKmMVy5ydqj3AC3V", 
+        "witness": {
+            "invocation": "", 
+            "verification": "51"
+        }, 
+        "consensus_data": {
+            "primary": 0, 
+            "nonce": "000000007c2bac1d"
+        }, 
+        "tx": [
+            {
+                "txid": "0xdd4372964d52e800e07b7d1c536a0ad29022edbf506603c01a4efa6cc0b4e1c6", 
+                "size": 55, 
+                "version": 0, 
+                "nonce": 0, 
+                "script": "68123e7fe8", 
+                "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt", 
+                "gas": "0", 
+                "net_fee": "0", 
+                "valid_until_block": 0, 
+                "attributes": [ ], 
+                "witness": {
+                    "invocation": "", 
+                    "verification": "51"
+                }
+            }
+        ], 
+        "confirmations": 6180, 
+        "nextblockhash": "0x1c00023b24ba5328918f4a0adc35607c8f97913fdda88b4eb4c571e7bc613bf4"
+    }
 }
 ```

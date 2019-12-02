@@ -1,4 +1,4 @@
-# getblockcount 方法
+﻿# getblockcount 方法
 
 获取主链中区块的数量。
 
@@ -24,4 +24,3 @@
   "result": 991991
 }
 ```
-

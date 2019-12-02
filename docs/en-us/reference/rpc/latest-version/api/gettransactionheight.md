@@ -1,10 +1,19 @@
-# gettransactionheight method
+﻿# gettransactionheight method
 
 Returns the block index in which the transaction is found.
 
-## Parameter Description
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "gettransactionheight",
+  "params": [txid],
+  "id": 1
+}
+```
 
-Txid: Transaction ID
+### Parameter Description
+
+* txid: Transaction id.
 
 ## Example
 
@@ -27,5 +36,5 @@ Response body:
     "id": 1,
     "result": 251488
 }
-```
 
+```
