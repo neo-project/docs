@@ -35,22 +35,22 @@ All the commands described in this document conform with these conventions:
 
 #### Wallet Commands
 
-| Command                                           | Parameters                                     | Description                                                  |
-| ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
-| [create wallet](#create-wallet)                   | \<path>                                        | Create a wallet file.                                        |
-| [open wallet](#open-wallet)                       | \<path>                                        | Open a wallet file.                                          |
-| close wallet                                      |                                                | Close the current wallet.                                    |
-| [upgrade wallet](#upgrade-wallet)                 | \<path>                                        | Upgrade old wallet files.                                    |
-| list address                                      |                                                | list all the accounts in the wallet.<br>Need to open wallet. |
-| list asset                                        |                                                | List all assets in the wallet.<br/>Need to open wallet.      |
-| list key                                          |                                                | List all public keys in your wallet.<br/>Need to open wallet. |
-| [show gas](#show-gas)                             |                                                | List all the GAS in your wallet.<br/>Need to open wallet.    |
-| [create address](#create-address)                 | [n is a positive integer and defaults to 0]    | Create address / batch create address<br/>Need to open wallet. |
-| [import key](#import-key)                         | \<wif\|path>                                   | Import a private key / bulk import of private keys.<br/>Need to open wallet. |
-| [export key](#export-key)                         | \[address] [path]                              | Export private keys.<br/>Need to open wallet.                |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [fee=0] | Send assets to the specified address.<br/>Need to open wallet. |
-| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                                   | Create a multi-signature contract.<br/>Need to open wallet.  |
-| [sign](#sign)                                     | \<jsonObjectToSign>                            | Sign the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
+| Command                                           | Parameters                                  | Description                                                  |
+| ------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------ |
+| [create wallet](#create-wallet)                   | \<path>                                     | Create a wallet file.                                        |
+| [open wallet](#open-wallet)                       | \<path>                                     | Open a wallet file.                                          |
+| close wallet                                      |                                             | Close the current wallet.                                    |
+| [upgrade wallet](#upgrade-wallet)                 | \<path>                                     | Upgrade old wallet files.                                    |
+| list address                                      |                                             | list all the accounts in the wallet.<br>Need to open wallet. |
+| list asset                                        |                                             | List all assets in the wallet.<br/>Need to open wallet.      |
+| list key                                          |                                             | List all public keys in your wallet.<br/>Need to open wallet. |
+| [show gas](#show-gas)                             |                                             | List all the GAS in your wallet.<br/>Need to open wallet.    |
+| [create address](#create-address)                 | [n is a positive integer and defaults to 0] | Create address / batch create address<br/>Need to open wallet. |
+| [import key](#import-key)                         | \<wif\|path>                                | Import a private key / bulk import of private keys.<br/>Need to open wallet. |
+| [export key](#export-key)                         | \[address] [path]                           | Export private keys.<br/>Need to open wallet.                |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all      | Send assets to the specified address.<br/>Need to open wallet. |
+| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                                | Create a multi-signature contract.<br/>Need to open wallet.  |
+| [sign](#sign)                                     | \<jsonObjectToSign>                         | Sign the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
 
 #### Node Commands
 
@@ -327,14 +327,13 @@ Transfer the asset to the specified address. The command requires the verificati
 
 ##### Syntax
 
-`send <id|alias> <address> <amount>|all [fee=0]`
+`send <id|alias> <address> <amount>|all `
 
 ##### Parameters
 
 - `id|alias`：asset ID or asset abbreviations, e.g. neo，gas
 - `address`：payment address
 - `amount|all`：transfer amount
-- `fee`：This parameter can be left empty, and the default is 0. Setting a fee improves the transaction priority.
 
 ##### Example
 

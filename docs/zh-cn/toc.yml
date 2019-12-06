@@ -184,16 +184,14 @@
   items:
   - name: 概述
     href:  /docs/zh-cn/exchange/general.md
-  - name: v2.10.3
-    items:
-    - name: 部署 NEO 节点
-      href: /docs/zh-cn/exchange/2.10.3/deploynode.md
-    - name: 使用 NEO-CLI 客户端
-      href: /docs/zh-cn/exchange/2.10.3/client.md
-    - name: 处理资产交易
-      href: /docs/zh-cn/exchange/2.10.3/transaction.md
-    - name: 给用户分发 GAS
-      href: /docs/zh-cn/exchange/2.10.3/gas.md 
+  - name: 部署 NEO 节点
+    href: /docs/zh-cn/exchange/deploynode.md
+  - name: 使用 NEO-CLI 客户端
+    href: /docs/zh-cn/exchange/client.md
+  - name: 处理资产交易
+    href: /docs/zh-cn/exchange/transaction.md
+  - name: 给用户分发 GAS
+    href: /docs/zh-cn/exchange/gas.md 
   - name: 更新记录
     href: /docs/zh-cn/exchange/changelog.md
 - name: 开发参考

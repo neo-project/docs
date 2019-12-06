@@ -1,8 +1,8 @@
-## Using NEO-CLI
+## Using Neo-CLI
 
-The NEO-CLI client works as an normal node in the P2P network and meanwhile a cross-platform wallet handling various assets transactions. 
+The Neo-CLI client works as an normal node in the P2P network and meanwhile a cross-platform wallet handling various assets transactions. 
 
-### NEO-CLI Security Policies
+### Neo-CLI Security Policies
 
 > [!Caution]
 >
@@ -10,7 +10,7 @@ The NEO-CLI client works as an normal node in the P2P network and meanwhile a cr
 >
 > The exchange must use a white list or firewall to block external server requests; otherwise there will be a significant security risk.
 
-NEO-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, exchanges should set their own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
+Neo-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, exchanges should set their own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
 
 |                    | Mainnet | Testnet |
 | ------------------ | ------- | ------- |
@@ -19,18 +19,18 @@ NEO-CLI does not provide the function to remotely switching on/off the wallet, a
 | P2P                | 10333   | 20333   |
 | websocket          | 10334   | 20334   |
 
-### About NEO-CLI
+### About Neo-CLI
 
-NEO-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
+Neo-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
 
 - Using the CLI (command-line interface) commands. For example, you can create a wallet, generate an address, etc.
 - Using the Remote Procedure Call (RPC). For example, you can transfer to the designated address, acquire the block information of the designated height, acquire the information of the designated trade, etc.
 
-NEO-CLI provides the following features： 
+Neo-CLI provides the following features： 
 
 - As a wallet, manages assets through the command-line.
 
-  To enable the wallet，enter the following command under the NEO-CLI directory：
+  To enable the wallet，enter the following command under the Neo-CLI directory：
 
 
   ```
@@ -47,7 +47,7 @@ NEO-CLI provides the following features：
 
 - Provides APIs to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
 
-  To start a node which provides RPC service, enter the following command under the NEO-CLI directory：
+  To start a node which provides RPC service, enter the following command under the Neo-CLI directory：
 
   ```
   dotnet neo-cli.dll --rpc
@@ -60,7 +60,7 @@ NEO-CLI provides the following features：
 
   > [!Note]
   >
-  > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [NEO-CLI Installation](../../node/cli/setup.md).
+  > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [Neo-CLI Installation](../../node/cli/setup.md).
 
 
 | #    | Function                                                  | Command                   |
@@ -82,7 +82,7 @@ The exchange needs to create an online wallet to manage the deposit addresses of
 
 > [!Note]
 >
-> NEO-CLI supports wallets in two formats: the sqlite wallet (.db3) and the new [NEP6 standard](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) wallet (.json). For exchanges the sqlite wallet is recommended.
+> Neo-CLI supports wallets in two formats: the sqlite wallet (.db3) and the new [NEP6 standard](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) wallet (.json). For exchanges the sqlite wallet is recommended.
 
 To create a wallet, do the following：
 
@@ -98,11 +98,11 @@ A wallet can store multiple addresses. The exchange needs to generate a deposit 
 
 There are two methods to generate deposit addresses: 
 
-- When the user deposit (NEO/NEO GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is that it's not convenient for backup.
+- When the user deposit (NEO/GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is that it's not convenient for backup.
 
-  To develop the program to dynamically generate addresses, use the NEO-CLI API  [getnewaddress Method](../../reference/rpc/latest-version/api/getnewaddress.md). The created address is returned.
+  To develop the program to dynamically generate addresses, use the Neo-CLI API  [getnewaddress Method](../../reference/rpc/latest-version/api/getnewaddress.md). The created address is returned.
 
-- The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/NEO GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
+- The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
   To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.
   [n] is optional. Its default value is 1. For example, to generate 100 addresses at a time, enter `create address 100`.
 

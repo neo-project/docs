@@ -101,7 +101,7 @@ Response body:
 
 **Example 2 - transferring without specifying an address**
 
-请求正文：
+Request body：
 
 ```json
 {
@@ -130,7 +130,7 @@ Response body:
 }
 ```
 
-响应正文：
+Response body：
 
 ```json
 {

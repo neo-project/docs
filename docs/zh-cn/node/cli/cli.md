@@ -35,22 +35,22 @@
 
 #### 钱包命令
 
-| 命令                                              | 参数                                           | 说明                                              |
-| ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------- |
-| [create wallet](#create-wallet)                   | \<path>                                        | 创建钱包文件                                      |
-| [open wallet](#open-wallet)                       | \<path>                                        | 打开钱包文件                                      |
-| close wallet                                      |                                                | 关闭钱包文件                                      |
-| [upgrade wallet](#upgrade-wallet)                 | \<path>                                        | 升级旧版钱包文件                                  |
-| list address                                      |                                                | 列出钱包中的所有账户。<br>需要打开钱包。          |
-| list asset                                        |                                                | 列出钱包中的所有资产。<br/>需要打开钱包。         |
-| list key                                          |                                                | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
-| [show gas](#show-gas)                             |                                                | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
-| [create address](#create-address)                 | [n为正整数，不填默认为1]                       | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
-| [import key](#import-key)                         | \<wif\|path>                                   | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#export-key)                         | \[address] [path]                              | 导出私钥。<br/>需要打开钱包。                     |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [fee=0] | 向指定地址转账。<br/>需要打开钱包。               |
-| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                                   | 创建多方签名合约。<br/>需要打开钱包。             |
-| [sign](#sign)                                     | \<jsonObjectToSign>                            | 对多方签名交易进行签名。<br/>需要打开钱包。       |
+| 命令                                              | 参数                                   | 说明                                              |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------------------------- |
+| [create wallet](#create-wallet)                   | \<path>                                | 创建钱包文件                                      |
+| [open wallet](#open-wallet)                       | \<path>                                | 打开钱包文件                                      |
+| close wallet                                      |                                        | 关闭钱包文件                                      |
+| [upgrade wallet](#upgrade-wallet)                 | \<path>                                | 升级旧版钱包文件                                  |
+| list address                                      |                                        | 列出钱包中的所有账户。<br>需要打开钱包。          |
+| list asset                                        |                                        | 列出钱包中的所有资产。<br/>需要打开钱包。         |
+| list key                                          |                                        | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
+| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
+| [create address](#create-address)                 | [n为正整数，不填默认为1]               | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
+| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
+| [export key](#export-key)                         | \[address] [path]                      | 导出私钥。<br/>需要打开钱包。                     |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。<br/>需要打开钱包。               |
+| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                           | 创建多方签名合约。<br/>需要打开钱包。             |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
 
 #### 节点命令
 
@@ -328,14 +328,13 @@ Multisig. Addr.: AYpc268sh4tff7CTj5W4tztt1qheVTUa6P
 
 ##### 句法
 
-`send <id|alias> <address> <amount>|all [fee=0]`
+`send <id|alias> <address> <amount>|all`
 
 ##### 参数
 
 - `id|alias`：资产 ID或资产缩写，如 neo，gas
 - `address`：收款地址
 - `amount|all`：转账金额
-- `fee`：设置手续费可以提升交易优先级，默认为0
 
 ##### 示例
 
