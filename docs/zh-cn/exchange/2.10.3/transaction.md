@@ -34,19 +34,21 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 
    ![feecomparewith2x](../assets/feecomparewith2x.png)
 
-## 处理资产交易
-
-### 查询
+## 处理查询交易
 
 交易所由于自身管理钱包产生的查询地址余额需求和用户的查询账户余额请求是不同的。
 
-#### 交易所查询用户地址余额
+### 交易所查询用户地址余额
 
-要查询用户账户余额，有两种方式，第一种是调用 RPC 请求 getnep5balances 方法：
+交易所查询用户地址余额的操作如下：
 
-前提条件： 安装 RpcNep5Tracker 插件
+1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
+   - getnep5balances（需提前安装RpcNep5Tracker 插件）
+   - invokefunction
+2. 向 NEO RPC 服务器发送文件请求。
+3. 根据返回值计算出用户余额。
 
-#### getnep5balances
+#### 调用 getnep5balances
 
 在 JSON 文件中，getnep5balances 的请求正文通常为以下格式：
 ```json
@@ -83,13 +85,7 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 110000000/10⁸ NEO = 1.1 GAS, 3 NEO
 
-第二种是调用RPC请求invokefunction的方式：
-
-1. 编写 JSON 文件，使用 RPC API `invokefunction` 调用三个方法： `balanceOf`、`decimals`和 `symbol`。
-2. 向 NEO RPC 服务器发送文件请求。
-3. 根据返回值计算出用户余额。
-
-#### invokefunction
+#### 调用 invokefunction
 
 在 JSON 文件中，invokefunction 的请求正文通常为以下格式：
 
@@ -148,7 +144,7 @@ symbol
 
   因此，你需要把 account 作为 "balanceOf" 方法的一个参数。
 
-#### 调用示例
+##### 调用示例
 
 ##### **调用 balanceOf**
 
@@ -288,18 +284,18 @@ symbol
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 200000000/10⁸ RPX = 2 RPX
 
-#### 处理用户查询账户余额请求
+### 处理用户查询账户余额请求
 
 用户实际在交易所里的余额，应当记录在交易所的数据库里。 交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额。
 
-### 充值
+## 处理充值交易
 
 交易所处理充值交易的操作如下：
 1. 通过 getblock API 获取每个区块的详情，其中便包括该区块中所有交易的详情；
 2. 分析每笔交易的交易类型，过滤出所有类型为"InvocationTransaction"的交易，任何非"InvocationTransaction"类型的交易都不可能成为 NEP-5 类型资产的转账交易；
 3. 调用 getapplicationlog API 获取每笔"InvocationTransaction"交易的详情，分析交易内容完成用户充值。
 
-#### 调用 getapplicationlog
+### 调用 getapplicationlog
 
 使用 [getapplicationlog](../../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
 
@@ -375,29 +371,27 @@ symbol
       "type": "ByteArray",
       "value": "7472616e73666572"
     }
-  ```
+    ```
     
   - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为"e3069da508f128069a0cd2544b0728ccbacdfb43"，经过转换，为字符串 "AcUGxiaPjCiD74VWiFqPzudJHZo4QMza5Q"。
-
+  
     > [!Note]
     >
     > NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
-
     ```json
     {
       "type": "ByteArray",
       "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
     }
     ```
-
-  - 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"d142f89e93b2717426a8130c37dad93aad70cff5"，经过转换，为字符串 "AarM6q48K55EBHhuRRRPVsGByrqBKoQoWf"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+  
+- 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"d142f89e93b2717426a8130c37dad93aad70cff5"，经过转换，为字符串 "AarM6q48K55EBHhuRRRPVsGByrqBKoQoWf"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
     ```json
     {
       "type": "ByteArray",
       "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
     }
     ```
-
   - 数组中的的第四个对象，为转账金额，类型为 bytearray，因前面没加 0x，按小端序处理, 翻转后为 0000000005f5e100, 值为 100000000, 因为 decimal 为 8 位，所以实际值就是 1.00000000。这里根据金额不同，会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同。
     ```json
     {
@@ -410,16 +404,16 @@ symbol
 >
 > 关于文件中 transfer 通知格式的转换，可以参考工具 [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools)。
 
-### 提现
+## 处理提现交易
 
-交易所可以通过以下一种方式发送 NEP-5 资产给用户，客户端则必须打开钱包才能使用以下 API：
+交易所可以通过以下一种方式发送资产给用户，客户端则必须打开钱包才能使用以下 API：
 
 - Neo-CLI 命令： `send`
 - RPC 方法： `sendfrom`
 - RPC 方法： `sendtoaddress`
 - RPC 方法： `sendmany`
 
-#### Neo-CLI 命令：send
+### Neo-CLI 命令：send
 
 ##### 语法
 
@@ -445,7 +439,7 @@ send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N6
 NEO: 0x43cf98eddbe047e198a3e5d57006311442a0ca15
 GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 
-#### RPC 方法：sendfrom
+### RPC 方法：sendfrom
 
  "params"  包含一个 4 个参数的数组。
 
@@ -497,7 +491,7 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 }
 ```
 
-#### RPC 方法：sendtoaddress
+### RPC 方法：sendtoaddress
 
  "params"  包含一个 3 个参数的数组。
 
@@ -557,7 +551,7 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 }
 ```
 
-#### RPC 方法：sendmany
+### RPC 方法：sendmany
 
 "params"  包含至少两个参数的数组。
 
