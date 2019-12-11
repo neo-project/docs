@@ -1,14 +1,14 @@
 # 配置与启动节点
 
-本文将介绍启动 NEO-CLI 前所需要进行的配置以及通过命令启动节点。
+完成 Neo-CLI 的安装后，本节我们将进行启动前的必要配置以及使用命令启动节点。
 
 ## 修改配置文件
 
-NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protocol.json`。启动 NEO-CLI 前需要对这两个文件进行必要配置。有关这两个文件的具体属性说明，请参见 [NEO-CLI 结构](../../tooldev/neo_cli_structure.md)。
+Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protocol.json`。启动 Neo-CLI 前需要对这两个文件进行必要配置。有关这两个文件的具体属性说明，请参见 [Neo-CLI 结构](../../tooldev/neo_cli_structure.md)。
 
 ### 配置钱包
 
-启动 NEO-CLI 前，你需要在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
+启动 Neo-CLI 前，你需要在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
 
 - MaxGasInvoke：允许通过 RPC 调用虚拟机执行消耗的最大 GAS 数额
 - Path：钱包路径
@@ -72,13 +72,13 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 ### 将节点连接到网络
 
-由于 NEO3 主网尚未上线，你需要用NEO-CLI目录下的`config.testnet.json` 和`protocol.testnet.json` 文件分别替换原有配置文件 `config.json` 和 `protocol.json`，将节点接入测试网。相关信息，请参见[主网与测试网](../../network/testnet.md)。
+由于 NEO3 主网尚未上线，你需要用Neo-CLI目录下的`config.testnet.json` 和`protocol.testnet.json` 文件分别替换原有配置文件 `config.json` 和 `protocol.json`，将节点接入测试网。相关信息，请参见[主网与测试网](../../network/testnet.md)。
 
 如果要将节点接入私链，需要配置 `protocol.json` 文件。详细信息，请参见[搭建私有链](../../network/private-chain/solo.md)中的修改`protocol.json` 说明。
 
 ## 安装插件
 
-一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 NEO-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。
+一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 Neo-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。
 
 安装插件有两种方式：
 
@@ -161,7 +161,7 @@ NEO-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
             <td><a
                     href="https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/StatesDumper.zip">StatesDumper</a>
             </td>
-            <td>导出 NEO-CLI 状态数据。</td>
+            <td>导出 Neo-CLI 状态数据。</td>
             <td></td>
             <td>可选</td>
         </tr> 
@@ -196,7 +196,7 @@ neo> uninstall RpcWallet
 Uninstall successful, please restart neo-cli.
 ```
 
-在安装或卸载完毕后，请重启 NEO-CLI 使操作生效。
+在安装或卸载完毕后，请重启 Neo-CLI 使操作生效。
 
 ## 快速同步区块数据
 
@@ -204,7 +204,7 @@ Uninstall successful, please restart neo-cli.
 
 ## 启动 NEO 节点
 
-打开命令行，定位到 NEO-CLI 所在目录，输入以下命令启动 NEO 节点 。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令启动 NEO 节点 。
 
 **Windows 10**:
 
@@ -244,7 +244,7 @@ dotnet neo-cli.dll --rpc
 
 > [!WARNING]
 >
-> 如果开通了 API 服务，并且在 NEO-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
+> 如果开通了 API 服务，并且在 Neo-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
 
 ## 阅读下节
 

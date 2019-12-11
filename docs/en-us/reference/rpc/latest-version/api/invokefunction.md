@@ -1,19 +1,31 @@
-# invokefunction Method
+﻿# invokefunction Method
 
-Returns the result after calling a smart contract at scripthash with the given operation and parameters.
+Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 
 > [!Note]
 >
-> - This method is to test your VM script as if they were ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+> - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
 > - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
-## Parameter Description
 
-`scripthash`: Smart contract scripthash. Note that endianness of the scripthash you should use depends on data type of the passed address. If data type is Hash160, then you should enter big-endian scripthash; If data type is ByteArray, you should enter little-endian scripthash.
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "invokefunction",
+  "params": [
+    scripthash,
+    operation,
+    params
+  ],
+  "id": 3
+}
+```
 
-`operation`: The operation name (string)
+### Parameter Description
 
-`params`: The parameters to be passed into the smart contract operation
+* scripthash: Smart contract scripthash
+* operation: The operation name (string)
+* params: The parameters to be passed into the smart contract operation
 
 ## Example
 
@@ -52,8 +64,7 @@ Response body:
                 "type": "ByteArray",
                 "value": "262bec084432"
             }
-        ],
-        "tx": "d101361426ae7c6c9861ec418468c1f0fdc4a7f2963eb89151c10962616c616e63654f6667be39e7b562f60cbfe2aebca375a2e5ee28737caf000000000000000000000000"
+        ]
     }
 }
 ```
@@ -80,15 +91,14 @@ Response body:
     "id": 3,
     "result": {
         "script": "00c108646563696d616c7367be39e7b562f60cbfe2aebca375a2e5ee28737caf",
-        "state": "HALT, BREAK",
+        "state": "HALT",
         "gas_consumed": "0.174",
         "stack": [
             {
                 "type": "Integer",
                 "value": "8"
             }
-        ],
-        "tx": "d1012000c108646563696d616c7367be39e7b562f60cbfe2aebca375a2e5ee28737caf000000000000000000000000"
+        ]
     }
 }
 ```

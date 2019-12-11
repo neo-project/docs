@@ -6,8 +6,6 @@
 >
 > 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
 
-
-
 ```json
 {
   "jsonrpc": "2.0",
@@ -17,16 +15,12 @@
 }
 ```
 
-
-
 ### 参数说明
 
 * asset_id：资产 ID（资产标识符），即NEP-5合约的scripthash
 * from：转账地址。
 * to: 收款地址。
 * value：转账金额。
-
-
 
 ## 调用示例
 

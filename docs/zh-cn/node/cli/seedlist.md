@@ -1,8 +1,8 @@
-# NEO-CLI SeedList
+# Neo-CLI SeedList
 
 ## 介绍
 ### 关于 SeedList
-简单来说，SeedList 是一个 URL 列表，是 NEO-CLI 在启动时尝试连接的节点。在 neo-cli 目录下的 `protcol.json` 文件中可以找到 SeedList。
+简单来说，SeedList 是一个 URL 列表，是 Neo-CLI 在启动时尝试连接的节点。在 neo-cli 目录下的 `protcol.json` 文件中可以找到 SeedList。
 
 ```json
 {
@@ -26,10 +26,10 @@
   }
 }
 ```
-在上面的文件中，NEO-CLI 配置为通过 `PORT:10333` 连接 `seed1.neo.org` ，`seed2.neo.org` 等系列节点。
+在上面的文件中，Neo-CLI 配置为通过 `PORT:10333` 连接 `seed1.neo.org` ，`seed2.neo.org` 等系列节点。
 
 ### 潜在的问题
-假如以上列表中的每个节点故障，NEO-CLI 会尝试连接相邻节点。但是这种方法存在很多未知因素，例如相邻节点出问题了，可能导致等待时间相当漫长。
+假如以上列表中的每个节点故障，Neo-CLI 会尝试连接相邻节点。但是这种方法存在很多未知因素，例如相邻节点出问题了，可能导致等待时间相当漫长。
 
 ## 更新 SeedList
 通过使用我们确定的活跃节点更新 SeedList，可以避免上述潜在问题中提到的漫长等待风险。
@@ -58,11 +58,11 @@
 - `node2.nyc3.bridgeprotocol.io`
 - ……
 
-*NEO-CLI 通信的主要端口是 10333。目前只对 RPC 执行 ping 操作。我们假设如果一个节点的 RPC 端口启动，那它的 P2P 端口也将启动*。
+*Neo-CLI 通信的主要端口是 10333。目前只对 RPC 执行 ping 操作。我们假设如果一个节点的 RPC 端口启动，那它的 P2P 端口也将启动*。
 
 
 ### 编辑 protocol 文件
-为了告知 NEO-CLI 新的节点列表，需要将前面几个地址粘贴到 `protocol.json`，以下是示例的 protocol.json 文件。
+为了告知 Neo-CLI 新的节点列表，需要将前面几个地址粘贴到 `protocol.json`，以下是示例的 protocol.json 文件。
 
 ```json
 {
@@ -123,9 +123,9 @@
 }
 ```
 
-请注意，我们在每个地址的末尾添加了 `:10333` ，以告知 NEO-CLI 使用 P2P 协议进行连接。
+请注意，我们在每个地址的末尾添加了 `:10333` ，以告知 Neo-CLI 使用 P2P 协议进行连接。
 
-到此，你就可以像往常一样启动 NEO-CLI 了。
+到此，你就可以像往常一样启动 Neo-CLI 了。
 
 ### 相关工具
 如果觉得上述操作繁琐，可以编写一个自动更新 `protocol.json ` 的脚本，具体参见 [这里](https://github.com/HandsomeJeff/neo-cli-protocol-maker)。
