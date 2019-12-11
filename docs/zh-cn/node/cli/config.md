@@ -202,7 +202,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
 
 ```
 neo> install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
+Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
 Install successful, please restart neo-cli.
 ```
 

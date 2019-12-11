@@ -43,7 +43,7 @@
 2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
 
    ```
-   $ git clone https://github.com/neo-project/neo-cli.git
+   $ git clone https://github.com/neo-node/neo-cli.git
    ```
 
 3. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
@@ -68,7 +68,7 @@ dotnet publish -c release -r win10-x64
 2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
 
    ```
-   $ git clone https://github.com/neo-project/neo-cli.git
+   $ git clone https://github.com/neo-node/neo-cli.git
    ```
 
 3. 运行以下命令，安装 levelDB:
@@ -94,7 +94,7 @@ dotnet publish -c release -r linux-x64
 1. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
 
    ```
-   $ git clone https://github.com/neo-project/neo-cli.git
+   $ git clone https://github.com/neo-node/neo-cli.git
    ```
 
 2. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
