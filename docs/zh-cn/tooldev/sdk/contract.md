@@ -1,8 +1,6 @@
-# NEO RPC SDK - 合约部署与调用
+# 合约部署与调用
 
-> 注：本文档中使用的 NEO 版本为 3.0 及以上。
-
-由于在NEO3中绝大部分功能都是通过合约提供的，所以理解合约是使用NEO3的基础，每个合约由脚本哈希(ScriptHash)作为唯一表示，通常也是调用合约的必须参数。本文档主要介绍了SDK下面几个方面的功能：
+由于在NEO3中绝大部分功能都是通过合约提供的，所以理解合约是使用NEO3的基础，每个合约由脚本哈希(ScriptHash)作为唯一标识，通常也是调用合约的必须参数。本文档主要介绍以下SDK功能：
 
 - 封装了合约部署交易的构建方法
 - 使用只读模式调用合约中方法
@@ -107,13 +105,15 @@ string name = contractClient.TestInvoke(scriptHash, "name")
 byte[] script = scriptHash.MakeScript("name");
 // call invoke script
 name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
-``` 
+```
 
 ## 合约调用（上链交易）
 
-上链的合约调用一般要经过下面几个步骤：
+上链的合约调用一般要经过以下步骤：
 
-1. 构建调用脚本，以下以调用原生合约NEO的`transfer`方法为例
+1. 构建调用脚本
+
+    以调用原生合约NEO的`transfer`方法为例：
 
     ```c#
     // construct the script, in this example, we will transfer 1 NEO to receiver
@@ -121,7 +121,7 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
     ```
 
-2. 构建交易
+2. 构建交易：
 
     ```c#
     // initialize the TransactionManager with rpc client and sender scripthash
@@ -135,14 +135,14 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
         .Tx;
     ```
 
-3. 交易构造后需要广播到链上:
+3. 交易构造后广播到链上:
 
     ```c#
     // broadcasts the transaction over the NEO network
     client.SendRawTransaction(tx);
     ```
 
-4. 等待交易上链后可以获取交易的执行状态以确保合约调用成功:
+4. 等待交易上链后，获取交易的执行状态以确保合约调用成功:
 
     ```c#
     // print a message after the transaction is on chain
@@ -151,11 +151,11 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
         .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
     ```
 
-完整示例请参考[交易构造模块文档](transaction.md)。
+完整示例请参考[构造交易](transaction.md)。
 
 ## NEP5合约
 
-`Nep5API`封装了转账交易的生成方法，以上过程中的交易过程可简化为：
+`Nep5API`封装了转账交易的生成方法，以上交易过程可简化为：
 
 ```c#
 Nep5API nep5API = new Nep5API(client);
@@ -177,3 +177,7 @@ uint decimals = nep5API.Decimals(scriptHash);
 // get nep5 token total supply
 BigInteger totalSupply = nep5API.TotalSupply(scriptHash);
 ```
+
+## 阅读下节
+
+[钱包相关接口](wallet.md)

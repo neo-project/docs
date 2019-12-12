@@ -1,6 +1,4 @@
-# NEO RPC SDK - RPC调用详细列表
-
-> 注：本文档中使用的 NEO 版本为 3.0 及以上。
+# RPC 调用方法
 
 `NEO RPC SDK` 封装了所有`RpcServer`提供的接口，可以通过该模块中提供的标准方法在代码中发送RPC请求，只需要传入相应的参数，SDK就会根据参数构造相应的JSON-RPC请求，进而获得节点返回的数据。
 
@@ -14,18 +12,18 @@
 RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
 ```
 
-本地节点（本地节点是本地维护的Neo-Cli,可以根据配置连接主网，测试网或者私链）：
+本地节点（本地节点是本地维护的Neo-Cli，可以根据配置连接主网，测试网或者私链）：
 ```c#
 // Local Node
 RpcClient client = new RpcClient("http://localhost:20332");
 ```
 
-> - 开发过程中不要直接在主网进行测试以免造成财产损失。
-> - 一个应用程序中一般只需要初始化一个`RpcClient`实例，不要在每个方法中初始化`RpcClient`。
+> [!Note]
+>
+> 一个应用程序中一般只需要初始化一个`RpcClient`实例，而不需要在每个方法中初始化。
 
 ## 获取当前区块高度
-区块索引 = 区块高度 = 区块数量 - 1
-Index = Height = Count - 1
+区块索引（Index） = 区块高度（Height） = 区块数量（Count） - 1
 
 ```c#
 uint blockHeight = client.GetBlockCount() - 1;
@@ -186,7 +184,7 @@ RpcVersion rpcVersion = client.GetVersion();
 string version = rpcVersion.UserAgent;
 ```
 
-## 调用指定智能合约的特定方法
+## 调用智能合约的特定方法
 通过指定的智能合约脚本散列、方法名和参数在虚拟机中运行后返回结果：
 
 ```c#
@@ -255,3 +253,8 @@ bool result = client.SubmitBlock("0000000000000000000000000000000000000000000000
 RpcValidateAddressResult result = client.ValidateAddress("AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i");
 bool isValid = result.IsValid;
 ```
+
+## 阅读下节
+
+[获取区块信息](monitor.md)
+
