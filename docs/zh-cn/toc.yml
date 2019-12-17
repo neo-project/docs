@@ -168,18 +168,20 @@
       href: /docs/zh-cn/tooldev/transaction/transaction.md
     - name: 交易流程
       href: /docs/zh-cn/tooldev/transaction/tx_execution.md
-  - name: NEO SDK
+  - name: Neo SDK
     items:
-    - name: 关于 NEO SDK
+    - name: 关于 Neo RPC SDK
       href: /docs/zh-cn/tooldev/sdk/introduction.md
-    - name: 数据类型转换
-      href: /docs/zh-cn/tooldev/sdk/conversion.md
-    - name: 账户
-      href: /docs/zh-cn/tooldev/sdk/account.md
-    - name: 钱包
+    - name: RPC 调用方法
+      href: /docs/zh-cn/tooldev/sdk/rpc.md
+    - name: 获取区块信息
+      href: /docs/zh-cn/tooldev/sdk/monitor.md
+    - name: 钱包相关接口
       href: /docs/zh-cn/tooldev/sdk/wallet.md
-    - name: 交易
-      href: /docs/zh-cn/tooldev/sdk/tx.md
+    - name: 构造交易
+      href: /docs/zh-cn/tooldev/sdk/transaction.md
+    - name: 合约部署与调用
+      href: /docs/zh-cn/tooldev/sdk/contract.md
 - name: 交易所对接指南
   items:
   - name: 概述
