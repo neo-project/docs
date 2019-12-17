@@ -1,6 +1,6 @@
 # 构造交易
 
-`NEO RPC SDK` 封装了交易构造模块，通过该模块可以使用特定的参数和方法构造NEO3中的交易，完成个性化的功能，本篇主要介绍这部分的使用方法。
+`NEO RPC SDK` 封装了交易构造模块，通过该模块可以使用特定的参数和方法构造 NEO3 中的交易，完成个性化的功能，本篇主要介绍这部分的使用方法。
 
 ## 交易构造步骤
 
@@ -12,25 +12,25 @@
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
     ```
 
-2. 初始化 `TransactionManager` ，将 `RpcClient `和发起账户的 `ScriptHash `作为参数。
+2. 初始化 `TransactionManager` ，将 `RpcClient ` 和发起账户的 `ScriptHash ` 作为参数。
 
     ```c#
     // initialize the TransactionManager with rpc client and the sender scripthash
     TransactionManager txManager = new TransactionManager(client, sender);
     ```
 
-3. 调用`MakeTransaction`方法，传入交易脚本、交易属性、cosigner和网络手续费。
+3. 调用 `MakeTransaction` 方法，传入交易脚本、交易属性、cosigner 和网络手续费。
 
-  如果当前交易只需要一个单签账户的签名，将手续费设置为0，系统将自动计算最低费用。
+  如果当前交易只需要一个单签账户的签名，将手续费设置为 0，系统将自动计算最低费用。
 
   如果当前交易为多签或者需要多个签名，需要传入足够的手续费，否则签名时会引发异常。
 
   ```c#
-    // fill the script, attribute, cosigner and network fee
+    // fill the script, attribute, cosigner, and network fee
     txManager.MakeTransaction(script, null, cosigners, 0);
   ```
 
-4. 添加签名（单签或者多签），将账户的`KeyPair`作为签名的参数。
+4. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数。
 
     - 单签
     ```c#
@@ -39,7 +39,7 @@
     ```
     - 多签
     ```c#
-    // add multi-signatures for the transaction with sendKey, at least use 2 KeyPairs
+    // add multi-signatures for the transaction with sendKey, at least 2 KeyPairs
     txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     ```
@@ -53,7 +53,7 @@
     UInt160 multiAccount = multiContract.Script.ToScriptHash();
     ```
 
-5. 校验签名，并将`Witness`添加至交易体。
+5. 校验签名，并将 `Witness` 添加至交易体。
 
     如果签名数量不够或手续费不够会引发异常。
 
@@ -88,11 +88,11 @@ namespace ConsoleApp1
             // choose a neo node with rpc opened
             RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
 
-            // get the KeyPair of your account, this account will pay the system and network fee
+            // get the KeyPair of your account, which will pay the system and network fee
             KeyPair sendKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
             UInt160 sender = Contract.CreateSignatureContract(sendKey.PublicKey).ScriptHash;
 
-            // add Cosigners, this is a collection of scripthashs which need to be signed
+            // add Cosigners, which is a collection of scripthashs that need to be signed
             Cosigner[] cosigners = new[] { new Cosigner { Scopes = WitnessScope.CalledByEntry, Account = sender } };
 
             // get the scripthash of the account you want to transfer to
@@ -112,7 +112,7 @@ namespace ConsoleApp1
                 .Sign()
                 .Tx;
 
-            // broadcasts transaction over the NEO network.
+            // broadcasts the transaction over the Neo network.
             client.SendRawTransaction(tx);
             Console.WriteLine($"Transaction {tx.Hash.ToString()} is broadcasted!");
 
@@ -128,7 +128,7 @@ namespace ConsoleApp1
 
 ```
 
-`WalletAPI`封装了上面的过程，NEP5转账可以简化为：
+`WalletAPI` 封装了上面的过程，NEP5 转账可以简化为：
 
 ```c#
 WalletAPI walletAPI = new WalletAPI(client);
@@ -137,7 +137,7 @@ Transaction tx = walletAPI.Transfer(NativeContract.NEO.Hash, sendKey, receiver, 
 
 ### 构造交易向多签账户转账
 
-下面的示例实现了向多签账户转账10个GAS的功能。多签账户的scripthash由多签合约脚本的hash得来。因为发送方为普通账户，添加签名的过程与上一个示例没有区别。
+下面的示例实现了向多签账户转账 10 个 GAS 的功能。多签账户的 scripthash 由多签合约脚本的 hash 得来。因为发送方为普通账户，添加签名的过程与上一个示例没有区别。
 
 ```c#
 using Neo;
@@ -158,7 +158,7 @@ namespace ConsoleApp1
             // choose a neo node with rpc opened
             RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
 
-            // get the KeyPair of your account, this account will pay the system and network fee
+            // get the KeyPair of your account, which will pay the system and network fee
             KeyPair sendKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
             UInt160 sender = Contract.CreateSignatureContract(sendKey.PublicKey).ScriptHash;
 
@@ -166,7 +166,7 @@ namespace ConsoleApp1
             KeyPair key2 = Utility.GetKeyPair("L2ynA5aq6KPJjpisXb8pGXnRvgDqYVkgC2Rw85GM51B9W33YcdiZ");
             KeyPair key3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5Zbx5NAjPbdb");
 
-            // create multi-signature contract, this contract needs at least 2 KeyPairs to sign
+            // create multi-signatures contract, this contract needs at least 2 KeyPairs to sign
             Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
             // get the scripthash of the multi-signature Contract
             UInt160 multiAccount = multiContract.Script.ToScriptHash();
@@ -252,11 +252,11 @@ namespace ConsoleApp1
                 // add multi-signature for the transaction with sendKey, at least use 2 KeyPairs
                 .AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
                 .AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
-                // sign transaction with the added signature
+                // sign the transaction with the added signature
                 .Sign()
                 .Tx;
 
-            // broadcasts transaction over the NEO network.
+            // broadcast the transaction over the NEO network.
             client.SendRawTransaction(tx);
             Console.WriteLine($"Transaction {tx.Hash.ToString()} is broadcasted!");
 
