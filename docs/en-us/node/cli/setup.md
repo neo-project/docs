@@ -38,7 +38,7 @@ You can download and compile the Neo-CLI source directly from Github.
 
 #### Installing required files
 
-1. On Windows 10 install [.NET Core](<https://www.microsoft.com/net/download/windows>) and [.NET Framework](https://www.microsoft.com/net/download/windows).
+1. On Windows 10 install [.NET Core](https://www.microsoft.com/net/download/windows) and [.NET Framework](https://www.microsoft.com/net/download/windows).
   
 2. Git clone Neo-CLI source code from [Github](https://github.com/neo-project/neo-cli.git) or using the following command:
 
