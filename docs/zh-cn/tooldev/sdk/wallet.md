@@ -91,6 +91,7 @@ scriptHash = adddress.ToScriptHash();
 可参考如下示例：
 
 创建新的 NEP6 钱包，添加账户并保存为 JSON 文件：
+
 ```c# 
 // create wallet
 string path = "wallet_new.json";
@@ -104,6 +105,7 @@ wallet_new.Save();
 ```
 
 从 JSON 文件读取 NEP6 钱包，并解密账户：
+
 ```c# 
 // load wallet from nep6 wallet
 NEP6Wallet wallet = new NEP6Wallet(path);
@@ -132,6 +134,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 > 账户余额的类型一般是 `BigInteger`，这是把小数部分取整后的一种表示，需要除以 `Factor` 才能得出Token 的实际数量。
 
 查询 NEP5 资产余额查询可以使用字符串参数：
+
 ```c#
 // get the neo balance of account
 string tokenHash = "0x43cf98eddbe047e198a3e5d57006311442a0ca15";
@@ -140,6 +143,7 @@ BigInteger balance = walletAPI.GetTokenBalance(tokenHash, address);
 ```
 
 也可以使用 ScriptHash 类型的参数：
+
 ```c#
 // get the neo balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
@@ -149,6 +153,7 @@ BigInteger balance = nep5API.BalanceOf(tokenScriptHash, accountHash);
 ```
 
 在 NEO3 中 NEO 和 GAS 都是 NEP5 资产，且脚本哈希固定，所以这里提供了更简单的接口：
+
 ```c#
 // get the neo balance
 uint neoBalance = walletAPI.GetNeoBalance(address);
@@ -184,6 +189,7 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
     Transaction transaction = walletAPI.ClaimGas(wif);
     ```
     也可以使用`KeyPair`：
+    
     ```c#
     KeyPair keyPair = Utility.GetKeyPair(wif);
     Transaction transaction = walletAPI.ClaimGas(keyPair);
