@@ -1,6 +1,6 @@
 # Build a private chain with one node
 
-NEO-CLI 2.10.2 supports generating blocks without consensus nodes, which means you can set up a private chain with one node. 
+NEO-CLI 2.10.2 and the later supports generating blocks without consensus nodes, which means you can set up a private chain with one node. 
 
 You can directly download the project [NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) to run a private chain quickly. Note that this project assumes you use Windows 10 and has [.NetFramework 4.7.1](https://www.microsoft.com/net/download/dotnet-framework-runtime) installed. 
 

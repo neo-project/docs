@@ -10,7 +10,8 @@ We currently recommend C# for developing smart contracts. The Java compiler is s
 
 This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts. It also gives you an idea of how to create a smart contract project and how to compile it.
 
-The process involves the following steps:
+The process involves the following steps: 
+
 1. Write Java code (.java) for classes that extend FunctionCode or VerificationCode which is part of the Neo Framework Library (JAR)
 2. Use the normal Java compiler to compile code into Java bytecode (.class)
 3. Build the neoj (C#) compiler that converts JVM code into AVM code (neoj.exe on Windows)
