@@ -24,8 +24,6 @@ Place the downloaded package (chain.acc.zip or chain.xxx.acc.zip) under the fold
 
 > [!Warning]
 >
-> #### 警告
->
 > You must not change the default offline package file name  (chain.acc.zip or chain.xxx.acc.zip) , otherwise it will not work for synchronization.
 
 ![](../assets/syncblocks_3.png)

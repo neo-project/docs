@@ -44,7 +44,7 @@ You can also do the following operations by right-clicking an address of the acc
 | Function          | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
 | Create New Add.   | Creates a new address in the wallet                          |
-| Import            | `Import from WIF`: Imports the corresponding address into the wallet<br>`Import from Certificate:` Imports the certification <br>`Import Watch-Only Address`：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
+| Import            | `Import from WIF`: Imports the corresponding address into the wallet<br>`Import from Certificate`： Imports the certification <br>`Import Watch-Only Address`：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
 | Copy to Clipboard | Copies the address                                           |
 | Delete            | Removes the address                                          |
 

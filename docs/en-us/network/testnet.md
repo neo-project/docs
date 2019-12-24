@@ -66,6 +66,7 @@ After a day or so you will be sent an email containing a "Multi-party signed add
 
 ### STEP 3 - Create a multi-party signed address
 To access the assets, in your neo-gui you will create a "Multi-party signed address" in your wallet using 
+
 - The "Multi-party signed address" (from the email) 
 - The PUBLIC KEY of the sender (from the email)
 - Your PUBLIC KEY (from STEP 1 above) 
@@ -91,9 +92,10 @@ You will see the quantity of NEO and/or GAS shown beside the Contact address.
 
 2. From NEO-GUI menu, select `Transaction` -> `Transfer`
 
-![image](../assets/neo_gas_3.png)
+   ![image](../assets/neo_gas_3.png)
 
 3. Select the Asset and the amount to send and the account you want to transfer the asset to. 
 
 ## Alternatives to the TestNet
+
 Testing your Smart Contract on the TestNet is a good idea before publishing it on the LIVE network but earlier in your development cycle you should consider using other methods to test your Smart Contacts such as running you own PRIVATE Testnet.
