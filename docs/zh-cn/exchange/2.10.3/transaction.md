@@ -53,10 +53,10 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 在 JSON 文件中，getnep5balances 的请求正文通常为以下格式：
 ```json
 {
-"jsonrpc": "2.0",
-"method": "getnep5balances",
-"params": ["ALjSnMZidJqd18iQaoCgFun6iqWRm2cVtj"],
-"id": 1
+  "jsonrpc": "2.0",
+  "method": "getnep5balances",
+  "params": ["NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih", 0],
+  "id": 1
 }
 ```
 发送请求后，将收到如下响应：
@@ -67,23 +67,22 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
     "result": {
         "balance": [
             {
-                "asset_hash": "43cf98eddbe047e198a3e5d57006311442a0ca15",
-                "amount": "3",
-                "last_updated_block": 8637
+                "asset_hash": "0x43cf98eddbe047e198a3e5d57006311442a0ca15",
+                "amount": "2",
+                "last_updated_block": 52675
             },
             {
-                "asset_hash": "a1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "amount": "110000000",
-                "last_updated_block": 8614
+                "asset_hash": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+                "amount": "700000000",
+                "last_updated_block": 52675
             }
         ],
-        "address": "ALjSnMZidJqd18iQaoCgFun6iqWRm2cVtj"
+        "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
     }
 }
 ```
-
 根据所有返回值，可以计算出用户余额为：
-用户余额 = 110000000/10⁸ NEO = 1.1 GAS, 3 NEO
+用户余额 = 700000000/10⁸ NEO = 7 GAS, 2 NEO
 
 #### 调用 invokefunction
 
@@ -110,7 +109,7 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 
 **script hash**
 
-要查询的 NEP-5 币的散列值，例如，RPX 的散列值是：*0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9*
+要查询的 NEP-5 币的散列值，例如：
 
 NEO散列值是：*0x43cf98eddbe047e198a3e5d57006311442a0ca15*       
 
@@ -148,12 +147,12 @@ symbol
 
 ##### **调用 balanceOf**
 
-假设用户账户地址是 AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR，你需要将其转换为 Hash160 类型并将此参数构造为 JSON 对象，如下所示:
+假设用户账户地址是 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，你需要将其转换为 Hash160 类型并将此参数构造为 JSON 对象，如下所示:
 
 ```json
 {
     "type": "Hash160",
-    "value": "0xa7274594ce215208c8e309e8f2fe05d4a9ae412b"
+    "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
 }
 ```
 
@@ -166,12 +165,12 @@ symbol
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "0xa7274594ce215208c8e309e8f2fe05d4a9ae412b"
+        "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
       }
     ]
   ],
@@ -186,20 +185,20 @@ symbol
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "142b41aea9d405fef2e809e3c8085221ce944527a751c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
         "state": "HALT",
-        "gas_consumed": "0.338",
+        "gas_consumed": "8295750",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "00c2eb0b"
+                "value": "AADBb/KGIw=="
             }
         ]
     }
 }
 ```
 
-返回值”00c2eb0b“ 可以转化为整数 **200000000**。
+返回值”AADBb/KGIw==“ 为 base64 加密后的ByteArray，由 base64 解码得到 ByteArray 再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 去除 8 位 decimals 得到此 Nep-5 的余额为 **1x10<sup>8</sup>**。
 
 ##### **调用 decimals**
 
@@ -210,7 +209,7 @@ symbol
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
     "decimals",
     []
     ],
@@ -223,11 +222,11 @@ symbol
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 2,
+    "id": 3,
     "result": {
-        "script": "00c108646563696d616c7367f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "script": "00c108646563696d616c73146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
         "state": "HALT",
-        "gas_consumed": "0.156",
+        "gas_consumed": "5673200",
         "stack": [
             {
                 "type": "Integer",
@@ -249,11 +248,11 @@ symbol
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
     "symbol",
-    []
-    ],
-  "id": 1
+    [ ]
+  ],
+  "id": 3
 }
 ```
 
@@ -262,27 +261,27 @@ symbol
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 1,
+    "id": 3,
     "result": {
-        "script": "00c10673796d626f6c67f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "script": "00c10673796d626f6c146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
         "state": "HALT",
-        "gas_consumed": "0.141",
+        "gas_consumed": "8106560",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "525058"
+                "value": "dDE="
             }
         ]
     }
 }
 ```
 
-返回值 "525058" 可以被转换为币种符号 "RPX"。
+返回值 "dDE=" 可以被 base64 解码为 "t1"。
 
 ##### **计算用户余额**
 
 根据所有返回值，可以计算出用户余额为：
-用户余额 = 200000000/10⁸ RPX = 2 RPX
+用户余额 = 返回值 / 10<sup>decimals</sup>。
 
 ### 处理用户查询账户余额请求
 
@@ -308,45 +307,40 @@ symbol
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07",
-        "executions": [
+        "txid": "0xe7b3782ea15c74889ee914de6acb7c311603ea7b5c3209d0e8b8e7a805848750",
+        "trigger": "Application",
+        "vmstate": "HALT",
+        "gas_consumed": "13805550",
+        "stack": [
             {
-                "trigger": "Application",
-                "contract": "0x0110a8f666bcc650dc0b544e71c31491b061c79e",
-                "vmstate": "HALT",
-                "gas_consumed": "2.855",
-                "stack": [
-                    {
-                        "type": "Integer",
-                        "value": "1"
-                    }
-                ],
-                "notifications": [
-                    {
-                        "contract": "0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "ByteArray",
-                                    "value": "7472616e73666572"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "00e1f50500000000"
-                                }
-                            ]
+                "type": "Integer",
+                "value": "1"
+            }
+        ],
+        "notifications": [
+            {
+                "contract": "0x293b54c743f7a6433b2619da037beb9ed22aa73b",
+                "state": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "ByteArray",
+                            "value": "VHJhbnNmZXI="
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "AADBb/KGIw=="
                         }
-                    }
-                ]
+                    ]
+                }
             }
         ]
     }
@@ -364,16 +358,16 @@ symbol
 
   [事件，转出账户，转入账户，金额]
 
-  - 数组中的第一个对象，类型为 bytearray，值为 "7472616e73666572"，经过转换，为字符串 "transfer"。transfer 是 NEP-5 中的一个方法，代表资产转账。
+  - 数组中的第一个对象，类型为 bytearray，值为 "VHJhbnNmZXI="，经过 base64 解码后转换，为字符串 "transfer"。transfer 是 NEP-5 中的一个方法，代表资产转账。
     
     ```json
     {
       "type": "ByteArray",
-      "value": "7472616e73666572"
+      "value": "VHJhbnNmZXI="
     }
     ```
     
-  - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为"e3069da508f128069a0cd2544b0728ccbacdfb43"，经过转换，为字符串 "AcUGxiaPjCiD74VWiFqPzudJHZo4QMza5Q"。
+  - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为"0wzwBoLXDacAgxEkGaxxo1Ezxh4="，经过 base64 解码为 ByteArray 后再转换，为字符串 "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T"。
   
     > [!Note]
     >
@@ -381,22 +375,22 @@ symbol
     ```json
     {
       "type": "ByteArray",
-      "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
+      "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
     }
     ```
   
-- 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"d142f89e93b2717426a8130c37dad93aad70cff5"，经过转换，为字符串 "AarM6q48K55EBHhuRRRPVsGByrqBKoQoWf"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+- 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"yX4yS6wVpOpYn0I+SymnIQuPrQk="，经过 base64 解码为 ByteArray 后再转换，为字符串 "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
     ```json
     {
       "type": "ByteArray",
-      "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
+      "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
     }
     ```
-  - 数组中的的第四个对象，为转账金额，类型为 bytearray，因前面没加 0x，按小端序处理, 翻转后为 0000000005f5e100, 值为 100000000, 因为 decimal 为 8 位，所以实际值就是 1.00000000。这里根据金额不同，会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同。
+  - 数组中的的第四个对象，为转账金额，类型为 bytearray，值为 AADBb/KGIw==，经 base64 解码后为 0000c16ff28623。因前面没加 0x，按小端序处理, 翻转后为 2386f26fc10000, 值为 1x10<sup>16</sup>, 因为 decimal 为 8 位，所以实际值就是 100000000.00000000。这里根据金额不同，会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同，如对于当前返回值，Integer 类型应为 10000000000000000。
     ```json
     {
       "type": "ByteArray",
-      "value": "00e1f50500000000"
+      "value": "AADBb/KGIw=="
     }
     ```
 
