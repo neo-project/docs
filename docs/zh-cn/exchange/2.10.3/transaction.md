@@ -396,7 +396,7 @@ symbol
 
 > [!Note]
 >
-> 关于文件中 transfer 通知格式的转换，可以参考工具 [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools)。
+> 关于文件中 transfer 通知格式的转换，可以参考工具 [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool)。
 
 ## 处理提现交易
 
