@@ -423,15 +423,47 @@ symbol
 
 ##### 示例
 
-要将 100 RPX 转账到地址 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b，输入以下命令：
+要将 100 个某 NEP5 转账到地址 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，输入以下命令：
 
 ```
-send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
+send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
 ```
 
 如果要转账 neo/gas，只需要将第一个参数改为 NEO/GAS 对应的 scriptHash。例如，
 NEO: 0x43cf98eddbe047e198a3e5d57006311442a0ca15
 GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
+
+### RPC 方法：openwallet
+
+> [!Note]
+>
+> 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法。
+
+"params"  是一个包含 2 个参数的数组。
+`"params":[path， password]`
+列如，要打开密码为`111111`的名为`a.json`的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
+
+请求正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "openwallet",
+  "params": ["a.json", "111111"],
+  "id": 1
+}
+```
+
+发送请求后，将收到如下响应：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": true
+}
+
+```
 
 ### RPC 方法：sendfrom
 
@@ -439,7 +471,7 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 
 `"params":[script hash, address from, address to, amount ]`
 
-例如，要从地址 AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR 发送 1 RPX 到地址 AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要从地址 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 发送 10 NEO 到地址 NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -447,7 +479,7 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 {
   "jsonrpc": "2.0",
   "method": "sendfrom",
-  "params": ["0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9","AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR","AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h",1],
+  "params": ["0x43cf98eddbe047e198a3e5d57006311442a0ca15","NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV","NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",10],
   "id": 1
 }
 ```
@@ -459,39 +491,39 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xec413354b76fc50a614419f76f131c873da0b17e0fd2dd9170c955b667de08ef",
-        "size": 219,
-        "type": "InvocationTransaction",
-        "version": 1,
-        "attributes": [
+        "hash": "0xfc69052f7875ab934098c22086e6025b6e99c2d5383ede6b5e7ffc5cada0f526",
+        "size": 258,
+        "version": 0,
+        "nonce": 1499649081,
+        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+        "sys_fee": "100000000",
+        "net_fee": "1258270",
+        "valid_until_block": 2408902,
+        "attributes": [],
+        "cosigners": [
             {
-                "usage": "Script",
-                "data": "2b41aea9d405fef2e809e3c8085221ce944527a7"
+                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "scopes": "CalledByEntry"
             }
         ],
-        "vin": [],
-        "vout": [],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [
+        "script": "WhQzapXCv4GGc3VXYkpfCfc5hNkgIBTJfjJLrBWk6lifQj5LKachC4+tCVPBCHRyYW5zZmVyFBXKoEIUMQZw1eWjmOFH4NvtmM9DaGJ9W1Lx",
+        "witnesses": [
             {
-                "invocation": "401743a9c3fc91f131aea1c872d166e9c6fae577647884cd8511986041561c2b3e574c1708f662e570688d1a31db7cea281d43615b7fa64d7fa3babf0f6477c31e",
-                "verification": "2103c532d9335f512e1198ede5c3d35524e6a3b4598f1eb335193b09c4cd52591927ac"
+                "invocation": "QKw6QhHNOTcvifIw6Jxyomb7Rto2SZZYR/H48tS5f0UYlYKQdRsgxVycB/f/HXEqYZVaL7G9WYGp6WsexKoOb4I=",
+                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
             }
-        ],
-        "script": "0400e1f505149393ee15ce6612484ab5be3bbc78c82af8dc0e07142b41aea9d405fef2e809e3c8085221ce944527a753c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166c72745294a433e52",
-        "gas": "0"
+        ]
     }
-}
+
 ```
 
 ### RPC 方法：sendtoaddress
 
  "params"  包含一个 3 个参数的数组。
 
-`"params":[script hash, address, amount ]`
+`"params":[script hash, address, amount]`
 
-例如，要发送 1 RPX 到地址 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要发送 1000 GAS 到地址 NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -500,78 +532,9 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
     "jsonrpc":"2.0",
     "method":"sendtoaddress",
     "params":[
-        "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-        "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg",
-        "1"
-    ],
-    "id":1
-}
-```
-
-发送请求后，将收到如下响应：
-
-```json
-{
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":{
-        "txid":"0xc6d4bf7c62fb47e0b2a6e838c3a1ca297622a1b1df7ceb2d30fa4ef8b7870700",
-        "size":219,
-        "type":"InvocationTransaction",
-        "version":1,
-        "attributes":[
-            {
-                "usage":"Script",
-                "data":"5305fbbd4bd5a5e3e859b452b7897157eb20144f"
-            }
-        ],
-        "vin":[
-
-        ],
-        "vout":[
-
-        ],
-        "sys_fee":"0",
-        "net_fee":"0",
-        "scripts":[
-            {
-                "invocation":"4054fbfca678737ae164ebf0e476da0c8215782bc42b67ae08cf4d8a716eeef81fcc17641e7f63893c3e685fb7eb1fb8516161c5257af41630f4508dde3afa3a8c",
-                "verification":"210331d1feacd79b53aeeeeb9de56018eadcd07948675a50258f9e64a1204b5d58d1ac"
-            }
-        ],
-        "script":"0400e1f50514d710f6f3f0bad2996a09a56d454cfc116a881bfd145305fbbd4bd5a5e3e859b452b7897157eb20144f53c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166187b7883718089c8",
-        "gas":"0"
-    }
-}
-```
-
-### RPC 方法：sendmany
-
-"params"  包含至少两个参数的数组。
-
-`"params":[address from(optional), []]`
-
-例如，要发送 15.5 RPX 和 0.0001 GAS 到 AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg，编写如下 JSON 文件并发送给 RPC 服务器。
-
-请求正文：
-
-```json
-{
-    "jsonrpc":"2.0",
-    "method":"sendmany",
-    "params":[
-        [
-            {
-                "asset":"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-                "value":"15.5",
-                "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
-            },
-            {
-                "asset":"0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-                "value":"0.0001",
-                "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
-            }
-        ]
+        "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+        "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",
+        "1000"
     ],
     "id":1
 }
@@ -584,46 +547,98 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xe1351c9c9f2205a801d1b04f0df2d65fb4b1692d7d3b06cf41e0712fd1b12c9c",
-        "size": 373,
-        "type": "InvocationTransaction",
-        "version": 1,
-        "attributes": [
+        "hash": "0x5e810bf58c9c14f49c821e7d12adb435a4fac413b817390bae850e578202c214",
+        "size": 370,
+        "version": 0,
+        "nonce": 370378736,
+        "sender": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA",
+        "sys_fee": "100000000",
+        "net_fee": "2370540",
+        "valid_until_block": 2409087,
+        "attributes": [],
+        "cosigners": [
             {
-                "usage": "Script",
-                "data": "6d64dc9e50af8e911247436b264c8f7d791ad58c"
+                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "scopes": "CalledByEntry"
             }
         ],
-        "vin": [
+        "script": "BQDodkgXFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "witnesses": [
             {
-                "txid": "0x9f0a28a912527604ab4b7d5e8b8d1a9b57631fcbab460132811ae7b6ed1ccaff",
-                "vout": 1
-            }
-        ],
-        "vout": [
-            {
-                "n": 0,
-                "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-                "value": "0.0001",
-                "address": "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+                "invocation": "QPKQ71AqXJ83CdatB7+jb7oQdFV94g6Qr00y7i59w/bp4WH6OcvZxr2PNkpBCNIO/wkGiiySOB0N4a14ptKQ6b0=",
+                "verification": "IQL8lC/gCB0zH17Y7ioOmrUAqlGeGpUXpON83NH7CDJfY1BoCpBq1A=="
             },
             {
-                "n": 1,
-                "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-                "value": "0.01359",
-                "address": "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+                "invocation": "QOmJGUTaynsVo7a4doEnBsDj3qjrBgu6f5jG7IQ9tHWzxHlZg9OknmIWhLYatCLX1qbPb2KartjAYezE5uWra2U=",
+                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
             }
-        ],
-        "sys_fee": "0",
-        "net_fee": "0.00001",
-        "scripts": [
+        ]
+    }
+}
+```
+
+### RPC 方法：sendmany
+
+"params"  包含至少两个参数的数组。
+
+`"params":[address from(optional), []]`
+
+例如，要从 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 发送 100 NEO 和 1000 GAS 到 NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK，编写如下 JSON 文件并发送给 RPC 服务器。
+
+请求正文：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "sendmany",
+    "params": [
+    "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+        [
             {
-                "invocation": "40644ab915419dbf855a52d5c75596e80b78c8e928cc0ce91ae6afc3b75a0c31ee54efe1836f9ec232f6c42dcb3ace0bfdc688e626944fa20970a76064975eade9",
-                "verification": "2103d4b6fc2d116855f86a483d151182f68e88e6ddd13f3f1f3631e36300aac122bfac"
+                "asset": "0x43cf98eddbe047e198a3e5d57006311442a0ca15",
+                "value": 100,
+                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+            },
+            {
+                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+                "value": 2,
+                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+            }
+        ]
+    ],
+    "id": 1
+}
+```
+
+发送请求后，将收到如下响应：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x01bdee95fe77ebca78bd17a8bbfd4f538671941381560e9f842e07d5bd86ec5e",
+        "size": 344,
+        "version": 0,
+        "nonce": 1882341262,
+        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+        "sys_fee": "100000000",
+        "net_fee": "1344270",
+        "valid_until_block": 2409235,
+        "attributes": [],
+        "cosigners": [
+            {
+                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "scopes": "CalledByEntry"
             }
         ],
-        "script": "04801f635c14d710f6f3f0bad2996a09a56d454cfc116a881bfd146d64dc9e50af8e911247436b264c8f7d791ad58c53c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166f871fb30fc859b77",
-        "gas": "0"
+        "script": "AWQUM2qVwr+BhnN1V2JKXwn3OYTZICAUyX4yS6wVpOpYn0I+SymnIQuPrQlTwQh0cmFuc2ZlchQVyqBCFDEGcNXlo5jhR+Db7ZjPQ2hifVtS8QQAwusLFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "witnesses": [
+            {
+                "invocation": "QA9OZduN6MyEczPEV12TW7EFise5+riC9wagEv/M2SV7rrcRPiDAjbDbZxY0bcIz4JSafTJtF9FEo9laJwuhSMs=",
+                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+            }
+        ]
     }
 }
 ```
@@ -632,4 +647,4 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5") 
 
-[数据转换示例](https://github.com/PeterLinX/NeoDataTransformation)
+[数据转换示例](https://github.com/neo-ngd/Neo3-Tool)
