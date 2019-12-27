@@ -67,12 +67,12 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
     "result": {
         "balance": [
             {
-                "asset_hash": "0x43cf98eddbe047e198a3e5d57006311442a0ca15",
+                "asset_hash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
                 "amount": "2",
                 "last_updated_block": 52675
             },
             {
-                "asset_hash": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+                "asset_hash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
                 "amount": "700000000",
                 "last_updated_block": 52675
             }
@@ -111,9 +111,9 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 
 要查询的 NEP-5 币的散列值，例如：
 
-NEO散列值是：*0x43cf98eddbe047e198a3e5d57006311442a0ca15*       
+NEO散列值是：*0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789*       
 
-GAS散列值是：*0xa1760976db5fcdfab2a9930e8f6ce875b2d18225*
+GAS散列值是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
 
 **method name**
 
@@ -430,8 +430,8 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 ```
 
 如果要转账 neo/gas，只需要将第一个参数改为 NEO/GAS 对应的 scriptHash。例如，
-NEO: 0x43cf98eddbe047e198a3e5d57006311442a0ca15
-GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
+NEO: 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
 ### RPC 方法：openwallet
 
@@ -479,7 +479,7 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
 {
   "jsonrpc": "2.0",
   "method": "sendfrom",
-  "params": ["0x43cf98eddbe047e198a3e5d57006311442a0ca15","NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV","NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",10],
+  "params": ["0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789","NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV","NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",10],
   "id": 1
 }
 ```
@@ -532,7 +532,7 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
     "jsonrpc":"2.0",
     "method":"sendtoaddress",
     "params":[
-        "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+        "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
         "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",
         "1000"
     ],
@@ -595,12 +595,12 @@ GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
     "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
         [
             {
-                "asset": "0x43cf98eddbe047e198a3e5d57006311442a0ca15",
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
                 "value": 100,
                 "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
             },
             {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
                 "value": 2,
                 "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
             }
