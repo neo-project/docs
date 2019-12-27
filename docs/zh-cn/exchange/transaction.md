@@ -14,7 +14,7 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 网络费是用户向 NEO 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
 
-   ![netfee](../assets/netfee.png)
+   <!--![netfee](assets/netfee.png)-->
 
 - VerficationCost：NeoVM 验证交易签名执行的指令相对应的费用
 - tx.size：交易数据的字节长度
@@ -24,7 +24,7 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 系统费是根据NeoVM要执行的指令计算得出的费用，请参考Github上NEO3开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/en/NeoVM#contrant>)，了解每个操作码的费用。NEO3中取消了每笔交易10GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
-   ![sysfee](../assets/sysfee.png)
+   <!--![sysfee](assets/sysfee.png)-->
 
 ### 操作码费用
 
@@ -32,7 +32,7 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 
 - 与 NEO2.x 的比较
 
-   ![feecomparewith2x](../assets/feecomparewith2x.png)
+   <!--![feecomparewith2x](assets/feecomparewith2x.png)-->
 
 ## 处理查询交易
 
