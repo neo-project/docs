@@ -379,7 +379,7 @@ symbol
     }
     ```
   
-- 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"yX4yS6wVpOpYn0I+SymnIQuPrQk="，经过 base64 解码为 ByteArray 后再转换，为字符串 "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+   - 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"yX4yS6wVpOpYn0I+SymnIQuPrQk="，经过 base64 解码为 ByteArray 后再转换，为字符串 "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
     ```json
     {
       "type": "ByteArray",
