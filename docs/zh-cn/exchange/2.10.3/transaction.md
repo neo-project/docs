@@ -8,7 +8,7 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
    ![deposit.png](../assets/deposit.png)
 
-   ![withdraw.png](../assets\withdraw.png)
+   ![withdraw.png](../assets/withdraw.png)
 
 ## 网络费
 
