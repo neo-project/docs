@@ -32,7 +32,7 @@ Methods in the NEP-5 specification:
 | totalSupply | ---                                | int    | Get the total circulation of CGAS, and return the real value * 10⁸. Since CGAS and GAS are exchanged in proportion 1:1, the amount of GAS in the contract address is equal to the total circulation of CGAS |
 | transfer    | byte[] from, byte[] to, int amount | bool   | This method is to transfer CGAS from sender's (from) account to receiver's (to) account  with a transfer amount (amount). from and to is in format of Script Hash and amount is the real transfer amount *10⁸. This method supports both user invocation and contract invocation. |
 
-To allow the interchange of GAS and CFAS, the contract offers several methods in addition to the methods in the NEP-5 specification:
+To allow the interchange of GAS and CGAS, the contract offers several methods in addition to the methods in the NEP-5 specification:
 
 | Method               | Parameters         | Return                                      | Description                                                         |
 | ------------------ | ----------- | ------------------------------------------- | ------------------------------------------------------------ |
