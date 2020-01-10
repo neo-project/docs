@@ -2,15 +2,15 @@
 
 ## Overview
 
-Neo has only one type of digital asset, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
+Neo has only one type of digital assets, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
 
 Following flow charts show the work processes of these operations:
 
-![](../assets/query.png)
+![](assets/query.png)
 
-![](../assets/deposit.png)
+![](assets/deposit.png)
 
-![](../assets/withdraw.png)
+![](assets/withdraw.png)
 
 ## Network fee
 
@@ -58,7 +58,7 @@ In JSON, a general getnep5balances request body is in the following form:
 {
 "jsonrpc": "2.0",
 "method": "getnep5balances",
-"params": ["ALjSnMZidJqd18iQaoCgFun6iqWRm2cVtj"],
+"params": ["NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"],
 "id": 1
 }
 ```
@@ -72,28 +72,28 @@ After sending the request you will get the following response:
     "result": {
         "balance": [
             {
-                "asset_hash": "43cf98eddbe047e198a3e5d57006311442a0ca15",
-                "amount": "3",
-                "last_updated_block": 8637
+                "asset_hash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "amount": "2",
+                "last_updated_block": 52675
             },
             {
-                "asset_hash": "a1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "amount": "110000000",
-                "last_updated_block": 8614
+                "asset_hash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "amount": "700000000",
+                "last_updated_block": 52675
             }
         ],
-        "address": "ALjSnMZidJqd18iQaoCgFun6iqWRm2cVtj"
+        "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
     }
 }
 ```
 
-According to all the returned values,  we can calculate the user balance as follows: The balance = 110000000/10⁸ NEO = 1.1 GAS, 3 NEO
+According to all the returned values,  we can calculate the user balance as follows: The balance = 700000000/10⁸ NEO = 7 GAS, 2 NEO
 
 #### Invoking invokefunction to query
 
 In JSON, a general invokefunction request body is in the following form: 
 
-```
+```json
 {
   "jsonrpc": "2.0",
   "method": "invokefunction",
@@ -116,9 +116,8 @@ You need to replace these strings when querying the user's balance:
 
   The script hash of the NEP-5 token you are querying. For example:
   
-  - RPX is 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
-  - NEO is 0x43cf98eddbe047e198a3e5d57006311442a0ca15
-  - GAS is 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
+  - NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  - GAS is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
 
 - method name
@@ -158,7 +157,7 @@ Suppose the account address is AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR, you need to c
 ```json
 {
     "type": "Hash160",
-    "value": "0xa7274594ce215208c8e309e8f2fe05d4a9ae412b"
+    "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
 }
 ```
 
@@ -171,12 +170,12 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "0xa7274594ce215208c8e309e8f2fe05d4a9ae412b"
+        "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
       }
     ]
   ],
@@ -191,20 +190,20 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "142b41aea9d405fef2e809e3c8085221ce944527a751c10962616c616e63654f6667f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",
+        "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
         "state": "HALT",
-        "gas_consumed": "0.338",
+        "gas_consumed": "8295750",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "00c2eb0b"
+                "value": "AADBb/KGIw=="
             }
         ]
     }
 }
 ```
 
-It returns "00c2eb0b" which can be converted to interger **200000000**.
+Decode the returned value ”AADBb/KGIw==“ with base64 and convert it to BigInteger you will get **1x10<sup>16</sup>**, and then divide it by 8-bit decimals you will get the NEP-5 assets balance **1x10<sup>8</sup>**.
 
 ##### **Invoking decimals**
 
@@ -215,7 +214,7 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
     "decimals", 
     []
     ],
@@ -228,11 +227,11 @@ After sending the request, you will get the following response：
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 2,
+    "id": 3,
     "result": {
-        "script": "00c108646563696d616c7367f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",  
+        "script": "00c108646563696d616c73146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
         "state": "HALT",
-        "gas_consumed": "0.156",
+        "gas_consumed": "5673200",
         "stack": [
             {
                 "type": "Integer",
@@ -254,11 +253,11 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
     "symbol", 
     []
     ],
-  "id": 1
+  "id": 3
 }
 ```
 
@@ -267,26 +266,27 @@ After sending the request, you will get the following response：
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 1,
+    "id": 3,
     "result": {
-        "script": "00c10673796d626f6c67f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ec",          "state": "HALT",
-        "gas_consumed": "0.141",
+        "script": "00c10673796d626f6c146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+        "state": "HALT",
+        "gas_consumed": "8106560",
         "stack": [
             {
                 "type": "ByteArray",
-                "value": "525058"
+                "value": "dDE="
             }
         ]
     }
 }
 ```
 
-It returns "525058" which can be converted to string "RPX".
+It returns "dDE=" which can be decoded to "t1" with base64.
 
 ##### **Calculating the User Balance**
 
 According to all the returned values,  we can calculate the user balance as follows:
-The balance = 200000000/10<sup>8</sup> RPX = 2 RPX
+The balance = return / 10<sup>decimals</sup>
 
 ### Dealing with users' queries
 
@@ -313,45 +313,40 @@ The following shows an example of the API invoking result. Note that the respons
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xff488264c1abf9f5c3c17ed8071f6dd3cd809b25797a43af49316490ded8fb07",
-        "executions": [
+        "txid": "0xe7b3782ea15c74889ee914de6acb7c311603ea7b5c3209d0e8b8e7a805848750",
+        "trigger": "Application",
+        "vmstate": "HALT",
+        "gas_consumed": "13805550",
+        "stack": [
             {
-                "trigger": "Application",
-                "contract": "0x0110a8f666bcc650dc0b544e71c31491b061c79e",
-                "vmstate": "HALT",
-                "gas_consumed": "2.855",
-                "stack": [
-                    {
-                        "type": "Integer",
-                        "value": "1"
-                    }
-                ],
-                "notifications": [
-                    {
-                        "contract": "0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "ByteArray",
-                                    "value": "7472616e73666572"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "00e1f50500000000"
-                                }
-                            ]
+                "type": "Integer",
+                "value": "1"
+            }
+        ],
+        "notifications": [
+            {
+                "contract": "0x293b54c743f7a6433b2619da037beb9ed22aa73b",
+                "state": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "ByteArray",
+                            "value": "VHJhbnNmZXI="
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
+                        },
+                        {
+                            "type": "ByteArray",
+                            "value": "AADBb/KGIw=="
                         }
-                    }
-                ]
+                    ]
+                }
             }
         ]
     }
@@ -373,21 +368,21 @@ The parameters related to a transaction in the file are the following:
 
   [event, from account, to account, amount]
 
-  - The first object with the type "bytearray" and the value "7472616e73666572", as shown in the example, can be converted to the string "transfer". "transfer" is a method in NEP-5 that represents an asset transfer.
+  - The first object with the type "bytearray" and the value "VHJhbnNmZXI=", as shown in the example, can be decoded to the string "transfer" with base64. "transfer" is a method in NEP-5 that represents an asset transfer.
 
     ```json
     {
       "type": "ByteArray",
-      "value": "7472616e73666572"
+      "value": "VHJhbnNmZXI="
     }
     ```
 
-  - The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "e3069da508f128069a0cd2544b0728ccbacdfb43“ can be converted to "AcUGxiaPjCiD74VWiFqPzudJHZo4QMza5Q". Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
+  - The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "0wzwBoLXDacAgxEkGaxxo1Ezxh4=“ can be  decoded to "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T" with base64. Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
 
     ```json
     {
       "type": "ByteArray",
-      "value": "e3069da508f128069a0cd2544b0728ccbacdfb43"
+      "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
     }
     ```
 
@@ -395,27 +390,27 @@ The parameters related to a transaction in the file are the following:
   >
     > In NEO, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
   
-  - The third object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "d142f89e93b2717426a8130c37dad93aad70cff5“ can be converted to "AarM6q48K55EBHhuRRRPVsGByrqBKoQoWf". If the address is an exchange account address, it is a deposit transaction.
+  - The third object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "yX4yS6wVpOpYn0I+SymnIQuPrQk=“ can be decoded to "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV" with base64. If the address is an exchange account address, it is a deposit transaction.
   
     ```json
     {
     "type": "ByteArray",
-      "value": "d142f89e93b2717426a8130c37dad93aad70cff5"
+      "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
   }
     ```
   
-  - The fourth object in the array is the transfer amount and its type is "bytearray". It is processed as little endian and turns to 0000000005f5e100  with the value 100000000 after reversed. Since the decimal is 8 bit the actual value is 100000000. There are two types of amount,  integer and bytearray. Note that when dealing with amount of the interger type, the value conversion method is different than that of the bytearray type.
+  - The fourth object in the array is the transfer amount and its type is "bytearray". The value "AADBb/KGIw==“ can be decoded to "0000c16ff28623" with base64. It is processed as little endian and turns to 2386f26fc10000  (i.e. 1x10<sup>16</sup> ) after reversed. Since the decimal is 8 bit the actual value is 100000000.00000000. There are two types of amount,  integer and bytearray. Note that when dealing with amount of the integer type, the value conversion method is different than that of the bytearray type. For the current returned value, the integer type is 10000000000000000.
   
     ```json
     {
       "type": "ByteArray",
-      "value": "00e1f50500000000"
+      "value": "AADBb/KGIw=="
     }
     ```
 
 > [!Note]
 >
-> You can write a tool to convert the values in the notification file into a more readable format. For your reference this is an example: [ApplicationLogsTools](https://github.com/chenzhitong/ApplicationLogsTools).
+> Regarding the notification format conversion of the transfer in the file, you can refer to [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool).
 
 ## Dealing with User Withdrawals
 
@@ -443,15 +438,49 @@ This command verifies the wallet password.
 
 ##### Example
 
-To transfer 100 RPX to the address AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b, enter the following:
+To transfer 100 RPX to the address NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, enter the following:
 
 ```
-send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100
+send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
 ```
 
 If you want to send NEO or GAS, just change the first parameter to the corresponding asset scriptHash. For example, 
-NEO: 0x43cf98eddbe047e198a3e5d57006311442a0ca15
-GAS: 0xa1760976db5fcdfab2a9930e8f6ce875b2d18225
+NEO: 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+
+### RPC Method: openwallet
+
+> [!Note]
+>
+> Before you can invoke any of the wallet-related RPC methods you must invoke the method `openwallet` first.
+
+The key "params" includes an array of two parameters.
+
+`"params":[path， password]`
+
+For example, to open a wallet `a.json` with a password `111111`, send the following JSON request to RPC server.
+
+Request body：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "openwallet",
+  "params": ["a.json", "111111"],
+  "id": 1
+}
+```
+
+After sending the request, you will get the following response:
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": true
+}
+
+```
 
 ### RPC Method: sendfrom
 
@@ -461,7 +490,7 @@ The key "params" includes an array of four parameters.
 
 For example, to send 1 RPX from AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR to  AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h, construct a JSON file as follows and send it to RPC server.
 
-Request Body:
+Request body:
 
 ```json
 {

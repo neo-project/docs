@@ -198,7 +198,7 @@ symbol
 }
 ```
 
-返回值”AADBb/KGIw==“ 为 base64 加密后的ByteArray，由 base64 解码得到 ByteArray 再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 去除 8 位 decimals 得到此 Nep-5 的余额为 **1x10<sup>8</sup>**。
+返回值”AADBb/KGIw==“ 为 base64 加密后的ByteArray，由 base64 解码返回值再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
 
 ##### **调用 decimals**
 
@@ -440,8 +440,10 @@ GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 > 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法。
 
 "params"  是一个包含 2 个参数的数组。
+
 `"params":[path， password]`
-列如，要打开密码为`111111`的名为`a.json`的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
+
+例如，要打开密码为`111111`的名为`a.json`的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
 
 请求正文：
 
