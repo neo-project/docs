@@ -81,6 +81,7 @@ using Neo.SmartContract.Native;
 using Neo.VM;
 using Neo.Wallets;
 using System;
+using Utility = Neo.Network.RPC.Utility;
 
 namespace ConsoleApp1
 {
@@ -151,6 +152,7 @@ using Neo.SmartContract.Native;
 using Neo.VM;
 using Neo.Wallets;
 using System;
+using Utility = Neo.Network.RPC.Utility;
 
 namespace ConsoleApp1
 {
@@ -221,6 +223,7 @@ using Neo.SmartContract.Native;
 using Neo.VM;
 using Neo.Wallets;
 using System;
+using Utility = Neo.Network.RPC.Utility;
 
 namespace ConsoleApp1
 {
