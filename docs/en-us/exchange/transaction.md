@@ -458,7 +458,7 @@ The key "params" includes an array of two parameters.
 
 `"params":[path， password]`
 
-For example, to open a wallet `a.json` with a password `111111`, send the following JSON request to RPC server.
+For example, to open the wallet `a.json` with a password `111111`, you can construct a JSON file as follows and send it to RPC server.
 
 Request body：
 
@@ -488,7 +488,7 @@ The key "params" includes an array of four parameters.
 
 `"params":[script hash, address from, address to, amount]`
 
-For example, to send 1 RPX from AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR to  AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h, construct a JSON file as follows and send it to RPC server.
+For example, to send 10 NEO from NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV to  NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK, construct a JSON file as follows and send it to RPC server.
 
 Request body:
 
@@ -496,7 +496,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendfrom",
-  "params": ["0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9","AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR","AVECC4AcGXfDjm7cGmfGuxVRGTu6FxoQ7h",1],
+  "params": ["0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789","NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV","NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",10],
   "id": 1
 }
 ```
@@ -508,30 +508,30 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xec413354b76fc50a614419f76f131c873da0b17e0fd2dd9170c955b667de08ef",
-        "size": 219,
-        "type": "InvocationTransaction",
-        "version": 1,
-        "attributes": [
+        "hash": "0xfc69052f7875ab934098c22086e6025b6e99c2d5383ede6b5e7ffc5cada0f526",
+        "size": 258,
+        "version": 0,
+        "nonce": 1499649081,
+        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+        "sys_fee": "100000000",
+        "net_fee": "1258270",
+        "valid_until_block": 2408902,
+        "attributes": [],
+        "cosigners": [
             {
-                "usage": "Script",
-                "data": "2b41aea9d405fef2e809e3c8085221ce944527a7"
+                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "scopes": "CalledByEntry"
             }
         ],
-        "vin": [],
-        "vout": [],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [
+        "script": "WhQzapXCv4GGc3VXYkpfCfc5hNkgIBTJfjJLrBWk6lifQj5LKachC4+tCVPBCHRyYW5zZmVyFBXKoEIUMQZw1eWjmOFH4NvtmM9DaGJ9W1Lx",
+        "witnesses": [
             {
-                "invocation": "401743a9c3fc91f131aea1c872d166e9c6fae577647884cd8511986041561c2b3e574c1708f662e570688d1a31db7cea281d43615b7fa64d7fa3babf0f6477c31e",
-                "verification": "2103c532d9335f512e1198ede5c3d35524e6a3b4598f1eb335193b09c4cd52591927ac"
+                "invocation": "QKw6QhHNOTcvifIw6Jxyomb7Rto2SZZYR/H48tS5f0UYlYKQdRsgxVycB/f/HXEqYZVaL7G9WYGp6WsexKoOb4I=",
+                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
             }
-        ],
-        "script": "0400e1f505149393ee15ce6612484ab5be3bbc78c82af8dc0e07142b41aea9d405fef2e809e3c8085221ce944527a753c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166c72745294a433e52",
-        "gas": "0"
+        ]
     }
-}
+
 ```
 
 ### RPC Method: sendtoaddress
@@ -540,7 +540,7 @@ The key "params" includes an array of three parameters.
 
 `"params":[script hash, address, amount]`
 
-For example, to send 1 RPX to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg , construct a JSON file as follows and send it to RPC server.
+For example, to send 1000 GAS to NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK , construct a JSON file as follows and send it to RPC server.
 
 Request Body：
 
@@ -549,78 +549,9 @@ Request Body：
     "jsonrpc":"2.0",
     "method":"sendtoaddress",
     "params":[
-        "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-        "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg",
-        "1",
-    ],
-    "id":1
-}
-```
-
-After sending the request, you will get the following response：
-
-```json
-{
-    "jsonrpc":"2.0",
-    "id":1,
-    "result":{
-        "txid":"0xc6d4bf7c62fb47e0b2a6e838c3a1ca297622a1b1df7ceb2d30fa4ef8b7870700",
-        "size":219,
-        "type":"InvocationTransaction",
-        "version":1,
-        "attributes":[
-            {
-                "usage":"Script",
-                "data":"5305fbbd4bd5a5e3e859b452b7897157eb20144f"
-            }
-        ],
-        "vin":[
-
-        ],
-        "vout":[
-
-        ],
-        "sys_fee":"0",
-        "net_fee":"0",
-        "scripts":[
-            {
-                "invocation":"4054fbfca678737ae164ebf0e476da0c8215782bc42b67ae08cf4d8a716eeef81fcc17641e7f63893c3e685fb7eb1fb8516161c5257af41630f4508dde3afa3a8c",
-                "verification":"210331d1feacd79b53aeeeeb9de56018eadcd07948675a50258f9e64a1204b5d58d1ac"
-            }
-        ],
-        "script":"0400e1f50514d710f6f3f0bad2996a09a56d454cfc116a881bfd145305fbbd4bd5a5e3e859b452b7897157eb20144f53c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166187b7883718089c8",
-        "gas":"0"
-    }
-}
-```
-
-### RPC Method: sendmany
-
-The key "params" includes an array of at least two parameter:
-
-`"params":[address from(optional), []]`
-
-For example, to send 15.5 RPX and 0.0001 GAS to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg, you can construct a JSON file as follows and send it to RPC server.
-
-Request Body：
-
-```json
-{
-    "jsonrpc":"2.0",
-    "method":"sendmany",
-    "params":[
-        [
-            {
-                "asset":"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
-                "value":"15.5",
-                "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
-            },
-            {
-                "asset":"0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-                "value":"0.0001",
-                "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
-            }
-        ]
+        "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+        "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",
+        "1000"
     ],
     "id":1
 }
@@ -633,46 +564,98 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xe1351c9c9f2205a801d1b04f0df2d65fb4b1692d7d3b06cf41e0712fd1b12c9c",
-        "size": 373,
-        "type": "InvocationTransaction",
-        "version": 1,
-        "attributes": [
+        "hash": "0x5e810bf58c9c14f49c821e7d12adb435a4fac413b817390bae850e578202c214",
+        "size": 370,
+        "version": 0,
+        "nonce": 370378736,
+        "sender": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA",
+        "sys_fee": "100000000",
+        "net_fee": "2370540",
+        "valid_until_block": 2409087,
+        "attributes": [],
+        "cosigners": [
             {
-                "usage": "Script",
-                "data": "6d64dc9e50af8e911247436b264c8f7d791ad58c"
+                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "scopes": "CalledByEntry"
             }
         ],
-        "vin": [
+        "script": "BQDodkgXFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "witnesses": [
             {
-                "txid": "0x9f0a28a912527604ab4b7d5e8b8d1a9b57631fcbab460132811ae7b6ed1ccaff",
-                "vout": 1
-            }
-        ],
-        "vout": [
-            {
-                "n": 0,
-                "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-                "value": "0.0001",
-                "address": "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+                "invocation": "QPKQ71AqXJ83CdatB7+jb7oQdFV94g6Qr00y7i59w/bp4WH6OcvZxr2PNkpBCNIO/wkGiiySOB0N4a14ptKQ6b0=",
+                "verification": "IQL8lC/gCB0zH17Y7ioOmrUAqlGeGpUXpON83NH7CDJfY1BoCpBq1A=="
             },
             {
-                "n": 1,
-                "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-                "value": "0.01359",
-                "address": "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+                "invocation": "QOmJGUTaynsVo7a4doEnBsDj3qjrBgu6f5jG7IQ9tHWzxHlZg9OknmIWhLYatCLX1qbPb2KartjAYezE5uWra2U=",
+                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
             }
-        ],
-        "sys_fee": "0",
-        "net_fee": "0.00001",
-        "scripts": [
+        ]
+    }
+}
+```
+
+### RPC Method: sendmany
+
+The key "params" includes an array of at least two parameter:
+
+`"params":[address from(optional), []]`
+
+For example, to send 100 NEO and 1000 GAS to NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK from NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, you can construct a JSON file as follows and send it to RPC server.
+
+Request Body：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "sendmany",
+    "params": [
+    "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+        [
             {
-                "invocation": "40644ab915419dbf855a52d5c75596e80b78c8e928cc0ce91ae6afc3b75a0c31ee54efe1836f9ec232f6c42dcb3ace0bfdc688e626944fa20970a76064975eade9",
-                "verification": "2103d4b6fc2d116855f86a483d151182f68e88e6ddd13f3f1f3631e36300aac122bfac"
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 100,
+                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 2,
+                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+            }
+        ]
+    ],
+    "id": 1
+}
+```
+
+After sending the request, you will get the following response：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x01bdee95fe77ebca78bd17a8bbfd4f538671941381560e9f842e07d5bd86ec5e",
+        "size": 344,
+        "version": 0,
+        "nonce": 1882341262,
+        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+        "sys_fee": "100000000",
+        "net_fee": "1344270",
+        "valid_until_block": 2409235,
+        "attributes": [],
+        "cosigners": [
+            {
+                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "scopes": "CalledByEntry"
             }
         ],
-        "script": "04801f635c14d710f6f3f0bad2996a09a56d454cfc116a881bfd146d64dc9e50af8e911247436b264c8f7d791ad58c53c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166f871fb30fc859b77",
-        "gas": "0"
+        "script": "AWQUM2qVwr+BhnN1V2JKXwn3OYTZICAUyX4yS6wVpOpYn0I+SymnIQuPrQlTwQh0cmFuc2ZlchQVyqBCFDEGcNXlo5jhR+Db7ZjPQ2hifVtS8QQAwusLFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "witnesses": [
+            {
+                "invocation": "QA9OZduN6MyEczPEV12TW7EFise5+riC9wagEv/M2SV7rrcRPiDAjbDbZxY0bcIz4JSafTJtF9FEo9laJwuhSMs=",
+                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+            }
+        ]
     }
 }
 ```
