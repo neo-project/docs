@@ -273,8 +273,6 @@ NEP6 proposal：<https://github.com/neo-project/proposals/blob/master/nep-6.medi
 
 ## Signature
 
-
-
 Neo employs the `ECDSA` algorithm to sign the transaction through the wallet component and take the `nistP256` or `Secp256r1` as the ECC curve and SHA256 as the hash algorithm.
 
 C# code：
