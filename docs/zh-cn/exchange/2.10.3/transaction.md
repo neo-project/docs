@@ -8,7 +8,7 @@ NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，
 
    ![deposit.png](../assets/deposit.png)
 
-   ![withdraw.png](../assets\withdraw.png)
+   ![withdraw.png](../assets/withdraw.png)
 
 ## 网络手续费
 
