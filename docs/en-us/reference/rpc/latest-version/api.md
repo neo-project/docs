@@ -22,7 +22,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [claimgas](api/claimgas.md) | [address] | Claims GAS in the wallet. | Need to open the wallet |
 | [dumpprivkey](api/dumpprivkey.md)               | \<address>                                  | Exports the private key of the specified address             | Need to open the wallet      |
 | [getaccountstate](api/getaccountstate.md)       | \<address>                                  | Checks account asset information according to account address |                              |
-| [getapplicationlog]() | \<txid> | Returns the contract log based on the specified txid. |  |
+| [getapplicationlog](api/getapplicationlog.md) | \<txid> | Returns the contract log based on the specified txid. |  |
 | [getassetstate](api/getassetstate.md)           | \<asset_id>                                 | Queries asset information according to the specified asset number |                              |
 | [getbalance](api/getbalance.md)                 | \<asset_id>                                 | Returns the balance of the corresponding asset in the wallet according to the specified asset number. | Need to open the wallet      |
 | [getbestblockhash](api/getbestblockhash.md)     |                                             | Gets the hash of the tallest block in the main chain         |                              |
