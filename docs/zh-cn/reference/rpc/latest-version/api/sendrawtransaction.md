@@ -1,19 +1,14 @@
-﻿# sendrawtransaction 方法
+# sendrawtransaction 方法
 
 广播交易。
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "sendrawtransaction",
-  "params": [hex],
-  "id": 1
-}
-```
+> [!Note]
+>
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
-### 参数说明
+## 参数说明
 
-* hex：在程序中构造的已签名的交易序列化后的 16 进制字符串。
+hex：在程序中构造的已签名的交易序列化后的 16 进制字符串。
 
 ## 调用示例
 
@@ -23,44 +18,50 @@
 {
   "jsonrpc": "2.0",
   "method": "sendrawtransaction",
-  "params": ["80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"],
+  "params": ["004715897d2bf173f849d1d59123d097c009aa31624d39e73900e1f50500000000466a130000000000f699200000012bf173f849d1d59123d097c009aa31624d39e739015d0300d0ed902e0000000c1425275006800e73cc64286753a3a732422521c8e40c142bf173f849d1d59123d097c009aa31624d39e73913c00c087472616e736665720c143b7d3711c6f0ccf9b1dca903d1bfa1d896f1238c41627d5b523901420c40632d2abc04cce02a7d373a2def1b5d126ce75cdd6f40ef8ab9258960841c4123c48288a6f44bc86d94e83755faee3c17d059b99561a18d923202717796e0b68f290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"],
   "id": 1
 }
 ```
 
-如果成功，响应正文：
+成功的响应正文：
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "hash":"64af42150db8b15db6778f3efbbd8713f443e7447f854aab854cb1941950c218"
-  }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x13ccdb9f7eda95a24aa5a4841b24fed957fe7f1b944996cbc2e92a4fa4f1fa73"
+    }
 }
 ```
 
-如果失败，响应正文：
+失败的响应正文：
+
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "error": {
-        "code": -501,
-        "message": "Block or transaction already exists and cannot be sent repeatedly."
+        "code": -500,
+        "message": "AlreadyExists"
     }
 }
 ```
 
 响应说明：
 
-当结果为 false 时，区块广播失败并引发异常。可能返回以下错误代码：
+当 result 返回交易的 txid 时，表明交易广播成功。
 
-错误代码 | 信息 |
-| --------------- | ---- |
-| -501 | 区块或交易已经存在，不能重复发送。|
-| -502 | 内存池已满，不能发送更多交易。 |
-| -503 | 无法验证区块。 |
-| -504 | 区块或交易验证失败。 |
-| -505 | 某个策略筛选器失败。 |
-| -500 | 未知错误。
+当 result 为 false 时表示当前交易广播失败，原因可能有双重花费、签名不完整等。
+
+本示例中广播了一个已经确认的交易，因为双重花费所以广播失败。可能会遇到以下错误码：
+
+| 错误代码 | 信息              | 注释                                  |
+| -------- | ----------------- | ------------------------------------- |
+| 500      | AlreadyExists     | 重复交易                              |
+|          | OutOfMemory       | 交易数超出 Mempool 预设的最大容量     |
+|          | UnableToVerify    | 未知区块信息                          |
+|          | Invalid           | 不正确的格式或参数                    |
+|          | Expired           | 过期的区块信息                        |
+|          | InsufficientFunds | 余额不足                              |
+|          | PolicyFail        | 不符合规则的行为（如 黑名单地址交易） |
