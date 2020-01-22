@@ -1,13 +1,11 @@
-# getblocksysfee 方法
+# getnewaddress 方法
 
-根据指定的索引，返回截止到该区块前的系统手续费。
+创建一个新的地址。
+
 > [!Note]
 >
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
 > - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
-
-## 参数说明
-
-index：区块索引。
 
 ## 调用示例
 
@@ -16,8 +14,8 @@ index：区块索引。
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getblocksysfee",
-  "params": [70000],
+  "method": "getnewaddress",
+  "params": [],
   "id": 1
 }
 ```
@@ -28,10 +26,10 @@ index：区块索引。
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "33200000000"
+    "result": "NeMDdPDC29BfayYF7xNvnCSfCq9Drh1xKX"
 }
 ```
 
 响应说明：
 
-result：截止到该区块前的系统手续费，单位为 NeoGas。
+返回新创建的地址。
