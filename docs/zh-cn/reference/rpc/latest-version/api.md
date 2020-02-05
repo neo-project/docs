@@ -1,8 +1,8 @@
 # API 参考
 
-每个 NEO-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。要启动一个提供 RPC 服务的节点，可运行以下命令：
+每个 Neo-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-`dotnet neo-cli.dll /rpc`
+要启用 RPC服务，你需要安装 [RpcServer插件](UnknownReleaseLink.md)，启动 Neo-CLI 时无需添加引数。
 
 ## 监听端口
 
@@ -14,14 +14,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | JSON-RPC HTTP  | 10332        | 20332         |
 
 ## 命令列表
-
-> [!Note]
->
-> **NEO3 变更**：
->
-> 调用方式更新：getblockheader、getrawmempool
->
-> 返回结果更新：getblock、getblockheader、getrawtransaction、getversion、getcontractstate
 
 | 方法                                       | 参数                                       | 说明                           |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- |
@@ -49,22 +41,17 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex>                                   | 广播交易                         |
 | [submitblock](api/submitblock.md) | \<hex>                                   | 提交新的区块<br>**注意**：需要成为共识节点 |
 | [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 Neo 地址            |
-
-## RpcWallet 插件
-
-下表所列方法都与钱包相关，且由插件提供。你需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件并打开钱包才可以调用。
-
-| 方法           | 参数      | 说明        |
-| ----------- | ---------- | ------------- |
-| [dumpprivkey ](api/rpcwallets/dumpprivkey.md) | \<address> | 导出指定地址的私钥 |
-| [getbalance](api/rpccwallets/getbalance.md) | \<asset_id> | 查询资产余额 |
-| [getnewaddress](/api/rpcwallets/getnewaddress.md) |  | 创建一个新的地址 |
-| [getunclaimedgas](/api/rpcwallets/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
-| [importprivkey](/api/rpcwallets/importprivkey.md) | \<key> | 导入私钥到钱包 |
-| [listaddress](/api/rpcwallets/listaddress.md) |  | 列出当前钱包内的所有地址 |
-| [sendfrom](/api/rpcwallets/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
-| [sendmany](/api/rpcwallets/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 |
-| [sendtoaddress](/api/rpcwallets/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
+| [openwallet](api/openwallet.md) | \<path> \<password>                                          | 打开指定钱包              |
+| [closewallet](api/closewallet.md) |                                           | 关闭当前打开着的钱包              |
+| [dumpprivkey](api/dumpprivkey.md) | \<address> | 导出指定地址的私钥 |
+| [getbalance](api/getbalance.md) | \<asset_id> | 查询资产余额 |
+| [getnewaddress](/api/getnewaddress.md) |  | 创建一个新的地址 |
+| [getunclaimedgas](/api/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
+| [importprivkey](/api/importprivkey.md) | \<key> | 导入私钥到钱包 |
+| [listaddress](/api/listaddress.md) |  | 列出当前钱包内的所有地址 |
+| [sendfrom](/api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
+| [sendmany](/api/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 |
+| [sendtoaddress](/api/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
 
 
 ## GET 请求示例
@@ -124,7 +111,7 @@ http://somewebsite.com:10332
 
 > [!Note]
 >
-> 当使用离线同步包同步区块时，程序可能无法响应 API 请求，建议将区块同步到最新高度后再使用 API，否则返回的结果可能不是最新的。
+> 请将区块同步到最新高度后再使用 API，否则返回的结果可能不是最新的。
 
 ## 测试工具
 
@@ -132,7 +119,7 @@ http://somewebsite.com:10332
 
 ![](../../../assets/api_3.jpg)
 
-## 其它
+## 其它参考
 
 [C# JSON-RPC 使用方法](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
 

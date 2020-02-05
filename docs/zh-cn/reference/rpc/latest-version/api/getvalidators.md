@@ -1,6 +1,9 @@
-﻿# getvalidators 方法
+# getvalidators 方法
 
 获取当前 NEO 共识节点的信息及投票情况。
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 调用示例
 
