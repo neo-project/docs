@@ -1,6 +1,6 @@
 # submitblock 方法
 
-在 NEO 网络广播原始区块。
+在 NEO 网络广播新的区块。
 
 > [!Note]
 >

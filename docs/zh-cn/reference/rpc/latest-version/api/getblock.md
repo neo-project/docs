@@ -3,13 +3,15 @@
 根据指定的散列值，返回对应的区块信息。
 > [!Note]
 >
-> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
-hash：区块散列值。
+- hash：区块散列值。
 
-verbose：可选参数，verbose 默认值为 0，verbose 为 0 时返回的是区块的序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。verbose 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。
+- verbose：可选参数，verbose 默认值为 0。
+  - verbose 为 0 时返回的是区块的序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
+  - verbose 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。
 
 ## 调用示例
 

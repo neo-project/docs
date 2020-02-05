@@ -65,5 +65,5 @@ txid：交易ID
 }
 ```
 
-说明：
-其中 gas_consumed 表示该交易消耗的 gas 数量，即交易手续费。
+响应说明：
+gas_consumed ：该交易消耗的 gas 数量，即交易手续费。

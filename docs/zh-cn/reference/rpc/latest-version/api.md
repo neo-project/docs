@@ -1,6 +1,8 @@
 # API 参考
 
-每个 NEO-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。RPC服务通过安装[RpcServer插件](UnknownReleaseLink.md)来启用，启动 neo-cli 时无需添加引数。
+每个 Neo-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
+
+要启用 RPC服务，你需要安装 [RpcServer插件](UnknownReleaseLink.md)，启动 Neo-CLI 时无需添加引数。
 
 ## 监听端口
 
@@ -41,7 +43,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 Neo 地址            |
 | [openwallet](api/openwallet.md) | \<path> \<password>                                          | 打开指定钱包              |
 | [closewallet](api/closewallet.md) |                                           | 关闭当前打开着的钱包              |
-| [dumpprivkey ](api/dumpprivkey.md) | \<address> | 导出指定地址的私钥 |
+| [dumpprivkey](api/dumpprivkey.md) | \<address> | 导出指定地址的私钥 |
 | [getbalance](api/getbalance.md) | \<asset_id> | 查询资产余额 |
 | [getnewaddress](/api/getnewaddress.md) |  | 创建一个新的地址 |
 | [getunclaimedgas](/api/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
@@ -109,7 +111,7 @@ http://somewebsite.com:10332
 
 > [!Note]
 >
-> 建议将区块同步到最新高度后再使用 API，否则返回的结果可能不是最新的。
+> 请将区块同步到最新高度后再使用 API，否则返回的结果可能不是最新的。
 
 ## 测试工具
 
@@ -117,7 +119,7 @@ http://somewebsite.com:10332
 
 ![](../../../assets/api_3.jpg)
 
-## 其它
+## 其它参考
 
 [C# JSON-RPC 使用方法](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
 
