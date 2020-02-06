@@ -6,8 +6,8 @@ Gets the amount of unclaimed GAS in the wallet.
 >
 > Before you can invoke this method you must:
 >
-> 1. Open the wallet in NEO-CLI
-> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
+> 1. Open a wallet using the method openwallet
+> 2. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases). 
 
 ## Example
 
@@ -17,7 +17,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getunclaimedgas",
-  "params": [],
+  "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"],
   "id": 1
 }
 ```
@@ -28,10 +28,7 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": {
-        "available": "0.140771",
-        "unavailable": "0.096224"
-    }
+    "result": "897299680935"
 }
 ```
 

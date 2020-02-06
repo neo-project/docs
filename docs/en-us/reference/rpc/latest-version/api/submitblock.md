@@ -1,6 +1,6 @@
 ﻿# submitblock Method
 
-Broadcasts a raw block in the NEO network.
+Broadcasts a new block in the NEO network.
 
 ```json
 {
@@ -13,7 +13,7 @@ Broadcasts a raw block in the NEO network.
 
 ### Parameter Description
 
-* hex: A hexadecimal string of a serialized block.
+hex: A hexadecimal string of a serialized block.
 
 ## Example
 

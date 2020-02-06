@@ -2,14 +2,9 @@
 
 Returns the corresponding block header information according to the specified script hash.
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "getblockheader",
-  "params": [index, verbose],
-  "id": 1
-}
-```
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
 
@@ -27,7 +22,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": [0],
+  "params": [6000, 0],
   "id": 1
 }
 ```
@@ -38,7 +33,7 @@ Response body:
 {
     "jsonrpc": "2.0", 
     "id": "1", 
-    "result": "0000000000000000000000000000000000000000000000000000000000000000000000008e29af06ec157a3d85717b1eb7317c3ef4049a7222d76c6dd4d5a24598c6571665fc885700000000f071d5fc6d2e2978a45842f05b1ac970e87d197700015100"
+    "result": "0000000020c213cb72392bd365e1e7e4ff9958e83761cd104d49dab0dd05903f7b651fec9939608fd01705162af2b399b57cf21dd2750c52cae18b5848f85f0ca7694983e014539f6f0100007017000057c8f7a5b8d6758f18fb906eaf03f007da0a9f2601420c400eb0087228a71228edf83e635ad0bbcd30a8e0ba04207d26657dbce334e8ea1fa7b6684a393bc6d1e054df39927e9bdf3d89e3cd9cf760a5f8639ae5b27ecc822b110c21021e1563aa32a5191ff7198e8c28ef02a8c6b33aecf326f5b32c6a620138d4201b110b413073b3bb00"
 }
 ```
 
@@ -50,7 +45,7 @@ Verbose = 1, returns the result in JSON format:
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": [0, 1],
+  "params": [6000, 1],
   "id": 1
 }
 ```
@@ -59,23 +54,25 @@ Response body:
 
 ```json
 {
-    "jsonrpc": "2.0", 
-    "id": "1", 
+    "jsonrpc": "2.0",
+    "id": 1,
     "result": {
-        "hash": "0x479d71eae26a817647a373381f21de06c5e4bf3ee7717c948f006ce8e25441be", 
-        "size": 100, 
-        "version": 0, 
-        "previousblockhash": "0x0000000000000000000000000000000000000000000000000000000000000000", 
-        "merkleroot": "0x1657c69845a2d5d46d6cd722729a04f43e7c31b71e7b71853d7a15ec06af298e", 
-        "time": 1468595301, 
-        "index": 0, 
-        "nextconsensus": "AdhEBzaBZujuj5kEiwvKmMVy5ydqj3AC3V", 
-        "witness": {
-            "invocation": "", 
-            "verification": "51"
-        }, 
-        "confirmations": 6180, 
-        "nextblockhash": "0x1c00023b24ba5328918f4a0adc35607c8f97913fdda88b4eb4c571e7bc613bf4"
+        "hash": "0xf929babb2b10eed2e3af429c73648ef6d3c05d247494eb95dcdae53a77236ddf",
+        "size": 213,
+        "version": 0,
+        "previousblockhash": "0xec1f657b3f9005ddb0da494d10cd6137e85899ffe4e7e165d32b3972cb13c220",
+        "merkleroot": "0x834969a70c5ff848588be1ca520c75d21df27cb599b3f22a160517d08f603999",
+        "time": 1578926019808,
+        "index": 6000,
+        "nextconsensus": "NTv8iuL3yf4eiskKWWrtXLq9fKrX6LNGrG",
+        "witnesses": [
+            {
+                "invocation": "DEAOsAhyKKcSKO34PmNa0LvNMKjgugQgfSZlfbzjNOjqH6e2aEo5O8bR4FTfOZJ+m989iePNnPdgpfhjmuWyfsyC",
+                "verification": "EQwhAh4VY6oypRkf9xmOjCjvAqjGszrs8yb1syxqYgE41CAbEQtBMHOzuw=="
+            }
+        ],
+        "confirmations": 150220,
+        "nextblockhash": "0x17f3f1d81f2f442053a0bf8ca9a6addeb25646267127bb3b43884f61ed9a2822"
     }
 }
 ```

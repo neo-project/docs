@@ -2,6 +2,10 @@
 
 Returns the current NEO validators information and voting status. 
 
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
 ## Example
 
 Request body:

@@ -1,6 +1,10 @@
 ﻿# getblocksysfee Method
 
-Returns the system fees of the block based on the specified index.
+Returns the system fees up to the block based on the specified index.
+
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ```json
 {
@@ -13,7 +17,7 @@ Returns the system fees of the block based on the specified index.
 
 ### Parameter Description
 
-* index: Block index
+index: Block index
 
 ## Example
 
@@ -23,7 +27,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblocksysfee",
-  "params": [1005434],
+  "params": [70000],
   "id": 1
 }
 ```
@@ -34,10 +38,10 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "195500"
+    "result": "33200000000"
 }
 ```
 
 Response description:
 
-result: The system fees of the block in NeoGas units.
+result: The system fees up to the block in NeoGas units.

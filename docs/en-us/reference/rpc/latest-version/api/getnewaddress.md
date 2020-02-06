@@ -6,7 +6,7 @@ Creates a new address.
 >
 > Before you can invoke this method you must:
 >
-> 1. Open the wallet in NEO-CLI
+> 1. Open a wallet using the method openwallet
 > 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
 ## Example
@@ -28,7 +28,7 @@ Response body：
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "AVHcdW3FGKbPWGHNhkPjgVgi4GGndiCxdo"
+    "result": "NeMDdPDC29BfayYF7xNvnCSfCq9Drh1xKX"
 }
 ```
 

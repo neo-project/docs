@@ -2,18 +2,13 @@
 
 Returns the block index in which the transaction is found.
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "gettransactionheight",
-  "params": [txid],
-  "id": 1
-}
-```
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-### Parameter Description
+## Parameter Description
 
-* txid: Transaction id.
+txid: Transaction id.
 
 ## Example
 

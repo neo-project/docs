@@ -2,14 +2,9 @@
 
 Returns the stored value according to the contract script hash and the stored key.
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "getstorage",
-  "params": [script_hash, key],
-  "id": 15
-}
-```
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ### Parameter Description
 
