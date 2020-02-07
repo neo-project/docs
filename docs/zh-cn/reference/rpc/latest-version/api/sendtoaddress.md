@@ -9,19 +9,17 @@
 
 ## 参数说明
 
-- asset_id：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
+- asset_id：资产 ID，即 NEP-5 合约的脚本哈希
 
-  如NEO为：9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  如 NEO 为：0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
 
-  Gas为：8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+  Gas 为：0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
   以上资产可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
 - address：收款地址。
 
 - value：转账金额。
-
-
 
 ## 调用示例
 

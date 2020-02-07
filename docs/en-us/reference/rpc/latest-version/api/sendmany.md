@@ -28,8 +28,14 @@ Bulk transfer order, and you can specify a change address.
   {"asset": <asset>,"value": <value>,"address": <address>}
   ```
 
-  * `asset`：Asset ID（asset identifier）
+  * `asset`：Asset ID (asset identifier),  the NEP-5 contract scripthash
+  
+    e.g. NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  
+    Gas is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+  
   * `value`：Transfer amount
+  
   * `address`：destination address.
 
 ## Example
@@ -43,22 +49,57 @@ Request body：
     "jsonrpc": "2.0",
     "method": "sendmany",
     "params": [
-    "ARfyrX28D2H2wP6KR6xxaUbvqvkv5SbMNe",
+    "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
         [
             {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "value": 3,
-                "address": "AX8XwkL5qfpSNEFp7uprgs4yBWqE1pJh4z"
-            },
-            {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "value": 2,
-                "address": "AWeQp7LpihMuAmBS1hv5rqXSGKBFct1gfh"
-            },
-            {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
                 "value": 1,
-                "address": "Abst1AtjYZWbRKPPeUWzt7PHRziLsxK7Nr"
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 2,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 3,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 4,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 5,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 6,
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 7,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 8,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 9,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 10,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
             }
         ]
     ],
@@ -110,19 +151,54 @@ Request body：
     "params": [
         [
             {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "value": 0.3,
-                "address": "AX8XwkL5qfpSNEFp7uprgs4yBWqE1pJh4z"
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 1,
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             },
             {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "value": 0.2,
-                "address": "AWeQp7LpihMuAmBS1hv5rqXSGKBFct1gfh"
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 2,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
             },
             {
-                "asset": "0xa1760976db5fcdfab2a9930e8f6ce875b2d18225",
-                "value": 0.1,
-                "address": "Abst1AtjYZWbRKPPeUWzt7PHRziLsxK7Nr"
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 3,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 4,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 5,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 6,
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 7,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 8,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 9,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 10,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
             }
         ]
     ],
@@ -137,30 +213,26 @@ Response body：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x2f0b45bbbff0b9b5a1531d638152c1a3730feb8eb6b8a14e13730f5238a18fd0",
-        "size": 539,
+        "hash": "0x69865f728e01fdf4edf7ffc6eb0e941d8b37386b14d67090265481d8f5724939",
+        "size": 1051,
         "version": 0,
-        "nonce": 2014194553,
-        "sender": "AWeQp7LpihMuAmBS1hv5rqXSGKBFct1gfh",
+        "nonce": 714785378,
+        "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
         "sys_fee": "100000000",
-        "net_fee": "2539480",
-        "valid_until_block": 2452914,
+        "net_fee": "2051390",
+        "valid_until_block": 2139412,
         "attributes": [],
         "cosigners": [
             {
-                "account": "0xac5bcaa53abb0c2dc5fd873847cdc158194f85dc",
+                "account": "0x39e7394d6231aa09c097d02391d5d149f873f12b",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "0480c3c90114a8722cd087f4cb812167b69320a069c9b65ac67c14dc854f1958c1cd473887fdc52d0cbb3aa5ca5bac53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f104002d310114a320932c66d707e03d7cba3a81a7a10e5de12f0214dc854f1958c1cd473887fdc52d0cbb3aa5ca5bac53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1048096980014dc854f1958c1cd473887fdc52d0cbb3aa5ca5bac14dc854f1958c1cd473887fdc52d0cbb3aa5ca5bac53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1",
+        "script": "EQwUsLxLZL7i4j09Mt4CyqwYU/q7tAMMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSORIMFGrrXgextECiwxdOgQ0Zve+cztI4DBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUiXcg2M129PAKv6N8Dt2InCCP3ptBYn1bUjkTDBRoCBi7T1Agq1vEIqg53FXHfKCH0gwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFIl3INjNdvTwCr+jfA7diJwgj96bQWJ9W1I5FAwUTWT0gXNnLSRI/x1soZpHDS/ZPfYMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSORUMFFzKL+r9KeMwRX8nlSHSarTn6UreDBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUiXcg2M129PAKv6N8Dt2InCCP3ptBYn1bUjkCAEbDIwwUsLxLZL7i4j09Mt4CyqwYU/q7tAMMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBQ7fTcRxvDM+bHcqQPRv6HYlvEjjEFifVtSOQIAJ7kpDBRq614HsbRAosMXToENGb3vnM7SOAwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5AgAIry8MFGgIGLtPUCCrW8QiqDncVcd8oIfSDBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUO303EcbwzPmx3KkD0b+h2JbxI4xBYn1bUjkCAOmkNQwUTWT0gXNnLSRI/x1soZpHDS/ZPfYMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBQ7fTcRxvDM+bHcqQPRv6HYlvEjjEFifVtSOQIAypo7DBRcyi/q/SnjMEV/J5Uh0mq05+lK3gwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5",
         "witnesses": [
             {
-                "invocation": "402ab49689a795e66ad1da5479d104f3221866cde74c1b769b14063b9ea4e67d6e900a063fd6b1be062137dc238c74e64b1576c88bbff056f2889c9c621ab32227",
-                "verification": "210288a99d33b6f7f1b19d3be7a7935d2c076fec52d9591336af03e43eec8ca1b16b68747476aa"
-            },
-            {
-                "invocation": "407dda872506e59efb1bbfb612942132a988bbc3291b7fedc9e9b45564ad2c588432f17b73d13a13948652133ce4d14c453f013d33c9e71b0f147c6b11793b8f1e",
-                "verification": "2102536268a690cf09a959d2a3ec062bf52e8d17f1cca52db3aa6f497b05d7c1be4968747476aa"
+                "invocation": "DED2sAXuluMra/+ml/nsebVdjQFyRdJJxZUnXJve6hWoFs/HSjgFYqnZzQkNrJhVgJ9cjHqMX3qkd6A7xGyXpWql",
+                "verification": "DCEDucRsbVxnHvXCG8eqfDBGiusIGi44lSaa35R3GNZQzh4LQQqQatQ="
             }
         ]
     }

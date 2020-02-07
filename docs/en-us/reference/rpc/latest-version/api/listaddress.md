@@ -7,7 +7,7 @@ Lists all the addresses in the current wallet.
 > Before you can invoke this method you must:
 >
 > 1. Open the wallet in NEO-CLI
-> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
+> 2. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
 
 ## Example
 
@@ -30,13 +30,13 @@ Response body：
     "id": 1,
     "result": [
         {
-            "address": "ASL3KCvJasA7QzpYGePp25pWuQCj4dd9Sy",
+            "address": "NZos4XyLUEUrD7RQBn9J1A1PyeCwQKqwtT",
             "haskey": true,
             "label": null,
             "watchonly": false
         },
         {
-            "address": "AV2Ai7PXcNbjTSeKgWqsDEjLaEAJZpytru",
+            "address": "NdAth5nq7RyG4HEJRsVJxnk9Q6XHoeB3No",
             "haskey": true,
             "label": null,
             "watchonly": false
@@ -47,6 +47,6 @@ Response body：
 
 Response description：
 
-address：The address in the wallet.
+address: The address in the wallet.
 
-watchonly：Indicates whether it is a watch only address.
+watchonly: Indicates whether it is a watch only address.

@@ -28,6 +28,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblocksysfee](api/getblocksysfee.md)  | \<index>                                 | 根据指定的索引，返回截止到该区块前的系统手续费      |
 | [getconnectioncount](api/getconnectioncount.md) |                                          | 获取节点当前的连接数                   |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | 根据合约脚本散列，查询合约信息              |
+| [getnep5balances](api/getnep5balances.md) | \<address> | 返回指定地址内的所有 NEP-5 资产余额。 |
+| [getnep5transfers](api/getnep5transfers.md) | \<address>[timestamp] | 返回指定地址内的所有 NEP-5 交易记录。 |
 | [getpeers](api/getpeers.md)              |                                          | 获得该节点当前已连接/未连接的节点列表          |
 | [getrawmempool](api/getrawmempool.md)    | [shouldGetUnverified=0]         | 获取内存中未确认的交易列表                |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |
