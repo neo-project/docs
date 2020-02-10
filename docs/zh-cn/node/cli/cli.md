@@ -1,6 +1,6 @@
 # CLI 命令参考
 
-打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 NEO 的命令行钱包。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 Neo 的命令行钱包。
 
 `dotnet neo-cli.dll`
 
@@ -236,7 +236,7 @@ unclaimed gas: 0
 >
 > 这里不包含已提取的 GAS，查看已提取的 GAS 请用 list asset 命令。
 
-在 NEO3 中，某地址每次 NEO 数量发生改变时都会触发其 GAS 的自动提取。
+在 Neo3 中，某地址每次 Neo 数量发生改变时都会触发其 GAS 的自动提取。
 
 ### claim gas
 
@@ -485,5 +485,5 @@ Install successful, please restart neo-cli.
 
 ### start consensus
 
-启动共识。启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
+启动共识。启动共识的前提是该钱包有共识的权限，在 Neo 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
 
