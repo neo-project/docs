@@ -1,32 +1,32 @@
-# NEO White Paper
+# Neo White Paper
 
 A distributed network for the Smart Economy
 
-## NEO design goals: Smart Economy
+## Neo design goals: Smart Economy
 
-NEO is the use of blockchain technology and digital identity to digitize assets, the use of smart contracts for digital assets to be self-managed, to achieve "smart economy" with a distributed network.
+Neo is the use of blockchain technology and digital identity to digitize assets, the use of smart contracts for digital assets to be self-managed, to achieve "smart economy" with a distributed network.
 
 ### Digital Assets
 
-Digital assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralized, trustful, traceable, highly transparent, and free of intermediaries. On the NEO blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law.
+Digital assets are programmable assets that exist in the form of electronic data. With blockchain technology, the digitization of assets can be decentralized, trustful, traceable, highly transparent, and free of intermediaries. On the Neo blockchain, users are able to register, trade, and circulate multiple types of assets. Proving the connection between digital and physical assets is possible through digital identity. Assets registered through a validated digital identity are protected by law.
 
-NEO has two forms of digital assets: global assets and contract assets. Global assets can be recorded in the system space and can be identified by all smart contracts and clients. Contract assets are recorded in the private storage area of the smart contract and require a compatible client to recognize them. Contract assets can adhere to certain standards in order to achieve compatibility with most clients.
+Neo has two forms of digital assets: global assets and contract assets. Global assets can be recorded in the system space and can be identified by all smart contracts and clients. Contract assets are recorded in the private storage area of the smart contract and require a compatible client to recognize them. Contract assets can adhere to certain standards in order to achieve compatibility with most clients.
 
 ### Digital Identity
 
-Digital identity refers to the identity information of individuals, organizations, and other entities that exist in electronic form. The more mature digital identity system is based on the PKI (Public Key Infrastructure) X.509 standard. In NEO, we will implement a set of X.509 compatible digital identity standards. This set of digital identity standards, in addition to compatible X.509 level certificate issuance model, will also support Web Of Trust point-to-point certificate issuance model. Our verification of identity when issuing or using digital identities includes the use of facial features, fingerprint, voice, SMS and other multi-factor authentication methods. At the same time, we will also use the blockchain to replace the Online Certificate Status Protocol (OCSP) to manage and record the X.509 Certificate Revocation List (CRL).
+Digital identity refers to the identity information of individuals, organizations, and other entities that exist in electronic form. The more mature digital identity system is based on the PKI (Public Key Infrastructure) X.509 standard. In Neo, we will implement a set of X.509 compatible digital identity standards. This set of digital identity standards, in addition to compatible X.509 level certificate issuance model, will also support Web Of Trust point-to-point certificate issuance model. Our verification of identity when issuing or using digital identities includes the use of facial features, fingerprint, voice, SMS and other multi-factor authentication methods. At the same time, we will also use the blockchain to replace the Online Certificate Status Protocol (OCSP) to manage and record the X.509 Certificate Revocation List (CRL).
 
 ### Smart Contract
 
-The smart contract was first proposed by the cryptographer Nick Szabo in 1994, only five years after the creation of the World Wide Web. According to Szabo's definition: When a pre-programmed condition is triggered, the smart contract will execute the corresponding contract terms. Blockchain technology provides us with a decentralized, tamper-resistant, highly reliable system in which smart contracts are very useful. NEO has an independent smart contract system: NeoContract.
+The smart contract was first proposed by the cryptographer Nick Szabo in 1994, only five years after the creation of the World Wide Web. According to Szabo's definition: When a pre-programmed condition is triggered, the smart contract will execute the corresponding contract terms. Blockchain technology provides us with a decentralized, tamper-resistant, highly reliable system in which smart contracts are very useful. Neo has an independent smart contract system: NeoContract.
 
-The NeoContract smart contract system is the biggest feature of the seamless integration of the existing developer ecosystem. Developers do not need to learn a new programming language but use C#, Java and other mainstream programming languages in their familiar IDE environments (Visual Studio, Eclipse, etc.) for smart contract development, debugging and compilation. NEO's Universal Lightweight Virtual Machine, NeoVM, has the advantages of high certainty, high concurrency, and high scalability. The NeoContract smart contract system will allow millions of developers around the world to quickly carry out the development of smart contracts. NeoContract will have a separate white paper describing the implementation details.
+The NeoContract smart contract system is the biggest feature of the seamless integration of the existing developer ecosystem. Developers do not need to learn a new programming language but use C#, Java and other mainstream programming languages in their familiar IDE environments (Visual Studio, Eclipse, etc.) for smart contract development, debugging and compilation. Neo's Universal Lightweight Virtual Machine, NeoVM, has the advantages of high certainty, high concurrency, and high scalability. The NeoContract smart contract system will allow millions of developers around the world to quickly carry out the development of smart contracts. NeoContract will have a separate white paper describing the implementation details.
 
 ### Application and Ecosystem
 
-Ecosystem is the vitality of the open source community. In order to achieve the goal of an intelligent economic network, NEO will be committed to the development of its ecosystem, providing mature development tools, improving development of documents, organizing education and training activities, and providing financial support. We plan to support the following NEO-based applications and ecology and to reward improvements to the design of the experience:
+Ecosystem is the vitality of the open source community. In order to achieve the goal of an intelligent economic network, Neo will be committed to the development of its ecosystem, providing mature development tools, improving development of documents, organizing education and training activities, and providing financial support. We plan to support the following Neo-based applications and ecology and to reward improvements to the design of the experience:
 
-🔹 **Node Program**
+**Node Program**
 
 - A fully functioning Full node PC program
 
@@ -36,13 +36,13 @@ Ecosystem is the vitality of the open source community. In order to achieve the 
 
 - Hardware wallet
 
-🔹 **Blockchain Explorer**
+**Blockchain Explorer**
 
-🔹 **SDK Development Kit**
+**SDK Development Kit**
 
 - Support Java / Kotlin, .NET C # / VB, JavaScript / Typescript, Python, Go
 
-🔹 **Smart Contract Compiler and IDE Plugin**
+**Smart Contract Compiler and IDE Plugin**
 
 - C# / VB.Net / F#, Visual Studio
 
@@ -54,7 +54,7 @@ Ecosystem is the vitality of the open source community. In order to achieve the 
 
 - Python / Ruby
 
-🔹 **Decentralized Applications**
+**Decentralized Applications**
 
 - Smart fund
 
@@ -78,21 +78,21 @@ Ecosystem is the vitality of the open source community. In order to achieve the 
 
 - Hashpower market
 
-- NeoGas market
+- GAS market
 
-## NEO Management Model
+## Neo Management Model
 
 ### Economic Model
 
-NEO has two native tokens, NEO (abbreviated symbol NEO) and NeoGas (abbreviated symbol GAS).
+Neo has two native tokens, NEO (abbreviated symbol NEO) and GAS (abbreviated symbol GAS).
 
-NEO, with a total of 100 million tokens, represents the right to manage the network. Management rights include voting for bookkeeping, NEO network parameter changes, and so on. The minimum unit of NEO is 1 and tokens cannot be subdivided.
+NEO, with a total of 100 million tokens, represents the right to manage the network. Management rights include voting for bookkeeping, Neo network parameter changes, and so on. The minimum unit of NEO is 1 and tokens cannot be subdivided.
 
-GAS is the fuel token for the realization of NEO network resource control, with a maximum total limit of 100 million. The NEO network charges for the operation and storage of tokens and smart contracts, thereby creating economic incentives for bookkeepers and preventing the abuse of resources. The minimum unit of GAS is 0.00000001.
+GAS is the fuel token for the realization of Neo network resource control, with a maximum total limit of 100 million. The Neo network charges for the operation and storage of tokens and smart contracts, thereby creating economic incentives for consensus nodes and preventing the abuse of resources. The minimum unit of GAS is 0.00000001.
 
-In the genesis block of the NEO network, 100 million NEOs are generated, GAS has not yet been generated. 100 million GAS, corresponding to the 100 million NEO, will be generated through a decay algorithm in about 22 years time to address holding NEO. If NEO is transferred to a new address, the subsequent GAS generated will be credited to the new address.
+In the genesis block of the Neo network, 100 million NEOs are generated, GAS has not yet been generated. 100 million GAS, corresponding to the 100 million NEO, will be generated through a decay algorithm in about 22 years time to address holding NEO. If NEO is transferred to a new address, the subsequent GAS generated will be credited to the new address.
 
-The NEO network will set a threshold by voting to exempt GAS from a certain amount of transfer transactions and smart contract operations to enhance the user experience. When a large amount of spam transactions occur, NeoID can be used to prioritize transactions and smart contracts with qualified identities. Transactions and smart contracts with no qualifying digital identities can get priority by paying GAS.
+The Neo network will set a threshold by voting to exempt GAS from a certain amount of transfer transactions and smart contract operations to enhance the user experience. When a large amount of spam transactions occur, NeoID can be used to prioritize transactions and smart contracts with qualified identities. Transactions and smart contracts with no qualifying digital identities can get priority by paying GAS.
 
 ### Distribution Mechanism
 
@@ -100,17 +100,14 @@ NEO distribution:
 
 NEO's 100 million tokens is divided into two portions. The first portion is 50 million tokens distributed proportionally to supporters of NEO during the crowdfunding. This portion has been distributed.
 
-The second portion is 50 million NEO managed by the NEO Council to support NEO's long-term development, operation and maintenance and ecosystem. The NEO in this portion has a lockout period of 1 year and is unlocked only after October 16, 2017. This portion will not enter the exchanges and is only for long-term support of NEO projects. The plans for it are as below:
+The second portion is 50 million NEO managed by the Neo Council to support Neo's long-term development, operation and maintenance and ecosystem. The NEO in this portion has a lockout period of 1 year and is unlocked only after October 16, 2017. This portion will not enter the exchanges and is only for long-term support of Neo projects. The plans for it are as below:
 
-🔹 10 million tokens (10% total) will be used to motivate NEO developers and members of the NEO Council
+- 10 million tokens (10% total) will be used to motivate Neo developers and members of the Neo Council
+- 10 million tokens (10% total) will be used to motivate developers in the Neo ecosystem
+- 15 million tokens (15% total) will be used to cross-invest in other block-chain projects, which are owned by the Neo Council and are used only for Neo projects
+- 15 million (15% total) will be retained as contingency
+- The annual use of NEO in principle shall not exceed 15 million tokens
 
-🔹 10 million tokens (10% total) will be used to motivate developers in the NEO ecosystem
-
-🔹 15 million tokens (15% total) will be used to cross-invest in other block-chain projects, which are owned by the NEO Council and are used only for NEO projects
-
-🔹 15 million (15% total) will be retained as contingency
-
-🔹 The annual use of NEO in principle shall not exceed 15 million tokens
 
 GAS distribution:
 
@@ -124,23 +121,23 @@ According to this release curve, 16% of the GAS will be created in the first yea
 
 Chain governance: NEO token holders are the network owners and managers, managing the network through voting in the network, using the GAS generated from NEO to utilize the functions in the network. NEO tokens can be transferred.
 
-Off-chain governance: NEO Council consists of the founding members of the NEO project, under which the management committee, technical committee and the secretariat, respectively, are responsible for strategic decision-making, technical decision-making and specific implementation. The NEO Council is responsible to the NEO community for the promotion and development of NEO ecosystem as its primary objective.
+Off-chain governance: Neo Council consists of the founding members of the Neo project, under which the management committee, technical committee and the secretariat, respectively, are responsible for strategic decision-making, technical decision-making and specific implementation. The Neo Council is responsible to the Neo community for the promotion and development of Neo ecosystem as its primary objective.
 
-## NEO technology implementation
+## Neo technology implementation
 
 ### Consensus mechanism: dBFT
 
-The dBFT is called the Delegated Byzantine Fault Tolerant, a Byzantine fault-tolerant consensus mechanism that enables large-scale participation in consensus through proxy voting. The holder of the NEO token can, by voting, pick the bookkeeper it supports. The selected group of bookkeepers, through BFT algorithm, reach a consensus and generate new blocks. Voting in the NEO network continues in real time, rather than in accordance with a fixed term.
+The dBFT is called the Delegated Byzantine Fault Tolerant, a Byzantine fault-tolerant consensus mechanism that enables large-scale participation in consensus through proxy voting. The holder of the NEO token can, by voting, pick the consensus node it supports. The selected group of consensus nodes, through BFT algorithm, reach a consensus and generate new blocks. Voting in the Neo network continues in real time, rather than in accordance with a fixed term.
 
 The dBFT provides fault tolerance of f = ⌊ (n-1) / 3 ⌋ for a consensus system consisting of n consensus nodes. This fault tolerance also includes both security and availability, resistant to general and Byzantine failures, and is suitable for any network environment. dBFT has good finality, meaning that once confirmations are final, the block can not be bifurcated, and the transaction will not be revoked or rolled back.
 
-In the NEO dBFT consensus mechanism, taking about 15 to 20 seconds to generate a block, the transaction throughput is measured up to about 1,000TPS, which is excellent performance among the public chains. Through appropriate optimization, there is potential to reach 10,000TPS, allowing it to support large-scale commercial applications.
+In the Neo dBFT consensus mechanism, taking about 15 to 20 seconds to generate a block, the transaction throughput is measured up to about 1,000TPS, which is excellent performance among the public chains. Through appropriate optimization, there is potential to reach 10,000TPS, allowing it to support large-scale commercial applications.
 
-The dBFT combines digital identity technology, meaning the bookkeepers can be a real name of the individual or institution. Thus, it is possible to freeze, revoke, inherit, retrieve, and ownership transfer due to judicial decisons on them. This facilitates the registration of compliant financial assets in the NEO network. The NEO network plans to support such operations when necessary.
+The dBFT combines digital identity technology, meaning the consensus nodes can be a real name of the individual or institution. Thus, it is possible to freeze, revoke, inherit, retrieve, and ownership transfer due to judicial decisons on them. This facilitates the registration of compliant financial assets in the Neo network. The Neo network plans to support such operations when necessary.
 
 ### Smart contract system: NeoContract
 
-NEO's smart contract system consists of three parts:
+Neo's smart contract system consists of three parts:
 
 **NeoVM - Universal Block Chain Virtual Machine:**
 
@@ -152,9 +149,9 @@ Used to load the blockchain ledger, digital assets, digital identity, persistent
 
 **DevPack - Compiler and IDE plugin:**
 
-DevPack includes the high-level language compiler and the IDE plug-in. Because NeoVM's architecture is very similar to JVM and .NET Runtime, the compilers in DevPack can compile Java byte code and .NET MSIL into NeoVM's instruction set. Java / Kotlin, C# developers do not need to learn new languages and will be able to immediately start developing smart contracts in VS, Eclipse and other familiar IDE environments. **This greatly reduces the learning curve for developing smart contracts, allowing us to easily build a vibrant community around NeoContract.**
+DevPack includes the high-level language compiler and the IDE plug-in. Because NeoVM's architecture is very similar to JVM and .NET Runtime, the compilers in DevPack can compile Java byte code and .NET MSIL into NeoVM's instruction set. Developers using main stream languages like Java / Kotlin/ C# do not need to learn new languages and will be able to immediately start developing smart contracts in VS, Eclipse and other familiar IDE environments. **This greatly reduces the learning curve for developing smart contracts, allowing us to easily build a vibrant community around NeoContract.**
 
-NeoContract can create a smart contract call tree through static analysis before running a smart contract. **Through the deterministic call tree, the NEO node can dynamically fragment the smart contract to achieve theoretically unlimited expansion**, which overcomes the "jamming effect" caused by the static fragmentation of other block chain systems.
+NeoContract can create a smart contract call tree through static analysis before running a smart contract. **Through the deterministic call tree, the Neo node can dynamically fragment the smart contract to achieve theoretically unlimited expansion**, which overcomes the "jamming effect" caused by the static fragmentation of other block chain systems.
 
 ### Cross-chain interoperability agreement: NeoX
 
@@ -182,4 +179,4 @@ The emergence of quantum computers poses a major challenge to RSA and ECC-based 
 
 ## Summary
 
-NEO is a distributed network that combines digital assets, digital identities and smart contracts. The NEO system will use DBFT, NeoX, NeoFS, NeoQS and many other original technologies, as the infrastructure for the intelligent economy of the future.
+Neo is a distributed network that combines digital assets, digital identities and smart contracts. The Neo system will use DBFT, NeoX, NeoFS, NeoQS and many other original technologies, as the infrastructure for the intelligent economy of the future.
