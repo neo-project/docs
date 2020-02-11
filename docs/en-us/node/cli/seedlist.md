@@ -1,8 +1,8 @@
-# NEO-CLI SeedList
+# Neo-CLI SeedList
 
 ## Introduction
 ### What is the SeedList?
-The SeedList, simply put, is a list of URLs. They belong to the nodes that NEO-CLI tries to connect to when it starts.
+The SeedList, simply put, is a list of URLs. They belong to the nodes that Neo-CLI tries to connect to when it starts.
 You can find the SeedList in `protcol.json`, under the neo-cli directory.
 
 ```json
@@ -27,7 +27,7 @@ You can find the SeedList in `protcol.json`, under the neo-cli directory.
   }
 }
 ```
-Here, NEO-CLI is configured to connect to `seed1.neo.org`, `seed2.neo.org`, and so on through `PORT:10333`.
+Here, Neo-CLI is configured to connect to `seed1.neo.org`, `seed2.neo.org`, and so on through `PORT:10333`.
 
 ### Potential Issues with current setup
 That's all well and good, but what happens if every single node in our list is down?
@@ -68,7 +68,7 @@ The main port neo-cli works with is `10333`. Currently, we are pinging `RPC` onl
 
 
 #### Editing the protocol
-To let NEO-CLI know the new SeedList, we will paste the addresses chosen before into `protocol.json`.
+To let Neo-CLI know the new SeedList, we will paste the addresses chosen before into `protocol.json`.
 
 ```json
 {
@@ -128,7 +128,7 @@ To let NEO-CLI know the new SeedList, we will paste the addresses chosen before 
   }
 }
 ```
-Notice that we've added `:10333` to the end of each of the addresses, to tell NEO-CLI that to connect using the `P2P` protocol.
+Notice that we've added `:10333` to the end of each of the addresses, to tell Neo-CLI that to connect using the `P2P` protocol.
 
 And that's it! You can now start neo-cli as usual.
 

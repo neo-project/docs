@@ -1,6 +1,6 @@
 # CLI Command Reference
 
-Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line wallet (i.e. the NEO node).
+Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line wallet (i.e. the Neo node).
 
 `dotnet neo-cli.dll`
 
@@ -237,7 +237,7 @@ unclaimed gas: 0
 >
 > This command does not show the GAS that has been claimed. Use `list asset` instead.
 
-On NEO3, The GAS in an account is claimed automatically every time when the number of NEO in the account changes.  
+On Neo3, The GAS in an account is claimed automatically every time when the number of Neo in the account changes.  
 
 ### claim gas
 
