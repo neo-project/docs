@@ -41,24 +41,27 @@
 
 `NEO RPC SDK` 主要通过 RPC 请求与 Neo 节点进行交互，当 RPC 请求返回的消息中带有 Error 时系统就会抛出异常，所以最常见的异常类型是 `RpcException`， 主要包含下面几种：
 
-- -501, "Block or transaction already exists and cannot be sent repeatedly."
-- -502, "The memory pool is full and no more transactions can be sent."
-- -503, "The block cannot be validated."
-- -504, "Block or transaction validation failed."
-- -505, "One of the Policy filters failed."
-- -500, "Unknown error."
+- -100, "Unknown transaction" or "Unknown block"
+- -300, "Insufficient funds"
+- -301, "The necessary fee is more than the Max_fee, this transaction is failed. Please increase your Max_fee value."
+- -400, "Access denied"
+- -500, Relay not succeed, the detail reason contains "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
+- -32600, "Invalid Request"
+- -32601, "Method not found"
+- -32602, "Invalid params"
+- -32700, "Parse error"
 
 除此之外，可能会遇到 .NET 平台内置的其他异常，比如当传入的参数为空或格式有误时会引发 `ArgumentNullException` 和 `FormatException` 异常，所以使用 SDK 时需要进行合理的异常捕获与提示。
 
 ## 项目地址
 
-`NEO RPC SDK`是 NEO3 项目的功能子集，完整开源项目请参考：
+`NEO RPC SDK`是 neo-modules 项目的功能子集，完整开源项目请参考：
 
-NEO：https://github.com/neo-project/neo
+NEO：https://github.com/neo-project/neo-modules
 
 欢迎在项目问题列表中提出使用中遇到的问题：
 
-https://github.com/neo-project/neo/issues
+https://github.com/neo-project/neo-modules/issues
 
 ## 阅读下节
 

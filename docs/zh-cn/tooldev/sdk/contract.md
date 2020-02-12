@@ -36,7 +36,6 @@ neoAPI.WaitTransaction(transaction)
 下面是完整的示例：
 
 ```c#
-using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
 using Neo.SmartContract;
