@@ -6,8 +6,8 @@ Exports the private key of the specified address.
 >
 > Before you can invoke this method you must:
 >
-> 1. Open a wallet in NEO-CLI
-> 2. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
+> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases) 
+> 2. Call the RPC method `openwallet` to open the wallet first.
 
 ### Parameter Description
 

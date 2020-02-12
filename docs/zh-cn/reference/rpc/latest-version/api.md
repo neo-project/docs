@@ -2,7 +2,7 @@
 
 每个 Neo-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-要启用 RPC服务，你需要安装 [RpcServer插件](UnknownReleaseLink.md)，启动 Neo-CLI 时无需添加引数。
+要启用 RPC服务，你需要安装 [RpcServer插件](UnknownReleaseLink.md)，启动 Neo-CLI 时无需添加参数。
 
 ## 监听端口
 
@@ -47,13 +47,13 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [closewallet](api/closewallet.md) |                                           | 关闭当前打开着的钱包              |
 | [dumpprivkey](api/dumpprivkey.md) | \<address> | 导出指定地址的私钥 |
 | [getbalance](api/getbalance.md) | \<asset_id> | 查询资产余额 |
-| [getnewaddress](/api/getnewaddress.md) |  | 创建一个新的地址 |
-| [getunclaimedgas](/api/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
-| [importprivkey](/api/importprivkey.md) | \<key> | 导入私钥到钱包 |
-| [listaddress](/api/listaddress.md) |  | 列出当前钱包内的所有地址 |
-| [sendfrom](/api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
-| [sendmany](/api/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 |
-| [sendtoaddress](/api/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
+| [getnewaddress](api/getnewaddress.md) |  | 创建一个新的地址 |
+| [getunclaimedgas](api/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
+| [importprivkey](api/importprivkey.md) | \<key> | 导入私钥到钱包 |
+| [listaddress](api/listaddress.md) |  | 列出当前钱包内的所有地址 |
+| [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
+| [sendmany](api/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 |
+| [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
 
 
 ## GET 请求示例
