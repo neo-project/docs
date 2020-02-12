@@ -32,13 +32,13 @@ To fit different developers' needs and facilitate DApp development, Neo developm
 
 ### neo-sdk
 
-Neo-sdk provides a relatively easy and flexible way for developers to use. It packages functions such as wallet, digital asset transactions, and smart contract invoking, which can be simply used by introducing the corresponding neo-sdk into the DApp project.
+Neo-sdk provides a relatively easy and flexible way for developers to use. It encapsulates functions such as wallet, digital asset transactions, and smart contract invoking, which can be simply used by including the corresponding neo-sdk into the DApp project.
 
 SDK supports the following functions:
 
 - Wallet
 - Transaction
-- Contract invoking
+- Contract call
 - Blockchain information query
 
 Neo developer community provides the following Neo-SDK：
