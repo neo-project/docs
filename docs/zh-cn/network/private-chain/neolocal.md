@@ -1,19 +1,19 @@
 # 快速搭建本地网络
 
-你可以在本地搭建个人的区块链网络用于协助开发。使用 [NEO-Local](https://github.com/CityOfZion/neo-local) 项目可以帮助你快速完成搭建，你可以使用它运行测试、执行命令和检查状态，同时控制链的操作。
+你可以在本地搭建个人的区块链网络用于协助开发。使用 [Neo-Local](https://github.com/CityOfZion/neo-local) 项目可以帮助你快速完成搭建，你可以使用它运行测试、执行命令和检查状态，同时控制链的操作。
 
 > [!Note]
 >
-> 该项目仅用于开发目的，其 docker 镜像中使用的 NEO 组件可能不是最新的。所以请始终使用测试网测试你所编写的智能合约。
+> 该项目仅用于开发目的，其 docker 镜像中使用的 Neo 组件可能不是最新的。所以请始终使用测试网测试你所编写的智能合约。
 
 **使用 Docker** 
 该项目使用 Docker 和 Docker-compose，可运行在 MacOS、Linux 和 Windows 系统上。关于 Docker 的更多信息，请参见其 [官网](https://www.docker.com/)。
 
-[![img](https://github.com/neo-project/docs/raw/df3f3750862af288a789f05df456d2ce77175d04/assets/neolocal.png)](https://github.com/neo-project/docs/blob/df3f3750862af288a789f05df456d2ce77175d04/assets/neolocal.png)
+![](../../assets/neolocal.png)
 
 ## Neo-local 组件
 
- NEO-local 将启动以下容器： 
+ Neo-local 将启动以下容器： 
 
 - 4 个共识节点 -  一个完整的工作网络
 - 区块浏览器 - Neoscan

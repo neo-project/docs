@@ -4,9 +4,9 @@
 
 ## 安装节点
 
-首先安装 NEO-CLI，并将节点文件复制为 4 份，文件夹名分别命名为 node1、node2、node3、node4。
+首先安装 Neo-CLI，并将节点文件复制为 4 份，文件夹名分别命名为 node1、node2、node3、node4。
 
-安装过程请参考 [NEO 节点的安装部署](../../node/cli/setup.md)。 
+安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。 
 
 ## 安装插件
 
@@ -17,7 +17,7 @@
 
 ## 创建钱包文件
 
-使用 NEO-CLI 或 NEO-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
+使用 Neo-CLI 或 Neo-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
 
 ## 修改 config.json
 
@@ -223,7 +223,7 @@
 
 如果关闭所有窗口，将停止私有链。
 
-## 提取私有链中的 NEO/GAS
+## 提取私有链中的 Neo/GAS
 
 请参考 [提取 NEO 和 GAS](private-chain.md#提取-neo-和-gas)。
 
