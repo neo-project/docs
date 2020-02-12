@@ -4,8 +4,8 @@
 
 > [!Note]
 >
-> - 执行此命令前需要在 Neo-CLI 节点中打开钱包。
-> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 调用示例
 
@@ -26,7 +26,7 @@
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "AVHcdW3FGKbPWGHNhkPjgVgi4GGndiCxdo"
+    "result": "NeMDdPDC29BfayYF7xNvnCSfCq9Drh1xKX"
 }
 ```
 

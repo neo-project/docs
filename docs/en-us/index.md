@@ -21,10 +21,9 @@
 
 | NEO Tools Development | | | |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- | ---------------------------------------------- |
-| [Blockchain Models](tooldev/concept/blockchain/block.md)     | [Charging Model](tooldev/concept/charging_model.md)          | [Transaction](tooldev/concept/transaction.md)           | [Wallet](tooldev/concept/wallets.md)           |
-| [Consensus](tooldev/concept/consensus/consensus_algorithm.md) | [Cryptography](tooldev/concept/cryptography/encode_algorithm.md) | [NEO-CLI Structure](tooldev/neo_cli_structure.md)       |                                                |
-| [NEO SDK](tooldev/sdk/introduction.md)                       | [Big and Little Endian Usage](tooldev/endian.md)             |                                                         |                                                |
-| [NeoVM Instructions](tooldev/advanced/neo_vm.md)             | [Network Protocol](tooldev/advanced/network-protocol.md)     | [Transaction Process](tooldev/advanced/tx_execution.md) | [Merkel Tree](tooldev/advanced/merkle_tree.md) |
+| [Blockchain Models](tooldev/concept/blockchain/block.md)     | [Charging Model](tooldev/concept/charging_model.md)          | [Cryptography](tooldev/concept/cryptography/encode_algorithm.md) | [Big and Little Endian Usage](tooldev/concept/endian.md) |
+| [NEO-CLI Structure](tooldev/neo_cli_structure.md) | [Network Protocol](tooldev/network-protocol.md) | [Consensus](tooldev/consensus/consensus_algorithm.md) | [Wallet](tooldev/wallets.md) |
+| [Transaction](tooldev/transaction/transaction.md) | [NEO SDK](tooldev/sdk/introduction.md) |                                                         |                                                |
 
 | Document for Exchange Developers | | | |
 | ----------------------------------------------- | ---- | ---- | ---- |
@@ -33,5 +32,6 @@
 | Reference  | | | |
 | ---------------------------------------------- | -------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------- |
 | [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Smart Contract Framework](reference/scapi/fw.md) | [SDK API (C#)](https://docs.neo.org/developerguide/zh/api/) |
+| [NeoVM Instructions](reference/neo_vm.md) |  |  |  |
 
 <link href="index.css" rel="stylesheet" />

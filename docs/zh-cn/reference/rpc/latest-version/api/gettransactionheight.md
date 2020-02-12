@@ -1,18 +1,13 @@
-﻿# gettransactionheight 方法
+# gettransactionheight 方法
 
 获取交易高度。
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "gettransactionheight",
-  "params": [txid],
-  "id": 1
-}
-```
-### 参数说明
+## 参数说明
 
-* txid：交易id。
+txid：交易id。
 
 ## 调用示例
 
@@ -37,3 +32,7 @@
 }
 
 ```
+
+响应说明：
+
+返回该交易的高度。

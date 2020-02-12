@@ -1,11 +1,13 @@
-# getnewaddress Method
+﻿# getnewaddress Method
 
 Creates a new address.
 
 > [!Note]
 >
-> - You need to open the wallet in the NEO-CLI node before you execute this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must:
+>
+> 1. Open a wallet using the method openwallet
+> 2. Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 
 
 ## Example
 
@@ -26,7 +28,7 @@ Response body：
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "AVHcdW3FGKbPWGHNhkPjgVgi4GGndiCxdo"
+    "result": "NeMDdPDC29BfayYF7xNvnCSfCq9Drh1xKX"
 }
 ```
 

@@ -1,15 +1,17 @@
-# dumpprivkey Method
+﻿# dumpprivkey Method
 
 Exports the private key of the specified address.
 
 > [!Note]
 >
-> - You need to open the wallet in the NEO-CLI node before you execute this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must:
+>
+> 1. Open a wallet in NEO-CLI
+> 2. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
 
-## Parameter Description
+### Parameter Description
 
-Address: To export the addresses of the private key, the address is required as a standard address.
+address: To export the addresses of the private key. The address is required as a standard address.
 
 ## Example
 
@@ -19,7 +21,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "dumpprivkey",
-  "params": ["ASMGHQPzZqxFB2yKmzvfv82jtKVnjhp1ES"],
+  "params": ["NepVckSSgHJf1szQ6LEibd5NU7Ap67yJrJ"],
   "id": 1
 }
 ```
@@ -30,7 +32,7 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "L3FdgAisCmV******************************9XM65cvjYQ1"
+    "result": "L5LEfSAAbVAk5vxmkBpWQqJ2e1hyh3nEqgWaosB35XpBAkZdizj4"
 }
 ```
 

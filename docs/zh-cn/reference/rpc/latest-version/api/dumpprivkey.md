@@ -4,8 +4,8 @@
 
 > [!Note]
 >
-> - 执行此命令前需要在 Neo-CLI 节点中打开钱包。
-> - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
 ## 参数说明
 
@@ -19,7 +19,7 @@ address：要导出私钥的地址，该地址需为标准地址。
 {
   "jsonrpc": "2.0",
   "method": "dumpprivkey",
-  "params": ["ASMGHQPzZqxFB2yKmzvfv82jtKVnjhp1ES"],
+  "params": ["NepVckSSgHJf1szQ6LEibd5NU7Ap67yJrJ"],
   "id": 1
 }
 ```
@@ -30,7 +30,7 @@ address：要导出私钥的地址，该地址需为标准地址。
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "L3FdgAisCmV******************************9XM65cvjYQ1"
+    "result": "L5LEfSAAbVAk5vxmkBpWQqJ2e1hyh3nEqgWaosB35XpBAkZdizj4"
 }
 ```
 

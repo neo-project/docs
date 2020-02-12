@@ -1,12 +1,16 @@
-# getstorage Method
+﻿# getstorage Method
 
-Returns the stored value, according to the contract script hash and the stored key.
+Returns the stored value according to the contract script hash and the stored key.
 
-## Parameter Description
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-script_hash: Contract script hash
+### Parameter Description
 
-key: The key to look up in storage (in hex string)
+* script_hash: Contract script hash
+
+* key: The key to look up in storage (in hex string)
 
 ## Example
 
@@ -30,4 +34,3 @@ Response body:
   "result": "4c696e"
 }
 ```
-

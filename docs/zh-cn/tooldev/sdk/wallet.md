@@ -184,6 +184,7 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
     Transaction transaction = walletAPI.ClaimGas(wif);
     ```
     也可以使用`KeyPair`：
+    
     ```c#
     KeyPair keyPair = Utility.GetKeyPair(wif);
     Transaction transaction = walletAPI.ClaimGas(keyPair);
