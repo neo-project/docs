@@ -1,6 +1,6 @@
 # Compiling a contract sample
 
-So far, we have learned how to build a private chain and connect nodes to the chain. The following part will proceed to environment configuration, NEO smart contract coding and compilation and NEO smart contract deployment and invocation on private chain using C# and Windows 10. 
+So far, we have learned how to build a private chain and connect nodes to the chain. The following part will proceed to environment configuration, Neo smart contract coding and compilation and Neo smart contract deployment and invocation on private chain using C# and Windows 10. 
 
 We will complete the following tasks in this section: 
 
@@ -18,7 +18,7 @@ Download and install [Visual Studio 2017](https://www.visualstudio.com/products/
 
 ### Install NeoContractPlugin 
 
-Open Visual Studio 2017 and click `tool` -> `extensions and Updates`，click `online`on the left column, search NEO and install NeoContractPlugin (the process must be completed online).
+Open Visual Studio 2017 and click `tool` -> `extensions and Updates`，click `online`on the left column, search Neo and install NeoContractPlugin (the process must be completed online).
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
@@ -64,9 +64,9 @@ After the path is added, run CMD or PowerShell for testing purpose (if CMD start
 
 ![3_1545037391347](assets/3_1545037391347.png)
 
-## Creating a NEO contract project
+## Creating a Neo contract project
 
-Upon completion of the previous steps, you may start to create NEO smart contract project in Visual Studio 2017 (no specific requirement for .NET Framework version):
+Upon completion of the previous steps, you may start to create Neo smart contract project in Visual Studio 2017 (no specific requirement for .NET Framework version):
 
 1. Click `file` -> `create` -> `project`.
 2. Select `NeoContract` in the list and change settings where necessary, then click `confirm`.
@@ -81,11 +81,11 @@ Nevertheless, the above only demonstrates a simple data storage method - to stor
 
 ## Editing NEP-5 code
 
-Many developers are curious about how to release their own contract assets on NEO public chain. Now let's walk through the process on private chain.
+Many developers are curious about how to release their own contract assets on Neo public chain. Now let's walk through the process on private chain.
 
 1. Download the NEP-5 template from [Github](https://github.com/neo-project/examples).
 
-2. Create a NEO smart contract project in Visual Studio 2017 and name it NEP5.
+2. Create a Neo smart contract project in Visual Studio 2017 and name it NEP5.
 
 3. Open NEP5.cs
 
@@ -93,7 +93,7 @@ Many developers are curious about how to release their own contract assets on NE
 
    > [!NOTE]
    >
-   > If there are red underlines under the code warning that the system is unable to find NEO name space and there is "!" in project references, you may take the following steps: 
+   > If there are red underlines under the code warning that the system is unable to find Neo name space and there is "!" in project references, you may take the following steps: 
    >
    > Right click the solution file in VS, click `manage NuGet package` and update the Neo.SmartContract.Framework to the latest official version in a new page.  If the red underlines still exist when program update is completed, you may try double clicking the "!". If the problem remains unsolved, you may resort to the solutions below: 
    >
@@ -248,7 +248,7 @@ Click `generate`->`generate solutions` (hotkeys: Ctrl + Shift + B) in the menu t
 
 ![](assets/compile.png)
 
-When the compilation is done, NEO smart contract file named`NEP5.avm` is generated in the `bin/Debug` directory of the project.
+When the compilation is done, Neo smart contract file named`NEP5.avm` is generated in the `bin/Debug` directory of the project.
 
 ![](assets/contractfile.png)
 
