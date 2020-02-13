@@ -43,9 +43,9 @@
 
 - -100, "Unknown transaction" or "Unknown block"
 - -300, "Insufficient funds"
-- -301, "The necessary fee is more than the Max_fee, this transaction is failed. Please increase your Max_fee value."
+- -301, "The transaction is failed because the necessary fee exceeds the Max_fee. Please increase your Max_fee value."
 - -400, "Access denied"
-- -500, Relay not succeed, the detail reason contains "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
+- -500, Relay does not succeed, the detailed reasons contain "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
 - -32600, "Invalid Request"
 - -32601, "Method not found"
 - -32602, "Invalid params"
