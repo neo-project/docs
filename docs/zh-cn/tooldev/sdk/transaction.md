@@ -33,13 +33,11 @@
 4. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数。
 
     - 单签
-    
     ```c#
     // add signature for the transaction with sendKey
     txManager.AddSignature(sendKey);
     ```
     - 多签
-    
     ```c#
     // add multi-signatures for the transaction with sendKey, at least 2 KeyPairs
     txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
@@ -48,7 +46,6 @@
     - 多签合约
 
       多签的本质来源于多签合约，需要先构建多签合约才能获取多签地址，进行多签转账。下面的示例使用了3个账户构成多签，验签时需要至少2个账户签名
-      
     ```c#
     // create a multi-signature contract, which needs at least 2 KeyPairs to sign
     Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
@@ -100,7 +97,7 @@ namespace ConsoleApp1
             Cosigner[] cosigners = new[] { new Cosigner { Scopes = WitnessScope.CalledByEntry, Account = sender } };
 
             // get the scripthash of the account you want to transfer to
-            UInt160 receiver = Utility.GetScriptHash("AKviBGFhWeS8xrAH3hqDQufZXE9QM5pCeP");
+            UInt160 receiver = Utility.GetScriptHash("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ");
 
             // construct the script, in this example, we will transfer 1 NEO to receiver
             UInt160 scriptHash = NativeContract.NEO.Hash;
@@ -129,6 +126,7 @@ namespace ConsoleApp1
         }
     }
 }
+
 
 ```
 
