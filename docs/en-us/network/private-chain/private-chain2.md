@@ -2,11 +2,11 @@
 
 In previous document we described the standard way to build a private chain using four computers or virtual machines. In this document we will introduce an easier way to build a private chain on a windows system computer.
 
-## Installing NEO node
+## Installing Neo node
 
-Install NEO-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
+Install Neo-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
 
-For more information refer to [Installation of NEO-CLI](../../node/cli/setup.md). 
+For more information refer to [Installation of Neo-CLI](../../node/cli/setup.md). 
 
 ## Installing plug-in
 
@@ -14,7 +14,7 @@ Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) the
 
 ## Creating wallet files
 
-From NEO-CLI or NEO-GUI create four wallets, 1.json, 2.json, 3.json, and 4.json, and place each in the folder of four nodes. 
+From Neo-CLI or Neo-GUI create four wallets, 1.json, 2.json, 3.json, and 4.json, and place each in the folder of four nodes. 
 
 ## Modifying config.json
 
@@ -226,4 +226,4 @@ Refer to [Withdrawing NEO and GAS](private-chain.md#withdrawing-neo-and-gas).
 
 Tips：
 
-[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The NEO node version is 2.9.4.
+[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The Neo node version is 2.9.4.

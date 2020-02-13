@@ -115,21 +115,21 @@ You can refer to the following example：
 
 Run the command line and enter the NEO-CLI directory. Then enter  `neo-cli.exe` to start the private chain. The private chain is set up successfully when it goes as shown below:
 
-![img](https://github.com/chenzhitong/NEO-Private-Net/raw/master/img/privatechain_demo.png)
+![img](../../assets/privatechain_demo.png)
 
 The private chain is terminated if you close the window.
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with NEO-GUI, to facilitate your blockchain development and testing.
+In the genesis block of the Neo network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI, to facilitate your blockchain development and testing.
 
-### Installing and configuring NEO-GUI
+### Installing and configuring Neo-GUI
 
-1. Download [NEO-GUI](https://github.com/neo-project/neo-gui/releases) from Github and extract the file.
+1. Download [Neo-GUI](https://github.com/neo-project/neo-gui/releases) from Github and extract the file.
 
-2. Replace the protocol.json in the NEO-GUI folder with the one configured before.
+2. Replace the protocol.json in the Neo-GUI folder with the one configured before.
 
-3. Configure the file config.json to make sure the NEO-GUI port is not conflict with the one of NEO-CLI; otherwise, NEO-GUI cannot work as NEO-CLI is running.
+3. Configure the file config.json to make sure the Neo-GUI port is not conflict with the one of Neo-CLI; otherwise, Neo-GUI cannot work as Neo-CLI is running.
 
    ```json
    {
@@ -152,7 +152,7 @@ In the genesis block of the NEO network, 100 million NEOs are generated. Additio
    }
    ```
 
-Start NEO-GUI and open a.json, if you see the connection number in the lower left corner is not 0 and the client has been downloading the blocks, the client has been successfully connected to the private chain.
+Start Neo-GUI and open a.json, if you see the connection number in the lower left corner is not 0 and the client has been downloading the blocks, the client has been successfully connected to the private chain.
 
 ### Transferring NEO/GAS
 

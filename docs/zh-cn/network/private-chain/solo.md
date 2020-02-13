@@ -1,18 +1,18 @@
 # 使用单节点搭建私有链
 
-NEO-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。
+Neo-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。
 
-[NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。此项目基于 Windows 10，且运行 NEO-GUI 需要安装 [.NetFramework 4.7.1](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+[NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。此项目基于 Windows 10，且运行 Neo-GUI 需要安装 [.NetFramework 4.7.1](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
 
 你也可以自己配置私有链，下文将介绍具体方法。
 
 ## 安装节点
 
-首先安装 NEO-CLI 2.10.2，安装过程请参考 [NEO 节点的安装部署](../../node/cli/setup.md)。
+首先安装 Neo-CLI 2.10.2，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
 
 ## 安装插件
 
-要使节点达成共识，需要安装 SimplePolicy 插件启用共识策略。下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) 插件并解压，放到 NEO-CLI 程序的 Plugins 文件夹中。
+要使节点达成共识，需要安装 SimplePolicy 插件启用共识策略。下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) 插件并解压，放到 Neo-CLI 程序的 Plugins 文件夹中。
 
 也可根据需要安装其它插件，可参考如下配置：
 
@@ -38,7 +38,7 @@ NEO-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 ## 创建钱包文件
 
-使用 NEO-CLI 或 NEO-GUI 创建一个钱包文件，命名为 a.json 放置于节点的文件夹中。
+使用 Neo-CLI 或 Neo-GUI 创建一个钱包文件，命名为 a.json 放置于节点的文件夹中。
 
 ## 修改 config.json
 
@@ -80,7 +80,7 @@ NEO-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 ## 修改 protocol.json
 
-修改 NEO-CLI 下的 protocol.json 文件，对以下参数进行修改。如果之后要配置其它普通节点，请保证所有节点的配置一致。
+修改 Neo-CLI 下的 protocol.json 文件，对以下参数进行修改。如果之后要配置其它普通节点，请保证所有节点的配置一致。
 
 - Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 - StandbyValidators ：备用共识节点的公钥，这里输入 a.json 钱包中的公钥（StandbyValidators  中只有一个公钥的时候为单节点模式）。
@@ -115,7 +115,7 @@ NEO-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 运行命令行，进入 neo-cli 目录，输入 `neo-cli.exe`。成功建立的私链如下图所示。
 
-![img](https://github.com/chenzhitong/NEO-Private-Net/raw/master/img/privatechain_demo.png)
+![](../../assets/privatechain_demo.png)
 
 如果关闭窗口，将停止私有链。
 
