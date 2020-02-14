@@ -5,7 +5,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 **Native API**：
 | API                           | Description                         |
 | -- | --|
-|Neo.Native.Deploy|Deploy and initialize all native contracts|
+|Neo.Native.Deploy|Deploys and initializes all native contracts|
 
 <br/>
 
@@ -18,48 +18,49 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	<tr >
 	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
 	    <td>name</td>
-	    <td>Get token name, ie: NEO</td>
+	    <td>Gets token name, ie: NEO</td>
 	</tr>
 	<tr>
 	    <td>symbol</td>
-	    <td>Get token symbol, ie: neo</td>
+	    <td>Gets token symbol, ie: neo</td>
 	</tr>
 	<tr>
 	    <td>decimals</td>
-	    <td>Get decimals</td>
+	    <td>Gets decimals</td>
 	</tr>
 	<tr>
 	    <td>totalSupply</td>
-	    <td>Get the total supply</td>
+	    <td>Gets the total supply</td>
 	</tr>
 	<tr>
 	    <td>balanceOf</td>
-	    <td>Get balance of the token</td>
+	    <td>Gets balance of the token</td>
 	</tr>
 	<tr>
 	    <td>transfer</td>
-	    <td>Transfer the token</td>
+	    <td>Transfers the token</td>
 	</tr>
 	<tr>
 	    <td>registerValidator</td>
-	    <td>Register to be a validator</td>
+	    <td>Registers to be a validator</td>
 	</tr>
 	<tr>
 	    <td>vote</td>
-	    <td>Vote for validators</td>
+	    <td>Votes for validators</td>
 	</tr>
 	<tr>
 	    <td>getRegisteredValidators</td>
-	    <td>Get registered validators</td>
+	    <td>Gets registered validators</td>
 	</tr>
 	<tr>
 	    <td>getValidators</td>
-	    <td>Get validators</td>
+	    <td>Gets validators</td>
 	</tr>
 	<tr><td>unclaimedGas</td>
-	    <td>Get unclaimed Gas</td>
+	    <td>Gets unclaimed Gas</td>
 	</tr>
 </table>
+
 <br/>
 
 <table>
@@ -71,31 +72,31 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	<tr >
 	    <td rowspan="7">Neo.Native.Tokens.GAS</td>
 	    <td>name</td>
-	    <td>Get token name, ie: GAS</td>
+	    <td>Gets token name, ie: GAS</td>
 	</tr>
 	<tr>
 	    <td>symbol</td>
-	    <td>Get token symbol, ie: gas</td>
+	    <td>Gets token symbol, ie: gas</td>
 	</tr>
 	<tr>
 	    <td>decimals</td>
-	    <td>Get decimals</td>
+	    <td>Gets decimals</td>
 	</tr>
 	<tr>
 	    <td>totalSupply</td>
-	    <td>Get the total supply</td>
+	    <td>Gets the total supply</td>
 	</tr>
 	<tr>
 	    <td>balanceOf</td>
-	    <td>Get balance of the token</td>
+	    <td>Gets balance of the token</td>
 	</tr>
 	<tr>
 	    <td>transfer</td>
-	    <td>Transfer the token</td>
+	    <td>Transfers the token</td>
 	</tr>
 	<tr>
 	 	<td>getSysFeeAmount</td>
-	    <td>Get the amount of the system fee</td>
+	    <td>Gets the amount of the system fee</td>
 	</tr>
 </table>
 
@@ -110,34 +111,34 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	<tr >
 	    <td rowspan="9">Neo.Native.Policy</td>
 	    <td>getMaxTransactionsPerBlock</td>
-	    <td>Get max transaction number per block</td>
+	    <td>Gets max transaction number per block</td>
 	</tr>
 	<tr>
 	    <td>getMaxBlockSize</td>
-	    <td>Get max block size</td>
+	    <td>Gets max block size</td>
 	</tr>
 	<tr>
 	    <td>getFeePerByte</td>
-	    <td>Get fee per byte</td>
+	    <td>Gets fee per byte</td>
 	</tr>
 	<tr>
 	    <td>setMaxBlockSize</td>
-	    <td>Set the max block size</td>
+	    <td>Sets the max block size</td>
 	</tr>
 	<tr><td>getBlockedAccounts</td>
-	    <td>Get blocked accounts</td>
+	    <td>Gets blocked accounts</td>
 	</tr>
     <tr><td>setMaxTransactionsPerBlock</td>
-	    <td>Set max transaction per block</td>
+	    <td>Sets max transaction per block</td>
 	</tr>
     <tr><td>setFeePerByte</td>
-	    <td>Set fee per byte</td>
+	    <td>Sets fee per byte</td>
 	</tr>
     <tr><td>blockAccount</td>
-	    <td>Set blocked accounts</td>
+	    <td>Sets blocked accounts</td>
 	</tr>
     <tr><td>unblockAccount</td>
-	    <td>Unblock accounts</td>
+	    <td>Unblocks accounts</td>
 	</tr>
 </table>
 
@@ -145,7 +146,9 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 
 | API                           | Description                         |
 | -- | -- |
-| Neo.Crypto.ECDsaVerify            | Verify signature of the current script container by public key                   |
-| Neo.Crypto.ECDsaCheckMultiSig       | Verify the multiple signature of the current script container by public key                    |
+| Neo.Crypto.ECDsaVerify            | Verifies signature of the current script container by public key                 |
+| Neo.Crypto.ECDsaCheckMultiSig       | Verifies multiple signatures of the current script container by public key                 |
 
-Note：The source code for the above API can be found under `NEO` in the [src/neo/SmartContract/InteropService.Native.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.Native.cs) and [src/neo/SmartContract/InteropService.Crypto.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.Crypto.cs).
+> [!Note]
+>
+> The source code for the above API can be found under `NEO` in the [src/neo/SmartContract/InteropService.Native.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.Native.cs) and [src/neo/SmartContract/InteropService.Crypto.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.Crypto.cs).

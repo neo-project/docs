@@ -2,7 +2,7 @@
 
 ## Built-in data types
 
-NeoVM has seven built-in data types:
+NeoVM has following built-in data types:
 
 | Type | Description |
 |------|------|
@@ -26,7 +26,7 @@ private bool value;
 
 NeoVM has implemented 184 instructions. The categories are as follows:
 
-| Contrant | Flow Control | Stack Operation | Slot Opeartion |String Operation | Logical Operation | Arithmetic Operation | Advanced Data Structure | Type Operation |
+| Constant | Flow Control | Stack Operation | Slot Operation |String Operation | Logical Operation | Arithmetic Operation | Advanced Data Structure | Type Operation |
 | ---- | -------- | ------ | ------ | -------- | -------- | -------- | ---- | ---- |
 | 29 | 32 | 15 | 50 | 6 | 6 | 25 | 18 | 3|
 
@@ -118,7 +118,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 |----------|----------------------------------------------------------------------------------------------------------------------|
 | Bytecode | 0x24                                                                                                                 |
 | Fee | 0.00000070 GAS                                                                                                         |
-| Function   | Transfers control to a target instruction if the value is `true`, not `null`, or non-zero. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+| Function   | Transfers control to a target instruction if the value is `true`, not `null`, or non-zero. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.|
 
 #### JMPIF_L
 
