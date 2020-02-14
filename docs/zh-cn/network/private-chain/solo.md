@@ -123,13 +123,13 @@ Neo-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 在 NEO 网络的创世块中存放着 1 亿份 NEO，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 NEO-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
-### 安装并配置 NEO-GUI
+### 安装并配置 Neo-GUI
 
 1. 从 Github 上下载 [NEO-GUI](https://github.com/neo-project/neo-gui/releases) 并解压。
 
 2. 复制上一步编辑好的 protocol.json 文件，替换 neo-gui 中原有的文件
 
-3. 配置 config.json 文件，设置端口与 NEO-CLI 的端口不冲突。如果端口冲突，NEO-GUI 将无法与 NEO-CLI 同时运行。
+3. 配置 config.json 文件，设置端口与 Neo-CLI 的端口不冲突。如果端口冲突，Neo-GUI 将无法与 Neo-CLI 同时运行。
 
    ```json
    {

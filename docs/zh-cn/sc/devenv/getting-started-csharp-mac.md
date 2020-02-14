@@ -15,6 +15,7 @@
 ![](../assets/mac3.png)
 
 > [!Note]
+>
 > 基本安装全程大约需要几十分钟，如果勾选了 Android / iOS / macOS 平台，其安装时间可能会需要数小时，而且由于网络情况，可能会失败 N 次，所以不建议勾选平台组件。
 
 ## 新建项目
@@ -24,6 +25,7 @@
 ![](../assets/mac4.png)
 
 > [!Note]
+>
 > 新建项目时 .NET Core 版本请选择 2.0，因为如果选择 1.x 后，接下来添加 “Neo.SmartContract.Framework” 时会失败。
 
 然后右击 `Dependencies`，单击 `Add Packages...`，搜索 “neo” ，选择 “Neo.SmartContract.Framework”，点击 `Add Package`。
@@ -56,6 +58,7 @@ public class Class1: SmartContract
 在 GitHub 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目，用 Visual Studio for Mac 打开该解决方案，编译其中的 neon 项目
 
    > [!Note]
+   >
    > 首次编译 neon 需要还原 NuGet 程序包，根据网络速度 该过程可能需要几十分钟至几小时不等，并且中途可能失败十余次，请耐心尝试。
    >
    > 本次测试过程中我使用  Visual Studio for Mac 还原项目，又用 Visual Studio Code 还原项目，又用 dotnet 命令行还原项目，总之失败 N 次后，终于还原成功了。历时几个小时。

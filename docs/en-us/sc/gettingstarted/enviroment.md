@@ -2,11 +2,11 @@
 
 ## Setting up a private chain
 
-NEO Official provides a test net for development, debugging and testing purposes. Besides, users may also choose to set up their own private chain where they can operate more flexibly with plenty of test tokens.  You can choose one of the following way to set up your private chain:
+Neo Official provides a test net for development, debugging and testing purposes. Besides, users may also choose to set up their own private chain where they can operate more flexibly with plenty of test tokens.  You can choose one of the following way to set up your private chain:
 
 - [Set up a private chain using virtual machines](../../network/private-chain/private-chain.md)
 - [Set up a private chain on a Windows host](../../network/private-chain/private-chain2.md)
-- [Set up a private chain with one node](../../network/private-chain/solo.md) (Applicable to NEO-CLI 2.10.2 and the later)
+- [Set up a private chain with one node](../../network/private-chain/solo.md) (Applicable to Neo-CLI 2.10.2 and the later)
 
 Refer to the instructions at above links to set up your private chain and withdraw NEO and GAS from genesis block.
 
