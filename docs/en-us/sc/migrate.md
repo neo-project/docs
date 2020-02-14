@@ -72,9 +72,9 @@ To enable migration function, you need to implement the migrate interface in the
 If you want to migrate the contract later, you must implement the migrate interface in the contract prior to deployment. For more information, refer to [Deploying and Invoking Smart Contracts](deploy/deploy.md).
 
 ### Migrating the contract
-With your new contract in hand, let's invoke the migrate interface in your old contract using NEO-GUI.
+With your new contract in hand, let's invoke the migrate interface in your old contract using Neo-GUI.
 
-1. In NEO-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the new contract. Copy the contract script and scripthash for later use.
+1. In Neo-GUI, click `Advanced` > `Deploy Contract`，and then `Load` the new contract. Copy the contract script and scripthash for later use.
 
 2. Click `Advanced` > `Invoke Contract`，and enter the old contract ScriptHash. The deployed contract information is displayed.
 

@@ -2,13 +2,13 @@
 typora-root-url: ..\..
 ---
 
-# How to use Java to write a NEO smart contract
+# How to use Java to write a Neo smart contract
 
 Smart contracts are written in high-level languages such as Java, C#, Python, Kotlin (and more...) and compiled into AVM (Neo's Virtual Machine bytecode) so that they can run on the Neo network.
 
 We currently recommend C# for developing smart contracts. The Java compiler is still in development but the current version (neoj) can handle basic methods.
 
-This section contains a tutorial that guides you in configuring the Java development environment for NEO smart contracts. It also gives you an idea of how to create a smart contract project and how to compile it.
+This section contains a tutorial that guides you in configuring the Java development environment for Neo smart contracts. It also gives you an idea of how to create a smart contract project and how to compile it.
 
 The process involves the following steps: 
 
@@ -59,7 +59,7 @@ Download the [neo-compiler](https://github.com/neo-project/neo-compiler) project
 
 Publish the neoj compiler (which converts Java bytecode to the AVM bytecode).
 
-![publish NEO compiler neoj](../../assets/publish_neo_compiler_neoj.png)
+![](../../assets/publish_neo_compiler_neoj.png)
 
 ![publish and profile settings](../../assets/publish_and_profile_settings.png)
 
@@ -220,4 +220,4 @@ For more information and to see working Java examples please refer here: [Java E
 ## Deploy smart contracts
 
 Once you are at this stage, the instructions are the same no matter what language you used to write the smart contracts.
-Follow this tutorial: [Deploy a lock contract](../sample/Lock2.md)
+Follow this tutorial: [Deploy a lock contract](../sample/Lock2.md)F

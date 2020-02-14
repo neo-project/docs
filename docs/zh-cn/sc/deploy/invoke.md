@@ -87,7 +87,7 @@ namespace DynCall
 
 ### 动态调用演示
 
-在 Visual Studio 2017 中将示例代码编译为智能合约文件 d.avm。接下来，我们将使用 NEO-GUI 来演示如何动态调用一个普通合约 a.avm。
+在 Visual Studio 2017 中将示例代码编译为智能合约文件 d.avm。接下来，我们将使用 Neo-GUI 来演示如何动态调用一个普通合约 a.avm。
 
 #### 部署合约
 

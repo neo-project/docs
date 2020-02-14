@@ -1,6 +1,6 @@
 # System Fees
 
-NEO smart contracts cost certain system fees and network fees upon publishing and execution. In this section we focus on system fees occurred by execution of smart contracts. For information about network fees, refer to [Charging Model](../tooldev/concept/charging_model.md).
+Neo smart contracts cost certain system fees and network fees upon publishing and execution. In this section we focus on system fees occurred by execution of smart contracts. For information about network fees, refer to [Charging Model](../tooldev/concept/charging_model.md).
 
 ## Smart Contract Fees
 
@@ -8,7 +8,7 @@ The initial 10 GAS during each execution of every smart contract is always free,
 
 The fees below are minimum fees. The user can choose to pay extra for priority.
 
-All Smart Contract fees are considered as Service fee to be put in a pool for re-distribution to all NEO holders. The distribution is proportional to amount of NEO.
+All Smart Contract fees are considered as Service fee to be put in a pool for re-distribution to all NEO holders. The distribution is proportional to amount of NEO
 
 The fee structure for Smart Contracts can be found in the tables below.
 
@@ -38,7 +38,7 @@ The fee structure for Smart Contracts can be found in the tables below.
 
 * Additional to 1 GAS minimum
 
-For the description of API in the table above, refer to [NEO Namespace](../reference/scapi/api/neo.md)
+For the description of API in the table above, refer to [Neo Namespace](../reference/scapi/api/neo.md)
 
 > [!Note]
 >

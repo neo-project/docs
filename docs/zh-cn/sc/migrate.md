@@ -48,9 +48,9 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
 如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](deploy/deploy.md)。
 
 ### 进行合约迁移
-首先准备好新合约，然后通过 NEO-GUI 调用旧合约的 Migrate 的接口。
+首先准备好新合约，然后通过 Neo-GUI 调用旧合约的 Migrate 的接口。
 
-1. 在 NEO-GUI 中，点击 `高级` > `部署合约`，然后 `加载` 新合约。复制合约脚本和 ScriptHash 备用。
+1. 在 Neo-GUI 中，点击 `高级` > `部署合约`，然后 `加载` 新合约。复制合约脚本和 ScriptHash 备用。
 
 2. 点击 `高级` > `调用合约`，输入旧合约的 ScriptHash, 可以查看到已部署的旧合约信息。
 
