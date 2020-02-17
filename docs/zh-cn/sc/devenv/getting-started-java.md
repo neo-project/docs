@@ -1,6 +1,6 @@
 # 使用 Java 编写合约
 
-此部分包含简短的教程，可指导你配置 NEO 智能合约的 Java 开发环境，并使你了解如何创建智能合约项目，以及如何编译。
+此部分包含简短的教程，可指导你配置 Neo 智能合约的 Java 开发环境，并使你了解如何创建智能合约项目，以及如何编译。
 
 ## 开发工具
 
@@ -51,7 +51,7 @@ neo-compiler 是 NeoContract 的编译器，可以将高级语言的代码编译
 
 ## 创建项目
 
-以上两步安装配置成功后，即可在 eclipse 中创建 NEO 智能合约项目。
+以上两步安装配置成功后，即可在 eclipse 中创建 Neo 智能合约项目。
 
 1. 通过 [neo-devpack-java](https://github.com/neo-project/neo-devpack-java) 项目编译智能合约 jar 包，然后使用这个 jar 包创建一个 Java 项目。
 
@@ -82,9 +82,9 @@ public class Go extends SmartContract{
 
 ![](../assets/2017-08-16_12-13-27.png)
 
-打开 PowerShell/CMD 进入 bin 目录，输入 `neoj.exe Go.class` 即可编译成 go.avm 文件，该文件即是生成的 NEO 智能合约文件。
+打开 PowerShell/CMD 进入 bin 目录，输入 `neoj.exe Go.class` 即可编译成 go.avm 文件，该文件即是生成的 Neo 智能合约文件。
 
 ![](../assets/2017-08-17_10-35-52.png)
 
-现在，你已经完成了 NEO 智能合约开发环境的配置。
+现在，你已经完成了 Neo 智能合约开发环境的配置。
 

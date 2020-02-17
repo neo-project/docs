@@ -1,6 +1,6 @@
 # Testing
 
-You can use the [invokeScript](../reference/rpc/latest-version/api/invokescript.md) method provided by NEO-CLI for testing.
+You can use the [invokeScript](../reference/rpc/latest-version/api/invokescript.md) method provided by Neo-CLI for testing.
 
 ### Testing tool
 
@@ -8,7 +8,7 @@ A test is initiated by a POST request. This section we use a common POST tool PO
 
 After compiling your smart contract and getting the related script hash, you can use POSTMAN to test by following these steps:
 
-1. Configure the CLI address. Select POST in the list and enter the RPC interface address of NEO-CLI.
+1. Configure the CLI address. Select POST in the list and enter the RPC interface address of Neo-CLI.
 
 2. Select **raw** and **JSON**, and configure as follows：
 
@@ -41,7 +41,7 @@ After compiling your smart contract and getting the related script hash, you can
     ```
 
 
-2. Create an netcore project and import the NEO project. 
+2. Create an netcore project and import the Neo project. 
 
    ![img](../assets/test2.png)
 
@@ -66,9 +66,9 @@ After compiling your smart contract and getting the related script hash, you can
 
    ![img](../assets/test3.png)
 
-"state": The value "HALT, BREAK" indicates the test is successful. 
+   "state": The value "HALT, BREAK" indicates the test is successful. 
 
-Stack is the value left on the Stack, which is the bytearray corresponding to the string "Hello, World!".
+   Stack is the value left on the Stack, which is the bytearray corresponding to the string "Hello, World!".
 
 ###  Example 2 - Testing a contract with parameters
 

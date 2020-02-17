@@ -12,8 +12,8 @@ Just check the basic functions when installing, without selecting the platform s
 
 ![](../../assets/mac3.png)
 
-### Building NEO smartcontract framework
-Unlike on Windows where they can get the `Neo.Smartcontract.Framework` via `NuGet`, on OSX we have to compile it ourselves or step 6 (see below) will fail when using any of the NEO smartcontract specific methods.
+### Building Neo smartcontract framework
+Unlike on Windows where they can get the `Neo.Smartcontract.Framework` via `NuGet`, on OSX we have to compile it ourselves or step 6 (see below) will fail when using any of the Neo smartcontract specific methods.
 
 Download [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) from GitHub. Open `neo-devpack-dotnet.sln`. You might receive errors about "Unknown solution item type" for the Installer and 2 Template projects, these can be safely ignored. Dismiss the warning dialog and right click on the `Neo.Smartcontract.Framework` project, choose `Build`. Note the location where the `Neo.Smartcontract.Framework.dll` is saved, we will need this location in the next step. i.e.
 ```

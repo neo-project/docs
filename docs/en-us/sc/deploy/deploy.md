@@ -1,6 +1,6 @@
 # Deploying Smart Contracts
 
-When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the NEO blockchain using NEO-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 tokens. 
+When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the Neo blockchain using Neo-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 tokens. 
 
 ## What contracts need to be deployed?
 
@@ -14,7 +14,7 @@ From the programming language perspective, only when a smart contract will be us
 
 ### How to deploy?
 
-Smart contracts are deployed by invoking API through an Invocation transaction (The Publish transaction for deployment of the old version system has been deprecated). We recommend you use NEO-GUI to deploy smart contracts. 
+Smart contracts are deployed by invoking API through an Invocation transaction (The Publish transaction for deployment of the old version system has been deprecated). We recommend you use Neo-GUI to deploy smart contracts. 
 
 Deploying and invoking smart contracts will cost fees. For more information, refer to [Fees](../fees.md).
 
@@ -23,11 +23,11 @@ Make sure you have done the following:
 
 - Confirmed that your contract should be deployed. 
 - Compiled an .avm contract file.
-- Installed NEO-GUI and completed block synchronization. For more information, refer to [NEO-GUI](../../node/gui/install.md).
+- Installed Neo-GUI and completed block synchronization. For more information, refer to [Neo-GUI](../../node/gui/install.md).
 
 ## Deploying the smart contract
 
-1. From NEO-GUI, click `Advanced` -> `Deploy Contract`。
+1. From Neo-GUI, click `Advanced` -> `Deploy Contract`。
 
 2. In the Deploy Contract dialog，Click `Load` and select the smart contract file you have compiled.
 
@@ -47,7 +47,7 @@ Make sure you have done the following:
 
 You need to create a smart contract account using the contract script hash if the contract will receive assets.
 
-1. After a wallet is created in NEO-GUI, right-click on the address area and select `Create Contract Address` -> `Custom`.
+1. After a wallet is created in Neo-GUI, right-click on the address area and select `Create Contract Address` -> `Custom`.
 2. Specify the following options：
    a. `Parameter List`：refer to [Parameters and Return Values](Parameter.md)
    b. `Script`：enter the contract script hash copied beforehand. 

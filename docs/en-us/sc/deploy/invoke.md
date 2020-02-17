@@ -87,7 +87,7 @@ where three methods are defined:
 
 ### Dynamic call demonstration
 
-In Visual Studio 2017 compile the preceding dynamic call code into d.avm. Next we are going to do a dynamic call to invoke an ordinary contract a.avm using NEO-GUI. 
+In Visual Studio 2017 compile the preceding dynamic call code into d.avm. Next we are going to do a dynamic call to invoke an ordinary contract a.avm using Neo-GUI. 
 
 #### Deploying the smart contract
 
