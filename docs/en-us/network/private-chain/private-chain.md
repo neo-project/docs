@@ -95,7 +95,7 @@ Four nodes can still achieve consensus, even if one machine is turned off, as sh
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with NEO-GUI, to facilitate your blockchain development and testing.
+In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with NEO-GUI or NEO-CLI, to facilitate your blockchain development and testing.
 
 ### Installing and configuring Neo-GUI
 
@@ -166,3 +166,41 @@ The next operation is similar to the transfer of the NEO. Copy the code that has
 After successful extraction the GAS will enter the first standard address of the wallet (i.e. the top wallet address) where you initiated the extraction of the GAS, as shown.
 
 ![image](../../assets/privatechain_26.png)
+
+## Installing Neo-CLI
+
+At this point, Neo-Cli is already set ready. If not do the following on four clones of Neo-Node:
+         
+Refer to [Installation of Neo-CLI](../../node/cli/setup.md) and install Neo-CLI.
+
+Run the neo-cli.exe inside the path "neo-cli\bin\Debug\netcoreapp3.0" in each consensus node and run `show state` in one of them and wait a minute. The nodes you've set should be listed and the number of blocks should increase like below:
+
+![image](../../assets/privatechain_27.png)
+
+### Creating multi-party signature addresses
+
+Open a wallet from a consensus node and create a multi-signature address using the command `import multisigaddress m pubkeys` with the minimal number of signatures needed to complete the transaction and the public keys in Standby Validators in all consensus node wallets.
+
+![image](../../assets/privatechain_28.png)
+
+   > [!Note]
+   >
+   > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
+
+### Transferring NEO to a normal address
+
+Here we want to send the NEO from the contract address to the normal address.
+
+1. Use the command `send <id|alias> <address> <value>` with the normal address of the wallet desired, copy the SignatureContext and close the wallet.
+
+![image](../../assets/privatechain_29.png)
+
+2. Open another wallet listed on the multi-signature, use the command `sign <jsonObjectToSign>` with the object copied in step 1, copy the object in Signed Output and close the wallet.
+
+![image](../../assets/privatechain_30.png)
+
+3. Repeat the previous step the number of times put as minimal. Then you can use `relay <jsonObjectToSign>` and your wallet is ready.
+
+![image](../../assets/privatechain_31.png)
+
+![image](../../assets/privatechain_32.png)
