@@ -1,10 +1,6 @@
-# StorageContext 类
+# StorageFlags 类
 
-用来表示私有存储区存储上下文的类。
-
-在智能合约中可以通过 Storage.CurrentContext 获得自己的存储区上下文，之后可以将该对象作为实参传给其它合约（即完成授权），由其它合约来执行对该合约上下文的存储区的读写操作。
-
-注：此处与 1.6 版本有所不同。
+表明了写入数据的属性，默认None，数据可以被读写。如果是Constant，数据被写入存储区后不能被修改也不能被删除。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -13,9 +9,9 @@
 ## 语法
 
 ```c#
-public class StorageContext
+   public enum StorageFlags : byte
+    {
+        None = 0x00,
+        Constant = 0x01
+    }
 ```
-
-## 构造方法
-
-通过 [Storage.CurrentContext](Storage/CurrentContext.md) 属性来构造 StorageContext 对象。

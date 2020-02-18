@@ -1,24 +1,35 @@
-# 静态方法
+# Helper 类
+
+合约存储区的辅助方法，包括创建StorageMap对象、获取元素、删除元素、更新元素操作。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 程序集：Neo.SmartContract.Framework
 
+## 语法
+
+```c#
+public static class Helper
+```
+
 ## 方法
 
 |                                                        | 名称                                     | 说明                                           |
 | ------------------------------------------------------ | ---------------------------------------- | ---------------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [ConsensusData](Header/ConsensusData.md) | 获得该区块的共识数据（共识节点生成的伪随机数） |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Header/ConsensusData.md)          | 获得该区块的散列                               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Index](Header/Index.md)                 | 获得该区块的高度                               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [MerkleRoot](Header/MerkleRoot.md)       | 获得该区块中所有交易的 Merkle Tree 的根        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [NextConsensus](Header/NextConsensus.md) | 获得下一个记账合约的散列值                     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](Header/PrevHash.md)           | 获得前一个区块的散列                           |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Timestamp](Header/Timestamp.md)         | 获得区块的时间戳                               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Version](Header/Version.md)             | 获得区块版本号                                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | CreateMap(this StorageContext context, string prefix) | 创建StorageMap对象 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | CreateMap(this StorageContext context, byte[] prefix)          | 创建StorageMap对象                               |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | CreateMap(this StorageContext context, byte prefix)       | 创建StorageMap对象                               |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Delete(this StorageMap map, byte[] key)       | 删除存储上下文中给定的字节数组类型的键         |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Delete(this StorageMap map, string key) | 删除存储上下文中给定的字符串类型的键                     |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Get(this StorageMap map, byte[] key)           | 返回与存储上下文的给定字节数组类型的键对应的字节数组类型的值                           |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Get(this StorageMap map, string key)         | 返回与存储上下文的给定字符串类型的键对应的字节数组类型的值                               |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Put(this StorageMap map, byte[] key, byte[] value             | 在给定存储上下文的字节数组类型的键上写入字节数组类型的值                                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Put(this StorageMap map, byte[] key, BigInteger value)             | 在给定存储上下文的字节数组类型的键上写入BigInteger类型的值                                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Put(this StorageMap map, byte[] key, string value)             | 在给定的存储上下文的字节数组类型的键上写入字符串类型的值                                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Put(this StorageMap map, string key, byte[] value)             | 在给定存储上下文的字符串类型的键上写入字节数组类型的值                                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Put(this StorageMap map, string key, BigInteger key)             | 在给定存储上下文的字符串类型的键上写入BigInteger类型的值                                 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Put(this StorageMap map, string key, string value)             | 在给定存储上下文的字符串类型的键上写入字符串类型的值                                 |
 
-## 构造方法
+# 构造方法
 
-通过 [Blockchain.GetHeader(byte[])](Blockchain/GetHeader.md) 来构造 Header 对象。
-
-通过 [Blockchain.GetHeader(uint)](Blockchain/GetHeader2.md) 来构造 Header 对象。
+Helper 类是静态类，无需构造方法。

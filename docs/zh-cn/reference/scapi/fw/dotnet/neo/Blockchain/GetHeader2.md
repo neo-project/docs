@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(uint height)
+public static extern Header GetHeader(uint height)
 ```
 
 参数：区块 Hash，32 字节的字节数组。
@@ -19,7 +19,7 @@ public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(u
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : System.Blockchain.GetContract
 {
     public static void Main()
     {

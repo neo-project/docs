@@ -1,6 +1,6 @@
 # Blockchain.GetContract 方法 (byte[])
 
-通过合约散列获取合约内容。
+通过合约哈希获取合约内容。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContract(byte[] script_hash)
+public static extern Contract GetContract(byte[] script_hash)
 ```
 
 参数：脚本散列，20字节的字节数组。
@@ -18,8 +18,18 @@ public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContra
 
 ## 示例
 
-```
-
+```C#
+public class Contract1 : SmartContract.Framework.SmartContract
+{
+    public static void Main()
+    {
+        byte[] data = new byte[] { 0x01, 0x01, 0x01 ,0x01, 0x01,
+                                    0x01, 0x01, 0x01, 0x01, 0x01,
+                                    0x01, 0x01, 0x01, 0x01, 0x01,
+                                    0x01, 0x01, 0x01, 0x01, 0x01 };
+        Contract contract = Blockchain.GetContract(data);
+    }
+}
 ```
 
 

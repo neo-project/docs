@@ -17,7 +17,7 @@ public static extern void Destroy()
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
@@ -25,7 +25,7 @@ public class Contract1 : FunctionCode
         var block = Blockchain.GetBlock(height);
         if(block.Timestamp > 1514736000) //北京时间2018-1-1
         {
-            Neo.SmartContract.Framework.Services.Neo.Contract.Destroy();
+            Contract.Destroy();
         }
     }
 }

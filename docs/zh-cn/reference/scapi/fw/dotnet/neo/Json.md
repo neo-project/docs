@@ -1,6 +1,6 @@
-# Header 类
+# Json 类
 
-用来表示区块头的数据结构。
+一种数据表示结构。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -9,24 +9,16 @@
 ## 语法
 
 ```c#
-public class Header : IScriptContainer
+public static class Json
 ```
 
 ## 属性
 
 |                                          | 名称                                       | 说明                         |
 | ---------------------------------------- | ---------------------------------------- | -------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ConsensusData](Header/ConsensusData.md) | 获得该区块的共识数据（共识节点生成的伪随机数）    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Header/ConsensusData.md)          | 获得该区块的散列                   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Index](Header/Index.md)                 | 获得该区块的高度                   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [MerkleRoot](Header/MerkleRoot.md)       | 获得该区块中所有交易的 Merkle Tree 的根 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [NextConsensus](Header/NextConsensus.md) | 获得下一个记账合约的散列值              |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [PrevHash](Header/PrevHash.md)           | 获得前一个区块的散列                 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Timestamp](Header/Timestamp.md)         | 获得区块的时间戳                   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Version](Header/Version.md)             | 获得区块版本号                    |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Serialize(object obj) | 将对象元素序列化为Json串  |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Deserialize(string json)        | 将Json串反序列化为对象元素                  |
 
-## 构造方法
+# 构造方法
 
-通过 [Blockchain.GetHeader(byte[])](Blockchain/GetHeader.md) 来构造 Header 对象。
-
-通过 [Blockchain.GetHeader(uint)](Blockchain/GetHeader2.md) 来构造 Header 对象。
+Json 类是静态类，无需构造方法。
