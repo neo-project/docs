@@ -79,4 +79,6 @@
 |System.Storage.Delete|根据Key值，从存储区删除存储的Key|
 |System.StorageContext.AsReadOnly|将当前上下文修改为只读模式|
 
-参考：以上 API 的源码位于 Neo 项目中的 src\neo\SmartContract\InteropService.cs 文件。
+> [!Note]
+>
+> 以上 API 的源码位于 Neo 项目中的 src\neo\SmartContract\InteropService.cs 文件。
