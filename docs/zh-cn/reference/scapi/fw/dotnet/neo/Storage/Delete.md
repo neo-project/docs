@@ -13,8 +13,9 @@ public static extern void Delete(StorageContext context, byte[] key);
 public static extern void Delete(StorageContext context, string key);
 ```
 参数：
-​context：存储上下文，[StorageContext](../StorageContext.md) 类型;
-​key：键，字节数组或者字符串。
+​
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型;
+- key：键，字节数组或者字符串。
 
 返回值：void。
 

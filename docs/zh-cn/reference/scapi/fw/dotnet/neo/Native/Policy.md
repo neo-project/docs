@@ -13,8 +13,8 @@ public static extern object Policy(string method, object[] arguments);
 ```
 
 参数：
-method: 方法名称；
-arguments: 方法参数。
+- method: 方法名称；
+- arguments: 方法参数。
 
 ## 示例
 

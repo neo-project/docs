@@ -12,7 +12,8 @@
 public static extern Header GetHeader(byte[] hash)
 ```
 
-参数：区块 Hash，32 字节的字节数组。
+参数：
+- hash: 区块 Hash，32 字节的字节数组。
 
 返回值：区块头，[Header](../Header.md) 类型。
 

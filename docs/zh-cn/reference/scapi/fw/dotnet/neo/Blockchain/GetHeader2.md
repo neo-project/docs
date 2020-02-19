@@ -12,7 +12,8 @@
 public static extern Header GetHeader(uint height)
 ```
 
-参数：区块 Hash，32 字节的字节数组。
+参数：
+- height: 区块高度，无符号整数型。
 
 返回值：区块，[Header](../Header.md) 类型。
 

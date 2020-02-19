@@ -14,7 +14,7 @@ public static extern void Notify(params object[] state)
 
 参数：
 
-state：通知信息，参数数量任意，参数类型任意。
+- state：通知信息，参数数量任意，参数类型任意。
 
 ## 示例
 

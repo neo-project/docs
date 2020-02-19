@@ -13,8 +13,8 @@ public static extern Transaction GetTransactionFromBlock(uint blockIndex, int tx
 ```
 
 参数：
-blockIndex: 区块索引；
-txIndex：交易索引
+- blockIndex: 区块索引；
+- txIndex：交易索引
 
 返回值：交易，[Transaction](../Transaction.md) 类型。
 

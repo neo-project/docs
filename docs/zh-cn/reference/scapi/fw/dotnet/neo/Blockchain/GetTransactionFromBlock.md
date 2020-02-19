@@ -13,8 +13,8 @@ public static extern Transaction GetTransactionFromBlock(byte[] blockHash, int t
 ```
 
 参数：
-blockHash: 区块哈希，32字节的字节数组；
-txIndex：交易索引
+- blockHash: 区块哈希，32字节的字节数组；
+- txIndex：交易索引
 
 返回值：交易，[Transaction](../Transaction.md) 类型。
 

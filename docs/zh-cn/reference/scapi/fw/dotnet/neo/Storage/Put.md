@@ -18,9 +18,10 @@ public static extern void Put(StorageContext context, string key, string value);
 ```
 
 参数：
-​context：存储上下文，[StorageContext](../StorageContext.md) 类型；
-​key：键，字节数组/字符串；
-​value：值，字节数组/大整数/字符串。
+​
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型；
+- key：键，字节数组/字符串；
+- value：值，字节数组/大整数/字符串。
 
 返回值：void。
 

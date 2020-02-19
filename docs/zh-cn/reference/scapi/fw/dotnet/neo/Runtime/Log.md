@@ -14,7 +14,7 @@ public static extern void Log(string message)
 
 参数：
 
-message：日志信息，字符串格式。
+- message：日志信息，字符串格式。
 
 ## 示例
 

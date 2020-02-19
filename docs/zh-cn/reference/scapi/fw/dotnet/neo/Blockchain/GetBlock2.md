@@ -12,7 +12,8 @@
 public static extern Block GetBlock(uint height)
 ```
 
-参数：区块高度（区块索引），无符号整型。
+参数：
+- height: 区块高度（区块索引），无符号整型。
 
 返回值：区块，[Block](../Block.md) 类型。
 

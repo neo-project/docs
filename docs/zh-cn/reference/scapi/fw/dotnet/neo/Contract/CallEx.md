@@ -14,10 +14,10 @@ public static extern object CallEx(byte[] scriptHash, string method, object[] ar
 
 参数：
 
-scriptHash：合约脚本哈希；
-method：合约方法名；
-arguments：合约方法参数;
-flag: 合约调用模式。
+- scriptHash：合约脚本哈希；
+- method：合约方法名；
+- arguments：合约方法参数;
+- flag: 合约调用模式。
 
 ## 示例
 

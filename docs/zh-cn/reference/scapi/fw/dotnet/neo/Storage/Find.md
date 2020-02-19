@@ -14,8 +14,9 @@ public static extern Iterator<string, byte[]> Find(StorageContext context, strin
 ```
 
 参数：
-​context：存储上下文，[StorageContext](../StorageContext.md) 类型；
-prefix：前缀，字节数组/字符串；
+
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型；
+- prefix：前缀，字节数组/字符串；
 
 返回值：context中符合条件的元素构成的Iterator。
 

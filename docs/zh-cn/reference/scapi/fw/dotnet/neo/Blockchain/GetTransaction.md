@@ -12,7 +12,8 @@
 public static extern Transaction GetTransaction(byte[] hash)
 ```
 
-参数：交易ID（交易哈希），32字节的字节数组。
+参数：
+- hash: 交易ID（交易哈希），32字节的字节数组。
 
 返回值：交易，[Transaction](../Transaction.md) 类型。
 

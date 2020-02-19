@@ -14,7 +14,7 @@ public static extern Notification[] GetNotifications(byte[] hash = null)
 
 参数：
 
-hash：合约哈希，20字节长的数组。当数组值全为0时，则返回当前存在的所有通知。
+- hash：合约哈希，20字节长的数组。当数组值全为0时，则返回当前存在的所有通知。
 
 返回值：合约执行的所有通知。
 

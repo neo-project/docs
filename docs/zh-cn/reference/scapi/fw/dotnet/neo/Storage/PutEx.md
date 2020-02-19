@@ -1,4 +1,4 @@
-# Storage.Put 方法 
+# Storage.PutEx 方法 
 
 插入操作，以 key-value 的形式向当前持久化存储区中插入数据，并将数据属性设定为flags。
 
@@ -18,9 +18,10 @@ public static extern void PutEx(string key, string value, StorageFlags flags);
 ```
 
 参数：
-​key：键，字节数组/字符串；
-​value：值，字节数组/大整数/字符串；
-flags: 写入数据的属性，[StorageFlags](../StorageFlags.md)类型。
+
+- key：键，字节数组/字符串；
+- value：值，字节数组/大整数/字符串；
+- flags: 写入数据的属性，[StorageFlags](../StorageFlags.md)类型。
 
 返回值：void。
 

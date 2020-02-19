@@ -14,8 +14,8 @@ public static extern Contract Create(byte[] script, string manifest)
 
 参数：
 
-script：合约代码，字节数组；
-manifest：定义合约特性与权限，Json字符串。
+- script：合约代码，字节数组；
+- manifest：定义合约特性与权限，Json字符串。
 
 返回值：发布的智能合约，[Contract](../Contract.md) 类型。
 
