@@ -337,8 +337,8 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x48                                               |
 | Fee | 0.00000400 GAS                                                        |
 | Function   | The item n back in the main stack is removed. |
-| Input   | Xn Xn-1 ... X2 X1 X0 n                             |
-| Output   | Xn-1 ... X2 X1 X0                                  |
+| Input   | Xn Xn-1 ... X2 X1 X0 n                             |
+| Output   | Xn-1 ... X2 X1 X0                                  |
 
 #### CLEAR
 
@@ -385,8 +385,8 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x4E                   |
 | Fee | 0.00000060 GAS                                                        |
 | Function   | The item at the top of the stack is copied and inserted before the second-to-top item. |
-| Input   | X1 X0                      |
-| Output   | X0 X1 X0                    |
+| Input   | X1 X0                      |
+| Output   | X0 X1 X0                    |
 
 #### SWAP
 
@@ -603,7 +603,7 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x8D                                         |
 | Fee | 0.00080000 GAS                                                        |
 | Function   | Keeps only characters left of the specified point in a string. |
-| Input   | X len                                        |
+| Input   | X len                                        |
 | Output   | SubString(X,0,len)                                  |
 
 #### RIGHT
@@ -613,7 +613,7 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x8E                                         |
 | Fee | 0.00080000 GAS                                                        |
 | Function   | Keeps only characters right of the specified point in a string. |
-| Input   | X len                                        |
+| Input   | X len                                        |
 | Output   | SubString(X,X.Length - len,len)                                 |
 
 ### Logical Operation
@@ -937,8 +937,8 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode | 0xC0                              |
 | Fee | 0.00007000 GAS                                                        |
 | Function   | A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized array and this array is put on top of the main stack. |
-| Input   | Xn-1 ... X2 X1 X0 n               |
-| Output   | [X0 X1 X2 ... Xn-1]               |
+| Input   | Xn-1 ... X2 X1 X0 n               |
+| Output   | [X0 X1 X2 ... Xn-1]               |
 
 #### UNPACK
 
@@ -947,8 +947,8 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode | 0xC1                               |
 | Fee | 0.00007000 GAS                                                        |
 | Function   | An array is removed from top of the main stack. Its elements are put on top of the main stack (in reverse order) and the array size is also put on main stack. |
-| Input   | [X0 X1 X2 ... Xn-1]                |
-| Output   | Xn-1 ... X2 X1 X0 n                |
+| Input   | [X0 X1 X2 ... Xn-1]                |
+| Output   | Xn-1 ... X2 X1 X0 n                |
 
 #### NEWARRAY0
 
@@ -1043,7 +1043,7 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode | 0xCE                               |
 | Fee | 0.00270000 GAS                                                        |
 | Function   | An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack. |
-| Input   | [X0 X1 X2 ... Xn-1] i              |
+| Input   | [X0 X1 X2 ... Xn-1] i              |
 | Output   | Xi                                 |
 
 #### APPEND*

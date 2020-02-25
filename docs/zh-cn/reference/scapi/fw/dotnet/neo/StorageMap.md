@@ -1,10 +1,6 @@
-# StorageContext 类
+# StorageMap 类
 
-用来表示私有存储区存储上下文的类。
-
-在智能合约中可以通过 Storage.CurrentContext 获得自己的存储区上下文，之后可以将该对象作为实参传给其它合约（即完成授权），由其它合约来执行对该合约上下文的存储区的读写操作。
-
-注：此处与 1.6 版本有所不同。
+表示给定存储上下文中指定前缀的key-value存储区。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -13,9 +9,16 @@
 ## 语法
 
 ```c#
-public class StorageContext
+public class StorageMap
 ```
+
+## 属性
+
+|                                          | 名称                                       | 说明         |
+| ---------------------------------------- | ---------------------------------------- | ---------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Context | 存储上下文 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Prefix | 前缀 |
 
 ## 构造方法
 
-通过 [Storage.CurrentContext](Storage/CurrentContext.md) 属性来构造 StorageContext 对象。
+通过 [Helper](Helper.md) 的CreateMap方法来构建 StorageMap 对象。

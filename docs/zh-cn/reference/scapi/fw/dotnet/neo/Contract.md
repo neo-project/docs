@@ -16,7 +16,7 @@ public class Contract
 
 |                                                        | 名称       | 说明                             |
 | ------------------------------------------------------ | ---------- | -------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Script     | 获得该合约的脚本散列             |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Script     | 获得该合约的脚本哈希             |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | HasStorage | 该合约是否包含存储区             |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | IsPayable  | 该合约是否可以收款<sup>[1]</sup> |
 
@@ -26,13 +26,14 @@ public class Contract
 
 |                                          | 名称                                       | 说明              |
 | ---------------------------------------- | ---------------------------------------- | --------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Call(byte[], string, object[])](Contract/Call.md) | 调用智能合约    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], string)](Contract/[Create.md)      | 新建智能合约 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Update(byte[], string)](Contract/Update.md)       | 更新智能合约 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Call(byte\[\] scriptHash, string method, object\[\] arguments)](Contract/Call.md) | 调用智能合约    |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [CallEx(byte\[\] scriptHash, string method, object\[\] arguments, CallFlags flag)](Contract/CallEx.md) | 根据flag调用合约    |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte\[\] script, string manifest)](Contract/Create.md)      | 新建智能合约 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Update(byte\[\] script, string manifest)](Contract/Update.md)       | 更新智能合约 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | 销毁智能合约 |
 
 ## 构造方法
 
-通过 [Blockchain.GetContract(byte[])](Blockchain/GetContract.md) 方法来构造 Contract 对象。
+通过 [Blockchain.GetContract(byte\[\] script_hash)](Blockchain/GetContract.md) 方法来构造 Contract 对象。
 
-通过 [Create(byte[], string)](Contract/[Create.md) 方法来发布智能合约到区块链上，并返回 Contract 对象。
+通过 [Create(byte\[\] script, string manifest)](Contract/Create.md) 方法来部署合约，并返回 Contract 对象。

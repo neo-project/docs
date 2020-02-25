@@ -9,17 +9,18 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(byte[] hash)
+public static extern Header GetHeader(byte[] hash)
 ```
 
-参数：区块 Hash，32 字节的字节数组。
+参数：
+- hash: 区块 Hash，32 字节的字节数组。
 
 返回值：区块头，[Header](../Header.md) 类型。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {

@@ -1,37 +1,31 @@
-# Contract 类
+# Iterator 类
 
-表示合约的类。
+智能合约中的自定义迭代器。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 程序集：Neo.SmartContract.Framework
 
-注：本文中标记 `new` 和 ` 已弃用 ` 的地方是 2.0 版本相对 1.6 版本的更改之处。
-
 ## 语法
 
 ```c#
-public class Contract
+public class Iterator<TKey, TValue>
 ```
 
 ## 属性
 
-|                                          | 名称                           | 说明         |
-| ---------------------------------------- | ---------------------------- | ---------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md) | 获得该合约的脚本散列 |
+|                                                        | 名称  | 说明                     |
+| ------------------------------------------------------ | ----- | ------------------------ |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Key | 获取迭代器当前Key值 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Value | 获得迭代器当前Value值 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Keys | 获取迭代器所有Key的迭代器 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Values | 获取迭代器所有Value的迭代器 |
 
 ## 方法
 
-|                                          | 名称                                       | 说明              |
-| ---------------------------------------- | ---------------------------------------- | --------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `new` 发布智能合约    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `new` 迁移 / 更新智能合约 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `new` 销毁智能合约    |
-
-## 构造方法
-
-通过 [Blockchain.GetContract(byte[])](Blockchain/GetContract.md) 方法来构造 Contract 对象。
-
-通过 [Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) 方法来发布智能合约到区块链上，并返回 Contract 对象。
-
-通过 [Contract.Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) 方法来更新智能合约，并返回 Contract 对象。
+|                                                        | 名称                                | 说明                                                         |
+| ------------------------------------------------------ | ----------------------------------- | ------------------------------------------------------------ |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Create(Map\<TKey, TValue\> entry) | 静态方法，创建迭代器                                         |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Create(IEnumerable\<TValue\> entry)  | 静态方法，创建迭代器                                                |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(Iterator\<TKey, TValue\> value) |合并迭代器 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Next()            | 获得迭代器中是否有下个元素，如果有则枚举器将当前位置定位到下个元素 |

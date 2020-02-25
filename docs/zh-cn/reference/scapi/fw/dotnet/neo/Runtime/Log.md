@@ -14,12 +14,12 @@ public static extern void Log(string message)
 
 参数：
 
-message：日志信息，字符串格式。
+- message：日志信息，字符串格式。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main(bool debug)
     {

@@ -14,12 +14,12 @@ public static extern bool IsStandard(byte[] scripthash)
 
 参数：scripthash，账户的脚本散列。
 
-返回值：布尔值，是或否。
+返回值：布尔值，true或false。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {

@@ -6,8 +6,6 @@
 
 程序集：Neo.SmartContract.Framework
 
-注：本文中标记 `new` 和 ` 已弃用 ` 的地方是 2.0 版本相对 1.6 版本的更改之处。
-
 ## 语法
 
 ```c#
@@ -18,14 +16,14 @@ public static class Blockchain
 
 |                                                        | 名称                                                         | 说明                                                         |
 | ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(byte[])](Blockchain/GetBlock.md)                   | 通过区块 hash ，查找区块                                     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(uint)](Blockchain/GetBlock2.md)                    | 通过区块高度，查找区块                                       |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetContract(byte[])](Blockchain/GetContract.md)             | 通过合约散列获取合约内容                                     |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(byte\[\] hash)](Blockchain/GetBlock.md)                   | 通过区块 hash ，查找区块                                     |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(uint height)](Blockchain/GetBlock2.md)                    | 通过区块高度，查找区块                                       |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetContract(byte\[\] script_hash)](Blockchain/GetContract.md)             | 通过合约散列获取合约内容                                     |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetHeight()](Blockchain/GetHeight.md)                       | 获得区块链中最新的区块高度<br/>区块高度 = 区块索引 = 区块数 - 1<br/>Height = Index = Count - 1 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(byte[])](Blockchain/GetTransaction.md)       | 通过交易 ID 查找交易                                         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionFromBlock(byte[], int)](Blockchain/GetTransactionFromBlock.md) | 通过区块 hash 和交易索引查找交易                             |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionFromBlock(uint, int)](Blockchain/GetTransactionFromBlock2.md) | 通过区块高度和交易索引查找交易                               |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionHeight(byte[])](Blockchain/GetTransactionHeight.md) | 通过区块 hash ，获得区块中的交易高度<br/>交易高度 = 交易索引 = 交易数 - 1<br/>Height = Index = Count - 1 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(byte\[\] hash)](Blockchain/GetTransaction.md)       | 通过交易 ID 查找交易                                         |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionFromBlock(byte\[\] blockHash, int txIndex)](Blockchain/GetTransactionFromBlock.md) | 通过区块 hash 和交易索引查找交易                             |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionFromBlock(uint blockIndex, int txIndex)](Blockchain/GetTransactionFromBlock2.md) | 通过区块高度和交易索引查找交易                               |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionHeight(byte\[\] hash)](Blockchain/GetTransactionHeight.md) | 通过区块 hash ，获得区块中的交易高度<br/>交易高度 = 交易索引 = 交易数 - 1<br/>Height = Index = Count - 1 |
 
 # 构造方法
 

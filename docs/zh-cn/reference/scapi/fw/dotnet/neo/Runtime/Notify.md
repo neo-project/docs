@@ -14,12 +14,12 @@ public static extern void Notify(params object[] state)
 
 参数：
 
-state：通知信息，参数数量任意，参数类型任意。
+- state：通知信息，参数数量任意，参数类型任意。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
