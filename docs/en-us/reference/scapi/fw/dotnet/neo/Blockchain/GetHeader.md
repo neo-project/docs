@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(byte[] hash)
+public static extern Header GetHeader(byte[] hash)
 ```
 
 Parameters: Block Hash as a byte array of length 32.
@@ -19,7 +19,7 @@ Return Value: [Header](../Header.md).
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract.Framework.SmartContract
 {
      public static void Main()
      {

@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContract(byte[] script_hash)
+public static extern Contract GetContract(byte[] script_hash)
 ```
 
 Parameters: Scripthash as a byte array of length 20.
@@ -18,8 +18,18 @@ Return Value: [Contract](../Contract.md).
 
 ## Example
 
-```
-
+```c#
+public class Contract1 : SmartContract.Framework.SmartContract
+{
+    public static void Main()
+    {
+        byte[] data = new byte[] { 0x01, 0x01, 0x01 ,0x01, 0x01,
+                                    0x01, 0x01, 0x01, 0x01, 0x01,
+                                    0x01, 0x01, 0x01, 0x01, 0x01,
+                                    0x01, 0x01, 0x01, 0x01, 0x01 };
+        Contract contract = Blockchain.GetContract(data);
+    }
+}
 ```
 
 

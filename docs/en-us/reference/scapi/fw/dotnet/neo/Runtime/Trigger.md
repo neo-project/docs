@@ -1,15 +1,15 @@
 # Runtime.Trigger Attribute
 
-Gets the trigger type for the smart contract, verification contract or application contract. 
+Gets the trigger type for the smart contract. 
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.TriggerType Trigger { get; }
+public static extern TriggerType Trigger { get; }
 ```
 
 Attribute：[TriggerType](../TriggerType.md).
@@ -30,7 +30,7 @@ public static bool Main()
 }
 ```
 
-For details, refer to [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs).
+For details, refer to [Template](https://github.com/neo-project/examples/blob/master/csharp/ICO_Template/ICO_Template.cs).
 
 
 

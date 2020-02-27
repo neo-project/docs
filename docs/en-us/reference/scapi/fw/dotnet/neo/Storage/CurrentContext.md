@@ -11,7 +11,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.StorageContext CurrentContext {get;}
+public static extern StorageContext CurrentContext {get;}
 ```
 
 Attribute value: Current storage context as a [StorageContext](../StorageContext.md).

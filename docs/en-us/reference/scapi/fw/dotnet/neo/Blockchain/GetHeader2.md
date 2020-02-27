@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Header GetHeader(uint height)
+public static extern Header GetHeader(uint height)
 ```
 
 Parameters: Block Height as an unsigned integer.
@@ -19,7 +19,7 @@ Return Value: [Header](../Header.md).
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: System.Blockchain.GetContract
 {
      public static void Main ()
      {

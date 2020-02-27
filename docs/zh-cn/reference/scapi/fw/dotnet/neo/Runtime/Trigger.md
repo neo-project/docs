@@ -30,7 +30,7 @@ public static bool Main()
 }
 ```
 
-详细示例可参考 [ICO_Template](https://github.com/neo-project/examples/blob/master/csharp/ICO_Template/ICO_Template.cs)。
+详细示例可参考 [Template](https://github.com/neo-project/examples/blob/master/csharp/ICO_Template/ICO_Template.cs)。
 
 
 

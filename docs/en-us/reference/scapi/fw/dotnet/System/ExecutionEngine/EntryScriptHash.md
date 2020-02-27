@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public extern byte[] EntryScriptHash {get;}
+public static extern byte[] EntryScriptHash {get;}
 ```
 
 Attribute value: Scripthash as a byte array of length 20.

@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Block GetBlock(byte[] hash)
+public static extern Block GetBlock(byte[] hash)
 ```
 
 Parameters: Block Hash as a byte array of length 32.
@@ -19,7 +19,7 @@ Return Value: [Block](../Block.md).
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract.Framework.SmartContract
 {
      public static void Main()
      {
