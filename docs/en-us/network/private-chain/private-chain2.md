@@ -1,6 +1,6 @@
 # Build a private chain on local host
 
-In previous document we described the standard way to build a private chain using four computers or virtual machines. In this document we will introduce an easier way to build a private chain on a windows system computer.
+In this document we will introduce an easier way to build a private chain on a windows system computer.
 
 ## Installing Neo node
 
@@ -10,7 +10,7 @@ For more information refer to [Installation of Neo-CLI](../../node/cli/setup.md)
 
 ## Installing plug-in
 
-Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) the plug-in to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/cli/setup.md).
+Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/cli/setup.md).
 
 ## Creating wallet files
 
