@@ -98,19 +98,63 @@ Neo 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 ## 提取 Neo 和 GAS
 
-在 Neo 网络的创世块中存放着 1 亿份 Neo，当私链搭建起来后，Gas 也将伴着新区块的生成而生成。你可以使用 Neo-GUI 从多方签名合约中提取出这部分 Neo 和 GAS 以便内部开发测试使用。
+在 Neo 网络的创世块中存放着 1 亿份 Neo，当私链搭建起来后，Gas 也将伴着新区块的生成而生成。你可以使用 NEO-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 Neo 和 GAS 以便内部开发测试使用。
 
-### 安装并配置 Neo-GUI
+### 从 Neo-CLI 提取
+
+运行任意共识节点的 neo-cli.exe 并输入命令 `show state` ，等待片刻将能看到所配置的节点以及区块数量在增加，如下图所示：
+
+![image](../../../en-us/assets/privatechain_27.png)
+
+#### 创建多方签名地址
+
+1. 在任意节点上打开钱包
+2. 使用命令 `import multisigaddress m pubkeys` 创建一个多方签名地址：
+   - `m`: 设置最小签名数 3
+   - `pubkeys`: 四个共识节点的钱包公钥（配置在 `StandbyValidator` 里 ）
+
+![image](../../../en-us/assets/privatechain_28.png)
+
+   > [!Note]
+   >
+   > 四个钱包中都必须创建多方签名地址才能成功完成转账交易的签名。
+
+#### 提取 GAS 到普通地址
+
+接下来我们将 GAS 从合约地址转入普通地址：
+
+1. 输入命令 `send <id|alias> <address> <value>` 将 GAS 转入目标地址。
+2. 复制 SignatureContext 内容并关闭钱包。
+
+![image](../../../en-us/assets/privatechain_29.png)
+
+3. 打开多方签名中的第二个钱包。
+4. 使用步骤 2 中复制的内容输入命令 `sign <jsonObjectToSign>` 
+5. 复制 Signed Output 内容并关闭钱包。
+
+![image](../../../en-us/assets/privatechain_30.png)
+
+6. 打开第三个钱包重复前面的签名步骤，然后就可以使用 `relay <jsonObjectToSign>` 广播交易完成签名。
+
+![image](../../../en-us/assets/privatechain_31.png)
+
+7. 输入 `list asset` 查看钱包资产，此时 GAS 已经转入。
+
+![image](../../../en-us/assets/privatechain_32.png)
+
+### 从 Neo-GUI 提取
+
+#### 安装并配置 Neo-GUI
 
 1. 从 Github 上下载 [Neo-GUI](https://github.com/neo-project/neo-gui/releases) 并解压。
 2. 修改 Neo-GUI 配置文件 protocol.json 使其连接到私有链中：
-   - StandbyValidators`：将前面创建的四个钱包的公钥填写在这里。
+   - `StandbyValidators`：将前面创建的四个钱包的公钥填写在这里。
    - `SeedList`：将四台虚拟机的 IP 地址填写在这里，端口号保持不变。
 3. 配置 config.json 文件，设置端口与其它四个节点端口不冲突。如果端口冲突，Neo-GUI 将无法与 Neo-CLI 同时运行。
 
 运行 Neo-GUI，打开任意钱包，如果左下角有连接数不为零，而且一直在同步区块，表示该客户端已经成功地连接到了私有链中。
 
-### 创建多方签名地址
+#### 创建多方签名地址
 
 在 Neo-GUI 中依次打开四个钱包，进行以下操作：
 
@@ -130,7 +174,7 @@ Neo 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 ![](../assets/privatechain_14.jpg)
 
-### 提取 Neo 到标准地址
+#### 提取 Neo 到标准地址
 
 进行如下操作，将 Neo 从合约地址转到标准地址中：
 
@@ -154,7 +198,7 @@ Neo 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 ![](../assets/privatechain_20.jpg)
 
-### 提取 GAS 到标准地址
+#### 提取 GAS 到标准地址
 
 打开要转入 GAS 的钱包账户，点击 `高级` -> `提取 NeoGas` -> `全部提取`。
 
