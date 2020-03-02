@@ -20,7 +20,7 @@ The client must be fully synchronized before use. In order to speed up network s
 
 ## Step 2 - Place the offline package
 
-Place the downloaded package (chain.acc.zip or chain.xxx.acc.zip) under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located. 
+Place the downloaded package (chain.acc.zip or chain.xxx.acc.zip) under the folder where the client executive program (neo-gui.exe or neo-cli.exe) is located.
 
 > [!Warning]
 >
@@ -32,7 +32,7 @@ Place the downloaded package (chain.acc.zip or chain.xxx.acc.zip) under the fold
 
 Run the client again and check the blocks downloading status：
 
-- For Neo-GUI，You can see the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height. 
+- For Neo-GUI，You can see the client is now synchronized up to a certain point and the client will now continue synchronizing the rest of the blockchain. The data beside "Height" corresponds to wallet height/synchronized blockchain height/blockchain header height.
 
 ![](../assets/gui_1.png)
 

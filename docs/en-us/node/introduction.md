@@ -3,7 +3,7 @@ Nodes that store all of the blockchain are called “full-nodes”. They are con
 
 There are two full-node programs:
 
-- Neo-GUI, which has all the basic functions of a user-client including a graphical user interface and is intended for Neo users. 
+- Neo-GUI, which has all the basic functions of a user-client including a graphical user interface and is intended for Neo users.
 - Neo-CLI, which provides an external API for basic wallet functions and is intended for Neo developers. It also helps other nodes achieve consensus with the network and is involved in generating new blocks.
 
 The Neo [network protocol](../tooldev/network-protocol.md) provides a low level API for some transaction types that are not currently supported by the CLI, such as claiming GAS or sending Neo without an open wallet.
@@ -45,13 +45,13 @@ The Neo [network protocol](../tooldev/network-protocol.md) provides a low level 
 
 ## Neo-CLI security policy
 
-To enable an external program to access the node API, you need to open the firewall port. 
+To enable an external program to access the node API, you need to open the firewall port.
 
 > [!Note]
 >
 > To avoid the significant security risk, a whitelist or firewall must be used to block external server requests.
 
-Neo-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, you should set your own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
+Neo-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, you should set your own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below.
 
 |                    | Main Net | Test Net |
 | ------------------ | ------------ | ------------- |
