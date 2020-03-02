@@ -99,12 +99,6 @@ In the genesis block of the NEO network, 100 million NEOs are generated. Additio
 
 ### Withdrawing NEO and GAS using Neo-CLI
 
-Run neo-cli.exe in each consensus node and run `show state` in one of them and wait a minute. 
-
-The nodes you've set should be listed and the number of blocks should increase like below:
-
-![image](../../assets/privatechain_27.png)
-
 #### Creating multi-party signature addresses
 
 1. Open a wallet from a consensus node
@@ -112,10 +106,8 @@ The nodes you've set should be listed and the number of blocks should increase l
    - `m`: the minimal number of signatures needed to complete the transaction
    - `pubkeys`: the public keys in StandbyValidators in all consensus node wallets.
 
-![image](../../assets/privatechain_28.png)
-
    > [!Note]
-   >
+>
    > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
 
 #### Transferring GAS to a normal address
@@ -125,19 +117,19 @@ Here we want to send the GAS from the contract address to the normal address.
 1. Use the command `send <id|alias> <address> <value>` with the normal address of the wallet desired
 2. Copy the SignatureContext and close the wallet.
 
-![image](../../assets/privatechain_29.png)
+   ![image](../../assets/privatechain_29.png)
 
 2. Open another wallet listed on the multi-signature
 3. Use the command `sign <jsonObjectToSign>` with the object copied in step 2
 4. Copy the object in Signed Output and close the wallet.
 
-![image](../../assets/privatechain_30.png)
+   ![image](../../assets/privatechain_30.png)
 
 3. Repeat the previous steps the number of times put as minimal. Then you can use `relay <jsonObjectToSign>` and your wallet is ready.
 
-![image](../../assets/privatechain_31.png)
+   ![image](../../assets/privatechain_31.png)
 
-![image](../../assets/privatechain_32.png)
+   ![image](../../assets/privatechain_32.png)
 
 ### Withdrawing NEO and GAS using Neo-GUI
 

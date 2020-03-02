@@ -102,18 +102,12 @@ Neo 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 ### 从 Neo-CLI 提取
 
-运行任意共识节点的 neo-cli.exe 并输入命令 `show state` ，等待片刻将能看到所配置的节点以及区块数量在增加，如下图所示：
-
-![image](../../../en-us/assets/privatechain_27.png)
-
 #### 创建多方签名地址
 
 1. 在任意节点上打开钱包
 2. 使用命令 `import multisigaddress m pubkeys` 创建一个多方签名地址：
    - `m`: 设置最小签名数 3
    - `pubkeys`: 四个共识节点的钱包公钥（配置在 `StandbyValidator` 里 ）
-
-![image](../../../en-us/assets/privatechain_28.png)
 
    > [!Note]
    >
@@ -124,23 +118,24 @@ Neo 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 接下来我们将 GAS 从合约地址转入普通地址：
 
 1. 输入命令 `send <id|alias> <address> <value>` 将 GAS 转入目标地址。
+
 2. 复制 SignatureContext 内容并关闭钱包。
 
-![image](../../../en-us/assets/privatechain_29.png)
+   ![image](../../../en-us/assets/privatechain_29.png)
 
 3. 打开多方签名中的第二个钱包。
 4. 使用步骤 2 中复制的内容输入命令 `sign <jsonObjectToSign>` 
 5. 复制 Signed Output 内容并关闭钱包。
 
-![image](../../../en-us/assets/privatechain_30.png)
+   ![image](../../../en-us/assets/privatechain_30.png)
 
 6. 打开第三个钱包重复前面的签名步骤，然后就可以使用 `relay <jsonObjectToSign>` 广播交易完成签名。
 
-![image](../../../en-us/assets/privatechain_31.png)
+   ![image](../../../en-us/assets/privatechain_31.png)
 
 7. 输入 `list asset` 查看钱包资产，此时 GAS 已经转入。
 
-![image](../../../en-us/assets/privatechain_32.png)
+   ![image](../../../en-us/assets/privatechain_32.png)
 
 ### 从 Neo-GUI 提取
 
