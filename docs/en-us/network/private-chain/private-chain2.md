@@ -220,10 +220,147 @@ Enter each node directory and double-click `1Run.cmd`. When the consensus proces
 
 The private chain is terminated if you close all the windows. 
 
-## Withdrawing NEO/GAS
+## Withdrawing NEO and GAS
 
-Refer to [Withdrawing NEO and GAS](private-chain.md#withdrawing-neo-and-gas).
+In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI or Neo-CLI, to facilitate your blockchain development and testing.
 
-Tips：
+### Withdrawing NEO and GAS using Neo-CLI
 
-[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The Neo node version is 2.9.4.
+Here we want to use a normal node to connect to the private net and withdraw NEO and GAS.
+
+#### Installing and configuring a normal node
+
+1. Copy any of the consensus node files and name it node0
+
+2. Configure the config.json file：
+
+   - make sure the port is not conflict with the ports of other four nodes.
+   - leave the parameters  `Path` and `Password` in UnlockWallet blank 
+   - set `StartConsensus` and `IsActive` back to `false`
+
+3. Copy all the four wallets files created in previous steps into the node0 root directory.
+
+4. Run node0 , open a wallet and enter `show state` to check the node state.
+
+   When the block height increases and the connected number is not 0, the node is successfully connected.
+
+   ![image](../../assets/privatechain_28_2.png)
+
+   > [!Note]
+   >
+   > One of the four consensus nodes must be closed for the normal node to connect to the private net. 
+
+#### Creating multi-party signature addresses
+
+1. Open a wallet from node0
+
+2. Create a multi-signature address using the command `import multisigaddress m pubkeys`:
+
+   - `m`: the minimal number of signatures needed to complete the transaction
+   - `pubkeys`: the public keys in StandbyValidators in all consensus node wallets.
+
+   > [!Note]
+   >
+   > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
+   
+3. Enter the command `list asset` and you can see 100 million NEO showing up.
+
+#### Transferring NEO to a normal address
+
+Here we want to send NEO from the contract address to the normal address.
+
+1. Use the command `send <id|alias> <address> <value>` with the normal address of the wallet desired
+
+2. Copy the SignatureContext and close the wallet.
+
+   ![image](../../assets/privatechain_29.png)
+
+3. Open another wallet listed on the multi-signature
+
+4. Use the command `sign <jsonObjectToSign>` with the object copied in step 2
+
+5. Copy the object in Signed Output and close the wallet.
+
+   ![image](../../assets/privatechain_30.png)
+
+6. Repeat the previous steps the number of times put as minimal. Then you can use `relay <jsonObjectToSign>` and your wallet is ready.
+
+   ![image](../../assets/privatechain_31.png)
+
+7. Use `list asset` to check the wallet balance:
+
+   ![image](../../assets/privatechain_32.png)
+
+The GAS status becomes available as NEO is transferred. You can use the command `show gas` to check the claimable GAS amount. Then you can refer to the preceding steps to withdraw GAS from the multi-party signature address.
+
+### Withdrawing NEO and GAS using Neo-GUI
+
+#### Installing and configuring Neo-GUI
+
+1. Download  [Neo-GUI](https://github.com/neo-project/neo-gui/releases) from Github and extract the file.
+2. Configure the file protocol.json under the Neo-gui folder to connect the client to the private chain:
+   - `StandbyValidators`：enter the public keys of four wallets created before.
+   - `SeedList`：enter the four virtual machines IP addresses here and leave the port number as it is.
+3. Configure the file config.json to make sure the Neo-GUI port is not conflict with the ports of other four nodes. If using the same port, Neo-GUI cannot work as Neo-CLI is running.
+
+Start Neo-GUI and open any of the wallets, if you see the connection number in the lower left corner is not 0 and the client has been downloading the blocks, the client has been successfully connected to the private chain.
+
+#### Creating multi-party signature addresses
+
+From Neo-GUI, open four wallets in turn and do the following:
+
+1. Right-click on the blank area of account page, click `Create Contract Address` -> `Multi-Signature`.
+
+2. Enter the four public keys and set the minimum number of signatures to 3 (the number of consensus nodes/2 + 1). Click `Confirm`. 
+
+   ![image](../../assets/privatechain_12.png)
+
+3. Click Wallet -> Rebuild wallet index.
+
+   > [!Note]
+   >
+   > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully  .
+
+Now you should see the contract address has 100 million Neo shares.
+
+![image](../../assets/privatechain_14.png)
+
+#### Transferring NEO to a normal address
+
+Here we want to send the NEO from the contract address to the normal address. 
+
+1. From any of the four wallets, click `transaction`->`transfer` 
+
+2. Enter the recipient address and 100 million NEO as the transfer amount
+
+3. The system prompts you that there have not been enough signatures to complete the transaction. Copy the code to your clipboard.
+
+4. Open the second wallet, click `transaction`->`signature` and paste the code that you have just copied. 
+
+5. Click `signature` and copy the code. 
+
+6. Open the third wallet, click `transaction`->`signature` and paste the code that you have just copied. Click  `signature` . 
+
+   At this time you will notice a pop-up window that displays a `broadcast` button in the lower left corner, which means all the signatures required to send the transaction have been collected. 
+
+7. Click `broadcast`. 
+
+   Once the transfer transaction begins broadcasting it will take a while for successful remittance to the account.
+
+![image](../../assets/privatechain_20.png)
+
+#### Transferring GAS to a normal address
+
+Open the wallet you want to transfer GAS to and click `Advanced`->`Claim GAS`-> `Claim`. 
+
+> [!Note]
+>
+> GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
+
+![image](../../assets/privatechain_21.png)
+
+The next operation is similar to the transfer of the NEO. Copy the code that has insufficient signatures, open the second wallet and the third wallet successively to complete transaction signing and broadcasting. 
+
+After successful extraction the GAS will enter the first standard address of the wallet (i.e. the top wallet address) where you initiated the extraction of the GAS, as shown.
+
+![image](../../assets/privatechain_26.png)

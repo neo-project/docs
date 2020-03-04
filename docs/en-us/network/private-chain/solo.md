@@ -8,7 +8,7 @@ You can also build a private chain with one node by yourself, which will be elab
 
 ## Installing NEO node
 
-Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install NEO-CLI 2.10.2.
+Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install NEO-CLI.
 
 ## Installing plug-in (Optional)
 
@@ -121,7 +121,21 @@ The private chain is terminated if you close the window.
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the Neo network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI, to facilitate your blockchain development and testing.
+In the genesis block of the Neo network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI or Neo-GUI, to facilitate your blockchain development and testing.
+
+### Withdrawing NEO/GAS using Neo-CLI
+
+1. From Neo-CLI command line enter  `open wallet a.json` to open the wallet.
+
+2. Enter the command `import multisigaddress m pubkeys` to create a multi-part signed address, where:
+
+   `m` is 1 as the minimal signature number and `pubkeys` is the public key of a.json
+
+3. Enter `list asset`，then you should see 100 million NEO shares showing up.
+
+4. Use the command `send <id|alias> <address> <value>` to transfer NEO to the normal address desired.
+
+   Since this multi-signature address only requires one signature, operations for transferring assets from a contract address are as same as the normal address.
 
 ### Installing and configuring Neo-GUI
 
@@ -160,5 +174,5 @@ Start Neo-GUI and open a.json, if you see the connection number in the lower lef
 2. Enter the public key and set the minimum number of signatures to 1. Click `Confirm`. 
 3. Click `Wallet` -> `Rebuild wallet index`.
 
-Now you should see the contract address has 100 million NEO shares. Since this multi-signature address only requires one signature, operations of transferring assets from the contract address is as same as transferring assets from a standard address.
+Now you should see the contract address has 100 million NEO shares. Since this multi-signature address only requires one signature, operations for transferring assets from a contract address are as same as the normal address.
 
