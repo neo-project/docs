@@ -4,9 +4,9 @@
 
 ## 安装节点
 
-首先安装 NEO-CLI，并将节点文件复制为 4 份，文件夹名分别命名为 node1、node2、node3、node4。
+首先安装 Neo-CLI，并将节点文件复制为 4 份，文件夹名分别命名为 node1、node2、node3、node4。
 
-安装过程请参考 [NEO 节点的安装部署](../../node/cli/setup.md)。 
+安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。 
 
 ## 安装插件
 
@@ -17,7 +17,7 @@
 
 ## 创建钱包文件
 
-使用 NEO-CLI 或 NEO-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
+使用 Neo-CLI 或 Neo-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
 
 ## 修改 config.json
 
@@ -162,10 +162,10 @@
     "AddressVersion": 23,
     "SecondsPerBlock": 15,
     "StandbyValidators": [
-      "037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630d",
-      "03b34a4be80db4a38f62bb41d63f9b1cb664e5e0416c1ac39db605a8e30ef270cc",
-      "03cc384ca982168bf6f08922d27c8acc4357d52a7e8ad8281d4af6683e6f63e94d",
-      "03da4ed85a991134bf45592a5b04d6d71399f23a85843f43e6ac1a5d30f5473711"
+      "026f24dca10b5d105afc60d0ea78437fb2ae2386b27c3caf761e81122c2d83ff00",
+      "02b30bf169cb0a8eca4623fda5d118b78b12e89b0e010027342fc1aa4c05c5cf0d",
+      "02f3107876d6fb1d202ff0028d103a01cd8ed33f646a8b25f347e00143f1da01f3",
+      "025b7494b61f850bed16efee84628c44559772055d2fdf67c005ac60906cf80f1b"
     ],
     "SeedList": [
       "localhost:10001",
@@ -225,11 +225,11 @@
 
 ## 提取 Neo 和 GAS
 
-在 Neo 网络的创世块中存放着 1 亿份 Neo，当私链搭建起来后，Gas 也将伴着新区块的生成而生成。你可以使用 NEO-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 Neo 和 GAS 以便内部开发测试使用。
+在 Neo 网络的创世块中存放着 1 亿份 NEO 和 3 千万份 GAS，你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
 ### 从 Neo-CLI 提取
 
-我们需要再准备一个普通节点接入私链，然后从该节点提取 NEO/GAS。 
+为方便操作，我们需要再准备一个普通节点接入私链，然后从该节点提取 NEO/GAS。 
 
 #### 安装和配置普通节点
 
@@ -266,7 +266,9 @@
    >
    > 四个钱包中都必须创建多方签名地址才能成功完成转账交易的签名。
 
-3. 输入 `list asset`, 可以看到账户里出现了 1 亿 NEO 
+3. 输入 `list asset`, 可以看到账户里出现了 1 亿 NEO 和 3 千万 GAS。
+
+   ![image](../../../en-us/assets/privatechain_28.png)
 
 
 #### 提取 NEO 到普通地址
@@ -295,7 +297,7 @@
 
    ![image](../../../en-us/assets/privatechain_32.png)
 
-NEO 转出后 GAS 状态变为可提取，使用命令 `show gas` 可以查看可提取的 GAS 数量。参考前面提取 NEO 进行的多方签名操作，提取 GAS 到目标地址即可。
+参考前面提取 NEO 进行的多方签名操作，提取 GAS 到目标地址即可。
 
 ### 从 Neo-GUI 提取
 
@@ -353,17 +355,4 @@ NEO 转出后 GAS 状态变为可提取，使用命令 `show gas` 可以查看�
 
 ![](../assets/privatechain_20.jpg)
 
-#### 提取 GAS 到标准地址
-
-打开要转入 GAS 的钱包账户，点击 `高级` -> `提取 NeoGas` -> `全部提取`。
-
-> [!Note]
->
-> GAS 有两种状态，可提取和不可提取。当账户中的 NEO 花费后（即转出），其产生的 GAS 会转变成可提取状态。你可以通过给自己转账将 GAS 变为可提取状态，即使钱包里只有一个地址也可以。
-
-接下来的操作与转账 Neo 类似，将没有足够签名的代码复制下来，依次打开第二个和第三个钱包，完成交易签名和广播。提取成功后如下图所示。
-
-![](../assets/privatechain_26.jpg)
-
-
-
+参考前面提取 NEO 进行的多方签名操作，提取 GAS 到目标地址即可。

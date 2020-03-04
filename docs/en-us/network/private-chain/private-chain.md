@@ -4,7 +4,7 @@ This section guides you to build a private chain using four virtual machines and
 
 ## Configuring the virtual machine
 
-The deployment of an NEO private chain requires at least four servers to reach a consensus, where each server corresponds to a consensus node and a dedicated NEO wallet. Here we created four Windows virtual machines on Azure, the size is Standard DS1 v2 (1 core, 3.5 GB RAM). 
+The deployment of an Neo private chain requires at least four servers to reach a consensus, where each server corresponds to a consensus node and a dedicated Neo wallet. Here we created four Windows virtual machines on Azure, the size is Standard DS1 v2 (1 core, 3.5 GB RAM). 
 
 ![image](../../assets/privatechain_1.png)
 
@@ -16,26 +16,28 @@ After creating the four virtual machines, open the port 10331-10334 by adding ne
 
 Record the IP addresses after the four virtual machines have been created.
 
-## Installing NEO-CLI
+## Installing Neo-CLI
 
 Do the following on four virtual machines:
 
-1. Refer to [Installation of NEO-CLI](../../node/cli/setup.md) and install NEO-CLI.
-2. Download [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/SimplePolicy.zip). Extract the file and place the Plugins folder under the neo-cli root directory.
+1. Refer to [Installation of Neo-CLI](../../node/cli/setup.md) and install Neo-CLI.
+2. Download [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/). Extract the file and place the Plugins folder under the neo-cli root directory.
 
 ## Creating wallet files
 
-1. Create four wallet files, wallet1.db3 - wallet4.db3, using NEO-CLI or NEO-GUI. The following screenshot shows the creation with NEO-CLI.
-2. Record the public keys of four wallets, i.e. directly copy them on the screen and save to a txt file or use `list key` in [CLI Command](../../node/cli/cli.md) to view the public key, and then copy it.
-3. Copy the four wallet files into each of the four virtual machines neo-cli folder.
+1. Create four wallet files, 1.json - 4.json, using Neo-CLI or Neo-GUI. 
 
-![image](../../assets/privatechain_3.png)
+   ![image](../../assets/privatechain_3.png)
+
+2. Copy the public keys of four wallets on the screen or use `list key` to view the public keys, and then copy them.
+
+3. Copy the four wallet files into each of the four virtual machines neo-cli folder.
 
 ## Modifying configuration files
 
 1. Under each neo-cli directory of the four nodes, open the file `protocol.json` and modify the following:
 
-   - `Magic`: Magic is used to identify the source network of the message, and specifying a different Magic ensures that different network information in the NEO block are not sent to other networks, during transmission. The type of Magic is unit, so note that the value you fill in is in the range [0 - 4294967295].
+   - `Magic`: Magic is used to identify the source network of the message, and specifying a different Magic ensures that different network information in the Neo block are not sent to other networks, during transmission. The type of Magic is unit, so note that the value you fill in is in the range [0 - 4294967295].
    - `StandbyValidators`: Enter the four wallet public keys recorded before.
    - `SeedList`: Enter the four virtual machines IP addresses recorded before. Leave the port number as it is. 
 
@@ -95,6 +97,6 @@ Four nodes can still achieve consensus, even if one machine is turned off, as sh
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with NEO-GUI, to facilitate your blockchain development and testing.
+In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI or Neo-CLI, to facilitate your blockchain development and testing.
 
 For more information, refer to [Withdrawing NEO and GAS](private-chain2.md#withdrawing-neo-and-gas).

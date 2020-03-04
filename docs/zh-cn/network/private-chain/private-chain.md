@@ -4,7 +4,7 @@
 
 ## 配置虚拟机
 
-NEO 私有链的部署至少需要 4 台服务器才能取得共识，每台服务器对应一个共识节点。为了演示，我们在 Azure 上创建了 4 台 Windows 虚拟机，大小为 Standard DS1 v2 (1 核心，3.5 GB 内存)，你也可以在局域网中或虚拟机中部署私有链。
+Neo 私有链的部署至少需要 4 台服务器才能取得共识，每台服务器对应一个共识节点。为了演示，我们在 Azure 上创建了 4 台 Windows 虚拟机，大小为 Standard DS1 v2 (1 核心，3.5 GB 内存)，你也可以在局域网中或虚拟机中部署私有链。
 
 ![](../assets/privatechain_1.jpg)
 
@@ -18,20 +18,20 @@ NEO 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 创建好虚拟机后，将四台虚拟机的 IP 地址保存下来以备后用。
 
-## 安装 NEO-CLI
+## 安装 Neo-CLI
 
 分别在四台虚拟机上进行如下操作：
 
-1. 参考 [安装 NEO-CLI](../../node/cli/setup.md) ，安装 NEO 客户端。
-2. 下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/SimplePolicy.zip) 插件并将解压后的 Plugins 文件夹拷贝到 neo-cli 目录下。
+1. 参考 [安装 Neo-CLI](../../node/cli/setup.md) ，安装 Neo 客户端。
+2. 下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) 插件并将解压后的 Plugins 文件夹拷贝到 neo-cli 目录下。
 
 ## 创建钱包
 
-1. 在任意一台虚拟机上使用 NEO-CLI 或 NEO-GUI 创建四个钱包文件，下图以在 NEO-CLI 上创建为例。
+1. 在任意一台虚拟机上使用 Neo-CLI 或 Neo-GUI 创建四个钱包文件，下图以在 Neo-CLI 上创建为例。
 
    ![](../assets/privatechain_3.jpg)
 
-2. 将四个钱包的公钥保存下来以备后用。可以直接复制上面的公钥或者用 [CLI 命令](../../node/cli/cli.md) 中的 `                                                                           list key` 命令查看公钥再复制。
+2. 将四个钱包的公钥保存下来以备后用。可以直接复制上面的公钥或者使用 `                                                                           list key` 命令查看公钥再复制。
 
 3. 将四个钱包文件分别复制到四个虚拟机的 neo-cli 节点目录下。
 
@@ -39,7 +39,7 @@ NEO 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 1. 配置每个节点的 `protocol.json `文件 ，修改以下参数：
 
-   - `Magic` ：Magic 用于识别消息的来源网络，指定不同的 Magic 确保 NEO 区块链中的不同网络信息在传输过程中不会发送到其它网络。Magic 的类型为 uint，注意填写的数值要在 [0 - 4294967295] 区间内。
+   - `Magic` ：Magic 用于识别消息的来源网络，指定不同的 Magic 确保 Neo 区块链中的不同网络信息在传输过程中不会发送到其它网络。Magic 的类型为 uint，注意填写的数值要在 [0 - 4294967295] 区间内。
    - `StandbyValidators`：将创建好的四个钱包的公钥填写在这里。
    - `SeedList`：将四台虚拟机的 IP 地址填写在这里，端口号保持不变。
 
@@ -98,7 +98,6 @@ NEO 私有链的部署至少需要 4 台服务器才能取得共识，每台服�
 
 ## 提取 NEO 和 GAS
 
-在 NEO 网络的创世块中存放着 1 亿份 NEO，当私链搭建起来后，Gas 也将伴着新区块的生成而生成。你可以使用 NEO-CLI 或 NEO-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
+在 Neo 网络的创世块中存放着 1 亿份 NEO，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
-关于提取操作，请参考 [提取 Neo 和 GAS](private-chain2.md#提取-neo-和-gas)
-
+关于提取操作，请参考 [提取 NEO 和 GAS](private-chain2.md#提取-neo-和-gas)
