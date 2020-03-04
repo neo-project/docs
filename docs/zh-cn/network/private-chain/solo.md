@@ -1,6 +1,6 @@
 # 使用单节点搭建私有链
 
-Neo-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。
+Neo-CLI 2.10.2 及以后版本支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。
 
 [NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。此项目基于 Windows 10，且运行 Neo-GUI 需要安装 [.NetFramework 4.7.1](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
 
@@ -8,7 +8,7 @@ Neo-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 ## 安装节点
 
-首先安装 Neo-CLI 2.10.2，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
+首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
 
 ## 安装插件
 
@@ -123,7 +123,7 @@ Neo-CLI 2.10.2 支持单节点模式下正常生成区块，只需一个节点�
 
 在 NEO 网络的创世块中存放着 1 亿份 NEO，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
-### 使用 NEO-CLI 提取
+### 使用 Neo-CLI 提取
 
 1. 在 Neo-CLI 命令行界面中输入命令 `open wallet a.json` 打开钱包
 

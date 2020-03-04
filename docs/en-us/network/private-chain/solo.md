@@ -8,7 +8,7 @@ You can also build a private chain with one node by yourself, which will be elab
 
 ## Installing NEO node
 
-Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install NEO-CLI 2.10.2.
+Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install NEO-CLI.
 
 ## Installing plug-in (Optional)
 
@@ -121,7 +121,7 @@ The private chain is terminated if you close the window.
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the Neo network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI, to facilitate your blockchain development and testing.
+In the genesis block of the Neo network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI or Neo-GUI, to facilitate your blockchain development and testing.
 
 ### Withdrawing NEO/GAS using Neo-CLI
 

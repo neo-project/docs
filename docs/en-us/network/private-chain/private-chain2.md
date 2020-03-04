@@ -2,10 +2,6 @@
 
 In this document we will introduce an easier way to build a private chain on a windows system computer.
 
-Tips：
-
-[Here](https://github.com/chenzhitong/NEO-Private-Net) is a private chain which is all set for you to use directly. The NEO and GAS have been withdrawn. The Neo node version is 2.9.4.
-
 ## Installing Neo node
 
 Install Neo-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
@@ -226,7 +222,7 @@ The private chain is terminated if you close all the windows.
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with NEO-GUI or NEO-CLI, to facilitate your blockchain development and testing.
+In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI or Neo-CLI, to facilitate your blockchain development and testing.
 
 ### Withdrawing NEO and GAS using Neo-CLI
 
