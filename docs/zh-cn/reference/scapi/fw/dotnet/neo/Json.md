@@ -14,11 +14,11 @@ public static class Json
 
 ## 属性
 
-|                                          | 名称                                       | 说明                         |
-| ---------------------------------------- | ---------------------------------------- | -------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Serialize(object obj) | 将对象元素序列化为Json串  |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | Deserialize(string json)        | 将Json串反序列化为对象元素                  |
+| 名称                                       | 说明                         |
+| ---------------------------------------- | -------------------------- |
+| Serialize(object obj) | 将对象元素序列化为Json串  |
+| Deserialize(string json)        | 将Json串反序列化为对象元素                  |
 
-# 构造方法
+## 构造方法
 
 Json 类是静态类，无需构造方法。

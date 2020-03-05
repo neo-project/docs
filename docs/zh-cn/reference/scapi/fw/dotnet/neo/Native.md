@@ -14,8 +14,8 @@ public class Native
 
 ## 属性
 
-|                                          | 名称                                       | 说明                         |
-| ---------------------------------------- | ---------------------------------------- | -------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [NEO(string method, object\[\] arguments)](Native/NEO.md) | 原生合约NeoToken   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [GAS(string method, object\[\] arguments)](Native/GAS.md)         | 原生合约GasToken                   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Policy(string method, object\[\]](Native/Policy.md) arguments)                 | 原生合约PolicyContract                   |
+| 名称                                       | 说明                         |
+| ---------------------------------------- | -------------------------- |
+| [NEO(string method, object\[\] arguments)](Native/NEO.md) | 原生合约NeoToken   |
+| [GAS(string method, object\[\] arguments)](Native/GAS.md)         | 原生合约GasToken                   |
+| [Policy(string method, object\[\]](Native/Policy.md) arguments)                 | 原生合约PolicyContract                   |

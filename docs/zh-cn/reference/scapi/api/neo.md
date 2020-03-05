@@ -3,13 +3,14 @@
 NEO命名空间提供了原生合约操作以及数字签名验证的API。
 
 **Native API**：
+
 | API                           | 说明                         |
 | -- | --|
 |Neo.Native.Deploy|部署并初始化所有原生合约|
 
 <br/>
 
-<table>
+<table class="table table-hover">
 	<tr>
 	    <th>API</th>
 	    <th>方法名</th>
@@ -60,9 +61,10 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <td>获取未领取的Gas数</td>
 	</tr>
 </table>
+
 <br/>
 
-<table>
+<table class="table table-hover">
 	<tr>
 	    <th>API</th>
 	    <th>方法名</th>
@@ -101,7 +103,7 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 
 <br/>
 
-<table>
+<table class="table table-hover">
 	<tr>
 	    <th>API</th>
 	    <th>方法名</th>

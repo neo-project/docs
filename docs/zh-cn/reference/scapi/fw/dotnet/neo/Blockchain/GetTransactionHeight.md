@@ -12,6 +12,7 @@
 public static extern BigInteger GetTransactionHeight(byte[] hash);
 ```
 参数： 
+
 - hash: 区块哈希，32字节的字节数组；
 
 返回值：区块高度，无符号整型。

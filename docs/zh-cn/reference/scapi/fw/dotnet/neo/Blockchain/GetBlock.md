@@ -13,7 +13,8 @@ public static extern Block GetBlock(byte[] hash)
 ```
 
 参数：
-- hash: 区块 Hash，32字节的字节数组。
+
+-  hash: 区块 Hash，32字节的字节数组。
 
 返回值：区块，[Block](../Block.md) 类型。
 

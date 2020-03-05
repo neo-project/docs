@@ -30,8 +30,6 @@ public static class Runtime
 | [Notify(params object [] state)](Runtime/Notify.md)          | 在智能合约中向执行该智能合约的客户端发送通知            |
 | [CheckWitness(byte [] hashOrPubkey)](Runtime/CheckWitness.md) | 验证调用该智能合约的交易 / 区块是否验证过所需的脚本散列 |
 
-
-
-# 构造方法
+## 构造方法
 
 Runtime 类是静态类，无需构造方法。

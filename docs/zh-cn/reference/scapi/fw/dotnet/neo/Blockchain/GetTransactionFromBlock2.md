@@ -13,6 +13,7 @@ public static extern Transaction GetTransactionFromBlock(uint blockIndex, int tx
 ```
 
 参数：
+
 - blockIndex: 区块索引；
 - txIndex：交易索引
 

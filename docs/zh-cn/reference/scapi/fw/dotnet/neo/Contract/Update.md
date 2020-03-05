@@ -1,6 +1,6 @@
 # Update 方法 (byte[], string)
 
-迁移/更新智能合约，该方法与 Contract.Create 类似，只不过它是在 Contract.Create 基础上添加了对智能合约私有化存储区的迁移操作，该方法在执行时会将 **当前** 合约的持久化存储区中的所有内容迁移到新创建的合约中。
+迁移/更新智能合约，该方法与 Contract.Create 类似，只不过它是在 Contract.Create 基础上添加了对智能合约私有化存储区的迁移操作，该方法在执行时会将 当前合约的持久化存储区中的所有内容迁移到新创建的合约中。
 
 如果在智能合约中没有涉及到持久化存储区的操作，则 Contract.Update 方法与 Contract.Create 方法相同。
 

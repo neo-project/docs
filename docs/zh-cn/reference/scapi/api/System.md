@@ -3,12 +3,14 @@
 互操作服务层提供了智能合约所能访问区块链数据的一些 API，利用这些 API，可以访问区块信息、交易信息、合约信息、资产信息等。除此之外互操作服务层还为每个合约提供了一个持久化存储区的功能。
 
 **Binary API**:
+
 | API                           | 说明                              |
 |--|--|
 | System.Binary.Serialize| 将栈元素序列化为字节数组     |
 | System.Binary.Deserialize | 将字节数组反序列化为栈元素             |
 
 **BlockChain API**:
+
 | API                           | 说明                              |
 |--|--|
 | System.Blockchain.GetHeight | 获取当前区块的高度           |
@@ -19,6 +21,7 @@
 |System.Blockchain.GetContract|根据合约哈希获取合约|
 
 **Contract API**:
+
 | API                           | 说明                              |
 |--|--|
 |System.Contract.Create|部署合约|
@@ -29,6 +32,7 @@
 |System.Contract.IsStandard|判断合约是否为标准的单签或多签合约|
 
 **Enumerator API**:
+
 | API                           | 说明                              |
 |--|--|
 |System.Enumerator.Create|创建枚举器|
@@ -37,6 +41,7 @@
 |System.Enumerator.Concat|合并枚举器|
 
 **Iterator API**:
+
 | API                           | 说明                              |
 |--|--|
 |System.Iterator.Create|创建迭代器|
@@ -46,12 +51,14 @@
 |System.Iterator.Concat|合并迭代器|
 
 **Json API**:
+
 | API                           | 说明                              |
 |--|--|
 |System.Json.Serialize|将栈元素序列化为字节数组|
 |System.Json.Deserialize|将Json对象反序列化为栈元素|
 
 **Runtime API**:
+
 | API                           | 说明                              |
 |--|--|
 |System.Runtime.Platform|获取当前执行智能合约的平台信息|
@@ -68,6 +75,7 @@
 |System.Runtime.GetNotifications|获取某合约执行的所有通知|
 
 **Storage API**:
+
 | API                           | 说明                              |
 |--|--|
 |System.Storage.GetContext|获取当前合约存储区的上下文|
@@ -81,4 +89,4 @@
 
 > [!Note]
 >
-> 以上 API 的源码位于 Neo 项目中的 src\neo\SmartContract\InteropService.cs 文件。
+> 以上 API 的源码位于 Neo 项目中的 [src\neo\SmartContract\InteropService.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.cs) 文件。

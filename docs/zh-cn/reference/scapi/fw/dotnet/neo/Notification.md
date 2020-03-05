@@ -14,11 +14,11 @@ public class Notification : IApiInterface
 
 ## 属性
 
-|                                          | 名称                                       | 说明                         |
-| ---------------------------------------- | ---------------------------------------- | -------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | ScriptHash | 通知发送者Sender的脚本哈希    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | State          |   代表通知内容的对象，可为任意类型（数值、字符串、数组）               |
+| 名称                                       | 说明                         |
+| ---------------------------------------- | -------------------------- |
+| ScriptHash | 通知发送者Sender的脚本哈希    |
+| State          |   代表通知内容的对象，可为任意类型（数值、字符串、数组）               |
 
-# 构造方法
+## 构造方法
 
 通过 [Runtime.GetNotifications(byte[] hash = null)](Runtime/GetNotifications.md) 来获得 Notification 对象。

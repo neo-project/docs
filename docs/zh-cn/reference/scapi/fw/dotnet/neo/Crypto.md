@@ -14,10 +14,10 @@ public static class Crypto
 
 ## 方法
 
-|                                          | 名称                                       | 说明              |
-| ---------------------------------------- | ---------------------------------------- | --------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | ECDsaVerify(byte[] message, byte[] pubkey, byte[] signature) | 根据文本、公钥数组、签名来验证是否是正确的签名 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | ECDsaCheckMultiSig(byte[] message, byte[][] pubkey, byte[][] signature) | 根据文本、公钥数组、签名数组来验证是否是正确的多方签名 |
+| 名称                                       | 说明              |
+| ---------------------------------------- | --------------- |
+| ECDsaVerify(byte[] message, byte[] pubkey, byte[] signature) | 根据文本、公钥数组、签名来验证是否是正确的签名 |
+| ECDsaCheckMultiSig(byte[] message, byte[][] pubkey, byte[][] signature) | 根据文本、公钥数组、签名数组来验证是否是正确的多方签名 |
 
 # 构造方法
 
