@@ -10,7 +10,7 @@ In addition, this tutorial is based on the demo of Smart Contract 2.7.4. You nee
 
 ## Creating a wallet
 
-In NEO-GUI, click `Wallet` -> `New Wallet Database ` to create a wallet.
+In Neo-GUI, click `Wallet` -> `New Wallet Database ` to create a wallet.
 
 ![](../../assets/lock2_1.png)
 
@@ -99,7 +99,7 @@ for (int i = 0; i < bytes.Length; i++)
     Console.Write(bytes[i].ToString("x2"));
 ```
 
-- Use NEO-GUI to obtain the script:
+- Use Neo-GUI to obtain the script:
   1. Click  `Advanced`-> `Deploy Contract`.
   2. click the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier.
   3. Copy the contract script displayed in the `Code` box, as shown below.

@@ -38,12 +38,12 @@ You can download and compile the Neo-CLI source directly from Github.
 
 #### Installing required files
 
-1. On Windows 10 install [.NET Core](<https://www.microsoft.com/net/download/windows>) and [.NET Framework](https://www.microsoft.com/net/download/windows).
+1. On Windows 10 install [.NET Core](https://www.microsoft.com/net/download/windows) and [.NET Framework](https://www.microsoft.com/net/download/windows).
   
 2. Git clone Neo-CLI source code from [Github](https://github.com/neo-project/neo-cli.git) or using the following command:
 
    ```
-   $ git clone https://github.com/neo-project/neo-cli.git
+   $ git clone https://github.com/neo-node/neo-cli.git
    ```
 
 3. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
@@ -69,7 +69,7 @@ dotnet publish -c release -r win10-x64
 2. Git clone Neo-CLI source code from [Github](https://github.com/neo-project/neo-cli.git) or using the following command:
 
    ```
-   $ git clone https://github.com/neo-project/neo-cli.git
+   $ git clone https://github.com/neo-node/neo-cli.git
    ```
 
 3. Run the following command to install levelDB:
@@ -95,7 +95,7 @@ dotnet publish -c release -r linux-x64
 1. Git clone [Neo-CLI](https://github.com/neo-project/neo-cli.git) source code from Github or use the following commands:
 
    ```
-   $ git clone https://github.com/neo-project/neo-cli.git
+   $ git clone https://github.com/neo-node/neo-cli.git
    ```
    
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.

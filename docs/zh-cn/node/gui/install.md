@@ -2,7 +2,7 @@
 
 > [!Note]
 >
-> 如无特别说明，本文中的描述均假设 NEO-GUI 运行在测试网。有关测试网与主网的切换，请参阅 [测试网](../../network/testnet.md)。
+> 如无特别说明，本文中的描述均假设 Neo-GUI 运行在测试网。有关测试网与主网的切换，请参阅 [测试网](../../network/testnet.md)。
 
 ## 下载与运行客户端
 
@@ -19,7 +19,7 @@
 要使客户端能够进行离线同步，需要安装 ImportBlocks 插件：
 
 1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) 插件并解压。
-2. 将解压出来的插件拷贝到NEO-GUI 根目录下。
+2. 将解压出来的插件拷贝到Neo-GUI 根目录下。
 
 ## 快速同步区块数据
 

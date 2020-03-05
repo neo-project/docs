@@ -25,12 +25,12 @@ namespace Helloworld
 
 ## Contract structure
 
-Every Smart Contract inherits the `SmartContract` base class which is in the NEO framework and provides some basic methods.
+Every Smart Contract inherits the `SmartContract` base class which is in the Neo framework and provides some basic methods.
 
 The `NEO` namespace is the API provided by the Neo blockchain, providing a way to access the block-chain data and manipulate the persistent store. These APIs are divided into two categories:
 
 1. Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
-2. Persistent store. Each application contract deployed on NEO has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
+2. Persistent store. Each application contract deployed on Neo has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
 
 ## Contract property
 
@@ -56,7 +56,7 @@ public  static  string  Name() =>  "name of the token";
 
 When you develop the smart contract, you have to store your application data on the blockchain. When a Smart Contract is created or when a transaction awakens it, the Contract’s code can read and write to its storage space. All data stored in the storage of the smart contract are automatically persisted between invocations of the smart contract. Full nodes in the blockchain store the state of every smart contract on the chain.
 
-NEO has provided data access interface based on key-value pairs. Data records may be read or deleted from or written to the smart contracts using keys. Besides, smart contracts may retrieve and send their storage contexts to other contracts, thereby entrusting other contracts to manage their storage areas. In C# development, smart contract can use the `Storage` Class to read/write the persistent storage  The `Storage` class is a static class and does not require a constructor. The methods of `Storage` class can be viewed in this [API References](../../reference/scapi/fw/dotnet/neo/Storage.md)
+Neo has provided data access interface based on key-value pairs. Data records may be read or deleted from or written to the smart contracts using keys. Besides, smart contracts may retrieve and send their storage contexts to other contracts, thereby entrusting other contracts to manage their storage areas. In C# development, smart contract can use the `Storage` Class to read/write the persistent storage  The `Storage` class is a static class and does not require a constructor. The methods of `Storage` class can be viewed in this [API References](../../reference/scapi/fw/dotnet/neo/Storage.md)
 
 For instance, if you want to store the total supply of your token into storage:
 
@@ -105,7 +105,7 @@ The basic types of C# are:
 - `Boolean`
 - `Char String`
 
-## Your first NEO contract
+## Your first Neo contract
 
 After analysing the basic hello world contract, let us move to your first real-world smart contract. Here we provide a very simple DNS system which was written in C#. The main function of the DNS is store the domain for users. It contains all the points above except the events. We can investigate this smart contract to learn how to make a basic smart contract. The source code is here:
 
@@ -164,7 +164,7 @@ Theoretically, smart contracts can have any entry points, but we recommend you u
 
 ### Trigger
 
-A smart contract trigger is a mechanism that triggers the execution of smart contracts. There are four triggers introduced in the NEO smart contract，the most used are `Verification` and  `Application`.
+A smart contract trigger is a mechanism that triggers the execution of smart contracts. There are four triggers introduced in the Neo smart contract，the most used are `Verification` and  `Application`.
 
 ### Verification trigger
 

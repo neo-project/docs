@@ -47,7 +47,7 @@ Console.WriteLine("0x" + "1f3c732753e87b60c2ff3e89d8f24f670bee0147".HexToBytes()
 ### Conversion between hexadecimal strings and BigInteger
 
 ```c#
-BigInteter bigInt = new BigInteger("00e1f505".HexToBytes());
+BigInteger bigInt = new BigInteger("00e1f505".HexToBytes());
 string hexStr = new BigInteger(100000000).ToByteArray().ToHexString();
 ```
 

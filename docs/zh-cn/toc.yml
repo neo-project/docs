@@ -66,10 +66,10 @@
     items:
     - name: 单节点模式
       href: /docs/zh-cn/network/private-chain/solo.md
-    - name: 使用虚拟机搭建
-      href: /docs/zh-cn/network/private-chain/private-chain.md
     - name: 在本地主机搭建
       href: /docs/zh-cn/network/private-chain/private-chain2.md
+    - name: 使用虚拟机搭建
+      href: /docs/zh-cn/network/private-chain/private-chain.md
     - name: Neo-local
       href: /docs/zh-cn/network/private-chain/neolocal.md
 - name: 智能合约开发
@@ -341,6 +341,6 @@
           - name: ExecutionEngine
             href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: SDK API (C#)
-    href: https://docs.neo.org/developerguide/zh/api/
+    href: https://docs.neo.org/developerguide/zh/api/index.html
   - name: NeoVM 指令集
     href: /docs/zh-cn/reference/neo_vm.md

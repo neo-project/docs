@@ -2,7 +2,7 @@
 
 When transferring assets out of a smart contract verification account, the consensus nodes execute the contract when validating the transaction. If the contract validation is successful (returns the result `true`), then the transaction is confirmed. Until the result `true` is received, the transaction will have status unconfirmed. 
 
-This tutorial is based on Visual Studio 2017. Ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.7.4. You need to download the latest client [NEO-GUI](https://github.com/neo-project/neo-gui/releases) from GitHub and run the [test net](../../network/testnet.md).
+This tutorial is based on Visual Studio 2017. Ensure that your Visual Studio is upgraded to the 2017 version. Additionally, this tutorial is based on the demo of Smart Contract 2.7.4. You need to download the latest client [Neo-GUI](https://github.com/neo-project/neo-gui/releases) from GitHub and run the [test net](../../network/testnet.md).
 
 ## Compiling a contract script
 
@@ -26,7 +26,7 @@ namespace Neo.SmartContract
 
 ## Creating a wallet
 
-In the NEO-GUI client, click `Wallet` -> `New Wallet` Database to create a new wallet, as shown below: 
+In the Neo-GUI client, click `Wallet` -> `New Wallet` Database to create a new wallet, as shown below: 
 
 ![Create a wallet](../../assets/verify_1.png)
 
@@ -44,9 +44,9 @@ for (int i = 0; i < bytes.Length; i++)
 
 You can get the contract script (Test.avm binary data) of Test.avm is: 52c56b6c766b00527ac461516c766b51527ac46203006c766b51c3616c7566
 
-- Use NEO-GUI to obtain the script:
+- Use Neo-GUI to obtain the script:
   1. Click  `Advanced`-> `Deploy Contract`
-  2. click the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier.
+  2. Click the `Load` button on the bottom right corner. Choose the `Test.avm` file generated earlier.
   3.  Copy the contract script displayed in the `Code` box, as shown below.
 
 ![Obtaining the contract script](../../assets/verify_5.png)

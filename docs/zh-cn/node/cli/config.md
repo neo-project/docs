@@ -124,8 +124,8 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
                     href="../../reference/rpc/latest-version/api/sendfrom.html">sendfrom</a><br><a
                     href="../../reference/rpc/latest-version/api/sendmany.html">sendmany</a><br><a
                     href="../../reference/rpc/latest-version/api/sendtoaddress.html">sendtoaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">invokefunction</a><br><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">invokescript</a><br></td>
+                    href="../../reference/rpc/latest-version/api/invokefunction.html">invokefunction</a><br><a
+                    href="../../reference/rpc/latest-version/api/invokescript.html">invokescript</a><br></td>
             <td>必选</td>
         </tr>
                 <tr>
@@ -202,7 +202,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
 
 ```
 neo> install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
+Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
 Install successful, please restart neo-cli.
 ```
 
@@ -217,9 +217,9 @@ Uninstall successful, please restart neo-cli.
 
 客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。
 
-## 启动 NEO 节点
+## 启动 Neo 节点
 
-打开命令行，定位到 Neo-CLI 所在目录，输入以下命令启动 NEO 节点 。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令启动 Neo 节点 。
 
 **Windows 10**:
 

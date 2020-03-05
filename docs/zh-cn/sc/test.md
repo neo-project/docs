@@ -1,6 +1,6 @@
 # 测试
 
-可以使用 NEO-CLI 提供的 [invokeScript](../reference/rpc/latest-version/api/invokescript.md) 方法来进行测试。
+可以使用 Neo-CLI 提供的 [invokeScript](../reference/rpc/latest-version/api/invokescript.md) 方法来进行测试。
 
 ### 测试工具
 
@@ -8,7 +8,7 @@
 
 编写好智能合约并获取合约脚本后，可使用 POSTMAN 进行测试，基本步骤如下：
 
-1. 配置 CLI 地址。选择 Post 方式，填入 NEO-CLI 的 RPC 接口地址。
+1. 配置 CLI 地址。选择 Post 方式，填入 Neo-CLI 的 RPC 接口地址。
 
 2. 选择参数，**raw**，**JSON**，配置如下：
 
@@ -68,9 +68,9 @@
 
    ![img](../assets/test3.png)
 
-"state": "HALT, BREAK" 表示测试成功。
+   "state": "HALT, BREAK" 表示测试成功。
 
-Stack 是留在栈上的值，此值为 string “Hello, World!” 对应的 bytearray。
+   Stack 是留在栈上的值，此值为 string “Hello, World!” 对应的 bytearray。
 
 ###  示例2 - 测试有参数合约
 

@@ -1,6 +1,6 @@
 # Smart Contract Writing Limitations
 
-## NEO-supported features in C#
+## Neo-supported features in C#
 
 When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NeoVM and Dotnet IL. 
 
@@ -146,7 +146,7 @@ One can be used to define events:
 
  `public static event acall dododo;`
 
-When invoking this event, the NEO C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
+When invoking this event, the Neo C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
 
  The other can be used to convert a bytearray to a delegate:
 
@@ -158,7 +158,7 @@ This implements a call to a smart contract with a specified address. Refer to NE
 
 ### C# export requirements
 
-NEO C# compile requires that a smart contract has only one Main function as the entry point.
+Neo C# compile requires that a smart contract has only one Main function as the entry point.
 
 Other functions to be exported should be public static and have unique name. 
 
@@ -166,7 +166,7 @@ Other functions to be exported should be public static and have unique name.
 
 C# delegates and events have special features. Refer to the C# delegates and events section.  
 
-C# delegates and events correspond to NEO smart contract notification and NEP4 respectively.
+C# delegates and events correspond to Neo smart contract notification and NEP4 respectively.
 
 ### Built-in attributes
 

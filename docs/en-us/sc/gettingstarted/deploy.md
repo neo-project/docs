@@ -4,7 +4,7 @@ Next we deploy the NEP-5 contract we have created previously.
 
 ## Deploying contract
 
-We may use NEO-GUI to deploy the newly generated contract file.
+We may use Neo-GUI to deploy the newly generated contract file.
 
 1. Open 0.json wallet file, click `advance` -> `deploy contracts`.
 
@@ -50,9 +50,9 @@ Now you may invoke the smart contract released just recently.
 
 ## Viewing contract assets
 
-Click `advance`-> `options` in NEO-GUI and fill in the scripthash of the recently deployed assets. The NEP-5 assets will show up in your asset page.
+Click `advance`-> `options` in Neo-GUI and fill in the scripthash of the recently deployed assets. The NEP-5 assets will show up in your asset page.
 
 ![3_check_nep5](assets/3_check_nep5.png)
 
-You have successfully released a smart contract on NEO private chain. Congratulations!
+You have successfully released a smart contract on Neo private chain. Congratulations!
 
