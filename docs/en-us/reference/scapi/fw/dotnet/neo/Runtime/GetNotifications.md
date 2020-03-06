@@ -1,12 +1,12 @@
 # Runtime.GetNotifications Method (byte[])
 
-Gets all notifications of a given contract execution.
+Gets all notifications of the given contract execution.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public static extern Notification[] GetNotifications(byte[] hash = null)

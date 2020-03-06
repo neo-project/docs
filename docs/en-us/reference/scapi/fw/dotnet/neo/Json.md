@@ -16,9 +16,9 @@ public static class Json
 
 | Name                                   | Description              |
 | ---------------------------------------- | -------------------------- |
-| Serialize(object obj) | Serialize the object elements into Json strings   |
-| Deserialize(string json)        | Deserialize the Json strings into object elements |
+| Serialize(object obj) | Serializes the object elements into Json strings  |
+| Deserialize(string json)        | Deserializes the Json strings into object elements |
 
-# Constructor
+## Constructor
 
 Json is a static class and does not require a constructor.

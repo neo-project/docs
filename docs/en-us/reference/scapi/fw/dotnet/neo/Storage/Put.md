@@ -1,6 +1,6 @@
 # Storage.Put Method
 
-Inserts a given value to the given key in the persistent store.
+Inserts a given value to the given key in the persistent storage.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

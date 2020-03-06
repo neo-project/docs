@@ -30,6 +30,6 @@ public static class Helper
 | Put(this StorageMap map, string key, BigInteger key)   | 在给定存储上下文的字符串类型的键上写入BigInteger类型的值     |
 | Put(this StorageMap map, string key, string value)     | 在给定存储上下文的字符串类型的键上写入字符串类型的值         |
 
-# 构造方法
+## 构造方法
 
 Helper 类是静态类，无需构造方法。

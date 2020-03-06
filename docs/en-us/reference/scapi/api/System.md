@@ -10,6 +10,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 | System.Binary.Deserialize | Converts byte array to StackItem            |
 
 **BlockChain API**:
+
 | API                           | Description                              |
 |--|--|
 | System.Blockchain.GetHeight | Gets the height of the current block          |
@@ -20,6 +21,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Blockchain.GetContract|Gets a contract with the hash|
 
 **Contract API**:
+
 | API                           | Description                              |
 |--|--|
 |System.Contract.Create|Deploys a contract|
@@ -30,6 +32,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Contract.IsStandard|Checks whether the contract is a standard contract|
 
 **Enumerator API**:
+
 | API                           | Description                              |
 |--|--|
 |System.Enumerator.Create|Creates a enumerator|
@@ -38,6 +41,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Enumerator.Concat|Concats two enumerators|
 
 **Iterator API**:
+
 | API                           | Description                              |
 |--|--|
 |System.Iterator.Create|Creates an iterator|
@@ -47,12 +51,14 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Iterator.Concat|Concats two iterators|
 
 **Json API**:
+
 | API                           | Description                              |
 |--|--|
 |System.Json.Serialize|Serializes a stack item to byte array|
 |System.Json.Deserialize|Converts json object to stack item|
 
 **Runtime API**:
+
 | API                           | Description                              |
 |--|--|
 |System.Runtime.Platform|Gets the platform information of the contract being executed|
@@ -69,6 +75,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Runtime.GetNotifications|Gets notifications of a contract|
 
 **Storage API**:
+
 | API                           | Description                              |
 |--|--|
 |System.Storage.GetContext|Gets storage context of the current contract|

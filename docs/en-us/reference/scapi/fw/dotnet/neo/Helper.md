@@ -30,7 +30,7 @@ public static class Helper
 | Put(this StorageMap map, string key, BigInteger key)   | Puts the BigInteger type value to the key of the string type for the given storage context |
 | Put(this StorageMap map, string key, string value)     | Puts the string type value to the key of the string type for the given storage context |
 
-# Constructor
+## Constructor
 
 Helper is a static class and does not require a constructor.
 

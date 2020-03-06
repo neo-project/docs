@@ -19,13 +19,13 @@ In addition to calling methods from the Interoperability layer, smart contracts 
 
 The `SmartContract` class provides us with the hash algorithms and signature methods.
 
-|                                          | Name                                     | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                             | Hashes the input bytes using SHA1        |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                           | Hashes the input bytes using SHA256      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                          | Hashes the input bytes using SHA256, followed by RIPEMD160 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                          | Hashes the input bytes twice using SHA256 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | Verifies the signature using the given pubkey |
+| Name                                             | Description                                                |
+| ------------------------------------------------ | ---------------------------------------------------------- |
+| Sha1(byte[])                                     | Hashes the input bytes using SHA1                          |
+| Sha256(byte[])                                   | Hashes the input bytes using SHA256                        |
+| Hash160(byte[])                                  | Hashes the input bytes using SHA256, followed by RIPEMD160 |
+| Hash256(byte[])                                  | Hashes the input bytes twice using SHA256                  |
+| VerifySignature(byte[] signature, byte[] pubkey) | Verifies the signature using the given pubkey              |
 
 **Note:** These methods are available through inheritance. If you can't find these methods, make sure your class inherits from the SmartContract class.
 
@@ -34,21 +34,19 @@ The `SmartContract` class provides us with the hash algorithms and signature met
 You can use extension methods in order to persist and retrieve objects from the SmartContract storage.
 
 
-|                                          | Name                         | Description                              |
-| ---------------------------------------- | ---------------------------- | ---------------------------------------- |
-| | Serialize(this object[])  | Converts the object array into a byte array                |
-| | Deserialize(this byte[]) | Converts an byte array into an object array |
+| Name                         | Description                              |
+| ---------------------------- | ---------------------------------------- |
+| Serialize(this object[])  | Converts the object array into a byte array                |
+| Deserialize(this byte[]) | Converts an byte array into an object array |
 
 You can find an example [here](https://github.com/Red4Sec/NEO-SmartVote/blob/master/CSharp/SmartVote.cs).
-
-
 
 ### Byte Array Helper Methods
 
 The methods below are helper methods for byte arrays provided by the .NET framework's Helper class.
 
-|                                          | Name                         | Description                              |
-| ---------------------------------------- | ---------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | Concatenate 2 byte arrays                |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | Returns a portion of the byte array, params: index, count |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | Returns the left-most X bytes from the byte array，params: count |
+| Name                         | Description                                                  |
+| ---------------------------- | ------------------------------------------------------------ |
+| Concat(this byte[], byte[])  | Concatenate 2 byte arrays                                    |
+| Range(this byte[], int, int) | Returns a portion of the byte array, params: index, count    |
+| Take(this byte[], int)       | Returns the left-most X bytes from the byte array，params: count |

@@ -2,9 +2,9 @@
 
 The NEO namespace is the API provided by the Neo blockchain, providing a way to access the block-chain data and manipulate the persistent store. These APIs are divided into two categories:
 
-1. Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
+- Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
 
-2. Persistent store. Each application contract deployed on NEO has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
+- Persistent storage. Each application contract deployed on NEO has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
 
 ## Class
 
@@ -23,7 +23,7 @@ The NEO namespace is the API provided by the Neo blockchain, providing a way to 
 | [Notification](neo/Notification.md) | The notification sent when the contract is executed. |
 | [Runtime](neo/Runtime.md)          | Provides a set of methods during smart contract execution   |
 | [Storage](neo/Storage.md)          | Provides a set of methods to insert, query, or delete data of a persistent store   |
-| [StorageContext](neo/StorageContext.md) | A class representing storage context of the persistent store  |
+| [StorageContext](neo/StorageContext.md) | A class representing storage context of the persistent storage |
 | [StorageFlags](neo/StorageFlags.md) | The property of the written data |
 | [StorageMap](neo/StorageMap.md) | A key-value storage for a specific prefix in the given storage context. |
 | [Transaction](neo/Transaction.md)  |  The base class representing the transaction            |

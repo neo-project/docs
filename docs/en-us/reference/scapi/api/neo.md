@@ -3,13 +3,14 @@
 NEO namespace provides APIs for native contracts and verifying digital signature.
 
 **Native API**：
+
 | API                           | Description                         |
 | -- | --|
 |Neo.Native.Deploy|Deploys and initializes all native contracts|
 
 <br/>
 
-<table>
+<table class="table table-hover">
 	<tr>
 	    <th>API</th>
 	    <th>Method Name</th>
@@ -63,7 +64,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 
 <br/>
 
-<table>
+<table class="table table-hover">
 	<tr>
 	    <th>API</th>
 	    <th>Method Name</th>
@@ -102,7 +103,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 
 <br/>
 
-<table>
+<table class="table table-hover">
 	<tr>
 	    <th>API</th>
 	    <th>Method Name</th>

@@ -18,4 +18,4 @@ public class Native
 | ---------------------------------------- | -------------------------- |
 | [NEO(string method, object\[\] arguments)](Native/NEO.md) | 原生合约NeoToken   |
 | [GAS(string method, object\[\] arguments)](Native/GAS.md)         | 原生合约GasToken                   |
-| [Policy(string method, object\[\]](Native/Policy.md) arguments)                 | 原生合约PolicyContract                   |
+| [Policy(string method, object\[\] arguments)](Native/Policy.md) | 原生合约PolicyContract                   |

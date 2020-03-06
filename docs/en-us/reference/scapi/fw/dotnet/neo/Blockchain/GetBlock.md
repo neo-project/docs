@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern Block GetBlock(byte[] hash)
 ```
 
-Parameters: Block Hash as a byte array of length 32.
+Parameters: Block hash as a byte array of length 32.
 
 Return Value: [Block](../Block.md).
 

@@ -54,6 +54,6 @@ public static class Storage
 | [Find(byte[] prefix)](Storage/Find.md) | 查询操作，查找当前存储上下文中byte[]前缀的内容  |
 | [Find(string prefix)](Storage/Find.md) | 查询操作，查找当前存储上下文中string前缀的内容  |
 
-# 构造方法
+## 构造方法
 
 Storage 类是静态类，无需构造方法。

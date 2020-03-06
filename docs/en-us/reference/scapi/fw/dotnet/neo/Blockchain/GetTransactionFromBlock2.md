@@ -1,6 +1,6 @@
 # Blockchain.GetTransactionFromBlock Method (uint, int)
 
-Returns a transaction from a given block index and transaction index.
+Returns a transaction from the given block index and transaction index.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

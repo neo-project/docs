@@ -1,6 +1,6 @@
 # Blockchain.GetBlock Method (uint)
 
-Returns a block from the blockchain given a block height.
+Returns a block from the given block height.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

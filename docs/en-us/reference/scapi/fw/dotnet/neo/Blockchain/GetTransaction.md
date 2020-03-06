@@ -1,6 +1,6 @@
 # Blockchain.GetTransaction Method (byte[])
 
-Returns a transaction from a given transaction hash.
+Returns a transaction from the given transaction hash.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

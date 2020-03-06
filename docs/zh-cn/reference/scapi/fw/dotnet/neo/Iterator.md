@@ -28,4 +28,4 @@ public class Iterator<TKey, TValue>
 | Create(Map\<TKey, TValue\> entry) | 静态方法，创建迭代器                                         |
 | Create(IEnumerable\<TValue\> entry)  | 静态方法，创建迭代器                                                |
 | Concat(Iterator\<TKey, TValue\> value) |合并迭代器 |
-| Next()            | 获得迭代器中是否有下个元素，如果有则枚举器将当前位置定位到下个元素 |
+| Next()            | 获得迭代器中是否有下个元素，如果有则迭代器将当前位置定位到下个元素 |

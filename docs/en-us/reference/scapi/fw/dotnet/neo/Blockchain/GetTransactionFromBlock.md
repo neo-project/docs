@@ -1,6 +1,6 @@
 # Blockchain.GetTransactionFromBlock Method (byte[], int)
 
-Returns a transaction from a given block hash and transaction index.
+Returns a transaction from the given block hash and transaction index.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

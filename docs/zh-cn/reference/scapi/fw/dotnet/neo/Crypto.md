@@ -19,6 +19,6 @@ public static class Crypto
 | ECDsaVerify(byte[] message, byte[] pubkey, byte[] signature) | 根据文本、公钥数组、签名来验证是否是正确的签名 |
 | ECDsaCheckMultiSig(byte[] message, byte[][] pubkey, byte[][] signature) | 根据文本、公钥数组、签名数组来验证是否是正确的多方签名 |
 
-# 构造方法
+## 构造方法
 
 Crypto 类是静态类，无需构造方法。

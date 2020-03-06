@@ -1,6 +1,6 @@
-# Block Class
+# Block 类
 
-A class representing a block, providing a way to query transactions in a block.
+The class that represents blocks, providing a set of related properties.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -9,19 +9,24 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public class Block: Header
+public class Block
 ```
 
-## Methods
+## Attributes
 
-| | Name | description |
-| ---------------------------------------- | ---------------------------------------- | ------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(int)](Block/GetTransaction.md) | Returns the specified transaction within the block |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactionCount()](Block/GetTransactionCount.md) | Returns the number of transactions within the block |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransactions()](Block/GetTransactions.md) | Returns all the transactions within the block |
+| Name              | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| Hash              | Gets the block hash                                          |
+| Version           | Gets the block version number                                |
+| PrevHash          | Gets the hash of the previous block                          |
+| MerkleRoot        | Gets the Merkle root of the block                            |
+| Timestamp         | Get the time stamp of the block                              |
+| Index             | Gets the block index which is counted from 0<br/>Index = Height = Count - 1 |
+| NextConsensus     | Get the consensus contract for the next block, i.e. multi-party signed contract composed of more than 2/3 consensus nodes) |
+| TransactionsCount | Gets the transaction number of the block                     |
 
 ## Constructor
 
-The Block object is constructed through [Blockchain.GetBlock(byte[])](Blockchain/GetBlock.md).
+The Block object can be constructed through [Blockchain.GetBlock(byte [])](Blockchain/GetBlock.md).
 
-The Block object is constructed through [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).
+The Block object can be constructed through [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).
