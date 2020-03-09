@@ -10,41 +10,41 @@ We will complete the following tasks in this section:
 
 ## Installing development environment
 
-### Install Visual Studio 2017
+### Install Visual Studio 2019
 
-Download and install [Visual Studio 2017](https://www.visualstudio.com/products/visual-studio-community-vs) . Select `.NET Core cross-platform development` option during installation.
+Download and install [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) . Select `.NET Core cross-platform development` option during installation.
 
 ![3_install_core_cross_platform_development_toolset](assets/3_install_core_cross_platform_development_toolset.jpg)
 
 ### Install NeoContractPlugin 
 
-Open Visual Studio 2017 and click `tool` -> `extensions and Updates`，click `online`on the left column, search Neo and install NeoContractPlugin (the process must be completed online).
+Open Visual Studio 2019 and click `	EXTENSIONS` -> `Manage Extensions`，click `Online`on the left column, search "Neo" and install NeoContractPlugin (the process must be completed online).
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
 ### Configure neo-compiler 
 
-1. Download [neo-compiler](https://github.com/neo-project/neo-compiler) project to your localhost.
+1. Pull [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) project from GitHub to your localhost.
 
-2. Click `file` -> `open` -> `project/solutions` in Visual Studio 2017 and select neo-compiler.sln in the project file.
+2. Click `FILE` -> `Open` -> `Project/Solutions` in Visual Studio and select neo-compiler.sln in the project file.
 
-3. Right click neon project in the list and click `release`.
+3. Switch the branch to `master-2.x` (Master branch is the compiler of Neo3)
+
+4. Right click the neon project in the list and click `Publish...`.
 
    ![3_publish_neo_compiler_msil_project](assets/3_publish_neo_compiler_msil_project.jpg)
 
-4. After the release path is configured, click `release`. 
+5. After the publish path is configured, click `Publish`. 
 
-   Upon successful release, a neon.exe file is generated in bin\Release\PublishOutput。
+   Upon successful release, a neon.exe file is generated in ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 。
 
-> [!Note]
->
->  In case of error warning in the process of release: unable to copy file "obj\Release\netcoreapp1.0\win10-x64\neon.dll" as the file cannot be located, which may be be traced to a bug in VS 2017 (e.g. v15.4, 15.5), what you need to do is manually copy `\obj\Release\netcoreapp1.0\neon.dll` to `\obj\Release\netcoreapp1.0\win10-x64\` folder and release it again.
+   ![3_publish_and_profile_settings](assets/3_publish_and_profile_settings.png)
 
 ### Change environment parameter settings
 
 Next we need to add path using the following method to allow neon.exe to be accessible from any point: 
 
-1. For Windows10, press Windows+S, input environment parameter and select `edit the account's environment parameters`. 
+1. For Windows 10, press Windows+S, input environment parameter and select `Edit the system enviroment variables`. 
 
    ![3_2017-06-07_12-07-03](assets/3_2017-06-07_12-07-03.png)
 
@@ -66,7 +66,7 @@ After the path is added, run CMD or PowerShell for testing purpose (if CMD start
 
 ## Creating a Neo contract project
 
-Upon completion of the previous steps, you may start to create Neo smart contract project in Visual Studio 2017 (no specific requirement for .NET Framework version):
+Upon completion of the previous steps, you may start to create Neo smart contract project in Visual Studio (no specific requirement for .NET Framework version):
 
 1. Click `file` -> `create` -> `project`.
 2. Select `NeoContract` in the list and change settings where necessary, then click `confirm`.
@@ -85,7 +85,7 @@ Many developers are curious about how to release their own contract assets on Ne
 
 1. Download the NEP-5 template from [Github](https://github.com/neo-project/examples).
 
-2. Create a Neo smart contract project in Visual Studio 2017 and name it NEP5.
+2. Create a Neo smart contract project in Visual Studio and name it NEP5.
 
 3. Open NEP5.cs
 
@@ -95,7 +95,7 @@ Many developers are curious about how to release their own contract assets on Ne
    >
    > If there are red underlines under the code warning that the system is unable to find Neo name space and there is "!" in project references, you may take the following steps: 
    >
-   > Right click the solution file in VS, click `manage NuGet package` and update the Neo.SmartContract.Framework to the latest official version in a new page.  If the red underlines still exist when program update is completed, you may try double clicking the "!". If the problem remains unsolved, you may resort to the solutions below: 
+   > Right click the solution file in VS, click `Manage NuGet Packages...` and update the Neo.SmartContract.Framework to the latest official version in a new page.  If the red underlines still exist when program update is completed, you may try double clicking the "!". If the problem remains unsolved, you may resort to the solutions below: 
    >
    > 1. Download nuget.exe [here](https://www.nuget.org/downloads)  and copy it to the root directory of NeoContract project.
    > 2. Open Power Shell or command prompt (CMD).
@@ -244,27 +244,15 @@ When the editing is done, the coding part of the smart contract is done.
 
 ## Compiling contract file
 
-Click `generate`->`generate solutions` (hotkeys: Ctrl + Shift + B) in the menu to start compilation.
+Click `BUILD`->`Build Solutions` (hotkeys: Ctrl + Shift + B) in the menu to start compilation.
 
 ![](assets/compile.png)
 
-When the compilation is done, Neo smart contract file named`NEP5.avm` is generated in the `bin/Debug` directory of the project.
+When the compilation is done, Neo smart contract file named `NeoContract1.avm` is generated in the `bin/Debug` directory of the project.
 
 ![](assets/contractfile.png)
 
-``NEP5.abi.json` is a descriptive file of the smart contract, which contains desciptions of the ScriptHash, entry, parameters and return values of the contract. More information about the smart contract ABI can be found in [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki).
-
-> [!Note] 
->
-> Given that neon compiles .dll with nep-8 by default, which conflicts with older versions of NeoVM, you need to execute .dll using the neon compatible mode; otherwise the contract cannot be invoked properly.
->
-> Open Power Shell or command prompt (CMD), enter bin/Debug directory and input the following command (replace nep5.dll with your own project file): 
->
-> ```
-> neon nep5.dll --compatible
-> ```
->
->  The new `nep5.avm`  file and `nep5.abi.json`  file will overwrite the old files.
+`NeoContract1.abi.json` is a descriptive file of the smart contract, which contains desciptions of the ScriptHash, entry, parameters and return values of the contract. More information about the smart contract ABI can be found in [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki).
 
 ## What's next?
 

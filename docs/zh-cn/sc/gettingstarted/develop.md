@@ -10,43 +10,41 @@
 
 ## 安装开发环境
 
-### 安装 Visual Studio 2017
+### 安装 Visual Studio 2019
 
-下载 [Visual Studio 2017](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装，注意安装时需要勾选 `.NET Core 跨平台开发` 。
+下载 [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装，注意安装时需要勾选 `.NET Core 跨平台开发` 。
 
 ![3_install_core_cross_platform_development_toolset](assets/3_install_core_cross_platform_development_toolset.jpg)
 
 ### 安装 NeoContractPlugin 插件
 
-打开 Visual Studio 2017，点击 `工具` -> `扩展和更新` ，在左侧点击 `联机` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）。
+打开 Visual Studio 2019，点击 `扩展` -> `管理扩展` ，在左侧点击 `联机` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）。
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
 ### 配置 neo-compiler
 
-1. 在 Github 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目到本地。
+1. 在 Github 上拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目到本地。
 
-2. 在 Visual Studio 2017 上点击 `文件` -> `打开` -> `项目/解决方案`，选择项目文件中的 neo-compiler.sln
+2. 在 Visual Studio 上点击 `文件` -> `打开` -> `项目/解决方案`，选择项目文件中的 neo-compiler.sln
 
-3. 右键单击列表中的 neon 项目，点击 `发布`。
+3. 将 Git 分支切换为 `master-2.x`（master 分支为 Neo3 的编译器）。
+
+4. 右键单击列表中的 neon 项目，点击 `发布`。
 
    ![3_publish_neo_compiler_msil_project](assets/3_publish_neo_compiler_msil_project.jpg)
 
-4. 配置好发布路径后，点击 `发布`。
+5. 配置好发布路径后，点击 `发布`。
 
-   发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.exe 文件。
+   发布成功后，会在 ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 目录下生成 neon.exe 文件。
 
    ![3_publish_and_profile_settings](assets/3_publish_and_profile_settings.png)
-
-> [!Note]
->
-> 发布过程中如果遇到如下错误提示：*无法复制文件”obj\Release\netcoreapp1.0\win10-x64\neon.dll“，原因是找不到该文件？*这可能是 VS 2017 （如 15.4，15.5）的一个 Bug，此时需要手动将 `\obj\Release\netcoreapp1.0\neon.dll` 文件复制到 `\obj\Release\netcoreapp1.0\win10-x64\` 文件夹中，然后重新发布即可。
 
 ### 设置环境变量
 
 接下来需要添加 path，让任何位置都能访问 neon.exe。方法如下：
 
-1. 在 Windows10 上 按 Windows + S 键，输入环境变量，选择 `编辑账户的环境变量` 
+1. 在 Windows10 上 按 Windows + S 键，输入环境变量，选择 `编辑系统环境变量` 
 
    ![3_2017-06-07_12-07-03](assets/3_2017-06-07_12-07-03.png)
 
@@ -68,7 +66,7 @@
 
 ## 创建 Neo 合约项目
 
-完成以上步骤后，即可在 Visual Studio 2017 中创建 Neo 智能合约项目（.NET Framework 版本任意）：
+完成以上步骤后，即可在 Visual Studio 中创建 Neo 智能合约项目（.NET Framework 版本任意）：
 
 1. 点击 `文件` -> `新建` -> `项目`。
 2. 在列表中选择 `NeoContract` 并进行必要设置后，点击 `确定`。
@@ -87,7 +85,7 @@
 
 1. 从 [Github](https://github.com/neo-project/examples)上下载 NEP5 示例。
 
-2. 在 Visual Studio 2017 中创建一个 Neo 智能合约项目，这里命名为 NEP5。
+2. 在 Visual Studio 中创建一个 Neo 智能合约项目，这里命名为 NEP5。
 
 3. 打开示例文件 NEP5.cs
 
@@ -250,21 +248,11 @@ namespace NEP5
 
 ![](assets/compile.png)
 
-编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `NEP5.avm` 文件，该文件即是生成的 Neo 智能合约文件。
+编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `NeoContract1.avm` 文件，该文件即是生成的 Neo 智能合约文件。
 
 ![](assets/contractfile.png)
 
-`NEP5.abi.json` 是智能合约的描述文档，文档中对合约的 ScriptHash、入口、方法、参数、返回值等进行了描述。关于更多智能合约 ABI 的信息，可以参考 [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki)。
-
-> [!Note]
->
-> 由于 neon 默认使用 nep-8 的模式编译 dll，与旧版本 NeoVM 不兼容，所以我们需要用编译器的 compatible 模式编译，否则调用合约时会出错。
->
-> 打开Power Shell 或命令提示符（CMD），进入 bin/Debug 目录，输入如下命令（将nep5.dll替换成你自己的项目文件）：
->
-> `neon nep5.dll --compatible`
->
-> 生成的 `nep5.avm` 文件和`nep5.abi.json` 文件将会覆盖之前的对应文件。
+`NeoContract1.abi.json` 是智能合约的描述文档，文档中对合约的 ScriptHash、入口、方法、参数、返回值等进行了描述。关于更多智能合约 ABI 的信息，可以参考 [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki)。
 
 ## 继续阅读
 
