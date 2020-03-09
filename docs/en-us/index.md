@@ -19,6 +19,11 @@
 | [Getting Started](sc/gettingstarted/introduction.md) | [Development Environment](sc/devenv/getting-started-csharp-mac.md) | [Writing Smart Contracts](sc/write/basics.md) | [Deploying and Invoking Contracts](sc/deploy/deploy.md) |
 | [Testing](sc/test.md)                                | [Contract Migration](sc/migrate.md)                          | [System Fees](sc/fees.md)                     | [Contract Samples](sc/sample/HelloWorld.md)             |
 
+| DApp Development | | | |
+| ------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------- | ---- |
+| [Introduction](dapp/intro.md) | [DApp Integration ](dapp/integ.md) |  |      |
+
+
 | NEO Tools Development | | | |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- | ---------------------------------------------- |
 | [Blockchain Models](tooldev/concept/blockchain/block.md)     | [Charging Model](tooldev/concept/charging_model.md)          | [Cryptography](tooldev/concept/cryptography/encode_algorithm.md) | [Big and Little Endian Usage](tooldev/concept/endian.md) |

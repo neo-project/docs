@@ -127,6 +127,11 @@
       href: /docs/zh-cn/sc/sample/verify.md
     - name: 锁仓合约
       href: /docs/zh-cn/sc/sample/Lock2.md
+- name: DApp 开发
+  - name: 介绍
+    href:  /docs/zh-cn/dapp/intro.md
+  - name: 与区块链集成
+    href:  /docs/zh-cn/dapp/integ.md
 - name: NEO工具开发
   - name: 基本概念
     - name: 区块模型

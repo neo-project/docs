@@ -113,6 +113,11 @@
       href: /docs/en-us/sc/sample/verify.md
     - name: Lock Contract
       href: /docs/en-us/sc/sample/Lock2.md
+- name: DApp Development
+  - name: Introduction
+    href:  /docs/en-us/dapp/intro.md
+  - name: DApp Integration
+    href:  /docs/en-us/dapp/integ.md
 - name: NEO Tools Development
   - name: Main Concepts
     - name: Blockchain Models
