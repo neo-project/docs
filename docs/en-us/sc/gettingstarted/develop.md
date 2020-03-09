@@ -18,7 +18,7 @@ Download and install [Visual Studio 2019](https://www.visualstudio.com/products/
 
 ### Install NeoContractPlugin 
 
-Open Visual Studio 2017 and click `	EXTENSIONS` -> `Manage Extensions`，click `Online`on the left column, search "Neo" and install NeoContractPlugin (the process must be completed online).
+Open Visual Studio 2019 and click `	EXTENSIONS` -> `Manage Extensions`，click `Online`on the left column, search "Neo" and install NeoContractPlugin (the process must be completed online).
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
@@ -26,7 +26,7 @@ Open Visual Studio 2017 and click `	EXTENSIONS` -> `Manage Extensions`，click `
 
 1. Pull [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) project from GitHub to your localhost.
 
-2. Click `FILE` -> `Open` -> `Project/Solutions` in Visual Studio 2017 and select neo-compiler.sln in the project file.
+2. Click `FILE` -> `Open` -> `Project/Solutions` in Visual Studio and select neo-compiler.sln in the project file.
 
 3. Switch the branch to `master-2.x` (Master branch is the compiler of Neo3)
 
@@ -44,7 +44,7 @@ Open Visual Studio 2017 and click `	EXTENSIONS` -> `Manage Extensions`，click `
 
 Next we need to add path using the following method to allow neon.exe to be accessible from any point: 
 
-1. For Windows10, press Windows+S, input environment parameter and select `Edit the system enviroment variables`. 
+1. For Windows 10, press Windows+S, input environment parameter and select `Edit the system enviroment variables`. 
 
    ![3_2017-06-07_12-07-03](assets/3_2017-06-07_12-07-03.png)
 
@@ -66,7 +66,7 @@ After the path is added, run CMD or PowerShell for testing purpose (if CMD start
 
 ## Creating a Neo contract project
 
-Upon completion of the previous steps, you may start to create Neo smart contract project in Visual Studio 2017 (no specific requirement for .NET Framework version):
+Upon completion of the previous steps, you may start to create Neo smart contract project in Visual Studio (no specific requirement for .NET Framework version):
 
 1. Click `file` -> `create` -> `project`.
 2. Select `NeoContract` in the list and change settings where necessary, then click `confirm`.
@@ -85,7 +85,7 @@ Many developers are curious about how to release their own contract assets on Ne
 
 1. Download the NEP-5 template from [Github](https://github.com/neo-project/examples).
 
-2. Create a Neo smart contract project in Visual Studio 2017 and name it NEP5.
+2. Create a Neo smart contract project in Visual Studio and name it NEP5.
 
 3. Open NEP5.cs
 
