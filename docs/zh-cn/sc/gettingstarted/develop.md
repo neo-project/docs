@@ -18,7 +18,7 @@
 
 ### 安装 NeoContractPlugin 插件
 
-打开 Visual Studio 2017，点击 `扩展` -> `管理扩展` ，在左侧点击 `联机` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）。
+打开 Visual Studio 2019，点击 `扩展` -> `管理扩展` ，在左侧点击 `联机` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）。
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
@@ -26,7 +26,7 @@
 
 1. 在 Github 上拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目到本地。
 
-2. 在 Visual Studio 2017 上点击 `文件` -> `打开` -> `项目/解决方案`，选择项目文件中的 neo-compiler.sln
+2. 在 Visual Studio 上点击 `文件` -> `打开` -> `项目/解决方案`，选择项目文件中的 neo-compiler.sln
 
 3. 将 Git 分支切换为 `master-2.x`（master 分支为 Neo3 的编译器）。
 
@@ -66,7 +66,7 @@
 
 ## 创建 Neo 合约项目
 
-完成以上步骤后，即可在 Visual Studio 2017 中创建 Neo 智能合约项目（.NET Framework 版本任意）：
+完成以上步骤后，即可在 Visual Studio 中创建 Neo 智能合约项目（.NET Framework 版本任意）：
 
 1. 点击 `文件` -> `新建` -> `项目`。
 2. 在列表中选择 `NeoContract` 并进行必要设置后，点击 `确定`。
@@ -85,7 +85,7 @@
 
 1. 从 [Github](https://github.com/neo-project/examples)上下载 NEP5 示例。
 
-2. 在 Visual Studio 2017 中创建一个 Neo 智能合约项目，这里命名为 NEP5。
+2. 在 Visual Studio 中创建一个 Neo 智能合约项目，这里命名为 NEP5。
 
 3. 打开示例文件 NEP5.cs
 
