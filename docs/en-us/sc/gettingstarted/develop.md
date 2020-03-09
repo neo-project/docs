@@ -28,9 +28,9 @@ Open Visual Studio 2017 and click `	EXTENSIONS` -> `Manage Extensions`，click `
 
 2. Click `FILE` -> `Open` -> `Project/Solutions` in Visual Studio 2017 and select neo-compiler.sln in the project file.
 
-3. Switch branch to `master-2.x` (Master branch is compiler of Neo3)
+3. Switch the branch to `master-2.x` (Master branch is the compiler of Neo3)
 
-4. Right click neon project in the list and click `Publish...`.
+4. Right click the neon project in the list and click `Publish...`.
 
    ![3_publish_neo_compiler_msil_project](assets/3_publish_neo_compiler_msil_project.jpg)
 
