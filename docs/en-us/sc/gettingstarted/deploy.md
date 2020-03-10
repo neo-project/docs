@@ -14,13 +14,11 @@ We may use Neo-GUI to deploy the newly generated contract file.
 
 3. Fill in the params in the information and meta data fields. Do not leave any parameter undefined, otherwise the `deploy` button won't function properly.
 
-   For NEP-5 asset contract, the argument is written as 0710 and the return value is 05.
+   - For NEP-5 asset contract, the argument is written as 0710 and the return value is 05. Detailed rules can be referred to  [Smart Contract Parameters and Return Values](../deploy/Parameter.md).
 
-   Detailed rules can be referred to  [Smart Contract Parameters and Return Values](../deploy/Parameter.md).
+   - Check the box of `required to create a storage area` as according to NEP-5 standard, storage areas are used to maintain accounts.
 
-   Check the box of `required to create a storage area` as according to NEP-5 standard, storage areas are used to maintain accounts.
-
-   No need to check the options` require dynamic invocation` and `Payable`.
+   - No need to check ` require dynamic invocation` and `Payable`.
 
 4. After all the params are defined, click `deploy`.
 
@@ -40,19 +38,13 @@ Now you may invoke the smart contract released just recently.
 
 3. Click `...` beside `arguments` to enter the edit interface.
 
-   ![3_1546846629992](assets/3_1546846629992.png)
-
 4. Concerning the smart contract you wrote, [0] represents the function name while [1] the input param of the function (ignore if not exist). If you need to invoke deploy function and release the assets onto the chain, take the following steps: click [0], fill in "deploy" (all in lowercase letters) in the new value, click `update `and close the window.
-
-   ![3_1545633970239](assets/3_1545633970239.png)
 
 5. Click `trial run` to test the contract. If no error is spotted, click `invoke`, which may cost several GAS.
 
 ## Viewing contract assets
 
 Click `advance`-> `options` in Neo-GUI and fill in the scripthash of the recently deployed assets. The NEP-5 assets will show up in your asset page.
-
-![3_check_nep5](assets/3_check_nep5.png)
 
 You have successfully released a smart contract on Neo private chain. Congratulations!
 
