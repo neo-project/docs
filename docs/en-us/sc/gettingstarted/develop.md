@@ -4,17 +4,15 @@ So far, we have learned how to build a private chain and connect nodes to the ch
 
 We will complete the following tasks in this section: 
 
-- Install contract development environment
-- Create a NEP-5 contract project
-- Compile a contract
+1. Install contract development environment
+2. Create a NEP-5 contract project
+3. Compile a contract
 
 ## Installing development environment
 
 ### Install Visual Studio 2019
 
 Download and install [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) . Select `.NET Core cross-platform development` option during installation.
-
-![3_install_core_cross_platform_development_toolset](assets/3_install_core_cross_platform_development_toolset.jpg)
 
 ### Install NeoContractPlugin 
 
