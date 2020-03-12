@@ -129,16 +129,6 @@ Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
 relay tx(no|yes): no
 ```
 
-```
-neo> invoke 43cf98eddbe047e198a3e5d57006311442a0ca15 balanceOf 91b83e96f2a7c4fdf0c1688441ec61986c7cae26
-Invoking script with: '1426ae7c6c9861ec418468c1f0fdc4a7f2963eb89151c10962616c616e63654f661415caa04214310670d5e5a398e147e0dbed98cf4368627d5b52'
-VM State: HAULT
-Gas Consumed: 2007390
-Evaluation Stack: [{"type":"Integer","value":"0008af2f"}]
-
-relay tx(no|yes): n
-```
-
 ### create wallet
 
 创建一个 .db3 或 .json 钱包文件。创建过程中需要设置钱包密码。

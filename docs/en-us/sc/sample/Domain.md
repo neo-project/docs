@@ -1,7 +1,6 @@
 # Smart Contract Example - Domain (Domain Name System)
 
 ```c#
-using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract

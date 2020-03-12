@@ -109,9 +109,7 @@
       href: /docs/en-us/sc/sample/HelloWorld.md
     - name: Domain
       href: /docs/en-us/sc/sample/Domain.md
-    - name: Verification Contract
-      href: /docs/en-us/sc/sample/verify.md
-    - name: Lock Contract
+    - name: Lock Contract Demo
       href: /docs/en-us/sc/sample/Lock2.md
 - name: DApp Development
   - name: Introduction

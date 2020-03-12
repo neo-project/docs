@@ -1,7 +1,6 @@
 # Domain 示例
 
 ```c#
-using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
