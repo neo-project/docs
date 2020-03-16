@@ -88,6 +88,8 @@
       href: /docs/zh-cn/sc/gettingstarted/deploy.md
   - name: 开发环境
     items:
+    - name: Windows + C#
+      href: /docs/zh-cn/sc/devenv/getting-started-csharp.md
     - name: macOS + C#
       href: /docs/zh-cn/sc/devenv/getting-started-csharp-mac.md
     - name: ubuntu + C#
