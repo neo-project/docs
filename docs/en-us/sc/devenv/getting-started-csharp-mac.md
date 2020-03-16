@@ -50,21 +50,14 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 
 1. Download [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) from GitHub. 
 
-2. Locate the file Neo.Compiler.MSIL.csproj at `neo-devpack-dotnet/src/Neo.Compiler.MSIL/`, open it using a text editor and replace 
+   > [!Note]
+   >
+   > The master branch has been upgraded to Neo3 compiler, so you must switch the Git branch to `master-2.x` before downloading.
 
-   ```
-   <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
-   ```
-   with
-   ```
-   <TargetFramework>netcoreapp3.1</TargetFramework>
-   ```
-   
-3. Run Visual Studio for Mac and open the solution neo-devpack-dotnet.sln. Right-click Neo.Compiler.MSIL and then select `Publish`.
+2. Run Visual Studio for Mac and open the solution neo-devpack-dotnet.sln. Right-click Neo.Compiler.MSIL and then select `Publish`.
 
-4. Publish neon to the default path bin/Release/netcoreapp3.1/publish。
+3. Publish neon to the default path。After published, you can find neon.dll is generated under the path.
 
-   After published, you can find neon.dll is generated under the path.
 
 
 ## Compiling your smart contract to .avm
@@ -73,12 +66,12 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 
    ![](../../../zh-cn/sc/assets/mac8.jpg)
 
-2. Copy the new-created project file test.dll generated in previous steps into the directory where neon.dll locates in.
+2. Copy the new project file test.dll generated in previous steps into the directory where neon.dll locates in.
 
-3. Run Terminal, and use `cd` to go to the directory where neon.dll locates. Enter `dotnet neon.dll test.dll `  to compile the .dll file into .avm.
+3. Run Terminal, and use `cd` to go to the directory where neon.dll locates in. Enter `dotnet neon.dll test.dll `  to compile the .dll file into .avm.
 
    The output should look like this
    
    ![](../../../zh-cn/sc/assets/mac0.jpg)
 
-You should now find the `.avm` file in the test output folder
+You should now find the `.avm` file in the test output folder.

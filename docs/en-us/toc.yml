@@ -74,6 +74,8 @@
       href: /docs/en-us/sc/gettingstarted/deploy.md
   - name: Development Environment 
     items:
+    - name: Using C# on Windows
+      href: /docs/zh-cn/sc/devenv/getting-started-csharp.md
     - name: Using C# on macOS
       href: /docs/en-us/sc/devenv/getting-started-csharp-mac.md
     - name: Using C# on ubuntu
