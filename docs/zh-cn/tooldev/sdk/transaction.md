@@ -19,15 +19,11 @@
     TransactionManager txManager = new TransactionManager(client, sender);
     ```
 
-3. 调用 `MakeTransaction` 方法，传入交易脚本、交易属性、cosigner 和网络手续费。
-
-  如果当前交易只需要一个单签账户的签名，将手续费设置为 0，系统将自动计算最低费用。
-
-  如果当前交易为多签或者需要多个签名，需要传入足够的手续费，否则签名时会引发异常。
+3. 调用 `MakeTransaction` 方法，传入交易脚本、交易属性和cosigner。
 
   ```c#
-    // fill the script, attribute, cosigner, and network fee
-    txManager.MakeTransaction(script, null, cosigners, 0);
+    // fill the script, attributes and cosigners
+    txManager.MakeTransaction(script, null, cosigners);
   ```
 
 4. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数。
@@ -105,8 +101,8 @@ namespace ConsoleApp1
 
             // initialize the TransactionManager with rpc client and sender scripthash
             Transaction tx = new TransactionManager(client, sender)
-                // fill the script, attribute, cosigner and network fee
-                .MakeTransaction(script, null, cosigners, 0)
+                // fill the script, attributes and cosigners
+                .MakeTransaction(script, null, cosigners)
                 // add signature for the transaction with sendKey
                 .AddSignature(sendKey)
                 // sign transaction with the added signature
@@ -184,8 +180,8 @@ namespace ConsoleApp1
 
             // initialize the TransactionManager with rpc client and sender scripthash
             Transaction tx = new TransactionManager(client, sender)
-                // fill the script, attribute, cosigner and network fee
-                .MakeTransaction(script, null, cosigners, 0)
+                // fill the script, attributes and cosigners
+                .MakeTransaction(script, null, cosigners)
                 // add signature for the transaction with sendKey
                 .AddSignature(sendKey)
                 // sign transaction with the added signature
@@ -251,8 +247,8 @@ namespace ConsoleApp1
 
             // initialize the TransactionManager with rpc client and sender scripthash
             Transaction tx = new TransactionManager(client, multiAccount)
-                // fill the script, attribute, cosigner and network fee, multi-sign account need to fill networkfee by user
-                .MakeTransaction(script, null, cosigners, 0_05000000)
+                // fill the script, attributes and cosigners
+                .MakeTransaction(script, null, cosigners)
                 // add multi-signature for the transaction with sendKey, at least use 2 KeyPairs
                 .AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
                 .AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)

@@ -125,8 +125,8 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
     ```c#
     // initialize the TransactionManager with rpc client and sender scripthash
     Transaction tx = new TransactionManager(client, sender)
-        // fill the script, attribute, cosigner and network fee
-        .MakeTransaction(script, null, cosigners, 0)
+        // fill the script, attributes and cosigners
+        .MakeTransaction(script, null, cosigners)
         // add signature for the transaction with sendKey
         .AddSignature(sendKey)
         // sign transaction with the added signature
