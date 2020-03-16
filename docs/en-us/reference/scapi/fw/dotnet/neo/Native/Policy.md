@@ -1,4 +1,4 @@
-# Native.NEO Method (string, object[])
+# Native.Policy Method (string, object[])
 
 Invokes the method in the Policy contract with the method name and method parameters.
 

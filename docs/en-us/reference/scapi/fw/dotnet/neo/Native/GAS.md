@@ -1,4 +1,4 @@
-# Native.NEO Method (string, object[])
+# Native.GAS Method (string, object[])
 
 Invokes the method in the GAS contract with the method name and method parameters.
 
