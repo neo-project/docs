@@ -1,129 +1,80 @@
 # 在 macOS 上使用 C# 编写合约
 
-## Visual Studio for Mac 
+本文将指导开发者在macOS中配置智能合约的C#开发环境，使用示例代码创建合约项目并完成编译。
 
-如果你的计算机中已经安装过 Visual Studio for Mac ，可跳过本小节。
+## 安装Visual Studio for Mac 
 
-[Visual Studio for Mac 下载地址](https://www.visualstudio.com/zh-hans/vs/visual-studio-mac/)
-
-安装时只需勾选基本功能，无需安装 Android / iOS / macOS 等平台组件。
-
-![](../assets/mac1.png)
-
-![](../assets/mac2.png)
-
-![](../assets/mac3.png)
+下载 [Visual Studio for Mac](https://www.visualstudio.com/zh-hans/vs/visual-studio-mac/)，按照屏幕提示进行安装。安装过程中只需勾选基本功能，无需安装 Android / iOS / macOS 等平台组件。
 
 > [!Note]
 >
-> 基本安装全程大约需要几十分钟，如果勾选了 Android / iOS / macOS 平台，其安装时间可能会需要数小时，而且由于网络情况，可能会失败 N 次，所以不建议勾选平台组件。
+> 如果勾选了 Android / iOS / macOS 平台，安装时间可能会需要数小时，而且由于网络情况可能会容易失败，所以不建议安装。
 
 ## 新建项目
 
-打开 Visual Studio for Mac，新建项目，选择 .NET Standard Library（.NET Core → Library）。
+1. 运行 Visual Studio for Mac，新建项目，选择 .NET Standard Library。
 
-![](../assets/mac4.png)
+   ![](../assets/mac4.png)
 
-> [!Note]
->
-> 新建项目时 .NET Core 版本请选择 2.0，因为如果选择 1.x 后，接下来添加 “Neo.SmartContract.Framework” 时会失败。
+3. 选择 .NET Standard 2.0 并根据屏幕提示创建项目，命名为test。
 
-然后右击 `Dependencies`，单击 `Add Packages...`，搜索 “neo” ，选择 “Neo.SmartContract.Framework”，点击 `Add Package`。
+3. 在解决方案栏中右键单击 `依赖项` -> `管理NuGet包`
 
-![](../assets/mac5.png)
+4. 搜索 “neo.smart” ，选择 “Neo.SmartContract.Framework”，最后点击 `添加包`。
 
-程序开始添加 Neo 智能合约框架，该过程大约需要几分钟。
+   ![](../assets/mac5.jpg)
 
-安装成功后，编写如下示例代码：
+   程序开始添加 Neo 智能合约框架，完成后将显示已成功添加。
 
-```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+5. 安装成功后，编写如下示例代码：
 
-public class Class1: SmartContract
-{
-    public static bool Main()
-    {
-        return true;
-    }
-}
-```
+   ```c#
+   using Neo.SmartContract.Framework;
+   using Neo.SmartContract.Framework.Services.Neo;
+   
+   namespace Neo.SmartContract
+   {
+       public class Class1 : Framework.SmartContract
+       {
+           public static bool Main()
+           {
+               return true;
+           }
+       }
+   }
+   ```
 
-点击 `Build`，`Build All` 编译相应代码，编译成功后，会在 bin/Debug/netstandard2.0/ 目录下生成 .dll 文件，该 .dll 文件是 .NET IL 语言的文件，之后会用 neon 将其二次编译为 .avm 智能合约文件。
+6. 在菜单栏中点击 `生成` -> `全部生成` 编译相应代码。
 
-示例里项目名为 test1，编译后会生成 test1.dll，之后会用到这个文件。
+   编译成功后，会在 bin/Debug/netstandard2.0/ 目录下生成 test.dll 文件，之后会用 neon 将其二次编译为 .avm 智能合约文件。
 
-## neo-compiler
 
-在 GitHub 上下载 [neo-compiler](https://github.com/neo-project/neo-compiler) 项目，用 Visual Studio for Mac 打开该解决方案，编译其中的 neon 项目
+## 下载编译器
+
+1. 在 GitHub 上下载 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目。
 
    > [!Note]
    >
-   > 首次编译 neon 需要还原 NuGet 程序包，根据网络速度 该过程可能需要几十分钟至几小时不等，并且中途可能失败十余次，请耐心尝试。
-   >
-   > 本次测试过程中我使用  Visual Studio for Mac 还原项目，又用 Visual Studio Code 还原项目，又用 dotnet 命令行还原项目，总之失败 N 次后，终于还原成功了。历时几个小时。
-   >
-   > 如果实在无法还原 NuGet，可以在 Windows 上**发布** neon 项目，然后将发布后的项目复制到 macOS 上。
-   >
-   > 在 Windows 上发布 macOS 版本的 neon 前需要将 neon.csproj 文件打开，将 \<RuntimeIdentifiers>win10-x64\</RuntimeIdentifiers> 更改为 \<RuntimeIdentifiers>osx.10.12-x64\</RuntimeIdentifiers>
-   >
-   > 详细 RID 可以参考 [.NET Core Runtime IDentifier (RID) catalog](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
+   > 由于当前master分支为Neo3编译器，下载之前请务必将 Git 分支切换为 `master-2.x`
 
-发布成功后，会在 bin\Release\PublishOutput 目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
+2. 用 Visual Studio for Mac 打开解决方案neo-devpack-dotnet.sln，右键单击Neo.Compiler.MSIL并选择`发布`。
 
-## .NET Core
-
-下载并安装  [.NET Core 2.0.3](https://www.microsoft.com/net/download/macos )。
-
-![](../assets/mac8.png)
-
-输入命令
-
-直接用 dotnet neon.dll test1.dll 编译会提示如下错误：
-
-```
-Unhandled Exception: System.TypeInitializationException: The type initializer for 'Crypto' threw an exception. ---> System.TypeInitializationException: The type initializer for 'CryptoInitializer' threw an exception. ---> System.DllNotFoundException: Unable to load DLL 'System.Security.Cryptography.Native': The specified module could not be found.
-```
-
-这是 .NET Core 在 macOS 上的已知问题，按照如下办法可修复：
-
-打开 `终端`，输入以下命令
-
-```
-sudo install_name_tool -add_rpath /usr/local/opt/openssl/lib /usr/local/share/dotnet/shared/Microsoft.NETCore.App/1.0.4/System.Security.Cryptography.Native.dylib
-```
-
-详情可参考以下网页：
-
-[https://github.com/dotnet/cli/issues/2229](https://github.com/dotnet/cli/issues/2229)
-
-[https://stackoverflow.com/questions/39133356](https://stackoverflow.com/questions/39133356)
-
-## 编译
-
-打开 `终端`，用 `cd` 命令进入第三步最后的文件夹中，输入
-
-```
-dotnet neon.dll test1.dll
-```
-
-即可开始编译，此处的 test1.dll 是第二步最后生成的文件。
-
-![](../assets/mac9.png)
-
-```
-Neo.Compiler.MSIL console app v2.0.1.0 
-找到函数入口点:System.Boolean test1.Class1::Verity()
-convert succ
-write:test1.avm
-SUCC
-```
-
-编译器输出如上内容，编译成功，在目录中会生成 test1.avm 文件。
-
-![](../assets/mac10.png)
+3. 将 neon 发布到默认路径。发布成功后，会在该目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
 
 
 
+## 编译合约
+
+1. 下载并安装  [.NET Core](https://www.microsoft.com/net/download/macos )。
 
 
+   ![](../assets/mac8.jpg)
+
+2. 将新建项目后生成的文件test.dll复制到neon.dll所在文件夹。
+
+3. 打开 终端，用 `cd` 命令进入neon.dll所在文件夹目录，输入 `dotnet neon.dll test.dll `开始编译。
+
+   ![](../assets/mac0.jpg)
+
+
+编译器输出如上内容，编译成功，在目录中会生成 test.avm 文件。
