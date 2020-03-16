@@ -94,10 +94,16 @@ BigInteger sysFee = client.GetBlockSysFee(10000);
 ```
 
 ### 获取合约信息
-通过合约脚本散列获取合约信息：
+通过合约哈希获取合约信息：
 
 ```c#
 ContractState contractState = client.GetContractState("dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f");
+```
+
+通过合约Id获取合约信息：
+
+```c#
+ContractState contractState = client.GetContractState(-1);
 ```
 
 ### 获取内存中的交易列表
