@@ -1,4 +1,4 @@
-# Native.NEO 方法 (string, object[])
+# Native.GAS 方法 (string, object[])
 
 根据方法名与方法参数调用GAS合约中的方法。
 
