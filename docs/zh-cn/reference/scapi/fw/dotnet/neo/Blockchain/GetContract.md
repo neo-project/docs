@@ -14,7 +14,7 @@ public static extern Contract GetContract(byte[] script_hash)
 
 参数：
 
-- script_hash: 脚本散列，20字节的字节数组。
+- script_hash: 脚本散列，20字节的字节数组，使用小端序。
 
 返回值：智能合约，[Contract](../Contract.md) 类型。
 
