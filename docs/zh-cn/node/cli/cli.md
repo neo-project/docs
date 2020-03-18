@@ -26,13 +26,6 @@
 | clear              | 清除屏幕                               |
 | exit               | 退出程序                               |
 
-#### 合约命令
-
-| 命令              | 参数                                                         | 说明     |
-| ----------------- | ------------------------------------------------------------ | -------- |
-| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
-
 #### 钱包命令
 
 | 命令                                              | 参数                                   | 说明                                              |
@@ -52,6 +45,13 @@
 | [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                           | 创建多方签名合约。<br/>需要打开钱包。             |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
 
+#### 合约命令
+
+| 命令              | 参数                                                         | 说明     |
+| ----------------- | ------------------------------------------------------------ | -------- |
+| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
+
 #### 节点命令
 
 | 命令            | 参数                | 说明                                           |
@@ -67,14 +67,15 @@
 | [plugins](#plugins) |  | 显示已加载的插件 |
 | [install](#install) | [Plugin name] | 安装指定插件     |
 | [uninstall](#install) | [Plugin name] | 卸载指定插件     |
-| [export block[s]](#export-block-s-) | [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步|
+|  | [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步|
 | [export block[s]](#export-block-s-) | \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步 |
 | [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
 #### 高级命令
 
-| 命令                                | 说明     |
-| ----------------------------------- | -------- |
-| [start consensus](#start-consensus) | 启动共识 |
+| 命令                                | 参数     | 说明     |
+| ----------------------------------- | -------- | -------- |
+| [export block[s]](#export-block-s-) | \<index> |          |
+| [start consensus](#start-consensus) |          | 启动共识 |
 
 ## 命令说明
 

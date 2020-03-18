@@ -54,8 +54,6 @@
       href: /docs/en-us/network/private-chain/private-chain.md
     - name: Multiple Nodes (local host)
       href: /docs/en-us/network/private-chain/private-chain2.md
-    - name: Neo-local
-      href: /docs/en-us/network/private-chain/neolocal.md
 - name: Smart Contract Development
   items:
   - name: Getting Started (C#)
