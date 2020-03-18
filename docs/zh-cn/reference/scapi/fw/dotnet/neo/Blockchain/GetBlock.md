@@ -14,7 +14,7 @@ public static extern Block GetBlock(byte[] hash)
 
 参数：
 
--  hash: 区块 Hash，32字节的字节数组 `区块哈希使用小端序`。
+-  hash: 区块 Hash，32字节的字节数组。区块哈希使用小端序。
 
 返回值：区块，[Block](../Block.md) 类型。
 
