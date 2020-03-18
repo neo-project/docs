@@ -2,6 +2,7 @@
 
 你可以通过两种方式安装 Neo-CLI：
 
+- 下载 neo-node 和 neo-modules 的源代码并发布成可执行文件。
 - 下载 neo-node 和 neo-modules 的官方发布程序包进行安装（目前尚未发布）。
 
 下文将具体介绍这两种方式。
