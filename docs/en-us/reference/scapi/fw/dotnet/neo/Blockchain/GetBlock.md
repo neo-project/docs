@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern Block GetBlock(byte[] hash)
 ```
 
-Parameters: Block hash as a byte array of length 32.
+Parameters: Block hash as a byte array of length 32. It should be little endian.
 
 Return Value: [Block](../Block.md).
 

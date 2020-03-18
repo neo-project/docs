@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static extern Contract GetContract(byte[] script_hash)
 ```
 
-Parameters: Scripthash as a byte array of length 20.
+Parameters: Scripthash as a byte array of length 20. It should be little endian.
 
 Return Value: [Contract](../Contract.md).
 
