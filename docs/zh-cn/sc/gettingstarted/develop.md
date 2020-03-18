@@ -22,23 +22,14 @@
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
-### 配置 neo-compiler
+### 配置编译器
 
-1. 在 Github 上拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目到本地。
+1. 在 Github 上拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目到本地并打开。
+2. 将 Git 分支切换为 `master-2.x`（master 分支为 Neo3 的编译器）。
+3. 发布 `Neo.Compiler.MSIL` 项目。
 
-2. 在 Visual Studio 上点击 `文件` -> `打开` -> `项目/解决方案`，选择项目文件中的 neo-compiler.sln
+4. 发布成功后，会在 ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 目录下看到 `neon.exe` 文件。
 
-3. 将 Git 分支切换为 `master-2.x`（master 分支为 Neo3 的编译器）。
-
-4. 右键单击列表中的 neon 项目，点击 `发布`。
-
-   ![3_publish_neo_compiler_msil_project](assets/3_publish_neo_compiler_msil_project.jpg)
-
-5. 配置好发布路径后，点击 `发布`。
-
-   发布成功后，会在 ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 目录下生成 neon.exe 文件。
-
-   ![3_publish_and_profile_settings](assets/3_publish_and_profile_settings.png)
 
 ### 设置环境变量
 
@@ -46,19 +37,13 @@
 
 1. 在 Windows10 上 按 Windows + S 键，输入环境变量，选择 `编辑系统环境变量` 
 
-   ![3_2017-06-07_12-07-03](assets/3_2017-06-07_12-07-03.png)
-
 2. 选择 Path, 点击 `编辑`:
-
-   ![3_environment_variable](assets/3_environment_variable.png)
 
 3. 在弹出来的窗口中点击 `新建` 并输入你自己的 neon.exe 所在的文件夹目录，点击 `确定` 。
 
 > [!Note]
 >
 > 在环境变量中不要添加 “…… neon.exe” 字样的路径，要填写 neon.exe **所在的文件夹目录** 而非 neon.exe 本身的路径。
-
-![3_edit_environment_variable](assets/3_edit_environment_variable.png)
 
 添加完 path 后，运行 CMD 或者 PowerShell 测试一下（如果添加 path 前就已经启动了 CMD 则要关掉重启），输入 neon 后，没有报错，如图所示输出版本号的提示信息即表示环境变量配置成功。
 

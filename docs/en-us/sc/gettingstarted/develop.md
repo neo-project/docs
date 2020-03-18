@@ -20,23 +20,16 @@ Open Visual Studio 2019 and click `	EXTENSIONS` -> `Manage Extensions`，click `
 
 ![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
 
-### Configure neo-compiler 
+### Configure compiler 
 
-1. Pull [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) project from GitHub to your localhost.
+1. Pull [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) project from GitHub to your localhost and open it.
 
-2. Click `FILE` -> `Open` -> `Project/Solutions` in Visual Studio and select neo-compiler.sln in the project file.
+3. Switch the branch to `master-2.x` (Currently the master branch is the Neo3 compiler)
 
-3. Switch the branch to `master-2.x` (Master branch is the compiler of Neo3)
+4. Publish the project `Neo.Compiler.MSIL`
 
-4. Right click the neon project in the list and click `Publish...`.
+5. After successful publish, you can find `neon.exe` under the path ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\
 
-   ![3_publish_neo_compiler_msil_project](assets/3_publish_neo_compiler_msil_project.jpg)
-
-5. After the publish path is configured, click `Publish`. 
-
-   Upon successful release, a neon.exe file is generated in ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 。
-
-   ![3_publish_and_profile_settings](assets/3_publish_and_profile_settings.png)
 
 ### Change environment parameter settings
 
@@ -44,19 +37,13 @@ Next we need to add path using the following method to allow neon.exe to be acce
 
 1. For Windows 10, press Windows+S, input environment parameter and select `Edit the system enviroment variables`. 
 
-   ![3_2017-06-07_12-07-03](assets/3_2017-06-07_12-07-03.png)
-
 2. Select Path and click `edit`:
-
-   ![3_environment_variable](assets/3_environment_variable.png)
 
 3. Click `create` in the popped up window and input your file filer directory that contains neon.exe, then press `confirm`.
 
 > [!Note]
 >
 > Do not add a path that contains“…… neon.exe” in the environment parameter field. Remember to input the path of the **file folder directory** that contains neon.exe instead of the path of neon.exe file.
-
-![3_edit_environment_variable](assets/3_edit_environment_variable.png)
 
 After the path is added, run CMD or PowerShell for testing purpose (if CMD starts working before the path is added, remember to restart it after adding the path).  If no error is reported after inputting neon and  the system sends the prompt message containing version number as follows, it means that the environment parameter configuration is successful.
 
