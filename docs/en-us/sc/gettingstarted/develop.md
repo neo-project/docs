@@ -24,11 +24,11 @@ Open Visual Studio 2019 and click `	EXTENSIONS` -> `Manage Extensions`，click `
 
 1. Pull [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) project from GitHub to your localhost and open it.
 
-3. Switch the branch to `master-2.x` (Master branch is the compiler of Neo3)
+3. Switch the branch to `master-2.x` (Currently the master branch is the Neo3 compiler)
 
-4. Publish project `Neo.Compiler.MSIL`
+4. Publish the project `Neo.Compiler.MSIL`
 
-5. After successful publish, you can see a `neon.exe` in path ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 。
+5. After successful publish, you can find `neon.exe` under the path ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\
 
 
 ### Change environment parameter settings
