@@ -38,11 +38,11 @@
 | list asset                                        |                                        | 列出钱包中的所有资产。<br/>需要打开钱包。         |
 | list key                                          |                                        | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
 | [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
-| [create address](#create-address)                 | [n为正整数，不填默认为1]               | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
+| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
 | [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
 | [export key](#export-key)                         | \[address] [path]                      | 导出私钥。<br/>需要打开钱包。                     |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。<br/>需要打开钱包。             |
 | [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。<br/>需要打开钱包。               |
-| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                           | 创建多方签名合约。<br/>需要打开钱包。             |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
 
 #### 合约命令
@@ -67,65 +67,15 @@
 | [plugins](#plugins) |  | 显示已加载的插件 |
 | [install](#install) | [Plugin name] | 安装指定插件     |
 | [uninstall](#install) | [Plugin name] | 卸载指定插件     |
-|  | [path=chain.acc] | 导出全部区块数据，导出的结果可以用作离线同步|
-| [export block[s]](#export-block-s-) | \<start> [count] | 从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步 |
 | [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
 #### 高级命令
 
-| 命令                                | 参数     | 说明     |
-| ----------------------------------- | -------- | -------- |
-| [export block[s]](#export-block-s-) | \<index> |          |
-| [start consensus](#start-consensus) |          | 启动共识 |
+| 命令                                | 参数     | 说明                                         |
+| ----------------------------------- | -------- | -------------------------------------------- |
+| [export block[s]](#export-block-s-) | \<index> | 导出全部区块数据，导出的结果可以用作离线同步 |
+| [start consensus](#start-consensus) |          | 启动共识                                     |
 
 ## 命令说明
-
-###  deploy
-
-将智能合约发布到链上。
-
-##### 句法
-
-`deploy <nefFilePath> [manifestFile]` 
-
-##### 参数
-
-- `nefFilePath`：NeoVM的可执行文件 .nef 的路径
-- `manifestFile`：manifest.json 文件的路径。manifest 记录了合约的各个接口信息以及配置内容。
-
-##### 示例
-
-```
-neo> deploy Template.nef Template.manifest.json  
-Script hash: 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6
-Gas Consumed: 100000000
-
-Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c767813be5d53e02a983f4e561d284
-```
-
-### invoke
-
-调用合约
-
-##### 句法
-
-`invoke <scripthash> <command> [optionally quoted params separated by space]` 
-
-##### 参数
-
-- `scripthash`：要调用的合约脚本 hash
-- `command`：合约内方法名，后面可以输入传入参数，以空格隔开
-
-##### 示例
-
-```
-neo> invoke 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6 name
-Invoking script with: '00c1046e616d6514c6e5db4c428dfa9546c92bd8ae30f69a7be25c1e68627d5b52'
-VM State: HALT
-Gas Consumed: 4320950
-Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
-
-relay tx(no|yes): no
-```
 
 ### create wallet
 
@@ -376,6 +326,60 @@ Signed Output:
 {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"0071c0992d42e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c00e1f50500000000ac0c240000000000cb152300000142e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c01550400c2eb0b146c93f190909dea8dfe3caeb2ee90530b4ef21e861442e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1","items":{"0x0c2a95d2bba739e2b2e1b0e55d3b768b2ca6e242":{"script":"5221032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff002102685dd451efbf38cf859a80f250815f503303dd7b9f6546786164de219ede87735268c7c34cba","parameters":[{"type":"Signature","value":"794f87a810bd30b15f90ddc1898e2e592c1a3fae4b14e34d8a411305e7913d44ab56e388125ef597be46a8958b2ed8c5e298076c2d69ab3337c944f5356c462b"},{"type":"Signature","value":"d9ac57bac4260c60707e0b641585c70789e1a2eb5438c95de972af9aff99f5f4485b81cd2382218583b7f4950da54dbd8d1468f72b91809e14bb1c8139cca637"}]}}}
 ```
 
+###  deploy
+
+将智能合约发布到链上。
+
+##### 句法
+
+`deploy <nefFilePath> [manifestFile]` 
+
+##### 参数
+
+- `nefFilePath`：NeoVM的可执行文件 nef 的路径
+- `manifestFile`：可选。Manifest.json 文件的路径。Manifest 记录了合约的各个接口信息以及配置内容。如果为空，则程序会自动匹配与 nef 文件同名的 manifest.json 文件。
+
+##### 示例
+
+```
+neo> deploy Template.nef Template.manifest.json  
+Script hash: 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6
+Gas Consumed: 1
+
+Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c767813be5d53e02a983f4e561d284
+```
+
+### invoke
+
+调用合约
+
+##### 句法
+
+`invoke <scripthash> <command> [optionally quoted params separated by space]` 
+
+##### 参数
+
+- `scripthash`：要调用的合约脚本 hash
+- `command`：合约内方法名，后面可以输入传入参数，以空格隔开
+- `[optionally quoted params separated by space]` 为调用参数，目前只能传入字符串格式的参数。
+
+##### 示例
+
+```
+neo> Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0103609
+Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
+
+relay tx(no|yes):
+```
+
+其中 VM State 为 `HALT` 表示虚拟机执行成功， VM State 为 `FAULT` 表示虚拟机执行时遇到异常退出。
+
+Gas Consumed 表示调用智能合约时消耗的系统手续费。
+
+Evaluation Stack 表示合约执行结果，其中 value 是 Base64 编码后的结果。
+
 ### relay
 
 将完成签名的交易信息进行广播。
@@ -435,22 +439,6 @@ Install successful, please restart neo-cli.
 
 以上只是示例插件，更多插件请参考 [安装插件](config.md)。
 
-###export block[s]
-
-导出全部区块数据，或者从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步。要使用此命令，需先安装 ImportBlocks 插件。
-
-##### 句法
-
-`export block[s] [path=chain.acc]`
-
-`export block[s] <start> [count]`
-
-##### 参数
-
-`[path=chain.acc]`：导出全部区块数据
-
-`<start> [count]`：指定要导出数据的起始区块高度和区块数量
-
 ### dump storage
 
 导出全部或指定的状态量数据。
@@ -459,9 +447,21 @@ Install successful, please restart neo-cli.
 
 `dump storage <key>`
 
+### export blocks
+
+导出全部区块数据，或者从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步。
+
+##### 句法
+
+`export blocks <index>`
+
+##### 参数
+
+`<index> `：指定要导出数据的起始区块高度
+
 ### start consensus
 
-启动共识。启动共识的前提是该钱包有共识的权限，在 NEO 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
+启动共识。启动共识的前提是该钱包有共识的权限，在 Neo 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
 
 > [!NOTE]
 >
