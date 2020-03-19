@@ -68,8 +68,6 @@
       href: /docs/zh-cn/network/private-chain/private-chain.md
     - name: 在本地主机搭建
       href: /docs/zh-cn/network/private-chain/private-chain2.md
-    - name: Neo-local
-      href: /docs/zh-cn/network/private-chain/neolocal.md
 - name: 智能合约开发
   items:
   - name: 快速入门（C#）
