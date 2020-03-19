@@ -18,35 +18,47 @@
 | 内存     | 8G                                                   | 16G                                                  |
 | 硬盘     | 50G 固定硬盘                                         | 100G 固定硬盘                                        |
 
-## 通过源码发布 Neo-CLI 
+## 通过源码发布 Neo-CLI
 
 ### 准备工作
 
-下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
+1. 下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
 
-```
-$ git clone https://github.com/neo-project/neo-node.git
-```
+   ```
+   $ git clone https://github.com/neo-project/neo-node.git
+   ```
 
-下载 [neo-modules](https://github.com/neo-project/neo-modules) 项目，或通过 Git 命令克隆项目。
+2. （可选）下载 [neo-modules](https://github.com/neo-project/neo-modules) 项目，或通过 Git 命令克隆项目。
 
-```
-$ git clone https://github.com/neo-project/neo-modules.git
-```
+   ```
+   $ git clone https://github.com/neo-project/neo-modules.git
+   ```
 
-下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
+   该项目包含了一系列NEO核心库中使用的插件/模块，推荐开发者发布使用。
 
-安装最新版的 [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)。
+3. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
 
-### 在 Windows 系统中发布（Visual Studio）
+4. 安装最新版的 [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)。
 
-使用 Visual Studio 打开下载的两个项目文件，依次发布  neo-cli、LevelDBStore、RpcServer（可选，开发者推荐）、ApplicationLogs（可选，开发者推荐）
+### 使用Visual Studio发布（仅Windows）
 
-如果选择了 RpcServer，需要下载 2.1.1 版本的 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/2.1.1) 并解压，进入 `lib\netstandard2.0` 目录，复制 `Microsoft.AspNetCore.ResponseCompression.dll` 放到 RpcServer 的发布文件夹中
+如果使用Windows系统且已安装Visual Studio 2019, 推荐此方法进行发布：
 
-进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
+1. 在 Visual Studio 中打开项目文件neo-node.sln, 在解决方案栏中右键单击`neo-cli`，点击`发布`。
 
-新建 Plugins 文件夹，将发布的 LevelDBStore、RpcServer、ApplicationLogs 放入 Plugins 文件夹中。
+2. 继续打开项目文件neo-modules.sln，依次发布以下插件：
+
+   - RpcServer：提供所有RPC 命令
+   - ApplicationLogs：自动同步智能合约日志
+   - LevelDBStore：把区块链数据存储到区块链中
+
+   > [!Note]
+   >
+   > 如果选择了 RpcServer，需要下载 2.1.1 版本的 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/2.1.1) 并解压，进入 `lib\netstandard2.0` 目录，复制 `Microsoft.AspNetCore.ResponseCompression.dll` 放到 RpcServer 的发布文件夹中。
+
+3. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
+
+4. 新建 Plugins 文件夹，将发布的插件放入该文件夹中。
 
 完整的目录结构如下：
 
@@ -67,51 +79,52 @@ neo-cli.exe
 ……
 ```
 
-### 在 Windows、Linux、macOS 系统中发布（命令行）
+### 使用命令行发布（Windows/Linux/macOS）
 
-可以用 .NET Core CLI 来发布项目，[dotnet publish 命令参考](https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-publish)。
+也可以用 .NET Core CLI 来发布项目，详情可参考 [dotnet publish 命令参考](https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-publish)。
 
-发布 neo-cli
+1. 发布 neo-cli：
 
-其中 `<RUNTIME_IDENTIFIER>` 为运行时标识符，应根据系统选择对应的 [RID 目录](https://docs.microsoft.com/zh-cn/dotnet/core/rid-catalog)，如 `win-x64`、 `linux-x64`、 `osx-x64` 等。
+   ```
+   cd neo-node\neo-cli
+   dotnet restore
+   dotnet publish -c release -r <RUNTIME_IDENTIFIER>
+   ```
+   其中 `<RUNTIME_IDENTIFIER>` 为运行时标识符，应根据系统选择对应的 [RID 目录](https://docs.microsoft.com/zh-cn/dotnet/core/rid-catalog)，如 `win-x64`、 `linux-x64`、 `osx-x64` 等。
+   
+2. 发布 LevelDBStore（推荐）
 
-```
-cd neo-node\neo-cli
-dotnet restore
-dotnet publish -c release -r <RUNTIME_IDENTIFIER>
-```
+   ```
+   cd neo-modules\src\LevelDBStore
+   dotnet restore
+   dotnet publish -c release -r <RUNTIME_IDENTIFIER>
+   ```
 
-发布 LevelDBStore
+3. 发布 RpcServer（推荐）
 
-```
-cd neo-modules\src\LevelDBStore
-dotnet restore
-dotnet publish -c release -r <RUNTIME_IDENTIFIER>
-```
+   ```
+   cd neo-modules\src\RpcServer
+   dotnet restore
+   dotnet publish -c release -r <RUNTIME_IDENTIFIER>
+   ```
 
-发布 RpcServer（可选，开发者推荐）
+   > [!Note]
+   >
+   > 如果选择了 RpcServer，需要下载 2.1.1 版本的 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/2.1.1) 并解压，进入 `lib\netstandard2.0` 目录，复制 `Microsoft.AspNetCore.ResponseCompression.dll` 放到 RpcServer 的发布文件夹中。
 
-```
-cd neo-modules\src\RpcServer
-dotnet restore
-dotnet publish -c release -r <RUNTIME_IDENTIFIER>
-```
+4. 发布 ApplicationLogs（推荐）
 
-下载 2.1.1 版本的 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/2.1.1) 并解压，进入 `lib\netstandard2.0` 目录，复制 `Microsoft.AspNetCore.ResponseCompression.dll` 放到 RpcServer 的发布文件夹中。
+   ```
+   cd neo-modules\src\ApplicationLogs
+   dotnet restore
+   dotnet publish -c release -r win10-x64
+   ```
 
-发布 ApplicationLogs（可选，开发者推荐）
+5. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
 
-```
-cd neo-modules\src\ApplicationLogs
-dotnet restore
-dotnet publish -c release -r win10-x64
-```
+6. 新建 Plugins 文件夹，将发布的插件放入该文件夹中。
 
-进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
-
-新建 Plugins 文件夹，将发布的 LevelDBStore、RpcServer、ApplicationLogs 放入 Plugins 文件夹中。
-
-完整的目录结构如下：
+完成发布后完整的目录结构如下：
 
 ```
 ……
