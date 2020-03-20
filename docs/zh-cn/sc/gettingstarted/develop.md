@@ -32,7 +32,7 @@
 
 1. 运行Visual Studio，重新打开项目文件neo-devpack-dotnet.sln
 
-2. 发布 `Neo.Compiler.MSIL` 项目到默认文件夹\bin\Release\netcoreapp3.1\publish
+2. 在解决方案列表中右键单击 `Neo.Compiler.MSIL` ，选择`发布`，将该项目发布到默认文件夹\bin\Release\netcoreapp3.1\publish
 
 3. 进入上一步的发布路径，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动，如下图所示：
 
