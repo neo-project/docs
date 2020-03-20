@@ -12,122 +12,97 @@
 
 ### 安装 Visual Studio 2019
 
-下载 [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装，注意安装时需要勾选 `.NET Core 跨平台开发` 和 `Visual Studio 扩展开发`。
+1. 下载 [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装。
 
-安装 [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer) 以便接下来正确加载项目。
+   注意安装时需要勾选 `.NET Core 跨平台开发` 和 `Visual Studio 扩展开发`。
+
+2. 安装 [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer) 以便接下来正确加载项目。
 
 ### 安装 NeoContractPlugin 插件
 
-拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目并打开
+1. 拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目，在Visual Studio中打开项目文件neo-devpack-dotnet.sln
 
-编译 `Installer` 项目
+2. 在解决方案项目列表中右键单击 src/Installer，点击`生成`编译该项目。
 
-打开在 bin/Debug 目录下打开刚刚编译的 `Neo.SmartContract.Installer.vsix` 文件
+   成功编译后将在neo-devpack-dotnet-master\src\Installer\bin\Debug目录下生成`Neo.SmartContract.Installer.vsix`文件。
 
-安装  `Neo.SmartContract.Installer.vsix` 扩展
-
-重启 Visual Studio 
+3. 运行该文件，安装 NeoContractPlugin并重启 Visual Studio。
 
 ### 配置编译器
 
-打开 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目
+1. 运行Visual Studio，重新打开项目文件neo-devpack-dotnet.sln
 
-发布 `Neo.Compiler.MSIL` 项目，记下发布目录
+2. 发布 `Neo.Compiler.MSIL` 项目到默认文件夹\bin\Release\netcoreapp3.1\publish
 
-打开发布目录，如 \bin\Release\netcoreapp3.1\publish，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动
+3. 进入上一步的发布路径，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动，如下图所示：
 
-将发布目录添加到环境变量 PATH 中
+   ![](../assets/neon.png)
 
-在任意位置启动 PowerShell，输入命令 `neon.exe` 确保环境变量已正确配置
+4. 将发布目录添加到环境变量 Path 中:
 
-### 配置智能合约框架
+   ![](../assets/env.png)
 
-打开 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目
+5. 在任意位置启动 PowerShell，输入命令 `neon.exe` 确保环境变量已正确配置。
 
-编译 `Neo.SmartContract.Framework` 项目
 
-找到编译后的 `Neo.SmartContract.Framework.dll` 以便下一步使用
+### 编译智能合约框架
 
-## 创建 Neo 合约项目
+1. 返回Visual Studio，在解决方案`neo-devpack-dotnet`项目列表中右键单击`Neo.SmartContract.Framework` ，点击 `生成` 编译该项目。
+2. 进入编译后的文件输出目录，复制 `Neo.SmartContract.Framework.dll` 备用。
 
-启动 Visual Studio 2019，新建 NeoContract 项目
+## 创建 NEP-5 合约项目
 
-在项目上右键，打开 `管理 NuGet 程序包`
+### 创建项目
 
-卸载 `Neo.SmartContract.Framework` 的 NuGet 引用
+1. 在 Visual Studio 中点击 `文件`-> `新建` -> `项目`。
 
-将上一步编译的 `Neo.SmartContract.Framework.dll` 文件放入 NeoContract 项目中
+2. 在项目模板对话框中，搜索neocontract，选择C#对应的NeoContact，并根据向导完成项目创建。
 
-为 NeoContract 项目添加 `Neo.SmartContract.Framework.dll` 引用
+   ![](../assets/neocontract.png)
 
-至此，我们的 Neo3 智能合约项目就创建完成，接下来开始编写代码。
+3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用。
 
-## 编辑 NEP-5 代码
+4. 右键单击项目名 -> `粘贴`，将上一步复制的 `Neo.SmartContract.Framework.dll` 文件粘贴到NeoContract 项目下。
 
-项目创建完之后，我们已经得到了一份智能合约的代码模板。
+5. 右键单击`依赖项 `-> `添加引用`，选择刚复制到该项目下的`Neo.SmartContract.Framework.dll` 文件，将其添加到项目。
 
-示例代码比较简单，功能是向存储区存入 "Hello" "World" 的键值对。
+### 编辑 NEP-5 代码
 
-很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，现在我们就先在私链上一步步实现。
+创建项目后，会自动生成一个智能合约的代码模板，功能是向存储区存入 "Hello" "World" 的键值对。
 
-这里是 [Neo3 的 NEP5 示例](https://github.com/chenzhitong/Neo3-Smart-Contract-Examples/tree/master/NEP5) 可供参考
+很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-Neo3 的 NEP-5 合约相对于 Neo2 来说有以下几个地方的改动：
+1. 从Github上下载 Neo3 的 [NEP5 示例](https://github.com/chenzhitong/Neo3-Smart-Contract-Examples/tree/master/NEP5)。
 
-1、在智能合约类上方添加自定义特性（模板中已包含）
+2. 在之前创建的合约项目里打开示例文件Contract1.cs
 
-```c#
-[Features(ContractFeatures.HasStorage)]
-public class NEP5 : SmartContract
-……
-```
+   示例中主要写了资产的基本信息和供调用的方法，你可以根据自己的需要增删或修改。
 
-2、将所有的 `ToBigInteger()` 方法，改为 `TryToBigInteger()`
-
-并添加该扩展方法的实现，[参考](https://github.com/chenzhitong/Neo3-Smart-Contract-Examples/blob/master/NEP5/Helper.cs)
-
-```c#
-public static class Helper
-{
-    public static BigInteger TryToBigInteger(this byte[] value)
-    {
-        return value?.ToBigInteger() ?? 0;
-    }
-}
-```
-
-3、添加 Deploy 方法以供第一次分发资产（可选）[参考](https://github.com/chenzhitong/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs)
-
-```c#
-public static object Main(string method, object[] args)
-{
-	……
-	if (method == "deploy") return Deploy();
-	……
-}
-```
-
-```c#
-[DisplayName("deploy")]
-public static bool Deploy()
-{
-    if (TotalSupply() != 0) return false;
-    StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-    contract.Put("totalSupply", TotalSupplyValue);
-    StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-    asset.Put(Owner, TotalSupplyValue);
-    Transferred(null, Owner, TotalSupplyValue);
-    return true;
-}
-```
+> [!Note]
+>
+> 相对于 Neo2 来说， Neo3 的 NEP-5 合约模板有以下改动：
+>
+> - 在智能合约类上方添加了自定义特性：
+>
+>   ```c#
+>   [Features(ContractFeatures.HasStorage)]
+>   public class NEP5 : SmartContract
+>   ……
+>   ```
+>
+> - 将所有的 `ToBigInteger()` 方法改为 `TryToBigInteger()`
+>
+> - 添加了Deploy 方法以供第一次分发资产，开发者可以根据需求自定义方法
+>
 
 ## 编译合约文件
 
-点击菜单栏上的 `生成` -> `生成解决方案`（快捷键 Ctrl + Shift + B）开始编译程序。
+完成合约代码编写后，点击菜单栏上的 `生成` -> `生成解决方案`（快捷键 Ctrl + Shift + B）编译程序。
 
-编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `NEP5.nef` 文件，它相当于 Neo2 中的 .avm 文件，是 Neo 智能合约的执行文件。
+编译成功后会在该项目的 `bin/Debug` 目录生成以下文件：
 
-`NEP5.manifest.json` 是智能合约的描述文档，文档中对合约的 功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
+-  `NEP5.nef` ：与 Neo2 中的 .avm 文件类似，.nef 是 Neo3 的智能合约执行文件。
+- `NEP5.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
 
 ## 继续阅读
 
