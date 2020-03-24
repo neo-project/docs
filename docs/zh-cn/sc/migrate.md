@@ -13,44 +13,69 @@
 - 最新版 [Neo-GUI](https://github.com/neo-project/neo-gui/releases)
 
 ### 实现 Migrate 接口
+
 要使用合约迁移的功能，需要在原有合约中实现迁移接口，如下所示：
 
 ```c#
 public static object Main(string method, params object[] args)
 {
-    ...
-    if (method == "migrate")
-    {
-        if (args.Length < 9) return false;
-        byte[] script = (byte[])args[0];
-        byte[] plist = (byte[])args[1];
-        byte rtype = (byte)args[2];
-        ContractPropertyState cps = (ContractPropertyState)args[3];
-        string name = (string)args[4];
-        string version = (string)args[5];
-        string author = (string)args[6];
-        string email = (string)args[7];
-        string description = (string)args[8];
-        return Migrate(script, plist, rtype, cps, name, version, author, email, description);
-    }
-    ...
+   ...
+   if (method == "migrate")
+   {
+      if (args.Length < 9) return false;
+      byte[] script = (byte[])args[0];
+      byte[] plist = (byte[])args[1];
+      byte rtype = (byte)args[2];
+      ContractPropertyState cps = (ContractPropertyState)args[3];
+      string name = (string)args[4];
+      string version = (string)args[5];
+      string author = (string)args[6];
+      string email = (string)args[7];
+      string description = (string)args[8];
+      return Migrate(script,
+                     plist,
+                     rtype,
+                     cps,
+                     name,
+                     version,
+                     author,
+                     email,
+                     description);
+   }
+   ...
 }
 
-private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, ContractPropertyState cps, string name, string version, string author, string email, string description)
+private static Boolean Migrate(byte[] script,
+                              byte[] plist,
+                              byte rtype,
+                              ContractPropertyState cps,
+                              string name,
+                              string version,
+                              string author,
+                              string email,
+                              string description)
 {
-    var contract = Contract.Migrate(script, plist,rtype, cps, name, version, author, email, description);
-    return true;
+   var contract = Contract.Migrate(script,
+                                    plist,
+                                    rtype,
+                                    cps,
+                                    name,
+                                    version,
+                                    author,
+                                    email,
+                                    description);
+   return true;
 }
-
 ... // 省略了部分代码
 ```
 
 如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 Migrate 接口。关于部署合约，请参考 [部署和调用合约](deploy/deploy.md)。
 
 ### 进行合约迁移
+
 首先准备好新合约，然后通过 Neo-GUI 调用旧合约的 Migrate 的接口。
 
-1. 在 Neo-GUI 中，点击 `高级` > `部署合约`，然后 `加载` 新合约。复制合约脚本和 ScriptHash 备用。
+1. 在 Neo-GUI 中，点击 `高级` > `部署合约`，然后 `加载` 新合约。复制合约脚本和 ScriptHash 备用。注意这里并不需要部署新合约。
 
 2. 点击 `高级` > `调用合约`，输入旧合约的 ScriptHash, 可以查看到已部署的旧合约信息。
 
@@ -60,7 +85,7 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
 
    ![输入参数](assets/migrate_m2.png)
 
-4. 输入完成后点击 `试运行` 查看结果，可以看到返回1-True，手续费为 491 GAS。
+4. 输入完成后点击 `试运行` 查看结果，可以看到返回1即True，手续费为 491 GAS。
 
    ![试运行](assets/migrate_m3.png)
 
@@ -74,7 +99,7 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
 
    ![旧合约](assets/migrate_m5.png)
 
-此时旧合约的存储区已迁移到新的合约上，旧合约被销毁。
+此时旧合约的存储区已迁移到新的合约上，旧合约被销毁。注意如果迁移失败，旧合约也将被销毁，请谨慎调用该方法。
 
 ## 合约销毁
 
@@ -86,5 +111,4 @@ private static Boolean Migrate(byte[] script, byte[] plist, byte rtype, Contract
 void Destroy();
 ```
 
-Destroy 方法不需要参数，调用该方法后，合约将会被删除，如果合约有存储区，则存储区也将被删除。之后合约将不可用。
-
+Destroy 方法不需要参数，调用该方法后，合约将会被删除，如果合约有存储区，则存储区也将被删除。注意销毁合约之后合约将不可用，请谨慎调用该方法。
