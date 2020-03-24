@@ -1,12 +1,12 @@
 # sendrawtransaction Method
 
-Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../../../../tooldev/advanced/network-protocol.md).
+Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../../../../tooldev/network-protocol.md).
 
-## Parameter Description
+#### Parameters
 
 Hex: A hexadecimal string that has been serialized, after the signed transaction in the program.
 
-## Example
+#### Example
 
 Request body:
 
@@ -30,6 +30,7 @@ Response body if successful:
 ```
 
 Response body if not successful:
+
 ```json
 {
     "jsonrpc": "2.0",
@@ -43,7 +44,11 @@ Response body if not successful:
 
 Response Description:
 
-When result is false, the current transaction has failed to broadcast and an exception is raised. The following error codes can be expected
+When result is true, the current transaction is successfully broadcasted.
+
+When result is false, the current transaction has failed to broadcast and an exception is raised. 
+
+In this example, a confirmed transaction is re-sent, so it failed. The following error codes can be expected:
 
 Error code | Message |
 | --------------- | ---- |

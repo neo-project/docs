@@ -2,13 +2,14 @@
 
 Returns the stored value, according to the contract script hash and the stored key.
 
-## Parameter Description
+#### Parameters
 
-script_hash: Contract script hash
+- script_hash: Contract script hash
 
-key: The key to look up in storage (in hex string)
+- key: The key to look up in storage (in hex string)
 
-## Example
+
+#### Example
 
 Request body:
 

@@ -1,4 +1,4 @@
-# Wallet
+# Wallet related operations
 
 ### Creating a wallet
 
@@ -37,4 +37,8 @@ catch (Exception)
 }
 ```
 
-If a wrong password is inputted for unlocking the wallet, an exception is thrown.
+If the password is wrong for unlocking the wallet, an exception will be thrown.
+
+
+
+To be continued.

@@ -8,13 +8,13 @@
     items：
     - name: NeoVM
       href: /docs/zh-cn/basic/technology/neovm.md
-    - name: NEO Contract白皮书
+    - name: NEO Contract
       href: /docs/zh-cn/basic/technology/neocontract.md
     - name: 共识机制
       href: /docs/zh-cn/basic/technology/dbft.md
 - name: NEO 节点
   items:
-  - name: NEO 节点介绍
+  - name: 节点介绍
     href: /docs/zh-cn/node/introduction.md
   - name: NEO-GUI
     items:
@@ -34,10 +34,10 @@
       href: /docs/zh-cn/node/gui/other.md
   - name: NEO-CLI
     items:
-    - name: 发布
-      href: /docs/zh-cn/node/cli/publish.md
     - name: 安装
       href: /docs/zh-cn/node/cli/setup.md
+    - name: 配置与启动
+      href: /docs/zh-cn/node/cli/config.md
     - name: 节点列表
       href: /docs/zh-cn/node/cli/seedlist.md
     - name: 命令参考
@@ -56,6 +56,8 @@
       href: /docs/zh-cn/node/python/basic.md
     - name: Prompt
       href: /docs/zh-cn/node/python/prompt.md
+  - name: 快速同步区块
+    href: /docs/zh-cn/node/syncblocks.md
 - name: NEO 网络
   items:
   - name: 主网与测试网
@@ -64,10 +66,10 @@
     items:
     - name: 单节点模式
       href: /docs/zh-cn/network/private-chain/solo.md
-    - name: 使用虚拟机搭建
-      href: /docs/zh-cn/network/private-chain/private-chain.md
     - name: 在本地主机搭建
       href: /docs/zh-cn/network/private-chain/private-chain2.md
+    - name: 使用虚拟机搭建
+      href: /docs/zh-cn/network/private-chain/private-chain.md
     - name: Neo-local
       href: /docs/zh-cn/network/private-chain/neolocal.md
 - name: 智能合约开发
@@ -86,13 +88,15 @@
       href: /docs/zh-cn/sc/gettingstarted/deploy.md
   - name: 开发环境
     items:
-    - name: 在 macOS 上使用 C# 编写合约
+    - name: Windows + C#
+      href: /docs/zh-cn/sc/devenv/getting-started-csharp.md
+    - name: macOS + C#
       href: /docs/zh-cn/sc/devenv/getting-started-csharp-mac.md
-    - name: 在 ubuntu 上使用 C# 编写合约
+    - name: ubuntu + C#
       href: /docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.md
-    - name: 使用 Java 编写合约
+    - name: Java
       href: /docs/zh-cn/sc/devenv/getting-started-java.md
-    - name: 使用 python 编写合约
+    - name: Python
       href: /docs/zh-cn/sc/devenv/getting-started-python.md
   - name: 合约编写
     items:
@@ -102,14 +106,16 @@
       href: /docs/zh-cn/sc/write/limitation.md
     - name: NEP-5
       href: /docs/zh-cn/sc/write/nep5.md
-  - name: 部署和调用合约
+  - name: 部署和调用
     - name: 部署合约
-      href: /docs/zh-cn/sc/deploy/deploy-invoke.md
+      href: /docs/zh-cn/sc/deploy/deploy.md
+    - name: 调用合约
+      href: /docs/zh-cn/sc/deploy/invoke.md
     - name: 参数和返回值
       href: /docs/zh-cn/sc/deploy/Parameter.md
   - name: 测试
     href: /docs/zh-cn/sc/test.md
-  - name: 合约迁移与销毁
+  - name: 合约迁移
     href: /docs/zh-cn/sc/migrate.md
   - name: 手续费
     href: /docs/zh-cn/sc/fees.md
@@ -119,10 +125,13 @@
       href: /docs/zh-cn/sc/sample/HelloWorld.md
     - name: Domain（域名系统）
       href: /docs/zh-cn/sc/sample/Domain.md
-    - name: 鉴权合约
-      href: /docs/zh-cn/sc/sample/verify.md
-    - name: 锁仓合约
+    - name: 锁仓合约教程
       href: /docs/zh-cn/sc/sample/Lock2.md
+- name: DApp 开发
+  - name: 介绍
+    href:  /docs/zh-cn/dapp/intro.md
+  - name: 与区块链集成
+    href:  /docs/zh-cn/dapp/integ.md
 - name: NEO工具开发
   - name: 基本概念
     - name: 区块模型
@@ -138,17 +147,6 @@
         href: /docs/zh-cn/tooldev/concept/blockchain/validator.md      
     - name: 收费模型
       href: /docs/zh-cn/tooldev/concept/charging_model.md
-    - name: 交易
-      href: /docs/zh-cn/tooldev/concept/transaction.md
-    - name: 钱包
-      href: /docs/zh-cn/tooldev/concept/wallets.md
-    - name: 共识机制
-      - name: 共识算法
-        href: /docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.md
-      - name: 共识协议
-        href: /docs/zh-cn/tooldev/concept/consensus/consensus_protocol.md
-      - name: 投票
-        href: /docs/zh-cn/tooldev/concept/consensus/vote_validator.md
     - name: 密码学
       href:
       - name: 编码算法
@@ -157,45 +155,52 @@
         href: /docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.md
       - name: 加密算法
         href: /docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
+    - name: 大小端序的使用
+      href:  /docs/zh-cn/tooldev/concept/endian.md
   - name: NEO-CLI 结构
     href:  /docs/zh-cn/tooldev/neo_cli_structure.md
+  - name: 网络协议
+    href: /docs/zh-cn/tooldev/network-protocol.md
+  - name: 共识机制
+    - name: 共识算法
+      href: /docs/zh-cn/tooldev/consensus/consensus_algorithm.md
+    - name: 共识协议
+      href: /docs/zh-cn/tooldev/consensus/consensus_protocol.md
+    - name: 投票
+      href: /docs/zh-cn/tooldev/consensus/vote_validator.md
+  - name: 钱包
+    href: /docs/zh-cn/tooldev/wallets.md
+  - name: 交易
+    - name: 交易
+      href: /docs/zh-cn/tooldev/transaction/transaction.md
+    - name: 交易流程
+      href: /docs/zh-cn/tooldev/transaction/tx_execution.md
   - name: NEO SDK
     items:
     - name: 关于 NEO SDK
       href: /docs/zh-cn/tooldev/sdk/introduction.md
     - name: 数据类型转换
-      href: /docs/zh-cn/tooldev/sdk/format.md
+      href: /docs/zh-cn/tooldev/sdk/conversion.md
     - name: 账户
       href: /docs/zh-cn/tooldev/sdk/account.md
     - name: 钱包
       href: /docs/zh-cn/tooldev/sdk/wallet.md
     - name: 交易
       href: /docs/zh-cn/tooldev/sdk/tx.md
-  - name: 进阶知识
-    - name: NeoVM 指令集
-      href: /docs/zh-cn/tooldev/advanced/neo_vm.md
-    - name: 网络协议
-      href: /docs/zh-cn/tooldev/advanced/network-protocol.md
-    - name: 交易流程
-      href: /docs/zh-cn/tooldev/advanced/tx_execution.md
-    - name: 梅克尔树
-      href: /docs/zh-cn/tooldev/advanced/merkle_tree.md
-    - name: 布隆过滤器
-      href: /docs/zh-cn/tooldev/advanced/bloom_filter.md
 - name: 交易所对接指南
   items:
   - name: 概述
     href:  /docs/zh-cn/exchange/general.md
-  - name: v2.10.2
+  - name: v2.10.3
     items:
     - name: 部署 NEO 节点
-      href: /docs/zh-cn/exchange/2.10.2/deploynode.md
+      href: /docs/zh-cn/exchange/2.10.3/deploynode.md
     - name: 使用 NEO-CLI 客户端
-      href: /docs/zh-cn/exchange/2.10.2/client.md
+      href: /docs/zh-cn/exchange/2.10.3/client.md
     - name: 处理资产交易
-      href: /docs/zh-cn/exchange/2.10.2/transaction.md
+      href: /docs/zh-cn/exchange/2.10.3/transaction.md
     - name: 给用户分发 GAS
-      href: /docs/zh-cn/exchange/2.10.2/gas.md 
+      href: /docs/zh-cn/exchange/2.10.3/gas.md 
   - name: 更新记录
     href: /docs/zh-cn/exchange/changelog.md
 - name: 开发参考
@@ -203,7 +208,7 @@
   - name: RPC API
     - name: API 参考
       href:  /docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: v2.10.2
+    - name: v2.10.3
       items:
       - name: claimgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/claimgas.md
@@ -271,8 +276,6 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.md
       - name: importprivkey
         href: /docs/zh-cn/reference/rpc/latest-version/api/importprivkey.md
-      - name: invoke
-        href: /docs/zh-cn/reference/rpc/latest-version/api/invoke.md
       - name: invokefunction
         href: /docs/zh-cn/reference/rpc/latest-version/api/invokefunction.md
       - name: invokescript
@@ -342,3 +345,7 @@
           items:
           - name: ExecutionEngine
             href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: SDK API (C#)
+    href: https://docs.neo.org/developerguide/zh/api/index.html
+  - name: NeoVM 指令集
+    href: /docs/zh-cn/reference/neo_vm.md

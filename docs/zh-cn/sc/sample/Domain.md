@@ -1,7 +1,6 @@
-# 智能合约示例——Domain（域名系统）
+# Domain 示例
 
 ```c#
-using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract

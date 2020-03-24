@@ -1,6 +1,4 @@
-# Account
-
-The NEO SDK version used in this document is 2.9.0.
+# Account related operations
 
 ### Verifying NEO address
 
@@ -71,3 +69,4 @@ public void Generate(byte[] publicKey)
 ```
 
 
+To be continued.

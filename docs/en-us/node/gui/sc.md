@@ -49,5 +49,5 @@ If the script inputted is not correct, an error is displayed.
 
 ## Deploying and invoking smart contracts
 
-For the smart contracts you have compiled, you can depoy and invoke them in the NEO blockchain using NEO-GUI. For more information, refer to [deploying and invoking smart contracts](../../sc/deploy/deploy-invoke.md).
+For the smart contracts you have compiled, you can depoy and invoke them in the NEO blockchain using NEO-GUI. For more information, refer to [deploying and invoking smart contracts](../../sc/deploy/deploy.md).
 

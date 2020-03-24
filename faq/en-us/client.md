@@ -19,7 +19,7 @@ Read the instructions in [Synchronizing the blockchain faster](../../docs/en-us/
 
 - You have downloaded the proper package
 - You have directly placed the downloaded file (chain.0.acc.zip or chain.xxx.acc.zip) under the root directory of NEO-CLI or NEO-GUI without modifying the file name
-- You have installed the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.9.0/ImportBlocks.zip) plugin.
+- You have installed the [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) plugin.
 
 ## How do I know my client has been fully synchronized?
 
@@ -46,7 +46,7 @@ A dual-core CPU, 8G memory, and a solid state drive with a minimum of 100G or mo
 
 You can write some scripts, such as creating a Notepad file on Windows, typing `dotnet neo-cli.dll /rpc` and saving it as a .cmd file or using the screen command on linux.
 
-##I can't see my NEO in my wallet! Is it gone?
+## I can't see my NEO in my wallet! Is it gone?
 
 1. Most of the time,  whenever your NEO or GAS is not showing up in your wallet, the problem lies with the wallet. To make sure your NEO is safe, you can check your  balance on a NEO blockchain explorer, such as <https://neoscan.io/>.
 
@@ -54,9 +54,9 @@ You can write some scripts, such as creating a Notepad file on Windows, typing `
 
    - **NEO GUI wallet**: Re-index your wallet.
 
-   - **NEON wallet**: Refresh your wallet.
+   - **Light wallet, e.g. NEON wallet**: Refresh your wallet.
 
-##I have sent x amount of NEO/GAS to my wallet, but it has not arrived yet. Why?
+## I have sent x amount of NEO/GAS to my wallet, but it has not arrived yet. Why?
 
 1. Please confirm with the crypto currency exchange from which you made the transfer that the transaction was successful. If so:
 2. Please check the status of your transaction/account on a blockchain explorer:

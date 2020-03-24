@@ -2,11 +2,11 @@
 
 Verifies that the address is a correct NEO address.
 
-## Parameter Description
+#### Parameters
 
 address: Address.
 
-## Example
+#### Example
 
 Request body:
 

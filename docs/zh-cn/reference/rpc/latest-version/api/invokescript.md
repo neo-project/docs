@@ -7,11 +7,11 @@
 > - 此方法用于测试你的虚拟机脚本，如同在区块链上运行一样。这个RPC调用对区块链没有任何影响。
 > - 此方法由插件提供，需要安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
 
-## 参数说明
+#### 参数
 
 script：一个由虚拟机运行的脚本，与 InvocationTransaction 中携带的脚本相同。
 
-## 调用示例
+#### 调用示例
 
 请求正文：
 

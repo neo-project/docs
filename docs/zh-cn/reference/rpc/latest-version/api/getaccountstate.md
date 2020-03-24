@@ -2,11 +2,11 @@
 
 根据账户地址，查询账户全局资产（如 NEO、GAS 等）资产信息。
 
-## 参数说明
+#### 参数
 
 address：账户地址，以 A 开头的 34 位长度的字符串，如 AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz。
 
-## 调用示例
+#### 调用示例
 
 请求正文：
 
@@ -42,15 +42,16 @@ address：账户地址，以 A 开头的 34 位长度的字符串，如 AJBENSwa
 
 响应说明：
 
-script_hash：合约脚本散列，在 NEO 中所有账户都是合约账户。
+- script_hash：合约脚本散列，在 NEO 中所有账户都是合约账户。
 
-frozen：该账户是否冻结。
+- frozen：该账户是否冻结。
 
-votes：查询该地址用于投票的 NEO
+- votes：查询该地址用于投票的 NEO
 
-balance：该地址的资产余额。
+- balance：该地址的资产余额。
 
-asset：资产 ID
+- asset：资产 ID
 
-value：资产金额。
+- value：资产金额。
+
 

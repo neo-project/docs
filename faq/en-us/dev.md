@@ -19,13 +19,17 @@ You can also refer to the [community articles](../../articles/en-us/index.md) to
 
 NEO supports a variety of mainstream programming languages and can be developed using C#, Python, Go, JS, and Jave. Currently in the NEO ecosystem, the infrastructure for C# and Python is extremely well-developed and various compilers are provided for developers.
 
-## How can I obtain the NEP-5 assets TXID?
+## How can I obtain the NEP-5 asset hash?
 
-Currently we recommend you use the blockchain browser https://scan.nel.group to view the NEP-5 assets TXID.
+You can choose one of the following methods:
 
-1. In the browser, click Assets in the top navigation bar. 
-2. In the Assets drop-down list, select NEP-5.
-3. Click the desired asset to view its TXID in the details page that appears.
+- Use a blockchain browser, e.g.  https://scan.nel.group, to view the NEP-5 asset hash:
+
+  1. In the browser, click Assets in the top navigation bar. 
+  2. In the Assets drop-down list, select NEP-5.
+  3. Click the desired asset to view its hash in the details page that appears.
+
+- Download the plugin [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcNep5Tracker.zip) and then invoke the API method [getnep5balances](../../docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.md) included. You can find NEP-5 asset hash in the returned response.
 
 ## Why is it prompted that there is no object's private key in the wallet when withdrawing assets from a multi-party signature contract?
 

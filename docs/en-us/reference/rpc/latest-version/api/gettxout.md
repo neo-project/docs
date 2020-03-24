@@ -2,13 +2,14 @@
 
 Returns the corresponding unspent transaction output information (returned change), based on the specified hash and index. If the transaction output is already spent, the result value will be `null`.
 
-## Parameter Description
+#### Parameter Description
 
-Txid: Transaction ID
+- Txid: Transaction ID
 
-N: The index of the transaction output to be obtained in the transaction (starts from 0)
+- N: The index of the transaction output to be obtained in the transaction (starts from 0)
 
-## Example
+
+#### Example
 
 Request body:
 

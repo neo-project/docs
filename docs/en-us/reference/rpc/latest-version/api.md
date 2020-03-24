@@ -1,49 +1,8 @@
 # API Reference
 
-Each node in the Neo-CLI provides an API interface for obtaining blockchain data from a node, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
+Each NEO-CLI node provides an API interface for obtaining blockchain data from it, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. To start a node that provides an RPC service, run the following command:
 
 `dotnet neo-cli.dll /rpc`
-
-## Configuring the config.json file
-
-To access the RPC server via HTTPS, you need to modify the configuration file config.json before starting the node and set the domain name, certificate, and password:
-
-```json
-{
-  "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain"
-    },
-    "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "Port": 10331,
-      "SslCert": "YourSslCertFile.xxx",
-      "SslCertPassword": "YourPassword"
-    }
-  }
-}                                      
-```
-
-To invoke some API methods that require you to open a wallet, you also need to make the following changes in `config.json` before starting the node:
-
-- Change the UnlockWallet status `IsActive` to `true`.
-- Specify the file name and password of the desired wallet.
-
-```json
-...
-"UnlockWallet": {
-      "Path": "YourWallet.json",
-      "Password": "YourPassword",
-      "StartConsensus": false,
-      "IsActive": true
-    }
-...
-```
-
-Thereafter, when you open NEO-CLI, the client will automatically open the specified wallet and download the wallet index after it has been synchronized to the latest block height. 
 
 ## Listening ports 
 
@@ -63,7 +22,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [claimgas](api/claimgas.md) | [address] | Claims GAS in the wallet. | Need to open the wallet |
 | [dumpprivkey](api/dumpprivkey.md)               | \<address>                                  | Exports the private key of the specified address             | Need to open the wallet      |
 | [getaccountstate](api/getaccountstate.md)       | \<address>                                  | Checks account asset information according to account address |                              |
-| [getapplicationlog]() | \<txid> | Returns the contract log based on the specified txid. |  |
+| [getapplicationlog](api/getapplicationlog.md) | \<txid> | Returns the contract log based on the specified txid. |  |
 | [getassetstate](api/getassetstate.md)           | \<asset_id>                                 | Queries asset information according to the specified asset number |                              |
 | [getbalance](api/getbalance.md)                 | \<asset_id>                                 | Returns the balance of the corresponding asset in the wallet according to the specified asset number. | Need to open the wallet      |
 | [getbestblockhash](api/getbestblockhash.md)     |                                             | Gets the hash of the tallest block in the main chain         |                              |
@@ -93,7 +52,6 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getvalidators](api/getvalidators.md)           |                                             | Gets NEO consensus nodes information                         |                              |
 | [getwalletheight](api/getwalletheight.md)       |                                             | Gets the current wallet index height.                        |  Need to open the wallet |
 | [importprivkey](api/importprivkey.md) | \<key> | Imports the private key to the wallet. | Need to open the wallet |
-| [invoke](api/invoke.md)                         | \<script_hash>  \<params>                   | Invokes a smart contract at specified script hash with the given parameters |                              |
 | [invokefunction](api/invokefunction.md)         | \<script_hash>  \<operation>  \<params>     | Invokes a smart contract at specified script hash, passing in an operation and its params |                              |
 | [invokescript](api/invokescript.md)             | \<script>                                   | Runs a script through the virtual machine and returns the results |                              |
 | [listaddress](api/listaddress.md)               |                                             | Lists all the addresses in the current wallet.               | Need to open the wallet      |
@@ -107,9 +65,9 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 
 ## GET request example
 
-A typical JSON-RPC GET request format is as follows:
+The format of a typical JSON-RPC GET request is as follows:
 
-The following is an example of how to get the number of blocks in the main chain.
+Here is an example of how to get the number of blocks in the main chain.
 
 Request URL:
 
@@ -131,7 +89,7 @@ After sending the request, you will get the following response:
 
 The format of a typical JSON-RPC Post request is as follows:
 
-The following is an example of how to get the number of blocks in the main chain.
+Here is an example of how to get the number of blocks in the main chain.
 
 Request URL:
 
@@ -162,7 +120,7 @@ After sending the request, you will get the following response：
 
 ## Test tools
 
-You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection), the following is a test screenshot:
+You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection). A test screenshot is shown below:
 
 ![image](../../../assets/api_3.jpg)
 

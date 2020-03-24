@@ -61,7 +61,7 @@ Los siguientes comandos se explican en detalle:
 `password:******` <br>
 `address: AX9wfdHGDb2Q8Q4FKoEAa6xn2AG6VGx3Tf` <br>
  `pubkey: 03fa5ef0f098482b54bb151a13eedd439d026e5ce3c324c850fa5efd207f314833` <br>
- 
+
  **Abre el fichero monedero**
 
 :point_right: `open wallet`
@@ -78,7 +78,7 @@ Los siguientes comandos se explican en detalle:
 
 
 **Reconstruye los índices del fichero del monedero**
- 
+
 :point_right: `rebuild index`
 
 Reconstruye los índices del monedero. ¿Por qué es necesario reconstruir los índices del monedero?

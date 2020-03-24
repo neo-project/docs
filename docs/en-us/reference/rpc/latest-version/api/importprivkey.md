@@ -4,14 +4,16 @@ Imports the private key to the wallet.
 
 > [!Note] 
 >
-> - Before you can invoke this method you must open the wallet in NEO-CLI.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must：
+>
+> - Open the wallet in NEO-CLI.
+> - Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). 
 
-## Parameter Description
+#### Parameters
 
 Key: The WIF-format private key.
 
-## Example
+#### Example
 
 Request body:
 

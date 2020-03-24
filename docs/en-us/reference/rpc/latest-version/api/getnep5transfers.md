@@ -6,19 +6,18 @@ Returns all the NEP-5 transaction information occurred in the specified address.
 >
 > This method is provided by the plugin [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
 
-## Parameter Description
+#### Parameters
 
-address：The address to query the transaction information.
+- address：The address to query the transaction information.
 
-timestamp (Optional): 
+- timestamp (Optional): 
+  - If start and end timestamps are specified, transactions occurred in the time range are returned.
+  - If only one timestamp is specified, transactions occurred since that time are returned.
+  - If not specified, transactions in recent seven days are returned.
 
-- If start and end timestamps are specified, transactions occurred in the time range are returned.
-- If only one timestamp is specified, transactions occurred since that time are returned.
-- If not specified, transactions in recent seven days are returned.
+#### Example
 
-## Example
-
-Example 1 - no timestamp is specified:
+**Example 1 - no timestamp is specified**:
 
 Request body:
 
@@ -55,7 +54,7 @@ Response body:
 }
 ```
 
-Example 2 - start and end timestamps are specified:
+**Example 2 - start and end timestamps are specified**:
 
 Request body:
 

@@ -2,9 +2,9 @@
 
 ### Constructing transactions
 
-For the code of transation construction refer to [github.com/chenzhitong/createtransaction](https://github.com/chenzhitong/createtransaction)
+For the code of constructing transations, please refer to [github.com/chenzhitong/createtransaction](https://github.com/chenzhitong/createtransaction)
 
-### Transaction signature
+### Signing a Transaction
 
 ```c#
 private static Transaction SignWithWallet(Transaction tx)
@@ -48,7 +48,7 @@ private static Transaction SignWithWallet(Transaction tx)
 }
 ```
 
-### Verifying transactions
+### Verifying a Transaction
 
 ```c#
 var system = new NeoSystem(new LevelDBStore("Chain_00746E41"));
@@ -79,3 +79,7 @@ var outputs = new List<TransactionOutput>{ new TransactionOutput()
 
 //The network fee is 0.001 GAS
 ```
+
+
+
+To be continued.

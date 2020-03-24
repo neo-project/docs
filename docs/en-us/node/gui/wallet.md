@@ -20,9 +20,6 @@ A wallet file, with the .json or .db3 extension, stores a reference to your NEO,
 
 4. Click `OK` and the wallet is successfully created, which by default comes with a standard account. 
 
-   > [!Note]
-   >
-   > Due to the role of change mechanism, the remainder of the assets is transferred to the first address by default. Thus, there is a need to back up the corresponding private key and wallet.
 
 ## Viewing the wallet information
 
@@ -47,7 +44,7 @@ You can also do the following operations by right-clicking an address of the acc
 | Function          | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |
 | Create New Add.   | Creates a new address in the wallet                          |
-| Import            | `Import from WIF`: Imports the corresponding address into the wallet<br>`Import from Certificate:` Imports the certification <br>`Import Watch-Only Address`：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
+| Import            | `Import from WIF`: Imports the corresponding address into the wallet<br>`Import from Certificate`： Imports the certification <br>`Import Watch-Only Address`：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
 | Copy to Clipboard | Copies the address                                           |
 | Delete            | Removes the address                                          |
 

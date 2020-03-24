@@ -24,13 +24,13 @@
 
 [Docker 技术快速构建 NEO 私链](http://neofans.org/2018/10/30/5-steps-to-build-a-private-chain/)
 
-[如何将 NEL 提供的 thinWallet 接入 NEO 私链](https://bbs.neldev.net/thread-50.htm)
+[如何将 NEL 提供的 thinWallet 接入 NEO 私链](http://bbs.neldev.net/thread-50.htm)
 
 ### NEO 相关开发
 
 [NEO 开发技术学习手册](http://neofans.org/2018/09/21/neo开发技术学习手册/)
 
-[NEL 区块链开发者小白升级指导手册](https://bbs.neldev.net/thread-84.htm)
+[NEL 区块链开发者小白升级指导手册](http://bbs.neldev.net/thread-84.htm)
 
 [学习 NEO 开发如何进阶 ](http://neofans.org/2018/09/29/neo-learning-progression/)
 
@@ -38,15 +38,15 @@
 
 [开发 NEO 智能合约的步骤流程](http://neofans.org/2018/11/08/the-workflows-of-developing-neo-smart-contracts/)
 
-[针对 .NET 开发者的 NEO 区块链快速入门系列课程（***C#***）](https://bbs.neldev.net/forum-2.htm)
+[针对 .NET 开发者的 NEO 区块链快速入门系列课程（***C#***）](http://bbs.neldev.net/forum-2.htm)
 
 [NEO 智能合约的调试（***C#***）](http://neofans.org/2018/09/17/3/)
 
 [开发 NEO 智能合约的实用技巧（***C#***）](http://neofans.org/2018/11/15/practical-tips-in-developing-neo-smart-contracts/)
 
-[NEO 智能合约调试流程说明（***C#***）](https://bbs.neldev.net/?thread-43.htm)	
+[NEO 智能合约调试流程说明（***C#***）](http://bbs.neldev.net/?thread-43.htm)	
 
-[入门 NEO 智能合约（***Python***）](https://bbs.neldev.net/thread-103.htm) 
+[入门 NEO 智能合约（***Python***）](http://bbs.neldev.net/thread-103.htm) 
 
 [编写智能合约之环境搭建（***Python***）](http://neofans.org/2018/09/21/neo-python-1/)
 
@@ -64,10 +64,10 @@
 
 NEO 源码分析系列：
 
-- [NEO 源码分析之 NEP2 与 NEP6](https://bbs.neldev.net/thread-39.htm)
-- [NEO 源码分析之网络通信](https://bbs.neldev.net/thread-34.htm)
-- [NEO 源码分析之 DBFT 共识协议](https://bbs.neldev.net/thread-33.htm)
-- [NEO 源码分析之 UTXO 全局资产](https://bbs.neldev.net/thread-32.htm)
+- [NEO 源码分析之 NEP2 与 NEP6](http://bbs.neldev.net/thread-39.htm)
+- [NEO 源码分析之网络通信](http://bbs.neldev.net/thread-34.htm)
+- [NEO 源码分析之 DBFT 共识协议](http://bbs.neldev.net/thread-33.htm)
+- [NEO 源码分析之 UTXO 全局资产](http://bbs.neldev.net/thread-32.htm)
 
 ## 视频教程
 
@@ -79,12 +79,12 @@ NEO 源码分析系列：
 
 [dapp 开发系列课程 第一组 第二讲 ](http://neofans.org/2018/09/29/neo-dapp-course2/)
 
-[手把手教你调试智能合约](https://bbs.neldev.net/thread-42.htm)							
+[手把手教你调试智能合约](http://bbs.neldev.net/thread-42.htm)							
 
 ## 更多参考
 
 NEOFAN - 技术文章：http://neofans.org/category/docs/
 
-NEL - 精品文章：https://bbs.neldev.net/forum-2.htm
+NEL - 精品文章：http://bbs.neldev.net/forum-2.htm
 
-国外社区教程集锦：http://docs.neo.org/communitydoc.html
+国外社区教程集锦：https://docs.neo.org/articles/en-us/index.html

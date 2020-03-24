@@ -2,13 +2,14 @@
 
 Returns the corresponding transaction information, based on the specified hash value.
 
-## Parameter Description
+#### Parameters
 
-Txid: Transaction ID
+- Txid: Transaction ID
 
-Verbose: Optional, the default value of verbose is 0. When verbose is 0, the serialized information of the block is returned, represented by a hexadecimal string. If you need to get detailed information, you will need to use the SDK for deserialization. When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
+- Verbose: Optional, the default value of verbose is 0. When verbose is 0, the serialized information of the block is returned, represented by a hexadecimal string. If you need to get detailed information, you will need to use the SDK for deserialization. When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
 
-## Example
+
+#### Example
 
 Request body:
 

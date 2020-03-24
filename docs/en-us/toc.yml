@@ -34,26 +34,28 @@
       href: /docs/en-us/node/gui/other.md
   - name: NEO-CLI
     items:
-    - name: Publishing from Source
-      href: /docs/en-us/node/cli/publish.md
     - name: Installation
       href: /docs/en-us/node/cli/setup.md
+    - name: Configuring and Starting Neo-CLI 
+      href: /docs/en-us/node/cli/config.md
     - name: SeedList
       href: /docs/en-us/node/cli/seedlist.md
     - name: Command Line
       href: /docs/en-us/node/cli/cli.md
+  - name: Synchronizing the blockchain faster 
+    href: /docs/en-us/node/syncblocks.md
 - name: NEO Network
   items:
-  - name: Main Net & Test Net
+  - name: Main Net and Test Net
     href: /docs/en-us/network/testnet.md
   - name: Setting up Private Chain
     items:
     - name: Solo Mode
       href: /docs/en-us/network/private-chain/solo.md
-    - name: Multiple Nodes (virtual machines)
-      href: /docs/en-us/network/private-chain/private-chain.md
     - name: Multiple Nodes (local host)
       href: /docs/en-us/network/private-chain/private-chain2.md
+    - name: Multiple Nodes (virtual machines)
+      href: /docs/en-us/network/private-chain/private-chain.md
     - name: Neo-local
       href: /docs/en-us/network/private-chain/neolocal.md
 - name: Smart Contract Development
@@ -72,6 +74,8 @@
       href: /docs/en-us/sc/gettingstarted/deploy.md
   - name: Development Environment 
     items:
+    - name: Using C# on Windows
+      href: /docs/zh-cn/sc/devenv/getting-started-csharp.md
     - name: Using C# on macOS
       href: /docs/en-us/sc/devenv/getting-started-csharp-mac.md
     - name: Using C# on ubuntu
@@ -89,8 +93,10 @@
     - name: NEP-5
       href: /docs/en-us/sc/write/nep5.md
   - name: Deploying and Invoking Smart Contracts
-    - name: Deploying and Invoking Smart Contracts
-      href: /docs/en-us/sc/deploy/deploy-invoke.md
+    - name: Deploying Smart Contracts
+      href: /docs/en-us/sc/deploy/deploy.md
+    - name: Invoking Smart Contracts
+      href: /docs/en-us/sc/deploy/invoke.md
     - name: Parameters and Return Values
       href: /docs/en-us/sc/deploy/Parameter.md
   - name: Testing
@@ -105,10 +111,13 @@
       href: /docs/en-us/sc/sample/HelloWorld.md
     - name: Domain
       href: /docs/en-us/sc/sample/Domain.md
-    - name: Verification Contract
-      href: /docs/en-us/sc/sample/verify.md
-    - name: Lock Contract
+    - name: Lock Contract Demo
       href: /docs/en-us/sc/sample/Lock2.md
+- name: DApp Development
+  - name: Introduction
+    href:  /docs/en-us/dapp/intro.md
+  - name: DApp Integration
+    href:  /docs/en-us/dapp/integ.md
 - name: NEO Tools Development
   - name: Main Concepts
     - name: Blockchain Models
@@ -124,17 +133,6 @@
         href: /docs/en-us/tooldev/concept/blockchain/validator.md      
     - name: Charging Model
       href: /docs/en-us/tooldev/concept/charging_model.md
-    - name: Transaction
-      href: /docs/en-us/tooldev/concept/transaction.md
-    - name: Wallet
-      href: /docs/en-us/tooldev/concept/wallets.md
-    - name: Consensus
-      - name: Consensus Algorithm
-        href: /docs/en-us/tooldev/concept/consensus/consensus_algorithm.md
-      - name: Consensus Protocol
-        href: /docs/en-us/tooldev/concept/consensus/consensus_protocol.md
-      - name: Vote
-        href: /docs/en-us/tooldev/concept/consensus/vote_validator.md
     - name: Cryptography
       href:
       - name: Encode Algorithm
@@ -143,45 +141,52 @@
         href: /docs/en-us/tooldev/concept/cryptography/hash_algorithm.md
       - name: Encryption Algorithm
         href: /docs/en-us/tooldev/concept/cryptography/encryption_algorithm.md
+    - name: Big and Little Endian Usage
+       href: /docs/en-us/tooldev/concept/endian.md
   - name: NEO-CLI Structure
     href:  /docs/en-us/tooldev/neo_cli_structure.md
+  - name: Network Protocol
+    href: /docs/en-us/tooldev/network-protocol.md
+  - name: Consensus
+    - name: Consensus Algorithm
+      href: /docs/en-us/tooldev/consensus/consensus_algorithm.md
+    - name: Consensus Protocol
+      href: /docs/en-us/tooldev/consensus/consensus_protocol.md
+    - name: Vote
+      href: /docs/en-us/tooldev/consensus/vote_validator.md
+  - name: Wallet
+    href: /docs/en-us/tooldev/wallets.md
+  - name: Transaction
+    - name: Transaction
+      href: /docs/en-us/tooldev/transaction/transaction.md
+    - name: Transaction Process
+      href: /docs/en-us/tooldev/transaction/tx_execution.md
   - name: NEO SDK
     items:
     - name: About NEO SDK
       href: /docs/en-us/tooldev/sdk/introduction.md
-    - name: Common Uses
-      href: /docs/en-us/tooldev/sdk/common.md
+    - name: Data Conversion
+      href: /docs/en-us/tooldev/sdk/conversion.md
     - name: Account
       href: /docs/en-us/tooldev/sdk/account.md
     - name: Wallet
       href: /docs/en-us/tooldev/sdk/wallet.md
     - name: Transaction Construction
       href: /docs/en-us/tooldev/sdk/tx.md
-  - name: Advanced Topics
-    - name: NeoVM Instructions
-      href: /docs/en-us/tooldev/advanced/neo_vm.md
-    - name: Network Protocol
-      href: /docs/en-us/tooldev/advanced/network-protocol.md
-    - name: Transaction Process
-      href: /docs/en-us/tooldev/advanced/tx_execution.md
-    - name: Merkel Tree
-      href: /docs/en-us/tooldev/advanced/merkle_tree.md
-    - name: Bloom Filter
-      href: /docs/en-us/tooldev/advanced/bloom_filter.md
 - name: Document for Exchange Developers
   items:
   - name: Overview
     href:  /docs/en-us/exchange/general.md
-  - name: v2.10.2
+  - name: v2.10.3
     items:
     - name: Deploying NEO nodes
-      href: /docs/en-us/exchange/2.10.2/deploynode.md
+      href: /docs/en-us/exchange/2.10.3/deploynode.md
     - name: Using NEO-CLI
-      href: /docs/en-us/exchange/2.10.2/client.md
+      href: /docs/en-us/exchange/2.10.3/client.md
     - name: Dealing with assets transactions
-      href: /docs/en-us/exchange/2.10.2/transaction.md
-    - name: Distribute GAS to uses
-      href: /docs/en-us/exchange/2.10.2/gas.md 
+      href: /docs/en-us/exchange/2.10.3/transaction.md
+    - name: Distributing GAS to users
+      href: /docs/en-us/exchange/2.10.3/gas.md 
   - name: Changelog
     href: /docs/en-us/exchange/changelog.md
 - name: Reference
@@ -189,7 +194,7 @@
   - name: RPC API
     - name: API Reference
       href:  /docs/en-us/reference/rpc/latest-version/api.md
-    - name: v2.10.2
+    - name: v2.10.3
       items:
       - name: claimgas
         href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
@@ -257,8 +262,6 @@
         href: /docs/en-us/reference/rpc/latest-version/api/getwalletheight.md
       - name: importprivkey
         href: /docs/en-us/reference/rpc/latest-version/api/importprivkey.md
-      - name: invoke
-        href: /docs/en-us/reference/rpc/latest-version/api/invoke.md
       - name: invokefunction
         href: /docs/en-us/reference/rpc/latest-version/api/invokefunction.md
       - name: invokescript
@@ -328,3 +331,7 @@
           items:
           - name: ExecutionEngine
             href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: SDK API (C#)
+    href: https://docs.neo.org/developerguide/en/api/index.html
+  - name: NeoVM Instructions
+    href: /docs/en-us/reference/neo_vm.md

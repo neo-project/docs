@@ -1,14 +1,16 @@
 # System Fees
 
-## Smart Contract Fees
+Neo smart contracts cost certain system fees and network fees upon publishing and execution. In this section we focus on system fees occurred by execution of smart contracts. For information about network fees, refer to [Charging Model](../tooldev/concept/charging_model.md).
 
-The fee structure for Smart Contracts can be found in the tables below.
+## Smart Contract Fees
 
 The initial 10 GAS during each execution of every smart contract is always free, including smart contract deployment and invoking. That is, fees that sum up to 10 GAS or less will not require a service fee.
 
 The fees below are minimum fees. The user can choose to pay extra for priority.
 
-All Smart Contract fees are considered as Service fee to be put in a pool for re-distribution to all NEO holders. The distribution is proportional to amount of NEO.
+All Smart Contract fees are considered as Service fee to be put in a pool for re-distribution to all NEO holders. The distribution is proportional to amount of NEO
+
+The fee structure for Smart Contracts can be found in the tables below.
 
 ### Fees for System Calls
 
@@ -36,9 +38,11 @@ All Smart Contract fees are considered as Service fee to be put in a pool for re
 
 * Additional to 1 GAS minimum
 
-For the description of API in the table above, refer to [NEO Namespace](../reference/scapi/api/neo.md)
+For the description of API in the table above, refer to [Neo Namespace](../reference/scapi/api/neo.md)
 
-The cost of creating or migrating a smart contract is the basic 100 GAS plus fees of functions the contract requires. If the storage area is required, the function fee is 400 GAS, and if the dynamic call is needed, the function fee is 500 GAS.
+> [!Note]
+>
+> The cost of creating or migrating a smart contract is the basic 100 GAS plus fees of functions the contract requires. If the storage area is required, the function fee is 400 GAS, and if the dynamic call is needed, the function fee is 500 GAS.
 
 ### Fees for Instructions
 

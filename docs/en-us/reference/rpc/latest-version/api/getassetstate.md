@@ -2,7 +2,7 @@
 
 Queries the asset information, based on the specified asset number. 
 
-## Parameter Description
+#### Parameters
 
 Asset_id: Asset ID (asset identifier), which is the transaction ID of the RegistTransaction when the asset is registered.
 
@@ -12,7 +12,7 @@ For GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
 
 The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../../../../node/cli/cli.md) or in the Block Chain Browser.
 
-## Example		
+#### Example		
 
 Request body:
 

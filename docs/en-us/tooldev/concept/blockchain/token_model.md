@@ -1,12 +1,12 @@
-# Neo Blockchain Model
+# NEO Token Models
 
-## Native Token
+### Native Token
 
 There are 2 kinds of native token defined in Neo system: NEO and NeoGas (GAS).
 
-NEO is Governing Token. Neo holders can take part in NEO network management, including voting for consensus nodes, network parameter modification, etc. NEO's total amount is 100 million. Its minimum unit is 1 and can not be divided. It's registered in Genesis block, and stored in standby validators' muti-signature addresses.
+NEO is the Governing Token. Neo holders can participate in NEO network management, including voting for consensus nodes, network parameter modification, etc. The total amount of NEO is 100 million. Its minimum unit is 1 and can not be divided. It's registered in Genesis block, and stored in standby validators' muti-signature addresses.
 
-GAS is utility token, or network fuel token. Operation costs and incentive for consensus node in NEO network are paid in GAS. GAS's total amount is also 100 million and can be divided to 0.00000001 unit. Gas is registered in Genesis block and issued afterwards as block incentive for NEO holders.
+GAS is the Utility Token, or network fuel token. Operation costs and incentives for consensus node in NEO network are paid in GAS. The total amount of GAS is also 100 million and can be divided to minimum unit 0.00000001. Gas is registered in Genesis block and issued afterwards as block incentives for NEO holders.
 
 A new block is generated about every 15 seconds according to system design. Thus approximately 2 million new blocks are created every year. 100 million GAS is issued gradually in 22 years according to a attenuation algorithm. No GAS is issued afterwards.
 
@@ -25,6 +25,6 @@ A new block is generated about every 15 seconds according to system design. Thus
 
 [![gas distribution](../../images/blockchain/gas-distribution-en.jpg)](../../images/blockchain/gas-distribution-en.jpg)
 
-## NEP5 Asset (Token)
+### NEP5 Assets (Tokens)
 
-NEP5 token needs to be issued and managed through smart contract. It's information is stored in smart contract's storage. Account model is used. Detailed inforamtion please refer to `NEP5` part in chapter `Smart Contract`.
+NEP5 tokens need to be issued and managed through smart contract. Their information is stored in a smart contract's storage. Account model is used. For detailed inforamtion, please refer to `NEP5` part in chapter `Smart Contract`.
