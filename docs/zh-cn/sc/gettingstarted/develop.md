@@ -72,7 +72,7 @@
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-1. 从Github上下载 Neo3 的 [NEP5 示例](https://github.com/chenzhitong/Neo3-Smart-Contract-Examples/tree/master/NEP5)。
+1. 从Github上下载 Neo3 的 [NEP5 示例](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs)。
 
 2. 在之前创建的合约项目里打开示例文件Contract1.cs
 
