@@ -113,89 +113,78 @@ while (result.Next())
 
 ## 区块链存证合约示例
 
-下面以一个区块链存证合约为例，讲解如何在智能合约中使用存储区。主要用到了智能合约框架中的 [Storage](../../reference/scapi/fw/dotnet/neo/Storage.md)、[StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md)、[Helper](../../reference/scapi/fw/dotnet/neo/Helper.md) 等。
+下面以一个简单区块链存证为例，讲解如何在智能合约中使用存储区。主要用到了智能合约框架中的 [Storage](../../reference/scapi/fw/dotnet/neo/Storage.md)、[StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md)、[Helper](../../reference/scapi/fw/dotnet/neo/Helper.md) 等。
 
-该合约有 4 个方法。
+该存储区的结构为：
 
-`bool Save(byte[] sha256)` 向存储区存储一个 Sha256 的哈西值。
+key: 消息，string 类型；
 
-`uint GetSavedBlock(byte[] sha256)` 查询某个哈西值所存储的区块高度。
+value：区块高度，uint 类型
 
-`bool IsSaved(byte[] sha256)` 查询某个哈西值是否存在该区块链存证合约中。
+该合约有 3 个方法。
 
-`bool IsSavedBefore(byte[] sha256, uint blockHeight)` 查询某个哈西值是否在指定区块高度之前存储过。
+`put` 向存储区写入消息。
+
+`get` 从存储区读取消息。
+
+`exists` 查询存储区是否存在消息。
 
 ```c#
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using Neo.SmartContract.Framework.Services.System;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 
 namespace StorageExample
 {
-    [Features(ContractFeatures.HasStorage)] //声明存储区
+    [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
         [DisplayName("saved")]
-        public static event Action<byte[], uint> Saved; //智能合约通知
+        public static event Action<string, uint> Saved;
 
-        /// <summary>
-        /// Hash:
-        /// Key: hash
-        /// Value: block index/height
-        /// </summary>
-        readonly static StorageMap Hash = Storage.CurrentContext.CreateMap(nameof(Hash));
-
-        public static object Main(string operation, object[] args)
+        public static object Main(string method, object[] args)
         {
             if (Runtime.Trigger == TriggerType.Application)
             {
-                if (operation == "save") return Save((byte[])args[0]);
-
-                if (operation == "getSavedBlock") return GetSavedBlock((byte[])args[0]);
-
-                if (operation == "isSaved") return IsSaved((byte[])args[0]);
-
-                if (operation == "isSavedBefore") return IsSavedBefore((byte[])args[0], (uint)args[1]);
+                return method switch
+                {
+                    "put" => Put((string)args[0]),
+                    "get" => Get((string)args[0]),
+                    "exists" => Exists((string)args[0]),
+                    _ => true
+                };
             }
             return true;
         }
 
-        [DisplayName("save")]
-        public static bool Save(byte[] sha256)
+        [DisplayName("put")]
+        public static bool Put(string message)
         {
-            if (sha256.Length != 32) return false;
-            if (IsSaved(sha256)) return false;
-
+            if (Exists(message)) return false;
             var blockChainHeight = Blockchain.GetHeight();
-            Hash.Put(sha256, blockChainHeight);
-            Saved(sha256, blockChainHeight);
+            Storage.Put(message, blockChainHeight);
+            Saved(message, blockChainHeight);
 
             return true;
         }
 
-        [DisplayName("getSavedBlock")]
-        public static uint GetSavedBlock(byte[] sha256)
+        [DisplayName("get")]
+        public static int Get(string message)
         {
-            if (sha256.Length != 32) throw new ArgumentException();
-            if (!IsSaved(sha256)) throw new ArgumentException();
-            return (uint)Hash.Get(sha256).TryToBigInteger();
+            if (!Exists(message)) return -1;
+            return (int)Storage.Get(message).TryToBigInteger();
         }
 
-        [DisplayName("isSaved")]
-        public static bool IsSaved(byte[] sha256)
+        [DisplayName("exists")]
+        public static bool Exists(string message)
         {
-            if (sha256.Length != 32) return false;
-            return Hash.Get(sha256) != null;
+            return Storage.Get(message) != null;
         }
 
-        [DisplayName("isSavedBefore")]
-        public static bool IsSavedBefore(byte[] sha256, uint blockHeight)
-        {
-            return GetSavedBlock(sha256) < blockHeight;
-        }
     }
 
     public static class Helper
@@ -217,3 +206,57 @@ namespace StorageExample
 为什么要用 `value?.ToBigInteger() ?? 0` 而不是直接使用 `ToBigInteger()`？
 
 因为查询存储区时，如果查询不到，会返回 null（在 Neo2 中会返回 `new byte[0]()`），将 null 转了 BigInteger 时会抛出异常。该语句是 C# 6.0 中的新语法，参考 [Null 条件运算符](https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-6#null-conditional-operators)。
+
+> [!Note]
+>
+> 请注意 Main 方法中的 switch。在智能合约中，switch 语句中 case 的数量不能超过 7 个，否则调用时会报错（可编译通过）。如果 case 数量超过 7 个，建议改为 if 语句。
+
+> [!Note]
+>
+> 请注意，如果使用 StorageMap，则 StorageMap 的声明必须在方法内（局部变量），不能写在方法外（全局变量），否则调用时会报错（可编译通过）。
+
+### 调用举例
+
+下面是在 Neo-CLI 中通用命令行调用上述合约：
+
+```
+invoke 0x5433e7621059814619390b6eb11cb3ebee07da39 exists abcd
+```
+
+```
+Invoking script with: '0c046162636411c00c066578697374730c1439da07eeebb31cb16e0b39194681591062e7335441627d5b52'
+VM State: HALT
+Gas Consumed: 0.0230502
+Evaluation Stack: [{"type":"Boolean","value":false}]
+
+relay tx(no|yes): no
+```
+
+```
+invoke 0x5433e7621059814619390b6eb11cb3ebee07da39 put abcd
+```
+
+```
+Invoking script with: '0c046162636411c00c037075740c1439da07eeebb31cb16e0b39194681591062e7335441627d5b52'
+VM State: HALT
+Gas Consumed: 0.0393573
+Evaluation Stack: [{"type":"Integer","value":"1"}]
+
+relay tx(no|yes): yes
+```
+
+```
+invoke 0x5433e7621059814619390b6eb11cb3ebee07da39 get abcd
+```
+
+```
+Invoking script with: '0c046162636411c00c036765740c1439da07eeebb31cb16e0b39194681591062e7335441627d5b52'
+VM State: HALT
+Gas Consumed: 0.0335185
+Evaluation Stack: [{"type":"Integer","value":"3219"}]
+
+relay tx(no|yes): no
+```
+
+
+
