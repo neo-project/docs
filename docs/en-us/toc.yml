@@ -1,22 +1,22 @@
-﻿- name: Site Map
+﻿ - name: Site Map
   href: /docs/en-us/index.md
-- name: NEO Introduction
+- name: Neo Introduction
   items:
-  - name: NEO Whitepaper
+  - name: Neo Whitepaper
     href: /docs/en-us/basic/whitepaper.md
-  - name: NEO Technology
+  - name: Neo Technology
     items：
     - name: NeoVM
       href: /docs/en-us/basic/technology/neovm.md
-    - name: NEO Contract
+    - name: Neo Contract
       href: /docs/en-us/basic/technology/neocontract.md
     - name: Consensus Mechanism
       href: /docs/en-us/basic/technology/dbft.md
-- name: NEO Node
+- name: Neo Node
   items:
   - name: Introduction
     href: /docs/en-us/node/introduction.md
-  - name: NEO-GUI
+  - name: Neo-GUI
     items:
     - name: Installing the Client
       href: /docs/en-us/node/gui/install.md
@@ -32,7 +32,7 @@
       href: /docs/en-us/node/gui/vote.md
     - name: Other Features
       href: /docs/en-us/node/gui/other.md
-  - name: NEO-CLI
+  - name: Neo-CLI
     items:
     - name: Installation
       href: /docs/en-us/node/cli/setup.md
@@ -44,7 +44,7 @@
       href: /docs/en-us/node/cli/cli.md
   - name: Synchronizing the blockchain faster 
     href: /docs/en-us/node/syncblocks.md
-- name: NEO Network
+- name: Neo Network
   items:
   - name: Main Net and Test Net
     href: /docs/en-us/network/testnet.md
@@ -118,7 +118,7 @@
     href:  /docs/en-us/dapp/intro.md
   - name: DApp Integration
     href:  /docs/en-us/dapp/integ.md
-- name: NEO Tools Development
+- name: Neo Tools Development
   - name: Main Concepts
     - name: Blockchain Models
       - name: Block
@@ -143,7 +143,7 @@
         href: /docs/en-us/tooldev/concept/cryptography/encryption_algorithm.md
     - name: Big and Little Endian Usage
        href: /docs/en-us/tooldev/concept/endian.md
-  - name: NEO-CLI Structure
+  - name: Neo-CLI Structure
     href:  /docs/en-us/tooldev/neo_cli_structure.md
   - name: Network Protocol
     href: /docs/en-us/tooldev/network-protocol.md
@@ -161,9 +161,9 @@
       href: /docs/en-us/tooldev/transaction/transaction.md
     - name: Transaction Process
       href: /docs/en-us/tooldev/transaction/tx_execution.md
-  - name: NEO SDK
+  - name: Neo SDK
     items:
-    - name: About NEO SDK
+    - name: About Neo SDK
       href: /docs/en-us/tooldev/sdk/introduction.md
     - name: Data Conversion
       href: /docs/en-us/tooldev/sdk/conversion.md
@@ -179,9 +179,9 @@
     href:  /docs/en-us/exchange/general.md
   - name: v2.10.3
     items:
-    - name: Deploying NEO nodes
+    - name: Deploying Neo nodes
       href: /docs/en-us/exchange/2.10.3/deploynode.md
-    - name: Using NEO-CLI
+    - name: Using Neo-CLI
       href: /docs/en-us/exchange/2.10.3/client.md
     - name: Dealing with assets transactions
       href: /docs/en-us/exchange/2.10.3/transaction.md
@@ -285,7 +285,7 @@
   - name: Smart Contract API
     - name: API Reference
       items: 
-      - name: NEO
+      - name: Neo
         href: /docs/en-us/reference/scapi/api/neo.md
       - name: System
         href: /docs/en-us/reference/scapi/api/System.md
@@ -293,7 +293,7 @@
       items: 
       - name: .net Framework
         items:
-        - name: NEO
+        - name: Neo
           items:
           - name: Account
             href: /docs/en-us/reference/scapi/fw/dotnet/neo/Account.md

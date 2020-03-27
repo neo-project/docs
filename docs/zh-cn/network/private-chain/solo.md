@@ -115,7 +115,7 @@ Neo-CLI 2.10.2 及以后版本支持单节点模式下正常生成区块，只�
 
 运行命令行，进入 neo-cli 目录，输入 `neo-cli.exe`。成功建立的私链如下图所示。
 
-![](../../assets/privatechain_demo.png)
+![](../assets/solo.png)
 
 如果关闭窗口，将停止私有链。
 

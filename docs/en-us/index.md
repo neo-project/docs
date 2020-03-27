@@ -1,6 +1,6 @@
-###NEO Documentation
+###Neo Documentation
 
-####Here is an exhaustive library of NEO technical documents, including development examples for your reference.
+####Here is an exhaustive library of Neo technical documents, including development examples for your reference.
 
 | NEO Introduction  | | | |
 | ---------------------------------- | ----------------------------------------------- | ---------------------------------- | ---------------------------------------------- |
