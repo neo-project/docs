@@ -73,7 +73,7 @@ When the project is created,  a simple smart contract template is automatically 
 
 Since many developers are concerned about how to publish their own contract assets on the Neo block chain, now let's work through the process on private chain.
 
-1. From Github download the [NEP5 example of Neo3](https://github.com/chenzhitong/Neo3-Smart-Contract-Examples/tree/master/NEP5).
+1. From Github download the [NEP5 example of Neo3](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs).
 
 2. In the NeoContract project created in previous steps, open the sample file Contract1.cs
 

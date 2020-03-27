@@ -22,20 +22,28 @@ Parameters:
 ## Example
 
 ```c#
-public class Contract1 : SmartContract.Framework.SmartContract
-{
-    public static object Main(string method, object[] args)
-    {
-        string scriptHash = "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789";
-        if (Runtime.Trigger == TriggerType.Application)
-        {
-            if (method == "name") {
-            string name = Contract.CallEx(scriptHash.HexToBytes(), "name", new object[]{}, CallFlags.ReadOnly);
-            return name;
-            }
-        }  
-    }
-}
+public class Contract1 : SmartContract
+ {
+     delegate object Dyncall(string method, object[] args);
+
+     //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 in little endian order
+     //HexToBytes()、ToScriptHash() can only operate on constants and cannot be written in the Main method
+     //scriptHash can be modified to be passed in from the parameter or read from storage
+     static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
+
+     public static object Main(string operation, object[] args)
+     {
+         if (operation == "name")
+         {
+             return Contract.Call(ScriptHash, "name", new object[0], CallFlags.ReadOnly);
+         }
+         if (operation == "totalSupply")
+         {
+             return Contract.Call(ScriptHash, "totalSupply", new object[0], CallFlags.ReadOnly);
+         }
+         return true;
+     }
+ }
 ```
 
 

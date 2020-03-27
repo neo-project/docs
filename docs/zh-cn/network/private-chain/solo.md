@@ -1,30 +1,24 @@
 # 使用单节点搭建私有链
 
-Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。
-
-[NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。
+Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。[NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。
 
 你也可以自己配置私有链，下文将介绍具体方法。
 
-## 安装节点
+## 准备工作
 
-首先安装 Neo-CLI，有从源码编译和直接下载发布的文件两种方式。
+1. 首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
 
-安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
+2. 运行 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet 1.json`。
 
-## 创建钱包文件
+   ![](../assets/create-wallet.png)
 
-打开 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet 1.json`。
+3. 记录钱包公钥（ pubkey），后面会用到。
 
-![](../assets/create-wallet.png)
+## 修改节点配置文件
 
-<a name="pubkey"></a>
+### 修改config.json
 
-记下 pubkey，后面会用到。
-
-## 修改 config.json
-
-在节点下的 config.json 文件中进行如下修改：
+在Neo-CLI的 config.json 文件中进行如下修改：
 
 - 设置 UnlockWallet 下的参数 `Path` 为钱包文件名，`Password` 为钱包密码。
 - 设置 `StartConsensus` 和 `IsActive` 为 `true`。
@@ -52,11 +46,10 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 }
 ```
 
-## 修改 protocol.json
+### 修改 protocol.json
 
-打开 Neo-CLI 下面的 protocol.json 文件。
-
-在 StandbyValidators 这里输入 [上面](#pubkey) 钱包中的公钥。StandbyValidators  中只有一个公钥的时候为单节点模式）。
+1. 打开 Neo-CLI 下面的 protocol.json 文件。
+2. 在参数 StandbyValidators 中输入前面创建的1.json钱包的公钥（StandbyValidators  中只有一个公钥的时候为单节点模式）。
 
 可参照下面的配置：
 
@@ -84,15 +77,13 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 >
 > 安装 SystemLog 插件后，会输出共识日志。这里为了方便在 Neo-CLI 中输入命令没有安装。
 >
-> 如果想想看区块高度，可以输入 `show state` 命令查看。
+> 输入 `show state` 命令可以查看区块高度。
 
 如果关闭窗口，将停止私有链。
 
 ## 提取私有链中的 NEO/GAS
 
 在 NEO 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
-
-提取流程：
 
 1. 启动私链
 
