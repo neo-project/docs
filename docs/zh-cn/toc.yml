@@ -1,22 +1,22 @@
 ﻿- name: 站点地图
   href: /docs/zh-cn/index.md
-- name: NEO 介绍
+- name: Neo 介绍
   items:
-  - name: NEO 白皮书
+  - name: Neo 白皮书
     href: /docs/zh-cn/basic/whitepaper.md
-  - name: NEO 技术
+  - name: Neo 技术
     items：
     - name: NeoVM
       href: /docs/zh-cn/basic/technology/neovm.md
-    - name: NEO Contract
+    - name: Neo Contract
       href: /docs/zh-cn/basic/technology/neocontract.md
     - name: 共识机制
       href: /docs/zh-cn/basic/technology/dbft.md
-- name: NEO 节点
+- name: Neo 节点
   items:
   - name: 节点介绍
     href: /docs/zh-cn/node/introduction.md
-  - name: NEO-GUI
+  - name: Neo-GUI
     items:
     - name: 下载客户端
       href: /docs/zh-cn/node/gui/install.md
@@ -32,7 +32,7 @@
       href: /docs/zh-cn/node/gui/vote.md
     - name: 其它功能
       href: /docs/zh-cn/node/gui/other.md
-  - name: NEO-CLI
+  - name: Neo-CLI
     items:
     - name: 安装
       href: /docs/zh-cn/node/cli/setup.md
@@ -42,7 +42,7 @@
       href: /docs/zh-cn/node/cli/seedlist.md
     - name: 命令参考
       href: /docs/zh-cn/node/cli/cli.md
-  - name: NEO-Python
+  - name: Neo-Python
     items:
     - name: 概述
       href: /docs/zh-cn/node/python/overview.md
@@ -50,7 +50,7 @@
       href: /docs/zh-cn/node/python/install.md
     - name: 安装 （Windows）
       href: /docs/zh-cn/node/python/installwin.md
-    - name: NEO-Python SeedList
+    - name: Neo-Python SeedList
       href: /docs/zh-cn/node/python/seedlist.md
     - name: 基本用法
       href: /docs/zh-cn/node/python/basic.md
@@ -58,7 +58,7 @@
       href: /docs/zh-cn/node/python/prompt.md
   - name: 快速同步区块
     href: /docs/zh-cn/node/syncblocks.md
-- name: NEO 网络
+- name: Neo 网络
   items:
   - name: 主网与测试网
     href: /docs/zh-cn/network/testnet.md
@@ -132,7 +132,7 @@
     href:  /docs/zh-cn/dapp/intro.md
   - name: 与区块链集成
     href:  /docs/zh-cn/dapp/integ.md
-- name: NEO工具开发
+- name: Neo工具开发
   - name: 基本概念
     - name: 区块模型
       - name: 区块
@@ -157,7 +157,7 @@
         href: /docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
     - name: 大小端序的使用
       href:  /docs/zh-cn/tooldev/concept/endian.md
-  - name: NEO-CLI 结构
+  - name: Neo-CLI 结构
     href:  /docs/zh-cn/tooldev/neo_cli_structure.md
   - name: 网络协议
     href: /docs/zh-cn/tooldev/network-protocol.md
@@ -175,9 +175,9 @@
       href: /docs/zh-cn/tooldev/transaction/transaction.md
     - name: 交易流程
       href: /docs/zh-cn/tooldev/transaction/tx_execution.md
-  - name: NEO SDK
+  - name: Neo SDK
     items:
-    - name: 关于 NEO SDK
+    - name: 关于 Neo SDK
       href: /docs/zh-cn/tooldev/sdk/introduction.md
     - name: 数据类型转换
       href: /docs/zh-cn/tooldev/sdk/conversion.md
@@ -193,9 +193,9 @@
     href:  /docs/zh-cn/exchange/general.md
   - name: v2.10.3
     items:
-    - name: 部署 NEO 节点
+    - name: 部署 Neo 节点
       href: /docs/zh-cn/exchange/2.10.3/deploynode.md
-    - name: 使用 NEO-CLI 客户端
+    - name: 使用 Neo-CLI 客户端
       href: /docs/zh-cn/exchange/2.10.3/client.md
     - name: 处理资产交易
       href: /docs/zh-cn/exchange/2.10.3/transaction.md
@@ -299,7 +299,7 @@
   - name: 智能合约API
     - name: API 参考
       items: 
-      - name: NEO
+      - name: Neo
         href: /docs/zh-cn/reference/scapi/api/neo.md
       - name: System
         href: /docs/zh-cn/reference/scapi/api/System.md
@@ -307,7 +307,7 @@
       items: 
       - name: .net 框架
         items:
-        - name: NEO
+        - name: Neo
           items:
           - name: Account
             href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md

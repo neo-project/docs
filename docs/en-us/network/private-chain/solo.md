@@ -115,7 +115,7 @@ You can refer to the following example：
 
 Run the command line and enter the NEO-CLI directory. Then enter  `neo-cli.exe` to start the private chain. The private chain is set up successfully when it goes as shown below:
 
-![img](../../assets/privatechain_demo.png)
+![](../../../zh-cn/network/assets/solo.png)
 
 The private chain is terminated if you close the window.
 
