@@ -3,7 +3,7 @@
     {
       "origin": "docs\\zh-cn",
       "template": "template",
-      "destination": "wwwroot\\docs\\zh-cn",
+      "destination": "..\\docs\\wwwroot\\v3\\docs\\zh-cn",
       "catalog": "docs\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/docs/zh-cn/"
@@ -11,7 +11,7 @@
     {
       "origin": "docs\\en-us",
       "template": "template",
-      "destination": "wwwroot\\docs\\en-us",
+      "destination": "..\\docs\\wwwroot\\v3\\docs\\en-us",
       "catalog": "docs\\en-us\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/docs/en-us/"
@@ -19,7 +19,7 @@
     {
       "origin": "tutorial\\zh-cn",
       "template": "template",
-      "destination": "wwwroot\\tutorial\\zh-cn",
+      "destination": "..\\docs\\wwwroot\\v3\\tutorial\\zh-cn",
       "catalog": "tutorial\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/tutorial/zh-cn/"
@@ -27,7 +27,7 @@
     {
       "origin": "tutorial\\en-us",
       "template": "template",
-      "destination": "wwwroot\\tutorial\\en-us",
+      "destination": "..\\docs\\wwwroot\\v3\\tutorial\\en-us",
       "catalog": "tutorial\\en-us\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/tutorial/en-us/"
@@ -35,7 +35,7 @@
     {
       "origin": "faq\\zh-cn",
       "template": "template",
-      "destination": "wwwroot\\faq\\zh-cn",
+      "destination": "..\\docs\\wwwroot\\v3\\faq\\zh-cn",
       "catalog": "faq\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/faq/zh-cn/"
@@ -43,7 +43,7 @@
     {
       "origin": "faq\\en-us",
       "template": "template",
-      "destination": "wwwroot\\faq\\en-us",
+      "destination": "..\\docs\\wwwroot\\v3\\faq\\en-us",
       "catalog": "faq\\en-us\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/faq/en-us/"
@@ -51,7 +51,7 @@
     {
       "origin": "articles\\zh-cn",
       "template": "template",
-      "destination": "wwwroot\\articles\\zh-cn",
+      "destination": "..\\docs\\wwwroot\\v3\\articles\\zh-cn",
       "catalog": "articles\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/articles/zh-cn/"
@@ -59,7 +59,7 @@
     {
       "origin": "articles\\en-us",
       "template": "template",
-      "destination": "wwwroot\\articles\\en-us",
+      "destination": "..\\docs\\wwwroot\\v3\\articles\\en-us",
       "catalog": "articles\\en-us\\toc.yml",
       "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/release-neo3/articles/en-us/"
