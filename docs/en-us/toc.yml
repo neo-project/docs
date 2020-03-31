@@ -8,8 +8,6 @@
     items：
     - name: NeoVM
       href: /v3/docs/en-us/basic/technology/neovm.md
-    - name: NEO Contract
-      href: /v3/docs/en-us/basic/technology/neocontract.md
     - name: Consensus Mechanism
       href: /v3/docs/en-us/basic/technology/dbft.md
 - name: NEO Node
@@ -18,20 +16,8 @@
     href: /v3/docs/en-us/node/introduction.md
   - name: NEO-GUI
     items:
-    - name: Installing the Client
-      href: /v3/docs/en-us/node/gui/install.md
-    - name: Wallet
-      href: /v3/docs/en-us/node/gui/wallet.md
-    - name: Transactions
-      href: /v3/docs/en-us/node/gui/transc.md
-    - name: Registering and Distributing Assets
-      href: /v3/docs/en-us/node/gui/asset.md
-    - name: Interacting with Smart Contracts
-      href: /v3/docs/en-us/node/gui/sc.md
-    - name: Election and Voting
-      href: /v3/docs/en-us/node/gui/vote.md
-    - name: Other Features
-      href: /v3/docs/en-us/node/gui/other.md
+    - name: Introduction
+      href: /v3/docs/en-us/node/gui/temp.md
   - name: NEO-CLI
     items:
     - name: Installation
@@ -323,7 +309,5 @@
         items:
         - name: ExecutionEngine
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
-  - name: SDK API (C#)
-    href: https://docs.neo.org/developerguide/en/api/
   - name: NeoVM Instructions
     href: /v3/docs/en-us/reference/neo_vm.md

@@ -8,8 +8,6 @@
     items：
     - name: NeoVM
       href: /v3/docs/zh-cn/basic/technology/neovm.md
-    - name: NEO Contract
-      href: /v3/docs/zh-cn/basic/technology/neocontract.md
     - name: 共识机制
       href: /v3/docs/zh-cn/basic/technology/dbft.md
 - name: NEO 节点
@@ -18,20 +16,8 @@
     href: /v3/docs/zh-cn/node/introduction.md
   - name: NEO-GUI
     items:
-    - name: 下载客户端
-      href: /v3/docs/zh-cn/node/gui/install.md
-    - name: 钱包
-      href: /v3/docs/zh-cn/node/gui/wallet.md
-    - name: 交易
-      href: /v3/docs/zh-cn/node/gui/transc.md
-    - name: 注册与分发资产
-      href: /v3/docs/zh-cn/node/gui/asset.md
-    - name: 与智能合约交互
-      href: /v3/docs/zh-cn/node/gui/sc.md
-    - name: 选举与投票
-      href: /v3/docs/zh-cn/node/gui/vote.md
-    - name: 其它功能
-      href: /v3/docs/zh-cn/node/gui/other.md
+    - name: 介绍
+      href: /v3/docs/zh-cn/node/gui/temp.md
   - name: NEO-CLI
     items:
     - name: 安装
@@ -337,7 +323,5 @@
         items:
         - name: ExecutionEngine
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
-  - name: SDK API (C#)
-    href: https://docs.neo.org/developerguide/zh/api/
   - name: NeoVM 指令集
     href: /v3/docs/zh-cn/reference/neo_vm.md
