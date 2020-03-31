@@ -133,54 +133,38 @@
   - name: RPC API
     - name: API 参考
       href:  /v3/docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: 钱包 API
-      items:
-      - name: dumpprivkey
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/dumpprivkey.md
-      - name: getbalance
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/getbalance.md
-      - name: getnewaddress
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/getnewaddress.md
-      - name: getunclaimedgas
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/getunclaimedgas.md
-      - name: importprivkey
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/importprivkey.md
-      - name: listaddress
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/listaddress.md
-      - name: sendfrom
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/sendfrom.md
-      - name: sendtoaddress
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/sendtoaddress.md
-      - name: sendmany
-        href: /v3/docs/zh-cn/reference/rpc/latest-version/api/rpcwallets/sendmany.md
+    - name: closewallet
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/closewallet.md
+    - name: dumpprivkey
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.md
     - name: getapplicationlog
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.md
+    - name: getbalance
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getbalance.md
     - name: getbestblockhash
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.md
     - name: getblock
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblock.md
-    - name: getblock
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblock2.md
     - name: getblockcount
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockcount.md
-    - name: getblockheader
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.md
     - name: getblockhash
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.md
+    - name: getblockheader
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.md
     - name: getblocksysfee
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.md
-    - name: getclaimable
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getclaimable.md
     - name: getconnectioncount
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.md
-    - name: getmetricblocktimestamp
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.md
     - name: getnep5balances
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.md
     - name: getnep5transfers
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.md
+    - name: getnewaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.md
+    - name: getpeers
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getpeers.md
     - name: getrawmempool
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
     - name: getrawtransaction
@@ -189,20 +173,32 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
     - name: gettransactionheight
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.md
-    - name: getpeers
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getpeers.md
+    - name: getunclaimedgas
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
     - name: getvalidators
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.md
     - name: getversion
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getversion.md
+    - name: importprivkey
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/importprivkey.md
     - name: invokefunction
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/invokefunction.md
     - name: invokescript
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/invokescript.md
+    - name: listaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/listaddress.md
     - name: listplugins
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/listplugins.md
+    - name: openwallet
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/openwallet.md
+    - name: sendfrom
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendfrom.md
+    - name: sendmany
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendmany.md
     - name: sendrawtransaction
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.md
+    - name: sendtoaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.md
     - name: submitblock
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/submitblock.md
     - name: validateaddress
