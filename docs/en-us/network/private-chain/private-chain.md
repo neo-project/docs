@@ -97,6 +97,6 @@ Four nodes can still achieve consensus, even if one machine is turned off, as sh
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI or Neo-CLI, to facilitate your blockchain development and testing.
+In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI, to facilitate your blockchain development and testing.
 
 For more information, refer to [Withdrawing NEO and GAS](private-chain2.md#withdrawing-neo-and-gas).

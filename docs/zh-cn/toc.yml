@@ -1,15 +1,5 @@
 ﻿- name: 站点地图
   href: /v3/docs/zh-cn/index.md
-- name: NEO 介绍
-  items:
-  - name: NEO 白皮书
-    href: /v3/docs/zh-cn/basic/whitepaper.md
-  - name: NEO 技术
-    items：
-    - name: NeoVM
-      href: /v3/docs/zh-cn/basic/technology/neovm.md
-    - name: 共识机制
-      href: /v3/docs/zh-cn/basic/technology/dbft.md
 - name: NEO 节点
   items:
   - name: 节点介绍
@@ -26,22 +16,6 @@
       href: /v3/docs/zh-cn/node/cli/config.md
     - name: 命令参考
       href: /v3/docs/zh-cn/node/cli/cli.md
-  - name: NEO-Python
-    items:
-    - name: 概述
-      href: /v3/docs/zh-cn/node/python/overview.md
-    - name: 安装 （Ubuntu/OSX）
-      href: /v3/docs/zh-cn/node/python/install.md
-    - name: 安装 （Windows）
-      href: /v3/docs/zh-cn/node/python/installwin.md
-    - name: NEO-Python SeedList
-      href: /v3/docs/zh-cn/node/python/seedlist.md
-    - name: 基本用法
-      href: /v3/docs/zh-cn/node/python/basic.md
-    - name: Prompt
-      href: /v3/docs/zh-cn/node/python/prompt.md
-  - name: 快速同步区块
-    href: /v3/docs/zh-cn/node/syncblocks.md
 - name: NEO 网络
   items:
   - name: 主网与测试网
@@ -50,8 +24,6 @@
     items:
     - name: 单节点模式
       href: /v3/docs/zh-cn/network/private-chain/solo.md
-    - name: 使用虚拟机搭建
-      href: /v3/docs/zh-cn/network/private-chain/private-chain.md
     - name: 在本地主机搭建
       href: /v3/docs/zh-cn/network/private-chain/private-chain2.md
 - name: 智能合约开发
@@ -68,16 +40,6 @@
       href: /v3/docs/zh-cn/sc/gettingstarted/develop.md
     - name: 部署并调用合约
       href: /v3/docs/zh-cn/sc/gettingstarted/deploy.md
-  - name: 开发环境
-    items:
-    - name: macOS + C#
-      href: /v3/docs/zh-cn/sc/devenv/getting-started-csharp-mac.md
-    - name: ubuntu + C#
-      href: /v3/docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.md
-    - name: Java
-      href: /v3/docs/zh-cn/sc/devenv/getting-started-java.md
-    - name: Python
-      href: /v3/docs/zh-cn/sc/devenv/getting-started-python.md
   - name: 合约编写
     items:
     - name: 合约编写基础
@@ -99,23 +61,6 @@
     href: /v3/docs/zh-cn/sc/migrate.md
   - name: 手续费
     href: /v3/docs/zh-cn/sc/fees.md
-  - name: 合约示例
-    items: 
-    - name: Hello World
-      href: /v3/docs/zh-cn/sc/sample/HelloWorld.md
-    - name: Domain（域名系统）
-      href: /v3/docs/zh-cn/sc/sample/Domain.md
-    - name: 鉴权合约
-      href: /v3/docs/zh-cn/sc/sample/verify.md
-    - name: 锁仓合约
-      href: /v3/docs/zh-cn/sc/sample/Lock2.md
-- name: DApp 开发
-  - name: 介绍
-    href:  /v3/docs/zh-cn/dapp/intro.md
-  - name: 与区块链集成
-    href:  /v3/docs/zh-cn/dapp/integ.md
-  - name: DApp 开发示例
-    href:  /v3/docs/zh-cn/dapp/demo.md
 - name: NEO工具开发
   - name: 基本概念
     - name: 区块模型
@@ -123,8 +68,6 @@
         href: /v3/docs/zh-cn/tooldev/concept/blockchain/block.md
       - name: 通证
         href: /v3/docs/zh-cn/tooldev/concept/blockchain/token_model.md
-      - name: UTXO
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/utxo.md
       - name: 账户与资产
         href: /v3/docs/zh-cn/tooldev/concept/blockchain/account_asset.md
       - name: 验证人
@@ -185,8 +128,6 @@
     href: /v3/docs/zh-cn/exchange/transaction.md
   - name: 给用户分发 GAS
     href: /v3/docs/zh-cn/exchange/gas.md 
-  - name: 更新记录
-    href: /v3/docs/zh-cn/exchange/changelog.md
 - name: 开发参考
   items:
   - name: RPC API

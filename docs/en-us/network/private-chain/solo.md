@@ -1,12 +1,12 @@
 # Build a private chain with one node
 
-NEO-CLI supports generating blocks without consensus nodes, which means you can set up a private chain with one node. To simplify the process, you can directly down the project [NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) to run the private chain quickly.  
+Neo-CLI supports generating blocks without consensus nodes, which means you can set up a private chain with one node. To simplify the process, you can directly down the project [Neo-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) to run the private chain quickly.  
 
 Alternatively, you can build a private chain with one node from scratch, which will be elaborated in the following sections.
 
 ## Prerequisites
 
-1. Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install NEO-CLI.
+1. Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install Neo-CLI.
 
 2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet 1.json`:
 
@@ -18,7 +18,7 @@ Alternatively, you can build a private chain with one node from scratch, which w
 
 ### Modifying config.json
 
-In config.json under the neo-cli directory, make the following configurations:
+In config.json under the Neo-cli directory, make the following configurations:
 
 - In "UnlockWallet" specify the wallet path and wallet password.
 - Set  `StartConsensus` and `IsActive` as true.
@@ -55,7 +55,7 @@ Here is an example：
 
 ### Modifying protocol.json
 
-1. Open protocol.json under the neo-cli directory
+1. Open protocol.json under the Neo-cli directory
 2. In StandbyValidators enter the public key of the wallet 1.json created before (It is single node mode when there is only one public key included in StandbyValidators).
 
 Here is an example：
@@ -85,7 +85,7 @@ Here is an example：
 
 ## Starting the private chain
 
-Run the command line and enter the NEO-CLI directory. Then enter  `neo-cli.exe` to start the private chain. The private chain is set up successfully when it goes as shown below:
+Run the command line and enter the Neo-CLI directory. Then enter  `neo-cli.exe` to start the private chain. The private chain is set up successfully when it goes as shown below:
 
 ![img](../../../zh-cn/network/assets/solo.png)
 
@@ -99,7 +99,7 @@ The private chain is terminated if you close the window.
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI or Neo-GUI, to facilitate your blockchain development and testing.
+In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI, to facilitate your blockchain development and testing.
 
 ### Withdrawing NEO/GAS using Neo-CLI
 
