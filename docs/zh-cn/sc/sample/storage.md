@@ -2,16 +2,18 @@
 
 ## 什么是合约存储区？
 
-每一个被部署到 Neo 区块链上的智能合约程序，都会拥有一个只有该合约本身可以读写的私有存储区。智能合约对自己存储区中的数据拥有完全的操作权限：可以读取、写入、修改、删除。数据以键值对的形式来存放。
+每一个被部署到 Neo 区块链上的智能合约程序，都会拥有一个只有该合约本身可以读写的私有存储区。智能合约对自己存储区中的数据拥有完全的操作权限：可以读取、写入、修改和删除。数据以键值对的形式来存放。
 
-从存储技术上讲，存储区是 Key-Value 格式的数据库，其中 Key 可以为字符串（String）或字节数组（ByteArray），Value 可以为任意类型。详细存储区操作请参考 [Storage 类](../reference/scapi/fw/dotnet/neo/Storage.md)。但我们平时最常用的存储区操作是通过 [StorageMap](../reference/scapi/fw/dotnet/neo/StorageMap.md) 来进行的。它是在 Storage 的 Key 前面附加了前缀，不同的前缀相当于不同的数据库表。使用 StorageMap 能更安全地操作存储区。
+从存储技术上讲，存储区是 Key-Value 格式的数据库，其中 Key 可以为字符串（String）或字节数组（ByteArray），Value 可以为任意类型。详细存储区操作请参考 [Storage 类](../reference/scapi/fw/dotnet/neo/Storage.md)。
 
-智能合约的存储区操作有这些接口：
+我们平时最常用的存储区操作是通过 [StorageMap](../reference/scapi/fw/dotnet/neo/StorageMap.md) 来进行的。它是在 Storage 的 Key 前面附加了前缀，不同的前缀相当于不同的数据库表。使用 StorageMap 能更安全地操作存储区。
 
-- 遍历存储区中的所有记录 `Storage.Find()`；
-- 根据指定键返回特定记录 `Storage.Get()`；
-- 根据指定键来修改或写入新的记录 `Storage.Put()`；
-- 根据指定键来删除记录 `Storage.Delete()`；
+智能合约的存储区操作包含以下接口：
+
+- `Storage.Find()`：遍历存储区中的所有记录
+- `Storage.Get()`：根据指定键返回特定记录
+- `Storage.Put()`：根据指定键来修改或写入新的记录
+- `Storage.Delete()`：根据指定键来删除记录
 
 一般，合约只能对自己存储区中的数据进行读写，但有一个例外：当发生合约相互调用的时候，被调用合约可以通过跨域请求来访问调用者的存储区，前提是调用者向其提供了授权。此外，对于在合约运行时动态创建的子合约，父合约会即时获得其存储区的读写权限。
 
@@ -19,7 +21,7 @@
 
 ## 声明存储区
 
-每个合约都可以声明一块存储区，声名方式为在合约的类上添加一段自定义特性，如下：
+每个合约都可以声明一块存储区，声明方式为在合约的类上添加一段自定义特性，如下：
 
 ```c#
 [Features(ContractFeatures.HasStorage)]
@@ -31,7 +33,7 @@ public class NEP5 : SmartContract
 
 > [!Note]
 >
-> 如果不声明存储区，则不能调用任何操作存储区的方法。否则合约会执行失败。
+> 如果不声明存储区，则不能调用任何操作存储区的方法，从而导致合约执行失败。
 
 ## 声明 StorageMap
 
@@ -115,19 +117,18 @@ while (result.Next())
 
 下面以一个简单区块链存证为例，讲解如何在智能合约中使用存储区。主要用到了智能合约框架中的 [Storage](../../reference/scapi/fw/dotnet/neo/Storage.md)、[StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md)、[Helper](../../reference/scapi/fw/dotnet/neo/Helper.md) 等。
 
-该存储区的结构为：
+该合约存储区的结构为：
 
-key: 消息，string 类型；
+- key: 消息，string 类型；
 
-value：区块高度，uint 类型
+- value：区块高度，uint 类型
+
 
 该合约有 3 个方法。
 
-`put` 向存储区写入消息。
-
-`get` 从存储区读取消息。
-
-`exists` 查询存储区是否存在消息。
+- `put` ：向存储区写入消息。
+- `get`： 从存储区读取消息。
+- `exists` ：查询存储区是否存在消息。
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -201,23 +202,22 @@ namespace StorageExample
 
 为什么要写 `[DisplayName("getSavedBlock")] ` 这句？
 
-因为智能合约的方法命名应该是 Camel 规则（除了第一个单词外的其他单词的开头字母大写）而 C# 的方法命名应该是 Pascal 规则（每个单词开头的字母大写）。加上这句为了二者的兼容。 `[DisplayName("getSavedBlock")] `  这里的名称会在 manifest.json 文件中显示，应当与 main 方法中的判断跳转中的方法名一致。
+因为智能合约的方法命名应该是 Camel 规则（除了第一个单词外的其他单词的开头字母大写）而 C# 的方法命名应该是 Pascal 规则（每个单词开头的字母大写）。加上这句为了二者的兼容。 
+
+`[DisplayName("getSavedBlock")] `  这里的名称会在 manifest.json 文件中显示，应当与 main 方法中的判断跳转中的方法名一致。
 
 为什么要用 `value?.ToBigInteger() ?? 0` 而不是直接使用 `ToBigInteger()`？
 
-因为查询存储区时，如果查询不到，会返回 null（在 Neo2 中会返回 `new byte[0]()`），将 null 转了 BigInteger 时会抛出异常。该语句是 C# 6.0 中的新语法，参考 [Null 条件运算符](https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-6#null-conditional-operators)。
+因为查询存储区时，如果查询不到，会返回 null（在 Neo2 中会返回 `new byte[0]()`），将 null 转为 BigInteger 时会抛出异常。该语句是 C# 6.0 中的新语法，参考 [Null 条件运算符](https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-6#null-conditional-operators)。
 
 > [!Note]
 >
-> 请注意 Main 方法中的 switch。在智能合约中，switch 语句中 case 的数量不能超过 7 个，否则调用时会报错（可编译通过）。如果 case 数量超过 7 个，建议改为 if 语句。
-
-> [!Note]
->
-> 请注意，如果使用 StorageMap，则 StorageMap 的声明必须在方法内（局部变量），不能写在方法外（全局变量），否则调用时会报错（可编译通过）。
+> - 请注意 Main 方法中的 switch。在智能合约中，switch 语句中 case 的数量不能超过 7 个，否则调用时会报错（可编译通过）。如果 case 数量超过 7 个，建议改为 if 语句。
+> - 如果使用 StorageMap，则 StorageMap 的声明必须在方法内（局部变量），不能写在方法外（全局变量），否则调用时会报错（可编译通过）。
 
 ### 调用举例
 
-下面是在 Neo-CLI 中通用命令行调用上述合约：
+下面是在 Neo-CLI 中通过命令行调用上述合约：
 
 ```
 invoke 0x5433e7621059814619390b6eb11cb3ebee07da39 exists abcd
