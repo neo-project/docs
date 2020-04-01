@@ -31,7 +31,7 @@ Six types of consensus messages are defined in dBFT2.0:
 
 ### 3-Stage Consensus Flow
 
-![](../../images/consensus/1.png)
+![](../images/consensus/1.png)
 
 A round of consensus consists of 4 steps, as shown in the Figure above:
 
@@ -45,13 +45,13 @@ A round of consensus consists of 4 steps, as shown in the Figure above:
 
 Here we introduce two variables as follows:
 
-![](../../images/consensus/2.png)       
+![](../images/consensus/2.png)       
 
 where *N* is the number of validators.
 
 A normal algorithm flow is shown below.
 
-![](../../images/consensus/3.png)
+![](../images/consensus/3.png)
 
 ##### 1)  Initialize local consensus information
 
@@ -73,7 +73,7 @@ A normal algorithm flow is shown below.
 
   2. Package and broadcast each 500 selected transactions
 
-  3. Set timeout to (2<sup>v+1</sup> - k(v))*T<sub>block</sub>, where ![](../../images/consensus/4.png)   
+  3. Set timeout to (2<sup>v+1</sup> - k(v))*T<sub>block</sub>, where ![](../images/consensus/4.png)   
 
 - For delegates:
 
@@ -81,7 +81,7 @@ A normal algorithm flow is shown below.
    
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
-     2. Prolong local timeout by ![](../../images/consensus/5.png)
+     2. Prolong local timeout by ![](../images/consensus/5.png)
 
      3. Update local consensus context
 
@@ -99,7 +99,7 @@ A normal algorithm flow is shown below.
 
   2. Broadcast Prepare Response message
 
-  3. Prolong local timeout by ![](../../images/consensus/5.png)
+  3. Prolong local timeout by ![](../images/consensus/5.png)
 
 - Otherwise, attempt to change view
 
@@ -111,7 +111,7 @@ A normal algorithm flow is shown below.
 
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
-     2. Prolong local timeout by ![](../../images/consensus/5.png)
+     2. Prolong local timeout by ![](../images/consensus/5.png)
 
    - Broadcast Commit message
 
@@ -125,7 +125,7 @@ A normal algorithm flow is shown below.
 
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
-     2. Prolong local timeout by ![](../../images/consensus/6.png)
+     2. Prolong local timeout by ![](../images/consensus/6.png)
 
    - Create and broadcast the new block
 
@@ -143,7 +143,7 @@ A normal algorithm flow is shown below.
 
 #### Flow
 
-![](../../images/consensus/8.png)
+![](../images/consensus/8.png)
 
 1. Set the timeout to 2<sup>v+2</sup> * T<sub>block</sub> 
 
@@ -161,7 +161,7 @@ When a validator receives Change View Request message:
 
 3. Check the amount of Change View Request received. If not less than M validators reach consensus upon view changing, change the local view, initialize local consensus context, and determine next round's speaker according to new view
 
-![](../../images/consensus/9.png)
+![](../images/consensus/9.png)
 
 ### Recovery Request Message
 
@@ -177,9 +177,9 @@ Upon receiving Recovery Request, a validator will generate and broadcast Recover
 
 - This node has already broadcast Commit message
 
-- This node's index belongs to the given interval: ![](../../images/consensus/7.png) , where j is the index of Recovery Request sender
+- This node's index belongs to the given interval: ![](../images/consensus/7.png) , where j is the index of Recovery Request sender
 
-![](../../images/consensus/10.png)
+![](../images/consensus/10.png)
 
 ### Recovery Message
 
@@ -193,7 +193,7 @@ Upon receiving Recovery Request, a validator will generate and broadcast Recover
 
 #### Triggering conditions
 
-- Upon receiving Recovery Request message, if this node has already broadcast Commit message or its index belongs to the given interval:![](../../images/consensus/7.png) , where j is the index of Recovery Request sender
+- Upon receiving Recovery Request message, if this node has already broadcast Commit message or its index belongs to the given interval:![](../images/consensus/7.png) , where j is the index of Recovery Request sender
 
 - Upon receiving Change View Request message, if the message's view is not greater than the local view, this message is handled as Recovery Request
 
@@ -217,7 +217,7 @@ Upon receiving Recovery Request, a validator will generate and broadcast Recover
 
 4. If the message view is not greater than the local view, handle Commit messages inside
 
-![](../../images/consensus/11.png)
+![](../images/consensus/11.png)
 
 The mechanism with Change View Request, Recovery Request and Recovery Message can keep consensus safe from timeout caused by the network, abnormal nodes (malicious nodes, fault nodes, etc.) and other issues.
 

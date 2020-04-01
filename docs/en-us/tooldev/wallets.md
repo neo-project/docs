@@ -20,7 +20,7 @@ There are two main encoding formats for private keys in NEO:
 
    The wif format is to add prefix `0x80` and suffix `0x01` in the original 32-byte data, and get the string after Base58Check encoding.
 
-[![Base58Check Encode](../images/wallets/privateKey-wif-en.png)](../images/wallets/privateKey-wif-en.png)
+[![Base58Check Encode](images/wallets/privateKey-wif-en.png)](../images/wallets/privateKey-wif-en.png)
 
  Example: 
 

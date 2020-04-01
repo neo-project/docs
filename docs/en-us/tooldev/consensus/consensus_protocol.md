@@ -57,7 +57,7 @@
 
 When a consensus message enters the P2P network, it's broadcasted and transmitted like other messages. That is because consensus nodes do not have IP address of other consensus nodes. Consensus nodes are not directly connected. That is to say, ordinary nodes can also receive consensus message. The broadcast flow of consensus messages is as follows.
 
-[![consensus_msg_seq](../../images/consensus/consensus_msg_seq.jpg)](../../images/consensus/consensus_msg_seq.jpg)
+[![consensus_msg_seq](../images/consensus/consensus_msg_seq.jpg)](../../images/consensus/consensus_msg_seq.jpg)
 
   1. Consensus node A will directly broadcast 'consensus' message to connected nodes(e.g. node B).
 
@@ -149,7 +149,7 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
   8. Collect and verify transactions in the proposal block from unverified memory pool.
 
   9. Verify the MinerTransaction and add it into current context.
-      
+    
   10. If all transactions are collected verified, it will request PrepareResponse. Otherwise it will broadcast a getdata message to retrieve transactions from other nodes.
 
 2. On receiving a **PrepareResponse** sent by consensus nodes with their signture.
