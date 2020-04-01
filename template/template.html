@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,7 +31,7 @@
     <link href="https://neo3.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
-    <link href="/css/site.min.css?v=20200401" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
@@ -69,13 +69,6 @@
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
             <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
-                <div class="version-bar">
-                    <div>Version</div>
-                    <select id="version">
-                        <option value="">Neo 2.x</option>
-                        <option value="/v3">Neo 3.x</option>
-                    </select>
-                </div>
                 <div class="search-bar">
                     <span class="search-de">X</span>
                     <input id="sInput" placeholder="search" />
@@ -120,7 +113,7 @@
     <script src="https://neo3.azureedge.net/js/text-autospace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
-    <script src="/js/site.min.js?v=20191106"></script>
+    <script src="/js/site.min.js"></script>
     <script>
         //适用于FAQ的根据标题展开收缩
         if (_collapse) {
@@ -181,20 +174,6 @@
             });
         }
 
-        $("#version").change(function () {
-            var savelang = localStorage.getItem("lang");
-            var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
-            if (lang != 'zh-cn') lang = 'en-us';
-            var v = $(this).children('option:selected').val();
-
-            location.href = v + "/docs/" + lang + "/index.html";
-        });
-        $(function () {
-            if (location.href.indexOf("/v3/") > 0)
-                $("#version").val("/v3");
-            else
-                $("#version").val("");
-        });
     </script>
 </body>
 </html>
