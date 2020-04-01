@@ -2,7 +2,7 @@
 
 ####Neo 官方的技术文档都在这里，还有众多开发示例可供参考。
 
-| NEO 介绍                      |                                      |                                    |                                                |
+| Neo 介绍                      |                                      |                                    |                                                |
 | ----------------------------- | ------------------------------------ | ---------------------------------- | ---------------------------------------------- |
 | [白皮书](basic/whitepaper.md) | [共识机制](basic/technology/dbft.md) | [NeoVM](basic/technology/neovm.md) | [NeoContract](basic/technology/neocontract.md) |
 
@@ -11,7 +11,7 @@
 | [节点介绍](node/introduction.md)   | [Neo-GUI](node/gui/install.md) | [Neo-CLI](node/cli/setup.md) | [Neo-Python](node/python/overview.md) |
 | [快速同步区块](node/syncblocks.md) |                                |                              |                                       |
 
-| NEO 网络                           |                                              |                                                |      |
+| Neo 网络                           |                                              |                                                |      |
 | ---------------------------------- | -------------------------------------------- | ---------------------------------------------- | ---- |
 | [主网和测试网](network/testnet.md) | [搭建私有链 ](network/private-chain/solo.md) | [Neo-local](network/private-chain/neolocal.md) |      |
 
@@ -34,11 +34,9 @@
 | ----------------------------------------------- | ---- | ---- | ---- |
 | [Version 2.10.3](exchange/2.10.3/deploynode.md) |      |      |      |
 
-| 开发参考                                       |                                        |                                       |                                                              |
-| ---------------------------------------------- | -------------------------------------- | ------------------------------------- | ------------------------------------------------------------ |
-| [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/api.md) | [智能合约框架](reference/scapi/fw.md) | [SDK API (C#)](https://docs.neo.org/developerguide/zh/api/index.html) |
-| [NeoVM 指令集](reference/neo_vm.md)            |                                        |                                       |                                                              |
-
+| 开发参考                                       |                                        |                                       |                                     |
+| ---------------------------------------------- | -------------------------------------- | ------------------------------------- | ----------------------------------- |
+| [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/api.md) | [智能合约框架](reference/scapi/fw.md) | [NeoVM 指令集](reference/neo_vm.md) |
 
 <link href="index.css" rel="stylesheet" />
 

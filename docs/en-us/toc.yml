@@ -331,7 +331,5 @@
           items:
           - name: ExecutionEngine
             href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
-  - name: SDK API (C#)
-    href: https://docs.neo.org/developerguide/en/api/index.html
   - name: NeoVM Instructions
     href: /docs/en-us/reference/neo_vm.md
