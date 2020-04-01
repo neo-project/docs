@@ -102,17 +102,17 @@ There are 2 steps in voting for consensus nodes:
 
 According to the voting described above, we may get a diagram of votes for the number of consensus nodes.
 
-[![calculate_consensus_count_0](../../images/consensus/calculate_consensus_count_0.jpg)](../../images/consensus/calculate_consensus_count_0.jpg)
+[![calculate_consensus_count_0](../images/consensus/calculate_consensus_count_0.jpg)](../../images/consensus/calculate_consensus_count_0.jpg)
 
 The following formula is to demenstrate the probability distribution funnction F(discrete function), in which the probability of the `i`th consensus node equals its proportion of votes.
 
-[![formula_vote](../../images/consensus/formula_vote.jpg)](../../images/consensus/formula_vote.jpg)
+[![formula_vote](../images/consensus/formula_vote.jpg)](../../images/consensus/formula_vote.jpg)
 
-[![calculate_consensus_count_1](../../images/consensus/calculate_consensus_count_1.jpg)](../../images/consensus/calculate_consensus_count_1.jpg)
+[![calculate_consensus_count_1](../images/consensus/calculate_consensus_count_1.jpg)](../../images/consensus/calculate_consensus_count_1.jpg)
 
 On the probability distribution function, take the portion F ∈ [0.25, 0.75] that covers consensus nodes. Then take the expected value for these points. Compare it with the count of backup validators. Take the larger one as the final number of consensus nodes.
 
-[![formula_vote_count](../../images/consensus/formula_vote_count.jpg)](../../images/consensus/formula_vote_count.jpg)
+[![formula_vote_count](../images/consensus/formula_vote_count.jpg)](../../images/consensus/formula_vote_count.jpg)
 
 - `⌈A⌉` represents the first F<sub>i</sub> >= 0.25 point
 
