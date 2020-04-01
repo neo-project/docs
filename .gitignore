@@ -253,4 +253,3 @@ NeoDocsBuilder.*
 *.dll
 _site/
 docfx.json
-/template/
