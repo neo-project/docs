@@ -1,6 +1,6 @@
 # CLI Command Reference
 
-Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line wallet (i.e. the NEO node).
+Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line wallet (i.e. the Neo node).
 
 `dotnet neo-cli.dll`
 
@@ -26,110 +26,62 @@ All the commands described in this document conform with these conventions:
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
-#### Contract Commands
-
-| Command           | Parameters                                                   | Description       |
-| ----------------- | ------------------------------------------------------------ | ----------------- |
-| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploy a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | Invoke a contract |
-
 #### Wallet Commands
 
-| Command                                           | Parameters                                  | Description                                                  |
-| ------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------ |
-| [create wallet](#create-wallet)                   | \<path>                                     | Create a wallet file.                                        |
-| [open wallet](#open-wallet)                       | \<path>                                     | Open a wallet file.                                          |
-| close wallet                                      |                                             | Close the current wallet.                                    |
-| [upgrade wallet](#upgrade-wallet)                 | \<path>                                     | Upgrade old wallet files.                                    |
-| list address                                      |                                             | list all the accounts in the wallet.<br>Need to open wallet. |
-| list asset                                        |                                             | List all assets in the wallet.<br/>Need to open wallet.      |
-| list key                                          |                                             | List all public keys in your wallet.<br/>Need to open wallet. |
-| [show gas](#show-gas)                             |                                             | List all the GAS in your wallet.<br/>Need to open wallet.    |
-| [create address](#create-address)                 | [n is a positive integer and defaults to 0] | Create address / batch create address<br/>Need to open wallet. |
-| [import key](#import-key)                         | \<wif\|path>                                | Import a private key / bulk import of private keys.<br/>Need to open wallet. |
-| [export key](#export-key)                         | \[address] [path]                           | Export private keys.<br/>Need to open wallet.                |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all      | Send assets to the specified address.<br/>Need to open wallet. |
-| [import multisigaddress](#import-multisigaddress) | \<m pubkeys>                                | Create a multi-signature contract.<br/>Need to open wallet.  |
-| [sign](#sign)                                     | \<jsonObjectToSign>                         | Sign the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
+| Command                                           | Parameters                             | Description                                                  |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| [create wallet](#create-wallet)                   | \<path>                                | Creates a wallet file.                                       |
+| [open wallet](#open-wallet)                       | \<path>                                | Opens a wallet file.                                         |
+| close wallet                                      |                                        | Closes the current wallet.                                   |
+| [upgrade wallet](#upgrade-wallet)                 | \<path>                                | Upgrades old wallet files.                                   |
+| list address                                      |                                        | lists all the accounts in the wallet.<br>Need to open wallet. |
+| list asset                                        |                                        | Lists all assets in the wallet.<br/>Need to open wallet.     |
+| list key                                          |                                        | Lists all public keys in your wallet.<br/>Need to open wallet. |
+| [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.<br/>Need to open wallet.   |
+| [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address<br/>Need to open wallet. |
+| [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.<br/>Need to open wallet. |
+| [export key](#export-key)                         | \[address] [path]                      | Exports private keys.<br/>Need to open wallet.               |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.<br/>Need to open wallet. |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.<br/>Need to open wallet. |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
+
+#### Contract Commands
+
+| Command           | Parameters                                                   | Description        |
+| ----------------- | ------------------------------------------------------------ | ------------------ |
+| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | Invokes a contract |
+
 
 #### Node Commands
 
 | Command         | Parameters          | Description                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------ |
-| show state      |                     | Display the current status of blockchain synchronization.    |
-| show pool       | [verbose]           | Display the transactions in the memory pool (These transactions are in the state of zero confirmation). |
-| [relay](#relay) | \<jsonObjectToSign> | Broadcast the transaction. The parameter is the json string that records the transaction information. |
+| show state      |                     | Displays the current status of blockchain synchronization.   |
+| show pool       | [verbose]           | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
+| [relay](#relay) | \<jsonObjectToSign> | Broadcasts the transaction. The parameter is the json string that records the transaction information. |
 
 #### Plugin Commands
 
-| Command                             | Parameters       | Description                                                  |
-| ----------------------------------- | ---------------- | ------------------------------------------------------------ |
-| [plugins](#plugins)                 |                  | List loaded plugins                                          |
-| [install](#install)                 | [Plugin name]    | Install the specified plugin                                 |
-| [uninstall](#install)               | [Plugin name]    | Uninstall the specified plugin                               |
-| [export block[s]](#export-block-s-) | [path=chain.acc] | Export the whole blockchain data. The exported data  can be used for offline synchronzation. |
-| [export block[s]](#export-block-s-) | \<start> [count] | Export a specified number of block data from the specified block height. The exported data can be used for offline synchronization |
-| [dump storage](#dump-storage)       | \<key>           | Export all or the specified state data.                      |
+| Command                       | Parameters    | Description                              |
+| ----------------------------- | ------------- | ---------------------------------------- |
+| [plugins](#plugins)           |               | Lists loaded plugins                     |
+| [install](#install)           | [Plugin name] | Installs the specified plugin            |
+| [uninstall](#install)         | [Plugin name] | Uninstalls the specified plugin          |
+| [dump storage](#dump-storage) | \<key>        | Exports all or the specified state data. |
 
 #### Advanced Commands
 
-| Command                      | Description     |
-| ---------------------------- | --------------- |
-| [start consensus](#d320b143) | Start consensus |
+| Command                             | Parameters | Description                                                  |
+| ----------------------------------- | ---------- | ------------------------------------------------------------ |
+| [export block[s]](#export-block-s-) | \<index>   | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronzation. |
+| [start consensus](#d320b143)        |            | Starts consensus                                             |
 
 ## Command Description
 
-### deploy
-
-Deploy a contract on the blockchain.
-
-##### Syntax
-
-`deploy <nefFilePath> [manifestFile]` 
-
-##### Parameters
-
-- `nefFilePath`：Path to the executable file (.nef) of NeoVM.
-- `manifestFile`：Path to the file manifest.json, which records each interface information and configuration content of the contract.
-
-##### Example
-
-```
-neo> deploy Template.nef Template.manifest.json  
-Script hash: 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6
-Gas Consumed: 100000000
-
-Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c767813be5d53e02a983f4e561d284
-```
-
-### invoke
-
-Invoke a contract.
-
-##### Syntax
-
-`invoke <scripthash> <command> [optionally quoted params separated by space]` 
-
-##### Parameters
-
-- `scripthash`：Contract hash to invoke.
-- `command`：Method name in the contract, which can be followed by input parameters separated by space. 
-
-##### Example
-
-```
-neo> invoke 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6 name
-Invoking script with: '00c1046e616d6514c6e5db4c428dfa9546c92bd8ae30f69a7be25c1e68627d5b52'
-VM State: HALT
-Gas Consumed: 4320950
-Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
-
-relay tx(no|yes): no
-```
-
 ### create wallet
 
-Create a wallet file in the .db3 or .json format. A wallet password is required to be specified during the process. 
+Creates a wallet file in the .db3 or .json format. A wallet password is required to be specified during the process. 
 
 ##### Syntax
 
@@ -149,7 +101,7 @@ The wallet file is generated under the neo-cli root directory. If you want to se
 
 ### open wallet
 
-Open the wallet file at the specified path. The wallet password is required to be entered when opening the wallet.
+Opens the wallet file at the specified path. The wallet password is required to be entered when opening the wallet.
 
 ##### Syntax
 
@@ -164,7 +116,7 @@ password: *
 
 ### upgrade wallet
 
-Upgrade the old .db3 wallet file into the .json format.
+Upgrades the old .db3 wallet file into the .json format.
 
 ##### Syntax
 
@@ -179,7 +131,7 @@ Wallet file upgrade complete. New wallet file has been auto-saved at: test.json
 
 ### show gas
 
-list all the unclaimed GAS in the current wallet.
+lists all the unclaimed GAS in the current wallet.
 
 ##### Syntax
 
@@ -196,11 +148,11 @@ unclaimed gas: 0
 >
 > This command does not show the GAS that has been claimed. Use `list asset` instead.
 
-On NEO3, The GAS in an account is claimed automatically every time when the number of NEO in the account changes.  
+On Neo3, The GAS in an account is claimed automatically every time when the number of Neo in the account changes.  
 
 ### create address
 
-Create a new address. One can also enter `create address 100` to create 100 new addresses in batches; Addresses are automatically exported to the address.txt file.
+Creates a new address. One can also enter `create address 100` to create 100 new addresses in batches; Addresses are automatically exported to the address.txt file.
 
 ##### Syntax
 
@@ -208,7 +160,7 @@ Create a new address. One can also enter `create address 100` to create 100 new 
 
 ##### Parameters
 
-`n`：Number of addresses to create. N is an integer and defaults to 1.
+`n`：Number of addresses to create. n is an integer and defaults to 1.
 
 ##### Example
 
@@ -221,7 +173,7 @@ export addresses to address.txt
 
 ### export key
 
-Export private key of the address to the specified file. The command also requires the verification of the wallet password.
+Exports private key of the address to the specified file. The command also requires the verification of the wallet password.
 
 ##### Syntax
 
@@ -234,7 +186,7 @@ Export private key of the address to the specified file. The command also requir
 
 ##### Example
 
-Export the key to the console:
+Exports the key to the console:
 
 ```
 neo> export key
@@ -251,7 +203,7 @@ password: ********
 L4HoTTfKfzjV8tdWv6vRaMY1cBQbsVc4euGqhPW9Mf8z6993fgMH
 ```
 
-Export the key to the specified file:
+Exports the key to the specified file:
 
 ```
 neo> export key key1.txt
@@ -267,7 +219,7 @@ password: ********
 
 ### import key
 
-Import a private key, or import a file with a number of private keys.
+Imports a private key, or  a file with a number of private keys.
 
 ##### Syntax
 
@@ -293,7 +245,7 @@ If there is a specified file, the file is in the private key format. Refer to ex
 
 ### import multisigaddress
 
-Create a multi-party signed address. 
+Creates a multi-party signed address. 
 
 ##### Syntax
 
@@ -313,7 +265,7 @@ Multisig. Addr.: AYpc268sh4tff7CTj5W4tztt1qheVTUa6P
 
 ### send
 
-Transfer the asset to the specified address. The command requires the verification of the wallet password.
+Transfers the asset to the specified address. The command requires the verification of the wallet password.
 
 ##### Syntax
 
@@ -327,7 +279,7 @@ Transfer the asset to the specified address. The command requires the verificati
 
 ##### Example
 
-Transfer 100 NEO to the address  “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”：
+Transfer 100 Neo to the address  “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”：
 
 ```
 neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
@@ -345,7 +297,7 @@ password: ********
 TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 ```
 
- When withdrawing assets from a multi-signed address, multiple signatures are required. A json string is returned requiring signatures, as shown below:
+When withdrawing assets from a multi-signed address, multiple signatures are required. A json string is returned requiring signatures, as shown below:
 
 ```
 neo> send gas ARfyrX28D2H2wP6KR6xxaUbvqvkv5SbMNe 2
@@ -356,7 +308,7 @@ SignatureContext:
 
 ### sign
 
-This command is used to sign when withdrawing assets from a multi-signed address which requires multiple signatures.The translation can be broadcasted only after signing is completed.
+This command is used to sign when withdrawing assets from a multi-signed address which requires multiple signatures. The translation can be broadcasted only after signing is completed.
 
 ##### Syntax
 
@@ -373,6 +325,61 @@ neo> sign {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"0071c0992d42e2a6
 Signed Output:
 {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"0071c0992d42e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c00e1f50500000000ac0c240000000000cb152300000142e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c01550400c2eb0b146c93f190909dea8dfe3caeb2ee90530b4ef21e861442e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1","items":{"0x0c2a95d2bba739e2b2e1b0e55d3b768b2ca6e242":{"script":"5221032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff002102685dd451efbf38cf859a80f250815f503303dd7b9f6546786164de219ede87735268c7c34cba","parameters":[{"type":"Signature","value":"794f87a810bd30b15f90ddc1898e2e592c1a3fae4b14e34d8a411305e7913d44ab56e388125ef597be46a8958b2ed8c5e298076c2d69ab3337c944f5356c462b"},{"type":"Signature","value":"d9ac57bac4260c60707e0b641585c70789e1a2eb5438c95de972af9aff99f5f4485b81cd2382218583b7f4950da54dbd8d1468f72b91809e14bb1c8139cca637"}]}}}
 ```
+
+### deploy
+
+Deploys a contract on the blockchain.
+
+##### Syntax
+
+`deploy <nefFilePath> [manifestFile]` 
+
+##### Parameters
+
+- `nefFilePath`：Path to the executable file (.nef) of NeoVM.
+- `manifestFile`：Path to the file manifest.json, which records each interface information and configuration content of the contract.
+
+##### Example
+
+```
+neo> deploy Template.nef Template.manifest.json  
+Script hash: 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6
+Gas Consumed: 100000000
+
+Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c767813be5d53e02a983f4e561d284
+```
+
+### invoke
+
+Invokes a contract.
+
+##### Syntax
+
+`invoke <scripthash> <command> [optionally quoted params separated by space]` 
+
+##### Parameters
+
+- `scripthash`：Contract hash to invoke.
+- `command`：Method name in the contract, which can be followed by input parameters separated by space. 
+- `[optionally quoted params separated by space]` can only be passed in parameters in string format.
+
+##### Example
+
+```
+neo> invoke 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6 name
+Invoking script with: '00c1046e616d6514c6e5db4c428dfa9546c92bd8ae30f69a7be25c1e68627d5b52'
+VM State: HALT
+Gas Consumed: 4320950
+Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
+
+relay tx(no|yes): no
+```
+
+- `VM State`：there are two states:
+  -  `HALT` : the virtual machine executes successfully.
+  -  `FAULT` : the virtual machine exits during execution due to an exception. 
+- `Gas Consumed`：the system fees consumed for smart contract invocation.
+- `Evaluation Stack`：shows the result of contract execution, where the value is encoded with Base64.
 
 ### relay
 
@@ -396,7 +403,7 @@ Data relay success, the hash is shown as follows:
 
 ### plugins
 
-Show all the loaded plugins.
+Shows all the loaded plugins.
 
 ##### Syntax
 
@@ -419,7 +426,7 @@ Loaded plugins:
 
 ### install
 
-Install plugins.
+Installs plugins.
 
 `install [Plugin name]` 
 
@@ -433,33 +440,29 @@ Install successful, please restart neo-cli.
 
 For information about all plugins refer to [Install Plug-ins](config.md).
 
-### export block[s]
-
-Export the whole blockchain data or export the specified amount of block data from the specified block height.  The output can be used for offline synchronization. Before you can use this command you need to install the plugin ImportBlocks.
-
-##### Syntax
-
-`export block[s] [path=chain.acc]`
-
-`export block[s] <start> [count]`
-
-##### Parameters
-
-`[path=chain.acc]`：Export the whole blockchain data.
-
-`<start> [count]`：The height of the starting block  and the number of blocks to export data.
-
 ### dump storage
 
-Export all or the specified state data.
+Exports all or the specified state data.
 
 ##### Syntax
 
 `dump storage <key>`
 
+### export blocks
+
+Exports the block data from the specified block height. The output can be used for offline synchronization. 
+
+##### Syntax
+
+`export blocks <index>`
+
+##### Parameters
+
+`<index> `：The height of the starting block from which the data is exported.
+
 ### start consensus
 
-Start the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain.md)。
+Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain.md)。
 
 > [!NOTE]
 >

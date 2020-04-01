@@ -1,6 +1,6 @@
 # CLI 命令参考
 
-打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 NEO 的命令行钱包。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 Neo 的命令行钱包。
 
 `dotnet neo-cli.dll`
 
@@ -70,10 +70,10 @@
 | [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
 #### 高级命令
 
-| 命令                                | 参数     | 说明                                         |
-| ----------------------------------- | -------- | -------------------------------------------- |
-| [export block[s]](#export-block-s-) | \<index> | 导出全部区块数据，导出的结果可以用作离线同步 |
-| [start consensus](#start-consensus) |          | 启动共识                                     |
+| 命令                                | 参数     | 说明                                                   |
+| ----------------------------------- | -------- | ------------------------------------------------------ |
+| [export block[s]](#export-block-s-) | \<index> | 从指定区块高度导出区块数据，导出的结果可以用作离线同步 |
+| [start consensus](#start-consensus) |          | 启动共识                                               |
 
 ## 命令说明
 
@@ -146,7 +146,7 @@ unclaimed gas: 0
 >
 > 这里不包含已提取的 GAS，查看已提取的 GAS 请用 list asset 命令。
 
-在 NEO3 中，某地址每次 NEO 数量发生改变时都会触发其 GAS 的自动提取。
+在 Neo3 中，某地址每次 NEO 数量发生改变时都会触发其 GAS 的自动提取。
 
 ### create address
 
@@ -374,11 +374,11 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-其中 VM State 为 `HALT` 表示虚拟机执行成功， VM State 为 `FAULT` 表示虚拟机执行时遇到异常退出。
-
-Gas Consumed 表示调用智能合约时消耗的系统手续费。
-
-Evaluation Stack 表示合约执行结果，其中 value 是 Base64 编码后的结果。
+- `VM State`：有两个状态：
+  -  `HALT` 表示虚拟机执行成功
+  -  `FAULT` 表示虚拟机执行时遇到异常退出。
+- `Gas Consumed`：表示调用智能合约时消耗的系统手续费。
+- `Evaluation Stack`： 表示合约执行结果，其中 value 是 Base64 编码后的结果。
 
 ### relay
 
@@ -449,7 +449,7 @@ Install successful, please restart neo-cli.
 
 ### export blocks
 
-导出全部区块数据，或者从指定区块高度导出指定数量的区块数据，导出的结果可以用作离线同步。
+从指定区块高度导出区块数据，导出的结果可以用作离线同步。
 
 ##### 句法
 
