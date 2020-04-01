@@ -1,14 +1,14 @@
 ﻿- name: Site Map
   href: /v3/docs/en-us/index.md
-- name: NEO Node
+- name: Neo Node
   items:
   - name: Introduction
     href: /v3/docs/en-us/node/introduction.md
-  - name: NEO-GUI
+  - name: Neo-GUI
     items:
     - name: Introduction
       href: /v3/docs/en-us/node/gui/temp.md
-  - name: NEO-CLI
+  - name: Neo-CLI
     items:
     - name: Installation
       href: /v3/docs/en-us/node/cli/setup.md
@@ -16,7 +16,7 @@
       href: /v3/docs/en-us/node/cli/config.md
     - name: Command Line
       href: /v3/docs/en-us/node/cli/cli.md
-- name: NEO Network
+- name: Neo Network
   items:
   - name: Main Net and Test Net
     href: /v3/docs/en-us/network/testnet.md
@@ -61,7 +61,7 @@
     href: /v3/docs/en-us/sc/migrate.md
   - name: Fees
     href: /v3/docs/en-us/sc/fees.md
-- name: NEO Tools Development
+- name: Neo Tools Development
   - name: Main Concepts
     - name: Blockchain Models
       - name: Block
@@ -84,10 +84,6 @@
         href: /v3/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.md
     - name: Big and Little Endian Usage
        href: /v3/docs/en-us/tooldev/concept/endian.md
-  - name: NEO-CLI Structure
-    href:  /v3/docs/en-us/tooldev/neo_cli_structure.md
-  - name: Network Protocol
-    href: /v3/docs/en-us/tooldev/network-protocol.md
   - name: Consensus
     - name: Consensus Algorithm
       href: /v3/docs/en-us/tooldev/consensus/consensus_algorithm.md
@@ -102,9 +98,9 @@
       href: /v3/docs/en-us/tooldev/transaction/transaction.md
     - name: Transaction Process
       href: /v3/docs/en-us/tooldev/transaction/tx_execution.md
-  - name: NEO SDK
+  - name: Neo SDK
     items:
-    - name: About NEO SDK
+    - name: About Neo SDK
       href: /v3/docs/en-us/tooldev/sdk/introduction.md
     - name: Data Conversion
       href: /v3/docs/en-us/tooldev/sdk/conversion.md
@@ -118,16 +114,14 @@
   items:
   - name: Overview
     href:  /v3/docs/en-us/exchange/general.md
-  - name: v2.10.3
-    items:
-    - name: Deploying NEO nodes
-      href: /v3/docs/en-us/exchange/2.10.3/deploynode.md
-    - name: Using NEO-CLI
-      href: /v3/docs/en-us/exchange/2.10.3/client.md
-    - name: Dealing with assets transactions
-      href: /v3/docs/en-us/exchange/2.10.3/transaction.md
-    - name: Distributing GAS to users
-      href: /v3/docs/en-us/exchange/2.10.3/gas.md 
+  - name: Deploying Neo nodes
+    href: /v3/docs/en-us/exchange/2.10.3/deploynode.md
+  - name: Using Neo-CLI
+    href: /v3/docs/en-us/exchange/2.10.3/client.md
+  - name: Dealing with assets transactions
+    href: /v3/docs/en-us/exchange/2.10.3/transaction.md
+  - name: Distributing GAS to users
+    href: /v3/docs/en-us/exchange/2.10.3/gas.md 
 - name: Reference
   items:
   - name: RPC API
@@ -206,17 +200,17 @@
   - name: Smart Contract API
     - name: API Reference
       items: 
-      - name: NEO
+      - name: Neo
         href: /v3/docs/en-us/reference/scapi/api/neo.md
       - name: System
         href: /v3/docs/en-us/reference/scapi/api/System.md
     - name: .net Framework
       items: 
-      - name: NEO Namespace
+      - name: Neo Namespace
         href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo.md
       - name: System Namespace
         href: /v3/docs/en-us/reference/scapi/fw/dotnet/System.md
-      - name: NEO
+      - name: Neo
         items:
         - name: Account
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Account.md
