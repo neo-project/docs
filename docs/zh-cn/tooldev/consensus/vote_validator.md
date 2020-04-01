@@ -102,17 +102,17 @@ NEO的POS模式，体现在 (1) 任何人都可以发起交易申请成为验证
 
 根据用户的投票情况，共识节点个数的投票得到类似如下图形式：
 
-[![calculate_consensus_count_0](../../images/consensus/calculate_consensus_count_0.jpg)](../../images/consensus/calculate_consensus_count_0.jpg)
+[![calculate_consensus_count_0](../images/consensus/calculate_consensus_count_0.jpg)](../../images/consensus/calculate_consensus_count_0.jpg)
 
 按照如下公式，转化成概率分布函数 F（离散函数），其中投票数的占比即为共识个数 i 的概率。
 
-[![formula_vote](../../images/consensus/formula_vote.jpg)](../../images/consensus/formula_vote.jpg)
+[![formula_vote](../images/consensus/formula_vote.jpg)](../../images/consensus/formula_vote.jpg)
 
-[![calculate_consensus_count_1](../../images/consensus/calculate_consensus_count_1.jpg)](../../images/consensus/calculate_consensus_count_1.jpg)
+[![calculate_consensus_count_1](../images/consensus/calculate_consensus_count_1.jpg)](../../images/consensus/calculate_consensus_count_1.jpg)
 
 在概率分布函数上，截取F ∈ [0.25, 0.75]覆盖到的共识节点个数，再对这些点求取期望值，最后与备用共识节点个数比较取最大值，得到最终的共识节点个数。公式如下：
 
-[![formula_vote_count](../../images/consensus/formula_vote_count.jpg)](../../images/consensus/formula_vote_count.jpg)
+[![formula_vote_count](../images/consensus/formula_vote_count.jpg)](../../images/consensus/formula_vote_count.jpg)
 
 - 其中，⌈A⌉ 代表第一个 F<sub>i</sub> >= 0.25 的点
 
