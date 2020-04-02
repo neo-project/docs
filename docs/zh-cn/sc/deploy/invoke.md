@@ -23,14 +23,25 @@
 使用 invoke 命令调用智能合约，命令如下：
 
 ```
-invoke <scripthash> <command> [optionally quoted params separated by space]
+invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
 ```
 
 参数说明：
 
 - `scripthash` ：要调用的合约脚本散列
-- `command` ：合约内方法名，后面可以输入传入参数，以空格隔开
-- `[optionally quoted params separated by space]` 为调用参数，目前只能传入字符串格式的参数。
+
+- `operation` ：合约内方法名，后面可以输入传入参数，以空格隔开
+
+- `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码。
+
+  示例：地址 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 可转换为 16 进制大端序的 ScriptHash `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` 也可转换为 Base64 编码的 ScriptHash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`。JSON 格式的参数如下：
+
+  ```
+  [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+  [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+  ```
+
+- `witnessAddress` 为附加签名地址，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址的签名。
 
 示例输入：
 
@@ -55,9 +66,49 @@ Gas Consumed 表示调用智能合约时消耗的系统手续费。
 
 Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 
+示例输入：
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+```
+
+或
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+示例输入：
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+```
+
+或
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"d4cd1219ce8e172b50273823d799a365fab6b0e4"}]
+```
+
+示例输出：
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
 > [!Note]
 >
-> 当输入 invoke 命令后，节点并不是直接调用合约中的 `command` 方法。而是调用该合约的 `main` 方法，并将 `command` 和 `params` 作为实参传入。如果 main 方法里没有对 `command` 和 `params` 做处理，将不能返回预期的结果。
+> 当输入 invoke 命令后，节点并不是直接调用合约中的 `operation` 方法。而是调用该合约的 `main` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果 main 方法里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
 
 ### 在 Neo-CLI 中通过 API 调用
 
@@ -73,9 +124,9 @@ Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 B
 
 - scripthash：智能合约脚本散列。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
 
-- operation：操作名称（字符串）。与 invoke 命令中的 `command` 相同，只是名字不一样。
+- operation：操作名称（字符串）。与 invoke 命令中的 `operation` 相同。
 
-- params：传递给智能合约操作的参数。与 invoke 命令中的 `... params ... ` 参数不同。invoke 命令中的 `... params ... ` 参数只能接受字符串类型的参数。这里支持其它格式的参数，但需要指定参数的格式。 
+- params：传递给智能合约操作的参数。与 invoke 命令中的 `contractParameters ` 参数相同。
 
   如：
 
@@ -182,7 +233,11 @@ Neo-GUI 试运行的结果与 Neo-CLI 中的类似，这里就不重复阐述了
 
 当合约中写了 `Runtime.CheckWitness(owner)` 时，调用合约时就要传入 `owner` 的签名。这个签名就是附加签名了。
 
-在 Neo-CLI 中，我们暂不能对调用合约的交易添加附加签名。
+在 Neo-CLI 中，我们可以通过 `invoke` 命令附加签名。
+
+```
+invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
+```
 
 在 Neo-GUI 中，在调用合约时，可以点击下方的 `附加签名`，选择 `公钥` 然后点击  `签名` 来进行附加签名。
 
