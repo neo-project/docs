@@ -355,18 +355,37 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ##### 句法
 
-`invoke <scripthash> <command> [optionally quoted params separated by space]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]` 
 
 ##### 参数
 
-- `scripthash`：要调用的合约脚本 hash
-- `command`：合约内方法名，后面可以输入传入参数，以空格隔开
-- `[optionally quoted params separated by space]` 为调用参数，目前只能传入字符串格式的参数。
+- `scripthash` ：要调用的合约脚本散列
+
+- `operation` ：合约内方法名，后面可以输入传入参数，以空格隔开
+
+- `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码。
+
+  示例：地址 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 可转换为 16 进制大端序的 ScriptHash `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` 也可转换为 Base64 编码的 ScriptHash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`。JSON 格式的参数如下：
+
+  ```
+  [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+  [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+  ```
+
+- `witnessAddress` 为附加签名地址，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址的签名。
 
 ##### 示例
 
+示例输入：
+
 ```
-neo> Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+```
+
+示例输出：
+
+```
+Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
 VM State: HALT
 Gas Consumed: 0.0103609
 Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
@@ -374,11 +393,51 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-- `VM State`：有两个状态：
-  -  `HALT` 表示虚拟机执行成功
-  -  `FAULT` 表示虚拟机执行时遇到异常退出。
-- `Gas Consumed`：表示调用智能合约时消耗的系统手续费。
-- `Evaluation Stack`： 表示合约执行结果，其中 value 是 Base64 编码后的结果。
+其中 VM State 为 `HALT` 表示虚拟机执行成功， VM State 为 `FAULT` 表示虚拟机执行时遇到异常退出。
+
+Gas Consumed 表示调用智能合约时消耗的系统手续费。
+
+Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
+
+示例输入：
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+```
+
+示例输出：
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+示例输入：
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+```
+
+或
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"d4cd1219ce8e172b50273823d799a365fab6b0e4"}]
+```
+
+示例输出：
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
 
 ### relay
 
