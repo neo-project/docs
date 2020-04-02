@@ -4,7 +4,6 @@ Neo-CLI 作为客户端，在 P2P 网络中充当一个普通节点，同时，�
 
 ## Neo-CLI 安全策略
 
-> [!Caution]
 >
 > #### 警告
 >
@@ -59,7 +58,6 @@ Neo-CLI 提供以下功能：
 
 交易所需要创建一个在线钱包管理用户充值地址。钱包用来存储账户（包含公钥和私钥）、合约地址等信息，是用户持有资产的最重要的凭证，一定要保管好钱包文件和钱包密码，不要丢失或泄露。 交易所不需要为每个地址创建一个钱包文件，通常一个钱包文件可以存储用户所有充值地址。也可以使用一个冷钱包（离线钱包）作为更安全的存储方式。
 
-> [!Note]
 >
 > Neo-CLI 钱包支持两种格式的钱包， sqlite 钱包（格式为.db3）和 [NEP6 标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) 钱包（格式为.json）。建议交易所使用 sqlite 钱包。
 
@@ -79,7 +77,7 @@ Neo-CLI 提供以下功能：
 
 - 用户第一次充值（NEO/GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
 
-  要动态创建地址，可以使用 Neo-CLI API 的 [getnewaddress 方法](../../reference/rpc/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
+  要动态创建地址，可以使用 Neo-CLI API 的 [getnewaddress 方法](../reference/rpc/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
 
 - 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 
@@ -87,7 +85,6 @@ Neo-CLI 提供以下功能：
   方括号为可选参数，默认值为 1。例如要一次创建 100 个地址，输入 `create address 100`。
 
 
-> [!Note]
 >
 > 无论采用哪种方式，交易所需要将生成的地址导入到数据库中，作为充值地址分配给用户。一般建议交易所采用第二种方式，这样可以减少外界对钱包的操作，有利于钱包的稳定运行。
 
