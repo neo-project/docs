@@ -4,17 +4,10 @@
 
 一般来说，交易所对接需要完成以下操作：
 
-<<<<<<< .mine
 - [在服务器中部署 NEO 节点](deploynode.md)
 - [使用 NEO-CLI 客户端](client.md)
 - [处理资产交易](transaction.md)
 - [给用户分发 GAS](gas.md)
-=======
-- [在服务器中部署 Neo 节点](deploynode.md)
-- [使用 Neo-CLI 客户端](client.md)
-- [处理资产交易](transaction.md)
-- [给用户分发 GAS](gas.md)
->>>>>>> .theirs
 
 后文将进行详细描述。
 
