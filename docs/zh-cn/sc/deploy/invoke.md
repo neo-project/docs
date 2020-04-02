@@ -41,7 +41,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
   [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
   ```
 
-- `witnessAddress` 为附加签名地址，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址的签名。
+- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址数组内的所有签名。
 
 示例输入：
 
@@ -281,4 +281,3 @@ scriptHash 为被调用合约的脚本散列，ByteArray 类型，小端序。
 method 为被调用合约的方法，如 `name`、`balanceOf`、`transfer` 等，字符串类型。
 
 params 为被调用合约的方法的参数列表，数组类型。
-
