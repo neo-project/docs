@@ -20,7 +20,7 @@
 
  将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图:
 
-![PluginsForExchange.png](../..zh-cn/assets/PluginsForExchange.png)
+![PluginsForExchange.png](../../zh-cn/assets/PluginsForExchange.png)
 
 也可以使用以下命令自动进行安装：
 
