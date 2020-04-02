@@ -347,7 +347,7 @@ symbol
 }
 ```
 
-> [!Note]
+> 提示
 >
 > -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确。
 > -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
@@ -369,9 +369,9 @@ symbol
     
   - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为"0wzwBoLXDacAgxEkGaxxo1Ezxh4="，经过 base64 解码为 ByteArray 后再转换，为字符串 "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T"。
   
-    > [!Note]
+    > 提示
     >
-    > NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    > - NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
     ```json
     {
       "type": "ByteArray",
@@ -394,9 +394,9 @@ symbol
     }
     ```
 
-> [!Note]
+> 提示
 >
-> 关于文件中 transfer 通知格式的转换，可以参考工具 [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool)。
+> - 关于文件中 transfer 通知格式的转换，可以参考工具 [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool)。
 
 ## 处理提现交易
 
@@ -435,9 +435,9 @@ GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
 ### RPC 方法：openwallet
 
-> [!Note]
+> 提示
 >
-> 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法。
+> - 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法。
 
 "params"  是一个包含 2 个参数的数组。
 
