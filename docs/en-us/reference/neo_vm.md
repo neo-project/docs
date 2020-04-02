@@ -78,11 +78,11 @@ The constant instructions mainly complete the function of pushing constants or a
 
 #### PUSHN
 
-| Instruction   | PUSH1\~PUSH16                               |
+| Instruction   | PUSH0\~PUSH16                               |
 |----------|---------------------------------------------|
-| Bytecode | 0x11\~0x20                                  |
+| Bytecode | 0x10\~0x20                                  |
 | Fee | 0.00000030 GAS                                      |
-| Function   | The number `n` is pushed onto the stack，where n is specified by 1\~16. |
+| Function   | The number `n` is pushed onto the stack，where n is specified by 0\~16. |
 
 ### Flow Control
 
@@ -252,7 +252,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 
 | Instruction   | CALL_L                                                  |
 |----------|-------------------------------------------------------|
-| Bytecode | 0x65                                                  |
+| Bytecode | 0x35                                                  |
 | Fee | 0.00022000 GAS                           |
 | Function   | Calls the function at the target address which is represented as a 4-bytes signed offset from the beginning of the current instruction. |
 
@@ -264,29 +264,29 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Fee | 0.00022000 GAS                           |
 | Function   | Pop the address of a function from the stack, and call the function. |
 
+#### ABORT
+
+| Instruction   | ABORT                                                  |
+|----------|-------------------------------------------------------|
+| Bytecode | 0x37                                                  |
+| Fee | 0.00000030 GAS                           |
+| Function   | It turns the vm state to FAULT immediately, and the exception cannot be caught. |
+
+#### ASSERT
+
+| Instruction   | ASSERT                                                       |
+|----------|------------------------------------------------------------------|
+| Bytecode | 0x38                                                             |
+| Fee | 0.00000030 GAS                                                        |
+| Function   | Pop the top value of the stack, if it is false, then exit vm execution and set vm state to FAULT. |
+
 #### THROW
 
 | Instruction   | THROW                 |
 |----------|-----------------------|
-| Bytecode | 0x37                  |
-| Fee | 0.0000003 GAS                                                        |
+| Bytecode | 0x3A                  |
+| Fee | 0.00000030 GAS                                                        |
 | Function   | Set the state of vm to FAULT. |
-
-#### THROWIF
-
-| Instruction   | THROWIF                                                  |
-|----------|-------------------------------------------------------|
-| Bytecode | 0x38                                                  |
-| Fee | 0.0000003 GAS                           |
-| Function   | Read a boolean value from the top of the stack, and if it's True, then set the virtual machine state to FAULT. |
-
-#### THROWIFNOT
-
-| Instruction   | THROWIFNOT                                                       |
-|----------|------------------------------------------------------------------|
-| Bytecode | 0x39                                                             |
-| Fee | 0.0000003 GAS                                                        |
-| Function   | Read a boolean value from the top of the stack, and if it's False, then set the virtual machine state to FAULT. |
 
 #### RET
 
