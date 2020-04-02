@@ -2,7 +2,7 @@
 
 `Neo RPC SDK` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.
 
-This document is applicable to Neo3. It is recommended you use Neo SDK in conjunction with Visual Studio 2019.  
+This document is applicable to Neo3 preview2. It is recommended you use NEO SDK in conjunction with Visual Studio 2019.  
 
 ## Main features
 
@@ -48,7 +48,7 @@ This document is applicable to Neo3. It is recommended you use Neo SDK in conjun
 
 Additionally, you may encounter other exceptions built in the .NET platform, such as  `ArgumentNullException` and `FormatException` when the parameters passed in are null or incorrectly formatted. Therefore, reasonable exception capture and prompts are required when using the SDK.
 
-## Poject repository
+## Project repository
 
 The Neo RPC SDK is a functional subset of the neo-modules project. For complete open source projects refer to:
 
@@ -60,5 +60,5 @@ https://github.com/neo-project/neo-modules/issues
 
 ## What's next?
 
-[RPC Invocation methods](rpc.md)
+[RPC Invocation Methods](rpc.md)
 

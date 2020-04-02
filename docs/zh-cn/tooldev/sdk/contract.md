@@ -176,7 +176,3 @@ uint decimals = nep5API.Decimals(scriptHash);
 // get nep5 token total supply
 BigInteger totalSupply = nep5API.TotalSupply(scriptHash);
 ```
-
-## 阅读下节
-
-[钱包相关接口](wallet.md)

@@ -114,7 +114,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
 
 1. Construct the script to invoke
 
-    Take the transfer method of the native contract NEO as an example:
+    Take the `transfer` method of native contract Neo as an example:
 
     ```c#
     // construct the script, in this example, we will transfer 1 NEO to receiver
@@ -179,6 +179,3 @@ uint decimals = nep5API.Decimals(scriptHash);
 BigInteger totalSupply = nep5API.TotalSupply(scriptHash);
 ```
 
-## What's next?
-
-[Wallet Interfaces](wallet.md)
