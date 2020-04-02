@@ -43,26 +43,17 @@ Neo-CLI 提供以下功能：
   help
   ```
 
-  更多信息，请参阅 [CLI 命令参考](../../node/cli/cli.md)。
+  更多信息，请参阅 [CLI 命令参考](../node/cli/cli.md)。
 
-- 提供一系列 API 接口，用于从节点获取区块链数据。接口通过 [JSON-RPC](http://www.jsonrpc.org/specification) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
+- 结合 RpcServer 插件提供一系列 Rpc API 接口，用于从节点获取区块链数据。接口通过 [JSON-RPC](http://www.jsonrpc.org/specification) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-  如果想启动节点的同时开启 API，在 neo-cli 程序目录下输入以下命令：
+  如果想启动节点的同时开启 Rpc API，务必在部署节点时正确安装 RpcServer 插件。
 
-  ```
-  dotnet neo-cli.dll --rpc
-  ```
-
-  要查看更多 API 信息，请参阅 [API 参考](../../reference/rpc/latest-version/api.md)。
+  要查看更多 API 信息，请参阅 [API 参考](../reference/rpc/latest-version/api.md)。
 
 - 提供 NEP5 资产的交易信息。
 
-- 功能列表
 
-  | #    | 步骤          | 输入命令                  |
-  | ---- | :------------ | ------------------------- |
-  | 1    | 运行客户端    | `dotnet neo-cli.dll`      |
-  | 2    | 打开 RPC 接口 | `--rpc` 或 `-r` 或 `/rpc` |
 
 ## 创建钱包
 

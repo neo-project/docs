@@ -12,9 +12,9 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 网络费
 
-网络费是用户向 NEO 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
+网络费是用户向 NEO 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
 
-   <!--![netfee](assets/netfee.png)-->
+   ![netfee](assets/netfee.png)
 
 - VerficationCost：NeoVM 验证交易签名执行的指令相对应的费用
 - tx.size：交易数据的字节长度
@@ -24,7 +24,7 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 系统费是根据NeoVM要执行的指令计算得出的费用，请参考Github上NEO3开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/en/NeoVM#contrant>)，了解每个操作码的费用。NEO3中取消了每笔交易10GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
-   <!--![sysfee](assets/sysfee.png)-->
+   ![sysfee](assets/sysfee.png)
 
 ### 操作码费用
 
@@ -32,7 +32,7 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 
 - 与 NEO2.x 的比较
 
-   <!--![feecomparewith2x](assets/feecomparewith2x.png)-->
+   ![feecomparewith2x](assets/feecomparewith2x.png)
 
 ## 处理查询交易
 
@@ -43,7 +43,7 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep5balances（需提前安装RpcNep5Tracker 插件）
+   - getnep5balances（需提前安装 RpcNep5Tracker 插件）
    - invokefunction
 2. 向 NEO RPC 服务器发送文件请求。
 3. 根据返回值计算出用户余额。
@@ -349,10 +349,10 @@ symbol
 
 > [!Note]
 >
-> -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项"vmstate"是否正确。
-> -  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
+> -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确。
+> -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
-- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263"就是 QLC 资产的脚本哈希，是该资产在全网的唯一标识。
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263" 就是 QLC 资产的脚本哈希，是该资产在全网的唯一标识。
 
 - 对于转账交易，"state" 中 "value" 对应的数组包含以下四个对象：
 
@@ -443,7 +443,7 @@ GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
 `"params":[path， password]`
 
-例如，要打开密码为`111111`的名为`a.json`的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
+例如，要打开密码为 `111111` 的名为 `a.json` 的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
 
 请求正文：
 

@@ -24,7 +24,7 @@ GAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权。GA
 
 
 
-![gasflow](../../node/assets/gasflow.png)
+![gasflow](../node/assets/gasflow.png)
 
 
 
