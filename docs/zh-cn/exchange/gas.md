@@ -36,7 +36,7 @@ GAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权。GA
 
 | 方法                                                         | 描述                                    | 参数 |
 | ------------------------------------------------------------ | --------------------------------------- | ---- |
-| [getunclaimedgas](../../reference/rpc/latest-version/api/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。 |      |
+| [getunclaimedgas](../reference/rpc/latest-version/api/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。 |      |
 
 ## 交易所提取 GAS
 
