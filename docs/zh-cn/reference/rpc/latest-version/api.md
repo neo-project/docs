@@ -115,7 +115,7 @@ http://somewebsite.com:10332
 
 ## 测试工具
 
-你可以用 Chrome 扩展程序中的 Postman 来方便地进行测试（安装 Chrome 扩展程序需要科学上网），下面是测试截图：
+你可以用 [Postman](https://www.postman.com/) 来方便地进行测试，下面是测试截图：
 
 ![](../../../assets/api_3.jpg)
 

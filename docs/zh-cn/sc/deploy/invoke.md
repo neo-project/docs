@@ -63,6 +63,12 @@ Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 B
 
 在 Neo-CLI 中可以通过 [invokefunction](../../reference/rpc/latest-version/api/invokefunction.md) 和 [invokescript](../../reference/rpc/latest-version/api/invokescript.md) 来调用合约。其中后者比较难以操作，这里主要介绍 invokefunction 方法。
 
+> [!Note]
+>
+> 你可以使用 [Postman](https://www.postman.com/) 来更方便地测试，下面是测试截图
+>
+> ![](./../../assets/api_3.jpg)
+
 与上文的 invoke 命令很类似，invokefunction 也有三个参数。
 
 - scripthash：智能合约脚本散列。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
