@@ -49,7 +49,7 @@ WIF是私钥的另一种字符串表示，与私钥在作用上是等价的，�
 
 ### 公钥
 
-公钥可以用来验证私钥的签名，在NEO中对应`ECPoint`类型，拥有私钥的情况下可以计算出公钥，公钥一般可以表示为长度为66的十六进制字符串：
+公钥可以用来验证私钥的签名，在Neo中对应`ECPoint`类型，拥有私钥的情况下可以计算出公钥，公钥一般可以表示为长度为66的十六进制字符串：
 `"02f9ec1fd0a98796cf75b586772a4ddd41a0af07a1dbdf86a7238f74fb72503575"`
 
 ```c# 
@@ -62,7 +62,7 @@ WIF是私钥的另一种字符串表示，与私钥在作用上是等价的，�
 
 ### 账户的脚本哈希 (ScriptHash)
 
-ScriptHash 在 NEO 中对应 `UInt160`，本质上是一个 20 位的 byte 数组，由公钥经过脚本构造和哈希得出（由于哈希算法不可逆，所以不可根据脚本哈希逆向计算出公钥）。ScriptHash 一般表示为反序的十六进制字符串：
+ScriptHash 在 Neo 中对应 `UInt160`，本质上是一个 20 位的 byte 数组，由公钥经过脚本构造和哈希得出（由于哈希算法不可逆，所以不可根据脚本哈希逆向计算出公钥）。ScriptHash 一般表示为反序的十六进制字符串：
 `"0xb0a31817c80ad5f87b6ed390ecb3f9d312f7ceb8"`
 
 ```c# 
@@ -86,7 +86,7 @@ scriptHash = adddress.ToScriptHash();
 
 ### 钱包
 
-钱包是账户的集合，`NEP6` 是NEO中最常用的钱包标准，`NEP6` 钱包可以序列化为一个 JSON 格式的文件，其中保存了加密后的账户私钥，需要对应的密码才能解密获取私钥。
+钱包是账户的集合，`NEP6` 是Neo中最常用的钱包标准，`NEP6` 钱包可以序列化为一个 JSON 格式的文件，其中保存了加密后的账户私钥，需要对应的密码才能解密获取私钥。
 
 可参考如下示例：
 
@@ -148,18 +148,18 @@ Nep5API nep5API = new Nep5API(client);
 BigInteger balance = nep5API.BalanceOf(tokenScriptHash, accountHash);
 ```
 
-在 NEO3 中 NEO 和 GAS 都是 NEP5 资产，且脚本哈希固定，所以这里提供了更简单的接口：
+在 Neo3 中 NEO 和 GAS 都是 NEP5 资产，且脚本哈希固定，所以这里提供了更简单的接口：
 ```c#
 // get the neo balance
 uint neoBalance = walletAPI.GetNeoBalance(address);
 
-// get the neo balance
+// get the gas balance
 decimal gasBalance = walletAPI.GetGasBalance(address);
 ```
 
 ## 提取 GAS
 
-在 NEO3 中提取 GAS 的过程是在 NEO 转账时自动进行的，你可以构建一笔给自己转账的交易来提取 GAS。
+在 Neo3 中提取 GAS 的过程是在 NEO 转账时自动进行的，你可以构建一笔给自己转账的交易来提取 GAS。
 
 1. 首先查询当前地址可以提取的 GAS 数量，例如：
 
@@ -200,7 +200,7 @@ string tokenHash = NativeContract.NEO.Hash.ToString();
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
-// transfer 10 neo from wif to address
+// transfer 10 NEO from wif to address
 walletAPI.Transfer(tokenHash, wif, address, 10);
 
 // print a message after the transaction is on chain
@@ -217,7 +217,7 @@ string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 KeyPair sender = Utility.GetKeyPair(wif);
 UInt160 receiver = Utility.GetScriptHash(address);
 
-// transfer 10 neo from wif to address
+// transfer 10 NEO from wif to address
 walletAPI.Transfer(NativeContract.NEO.Hash, sender, receiver, 10);
 ```
 

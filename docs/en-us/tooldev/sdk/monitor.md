@@ -33,7 +33,7 @@ RpcBlock block = client.GetBlock("0x953f6efa29c740b68c87e0a060942056382a6912a0dd
 Gets the contract script, hash, and manifest through `RpcClient`:
 
 ```c#
-// get neo contract state
+// get NEO contract state
 ContractState contractState = client.GetContractState(NativeContract.NEO.Hash.ToString());
 ```
 
