@@ -372,7 +372,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
   [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
   ```
 
-- `witnessAddress` 为附加签名地址，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址的签名。
+- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名。
 
 ##### 示例
 
@@ -525,4 +525,3 @@ Install successful, please restart neo-cli.
 > [!NOTE]
 >
 > 若需要查看共识过程日志，需要先安装 [SystemLog](https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip) 插件 。
-
