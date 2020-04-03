@@ -1,8 +1,8 @@
 # 合约部署与调用
 
-由于在 NEO3 中绝大部分功能都是通过合约提供的，所以理解合约是使用 NEO3 的基础，每个合约由脚本哈希 (ScriptHash) 作为唯一标识，通常也是调用合约的必须参数。本文档主要介绍以下 SDK 功能：
+由于在 Neo3 中绝大部分功能都是通过合约提供的，所以理解合约是使用 Neo3 的基础，每个合约由脚本哈希 (ScriptHash) 作为唯一标识，通常也是调用合约的必须参数。本文档主要介绍以下 SDK 功能：
 
-- 封装了合约部署交易的构建方法
+- 提供了合约部署交易的构建方法
 - 使用只读模式调用合约中方法
 - `Nep5API` 类封装了调用 NEP5 合约相关的方法
 
@@ -18,7 +18,7 @@ Transaction transaction = contractClient.CreateDeployContractTx(script, manifest
 交易构建后需要广播到链上:
 
 ```c#
-// Broadcast the transaction over the NEO network
+// Broadcast the transaction over the Neo network
 client.SendRawTransaction(transaction);
 Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 ```
@@ -65,7 +65,7 @@ namespace ConsoleApp1
             // create the deploy transaction
             Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKey);
 
-            // Broadcast the transaction over the NEO network
+            // Broadcast the transaction over the Neo network
             client.SendRawTransaction(transaction);
             Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 
@@ -137,7 +137,7 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
 3. 交易构造后广播到链上:
 
     ```c#
-    // broadcasts the transaction over the NEO network
+    // broadcasts the transaction over the Neo network
     client.SendRawTransaction(tx);
     ```
 
@@ -176,7 +176,3 @@ uint decimals = nep5API.Decimals(scriptHash);
 // get nep5 token total supply
 BigInteger totalSupply = nep5API.TotalSupply(scriptHash);
 ```
-
-## 阅读下节
-
-[钱包相关接口](wallet.md)

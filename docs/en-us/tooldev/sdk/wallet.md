@@ -89,7 +89,7 @@ scriptHash = adddress.ToScriptHash();
 
 ### Wallet
 
-Wallet is a collection of accounts. NEP6 is the most commonly used wallet standard in NEO. A NEP6 wallet can be serialized into a JSON file, in which the encrypted account private key is saved. The corresponding password is required to decrypt the private key.
+Wallet is a collection of accounts. NEP6 is the most commonly used wallet standard in Neo. A NEP6 wallet can be serialized into a JSON file, in which the encrypted account private key is saved. The corresponding password is required to decrypt the private key.
 
 Here is an example:
 
@@ -203,7 +203,7 @@ string tokenHash = NativeContract.NEO.Hash.ToString();
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
-// transfer 10 neo from wif to address
+// transfer 10 NEO from wif to address
 walletAPI.Transfer(tokenHash, wif, address, 10);
 
 // print a message after the transaction is on chain
@@ -220,7 +220,7 @@ string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 KeyPair sender = Utility.GetKeyPair(wif);
 UInt160 receiver = Utility.GetScriptHash(address);
 
-// transfer 10 neo from wif to address
+// transfer 10 NEO from wif to address
 walletAPI.Transfer(NativeContract.NEO.Hash, sender, receiver, 10);
 ```
 
