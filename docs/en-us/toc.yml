@@ -145,8 +145,6 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockhash.md
     - name: getblockheader
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockheader.md
-    - name: getblocksysfee
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getblocksysfee.md
     - name: getconnectioncount
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate
