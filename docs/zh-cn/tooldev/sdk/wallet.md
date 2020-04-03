@@ -141,7 +141,7 @@ BigInteger balance = walletAPI.GetTokenBalance(tokenHash, address);
 
 也可以使用 ScriptHash 类型的参数：
 ```c#
-// get the neo balance of account
+// Get the NEO balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
 UInt160 accountHash = Utility.GetScriptHash(address);
 Nep5API nep5API = new Nep5API(client);
@@ -150,10 +150,10 @@ BigInteger balance = nep5API.BalanceOf(tokenScriptHash, accountHash);
 
 在 Neo3 中 NEO 和 GAS 都是 NEP5 资产，且脚本哈希固定，所以这里提供了更简单的接口：
 ```c#
-// get the neo balance
+// Get the NEO balance
 uint neoBalance = walletAPI.GetNeoBalance(address);
 
-// get the gas balance
+// Get the GAS balance
 decimal gasBalance = walletAPI.GetGasBalance(address);
 ```
 
@@ -164,7 +164,7 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
 1. 首先查询当前地址可以提取的 GAS 数量，例如：
 
     ```c#
-    // get the claimable GAS of one address
+    // Get the claimable GAS of one address
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     decimal gasAmount = walletAPI.GetUnclaimedGas(address);
     ```
@@ -179,7 +179,7 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
 2. 构建一笔给自己转账的交易，自动提取 GAS：
 
     ```c#
-    // claiming gas needs the KeyPair of account. You can also use wif or private key hex string
+    // Claiming GAS needs the KeyPair of account. You can also use wif or private key hex string
     string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
     Transaction transaction = walletAPI.ClaimGas(wif);
     ```
@@ -200,10 +200,10 @@ string tokenHash = NativeContract.NEO.Hash.ToString();
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
-// transfer 10 NEO from wif to address
+// Transfer 10 NEO from wif to address
 walletAPI.Transfer(tokenHash, wif, address, 10);
 
-// print a message after the transaction is on chain
+// Print a message after the transaction is on chain
 WalletAPI neoAPI = new WalletAPI(client);
 neoAPI.WaitTransaction(transaction)
     .ContinueWith(async (p) => Console.WriteLine($"Transaction is on block {(await p).BlockHash}"));
@@ -217,7 +217,7 @@ string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 KeyPair sender = Utility.GetKeyPair(wif);
 UInt160 receiver = Utility.GetScriptHash(address);
 
-// transfer 10 NEO from wif to address
+// Transfer 10 NEO from wif to address
 walletAPI.Transfer(NativeContract.NEO.Hash, sender, receiver, 10);
 ```
 
