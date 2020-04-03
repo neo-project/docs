@@ -6,7 +6,6 @@ Neo provides a test net for development, debugging and testing purposes. Besides
 
 - [Set up a private chain with one node](../../network/private-chain/solo.md) 
 - [Set up a private chain on a Windows host](../../network/private-chain/private-chain2.md)
-- [Set up a private chain using virtual machines](../../network/private-chain/private-chain.md)
 
 Refer to the instructions at above links to set up your private chain and withdraw NEO and GAS from genesis block.
 
@@ -14,8 +13,8 @@ Refer to the instructions at above links to set up your private chain and withdr
 
 Now we will create a new wallet file used for deploying smart contracts. 
 
-1. Create a new wallet file named 0.json and copy the default address in case of later use.
-2. Open the recipient wallets of NEO and GAS, transfer all the wallet assets to 0.json and wait for the transaction to be confirmed.
+1. Create a new wallet file named 0.json with Neo-CLI and copy the default address in case of later use.
+2. Open the wallet with which you withdrew the NEO and GAS before and transfer all the assets to 0.json and wait for the transaction to be confirmed.
 3. Open 0.json and assets is displayed in the account. 
 
 ## What's next?
