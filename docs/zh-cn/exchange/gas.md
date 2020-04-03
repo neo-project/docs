@@ -10,7 +10,7 @@ GAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权。GA
 
 ## 计算提取的 GAS 总量
 
-- 提取的*GAS = f(neo_amount, Δt_const)*
+- 提取的 *GAS = f(neo_amount, Δt_const)*
 
   -  Δt_const = t_end - t_start
      -  t_end = 该地址的 NEO 此次发生转入或转出操作的时刻
@@ -48,10 +48,10 @@ GAS（缩写符号 GAS）共 1 亿份，代表了 NEO 区块链的使用权。GA
 | ---- | :----------------------------------------------------------- | ----------------------------------------------- |
 | 1    | 运行客户端                                                   | `dotnet neo-cli.dll`                            |
 | 2    | 查看客户端版本                                               | `version`                                       |
-| 3    | 查看客户端同步高度（Height: 区块高度 / 区块头高度，Nodes: 连接节点数量）。 | `show state`                                    |
+| 3    | 查看客户端同步高度（Height: 区块高度 / 区块头高度，Nodes: 连接节点数量）| `show state`                                    |
 | 4    | 打开钱包                                                     | `open wallet /home/NeoNode/test.db3`            |
 | 5    | 查看钱包里的地址和资产                                       | `list asset`                                    |
 | 6    | 获取钱包里未提取的 GAS 余额详情                              | `show gas`                                      |
-| 7    | 给自己的钱包地址 （如 AVEXPy8tcSfN2K89TCT1FHFMe1MTUStzgD 1）转账，GAS 将会被自动提取到该地址 | `send neo AVEXPy8tcSfN2K89TCT1FHFMe1MTUStzgD 1` |
+| 7    | 给自己的钱包地址 （如 AVEXPy8tcSfN2K89TCT1FHFMe1MTUStzgD）转账，GAS 将会被自动提取到该地址 | `send neo AVEXPy8tcSfN2K89TCT1FHFMe1MTUStzgD 1` |
 | 8    | 查看钱包资产，确认提取成功                                   | `list asset`                                    |
 
