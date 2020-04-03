@@ -33,7 +33,7 @@ RpcBlock block = client.GetBlock("0x953f6efa29c740b68c87e0a060942056382a6912a0dd
 通过 `RpcClient` 获取合约脚本、哈希与 manifest 的信息：
 
 ```c#
-// get neo contract state
+// get NEO contract state
 ContractState contractState = client.GetContractState(NativeContract.NEO.Hash.ToString());
 ```
 
@@ -62,7 +62,7 @@ uint maxTransactionsPerBlock = policyAPI.GetMaxTransactionsPerBlock(); // 512, m
 
 ## 获取 NEP5 合约信息
 
-NEP5 是 NEO3 中的资产标准，NEO 和 GAS 都基于 NEP5 原生合约。调用 `Nep5API` 可以获取 NEP5 合约的名称、标记、小数位和总量等信息：
+NEP5 是 Neo3 中的资产标准，NEO 和 GAS 都基于 NEP5 原生合约。调用 `Nep5API` 可以获取 NEP5 合约的名称、标记、小数位和总量等信息：
 
 ```c#
 // get nep5 token info

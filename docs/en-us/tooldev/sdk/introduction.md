@@ -1,6 +1,6 @@
 # About Neo RPC SDK
 
-`NEO RPC SDK` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC inferface, construct transactions, and invoke contracts.
+`Neo RPC SDK` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.
 
 This document is applicable to Neo3 preview2. It is recommended you use NEO SDK in conjunction with Visual Studio 2019.  
 
@@ -20,11 +20,11 @@ This document is applicable to Neo3 preview2. It is recommended you use NEO SDK 
 
    > [!Note]
    >
-   > The .NET version of the project cannot be earlier than the .NET version used by the NEO SDK.
+   > The .NET version of the project cannot be earlier than the .NET version used by the Neo SDK.
 
 2. Right-click the project and select `Manage NuGet Packages`.
 
-3. Search for NEO in the search box and install the plugin that appears.
+3. Search for Neo in the search box and install the plugin that appears.
 
 4. Add the following code to the desired project file header:
 
@@ -34,7 +34,7 @@ This document is applicable to Neo3 preview2. It is recommended you use NEO SDK 
 
 ## Exception handing
 
-`NEO RPC SDK` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:
+`Neo RPC SDK` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:
 
 - -100, "Unknown transaction" or "Unknown block"
 - -300, "Insufficient funds"
@@ -50,9 +50,9 @@ Additionally, you may encounter other exceptions built in the .NET platform, suc
 
 ## Project repository
 
-The NEO RPC SDK is a functional subset of the neo-modules project. For complete open source projects refer to:
+The Neo RPC SDK is a functional subset of the neo-modules project. For complete open source projects refer to:
 
-Neo：https://github.com/neo-project/neo-modules
+Neo-modules：https://github.com/neo-project/neo-modules
 
 Welcome to raise any problems you encountered in practice in the project issue list:
 

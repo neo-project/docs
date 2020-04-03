@@ -1,6 +1,6 @@
 # RPC Invocation Methods
 
-The NEO RPC SDK encapsulates all the interfaces provided by RpcServer. You can send RPC requests in your code through the standard methods provided in this module. You only need to pass in the corresponding parameters, the SDK will construct the corresponding JSON-RPC requests and then get the data returned by the node.
+The Neo RPC SDK encapsulates all the interfaces provided by RpcServer. You can send RPC requests in your code through the standard methods provided in this module. You only need to pass in the corresponding parameters, the SDK will construct the corresponding JSON-RPC requests and then get the data returned by the node.
 
 
 ## Initializing RpcClient
