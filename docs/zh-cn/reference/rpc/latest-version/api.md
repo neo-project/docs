@@ -2,11 +2,11 @@
 
 每个 Neo-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-要启用 RPC服务，你需要安装 [RpcServer插件](UnknownReleaseLink.md)，启动 Neo-CLI 时无需添加参数。
+要启用 RPC服务，你需要安装 [RpcServer插件](https://github.com/neo-project/neo-modules/releases)，启动 Neo-CLI 时无需添加参数。
 
 ## 监听端口
 
-JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [NEO 节点介绍](../../../node/introduction.md)。
+JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [Neo 节点介绍](../../../node/introduction.md)。
 
 |                | 主网（Main Net） | 测试网（Test Net） |
 | -------------- | ------------ | ------------- |
@@ -55,8 +55,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [listplugins](api/listplugins.md)         |            | 列出节点已加载的所有插件      |
 | [validateaddress](api/validateaddress.md) | \<address> | 验证地址是否是正确的 Neo 地址 |
 
-
-
 ### 钱包
 
 | 方法                                       | 参数                                       | 说明                           |
@@ -72,15 +70,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
 | [sendmany](api/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 |
 | [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
-
-### 其它插件中的 API
-
-| 方法                                          | 参数                  | 说明                                           |
-| --------------------------------------------- | --------------------- | ---------------------------------------------- |
-| [getapplicationlog](api/getapplicationlog.md) | \<txid>               | 根据指定的 NEP-5 交易 ID 获取合约日志          |
-| [getblocksysfee](api/getblocksysfee.md)       | \<index>              | 根据指定的索引，返回截止到该区块前的系统手续费 |
-| [getnep5balances](api/getnep5balances.md)     | \<address>            | 返回指定地址内的所有 NEP-5 资产余额            |
-| [getnep5transfers](api/getnep5transfers.md)   | \<address>[timestamp] | 返回指定地址内的所有 NEP-5 交易记录            |
 
 ### ApplicationLogs 插件
 
