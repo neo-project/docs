@@ -33,15 +33,15 @@ install StatesDumper
 install SystemLog
 ```
 
-> 提示
+> [!Note]
 >
-> - ApplicationLogs 和 RpcNep5Tracker 插件需在初始同步之前就必须安装，否则会遗漏安装前已同步区块中交易日志的内容。
+> ApplicationLogs 和 RpcNep5Tracker 插件需在初始同步之前就必须安装，否则会遗漏安装前已同步区块中交易日志的内容。
 
 ## 修改配置文件
 
 在启动 Neo-CLI 前需先配置 config.json 文件中的参数，请参阅 [配置与启动](../node/cli/config.md)。
 
-> 提示
+> [!Caution]
 >
-> - 当设置自动打开钱包时，请确保防火墙打开并处于安全环境， 谨慎使用。
+> 当设置自动打开钱包时，请确保防火墙打开并处于安全环境， 谨慎使用。
 

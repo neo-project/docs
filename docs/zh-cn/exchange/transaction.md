@@ -22,7 +22,7 @@ Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 系统费
 
-系统费是根据 NeoVM 要执行的指令计算得出的费用，请参考 Github 上 Neo3 开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/cn/%E8%99%9A%E6%8B%9F%E6%9C%BA>)，了解每个操作码的费用。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../sc/fees.md)。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
    ![sysfee](assets/sysfee.png)
 
@@ -347,7 +347,7 @@ symbol
 }
 ```
 
-> 提示
+> [!Note]
 >
 > -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
 > -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
