@@ -18,7 +18,7 @@
 - StatesDumper（推荐）
 - SystemLog（推荐）
 
- 将下载的插件包解压到 neo-cli/Plugins 目录下，解压完成后的目录结构应如下图:
+ 将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构如下图:
 
 ![PluginsForExchange.png](../assets/PluginsForExchange.png)
 
