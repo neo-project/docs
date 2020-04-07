@@ -6,9 +6,12 @@ NeoVM has following built-in data types:
 
 | Type | Description |
 |------|------|
+| Any | Null Type                                                                                    |
+| Pointer | Implemented as a context script `Script` and a instruction position `Position`                                                                        |
 | Boolean |  Implemented as two byte arrays, `TRUE` and `FALSE`.  |
 | Integer | Implemented as a `BigInteger` value.  |
-| ByteArray |Implemented as a `byte[]`.  |
+| ByteString        | Readonly byte array, implemented as a `byte[]`                                                                   |
+| Buffer        | Readonly byte array, implemented as a buffer array `byte[]`                                                                    |
 | Array |  Implemented as a `List<StackItem>`, the `StackItem` is an abstract class, and all the built-in data types are inherited from it. |
 | Struct |  Inherited from Array, a `Clone` method is added and `Equals` method is overridden. |
 | Map | Implemented as a key-value pair `Dictionary<StackItem, StackItem>`.  |

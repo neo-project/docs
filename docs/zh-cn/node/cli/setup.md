@@ -42,13 +42,13 @@
 
 ### 使用Visual Studio发布（仅Windows）
 
-如果使用Windows系统且已安装Visual Studio 2019, 推荐此方法进行发布：
+如果使用 Windows 系统且已安装 Visual Studio 2019, 推荐此方法进行发布：
 
-1. 在 Visual Studio 中打开项目文件neo-node.sln, 在解决方案栏中右键单击`neo-cli`，点击`发布`。
+1. 在 Visual Studio 中打开项目文件 neo-node.sln, 在解决方案栏中右键单击 `neo-cli`，点击`发布`。
 
-2. 继续打开项目文件neo-modules.sln，依次发布以下插件：
+2. 继续打开项目文件 neo-modules.sln，依次发布以下插件：
 
-   - RpcServer：提供所有RPC 命令
+   - RpcServer：提供所有 RPC 命令
    - ApplicationLogs：自动同步智能合约日志
    - LevelDBStore：把区块链数据存储到区块链中
 
