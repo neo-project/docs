@@ -32,7 +32,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
 
 - `operation` ：合约内方法名，后面可以输入传入参数，以空格隔开
 
-- `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码。
+- `contractParameters` ：调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码。
 
   示例：地址 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 可转换为 16 进制大端序的 ScriptHash `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` 也可转换为 Base64 编码的 ScriptHash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`。JSON 格式的参数如下：
 
@@ -41,7 +41,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
   [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
   ```
 
-- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址数组内的所有签名。
+- `witnessAddress` ：附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该地址数组内的所有签名。
 
 示例输入：
 
@@ -116,9 +116,8 @@ relay tx(no|yes): no
 
 > [!Note]
 >
-> 你可以使用 [Postman](https://www.postman.com/) 来更方便地测试，下面是测试截图
+> 你可以使用 [Postman](https://www.postman.com/) 来更方便地测试。
 >
-> ![](./../../assets/api_3.jpg)
 
 与上文的 invoke 命令很类似，invokefunction 也有三个参数。
 
