@@ -40,7 +40,7 @@
 | [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
 | [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
 | [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#export-key)                         | \[path] [address script hash]        | 导出私钥。<br/>需要打开钱包。                     |
+| [export key](#export-key)                         | \[address] [path]                      | 导出私钥。<br/>需要打开钱包。                     |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。<br/>需要打开钱包。             |
 | [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。<br/>需要打开钱包。               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
@@ -50,7 +50,7 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] [witness address separated by space] | 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
 
 #### 节点命令
 
@@ -58,19 +58,7 @@
 | --------------- | ------------------- | ---------------------------------------------- |
 | show state      |                     | 显示当前区块链同步状态                         |
 | show pool       | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
-
-#### 网络命令
-
-| 命令            | 参数                | 说明                                           |
-| --------------- | ------------------- | ---------------------------------------------- |
-| [relay](#relay) | \<jsonObjectToSign> | 将完成签名的交易信息进行广播               |
-| [broadcast addr](#broadcast-addr) |  \<payload IP address> \<port>   | 广播节点 IP 地址 |
-| [broadcast block](#broadcast-block) |  \<block hash \| block height>  | 广播一个区块 |
-| [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | 广播 getblocks 请求 |
-| [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | 广播 getdata 请求 |
-| [broadcast getheaders](#broadcast-getheaders) |  \<block hash>  | 广播 getheaders 请求 |
-| [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | 广播 inventory data |
-| [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | 广播一条交易 |
+| [relay](#relay) | \<jsonObjectToSign> | 将完成签名的交易信息进行广播。                 |
 
 #### 插件命令
 
@@ -79,12 +67,12 @@
 | [plugins](#plugins) |  | 显示已加载的插件 |
 | [install](#install) | [Plugin name] | 安装指定插件     |
 | [uninstall](#install) | [Plugin name] | 卸载指定插件     |
-
+| [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
 #### 高级命令
 
 | 命令                                | 参数     | 说明                                                   |
 | ----------------------------------- | -------- | ------------------------------------------------------ |
-| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | 从指定区块高度导出区块数据，导出的结果可以用作离线同步 |
+| [export block[s]](#export-block-s-) | \<index> | 从指定区块高度导出区块数据，导出的结果可以用作离线同步 |
 | [start consensus](#start-consensus) |          | 启动共识                                               |
 
 ## 命令说明
@@ -367,32 +355,37 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ##### 句法
 
-`invoke <scripthash> <command> [optionally quoted params separated by space] [witness address separated by space] ` 
+`invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]` 
 
 ##### 参数
 
-- `scripthash`：要调用的合约脚本 hash
-- `command`：合约内方法名，后面可以输入传入参数，以空格隔开
-- `[optionally quoted params separated by space]` 为调用参数，参数格式为 type，value 字段构成的 JSON 串，例如：
-```
-[
-    {
-        "type":"Hash160",
-        "value":"0x20e22e16cfbcfdd29f347268427b76863b7679fa"
-    },
-    {
-        "type":"Integer",
-        "value":"88"
-    }
-]
-```
-- `[witness address separated by space] ` 为签名地址 script hash，交易需要签名时使用，要确保签名地址所在的钱包已经打开。
+- `scripthash` ：要调用的合约脚本散列
+
+- `operation` ：合约内方法名，后面可以输入传入参数，以空格隔开
+
+- `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码。
+
+  示例：地址 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 可转换为 16 进制大端序的 ScriptHash `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` 也可转换为 Base64 编码的 ScriptHash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`。JSON 格式的参数如下：
+
+  ```
+  [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+  [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+  ```
+
+- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名。
 
 ##### 示例
 
+示例输入：
+
 ```
-neo> invoke 0x1f86b7327fce941efc789fc257d351dcfc9bd0cf name
-neo> Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+```
+
+示例输出：
+
+```
+Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
 VM State: HALT
 Gas Consumed: 0.0103609
 Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
@@ -400,11 +393,51 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-- `VM State`：有两个状态：
-  -  `HALT` 表示虚拟机执行成功
-  -  `FAULT` 表示虚拟机执行时遇到异常退出。
-- `Gas Consumed`：表示调用智能合约时消耗的系统手续费。
-- `Evaluation Stack`： 表示合约执行结果，其中 value 是 Base64 编码后的结果。
+其中 VM State 为 `HALT` 表示虚拟机执行成功， VM State 为 `FAULT` 表示虚拟机执行时遇到异常退出。
+
+Gas Consumed 表示调用智能合约时消耗的系统手续费。
+
+Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
+
+示例输入：
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+```
+
+示例输出：
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+示例输入：
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+```
+
+或
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"d4cd1219ce8e172b50273823d799a365fab6b0e4"}]
+```
+
+示例输出：
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
 
 ### relay
 
@@ -424,113 +457,6 @@ relay tx(no|yes):
 neo> relay {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"0071c0992d42e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c00e1f50500000000ac0c240000000000cb152300000142e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c01550400c2eb0b146c93f190909dea8dfe3caeb2ee90530b4ef21e861442e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1","items":{"0x0c2a95d2bba739e2b2e1b0e55d3b768b2ca6e242":{"script":"5221032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff002102685dd451efbf38cf859a80f250815f503303dd7b9f6546786164de219ede87735268c7c34cba","parameters":[{"type":"Signature","value":"794f87a810bd30b15f90ddc1898e2e592c1a3fae4b14e34d8a411305e7913d44ab56e388125ef597be46a8958b2ed8c5e298076c2d69ab3337c944f5356c462b"},{"type":"Signature","value":"d9ac57bac4260c60707e0b641585c70789e1a2eb5438c95de972af9aff99f5f4485b81cd2382218583b7f4950da54dbd8d1468f72b91809e14bb1c8139cca637"}]}}}
 Data relay success, the hash is shown as follows:
 0xdcf144d9ed2d64482fb5caafa719cf6706e9afd607ab043e8bfcb9018795e4d1
-```
-
-### broadcast addr
-广播一个节点 IP 地址。
-
-##### 句法
-
-`broadcast addr <IPAddress> <port>`
-
-##### 示例
-
-```
-neo> broadcast addr 127.0.0.1 10332
-neo> 
-```
-
-### broadcast block
-广播一个区块。
-
-##### 句法
-
-`broadcast block <block-hash> `
-
-`broadcast block <block-height> `
-
-##### 示例
-
-```
-neo> broadcast block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo> 
-neo> broadcast block 537
-neo> 
-```
-
-### broadcast getblocks
-广播 getblocks 请求。
-
-##### 句法
-
-`broadcast getblocks <block-hash> `
-
-##### 示例
-
-
-
-### broadcast getheaders
-广播 getheaders 请求。
-
-##### 句法
-
-`broadcast getheaders <block-hash> `
-
-##### 示例
-
-```
-neo> broadcast getheaders 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo> 
-```
-
-### broadcast getdata
-广播 getdata 请求。
-
-##### 句法
-
-`broadcast getdata <inventory type> <payload> `
-
-##### 示例
-
-```
-neo> broadcast getdata Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo> 
-neo> broadcast getdata TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo>
-neo> broadcast getdata Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo>
-```
-
-### broadcast inv
-广播 inventory data。
-
-##### 句法
-
-`broadcast inv <inventory type> <payload> `
-
-##### 示例
-
-```
-neo> broadcast inv Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo> 
-neo> broadcast inv TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo>
-neo> broadcast inv Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo>
-```
-
-### broadcast transaction
-广播一笔交易。
-
-##### 句法
-
-`broadcast inv <transaction hash> `
-
-##### 示例
-
-```
-neo> broadcast transaction 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
-neo> 
 ```
 
 ### plugins
@@ -599,4 +525,3 @@ Install successful, please restart neo-cli.
 > [!NOTE]
 >
 > 若需要查看共识过程日志，需要先安装 [SystemLog](https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip) 插件 。
-
