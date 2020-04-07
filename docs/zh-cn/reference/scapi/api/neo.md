@@ -95,10 +95,6 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <td>transfer</td>
 	    <td>转账</td>
 	</tr>
-    <tr>
-        <td>getSysFeeAmount</td>
-	    <td>获取系统手续费</td>
-    </tr>
 </table>
 
 <br/>

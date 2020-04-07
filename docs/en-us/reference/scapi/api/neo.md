@@ -95,10 +95,6 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	    <td>transfer</td>
 	    <td>Transfers the token</td>
 	</tr>
-	<tr>
-	 	<td>getSysFeeAmount</td>
-	    <td>Gets the amount of the system fee</td>
-	</tr>
 </table>
 
 <br/>
