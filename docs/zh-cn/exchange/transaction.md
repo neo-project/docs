@@ -2,7 +2,7 @@
 
 ## 简介
 
-NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
+Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
    ![query.png](assets/query.png)
 
@@ -12,7 +12,7 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 网络费
 
-网络费是用户向 NEO 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
+网络费是用户向 Neo 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
 
    ![netfee](assets/netfee.png)
 
@@ -22,7 +22,7 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 系统费
 
-系统费是根据 NeoVM 要执行的指令计算得出的费用，请参考 Github 上 NEO3 开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/cn/%E8%99%9A%E6%8B%9F%E6%9C%BA>)，了解每个操作码的费用。NEO3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+系统费是根据 NeoVM 要执行的指令计算得出的费用，请参考 Github 上 Neo3 开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/cn/%E8%99%9A%E6%8B%9F%E6%9C%BA>)，了解每个操作码的费用。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
    ![sysfee](assets/sysfee.png)
 
@@ -30,9 +30,9 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能合约开发成本。
 
-- 与 NEO2.x 的比较
+与 NEO2.x 的比较：
 
-   ![feecomparewith2x](assets/feecomparewith2x.png)
+![feecomparewith2x](assets/feecomparewith2x.png)
 
 ## 处理查询交易
 
@@ -45,7 +45,7 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
    - getnep5balances（需提前安装 RpcNep5Tracker 插件）
    - invokefunction
-2. 向 NEO RPC 服务器发送文件请求。
+2. 向 Neo RPC 服务器发送文件请求。
 3. 根据返回值计算出用户余额。
 
 #### 调用 getnep5balances
@@ -109,11 +109,11 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 
 **script hash**
 
-要查询的 NEP-5 资产的散列值，例如：
+要查询的 NEP-5 资产的脚本哈希，例如：
 
-NEO散列值是：*0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789*       
+NEO脚本哈希是：*0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789*       
 
-GAS散列值是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
+GAS脚本哈希是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
 
 **method name**
 
@@ -298,7 +298,7 @@ symbol
 
 使用 [getapplicationlog](../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
 
-正确安装 ApplicationLogs 插件并启动 Neo-CLI 节点后，可以看到在n eo-cli 根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
+正确安装 ApplicationLogs 插件并启动 Neo-CLI 节点后，可以看到在neo-cli 根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
 
 以下是一个 API 调用结果：
 
@@ -371,7 +371,7 @@ symbol
   
     > 提示
     >
-    > - NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    > - Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
     ```json
     {
       "type": "ByteArray",
@@ -394,9 +394,9 @@ symbol
     }
     ```
 
-> 提示
+> [!Note]
 >
-> - 关于文件中 transfer 通知格式的转换，可以参考工具 [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool)。
+> 关于文件中 transfer 通知格式的转换，可以参考工具 [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool)。
 
 ## 处理提现交易
 
@@ -435,9 +435,9 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 
 ### RPC 方法：openwallet
 
-> 提示
+> [!Note]
 >
-> - 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法打开钱包。
+> 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法打开钱包。
 
 "params"  是一个包含 2 个参数的数组。
 
