@@ -512,7 +512,10 @@ neo>
 
 ##### 示例
 
-
+```
+neo> broadcast getblocks 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
 
 ### broadcast getheaders
 广播 getheaders 请求。
@@ -569,7 +572,7 @@ neo>
 
 ##### 句法
 
-`broadcast inv <transaction hash> `
+`broadcast transaction <transaction hash> `
 
 ##### 示例
 
@@ -592,13 +595,11 @@ neo>
 neo> plugins
 Loaded plugins:
         ApplicationLogs
-        CoreMetrics
-        ImportBlocks
+        LevelDBStore
+        RpcServer
         RpcNep5Tracker
-        RpcSecurity
-        RpcWallet
         StatesDumper
-        SystemLogs
+        SystemLog
 ```
 
 ### install

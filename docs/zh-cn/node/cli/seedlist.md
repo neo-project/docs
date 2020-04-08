@@ -1,7 +1,6 @@
 # Neo-CLI SeedList
 
-## 介绍
-### 关于 SeedList
+## 关于 SeedList
 简单来说，SeedList 是一个 URL 列表，是 Neo-CLI 在启动时尝试连接的节点。在 neo-cli 目录下的 `protcol.json` 文件中可以找到 SeedList。
 
 ```json

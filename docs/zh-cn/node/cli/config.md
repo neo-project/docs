@@ -4,7 +4,7 @@
 
 ## 修改配置文件
 
-Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protocol.json`。启动 Neo-CLI 前需要对这两个文件进行必要配置。有关这两个文件的具体属性说明，请参见 [Neo-CLI 结构](../../tooldev/neo_cli_structure.md)。
+Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protocol.json`。启动 Neo-CLI 前需要对这两个文件进行必要配置。
 
 ### 配置钱包
 
@@ -37,15 +37,14 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 }
 ```
 
-> [!Note]
->
-> - Engine 选项，默认 LevelDBStore。表示区块链数据存储使用的引擎。
-> - PluginURL 选项，表示下载插件的地址，使用 CLI 的 install 命令时会用到。
+说明：
+
+- Engine ：默认 LevelDBStore。表示区块链数据存储使用的引擎。
+- PluginURL ：表示下载插件的地址，使用 CLI 的 install 命令时会用到。
 
 ### 将节点连接到网络
 
-在 NEO3 中连接主网或测试网可以在启动节点时使用参数控制，而无需修改配置文件。
-如果要连接测试网，启动 CLI 的命令使用 `neo-cli --testnet` 或 `neo-cli -t`，如果连接主网，使用命令 `neo-cli --mainnet` 或 `neo-cli -m`。
+在 Neo3 中连接主网或测试网可以在启动节点时使用参数控制。如果要连接测试网，启动 CLI 时使用命令 `neo-cli --testnet` 或 `neo-cli -t`。
 
 如果要将节点接入私链，需要配置 `protocol.json` 文件。详细信息，请参见[搭建私有链](../../network/private-chain/solo.md)中的修改 `protocol.json` 说明。
 
@@ -74,14 +73,6 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/ApplicationLogs.zip">ApplicationLogs</a>
-            </td>
-            <td>同步智能合约和 NativeContract 的日志（Notify）</td>
-            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
-            <td>推荐</td>
-        </tr>
-        <tr>
-            <td><a
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/LevelDBStore.zip">LevelDBStore</a>
             </td>
             <td>区块链数据使用 LevelDB 存储引擎</td>
@@ -95,7 +86,23 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
             <td>区块链数据使用 RocksDBStore 存储引擎</td>
             <td></td>
             <td>和 LevelDBStore 二选一</td>
-        </tr>        
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/RpcServer.zip">RpcServer</a>
+            </td>
+            <td>提供节点的 RPC 功能</td>
+            <td><a href="../../reference/rpc/latest-version/api.md#命令列表"> RPC API </a></td>
+            <td>必选</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/ApplicationLogs.zip">ApplicationLogs</a>
+            </td>
+            <td>同步智能合约和 NativeContract 的日志（Notify）</td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
+            <td>推荐</td>
+        </tr>
         <tr>
             <td><a
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/RpcNep5Tracker.zip">RpcNep5Tracker</a>
@@ -105,14 +112,6 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="../../reference/rpc/latest-version/api/getnep5transfers.md">getnep5transfers</a></td>
             <td>推荐</td>
         </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/RpcServer.zip">RpcServer</a>
-            </td>
-            <td>提供节点的 RPC 功能</td>
-            <td><a href="../../reference/rpc/latest-version/api.md#命令列表"> RPC API </a></td>
-            <td>必选</td>
-        </tr>   
         <tr>
             <td><a
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/StatesDumper.zip">StatesDumper</a>
@@ -154,13 +153,9 @@ Uninstall successful, please restart neo-cli.
 
 在安装或卸载完毕后，请重启 Neo-CLI 使操作生效。
 
-## 快速同步区块数据
+## 启动 Neo 节点
 
-客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。
-
-## 启动 NEO 节点
-
-打开命令行，定位到 Neo-CLI 所在目录，输入以下命令启动 NEO 节点 。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令启动 Neo 节点 。
 
 **Windows 10**:
 
@@ -190,7 +185,7 @@ dotnet neo-cli.dll
 >
 > 如果使用 dotnet，需要先安装 .net core 环境。
 
-如果想在启动节点时选择主网或测试网，可以输入参数 `--testnet`  或 `--mainnet` 或 `-t` 或 `-m`，如：
+如果想在启动节点时接入测试网，可以输入参数 `--testnet` 或 `-t` 如：
 
 ```
 dotnet neo-cli.dll -t
