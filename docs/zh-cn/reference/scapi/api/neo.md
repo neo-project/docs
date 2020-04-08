@@ -17,7 +17,7 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <th>说明</th>  
 	</tr >
 	<tr >
-	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
+	    <td rowspan="12">Neo.Native.Tokens.NEO</td>
 	    <td>name</td>
 	    <td>获取名称, 即：NEO</td>
 	</tr>
@@ -30,35 +30,40 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <td>获取精度</td>
 	</tr>
 	<tr>
-	    <td>totalSupply</td>
+	    <td>TotalSupply</td>
 	    <td>获取总发行量</td>
 	</tr>
 	<tr>
-	    <td>balanceOf</td>
+	    <td>BalanceOf</td>
 	    <td>获取余额</td>
 	</tr>
 	<tr>
-	    <td>transfer</td>
+	    <td>Transfer</td>
 	    <td>转账</td>
 	</tr>
     <tr>
-	    <td>registerValidator</td>
+	    <td>RegisterValidator</td>
 	    <td>注册为验证人</td>
 	</tr>
 	<tr>
-	    <td>vote</td>
+	    <td>Vote</td>
 	    <td>投票</td>
 	</tr>
 	<tr>
-	    <td>getRegisteredValidators</td>
+	    <td>GetRegisteredValidators</td>
 	    <td>获取已注册的验证人列表</td>
 	</tr>
 	<tr>
-	    <td>getValidators</td>
+	    <td>GetValidators</td>
 	    <td>获取验证人列表</td>
 	</tr>
-	<tr><td>unclaimedGas</td>
+	<tr>
+	    <td>UnclaimedGas</td>
 	    <td>获取未领取的Gas数</td>
+	</tr>
+	<tr>
+	    <td>GetNextBlockValidators</td>
+	    <td>获取下个区块的验证人列表</td>
 	</tr>
 </table>
 
