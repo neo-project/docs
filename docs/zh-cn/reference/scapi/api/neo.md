@@ -89,15 +89,15 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <td>获取精度</td>
 	</tr>
 	<tr>
-	    <td>totalSupply</td>
+	    <td>TotalSupply</td>
 	    <td>获取总发行量</td>
 	</tr>
 	<tr>
-	    <td>balanceOf</td>
+	    <td>BalanceOf</td>
 	    <td>获取余额</td>
 	</tr>
 	<tr>
-	    <td>transfer</td>
+	    <td>Transfer</td>
 	    <td>转账</td>
 	</tr>
 </table>
