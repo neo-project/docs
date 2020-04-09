@@ -112,37 +112,41 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	</tr >
 	<tr >
 	    <td rowspan="9">Neo.Native.Policy</td>
-	    <td>getMaxTransactionsPerBlock</td>
+	    <td>GetMaxTransactionsPerBlock</td>
 	    <td>获取每区块最大交易数</td>
 	</tr>
 	<tr>
-	    <td>getMaxBlockSize</td>
+	    <td>GetMaxBlockSize</td>
 	    <td>获取最大的区块大小</td>
 	</tr>
 	<tr>
-	    <td>getFeePerByte</td>
+	    <td>GetFeePerByte</td>
 	    <td>获取每字节手续费</td>
 	</tr>
 	<tr>
 	    <td>setMaxBlockSize</td>
 	    <td>设置最大的区块大小</td>
 	</tr>
-	<tr><td>getBlockedAccounts</td>
+	<tr><td>GetBlockedAccounts</td>
 	    <td>获取黑名单账户</td>
 	</tr>
-    <tr><td>setMaxTransactionsPerBlock</td>
+    <tr><td>SetMaxTransactionsPerBlock</td>
 	    <td>设置每区块最大交易数</td>
 	</tr>
-    <tr><td>setFeePerByte</td>
+    <tr><td>SetFeePerByte</td>
 	    <td>设置每字节手续费</td>
 	</tr>
-    <tr><td>blockAccount</td>
+    <tr><td>BlockAccount</td>
 	    <td>设置黑名单账户</td>
 	</tr>
-    <tr><td>unblockAccount</td>
+    <tr><td>UnblockAccount</td>
 	    <td>解除黑名单账户</td>
 	</tr>
 </table>
+
+> [!Note]
+> 以上 API 部分用于给Validator调用, 普通用户会在验签过程中失败
+> 以上 API 的源码位于 NEO 项目中的 (https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs) 文件。
 
 **Crypto API**：
 
