@@ -1,26 +1,27 @@
-# 安装
+# Neo-GUI 介绍
+
+Neo-GUI（GUI：Graphical User Interface 图形用户界面） 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。整体界面分为 ”区块链“、”钱包“、”合约“、”高级“ 四个模块，界面如下：
+
+![](/assets/main.png)
+
+## 下载与安装
+
+Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) 上下载对应系统版本的安装包。
 
 > [!Note]
 >
-> 如无特别说明，本文中的描述均假设 NEO-GUI 运行在测试网。有关测试网与主网的切换，请参阅 [测试网](../../network/testnet.md)。
+> 请确认你的 Windows 系统已安装 [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
 
-## 下载与运行客户端
+安装过程与其它软件类似，首先选择安装用户，点击 `下一步`。
 
-客户端无需安装，进入[客户端下载](https://neo.org/download)页面，下载后直接运行 neo-gui.exe 即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们的技术人员联系。
+![](/assets/setup1.png)
 
-> [!Note]
->
-> 客户端适应系统为： Windows 7 SP1 / Windows 8 / Windows 10。
->
-> 请确认你的 Windows 系统已安装 [.NET Framework 4.7.1](https://www.microsoft.com/net/download/framework) 。
+然后选择安装目录，点击 `安装`。
 
-## 安装插件
+![](/assets/setup2.png)
 
-要使客户端能够进行离线同步，需要安装 ImportBlocks 插件：
+![](/assets/setup3.png)
 
-1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) 插件并解压。
-2. 将解压出来的插件拷贝到NEO-GUI 根目录下。
+![](/assets/setup4.png)
 
-## 快速同步区块数据
-
-客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。
+最后点击 `完成` 即可。现在你已经完成了 Neo-GUI 的安装。 
