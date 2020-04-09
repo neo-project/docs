@@ -40,7 +40,7 @@
 | [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
 | [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
 | [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#export-key)                         | \[address] [path]                      | 导出私钥。<br/>需要打开钱包。                     |
+| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥。<br/>需要打开钱包。                     |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。<br/>需要打开钱包。             |
 | [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。<br/>需要打开钱包。               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
@@ -50,7 +50,7 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] [witness address separated by space]| 调用合约 |
 
 #### 节点命令
 
@@ -58,7 +58,19 @@
 | --------------- | ------------------- | ---------------------------------------------- |
 | show state      |                     | 显示当前区块链同步状态                         |
 | show pool       | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
-| [relay](#relay) | \<jsonObjectToSign> | 将完成签名的交易信息进行广播。                 |
+
+#### 网络命令
+
+| 命令            | 参数                | 说明                                           |
+| --------------- | ------------------- | ---------------------------------------------- |
+| [relay](#relay) | \<jsonObjectToSign> | 将完成签名的交易信息进行广播               |
+| [broadcast addr](#broadcast-addr) |  \<payload IP address> \<port>   | 广播节点 IP 地址 |
+| [broadcast block](#broadcast-block) |  \<block hash \| block height>  | 广播一个区块 |
+| [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | 广播 getblocks 请求 |
+| [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | 广播 getdata 请求 |
+| [broadcast getheaders](#broadcast-getheaders) |  \<block hash>  | 广播 getheaders 请求 |
+| [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | 广播 inventory data |
+| [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | 广播一条交易 |
 
 #### 插件命令
 
@@ -72,7 +84,7 @@
 
 | 命令                                | 参数     | 说明                                                   |
 | ----------------------------------- | -------- | ------------------------------------------------------ |
-| [export block[s]](#export-block-s-) | \<index> | 从指定区块高度导出区块数据，导出的结果可以用作离线同步 |
+| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | 从指定区块高度导出区块数据，导出的结果可以用作离线同步 |
 | [start consensus](#start-consensus) |          | 启动共识                                               |
 
 ## 命令说明
@@ -459,6 +471,116 @@ Data relay success, the hash is shown as follows:
 0xdcf144d9ed2d64482fb5caafa719cf6706e9afd607ab043e8bfcb9018795e4d1
 ```
 
+### broadcast addr
+广播一个节点 IP 地址。
+
+##### 句法
+
+`broadcast addr <IPAddress> <port>`
+
+##### 示例
+
+```
+neo> broadcast addr 127.0.0.1 10332
+neo> 
+```
+
+### broadcast block
+广播一个区块。
+
+##### 句法
+
+`broadcast block <block-hash> `
+
+`broadcast block <block-height> `
+
+##### 示例
+
+```
+neo> broadcast block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast block 537
+neo> 
+```
+
+### broadcast getblocks
+广播 getblocks 请求。
+
+##### 句法
+
+`broadcast getblocks <block-hash> `
+
+##### 示例
+
+```
+neo> broadcast getblocks 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
+### broadcast getheaders
+广播 getheaders 请求。
+
+##### 句法
+
+`broadcast getheaders <block-hash> `
+
+##### 示例
+
+```
+neo> broadcast getheaders 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
+### broadcast getdata
+广播 getdata 请求。
+
+##### 句法
+
+`broadcast getdata <inventory type> <payload> `
+
+##### 示例
+
+```
+neo> broadcast getdata Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast getdata TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+neo> broadcast getdata Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+```
+
+### broadcast inv
+广播 inventory data。
+
+##### 句法
+
+`broadcast inv <inventory type> <payload> `
+
+##### 示例
+
+```
+neo> broadcast inv Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast inv TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+neo> broadcast inv Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+```
+
+### broadcast transaction
+广播一笔交易。
+
+##### 句法
+
+`broadcast transaction <transaction hash> `
+
+##### 示例
+
+```
+neo> broadcast transaction 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
 ### plugins
 
 显示所有已加载的插件。
@@ -473,13 +595,11 @@ Data relay success, the hash is shown as follows:
 neo> plugins
 Loaded plugins:
         ApplicationLogs
-        CoreMetrics
-        ImportBlocks
+        LevelDBStore
+        RpcServer
         RpcNep5Tracker
-        RpcSecurity
-        RpcWallet
         StatesDumper
-        SystemLogs
+        SystemLog
 ```
 
 ### install
@@ -496,7 +616,7 @@ Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3
 Install successful, please restart neo-cli.
 ```
 
-以上只是示例插件，更多插件请参考 [安装插件](config.md)。
+以上只是示例插件，更多插件请参考 [安装插件](config.md#安装插件)。
 
 ### dump storage
 
@@ -520,8 +640,8 @@ Install successful, please restart neo-cli.
 
 ### start consensus
 
-启动共识。启动共识的前提是该钱包有共识的权限，在 Neo 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain.md)。
+启动共识。启动共识的前提是该钱包有共识的权限，在 Neo 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../network/private-chain/private-chain2.md)。
 
 > [!NOTE]
 >
-> 若需要查看共识过程日志，需要先安装 [SystemLog](https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip) 插件 。
+> 若需要查看共识过程日志，需要先安装 [SystemLog](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/SystemLog.zip) 插件 。

@@ -40,7 +40,7 @@ All the commands described in this document conform with these conventions:
 | [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.<br/>Need to open wallet.   |
 | [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address<br/>Need to open wallet. |
 | [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.<br/>Need to open wallet. |
-| [export key](#export-key)                         | \[address] [path]                      | Exports private keys.<br/>Need to open wallet.               |
+| [export key](#export-key)                         | \[path] [address script hash]          | Exports private keys.<br/>Need to open wallet.               |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.<br/>Need to open wallet. |
 | [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.<br/>Need to open wallet. |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
@@ -50,7 +50,7 @@ All the commands described in this document conform with these conventions:
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] [witness address separated by space] | Invokes a contract |
 
 
 #### Node Commands
@@ -59,7 +59,19 @@ All the commands described in this document conform with these conventions:
 | --------------- | ------------------- | ------------------------------------------------------------ |
 | show state      |                     | Displays the current status of blockchain synchronization.   |
 | show pool       | [verbose]           | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
+
+####Network Commands
+
+| Command         | Parameters          | Description                                                  |
+| --------------- | ------------------- | ------------------------------------------------------------ |
 | [relay](#relay) | \<jsonObjectToSign> | Broadcasts the transaction. The parameter is the json string that records the transaction information. |
+| [broadcast addr](#broadcast-addr) |  \<payload IP address> \<port>   | Broadcasts the IP address of the node |
+| [broadcast block](#broadcast-block) |  \<block hash \| block height>  | Broadcasts a block |
+| [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | Broadcasts the getblocks request |
+| [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | Broadcasts the getdata request |
+| [broadcast getheaders](#broadcast-getheaders) |  \<block hash>  | Broadcasts the getheaders request |
+| [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | Broadcasts the inventory data |
+| [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | Broadcasts a transaction |
 
 #### Plugin Commands
 
@@ -72,10 +84,10 @@ All the commands described in this document conform with these conventions:
 
 #### Advanced Commands
 
-| Command                             | Parameters | Description                                                  |
-| ----------------------------------- | ---------- | ------------------------------------------------------------ |
-| [export block[s]](#export-block-s-) | \<index>   | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronzation. |
-| [start consensus](#d320b143)        |            | Starts consensus                                             |
+| Command                         | Parameters                             | Description                                                  |
+| ------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronzation. |
+| [start consensus](#d320b143)    |                                        | Starts consensus                                             |
 
 ## Command Description
 
@@ -401,6 +413,123 @@ Data relay success, the hash is shown as follows:
 0xdcf144d9ed2d64482fb5caafa719cf6706e9afd607ab043e8bfcb9018795e4d1
 ```
 
+### broadcast addr
+
+Broadcasts the IP address of a block.
+
+##### Syntax
+
+`broadcast addr <IPAddress> <port>`
+
+##### Example
+
+```
+neo> broadcast addr 127.0.0.1 10332
+neo> 
+```
+
+### broadcast block
+
+Broadcasts a block.
+
+##### Syntax
+
+`broadcast block <block-hash> `
+
+`broadcast block <block-height> `
+
+##### Example
+
+```
+neo> broadcast block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast block 537
+neo> 
+```
+
+### broadcast getblocks
+
+Broadcasts the getblocks request.
+
+##### Syntax
+
+`broadcast getblocks <block-hash> `
+
+##### Example
+
+```
+neo> broadcast getblocks 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
+### broadcast getheaders
+
+Broadcasts the getheaders request.
+
+##### Syntax
+
+`broadcast getheaders <block-hash> `
+
+##### Example
+
+```
+neo> broadcast getheaders 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
+### broadcast getdata
+
+Broadcasts the getdata request.
+
+##### Syntax
+
+`broadcast getdata <inventory type> <payload> `
+
+##### Example
+
+```
+neo> broadcast getdata Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast getdata TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+neo> broadcast getdata Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+```
+
+### broadcast inv
+
+Broadcasts inventory data。
+
+##### Syntax
+
+`broadcast inv <inventory type> <payload> `
+
+##### Example
+
+```
+neo> broadcast inv Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast inv TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+neo> broadcast inv Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+```
+
+### broadcast transaction
+
+Broadcasts a transaction.
+
+##### Syntax
+
+`broadcast transaction <transaction hash> `
+
+##### Example
+
+```
+neo> broadcast transaction 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
 ### plugins
 
 Shows all the loaded plugins.
@@ -415,13 +544,11 @@ Shows all the loaded plugins.
 neo> plugins
 Loaded plugins:
         ApplicationLogs
-        CoreMetrics
-        ImportBlocks
+        LevelDBStore
+        RpcServer
         RpcNep5Tracker
-        RpcSecurity
-        RpcWallet
         StatesDumper
-        SystemLogs
+        SystemLog
 ```
 
 ### install
@@ -462,11 +589,11 @@ Exports the block data from the specified block height. The output can be used f
 
 ### start consensus
 
-Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain.md)。
+Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain2.md)。
 
 > [!NOTE]
 >
-> If you wan to view the consensus log, install the plugin [SystemLog](https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip) first.
+> If you wan to view the consensus log, install the plugin [SystemLog](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/SystemLog.zip) first.
 
 
 
