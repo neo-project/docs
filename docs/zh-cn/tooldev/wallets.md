@@ -60,21 +60,21 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 > [!Note]
 >
-> NEO3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultiSig".hash2unit` 方式。
+> NEO3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
 
 #### 普通地址
 
 1. 通过公钥，构建一个 CheckSig 地址脚本，脚本格式，如下图
 
     ```
-    0x21 + 公钥(压缩型 33字节) + 0x68 + 0x747476aa
+    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x0B + 0x41 + 0x0a906ad4
     ```
 
     ![](images\wallets\account_address_script_checksign.png)
 
 2. 计算地址脚本合约哈希 (20字节，由地址脚本合约先做一次SHA256再做一次RIPEMD160得到)
 
-3. 在地址脚本合约哈希前添加版本号（目前Neo所使用的协议版本是23所以对应字节为`0x17`）
+3. 在地址脚本合约哈希前添加版本号（目前Neo所使用的协议版本是83所以对应字节为`0x53`）
 
 4. 对字节数据做Base58Check编码
 
@@ -84,22 +84,21 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 |----------|:-------------:|
 | 私钥 | 3bf2c2c3a43ee817c5a7704b60e5265e73e585eb85b17091c451ddf72fd80c41 |
 | 压缩型公钥 | 02208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de375 |
-| 地址脚本 | 2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de37568747476aa |
-| 地址 | Aa63RMYRWHPRcrZNzUnq5SNrPqoV866Spu |
+| 地址脚本 | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b410a906ad4 |
+| 地址 | NWRRMt1FGSZiiT8Wg7naBwrEKLN4SXcUzH |
 
 #### 多方签名地址
 
 1. 通过多个地址，构建一个 N-of-M CheckMultiSig 多方签名的地址脚本，脚本格式如下：
 
    ```
-   emitPush(N) + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) +  0x68 + 0xc7c34cba
+   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x0B + 0x41 + 0x3073b3bb
    ```
-
-   [![](images\wallets\account_address_script_multi_checksign.png)](https://github.com/Tommo-L/NEO3-Development-Guide/blob/master/images/account_address_script_multi_checksign.png)
+   ![](images\wallets\account_address_script_multi_checksign.png)
 
 2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
 
-3. 在地址脚本合约哈希前添加版本号（ 目前Neo所使用的协议版本是23所以对应字节为0x17）
+3. 在地址脚本合约哈希前添加版本号（ 目前Neo所使用的协议版本是83所以对应字节为`0x53`）
 
 4. 对字节数据做Base58Check编码
 
@@ -109,17 +108,20 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 | ---------- | ------------------------------------------------------------ |
 | 私钥       | 97374afac1e801407d6a60006e00d555297c5019788795f017d4cd1fff3df529， aab9d4e4223e088aa6eb1f0ce75c11d149625f6d6a19452d765f8737200a4c35 |
 | 压缩性公钥 | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50，03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
-| 地址脚本   | 5221035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff502103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d5268c7c34cba |
-| 地址       | AQuqfBZmzejZt4CQc7mkgvEXmSvdMUEBok                           |
+| 地址脚本   | 120c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b413073b3bb |
+| 地址       | Nh6qrufMRfPNsRh3sNo6asWvvQXrzWdwoK                           |
 
-emitPush(number) 注意其取值范围， number的类型为 BigInteger时：
+emitPush(number) 注意其取值范围， number的类型为 BigInteger时，data = number.ToByteArray()：
 
 | Number值         | 放入指令                           | 值               |
 | ---------------- | ---------------------------------- | ---------------- |
-| -1               | OpCode.PUSHM1                      | 0x4F             |
-| 0                | OpCode.PUSH0                       | 0x00             |
-| 0 < number <= 16 | OpCode.PUSH1 - 1 + (byte)number    | 0x51 -1 + number |
-| number > 16      | number.bytes.length + number.bytes |                  |
+| -1 <= number <= 16  | OpCode.PUSH0 + (byte)(int)number | 0x10 + number   |
+| data.Length == 1  | OpCode.PUSHINT8 + data | 0x00 + data   |
+| data.Length == 2  | OpCode.PUSHINT16 + data | 0x01 + data   |
+| data.Length <= 4  | OpCode.PUSHINT32 + data | 0x02 + PadRight(data, 4)   |
+| data.Length <= 8  | OpCode.PUSHINT64 + data | 0x03 + PadRight(data, 8)   |
+| data.Length <= 16  | OpCode.PUSHINT128 + data | 0x04 + PadRight(data, 16) |
+| data.Length <= 32  | OpCode.PUSHINT256 + data | 0x05 + PadRight(data, 32) |
 
 ## 钱包文件
 
