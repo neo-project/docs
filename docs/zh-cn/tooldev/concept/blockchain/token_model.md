@@ -24,7 +24,7 @@ GAS是功能代币（Utility Token），也叫网络燃料代币。NEO网络上�
 |23~  |4600W ~           |    0          |
 
 
-[![gas distribution](../../images/blockchain/gas-distribution.jpg)](../../images/blockchain/gas-distribution.jpg)
+![](..\..\images\blockchain\gas-distribution.jpg)
 
 ## NEP5资产（代币）
 
