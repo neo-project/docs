@@ -1,6 +1,6 @@
 # invokefunction 方法
 
-使用给定的操作和参数，以散列值调用智能合约之后返回结果。
+使用给定的操作和参数，通过合约脚本哈希调用智能合约之后返回结果。
 
 > [!Note]
 >
@@ -9,9 +9,32 @@
 
 ## 参数说明
 
-- scripthash：智能合约脚本散列值。
+- scripthash：智能合约脚本哈希。
+
 - operation：操作名称（字符串）。
-- params：传递给智能合约操作的参数。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+
+- params：传递给智能合约操作的参数。
+
+  例如：
+
+  ```json
+  {
+    "type": "String",
+    "value": "Hello"
+  }
+  ```
+
+  ```json
+  {
+    "type": "Hash160",
+    "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
+  }
+  ```
+
+
+> [!Note]
+>
+> 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
 
 
 ## 调用示例
@@ -21,18 +44,18 @@
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "invokefunction",
   "params": [
-    "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+    "0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
+        "value": "0xe4b0b6fa65a399d7233827502b178ece1912cdd4"
       }
     ]
-  ],
-  "id": 3
+  ]
 }
 ```
 
@@ -41,54 +64,38 @@
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 3,
+    "id": 1,
     "result": {
-        "script": "0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52",
+        "script": "0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14266f539addd5bd84340e6cb13dc11e2411d0f4b741627d5b52",
         "state": "HALT",
-        "gas_consumed": "2007570",
+        "gas_consumed": "3553180",
         "stack": [
             {
                 "type": "Integer",
-                "value": "9999885"
+                "value": "10000000000000000"
             }
-        ],
-        "tx": "0075fa234c2bf173f849d1d59123d097c009aa31624d39e73900e1f50500000000269f120000000000dbe1200000003e0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b5201420c40b9539b4affc196cc2dccf49df0d8ba962ed7cca1f2c5a708a5da4405a79263694464a9140d686445b5d3857abdd1322b3aeed6486490ef4c8b298460138de237290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"
+        ]
     }
 }
 ```
 
-请求正文：
+响应说明：
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "invokefunction",
-  "params": [
-    "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-    "symbol",
-    [ ]
-  ],
-  "id": 3
-}
-```
+- script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
 
-响应正文：
+  ```
+  PUSHDATA1 0xe4b0b6fa65a399d7233827502b178ece1912cdd4
+  PUSHDATA1 balanceOf
+  PUSHDATA1 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+  SYSCALL System.Contract.Call
+  ```
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "10c00c0673796d626f6c0c14fccf7335d9ac0875d31d27fec8bbaff5f2bb339c41627d5b52",
-        "state": "HALT",
-        "gas_consumed": "1036870",
-        "stack": [
-            {
-                "type": "ByteArray",
-                "value": "RERB"
-            }
-        ],
-        "tx": "00e7fc08682bf173f849d1d59123d097c009aa31624d39e73900e1f505000000007e3d120000000000c1e1200000002510c00c0673796d626f6c0c14fccf7335d9ac0875d31d27fec8bbaff5f2bb339c41627d5b5201420c4099b21d5356e17dcca7eea7940815f528c1bf9e5faddb5717a57b050e4afb71a82db068bd087888b780eebfcb8d8bca359d8f360d5a0876a8548afb36150f50cb290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"
-    }
-}
-```
+- state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
+
+- gas consumed：调用智能合约时消耗的系统手续费。
+
+- stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
+
+> [!Note]
+>
+> 当输入 invokefunction 命令后，节点并不是直接调用合约中的 `operation` 方法。而是调用该合约的 `main` 方法，并将 `operation` 和 `params` 作为实参传入。如果 main 方法里没有对 `operation` 和 `params` 做处理，将不能返回预期的结果。

@@ -380,6 +380,10 @@ relay tx(no|yes):
 - `Gas Consumed`：表示调用智能合约时消耗的系统手续费。
 - `Evaluation Stack`： 表示合约执行结果，其中 value 是 Base64 编码后的结果。
 
+> [!Note]
+>
+> 当输入 invoke 命令后，节点并不是直接调用合约中的 `operation` 方法。而是调用该合约的 `main` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果 main 方法里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+
 ### relay
 
 将完成签名的交易信息进行广播。
