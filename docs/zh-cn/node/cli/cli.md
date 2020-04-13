@@ -32,6 +32,7 @@
 | ------------------------------------------------- | -------------------------------------- | ------------------------------------------------- |
 | [create wallet](#create-wallet)                   | \<path>                                | 创建钱包文件                                      |
 | [open wallet](#open-wallet)                       | \<path>                                | 打开钱包文件                                      |
+| [change password](#change-password)               | \<path>                                | 修改钱包密码。<br>需要打开钱包。                   |
 | close wallet                                      |                                        | 关闭钱包文件                                      |
 | [upgrade wallet](#upgrade-wallet)                 | \<path>                                | 升级旧版钱包文件                                  |
 | list address                                      |                                        | 列出钱包中的所有账户。<br>需要打开钱包。          |
@@ -122,6 +123,24 @@ pubkey: 0399e96a2970c83e26ad66de36a4bad0512a62defd447e3e26723fac73d4072ba1
 ```
 neo> open wallet test.json
 password: *
+```
+
+### change password
+
+修改钱包密码。
+
+##### 句法
+
+ `change password` 
+
+##### 示例
+
+```
+neo> change password
+password: ***
+New password: ***
+Re-Enter Password: ***
+Password changed successfully
 ```
 
 ### upgrade wallet
