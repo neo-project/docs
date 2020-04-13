@@ -45,7 +45,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                    | 参数                                    | 说明                                           |
 | --------------------------------------- | --------------------------------------- | ---------------------------------------------- |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> | 以指定的脚本散列值调用智能合约，传入操作及参数 |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<checkWitnessHashes> | 以指定的脚本散列值调用智能合约，传入操作及参数 |
 | [invokescript](api/invokescript.md)     | \<script>                               | 通过虚拟机运行脚本并返回结果                   |
 
 ### 工具
