@@ -91,14 +91,14 @@
 
 - script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
 
-  ```
+```
 PUSHINT16 1000
 PUSHDATA1 0x2916eba24e652fa006f3e5eb8f9892d2c3b00399
 PUSHDATA1 0xcadb3dc2faa3ef14a13b619c9a43124755aa2569
 PUSHDATA1 transfer
 PUSHDATA1 0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0
 SYSCALL System.Contract.Call
-  ```
+```
 
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
 - gas_consumed：调用智能合约时消耗的系统手续费。
