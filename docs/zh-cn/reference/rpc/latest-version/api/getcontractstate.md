@@ -4,6 +4,7 @@
 > [!Note]
 >
 > 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+
 ## 参数说明
 
 script_hash：合约脚本散列。
