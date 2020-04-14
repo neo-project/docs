@@ -32,19 +32,24 @@
 | ------------------------------------------------- | -------------------------------------- | ------------------------------------------------- |
 | [create wallet](#create-wallet)                   | \<path>                                | 创建钱包文件                                      |
 | [open wallet](#open-wallet)                       | \<path>                                | 打开钱包文件                                      |
-| [change password](#change-password)               | \<path>                                | 修改钱包密码。<br>需要打开钱包。                   |
 | close wallet                                      |                                        | 关闭钱包文件                                      |
 | [upgrade wallet](#upgrade-wallet)                 | \<path>                                | 升级旧版钱包文件                                  |
-| list address                                      |                                        | 列出钱包中的所有账户。<br>需要打开钱包。          |
-| list asset                                        |                                        | 列出钱包中的所有资产。<br/>需要打开钱包。         |
-| list key                                          |                                        | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
-| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
-| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
-| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥。<br/>需要打开钱包。                     |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。<br/>需要打开钱包。             |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。<br/>需要打开钱包。               |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
+
+下表所列命令均需要打开钱包才能使用。
+
+| 命令                                              | 参数                                   | 说明                           |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------ |
+| [change password](#change-password)               | \<path>                                | 修改钱包密码。                 |
+| list address                                      |                                        | 列出钱包中的所有账户。         |
+| list asset                                        |                                        | 列出钱包中的所有资产。         |
+| list key                                          |                                        | 列出钱包中的所有公钥。         |
+| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。 |
+| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。      |
+| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。      |
+| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥。                     |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。             |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。               |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。       |
 
 #### 合约命令
 
