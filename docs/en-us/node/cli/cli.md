@@ -132,6 +132,24 @@ neo> open wallet test.json
 password: *
 ```
 
+### change password
+
+Changes the wallet password.
+
+##### Syntax
+
+ `change password` 
+
+##### Example
+
+```
+neo> change password
+password: ***
+New password: ***
+Re-Enter Password: ***
+Password changed successfully
+```
+
 ### upgrade wallet
 
 Upgrades the old .db3 wallet file into the .json format.
