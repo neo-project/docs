@@ -15,6 +15,12 @@ Invokes a smart contract with its scripthash based on the specified operation an
 
 * params: The parameters to be passed into the smart contract operation
 
+  > [!Note]
+>
+  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+  
+* checkWitnessHashes: list of contract signature accounts
+
   For example:
 
     ```json
@@ -31,10 +37,6 @@ Invokes a smart contract with its scripthash based on the specified operation an
     }
     ```
 
-> [!Note]
->
-> You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-
 ## Example
 
 Request body:
@@ -45,14 +47,23 @@ Request body:
   "id": 1,
   "method": "invokefunction",
   "params": [
-    "0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26",
-    "balanceOf",
+    "0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0",
+    "transfer",
     [
       {
         "type": "Hash160",
-        "value": "0xe4b0b6fa65a399d7233827502b178ece1912cdd4"
+        "value": "0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"
+      },
+      {
+        "type": "Hash160",
+        "value": "0x2916eba24e652fa006f3e5eb8f9892d2c3b00399"
+      },
+      {
+        "type": "Integer",
+        "value": "1000"
       }
-    ]
+    ],
+    ["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]
   ]
 }
 ```
@@ -64,13 +75,13 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14266f539addd5bd84340e6cb13dc11e2411d0f4b741627d5b52",
+        "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
         "state": "HALT",
-        "gas_consumed": "3553180",
+        "gas_consumed": "9413130",
         "stack": [
             {
                 "type": "Integer",
-                "value": "10000000000000000"
+                "value": "1"
             }
         ]
     }
@@ -79,22 +90,24 @@ Response body:
 
 Response description:
 
-- script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
+- script: the invocation script of the contract. By reference to [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter) you can convert the script to the following OpCode (NeoVM is a stack-based virtual machine that executes from bottom to top when executing):
 
   ```
-  PUSHDATA1 0xe4b0b6fa65a399d7233827502b178ece1912cdd4
-  PUSHDATA1 balanceOf
-  PUSHDATA1 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+  PUSHINT16 1000
+  PUSHDATA1 0x2916eba24e652fa006f3e5eb8f9892d2c3b00399
+  PUSHDATA1 0xcadb3dc2faa3ef14a13b619c9a43124755aa2569
+  PUSHDATA1 transfer
+  PUSHDATA1 0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0
   SYSCALL System.Contract.Call
   ```
 
-- state: the vm state, where `HALT` means the vm is executed successfully, and`FAULT` means the vm is exited due to an exception. 
+- state:  `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
 
-- gas consumed: the system fee consumed during invocation.
+- gas_consumed: the system fee consumed for invocation.
 
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
 > [!Note]
 >
-> After entering the `invokefunction` command, the node does not directly invoke the operation method in the contract. Instead, it invokes the `main` method of the contract, and pass `operation` and `params` as arguments. If `operation` and `params` are not processed in the `main` method, the expected result cannot be returned.
+> After entering the `invokefunction` command,  the node invokes the `main` method of the contract rather than directly invokes the `operation` method, and pass `operation` and `params` as arguments. If `operation` and `params` are not processed in the `main` method, the expected result cannot be returned.
 

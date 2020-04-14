@@ -10,8 +10,15 @@
 ## 参数说明
 
 - scripthash：智能合约脚本哈希。
+
 - operation：操作名称（字符串）。
-- params：传递给智能合约操作的参数。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+
+- params：传递给智能合约操作的参数。
+
+  > [!Note]
+  >
+  > 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+
 - checkWitnessHashes: 合约签名账户列表。
 
   例如：
@@ -26,13 +33,9 @@
   ```json
   {
     "type": "Hash160",
-    "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
+    "value": "39e7394d6231aa09c097d02391d5d149f873f12b
   }
   ```
-
-> [!Note]
->
-> 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
 
 ## 调用示例
 
@@ -63,7 +66,6 @@
     ["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]
   ]
 }
-
 ```
 
 响应正文：
@@ -84,7 +86,6 @@
         ]
     }
 }
-
 ```
 
 响应说明：
