@@ -10,8 +10,30 @@ Invokes a smart contract with its scripthash based on the specified operation an
 ## Parameter Description
 
 * scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
+
 * operation: The operation name (string)
+
 * params: The parameters to be passed into the smart contract operation
+
+  For example:
+
+    ```json
+    {
+      "type": "String",
+      "value": "Hello"
+    }
+    ```
+
+    ```json
+    {
+      "type": "Hash160",
+      "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
+    }
+    ```
+
+> [!Note]
+>
+> You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 
 ## Example
 
@@ -20,18 +42,18 @@ Request body:
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "invokefunction",
   "params": [
-    "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+    "0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
+        "value": "0xe4b0b6fa65a399d7233827502b178ece1912cdd4"
       }
     ]
-  ],
-  "id": 3
+  ]
 }
 ```
 
@@ -40,54 +62,39 @@ Response body:
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 3,
+    "id": 1,
     "result": {
-        "script": "0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52",
+        "script": "0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14266f539addd5bd84340e6cb13dc11e2411d0f4b741627d5b52",
         "state": "HALT",
-        "gas_consumed": "2007570",
+        "gas_consumed": "3553180",
         "stack": [
             {
                 "type": "Integer",
-                "value": "9999885"
+                "value": "10000000000000000"
             }
-        ],
-        "tx": "0075fa234c2bf173f849d1d59123d097c009aa31624d39e73900e1f50500000000269f120000000000dbe1200000003e0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b5201420c40b9539b4affc196cc2dccf49df0d8ba962ed7cca1f2c5a708a5da4405a79263694464a9140d686445b5d3857abdd1322b3aeed6486490ef4c8b298460138de237290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"
+        ]
     }
 }
 ```
 
-Request body:
+Response description:
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "invokefunction",
-  "params": [
-    "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-    "symbol",
-    [ ]
-  ],
-  "id": 3
-}
-```
+- script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
 
-Response body:
+  ```
+  PUSHDATA1 0xe4b0b6fa65a399d7233827502b178ece1912cdd4
+  PUSHDATA1 balanceOf
+  PUSHDATA1 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+  SYSCALL System.Contract.Call
+  ```
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "10c00c0673796d626f6c0c14fccf7335d9ac0875d31d27fec8bbaff5f2bb339c41627d5b52",
-        "state": "HALT",
-        "gas_consumed": "1036870",
-        "stack": [
-            {
-                "type": "ByteArray",
-                "value": "RERB"
-            }
-        ],
-        "tx": "00e7fc08682bf173f849d1d59123d097c009aa31624d39e73900e1f505000000007e3d120000000000c1e1200000002510c00c0673796d626f6c0c14fccf7335d9ac0875d31d27fec8bbaff5f2bb339c41627d5b5201420c4099b21d5356e17dcca7eea7940815f528c1bf9e5faddb5717a57b050e4afb71a82db068bd087888b780eebfcb8d8bca359d8f360d5a0876a8548afb36150f50cb290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"
-    }
-}
-```
+- state: the vm state, where `HALT` means the vm is executed successfully, and`FAULT` means the vm is exited due to an exception. 
+
+- gas consumed: the system fee consumed during invocation.
+
+- stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
+
+> [!Note]
+>
+> After entering the `invokefunction` command, the node does not directly invoke the operation method in the contract. Instead, it invokes the `main` method of the contract, and pass `operation` and `params` as arguments. If `operation` and `params` are not processed in the `main` method, the expected result cannot be returned.
+

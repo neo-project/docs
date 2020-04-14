@@ -363,28 +363,45 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ### invoke
 
-Invokes a contract.
+Invokes a contract. 
 
 ##### Syntax
 
-`invoke <scripthash> <command> [optionally quoted params separated by space]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]` 
 
 ##### Parameters
 
-- `scripthash`：Contract hash to invoke.
-- `command`：Method name in the contract, which can be followed by input parameters separated by space. 
-- `[optionally quoted params separated by space]` can only be passed in parameters in string format.
+- `scripthash`: Contract hash to invoke.
 
-##### Example
+- `command`: Method name in the contract, which can be followed by input parameters separated by space. 
+
+- `contractParameters`: Parameters to invoke. You need to pass in JSON-formatted string. For ByteArray type, encode it with Base64 in advance. 
+
+  For example, the address `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` can be converted to the hexadecimal big-endian script hash  `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` or the Base64-encoded script hash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`. The JSON-formatted parameters are:
+
+  ```
+  [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+  [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+  ```
+
+- `witnessAddress` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
+
+##### Example 1
+
+Input:
 
 ```
-neo> invoke 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6 name
-Invoking script with: '00c1046e616d6514c6e5db4c428dfa9546c92bd8ae30f69a7be25c1e68627d5b52'
-VM State: HALT
-Gas Consumed: 4320950
-Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+```
+Output:
 
-relay tx(no|yes): no
+```
+Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0103609
+Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
+
+relay tx(no|yes):
 ```
 
 - `VM State`：there are two states:
@@ -392,6 +409,50 @@ relay tx(no|yes): no
   -  `FAULT` : the virtual machine exits during execution due to an exception. 
 - `Gas Consumed`：the system fees consumed for smart contract invocation.
 - `Evaluation Stack`：shows the result of contract execution, where the value is encoded with Base64.
+
+Input:
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+```
+
+Output:
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+Output:
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+```
+
+or
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"d4cd1219ce8e172b50273823d799a365fab6b0e4"}]
+```
+
+Output:
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+> [!Note]
+>
+> After entering the invoke command, the node invokes the `main` method of the contract rather than directly invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the `main` method, the expected result will not be returned.
 
 ### relay
 

@@ -386,7 +386,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 - `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名。
 
-##### 示例
+##### 示例 1 
 
 示例输入：
 
@@ -405,11 +405,12 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-其中 VM State 为 `HALT` 表示虚拟机执行成功， VM State 为 `FAULT` 表示虚拟机执行时遇到异常退出。
+- VM State：`HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
+- Gas Consumed ：调用智能合约时消耗的系统手续费。
 
-Gas Consumed 表示调用智能合约时消耗的系统手续费。
+- Evaluation Stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 
-Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
+##### 示例 2
 
 示例输入：
 
