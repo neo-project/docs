@@ -10,10 +10,9 @@
 ## 参数说明
 
 - scripthash：智能合约脚本哈希。
-
 - operation：操作名称（字符串）。
-
-- params：传递给智能合约操作的参数。
+- params：传递给智能合约操作的参数。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+- checkWitnessHashes: 合约签名账户列表。
 
   例如：
 
@@ -31,11 +30,9 @@
   }
   ```
 
-
 > [!Note]
 >
 > 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
-
 
 ## 调用示例
 
@@ -47,16 +44,26 @@
   "id": 1,
   "method": "invokefunction",
   "params": [
-    "0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26",
-    "balanceOf",
+    "0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0",
+    "transfer",
     [
       {
         "type": "Hash160",
-        "value": "0xe4b0b6fa65a399d7233827502b178ece1912cdd4"
+        "value": "0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"
+      },
+      {
+        "type": "Hash160",
+        "value": "0x2916eba24e652fa006f3e5eb8f9892d2c3b00399"
+      },
+      {
+        "type": "Integer",
+        "value": "1000"
       }
-    ]
+    ],
+    ["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]
   ]
 }
+
 ```
 
 响应正文：
@@ -66,34 +73,35 @@
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14266f539addd5bd84340e6cb13dc11e2411d0f4b741627d5b52",
+        "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
         "state": "HALT",
-        "gas_consumed": "3553180",
+        "gas_consumed": "9413130",
         "stack": [
             {
                 "type": "Integer",
-                "value": "10000000000000000"
+                "value": "1"
             }
         ]
     }
 }
+
 ```
 
 响应说明：
 
 - script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
 
-  ```
-  PUSHDATA1 0xe4b0b6fa65a399d7233827502b178ece1912cdd4
-  PUSHDATA1 balanceOf
-  PUSHDATA1 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
-  SYSCALL System.Contract.Call
-  ```
+```
+PUSHINT16 1000
+PUSHDATA1 0x2916eba24e652fa006f3e5eb8f9892d2c3b00399
+PUSHDATA1 0xcadb3dc2faa3ef14a13b619c9a43124755aa2569
+PUSHDATA1 transfer
+PUSHDATA1 0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0
+SYSCALL System.Contract.Call
+```
 
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
-
-- gas consumed：调用智能合约时消耗的系统手续费。
-
+- gas_consumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 
 > [!Note]
