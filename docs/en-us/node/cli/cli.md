@@ -34,16 +34,22 @@ All the commands described in this document conform with these conventions:
 | [open wallet](#open-wallet)                       | \<path>                                | Opens a wallet file.                                         |
 | close wallet                                      |                                        | Closes the current wallet.                                   |
 | [upgrade wallet](#upgrade-wallet)                 | \<path>                                | Upgrades old wallet files.                                   |
-| list address                                      |                                        | lists all the accounts in the wallet.<br>Need to open wallet. |
-| list asset                                        |                                        | Lists all assets in the wallet.<br/>Need to open wallet.     |
-| list key                                          |                                        | Lists all public keys in your wallet.<br/>Need to open wallet. |
-| [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.<br/>Need to open wallet.   |
-| [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address<br/>Need to open wallet. |
-| [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.<br/>Need to open wallet. |
-| [export key](#export-key)                         | \[path] [address script hash]          | Exports private keys.<br/>Need to open wallet.               |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.<br/>Need to open wallet. |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.<br/>Need to open wallet. |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
+
+The commands listed in the table below requires you to open the wallet before invoking.
+
+| Command                                           | Parameters                             | Description                                                  |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| [change password](#change-password)               | \<path>                                | Changes the wallet password                                  |
+| list address                                      |                                        | lists all the accounts in the wallet.                        |
+| list asset                                        |                                        | Lists all assets in the wallet.                              |
+| list key                                          |                                        | Lists all public keys in your wallet.                        |
+| [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.                            |
+| [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address                       |
+| [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.         |
+| [export key](#export-key)                         | \[path] [address script hash]          | Exports private keys.                                        |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.                          |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.                       |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract Commands
 
@@ -124,6 +130,24 @@ Opens the wallet file at the specified path. The wallet password is required to 
 ```
 neo> open wallet test.json
 password: *
+```
+
+### change password
+
+Changes the wallet password.
+
+##### Syntax
+
+ `change password` 
+
+##### Example
+
+```
+neo> change password
+password: ***
+New password: ***
+Re-Enter Password: ***
+Password changed successfully
 ```
 
 ### upgrade wallet
