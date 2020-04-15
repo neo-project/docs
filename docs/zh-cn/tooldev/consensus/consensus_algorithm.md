@@ -73,7 +73,7 @@ dBFT 2.0算法包含6种共识消息：
   
   2. 将选出的交易信息每500个打包并广播
   
-  3. 将超时时间设置为 (2<sup>v+1</sup> - k(v))*T<sub>block</sub> ，其中![](../../images/consensus/4.png)
+  3. 将超时时间设置为 (2<sup>v+1</sup> - k(v))*T<sub>block</sub> ，其中![](../images/consensus/4.png)
 
 - 议员：
 
@@ -81,7 +81,7 @@ dBFT 2.0算法包含6种共识消息：
    
      1. 验证消息的合法性，以及是否符合本地共识状态
    
-     2. 将本节点的超时时间延长![](../../images/consensus/5.png)
+     2. 将本节点的超时时间延长![](../images/consensus/5.png)
    
      3. 更新本地共识状态
    
@@ -99,7 +99,7 @@ dBFT 2.0算法包含6种共识消息：
   
   2. 广播Prepare Response信息
   
-  3. 将本节点的超时时间延长![](../../images/consensus/5.png)
+  3. 将本节点的超时时间延长![](../images/consensus/5.png)
   
 - 否则，尝试改变视图
 
@@ -111,7 +111,7 @@ dBFT 2.0算法包含6种共识消息：
    
      1. 验证消息的合法性，以及是否符合本地共识状态
      
-     2. 将本节点的超时时间延长![](../../images/consensus/5.png)
+     2. 将本节点的超时时间延长![](../images/consensus/5.png)
      
    - 广播 Commit 信息
    
@@ -125,7 +125,7 @@ dBFT 2.0算法包含6种共识消息：
    
      1. 验证消息的合法性，以及是否符合本地共识状态
      
-     2. 将本节点的超时时间延长![](../../images/consensus/6.png)
+     2. 将本节点的超时时间延长![](../images/consensus/6.png)
      
    - 生成并广播新块
    
