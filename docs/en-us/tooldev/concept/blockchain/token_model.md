@@ -22,8 +22,7 @@ A new block is generated about every 15 seconds according to system design. Thus
 |8~22 |1400W ~ (4600W -1)|    1          |
 |23~  |4600W ~           |    0          |
 
-
-[![gas distribution](../../images/blockchain/gas-distribution-en.jpg)](../../images/blockchain/gas-distribution-en.jpg)
+![](../../images/blockchain/gas-distribution-en.jpg)
 
 ### NEP5 Assets (Tokens)
 
