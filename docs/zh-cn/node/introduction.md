@@ -13,35 +13,39 @@ Neo 有两个全节点程序：
 
 ## 下载地址
 
-|        | Neo-GUI                                                  | Neo-CLI                                                     |
-| ------ | -------------------------------------------------------- | ----------------------------------------------------------- |
-| 程序   | [下载地址](https://github.com/neo-ngd/Neo3-GUI/releases) | [下载地址](https://github.com/neo-project/neo-cli/releases) |
-| 源代码 | [Github](https://github.com/neo-ngd/Neo3-GUI)            | [Github](https://github.com/neo-project/neo-cli)            |
-
-## Neo-GUI 与 Neo-CLI 功能对比
-
-|                    | Neo-GUI | Neo-CLI |
-| :----------------- | :-----: | :-----: |
-| 图形界面           |    ✔    |         |
-| 命令行界面         |         |    ✔    |
-| 创建钱包           |    ✔    |    ✔    |
-| 打开钱包           |    ✔    |    ✔    |
-| 升级钱包文件       |    ✔    |    ✔    |
-| 显示所有密钥对     |    ✔    |    ✔    |
-| 导入导出密钥对     |    ✔    |    ✔    |
-| 显示所有地址       |    ✔    |    ✔    |
-| 显示所有资产       |    ✔    |    ✔    |
-| 创建地址           |    ✔    |    ✔    |
-| 转账               |    ✔    |    ✔    |
-| 提取 GAS           |    ✔    |    ✔    |
-| 创建多方签名合约   |    ✔    |    ✔    |
-| 创建自定义智能合约 |    ✔    |    ✔    |
-| 签名               |    ✔    |    ✔    |
-| 选举共识节点       |    ✔    |         |
-| 对选举进行投票     |    ✔    |         |
-| 批量生成地址       |         |    ✔    |
-| JSON-RPC           |         |    ✔    |
-| 参与区块的共识     |         |    ✔    |
+|                  | Neo-GUI | Neo-CLI |
+| :--------------- | :-----: | :-----: |
+| 图形界面         |    ✔    |         |
+| 命令行界面       |         |    ✔    |
+| 查询：区块，交易，资产 |    ✔    |         |
+| **钱包管理**     |         |         |
+| &nbsp;&nbsp;&nbsp;创建钱包         |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;打开钱包         |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;导入导出密钥对   |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;助记词导入钱包 |    ✔    |         |
+| &nbsp;&nbsp;&nbsp;升级钱包文件     |         |    ✔    |
+| &nbsp;&nbsp;&nbsp;显示密钥对       |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;显示所有地址 |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;显示所有资产     |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;转账       |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;提取 GAS   |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;创建新地址 |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;创建多方签名地址 |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;批量生成地址     |         |    ✔    |
+| &nbsp;&nbsp;&nbsp;修改钱包密码    |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;删除地址    |    ✔    |        |
+| **合约** |  |  |
+| &nbsp;&nbsp;&nbsp;查询合约  |    ✔    |        |
+| &nbsp;&nbsp;&nbsp;部署合约 |    ✔    |    ✔    |
+| &nbsp;&nbsp;&nbsp;调用合约  |    ✔    |    ✔    |
+| **高级**     | | |
+| &nbsp;&nbsp;&nbsp;选举成为共识节点 |    ✔    |         |
+| &nbsp;&nbsp;&nbsp;投票共识节点     |    ✔    |         |
+| &nbsp;&nbsp;&nbsp;自定义构造交易 |    ✔    |         |
+| &nbsp;&nbsp;&nbsp;签名    |    ✔    | ✔ |
+| &nbsp;&nbsp;&nbsp;数据转换    |    ✔    |         |
+| JSON-RPC         |         |    ✔    |
+| 参与区块链共识   |         |    ✔    |
 
 ## 端口安全策略
 
