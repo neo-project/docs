@@ -47,7 +47,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<checkWitnessHashes> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
 | [invokescript](api/invokescript.md) | \<script> | Runs a script through the virtual machine and returns the results. |
 
 ### Tool

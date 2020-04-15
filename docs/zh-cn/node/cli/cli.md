@@ -34,16 +34,22 @@
 | [open wallet](#open-wallet)                       | \<path>                                | 打开钱包文件                                      |
 | close wallet                                      |                                        | 关闭钱包文件                                      |
 | [upgrade wallet](#upgrade-wallet)                 | \<path>                                | 升级旧版钱包文件                                  |
-| list address                                      |                                        | 列出钱包中的所有账户。<br>需要打开钱包。          |
-| list asset                                        |                                        | 列出钱包中的所有资产。<br/>需要打开钱包。         |
-| list key                                          |                                        | 列出钱包中的所有公钥。<br/>需要打开钱包。         |
-| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。<br/>需要打开钱包。 |
-| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。<br/>需要打开钱包。      |
-| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。<br/>需要打开钱包。      |
-| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥。<br/>需要打开钱包。                     |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。<br/>需要打开钱包。             |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。<br/>需要打开钱包。               |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。<br/>需要打开钱包。       |
+
+下表所列命令均需要打开钱包才能使用。
+
+| 命令                                              | 参数                                   | 说明                           |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------ |
+| [change password](#change-password)               | \<path>                                | 修改钱包密码。                 |
+| list address                                      |                                        | 列出钱包中的所有账户。         |
+| list asset                                        |                                        | 列出钱包中的所有资产。         |
+| list key                                          |                                        | 列出钱包中的所有公钥。         |
+| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。 |
+| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。      |
+| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。      |
+| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥。                     |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。             |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。               |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。       |
 
 #### 合约命令
 
@@ -122,6 +128,24 @@ pubkey: 0399e96a2970c83e26ad66de36a4bad0512a62defd447e3e26723fac73d4072ba1
 ```
 neo> open wallet test.json
 password: *
+```
+
+### change password
+
+修改钱包密码。
+
+##### 句法
+
+ `change password` 
+
+##### 示例
+
+```
+neo> change password
+password: ***
+New password: ***
+Re-Enter Password: ***
+Password changed successfully
 ```
 
 ### upgrade wallet
@@ -386,7 +410,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 - `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名。
 
-##### 示例
+##### 示例 1 
 
 示例输入：
 
@@ -405,11 +429,12 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-其中 VM State 为 `HALT` 表示虚拟机执行成功， VM State 为 `FAULT` 表示虚拟机执行时遇到异常退出。
+- VM State：`HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
+- Gas Consumed ：调用智能合约时消耗的系统手续费。
 
-Gas Consumed 表示调用智能合约时消耗的系统手续费。
+- Evaluation Stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 
-Evaluation Stack 表示合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
+##### 示例 2
 
 示例输入：
 
@@ -450,6 +475,10 @@ Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
 
 relay tx(no|yes): no
 ```
+
+> [!Note]
+>
+> 当输入 invoke 命令后，节点并不是直接调用合约中的 `operation` 方法。而是调用该合约的 `main` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果 main 方法里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
 
 ### relay
 

@@ -1,6 +1,6 @@
 # invokefunction 方法
 
-使用给定的操作和参数，以散列值调用智能合约之后返回结果。
+使用给定的操作和参数，通过合约脚本哈希调用智能合约之后返回结果。
 
 > [!Note]
 >
@@ -9,10 +9,33 @@
 
 ## 参数说明
 
-- scripthash：智能合约脚本散列值。
-- operation：操作名称（字符串）。
-- params：传递给智能合约操作的参数。注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+- scripthash：智能合约脚本哈希。
 
+- operation：操作名称（字符串）。
+
+- params：传递给智能合约操作的参数。
+
+  > [!Note]
+  >
+  > 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+
+- checkWitnessHashes: 合约签名账户列表。
+
+  例如：
+
+  ```json
+  {
+    "type": "String",
+    "value": "Hello"
+  }
+  ```
+
+  ```json
+  {
+    "type": "Hash160",
+    "value": "39e7394d6231aa09c097d02391d5d149f873f12b
+  }
+  ```
 
 ## 调用示例
 
@@ -21,18 +44,27 @@
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "invokefunction",
   "params": [
-    "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
-    "balanceOf",
+    "0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0",
+    "transfer",
     [
       {
         "type": "Hash160",
-        "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
+        "value": "0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"
+      },
+      {
+        "type": "Hash160",
+        "value": "0x2916eba24e652fa006f3e5eb8f9892d2c3b00399"
+      },
+      {
+        "type": "Integer",
+        "value": "1000"
       }
-    ]
-  ],
-  "id": 3
+    ],
+    ["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]
+  ]
 }
 ```
 
@@ -41,54 +73,38 @@
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 3,
+    "id": 1,
     "result": {
-        "script": "0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52",
+        "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
         "state": "HALT",
-        "gas_consumed": "2007570",
+        "gas_consumed": "9413130",
         "stack": [
             {
                 "type": "Integer",
-                "value": "9999885"
+                "value": "1"
             }
-        ],
-        "tx": "0075fa234c2bf173f849d1d59123d097c009aa31624d39e73900e1f50500000000269f120000000000dbe1200000003e0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b5201420c40b9539b4affc196cc2dccf49df0d8ba962ed7cca1f2c5a708a5da4405a79263694464a9140d686445b5d3857abdd1322b3aeed6486490ef4c8b298460138de237290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"
+        ]
     }
 }
 ```
 
-请求正文：
+响应说明：
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "invokefunction",
-  "params": [
-    "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-    "symbol",
-    [ ]
-  ],
-  "id": 3
-}
+- script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
+
+```
+PUSHINT16 1000
+PUSHDATA1 0x2916eba24e652fa006f3e5eb8f9892d2c3b00399
+PUSHDATA1 0xcadb3dc2faa3ef14a13b619c9a43124755aa2569
+PUSHDATA1 transfer
+PUSHDATA1 0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0
+SYSCALL System.Contract.Call
 ```
 
-响应正文：
+- state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
+- gas_consumed：调用智能合约时消耗的系统手续费。
+- stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "10c00c0673796d626f6c0c14fccf7335d9ac0875d31d27fec8bbaff5f2bb339c41627d5b52",
-        "state": "HALT",
-        "gas_consumed": "1036870",
-        "stack": [
-            {
-                "type": "ByteArray",
-                "value": "RERB"
-            }
-        ],
-        "tx": "00e7fc08682bf173f849d1d59123d097c009aa31624d39e73900e1f505000000007e3d120000000000c1e1200000002510c00c0673796d626f6c0c14fccf7335d9ac0875d31d27fec8bbaff5f2bb339c41627d5b5201420c4099b21d5356e17dcca7eea7940815f528c1bf9e5faddb5717a57b050e4afb71a82db068bd087888b780eebfcb8d8bca359d8f360d5a0876a8548afb36150f50cb290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"
-    }
-}
-```
+> [!Note]
+>
+> 当输入 invokefunction 命令后，节点并不是直接调用合约中的 `operation` 方法。而是调用该合约的 `main` 方法，并将 `operation` 和 `params` 作为实参传入。如果 main 方法里没有对 `operation` 和 `params` 做处理，将不能返回预期的结果。
