@@ -251,5 +251,7 @@ paket-files/
 wwwroot
 NeoDocsBuilder.*
 *.dll
+*.txt
 _site/
 docfx.json
+template/

@@ -4,13 +4,13 @@ In Neo3 most of the functions are provided by contracts. ScriptHash is the uniqu
 
 This document introduces the following SDK features:
 
-- Construction method that encapsulates the contract deployment transaction
+- The construction method of contract deployment transaction
 - Invoking methods in the contract under read-only mode
 - `Nep5API` class that encapsulates the methods for invoking NEP5 contracts
 
 ## Contract deployment
 
-`ContractClient` provides the method, `CreateDeployContractTx`, to construct deployment transactions of the contract. The parameters are contract scripts, manifests, and account key pairs for payment of system and network fees, where contract scripts and manifests are available from compilation. There must be sufficient GAS in the account it costs.
+`ContractClient` provides the method, `CreateDeployContractTx`, to construct deployment transactions of the contract. The parameters are contract scripts, manifests, and account key pairs for payment of system and network fees, where contract scripts and manifests are available from the compilation. There must be sufficient GAS in the sender account.
 
 ```c#
 // create the deploy contract transaction
@@ -20,7 +20,7 @@ Transaction transaction = contractClient.CreateDeployContractTx(script, manifest
 After the transaction is constructed, you need to broadcast it on the blockchain:
 
 ```c#
-// Broadcast the transaction over the NEO network
+// Broadcast the transaction over the Neo network
 client.SendRawTransaction(transaction);
 Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 ```
@@ -67,7 +67,7 @@ namespace ConsoleApp1
             // create the deploy transaction
             Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKey);
 
-            // Broadcast the transaction over the NEO network
+            // Broadcast the transaction over the Neo network
             client.SendRawTransaction(transaction);
             Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 
@@ -84,7 +84,7 @@ namespace ConsoleApp1
 
 ## Contract invocation simulation
 
-`ContractClient` provides the method `TestInvoke` to simulate the contract invocation, which does not affect the data on the chain after execution. You can directly invoke the contract method that reads the data. For example, the following example invokes the name method in the Neo native contract.
+`ContractClient` provides the method `TestInvoke` to simulate the contract invocation, which does not affect the data on the chain after execution. You can directly invoke the contract method that reads the data. For example, the following example invokes the name method in the NEO native contract.
 
 ```c#
 // choose a neo node with rpc opened
@@ -114,7 +114,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
 
 1. Construct the script to invoke
 
-    以调用原生合约NEO的`transfer`方法为例：Take the transfer method of the native contract NEO as an example:
+    Take the `transfer` method of native contract Neo as an example:
 
     ```c#
     // construct the script, in this example, we will transfer 1 NEO to receiver
@@ -139,7 +139,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
 3. Broadcast the transaction on the blockchain:
 
     ```c#
-    // broadcasts the transaction over the NEO network
+    // broadcasts the transaction over the Neo network
     client.SendRawTransaction(tx);
     ```
 
@@ -152,7 +152,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
         .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
     ```
 
-For complete code refer to [Transaction Constuction](transaction.md).
+For complete code refer to [Transaction Construction](transaction.md).
 
 ## NEP-5 Contracts
 
@@ -179,6 +179,3 @@ uint decimals = nep5API.Decimals(scriptHash);
 BigInteger totalSupply = nep5API.TotalSupply(scriptHash);
 ```
 
-## What's next?
-
-[Wallet Interfaces](wallet.md)

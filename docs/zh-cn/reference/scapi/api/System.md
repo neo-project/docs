@@ -73,6 +73,7 @@
 |System.Runtime.Log|记录合约日志信息|
 |System.Runtime.Notify|向执行智能合约的程序发送通知|
 |System.Runtime.GetNotifications|获取某合约执行的所有通知|
+|System.Runtime.GasLeft|获取剩余未消耗的GAS数|
 
 **Storage API**:
 
@@ -80,12 +81,12 @@
 |--|--|
 |System.Storage.GetContext|获取当前合约存储区的上下文|
 |System.Storage.GetReadOnlyContext|以只读方式获取当前合约存储区的上下文|
+|System.StorageContext.AsReadOnly|将当前上下文修改为只读模式|
 |System.Storage.Get|根据Key值，从存储区获取对应的Value|
 |System.Storage.Find|在当前存储上下文中存储区寻找指定前缀内容|
 |System.Storage.Put|根据存储上下文，向存储区写入Key|
 |System.Storage.PutEx|根据存储上下文，依据flag，向存储区写入Key|
 |System.Storage.Delete|根据Key值，从存储区删除存储的Key|
-|System.StorageContext.AsReadOnly|将当前上下文修改为只读模式|
 
 > [!Note]
 >

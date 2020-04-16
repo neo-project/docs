@@ -23,21 +23,17 @@ Claimed *GAS = f(neo_amount, Δt_const)*
 Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
 
 
-![gasflow_en](../../sc/assets/gasflow_en.png)
+![gasflow_en](../sc/assets/gasflow_en.png)
 
 The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
 
 ## RPC methods
 
-NEO provides a set of RPC methods to help exchanges query users' GAS information. For details, click the desired method link in the table below. 
+The following RPC method can be used to help exchanges query users' GAS information. For details, click the desired method link in the table below. 
 
-| Method                                                       | Description                                                  | Parameter          |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------ |
-| [getunclaimedgas](../../reference/rpc/latest-version/api/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet.      |                    |
-| [getunclaimed](../../reference/rpc/latest-version/api/getunclaimed.md) | Returns the unclaimed GAS amount of the specified address.   | \<address>         |
-| [claimgas](../../reference/rpc/latest-version/api/claimgas.md) | Claims GAS and send them to the first standard address in the wallet by default. You can also specify an address to receive these GAS. | [address] Optional |
-| [getclaimable](../../reference/rpc/latest-version/api/getclaimable.md) | Returns claimable GAS information of the specified address.  | \<address>         |
-| [getunspents](../../reference/rpc/latest-version/api/getunspents.md) | Returns information of the unspent NEO and GAS amount at the specified address. | \<address>         |
+| Method                                                       | Description                                             |
+| ------------------------------------------------------------ | ------------------------------------------------------- |
+| [getunclaimedgas](../reference/rpc/latest-version/api/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet. |
 
 ## Claiming GAS
 
@@ -50,9 +46,9 @@ The following table lists the GAS claiming steps and corresponding commands.
 | 1    | Run Neo-CLI                                                  | `dotnet neo-cli.dll`                            |
 | 2    | Check the client version                                     | `version`                                       |
 | 3    | Check the synchronized height of the client ( Height: height/header height, Nodes: amount of connected nodes). | `show state`                                    |
-| 4    | Open a wallet                                                | `open wallet /home/NeoNode/test.db3`            |
+| 4    | Open a wallet                                                | `open wallet /home/NeoNode/test.json`           |
 | 5    | Check the addresses and assets in the wallet                 | `list asset`                                    |
 | 6    | Check the GAS balance in the wallet                          | `show gas`                                      |
-| 7    | Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1） to claim the GAS automatically. | `send NEO AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
+| 7    | Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM） to claim the GAS automatically. | `send neo AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
 | 8    | Check the asset balance again.                               | `list asset`                                    |
 

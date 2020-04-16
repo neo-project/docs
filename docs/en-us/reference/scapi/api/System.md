@@ -73,6 +73,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Runtime.Log|Records the log|
 |System.Runtime.Notify|Notifies the client executing the contract|
 |System.Runtime.GetNotifications|Gets notifications of a contract|
+|System.Runtime.GasLeft|Gets the unconsumed gas|
 
 **Storage API**:
 
@@ -80,12 +81,12 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |--|--|
 |System.Storage.GetContext|Gets storage context of the current contract|
 |System.Storage.GetReadOnlyContext|Gets storage context of the current contract in read-only mode|
+|System.Storage.AsReadOnly|Sets the current context to read-only mode|
 |System.Storage.Get|Gets value from the storage by key|
 |System.Storage.Find|Finds the data in the storage area of the current storage context with the specified prefix |
 |System.Storage.Put|Puts key-value into storage based on the storage context|
 |System.Storage.PutEx|Puts Key-Value into the storage based on the storage context and the flag|
 |System.Storage.Delete|Deletes the stored Key-Value data from the storage area by the Key|
-|System.StorageContext.AsReadOnly|Sets the current context to read-only mode|
 
 > [!Note]
 >

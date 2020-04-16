@@ -13,7 +13,7 @@ Let's look at a standard wallet address and corresponding scripthash strings in 
 
 - Address: AceQbAj2xuFLiH5hQAHMnV39wtmjUKiVRj
 - ScriptHash
-  - Big endian：0x 946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
+  - Big endian：0x946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - Little endian：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
 To convert between the wallet address and scripthash, or between big endian and little endian byte order, use one of the following:
@@ -34,7 +34,7 @@ The wallet address is commonly used in the transaction of global assets transfer
 In the case that you construct a global asset transfer transaction (ContractTransaction) using NEO SDK, you need to construct related Output for the asset receiver. As shown below, you should fill in TransactionOutput with **big-endian** scripthash of the address receiving assets.
 
 ```
-var outputs = new List<TransactionOutput>{ new TransactionOutput()
+var outputs = new List<TransferOutput>{ new TransferOutput()
 {
     AssetId = Blockchain.UtilityToken.Hash, //AssetId of GAS
     ScriptHash = "Ad1HKAATNmFT5buNgSxspbW68f4XVSssSw".ToScriptHash(), //The address scripthash is big endian

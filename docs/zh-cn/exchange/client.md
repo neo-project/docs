@@ -4,13 +4,11 @@ Neo-CLI 作为客户端，在 P2P 网络中充当一个普通节点，同时，�
 
 ## Neo-CLI 安全策略
 
-> [!Caution]
->
-> #### 警告
->
-> 交易所必须使用白名单或防火墙以屏蔽外部服务器请求，否则会有重大安全隐患。
+>[!Caution]
+> 
+>交易所必须使用白名单或防火墙以屏蔽外部服务器请求，否则会有重大安全隐患。
 
-Neo-CLI 本身不提供远程开关钱包功能，打开钱包时也没有验证过程。因此，安全策略由交易所根据自身情况制定。由于钱包要一直保持打开状态以便处理用户的提现，因此，从安全角度考虑，钱包必须运行在独立的服务器上，并参考下表配置好端口防火墙。
+Neo-CLI 本身不提供远程开关钱包功能，打开钱包时也没有验证过程。因此，安全策略由交易所根据自身情况制定。由于钱包要一直保持打开状态以便处理用户的提现请求，因此，从安全角度考虑，钱包必须运行在独立的服务器上，并参考下表配置好端口防火墙。
 
 |                    | Mainnet | Testnet |
 | ------------------ | ------- | ------- |
@@ -43,26 +41,15 @@ Neo-CLI 提供以下功能：
   help
   ```
 
-  更多信息，请参阅 [CLI 命令参考](../../node/cli/cli.md)。
+  更多信息，请参阅 [CLI 命令参考](../node/cli/cli.md)。
 
-- 提供一系列 API 接口，用于从节点获取区块链数据。接口通过 [JSON-RPC](http://www.jsonrpc.org/specification) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
+- 结合 RpcServer 插件提供一系列 RPC API 接口，用于从节点获取区块链数据。接口通过 [JSON-RPC](http://www.jsonrpc.org/specification) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-  如果想启动节点的同时开启 API，在 neo-cli 程序目录下输入以下命令：
+  如果想启动节点的同时开启 RPC API，务必在部署节点时正确安装 RpcServer 插件。
 
-  ```
-  dotnet neo-cli.dll --rpc
-  ```
-
-  要查看更多 API 信息，请参阅 [API 参考](../../reference/rpc/latest-version/api.md)。
+  要查看更多 API 信息，请参阅 [API 参考](../reference/rpc/latest-version/api.md)。
 
 - 提供 NEP5 资产的交易信息。
-
-- 功能列表
-
-  | #    | 步骤          | 输入命令                  |
-  | ---- | :------------ | ------------------------- |
-  | 1    | 运行客户端    | `dotnet neo-cli.dll`      |
-  | 2    | 打开 RPC 接口 | `--rpc` 或 `-r` 或 `/rpc` |
 
 ## 创建钱包
 
@@ -70,13 +57,13 @@ Neo-CLI 提供以下功能：
 
 > [!Note]
 >
-> Neo-CLI 钱包支持两种格式的钱包， sqlite 钱包（格式为.db3）和 [NEP6 标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) 钱包（格式为.json）。建议交易所使用 sqlite 钱包。
+> Neo-CLI 钱包支持两种格式的钱包， sqlite 钱包（格式为.db3）和 [NEP6 标准](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki) 钱包（格式为.json），建议交易所使用 sqlite 钱包。
 
 请按照以下步骤创建钱包：
 
 1. 输入命令 `create wallet <path>` 。
 
-   其中 \<path\> 为钱包路径及名称，扩展名根据所使用的钱包种类来设定，可以是 .db3 也可以是 .json（如无扩展名，则钱包格式为 NEP6 钱包）。如 create wallet /home/mywallet.db3。
+   其中 \<path\> 为钱包路径及名称，扩展名根据所使用的钱包种类来设定，可以是 .db3 也可以是 .json（如无扩展名，则钱包格式为 NEP6 钱包），如 create wallet /home/mywallet.db3。
 
 2. 设置钱包密码。
 
@@ -88,7 +75,7 @@ Neo-CLI 提供以下功能：
 
 - 用户第一次充值（NEO/GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
 
-  要动态创建地址，可以使用 Neo-CLI API 的 [getnewaddress 方法](../../reference/rpc/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
+  要动态创建地址，可以使用 RpcServer API 的 [getnewaddress 方法](../reference/rpc/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
 
 - 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 

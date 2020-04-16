@@ -34,23 +34,29 @@ All the commands described in this document conform with these conventions:
 | [open wallet](#open-wallet)                       | \<path>                                | Opens a wallet file.                                         |
 | close wallet                                      |                                        | Closes the current wallet.                                   |
 | [upgrade wallet](#upgrade-wallet)                 | \<path>                                | Upgrades old wallet files.                                   |
-| list address                                      |                                        | lists all the accounts in the wallet.<br>Need to open wallet. |
-| list asset                                        |                                        | Lists all assets in the wallet.<br/>Need to open wallet.     |
-| list key                                          |                                        | Lists all public keys in your wallet.<br/>Need to open wallet. |
-| [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.<br/>Need to open wallet.   |
-| [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address<br/>Need to open wallet. |
-| [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.<br/>Need to open wallet. |
-| [export key](#export-key)                         | \[address] [path]                      | Exports private keys.<br/>Need to open wallet.               |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.<br/>Need to open wallet. |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.<br/>Need to open wallet. |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information.<br/>Need to open wallet. |
+
+The commands listed in the table below requires you to open the wallet before invoking.
+
+| Command                                           | Parameters                             | Description                                                  |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| [change password](#change-password)               | \<path>                                | Changes the wallet password                                  |
+| list address                                      |                                        | lists all the accounts in the wallet.                        |
+| list asset                                        |                                        | Lists all assets in the wallet.                              |
+| list key                                          |                                        | Lists all public keys in your wallet.                        |
+| [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.                            |
+| [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address                       |
+| [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.         |
+| [export key](#export-key)                         | \[path] [address script hash]          | Exports private keys.                                        |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.                          |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.                       |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract Commands
 
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] [witness address separated by space] | Invokes a contract |
 
 
 #### Node Commands
@@ -59,7 +65,19 @@ All the commands described in this document conform with these conventions:
 | --------------- | ------------------- | ------------------------------------------------------------ |
 | show state      |                     | Displays the current status of blockchain synchronization.   |
 | show pool       | [verbose]           | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
+
+####Network Commands
+
+| Command         | Parameters          | Description                                                  |
+| --------------- | ------------------- | ------------------------------------------------------------ |
 | [relay](#relay) | \<jsonObjectToSign> | Broadcasts the transaction. The parameter is the json string that records the transaction information. |
+| [broadcast addr](#broadcast-addr) |  \<payload IP address> \<port>   | Broadcasts the IP address of the node |
+| [broadcast block](#broadcast-block) |  \<block hash \| block height>  | Broadcasts a block |
+| [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | Broadcasts the getblocks request |
+| [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | Broadcasts the getdata request |
+| [broadcast getheaders](#broadcast-getheaders) |  \<block hash>  | Broadcasts the getheaders request |
+| [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | Broadcasts the inventory data |
+| [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | Broadcasts a transaction |
 
 #### Plugin Commands
 
@@ -72,10 +90,10 @@ All the commands described in this document conform with these conventions:
 
 #### Advanced Commands
 
-| Command                             | Parameters | Description                                                  |
-| ----------------------------------- | ---------- | ------------------------------------------------------------ |
-| [export block[s]](#export-block-s-) | \<index>   | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronzation. |
-| [start consensus](#d320b143)        |            | Starts consensus                                             |
+| Command                         | Parameters                             | Description                                                  |
+| ------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronzation. |
+| [start consensus](#d320b143)    |                                        | Starts consensus                                             |
 
 ## Command Description
 
@@ -112,6 +130,24 @@ Opens the wallet file at the specified path. The wallet password is required to 
 ```
 neo> open wallet test.json
 password: *
+```
+
+### change password
+
+Changes the wallet password.
+
+##### Syntax
+
+ `change password` 
+
+##### Example
+
+```
+neo> change password
+password: ***
+New password: ***
+Re-Enter Password: ***
+Password changed successfully
 ```
 
 ### upgrade wallet
@@ -351,28 +387,45 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ### invoke
 
-Invokes a contract.
+Invokes a contract. 
 
 ##### Syntax
 
-`invoke <scripthash> <command> [optionally quoted params separated by space]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]` 
 
 ##### Parameters
 
-- `scripthash`：Contract hash to invoke.
-- `command`：Method name in the contract, which can be followed by input parameters separated by space. 
-- `[optionally quoted params separated by space]` can only be passed in parameters in string format.
+- `scripthash`: Contract hash to invoke.
 
-##### Example
+- `command`: Method name in the contract, which can be followed by input parameters separated by space. 
+
+- `contractParameters`: Parameters to invoke. You need to pass in JSON-formatted string. For ByteArray type, encode it with Base64 in advance. 
+
+  For example, the address `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` can be converted to the hexadecimal big-endian script hash  `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` or the Base64-encoded script hash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`. The JSON-formatted parameters are:
+
+  ```
+  [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+  [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+  ```
+
+- `witnessAddress` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
+
+##### Example 1
+
+Input:
 
 ```
-neo> invoke 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6 name
-Invoking script with: '00c1046e616d6514c6e5db4c428dfa9546c92bd8ae30f69a7be25c1e68627d5b52'
-VM State: HALT
-Gas Consumed: 4320950
-Evaluation Stack: [{"type":"ByteArray","value":"6e616d656f66746865746f6b656e"}]
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+```
+Output:
 
-relay tx(no|yes): no
+```
+Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0103609
+Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
+
+relay tx(no|yes):
 ```
 
 - `VM State`：there are two states:
@@ -380,6 +433,50 @@ relay tx(no|yes): no
   -  `FAULT` : the virtual machine exits during execution due to an exception. 
 - `Gas Consumed`：the system fees consumed for smart contract invocation.
 - `Evaluation Stack`：shows the result of contract execution, where the value is encoded with Base64.
+
+Input:
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
+```
+
+Output:
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+Output:
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
+```
+
+or
+
+```
+invoke 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 balanceOf [{"type":"Hash160","value":"d4cd1219ce8e172b50273823d799a365fab6b0e4"}]
+```
+
+Output:
+
+```
+Invoking script with: '0c14d4cd1219ce8e172b50273823d799a365fab6b0e411c00c0962616c616e63654f660c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0355309
+Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
+
+relay tx(no|yes): no
+```
+
+> [!Note]
+>
+> After entering the invoke command, the node invokes the `main` method of the contract rather than directly invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the `main` method, the expected result will not be returned.
 
 ### relay
 
@@ -401,6 +498,123 @@ Data relay success, the hash is shown as follows:
 0xdcf144d9ed2d64482fb5caafa719cf6706e9afd607ab043e8bfcb9018795e4d1
 ```
 
+### broadcast addr
+
+Broadcasts the IP address of a block.
+
+##### Syntax
+
+`broadcast addr <IPAddress> <port>`
+
+##### Example
+
+```
+neo> broadcast addr 127.0.0.1 10332
+neo> 
+```
+
+### broadcast block
+
+Broadcasts a block.
+
+##### Syntax
+
+`broadcast block <block-hash> `
+
+`broadcast block <block-height> `
+
+##### Example
+
+```
+neo> broadcast block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast block 537
+neo> 
+```
+
+### broadcast getblocks
+
+Broadcasts the getblocks request.
+
+##### Syntax
+
+`broadcast getblocks <block-hash> `
+
+##### Example
+
+```
+neo> broadcast getblocks 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
+### broadcast getheaders
+
+Broadcasts the getheaders request.
+
+##### Syntax
+
+`broadcast getheaders <block-hash> `
+
+##### Example
+
+```
+neo> broadcast getheaders 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
+### broadcast getdata
+
+Broadcasts the getdata request.
+
+##### Syntax
+
+`broadcast getdata <inventory type> <payload> `
+
+##### Example
+
+```
+neo> broadcast getdata Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast getdata TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+neo> broadcast getdata Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+```
+
+### broadcast inv
+
+Broadcasts inventory data。
+
+##### Syntax
+
+`broadcast inv <inventory type> <payload> `
+
+##### Example
+
+```
+neo> broadcast inv Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+neo> broadcast inv TX 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+neo> broadcast inv Consensus 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo>
+```
+
+### broadcast transaction
+
+Broadcasts a transaction.
+
+##### Syntax
+
+`broadcast transaction <transaction hash> `
+
+##### Example
+
+```
+neo> broadcast transaction 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
+neo> 
+```
+
 ### plugins
 
 Shows all the loaded plugins.
@@ -415,13 +629,11 @@ Shows all the loaded plugins.
 neo> plugins
 Loaded plugins:
         ApplicationLogs
-        CoreMetrics
-        ImportBlocks
+        LevelDBStore
+        RpcServer
         RpcNep5Tracker
-        RpcSecurity
-        RpcWallet
         StatesDumper
-        SystemLogs
+        SystemLog
 ```
 
 ### install
@@ -462,11 +674,11 @@ Exports the block data from the specified block height. The output can be used f
 
 ### start consensus
 
-Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain.md)。
+Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain2.md)。
 
 > [!NOTE]
 >
-> If you wan to view the consensus log, install the plugin [SystemLog](https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/SystemLog.zip) first.
+> If you wan to view the consensus log, install the plugin [SystemLog](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/SystemLog.zip) first.
 
 
 

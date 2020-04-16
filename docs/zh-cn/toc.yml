@@ -55,10 +55,8 @@
       href: /v3/docs/zh-cn/sc/deploy/invoke.md
     - name: 参数和返回值
       href: /v3/docs/zh-cn/sc/deploy/Parameter.md
-  - name: 测试
-    href: /v3/docs/zh-cn/sc/test.md
-  - name: 合约迁移
-    href: /v3/docs/zh-cn/sc/migrate.md
+  - name: 合约升级
+    href: /v3/docs/zh-cn/sc/update.md
   - name: 手续费
     href: /v3/docs/zh-cn/sc/fees.md
 - name: Neo工具开发
@@ -147,8 +145,6 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.md
     - name: getblockheader
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.md
-    - name: getblocksysfee
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.md
     - name: getconnectioncount
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate

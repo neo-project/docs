@@ -2,7 +2,7 @@
 
 NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码，只有在传输 IP 地址和端口号采用大端序 (Big Endian) 编码。
 
-开发者在实际使用过程中，特别是通过SDK构造交易来转账或者调用合约的时候，需要正确使用钱包地址ScriptHash的大小端序格式，否则可能导致全局资产或者NEP5资产的丢失。
+开发者在实际使用过程中，特别是通过SDK构造交易来转账或者调用合约的时候，需要正确使用钱包地址ScriptHash的大小端序格式，否则可能导致资产的丢失。
 
 本文将结合几个常见的应用场景，介绍如何正确使用钱包地址或者合约ScriptHash的字节序格式。
 
@@ -14,16 +14,15 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
 
 - 地址 (address): AceQbAj2xuFLiH5hQAHMnV39wtmjUKiVRj
 - ScriptHash
-  - 大端序：0x 946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
+  - 大端序：0x946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - 小端序：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
 要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下一种方法:
 
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
-- NEO SDK，详情请参见 [常见数据类型转换](../sdk/conversion.md)
 
 ### 合约的ScriptHash
-每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。NEO的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收全局资产或者NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
+每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。NEO的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
 
 - CGas ScriptHash (大端序)：0x 74f2dc36a68fdc4682034178eb2220729231db76 
 
@@ -35,7 +34,7 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
 当使用NEO SDK构造全局资产转账交易(ContractTransaction)时, 需要为转账资产的接收人构造相应的Output。如下所示，需要在 TransactionOutput 中填写资产接收人的钱包地址所对应的ScriptHash, 这里应该使用**大端序**的格式：
 
 ```
-var outputs = new List<TransactionOutput>{ new TransactionOutput()
+var outputs = new List<TransferOutput>{ new TransferOutput()
 {
     AssetId = Blockchain.UtilityToken.Hash, //GAS对应的AssetId
     ScriptHash = "Ad1HKAATNmFT5buNgSxspbW68f4XVSssSw".ToScriptHash(), //地址对应的大端序ScriptHash

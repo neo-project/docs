@@ -17,7 +17,7 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <th>说明</th>  
 	</tr >
 	<tr >
-	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
+	    <td rowspan="12">Neo.Native.Tokens.NEO</td>
 	    <td>name</td>
 	    <td>获取名称, 即：NEO</td>
 	</tr>
@@ -30,35 +30,40 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <td>获取精度</td>
 	</tr>
 	<tr>
-	    <td>totalSupply</td>
+	    <td>TotalSupply</td>
 	    <td>获取总发行量</td>
 	</tr>
 	<tr>
-	    <td>balanceOf</td>
+	    <td>BalanceOf</td>
 	    <td>获取余额</td>
 	</tr>
 	<tr>
-	    <td>transfer</td>
+	    <td>Transfer</td>
 	    <td>转账</td>
 	</tr>
     <tr>
-	    <td>registerValidator</td>
+	    <td>RegisterValidator</td>
 	    <td>注册为验证人</td>
 	</tr>
 	<tr>
-	    <td>vote</td>
+	    <td>Vote</td>
 	    <td>投票</td>
 	</tr>
 	<tr>
-	    <td>getRegisteredValidators</td>
+	    <td>GetRegisteredValidators</td>
 	    <td>获取已注册的验证人列表</td>
 	</tr>
 	<tr>
-	    <td>getValidators</td>
+	    <td>GetValidators</td>
 	    <td>获取验证人列表</td>
 	</tr>
-	<tr><td>unclaimedGas</td>
+	<tr>
+	    <td>UnclaimedGas</td>
 	    <td>获取未领取的Gas数</td>
+	</tr>
+	<tr>
+	    <td>GetNextBlockValidators</td>
+	    <td>获取下个区块的验证人列表</td>
 	</tr>
 </table>
 
@@ -84,21 +89,17 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	    <td>获取精度</td>
 	</tr>
 	<tr>
-	    <td>totalSupply</td>
+	    <td>TotalSupply</td>
 	    <td>获取总发行量</td>
 	</tr>
 	<tr>
-	    <td>balanceOf</td>
+	    <td>BalanceOf</td>
 	    <td>获取余额</td>
 	</tr>
 	<tr>
-	    <td>transfer</td>
+	    <td>Transfer</td>
 	    <td>转账</td>
 	</tr>
-    <tr>
-        <td>getSysFeeAmount</td>
-	    <td>获取系统手续费</td>
-    </tr>
 </table>
 
 <br/>
@@ -111,37 +112,41 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 	</tr >
 	<tr >
 	    <td rowspan="9">Neo.Native.Policy</td>
-	    <td>getMaxTransactionsPerBlock</td>
+	    <td>GetMaxTransactionsPerBlock</td>
 	    <td>获取每区块最大交易数</td>
 	</tr>
 	<tr>
-	    <td>getMaxBlockSize</td>
+	    <td>GetMaxBlockSize</td>
 	    <td>获取最大的区块大小</td>
 	</tr>
 	<tr>
-	    <td>getFeePerByte</td>
+	    <td>GetFeePerByte</td>
 	    <td>获取每字节手续费</td>
 	</tr>
 	<tr>
 	    <td>setMaxBlockSize</td>
 	    <td>设置最大的区块大小</td>
 	</tr>
-	<tr><td>getBlockedAccounts</td>
+	<tr><td>GetBlockedAccounts</td>
 	    <td>获取黑名单账户</td>
 	</tr>
-    <tr><td>setMaxTransactionsPerBlock</td>
+    <tr><td>SetMaxTransactionsPerBlock</td>
 	    <td>设置每区块最大交易数</td>
 	</tr>
-    <tr><td>setFeePerByte</td>
+    <tr><td>SetFeePerByte</td>
 	    <td>设置每字节手续费</td>
 	</tr>
-    <tr><td>blockAccount</td>
+    <tr><td>BlockAccount</td>
 	    <td>设置黑名单账户</td>
 	</tr>
-    <tr><td>unblockAccount</td>
+    <tr><td>UnblockAccount</td>
 	    <td>解除黑名单账户</td>
 	</tr>
 </table>
+
+> [!Note]
+> 以上 API 部分用于给Validator调用, 普通用户会在验签过程中失败
+> 以上 API 的源码位于 NEO 项目中的 (https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs) 文件。
 
 **Crypto API**：
 

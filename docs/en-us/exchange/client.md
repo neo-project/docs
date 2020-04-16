@@ -43,38 +43,17 @@ Neo-CLI provides the following features：
   help
   ```
 
-  For more information, refer to [CLI Command Reference](../../node/cli/cli.md).
+  For more information, refer to [CLI Command Reference](../node/cli/cli.md).
 
-- Provides APIs to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
+- Provides a set of RPC APIs in conjunction with the RpcServer plugin to retrieve blockchain data from nodes. The interfaces are provided through  [JSON-RPC](http://www.jsonrpc.org/specification)，and the underlying communications use HTTP/HTTPS protocols.
 
-  To start a node which provides RPC service, enter the following command under the Neo-CLI directory：
+  Before you can start a node which provides RPC service, you must has the plugin RpcServer installed with Neo-CLI installation.
 
-  ```
-  dotnet neo-cli.dll --rpc
-  ```
-
-  For more API information, refer to [API Reference](../../reference/rpc/latest-version/api.md).
+  For more API information, refer to [API Reference](../reference/rpc/latest-version/api.md).
 
 
 - Provides transaction information of NEP-5 assets.
 
-  > [!Note]
-  >
-  > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [Neo-CLI Installation](../../node/cli/setup.md).
-
-
-| #    | Function                                                  | Command                   |
-| ---- | --------------------------------------------------------- | ------------------------- |
-| 1    | Run NEO-CLI                                               | `dotnet neo-cli.dll`      |
-| 2    | Open RPC and log the NEP-5 assets transaction information | `--rpc` or `-r` or `/rpc` |
-
-> [!Note]
->
-> You can enable multiple functions, for example, to enable all the above functions, enter the following:
->
-> ```
-> dotnet neo-cli.dll --rpc --nopeers
-> ```
 
 ### Creating a Wallet
 
@@ -100,7 +79,7 @@ There are two methods to generate deposit addresses:
 
 - When the user deposit (NEO/GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is that it's not convenient for backup.
 
-  To develop the program to dynamically generate addresses, use the Neo-CLI API  [getnewaddress Method](../../reference/rpc/latest-version/api/getnewaddress.md). The created address is returned.
+  To develop the program to dynamically generate addresses, use the RpcServer API  [getnewaddress Method](../reference/rpc/latest-version/api/getnewaddress.md). The created address is returned.
 
 - The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
   To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.

@@ -1,58 +1,61 @@
 # 部署与调用合约
 
-在本节我们将部署并调用上一节编写好的 NEP-5 合约。
+在上节我们已编译好一个NEP-5合约文件（NEP5.nef ）和合约描述文件（NEP5.manifest.json ），本节我们将使用Neo-CLI部署并调用该合约。
 
 ## 部署合约
 
-生成合约文件后，我们可以使用 Neo-GUI 进行部署。
+在 Neo-CLI 中，输入部署合约命令  `deploy <nefFilePath> [manifestFile]` ，例如：
 
-1. 打开钱包文件 0.json，点击 `高级` -> `部署合约`。
+```bash
+deploy NEP5.nef
+```
 
-2. 在部署合约对话框中，点击 `加载` 选择编译好的合约文件。
+或
 
-   此时代码框下方会显示合约脚本散列，将其复制供调用合约时使用。
+```bash
+deploy NEP5.nef NEP5.manifest.json
+```
 
-3. 填写信息与元数据区域的参数。每个参数都需要填写，否则无法激活 `部署` 按钮。
+输入命令后，程序会部署NEP-5合约并且自动支付手续费。
 
-   - 对于NEP-5资产合约，参数列表填 0710，返回值填 05。具体填写规则可参考 [智能合约参数和返回值](../deploy/Parameter.md)。
+```bash
+neo> deploy NEP5.nef
+Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+Gas: 3
 
-   
-- 勾选 `需要创建存储区`，因为NEP5 标准使用存储区来维护帐户。
-   
+Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
+```
 
-   -  `需要动态调用`和 `Payable`这里无需勾选。
-
-4. 完成所有参数填写后，点击 `部署`。
-
-5. 在弹出的调用合约窗口中点击 `试运行`，确认无误，点击 `调用`。
-
-   部署合约需要花费100 ~1000 GAS，详情请参见 [系统手续费](../fees.md)。
-
-部署成功后，你的智能合约已经发布到区块链上了。
+更多部署信息请参考 [部署智能合约](../deploy/deploy.md)。
 
 ## 调用合约
 
-现在调用上一步发布的智能合约。
+部署完成后，使用 invoke 命令调用合约：
 
-1. 点击 `高级` -> `调用合约` -> `函数调用`。
+```bash
+invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
+```
 
-2. 将之前复制好的合约脚本填入 `ScriptHash`，再按搜索键，该合约相关信息会自动显示出来。
+例如：
 
-3. 点击 `参数列表` 旁的 `...` 进入编辑窗口。
+```bash
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+```
 
-   ![3_1546846629992](assets/3_1546846629992.png)
+成功执行后，屏幕输出如下信息：
 
-4. 对应你写的智能合约，[0] 是该函数名，[1] 是该函数的输入参数，如果没有可忽略。我们现在要调用 deploy 函数发布该资产到链上，则点击 [0]，在新值中填写 “deploy”，注意一定要小写，然后点击`更新`，关掉当前窗口。
+```bash
+Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0103609
+Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 
-   ![3_1545633970239](assets/3_1545633970239.png)
+relay tx(no|yes):
+```
 
-5. 点击 `试运行`，可以测试该合约。确认无误，点击 `调用`，调用合约也需要消耗少量的 GAS 。
+其中：
 
-## 查看合约资产
+- VM State ： `HALT` 表示虚拟机执行成功， `FAULT` 表示虚拟机执行时遇到异常退出。
+- Evaluation Stack ：合约执行结果，如果 value 是字符串或 ByteArray，则是 Base64 编码后的结果。
 
-在 Neo-GUI 中点击 `高级`-> `选项`，添加刚部署的资产的脚本散列，即可在资产页面看到你的 NEP-5 资产。
-
-![3_check_nep5](assets/3_check_nep5.png)
-
-至此，祝贺你已经成功地在Neo 私链上发布了智能合约。
-
+更多智能合调用信息请参考 [调用智能合约](../deploy/dinvoke.md)。

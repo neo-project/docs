@@ -2,7 +2,7 @@
 
 ## 简介
 
-NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
+Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
    ![query.png](assets/query.png)
 
@@ -12,9 +12,9 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 网络费
 
-网络费是用户向 NEO 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
+网络费是用户向 Neo 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
 
-   <!--![netfee](assets/netfee.png)-->
+   ![netfee](assets/netfee.png)
 
 - VerficationCost：NeoVM 验证交易签名执行的指令相对应的费用
 - tx.size：交易数据的字节长度
@@ -22,17 +22,17 @@ NEO3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 系统费
 
-系统费是根据NeoVM要执行的指令计算得出的费用，请参考Github上NEO3开发指南中的操作码费用部分(<https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/en/NeoVM#contrant>)，了解每个操作码的费用。NEO3中取消了每笔交易10GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../sc/fees.md)。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
-   <!--![sysfee](assets/sysfee.png)-->
+   ![sysfee](assets/sysfee.png)
 
 ### 操作码费用
 
-NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开发成本。
+NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能合约开发成本。
 
-- 与 NEO2.x 的比较
+与 NEO2.x 的比较：
 
-   <!--![feecomparewith2x](assets/feecomparewith2x.png)-->
+![feecomparewith2x](assets/feecomparewith2x.png)
 
 ## 处理查询交易
 
@@ -43,9 +43,9 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep5balances（需提前安装RpcNep5Tracker 插件）
+   - getnep5balances（需提前安装 RpcNep5Tracker 插件）
    - invokefunction
-2. 向 NEO RPC 服务器发送文件请求。
+2. 向 Neo RPC 服务器发送文件请求。
 3. 根据返回值计算出用户余额。
 
 #### 调用 getnep5balances
@@ -109,11 +109,11 @@ NeoVM操作码费用降低为原来的1/1000左右，可以显著降低合约开
 
 **script hash**
 
-要查询的 NEP-5 币的散列值，例如：
+要查询的 NEP-5 资产的脚本哈希，例如：
 
-NEO散列值是：*0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789*       
+NEO脚本哈希是：*0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789*       
 
-GAS散列值是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
+GAS脚本哈希是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
 
 **method name**
 
@@ -122,7 +122,7 @@ GAS散列值是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
 balanceOf
 
 - 语法：`public static BigInteger balanceOf(byte[] account)`
-- 说明：“balanceOf” 返回 "account'' 的余额。
+- 说明："balanceOf" 返回 "account" 的余额。
 
 decimals
 
@@ -132,12 +132,12 @@ decimals
 symbol
 
 - 语法：`public static string symbol()`
-- 说明：”symbol“ 返回币种符号。
+- 说明："symbol" 返回币种符号。
 
 
 - optional arguments
 
-  可选。如果调用的方法需要参数，可以将这些参数构造成一个数组传入。例如，NEP-5 的 "balanceOf"返回 "account" 的余额：
+  可选。如果调用的方法需要参数，可以将这些参数构造成一个数组传入。例如，NEP-5 的 "balanceOf" 返回 "account" 的余额：
 
   `public static BigInteger balanceOf(byte[] account)`
 
@@ -147,7 +147,7 @@ symbol
 
 ##### **调用 balanceOf**
 
-假设用户账户地址是 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，你需要将其转换为 Hash160 类型并将此参数构造为 JSON 对象，如下所示:
+假设用户账户地址是 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，你需要将其转换为 Hash160 类型并将此参数构造成 JSON 对象，如下所示:
 
 ```json
 {
@@ -156,7 +156,7 @@ symbol
 }
 ```
 
-然后编写如下 JSON 消息：
+然后构造如下 JSON 参数：
 
 请求正文：
 
@@ -198,7 +198,7 @@ symbol
 }
 ```
 
-返回值”AADBb/KGIw==“ 为 base64 加密后的ByteArray，由 base64 解码返回值再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
+返回值 "AADBb/KGIw==" 为 base64 编码后的 ByteArray，由 base64 解码返回值再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
 
 ##### **调用 decimals**
 
@@ -281,24 +281,24 @@ symbol
 ##### **计算用户余额**
 
 根据所有返回值，可以计算出用户余额为：
-用户余额 = 返回值 / 10<sup>decimals</sup>。
+用户余额 = balanceOf 返回值 / 10<sup>decimals</sup>。
 
 ### 处理用户查询账户余额请求
 
-用户实际在交易所里的余额，应当记录在交易所的数据库里。 交易所需要写代码监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额。
+用户实际在交易所里的余额，应当记录在交易所的数据库里。 交易所需要编写程序监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额，以供用户查询使用。
 
 ## 处理充值交易
 
 交易所处理充值交易的操作如下：
 1. 通过 getblock API 获取每个区块的详情，其中便包括该区块中所有交易的详情；
-2. 分析每笔交易的交易类型，过滤出所有类型为"InvocationTransaction"的交易，任何非"InvocationTransaction"类型的交易都不可能成为 NEP-5 类型资产的转账交易；
-3. 调用 getapplicationlog API 获取每笔"InvocationTransaction"交易的详情，分析交易内容完成用户充值。
+2. 分析每笔交易的交易类型，过滤出所有类型为 "InvocationTransaction" 的交易，任何非 "InvocationTransaction" 类型的交易都不可能成为 NEP-5 类型资产的转账交易；
+3. 调用 getapplicationlog API 获取每笔 "InvocationTransaction" 交易的详情，分析交易内容，完成用户充值。
 
 ### 调用 getapplicationlog
 
-使用 [getapplicationlog](../../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
+使用 [getapplicationlog](../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
 
-可以看到在根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
+正确安装 ApplicationLogs 插件并启动 Neo-CLI 节点后，可以看到在neo-cli 根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
 
 以下是一个 API 调用结果：
 
@@ -349,10 +349,10 @@ symbol
 
 > [!Note]
 >
-> -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项"vmstate"是否正确。
-> -  "vmstate"是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
+> -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
+> -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
-- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263"就是 QLC 资产的脚本哈希，是该资产在全网的唯一标识。
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263" 就是 QLC 资产的脚本哈希，是该资产在全网的唯一标识。
 
 - 对于转账交易，"state" 中 "value" 对应的数组包含以下四个对象：
 
@@ -367,11 +367,11 @@ symbol
     }
     ```
     
-  - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为"0wzwBoLXDacAgxEkGaxxo1Ezxh4="，经过 base64 解码为 ByteArray 后再转换，为字符串 "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T"。
+  - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为 "0wzwBoLXDacAgxEkGaxxo1Ezxh4="，经过 base64 解码为 ByteArray 后再转换为字符串 "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T"。
   
-    > [!Note]
+    > 提示
     >
-    > NEO 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    > - Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
     ```json
     {
       "type": "ByteArray",
@@ -379,14 +379,14 @@ symbol
     }
     ```
   
-   - 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为"yX4yS6wVpOpYn0I+SymnIQuPrQk="，经过 base64 解码为 ByteArray 后再转换，为字符串 "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+   - 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为 "yX4yS6wVpOpYn0I+SymnIQuPrQk="，经过 base64 解码为 ByteArray 后再转换为字符串 "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
     ```json
     {
       "type": "ByteArray",
       "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
     }
     ```
-  - 数组中的的第四个对象，为转账金额，类型为 bytearray，值为 AADBb/KGIw==，经 base64 解码后为 0000c16ff28623。因前面没加 0x，按小端序处理, 翻转后为 2386f26fc10000, 值为 1x10<sup>16</sup>, 因为 decimal 为 8 位，所以实际值就是 100000000.00000000。这里根据金额不同，会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同，如对于当前返回值，Integer 类型应为 10000000000000000。
+  - 数组中的的第四个对象，为转账金额，类型为 bytearray，值为 "AADBb/KGIw=="，经 base64 解码后为 "0000c16ff28623"。因前面没加 0x，按小端序处理, 翻转后为 "2386f26fc10000", 值为 1x10<sup>16</sup>, 因为 decimal 为 8 位，所以实际值就是 100000000.00000000。这里根据金额不同，会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同，如对于当前返回值，Integer 类型应为 10000000000000000。
     ```json
     {
       "type": "ByteArray",
@@ -429,21 +429,21 @@ symbol
 send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
 ```
 
-如果要转账 neo/gas，只需要将第一个参数改为 NEO/GAS 对应的 scriptHash。例如，
-NEO: 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
-GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+如果要转账 neo/gas，只需要将第一个参数改为 NEO/GAS 对应的 scriptHash。例如:
+* NEO: 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+* GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
 ### RPC 方法：openwallet
 
 > [!Note]
 >
-> 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法。
+> 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法打开钱包。
 
 "params"  是一个包含 2 个参数的数组。
 
 `"params":[path， password]`
 
-例如，要打开密码为`111111`的名为`a.json`的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
+例如，要打开密码为 `111111` 的名为 `a.json` 的钱包，可以编写如下 JSON 请求发送给 RPC 服务器。
 
 请求正文：
 

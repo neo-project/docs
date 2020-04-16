@@ -1,6 +1,6 @@
 # Transaction Construction
 
-NEO RPC SDK encapsulates the transaction construction module, which allows you to construct transactions in Neo3 with specific parameters and methods to personalize your functions. This document introduces the relevant methods.
+Neo RPC SDK encapsulates the transaction construction module, which allows you to construct transactions in Neo3 with specific parameters and methods to personalize your functions. This document introduces the relevant methods.
 
 ## Transaction construction process
 
@@ -35,7 +35,7 @@ NEO RPC SDK encapsulates the transaction construction module, which allows you t
     ```
     - multiple signatures
     ```c#
-    // add multi-signatures for the transaction with sendKey, at least 2 KeyPairs
+    // add multi-signatures for the transaction with sendKey
     txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     ```
@@ -43,7 +43,7 @@ NEO RPC SDK encapsulates the transaction construction module, which allows you t
 
       The nature of multi-signature comes from multi-signature contracts. You need to construct a multi-signature contract before you can obtain the multi-signature address and transfer assets. The following example uses 3 accounts to create a multi-signature contract which requires at least 2 account signatures for signing.
     ```c#
-    // create a multi-signature contract, which needs at least 2 KeyPairs to sign
+    // create a multi-signature contract
     Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
     // get the scripthash of the multi-signature contract
     UInt160 multiAccount = multiContract.Script.ToScriptHash();
@@ -63,7 +63,7 @@ NEO RPC SDK encapsulates the transaction construction module, which allows you t
 
 ### Constructing an NEP5 transfer transaction
 
-The following example implements a function that transfers 1 NEO from the send account to the receiver account. You need to pay attention to the difference between the script and the signature in a transaction for constructing different transactions.
+The following example implements a function that transfers 1 NEO from the sender account to the receiver account. You need to pay attention to the difference between the script and the signature in a transaction for constructing different transactions.
 
 ```c#
 using Neo;
@@ -165,7 +165,7 @@ namespace ConsoleApp1
             KeyPair key2 = Utility.GetKeyPair("L2ynA5aq6KPJjpisXb8pGXnRvgDqYVkgC2Rw85GM51B9W33YcdiZ");
             KeyPair key3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5Zbx5NAjPbdb");
 
-            // create multi-signatures contract, this contract needs at least 2 KeyPairs to sign
+            // create multi-signatures contract
             Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
             // get the scripthash of the multi-signature Contract
             UInt160 multiAccount = multiContract.Script.ToScriptHash();
@@ -233,7 +233,7 @@ namespace ConsoleApp1
             KeyPair key2 = Utility.GetKeyPair("L2ynA5aq6KPJjpisXb8pGXnRvgDqYVkgC2Rw85GM51B9W33YcdiZ");
             KeyPair key3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5Zbx5NAjPbdb");
 
-            // create multi-signature contract, this contract needs at least 2 KeyPairs to sign
+            // create multi-signature contract, this contract needs at least 2 of 3 KeyPairs to sign
             Contract multiContract = Contract.CreateMultiSigContract(2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
 
             // construct the script, in this example, we will transfer 10 GAS to receiver
@@ -249,7 +249,7 @@ namespace ConsoleApp1
             Transaction tx = new TransactionManager(client, multiAccount)
                 // fill the script, attributes and cosigners
                 .MakeTransaction(script, null, cosigners)
-                // add multi-signature for the transaction with sendKey, at least use 2 KeyPairs
+                // add multi-signature for the transaction with sendKey
                 .AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
                 .AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
                 // sign the transaction with the added signature

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Neo has only one type of digital assets, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
+Neo3 has only one type of digital assets, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
 
 Following flow charts show the work processes of these operations:
 
@@ -14,9 +14,9 @@ Following flow charts show the work processes of these operations:
 
 ## Network fee
 
-The network fee, as a reward for the consensus nodes generating blocks, is charged when the user submits a transactions to NEO blockchain. There is a  base fee for each transaction and the calculation formula is shown below. The transaction is only executed if the fee paid by the user is greater than or equal to the base fee; otherwise, the transaction will be treated as invalid.  
+The network fee, as a reward for the consensus nodes generating blocks, is charged when the user submits a transactions to Neo blockchain. There is a  base fee for each transaction and the calculation formula is shown below. The transaction is only executed if the fee paid by the user is greater than or equal to the base fee; otherwise, the transaction will be treated as invalid.  
 
-
+![netfee](../../zh-cn/exchange/assets/netfee.png)
 
 - VerficationCost：Fees for instructions executed by NeoVM to verify transaction signatures.
 - tx.size：The transaction data byte length
@@ -24,17 +24,17 @@ The network fee, as a reward for the consensus nodes generating blocks, is charg
 
 ## System fee
 
-The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to the Instructions section in Github [NEO3 developer guide](https://github.com/neo-ngd/NEO3-Development-Guide/tree/master/en/NeoVM#contrant). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
+The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../sc/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
 
- 
+ ![netfee](../../zh-cn/exchange/assets/sysfee.png)
 
 ### **Instructions fee**
 
-In NEO3, NeoVM instructions fee has decreased to 1/1000 of the original fee in NEO2, which significantly reduces the development cost. 
+In Neo3, NeoVM instructions fee has decreased to 1/1000 of the original fee in Neo2, which significantly reduces the development cost. 
 
-In comparison with NEO2.x: 
+In comparison with Neo2.x: 
 
-
+![netfee](../../zh-cn/exchange/assets/feecomparewith2x.png)
 
 ## Dealing with query transactions
 
@@ -47,7 +47,7 @@ The exchange needs to do the following:
 1. Construct JSON files to invoke either of the following RPC methods:
    - getnep5balances
    - invokefunction
-2. Send the JSON files to NEO RPC server.
+2. Send the JSON files to Neo RPC server.
 3. Calculate the user balance according to the returned values.
 
 #### Invoking getnep5balances to query
@@ -114,7 +114,7 @@ You need to replace these strings when querying the user's balance:
 
 - script hash
 
-  The script hash of the NEP-5 token you are querying. For example:
+  The script hash of the NEP-5 asset you are querying. For example:
   
   - NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
   - GAS is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
@@ -304,9 +304,9 @@ To get the user deposits information the exchange needs to do the following:
 
 This API is used to get transaction information.
 
-A folder "ApplicationLogs" is generated under the root path. The complete contract log is recorded in this directory, and each NEP-5 transaction is recorded in a leveldb file.
+After correctly installing the ApplicationLogs plug-in and starting the neo-cli node, you can find a folder "ApplicationLogs" is generated under the root path. The complete contract log is recorded in this directory, and each NEP-5 transaction is recorded in a leveldb file.
 
-The following shows an example of the API invoking result. Note that the response structure since 2.9.0 has been changed.
+The following shows an example of the API invoking result. 
 
 ```JSON
 {
@@ -357,7 +357,7 @@ The following shows an example of the API invoking result. Note that the respons
 
 > [!Note]
 >
-> - The failed NEP-5 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct. 
+> - The failed NEP-5 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
 > - "vmstate" indicates the vm status after it executes the contract. If it contains "FAULT", that means the execution is failed and the transaction is invalid. 
 
 The parameters related to a transaction in the file are the following:
@@ -387,9 +387,8 @@ The parameters related to a transaction in the file are the following:
     ```
 
     > [!Note]
-  >
-    > In NEO, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
-  
+    >
+    > In Neo, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
   - The third object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "yX4yS6wVpOpYn0I+SymnIQuPrQk=“ can be decoded to "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV" with base64. If the address is an exchange account address, it is a deposit transaction.
   
     ```json
@@ -438,7 +437,7 @@ This command verifies the wallet password.
 
 ##### Example
 
-To transfer 100 RPX to the address NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, enter the following:
+To transfer 100 NEP5 assets to the address NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, enter the following:
 
 ```
 send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
