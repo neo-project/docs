@@ -1,6 +1,6 @@
 # Neo-GUI 介绍
 
-Neo-GUI（GUI：Graphical User Interface 图形用户界面） 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。整体界面分为 ”区块链“、”钱包“、”合约“、”高级“ 四个模块。
+Neo-GUI（GUI：Graphical User Interface 图形用户界面） 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。整体界面分为以下四个模块：
 
 | 区块链                | 钱包                           | 合约                             | 高级                             |
 | --------------------- | ------------------------------ | -------------------------------- | -------------------------------- |
