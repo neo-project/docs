@@ -9,43 +9,174 @@ Neo 有两个全节点程序：
 
 - Neo-GUI：面向普通用户以及开发者，提供图形界面，具有除共识外的所有功能。
 
-
-
 ## 下载地址
 
-|                  | Neo-GUI | Neo-CLI |
-| :--------------- | :-----: | :-----: |
-| 图形界面         |    ✔    |         |
-| 命令行界面       |         |    ✔    |
-| 查询：区块，交易，资产 |    ✔    |         |
-| **钱包管理**     |         |         |
-| &nbsp;&nbsp;&nbsp;创建钱包         |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;打开钱包         |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;导入导出密钥对   |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;助记词导入钱包 |    ✔    |         |
-| &nbsp;&nbsp;&nbsp;升级钱包文件     |         |    ✔    |
-| &nbsp;&nbsp;&nbsp;显示密钥对       |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;显示所有地址 |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;显示所有资产     |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;转账       |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;提取 GAS   |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;创建新地址 |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;创建多方签名地址 |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;批量生成地址     |         |    ✔    |
-| &nbsp;&nbsp;&nbsp;修改钱包密码    |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;删除地址    |    ✔    |        |
-| **合约** |  |  |
-| &nbsp;&nbsp;&nbsp;查询合约  |    ✔    |        |
-| &nbsp;&nbsp;&nbsp;部署合约 |    ✔    |    ✔    |
-| &nbsp;&nbsp;&nbsp;调用合约  |    ✔    |    ✔    |
-| **高级**     | | |
-| &nbsp;&nbsp;&nbsp;选举成为共识节点 |    ✔    |         |
-| &nbsp;&nbsp;&nbsp;投票共识节点     |    ✔    |         |
-| &nbsp;&nbsp;&nbsp;自定义构造交易 |    ✔    |         |
-| &nbsp;&nbsp;&nbsp;签名    |    ✔    | ✔ |
-| &nbsp;&nbsp;&nbsp;数据转换    |    ✔    |         |
-| JSON-RPC         |         |    ✔    |
-| 参与区块链共识   |         |    ✔    |
+|        | Neo-GUI                                                  | Neo-CLI                                                     |
+| ------ | -------------------------------------------------------- | ----------------------------------------------------------- |
+| 程序   | [下载地址](https://github.com/neo-ngd/Neo3-GUI/releases) | [下载地址](https://github.com/neo-project/neo-cli/releases) |
+| 源代码 | [Github](https://github.com/neo-ngd/Neo3-GUI)            | [Github](https://github.com/neo-project/neo-cli)            |
+
+## Neo-GUI 与 Neo-CLI 功能对比
+
+<table>
+   <tr>
+      <td></td>
+       <td style="font-weight:bold">Neo-GUI</td>
+      <td style="font-weight:bold">Neo-CLI</td>
+   </tr>
+   <tr>
+      <td style="font-weight:bold" colspan="3">一般功能</td>
+   </tr>
+   <tr>
+      <td>图形界面       </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>命令行界面      </td>
+      <td>       </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>查询：区块，交易，资产</td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td style="font-weight:bold" colspan="3">钱包管理</td>
+   </tr>
+   <tr>
+      <td>创建钱包       </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>打开钱包       </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>导入导出密钥对    </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>助记词导入钱包    </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>升级钱包文件     </td>
+      <td>       </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>显示密钥对      </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>显示所有地址     </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>显示所有资产     </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>转账         </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>提取 GAS     </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>创建新地址      </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>创建多方签名地址   </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>批量生成地址     </td>
+      <td>       </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>修改钱包密码     </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>删除地址       </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td style="font-weight:bold" colspan="3">合约</td>
+   </tr>
+   <tr>
+      <td>查询合约       </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>部署合约       </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>调用合约       </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+       <td style="font-weight:bold" colspan="3">高级</td>
+   </tr>
+   <tr>
+      <td>选举成为共识节点   </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>投票共识节点     </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>自定义构造交易    </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>签名         </td>
+      <td>   ✔   </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>数据转换       </td>
+      <td>   ✔   </td>
+      <td>       </td>
+   </tr>
+   <tr>
+      <td>JSON-RPC   </td>
+      <td>       </td>
+      <td>   ✔   </td>
+   </tr>
+   <tr>
+      <td>参与区块链共识    </td>
+      <td>       </td>
+      <td>   ✔   </td>
+   </tr>
+   </table>
 
 ## 端口安全策略
 
