@@ -21,11 +21,11 @@ Neo 有两个全节点程序：
 <table>
    <tr>
       <td></td>
-       <td style="font-weight:bold">Neo-GUI</td>
-      <td style="font-weight:bold">Neo-CLI</td>
+       <td><strong>Neo-GUI</strong></td>
+      <td><strong>Neo-CLI</strong></td>
    </tr>
    <tr>
-      <td style="font-weight:bold" colspan="3">一般功能</td>
+      <td colspan="3"><strong>一般功能</strong></td>
    </tr>
    <tr>
       <td>图形界面       </td>
@@ -43,7 +43,7 @@ Neo 有两个全节点程序：
       <td>       </td>
    </tr>
    <tr>
-      <td style="font-weight:bold" colspan="3">钱包管理</td>
+      <td colspan="3"><strong>钱包管理</strong></td>
    </tr>
    <tr>
       <td>创建钱包       </td>
@@ -121,7 +121,7 @@ Neo 有两个全节点程序：
       <td>       </td>
    </tr>
    <tr>
-      <td style="font-weight:bold" colspan="3">合约</td>
+       <td colspan="3"><strong>合约</strong></td>
    </tr>
    <tr>
       <td>查询合约       </td>
@@ -139,7 +139,7 @@ Neo 有两个全节点程序：
       <td>   ✔   </td>
    </tr>
    <tr>
-       <td style="font-weight:bold" colspan="3">高级</td>
+       <td colspan="3"><strong>高级</strong></td>
    </tr>
    <tr>
       <td>选举成为共识节点   </td>
