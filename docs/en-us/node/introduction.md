@@ -1,42 +1,54 @@
-# NEO Node Introduction
+# Neo Node Introduction
 Nodes that store all of the blockchain are called “full-nodes”. They are connected to the blockchain through a P2P network. All the nodes in the blockchain network are equal, they act both as a client interface and as a server.
 
 There are two full-node programs:
 
-- Neo-CLI, which provides an external API for basic wallet functions and is intended for NEO developers. It also helps other nodes achieve consensus with the network and is involved in generating new blocks.
-- Neo-GUI, which has all the basic functions of a user-client including a graphical user interface and is intended for NEO users. 
+- Neo-CLI, which provides a command-line interface and a set of RPC API for developers. It also helps other nodes achieve consensus with the network and is involved in generating new blocks.
+- Neo-GUI, which provides a graphical interface for ordinary users and developers, with most functions except consensus.
 
 ## Download links
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
 | Releases | [Download](https://github.com/neo-ngd/Neo3-GUI/releases) | [Download](https://github.com/neo-project/neo-cli/releases) |
-| Source code | [Github](https://github.com/neo-project/neo-gui) | [Github](https://github.com/neo-project/neo-cli) |
+| Source code | [Github](https://github.com/neo-ngd/Neo3-GUI) | [Github](https://github.com/neo-project/neo-cli) |
 
 ## Neo-GUI and Neo-CLI comparison
 
-|           | GUI  | CLI  |
-| --------- | ---- | ---- |
+|           | Neo-GUI  | Neo-CLI  |
+| --------- | :--: | :--: |
+| **General** |  |  |
 | Graphic interface | ✔   |      |
 | Command line interface |      | ✔   |
+| Query blocks/transactions/assets | ✔   |      |
+| **Wallet** |  |  |
 | Create wallet | ✔   | ✔   |
 | Open wallet | ✔   | ✔ |
-| Upgrade wallet file | ✔   | ✔   |
-| Show all key pairs | ✔   | ✔   |
 | Import/Export key pair | ✔   | ✔   |
+| Import mnemonics into wallet | ✔   |    |
+| Upgrade wallet file |    | ✔   |
+| Show all key pairs | ✔   | ✔   |
 | Show all addresses | ✔   | ✔   |
 | Show all assets | ✔   | ✔   |
-| Create address | ✔   | ✔   |
 | Transfer | ✔   | ✔   |
 | Claim GAS | ✔   | ✔ |
-| Create a multi-party signed contract | ✔   | ✔ |
-| Create a custom smart contract | ✔   | ✔    |
-| Signature | ✔   | ✔ |
-| Consensus node election | ✔   |      |
+| Create address | ✔   | ✔   |
+| Create multi-party signed address | ✔   | ✔ |
+| Generate multiple addresses |      | ✔   |
+| Change wallet password | ✔   | ✔    |
+| Delete address | ✔   |     |
+| **Contract** |  |  |
+| Query contract | ✔   |    |
+| Deploy contract | ✔   | ✔   |
+| Invoke contract | ✔   | ✔   |
+| **Advanced** |  |  |
+| Consensus nodes election | ✔   |      |
 | Voting | ✔   |      |
-| Generate addresses in batches |      | ✔   |
+| Custom transaction construction | ✔   |  |
+| Signature | ✔   | ✔ |
+| Data conversion | ✔   |  |
 | JSON-RPC |      | ✔   |
-| The consensus of the participating blocks |      | ✔   |
+| Participate in blockchain consensus |      | ✔   |
 
 ## NEO-CLI security policy
 
@@ -55,5 +67,5 @@ Neo-CLI does not provide the function to remotely switching on/off the wallet, a
 | P2P via TCP        | 10333        | 20333         |
 | P2P via WebSocket  | 10334        | 20334         |
 
-For more information, please refer to [test network](../network/testnet.md).
+
 
