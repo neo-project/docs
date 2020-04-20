@@ -171,7 +171,7 @@ In Neo3 GAS is automatically claimed when NEO is transferred. You can construct 
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     decimal gasAmount = walletAPI.GetUnclaimedGas(address);
     ```
-    or use ScriptHash of the account to check：
+    or use ScriptHash of the account to check:
 
     ```c#
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
@@ -186,7 +186,7 @@ In Neo3 GAS is automatically claimed when NEO is transferred. You can construct 
     string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
     Transaction transaction = walletAPI.ClaimGas(wif);
     ```
-    or use `KeyPair`：
+    or use `KeyPair`:
     ```c#
     KeyPair keyPair = Utility.GetKeyPair(wif);
     Transaction transaction = walletAPI.ClaimGas(keyPair);
@@ -211,7 +211,7 @@ WalletAPI neoAPI = new WalletAPI(client);
 neoAPI.WaitTransaction(transaction)
     .ContinueWith(async (p) => Console.WriteLine($"Transaction is on block {(await p).BlockHash}"));
 ```
-or use `KeyPair` and  `UInt160` (ScriptHash)：
+or use `KeyPair` and  `UInt160` (ScriptHash):
 
 ```c#
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";

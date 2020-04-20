@@ -1,6 +1,6 @@
 # Charging Model
 
-Participants in NEO ecosystem need to pay network fees and system fees with GAS when using the NEO network. Fees distribution rule is shown below:
+Participants in Neo ecosystem need to pay network fees and system fees with GAS when using the Neo network. Fees distribution rule is shown below:
 
 ![economic model](../images/blockchain/economic_model.jpg)
 

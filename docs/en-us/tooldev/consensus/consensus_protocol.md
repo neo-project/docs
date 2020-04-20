@@ -128,69 +128,93 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
 ### Process
 
-1. On receiving a **PrepareRequest** sent by speaker, attached with proposal block data.
+1. On receiving a `PrepareRequest` sent by speaker, attached with proposal block data.
 
-  1. Ignore if the `PrepareRequest` has already been received or the node is trying to change the view.
-2. Ignore if the `ConsensusPayload.ValidatorIndex` is not the index of the current round speaker or the `PrepareRequest.ViewNumber` is not equal to the current view number.
-  3. Ignore if the `ConsensusPayload.Timestamp` is not more than the timestamp of the previous block, or is more than 8 blocks above current time.
-4. Ignore if the proposed transaction has already been included in the blockchain.
-  5. Check if the signature of the block is incorrect.
-6. Clear invalid signatures that have been received (Prepare-Reponse may arrive first)
-  7. Save the signature of the speaker into current context.
-8. Collect and verify transactions in the proposal block from memory pool.
-  
-  1. If the transaction failed to pass verification or the transaction did not meet strategic requirements , it will stop the process and request ChangeView.
-  
-  2. Otherwise the transaction will be saved into current consensus context.
+    1. Ignore if the `PrepareRequest` has already been received or the node is trying to change the view.
+
+    2. Ignore if the `ConsensusPayload.ValidatorIndex` is not the index of the current round speaker or the `PrepareRequest.ViewNumber` is not equal to the current view number.
+
+    3. Ignore if the `ConsensusPayload.Timestamp` is not more than the timestamp of the previous block, or is more than 8 blocks above current time.
+
+    4. Ignore if the proposed transaction has already been included in the blockchain
+
+    5. Check if the signature of the block is incorrect.
+
+    6. Clear invalid signatures that have been received (Prepare-Reponse may arrive first)
+
+    7. Save the signature of the speaker into current context.
+
+    8. Collect and verify transactions in the proposal block from memory pool.
+
+        1. If the transaction failed to pass verification or the transaction did not meet strategic requirements , it will stop the process and request ChangeView.
       
-  3. If all the transactions in the proposal block are collected, broadcast `PrepareResponse` message.
-  9. Verify the transactions required by blocks in the unconfirmed transaction pool and add them into current context.
-10. Broadcast a `getdata` message with a list of transaction hashes if they were missed in the block.
-2. On receiving a **PrepareResponse** sent by consensus nodes with their signature.
+        2. Otherwise the transaction will be saved into current consensus context.
+    
+        3. If all the transactions in the proposal block are collected, broadcast `PrepareResponse` message.
+    9. Verify the transactions required by blocks in the unconfirmed transaction pool and add them into current context.
 
-  1. Ignore it if the message view is not the same as the current view
-2. Ignore it if current node has already saved the sender's signature or the current node is trying to change the view.
-  3. Save it temporarily if current node has not received PrepareResponse yet (Clear it after receiving PrepareResponse), or go to next step.
-4. Verify the signature. Save the signature if it pass the verification. Ignore it if not.
-  5. Ignore it if the node has already sent `Commit`.
-6. Verify the signature number if the node has already sent or received `PrepareRequest`. If there are at least `N-f` signatures, broadcast `Commit` and generate the block if there are `N-f` `Commit` messages have been received.
-3. On receiving a **Changeview** sent by consensus nodes.
+    10. Broadcast a `getdata` message with a list of transaction hashes if they were missed in the block.
 
-  1. Send `RecoveryMessage` if the new view number in the message is less than the view number in current context.
-2. Ignore it if the node has sent `Commit`.
-  3. If current node received at least `N-f` `ChangeView` messages with the same new view number, then ViewChange will happen. The current node reset the consensus process with the new view number.
-4. On receiving a **Commit** send by consensus nodes after receiving `N-f` `PrepareResponse`.
-  1. Ignore it if it has been received from the same node before.
+2. On receiving a `PrepareResponse` sent by consensus nodes with their signature.
 
-  2. Save the message into the consensus context if the signature passed verification,  generate a block and broadcast if `N-f` Commit messages has been received.
-5. On receiving a **RecoveryRequest** sent by consensus nodes when initiating a consensus or the sum of committed and failed nodes is greater than `f`.
+    1. Ignore it if the message view is not the same as the current view
 
-   1. Ignore it if it has been received before.
+    2. Ignore it if current node has already saved the sender's signature or the current node is trying to change the view.
 
-   2. Response it if the node has sent the `Commit` message before or the node index is no more than f numbers later than the sender index
+    3. Save it temporarily if current node has not received PrepareResponse yet (Clear it after receiving PrepareResponse), or go to next step.
 
-   3. Send `RecoveryMessage` if the node is obligated to response.
+    4. Verify the signature. Save the signature if it pass the verification. Ignore it if not.
 
-6. On receiving a **RecoveryMessage** broadcast by consensus nodes when receiving an accessible `RecoveryRequest` or time out after a Commit message has been sent.
+    5. Ignore it if the node has already sent `Commit`.
 
-   1. Receive and handle `ChangeView` inside if the message view number is greater than the node view number. 
+    6. Verify the signature number if the node has already sent or received `PrepareRequest`. If there are at least `N-f` signatures, broadcast `Commit` and generate the block if there are `N-f` `Commit` messages have been received.
 
-   2. Receive and handle `PrepareRequest` and `PrepareResponse` inside if the message  view number is equal to the node view number, and the node is not in the process of changing view or has not sent `Commit` before.
+3. On receiving a `Changeview` sent by consensus nodes.
 
-   3. Receive and handle `Commit` inside if the message view number is not greater than the node view number. 
-7. On **Timeout** happens
-  1. If the speaker timeout, the consensus node will broadcast `PrepareRequest` for the first timeout and `ChangeView` for subsequent timeouts.
+    1. Send `RecoveryMessage` if the new view number in the message is less than the view number in current context.
 
-  2. If the delegate timeout, the consensus node will broadcast `ChangeView` directly.
-8. On receiving a **New Block**
+    2. Ignore it if the node has sent `Commit`.
 
-  1. resetting consensus process
-9. On receiving a **New Transaction** for consensus
+    3. If current node received at least `N-f` `ChangeView` messages with the same new view number, then ViewChange will happen. The current node reset the consensus process with the new view number.
 
-  1. Ignore if the current node has sent `PrepareRequest` or `PrepareResponse` message, or in process of change view, or has sent new block in this round
+4. On receiving a `Commit` send by consensus nodes after receiving `N-f` `PrepareResponse`.
 
-  3. Ignore if the transaction has been received before.
+    1. Ignore it if it has been received from the same node before.
 
-  4. Ignore if the received transaction isn't in the proposal block.
+    2. Save the message into the consensus context if the signature passed verification,  generate a block and broadcast if `N-f` Commit messages has been received.
 
-  5. Save the transaction into the proposal block.
+5. On receiving a `RecoveryRequest` sent by consensus nodes when initiating a consensus or the sum of committed and failed nodes is greater than `f`.
+
+    1. Ignore it if it has been received before.
+
+    2. Response it if the node has sent the `Commit` message before or the node index is no more than f numbers later than the sender index
+
+    3. Send `RecoveryMessage` if the node is obligated to response.
+
+6. On receiving a `RecoveryMessage` broadcast by consensus nodes when receiving an accessible `RecoveryRequest` or time out after a Commit message has been sent.
+
+    1. Receive and handle `ChangeView` inside if the message view number is greater than the node view number. 
+
+    2. Receive and handle `PrepareRequest` and `PrepareResponse` inside if the message  view number is equal to the node view number, and the node is not in the process of changing view or has not sent `Commit` before.
+
+    3. Receive and handle `Commit` inside if the message view number is not greater than the node view number. 
+
+7. On `Timeout` happens
+
+    1. If the speaker timeout, the consensus node will broadcast `PrepareRequest` for the first timeout and `ChangeView` for subsequent timeouts.
+
+    2. If the delegate timeout, the consensus node will broadcast `ChangeView` directly.
+
+8. On receiving a `New Block`
+
+    resetting consensus process
+
+9. On receiving a `New Transaction` for consensus
+
+    1. Ignore if the current node has sent `PrepareRequest` or `PrepareResponse` message, or in process of change view, or has sent new block in this round
+
+    2. Ignore if the transaction has been received before.
+
+    3. Ignore if the received transaction isn't in the proposal block.
+
+    4. Save the transaction into the proposal block.

@@ -55,8 +55,6 @@
       href: /v3/docs/en-us/sc/deploy/invoke.md
     - name: Parameters and Return Values
       href: /v3/docs/en-us/sc/deploy/Parameter.md
-  - name: Testing
-    href: /v3/docs/en-us/sc/test.md
   - name: Contract Migration and Destruction
     href: /v3/docs/en-us/sc/migrate.md
   - name: Fees
@@ -68,10 +66,6 @@
         href: /v3/docs/en-us/tooldev/concept/blockchain/block.md
       - name: Tokens
         href: /v3/docs/en-us/tooldev/concept/blockchain/token_model.md
-      - name: Account and Asset
-        href: /v3/docs/en-us/tooldev/concept/blockchain/account_asset.md
-      - name: Validator
-        href: /v3/docs/en-us/tooldev/concept/blockchain/validator.md      
     - name: Charging Model
       href: /v3/docs/en-us/tooldev/concept/charging_model.md
     - name: Cryptography
@@ -96,8 +90,6 @@
   - name: Transaction
     - name: Transaction
       href: /v3/docs/en-us/tooldev/transaction/transaction.md
-    - name: Transaction Process
-      href: /v3/docs/en-us/tooldev/transaction/tx_execution.md
   - name: Neo SDK
     items:
     - name: About Neo SDK

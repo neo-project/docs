@@ -18,8 +18,7 @@
 | Neo 底层解析                                    |                                               |                                                      |                                                            |
 | ----------------------------------------------- | --------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- |
 | [区块模型](tooldev/concept/blockchain/block.md) | [收费模型](tooldev/concept/charging_model.md) | [共识机制](tooldev/consensus/consensus_algorithm.md) | [密码学](tooldev/concept/cryptography/encode_algorithm.md) |
-| [交易](tooldev/transaction/transaction.md)      | [钱包](tooldev/wallets.md)                    | [交易流程](tooldev/transaction/tx_execution.md)      |                                                            |
-| [Neo SDK](tooldev/sdk/introduction.md)          | [大小端序的使用](tooldev/concept/endian.md)   |                                                      |                                                            |
+| [交易](tooldev/transaction/transaction.md)      | [钱包](tooldev/wallets.md)                    | [Neo SDK](tooldev/sdk/introduction.md)               | [大小端序的使用](tooldev/concept/endian.md)                |
 
 | 交易所对接                            |      |      |      |
 | ------------------------------------- | ---- | ---- | ---- |

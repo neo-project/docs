@@ -1,6 +1,6 @@
 # Transaction
 
-Transaction is the basic operation model of the whole NEO network. Wallets, smart contracts and accounts interact with NEO network through transactions. In NEO's P2P network, information is packed as `InvPayload` for transferring (Inv is abbreviation of Inventory). Different payloads have their special data, thus three types of inventory types are created. `InventoryType = 0x2b` means transaction data is packed into `InvPayload`. Besides, there are block data package (`InventoryType = 0x2c`) and consensus data package (`InventoryType = 0x2d`).
+Transaction is the basic operation model of the whole Neo network. Wallets, smart contracts and accounts interact with Neo network through transactions. In Neo's P2P network, information is packed as `InvPayload` for transferring (Inv is abbreviation of Inventory). Different payloads have their special data, thus three types of inventory types are created. `InventoryType = 0x2b` means transaction data is packed into `InvPayload`. Besides, there are block data package (`InventoryType = 0x2c`) and consensus data package (`InventoryType = 0x2d`).
 
 ## Structure
 

@@ -65,11 +65,7 @@
       - name: 区块
         href: /v3/docs/zh-cn/tooldev/concept/blockchain/block.md
       - name: 通证
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/token_model.md
-      - name: 账户与资产
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/account_asset.md
-      - name: 验证人
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/validator.md      
+        href: /v3/docs/zh-cn/tooldev/concept/blockchain/token_model.md  
     - name: 收费模型
       href: /v3/docs/zh-cn/tooldev/concept/charging_model.md
     - name: 密码学
@@ -94,8 +90,6 @@
   - name: 交易
     - name: 交易
       href: /v3/docs/zh-cn/tooldev/transaction/transaction.md
-    - name: 交易流程
-      href: /v3/docs/zh-cn/tooldev/transaction/tx_execution.md
   - name: Neo SDK
     items:
     - name: 关于 Neo RPC SDK

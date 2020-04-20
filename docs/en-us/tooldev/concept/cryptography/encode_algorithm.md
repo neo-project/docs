@@ -6,7 +6,7 @@ Base58 is a group of encoding/decoding schemes used to switch data between binar
 
 The Base58's alphabet includes numbers (From 1 to 9), and English letters except O (uppercase o) / I (uppercase i) / l (lowercase L). These letters are omitted to avoid confusion.
 
-NEO's Base58 alphabet: **123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
+Neo's Base58 alphabet: **123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
 
 Interface definition：
 
@@ -71,6 +71,7 @@ Interface definition:
    byte[] Base58CheckDecode(string input)
    ```
    
+
 **Encoding Steps**:
 
 1.  Encode input byte array twice with Sha256 to get a hashed byte array. Take the first 4 bytes of the hash as checksum and append it to the end of original byte array.
