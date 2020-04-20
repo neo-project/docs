@@ -1,40 +1,27 @@
-# Neo-GUI 介绍
+# 安装 Neo-GUI
 
-Neo-GUI（GUI：Graphical User Interface 图形用户界面） 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。整体界面分为以下四个模块：
+Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。
 
-| 区块链                | 钱包                           | 合约                             | 高级                             |
-| --------------------- | ------------------------------ | -------------------------------- | -------------------------------- |
-| [搜索](block.md#搜索) | [创建钱包](wallet.md#创建钱包) | [搜索合约](contract.md#搜索合约) | [选举](advanced.md#选举)         |
-| [区块](block.md#区块) | [打开钱包](wallet.md#打开钱包) | [部署合约](contract.md#部署合约) | [投票](advanced.md#投票)         |
-| [交易](block.md#交易) | [导入钱包](wallet.md#导入钱包) | [调用合约](contract.md#调用合约) | [签名](advanced.md#签名)         |
-| [资产](block.md#资产) | [账户列表](wallet.md#账户列表) |                                  | [构造交易](advanced.md#构造交易) |
-|                       | [交易记录](wallet.md#交易记录) |                                  | [数据转换](advanced.md#数据转换) |
-|                       | [转账](wallet.md#转账)         |                                  | [插件管理](advanced.md#插件管理) |
-|                       | [地址薄](wallet.md#地址薄)     |                                  |                                  |
-|                       | [修改密码](wallet.md#修改密码) |                                  |                                  |
+其主要功能如下；
 
-界面如下：
-
-![](/assets/main.png)
+- 查看与搜索区块链信息
+- 钱包基本操作，包括。。。等
+- 与智能合约交互
+- 选举与投票共识节点
 
 ## 下载与安装
 
-Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) 上下载对应系统版本的安装包。
+Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) 上下载对应系统版本的安装包，根据安装提示完成安装即可。
 
 > [!Note]
 >
 > 请确认你的 Windows 系统已安装 [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
 
-安装过程与其它软件类似，首先选择安装用户，点击 `下一步`。
+## 连接网络
 
-![](/assets/setup1.png)
+完成安装后，需要将Neo-GUI接入Neo测试网或搭建好的私链，具体操作办法情参考：
 
-然后选择安装目录，点击 `安装`。
+- [切换到测试网](../../network/testnet.md#切换到测试网)
+- 搭建私链中的
 
-![](/assets/setup2.png)
-
-![](/assets/setup3.png)
-
-![](/assets/setup4.png)
-
-最后点击 `完成` 即可。现在你已经完成了 Neo-GUI 的安装。 
+成功接入网络后，运行Neo-GUI, 将看到主页面上方显示的区块同步数据不断增长。
