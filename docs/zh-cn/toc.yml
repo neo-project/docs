@@ -53,8 +53,6 @@
       href: /v3/docs/zh-cn/sc/deploy/deploy.md
     - name: 调用合约
       href: /v3/docs/zh-cn/sc/deploy/invoke.md
-    - name: 参数和返回值
-      href: /v3/docs/zh-cn/sc/deploy/Parameter.md
   - name: 合约升级
     href: /v3/docs/zh-cn/sc/update.md
   - name: 手续费

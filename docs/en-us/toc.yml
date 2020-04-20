@@ -53,8 +53,6 @@
       href: /v3/docs/en-us/sc/deploy/deploy.md
     - name: Invoking Smart Contracts
       href: /v3/docs/en-us/sc/deploy/invoke.md
-    - name: Parameters and Return Values
-      href: /v3/docs/en-us/sc/deploy/Parameter.md
   - name: Contract Migration and Destruction
     href: /v3/docs/en-us/sc/migrate.md
   - name: Fees
