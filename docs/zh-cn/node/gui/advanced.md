@@ -1,13 +1,6 @@
 # 高级
 
-Neo-GUI 的高级模块包括：
 
-- [选举](#选举)
-- [投票](#投票)
-- [签名](#签名)
-- [构造交易](#构造交易)
-- [数据转换](#数据转换)
-- [插件管理](#插件管理)
 
 ## 选举
 
@@ -23,8 +16,6 @@ Neo-GUI 的高级模块包括：
 
 可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看是否成功成为候选人，候选人公钥会显示在该 API 的响应正文中 （publickey）：
 
-![](/assets/election.png)
-
 ![](../assets/getvalidator1.png)
 
 也可以在官网的 [共识节点页面](https://neo.org/consensus) 查看现有的共识节点和候选节点。
@@ -38,8 +29,6 @@ Neo-GUI 的高级模块包括：
 3. 确认投票
 
 确认投票后，当前地址中的所有 NEO 会作为票数。假设 NEO 的数量为 n，则每个候选人（公钥）的票数都为 n。
-
-![](/assets/vote.png)
 
 投票成功后可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看候选人票数。如下图所示，从余额为 100000000 的账户投票给候选人（公钥 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b）， 通过 API getvalidators 可以查看到返回的响应正文中显示出该公钥与对应的的票数。
 
