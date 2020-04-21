@@ -24,11 +24,11 @@ Since the Neo3 main net has not been launched yet, after downloading Neo client,
 
 1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
-![image](../assets/testnet_1.png)
+   ![image](../assets/testnet_1.png)
 
 2. Copy the contents of the program directory `config.testnet.json` into the `config.json` as shown in Figure
 
-![image](../assets/testnet_2_v2.png)
+   ![image](../assets/testnet_2_v2.png)
 
 ## Applying for Test GAS and Test NEO
 

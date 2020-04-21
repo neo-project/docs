@@ -4,7 +4,7 @@
 
 | Neo Node | | | |
 | ------------------------------------ | ------------------------------ | ---------------------------- | ---------------------------------------------- |
-| [Introduction](node/introduction.md) | [Neo-GUI](node/gui/install.md) | [Neo-CLI](node/cli/setup.md) |  |
+| [Introduction](node/introduction.md) | [Neo-CLI](node/cli/setup.md) |      |  |
 
 | Neo Network | | | |
 | ------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------- | ---- |
@@ -13,13 +13,12 @@
 | Smart Contract Development | | | |
 | ---------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------- | ------------------------------------------------------- |
 | [Getting Started](sc/gettingstarted/introduction.md) | [Writing Smart Contracts](sc/write/basics.md) | [Deploying and Invoking Contracts](sc/deploy/deploy.md) |  |
-| [Testing](sc/test.md)                                | [Contract Migration](sc/migrate.md)                          | [System Fees](sc/fees.md)                     | [Contract Samples](sc/sample/HelloWorld.md)             |
+| [Contract Migration](sc/migrate.md) | [System Fees](sc/fees.md)                     |                      |              |
 
 | Neo Tools Development | | | |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- | ---------------------------------------------- |
 | [Blockchain Models](tooldev/concept/blockchain/block.md)     | [Charging Model](tooldev/concept/charging_model.md)          | [Consensus](tooldev/consensus/consensus_algorithm.md) | [Cryptography](tooldev/concept/cryptography/encode_algorithm.md) |
-| [Transaction](tooldev/transaction/transaction.md)        | [Wallet](tooldev/wallets.md)                             | [Transaction Execution](tooldev/transaction/tx_execution.md) |  |
-| [Neo SDK](tooldev/sdk/introduction.md) | [Big and Little Endian Usage](tooldev/concept/endian.md) |                                                         |                                                |
+| [Transaction](tooldev/transaction/transaction.md)        | [Wallet](tooldev/wallets.md)                             | [Neo SDK](tooldev/sdk/introduction.md) | [Big and Little Endian Usage](tooldev/concept/endian.md) |
 
 | Document for Exchange Developers | | | |
 | ----------------------------------------------- | ---- | ---- | ---- |

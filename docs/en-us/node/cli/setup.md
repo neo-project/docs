@@ -2,7 +2,7 @@
 
 You can choose one of the following ways to install Neo-CLI:
 
-- Install the official Neo-CLI released package (not available yet)
+- Install the official Neo-CLI released package
 - or publish Neo-CLI source code from GitHub into an executable file. If you use macOS, this way is highly recommended.
 
 This document will describe the both ways.
@@ -18,7 +18,7 @@ The following table lists the minimum and recommended hardware requirements for 
 | Memory    | 8G                                                   | 16G                                                  |
 | Hard Disk | 50G SSD hard drive                                   | 100G SSD hard drive                                  |
 
-## Installing Neo-CLI package (not available yet)
+## Installing Neo-CLI package
 
 1. Download the latest [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package according to your operating system on Github and unzip it.
 
