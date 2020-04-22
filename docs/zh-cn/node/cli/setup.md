@@ -2,7 +2,7 @@
 
 你可以通过两种方式安装 Neo-CLI：
 
-- 下载 Neo-CLI 官方发布程序包进行安装（目前尚未发布）。
+- 下载 Neo-CLI 官方发布程序包进行安装。
 - 下载 Neo-CLI 的源代码并发布成可执行文件。
 
 下文将具体介绍这两种方式。
@@ -18,7 +18,7 @@
 | 内存     | 8G                                                   | 16G                                                  |
 | 硬盘     | 50G 固定硬盘                                         | 100G 固定硬盘                                        |
 
-## 安装 Neo-CLI 程序包（暂不可用）
+## 安装 Neo-CLI 程序包
 
 1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 程序包并解压。
 
