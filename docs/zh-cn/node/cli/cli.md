@@ -39,24 +39,24 @@
 
 | 命令                                              | 参数                                   | 说明                           |
 | ------------------------------------------------- | -------------------------------------- | ------------------------------ |
-| [change password](#change-password)               | \<path>                                | 修改钱包密码。                 |
-| list address                                      |                                        | 列出钱包中的所有账户。         |
-| list asset                                        |                                        | 列出钱包中的所有资产。         |
-| list key                                          |                                        | 列出钱包中的所有公钥。         |
-| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS。 |
-| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址。      |
-| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥。      |
-| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥。                     |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约。             |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账。               |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名。       |
+| [change password](#change-password)               | \<path>                                | 修改钱包密码                 |
+| list address                                      |                                        | 列出钱包中的所有账户         |
+| list asset                                        |                                        | 列出钱包中的所有资产         |
+| list key                                          |                                        | 列出钱包中的所有公钥         |
+| [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS |
+| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址      |
+| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥      |
+| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥                     |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约            |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账               |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
 
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] [witness address separated by space]| 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> \[optionally quoted params separated by space\] \[witness address separated by space\]| 调用合约 |
 
 #### 节点命令
 
@@ -263,7 +263,7 @@ password: ********
 
 ##### 参数
 
-`wif|path`：指定要导入的私钥，或者存放私钥的文件路径。
+`wif|path`：指定要导入的私钥，或者存放私钥的文件路径
 
 ##### 示例
 
@@ -344,7 +344,7 @@ SignatureContext:
 
 ### sign
 
-从签名数量为 1 以上的多方签名合约中提取资产时，需要多方进行签名。 签名完整后才能广播出去。广播交易的方法请参照 relay 方法。
+从签名数量为 1 以上的多方签名合约中提取资产时，需要多方进行签名， 签名完整后才能广播出去，广播交易的方法请参照 relay 方法。
 
 ##### 句法
 
@@ -352,7 +352,7 @@ SignatureContext:
 
 ##### 参数
 
-`jsonObjectToSign`：记录多方签名交易的 json 字符串。
+`jsonObjectToSign`：记录多方签名交易的 json 字符串
 
 ##### 示例
 
@@ -373,7 +373,7 @@ Signed Output:
 ##### 参数
 
 - `nefFilePath`：NeoVM的可执行文件 nef 的路径
-- `manifestFile`：可选。Manifest.json 文件的路径。Manifest 记录了合约的各个接口信息以及配置内容。如果为空，则程序会自动匹配与 nef 文件同名的 manifest.json 文件。
+- `manifestFile`：可选，manifest.json 文件的路径，manifest 记录了合约的各个接口信息以及配置内容,如果为空，则程序会自动匹配与 nef 文件同名的 manifest.json 文件
 
 ##### 示例
 
@@ -399,7 +399,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 - `operation` ：合约内方法名，后面可以输入传入参数，以空格隔开
 
-- `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码。
+- `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码
 
   示例：地址 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 可转换为 16 进制大端序的 ScriptHash `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` 也可转换为 Base64 编码的 ScriptHash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`。JSON 格式的参数如下：
 
@@ -408,7 +408,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
   [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
   ```
 
-- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名。
+- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
 
 ##### 示例 1 
 
@@ -490,7 +490,7 @@ relay tx(no|yes): no
 
 ##### 参数
 
-`jsonObjectToSign`：记录签名交易的 json 字符串。
+`jsonObjectToSign`：记录签名交易的 json 字符串
 
 ##### 示例
 
@@ -640,8 +640,8 @@ Loaded plugins:
 安装指定插件，如下所示。卸载插件与此类似。
 
 ```
-neo> install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/ImportBlocks.zip
+neo> install RpcServer
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview2-00/RpcServer.zip
 Install successful, please restart neo-cli.
 ```
 

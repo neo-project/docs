@@ -9,7 +9,8 @@
 
 ## 参数说明
 
-script：一个由虚拟机运行的脚本，与 InvocationTransaction 中携带的脚本相同。
+script：一个由虚拟机运行的脚本，与 InvocationTransaction 中携带的脚本相同；
+checkWitnessHashes：合约签名账户列表。
 
 ## 调用示例
 
@@ -19,7 +20,7 @@ script：一个由虚拟机运行的脚本，与 InvocationTransaction 中携带
 {
   "jsonrpc": "2.0",
   "method": "invokescript",
-  "params": ["0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52"],
+  "params": ["0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52",["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]],
   "id": 3
 }
 ```
