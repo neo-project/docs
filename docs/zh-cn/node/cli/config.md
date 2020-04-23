@@ -92,7 +92,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RpcServer.zip">RpcServer</a>
             </td>
             <td>提供节点的 RPC 功能</td>
-            <td><a href="../../reference/rpc/latest-version/api.md#命令列表"> RPC API </a></td>
+            <td><a href="../../reference/rpc/latest-version/api.html#命令列表"> RPC API </a></td>
             <td>必选</td>
         </tr>
         <tr>
@@ -100,7 +100,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>同步智能合约和 NativeContract 的日志（Notify）</td>
-            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>推荐</td>
         </tr>
         <tr>
@@ -108,8 +108,8 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.md">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.md">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
             <td>推荐</td>
         </tr>
         <tr>
