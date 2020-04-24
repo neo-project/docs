@@ -3,11 +3,11 @@
 ## Install Neo client
 
 1. Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 2.0 and the later version.
-2. From GitHub, download the [Neo-CLI](https://github.com/neo-project/neo-cli/releases) program and enable the Neo node.
+2. From GitHub, download the [Neo-CLI](https://github.com/neo-project/neo-node/releases) program and enable the Neo node.
 
 ## Install plugins
 
-Some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Installing plugins](../node/cli/config.md).
+Some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Installing plugins](../node/cli/config.md#installing-plugins).
 
 Go to [here](https://github.com/neo-project/neo-plugins/releases/) to download plugins. Exchanges need to install the following plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package:
 
@@ -35,7 +35,8 @@ install SystemLog
 
 > [!Note]
 >
-> You must install the plugins ApplicationLogs and RpcNep5Tracker before synchronizing the Neo client, otherwise the log in the blocks synchronized before will be lost.
+> - The RpcServer plug-in must be installed before you can use the RpcNep5Tracker plug-in.
+> - You must install the plugins ApplicationLogs and RpcNep5Tracker before synchronizing the Neo client, otherwise the log in the blocks synchronized before will be lost.
 
 ## Modifying configuration files
 

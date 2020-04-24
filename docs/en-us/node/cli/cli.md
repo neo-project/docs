@@ -56,7 +56,7 @@ The commands listed in the table below requires you to open the wallet before in
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] [witness address separated by space] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<command> \[optionally quoted params separated by space\] \[witness address separated by space\] | Invokes a contract |
 
 
 #### Node Commands
@@ -645,8 +645,8 @@ Installs plugins.
 To install a plugin, enter the command as follows:
 
 ```
-neo> install ImportBlocks
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview1/ImportBlocks.zip
+neo> install RpcServer
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview2-00/RpcServer.zip
 Install successful, please restart neo-cli.
 ```
 
