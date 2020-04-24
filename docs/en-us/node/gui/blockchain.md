@@ -44,6 +44,8 @@ You can view the following information by switching tabs in this page:
 - Transaction body: displays the basic information of the transaction, such as the block, size, time stamp, as well as the transaction transfer record and the witness of the transaction.
 - Transaction log: Displays the execution log of the smart contract in the transaction, including information such as whether the NEP-5 transfer was successful.
 
+For information about the basic concept of transactions refer to [Transaction](../../tooldev/transaction/transaction.md).
+
 ## Assets
 
 All digital assets in Neo3 are contract assets, including NEO and GAS.

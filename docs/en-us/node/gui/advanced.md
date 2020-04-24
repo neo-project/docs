@@ -1,10 +1,10 @@
 # Election and Voting
 
-Using NEO-GUI you can elect candidates and vote for NEO consensus nodes. After all the NEO consensus nodes reach a consensus through the DBFT algorithm, new blocks are generated. Voting for consensus nodes is conducted constantly in real time in the NEO blockchain. The main process is:
+Using Neo-GUI you can elect candidates and vote for Neo consensus nodes. After all the Neo consensus nodes reach a consensus through the DBFT algorithm, new blocks are generated. Voting for consensus nodes is conducted constantly in real time in the Neo blockchain. The main process is:
 
-1. NEO nodes register as candidates
+1. Neo nodes register as candidates
 2. NEO token holders vote for candidates
-3. NEO blockchain determines the consensus nodes based on the number of candidates and their votes cast.
+3. Neo blockchain determines the consensus nodes based on the number of candidates and their votes cast.
 
 ## Election
 
@@ -12,7 +12,7 @@ After the candidates are registered, the NEO token holders can vote for consensu
 
 To register as a candidate:
 
-1. In NEO-GUI home page click `Advanced` -> `Election`
+1. In Neo-GUI home page click `Advanced` -> `Election`
 2. Select the public key of the account in the list and click `OK`. 
 
 You can check if the candidate has been successfully registered using the API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html).  As shown in the figure below, the candidates' public keys are displayed in the returned json response text.
@@ -23,11 +23,11 @@ You can also check the current consensus nodes and candidates in the Neo officia
 
 ## Voting
 
-Each NEO node can vote for the candidates. The number of NEO in the current voting account will be automatically calculated as the number of the candidate's votes. For example, if you vote for a candidate from an account that has 100 NEO, the candidate receives 100 votes. If NEO in the account is spent after the vote, the candidate' votes will simultaneously be decreased to the current NEO balance.
+Each Neo node can vote for the candidates. The number of NEO in the current voting account will be automatically calculated as the number of the candidate's votes. For example, if you vote for a candidate from an account that has 100 NEO, the candidate receives 100 votes. If NEO in the account is spent after the vote, the candidate' votes will simultaneously be decreased to the current NEO balance.
 
 To vote:  
 
-1. In NEO-GUI home page click `Advanced` -> `Vote`
+1. In Neo-GUI home page click `Advanced` -> `Vote`
 2. Choose the account to vote
 3. In the Candidates field, enter the public key of the candidate to vote. 
 4. Click `OK`. 

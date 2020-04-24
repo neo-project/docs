@@ -31,9 +31,10 @@ Neo-GUI supports importing wallets through the private key. Importing encrypted 
 
 After creating or opening the wallet, you will go to the account list page, which displays the following information:
 
-Account list: all accounts in the wallet, and the number of NEO and GAS in each account
+- Account list: all accounts in the wallet, and the number of NEO and GAS in each account
 
-Asset list: all asset types in the wallet, including NEO, GAS and other NEP-5 assets, NEP-11 assets, etc.
+- Asset list: all asset types in the wallet, including NEO, GAS and other NEP-5 assets, NEP-11 assets, etc.
+
 
 > [!CAUTION]
 >
