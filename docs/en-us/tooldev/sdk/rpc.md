@@ -237,7 +237,8 @@ RpcStack rpcStack = new RpcStack()
     Type = "Hash160",
     Value = "91b83e96f2a7c4fdf0c1688441ec61986c7cae26"
 };
-RpcInvokeResult rpcInvokeResult = client.InvokeFunction("af7c7328eee5a275a3bcaee2bf0cf662b5e739be", "balanceOf", new RpcStack[] { rpcStack });
+UInt160 scriptHashesForVerifying = UInt160.Parse("0x20e22e16cfbcfdd29f347268427b76863b7679fa");
+RpcInvokeResult rpcInvokeResult = client.InvokeFunction("af7c7328eee5a275a3bcaee2bf0cf662b5e739be", "balanceOf", new RpcStack[] { rpcStack },scriptHashesForVerifying);
 string script = rpcInvokeResult.Script;
 string engineState = rpcInvokeResult.State;
 long gasConsumed = long.Parse(rpcInvokeResult.GasConsumed);
@@ -255,7 +256,8 @@ Returns the result after running the specified script in the virtual machine.
 
 ```c#
 byte[] script = "00046e616d656724058e5e1b6008847cd662728549088a9ee82191".HexToBytes();
-RpcInvokeResult rpcInvokeResult = client.InvokeScript(script);
+UInt160 scriptHashesForVerifying = UInt160.Parse("0x20e22e16cfbcfdd29f347268427b76863b7679fa");
+RpcInvokeResult rpcInvokeResult = client.InvokeScript(script,scriptHashesForVerifying);
 ```
 
 ## Tools

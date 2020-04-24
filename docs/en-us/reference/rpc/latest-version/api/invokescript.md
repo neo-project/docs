@@ -9,7 +9,8 @@ Returns the result after passing a script through the VM.
 
 ### Parameter Description
 
-script: A script runnable in the VM. This is the same script that is carried in InvocationTransaction
+- script: A script runnable in the VM. This is the same script that is carried in InvocationTransaction
+- checkWitnessHashes: List of contact signature accounts.
 
 ## Example
 
@@ -19,7 +20,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "invokescript",
-  "params": ["0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52"],
+  "params": ["0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52",["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]],
   "id": 3
 }
 ```
