@@ -24,7 +24,7 @@ This document is applicable to Neo3 preview2. It is recommended you use NEO SDK 
 
 2. Right-click the project and select `Manage NuGet Packages`.
 
-3. Search for Neo in the search box and install the plugin that appears.
+3. Search for `Neo.Network.RPC.RpcClient` in the search box and install the plugin that appears.
 
 4. Add the following code to the desired project file header:
 

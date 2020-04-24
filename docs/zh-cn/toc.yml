@@ -6,8 +6,18 @@
     href: /v3/docs/zh-cn/node/introduction.md
   - name: Neo-GUI
     items:
-    - name: 介绍
-      href: /v3/docs/zh-cn/node/gui/temp.md
+    - name: 安装
+      href: /v3/docs/zh-cn/node/gui/install.md
+    - name: 区块链
+      href: /v3/docs/zh-cn/node/gui/blockchain.md
+    - name: 钱包
+      href: /v3/docs/zh-cn/node/gui/wallet.md
+    - name: 合约
+      href: /v3/docs/zh-cn/node/gui/contract.md
+    - name: 高级
+      href: /v3/docs/zh-cn/node/gui/advanced.md
+    - name: 设置
+      href: /v3/docs/zh-cn/node/gui/setup.md
   - name: Neo-CLI
     items:
     - name: 安装
