@@ -6,8 +6,6 @@
 
 程序集：Neo.SmartContract.Framework
 
-注：本文中标记 `new` 和 ` 已弃用 ` 的地方是 2.0 版本相对 1.6 版本的更改之处。
-
 ## 语法
 
 ```c#
@@ -16,9 +14,11 @@ public class Contract
 
 ## 属性
 
-|                                          | 名称                           | 说明         |
-| ---------------------------------------- | ---------------------------- | ---------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md) | 获得该合约的脚本散列 |
+|                                                        | 名称                                         | 说明                      |
+| ------------------------------------------------------ | -------------------------------------------- | ------------------------- |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [IsPayable](Contract/IsPayable.md)           | 该合约能否接收 NEP-5 资产 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md)                 | 获得该合约的脚本散列      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [StorageContext](Contract/StorageContext.md) | 获得该合约的存储区上下文  |
 
 ## 方法
 

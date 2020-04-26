@@ -24,6 +24,7 @@ public class Account
 |                                          | 名称                                       | 说明                  |
 | ---------------------------------------- | ---------------------------------------- | ------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBalance(byte[])](Account/GetBalance.md) | 通过资产 ID 获得该账户中这种资产的余额 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [IsStandard](Account/IsStandard.md) | 该账户是否是标准账户 |
 
 ## 构造方法
 
