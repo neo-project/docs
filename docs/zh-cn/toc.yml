@@ -321,6 +321,8 @@
             href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
           - name: Header
             href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.md
+          - name: Helper
+            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Helper.md
           - name: InvocationTransaction
             href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/InvocationTransaction.md
           - name: Runtime

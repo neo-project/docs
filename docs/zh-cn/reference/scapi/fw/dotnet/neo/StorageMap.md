@@ -1,6 +1,6 @@
 # StorageMap 类
 
-表示给定存储上下文中指定前缀的key-value存储区。
+表示给定存储上下文中指定前缀的 key-value 存储区。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
