@@ -17,7 +17,7 @@ public extern Neo.SmartContract.Framework.Services.Neo.TransactionAttribute[] Ge
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

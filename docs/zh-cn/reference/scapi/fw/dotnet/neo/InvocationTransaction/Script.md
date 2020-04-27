@@ -1,6 +1,6 @@
-# Account.ScriptHash 属性
+# InvocationTransaction.Script 属性
 
-获得该合约账户的脚本哈西。
+获得当前交易的智能合约调用脚本。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,10 +9,10 @@
 ## 语法
 
 ```c#
-public extern byte[] ScriptHash { get; }
+public extern byte[] Script
 ```
 
-属性值：20字节的字节数组。
+属性值：合约调用脚本。
 
 
 

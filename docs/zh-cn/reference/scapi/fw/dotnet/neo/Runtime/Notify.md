@@ -19,7 +19,7 @@ state：通知信息，参数数量任意，参数类型任意。
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

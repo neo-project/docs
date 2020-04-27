@@ -16,7 +16,7 @@ public class Account
 
 |                                          | 名称                                  | 说明                 |
 | ---------------------------------------- | ----------------------------------- | ------------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](Account/ScriptHash.md) | 获得该合约账户的脚本散列       |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](Account/ScriptHash.md) | 获得该合约账户的脚本哈西       |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Votes](Account/Votes.md)           | 获得该合约账户投给其它人的的投票信息 |
 
 ## 方法

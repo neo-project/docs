@@ -35,7 +35,7 @@ issuer：该资产的发行人（合约地址），该发行人有权进行资�
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

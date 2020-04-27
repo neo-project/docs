@@ -1,6 +1,6 @@
-# Contract.Script 属性
+# Contract.StorageContext 属性
 
-获得该合约账户的脚本哈西。
+获得该合约的存储区上下文。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,10 +9,10 @@
 ## 语法
 
 ```c#
-public byte[] Script { get; }
+public extern StorageContext StorageContext
 ```
 
-属性值：脚本哈西，长度20字节的字节数组。
+属性值：[StorageContext](../StorageContext.md)。
 
 
 

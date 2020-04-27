@@ -27,7 +27,7 @@ public static class Storage
 |                                                        | 名称                                                |
 | ------------------------------------------------------ | --------------------------------------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, string)](Storage/Delete.md) |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, string)](Storage/Delete.md) |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(StorageContext, byte[])](Storage/Delete.md) |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(byte[])](Storage/Delete.md)                 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Delete(string)](Storage/Delete.md)                 |
 

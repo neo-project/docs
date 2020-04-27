@@ -12,14 +12,14 @@
 public static extern Neo.SmartContract.Framework.Services.Neo.Account GetAccount(byte[] script_hash)
 ```
 
-参数：脚本散列，20 字节的字节数组。
+参数：脚本哈西，20 字节的字节数组。
 
 返回值：账户，[Account](../Account.md) 类型。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

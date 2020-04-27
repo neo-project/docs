@@ -1,6 +1,6 @@
-# Contract.Script 属性
+# Contract.IsPayable 属性
 
-获得该合约账户的脚本哈西。
+该合约能否接收 NEP-5 资产。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,10 +9,10 @@
 ## 语法
 
 ```c#
-public byte[] Script { get; }
+public extern bool IsPayable
 ```
 
-属性值：脚本哈西，长度20字节的字节数组。
+属性值：布尔值，该合约能否接收 NEP-5 资产。
 
 
 

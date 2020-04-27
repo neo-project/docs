@@ -17,7 +17,7 @@ public static extern byte[][] GetValidators()
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

@@ -17,7 +17,7 @@ public extern Neo.SmartContract.Framework.Services.Neo.TransactionInput[] GetInp
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

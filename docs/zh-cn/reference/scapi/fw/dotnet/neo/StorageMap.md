@@ -1,6 +1,6 @@
 # StorageMap 类
 
-用来表示 Map 数据结构的类。
+表示给定存储上下文中指定前缀的key-value存储区。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -12,8 +12,13 @@
 public class StorageMap
 ```
 
+## 属性
+
+| 名称    | 说明       |
+| ------- | ---------- |
+| Context | 存储上下文 |
+| Prefix  | 前缀       |
+
 ## 构造方法
 
-|                                                        | 名称                                     | 说明            |
-| ------------------------------------------------------ | ---------------------------------------- | --------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [StorageMap()](StorageMap/StorageMap.md) | 构造 StorageMap |
+通过 [Helper](Helper.md) 的 CreateMap 方法来构建 StorageMap 对象。

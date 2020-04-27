@@ -17,7 +17,7 @@ public class TransactionOutput : IApiInterface
 |                                          | 名称                                       | 说明     |
 | ---------------------------------------- | ---------------------------------------- | ------ |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [AssetId](TransactionOutput/AssetId.md)  | 获得资产 ID |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](TransactionOutput/ScriptHash.md) | 获得脚本散列 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](TransactionOutput/ScriptHash.md) | 获得脚本哈西 |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Value](TransactionOutput/Value.md)      | 获得交易金额 |
 
 ## 构造方法
