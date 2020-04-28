@@ -1,21 +1,5 @@
 # Smart contract
 
-## Why is it prompted the NuGet package cannot be restored when I try to publish neon? Even if I use Visual Studio 2017, the problem still occurs.
-
-To solve it:
-
-1. Download nuget.exe from [here](https://www.nuget.org/downloads) and place it under the root  of the neo-compiler project. 
-2. Run Power Shell or command line (CMD) 
-3. Go to the neo-compiler root and run `nuget restore` .
-
-## Why can't neon.dll be copied when publishing a neon project?
-
-This may caused by a VS 2017 bug. In some versions of VS 2017 (e.g.15.4, 15.5), the following error may occur:  
-
-Cannot copy "obj\Release\netcoreapp1.0\win10-x64\neon.dll" because the file could not be found.
-
-To solve it, you can manually copy the file `\obj\Release\netcoreapp1.0\neon.dll` to the directory `\obj\Release\netcoreapp1.0\win10-x64\` and then republish.
-
 ## Why can't NEO namespace be found in the new-created NeoContract project?
 
 After creating the NeoContract project, there are many red underlines in the code indicating that the NEO namespace is not found, and there is an exclamation mark in the project reference.

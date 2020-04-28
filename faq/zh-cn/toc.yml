@@ -1,7 +1,5 @@
 ﻿- name: 一般问题
   href: /v3/faq/zh-cn/basic.md
-- name: 客户端与钱包
-  href: /v3/faq/zh-cn/client.md
 - name: 开发相关
   href: /v3/faq/zh-cn/dev.md
 - name: 智能合约

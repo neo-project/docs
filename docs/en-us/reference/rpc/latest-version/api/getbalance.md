@@ -17,7 +17,7 @@ For example, NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
 
 Gas is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
-资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
+You can query asset ID using the [CLI command](../../../../node/cli/cli.md) `list asset` or using the blockchain browser.
 
 ## Example
 

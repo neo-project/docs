@@ -12,6 +12,18 @@
       href: /v3/docs/en-us/node/cli/config.md
     - name: Command Line
       href: /v3/docs/en-us/node/cli/cli.md
+  - name: Neo-GUI
+    items:
+    - name: Installation
+      href: /v3/docs/en-us/node/gui/install.md
+    - name: Blockchain
+      href: /v3/docs/en-us/node/gui/blockchain.md
+    - name: Wallet
+      href: /v3/docs/en-us/node/gui/wallet.md
+    - name: Contract
+      href: /v3/docs/en-us/node/gui/contract.md
+    - name: Advanced Functions
+      href: /v3/docs/en-us/node/gui/advanced.md
 - name: Neo Network
   items:
   - name: Main Net and Test Net
