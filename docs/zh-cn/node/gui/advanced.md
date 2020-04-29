@@ -8,18 +8,22 @@
 
 ## 报名成为候选人
 
-成为候选人后就可以根据投票数竞选成为共识节点。报名成为候选人需要花费一定的 GAS。
+成为候选人后就可以根据投票数竞选成为共识节点，报名成为候选人需要花费一定的 GAS。参加选举需要必备一下条件：
+
++ 需要打开钱包
++ 钱包中有足够的GAS支付手续费（大约为6 GAS）
 
 要成为候选人：
 
 1. 在 Neo-GUI 主页面中点击`高级`-> `选举`。
 2. 选择参加选举的地址公钥，点击 `确定`。
-
-可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看是否成功成为候选人，候选人公钥会显示在该 API 的响应正文中 （publickey）：
-
-![](../assets/getvalidator1.png)
-
-也可以在官网的 [共识节点页面](https://neo.org/consensus) 查看现有的共识节点和候选节点。
+3. 如果`选举`交易发送成功，可以通过一下两种方式确定是否成功成为候选人
+   
+   + 可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看是否成功成为候选人，候选人公钥会显示在该 API 的响应正文中 （publickey）;
+   
+   + 可以在Neo-GUI的投票页面，查看自己的公钥有没有出息在候选人列表。
+   
+     ![](../assets/guiValidators.png)
 
 ## 投票
 
@@ -27,14 +31,10 @@
 
 要进行投票：
 
-1. 在 Neo-GUI 主页面中点击 `高级`->`投票`
+1. 在Neo-GUI中打开钱包，然后进入 `高级`->`投票`
 2. 选择自己的地址
 3. 在候选人框内输入要投票的候选人公钥
 4. 确认投票
 
-投票成功后可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看候选人票数。如下图所示，从余额为 100000000 的账户投票给候选人（公钥 03076fc0ee6c6ccf3fb0c9b3ff9d0e3d9ba7ef97e54c77240991ec1dffa295503b）， 通过 API getvalidators 可以查看到返回的响应正文中显示出该公钥与对应的的票数。
-
-![](../assets/getvalidator2.png)
-
-也可以在官网的 [共识节点页面](https://neo.org/consensus) 查看现有的共识节点和候选节点的票数。
-
+   + 投票成功后可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看候选人票数；
+   + 也可以等区块数据更新以后，在候选人列表查看票数是否成功累计；
