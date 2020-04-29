@@ -6,6 +6,10 @@ Neo also provides the Test net where developers can develop, debug, and test the
 
 All the block data of the test net are independent of the main net. If you want to develop some simple smart contracts or try to register assets, test net is sufficient. After the testing is complete, the development can be moved into the Neo mainnet.
 
+> [!Note]
+>
+> Neo3 clients can only connect to test net for the moment as the Neo3 main net has not been launched yet.
+
 ## Test net features
 
 - Asset registration, asset distribution, contract execution, etc. (Does not consume real money)
@@ -14,21 +18,17 @@ All the block data of the test net are independent of the main net. If you want 
 - Smart contracts deployed in the test net can be invoked by anyone in the world.
 - Test net can not be used as a real environment for commercial applications.
 
-## Switching between test net and main net
+## Switching from main net to test net
 
-After downloading Neo client, you can switch the client to connect to test net by modifying the client configuration file. Here we take Neo-GUI for an example:
-
-> [!Note]
->
-> Neo3 clients can only connect to test net for the moment as the Neo3 main net has not been launched yet.
+Since the Neo3 main net has not been launched yet, after downloading Neo client, you need to switch the client to connect to test net by modifying the client configuration file. 
 
 1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
-![image](../assets/testnet_1.png)
+   ![image](../assets/testnet_1.png)
 
-2. Copy the contents of the program (GUI) directory `config.testnet.json` into the `config.json` as shown in Figure
+2. Copy the contents of the program directory `config.testnet.json` into the `config.json` as shown in Figure
 
-![image](../assets/testnet_2_v2.png)
+   ![image](../assets/testnet_2_v2.png)
 
 ## Applying for Test GAS and Test NEO
 

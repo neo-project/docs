@@ -4,6 +4,6 @@ The System namespace is the API provided by the Smart Contract Execution Engine 
 
 ## Class
 
-| | Class | Description |
-| ---------------------------------------- | ---------------------------------------- | -------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC29808.jpeg) | [ExecutionEngine](System/ExecutionEngine.md) | Represents the execution engine of the virtual machine, allowing access to the caller of the contract and the execution container. |
+| Class | Description |
+| ---------------------------------------- | -------------------------- |
+| [ExecutionEngine](System/ExecutionEngine.md) | Represents the execution engine of the virtual machine, allowing access to the caller of the contract and the execution container. |

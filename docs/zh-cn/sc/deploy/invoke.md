@@ -1,149 +1,105 @@
 # 调用合约
 
-智能合约的调用特指针对一个发布作为类库的智能合约如何调用。
+当一个智能合约部署到区块链上后，我们就可以通过合约的脚本哈希（Script Hash）来调用该合约。脚本哈希是合约的唯一标识，合约中任何脚本的修改都会导致脚本哈希的不同。
 
-## 静态调用
+## 合约详情查询
 
-要从合约中静态调用另一个合约，需要通过 AppCall 和要调用的合约的脚本散列来在 C# 中添加声明，然后就可以在代码中对其进行调用了。
+使用 Neo-CLI 或 Neo-GUI 可以查询合约的详细信息，如合约的基本信息、入口点、方法、通知等。
 
-```c#
-[Appcall("XXXXXXXXXX")]//ScriptHash
-public static extern int AnotherContract(string arg);
+### 使用 Neo-CLI 查询
 
-public static void Main()
-{
-    AnotherContract("Hello");    
-}
+使用RPC API [getcontractstate 方法](../../reference/rpc/latest-version/api/getcontractstate.md) 查询合约详情。
+
+### 使用 Neo-GUI 查询
+
+1. 在 Neo-GUI 中点击 `合约` ->`搜索合约`
+2. 输入合约哈希，点击 `搜索` 。
+
+Neo-GUI 中会更直观地显示合约信息，也能查看 manifest 和 nef 文件。
+
+## 调用合约
+
+### 使用 Neo-CLI 调用
+
+在 Neo-CLI 中可以选择以下一种方式调用智能合约：
+
+- 使用 invoke 命令调用智能合约，命令如下：
+
+   ```
+   invoke <scriptHash> <operation> [contractParameters=null]    [witnessAddress=null]
+   ```
+
+   详情请参考 [invoke](../../node/cli/cli.md#invoke) 命令。
+
+- 使用 RPC API [invokefunction](../../reference/rpc/latest-version/api/invokefunction.md) 或 [invokescript](../../reference/rpc/latest-version/api/invokescript.md) 来调用合约。推荐使用 invokefunction 方法。
+
+### 使用 Neo-GUI 调用
+
+1. 在 Neo-GUI 中点击 `合约 `->`调用合约`。
+
+2. 输入合约哈希，点击 `搜索` 。
+
+   Neo-GUI 中将会列出当前合约的方法和参数列表。
+
+3. 选择方法，填写参数，点击`试运行`，即可查看试运行结果。
+
+   所谓试运行是指在本地创建了一个 NeoVM，模拟运行，并不会对区块链产生影响。
+
+4.  试运行成功后，如果想在区块链上调用，点击 `调用` 按钮。
+
+## 附加签名
+
+有些合约在调用时需要多个签名，其中一个是交易的发起者对支持手续费的签名，其余的都是附加签名。
+
+在合约编写时，我们通常使用 `Runtime.CheckWitness(owner)` 来鉴权调用者地址，其中 `owner` 是允许调用的地址，参数类型为 ByteArray，未指定的地址调用合约将失败。比如在进行合约升级时，这里的 `owner` 是合约管理员。在进行转账时，这里的 `owner` 是转出人（付款人）。
+
+当合约中写了 `Runtime.CheckWitness(owner)` 时，调用合约时就要传入 `owner` 的签名。这个签名就是附加签名了。
+
+在 Neo-CLI 中，我们可以通过 `invoke` 命令附加签名。
+
+```
+invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
 ```
 
-## 动态调用
+在 Neo-GUI 中，在调用合约时，可以点击下方的 `附加签名`，选择 `公钥` 然后点击  `签名` 来进行附加签名。
 
-在合约中，如果希望调用的合约不确定，需要以参数形式传入，可以使用动态调用的方式处理。
+> [!Note]
+>
+> 在通过转账命令调用 NEP-5 合约的 transfer 方法时，钱包会自动对 from 字段进行附加签名。此时不需要手动添加。
 
-### 动态调用代码
+## 合约之间的互相调用
 
-以下是一个动态调用合约的代码示例：
+在 Neo3 中，所有的合约都可以动态调用，且合约编写更加简单。
 
 ```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Helper = Neo.SmartContract.Framework.Helper;
-using System;
-using System.Numerics;
-
-namespace DynCall
+public class Contract1 : SmartContract
 {
-    public class DynCallDemo : SmartContract
+    delegate object Dyncall(string method, object[] args);
+
+    //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 的小端序
+    //HexToBytes()、ToScriptHash() 只能对常量进行操作，不能写在 Main 方法里
+    //scriptHash 也可以改为从参数传入或从存储区中读取
+    static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
+
+    public static object Main(string operation, object[] args)
     {
-        delegate object Dyncall(string method, object[] args);
-
-        public static object Main(string operation, object[] args)
+        if (operation == "name")
         {
-            if (operation == "DynCall")
-            {
-                if (args.Length != 2)
-                {
-                    return false;
-                }
-                byte[] target = Storage.Get(Storage.CurrentContext, "BaseAddress");
-                Dyncall dyncall = (Dyncall)target.ToDelegate();
-                object[] newarg = new object[1];
-                string method = (string)args[0];
-                newarg[0] = args[1];
-                return dyncall(method, newarg);
-            }
-            else if (operation == "SetTarget")
-            {
-                Storage.Put(Storage.CurrentContext, "BaseAddress", (byte[])args[0]);
-                return true;
-            }
-            else if (operation == "ShowTarget")
-            {
-                byte[] target = Storage.Get(Storage.CurrentContext, "BaseAddress");
-                if (target.Length != 0)
-                {
-                    return target;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else
-            {
-                return false;
-            }
-
+            return Contract.Call(ScriptHash, "name", new object[0]);
         }
+        if (operation == "totalSupply")
+        {
+            return Contract.Call(ScriptHash, "totalSupply", new object[0]);
+        }
+        return true;
     }
 }
 ```
 
-示例代码中定义了三个方法：
+关键语句 `Contract.Call(scriptHash, method, params)`。
 
-- DynCall: 根据设定的地址动态调用其它合约
-- SetTarget：通过参数设定调用地址（小端序）
-- ShowTarget: 返回设定的调用地址
+- scriptHash：被调用合约的脚本散列，ByteArray 类型，小端序。
 
-### 动态调用演示
+- method：被调用合约的方法，如 `name`、`balanceOf`、`transfer` 等，字符串类型。
 
-在 Visual Studio 2017 中将示例代码编译为智能合约文件 d.avm。接下来，我们将使用 Neo-GUI 来演示如何动态调用一个普通合约 a.avm。
-
-#### 部署合约
-
-根据以下步骤，分别部署两个合约文件，a.avm 和 d.avm：
-
-1. 打开任意钱包文件，点击 `高级` -> `部署合约`。
-
-2. 在部署合约对话框中，点击 `加载` 选择合约文件。
-
-   此时代码框下方会显示合约脚本哈希，将其复制供调用合约时使用。
-
-3. 填写信息与元数据区域的参数。每个参数都需要填写，否则无法激活 `部署` 按钮。
-
-   具体填写规则可参考 [智能合约参数和返回值](../deploy/Parameter.md)。
-
-   勾选 `需要创建存储区`。部署动态调用合约 d.avm 时，还要勾选 `需要动态调用`。
-
-4. 完成所有参数填写后，点击 `部署`。
-
-5. 在弹出的调用合约窗口中点击 `试运行`，确认无误，点击 `调用`。
-
-   部署合约需要花费100 ~1000 GAS，详情请参见 [系统手续费](../fees.md)。
-
-#### 转换小端序
-
-使用 [大小端序转换工具](https://peterlinx.github.io/DataTransformationTools/) 将普通合约 a.avm 的脚本哈希 (大端序) 转换成小端序脚本哈希，记录备用。
-
-#### 调用合约
-
-现在使用上一步发布的动态调用合约 d.avm 来调用合约 a.avm。
-
-1. 点击 `高级` -> `调用合约` -> `函数调用`。
-
-2. 将 d.avm 的脚本哈希填入 `ScriptHash`，点击搜索键，该合约相关信息会自动显示出来。
-
-3. 点击 `参数列表` 旁的 `...` 进入编辑窗口。
-
-   ![](../assets/dyn02.png)
-
-4. 调用 SetTarget 方法：
-
-   1. 点击 [0]，在值中填写 “SetTarget”
-   2. 点击 [1]，填写参数为合约 a.avm 的**小端序**脚本哈希
-   3. 点击`更新`。
-
-   ![](../assets/dyn03.png)
-
-5. 调用 ShowTarget 方法查看设定是否成功，如下图所示：
-
-   ![](../assets/dyn04.png)
-
-6. 调用 DynCall 方法调用合约 a.avm，假设我们调用合约中的 Height 方法，其参数为 Simple，如下图所示:
-
-   ![](../assets/dyncallx.png)
-
-   
-
-
-
+- params：被调用合约的方法的参数列表，数组类型。

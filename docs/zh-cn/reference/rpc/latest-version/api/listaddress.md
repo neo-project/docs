@@ -4,12 +4,10 @@
 
 > [!Note]
 >
-> 执行此命令前需要：
->
-> -  在 NEO-CLI 节点中打开钱包。
-> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 调用示例
+## 调用示例
 
 请求正文：
 
@@ -30,13 +28,13 @@
     "id": 1,
     "result": [
         {
-            "address": "ASL3KCvJasA7QzpYGePp25pWuQCj4dd9Sy",
+            "address": "NZos4XyLUEUrD7RQBn9J1A1PyeCwQKqwtT",
             "haskey": true,
             "label": null,
             "watchonly": false
         },
         {
-            "address": "AV2Ai7PXcNbjTSeKgWqsDEjLaEAJZpytru",
+            "address": "NdAth5nq7RyG4HEJRsVJxnk9Q6XHoeB3No",
             "haskey": true,
             "label": null,
             "watchonly": false
@@ -47,6 +45,7 @@
 
 响应说明：
 
-- address：钱包内的地址。
+address：钱包内的地址。
 
-- watchonly：该地址是否为监视地址。
+watchonly：该地址是否为监视地址。
+

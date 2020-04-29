@@ -1,6 +1,6 @@
 # Smart Contract Writing Limitations
 
-## Neo-supported features in C#
+## NEO-supported features in C#
 
 When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NeoVM and Dotnet IL. 
 
@@ -66,7 +66,9 @@ Basic support. The underlying behavior is similar to INT; false is int 0.
 
 ### C# char string types
 
-Not fully support. Unlike the string in C#, the string in NeoVM is treated as bytearray, thus the string compiled into AVM is actually its UTF8 encoded bytearray.  Do not use any string advanced handlers. Just treat string as a special type. Particularly do not use string to handle Chinese.
+Not fully support. Unlike the string in C#, the string in NeoVM is treated as bytearray, thus the string compiled into AVM is actually its UTF8 encoded bytearray. 
+
+Only string variables are supported. Built-in methods of string types are not supported, such as `+`, `Contains`,` Replace`, `Trim`,` IndexOf`, etc. `ToString ()` methods of any type are not supported, neither. Thus do not use any string advanced handlers. Just treat string as a special type. Particularly do not use string to handle Chinese.
 
 ```c#
 string ss3 = "ab";
@@ -82,6 +84,10 @@ String concatenation, fetch length, and intercept operations for bytes are suppo
 Since there is no support for other types to be formatted as strings, the results of `“abc”+1.ToString()` and C# are different.
 
 char type is supported as the integer type. 
+
+### C# switch
+
+Switch statements and [switch expressions](https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-8#switch-expressions) are supported. But note that the number of cases in the switch statement must not exceed 7, otherwise an error will occur when invoking the contract, even if the contract can be compiled with no issue. If there are more than 7 cases, it is recommended to use if statements instead.
 
 ### C# class and structure
 
@@ -121,11 +127,11 @@ Formatting to String and parsing from String are not supported.
 
 ### C# containers
 
-C# common LIST Dictionary containers are not supported.  
+C# common List Dictionary containers are not supported.  
 
-The LIST function can be replaced by an array.  
+The List function can be replaced by an array.  
 
-The Dictionary function can be replaced with MAP in NEO DOTNET DEVPACK.
+The Dictionary function can be replaced with MAP in Neo Dotnet DevPack.
 
 ### C# variables
 
@@ -146,7 +152,7 @@ One can be used to define events:
 
  `public static event acall dododo;`
 
-When invoking this event, the Neo C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
+When invoking this event, the NEO C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
 
  The other can be used to convert a bytearray to a delegate:
 
@@ -154,11 +160,17 @@ When invoking this event, the Neo C# compiler regards it as the Notify method. R
 
 This implements a call to a smart contract with a specified address. Refer to NEP4.
 
+Action is supported as well:
+
+```
+event Action<byte[], byte[], BigInteger> Transferred;
+```
+
 ## C# development convention
 
 ### C# export requirements
 
-Neo C# compile requires that a smart contract has only one Main function as the entry point.
+NEO C# compile requires that a smart contract has only one Main function as the entry point.
 
 Other functions to be exported should be public static and have unique name. 
 
@@ -166,7 +178,7 @@ Other functions to be exported should be public static and have unique name.
 
 C# delegates and events have special features. Refer to the C# delegates and events section.  
 
-C# delegates and events correspond to Neo smart contract notification and NEP4 respectively.
+C# delegates and events correspond to NEO smart contract notification and NEP4 respectively.
 
 ### Built-in attributes
 
@@ -219,6 +231,10 @@ Executing a function with the `NonemitWithConvert` attribute actually executes a
 public extern static byte[] ToScriptHash(this string address);
 ```
 
-For example,  `"ASH……wk".ToScriptHash();` is valid as the compiler can make a conversion to "ABCD".
+For example, `"NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9".ToScriptHash();` is valid because the compiler can do conversion of  `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` .
 
-However,  `String xxx = "ASH……wk"; xxx.ToScriptHash();` is invalid as the compiler cannot determine the value of XXX.
+However,  `String address = "NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9"; address.ToScriptHash();` is invalid as the compiler cannot determine the value of  `address`.
+
+## Other known issues
+
+If using StorageMap, you must declare StorageMap inside the method as a local variable rather than write it outside the method as a global variable, otherwise an error will be reported when it is called even it is compilable.

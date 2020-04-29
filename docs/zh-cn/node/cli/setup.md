@@ -2,8 +2,8 @@
 
 你可以通过两种方式安装 Neo-CLI：
 
-- 直接下载 Neo-CLI 的官方发布程序包进行安装。
-- 或者下载 Neo-CLI 的源代码并发布成可执行文件，如果使用 macOS，则推荐此方式。
+- 下载 Neo-CLI 官方发布程序包进行安装。
+- 下载 Neo-CLI 的源代码并发布成可执行文件。
 
 下文将具体介绍这两种方式。
 
@@ -20,7 +20,7 @@
 
 ## 安装 Neo-CLI 程序包
 
-1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
+1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 程序包并解压。
 
 2. 对于 Linux 系统，需要安装 LevelDB 和 SQLite3 开发包。例如，在 ubuntu 18.04 上输入以下命令：
 
@@ -30,89 +30,45 @@
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
 
-## 通过源码发布 Neo-CLI 
 
-你也可以直接从 Github 下载 Neo-CLI 源码并进行发布。
+## 通过源码发布 Neo-CLI
 
-### 在 Windows 系统中发布
+### 准备工作
 
-#### 安装文件
-
-1. 在 Windows 10 系统中，安装 [.NET Core](https://www.microsoft.com/net/download/windows) 和 [.NET Framework](https://www.microsoft.com/net/download/windows)。
-
-2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
+1. 下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
 
    ```
-   $ git clone https://github.com/neo-node/neo-cli.git
+   $ git clone https://github.com/neo-project/neo-node.git
    ```
 
-3. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
+3. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
 
-#### 发布可执行文件
+4. 安装最新版的 [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)。
 
-在命令行中运行以下命令：
+### 使用Visual Studio发布（仅Windows）
 
-```
-cd neo-cli
-dotnet restore
-dotnet publish -c release -r win10-x64
-//进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝进来
-```
+如果使用 Windows 系统且已安装 Visual Studio 2019, 推荐此方法进行发布：
 
-### 在 Linux 系统中发布
+1. 在 Visual Studio 中打开项目文件 neo-node.sln, 在解决方案栏中右键单击 `neo-cli`，点击`发布`。
 
-#### 安装文件
+2. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
 
-1. 在 Linux (ubuntu 18.04) 系统中，安装 [.NET Core Runtime](https://www.microsoft.com/net/download/linux)。
+### 使用命令行发布（Windows/Linux/macOS）
 
-2. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
+也可以用 .NET Core CLI 来发布项目，详情可参考 [dotnet publish 命令参考](https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-publish)。
+
+1. 发布 neo-cli：
 
    ```
-   $ git clone https://github.com/neo-node/neo-cli.git
+   cd neo-node\neo-cli
+   dotnet restore
+   dotnet publish -c release -r <RUNTIME_IDENTIFIER>
    ```
+   其中 `<RUNTIME_IDENTIFIER>` 为运行时标识符，应根据系统选择对应的 [RID 目录](https://docs.microsoft.com/zh-cn/dotnet/core/rid-catalog)，如 `win-x64`、 `linux-x64`、 `osx-x64` 等。
+   
+5. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
 
-3. 运行以下命令，安装 levelDB:
-
-   ```
-   sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev
-   ```
-
-#### 发布可执行文件
-
-在命令行中运行以下命令：
-
-```
-cd neo-cli
-dotnet restore
-dotnet publish -c release -r linux-x64
-```
-
-### 在 macOS 系统中发布
-
-#### 安装文件
-
-1. 从 [Github](https://github.com/neo-project/neo-cli.git) 下载源代码或通过以下命令下载：
-
-   ```
-   $ git clone https://github.com/neo-node/neo-cli.git
-   ```
-
-2. 下载 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
-
-3. 安装 [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)。
-
-#### 发布可执行文件
-
-在命令行中运行以下命令：
-
-```
-cd neo-cli
-dotnet restore
-dotnet publish -c release -r osx-x64
-//进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝进来
-```
 
 ## 阅读下节
 
 [配置与启动 Neo-CLI](config.md)
-

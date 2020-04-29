@@ -1,12 +1,25 @@
-# submitblock Method
+﻿# submitblock Method
 
-Broadcasts a raw block over the NEO network. 
+Broadcasts a new block in the NEO network.
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Hex: A hexadecimal string of a serialized block.
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "submitblock",
+  "params": [hex],
+  "id": 1
+}
+```
 
-#### Example
+### Parameter Description
+
+hex: A hexadecimal string of a serialized block.
+
+## Example
 
 Request body:
 
@@ -19,7 +32,7 @@ Request body:
 }
 ```
 
-Response body if successful:
+Response body in successful cases:
 
 ```json
 {
@@ -29,28 +42,29 @@ Response body if successful:
 }
 ```
 
-Response body if not successful:
+Response body in unsuccessful cases:
 
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "error": {
-        "code": -501,
-        "message": "Block or transaction already exists and cannot be sent repeatedly."
+        "code": -500,
+        "message": "AlreadyExists"
     }
 }
 ```
 
 Response Description:
 
-When result is false, the block has failed to broadcast and an exception is raised. The following error codes can be expected:
+When result is false, the block has failed to broadcast and an exception occurs. The following error codes can be expected
 
-Error code | Message |
-| --------------- | ---- |
-| -501 | Block or transaction already exists and cannot be sent repeatedly. |
-| -502 | The memory pool is full and no more transactions can be sent. |
-| -503 | The block cannot be validated. |
-| -504 | Block or transaction validation failed. |
-| -505 | One of the Policy filters failed. |
-| -500 | Unknown error.
+| Error codes | Message           | Description                                                  |
+| ----------- | ----------------- | ------------------------------------------------------------ |
+| 500         | AlreadyExists     | Block or transaction already exists and cannot be sent repeatedly. |
+|             | OutOfMemory       | The memory pool is full and no more transactions can be sent. |
+|             | UnableToVerify    | The block cannot be validated.                               |
+|             | Invalid           | The format or parameter is incorrect                         |
+|             | Expired           | The block information is expired                             |
+|             | InsufficientFunds | Insufficient funds                                           |
+|             | PolicyFail        | The behavior is not allowed (such as blacklist address trading) |

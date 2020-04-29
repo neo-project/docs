@@ -12,7 +12,7 @@ To counter these potential errors, a blockchain system is in need of an efficien
 
 Proof-of-Work mechanism, employed by the Bitcoin, addresses this issue rather brilliantly. But it comes with an obvious price, i.e. significant electricity cost and energy consumption. Further, with Bitcoin’s existence, new blockchains must find different hashing algorithms, so as to prevent computational attacks from it. For example, Litecoin adopts SCRYPT, rather than Bitcoin’s SHA256.
 
-Byzantine Fault Tolerance mechanism is a universal solution for distributed systems. Neo proposes dBFT (delegated Byzantine Fault Tolerance) consensus algorithm based on PBFT   (Practical Byzantine Fault Tolerance) algorithm. Algorithm dBFT determines validator set according to real-time blockchain voting, which effectively enhances the effectiveness of the algorithm, bringing block time and transaction confirmation time savings. dBFT2.0 as an upgraded version was released in Mar. 2019, which improves robustness and safety by introducing 3-stage consensus as well as a recovery mechanism.
+Byzantine Fault Tolerance mechanism is a universal solution for distributed systems. NEO proposes dBFT (delegated Byzantine Fault Tolerance) consensus algorithm based on PBFT   (Practical Byzantine Fault Tolerance) algorithm. Algorithm dBFT determines validator set according to real-time blockchain voting, which effectively enhances the effectiveness of the algorithm, bringing block time and transaction confirmation time savings. dBFT2.0 as an upgraded version was released in Mar. 2019, which improves robustness and safety by introducing 3-stage consensus as well as a recovery mechanism.
 
 ## System Model 
 

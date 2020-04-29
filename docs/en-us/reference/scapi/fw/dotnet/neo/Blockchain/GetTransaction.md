@@ -1,6 +1,6 @@
 # Blockchain.GetTransaction Method (byte[])
 
-Returns a transaction given a transaction ID.
+Returns a transaction from the given transaction hash.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction(byte[] hash)
+public static extern Transaction GetTransaction(byte[] hash)
 ```
 
 Parameters: Transaction ID (Transaction Hash) as a byte array of length 32.
@@ -19,7 +19,7 @@ Return Value: [Transaction](../Transaction.md).
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract.Framework.SmartContract
 {
      public static void Main()
      {

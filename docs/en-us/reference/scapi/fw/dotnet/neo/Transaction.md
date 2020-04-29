@@ -9,24 +9,21 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public class Transaction: IScriptContainer
+public class Transaction
 ```
 
 ## Attributes
 
-| | Name | Description |
-| ---------------------------------------- | --------------------------- | ------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Hash](Transaction/Hash.md) | Returns the hash of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Type](Transaction/Type.md) | Returns the type of the transaction |
-
-## Methods
-
-| | Name | Description |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAttributes()](Transaction/GetAttributes.md) | Returns all attributes of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetInputs()](Transaction/GetInputs.md)  | Returns all [TransactionInput](TransactionInput.md) of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetOutputs()](Transaction/GetOutputs.md) | Returns all [TransactionOutput](TransactionOutput.md) of the transaction |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetReferences()](Transaction/GetReferences.md) | Returns all outputs referenced by the inputs of the transaction |
+| Name            | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| Hash            | Hash of the current transaction                              |
+| Version         | Transaction version number. For now it is 0                  |
+| Nonce           | Random number                                                |
+| Sender          | Address script hash of the sender                            |
+| SystemFee       | System fee, which is paid to the network for resource cost   |
+| NetworkFee      | Network fee, which is paid to the verifier for packaging the transaction |
+| ValidUntilBlock | Validity period of the transaction                           |
+| Script          | Contract script hash of the transaction                      |
 
 ## Constructor
 

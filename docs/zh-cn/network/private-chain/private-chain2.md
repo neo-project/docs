@@ -8,13 +8,6 @@
 
 安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。 
 
-## 安装插件
-
-要使节点达成共识，需要安装 SimplePolicy 插件启用共识策略。
-
-1. 下载 [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) 插件并解压。
-2. 将文件夹 Plugins 拷贝四份，分别放置到四个节点文件夹中。
-
 ## 创建钱包文件
 
 使用 Neo-CLI 或 Neo-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
@@ -35,25 +28,20 @@
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 10001,
-      "WsPort": 10002
-    },
-    "RPC": {
-      "Port": 10003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 10333,
+      "WsPort": 10334
     },
     "UnlockWallet": {
       "Path": "1.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -63,25 +51,20 @@
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 20001,
-      "WsPort": 20002
-    },
-    "RPC": {
-      "Port": 20003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 20333,
+      "WsPort": 20334
     },
     "UnlockWallet": {
       "Path": "2.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -91,25 +74,20 @@
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 30001,
-      "WsPort": 30002
-    },
-    "RPC": {
-      "Port": 30003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 30333,
+      "WsPort": 30334
     },
     "UnlockWallet": {
       "Path": "3.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -119,28 +97,27 @@
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 40001,
-      "WsPort": 40002
-    },
-    "RPC": {
-      "Port": 40003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 40333,
+      "WsPort": 40334
     },
     "UnlockWallet": {
       "Path": "4.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
+
+> [!Note]
+>
+> 如果安装了 RpcServer 插件，需要修改插件的 config.json 中的端口号，使其互不相同，且与节点的 config.json 中端口号也互不相同。
 
 ## 修改 protocol.json
 
@@ -158,27 +135,20 @@
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 123456,
-    "AddressVersion": 23,
-    "SecondsPerBlock": 15,
+    "Magic": 5195086,
+    "MillisecondsPerBlock": 15000,
     "StandbyValidators": [
-      "037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630d",
-      "03b34a4be80db4a38f62bb41d63f9b1cb664e5e0416c1ac39db605a8e30ef270cc",
-      "03cc384ca982168bf6f08922d27c8acc4357d52a7e8ad8281d4af6683e6f63e94d",
-      "03da4ed85a991134bf45592a5b04d6d71399f23a85843f43e6ac1a5d30f5473711"
+      "03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad",
+      "023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e",
+      "03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0",
+      "024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2"
     ],
     "SeedList": [
-      "localhost:10001",
-      "localhost:20001",
-      "localhost:30001",
-      "localhost:40001"
-    ],
-    "SystemFee": {
-      "EnrollmentTransaction": 10,
-      "IssueTransaction": 5,
-      "PublishTransaction": 5,
-      "RegisterTransaction": 100
-    }
+      "localhost:10333",
+      "localhost:20333",
+      "localhost:30333",
+      "localhost:40333"
+    ]
   }
 }
 ```
@@ -217,69 +187,50 @@
 
 ## 启动私有链
 
-进入每个节点目录，双击 `1Run.cmd`，当共识过程如图所示，表示私链成功建立：
+进入每个节点目录，双击 `1Run.cmd`，在其中一个节点输入 `show state`，如果连接 3 个节点并且区块高度增长表示私链成功搭建：
 
 ![](../../assets/privatechain_demo.png)
 
 如果关闭所有窗口，将停止私有链。
 
-## 提取 Neo 和 GAS
+## 提取 NEO 和 GAS
 
-在 Neo 网络的创世块中存放着 1 亿份 Neo，当私链搭建起来后，Gas 也将伴着新区块的生成而生成。你可以使用 NEO-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 Neo 和 GAS 以便内部开发测试使用。
+在 NEO 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
-### 从 Neo-CLI 提取
+### 创建多方签名地址
 
-为方便操作，我们需要再准备一个普通节点接入私链，然后从该节点提取 NEO/GAS。 
+1. 启动私链
 
-#### 安装和配置普通节点
+2. 在一个节点中使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
-1. 复制前面步骤中配置好的任意一个共识节点文件，命名为 node0
+   这里设置最小签名数 m 为 3，pubkeys 为四个共识节点的公钥（见 protocal.json）。例如：
 
-2. 配置 config.json 文件：
+    ``` 
+   import multisigaddress 3 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad 023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e 03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0 024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2
+    ```
 
-   - 设置每个端口不重复且不被其它程序占用。
-   - 设置 UnlockWallet 下的参数 `Path` 和`Password` 为空。
-   - 设置 `StartConsensus` 和 `IsActive` 为 `false`。
+3. 在其它三个节点中重复步骤 2
 
-3. 将之前创建的四个钱包文件复制到 node0 根目录下。
+4. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
 
-4. 运行普通节点，打开一个钱包并输入命令 `show state` 查看节点状态。
+![](../../assets/claim_gas.png)
 
-   如果高度发生变化且连接数不为0，则表示节点已接入私链。
-
-   ![image](../../../en-us/assets/privatechain_28_2.png)
-
-   > [!Note]
-   >
-   > 4 个共识节点需要关掉一个，普通节点才能接入。
-
-#### 创建多方签名地址
-
-1. 在普通节点上打开任意钱包
-
-2. 使用命令 `import multisigaddress m pubkeys` 创建一个多方签名地址：
-
-   - `m`: 设置最小签名数 3
-   - `pubkeys`: 四个共识节点的钱包公钥（配置在 `StandbyValidator` 里 ）
-
-   > [!Note]
-   >
-   > 四个钱包中都必须创建多方签名地址才能成功完成转账交易的签名。
-
-3. 输入 `list asset`, 可以看到账户里出现了 1 亿 NEO 
+> [!Note]
+>
+> 四个钱包中都必须创建多方签名地址才能成功完成转账交易的签名。
 
 
-#### 提取 NEO 到普通地址
+### 提取 NEO/GAS 到普通地址
 
 接下来我们将 NEO 从合约地址转入普通地址：
 
-1. 输入命令 `send <id|alias> <address> <value>` 将 NEO 转入目标地址。
+1. 打开第一个钱包（1.json）使用命令 `send <id|alias> <address> <value>` 将 NEO 转入目标地址。
 
 2. 复制 SignatureContext 内容并关闭钱包。
 
    ![image](../../../en-us/assets/privatechain_29.png)
 
-3. 打开多方签名中的第二个钱包。
+3. 打开第二个钱包（2.json）。
 
 4. 使用步骤 2 中复制的内容输入命令 `sign <jsonObjectToSign>` 
 
@@ -287,7 +238,7 @@
 
    ![image](../../../en-us/assets/privatechain_30.png)
 
-6. 打开第三个钱包重复前面的签名步骤，然后就可以使用 `relay <jsonObjectToSign>` 广播交易完成签名。
+6. 打开第三个钱包（3.json）重复前面的签名步骤，然后就可以使用 `relay <jsonObjectToSign>` 广播交易完成签名。
 
    ![image](../../../en-us/assets/privatechain_31.png)
 
@@ -295,73 +246,4 @@
 
    ![image](../../../en-us/assets/privatechain_32.png)
 
-NEO 转出后 GAS 状态变为可提取，使用命令 `show gas` 可以查看可提取的 GAS 数量。参考前面提取 NEO 进行的多方签名操作，提取 GAS 到目标地址即可。
-
-### 从 Neo-GUI 提取
-
-#### 安装并配置 Neo-GUI
-
-1. 从 Github 上下载 [Neo-GUI](https://github.com/neo-project/neo-gui/releases) 并解压。
-2. 修改 Neo-GUI 配置文件 protocol.json 使其连接到私有链中：
-   - `StandbyValidators`：将前面创建的四个钱包的公钥填写在这里。
-   - `SeedList`：将四台虚拟机的 IP 地址填写在这里，端口号保持不变。
-3. 配置 config.json 文件，设置端口与其它四个节点端口不冲突。如果端口冲突，Neo-GUI 将无法与 Neo-CLI 同时运行。
-
-运行 Neo-GUI，打开任意钱包，如果左下角有连接数不为零，而且一直在同步区块，表示该客户端已经成功地连接到了私有链中。
-
-#### 创建多方签名地址
-
-在 Neo-GUI 中依次打开四个钱包，进行以下操作：
-
-1. 右键单击账户页面空白处，选择`创建合约地址` -> `多方签名`在每个钱包里添加多方签名地址。
-
-2. 输入四个钱包的公钥，设置最小签名数量为 3（共识节点数量 / 2 + 1），点击 `确定`。
-
-   ![](../assets/privatechain_12.jpg)
-
-3. 点击 `钱包` -> `重建钱包索引`。
-
-> [!Note]
->
-> 四个钱包都要添加多方签名地址，否则签名会失败。
-
-你将看到合约地址中出现了 1 亿 Neo，如图所示。
-
-![](../assets/privatechain_14.jpg)
-
-#### 提取 Neo 到标准地址
-
-进行如下操作，将 Neo 从合约地址转到标准地址中：
-
-1. 打开四个钱包中的任意一个，点击 `交易`-> `转账`。
-
-2. 输入要转入的标准地址，将 1 亿 Neo 转到这个地址中。
-
-3. 系统会提示“交易构造完成，但没有足够的签名”，将代码复制下来。
-
-4. 打开第二个钱包，点击 `交易` ->`签名` 。
-
-5. 粘贴刚才复制的代码，点击 `签名`， 然后将生成的代码复制下来。
-
-6. 打开第三个钱包，点击 `交易`-> `签名`，粘贴刚才复制的代码，点击 `签名`。
-
-   这时窗口中显示 `广播` 按钮，代表交易已经签名完成，达到多方签名合约要求的最少签名数量，可以广播。
-
-7. 点击 `广播` 完成转账交易。
-
-   等待片刻后将看到 1 亿 Neo 成功转入了标准地址。
-
-![](../assets/privatechain_20.jpg)
-
-#### 提取 GAS 到标准地址
-
-打开要转入 GAS 的钱包账户，点击 `高级` -> `提取 NeoGas` -> `全部提取`。
-
-> [!Note]
->
-> GAS 有两种状态，可提取和不可提取。当账户中的 NEO 花费后（即转出），其产生的 GAS 会转变成可提取状态。你可以通过给自己转账将 GAS 变为可提取状态，即使钱包里只有一个地址也可以。
-
-接下来的操作与转账 Neo 类似，将没有足够签名的代码复制下来，依次打开第二个和第三个钱包，完成交易签名和广播。提取成功后如下图所示。
-
-![](../assets/privatechain_26.jpg)
-
+参考前面提取 NEO 进行的多方签名操作，提取 GAS 到目标地址即可。

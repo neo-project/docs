@@ -53,13 +53,21 @@
 
 1. 在 GitHub 上下载 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目。
 
-   > [!Note]
-   >
-   > 由于当前master分支为Neo3编译器，下载之前请务必将 Git 分支切换为 `master-2.x`
+2. 进入目录 `neo-devpack-dotnet/src/Neo.Compiler.MSIL/`，使用文本编辑器打开文件 Neo.Compiler.MSIL.csproj 进行编辑，将以下语句
 
-2. 用 Visual Studio for Mac 打开解决方案neo-devpack-dotnet.sln，右键单击Neo.Compiler.MSIL并选择`发布`。
+   ```
+   <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
+   ```
 
-3. 将 neon 发布到默认路径。发布成功后，会在该目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
+   替换为：
+
+   ```
+   <TargetFramework>netcoreapp3.1</TargetFramework>
+   ```
+
+3. 用 Visual Studio for Mac 打开解决方案neo-devpack-dotnet.sln，右键单击Neo.Compiler.MSIL并选择发布
+
+4. 将 neon 发布到默认路径 。发布成功后，会在该目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
 
 
 
@@ -72,7 +80,7 @@
 
 2. 将新建项目后生成的文件test.dll复制到neon.dll所在文件夹。
 
-3. 打开 终端，用 `cd` 命令进入neon.dll所在文件夹目录，输入 `dotnet neon.dll test.dll `开始编译。
+3. 打开 终端，用 `cd` 命令进入neon.dll所在文件夹目录，输入 `dotnet neon.dll -f test.dll `开始编译。
 
    ![](../assets/mac0.jpg)
 

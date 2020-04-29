@@ -1,12 +1,12 @@
-# 代币模型
+# 通证模型
 
-## 原生代币
+## 原生通证
 
-Neo系统中定义了两种原生代币，NEO 和 NeoGas（缩写符号GAS）。
+Neo系统中定义了两种原生通证，NEO 和 NeoGas（缩写符号GAS）。
 
-NEO是治理代币（Governing Token）。持有NEO可以参与NEO网络的治理，包括投票选举共识节点和修改网络参数等。NEO的总量为1亿，最小单位为1，且不可分割。在创世块中注册了NEO资产，并存放在备用共识节点（StandbyValidators）的多方签名合约地址上。
+NEO是治理通证（Governing Token）。持有NEO可以参与Neo网络的治理，包括投票选举共识节点和修改网络参数等。NEO的总量为1亿，最小单位为1，且不可分割。在创世块中注册了NEO资产，并存放在备用共识节点（StandbyValidators）的多方签名合约地址上。
 
-GAS是功能代币（Utility Token），也叫网络燃料代币。NEO网络上的各种交易操作和共识节点激励均以GAS来支付。GAS的总量也是1亿，可以分割到最小单位0.00000001。Gas在创始块中注册，但未分发，而是通过每个区块能提取的奖励分发。
+GAS是功能通证（Utility Token），也叫网络燃料通证。Neo网络上的各种交易操作和共识节点激励均以GAS来支付。GAS的总量也是1亿，可以分割到最小单位0.00000001。Gas在创始块中注册，但未分发，而是通过每个区块能提取的奖励分发。
 
 按照系统设定，约15秒钟能够确认一个区块。一年约生成200万个区块。经过一个衰减算法在约22年的时间内逐步生成一亿个GAS。之后将不再有区块奖励。
 
@@ -24,8 +24,8 @@ GAS是功能代币（Utility Token），也叫网络燃料代币。NEO网络上�
 |23~  |4600W ~           |    0          |
 
 
-[![gas distribution](../../images/blockchain/gas-distribution.jpg)](../../images/blockchain/gas-distribution.jpg)
+![](..\..\images\blockchain\gas-distribution.jpg)
 
-## NEP5资产（代币）
+## NEP5资产
 
-NEP5代币需要通过智能合约生成和管理，使用智能合约的存储区来存储信息，使用了账户模型。具体信息请见`智能合约`的`NEP5`部分。
+NEP5通证需要通过智能合约生成和管理，使用智能合约的存储区来存储信息，使用了账户模型。具体信息请见`智能合约`的`NEP5`部分。

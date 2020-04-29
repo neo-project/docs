@@ -1,17 +1,21 @@
-# getrawmempool Method
+﻿# getrawmempool Method
 
-Obtains the list of unconfirmed transactions in memory.
+Obtains a list of confirmed / unconfirmed transactions in memory.
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+## Example
 
 Request body:
 
 ```json
 {
-   "jsonrpc": "2.0",
-   "method": "getrawmempool",
-   "params":[],
-   "id": 1
+  "jsonrpc": "2.0",
+  "method": "getrawmempool",
+  "params": [],
+  "id": 1
 }
 ```
 
@@ -29,4 +33,5 @@ Response body:
 }
 ```
 
-These are the unconfirmed transactions received by nodes, i.e. transactions with zero confirmations.
+These are the confirmed transactions received by nodes.
+

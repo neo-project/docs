@@ -6,14 +6,19 @@ The current time obtained through the contract is the time of the latest block i
 
 This section describes how to deploy a lock contract in the blockchain, so that it can be called by others. 
 
-Before start, you need to download the latest client  [Neo GUI ](https://github.com/neo-project/neo-gui/releases) from GitHub and run the [test net](../../network/testnet.md).
+In addition, this tutorial is based on the demo of Smart Contract 2.7.4. You need to download the latest client  [Neo GUI ](https://github.com/neo-project/neo-gui/releases) from GitHub and run the [test net](../../network/testnet.md).
 
 ## Creating a wallet
 
-1. In Neo-GUI, click `Wallet` -> `New Wallet Database ` to create a wallet.
-2. Right-click on the account, view the private key, and copy the public key from the second line
+In NEO-GUI, click `Wallet` -> `New Wallet Database ` to create a wallet.
 
-## Converting the public key into byte array
+![](../../assets/lock2_1.png)
+
+## Getting the public key
+
+The newly created wallet will automatically generate a standard account. Right-click on the account, view the private key, and copy the public key from the second line, as shown in the figure:
+
+![](../../assets/lock2_2.png)
 
 Here we write a local program to convert the public key into a byte array, as follows:
 
@@ -51,19 +56,20 @@ After running it, the screen will display the byte array created from the public
 
 ## Writing a smart contract
 
-In Visual Studio create a smart contract project and write the following smart contract. 
+Create a smart contract project and write the following smart contract. 
 
 ```c#
+using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 
 namespace Neo.SmartContract
 {
-    public class Lock : Framework.SmartContract
+    public class Lock : SmartContract
     {
-        public static bool Main(uint timestamp, byte[] pubkey, byte[] signature)
+        public static bool Main(byte[] signature)
         {
             Header header = Blockchain.GetHeader(Blockchain.GetHeight());
-            if (header.Timestamp < 1588327800) // 2020-5-1 18:10
+            if (header.Timestamp < 1499328600) // 2017-6-6 18:10
                 return false;
             // Paste the public key byte array here
             return VerifySignature(signature，new byte[] { 2, 133, 234, 182, 95, 74, 1, 38, 228, 184, 91, 78, 93, 139, 126, 48, 58, 255, 126, 251, 54, 13, 89, 95, 46, 49, 137, 187, 144, 72, 122, 213, 170 });
@@ -88,12 +94,12 @@ You can choose one of the following ways to obtain the contract script:
 
 
 ```c#
-byte[] bytes = System.IO.File.ReadAllBytes("Lock.avm");
+byte[] bytes = System.IO.File.ReadAllBytes("Test.avm");
 for (int i = 0; i < bytes.Length; i++)
     Console.Write(bytes[i].ToString("x2"));
 ```
 
-- Use Neo-GUI to obtain the script:
+- Use NEO-GUI to obtain the script:
   1. Click  `Advanced`-> `Deploy Contract`.
   2. click the `Load` button on the bottom right corner. Choose the `Lock.avm` file generated earlier.
   3. Copy the contract script displayed in the `Code` box, as shown below.
@@ -113,13 +119,25 @@ for (int i = 0; i < bytes.Length; i++)
 
 ## Test
 
-Next you can do a test of the smart contract verification account. The testing process is to first transfer some assets into the account address, then transfer them out using Neo-GUI.
+The following is a test of the smart contract verification account. Our testing process is to first transfer some assets into the account address, then transfer them out.
 
 > [!Note]
 >
 > In order to ensure the accuracy of the test, it is best not to have any other assets in the wallet, as you may not know if the assets are coming from a standard address or a contract address, unless you understand the client's change finding algorithm and know which transaction is coming from the contract address.
 
-If your operation is correct, the following happens when the asset is transferred:
+### Transfer assets to contract address
+
+Open a wallet with assets on **testnet** and transfer a certain amount of assets to the contract account.
+
+### Transfer assets out of contract address
+
+Transfer assets from your smart contract account:
+
+![Transfer contract amount](../../assets/lock2_11.png)
+
+### Conclusion
+
+If the above operation is correct, the following happens when the asset is transferred:
 
 When the current time is less than the lockout time, the transfer is not confirmed, ie. the transfer fails.
 

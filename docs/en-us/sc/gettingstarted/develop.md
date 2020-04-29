@@ -1,245 +1,114 @@
 # Compiling a contract sample
 
-So far, we have learned how to build a private chain and connect nodes to the chain. The following part will proceed to environment configuration, Neo smart contract coding and compilation and Neo smart contract deployment and invocation on private chain using C# and Windows 10. 
+So far, we have learned how to build a private chain and connect nodes to the chain. The following section will focus on configuring environment, creating, compiling, deploying and invoking a Neo smart contract on the private chain using C# and Windows 10.
 
-We will complete the following tasks in this section: 
+We will complete the following tasks in this section:
 
 1. Install contract development environment
 2. Create a NEP-5 contract project
 3. Compile a contract
 
-## Installing development environment
+## Setting up development environment
 
-### Install Visual Studio 2019
+### Installing Visual Studio 2019
 
-Download and install [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) . Select `.NET Core cross-platform development` option during installation.
+1. Download and install [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### Install NeoContractPlugin 
+   Note that you need to select `.NET Core cross-platform development` and `Visual Studio Extension Development` option during installation.
 
-Open Visual Studio 2019 and click `	EXTENSIONS` -> `Manage Extensions`，click `Online`on the left column, search "Neo" and install NeoContractPlugin (the process must be completed online).
+2. Install [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer), which helps you load the project correctly.
 
-![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
-
-### Configure compiler 
-
-1. Pull [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) project from GitHub to your localhost and open it.
-
-3. Switch the branch to `master-2.x` (Currently the master branch is the Neo3 compiler)
-
-4. Publish the project `Neo.Compiler.MSIL`
-
-5. After successful publish, you can find `neon.exe` under the path ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\
-
-
-### Change environment parameter settings
-
-Next we need to add path using the following method to allow neon.exe to be accessible from any point: 
-
-1. For Windows 10, press Windows+S, input environment parameter and select `Edit the system enviroment variables`. 
-
-2. Select Path and click `edit`:
-
-3. Click `create` in the popped up window and input your file filer directory that contains neon.exe, then press `confirm`.
+### Installing NeoContractPlugin
 
 > [!Note]
 >
-> Do not add a path that contains“…… neon.exe” in the environment parameter field. Remember to input the path of the **file folder directory** that contains neon.exe instead of the path of neon.exe file.
+> If you have NeoContractPlugin of Neo2 installed in Visual Studio, you must uninstall it before your can install the NeoContractPlugin of Neo3.
 
-After the path is added, run CMD or PowerShell for testing purpose (if CMD starts working before the path is added, remember to restart it after adding the path).  If no error is reported after inputting neon and  the system sends the prompt message containing version number as follows, it means that the environment parameter configuration is successful.
+1. Pull the project [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) and open `neo-devpack-dotnet.sln` in Visual Studio.
 
-![3_1545037391347](assets/3_1545037391347.png)
+2. In the Solution panel, right-click `src/Installer` and then click `Build` to compile the project.
 
-## Creating a Neo contract project
+   The file `Neo.SmartContract.Installer.vsix` is generated under `neo-devpack-dotnet-master\src\Installer\bin\Debug`.
 
-Upon completion of the previous steps, you may start to create Neo smart contract project in Visual Studio (no specific requirement for .NET Framework version):
+3. Run the file to install the `Neo.SmartContract.Installer.vsix` extension.
 
-1. Click `file` -> `create` -> `project`.
-2. Select `NeoContract` in the list and change settings where necessary, then click `confirm`.
+   You need to restart Visual Studio after the installation is completed.
 
-![3_new_smart_contract_project](assets/3_new_smart_contract_project.png)
+### Configuring compiler
 
-A C# file will be auto-generated after the project is created with a default class inherited from the SmartContract. As indicated in the screenshot below, now you have a Hello World contract.
+1. Run Visual Studio and open the project file `neo-devpack-dotnet.sln` again.
 
-![3_smart_contract_function_code](assets/3_smart_contract_function_code.png)
+2. In the Solution panel, right-click `Neo.Compiler.MSIL` and click `Publish`. Follow the prompts to publish the project to the default directory `\bin\Release\netcoreapp3.1\publish`
 
-Nevertheless, the above only demonstrates a simple data storage method - to store data in private storage area using key-value method.
+3. Go to the publishing directory, run PowerShell and enter the command `./neon.exe` to check if neon works as below:
 
-## Editing NEP-5 code
+   ![neon](../../../zh-cn/sc/assets/neon.png)
 
-Many developers are curious about how to release their own contract assets on Neo public chain. Now let's walk through the process on private chain.
+4. Add the publishing directory to the environment variable Path:
 
-1. Download the NEP-5 template from [Github](https://github.com/neo-project/examples).
+   ![env](../../../zh-cn/sc/assets/env.png)
 
-2. Create a Neo smart contract project in Visual Studio and name it NEP5.
+5. Start PowerShell anywhere and run the command `neon.exe` to check if it works.
 
-3. Open NEP5.cs
+### Compiling Smart Contract Framework
+
+1. Get back to Visual Studio, right-click `Neo.SmartContract.Framework` in the `neo-devpack-dotnet` project solution panel, and click `Build` to build the project.
+2. Go to the output directory and copy the file `Neo.SmartContract.Framework.dll` . We will use it later.
+
+## Creating an NEP-5 contract project
+
+### Creating a project
+
+1. In Visual Studio 2019 click `File` -> `New` -> `Project`.
+
+2. In the project template dialog that appears, search for `neocontract` and select NeoContract for C#. Follow the wizard to create the project.
+
+   ![neocontract](../../../zh-cn/sc/assets/neocontract.png)
+
+3. In the Solution panel, right click the project and then select `Manage NuGet Package`. Uninstall the NuGet reference for `Neo.SmartContract.Framework`.
+
+4. Right click the project name and then `Paste` to paste the `Neo.SmartContract.Framework.dll` copied before into the NeoContract project list.
+
+5. Right click `Dependencies` and then `Add Reference`. Follow the prompts to add the `Neo.SmartContract.Framework.dll` pasted in last step to the project.
+
+### Editing NEP-5 Code
+
+When the project is created, a simple smart contract template is automatically created, which writes a key-value pair of "Hello" "World" to the storage.
+
+Since many developers are concerned about how to publish their own contract assets on the Neo block chain, now let's work through the process on private chain.
+
+1. Download the NEP-5 template from [NEP5 example of Neo3](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs).
+
+2. In the NeoContract project created in previous steps, open the sample file Contract1.cs
 
    The code contains basic information of the assets and the methods available to be invoked. You can make changes when needed.
 
-   > [!NOTE]
-   >
-   > If there are red underlines under the code warning that the system is unable to find Neo name space and there is "!" in project references, you may take the following steps: 
-   >
-   > Right click the solution file in VS, click `Manage NuGet Packages...` and update the Neo.SmartContract.Framework to the latest official version in a new page.  If the red underlines still exist when program update is completed, you may try double clicking the "!". If the problem remains unsolved, you may resort to the solutions below: 
-   >
-   > 1. Download nuget.exe [here](https://www.nuget.org/downloads)  and copy it to the root directory of NeoContract project.
-   > 2. Open Power Shell or command prompt (CMD).
-   > 3. Redirect to the root directory of NeoContract project and run `nuget restore`.
-
-4. Here we make certain modifications to the example files as follows:
-
-   - Define total assets and `deploy` method.
-   - Replace "Owner" with the address in 0.json (otherwise the wallet assets won't be accessible).
-
-   The code is as follows:
-
-```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework.Services.System;
-using System;
-using System.ComponentModel;
-using System.Numerics;
-
-namespace NEP5
-{
-    public class NEP5 : SmartContract
-    {
-        [DisplayName("transfer")]
-        public static event Action<byte[], byte[], BigInteger> Transferred;
-
-        private static readonly byte[] Owner = "Ad1HKAATNmFT5buNgSxspbW68f4XVSssSw".ToScriptHash(); //Owner Address
-        private static readonly BigInteger TotalSupplyValue = 10000000000000000;
-
-        public static object Main(string method, object[] args)
-        {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                return Runtime.CheckWitness(Owner);
-            }
-            else if (Runtime.Trigger == TriggerType.Application)
-            {
-                var callscript = ExecutionEngine.CallingScriptHash;
-
-                if (method == "balanceOf") return BalanceOf((byte[])args[0]);
-
-                if (method == "decimals") return Decimals();
-
-                if (method == "deploy") return Deploy();
-
-                if (method == "name") return Name();
-
-                if (method == "symbol") return Symbol();
-
-                if (method == "supportedStandards") return SupportedStandards();
-
-                if (method == "totalSupply") return TotalSupply();
-
-                if (method == "transfer") return Transfer((byte[])args[0], (byte[])args[1], (BigInteger)args[2], callscript);
-            }
-            return false;
-        }
-
-        [DisplayName("balanceOf")]
-        public static BigInteger BalanceOf(byte[] account)
-        {
-            if (account.Length != 20)
-                throw new InvalidOperationException("The parameter account SHOULD be 20-byte addresses.");
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-            return asset.Get(account).AsBigInteger();
-        }
-        [DisplayName("decimals")]
-        public static byte Decimals() => 8;
-
-        private static bool IsPayable(byte[] to)
-        {
-            var c = Blockchain.GetContract(to);
-            return c == null || c.IsPayable;
-        }
-
-        [DisplayName("deploy")]
-        public static bool Deploy()
-        {
-            if (TotalSupply() != 0) return false;
-            StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-            contract.Put("totalSupply", TotalSupplyValue);
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-            asset.Put(Owner, TotalSupplyValue);
-            Transferred(null, Owner, TotalSupplyValue);
-            return true;
-        }
-
-        [DisplayName("name")]
-        public static string Name() => "GinoMo"; //name of the token
-
-        [DisplayName("symbol")]
-        public static string Symbol() => "GM"; //symbol of the token
-
-        [DisplayName("supportedStandards")]
-        public static string[] SupportedStandards() => new string[] { "NEP-5", "NEP-7", "NEP-10" };
-
-        [DisplayName("totalSupply")]
-        public static BigInteger TotalSupply()
-        {
-            StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-            return contract.Get("totalSupply").AsBigInteger();
-        }
-#if DEBUG
-        [DisplayName("transfer")] //Only for ABI file
-        public static bool Transfer(byte[] from, byte[] to, BigInteger amount) => true;
-#endif
-        //Methods of actual execution
-        private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] callscript)
-        {
-            //Check parameters
-            if (from.Length != 20 || to.Length != 20)
-                throw new InvalidOperationException("The parameters from and to SHOULD be 20-byte addresses.");
-            if (amount <= 0)
-                throw new InvalidOperationException("The parameter amount MUST be greater than 0.");
-            if (!IsPayable(to))
-                return false;
-            if (!Runtime.CheckWitness(from) && from.AsBigInteger() != callscript.AsBigInteger())
-                return false;
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-            var fromAmount = asset.Get(from).AsBigInteger();
-            if (fromAmount < amount)
-                return false;
-            if (from == to)
-                return true;
-
-            //Reduce payer balances
-            if (fromAmount == amount)
-                asset.Delete(from);
-            else
-                asset.Put(from, fromAmount - amount);
-
-            //Increase the payee balance
-            var toAmount = asset.Get(to).AsBigInteger();
-            asset.Put(to, toAmount + amount);
-
-            Transferred(from, to, amount);
-            return true;
-        }
-    }
-}
-
-```
-
-When the editing is done, the coding part of the smart contract is done.
+> [!Note]
+>
+> In comparison with Neo2, the Neoe3 NEP-5 sample has the following changes:
+>
+> - Adds customized attributes above the smart contract class
+>
+>    ```c#
+>    [Features(ContractFeatures.HasStorage)]
+>    public class NEP5 : SmartContract
+>    ……
+>    ```
+>
+> - Replaces all `ToBigInteger()` methods with `TryToBigInteger()`
+>
+> - Adds the Deploy method for first distribution of assets. You can modify the method to suit your needs.
+>
 
 ## Compiling contract file
 
-Click `BUILD`->`Build Solutions` (hotkeys: Ctrl + Shift + B) in the menu to start compilation.
+When you complete coding, click `Build` -> `Build Solutions` (hotkeys: Ctrl + Shift + B) in the menu to start compilation.
 
-![](assets/compile.png)
+When the compilation is done, the following files are generated under the `bin/Debug` directory of the project.
 
-When the compilation is done, Neo smart contract file named `NeoContract1.avm` is generated in the `bin/Debug` directory of the project.
-
-![](assets/contractfile.png)
-
-`NeoContract1.abi.json` is a descriptive file of the smart contract, which contains desciptions of the ScriptHash, entry, parameters and return values of the contract. More information about the smart contract ABI can be found in [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki).
+- `NEP5.nef` : The smart contract execution file for Neo3, just as .avm for Neo2.
+- `NEP5.manifest.json` : The descriptive file of the smart contract, covering descriptions of functions, ScriptHash, entry, method, parameters, and return values of the contract.
 
 ## What's next?
 
 [Deploying and invoking contract](deploy.md)
-

@@ -1,15 +1,13 @@
 # Neo-CLI SeedList
 
-## 介绍
-### 关于 SeedList
+## 关于 SeedList
 简单来说，SeedList 是一个 URL 列表，是 Neo-CLI 在启动时尝试连接的节点。在 neo-cli 目录下的 `protcol.json` 文件中可以找到 SeedList。
 
 ```json
 {
   "ProtocolConfiguration": {
     "Magic": ...,
-    "AddressVersion": ...,
-    "SecondsPerBlock": ...,
+    "MillisecondsPerBlock": ...,
     "StandbyValidators": [
       ...
     ],
@@ -19,10 +17,7 @@
       "seed3.neo.org:10333",
       "seed4.neo.org:10333",
       "seed5.neo.org:10333"
-    ],
-    "SystemFee": {
-      ...
-    }
+    ]
   }
 }
 ```
@@ -40,7 +35,7 @@
 ![seedlist](../../assets/seedlist.png)
 在上图中可以看到可用节点列表，最新的节点显示在最上方。通常，绿色并显示  `yes` 的节点为活跃节点。
 
-我们会根据以下端口的标准协议进行选择，比如我们会选择上图中的节点 1 而不选节点3，因为节点 1符合标准而节点 3 不符合。
+我们会根据以下端口的标准协议进行选择，比如我们会选择上图中的节点 1 而不选节点 3，因为节点 1 符合标准而节点 3 不符合。
 
 |                    | 主网 | 测试网 |
 | ------------------ | ------------ | ------------- |
@@ -68,8 +63,7 @@
 {
   "ProtocolConfiguration": {
     "Magic": 7630401,
-    "AddressVersion": 23,
-    "SecondsPerBlock": 15,
+    "MillisecondsPerBlock": 15000,
     "StandbyValidators": [
       "03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c",
       "02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093",
@@ -112,13 +106,7 @@
       "seed4.switcheo.network:10333",
       "seed1.spotcoin.com:10333",
       "node1.nyc3.bridgeprotocol.io:10333"
-    ],
-    "SystemFee": {
-      "EnrollmentTransaction": 1000,
-      "IssueTransaction": 500,
-      "PublishTransaction": 500,
-      "RegisterTransaction": 10000
-    }
+    ]   
   }
 }
 ```
@@ -129,8 +117,3 @@
 
 ### 相关工具
 如果觉得上述操作繁琐，可以编写一个自动更新 `protocol.json ` 的脚本，具体参见 [这里](https://github.com/HandsomeJeff/neo-cli-protocol-maker)。
-
-## 阅读下节
-
-[命令参考](cli.md)
-

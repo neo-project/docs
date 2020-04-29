@@ -1,7 +1,6 @@
 # Neo-CLI SeedList
 
-## Introduction
-### What is the SeedList?
+## About SeedList
 The SeedList, simply put, is a list of URLs. They belong to the nodes that Neo-CLI tries to connect to when it starts.
 You can find the SeedList in `protcol.json`, under the neo-cli directory.
 
@@ -9,8 +8,7 @@ You can find the SeedList in `protcol.json`, under the neo-cli directory.
 {
   "ProtocolConfiguration": {
     "Magic": ...,
-    "AddressVersion": ...,
-    "SecondsPerBlock": ...,
+    "MillisecondsPerBlock": ...,
     "StandbyValidators": [
       ...
     ],
@@ -20,10 +18,7 @@ You can find the SeedList in `protcol.json`, under the neo-cli directory.
       "seed3.neo.org:10333",
       "seed4.neo.org:10333",
       "seed5.neo.org:10333"
-    ],
-    "SystemFee": {
-      ...
-    }
+    ]
   }
 }
 ```
@@ -74,8 +69,7 @@ To let Neo-CLI know the new SeedList, we will paste the addresses chosen before 
 {
   "ProtocolConfiguration": {
     "Magic": 7630401,
-    "AddressVersion": 23,
-    "SecondsPerBlock": 15,
+    "MillisecondsPerBlock": 15000,
     "StandbyValidators": [
       "03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c",
       "02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093",
@@ -118,13 +112,7 @@ To let Neo-CLI know the new SeedList, we will paste the addresses chosen before 
       "seed4.switcheo.network:10333",
       "seed1.spotcoin.com:10333",
       "node1.nyc3.bridgeprotocol.io:10333"
-    ],
-    "SystemFee": {
-      "EnrollmentTransaction": 1000,
-      "IssueTransaction": 500,
-      "PublishTransaction": 500,
-      "RegisterTransaction": 10000
-    }
+    ]   
   }
 }
 ```
@@ -134,8 +122,4 @@ And that's it! You can now start neo-cli as usual.
 
 ### Reference tools
 If the above steps are too tedious, there's also a script written that automatically updates the `protocol.json`. Check it out [here](https://github.com/HandsomeJeff/neo-cli-protocol-maker).
-
-## What's next?
-
-[CLI Command Reference](cli.md)
 

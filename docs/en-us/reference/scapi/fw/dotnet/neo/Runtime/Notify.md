@@ -19,7 +19,7 @@ state: The notification message, can be of any length and any type.
 ## Example
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {

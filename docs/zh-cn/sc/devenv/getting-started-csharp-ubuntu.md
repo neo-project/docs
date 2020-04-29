@@ -4,7 +4,7 @@
 
    1. 创建 library 项目，编写代码，引入智能合约库。
    2. 编译 neo-compiler/neon 生成编译器。
-   3. 执行命令运行 neon 生成.avm 文件。
+   3. 执行命令运行 neon 生成.avm 文件。
 
 ## 新建合约项目
 

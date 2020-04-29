@@ -1,123 +1,151 @@
-# NEO Namespace
+# NEO NameSpace
 
-The NEO Namespace contains an API provided by the NEO blockchain. Methods of the API allow querying the blockchain and manipulation of the persistent store.
+NEO namespace provides APIs for native contracts and verifying digital signature.
+
+**Native API**：
+
+| API                           | Description                         |
+| -- | --|
+|Neo.Native.Deploy|Deploys and initializes all native contracts|
+
+<br/>
+
+<table class="table table-hover">
+	<tr>
+	    <th>API</th>
+	    <th>Method Name</th>
+	    <th>Description</th>  
+	</tr >
+	<tr >
+	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
+	    <td>name</td>
+	    <td>Gets token name, ie: NEO</td>
+	</tr>
+	<tr>
+	    <td>symbol</td>
+	    <td>Gets token symbol, ie: neo</td>
+	</tr>
+	<tr>
+	    <td>decimals</td>
+	    <td>Gets decimals</td>
+	</tr>
+	<tr>
+	    <td>totalSupply</td>
+	    <td>Gets the total supply</td>
+	</tr>
+	<tr>
+	    <td>balanceOf</td>
+	    <td>Gets balance of the token</td>
+	</tr>
+	<tr>
+	    <td>transfer</td>
+	    <td>Transfers the token</td>
+	</tr>
+	<tr>
+	    <td>registerValidator</td>
+	    <td>Registers to be a validator</td>
+	</tr>
+	<tr>
+	    <td>vote</td>
+	    <td>Votes for validators</td>
+	</tr>
+	<tr>
+	    <td>getRegisteredValidators</td>
+	    <td>Gets registered validators</td>
+	</tr>
+	<tr>
+	    <td>getValidators</td>
+	    <td>Gets validators</td>
+	</tr>
+	<tr><td>unclaimedGas</td>
+	    <td>Gets unclaimed Gas</td>
+	</tr>
+</table>
+
+<br/>
+
+<table class="table table-hover">
+	<tr>
+	    <th>API</th>
+	    <th>Method Name</th>
+	    <th>Description</th>  
+	</tr >
+	<tr >
+	    <td rowspan="7">Neo.Native.Tokens.GAS</td>
+	    <td>name</td>
+	    <td>Gets token name, ie: GAS</td>
+	</tr>
+	<tr>
+	    <td>symbol</td>
+	    <td>Gets token symbol, ie: gas</td>
+	</tr>
+	<tr>
+	    <td>decimals</td>
+	    <td>Gets decimals</td>
+	</tr>
+	<tr>
+	    <td>totalSupply</td>
+	    <td>Gets the total supply</td>
+	</tr>
+	<tr>
+	    <td>balanceOf</td>
+	    <td>Gets balance of the token</td>
+	</tr>
+	<tr>
+	    <td>transfer</td>
+	    <td>Transfers the token</td>
+	</tr>
+</table>
+
+<br/>
+
+<table class="table table-hover">
+	<tr>
+	    <th>API</th>
+	    <th>Method Name</th>
+	    <th>Description</th>  
+	</tr >
+	<tr >
+	    <td rowspan="9">Neo.Native.Policy</td>
+	    <td>getMaxTransactionsPerBlock</td>
+	    <td>Gets max transaction number per block</td>
+	</tr>
+	<tr>
+	    <td>getMaxBlockSize</td>
+	    <td>Gets max block size</td>
+	</tr>
+	<tr>
+	    <td>getFeePerByte</td>
+	    <td>Gets fee per byte</td>
+	</tr>
+	<tr>
+	    <td>setMaxBlockSize</td>
+	    <td>Sets the max block size</td>
+	</tr>
+	<tr><td>getBlockedAccounts</td>
+	    <td>Gets blocked accounts</td>
+	</tr>
+    <tr><td>setMaxTransactionsPerBlock</td>
+	    <td>Sets max transaction per block</td>
+	</tr>
+    <tr><td>setFeePerByte</td>
+	    <td>Sets fee per byte</td>
+	</tr>
+    <tr><td>blockAccount</td>
+	    <td>Sets blocked accounts</td>
+	</tr>
+    <tr><td>unblockAccount</td>
+	    <td>Unblocks accounts</td>
+	</tr>
+</table>
+
+**Crypto API**：
+
+| API                           | Description                         |
+| -- | -- |
+| Neo.Crypto.ECDsaVerify            | Verifies signature of the current script container by public key                 |
+| Neo.Crypto.ECDsaCheckMultiSig       | Verifies multiple signatures of the current script container by public key                 |
 
 > [!Note]
 >
->  `New` and `Deprecated` tags denote changes between version 1.6 and version 2.0.
->
-
-## Read-only API
-
-Blockchain Query API:
-
-| API                           | Description                              |
-| ----------------------------- | ---------------------------------------- |
-| Neo.Blockchain.GetHeight      | Get the current block height             |
-| Neo.Blockchain.GetHeader      | Find block header by block height or block hash |
-| Neo.Blockchain.GetBlock       | Find block by block Height or block Hash |
-| Neo.Blockchain.GetTransaction | Find transaction via transaction ID      |
-| Neo.Blockchain.GetAccount     | Get an account based on the scripthash of the contract |
-| Neo.Blockchain.GetValidators  | `New` Get the public key of the consensus node |
-| Neo.Blockchain.GetAsset       | Get asset based on asset ID              |
-| Neo.Blockchain.GetContract    | `New` Get contract content based on contract hash |
-
-Block class API:
-
-| API                           | Description                              |
-| ----------------------------- | ---------------------------------------- |
-| Neo.Header.GetHash            | Get the hash of the block                |
-| Neo.Header.GetVersion         | Get Block version number                 |
-| Neo.Header.GetPrevHash        | Get the hash of the previous block       |
-| Neo.Header.GetIndex           | Get the current block height             |
-| Neo.Header.GetMerkleRoot      | Get the Merkle Tree root for all transactions in that block |
-| Neo.Header.GetTimestamp       | Get the timestamp of the block           |
-| Neo.Header.GetConsensusData   | Get consensus data for this block (pseudo-random number generated by consensus node) |
-| Neo.Header.GetNextConsensus   | Get the hash value for the next bookkeeper contract |
-| Neo.Block.GetTransactionCount | Get the number of transactions in the current block |
-| Neo.Block.GetTransactions     | Get all transactions in the current block |
-| Neo.Block.GetTransaction      | Get the transaction specified in the current block |
-
-Transaction class API:
-
-| API                           | Description                              |
-| ----------------------------- | ---------------------------------------- |
-| Neo.Transaction.GetHash       | Get Hash for the current transaction     |
-| Neo.Transaction.GetType       | Get the current transaction type         |
-| Neo.Enrollment.GetPublicKey   | `Deprecated` Replaced with Neo.Blockchain.GetValidators |
-| Neo.Transaction.GetAttributes | Query all properties of the current transaction |
-| Neo.Transaction.GetInputs     | Query all transactions for current transactions |
-| Neo.Transaction.GetOutputs    | Query all transaction output for current transaction |
-| Neo.Transaction.GetReferences | Query the transaction output referenced by all inputs of the current transaction |
-| Neo.Attribute.GetUsage        | Get purpose of transaction               |
-| Neo.Attribute.GetData         | Get extra data outside of the purpose of transaction |
-| Neo.Input.GetHash             | Get the hash of the referenced previous transaction |
-| Neo.Input.GetIndex            | The index of the input in the output list of the referenced previous transaction |
-| Neo.Output.GetAssetId         | Get Asset ID                             |
-| Neo.Output.GetValue           | Get the transaction amount               |
-| Neo.Output.GetScriptHash      | Get Script Hash                          |
-
-Account class API:
-
-| API                       | Description                              |
-| ------------------------- | ---------------------------------------- |
-| Neo.Account.GetScriptHash | Get the script hash of the contract account |
-| Neo.Account.GetVotes      | Get information of the votes that this account has casted |
-| Neo.Account.GetBalance    | Get the balance of this asset in the account given the asset ID |
-
-Asset class API:
-
-| API                    | Description                              |
-| ---------------------- | ---------------------------------------- |
-| Neo.Asset.GetAssetId   | Get ID of the asset                      |
-| Neo.Asset.GetAssetType | Get the category of the asset            |
-| Neo.Asset.GetAmount    | Get the total amount of the asset        |
-| Neo.Asset.GetAvailable | Get the quantity of the asset that has been issued |
-| Neo.Asset.GetPrecision | Get the number of divisions for this asset, the number of digits after the decimal point |
-| Neo.Asset.GetOwner     | Get the owner of the asset (public key)  |
-| Neo.Asset.GetAdmin     | Obtain the administrator (contract address) of the asset |
-| Neo.Asset.GetIssuer    | Obtain the issuer (contract address) of the asset |
-
-Contract class API:
-
-| API                    | Description                        |
-| ---------------------- | ---------------------------------- |
-| Neo.Contract.GetScript | Get the scripthash of the contract |
-
-Storage class API:
-
-| API                    | Description                              |
-| ---------------------- | ---------------------------------------- |
-| Neo.Storage.GetContext | `New` Get the current store context      |
-| Neo.Storage.Get        | Returns the value in the persistent store based off the key given |
-
-Runtime class API:
-
-| API                      | Description                              |
-| ------------------------ | ---------------------------------------- |
-| Neo.Runtime.CheckWitness | `New` Verifies that the calling contract has verified the required script hashes of the transaction/block |
-| Neo.Runtime.Notify       | `New` Notifies the client with a notification during smart contract execution |
-| Neo.Runtime.Log          | `New` Notifies the client with a log message during smart contract execution |
-
-Note: The source code can be found under `NEO` in the [`SmartContract/StateReader.cs`](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateReader.cs) file.
-
-## Read/Write API
-
-This type of API will modify the status of the smart contract
-
-| API                            | Description                              |
-| ------------------------------ | ---------------------------------------- |
-| Neo.Account.SetVotes           | Set the voting information of this account |
-| Neo.Validator.Register         | `New` Register as a bookkeeper           |
-| Neo.Asset.Create               | `New` Register a new asset               |
-| Neo.Asset.Renew                | `New` Renew an asset                     |
-| Neo.Contract.Create            | `New` Publish a smart contract           |
-| Neo.Contract.Migrate           | `New` Migrate/Renew a smart contract     |
-| Neo.Contract.Destroy           | `New` Destroy a smart contract           |
-| Neo.Contract.GetStorageContext | `New` Get the storage context of the contract |
-| Neo.Storage.Put                | Inserts a value into the persistent store based off the given key |
-| Neo.Storage.Delete             | Deletes a value from the persistent store based off the given key |
-
-> [!Note]
->
-> The source code for the above API can be found under `NEO` in the [`SmartContract/StateMachine.cs`](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateMachine.cs) file.
+> The source code for the above API can be found under `NEO` in the [src/neo/SmartContract/InteropService.Native.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.Native.cs) and [src/neo/SmartContract/InteropService.Crypto.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.Crypto.cs).

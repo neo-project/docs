@@ -1,12 +1,16 @@
-# sendrawtransaction Method
+﻿# sendrawtransaction Method
 
-Broadcasts a transaction over the NEO network. There are many kinds of transactions, as specified in the network protocol [documentation](../../../../tooldev/network-protocol.md).
+Broadcasts transactions over the NEO network.
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Hex: A hexadecimal string that has been serialized, after the signed transaction in the program.
+## Parameter Description
 
-#### Example
+hex: A hexadecimal string that has been serialized after the transaction signed in the program.
+
+## Example
 
 Request body:
 
@@ -14,47 +18,49 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendrawtransaction",
-  "params": [ "80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"],
+  "params": ["004715897d2bf173f849d1d59123d097c009aa31624d39e73900e1f50500000000466a130000000000f699200000012bf173f849d1d59123d097c009aa31624d39e739015d0300d0ed902e0000000c1425275006800e73cc64286753a3a732422521c8e40c142bf173f849d1d59123d097c009aa31624d39e73913c00c087472616e736665720c143b7d3711c6f0ccf9b1dca903d1bfa1d896f1238c41627d5b523901420c40632d2abc04cce02a7d373a2def1b5d126ce75cdd6f40ef8ab9258960841c4123c48288a6f44bc86d94e83755faee3c17d059b99561a18d923202717796e0b68f290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"],
   "id": 1
 }
 ```
 
-Response body if successful:
+Response body in successful cases:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": true
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x13ccdb9f7eda95a24aa5a4841b24fed957fe7f1b944996cbc2e92a4fa4f1fa73"
+    }
 }
 ```
 
-Response body if not successful:
+Response body in unsuccessful cases:
 
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "error": {
-        "code": -501,
-        "message": "Block or transaction already exists and cannot be sent repeatedly."
+        "code": -500,
+        "message": "AlreadyExists"
     }
 }
 ```
 
 Response Description:
 
-When result is true, the current transaction is successfully broadcasted.
+When result is false, the current transaction has failed to broadcast and an exception occurs. In this example, a confirmed transaction is broadcast, which fails due to the double cost.
 
-When result is false, the current transaction has failed to broadcast and an exception is raised. 
+The following error codes can be expected:
 
-In this example, a confirmed transaction is re-sent, so it failed. The following error codes can be expected:
+| Error codes | Message           | Description                                                  |
+| ----------- | ----------------- | ------------------------------------------------------------ |
+| 500         | AlreadyExists     | Block or transaction already exists and cannot be sent repeatedly. |
+|             | OutOfMemory       | The memory pool is full and no more transactions can be sent. |
+|             | UnableToVerify    | The block cannot be validated.                               |
+|             | Invalid           | The format or parameter is incorrect                         |
+|             | Expired           | The block information is expired                             |
+|             | InsufficientFunds | Insufficient funds                                           |
+|             | PolicyFail        | The behavior is not allowed (such as blacklist address trading) |
 
-Error code | Message |
-| --------------- | ---- |
-| -501 | Block or transaction already exists and cannot be sent repeatedly. |
-| -502 | The memory pool is full and no more transactions can be sent. |
-| -503 | The block cannot be validated. |
-| -504 | Block or transaction validation failed. |
-| -505 | One of the Policy filters failed. |
-| -500 | Unknown error.

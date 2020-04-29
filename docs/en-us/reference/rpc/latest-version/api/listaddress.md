@@ -1,15 +1,15 @@
-# listaddress Method
+﻿# listaddress Method
 
 Lists all the addresses in the current wallet.
 
 > [!Note]
 >
-> Before you can invoke this method you must：
+> Before you can invoke this method you must:
 >
-> - Open the wallet in NEO-CLI.
-> - Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). 
+> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases) 
+> 2. Call the RPC method `openwallet` to open the wallet first.
 
-#### Example
+## Example
 
 Request body：
 
@@ -30,13 +30,13 @@ Response body：
     "id": 1,
     "result": [
         {
-            "address": "ASL3KCvJasA7QzpYGePp25pWuQCj4dd9Sy",
+            "address": "NZos4XyLUEUrD7RQBn9J1A1PyeCwQKqwtT",
             "haskey": true,
             "label": null,
             "watchonly": false
         },
         {
-            "address": "AV2Ai7PXcNbjTSeKgWqsDEjLaEAJZpytru",
+            "address": "NdAth5nq7RyG4HEJRsVJxnk9Q6XHoeB3No",
             "haskey": true,
             "label": null,
             "watchonly": false
@@ -47,6 +47,6 @@ Response body：
 
 Response description：
 
-- address：The address in the wallet.
+address: The address in the wallet.
 
-- watchonly： Indicates whether it is a watch only address.
+watchonly: Indicates whether it is a watch only address.

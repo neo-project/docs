@@ -1,12 +1,29 @@
-# validateaddress Method
+﻿# validateaddress Method
 
-Verifies that the address is a correct NEO address.
+Verifies that the address is a valid NEO address.
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "validateaddress",
+  "params": [address],
+  "id": 1
+}
+```
+
+## Parameter Description
 
 address: Address.
 
-#### Example
+> [!Note]
+>
+> The NEO standard address begins with N because AddressVersion in NEO3 has been modified to 53.
+
+## Example
 
 Request body:
 
@@ -14,7 +31,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "validateaddress",
-  "params": ["AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i"],
+  "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"],
   "id": 1
 }
 ```
@@ -26,7 +43,7 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "address": "AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i",
+        "address": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
         "isvalid": true
     }
 }
@@ -55,6 +72,5 @@ Response body:
     }
 }
 ```
-
 
 

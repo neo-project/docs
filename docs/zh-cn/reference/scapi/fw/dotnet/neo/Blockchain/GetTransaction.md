@@ -1,6 +1,6 @@
 # Blockchain.GetTransaction 方法 (byte[])
 
-通过交易 ID 查找交易。
+通过交易哈希查找交易。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,17 +9,19 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Transaction GetTransaction(byte[] hash)
+public static extern Transaction GetTransaction(byte[] hash)
 ```
 
-参数：交易ID（交易散列），32字节的字节数组。
+参数：
+
+- hash: 交易ID（交易哈希），32字节的字节数组。
 
 返回值：交易，[Transaction](../Transaction.md) 类型。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {

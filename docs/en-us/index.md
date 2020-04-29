@@ -2,40 +2,30 @@
 
 ####Here is an exhaustive library of Neo technical documents, including development examples for your reference.
 
-| NEO Introduction  | | | |
-| ---------------------------------- | ----------------------------------------------- | ---------------------------------- | ---------------------------------------------- |
-| [White Paper](basic/whitepaper.md) | [Consensus Mechanism](basic/technology/dbft.md) | [NeoVM](basic/technology/neovm.md) | [NeoContract](basic/technology/neocontract.md) |
-
-| NEO Node | | | |
+| Neo Node | | | |
 | ------------------------------------ | ------------------------------ | ---------------------------- | ---------------------------------------------- |
-| [Introduction](node/introduction.md) | [NEO-GUI](node/gui/install.md) | [NEO-CLI](node/cli/setup.md) | [Synchronizing Blockchain](node/syncblocks.md) |
+| [Introduction](node/introduction.md) | [Neo-CLI](node/cli/setup.md) | [Neo-GUI](node/gui/install.md) |  |
 
-| NEO Network | | | |
+| Neo Network | | | |
 | ------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------- | ---- |
-| [Main Net and Test Net](network/testnet.md) | [Setting up Private Chain ](network/private-chain/solo.md) | [Neo-local](network/private-chain/neolocal.md) |      |
+| [Main Net and Test Net](network/testnet.md) | [Setting up Private Chain ](network/private-chain/solo.md) |  |      |
 
 | Smart Contract Development | | | |
 | ---------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------- | ------------------------------------------------------- |
-| [Getting Started](sc/gettingstarted/introduction.md) | [Development Environment](sc/devenv/getting-started-csharp-mac.md) | [Writing Smart Contracts](sc/write/basics.md) | [Deploying and Invoking Contracts](sc/deploy/deploy.md) |
-| [Testing](sc/test.md)                                | [Contract Migration](sc/migrate.md)                          | [System Fees](sc/fees.md)                     | [Contract Samples](sc/sample/HelloWorld.md)             |
+| [Getting Started](sc/gettingstarted/introduction.md) | [Writing Smart Contracts](sc/write/basics.md) | [Deploying and Invoking Contracts](sc/deploy/deploy.md) |  |
+| [Contract Migration](sc/migrate.md) | [System Fees](sc/fees.md)                     |                      |              |
 
-| DApp Development | | | |
-| ------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------- | ---- |
-| [Introduction](dapp/intro.md) | [DApp Integration ](dapp/integ.md) |  |      |
-
-
-| NEO Tools Development | | | |
+| Neo Tools Development | | | |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- | ---------------------------------------------- |
-| [Blockchain Models](tooldev/concept/blockchain/block.md)     | [Charging Model](tooldev/concept/charging_model.md)          | [Cryptography](tooldev/concept/cryptography/encode_algorithm.md) | [Big and Little Endian Usage](tooldev/concept/endian.md) |
-| [NEO-CLI Structure](tooldev/neo_cli_structure.md) | [Network Protocol](tooldev/network-protocol.md) | [Consensus](tooldev/consensus/consensus_algorithm.md) | [Wallet](tooldev/wallets.md) |
-| [Transaction](tooldev/transaction/transaction.md) | [NEO SDK](tooldev/sdk/introduction.md) |                                                         |                                                |
+| [Blockchain Models](tooldev/concept/blockchain/block.md)     | [Charging Model](tooldev/concept/charging_model.md)          | [Consensus](tooldev/consensus/consensus_algorithm.md) | [Cryptography](tooldev/concept/cryptography/encode_algorithm.md) |
+| [Transaction](tooldev/transaction/transaction.md)        | [Wallet](tooldev/wallets.md)                             | [Neo SDK](tooldev/sdk/introduction.md) | [Big and Little Endian Usage](tooldev/concept/endian.md) |
 
 | Document for Exchange Developers | | | |
 | ----------------------------------------------- | ---- | ---- | ---- |
-| [Version 2.10.3](exchange/2.10.3/deploynode.md) |      |      |      |
+| [Document for Exchange Developers](exchange/general.md) |      |      |      |
 
 | Reference  | | | |
 | ---------------------------------------------- | -------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------- |
-| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Smart Contract Framework](reference/scapi/fw.md) | [NeoVM Instructions](reference/neo_vm.md) |
+| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Smart Contract Framework](reference/scapi/fw.md) | [NeoVM Instructions](reference/Neo_vm.md) |
 
 <link href="index.css" rel="stylesheet" />

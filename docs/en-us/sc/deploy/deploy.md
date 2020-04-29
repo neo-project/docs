@@ -1,20 +1,20 @@
 # Deploying Smart Contracts
 
-When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the Neo blockchain using Neo-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 tokens. 
+When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the NEO blockchain using Neo-CLI or Neo-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 assets. 
 
 ## What contracts need to be deployed?
 
-When a smart contract will be invoked by another smart contract (called appcall), it needs to be deployed. Contracts triggered only by the verification trigger, such as the lock contract and multi-signature contract, do not need to be deployed as they will not be invoked by other contracts. Contracts such as "Return 1+1" do not need to be deployed as they do not require any input parameters.
+When a smart contract needs to store data or to be invoked by another smart contract (called appcall) on the blockchain, it needs to be deployed. Contracts triggered only by the verification trigger, such as the lock contract and multi-signature contract, do not need to be deployed as they will not be invoked by other contracts. Contracts such as  `return 1+1`  do not need to be deployed as they do not require any input parameters.
 
 From the programming language perspective, only when a smart contract will be used as a class library, it needs to be deployed. For example: 
 
 - When a smart contract has variable incoming parameters, it must serve as a storage. The caller (Invocation transaction) or other smart contracts provide the parameters.
-- When a smart contract uses storage and dynamic calls it must serve as a class library.
+- When a smart contract uses storage it must serve as a class library.
 - When a smart contract implements NEP-5 standard assets, the contract needs to be deployed on the blockchain.
 
 ### How to deploy?
 
-Smart contracts are deployed by invoking API through an Invocation transaction (The Publish transaction for deployment of the old version system has been deprecated). We recommend you use Neo-GUI to deploy smart contracts. 
+Smart contracts are deployed by invoking API through an Invocation transaction. Usually we use Neo-CLI or Neo-GUI to deploy smart contracts. 
 
 Deploying and invoking smart contracts will cost fees. For more information, refer to [Fees](../fees.md).
 
@@ -22,35 +22,52 @@ Deploying and invoking smart contracts will cost fees. For more information, ref
 Make sure you have done the following:
 
 - Confirmed that your contract should be deployed. 
-- Compiled an .avm contract file.
-- Installed Neo-GUI and completed block synchronization. For more information, refer to [Neo-GUI](../../node/gui/install.md).
+- Compiled a contract file (\*.nef) and a descriptive file of contract (\*.manifest.json).
+- Installed Neo-CLI or Neo-GUI and completed block synchronization. For more information, refer to  [Neo-CLI](../../node/cli/setup.md) and [Neo-GUI](../../node/gui/install.md)
 
-## Deploying the smart contract
+## Deploying contract with Neo-CLI
 
-1. From Neo-GUI, click `Advanced` -> `Deploy Contract`。
+In Neo-CLI run the following command to deploy your contract:
 
-2. In the Deploy Contract dialog，Click `Load` and select the smart contract file you have compiled.
+ `deploy <nefFilePath> [manifestFile]`
 
-   The code field is populated with the script hash of the contract. Copy it for use in a later step.
+-  `<nefFilePath>` : mandatory. The contract file
+- `[manifestFile]` : optional. The descriptive file of contract
 
-3. Specify the information and metadata fields.
+### Example
 
-   For metadata related parameters, you can refer to [Parameters and Return Values](Parameter.md).
+```
+deploy NEP5.nef
+```
 
-   If need be, check the `Need Storage` option. The NEP5 standard uses storage to maintain accounts so make sure this is checked when deploying an NEP5 token.
+or
 
-4. Click `Deploy`.
+```
+deploy NEP5.nef NEP5.manifest.json
+```
 
-   Deploying a smart contract costs 100 ~1000 GAS. For more information, refer to [Fees](../fees.md).
+After the command is executed, the program deploys the smart contract and pays the fee automatically.
 
-## Creating a smart contract account   
+```
+neo> deploy NEP5.nef
+Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+Gas: 3
 
-You need to create a smart contract account using the contract script hash if the contract will receive assets.
+Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
+```
 
-1. After a wallet is created in Neo-GUI, right-click on the address area and select `Create Contract Address` -> `Custom`.
-2. Specify the following options：
-   a. `Parameter List`：refer to [Parameters and Return Values](Parameter.md)
-   b. `Script`：enter the contract script hash copied beforehand. 
-   c. `Private Key`：optional. Specify the private key used for signing if the signature is required during contract execution.
-3. Click `Confirm`.
+### Common errors
+
+`Engine faulted`
+
+- Contract already exists
+- .nef  is not matched with .manifest
+- either .nef or .manifest is wrong
+- Insufficient fee
+
+## Deploying contracts with Neo-GUI
+
+1. In Neo-GUI click `Contract` -> `Deploy Contract`。
+2. Select the desired *.nef and *.manifest.json files.
+3. Click `Deploy`.
 

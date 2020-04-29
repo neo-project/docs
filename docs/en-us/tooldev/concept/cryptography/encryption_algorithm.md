@@ -4,7 +4,7 @@
 
 Elliptic Curve Cryptography (ECC) algorithm is a kind of asymmetric encryption algorithm. With the irreversible feature of K=k\*G process (K: public key, G: base point (constant)), it can prevent solving private key from public key by brutal force. With the same length of secret key, ECC has higher security level and saves computing resource compared to other encryption algorithms such as RSA. ECC combined with other algorithms, is widely used in signing fields, i.e. ECDSA digital signature.
 
-Same as Bitcoin, NEO adopts ECC as public key generating algorithm. NEO defines a special secp256r1-standard elliptic curve with parameters:
+Same as Bitcoin, Neo adopts ECC as public key generating algorithm. Neo defines a special secp256r1-standard elliptic curve with parameters:
 
 Prime Q: 00FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF
 
@@ -89,7 +89,7 @@ Scenarios：
 
 Advanced Encryption Standard (AES) is a kind of block cipher algorithm in symmetric encryption algorithms. Its block size can be 128, 192, 256. AES has the following advantages: (1) fast processing speed, (2) whole process can be described in math, (3) currently no effective cracking method.
 
-NEO uses 256-bit AES encryption algorithm, where encryption mode is ECB and filling method is NoPadding.
+Neo uses 256-bit AES encryption algorithm, where encryption mode is ECB and filling method is NoPadding.
 
 Example：
 

@@ -2,16 +2,6 @@
 
 ## Consensus Message Format
 
-### P2P message format
-
-| Size | Field | Type  | Description |
-|------|------|-------|------|
-|  4   | Magic |  uint | Protocol ID, defined in the configuration file `protocol.json`, mainnet is `7630401`, testnet is `1953787457`   |
-| 12   | Command | string | Command, all consensus messages' command is `consensus`  |
-| 4     | Length  | uint32 | Length of payload|
-| 4     | Checksum | uint | Checksum |
-| Length  | Payload | byte[] | Content of message, all consensus messages' payload is `ConsensusPayload`  |
-
 ### ConsensusPayload
 
 | Size | Field | Type  | Description |
@@ -20,38 +10,52 @@
 | 32  | PrevHash | UInt256 | Previous block's hash |
 | 4 | BlockIndex |uint | Height of the block |
 | 2 | ValidatorIndex | ushort | The index of the current consensus node in validators array |
-| 4  | Timestamp | uint | Timestamp |
-| ?  |  Data | byte[] | Includes `ChangeView`, `PrepareRequest` and `PrepareResponse` |
-| 1 |  - | uint8 | It's fixed to 1 |
-| ? | Witness | Witness | Witness contains invocation script and verificatioin script |
+| ?  |  Data | byte[] | Includes `ChangeView`, `PrepareRequest`, `PrepareResponse`, `Commit`, `RecoveryMessage`, `RecoveryRequest` |
+| ? | Witness | Witness | Witness contains invocation script and verification script |
 
 ### ChangeView
 
 | Size | Field | Type  | Description |
 |----|------|-----|-------|
-| 1 | Type | ConsensusMessageType | `0x00` |
-| 1 | ViewNumber | byte | Current view number |
-| 1 | NewViewNumber | byte |  New view number |
+| 1 | NewViewNumber | byte | Current view number+1 |
+| 8 | Timestamp | ulong | Timestamp when the ChangeView message is created |
+| 1 | Reason | ChangeViewReason |  Reason for the view change |
+
+### Commit
+
+| Size| Field | Type | Description |
+|----|------|-----|-------|
+| ? | Signature | byte[] | Message signature |
 
 ### PrepareRequest
 
 | Size | Field | Type  | Description |
 |----|------|-----|-------|
-| 1 | Type | ConsensusMessageType | `0x20` |
-| 1 | ViewNumber | byte | Current view number |
+| 8 | Timestamp | ulong | Timestamp when the PrepareRequest message is created |
 | 8 | Nonce | ulong |  block nonce |
-| 20  | NextConsensus | UInt160 |  The script hash of the next round consensus nodes' multi-signature contract  |
-| 4 + 32 * length   | TransactionHashes | UInt256[] |  The proposal block's transaction hashes |
-| 78  | MinerTransaction | MinerTransaction |  It is used to sum all the transaction fees of the current block as a reward for the speaker. |
-|  64 | Signature | byte[] |  Block signature |
+| ? | TransactionHashes | UInt256[] |  The transaction hashes in the block |
 
 ### PrepareResponse
 
 | Size | Field | Type | Description |
 |----|------|-----|-------|
-| 1 | Type | ConsensusMessageType | `0x21` |
-| 1 | ViewNumber | byte | Current view number |
-| 64 | Signature | byte[] | Block signature |
+|  32  | PreparationHash | UInt256 |  |
+
+### RecoveryMessage
+
+| Size | Field | Type | Description |
+|----|------|-----|-------|
+|  ?  | ChangeViewMessages | Dictionary<int, ChangeViewPayloadCompact> | ChangeView messages |
+|  ?  | PrepareRequestMessage | PrepareRequest | The current PrepareRequest message |
+|  32  | PreparationHash | UInt256 |  |
+|  ?  | PreparationMessages | Dictionary<int, PreparationPayloadCompact> | Preparation messages that have been collected |
+|  ?  | CommitMessages | Dictionary<int, CommitPayloadCompact> | Commit messages that have been collected |
+
+### RecoveryRequest
+
+| Size | Field | Type | Description |
+|----|------|-----|-------|
+|  8  | Timestamp | ulong | Timestamp when the message is created |
 
 ## Transport Protocol
 
@@ -110,82 +114,107 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
 1. Ignore the message if the `ConsensusPayload.BlockIndex` is lower than current block height.
 
-2. Ignore the message if the verification script failed or the script hash does not equal to `ConsensusPayload.ValidatorIndex` address's script hash.
+2. Ignore the message if the verification script failed.
 
-3. Ignore the message if the `ConsensusPayload.ValidatorIndex` equals to current node index.
+3. Ignore the message if the node has sent out the new block.
 
 4. Ignore the message if the `ConsensusPayload.Version` does not equal to current consensus version.
 
-5. Ignore the message if the `ConsensusPayload.PrevHash` and `ConsensusPayload.BlockIndex` do not equal to the values in current node's context.
+5. Ignore the message if the `ConsensusPayload.PrevHash` and `ConsensusPayload.BlockIndex` are not equal to the values in current node's context.
 
 6. Ignore the message if the `ConsensusPayload.ValidatorIndex` is out of index of the current consensus nodes array.
 
-7. Ignore the message if the `ConsensusMessage.ViewNumber` does not equal to the value in current node's context except that the consensus message is a `ChangeView`.
+7. Ignore the message if the verification to the message using the loaded plugin failed.
 
 ### Process
 
-1. On receiving a **PrepareRequest** sent by speaker, attached with proposal block data.
+1. On receiving a `PrepareRequest` sent by speaker, attached with proposal block data.
 
-  1. Ignore if the `PrepareRequest` has already been received.
+    1. Ignore if the `PrepareRequest` has already been received or the node is trying to change the view.
 
-  2. Ignore if the `ConsensusPayload.ValidatorIndex` is not the index of the current round speaker.
+    2. Ignore if the `ConsensusPayload.ValidatorIndex` is not the index of the current round speaker or the `PrepareRequest.ViewNumber` is not equal to the current view number.
 
-  3. Ignore if the `ConsensusPayload.Timestamp` is not more than the timestamp of the previous block, or is more than 10 minutes above current time.
+    3. Ignore if the `ConsensusPayload.Timestamp` is not more than the timestamp of the previous block, or is more than 8 blocks above current time.
 
-  4. Ignore if the signature of the message is incorrect.
+    4. Ignore if the proposed transaction has already been included in the blockchain
 
-  5. Clear signatures saved in the context that does not match the received proposal message.
+    5. Check if the signature of the block is incorrect.
 
-  6. Save the signature of the speaker into current context.
+    6. Clear invalid signatures that have been received (Prepare-Reponse may arrive first)
 
-  7. Collect and verify transactions in the proposal block from memory pool.
+    7. Save the signature of the speaker into current context.
 
-    1. If the transaction failed to pass verification or policy check provided by plugin, it will stop the process and request ChangeView.
+    8. Collect and verify transactions in the proposal block from memory pool.
 
-    2. Otherwise the transaction will be saved into current context.
+        1. If the transaction failed to pass verification or the transaction did not meet strategic requirements , it will stop the process and request ChangeView.
       
-    3. If all the transactions in the proposal block are collected, broadcast `PrepareResponse` message.
-
-  8. Collect and verify transactions in the proposal block from unverified memory pool.
-
-  9. Verify the MinerTransaction and add it into current context.
+        2. Otherwise the transaction will be saved into current consensus context.
     
-  10. If all transactions are collected verified, it will request PrepareResponse. Otherwise it will broadcast a getdata message to retrieve transactions from other nodes.
+        3. If all the transactions in the proposal block are collected, broadcast `PrepareResponse` message.
+    9. Verify the transactions required by blocks in the unconfirmed transaction pool and add them into current context.
 
-2. On receiving a **PrepareResponse** sent by consensus nodes with their signture.
+    10. Broadcast a `getdata` message with a list of transaction hashes if they were missed in the block.
 
-  1. Ignore it if current node has already saved the sender's signature.
+2. On receiving a `PrepareResponse` sent by consensus nodes with their signature.
 
-  2. Save it temporarily if current node does not have information of corresponding PrepareRequest of the received PrepareResponse yet.
+    1. Ignore it if the message view is not the same as the current view
 
-  3. Otherwise verify the signature. Save the signature if it pass the verification. Ignore it if not.
+    2. Ignore it if current node has already saved the sender's signature or the current node is trying to change the view.
 
-  4. If there are at least `N-f` signatures, accept the new block and broadcast it.
+    3. Save it temporarily if current node has not received PrepareResponse yet (Clear it after receiving PrepareResponse), or go to next step.
 
-3. On receiving a **Changeview** sent by consensus nodes.
+    4. Verify the signature. Save the signature if it pass the verification. Ignore it if not.
 
-  1. Ignore it if the view number in the message is less than the view number in current context.
+    5. Ignore it if the node has already sent `Commit`.
 
-  2. If current node received at least `N-f` `ChangeView` messages with the same new view number, then ViewChange will happen. The current node reset the consensus process with the new view number.
+    6. Verify the signature number if the node has already sent or received `PrepareRequest`. If there are at least `N-f` signatures, broadcast `Commit` and generate the block if there are `N-f` `Commit` messages have been received.
 
-4. On **Timeout** happens
+3. On receiving a `Changeview` sent by consensus nodes.
 
-  1. If the process above timeout, the consensus node will broadcast `ChangeView` message directly.
+    1. Send `RecoveryMessage` if the new view number in the message is less than the view number in current context.
 
-  2. Timeout time starts from 30 seconds. Timeout interval doubles when each timeout happens.
+    2. Ignore it if the node has sent `Commit`.
 
-5. On receiving a **New Block**
+    3. If current node received at least `N-f` `ChangeView` messages with the same new view number, then ViewChange will happen. The current node reset the consensus process with the new view number.
 
-  1. resetting consensus process
+4. On receiving a `Commit` send by consensus nodes after receiving `N-f` `PrepareResponse`.
 
-6. On receiving a **New Transaction** for consensus
+    1. Ignore it if it has been received from the same node before.
 
-  1. Ignore if the transaction is a `MinerTransaction`. (A `MinerTransaction` should not be broadcasted).
+    2. Save the message into the consensus context if the signature passed verification,  generate a block and broadcast if `N-f` Commit messages has been received.
 
-  2. Ignore if current node is speaker, or the node has sent `PrepareRequest` or `PrepareResponse` message, or in process of change view.
+5. On receiving a `RecoveryRequest` sent by consensus nodes when initiating a consensus or the sum of committed and failed nodes is greater than `f`.
 
-  3. Ignore if the transaction has been received before.
+    1. Ignore it if it has been received before.
 
-  4. Ignore if the received transacion isn't in the propoal block.
+    2. Response it if the node has sent the `Commit` message before or the node index is no more than f numbers later than the sender index
 
-  5. Save the transaction into current context.
+    3. Send `RecoveryMessage` if the node is obligated to response.
+
+6. On receiving a `RecoveryMessage` broadcast by consensus nodes when receiving an accessible `RecoveryRequest` or time out after a Commit message has been sent.
+
+    1. Receive and handle `ChangeView` inside if the message view number is greater than the node view number. 
+
+    2. Receive and handle `PrepareRequest` and `PrepareResponse` inside if the message  view number is equal to the node view number, and the node is not in the process of changing view or has not sent `Commit` before.
+
+    3. Receive and handle `Commit` inside if the message view number is not greater than the node view number. 
+
+7. On `Timeout` happens
+
+    1. If the speaker timeout, the consensus node will broadcast `PrepareRequest` for the first timeout and `ChangeView` for subsequent timeouts.
+
+    2. If the delegate timeout, the consensus node will broadcast `ChangeView` directly.
+
+8. On receiving a `New Block`
+
+    resetting consensus process
+
+9. On receiving a `New Transaction` for consensus
+
+    1. Ignore if the current node has sent `PrepareRequest` or `PrepareResponse` message, or in process of change view, or has sent new block in this round
+
+    2. Ignore if the transaction has been received before.
+
+    3. Ignore if the received transaction isn't in the proposal block.
+
+    4. Save the transaction into the proposal block.

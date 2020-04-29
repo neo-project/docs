@@ -1,6 +1,6 @@
-# Storage.Delete Method (StorageContext, byte[])
+# Storage.Delete Method
 
-Deletes a value from the peristent store based on the given key.
+Deletes the value corresponding to the given key from the specific storage context.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,26 +9,42 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public extern void Delete(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key)
+public static extern void Delete(StorageContext context, byte[] key);
+public static extern void Delete(StorageContext context, string key);
 ```
 
 Parameters:
 
-Context: Storage context as a [StorageContext](../StorageContext.md).
+- Context: Storage context as a [StorageContext](../StorageContext.md).
 
-Key: Key as a byte array.
+- Key: Key as a byte array or string.
+
+
+Return value: void.
+
+```c#
+public static extern void Delete(byte[] key);
+public static extern void Delete(string key);
+```
+
+Parameters:
+
+Key: Key as a byte array or string.
 
 Return value: void.
 
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
-     public static void Main()
-     {
-         Storage.Delete(Storage.CurrentContext, new byte[] {0});
-     }
+    public static void Main()
+    {
+        Storage.Delete(Storage.CurrentContext, "aa");
+        Storage.Delete(Storage.CurrentContext, new byte[] { 0 });
+        Storage.Delete("aa");
+        Storage.Delete(new byte[] { 0 });
+    }
 }
 ```
 

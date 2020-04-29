@@ -1,12 +1,16 @@
-# getblockhash Method
+﻿# getblockhash Method
 
-Returns the hash value of the corresponding block, based on the specified index.
+Returns the hash value of the corresponding block based on the specified index.
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Index: Block index (block height)
+##  Parameter Description
 
-#### Example
+index: Block index (block height)
+
+## Example
 
 Request body:
 
@@ -25,6 +29,6 @@ Response body:
 {
    "jsonrpc": "2.0",
    "id": 1,
-   "result": "0x4c1e879872344349067c3b1a30781eeb4f9040d3795db7922f513f6f9660b9b2"
+   "result": "0xdf17b40c5627a45e83d61b286a6d6d14859136621760d0a5b58dd59d18fd53d4"
 }
 ```

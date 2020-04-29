@@ -1,10 +1,14 @@
-# getbestblockhash Method
+﻿# getbestblockhash Method
 
-Returns the hash of the tallest block in the main chain.
+Returns the latest block hash of the main chain.
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Request body:
+## Example
+
+##### Request body
 
 ```json
 {
@@ -15,16 +19,16 @@ Request body:
 }
 ```
 
-Response body:
+##### Response body
 
 ```json
 {
    "jsonrpc": "2.0",
    "id": 1,
-   "result": "0x773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e"
+   "result": "0xbee7a65279d6b31cc45445a7579d4c4a4e52d1edc13cc7ec7a41f7b1affdf0ab"
 }
 ```
 
-Response Description:
+##### Response Description
 
-Result: The hash of the tallest block in the main chain.
+Result: The latest block hash of the main chain.

@@ -9,17 +9,21 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Block GetBlock(uint height)
+public static extern Block GetBlock(uint height)
 ```
 
-参数：区块高度（区块索引），无符号整型。
+参数：
+
+-  height: 区块高度（区块索引），无符号整型。
+
 
 返回值：区块，[Block](../Block.md) 类型。
+
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
@@ -27,8 +31,6 @@ public class Contract1 : FunctionCode
     }
 }
 ```
-
-
 
 
 

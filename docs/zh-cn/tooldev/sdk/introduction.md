@@ -1,65 +1,74 @@
-# 关于NEO SDK
+# 关于 Neo RPC SDK
 
-可使用NEO SDK来开发各种基于NEO的应用，如钱包客户端，游戏等。 引用NEO SDK后，您的项目仍可在原有的环境中运行，而非在NeoVM中运行，如果想开发在 NeoVM中运行的程序，请参考[NEO 智能合约](../../sc/gettingstarted/introduction.md)。 
+> [!Note]
+>
+> 本文档中使用的 Neo 版本为 3.0 及以上。
 
-此文档是完全[开源](https://github.com/neo-project/docs)的。可通过任何方式参与此文档，如创建问题、编写文档等。
+`Neo RPC SDK` 是一个 C# 版本的依赖库，可用来开发各种基于 Neo 的应用，如钱包客户端，游戏等。 使用本项目可以方便地调用 Neo RPC 接口，构造交易以及调用合约等。
 
-该文档适用于NEO 2.9.0版本。与Visual Studio 2017结合使用时，可以更方便地使用NEO SDK来开发软件。 
+此文档是完全[开源](https://github.com/neo-project/docs)的，可通过任何方式参与此文档，如创建问题、编写文档等。
 
-## 下载：
+该文档适用于 Neo3 版本。与 Visual Studio 2019 结合使用时，可以更方便地使用 Neo SDK 来开发软件。 
 
-1. 在Visual Studio 2017中新建.NET项目（项目的.NET版本不能低于NEO SDK所使用的.NET版本）
-2. 在项目中右键“管理 NuGet 程序包”
-3. 在搜索框中搜索"NEO"，然后安装即可
+## 主要功能
 
-此外，你也可以在[这里](https://www.nuget.org/packages/Neo/2.7.1)下载NuGet安装包来手动安装。
+- 内置的 RPC 调用方法
 
-## 项目构成
+- 交易构建，序列化和反序列化
 
-完整的NEO SDK主要由两个项目以及众多依赖项构成：
+- 智能合约的脚本构造
 
-**NEO SDK主要项目：**
+- 简单易用的钱包相关功能：转账，余额查询和 GAS Claim 方法
 
-NEO：https://github.com/neo-project/neo
 
-NeoVM：https://github.com/neo-project/neo-vm
+## 引用方式
 
-**NEO SDK依赖项：**
+1. 在 Visual Studio 2019 中新建 .NET 项目。
 
-.NETFramework 4.7
+   项目的.NET版本不能低于 Neo SDK 所使用的 .NET 版本。
 
-- Akka (>= 1.3.8)
+2. 在项目中右键单击 `管理 NuGet 程序包`。
 
-- Microsoft.AspNetCore.Server.Kestrel (>= 2.1.1)
+3. 在搜索框中搜索  `Neo.Network.RPC.RpcClient`，然后安装即可。
 
-- Microsoft.AspNetCore.Server.Kestrel.Https (>= 2.1.1)
+4. 在需要使用该模块的项目文件的头部添加如下代码：
 
-- Microsoft.AspNetCore.ResponseCompression (>= 2.1.1)
+   ```c#
+   using Neo.Network.RPC;
+   ```
 
-- Microsoft.AspNetCore.WebSockets (>= 2.1.1)
 
-- Microsoft.EntityFrameworkCore.Sqlite (>= 2.1.1)
+> [!Note]
+>
+> 如果使用 SDK 中构造交易并附有签名相关的方法，需要维护一份当前所在 NEO 区块链的 protocol.json 在程序运行目录下，例如 \bin 或 \publish 目录，以确保 SDK 使用的 `Magic` 和  区块链一致，否则 SDK 构造的交易在区块链中将无法验签通过。
 
-- Microsoft.Extensions.Configuration.Json (>= 2.1.1)
+## 异常处理
 
-- System.Text.Encodings.Web (>= 4.5.0)
+`Neo RPC SDK` 主要通过 RPC 请求与 Neo 节点进行交互，当 RPC 请求返回的消息中带有 Error 时系统就会抛出异常，所以最常见的异常类型是 `RpcException`， 主要包含下面几种：
 
-- Replicon.Cryptography.SCrypt (>= 1.1.6.13)
+- -100, "Unknown transaction" or "Unknown block"
+- -300, "Insufficient funds"
+- -301, "The transaction is failed because the necessary fee exceeds the Max_fee. Please increase your Max_fee value."
+- -400, "Access denied"
+- -500, Relay does not succeed, the detailed reasons contain "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
+- -32600, "Invalid Request"
+- -32601, "Method not found"
+- -32602, "Invalid params"
+- -32700, "Parse error"
 
-.NETStandard 2.0
+除此之外，可能会遇到 .NET 平台内置的其他异常，比如当传入的参数为空或格式有误时会引发 `ArgumentNullException` 和 `FormatException` 异常，所以使用 SDK 时需要进行合理的异常捕获与提示。
 
-- Akka (>= 1.3.8)
+## 项目地址
 
-- Microsoft.AspNetCore.ResponseCompression (>= 2.1.1)
+`Neo RPC SDK`是 neo-modules 项目的功能子集，完整开源项目请参考：
 
-- Microsoft.AspNetCore.Server.Kestrel (>= 2.1.1)
+Neo-modules：https://github.com/neo-project/neo-modules
 
-- Microsoft.AspNetCore.Server.Kestrel.Https (>= 2.1.1)
+欢迎在项目问题列表中提出使用中遇到的问题：
 
-- Microsoft.AspNetCore.WebSockets (>= 2.1.1)
+https://github.com/neo-project/neo-modules/issues
 
-- Microsoft.EntityFrameworkCore.Sqlite (>= 2.1.1)
+## 阅读下节
 
-- Microsoft.Extensions.Configuration.Json (>= 2.1.1)
+[RPC 调用方法](rpc.md)
 
-- System.Text.Encodings.Web (>= 4.5.0)
