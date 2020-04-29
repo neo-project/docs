@@ -78,11 +78,3 @@ public static bool Main ()
 ```
 
 The return value of the contract is always `false`, indicating that the assets of this contract can not be used (this can be interpreted as burning or destroying an asset). For example, the above contract can be used to store shares of a company which has been unregistered.
-
-For more examples, refer to:
-
-[Hello World](../sample/HelloWorld.md)
-
-[Lock (lock)](../sample/lock2.md)
-
-[Domain (Domain Name System)](../sample/Domain.md)

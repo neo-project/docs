@@ -33,11 +33,13 @@
 4. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数。
 
     - 单签
+    
     ```c#
     // add signature for the transaction with sendKey
     txManager.AddSignature(sendKey);
     ```
     - 多签
+    
     ```c#
     // add multi-signatures for the transaction with sendKey
     txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
@@ -46,6 +48,7 @@
     - 多签合约
 
       多签的本质来源于多签合约，需要先构建多签合约才能获取多签地址，进行多签转账。下面的示例使用了3个账户构成多签，验签时需要至少2个账户签名
+    
     ```c#
     // create a multi-signature contract, which needs at least 2 of 3 KeyPairs to sign
     Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);

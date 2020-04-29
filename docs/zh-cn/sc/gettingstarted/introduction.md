@@ -78,11 +78,3 @@ public static bool Main()
 ```
 
 该合约的返回值永远为 false，表示这个合约里的资产无人能使用（可以理解为烧钱或销毁一笔资产），比如里面可以存储一些已注销的公司的股权。
-
-更多示例请参阅：
-
-[Hello World](../sample/HelloWorld.md)
-
-[Lock（锁仓合约）](../sample/Lock2.md)
-
-[Domain（域名系统）](../sample/Domain.md)
