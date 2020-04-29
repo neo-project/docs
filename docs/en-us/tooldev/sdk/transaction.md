@@ -29,11 +29,13 @@ Neo RPC SDK encapsulates the transaction construction module, which allows you t
 4. Add signature (single or multiple signatures) and use `KeyPair` of the account as the parameter.
 
     - single signature
+    
     ```c#
     // add signature for the transaction with sendKey
     txManager.AddSignature(sendKey);
     ```
     - multiple signatures
+    
     ```c#
     // add multi-signatures for the transaction with sendKey
     txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
@@ -42,6 +44,7 @@ Neo RPC SDK encapsulates the transaction construction module, which allows you t
     - multi-signature contract
 
       The nature of multi-signature comes from multi-signature contracts. You need to construct a multi-signature contract before you can obtain the multi-signature address and transfer assets. The following example uses 3 accounts to create a multi-signature contract which requires at least 2 account signatures for signing.
+    
     ```c#
     // create a multi-signature contract
     Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);

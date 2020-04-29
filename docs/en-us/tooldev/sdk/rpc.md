@@ -7,12 +7,14 @@ The Neo RPC SDK encapsulates all the interfaces provided by RpcServer. You can s
 Before you can send RPC requests you need to initialize  `RpcClient` first. Choose the RPC server port of a Neo node according to your own needs. Here is an example:
 
 Test net node：
+
 ```c#
 // TestNet Node
 RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
 ```
 
 Local node (the local Neo-CLI that can be connected to main net, test net, or private net according to configuration):
+
 ```c#
 // Local Node
 RpcClient client = new RpcClient("http://localhost:10332");
