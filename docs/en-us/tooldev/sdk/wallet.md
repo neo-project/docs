@@ -94,6 +94,7 @@ Wallet is a collection of accounts. NEP6 is the most commonly used wallet standa
 Here is an example:
 
 Create a new NEP6 wallet with an account and save as JSON file:
+
 ```c# 
 // create wallet
 string path = "wallet_new.json";
@@ -107,6 +108,7 @@ wallet_new.Save();
 ```
 
 Read the NEP6 wallet from the JSON file and decrypt the account:
+
 ```c# 
 // load wallet from nep6 wallet
 NEP6Wallet wallet = new NEP6Wallet(path);
@@ -135,6 +137,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 > The type of account balance is usually BigInteger, which is a representation after rounding the decimal part. It needs to be divided by Factor to get the actual Token amount.
 
 Inquiry NEP-5 asset balance using the string parameter:
+
 ```c#
 // get the neo balance of account
 string tokenHash = NativeContract.NEO.Hash.ToString();
@@ -143,6 +146,7 @@ BigInteger balance = walletAPI.GetTokenBalance(tokenHash, address);
 ```
 
 or using the parameter of ScriptHash type:
+
 ```c#
 // get the neo balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
@@ -152,6 +156,7 @@ BigInteger balance = nep5API.BalanceOf(tokenScriptHash, accountHash);
 ```
 
 In Neo 3 NEO and GAS are both NEP5 assets with the fixed scripthash. Here we provide a simpler interface:
+
 ```c#
 // get the neo balance
 uint neoBalance = walletAPI.GetNeoBalance(address);
@@ -187,6 +192,7 @@ In Neo3 GAS is automatically claimed when NEO is transferred. You can construct 
     Transaction transaction = walletAPI.ClaimGas(wif);
     ```
     or use `KeyPair`:
+    
     ```c#
     KeyPair keyPair = Utility.GetKeyPair(wif);
     Transaction transaction = walletAPI.ClaimGas(keyPair);
