@@ -1,54 +1,58 @@
-.side-nav {
-  display: none !important;
+.side-nav{
+   display:none!important;
 }
-main {
-  margin-bottom: 100px !important;
-  width: 80%;
+main{
+   margin-bottom:100px!important;
+   width:80%;
 }
-h4 {
-  background: rgba(205, 205, 205, 0.2);
-  padding: 10px !important;
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin-bottom: 34px;
+h4{
+   background: rgba(205,205,205,0.2);
+   padding:10px!important;
+   font-size:1.1rem;
+   font-weight:300;
+   margin-bottom:34px;
 }
-table.table {
-  margin-top: 20px;
+table.table{
+   margin-top:20px;
 }
-.table thead th {
-  background-color: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid #eeeeee !important;
-  font-size: 1.2rem;
-  font-weight: normal;
-  padding: 0.5rem 0 !important;
-  width: 25% !important;
-  vertical-align: top !important;
+.table thead th{
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #EEEEEE!important;
+    font-size: 1.2rem;
+    font-weight: normal;
+    padding: .5rem 0 !important;
+    width: 25% !important;
+<<<<<<< Updated upstream
+    vertical-align: middle;
+=======
+    vertical-align: top!important;
+>>>>>>> Stashed changes
 }
-.table {
-  border-bottom: none !important;
+.table{
+    border-bottom: none !important;
 }
 .table-hover tbody tr:hover {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 .table td {
-  border: none !important;
-  padding: 0.3rem 0 !important;
-  vertical-align: top !important;
+    border: none !important;
+    padding: .3rem 0 !important;
+    vertical-align: top!important;
 }
-hr {
-  margin: 2.5rem 0 !important;
+hr{
+    margin: 2.5rem 0 !important;
 }
-.table-hover tbody tr:hover {
-  background: transparent !important;
+.table-hover tbody tr:hover{
+    background: transparent !important;
 }
 @media only screen and (max-width: 960px) {
-  .table thead th {
-    font-size: 1.2rem;
-  }
+    .table thead th {
+        font-size: 1.2rem;
+    }
 }
 @media only screen and (max-width: 576px) {
-  .table thead th {
-    font-size: 1rem;
-  }
+    .table thead th {
+        font-size: 1rem;
+    }
 }

@@ -14,22 +14,26 @@ public class Contract
 
 ## Attributes
 
-| | Name | description |
-| ---------------------------------------- | ---------------------------- | ---------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md) | Returns the scripthash of the contract |
+| Name | description |
+| ---------------------------- | ---------- |
+| [Script](Contract/Script.md) | Returns the scripthash of the contract |
+| HasStorage | Whether the contract contains the storage |
+| IsPayable | Whether the contract is able to accept assets |
+
+A standard nep-5 asset verifies the IsPayable function of the deposit address in the transfer method to determine whether the transfer can be performed.
 
 ## Methods
 
-| | Name | Description |
-| ---------------------------------------- | -------------------------------- | ------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `New` Publishes the contract    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `New` Migrates / renews the contract |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `New` Destroys the contract    |
+| Name | Description |
+| -------------------------------- | ------ |
+| [Call(byte[\] scriptHash, string method, object[] arguments)](Contract/Call.md) | Invokes the contract |
+| [CallEx(byte[\] scriptHash, string method, object[] arguments, CallFlags flag)](Contract/CallEx.md) | Invokes the contract by flag |
+| [Create(byte[] script, string manifest)](Contract/Create.md) | Creates a contract |
+| [Update(byte[] script, string manifest)](Contract/Update.md) | Updates the contract |
+| [Destroy()](Contract/Destroy.md)         | Destroys the contract    |
 
 ## Constructor
 
-The Contract object can be constructed through [Blockchain.GetContract(byte[])](Blockchain/GetContract.md).
+The Contract object can be constructed through [Blockchain.GetContract(byte[]) script_hash](Blockchain/GetContract.md).
 
-[Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) publishes the contract onto the blockchain and returns a Contract object.
-
-[Contract.Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) renews the contract and returns a Contract object.
+[Create(byte [] script, string manifest)](Contract/Create.md) publishes the contract onto the blockchain and returns a Contract object.

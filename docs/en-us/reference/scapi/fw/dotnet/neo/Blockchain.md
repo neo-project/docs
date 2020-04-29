@@ -14,19 +14,17 @@ public static class Blockchain
 
 ## Methods
 
-| | Name | Description |
-| ---------------------------------------- | ---------------------------------------- | -------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAccount(byte[])](Blockchain/GetAccount.md) | Returns an account (address) from the given scripthash |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetAsset(byte[])](Blockchain/GetAsset.md) | Returns an asset from the given asset ID         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(byte[])](Blockchain/GetBlock.md) | Returns a block from the given block hash      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBlock(uint)](Blockchain/GetBlock2.md) | Returns a block from the given block height          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetContract(byte[])](Blockchain/GetContract.md) | `New` Returns the contract contens from the given contract hash   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetHeader(byte[])](Blockchain/GetHeader.md) | Returns a block header from the given block hash     |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetHeader(uint)](Blockchain/GetHeader2.md) | Returns a block header from the given block height         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetHeight()](Blockchain/GetHeight.md)   | Returns the current block height             |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetTransaction(byte[])](Blockchain/GetTransaction.md) | Returns a transaction from the given transaction ID         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetValidators()](Blockchain/GetValidators.md) | `New` Returns the public keys of the validators       |
+| Name | Description |
+| ---------------------------------------- | -------------------- |
+| [GetBlock(byte[] hash)](Blockchain/GetBlock.md) | Returns a block from the given block hash      |
+| [GetBlock(uint height)](Blockchain/GetBlock2.md) | Returns a block from the given block height          |
+| [GetContract(byte[] script_hash)](Blockchain/GetContract.md) | Returns the contract contents from the given contract hash  |
+| [GetHeight()](Blockchain/GetHeight.md)   | Returns the current block height<br>Height = Index = Count - 1 |
+| [GetTransaction(byte[] hash)](Blockchain/GetTransaction.md) | Returns a transaction from the given transaction ID         |
+| [GetTransactionFromBlock(byte[] blockHash, int txIndex)](Blockchain/GetTransactionFromBlock.md) | Returns a transaction from the given block hash and transaction index |
+| [GetTransactionFromBlock(uint blockIndex, int txIndex)](Blockchain/GetTransactionFromBlock2.md) | Returns a transaction from the given block index and transaction index |
+| [GetTransactionHeight(byte[] hash)](Blockchain/GetTransactionHeight.md) | Returns the transaction height from the given block hash<br>Height = Index = Count - 1 |
 
 ## Constructor
 
-The BlockChain class is a static class and does not require a constructor.
+The Blockchain class is a static class and does not require a constructor.

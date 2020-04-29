@@ -31,7 +31,7 @@ dBFT 2.0算法包含6种共识消息：
 
 ### 三阶段共识流程
 
-![](../images/consensus/1.png)
+![](..\images\consensus\1.png)
 
 如图所示，一轮共识具有以下4个步骤：
 
@@ -45,13 +45,13 @@ dBFT 2.0算法包含6种共识消息：
 
 这里引入两个变量：
 
-![](../images/consensus/2.png) 
+![](..\images\consensus\2.png) 
 
 其中，*N*为共识节点的总数。
 
 常规情况的算法流程如下图所示。
 
-![](../images/consensus/3.png)
+![](..\images\consensus\3.png)
 
 ##### 1) 初始化本地共识信息
 
@@ -143,7 +143,7 @@ dBFT 2.0算法包含6种共识消息：
 
 #### 流程
 
-![](../images/consensus/8.png)
+![](..\images\consensus\8.png)
 
 1. 将超时时间设置为 2<sup>v+2</sup> * T<sub>block</sub>
 
@@ -161,7 +161,7 @@ dBFT 2.0算法包含6种共识消息：
 
 3. 检查已收到的Change View Request数目：若超过*M*个共识节点就更换视图达成共识，则改变本地视图，初始化本地共识信息，并根据新的视图编号确认下一轮议长
 
-![](../images/consensus/9.png)
+![](..\images\consensus\9.png)
 
 ### Recovery Request 消息
 
@@ -177,9 +177,9 @@ dBFT 2.0算法包含6种共识消息：
 
 - 本节点在本轮共识发送过Commit信息
 
-- 或编号在议员列表中在以下范围内：![](../images/consensus/7.png)，其中 *j* 为 Recovery Request 发起者的编号
+- 或编号在议员列表中在以下范围内：![](..\images\consensus\7.png)，其中 *j* 为 Recovery Request 发起者的编号
 
-![](../images/consensus/10.png)
+![](..\images\consensus\10.png)
 
 ### Recovery Message 消息
 
@@ -193,7 +193,7 @@ dBFT 2.0算法包含6种共识消息：
 
 #### 触发情景
 
-- 收到Recovery Request，且本节点发送过Commit信息，或编号在议员列表中在以下范围内：![](../images/consensus/7.png)，其中 *j* 为Recovery Request发起者的编号
+- 收到Recovery Request，且本节点发送过Commit信息，或编号在议员列表中在以下范围内：![](..\images\consensus\7.png)，其中 *j* 为Recovery Request发起者的编号
 
 - 收到Change View Request信息时，若信息的视图不大于本地视图，该信息作为Recovery Request处理
 
@@ -217,7 +217,7 @@ dBFT 2.0算法包含6种共识消息：
 
 4. 若信息的视图小于等于本地视图：处理信息中包含的Commit
 
-![](../images/consensus/11.png)
+![](..\images\consensus\11.png)
 
 Change View Request，Recovery Request和Recovery Message机制能够避免网络原因导致的超时，异常节点（作恶节点，故障节点等非正常共识节点）等问题带来的影响。
 

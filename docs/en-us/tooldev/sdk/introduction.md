@@ -1,65 +1,64 @@
-# About NEO SDK
+# About Neo RPC SDK
 
-You can use NEO SDK to develop various applications based on NEO, for example, wallet client, games, etc. With use of NEO SDK, your project can work in the existing environment without needing to move to NeoVM. For information about developing in NeoVM, refer to [Smart Contract](../../sc/gettingstarted/introduction.md).
+`Neo RPC SDK` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.
 
-This documentation is fully [open source](https://github.com/neo-project/docs). You can contribute to this project by any means, such as creating issues, writing articles and etc. Any contribution is welcome.
+This document is applicable to Neo3 preview2. It is recommended you use NEO SDK in conjunction with Visual Studio 2019.  
 
-The NEO SDK version used in later topics is 2.9.0. It is easier to use NEO SDK to develop applications in Visual Studio 2017.
+## Main features
 
-## Download
+- Built-in RPC invocation methods.
 
-1. In Visual Studio 2017, create a new project
-2. In Solution Explorer, right-click the project name and choose Manage NuGet Packages
-3. Select the Browse tab and search for NEO, select Neo package in the list, and select Install
+- Transaction construction, serialization and deserialization
 
-Alternatively, you can download [NuGet package](https://www.nuget.org/packages/Neo/2.7.1) and install it manually.
+- Script construction for smart contracts
 
-## Project Compositions
+- Easy-to-use wallet functions: transfer, balance inquiry, and GAS Claim method
 
-The complete NEO SDK consists of the following：
+## Adding reference
 
-**NEO SDK Major Projects：**
+1. In Visual Studio 2019, create a new .NET project
 
-NEO：https://github.com/neo-project/neo
+   > [!Note]
+   >
+   > The .NET version of the project cannot be earlier than the .NET version used by the Neo SDK.
 
-NeoVM：https://github.com/neo-project/neo-vm
+2. Right-click the project and select `Manage NuGet Packages`.
 
-**NEO SDK Dependencies：**
+3. Search for `Neo.Network.RPC.RpcClient` in the search box and install the plugin that appears.
 
-.NETFramework 4.7
+4. Add the following code to the desired project file header:
 
-- Akka (>= 1.3.8)
+   ```c#
+   using Neo.Network.RPC;
+   ```
 
-- Microsoft.AspNetCore.Server.Kestrel (>= 2.1.1)
+## Exception handing
 
-- Microsoft.AspNetCore.Server.Kestrel.Https (>= 2.1.1)
+`Neo RPC SDK` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:
 
-- Microsoft.AspNetCore.ResponseCompression (>= 2.1.1)
+- -100, "Unknown transaction" or "Unknown block"
+- -300, "Insufficient funds"
+- -301, "The transaction is failed because the necessary fee exceeds the Max_fee. Please increase your Max_fee value."
+- -400, "Access denied"
+- -500, Relay does not succeed, the detailed reasons contain "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
+- -32600, "Invalid Request"
+- -32601, "Method not found"
+- -32602, "Invalid params"
+- -32700, "Parse error"
 
-- Microsoft.AspNetCore.WebSockets (>= 2.1.1)
+Additionally, you may encounter other exceptions built in the .NET platform, such as  `ArgumentNullException` and `FormatException` when the parameters passed in are null or incorrectly formatted. Therefore, reasonable exception capture and prompts are required when using the SDK.
 
-- Microsoft.EntityFrameworkCore.Sqlite (>= 2.1.1)
+## Project repository
 
-- Microsoft.Extensions.Configuration.Json (>= 2.1.1)
+The Neo RPC SDK is a functional subset of the neo-modules project. For complete open source projects refer to:
 
-- System.Text.Encodings.Web (>= 4.5.0)
+Neo-modules：https://github.com/neo-project/neo-modules
 
-- Replicon.Cryptography.SCrypt (>= 1.1.6.13)
+Welcome to raise any problems you encountered in practice in the project issue list:
 
-.NETStandard 2.0
+https://github.com/neo-project/neo-modules/issues
 
-- Akka (>= 1.3.8)
+## What's next?
 
-- Microsoft.AspNetCore.ResponseCompression (>= 2.1.1)
+[RPC Invocation Methods](rpc.md)
 
-- Microsoft.AspNetCore.Server.Kestrel (>= 2.1.1)
-
-- Microsoft.AspNetCore.Server.Kestrel.Https (>= 2.1.1)
-
-- Microsoft.AspNetCore.WebSockets (>= 2.1.1)
-
-- Microsoft.EntityFrameworkCore.Sqlite (>= 2.1.1)
-
-- Microsoft.Extensions.Configuration.Json (>= 2.1.1)
-
-- System.Text.Encodings.Web (>= 4.5.0)

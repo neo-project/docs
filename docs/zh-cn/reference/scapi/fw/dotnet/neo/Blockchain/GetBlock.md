@@ -1,6 +1,6 @@
 # Blockchain.GetBlock 方法 (byte[])
 
-通过区块高度，在区块链中查找该区块。
+通过区块哈希，在区块链中查找该区块。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,17 +9,19 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.Block GetBlock(byte[] hash)
+public static extern Block GetBlock(byte[] hash)
 ```
 
-参数：区块 Hash，32字节的字节数组。
+参数：
+
+-  hash: 区块 Hash，32字节的字节数组。区块哈希使用小端序。
 
 返回值：区块，[Block](../Block.md) 类型。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {

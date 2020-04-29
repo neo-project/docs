@@ -1,16 +1,12 @@
 # Build a private chain on local host
 
-In this document we will introduce an easier way to build a private chain on a windows system computer.
+In this document we will introduce a simple way to build a private chain on a windows system computer.
 
 ## Installing Neo node
 
 Install Neo-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
 
 For more information refer to [Installation of Neo-CLI](../../node/cli/setup.md). 
-
-## Installing plug-in
-
-Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) to enable the consensus policy. The nodes cannot reach a consensus without the plug-in. For more information, refer to [Installing plug-ins](../../node/cli/setup.md).
 
 ## Creating wallet files
 
@@ -22,7 +18,7 @@ Make the following configurations in config.json of each node:
 
 - Specify the ports so that each port is not duplicated and is not occupied by other applications.
 - In "UnlockWallet" specify the wallet path and wallet password.
-- Set  StartConsensus and IsActive as true.
+- Set `StartConsensus` and `IsActive` as `true`.
 
 
 You can refer to the following example：
@@ -32,25 +28,20 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 10001,
-      "WsPort": 10002
-    },
-    "RPC": {
-      "Port": 10003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 10333,
+      "WsPort": 10334
     },
     "UnlockWallet": {
       "Path": "1.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -60,25 +51,20 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 20001,
-      "WsPort": 20002
-    },
-    "RPC": {
-      "Port": 20003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 20333,
+      "WsPort": 20334
     },
     "UnlockWallet": {
       "Path": "2.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -88,25 +74,20 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 30001,
-      "WsPort": 30002
-    },
-    "RPC": {
-      "Port": 30003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 30333,
+      "WsPort": 30334
     },
     "UnlockWallet": {
       "Path": "3.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -116,28 +97,27 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "ApplicationLogs": "ApplicationLogs_{0}"
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 40001,
-      "WsPort": 40002
-    },
-    "RPC": {
-      "Port": 40003,
-      "SslCert": "",
-      "SslCertPassword": ""
+      "Port": 40333,
+      "WsPort": 40334
     },
     "UnlockWallet": {
       "Path": "4.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
+
+> [!Note]
+>
+> If the plugin RpcServer is installed, you also need to modify the port numbers in the plugin config.json file to make them different from each other and from the ports in config.json of the node.
 
 ## Modifying protocol.json
 
@@ -155,27 +135,20 @@ You can refer to the following example：
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 123456,
-    "AddressVersion": 23,
-    "SecondsPerBlock": 15,
+    "Magic": 5195086,
+    "MillisecondsPerBlock": 15000,
     "StandbyValidators": [
-      "037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630d",
-      "03b34a4be80db4a38f62bb41d63f9b1cb664e5e0416c1ac39db605a8e30ef270cc",
-      "03cc384ca982168bf6f08922d27c8acc4357d52a7e8ad8281d4af6683e6f63e94d",
-      "03da4ed85a991134bf45592a5b04d6d71399f23a85843f43e6ac1a5d30f5473711"
+      "03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad",
+      "023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e",
+      "03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0",
+      "024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2"
     ],
     "SeedList": [
-      "localhost:10001",
-      "localhost:20001",
-      "localhost:30001",
-      "localhost:40001"
-    ],
-    "SystemFee": {
-      "EnrollmentTransaction": 10,
-      "IssueTransaction": 5,
-      "PublishTransaction": 5,
-      "RegisterTransaction": 100
-    }
+      "localhost:10333",
+      "localhost:20333",
+      "localhost:30333",
+      "localhost:40333"
+    ]
   }
 }
 ```
@@ -214,68 +187,52 @@ At this point the private chain has been set up. All the files  we modified are 
 
 ## Starting the private chain
 
-Enter each node directory and double-click `1Run.cmd`. When the consensus process goes as shown below, the private chain is set up successfully.
+Enter each node directory and double-click `1Run.cmd`. From one client input the command  `show state`, when the screen shows 3 nodes connected and block height is increasing as shown below, the private chain is set up successfully.
 
-![](../../assets/privatechain_demo.png)
+![](../../../zh-cn/assets/privatechain_demo.png)
 
 The private chain is terminated if you close all the windows. 
 
 ## Withdrawing NEO and GAS
 
-In the genesis block of the NEO network, 100 million NEOs are generated. Additionally, GAS is generated with the generation of new blocks. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-GUI or Neo-CLI, to facilitate your blockchain development and testing.
+In the genesis block of the NEO network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI for internal development and testing.
 
-### Withdrawing NEO and GAS using Neo-CLI
+### Creating multi-party signature addresses
 
-Here we want to use a normal node to connect to the private net and withdraw NEO and GAS.
+1. Start your private chain.
 
-#### Installing and configuring a normal node
+2. Open one wallet and create a multi-signature address using the command `import multisigaddress m pubkeys`:
 
-1. Copy any of the consensus node files and name it node0
-
-2. Configure the config.json file：
-
-   - make sure the port is not conflict with the ports of other four nodes.
-   - leave the parameters  `Path` and `Password` in UnlockWallet blank 
-   - set `StartConsensus` and `IsActive` back to `false`
-
-3. Copy all the four wallets files created in previous steps into the node0 root directory.
-
-4. Run node0 , open a wallet and enter `show state` to check the node state.
-
-   When the block height increases and the connected number is not 0, the node is successfully connected.
-
-   ![image](../../assets/privatechain_28_2.png)
-
-   > [!Note]
-   >
-   > One of the four consensus nodes must be closed for the normal node to connect to the private net. 
-
-#### Creating multi-party signature addresses
-
-1. Open a wallet from node0
-
-2. Create a multi-signature address using the command `import multisigaddress m pubkeys`:
-
-   - `m`: the minimal number of signatures needed to complete the transaction
+   - `m`: the minimal number of signatures needed to complete the transaction. 
    - `pubkeys`: the public keys in StandbyValidators in all consensus node wallets.
 
-   > [!Note]
-   >
-   > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
+   For example:
    
-3. Enter the command `list asset` and you can see 100 million NEO showing up.
+   ```
+   import multisigaddress 3 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad 023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e 03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0 024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2
+   ```
+   
+3. Repeat the last step to create multi-signature addresses in other 3 wallets.
 
-#### Transferring NEO to a normal address
+4. Enter the command `list asset` and you can see 100 million NEO and 30 million GAS displayed.
+
+   ![image](../../assets/privatechain_28.png)
+
+> [!Note]
+>
+> You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
+
+### Transferring NEO to a normal address
 
 Here we want to send NEO from the contract address to the normal address.
 
-1. Use the command `send <id|alias> <address> <value>` with the normal address of the wallet desired
+1. Open the wallet 1.json and input the command `send <id|alias> <address> <value>` with the normal address of the wallet desired
 
 2. Copy the SignatureContext and close the wallet.
 
    ![image](../../assets/privatechain_29.png)
 
-3. Open another wallet listed on the multi-signature
+3. Open another wallet (2.json) listed on the multi-signature
 
 4. Use the command `sign <jsonObjectToSign>` with the object copied in step 2
 
@@ -283,7 +240,7 @@ Here we want to send NEO from the contract address to the normal address.
 
    ![image](../../assets/privatechain_30.png)
 
-6. Repeat the previous steps the number of times put as minimal. Then you can use `relay <jsonObjectToSign>` and your wallet is ready.
+6. Repeat the previous steps in the third wallet 3.json. Then you can use `relay <jsonObjectToSign>` and your wallet is ready.
 
    ![image](../../assets/privatechain_31.png)
 
@@ -291,76 +248,4 @@ Here we want to send NEO from the contract address to the normal address.
 
    ![image](../../assets/privatechain_32.png)
 
-The GAS status becomes available as NEO is transferred. You can use the command `show gas` to check the claimable GAS amount. Then you can refer to the preceding steps to withdraw GAS from the multi-party signature address.
-
-### Withdrawing NEO and GAS using Neo-GUI
-
-#### Installing and configuring Neo-GUI
-
-1. Download  [Neo-GUI](https://github.com/neo-project/neo-gui/releases) from Github and extract the file.
-2. Configure the file protocol.json under the Neo-gui folder to connect the client to the private chain:
-   - `StandbyValidators`：enter the public keys of four wallets created before.
-   - `SeedList`：enter the four virtual machines IP addresses here and leave the port number as it is.
-3. Configure the file config.json to make sure the Neo-GUI port is not conflict with the ports of other four nodes. If using the same port, Neo-GUI cannot work as Neo-CLI is running.
-
-Start Neo-GUI and open any of the wallets, if you see the connection number in the lower left corner is not 0 and the client has been downloading the blocks, the client has been successfully connected to the private chain.
-
-#### Creating multi-party signature addresses
-
-From Neo-GUI, open four wallets in turn and do the following:
-
-1. Right-click on the blank area of account page, click `Create Contract Address` -> `Multi-Signature`.
-
-2. Enter the four public keys and set the minimum number of signatures to 3 (the number of consensus nodes/2 + 1). Click `Confirm`. 
-
-   ![image](../../assets/privatechain_12.png)
-
-3. Click Wallet -> Rebuild wallet index.
-
-   > [!Note]
-   >
-   > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully  .
-
-Now you should see the contract address has 100 million Neo shares.
-
-![image](../../assets/privatechain_14.png)
-
-#### Transferring NEO to a normal address
-
-Here we want to send the NEO from the contract address to the normal address. 
-
-1. From any of the four wallets, click `transaction`->`transfer` 
-
-2. Enter the recipient address and 100 million NEO as the transfer amount
-
-3. The system prompts you that there have not been enough signatures to complete the transaction. Copy the code to your clipboard.
-
-4. Open the second wallet, click `transaction`->`signature` and paste the code that you have just copied. 
-
-5. Click `signature` and copy the code. 
-
-6. Open the third wallet, click `transaction`->`signature` and paste the code that you have just copied. Click  `signature` . 
-
-   At this time you will notice a pop-up window that displays a `broadcast` button in the lower left corner, which means all the signatures required to send the transaction have been collected. 
-
-7. Click `broadcast`. 
-
-   Once the transfer transaction begins broadcasting it will take a while for successful remittance to the account.
-
-![image](../../assets/privatechain_20.png)
-
-#### Transferring GAS to a normal address
-
-Open the wallet you want to transfer GAS to and click `Advanced`->`Claim GAS`-> `Claim`. 
-
-> [!Note]
->
-> GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. Therefore you can transfer GAS to your own account to make them available.
-
-![image](../../assets/privatechain_21.png)
-
-The next operation is similar to the transfer of the NEO. Copy the code that has insufficient signatures, open the second wallet and the third wallet successively to complete transaction signing and broadcasting. 
-
-After successful extraction the GAS will enter the first standard address of the wallet (i.e. the top wallet address) where you initiated the extraction of the GAS, as shown.
-
-![image](../../assets/privatechain_26.png)
+Similarly, you can refer to the preceding steps to withdraw GAS from the multi-party signature address.

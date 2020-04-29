@@ -12,234 +12,101 @@
 
 ### 安装 Visual Studio 2019
 
-下载 [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装，注意安装时需要勾选 `.NET Core 跨平台开发` 。
+1. 下载 [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装。
 
-![3_install_core_cross_platform_development_toolset](assets/3_install_core_cross_platform_development_toolset.jpg)
+   注意安装时需要勾选 `.NET Core 跨平台开发` 和 `Visual Studio 扩展开发`。
+
+2. 安装 [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer) 以便接下来正确加载项目。
 
 ### 安装 NeoContractPlugin 插件
 
-打开 Visual Studio 2019，点击 `扩展` -> `管理扩展` ，在左侧点击 `联机` ，搜索 Neo，安装 NeoContractPlugin 插件（该过程需要联网）。
+> [!Note]
+>
+> 如果Visual Studio中安装了Neo2的NeoContractPlugin插件，需要先卸载才能安装Neo3的插件。
 
-![3_download_and_install_smart_contract_plugin](assets/3_download_and_install_smart_contract_plugin.jpg)
+1. 拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目，在Visual Studio中打开项目文件neo-devpack-dotnet.sln
+
+2. 在解决方案项目列表中右键单击 src/Installer，点击 `生成` 编译该项目。
+
+   成功编译后将在neo-devpack-dotnet-master\src\Installer\bin\Debug目录下生成 `Neo.SmartContract.Installer.vsix` 文件。
+
+3. 运行该文件，安装 NeoContractPlugin 并重启 Visual Studio。
 
 ### 配置编译器
 
-1. 在 Github 上拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目到本地并打开。
-2. 将 Git 分支切换为 `master-2.x`（master 分支为 Neo3 的编译器）。
-3. 发布 `Neo.Compiler.MSIL` 项目。
+1. 运行 Visual Studio，重新打开项目文件 neo-devpack-dotnet.sln
 
-4. 发布成功后，会在 ...\Neo.Compiler.MSIL\bin\Release\netcoreapp3.1\publish\ 目录下看到 `neon.exe` 文件。
+2. 在解决方案列表中右键单击 `Neo.Compiler.MSIL` ，选择 `发布`，将该项目发布到默认文件夹\bin\Release\netcoreapp3.1\publish
 
+3. 进入上一步的发布路径，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动，如下图所示：
 
-### 设置环境变量
+   ![neon](../assets/neon.png)
 
-接下来需要添加 path，让任何位置都能访问 neon.exe。方法如下：
+4. 将发布目录添加到环境变量 Path 中:
 
-1. 在 Windows10 上 按 Windows + S 键，输入环境变量，选择 `编辑系统环境变量` 
+   ![env](../assets/env.png)
 
-2. 选择 Path, 点击 `编辑`:
+5. 在任意位置启动 PowerShell，输入命令 `neon.exe` 确保环境变量已正确配置。
 
-3. 在弹出来的窗口中点击 `新建` 并输入你自己的 neon.exe 所在的文件夹目录，点击 `确定` 。
+### 编译智能合约框架
+
+1. 返回Visual Studio，在解决方案 `neo-devpack-dotnet` 项目列表中右键单击 `Neo.SmartContract.Framework`，点击 `生成` 编译该项目。
+2. 进入编译后的文件输出目录，复制 `Neo.SmartContract.Framework.dll` 备用。
+
+## 创建 NEP-5 合约项目
+
+### 创建项目
+
+1. 在 Visual Studio 中点击 `文件` -> `新建` -> `项目`。
+
+2. 在项目模板对话框中，搜索neocontract，选择C#对应的NeoContact，并根据向导完成项目创建。
+
+   ![neocontract](../assets/neocontract.png)
+
+3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用。
+
+4. 右键单击项目名 -> `粘贴`，将上一步复制的 `Neo.SmartContract.Framework.dll` 文件粘贴到NeoContract 项目下。
+
+5. 右键单击 `依赖项` -> `添加引用`，选择刚复制到该项目下的 `Neo.SmartContract.Framework.dll` 文件，将其添加到项目。
+
+### 编辑 NEP-5 代码
+
+创建项目后，会自动生成一个智能合约的代码模板，功能是向存储区存入 "Hello" "World" 的键值对。
+
+很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
+
+1. 从 Github 上下载 Neo3 的 [NEP5 示例](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs)。
+
+2. 在之前创建的合约项目里打开示例文件 Contract1.cs
+
+   示例中主要写了资产的基本信息和供调用的方法，你可以根据自己的需要增删或修改。
 
 > [!Note]
 >
-> 在环境变量中不要添加 “…… neon.exe” 字样的路径，要填写 neon.exe **所在的文件夹目录** 而非 neon.exe 本身的路径。
-
-添加完 path 后，运行 CMD 或者 PowerShell 测试一下（如果添加 path 前就已经启动了 CMD 则要关掉重启），输入 neon 后，没有报错，如图所示输出版本号的提示信息即表示环境变量配置成功。
-
-![3_1545037391347](assets/3_1545037391347.png)
-
-## 创建 Neo 合约项目
-
-完成以上步骤后，即可在 Visual Studio 中创建 Neo 智能合约项目（.NET Framework 版本任意）：
-
-1. 点击 `文件` -> `新建` -> `项目`。
-2. 在列表中选择 `NeoContract` 并进行必要设置后，点击 `确定`。
-
-![3_new_smart_contract_project](assets/3_new_smart_contract_project.png)
-
-创建项目后，会自动生成一个 C# 文件，默认的类继承于 SmartContract，如图，此刻你已经拥有一个 Hello World 了！
-
-![3_smart_contract_function_code](assets/3_smart_contract_function_code.png)
-
-当然这只是一个简单的向私有化存储区中以 key-value 方式存储数据的操作。
-
-## 编辑 NEP-5 代码
-
-很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，现在我们就在私链上一步步实现。
-
-1. 从 [Github](https://github.com/neo-project/examples)上下载 NEP5 示例。
-
-2. 在 Visual Studio 中创建一个 Neo 智能合约项目，这里命名为 NEP5。
-
-3. 打开示例文件 NEP5.cs
-
-   代码中主要写了资产的基本信息和供调用的方法，你可以根据自己的需要增删或修改。
-
-   > [!NOTE]
-   >
-   > 如果代码中有很多画红线的地方，提示找不到 Neo 命名空间，而且在项目的引用中有感叹号，可进行如下操作：
-   >
-   > 在 VS 中右击解决方案文件，点击 `管理 NuGet 程序包`，在新打开的页面中将 Neo.SmartContract.Framework 更新到最新稳定版。如果更新完之后依然存在红线，并且右侧 “引用” 中仍有个感叹号，可以尝试双击感叹号。如果仍然无法解决问题，可以尝试下面的办法：
-   >
-   > 1. 在 [这里](https://www.nuget.org/downloads) 下载 nuget.exe，然后将其复制到 NeoContract 项目的根目录。
-   > 2. 打开 Power Shell 或命令提示符（CMD）。
-   > 3. 转到 NeoContract 项目的根目录，运行 `nuget restore` 即可。
-
-4. 这里我们对示例文件进行一些修改：
-
-   - 设定资产总值和`deploy` 方法
-   - 将 "Owner" 替换成钱包 0.json 中的地址 （否则将无法使用钱包中的资产）
-
-   代码如下：
-
-```c#
-using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework.Services.System;
-using System;
-using System.ComponentModel;
-using System.Numerics;
-
-namespace NEP5
-{
-    public class NEP5 : SmartContract
-    {
-        [DisplayName("transfer")]
-        public static event Action<byte[], byte[], BigInteger> Transferred;
-
-        private static readonly byte[] Owner = "Ad1HKAATNmFT5buNgSxspbW68f4XVSssSw".ToScriptHash(); //Owner Address
-        private static readonly BigInteger TotalSupplyValue = 10000000000000000;
-
-        public static object Main(string method, object[] args)
-        {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                return Runtime.CheckWitness(Owner);
-            }
-            else if (Runtime.Trigger == TriggerType.Application)
-            {
-                var callscript = ExecutionEngine.CallingScriptHash;
-
-                if (method == "balanceOf") return BalanceOf((byte[])args[0]);
-
-                if (method == "decimals") return Decimals();
-
-                if (method == "deploy") return Deploy();
-
-                if (method == "name") return Name();
-
-                if (method == "symbol") return Symbol();
-
-                if (method == "supportedStandards") return SupportedStandards();
-
-                if (method == "totalSupply") return TotalSupply();
-
-                if (method == "transfer") return Transfer((byte[])args[0], (byte[])args[1], (BigInteger)args[2], callscript);
-            }
-            return false;
-        }
-
-        [DisplayName("balanceOf")]
-        public static BigInteger BalanceOf(byte[] account)
-        {
-            if (account.Length != 20)
-                throw new InvalidOperationException("The parameter account SHOULD be 20-byte addresses.");
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-            return asset.Get(account).AsBigInteger();
-        }
-        [DisplayName("decimals")]
-        public static byte Decimals() => 8;
-
-        private static bool IsPayable(byte[] to)
-        {
-            var c = Blockchain.GetContract(to);
-            return c == null || c.IsPayable;
-        }
-
-        [DisplayName("deploy")]
-        public static bool Deploy()
-        {
-            if (TotalSupply() != 0) return false;
-            StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-            contract.Put("totalSupply", TotalSupplyValue);
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-            asset.Put(Owner, TotalSupplyValue);
-            Transferred(null, Owner, TotalSupplyValue);
-            return true;
-        }
-
-        [DisplayName("name")]
-        public static string Name() => "GinoMo"; //name of the token
-
-        [DisplayName("symbol")]
-        public static string Symbol() => "GM"; //symbol of the token
-
-        [DisplayName("supportedStandards")]
-        public static string[] SupportedStandards() => new string[] { "NEP-5", "NEP-7", "NEP-10" };
-
-        [DisplayName("totalSupply")]
-        public static BigInteger TotalSupply()
-        {
-            StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-            return contract.Get("totalSupply").AsBigInteger();
-        }
-#if DEBUG
-        [DisplayName("transfer")] //Only for ABI file
-        public static bool Transfer(byte[] from, byte[] to, BigInteger amount) => true;
-#endif
-        //Methods of actual execution
-        private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] callscript)
-        {
-            //Check parameters
-            if (from.Length != 20 || to.Length != 20)
-                throw new InvalidOperationException("The parameters from and to SHOULD be 20-byte addresses.");
-            if (amount <= 0)
-                throw new InvalidOperationException("The parameter amount MUST be greater than 0.");
-            if (!IsPayable(to))
-                return false;
-            if (!Runtime.CheckWitness(from) && from.AsBigInteger() != callscript.AsBigInteger())
-                return false;
-            StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-            var fromAmount = asset.Get(from).AsBigInteger();
-            if (fromAmount < amount)
-                return false;
-            if (from == to)
-                return true;
-
-            //Reduce payer balances
-            if (fromAmount == amount)
-                asset.Delete(from);
-            else
-                asset.Put(from, fromAmount - amount);
-
-            //Increase the payee balance
-            var toAmount = asset.Get(to).AsBigInteger();
-            asset.Put(to, toAmount + amount);
-
-            Transferred(from, to, amount);
-            return true;
-        }
-    }
-}
-
-```
-
-编辑完之后，我们已经完成了一份智能合约的代码部分。
+> 相对于 Neo2 来说， Neo3 的 NEP-5 合约模板有以下改动：
+>
+> - 在智能合约类上方添加了自定义特性：
+>
+>   ```c#
+>   [Features(ContractFeatures.HasStorage)]
+>   public class NEP5 : SmartContract
+>   ……
+>   ```
+>
+> - 将所有的 `ToBigInteger()` 方法改为 `TryToBigInteger()`
+>
+> - 添加了Deploy 方法以供第一次分发资产，开发者可以根据需求自定义方法
+>
 
 ## 编译合约文件
 
-点击菜单栏上的 `生成`->`生成解决方案`（快捷键 Ctrl + Shift + B）开始编译程序。
+完成合约代码编写后，点击菜单栏上的 `生成` -> `生成解决方案`（快捷键 Ctrl + Shift + B）编译程序。
 
-![](assets/compile.png)
+编译成功后会在该项目的 `bin/Debug` 目录生成以下文件：
 
-编译成功后你会在该项目的 `bin/Debug` 目录下看到生成的 `NeoContract1.avm` 文件，该文件即是生成的 Neo 智能合约文件。
-
-![](assets/contractfile.png)
-
-`NeoContract1.abi.json` 是智能合约的描述文档，文档中对合约的 ScriptHash、入口、方法、参数、返回值等进行了描述。关于更多智能合约 ABI 的信息，可以参考 [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki)。
+- `NEP5.nef` ：与 Neo2 中的 .avm 文件类似，.nef 是 Neo3 的智能合约执行文件。
+- `NEP5.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
 
 ## 继续阅读
 
 [部署与调用合约](deploy.md)
-

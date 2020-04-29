@@ -1,6 +1,13 @@
 # Account 类
 
-表示账户的类，提供了查询余额的方法。这里的账户是指一个合约脚本的散列，也就是对应区块链中的一个地址。
+表示账户的类，提供了判断是否是标准账户的方法。这里的账户是指一个合约脚本的散列，也就是对应区块链中的一个地址。
+
+常见的账户类型有：
+
+- 标准账户：单方签名账户，也就是创建钱包时或在钱包中新建地址时生成的账户。
+
+- 多方签名账户：在 Neo-gui 或 Neo-cli 中创建的多方签名地址，由一组公钥和最少签名数组成。如 2 of 3 多方签名账户表示该账户由 3 个人管理，有 2 人同时签名时即可授权转账。
+
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -12,19 +19,9 @@
 public class Account
 ```
 
-## 属性
-
-|                                          | 名称                                  | 说明                 |
-| ---------------------------------------- | ----------------------------------- | ------------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](Account/ScriptHash.md) | 获得该合约账户的脚本散列       |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Votes](Account/Votes.md)           | 获得该合约账户投给其它人的的投票信息 |
-
 ## 方法
 
-|                                          | 名称                                       | 说明                  |
-| ---------------------------------------- | ---------------------------------------- | ------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBalance(byte[])](Account/GetBalance.md) | 通过资产 ID 获得该账户中这种资产的余额 |
+| 名称                                       | 说明                  |
+| ---------------------------------------- | ------------------- |
+| [IsStandard(byte[] scripthash)](Account/IsStandard.md) | 根据 scripthash 判断该合约是否是标准账户（单方签名账户） |
 
-## 构造方法
-
-通过 [Blockchain.GetAccount(byte[])](Blockchain/GetAccount.md) 来构造 Account 对象。

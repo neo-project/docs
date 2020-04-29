@@ -1,26 +1,50 @@
-# 安装
+# 安装 Neo-GUI
+
+Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，可在 Windows 10、macOS、Linux 系统上运行。
+
+其主要功能如下；
+
+- 查看与搜索区块链信息
+- 钱包基本操作，包括创建钱包、导入钱包、转账交易等
+- 部署与调用智能合约
+- 选举与投票共识节点
+
+## 下载与安装
+
+Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) 上下载对应系统版本的安装包，根据安装提示完成安装即可。
 
 > [!Note]
 >
-> 如无特别说明，本文中的描述均假设 Neo-GUI 运行在测试网。有关测试网与主网的切换，请参阅 [测试网](../../network/testnet.md)。
+> 请确认你的 Windows 系统已安装 [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
 
-## 下载与运行客户端
+## 连接网络
 
-客户端无需安装，进入[客户端下载](https://neo.org/download)页面，下载后直接运行 neo-gui.exe 即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们的技术人员联系。
+完成安装后，需要将Neo-GUI接入Neo测试网或搭建好的私链。
 
-> [!Note]
->
-> 客户端适应系统为： Windows 7 SP1 / Windows 8 / Windows 10。
->
-> 请确认你的 Windows 系统已安装 [.NET Framework 4.7.1](https://www.microsoft.com/net/download/framework) 。
+### 连接到测试网
 
-## 安装插件
+1. 启动Neo-GUI ，进入任意页面，点击左下角设置。
 
-要使客户端能够进行离线同步，需要安装 ImportBlocks 插件：
+2. 在**网络切换**中选择 `测试网`。
 
-1. 下载 [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) 插件并解压。
-2. 将解压出来的插件拷贝到Neo-GUI 根目录下。
+   ![](../assets/guinetwork.png)
 
-## 快速同步区块数据
+稍等片刻可以看到开始同步高度，表示成功接入网络。
 
-客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。
+### 连接到私链
+
+如果已经搭建好自己的私链（参见[搭建私链](../../network/private-chain/solo.md)），请按照以下操作进行：
+
+1. 复制私链对应的 config.json 和 protocol.json 文件
+
+   请确保 protocal.json 里 SeedList 配置的地址端口可以被本机访问到；
+
+2. 打开Neo-GUI安装目录下的 “resources\build-neo-node” 目录，找到 config.private.json 和 protocol.private.json 两个文件；
+
+3. 用步骤1私链的 config.json 和 protocol.json 内容分别替换 config.private.json 和 protocol.private.json 的内容；
+
+4. 启动 Neo-GUI ，进入任意页面，点击左下角`设置`。
+
+5. 在**网络切换**中选择 `私链`。
+
+稍等片刻可以看到开始同步高度，表示成功接入网络。

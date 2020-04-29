@@ -1,199 +1,164 @@
 # 交易
 
-NEO区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个NEO系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在NEO的P2P网络传输中，信息被打包成`InvPayload`信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x01`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x02`)和共识数据包(`InventoryType = 0xe0`)。
+Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个Neo系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成`InvPayload`信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x2b`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x2c`)和共识数据包(`InventoryType = 0x2d`)。
 
 ## 数据结构
 
-一笔普通交易的数据结构如下：
+在Neo网络中，所有的交易都使用同一种类型，其数据结构如下所示：
 
-| 字节数 | 字段 | 类型 | 描述 |
-|-----|-----|------|-------|
-| 1   | Type    | byte | 交易类型 |
-| 1 | Version | byte | 交易版本号，目前为0 |
-| ? | - | - | 特定交易的数据 |
-| ?*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |
-| 34*? | Inputs | tx_in[] | 输入 |
-| 60 * ? | Outputs | tx_out[] | 输出 |
-| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 |
+| 字段        | 类型    | 说明                              |
+|--------------|---------|------------------------------------------|
+| `version`    | byte   | 交易版本号，目前为0                    |
+| `nonce`    | uint   | 随机数                   |
+| `validUntilBlock`    | uint   |  交易的有效期                |
+| `sender`    | UInt160   | 发送方的地址脚本哈希                    |
+| `sysfee`    | long   | 支付给网络的资源费用     |
+| `netfee`    | long   | 支付给验证人打包交易的费用    |
+| `attributes` | TransactionAttribute[]   | 交易所具备的额外特性  |
+| `cosigners` | Cosigner[]   | 限制签名的作用范围  |
+| `script`     | byte[]   | 交易的合约脚本 |
+| `witnesses`  | Witness[]   | 用于验证交易的脚本列表    |
 
-### Input
+### version
+version属性允许对交易结构进行更新，使其具有向后兼容性。 目前版本为0。
+### sender
+由于Neo3弃用了UTXO模型，仅保留有账户余额模型。原生资产NEO和GAS的转账交易统一为NEP-5资产操作方式，因此交易结构中不再记录inputs和outputs字段，通过sender字段来跟踪交易的发送方。该字段是钱包中交易发起账户的地址哈希。
+### sysfee
+系统费用是根据NeoVM要执行的指令计算得出的费用，每一个指令所对应的费用，请参考[opcode 费用](../虚拟机#费用)。Neo3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
 
-Input数组中存放了每一个输入的信息。每笔交易中可以有多个Input，也可能没有Input。在之后会提到的MinerTransaction中Input就为空。Input的数据结构如下： 
+![](..\images\transaction\system_fee.png)
 
-| 字节数 | 字段 | 类型 | 描述 |
-|---|-------|------|------|
-| 32 | PrevHash | UInt256 | 被引用交易的散列值 |
-| 2 | PrevIndex | ushort | 被引用交易输出的索引 |
+其中，*OpcodeSet* 为指令集，𝑂𝑝𝑐𝑜𝑑𝑒𝑃𝑟𝑖𝑐𝑒<sub>𝑖</sub>为第 *i* 种指令的费用，𝑛<sub>𝑖</sub>为第 *i* 种指令在合约脚本中的执行次数。
+### netfee
+网络费是用户向Neo网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，用户支付的网络费需要大于或等于此基础值，否则交易无法通过验证。基础网络费计算公式如下所示：
 
-PrevHash和PrevIndex合起来就可以找到这个Input对应于哪个交易的第几个Output。从而Input和Output之间可以连接起来，构成了UTXO模型的基础。UTXO模型的具体信息请参见`UTXO模型`部分。
+![network fee](..\images\transaction\network_fee.png)
 
-### Output
+其中，*VerificationCost*为虚拟机验证交易签名执行的指令相对应的费用，*tx.Length*为交易数据的字节长度，*FeePerByte*为交易每字节的费用，目前为0.00001GAS。
 
-每个交易中最多只能包含 65536 个Output，代表资金转出。Output的数据结构如下：
+### attributes
+根据具体的交易类型允许向交易添加额外的属性。 对于每个属性，必须指定使用类型，以及外部数据和外部数据的大小。
 
-| 字节数 | 字段 | 类型 | 描述 |
-|---|-------|------|------|
-| 32 | AssetId | UIntBase | 资产Id |
-| ?  | Value | BigDecimal | 转账金额 |
-| 20 | ScriptHash | UInt160 | 地址，即账户地址或合约地址 |
+| 字段| 类型| 说明|
+|----------|-------|------------------------|
+| `usage`  | uint8 | 属性使用类型                  |
+| `data`   | byte[] |   交易待校验脚本   |
 
-### Attribute
+#### usage
+以下使用类型可以包括在交易的attributes中。
 
-| 字节数 | 字段 | 类型 | 描述 |
-|---|-------|------|------|
-| 1 | Usage | byte | 属性类型 |
-| 0\|1 | length | uint8 | 数据长度（特定情况下会省略） |
-| ? | Data | byte[length] | 特定用途的外部数据 |
+| 值    | 名称| 说明| 类型|
+|---------------|-------------|---------------|--------------|
+| `0x81`           | `Url`          | 外部介绍信息地址    | `byte`  |
 
-TransactionAttributeUsage，交易属性使用表数据结构如下：
+每个交易最多可以添加16个属性。
 
-| 字段 | 值 | 描述 |
-|-------|-----|----|
-| ContractHash | 0x00 | 外部合同的散列值 |
-| ECDH02 | 0x02 | 用于ECDH密钥交换的公钥，该公钥的第一个字节为0x02 |
-| ECDH03 | 0x03 | 用于ECDH密钥交换的公钥，该公钥的第一个字节为0x03 |
-| Script | 0x20 | 用于对交易进行额外的验证, 如股权类转账，存放收款人的脚本hash |
-| Vote | 0x30 |  |
-| DescriptionUrl | 0x81 | 外部介绍信息地址 |
-| Description | 0x90 | 简短的介绍信息 |
-| Hash1 - Hash15 | 0xa1-0xaf | 用于存放自定义的散列值 |
-| Remark-Remark15 | 0xf0-0xff | 备注 |
+### cosigners
 
-ContractHash、ECDH02-03、Vote和Hash1-15的数据长度固定为 32 字节，所以省略length字段。<br/>
-Script固定20字节，存放地址。<br/>
-DescriptionUrl必须明确给出数据长度，且长度不能超过 255字节。<br/>
-Description和Remark1-15，也必须明确给出数据长度，且最大存储不超过 65535字节。
+当前交易签名是全局有效的，为了让用户能更细粒度地控制签名的作用范围，Neo3中对交易结构中的cosigners字段进行了变更，可实现签名只限于验证指定合约的功能。当checkwitness用于交易验证时，除交易发送者sender外，其他的cosigners都需要定义其签名的作用范围。
 
-### Witness
+| 字段 | 说明|  类型|
+|--------------|------------------| --|
+| `Account`   | 账户脚本哈希  |  `UInt160` |
+| `Scopes` | 指定签名的作用范围   |  `WitnessScope` |
+| `AllowedContracts`  |  签名可验证的合约脚本数组   | `UInt160[]` |
+| `AllowedGroups` | 签名可验证的合约组公钥 | `ECPoint[]` |
 
-每笔交易(transaction，tx)对象在被放进block时，需经过数字签名，确保在后续传输和处理中能随时验证交易是否被篡改。Neo采用的ECDSA数字签名方法。交易的转帐转出方地址，为ECDSA签名时所用的公钥publicKey。Neo系统没有使用比特币中的SegWit，每笔交易都包含自己的Script.witness，而Script.Witness使用的是智能合约。
+#### Scopes
 
-见证人，实际上是可执行的验证脚本。`InvocationScript`脚本传递了`VerificationScript`脚本所需要的参数。只有当脚本执行返回真时，验证成功。
+Scopes字段定义了签名的作用范围，包括以下四种类型：
 
-| 字节数 | 字段 | 类型 | 描述 |
-|--|-------|------|------|
-| ?  | InvocationScript | byte[] |调用脚本，补全脚本参数 |
-| ?  | VerificationScript | byte[] | 验证脚本  |
-
-调用脚本进行压栈操作相关的指令，用于向验证脚本传递参数（如签名等）。脚本解释器会先执行调用脚本代码，然后再执行验证脚本代码。
-
-`Block.NextConsensus`所代表的多方签名脚本，填充签名参数后的可执行脚本，如下图所示，[`Opt.CHECKMULTISIG`](../neo_vm.md#checkmultisig) 在NVM内部执行时，完成对签名以及公钥之间的多方签名校验。
-
-[![nextconsensus_witness](../images/blockchain/nextconsensus_witness.jpg)](../../images/blockchain/nextconsensus_witness.jpg)
+| 值    | 名称| 说明| 类型|
+|---------------|-------------|---------------|--------------|
+| `0x00`           | `Global`          | 签名全局有效，Neo2的默认值，保证向后兼容性   | `byte`  |
+| `0x01`           | `CalledByEntry`          | 签名只限于由Entry脚本调用的合约脚本    | `byte`  |
+| `0x10`           | `CustomContracts`          | 签名只限于用户指定的合约脚本    | `byte`  |
+| `0x20`           | `CustomGroups`          | 签名对组内的合约有效    | `byte`  |
 
 
-## 交易类型
+### script
+虚拟机所执行的合约脚本。
+### witnesses
+witnesses属性用于验证交易的有效性和完整性。Witness即“见证人”， 包含两个属性。
 
-NEO 中一共定义了9种不同类型的交易，如下表所示。
+| 字段 | 说明|
+|--------------|------------------|
+| `InvocationScript`   | 执行脚本，向验证脚本传递参数      |
+| `VerificationScript` |验证脚本   |
 
-| 编号 | 类型名 | 值  | 系统费用(GAS) |  描述  |
-|------|--------|-----|----------|----------|
-|  1  | MinerTransaction | 0x00 | 0 | 块的第一条交易，用于分配字节费的交易 |
-|  2  | RegisterTransaction | 0x40 | 10000/0 | （已弃用）注册资产，仅用于NEO和GAS |
-|  3  | IssueTransaction | 0x01 | 500/0 |分发资产|
-|  4  | ClaimTransaction | 0x02 | 0 | 提取GAS |
-|  5  | StateTransaction | 0x90 | 1000/0 |申请见证人或共识节点投票|
-|  6  | EnrollmentTransaction | 0x20 | 1000 | (已弃用) 报名成为共识候选人 |
-|  7  | ContractTransaction | 0x80 | 0 | 合约交易，这是最常用的一种交易 |
-|  8  | PublishTransaction | 0xd0 | 500\*n | (已弃用) 智能合约发布 |
-|  9  | InvocationTransaction | 0xd1 | 具体的指令GAS消耗 | 调用合约，部署合约后或生成新资产之后会使用 |
+可以为每个交易添加多个见证人，也可以使用具有多方签名的见证人。
 
-关于详细的交易处理流程，请参见 [交易流程](tx_execution.md)。
+#### 执行脚本
 
-> [!NOTE]
+调用脚本可以通过以下步骤进行构造：
+
+1.	`0x0C`（PUSHDATA1）`0x40`后跟64字节长的签名
+
+通过重复这些步骤，调用脚本可以为多方签名合约推送多个签名。
+
+#### 验证脚本
+
+验证脚本，常见为地址脚本，包括普通地址脚本和多签地址脚本，该地址脚本可以从钱包账户中直接获取，其构造方式，请参考[钱包-地址](../wallets#地址)；
+
+也可以为自定义的鉴权合约脚本。
+
+## 交易序列化
+
+除IP地址和端口号外，Neo中所有变长的整数类型都使用小端序存储。交易序列化时将按以下字段顺序执行序列化操作：
+
+| 字段| 说明|
+|----------|------------|
+| `version`  | - |
+| `nonce`   | - |
+| `sender`   | - |
+| `systemFee`   | - |
+| `networkFee`   | -|
+| `validUntilBlock`   | - |
+| `attributes`   |需先序列化数组长度`WriteVarInt(length)`，之后再分别序列化数组各个元素 |
+| `cosigners`   | 需先序列化数组长度`WriteVarInt(length)`，之后再分别序列化数组各个元素 |
+| `script`   | 需先序列化数组长度`WriteVarInt(length)`，之后再序列化字节数组 |
+| `witnesses`   | 需先序列化数组长度`WriteVarInt(length)`之后再分别序列化数组各个元素 |
+
+
+> [!Note]
 >
-> 系统手续费： 不同的交易类型，不同的收费标准，设置在配置文件`protocol.json`中，最后分红给持有NEO用户。
->
-> 交易网络费： `NetworkFee = tx.inputs.GAS - tx.outputs.GAS - tx.SystemFee`， 共识过程中，对议长打包交易的奖励，存于共识新块的第一笔交易`MinerTransaction`中。交易的网络费设置得越高，越容易被打包。
+> WriteVarInt(value) 是根据value的值，存储非定长类型, 根据取值范围决定存储大小。
 
-## 如何使用交易
+| Value 值范围 | 存储类型 |
+|--------------------|--------------|
+| value < 0xFD | byte(value) |
+| value <= 0xFFFF | 0xFD + ushort(value) |
+| value <= 0xFFFFFFFF | 0xFE + uint(value) |
+| value > 0xFFFFFFFF | 0xFF + value |
 
-以上这9种交易并不能完成所有的功能实现，比如部署合约和生成NEO和GAS以外的NEP5新资产时，通过系统调用来完成，以InvocationTransaction交易的形式来将这个事情加入到区块链中。下面给出的创世块的生成例子，展示了使用提供的交易类型完成资产注册。
+## 交易签名
+交易签名是对交易本身的数据（不包含签名数据，即witnesses部分）进行ECDSA方法签名，然后填入交易体中的`witnesses`。
 
-### 例1：生成创始块
+交易数据结构示例，其中script与witnesses字段使用Base64替代原有的Hexstring编码：
 
-创世块（GenesisBlock）是默认已经定义在代码中不可修改的区块链的第一个区块，高度为0。在创世块中注册了NEO和GAS资产，并分发了NEO资产。注意，只有NEO和GAS是使用RegisterTransaction完成注册，其他全局资产和NEP5代币都是通过系统调用的方式生成。
+```Json
+{
+  "hash": "0x2b03f7a8db3649c9e2cb6d429dd358819b3fd536825d2a698e19de237583e60a",
+  "size": 57,
+  "version": 0,
+  "nonce": 0,
+  "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt",
+  "sys_fee": "0",
+  "net_fee": "0",
+  "valid_until_block": 0,
+  "attributes": [],
+  "cosigners": [],
+  "script": "aBI+f+g=",
+  "witnesses": [
+    {
+      "invocation": "",
+      "verification": "UQ=="
+    }
+  ],
+  "blockhash": "0x7d581e115ebe1c512eef985fd52d75336acb77826dafacc3281399a0e6204958",
+  "confirmations": 1,
+  "blocktime": 1468595301000,
+  "vmState": "HALT"
+}
+```
 
-创始块的区块头信息如下：
-
-| 尺寸 | 字段 | 名称  | 类型 | 值 |
-|----|-----|-------|------|------|
-|  4  | Version | 区块版本 | uint | `0` |
-| 32   | PrevHash | 上一个区块Hash | UInt256 |  `0x0000000000000000000000000000000000000000000000000000000000000000` |
-|  32  | MerkleRoot | Merkle树Root | uint256 |`0x803ff4abe3ea6533bcc0be574efa02f83ae8fdc651c879056b0d9be336c01bf4`  |
-| 4  | Timestamp |  创世时间 | uint | 创世时间为：`2016-07-15 23:08:21` |
-| 4   | Index | 创世块高度 | uint | `0` |
-|  8  | ConsensusData | Nonce | ulong | `2083236893`, 比特币创世块nonce值，向比特币致敬  |
-| 20  | NextConsensus | 下一个共识地址 | UInt160 | 参与下一轮出块的共识节点的多方签名合约地址   |
-| 1  | - | - | uint8 | 	固定为 1   |
-|  ?   | Witness | 见证人 |  Witness |  `0x51`, 代表`PUSHT`指令，返回永真 |
-|  ?\*? | **Transactions** | 交易 |  Transaction[] | 目前存了4笔交易， 见后续表 |
-
-第一笔交易，MinerTransaction，即“挖矿”交易。所有的block的第一笔交易，都必须是MinerTransaction。Neo中没有挖矿的概念，这里主要记录一个区块的网络费奖励。
-
-| 尺寸 | 字段 | 名称  | 类型 | 值 |
-|----|-----|-------|------|------|
-| 1   | Type    | uint8 | 交易类型 | `0x00` |
-| 1 | Version | uint8 |  交易版本号 | `0` |
-| 8 | Nonce | ulong | nonce  | `2083236893` |
-| ?\*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34\*? | Inputs | tx_in[] | 输入 | 空 |
-| 60\*? | Outputs | tx_out[] | 输出 | 空 |
-| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
-
-第二笔交易，RegisterTransaction，注册NEO代币
-
-| 尺寸 | 字段 | 名称  | 类型 | 值 |
-|----|-----|-------|------|------|
-| 1   | Type    | byte | 交易类型 | `0x40` |
-| 1 | Version | byte |  交易版本号 | `0` |
-| 1 | AssetType | byte | 资产类型  | `0x00` |
-| ? | Name | string | 资产名字  | `NEO` |
-| 8 | Amount | Fix8 | 总量  | `100000000` |
-| 1 | Precision | byte | 精度  | `0` |
-| ? | Owner | ECPoint | 所有者公钥  |  |
-| 32 | Admin | UInt160 | 管理者  | `0x51`.toScriptHash |
-| ?\*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34\*? | Inputs | tx_in[] | 输入 | 空 |
-| 60\*? | Outputs | tx_out[] | 输出 | 空 |
-| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
-
-`NEO`名称定义 = `[{"lang":"zh-CN","name":"小蚁股"},{"lang":"en","name":"AntShare"}]`
-
-第三笔交易，RegisterTransaction，注册GAS代币
-
-| 尺寸 | 字段 | 名称  | 类型 | 值 |
-|----|-----|-------|------|------|
-| 1   | Type    | byte | 交易类型 | `0x40` |
-| 1 | Version | byte |  交易版本号 | `0` |
-| 1 | AssetType | byte | 资产类型  | `0x01` |
-| ? | Name | string | 资产名字  | `GAS` |
-| 8 | Amount | Fix8 | 总量  | `100000000` |
-| 1 | Precision | byte | 精度  | `8` |
-| ? | Owner | ECPoint | 所有者公钥  | |
-| 32 | Admin | UInt160 | 管理者  | `0x00`.toScriptHash, 即 `OpCode.PUSHF`指令脚本 |
-| ?\*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34\*? | Inputs | tx_in[] | 输入 | 空 |
-| 60\*? | Outputs | tx_out[] | 输出 | 空 |
-| ?\*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | 空 |
-
-`GAS`名称定义 =  `[{"lang":"zh-CN","name":"小蚁币"},{"lang":"en","name":"AntCoin"}]`
-
-第四笔交易，IssueTransaction，发放NEO到合约地址
-
-| 尺寸 | 字段 | 名称  | 类型 | 值 |
-|----|-----|-------|------|------|
-| 1   | Type    | byte | 交易类型 | `0x01` |
-| 1 | Version | byte |  交易版本号 | `0` |
-| ?*? | Attributes | tx_attr[] | 该交易所具备的额外特性 |    空 |
-| 34*? | Inputs | tx_in[] | 输入 | 空 |
-| 60 * ? | Outputs | tx_out[] | 输出 | 有一笔output，见下表 |
-| ?*? | Scripts | Witness[] | 用于验证该交易的脚本列表 | `0x51`, 代表 `OpCode.PUSHT` |
-
-其中，Output定义了将所有的NEO代币，转移到共识节点多方签名合约地址上。而Scripts为空，表示交易因为是创世块交易，不需要再验证。
-
-| 尺寸 | 字段 | 名称  | 类型 | 值 |
-|----|-----|-------|------|------|
-| 1   | AssetId    | byte | 资产类型 | `0x00`， 即NEO代币 |
-| 8 | Value | Fix8 |  转账总量 | `100000000` |
-| 20 | ScriptHash | UInt160 |  收款脚本hash |  备用共识节点多方签名合约地址 |

@@ -66,7 +66,7 @@ for (int j = 0; j < 3; j++)
 
 ### C# char string 类型的支持
 
-不完全支持，由于在 NeoVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 AVM 的 string 实际是它的 UTF8 编码的 bytearray，请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
+不完全支持，由于在 NeoVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 AVM 的 string 实际是它的 UTF8 编码的 bytearray。仅支持声明字符串变量，不支持字符串类型的内置方法，如  `+`、`Contains`、`Replace`、`Trim`、`IndexOf` 等，也不支持任意类型的 `ToString()` 方法。所以请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
 
 尤其不要使用 string 处理中文。
 
@@ -84,6 +84,10 @@ var d = ss.Substring(1, 2);
 另外，由于没有其它类型格式化为 string 的支持，所以 `“abc”+1.ToString()` 与 C# 结果不同。
 
 char 类型作为整数支持。
+
+### C# switch 的支持
+
+支持 switch 语句和 [switch 表达式](https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-8#switch-expressions) 但需要注意 switch 语句中 case 的数量**不能超过 7 个**，否则调用时会报错（可编译通过）。如果 case 数量超过 7 个，建议改为 if 语句。
 
 ### C# class 和 结构体的支持
 
@@ -125,11 +129,11 @@ return some;
 
 ### C# 容器的支持
 
-不支持 C# 常用的 LIST Dictionary 容器。
+不支持 C# 常用的 List Dictionary 容器。
 
-LIST 功能可以用数组替代。
+List 功能可以用数组替代。
 
-Dictionary 功能可以用 NEO DOTNET DEVPACK 中的 MAP 替代。
+Dictionary 功能可以用 Neo Dotnet DevPack 中的 MAP 替代。
 
 ### C# 变量的支持
 
@@ -150,7 +154,7 @@ C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别�
 
  `public static event acall dododo;`
 
-调用这个事件则会被 Neo C# 编译器理解为调用 Notify 方法，可参考 NEP5 的通知事件。
+调用这个事件则会被 NEO C# 编译器理解为调用 Notify 方法，可参考 NEP5 的通知事件。
 
  另一个是可以将一个 bytearray 转型为一个委托：
 
@@ -158,11 +162,15 @@ C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别�
 
 这就实现了对一个指定地址的智能合约的调用，参考 NEP4。
 
+也支持 Action 等：
+
+`event Action<byte[], byte[], BigInteger> Transferred;`
+
 ## C# 开发约定
 
 ### C# 的导出要求
 
-Neo C# 编译器要求一个智能合约有且只有一个名为 Main 的 public static 函数作为入口点。
+NEO C# 编译器要求一个智能合约有且只有一个名为 Main 的 public static 函数作为入口点。
 
 其它要导出的函数都应该为 public static，且不可重名。
 
@@ -170,7 +178,7 @@ Neo C# 编译器要求一个智能合约有且只有一个名为 Main 的 public
 
 C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持。
 
-分别对应 Neo 智能合约的通知与 NEP4。
+分别对应 NEO 智能合约的通知与 NEP4。
 
 ### 内置特性
 
@@ -223,6 +231,10 @@ public extern static Delegate ToDelegate(this byte[] source);
 public extern static byte[] ToScriptHash(this string address);
 ```
 
-例如， `"ASH……wk".ToScriptHash();` 是合法的，因为编译器可以执行对 "ABCD" 的转换。
+例如， `"NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9".ToScriptHash();` 是合法的，因为编译器可以执行对 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 的转换。
 
-而 `String xxx = "ASH……wk"; xxx.ToScriptHash();` 是非法的，因为编译器无法确定 XXX 的值。
+而 `String address = "NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9"; address.ToScriptHash();` 是非法的，因为编译器无法确定 `address` 的值。
+
+### 其它已知 Bug
+
+如果使用 StorageMap，则 StorageMap 的声明必须在方法内（局部变量），不能写在方法外（全局变量），否则调用时会报错（可编译通过）。

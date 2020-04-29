@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-NeoVM is a lightweight virtual machine for executing Neo smart contracts. As the core component of Neo, NeoVM has Turing completeness and high consistency, which can implement arbitrary execution logic and ensure consistent execution results of any node in distributed network, providing strong support for decentralized applications. 
+NeoVM is a lightweight virtual machine for executing NEO smart contracts. As the core component of NEO, NeoVM has Turing completeness and high consistency, which can implement arbitrary execution logic and ensure consistent execution results of any node in distributed network, providing strong support for decentralized applications. 
 
 With the help of NeoCompiler, source code written in Java, C# or other high-level languages can be compiled into a unified NeoVM instruction set, thus achieving cross-platform. Also, it lowers the development threshold for enabling smart contract developers to participate in the application development in Neo ecosystem without learning a new development language. 
 
@@ -41,7 +41,7 @@ In addition, the interoperation service layer also supports custom extensions an
 
 ### Execution Process 
 
-Neo supports multi-language smart contract development. NeoCompiler compiles multi-language smart contracts into unified avm bytecode files, which are then decoded and executed by NeoVM. Cross-platform compatibility are achieved with multi-language compliers and virtual machines. 
+NEO supports multi-language smart contract development. NeoCompiler compiles multi-language smart contracts into unified avm bytecode files, which are then decoded and executed by NeoVM. Cross-platform compatibility are achieved with multi-language compliers and virtual machines. 
 
 A complete execution process is as follows: 
 

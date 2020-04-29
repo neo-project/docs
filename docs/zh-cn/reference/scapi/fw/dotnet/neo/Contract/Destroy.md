@@ -1,6 +1,6 @@
 # Contract.Destroy 方法 ()
 
-销毁智能合约。发布到区块链上的智能合约不能通过外部对其进行销毁，如果要销毁合约的话，需要在编写合约时编写其销毁的逻辑。
+销毁智能合约。发布到区块链上的智能合约不能通过外部对其进行销毁，如果要销毁合约的话，需要在编写合约时写入销毁的逻辑。
 
 当发生合约销毁时，旧合约的存储区会和合约一起被销毁，如果是合约迁移，那么旧存储区的内容会被复制到新合约的存储区中。
 
@@ -17,7 +17,7 @@ public static extern void Destroy()
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
@@ -25,7 +25,7 @@ public class Contract1 : FunctionCode
         var block = Blockchain.GetBlock(height);
         if(block.Timestamp > 1514736000) //北京时间2018-1-1
         {
-            Neo.SmartContract.Framework.Services.Neo.Contract.Destroy();
+            Contract.Destroy();
         }
     }
 }

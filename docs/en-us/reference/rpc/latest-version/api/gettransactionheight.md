@@ -1,12 +1,16 @@
-# gettransactionheight method
+﻿# gettransactionheight method
 
 Returns the block index in which the transaction is found.
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Txid: Transaction ID
+## Parameter Description
 
-#### Example
+txid: Transaction id.
+
+## Example
 
 Request body:
 
@@ -27,5 +31,5 @@ Response body:
     "id": 1,
     "result": 251488
 }
-```
 
+```

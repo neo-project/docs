@@ -1,10 +1,14 @@
-# getvalidators Method
+﻿# getvalidators Method
 
-Returns the current NEO consensus nodes information and voting status. 
+Returns the current NEO validators information and voting status. 
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Request body：
+## Example
+
+Request body:
 
 ```json
 {
@@ -15,7 +19,7 @@ Request body：
 }
 ```
 
-Response body：
+Response body:
 
 ```json
 {
@@ -71,4 +75,6 @@ Response body：
 }
 ```
 
-
+- publickey: Candidate's public key
+- votes: Candidate's votes
+- active: If true, the candidate is among validators; otherwise not.

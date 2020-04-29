@@ -6,7 +6,7 @@ Base58是一种将非可视字符与可视化字符(ASCII)相互转化的编解�
 
 Base58采用数字、大写字母、小写字母（去除歧义字符 0 (零), O (大写字母O), I (大写的字母i) and l (小写的字母L) ），总计58个字符作为编码的字母表。
 
-NEO使用的字母表为：**123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
+Neo使用的字母表为：**123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz**
 
 接口定义：
 

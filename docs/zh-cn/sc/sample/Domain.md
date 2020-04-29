@@ -1,34 +1,34 @@
-# Domain 示例
+# 智能合约示例——Domain（域名系统）
 
 ```c#
+using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
+using System.ComponentModel;
 
-namespace Neo.SmartContract
+namespace Domain
 {
-    public class Domain : Framework.SmartContract
+    [Features(ContractFeatures.HasStorage)]
+    public class Contract1 : SmartContract
     {
-        public static object Main(string operation, params object[] args)
+        public static object Main(string method, params object[] args)
         {
-            switch (operation)
+            return method switch
             {
-                case "query":
-                    return Query((string)args[0]);
-                case "register":
-                    return Register((string)args[0], (byte[])args[1]);
-                case "transfer":
-                    return Transfer((string)args[0], (byte[])args[1]);
-                case "delete":
-                    return Delete((string)args[0]);
-                default:
-                    return false;
-            }
+                "query" => Query((string)args[0]),
+                "register" => Register((string)args[0], (byte[])args[1]),
+                "transfer" => Transfer((string)args[0], (byte[])args[1]),
+                "delete" => Delete((string)args[0]),
+                _ => false,
+            };
         }
 
+        [DisplayName("query")]
         private static byte[] Query(string domain)
         {
             return Storage.Get(Storage.CurrentContext, domain);
         }
 
+        [DisplayName("register")]
         private static bool Register(string domain, byte[] owner)
         {
             if (!Runtime.CheckWitness(owner)) return false;
@@ -38,6 +38,7 @@ namespace Neo.SmartContract
             return true;
         }
 
+        [DisplayName("transfer")]
         private static bool Transfer(string domain, byte[] to)
         {
             if (!Runtime.CheckWitness(to)) return false;
@@ -48,6 +49,7 @@ namespace Neo.SmartContract
             return true;
         }
 
+        [DisplayName("delete")]
         private static bool Delete(string domain)
         {
             byte[] owner = Storage.Get(Storage.CurrentContext, domain);
@@ -64,4 +66,6 @@ namespace Neo.SmartContract
 
 上面的代码实现了对域名的查询、注册、转让、删除。
 
-最新代码可参考 [GitHub](https://github.com/neo-project/examples/blob/master/csharp/Domain/Domain.cs)。
+> [!Note]
+>
+> 请注意 Main 方法中的 switch。在智能合约中，switch 语句中 case 的数量不能超过 7 个，否则调用时会报错（可编译通过）。如果 case 数量超过 7 个，建议改为 if 语句。

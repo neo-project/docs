@@ -1,15 +1,11 @@
 # Smart Contract Example - HelloWorld
 
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
-namespace Neo.SmartContract
+public class HelloWorld : SmartContract
 {
-    public class HelloWorld : Framework.SmartContract
+    public static void Main()
     {
-        public static void Main()
-        {
-            Storage.Put(Storage.CurrentContext, "Hello", "World");
-        }
+        Storage.Put(Storage.CurrentContext, "Hello", "World");
     }
 }
 ```

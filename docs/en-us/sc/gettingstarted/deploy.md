@@ -1,50 +1,61 @@
 # Deploying and invoking contract
 
-Next we deploy the NEP-5 contract we have created previously.
+In the previous section we have compiled an NEP-5 contract file (NEP5.nef) and contract descriptive file (NEP5.manifest.json), next we will move on to deployment and invocation of the contract with Neo-CLI.
 
 ## Deploying contract
 
-We may use Neo-GUI to deploy the newly generated contract file.
+In Neo-CLI, input the deploy command  `deploy <nefFilePath> [manifestFile]` , for example:
 
-1. Open 0.json wallet file, click `advance` -> `deploy contracts`.
+```bash
+deploy NEP5.nef
+```
 
-2. Click `load` to select the compiled contract file in the contract deployment dialog.
+Or
 
-   Copy the contract script hash displayed under the code box for late use in contract invocation.
+```bash
+deploy NEP5.nef NEP5.manifest.json
+```
 
-3. Fill in the params in the information and meta data fields. Do not leave any parameter undefined, otherwise the `deploy` button won't function properly.
+After the command is executed, the NEP-5 contract is deployed and the related fee is charged by the system automatically.
 
-   - For NEP-5 asset contract, the argument is written as 0710 and the return value is 05. Detailed rules can be referred to  [Smart Contract Parameters and Return Values](../deploy/Parameter.md).
+```bash
+neo> deploy NEP5.nef
+Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+Gas: 3
 
-   - Check the box of `required to create a storage area` as according to NEP-5 standard, storage areas are used to maintain accounts.
+Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
+```
 
-   - No need to check ` require dynamic invocation` and `Payable`.
-
-4. After all the params are defined, click `deploy`.
-
-5. Click `trial run` in the popped up contract invocation interface. Double check and click `invoke`.
-
-   Contract deployment costs about 100-1000 GAS, which is further explained in [Fees](../fees.md). 
-
-Upon successful deployment, your smart contract is now released to the blockchain.
+For more information, refer to [Deploying Smart Contracts](../deploy/deploy.md)。
 
 ## Invoking contract
 
-Now you may invoke the smart contract released just recently.
+Now we can invoke the contract using the Neo-CLI command `invoke`:
 
-1. Click `advance` -> `contract call` -> `function call`。
+```bash
+invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
+```
 
-2. Paste the contract scripthash copied in the early step to `ScriptHash` and press search button. Relevant contract information will be displayed automatically.
+For example:
 
-3. Click `...` beside `arguments` to enter the edit interface.
+```bash
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+```
 
-4. Concerning the smart contract you wrote, [0] represents the function name while [1] the input param of the function (ignore if not exist). If you need to invoke deploy function and release the assets onto the chain, take the following steps: click [0], fill in "deploy" (all in lowercase letters) in the new value, click `update `and close the window.
+After executed successfully, the following information is printed：
 
-5. Click `trial run` to test the contract. If no error is spotted, click `invoke`, which may cost several GAS.
+```bash
+Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
+VM State: HALT
+Gas Consumed: 0.0103609
+Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 
-## Viewing contract assets
+relay tx(no|yes):
+```
 
-Click `advance`-> `options` in Neo-GUI and fill in the scripthash of the recently deployed assets. The NEP-5 assets will show up in your asset page.
+Where:
 
-You have successfully released a smart contract on Neo private chain. Congratulations!
+- VM State: `HALT` indicates the vm executed successfully;  `FAULT` indicates the vm exited during execution due to an exception.
+- Evaluation Stack: the result of contract execution, where the value is encoded with Base64 when it is a string or ByteArray.
 
+For more information, refer to [Invoking Smart Contracts](../deploy/invoke.md).

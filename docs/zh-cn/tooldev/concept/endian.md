@@ -1,29 +1,28 @@
 # 大小端序的使用
 
-NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码，只有在传输 IP 地址和端口号采用大端序 (Big Endian) 编码。
+Neo 系统中所有的整数类型都是采用小端序 (Little Endian) 编码，只有在传输 IP 地址和端口号采用大端序 (Big Endian) 编码。
 
-开发者在实际使用过程中，特别是通过SDK构造交易来转账或者调用合约的时候，需要正确使用钱包地址ScriptHash的大小端序格式，否则可能导致全局资产或者NEP5资产的丢失。
+开发者在实际使用过程中，特别是通过SDK构造交易来转账或者调用合约的时候，需要正确使用钱包地址ScriptHash的大小端序格式，否则可能导致资产的丢失。
 
 本文将结合几个常见的应用场景，介绍如何正确使用钱包地址或者合约ScriptHash的字节序格式。
 
 ## 地址和 ScriptHash
 ### 钱包地址的ScriptHash
-在NEO区块链中创建钱包时都会生成私钥、公钥、钱包地址以及对应的ScriptHash。
+在Neo区块链中创建钱包时都会生成私钥、公钥、钱包地址以及对应的ScriptHash。
 
 以下是一个钱包的标准地址和ScriptHash大小端序的示例： 
 
 - 地址 (address): AceQbAj2xuFLiH5hQAHMnV39wtmjUKiVRj
 - ScriptHash
-  - 大端序：0x 946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
+  - 大端序：0x946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - 小端序：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
 要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下一种方法:
 
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
-- NEO SDK，详情请参见 [常见数据类型转换](../sdk/conversion.md)
 
 ### 合约的ScriptHash
-每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。NEO的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收全局资产或者NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
+每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。Neo的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
 
 - CGas ScriptHash (大端序)：0x 74f2dc36a68fdc4682034178eb2220729231db76 
 
@@ -32,10 +31,10 @@ NEO 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
 ## 大小端序使用场景
 钱包地址的使用常见于全局资产转账交易和智能合约调用，这里我们主要针对这两个场景来介绍如何使用地址ScriptHash的字节序格式。
 ### 全局资产转账交易
-当使用NEO SDK构造全局资产转账交易(ContractTransaction)时, 需要为转账资产的接收人构造相应的Output。如下所示，需要在 TransactionOutput 中填写资产接收人的钱包地址所对应的ScriptHash, 这里应该使用**大端序**的格式：
+当使用Neo SDK构造全局资产转账交易(ContractTransaction)时, 需要为转账资产的接收人构造相应的Output。如下所示，需要在 TransactionOutput 中填写资产接收人的钱包地址所对应的ScriptHash, 这里应该使用**大端序**的格式：
 
 ```
-var outputs = new List<TransactionOutput>{ new TransactionOutput()
+var outputs = new List<TransferOutput>{ new TransferOutput()
 {
     AssetId = Blockchain.UtilityToken.Hash, //GAS对应的AssetId
     ScriptHash = "Ad1HKAATNmFT5buNgSxspbW68f4XVSssSw".ToScriptHash(), //地址对应的大端序ScriptHash
@@ -93,7 +92,7 @@ var outputs = new List<TransactionOutput>{ new TransactionOutput()
 #### 通过SDK构造调用合约的交易
 
 
-如果使用NEO-SDK构造InvocationTransaction，调用合约的执行脚本需要通过ScriptBuilder构造，这时应该使用**小端序**的地址ScriptHash作为参数。这里我们使用NEO-SDK JavaScript [neon-js](http://cityofzion.io/neon-js/en/)版本为例：
+如果使用Neo-SDK构造InvocationTransaction，调用合约的执行脚本需要通过ScriptBuilder构造，这时应该使用**小端序**的地址ScriptHash作为参数。这里我们使用Neo-SDK JavaScript [neon-js](http://cityofzion.io/neon-js/en/)版本为例：
 
 ```
 const { default: Neon, api, rpc, wallet, tx, u } = require("@cityofzion/neon-js");

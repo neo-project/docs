@@ -1,31 +1,36 @@
-# sendtoaddress Method
+﻿# sendtoaddress Method
 
 Transfers to the specified address.
 
 > [!Note]
 >
-> - You need to open the wallet in the Neo-CLI node before you execute this command.
-> - This method is provided by the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> Before you can invoke this method you must:
+>
+> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases) 
+> 2. Call the RPC method `openwallet` to open the wallet first.
 
-#### Parameters
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sendtoaddress",
+  "params": [asset_id,address,value],
+  "id": 1
+}
+```
 
-`Asset_id`: Asset ID (asset identifier), which is the transaction ID of the RegistTransaction when the asset is registered.
+## Parameter Description
 
-For NEO: c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+* asset_id： Asset ID (asset identifier),  the script hash of NEP-5 contract
 
-For GAS: 602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+  e.g. NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
 
-The remaining asset IDs can be queried through the `list asset` command in [CLI Command](../../../../node/cli/cli.md) or in the Block Chain Browser.
+  Gas is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
-`Address`: Payment address
+* address: Payment address
 
-`Value`: Amount transferred
+* value: Amount transferred
 
-`Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
-
-`Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
-
-#### Example
+## Example
 
 Request body:
 
@@ -33,7 +38,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendtoaddress",
-  "params": ["c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b", "AK4if54jXjSiJBs6jkfZjxAastauJtjjse", 1],
+  "params": ["0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b","NPJRHLjDm4r1wd8wHBGFRWqzsneFX9tBch", 5000],
   "id": 1
 }
 ```
@@ -41,41 +46,29 @@ Request body:
 Response body:
 
 ```json
-{
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
-        "size": 262,
-        "type": "ContractTransaction",
+        "hash": "0x09df034eee12224964ccc0c93fcfbfce8d922ab2b0b673388fd8951d2f25d5d9",
+        "size": 272,
         "version": 0,
+        "nonce": 760727272,
+        "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
+        "sys_fee": "100000000",
+        "net_fee": "1272390",
+        "valid_until_block": 2136389,
         "attributes": [],
-        "vin": [
+        "cosigners": [
             {
-                "txid": "0x9c20c13f6b05691efbfd7e420b0edf470f8a5ae467e1e7ca7e11243c9b9fc333",
-                "vout": 2
+                "account": "0x39e7394d6231aa09c097d02391d5d149f873f12b",
+                "scopes": "CalledByEntry"
             }
         ],
-        "vout": [
+        "script": "AwCIUmp0AAAADBQlJ1AGgA5zzGQoZ1OjpzJCJSHI5AwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5",
+        "witnesses": [
             {
-                "n": 0,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AK4if54jXjSiJBs6jkfZjxAastauJtjjse"
-            },
-            {
-                "n": 1,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "497",
-                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
-            }
-        ],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [
-            {
-                "invocation": "4059e40a2040fe43bf8a40230e1f136dcfe7b3ca37d492ac8d6439615f7b88601c8d9b8077cd0e4f8c9f402d10a2782945bfa50e0ed3f57f7cceebd2f792453eb0",
-                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
+                "invocation": "DEBPVJeyFAroQcgVtVi9qmbemtAV1cIIdivDELileXwlbNFanQqRXq9UV5CxHA5qQ/U7beaJcLdQBiAPIkvGXSdZ",
+                "verification": "DCEDucRsbVxnHvXCG8eqfDBGiusIGi44lSaa35R3GNZQzh4LQQqQatQ="
             }
         ]
     }
@@ -84,8 +77,8 @@ Response body:
 
 Response Description:
 
-Returning of the transaction details above, indicates that the transaction was sent successfully. If not, the transaction has failed to send.
+Returning of the transaction details above indicates that the transaction was sent successfully. If not, the transaction has failed to send.
 
-If the signature is incomplete, it will return the transaction to be signed.
+If the signature is incomplete, it returns the transaction to be signed.
 
-If the balance is insufficient, it will return an error message.
+If the balance is insufficient, it returns an error message.

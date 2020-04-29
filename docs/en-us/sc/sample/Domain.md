@@ -1,34 +1,34 @@
 # Smart Contract Example - Domain (Domain Name System)
 
 ```c#
+using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
+using System.ComponentModel;
 
-namespace Neo.SmartContract
+namespace Domain
 {
-    public class Domain : Framework.SmartContract
+    [Features(ContractFeatures.HasStorage)]
+    public class Contract1 : SmartContract
     {
-        public static object Main(string operation, params object[] args)
+        public static object Main(string method, params object[] args)
         {
-            switch (operation)
+            return method switch
             {
-                case "query":
-                    return Query((string)args[0]);
-                case "register":
-                    return Register((string)args[0], (byte[])args[1]);
-                case "transfer":
-                    return Transfer((string)args[0], (byte[])args[1]);
-                case "delete":
-                    return Delete((string)args[0]);
-                default:
-                    return false;
-            }
+                "query" => Query((string)args[0]),
+                "register" => Register((string)args[0], (byte[])args[1]),
+                "transfer" => Transfer((string)args[0], (byte[])args[1]),
+                "delete" => Delete((string)args[0]),
+                _ => false,
+            };
         }
 
+        [DisplayName("query")]
         private static byte[] Query(string domain)
         {
             return Storage.Get(Storage.CurrentContext, domain);
         }
 
+        [DisplayName("register")]
         private static bool Register(string domain, byte[] owner)
         {
             if (!Runtime.CheckWitness(owner)) return false;
@@ -38,6 +38,7 @@ namespace Neo.SmartContract
             return true;
         }
 
+        [DisplayName("transfer")]
         private static bool Transfer(string domain, byte[] to)
         {
             if (!Runtime.CheckWitness(to)) return false;
@@ -48,6 +49,7 @@ namespace Neo.SmartContract
             return true;
         }
 
+        [DisplayName("delete")]
         private static bool Delete(string domain)
         {
             byte[] owner = Storage.Get(Storage.CurrentContext, domain);
@@ -64,5 +66,7 @@ The contract implements a domain name system, where the domain names points to d
 
 The code above implements querying, registration, transfer and deletion of domain names.
 
-For the latest code, refer to [GitHub](https://github.com/neo-project/examples/blob/master/csharp/Domain/Domain.cs).
+> [!Note]
+>
+> Note the method switch in Main. In a smart contract the number of cases in the switch statement must not be more than 7, otherwise an error will occur when you invoke the contract, even if you can compile it without a issue. If the case number exceeds 7  it is recommended to change to an if statement.
 

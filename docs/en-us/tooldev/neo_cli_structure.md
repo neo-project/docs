@@ -1,22 +1,22 @@
-# NEO-CLI Structure
+# Neo-CLI Structure
 
-NEO is a blockchain system based on a peer-to-peer network. It provides a digital asset ledge based on the UTXO model and an execution environment for smart contracts based on the NEO virtual machine. This chapter describes the overall structure and basic behavior of the node program NEO-CLI in the network.
+NEO is a blockchain system based on a peer-to-peer network. It provides a digital asset ledge based on the UTXO model and an execution environment for smart contracts based on the NEO virtual machine. This chapter describes the overall structure and basic behavior of the node program Neo-CLI in the network.
 
 ## The Whole Network
 
 [![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
 
-Each node in the network runs a NEO-CLI program or a protocol-compatible program. Among them, the consensus nodes are involved in the consensus process. Non-consensus nodes are not involved in the consensus process. The consensus process will be described in subsequent chapters.
+Each node in the network runs a Neo-CLI program or a protocol-compatible program. Among them, the consensus nodes are involved in the consensus process. Non-consensus nodes are not involved in the consensus process. The consensus process will be described in subsequent chapters.
 
-## NEO-CLI
+## Neo-CLI
 
-The structure of NEO-CLI is shown below. (Some parts of structure may change due to version upgrade)
+The structure of Neo-CLI is shown below. (Some parts of structure may change due to version upgrade)
 
 [![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
 
-### NEO-CLI command line tools
+### Neo-CLI command line tools
 
-Neo-CLI is a command line program which provides basic functionality for interacting with the blockchain through the command line console. For more information, refer to [NEO-CLI command line tools](../node/cli/cli.md).
+Neo-CLI is a command line program which provides basic functionality for interacting with the blockchain through the command line console. For more information, refer to [Neo-CLI command line tools](../node/cli/cli.md).
 
 ### Ledger API
 
@@ -59,7 +59,7 @@ The ApplicationEngine is a layer of encapsulation of the NEO VM. The NEO VM is d
 
 ## Configuration files
 
-The node program NEO-CLI accesses the following configuration files during execution.
+The node program Neo-CLI accesses the following configuration files during execution.
 
  - **config.json** : Basic configuration file
  - **protocol.json** : Protocol configuration file
@@ -171,12 +171,12 @@ protocol.mainnet.json and protocol.testnet.json are two backup files that store 
 
 > [!NOTE]
 > 
-> - In NEO-CLI 2.7.6, a temporary file peers.dat was used to save IP addresses of known nodes, NEO-CLI 2.9.0+ no longer uses the file.
-> - If NEO-CLI meets an exception during execution and is terminated, the error's content will be written to a file (error.log) for debugging.
+> - In Neo-CLI 2.7.6, a temporary file peers.dat was used to save IP addresses of known nodes, Neo-CLI 2.9.0+ no longer uses the file.
+> - If Neo-CLI meets an exception during execution and is terminated, the error's content will be written to a file (error.log) for debugging.
 
 ## Brief startup process
 
-### NEO-CLI startup
+### Neo-CLI startup
 
 1. Initialize LevelDBStore and create or open the leveldb database.
 

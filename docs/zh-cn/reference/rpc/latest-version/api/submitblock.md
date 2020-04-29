@@ -1,12 +1,16 @@
 # submitblock 方法
 
-在 NEO 网络广播原始区块。 
+在 NEO 网络广播新的区块。
 
-#### 参数
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用 
+
+## 参数说明
 
 Hex: 序列化区块的十六进制字符串。
 
-#### 调用示例
+## 调用示例
 
 请求正文：
 
@@ -36,8 +40,8 @@ Hex: 序列化区块的十六进制字符串。
     "jsonrpc": "2.0",
     "id": 1,
     "error": {
-        "code": -501,
-        "message": "Block or transaction already exists and cannot be sent repeatedly."
+        "code": -500,
+        "message": "AlreadyExists"
     }
 }
 ```
@@ -46,11 +50,13 @@ Hex: 序列化区块的十六进制字符串。
 
 当结果为 false 时，区块广播失败并引发异常。可能返回以下错误代码：
 
-错误代码 | 信息 |
-| --------------- | ---- |
-| -501 | 区块或交易已经存在，不能重复发送。|
-| -502 | 内存池已满，不能发送更多交易。 |
-| -503 | 无法验证区块。 |
-| -504 | 区块或交易验证失败。 |
-| -505 | 某个策略筛选器失败。 |
-| -500 | 未知错误。
+| 错误代码 | 信息 | 注释 |
+| ------------ | ------------- | ------------- |
+| 500        | AlreadyExists | 重复交易 |
+|       | OutOfMemory | 交易数超出 Mempool 预设的最大容量|
+|       | UnableToVerify | 未知区块信息 |
+|       | Invalid | 不正确的格式或参数 |
+|       | Expired | 过期的区块信息 |
+|       | InsufficientFunds | 余额不足 |
+|       | PolicyFail | 不符合规则的行为（如 黑名单地址交易）|
+

@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public extern byte[] CallingScriptHash { get; }
+public static extern byte[] CallingScriptHash { get; }
 ```
 
 属性值：脚本散列，20 字节的字节数组。

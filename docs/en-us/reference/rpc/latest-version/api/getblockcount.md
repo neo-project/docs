@@ -1,8 +1,12 @@
-# getblockcount Method
+﻿# getblockcount Method
 
-Gets the number of blocks in the main chain.
+Gets the block count of the main chain.
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+## Example
 
 Request body:
 

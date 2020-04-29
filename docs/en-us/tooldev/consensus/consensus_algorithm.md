@@ -1,6 +1,6 @@
 # dBFT 2.0 Algorithm
 
-NEO proposes dBFT (delegated Byzantine Fault Tolerance) consensus algorithm based on the PBFT (Practical Byzantine Fault Tolerance) algorithm. The dBFT algorithm determines the next-consensus-round validators based on real-time blockchain voting, which effectively enhances the efficiency of the algorithm, and saves block time and transaction confirmation time. dBFT2.0, as an upgraded version, was released in March, 2019, which improves robustness and safety by introducing the 3-stage consensus mechanism as well as a recovery mechanism.
+Neo proposes dBFT (delegated Byzantine Fault Tolerance) consensus algorithm based on the PBFT (Practical Byzantine Fault Tolerance) algorithm. The dBFT algorithm determines the next-consensus-round validators based on real-time blockchain voting, which effectively enhances the efficiency of the algorithm, and saves block time and transaction confirmation time. dBFT2.0, as an upgraded version, was released in March, 2019, which improves robustness and safety by introducing the 3-stage consensus mechanism as well as a recovery mechanism.
 
 ## Terms
 
@@ -229,6 +229,6 @@ Consensus policy is used in the following scenarios:
 
 - Upon receiving transactions, the consensus module needs to verify whether these transactions satisfy the consensus policy, if not, it will attempt to change the view
 
-- Validator needs to filter transactions in its context upon enabling the consensus policy, only confirmed transactions can be added into the memory pool
+- The Validator needs to filter transactions in its context upon enabling the consensus policy, only confirmed transactions can be added into the memory pool
 
 - The speaker needs to select transactions from memory pool according to the consensus policy for new Prepare Request

@@ -1,12 +1,15 @@
 # getcontractstate 方法
 
 根据合约脚本散列，查询合约信息。
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 参数
+## 参数说明
 
 script_hash：合约脚本散列。
 
-#### 调用示例
+## 调用示例
 
 请求正文：
 
@@ -14,7 +17,7 @@ script_hash：合约脚本散列。
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
-  "params": ["dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f"],
+  "params": ["0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc"],
   "id": 1
 }
 ```
@@ -26,21 +29,102 @@ script_hash：合约脚本散列。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "version": 0,
-        "hash": "0xdc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f",
-        "script": "5fc56b6c766b00527ac46c766b51527ac46107576f6f6c6f6e676c766b52527ac403574e476c766b53527ac4006c766b54527ac4210354ae498221046c666efebbaee9bd0eb4823469c98e748494a92a71f346b1a6616c766b55527ac46c766b00c3066465706c6f79876c766b56527ac46c766b56c36416006c766b55c36165f2026c766b57527ac462d8016c766b55c36165d801616c766b00c30b746f74616c537570706c79876c766b58527ac46c766b58c36440006168164e656f2e53746f726167652e476574436f6e7465787406737570706c79617c680f4e656f2e53746f726167652e4765746c766b57527ac46270016c766b00c3046e616d65876c766b59527ac46c766b59c36412006c766b52c36c766b57527ac46247016c766b00c30673796d626f6c876c766b5a527ac46c766b5ac36412006c766b53c36c766b57527ac4621c016c766b00c308646563696d616c73876c766b5b527ac46c766b5bc36412006c766b54c36c766b57527ac462ef006c766b00c30962616c616e63654f66876c766b5c527ac46c766b5cc36440006168164e656f2e53746f726167652e476574436f6e746578746c766b51c351c3617c680f4e656f2e53746f726167652e4765746c766b57527ac46293006c766b51c300c36168184e656f2e52756e74696d652e436865636b5769746e657373009c6c766b5d527ac46c766b5dc3640e00006c766b57527ac46255006c766b00c3087472616e73666572876c766b5e527ac46c766b5ec3642c006c766b51c300c36c766b51c351c36c766b51c352c36165d40361527265c9016c766b57527ac4620e00006c766b57527ac46203006c766b57c3616c756653c56b6c766b00527ac4616168164e656f2e53746f726167652e476574436f6e746578746c766b00c3617c680f4e656f2e53746f726167652e4765746165700351936c766b51527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b51c361651103615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e7465787406737570706c79617c680f4e656f2e53746f726167652e4765746165f40251936c766b52527ac46168164e656f2e53746f726167652e476574436f6e7465787406737570706c796c766b52c361659302615272680f4e656f2e53746f726167652e50757461616c756653c56b6c766b00527ac461516c766b51527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b51c361654002615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e7465787406737570706c796c766b51c361650202615272680f4e656f2e53746f726167652e50757461516c766b52527ac46203006c766b52c3616c756659c56b6c766b00527ac46c766b51527ac46c766b52527ac4616168164e656f2e53746f726167652e476574436f6e746578746c766b00c3617c680f4e656f2e53746f726167652e4765746c766b53527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b51c3617c680f4e656f2e53746f726167652e4765746c766b54527ac46c766b53c3616576016c766b52c3946c766b55527ac46c766b54c3616560016c766b52c3936c766b56527ac46c766b55c300a2640d006c766b52c300a2620400006c766b57527ac46c766b57c364ec00616168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b55c36165d800615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e746578746c766b51c36c766b56c361659c00615272680f4e656f2e53746f726167652e5075746155c57600135472616e73666572205375636365737366756cc476516c766b00c3c476526c766b51c3c476536c766b52c3c476546168184e656f2e426c6f636b636861696e2e476574486569676874c46168124e656f2e52756e74696d652e4e6f7469667961516c766b58527ac4620e00006c766b58527ac46203006c766b58c3616c756653c56b6c766b00527ac4616c766b00c36c766b51527ac46c766b51c36c766b52527ac46203006c766b52c3616c756653c56b6c766b00527ac461516c766b00c36a527a527ac46c766b51c36c766b52527ac46203006c766b52c3616c7566",
-        "parameters": [
-            "ByteArray"
-        ],
-        "returntype": "ByteArray",
-        "name": "Woolong",
-        "code_version": "0.9.2",
-        "author": "lllwvlvwlll",
-        "email": "lllwvlvwlll@gmail.com",
-        "description": "GO NEO!!!",
-        "properties": {
-            "storage": true,
-            "dynamic_invoke": false
+        "hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
+        "script": "VgIMFCvxc/hJ0dWRI9CXwAmqMWJNOec5YAwHAADBb/KGI2FXEAIhIUHpfTigDAEgs3BoJykAAAAhIQwUK/Fz+EnR1ZEj0JfACaoxYk055zkhQfgn7IxxI14BAAAhQel9OKAMAUCzcmonRgEAACEhQTlTbjxzeAwJYmFsYW5jZU9ml3RsJxQAAAB5EM4hNSoBAABxIyIBAAB4DAhkZWNpbWFsc5d1bScRAAAAITVrAQAAcSMDAQAAeAwGZGVwbG95l3ZuJxEAAAAhNXMBAABxI+YAAAB4DARuYW1ll3cHbwcnEQAAACE1CQIAAHEjyQAAAHgMBnN5bWJvbJd3CG8IJxEAAAAhNfkBAABxI6oAAAB4DBJzdXBwb3J0ZWRTdGFuZGFyZHOXdwlvCScRAAAAITXUAQAAcSN/AAAAeAwLdG90YWxTdXBwbHmXdwpvCicRAAAAITXSAQAAcSNbAAAAeAwIdHJhbnNmZXKXdwtvCyc+AAAAIXnKE7MQs3cPbw8nDAAAABBxIy8AAAB5EM53DHkRzncNeRLOdw5vDG8Nbw4hUzWqAQAAcSMNAAAAIRBxIwUAAABpQFcCASF4ygwBFLMQs3BoJzwAAAAMMlRoZSBwYXJhbWV0ZXIgYWNjb3VudCBTSE9VTEQgYmUgMjAtYnl0ZSBhZGRyZXNzZXMuIUU3IUGb9mfOeCFQQZJd6DFxIwUAAABpQBhAVwIBIXghQanFS0FwaCcNAAAAaBLOIwYAAAARcSMFAAAAaUBXAgAhIUGb9mfODAt0b3RhbFN1cHBseSFQQZJd6DFwIUGb9mfOIQwUK/Fz+EnR1ZEj0JfACaoxYk055zkhDAcAAMFv8oYjIVNB5j8YhCEhQZv2Z84MC3RvdGFsU3VwcGx5IQwHAADBb/KGIyFTQeY/GIQhIQshDBQr8XP4SdHVkSPQl8AJqjFiTTnnOSEMBwAAwW/yhiMhUwwIVHJhbnNmZXIUwEGVAW9hIRFxIwUAAABpQAwMRGF5IERheSBUZXN0QAwDRERBQBPDShAMBU5FUC010EoRDAVORVAtN9BKEgwGTkVQLTEw0EBXAQAhIUGb9mfODAt0b3RhbFN1cHBseSFQQZJd6DFwIwUAAABoQFcKAyF6ELZyaicMAAAAEHMjUgEAAHghQfgn7IwQs3RsJwwAAAAQcyM7AQAAecoMARSzELN1bScMAAAAEHMjJQEAACFBm/ZnznghUEGSXegxcGh6tXZuJwwAAAAQcyMFAQAAeHmzdwdvBycMAAAAEXMj8gAAAGh6s3cIbwgnGQAAACFBm/ZnznghUEEvWMXtISMXAAAAIUGb9mfOeGh6nyFTQeY/GIQhIUGb9mfOeSFQQZJd6DFxadh3CW8JJz0AAAAhDAdpZiBwYXNzIUHP50eWISFBm/Znznl6IVNB5j8YhCEMCHB1dCBwYXNzIUHP50eWISEjTwAAACEMBGVsc2UhQc/nR5YhIUGb9mfOeWl6niFTQeY/GIQhDCB0b192YWx1ZS5Bc0JpZ0ludGVnZXIoKSArIGFtb3VudCFBz+dHliEhIXh5eiFTDAhUcmFuc2ZlchTAQZUBb2EhEXMjBQAAAGtA",
+        "manifest": {
+            "groups": [],
+            "features": {
+                "storage": true,
+                "payable": false
+            },
+            "abi": {
+                "hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
+                "entryPoint": {
+                    "name": "main",
+                    "parameters": [
+                        {
+                            "name": "method",
+                            "type": "String"
+                        },
+                        {
+                            "name": "args",
+                            "type": "Array"
+                        }
+                    ],
+                    "returnType": "ByteArray"
+                },
+                "methods": [
+                    {
+                        "name": "balanceOf",
+                        "parameters": [
+                            {
+                                "name": "account",
+                                "type": "ByteArray"
+                            }
+                        ],
+                        "returnType": "Integer"
+                    },
+                    {
+                        "name": "decimals",
+                        "parameters": [],
+                        "returnType": "Integer"
+                    },
+                    {
+                        "name": "deploy",
+                        "parameters": [],
+                        "returnType": "Boolean"
+                    },
+                    {
+                        "name": "name",
+                        "parameters": [],
+                        "returnType": "String"
+                    },
+                    {
+                        "name": "symbol",
+                        "parameters": [],
+                        "returnType": "String"
+                    },
+                    {
+                        "name": "supportedStandards",
+                        "parameters": [],
+                        "returnType": "Array"
+                    },
+                    {
+                        "name": "totalSupply",
+                        "parameters": [],
+                        "returnType": "Integer"
+                    }
+                ],
+                "events": [
+                    {
+                        "name": "Transfer",
+                        "parameters": [
+                            {
+                                "name": "arg1",
+                                "type": "ByteArray"
+                            },
+                            {
+                                "name": "arg2",
+                                "type": "ByteArray"
+                            },
+                            {
+                                "name": "arg3",
+                                "type": "Integer"
+                            }
+                        ],
+                        "returnType": "Signature"
+                    }
+                ]
+            },
+            "permissions": [
+                {
+                    "contract": "*",
+                    "methods": "*"
+                }
+            ],
+            "trusts": [],
+            "safeMethods": [],
+            "extra": null
         }
     }
 }

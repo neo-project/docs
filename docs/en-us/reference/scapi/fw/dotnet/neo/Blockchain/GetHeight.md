@@ -17,7 +17,7 @@ Return Value: Block height as an unsigned integer.
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract.Framework.SmartContract
 {
      public static void Main ()
      {

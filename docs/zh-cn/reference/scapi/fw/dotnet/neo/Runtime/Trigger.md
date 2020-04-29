@@ -1,6 +1,6 @@
 # Runtime.Trigger 属性
 
-获得该智能合约的触发器类型（鉴权合约 or 应用合约）。
+获得该智能合约的触发器类型。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern Neo.SmartContract.Framework.Services.Neo.TriggerType Trigger { get; }
+public static extern TriggerType Trigger { get; }
 ```
 
 属性值：[TriggerType](../TriggerType.md)。
@@ -30,7 +30,7 @@ public static bool Main()
 }
 ```
 
-详细示例可参考 [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs)。
+详细示例可参考 [Template](https://github.com/neo-project/examples/blob/master/csharp/ICO_Template/ICO_Template.cs)。
 
 
 

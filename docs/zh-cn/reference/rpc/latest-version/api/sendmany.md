@@ -4,37 +4,31 @@
 
 > [!Note]
 >
-> 执行此命令前需要：
->
-> -  在 NEO-CLI 节点中打开钱包。
-> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 参数
+## 参数说明
 
-`<outputs_array>[fee=0][change_address]`
+`[fromAddress]<outputs_array>`
+
+- fromAddress： 资产出金的地址（可选）
 
 - outputs_array：数组，数组中的每个元素的数据结构如下：
 
   `{"asset": <asset>,"value": <value>,"address": <address>}`
 
-  - asset：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
+  - asset_id：资产 ID，即 NEP-5 合约的脚本哈希
 
-    如 NEO 为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+	  如 NEO 为：0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
 
-    NeoGas 为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+	  Gas 为：0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 
-    其余资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
-
-  - value：转账金额。
+	- value：转账金额。
 
   - address：收款地址。
 
-- fee：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
 
-- change_address：找零地址，可选参数，默认为钱包中第一个标准地址。
-
-
-#### 调用示例
+## 调用示例
 
 请求正文：
 
@@ -43,16 +37,57 @@
     "jsonrpc": "2.0",
     "method": "sendmany",
     "params": [
+    "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
         [
             {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
                 "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             },
             {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 2,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 3,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 4,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 5,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 6,
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 7,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 8,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 9,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 10,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
             }
         ]
     ],
@@ -60,7 +95,7 @@
 }
 ```
 
-请求正文（包含手续费和找零地址）：
+请求正文（不包含 fromAddress）：
 
 ```json
 {
@@ -69,18 +104,56 @@
     "params": [
         [
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
                 "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             },
             {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 2,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 3,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 4,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "value": 5,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 6,
+                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 7,
+                "address": "NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 8,
+                "address": "NVQ3AGXWu84Vak9kYThsmunqQ8KnQVQwYJ"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 9,
+                "address": "NSyCA1Yfr1VhaTZouj89NG1GbY1LnRtTzq"
+            },
+            {
+                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "value": 10,
+                "address": "NUNbZcfzNK1ySGbQSWnGjL975DsLNRFFaz"
             }
-        ],
-        0,
-        "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+        ]
     ],
     "id": 1
 }
@@ -93,43 +166,26 @@
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0x55ba819b50f5821298328f3bf9bb17e088afc900cf2ad7dbfc03d49940b5cf30",
-        "size": 322,
-        "type": "ContractTransaction",
+        "hash": "0x69865f728e01fdf4edf7ffc6eb0e941d8b37386b14d67090265481d8f5724939",
+        "size": 1051,
         "version": 0,
+        "nonce": 714785378,
+        "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
+        "sys_fee": "100000000",
+        "net_fee": "2051390",
+        "valid_until_block": 2139412,
         "attributes": [],
-        "vin": [
+        "cosigners": [
             {
-                "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
-                "vout": 1
+                "account": "0x39e7394d6231aa09c097d02391d5d149f873f12b",
+                "scopes": "CalledByEntry"
             }
         ],
-        "vout": [
+        "script": "EQwUsLxLZL7i4j09Mt4CyqwYU/q7tAMMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSORIMFGrrXgextECiwxdOgQ0Zve+cztI4DBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUiXcg2M129PAKv6N8Dt2InCCP3ptBYn1bUjkTDBRoCBi7T1Agq1vEIqg53FXHfKCH0gwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFIl3INjNdvTwCr+jfA7diJwgj96bQWJ9W1I5FAwUTWT0gXNnLSRI/x1soZpHDS/ZPfYMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSORUMFFzKL+r9KeMwRX8nlSHSarTn6UreDBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUiXcg2M129PAKv6N8Dt2InCCP3ptBYn1bUjkCAEbDIwwUsLxLZL7i4j09Mt4CyqwYU/q7tAMMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBQ7fTcRxvDM+bHcqQPRv6HYlvEjjEFifVtSOQIAJ7kpDBRq614HsbRAosMXToENGb3vnM7SOAwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5AgAIry8MFGgIGLtPUCCrW8QiqDncVcd8oIfSDBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUO303EcbwzPmx3KkD0b+h2JbxI4xBYn1bUjkCAOmkNQwUTWT0gXNnLSRI/x1soZpHDS/ZPfYMFCvxc/hJ0dWRI9CXwAmqMWJNOec5E8AMCHRyYW5zZmVyDBQ7fTcRxvDM+bHcqQPRv6HYlvEjjEFifVtSOQIAypo7DBRcyi/q/SnjMEV/J5Uh0mq05+lK3gwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5",
+        "witnesses": [
             {
-                "n": 0,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "n": 1,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "n": 2,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "495",
-                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
-            }
-        ],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [
-            {
-               "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
-                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
+                "invocation": "DED2sAXuluMra/+ml/nsebVdjQFyRdJJxZUnXJve6hWoFs/HSjgFYqnZzQkNrJhVgJ9cjHqMX3qkd6A7xGyXpWql",
+                "verification": "DCEDucRsbVxnHvXCG8eqfDBGiusIGi44lSaa35R3GNZQzh4LQQqQatQ="
             }
         ]
     }
