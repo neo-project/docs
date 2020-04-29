@@ -10,9 +10,25 @@
 
 `ContractClient` 中提供了合约部署交易的构建方法 `CreateDeployContractTx`, 参数为合约脚本，manifest 和支付系统费和网络费的账户密钥对，其中合约脚本和 manifest 可通过编译获取，账户中需要有足够的 GAS 支付所需费用。
 
+读取合约 nef 和 manifest.json 文件：
+
+```C#
+// read nefFile & manifestFile
+NefFile nefFile;
+using (var stream = new BinaryReader(File.OpenRead(nefFilePath), Encoding.UTF8, false))
+{
+    nefFile = stream.ReadSerializable<NefFile>();
+}
+
+ContractManifest manifest = ContractManifest.Parse(File.ReadAllBytes(manifestFilePath));
+```
+
+构造发布合约的交易：
+
 ```c#
 // create the deploy contract transaction
-Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKey);
+byte[] script = nefFile.Script;
+Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKeyPair);
 ```
 
 交易构建后需要广播到链上:
@@ -53,16 +69,23 @@ namespace ConsoleApp1
             RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
             ContractClient contractClient = new ContractClient(client);
 
-            // contract script, it should be from compiled file, we use empty byte[] in this example
-            byte[] script = new byte[1];
+            string nefFilePath = "Test.nef";
+            string manifestFilePath = "Test.manifest.json";
 
-            // we use default ContractManifest in this example
-            ContractManifest manifest = ContractManifest.CreateDefault(script.ToScriptHash());
+            // read nefFile & manifestFile
+            NefFile nefFile;
+            using (var stream = new BinaryReader(File.OpenRead(nefFilePath), Encoding.UTF8, false))
+            {
+                nefFile = stream.ReadSerializable<NefFile>();
+            }
+
+            ContractManifest manifest = ContractManifest.Parse(File.ReadAllBytes(manifestFilePath));
 
             // deploying contract needs sender to pay the system fee
             KeyPair senderKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
 
             // create the deploy transaction
+            byte[] script = nefFile.Script;
             Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKey);
 
             // Broadcast the transaction over the Neo network
@@ -82,7 +105,7 @@ namespace ConsoleApp1
 
 ## 合约模拟调用
 
-`ContractClient`提供了`TestInvoke`方法来对合约进行模拟调用，执行后不会影响链上数据。可以直接调用读取信息的合约方法，比如下面的例子调用了NEO原生合约中的name方法
+`ContractClient` 提供了 `TestInvoke` 方法来对合约进行模拟调用，执行后不会影响链上数据。可以直接调用读取信息的合约方法，比如下面的例子调用了NEO原生合约中的name方法
 
 ```c#
 // choose a neo node with rpc opened
@@ -97,7 +120,7 @@ string name = contractClient.TestInvoke(scriptHash, "name")
     .Stack.Single().ToStackItem().GetString();
 ```
 
-或者使用`MakeScript`构造想要执行的脚本，再调用`InvokeScript`获取执行结果
+或者使用 `MakeScript` 构造想要执行的脚本，再调用 `InvokeScript` 获取执行结果
 
 ```c#
 // construct the script you want to run in test mode
@@ -112,7 +135,7 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
 
 1. 构建调用脚本
 
-    以调用原生合约NEO的`transfer`方法为例：
+    以调用原生合约 NEO 的 `transfer` 方法为例：
 
     ```c#
     // construct the script, in this example, we will transfer 1 NEO to receiver
@@ -161,7 +184,7 @@ Nep5API nep5API = new Nep5API(client);
 Transaction tx = nep5API.CreateTransferTx(scriptHash, sendKey, receiver, 1);
 ```
 
-此外`Nep5API`还提供了简单的读取方法：
+此外 `Nep5API` 还提供了简单的读取方法：
 
 ```c#
 // get nep5 name
