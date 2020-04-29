@@ -19,21 +19,9 @@ Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-
 
 ## 连接网络
 
-完成安装后，Neo-GUI默认连接到Neo3-Preview2测试网，同时也支持链接到搭建好的私链。
+完成安装后，Neo-GUI默认连接到Neo3-Preview2测试网。
 
-### 连接到测试网
-
-1. 启动Neo-GUI ，默认连接到Neo3-Preview2测试网，也可进入任意页面，点击左下角设置。
-
-2. 在**网络切换**中选择 `测试网`。
-
-   ![](../assets/guinetwork.png)
-
-关闭设置窗口，稍等片刻后区块开始同步高度，表示成功接入网络。
-
-### 连接到私链
-
-如果已经搭建好自己的私链（参见[搭建私链](../../network/private-chain/solo.md)），请按照以下操作进行：
+你也可以将Neo-GUI连接到搭建好的私链（参见[搭建私链](../../network/private-chain/solo.md)）。要连接到私链，请按照以下操作进行：
 
 1. 复制私链对应的 `config.json` 和 `protocol.json` 文件
 

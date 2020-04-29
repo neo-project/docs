@@ -8,22 +8,23 @@
 
 ## 报名成为候选人
 
-成为候选人后就可以根据投票数竞选成为共识节点，报名成为候选人需要花费一定的 GAS。参加选举需要必备一下条件：
+成为候选人后就可以根据投票数竞选成为共识节点，报名成为候选人需要花费一定的 GAS。参加选举需要具备以下条件：
 
-+ 需要打开钱包
++ 打开钱包
 + 钱包中有足够的GAS支付手续费（大约为6 GAS）
 
 要成为候选人：
 
 1. 在 Neo-GUI 主页面中点击`高级`-> `选举`。
 2. 选择参加选举的地址公钥，点击 `确定`。
-3. 如果`选举`交易发送成功，可以通过一下两种方式确定是否成功成为候选人
-   
-   + 可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看是否成功成为候选人，候选人公钥会显示在该 API 的响应正文中 （publickey）;
-   
-   + 可以在Neo-GUI的投票页面，查看自己的公钥有没有出息在候选人列表。
-   
-     ![](../assets/guiValidators.png)
+
+如果选举交易发送成功，可以通过以下一种方式确定是否成功成为候选人：
+
++ 使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看是否成功成为候选人，候选人公钥会显示在该 API 的响应正文中 （publickey）;
+
++ 在Neo-GUI的投票页面，查看自己的公钥有没有出现在候选人列表。
+
+  ![](../assets/guiValidators.png)
 
 ## 投票
 
@@ -36,5 +37,6 @@
 3. 在候选人框内输入要投票的候选人公钥
 4. 确认投票
 
-   + 投票成功后可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看候选人票数；
-   + 也可以等区块数据更新以后，在候选人列表查看票数是否成功累计；
+投票成功后可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看候选人票数；
+
+也可以等区块数据更新以后，在候选人列表查看票数是否成功累计。
