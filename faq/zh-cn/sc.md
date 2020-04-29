@@ -1,13 +1,5 @@
 # 智能合约
 
-## 为什么我发布 neon 时提示无法还原 NuGet 包？即使我尝试使用 Visual Studio 2017 进行还原，仍然会出现同样的错误。
-
-可根据以下步骤解决该问题：
-
-1. 在 [这里](https://www.nuget.org/downloads) 下载 nuget.exe，然后将其复制到 neo-compiler 项目的根目录。
-2. 打开 Power Shell 或命令提示符（CMD）。
-3. 转到 neo-compiler 根目录，运行 `nuget restore` 。
-
 ## 为什么我发布C#智能合约编译器失败？
 
 在发布C#智能合约编译器之前，请确认你进行了以下操作：
@@ -15,10 +7,6 @@
 - 已安装最新 .net core 2.1版本；
 - 使用 VS2017 发布时，选择目标为 win10-64;
 - 使用 VS2019 发布时，修改目标为 win10-64，并选择 “独立” 部署模式
-
-## 为什么我发布 neon 项目出现如下错误提示：无法复制文件”obj\Release\netcoreapp1.0\win10-x64\neon.dll“，原因是找不到该文件？
-
-这可能是 VS 2017 （如 15.4，15.5）的一个 Bug，此时需要手动将 `\obj\Release\netcoreapp1.0\neon.dll` 文件复制到 `\obj\Release\netcoreapp1.0\win10-x64\` 文件夹中，然后重新发布即可。
 
 ## 为什么我创建 NeoContract 项目后, 代码中有很多画红线的地方，提示找不到 Neo 命名空间，而且在项目的引用中有感叹号？
 
@@ -61,6 +49,6 @@ NEO 智能合约需要的 开发框架、编译器、NeoVM 版本要求一致。
 这是因为合约使用新的NEP-8 opcodes进行编译，不兼容旧的NEOVM opcodes。要解决这个问题，需要在兼容模式下编译合约：
 
 1. 发布 C# 编译器 neon.exe 添加其路径到环境变量
-2. 通过 Visual Studio 2017 编译并构建合约
+2. 通过 Visual Studio 2019 编译并构建合约
 3. 在兼容模式下编译合约，使用命令： `neon contract.dll --compatible`
 4. 编译成功后使用新生成的合约文件部署合约
