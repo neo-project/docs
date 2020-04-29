@@ -1,25 +1,25 @@
 # Big and Little Endian Usage
 
-All integer types in NEO are coded in little endian, except for cases when transfering IP address and port number, big endian are adopted.
+All integer types in Neo are coded in little endian, except for cases when transfering IP address and port number, big endian are adopted.
 In practical use,  especially when constructing transactions using SDK for transferring assets or invoking smart contracts, developers must correctly choose the big or little endian byte order, otherwise it may lead to the loss of assets.
 
 In this section, we will describe endianness usage of the wallet address and contract scripthash in some common scenarios.
 
 ## Address and ScriptHash
 ### The wallet address scripthash
-When creating a wallet in NEO blockchain, the private key, public key, wallet address, and related scripthash are generated.
+When creating a wallet in Neo blockchain, the private key, public key, wallet address, and related scripthash are generated.
 
 Let's look at a standard wallet address and corresponding scripthash strings in big and little endian formats beneath.
 
 - Address: AceQbAj2xuFLiH5hQAHMnV39wtmjUKiVRj
 - ScriptHash
-  - Big endian：0x 946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
+  - Big endian：0x946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - Little endian：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
 To convert between the wallet address and scripthash, or between big endian and little endian byte order, use one of the following:
 
 - [DataTransformationTools](https://peterlinx.github.io/DataTransformationTools/)
-- NEO SDK (See [Data Conversion](../sdk/conversion.md))
+- Neo SDK (See [Data Conversion](../sdk/conversion.md))
 
 ### The contract scripthash
 When a contract has been deployed a scripthash is generated as a unified identifier of the contract. The contract scripthash can be converted into the standard 20-byte address for receiving assets from transfer transactions. In that case the contract scripthash is used in big endian format. For example:
@@ -31,10 +31,10 @@ When a contract has been deployed a scripthash is generated as a unified identif
 ## Usage scenarios
 The wallet address is commonly used in the transaction of global assets transfer or smart contract invocation.
 ### Global assets transfer
-In the case that you construct a global asset transfer transaction (ContractTransaction) using NEO SDK, you need to construct related Output for the asset receiver. As shown below, you should fill in TransactionOutput with **big-endian** scripthash of the address receiving assets.
+In the case that you construct a global asset transfer transaction (ContractTransaction) using Neo SDK, you need to construct related Output for the asset receiver. As shown below, you should fill in TransactionOutput with **big-endian** scripthash of the address receiving assets.
 
 ```
-var outputs = new List<TransactionOutput>{ new TransactionOutput()
+var outputs = new List<TransferOutput>{ new TransferOutput()
 {
     AssetId = Blockchain.UtilityToken.Hash, //AssetId of GAS
     ScriptHash = "Ad1HKAATNmFT5buNgSxspbW68f4XVSssSw".ToScriptHash(), //The address scripthash is big endian
@@ -92,7 +92,7 @@ If data type is ByteArray, you should enter **little-endian** scripthash of the 
 #### Invoking contract through SDK
 
 
-In the case that you use NEO SDK to construct InvocationTransaction, you need to construct the execution script with ScriptBuilder to invoke the contract. As an example, here we use NEO-SDK JavaScript [neon-js](http://cityofzion.io/neon-js/en/), you should use **little-endian** scripthash of the wallet address：
+In the case that you use Neo SDK to construct InvocationTransaction, you need to construct the execution script with ScriptBuilder to invoke the contract. As an example, here we use Neo-SDK JavaScript [neon-js](http://cityofzion.io/neon-js/en/), you should use **little-endian** scripthash of the wallet address：
 
 ```
 const { default: Neon, api, rpc, wallet, tx, u } = require("@cityofzion/neon-js");

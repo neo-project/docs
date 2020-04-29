@@ -2,9 +2,10 @@
 
 The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee will be cancled in NEO3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
 
-![system fee](../../zh-cn/assets/system_fee.png)
 
-where OpcodeSet is opcode set, 𝑂𝑝𝑐𝑜𝑑𝑒𝑃𝑟𝑖𝑐𝑒𝑖 is the cost of opcode i, 𝑛𝑖 is the execution times of instruction i in the contract script.
+![](../../zh-cn/assets/system_fee.png)
+
+where OpcodeSet is opcode set, OpcodePrice<sub>i</sub> is the cost of opcode i, n<sub>i</sub> is the execution times of instruction i in the contract script.
 
 The fee of each interop service and instruction is shown in the table below.
 

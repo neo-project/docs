@@ -73,7 +73,7 @@ Download the plugins you need from the following table.
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/LevelDBStore.zip">LevelDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/LevelDBStore.zip">LevelDBStore</a>
             </td>
             <td>Uses LevelDB to store the blockchain data</td>
             <td></td>    
@@ -81,7 +81,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/RocksDBStore.zip">RocksDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RocksDBStore.zip">RocksDBStore</a>
             </td>
             <td>Uses RocksDBStore to store the blockchain data</td>
             <td></td>
@@ -89,32 +89,32 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/RpcServer.zip">RpcServer</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RpcServer.zip">RpcServer</a>
             </td>
             <td>Enables RPC for the node</td>
-            <td><a href="../../reference/rpc/latest-version/api.md"> RPC API </a></td>
+            <td><a href="../../reference/rpc/latest-version/api.html"> RPC API </a></td>
             <td>Mandatory</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>Synchronizes the smart contract log with the NativeContract log (Notify)</td>
-            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.md">getapplicationlog</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>Recommended</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.md">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.md">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
             <td>Recommended</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
@@ -122,7 +122,7 @@ Download the plugins you need from the following table.
         </tr>   
          <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/SystemLog.zip">SystemLog</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/SystemLog.zip">SystemLog</a>
             </td>
             <td>Prints the consensus log</td>
             <td></td>
@@ -141,7 +141,7 @@ It is easier to automatically install or uninstall the plugin using commands, fo
 
 ```
 neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/StatesDumper.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 

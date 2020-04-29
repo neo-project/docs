@@ -47,13 +47,13 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 
 4.  If the trial run goes smoothly and you want to invoke it on the blockchain, click `Invoke`.
 
-## Additional signature
+## Cosignature
 
-Some contracts require multiple signatures when invoked, one of which is the signature of the transaction initiator to support the fee, and the rest are additional signatures.
+Some contracts require multiple signatures when invoked, one of which is the signature of the transaction initiator to support the fee, and the rest are cosignatures.
 
 When writing a contract, we usually use `Runtime.CheckWitness (owner)` to authenticate the caller  address, where `owner` is the address allowed to be invoked, and the parameter type is `ByteArray`. Invoking the contract with an unspecified address will fail. For example, when updating a contract, the owner here is the contract administrator. When transferring assets, the owner here is the sender (payer).
 
-When `Runtime.CheckWitness (owner)` is written in the contract, the owner's signature must be passed in when you invoke the contract. This signature is an additional signature.
+When `Runtime.CheckWitness (owner)` is written in the contract, the owner's signature must be passed in as a cosignature when you invoke the contract. 
 
 In Neo-CLI, you can attach a signature using the invoke command.
 
@@ -61,7 +61,7 @@ In Neo-CLI, you can attach a signature using the invoke command.
 invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
 ```
 
-When invoking a contract in Neo-GUI, you can click `Additional Signature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  
+When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  
 
 > [!Note]
 >

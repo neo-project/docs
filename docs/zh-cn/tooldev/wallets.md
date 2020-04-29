@@ -1,8 +1,8 @@
 # 钱包
 
-钱包是NEO的基础组件，是用户接入NEO网络的载体，负责完成与之相关一系列的工作和任务。
+钱包是Neo的基础组件，是用户接入Neo网络的载体，负责完成与之相关一系列的工作和任务。
 
-NEO的钱包可以自行设计和修改，但需要满足一定的规则。
+Neo的钱包可以自行设计和修改，但需要满足一定的规则。
 
 ##  账户
 
@@ -36,7 +36,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 ### 公钥
 
-公钥是通过ECC算法将私钥运算得到的一个点（X, Y）。该点的X、Y坐标都可以用32字节数据表示。NEO与比特币稍有不同，NEO选取了secp256r1曲线作为其ECC算法的参数。在NEO中公钥有两种编码格式：
+公钥是通过ECC算法将私钥运算得到的一个点（X, Y）。该点的X、Y坐标都可以用32字节数据表示。Neo与比特币稍有不同，Neo选取了secp256r1曲线作为其ECC算法的参数。在Neo中公钥有两种编码格式：
 
 - 非压缩型公钥
 
@@ -60,7 +60,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 > [!Note]
 >
-> NEO3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
+> Neo3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
 
 #### 普通地址
 
@@ -358,7 +358,7 @@ Java示例代码：
 
 全节点钱包包含所有区块数据的备份，保存了所有链上数据，并且参与p2p网络通信，所以占用存储空间较大。
 
-NEO-CLI 和 NEO-GUI 都是全节点钱包，相关信息请参考 [NEO节点](../node/introduction.md)。
+Neo-CLI 和 Neo-GUI 都是全节点钱包，相关信息请参考 [Neo节点](../node/introduction.md)。
 
 ### SPV钱包
 

@@ -4,10 +4,6 @@
   items:
   - name: 节点介绍
     href: /v3/docs/zh-cn/node/introduction.md
-  - name: Neo-GUI
-    items:
-    - name: 介绍
-      href: /v3/docs/zh-cn/node/gui/temp.md
   - name: Neo-CLI
     items:
     - name: 安装
@@ -16,6 +12,18 @@
       href: /v3/docs/zh-cn/node/cli/config.md
     - name: 命令参考
       href: /v3/docs/zh-cn/node/cli/cli.md
+  - name: Neo-GUI
+    items:
+    - name: 安装
+      href: /v3/docs/zh-cn/node/gui/install.md
+    - name: 查看区块链
+      href: /v3/docs/zh-cn/node/gui/blockchain.md
+    - name: 钱包操作
+      href: /v3/docs/zh-cn/node/gui/wallet.md
+    - name: 合约
+      href: /v3/docs/zh-cn/node/gui/contract.md
+    - name: 高级功能
+      href: /v3/docs/zh-cn/node/gui/advanced.md
 - name: Neo 网络
   items:
   - name: 主网与测试网
@@ -53,10 +61,8 @@
       href: /v3/docs/zh-cn/sc/deploy/deploy.md
     - name: 调用合约
       href: /v3/docs/zh-cn/sc/deploy/invoke.md
-    - name: 参数和返回值
-      href: /v3/docs/zh-cn/sc/deploy/Parameter.md
   - name: 合约升级
-    href: /v3/docs/zh-cn/sc/update.md
+    href: /v3/docs/zh-cn/sc/migrate.md
   - name: 手续费
     href: /v3/docs/zh-cn/sc/fees.md
 - name: Neo工具开发
@@ -65,11 +71,7 @@
       - name: 区块
         href: /v3/docs/zh-cn/tooldev/concept/blockchain/block.md
       - name: 通证
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/token_model.md
-      - name: 账户与资产
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/account_asset.md
-      - name: 验证人
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/validator.md      
+        href: /v3/docs/zh-cn/tooldev/concept/blockchain/token_model.md  
     - name: 收费模型
       href: /v3/docs/zh-cn/tooldev/concept/charging_model.md
     - name: 密码学
@@ -94,8 +96,6 @@
   - name: 交易
     - name: 交易
       href: /v3/docs/zh-cn/tooldev/transaction/transaction.md
-    - name: 交易流程
-      href: /v3/docs/zh-cn/tooldev/transaction/tx_execution.md
   - name: Neo SDK
     items:
     - name: 关于 Neo RPC SDK

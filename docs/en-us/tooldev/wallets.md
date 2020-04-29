@@ -1,8 +1,8 @@
 # Wallets
 
-Wallets are basic components of NEO and the bridges for users to access NEO network. They are responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
+Wallets are basic components of Neo and the bridges for users to access Neo network. They are responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
 
-You can redesign and modify NEO wallets following your own thoughts, but the below rules and patterns must be followed.
+You can redesign and modify Neo wallets following your own thoughts, but the below rules and patterns must be followed.
 
 ## Accounts
 
@@ -14,7 +14,7 @@ In Neo, the account is the smart contract and the address represents a contract 
 
 A private key is a random value generated between 1 and n (n is a constant, less than 2^256 slightly), and is represented by a 256 bit (32 bytes) number generally.
 
-There are two main encoding formats for private keys in NEO:
+There are two main encoding formats for private keys in Neo:
 
 - Hexstring Format
 
@@ -36,7 +36,7 @@ There are two main encoding formats for private keys in NEO:
 
 ### Public Key
 
-The public key is a point (X, Y) calculated through the ECC algorithm with the private key. The X, Y coordinates can be represented by 32-byte data. Different from Bitcoin, NEO chooses secp256r1 as the curve of the ECC algorithm. There are two public key formats in NEO:
+The public key is a point (X, Y) calculated through the ECC algorithm with the private key. The X, Y coordinates can be represented by 32-byte data. Different from Bitcoin, Neo chooses secp256r1 as the curve of the ECC algorithm. There are two public key formats in Neo:
 
 - Uncompressed Public Key
 
@@ -56,11 +56,11 @@ Example:
 
 ### Address
 
-Address is a string of numbers and letters after a series of transformations of the public key. This section will describes the steps of conversion from a public key to an address in NEO.
+Address is a string of numbers and letters after a series of transformations of the public key. This section will describes the steps of conversion from a public key to an address in Neo.
 
 > [!Note]
 >
-> The address script in NEO3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` instead.
+> The address script in Neo3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` instead.
 
 #### Ordinary Address
 
@@ -74,7 +74,7 @@ Address is a string of numbers and letters after a series of transformations of 
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
 
-3. Add the version prefix in the hash (Currently, the NEO version is `0x53`).
+3. Add the version prefix in the hash (Currently, the Neo version is `0x53`).
 
 4. Make Base58Check encoding for the above byte data.
 
@@ -99,7 +99,7 @@ Example：
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script).
 
-3. Add the version prefix in the hash. (Currently, the NEO version is `0x53`)
+3. Add the version prefix in the hash. (Currently, the Neo version is `0x53`)
 
 4. Make Base58Check encoding for the above byte data.
 
@@ -268,7 +268,7 @@ An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and
 
 8. Get the public key from the private key with ECC algorithm, and then get the address. Check whether the first four bytes of the result of `SHA256(SHA256(Address))` is equal to the `addresshash`. If it's the same, then you get the correct private key
 
-More details about NEP2 and NEP6 proposals are in the NEO document.
+More details about NEP2 and NEP6 proposals are in the Neo document.
 
 NEP2 proposal: <https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki>
 
@@ -358,7 +358,7 @@ Example:
 
 The full-node wallet is a complete backup of blockchain data, which saves all the onchain data and participates in p2p network, therefore it needs a large storage space.
 
-NEO-CLI and NEO-GUI are all full-node wallet. For more information refer to [NEO node](../node/introduction.md).
+Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo node](../node/introduction.md).
 
 ### SPV wallet
 

@@ -4,10 +4,6 @@
   items:
   - name: Introduction
     href: /v3/docs/en-us/node/introduction.md
-  - name: Neo-GUI
-    items:
-    - name: Introduction
-      href: /v3/docs/en-us/node/gui/temp.md
   - name: Neo-CLI
     items:
     - name: Installation
@@ -16,6 +12,18 @@
       href: /v3/docs/en-us/node/cli/config.md
     - name: Command Line
       href: /v3/docs/en-us/node/cli/cli.md
+  - name: Neo-GUI
+    items:
+    - name: Installation
+      href: /v3/docs/en-us/node/gui/install.md
+    - name: Blockchain
+      href: /v3/docs/en-us/node/gui/blockchain.md
+    - name: Wallet
+      href: /v3/docs/en-us/node/gui/wallet.md
+    - name: Contract
+      href: /v3/docs/en-us/node/gui/contract.md
+    - name: Advanced Functions
+      href: /v3/docs/en-us/node/gui/advanced.md
 - name: Neo Network
   items:
   - name: Main Net and Test Net
@@ -30,8 +38,6 @@
   items:
   - name: Getting Started (C#)
     items:
-    - name: Introduction
-      href: /v3/docs/en-us/sc/gettingstarted/introduction.md
     - name: Before You Begin
       href: /v3/docs/en-us/sc/gettingstarted/prerequisites.md
     - name: Setting up local network
@@ -53,10 +59,6 @@
       href: /v3/docs/en-us/sc/deploy/deploy.md
     - name: Invoking Smart Contracts
       href: /v3/docs/en-us/sc/deploy/invoke.md
-    - name: Parameters and Return Values
-      href: /v3/docs/en-us/sc/deploy/Parameter.md
-  - name: Testing
-    href: /v3/docs/en-us/sc/test.md
   - name: Contract Migration and Destruction
     href: /v3/docs/en-us/sc/migrate.md
   - name: Fees
@@ -68,10 +70,6 @@
         href: /v3/docs/en-us/tooldev/concept/blockchain/block.md
       - name: Tokens
         href: /v3/docs/en-us/tooldev/concept/blockchain/token_model.md
-      - name: Account and Asset
-        href: /v3/docs/en-us/tooldev/concept/blockchain/account_asset.md
-      - name: Validator
-        href: /v3/docs/en-us/tooldev/concept/blockchain/validator.md      
     - name: Charging Model
       href: /v3/docs/en-us/tooldev/concept/charging_model.md
     - name: Cryptography
@@ -89,39 +87,39 @@
       href: /v3/docs/en-us/tooldev/consensus/consensus_algorithm.md
     - name: Consensus Protocol
       href: /v3/docs/en-us/tooldev/consensus/consensus_protocol.md
-    - name: Vote
+    - name: Election
       href: /v3/docs/en-us/tooldev/consensus/vote_validator.md
   - name: Wallet
     href: /v3/docs/en-us/tooldev/wallets.md
   - name: Transaction
     - name: Transaction
       href: /v3/docs/en-us/tooldev/transaction/transaction.md
-    - name: Transaction Process
-      href: /v3/docs/en-us/tooldev/transaction/tx_execution.md
   - name: Neo SDK
     items:
     - name: About Neo SDK
       href: /v3/docs/en-us/tooldev/sdk/introduction.md
-    - name: Data Conversion
-      href: /v3/docs/en-us/tooldev/sdk/conversion.md
-    - name: Account
-      href: /v3/docs/en-us/tooldev/sdk/account.md
-    - name: Wallet
+    - name: RPC Invocation Methods
+      href: /v3/docs/en-us/tooldev/sdk/rpc.md
+    - name: Getting Blockchain Information
+      href: /v3/docs/en-us/tooldev/sdk/monitor.md
+    - name: Wallet Interfaces
       href: /v3/docs/en-us/tooldev/sdk/wallet.md
     - name: Transaction Construction
-      href: /v3/docs/en-us/tooldev/sdk/tx.md
+      href: /v3/docs/en-us/tooldev/sdk/transaction.md
+    - name: Deploying and Invoking Contracts
+      href: /v3/docs/en-us/tooldev/sdk/contract.md
 - name: Document for Exchange Developers
   items:
   - name: Overview
     href:  /v3/docs/en-us/exchange/general.md
   - name: Deploying Neo nodes
-    href: /v3/docs/en-us/exchange/2.10.3/deploynode.md
+    href: /v3/docs/en-us/exchange/deploynode.md
   - name: Using Neo-CLI
-    href: /v3/docs/en-us/exchange/2.10.3/client.md
+    href: /v3/docs/en-us/exchange/client.md
   - name: Dealing with assets transactions
-    href: /v3/docs/en-us/exchange/2.10.3/transaction.md
+    href: /v3/docs/en-us/exchange/transaction.md
   - name: Distributing GAS to users
-    href: /v3/docs/en-us/exchange/2.10.3/gas.md 
+    href: /v3/docs/en-us/exchange/gas.md 
 - name: Reference
   items:
   - name: RPC API

@@ -20,6 +20,10 @@ We will complete the following tasks in this section:
 
 ### Installing NeoContractPlugin
 
+> [!Note]
+>
+> If you have NeoContractPlugin of Neo2 installed in Visual Studio, you must uninstall it before your can install the NeoContractPlugin of Neo3.
+
 1. Pull the project [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) and open `neo-devpack-dotnet.sln` in Visual Studio.
 
 2. In the Solution panel, right-click `src/Installer` and then click `Build` to compile the project.

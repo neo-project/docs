@@ -20,6 +20,10 @@
 
 ### 安装 NeoContractPlugin 插件
 
+> [!Note]
+>
+> 如果Visual Studio中安装了Neo2的NeoContractPlugin插件，需要先卸载才能安装Neo3的插件。
+
 1. 拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目，在Visual Studio中打开项目文件neo-devpack-dotnet.sln
 
 2. 在解决方案项目列表中右键单击 src/Installer，点击 `生成` 编译该项目。

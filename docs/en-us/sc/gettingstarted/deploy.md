@@ -58,4 +58,4 @@ Where:
 - VM State: `HALT` indicates the vm executed successfully;  `FAULT` indicates the vm exited during execution due to an exception.
 - Evaluation Stack: the result of contract execution, where the value is encoded with Base64 when it is a string or ByteArray.
 
-For more information, refer to [Invoking Smart Contracts](../deploy/dinvoke.md).
+For more information, refer to [Invoking Smart Contracts](../deploy/invoke.md).
