@@ -72,7 +72,7 @@
 2. 选择调用方法，并填写相应的参数。例如，要调用一个nep5标准中的transfer方法，填写如下参数：
 
    + `from`：`NX9MAhkkwHDGxUxgUPZaNtB8oxo1tVKmme` -> `ezEkAcv5c2svBlSTRoCze4sw3/k=`
-+ `to`: `NdLN76VVUb4yhYsTha83F5Ch4jQiPfKSzA` -> `vxdA9sHh+RPS8weym4CCVRuppcU=`
+   + `to`: `NdLN76VVUb4yhYsTha83F5Ch4jQiPfKSzA` -> `vxdA9sHh+RPS8weym4CCVRuppcU=`
    + `amount`：1*10000 (精度)
 
    ![](../assets/guiInvokeContract.png)
