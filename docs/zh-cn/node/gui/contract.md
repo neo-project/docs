@@ -4,7 +4,7 @@
 
 ## 搜索合约
 
-在搜索框中可以通过合约的 `合约哈希` 来搜索合约。**合约哈希（Script Hash）**是合约脚本通过 RIPEMD-160 算法后生成的散列。
+在搜索框中可以通过合约的 `合约哈希` 来搜索合约。
 
 ![](../assets/guiSearchContract.png)
 
@@ -45,39 +45,44 @@
 
 ## 调用合约
 
+部署好合约后就可以进入调用合约页面来进行调用。
+
+### 参数类型
+
+调用合约之前需要先根据链上合约的manifest文件来确定所需要填写的参数类型。
+
++ 参数类型：`ByteArray`
+
+  在Neo3-preview2中，ByteArray对应的编码使用Base64替代了Base58，可以通过GUI提供的数据转换把钱包地址转换为Base64的 ByteArray。
+
+  ![](../assets/guiConvertor.png)
+
++ 参数类型：`Integer`
+
+  调用nep5标准中的tranfer方法时，参数中的金额需要乘以该nep5的精度。
+
+### 调用合约操作
+
 要调用已经部署到区块链上的合约，进行以下操作：
 
 1. 在搜索框中输入合约哈希，搜索要调用的合约
 
    Neo-GUI 会从链上获取到该合约哈希对应的manifest文件，列出当前合约可以调用的方法和参数列表。
 
-2. 选择调用方法，并填写相应的参数。所需要填写的参数类型根据链上manifest确定。
+2. 选择调用方法，并填写相应的参数。例如，要调用一个nep5标准中的transfer方法，填写如下参数：
 
-   + 参数类型：`ByteArray`
+   + `from`：`NX9MAhkkwHDGxUxgUPZaNtB8oxo1tVKmme` -> `ezEkAcv5c2svBlSTRoCze4sw3/k=`
++ `to`: `NdLN76VVUb4yhYsTha83F5Ch4jQiPfKSzA` -> `vxdA9sHh+RPS8weym4CCVRuppcU=`
+   + `amount`：1*10000 (精度)
 
-     在Neo3-preview2中，ByteArray对应的编码使用Base64替代了Base58，可以通过GUI提供的数据转换把钱包地址转换为Base64的 ByteArray。
+   ![](../assets/guiInvokeContract.png)
 
-     ![](../assets/guiConvertor.png)
-
-   + 参数类型：`Integer`
-
-     调用nep5标准中的tranfer方法时，参数中的金额需要乘以该nep5的精度。
-
-3. （可选）在调用某些合约方法的时候，需要附加签名，可以在`附加签名`中选择标准账户（可多选）
+3. （可选）在调用某些合约方法的时候，需要附加签名，可以在`附加签名`中选择标准账户，如上图所示。可以选择多个地址。
 
 4. 点击`试运行`，查看运行结果
 
    所谓试运行是指在本地创建了一个 NeoVM，模拟运行，并不会对区块链产生影响。
 
 5. 试运行成功后，如果想在区块链上调用，点击 ` 调用 ` 按钮。
-
-**例如：调用nep5标准中的transfer方法如何填写参数**
-
-+ **from**：`NX9MAhkkwHDGxUxgUPZaNtB8oxo1tVKmme` -> `ezEkAcv5c2svBlSTRoCze4sw3/k=`
-+ **to**: `NdLN76VVUb4yhYsTha83F5Ch4jQiPfKSzA` -> `vxdA9sHh+RPS8weym4CCVRuppcU=`
-+ **amount**: 1*10000(精度)
-+ **附加签名**：from地址 `NX9MAhkkwHDGxUxgUPZaNtB8oxo1tVKmme`
-
-![](../assets/guiInvokeContract.png)
 
 关于调用合约和附加签名等更多信息可参考 [智能合约调用](../../sc/deploy/invoke.md)。

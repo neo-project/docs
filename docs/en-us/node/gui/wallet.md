@@ -18,6 +18,12 @@ The wallet is a database file (.json or .db3) of Neo-GUI used to store Neo accou
 
 4. Click `OK` and the wallet is successfully created, which by default comes with a standard account.
 
+> [!Warning]
+>
+> After the wallet is created, please back up the wallet file safely;
+>
+> It is not recommended to save your wallet files directly under the neo-gui root directory, or you may lose your wallet files when upgrading the software.
+
 ## Opening a wallet
 
 1. In Neo-GUI main page click `Wallet` -> `Open Wallet Database`.
@@ -25,15 +31,17 @@ The wallet is a database file (.json or .db3) of Neo-GUI used to store Neo accou
 
 ## Importing a wallet
 
-Neo-GUI supports importing wallets through the private key. Importing encrypted private keys and mnemonics will be supported in the future.
+Neo-GUI supports importing wallets through the private key and encrypted private key. Importing  mnemonics will be supported in the future.
 
 ## Viewing account list
+
+![](../assets/guiWallet.png)
 
 After creating or opening the wallet, you will go to the account list page, which displays the following information:
 
 - Account list: all accounts in the wallet, and the number of NEO and GAS in each account
 
-- Asset list: all asset types in the wallet, including NEO, GAS and other NEP-5 assets, NEP-11 assets, etc.
+- Asset list: all asset types and balance in the wallet, including NEO, GAS and other NEP-5 assets, etc.
 
 
 > [!CAUTION]
@@ -46,9 +54,18 @@ After creating or opening the wallet, you will go to the account list page, whic
 
 You can view all transaction records related to the wallet by clicking the transaction list. This includes the confirmed transactions and the transactions that have just been initiated but have not yet been confirmed.
 
++ **Unconfirmed transaction**: Transactions waiting to be packaged on the blockchain
++ **Latest transaction**: Transactions already packaged on the blockchain by consensus nodes
+
 ## Transfer
 
-On the Transfer page, you can enter the receiving account and the transfer amount, and then select the asset to send the asset.
+On the Transfer page, you can enter the receiving account and the transfer amount, and then select the asset to send.
+
+![](../assets/guiTransfer.png)
+
+> [!Note]
+>
+> The batch transfer function will be supported soon.
 
 ## Address book
 
