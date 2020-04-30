@@ -1,6 +1,6 @@
 # Installing Neo-GUI
 
-Neo-GUI is a full-node application on the Neo blockchain. It uses Electron cross-platform technology and can run on Windows 10, macOS, and Linux systems.
+Neo-GUI is a full-node application on the Neo blockchain. It uses Electron cross-platform technology and currently can run on Windows 10 and macOS systems.
 
 It has these main functions:
 
@@ -15,27 +15,17 @@ Neo-GUI is an open source project, thus you can download the installation packag
 
 > [!Note]
 >
-> Make sure your Windows system has [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
+> Make sure your Windows / macOS system has [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
 
 ## Connecting to the network
 
-After installation, you need to connect Neo-GUI to the Neo test net or your private chain.
+After installation Neo-GUI connects to the Neo test net automatically. 
 
-### Connecting to test net
+If you have already built a private chain (see [Setting up private chain](../../network/private-chain/solo.md)), you can also connect Neo-GUI to it.
 
-1. Run Neo-GUI and go to any page.
-2. Click `Setting` in the lower left corner.
-3. Under **Network** check `Testnet`.
+1. Find the `config.json` and `protocol.json` files of your private chain.
 
-After a while, when you see the block synchronization data displayed at the top of the main page is increasing, that indicates your client has connected to the network successfully. 
-
-### Connecting to private chain
-
-If you have already built a private chain (see [Setting up  private chain](../../network/private-chain/solo.md)) and want to connect Neo-GUI to it, do the following:
-
-1. Find the config.json and protocol.json files of your private chain.
-
-   Make sure that the address port configured in protocal.json SeedList can be accessed from this machine.
+   Make sure that the address port configured in `protocal.json` SeedList can be accessed from this machine.
 
 2. Go to the path `resources\build-neo-node` under Neo-GUI installation directory and find the two files `config.private.json` and `protocol.private.json` 
 
