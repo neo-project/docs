@@ -17,7 +17,7 @@ Return Value: A public key array, each element being a byte array of length 33.
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
      public static void Main()
      {

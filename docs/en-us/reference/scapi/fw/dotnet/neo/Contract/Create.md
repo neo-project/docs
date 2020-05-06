@@ -16,30 +16,31 @@ public static extern Neo.SmartContract.Framework.Services.Neo.Contract CreateCon
 
 Parameters:
 
-script: The contract bytecode as a byte array.
+- script: The contract bytecode as a byte array.
 
-parameter_list: Parameter list as a byte array. Refer to [Smart Contract Parameters and Return Values](../../../../../../sc/deploy/Parameter.md).
+- parameter_list: Parameter list as a byte array. Refer to [Smart Contract Parameters and Return Values](../../../../../../sc/deploy/Parameter.md).
 
-return_type: Return type as a byte. Refer to [Smart Contract Parameters and Return Values](../../../../../../sc/deploy/Parameter.md).
+- return_type: Return type as a byte. Refer to [Smart Contract Parameters and Return Values](../../../../../../sc/deploy/Parameter.md).
 
-need_storage: If the contract requires a persistent store, boolean.
+- need_storage: If the contract requires a persistent store, boolean.
 
-name: The name of the contract as a string.
+- name: The name of the contract as a string.
 
-version: The version as a string.
+- version: The version as a string.
 
-author: The author name as a string.
+- author: The author name as a string.
 
-email: The author email as a string.
+- email: The author email as a string.
 
-description: The description of the contract as a string.
+- description: The description of the contract as a string.
 
-Return value: [Contract](../Contract.md).
+- Return value: [Contract](../Contract.md).
+
 
 ## Example
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

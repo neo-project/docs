@@ -1,6 +1,6 @@
 # Contract.Script 属性
 
-获得该合约账户的脚本哈西。
+获得该合约账户的脚本哈希。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@
 public byte[] Script { get; }
 ```
 
-属性值：脚本哈西，长度20字节的字节数组。
+属性值：脚本哈希，长度20字节的字节数组。
 
 
 

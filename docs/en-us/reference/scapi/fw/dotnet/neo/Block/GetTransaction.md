@@ -19,7 +19,7 @@ Return Value: Transaction as a [Transaction](../Transaction.md) Type.
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
      public static void Main()
      {

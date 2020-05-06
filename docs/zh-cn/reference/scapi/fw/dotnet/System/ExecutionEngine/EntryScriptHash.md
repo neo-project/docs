@@ -1,6 +1,6 @@
 # ExecutionEngine.EntryScriptHash 属性
 
-获得该智能合约的入口点（合约调用链的起点）的脚本哈西。
+获得该智能合约的入口点（合约调用链的起点）的脚本哈希。
 
 命名空间：[Neo.SmartContract.Framework.Services.System](../../System.md)
 
@@ -12,7 +12,7 @@
 public extern byte[] EntryScriptHash { get; }
 ```
 
-属性值：脚本哈西，20 字节的字节数组。
+属性值：脚本哈希，20 字节的字节数组。
 
 
 

@@ -1,6 +1,6 @@
-# Account.ScriptHash 属性
+# Iterator\<TKey, TValue>.Value 属性
 
-获得该合约账户的脚本哈希。
+获得当前游标的 Value。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,10 +9,10 @@
 ## 语法
 
 ```c#
-public extern byte[] ScriptHash { get; }
+public extern TKey Value
 ```
 
-属性值：20字节的字节数组。
+属性值：泛型。
 
 
 

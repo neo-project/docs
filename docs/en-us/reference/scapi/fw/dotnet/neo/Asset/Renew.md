@@ -23,7 +23,7 @@ Return Value: The height of the block where the asset can be used until, after t
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
     public static void Main()
     {
