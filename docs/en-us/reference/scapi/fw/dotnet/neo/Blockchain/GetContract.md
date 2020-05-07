@@ -16,12 +16,6 @@ Parameters: Scripthash as a byte array of length 20.
 
 Return Value: [Contract](../Contract.md).
 
-## Example
-
-```
-
-```
-
 
 
 [Back](../Blockchain.md)

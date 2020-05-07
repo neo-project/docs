@@ -39,7 +39,7 @@ description：智能合约的描述，字符串类型。
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

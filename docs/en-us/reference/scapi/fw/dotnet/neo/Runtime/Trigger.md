@@ -2,9 +2,9 @@
 
 Gets the trigger type for the smart contract, verification contract or application contract. 
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
@@ -29,8 +29,6 @@ public static bool Main()
     }
 }
 ```
-
-For details, refer to [ICO_Template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template/ICO_Template.cs).
 
 
 

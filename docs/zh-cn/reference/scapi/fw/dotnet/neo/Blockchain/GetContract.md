@@ -12,15 +12,9 @@
 public static extern Neo.SmartContract.Framework.Services.Neo.Contract GetContract(byte[] script_hash)
 ```
 
-参数：脚本散列，20字节的字节数组。
+参数：脚本哈希，20字节的字节数组。
 
 返回值：智能合约，[Contract](../Contract.md) 类型。
-
-## 示例
-
-```
-
-```
 
 
 

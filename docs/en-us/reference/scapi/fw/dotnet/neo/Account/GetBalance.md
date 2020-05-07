@@ -19,7 +19,7 @@ Return value: The balance of the assets in the account as a long, equal to the a
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
     public static void Main()
     {

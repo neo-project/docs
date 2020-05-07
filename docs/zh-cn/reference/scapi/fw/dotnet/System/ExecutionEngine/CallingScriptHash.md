@@ -1,6 +1,6 @@
 # ExecutionEngine.CallingScriptHash 属性
 
-获得该智能合约的调用者的脚本散列。
+获得该智能合约的调用者的脚本哈希。
 
 命名空间：[Neo.SmartContract.Framework.Services.System](../../System.md)
 
@@ -12,7 +12,7 @@
 public extern byte[] CallingScriptHash { get; }
 ```
 
-属性值：脚本散列，20 字节的字节数组。
+属性值：脚本哈希，20 字节的字节数组。
 
 
 

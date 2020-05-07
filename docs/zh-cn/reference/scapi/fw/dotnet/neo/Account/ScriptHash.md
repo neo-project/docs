@@ -1,6 +1,6 @@
 # Account.ScriptHash 属性
 
-获得该合约账户的脚本散列。
+获得该合约账户的脚本哈希。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

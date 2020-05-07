@@ -17,7 +17,7 @@ Return Value: All transaction outputs for the current transaction as a [Transact
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
      public static void Main()
      {

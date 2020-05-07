@@ -1,6 +1,6 @@
 # Runtime.CheckWitness 方法 (byte[])
 
-验证调用该智能合约的交易/区块是否验证过所需的脚本散列。
+验证调用该智能合约的交易/区块是否验证过所需的脚本哈希。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -14,14 +14,14 @@ public static extern bool CheckWitness(byte[] hashOrPubkey)
 
 参数：
 
-hashOrPubkey：脚本散列或者是公钥，byte 数组类型。其中脚本散列为 20 字节，公钥为 33 字节。
+hashOrPubkey：脚本哈希或者是公钥，byte 数组类型。其中脚本哈希为 20 字节，公钥为 33 字节。
 
-返回值：调用该智能合约的交易/区块是否验证过所需的脚本散列，bool 类型。
+返回值：调用该智能合约的交易/区块是否验证过所需的脚本哈希，bool 类型。
 
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {

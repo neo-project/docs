@@ -19,7 +19,7 @@ message：日志信息，字符串格式。
 ## 示例
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main(bool debug)
     {

@@ -1,6 +1,6 @@
 # TransactionOutput.ScriptHash 属性
 
-获得交易输出中的脚本散列。
+获得交易输出中的脚本哈希。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -12,7 +12,7 @@
 public extern byte[] ScriptHash { get; }
 ```
 
-属性值：脚本散列，20字节的字节数组。
+属性值：脚本哈希，20字节的字节数组。
 
 
 

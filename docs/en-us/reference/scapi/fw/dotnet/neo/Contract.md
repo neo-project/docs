@@ -14,17 +14,19 @@ public class Contract
 
 ## Attributes
 
-| | Name | description |
-| ---------------------------------------- | ---------------------------- | ---------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md) | Returns the scripthash of the contract |
+| Name | description |
+| ---------------------------- | ---------- |
+| [IsPayable](Contract/IsPayable.md) | Represents if the contract can receive NEP-5 assets |
+| [Script](Contract/Script.md) | Returns the scripthash of the contract |
+| [StorageContext](Contract/StorageContext.md) | Returns the storage context of the contract |
 
 ## Methods
 
-| | Name | Description |
-| ---------------------------------------- | -------------------------------- | ------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `New` Publishes the contract    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `New` Migrates / renews the contract |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `New` Destroys the contract    |
+| Name | Description |
+| -------------------------------- | ------ |
+| [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | Publishes the contract    |
+| [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | Migrates / renews the contract |
+| [Destroy()](Contract/Destroy.md)         | Destroys the contract    |
 
 ## Constructor
 

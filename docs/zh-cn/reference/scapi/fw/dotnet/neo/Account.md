@@ -14,9 +14,9 @@ public class Account
 
 ## 属性
 
-|                                          | 名称                                  | 说明                 |
-| ---------------------------------------- | ----------------------------------- | ------------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](Account/ScriptHash.md) | 获得该合约账户的脚本散列       |
+|                                                        | 名称                                | 说明                                 |
+| ------------------------------------------------------ | ----------------------------------- | ------------------------------------ |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [ScriptHash](Account/ScriptHash.md) | 获得该合约账户的脚本哈希             |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Votes](Account/Votes.md)           | 获得该合约账户投给其它人的的投票信息 |
 
 ## 方法
@@ -24,6 +24,7 @@ public class Account
 |                                          | 名称                                       | 说明                  |
 | ---------------------------------------- | ---------------------------------------- | ------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [GetBalance(byte[])](Account/GetBalance.md) | 通过资产 ID 获得该账户中这种资产的余额 |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [IsStandard](Account/IsStandard.md) | 该账户是否是标准账户 |
 
 ## 构造方法
 
