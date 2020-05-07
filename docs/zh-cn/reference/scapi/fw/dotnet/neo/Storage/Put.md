@@ -58,13 +58,13 @@ public extern void Put(string key, string value)
 public extern void Put(string key, BigInteger value)
 ```
 
-
 参数：
-	context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
 
-​	key：键，字节数组或字符串。
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
+- key：键，字节数组或字符串。
 
-​	value：值，字节数、字符串或 BigInteger。
+- value：值，字节数、字符串或 BigInteger。
+
 
 返回值：void。
 

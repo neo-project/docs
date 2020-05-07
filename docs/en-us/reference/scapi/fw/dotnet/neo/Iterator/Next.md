@@ -1,20 +1,20 @@
-# Iterator\<TKey, TValue>.Next 方法 ()
+# Iterator\<TKey, TValue>.Next Method ()
 
-游标在集合中向下移动，返回游标状态（true: 没有到末尾 false: 到末尾）
+The cursor moves down in the collection and returns the state, where `true` means the cursor has not moved to the end, and `false` means the cursor has moved to the end.
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public extern bool Next();
 ```
 
-返回值：游标是否到集合的末尾
+Returned value: Whether the cursor moves to the end of the collection.
 
-## 示例
+## Example
 
 ```c#
 public class Contract1 : SmartContract
@@ -34,4 +34,4 @@ public class Contract1 : SmartContract
 
 
 
-[返回上级](../Account.md)
+[Back](../header.md)

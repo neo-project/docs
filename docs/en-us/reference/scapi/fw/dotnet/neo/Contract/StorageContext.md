@@ -14,4 +14,4 @@ public extern StorageContext StorageContext
 
 Attribute value: [StorageContext](../StorageContext.md)
 
-[Back](../Account.md)
+[Back](../Contract.md)

@@ -17,7 +17,7 @@ Return Value: The transaction outputs as a [TransactionOutput](../TransactionOut
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
      public static void Main ()
      {

@@ -12,4 +12,4 @@ Assembly: Neo.SmartContract.Framework
 public extern bool IsPayable
 ```
 
-[Back](../Account.md)
+[Back](../Contract.md)

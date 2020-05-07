@@ -17,7 +17,7 @@ Return Value: All attributes of the current transaction, as a [TransactionAttrib
 ## Example
 
 ```c#
-public class Contract1: FunctionCode
+public class Contract1: SmartContract
 {
      public static void Main()
      {

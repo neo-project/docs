@@ -27,9 +27,10 @@ public extern byte[] Get(string key)
 ```
 
 参数：
-	context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
 
-​	key：键，字节数组或字符串。
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
+- key：键，字节数组或字符串。
+
 
 返回值：key 对应的 value，字节数组。
 

@@ -1,19 +1,19 @@
-# InvocationTransaction.Script 属性
+# InvocationTransaction.Script Property
 
-获得当前交易的智能合约调用脚本。
+Gets the smart contract invocation script of the current transaction.
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public extern byte[] Script
 ```
 
-属性值：合约调用脚本。
+Attribute value: the smart contract invocation script
 
 
 
-[返回上级](../Account.md)
+[Back](../InvocationTransaction.md)

@@ -1,19 +1,19 @@
-# Iterator\<TKey, TValue>.Key 属性
+# Iterator\<TKey, TValue>.Key Property
 
-获得当前游标的 Key。
+Gets the Key of the current cursor.
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public extern TKey Key
 ```
 
-属性值：泛型。
+Attribute value: genericity.
 
 
 
-[返回上级](../Account.md)
+[Back](../Iterator.md)

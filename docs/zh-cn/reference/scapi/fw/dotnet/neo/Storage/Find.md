@@ -2,7 +2,9 @@
 
 遍历操作，在持久化存储区中通过 key 的前缀查询对应的 value 集合。
 
-注：Find 方法不能和 StorageMap 一同使用，这点略微遗憾。
+> [!Note]
+>
+> Find 方法不能和 StorageMap 一同使用。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -27,9 +29,10 @@ public static extern Iterator<string, byte[]> Find(string prefix)
 ```
 
 参数：
-	context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
 
-​	prefix：前缀，字节数组或字符串。
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
+- prefix：前缀，字节数组或字符串。
+
 
 返回值：[Iterator\<string, byte[]>](../Iterator.md) 或 [Iterator\<byte[], byte[]>]((../Iterator.md))。
 
