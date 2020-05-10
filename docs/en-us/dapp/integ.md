@@ -47,9 +47,9 @@ Neo developer community provides the following Neo-SDK：
 
   neon-js：[Github](https://github.com/CityOfZion/neon-js)，[Documentation](http://cityofzion.io/neon-js/en/)
 
-- Java
+- Java, Kotlin
 
-  neow3j：[Github](https://github.com/neow3j/neow3j)，[Documentation](https://neow3j.io/#/)
+  neow3j：[Github](https://github.com/neow3j/neow3j)，[Documentation](https://neow3j.io)
 
 - C#
 
