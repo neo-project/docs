@@ -125,6 +125,8 @@
       href: /docs/zh-cn/sc/sample/HelloWorld.md
     - name: Domain（域名系统）
       href: /docs/zh-cn/sc/sample/Domain.md
+    - name: 存储区操作
+      href: /docs/zh-cn/sc/sample/storage.md
     - name: 锁仓合约教程
       href: /docs/zh-cn/sc/sample/Lock2.md
 - name: DApp 开发
