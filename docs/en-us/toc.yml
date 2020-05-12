@@ -111,6 +111,8 @@
       href: /docs/en-us/sc/sample/HelloWorld.md
     - name: Domain
       href: /docs/en-us/sc/sample/Domain.md
+    - name: Storage Contract
+      href: /docs/en-us/sc/sample/storage.md
     - name: Lock Contract Demo
       href: /docs/en-us/sc/sample/Lock2.md
 - name: DApp Development
