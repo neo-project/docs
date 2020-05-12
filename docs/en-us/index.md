@@ -13,7 +13,7 @@
 | Smart Contract Development | | | |
 | ---------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------- | ------------------------------------------------------- |
 | [Getting Started](sc/gettingstarted/introduction.md) | [Writing Smart Contracts](sc/write/basics.md) | [Deploying and Invoking Contracts](sc/deploy/deploy.md) |  |
-| [Contract Migration](sc/migrate.md) | [System Fees](sc/fees.md)                     |                      |              |
+| [Contract Migration](sc/migrate.md) | [System Fees](sc/fees.md)                     | [Contract Samples](sc/sample/HelloWorld.md) |              |
 
 | Neo Tools Development | | | |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------- | ---------------------------------------------- |

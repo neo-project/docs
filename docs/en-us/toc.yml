@@ -63,6 +63,14 @@
     href: /v3/docs/en-us/sc/migrate.md
   - name: Fees
     href: /v3/docs/en-us/sc/fees.md
+  - name: Contract Samples
+    items: 
+    - name: Hello World
+      href: /v3/docs/en-us/sc/sample/HelloWorld.md
+    - name: Domain
+      href: /v3/docs/en-us/sc/sample/Domain.md
+    - name: Storage
+      href: /v3/docs/en-us/sc/sample/storage.md
 - name: Neo Tools Development
   - name: Main Concepts
     - name: Blockchain Models

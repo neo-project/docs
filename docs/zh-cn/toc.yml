@@ -65,7 +65,15 @@
     href: /v3/docs/zh-cn/sc/migrate.md
   - name: 手续费
     href: /v3/docs/zh-cn/sc/fees.md
-- name: Neo工具开发
+  - name: 合约示例
+    items: 
+    - name: Hello World
+      href: /v3/docs/zh-cn/sc/sample/HelloWorld.md
+    - name: Domain（域名系统）
+      href: /v3/docs/zh-cn/sc/sample/Domain.md
+    - name: 存证合约
+      href: /v3/docs/zh-cn/sc/sample/storage.md
+ - name: Neo工具开发
   - name: 基本概念
     - name: 区块模型
       - name: 区块
