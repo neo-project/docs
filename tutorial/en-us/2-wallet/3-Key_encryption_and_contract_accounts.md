@@ -1,11 +1,11 @@
 # Private key encryption and Wallet files
-Storing raw private keys on disk is a security liability. Anyone that that has access to a raw private key can drain these funds. It would be more secure if these keys were encrypted via a password. For this reason we have the NEP-2 standard format (https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki)
+Storing raw private keys on disk is a security liability. Anyone that that has access to a raw private key can drain these funds. It would be more secure if these keys were encrypted via a password. For this reason we have the [NEP-2 standard format](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki).
 
 This encrypted key provides an additional layer of security to the raw private key, requiring an attacker to acquire both the encrypted key and the password in order to access the funds. This is good, but it is often the case that one might need to have multiple accounts, which means that they have multiple keys. Storing each NEP-2 encrypted key would be very cumbersome, so instead we can create a file structure that would allow for all of these encrypted keys to be stored in the same place.
 
 The NEP-6 wallet standard allows for a standardized way of importing addresses into various blockchain clients and contains the additional security guarantees of the NEP-2 format.
 
-A full specification of the file format can be found here. (https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki). It follows a JSON structure that contains information about the private/public key pairs, as well as metadata about each account. The metadata details contains information such as which wallet should be used as the default, the encryption parameters, and any other relevant metadata. 
+A full specification of the file format can be found [here](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki). It follows a JSON structure that contains information about the private/public key pairs, as well as metadata about each account. The metadata details contains information such as which wallet should be used as the default, the encryption parameters, and any other relevant metadata. 
 
 The NEP-6 file also supports watch-only addresses. Watch-only addresses do not contain any information related to the private key, which maybe useful if the account is stored separately in a more secure location.
 

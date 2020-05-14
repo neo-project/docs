@@ -42,4 +42,4 @@ NEO 支持多种主流编程语言，可以使用 C#、Python、Go、JS 和 Jave
 
 - C# SDK: [neo](https://github.com/neo-project/neo)
 - JavaScript SDK: [neon-js](http://cityofzion.io/neon-js/)
-- Java SDK: [neow3j](https://github.com/neow3j)
+- Java/Kotlin SDK: [neow3j](https://github.com/neow3j)
