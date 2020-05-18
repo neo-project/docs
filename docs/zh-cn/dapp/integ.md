@@ -47,9 +47,9 @@ Neo 开发者社区提供了以下语言的 Neo-SDK：
 
   neon-js：[Github](https://github.com/CityOfZion/neon-js)，[使用文档](http://cityofzion.io/neon-js/en/)
 
-- Java
+- Java, Kotlin
 
-  neow3j：[Github](https://github.com/neow3j/neow3j)，[使用文档](https://neow3j.io/#/)
+  neow3j：[Github](https://github.com/neow3j/neow3j)，[使用文档](https://neow3j.io)
 
 - C#
 
