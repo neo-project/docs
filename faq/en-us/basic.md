@@ -16,11 +16,7 @@ Neo has a large number of worldwide developer communities that have been contrib
 
 ## What is GAS？How to acquire GAS？
 
-GAS represents the right to use the Neo Blockchain. NEO network charges GAS for the new assets issuance as well as for smart contract running and storage. In the genesis block GAS is 0 and it is generated as new blocks generate. Once NEO is acquired, GAS is generated in the system following the algorithms. GAS has two status, available and unavailable. Once NEO is spent (i.e. transferred out) from the account, the relevant GAS turns to available. NEO holders can initiate a claim transaction at any time to claim available GAS to the NEO address.
-
-## How many NEO do I need to start earning GAS?
-
-The smallest unit of NEO is 1, in other words: it is indivisible. The smallest unit of GAS is 0.00000001 (one hundred millionth). As long as you possess NEO (at least 1 NEO), GAS will be generated automatically. You can calculate how much GAS you would generate with x amount of NEO on <https://neotogas.com/> or any other GAS-calculator.
+GAS represents the right to use the Neo Blockchain. Neo network charges GAS for the new assets issuance as well as for smart contract running and storage. In the Neo3 genesis block GAS is 30,000,000 and it is increasing as new blocks generate. Once NEO is acquired, GAS is generated in the system following the algorithms. In Neo3 once NEO is transferred from the account, the relevant GAS is claimed to the same address automatically.
 
 ## What consensus algorithms does Neo use？
 
