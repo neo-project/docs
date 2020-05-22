@@ -1,5 +1,7 @@
 ﻿- name: Site Map
   href: /v3/docs/en-us/index.md
+- name: Glossary
+  href: /v3/docs/en-us/glossary.md
 - name: Neo Node
   items:
   - name: Introduction

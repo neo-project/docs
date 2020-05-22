@@ -1,5 +1,7 @@
 ﻿- name: 站点地图
   href: /v3/docs/zh-cn/index.md
+- name: 术语表
+  href: /v3/docs/zh-cn/glossary.md
 - name: Neo 节点
   items:
   - name: 节点介绍

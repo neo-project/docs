@@ -44,9 +44,7 @@ If you need more than that, you'll have to request it from Neo website manually.
 
 #### Step 1 - Look up your public key
 In Neo the address and PUBLIC key are different.  
-The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE key.)
-
-  ![image](../assets/neo_gas_0.jpg)
+The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE key.)  
 
 #### Step 2 - Fill in the request
 Complete the form here: https://neo.org/testcoin/apply specifying your EMAIL and PUBLIC key.
@@ -61,15 +59,11 @@ To access the assets, in your Neo-gui you will create a "Multi-party signed addr
 
 1. From Neo-GUI, right-click on the account area and select `Create Contract Address` -> `Multi-Signature`.
 
-  ![image](../assets/neo_gas_1.jpg)
-
 2. In the public key list, enter the public keys used for signing (PUB Key of sender and your PUB key) 
 3. Specify the minimal number of signatures to be  `1`.
 4. Click `confirm`.
 
 The contract address specified in the email is created and displayed in the account page.
-
-![image](../assets/neo_gas_2.jpg)
 
 You will see the quantity of Neo and/or GAS shown beside the Contact address.
 
