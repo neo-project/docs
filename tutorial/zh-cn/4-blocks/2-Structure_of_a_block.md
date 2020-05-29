@@ -6,7 +6,7 @@
 curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d '{ "jsonrpc": "2.0", "id": 1, "method": "getblock", "params": ["ad83d993ca2d9783ca86a000b39920c20508c8ccae7b7db11806646a4832bc50",1] }'
 ```
 
-下面是上述请求返回的部分结果信息，去掉了请求的元数据且只选择了区块中的一个交易进行说明。然而，这些信息对于我们理解区块结构已经足够了。cURL请求的完整响应可以点击[此处](neo-block.json)查看。
+下面是上述请求返回的部分结果信息，去掉了请求的元数据且只选择了区块中的一个交易进行说明。
 
 ## 区块示例
 
