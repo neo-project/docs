@@ -15,7 +15,8 @@ Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-
 
 > [!Note]
 >
-> 请确认你的 Windows / macOS系统已安装 [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
+> - 请确认你的 Windows / macOS系统已安装 [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
+> - 安装时请避免将Neo-GUI安装在默认路径C:\Program Files下，否则需要以管理员权限运行客户端程序才能连接到网络同步数据。
 
 ## 连接网络
 

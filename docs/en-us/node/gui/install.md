@@ -15,7 +15,9 @@ Neo-GUI is an open source project, thus you can download the installation packag
 
 > [!Note]
 >
-> Make sure your Windows / macOS system has [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
+> - Make sure your Windows / macOS system has [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
+>
+> - When installing on the Windows system, do not install Neo-GUI under the default path C:\Program Files, or you have to run the client with the administrator privileges to connect the client to the network and download the blockchain data.
 
 ## Connecting to the network
 

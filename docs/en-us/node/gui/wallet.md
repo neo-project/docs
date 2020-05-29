@@ -1,6 +1,6 @@
 # Wallet
 
-The wallet is a database file (.json or .db3) of Neo-GUI used to store Neo account and asset information in the account. This file is very important and must be properly kept and safely backed up.
+The wallet is a database file of Neo-GUI used to store Neo account and asset information in the account. This file is very important and must be properly kept and safely backed up.
 
 > [!CAUTION]
 >
@@ -29,6 +29,10 @@ The wallet is a database file (.json or .db3) of Neo-GUI used to store Neo accou
 1. In Neo-GUI main page click `Wallet` -> `Open Wallet Database`.
 2. Select the wallet and enter the password. Click `OK` to open the wallet.
 
+> [!Note]
+>
+> The wallets created in Neo2 cannot be opened in Neo3-GUI. To work around this issue you can import the wallet to Neo3-GUI through the private key.
+
 ## Importing a wallet
 
 Neo-GUI supports importing wallets through the private key and encrypted private key. Importing  mnemonics will be supported in the future.
@@ -42,6 +46,10 @@ After creating or opening the wallet, you will go to the account list page, whic
 - Account list: all accounts in the wallet, and the number of NEO and GAS in each account
 
 - Asset list: all asset types and balance in the wallet, including NEO, GAS and other NEP-5 assets, etc.
+
+  The GAS balance shows the amount of GAS claimed, and the Claim GAS button at the bottom of the page shows the amount of unclaimed GAS. To withdraw the GAS into the account, click the button.
+
+Clicking on the account address you can enter a new page to view the private key or delete the address.
 
 
 > [!CAUTION]

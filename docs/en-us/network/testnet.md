@@ -18,9 +18,11 @@ All the block data of the test net are independent of the main net. If you want 
 - Smart contracts deployed in the test net can be invoked by anyone in the world.
 - Test net can not be used as a real environment for commercial applications.
 
-## Switching from main net to test net
+## Connecting to test net
 
-Since the Neo3 main net has not been launched yet, after downloading Neo client, you need to switch the client to connect to test net by modifying the client configuration file. 
+For Neo-GUI, it connects to the test net by default when running.
+
+For Neo-CLI, since it connects to the main net that is not available yet by default, you need to switch the client to connect to test net by doing the following:
 
 1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
@@ -36,18 +38,20 @@ If you are a developer, you can ask for Neo and GAS on the TestNet. You will nee
 
 ### Obtaining test coin automatically
 
-You can request up to 1000 GAS and 1000 Neo per day via [NGD faucet](https://neowish.ngd.network/). 
+You can request up to 500 GAS per day via [NGD faucet](https://neowish.ngd.network/neo3/). 
 
 ### Applying for test coin from Neo website
 
 If you need more than that, you'll have to request it from Neo website manually.
 
 #### Step 1 - Look up your public key
-In Neo the address and PUBLIC key are different.  
+In Neo the address and PUBLIC key are different. 
+
 The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE key.)  
 
 #### Step 2 - Fill in the request
-Complete the form here: https://neo.org/testcoin/apply specifying your EMAIL and PUBLIC key.
+Complete the form here: https://neo.org/testcoin/apply. Note that you need to change `Neo Version` to Neo3.
+
 After a day or so you will be sent an email containing a "Multi-party signed address" and the PUBLIC key of the sender. See [Multi-party signed address](../node/gui/sc.md).
 
 #### Step 3 - Create a multi-party signed address
@@ -57,26 +61,13 @@ To access the assets, in your Neo-gui you will create a "Multi-party signed addr
 - The PUBLIC KEY of the sender (from the email)
 - Your PUBLIC KEY (from STEP 1 above) 
 
-1. From Neo-GUI, right-click on the account area and select `Create Contract Address` -> `Multi-Signature`.
+1. From Neo-CLI command line, enter the command  `import multisigaddress m pubkeys` to create a multi-party signed address, where:
 
-2. In the public key list, enter the public keys used for signing (PUB Key of sender and your PUB key) 
-3. Specify the minimal number of signatures to be  `1`.
-4. Click `confirm`.
+   `m` is 1 as the minimal signature number and `pubkeys` are the public key used for signing (PUB Key of sender and your PUB key) 
 
-The contract address specified in the email is created and displayed in the account page.
+2. Enter `list asset`，then you should see the quantity of Neo and/or GAS shown
 
-You will see the quantity of Neo and/or GAS shown beside the Contact address.
-
-
-#### Step 4 - Transfer the assets to another account
-
-1. Select the `Contact address` by clicking on it.
-
-2. From Neo-GUI menu, select `Transaction` -> `Transfer`
-
-   ![image](../assets/neo_gas_3.png)
-
-3. Select the Asset and the amount to send and the account you want to transfer the asset to. 
+3. Enter `send gas <address> <amount>` to send a certain amount of GAS to the desired account address.
 
 ## Alternatives to the TestNet
 
