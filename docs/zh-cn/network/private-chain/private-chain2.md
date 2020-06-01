@@ -17,7 +17,9 @@
 
 ## 创建钱包文件
 
-使用 Neo-CLI 或 Neo-GUI 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，分别放置于四个节点的文件夹中。
+1. 运行Neo-CLI ，使用命令 `create wallet <path> ` 创建四个不同的钱包文件，命名为 1.json、2.json、3.json、4.json，钱包密码分别设置为1、2、3、4
+2. 记录屏幕中显示的每个钱包的公钥（pubkey）以备后用。
+3. 将钱包文件分别放置于四个节点的文件夹中。
 
 ## 修改 config.json
 
@@ -50,7 +52,7 @@
     },
     "UnlockWallet": {
       "Path": "1.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -78,7 +80,7 @@
     },
     "UnlockWallet": {
       "Path": "2.json",
-      "Password": "11111111",
+      "Password": "2",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -106,7 +108,7 @@
     },
     "UnlockWallet": {
       "Path": "3.json",
-      "Password": "11111111",
+      "Password": "3",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -134,7 +136,7 @@
     },
     "UnlockWallet": {
       "Path": "4.json",
-      "Password": "11111111",
+      "Password": "4",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -223,9 +225,9 @@
 
 如果关闭所有窗口，将停止私有链。
 
-## 提取 Neo 和 GAS
+## 提取 NEO 和 GAS
 
-在 Neo 网络的创世块中存放着 1 亿份 Neo，当私链搭建起来后，Gas 也将伴着新区块的生成而生成。你可以使用 NEO-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 Neo 和 GAS 以便内部开发测试使用。
+在 Neo 网络的创世块中存放着 1 亿份 NEO，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
 ### 从 Neo-CLI 提取
 

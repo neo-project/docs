@@ -14,7 +14,9 @@ Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) to 
 
 ## Creating wallet files
 
-From Neo-CLI or Neo-GUI create four wallets, 1.json, 2.json, 3.json, and 4.json, and place each in the folder of four nodes. 
+1. Run Neo-CLI and enter the command  `create wallet <path> `  to create four wallets, 1.json, 2.json, 3.json, and 4.json, with the passwords 1, 2, 3, 4, in sequence.
+2. Record the onscreen public keys for each wallet, which will be used later.
+3. Place each wallet file under each folder of the four nodes. 
 
 ## Modifying config.json
 
@@ -47,7 +49,7 @@ You can refer to the following example：
     },
     "UnlockWallet": {
       "Path": "1.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -75,7 +77,7 @@ You can refer to the following example：
     },
     "UnlockWallet": {
       "Path": "2.json",
-      "Password": "11111111",
+      "Password": "2",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -103,7 +105,7 @@ You can refer to the following example：
     },
     "UnlockWallet": {
       "Path": "3.json",
-      "Password": "11111111",
+      "Password": "3",
       "StartConsensus": true,
       "IsActive": true
     }
@@ -131,7 +133,7 @@ You can refer to the following example：
     },
     "UnlockWallet": {
       "Path": "4.json",
-      "Password": "11111111",
+      "Password": "4",
       "StartConsensus": true,
       "IsActive": true
     }
