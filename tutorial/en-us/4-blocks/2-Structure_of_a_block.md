@@ -6,7 +6,7 @@ Below is the JSON dump of block #3649960 on the NEO MainNet. It can be obtained 
 curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d '{ "jsonrpc": "2.0", "id": 1, "method": "getblock", "params": ["ad83d993ca2d9783ca86a000b39920c20508c8ccae7b7db11806646a4832bc50",1] }'
 ```
 
-Below is a shortened version of the result from the above request, leaving out request metadata and only showing one of the many transactions of the block. However, it shows sufficient information to help understand the structure of a block. The full response of the cURL request can be found [here](neo-block.json).
+Below is a shortened version of the result from the above request, leaving out request metadata and only showing one of the many transactions of the block. 
 
 ## Example block
 
