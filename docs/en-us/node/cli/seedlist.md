@@ -134,8 +134,3 @@ And that's it! You can now start neo-cli as usual.
 
 ### Reference tools
 If the above steps are too tedious, there's also a script written that automatically updates the `protocol.json`. Check it out [here](https://github.com/HandsomeJeff/neo-cli-protocol-maker).
-
-## What's next?
-
-[CLI Command Reference](cli.md)
-

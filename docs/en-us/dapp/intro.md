@@ -24,7 +24,3 @@ Generally, the process of developing a DApp is:
 
   After completing the development, testing and deployment of your smart contract, you need to proceed with the front-end integration development to enable the interaction between DApp and the block chain. 
   
-
-## What's next
-
-[DApp Integration](integ.md)

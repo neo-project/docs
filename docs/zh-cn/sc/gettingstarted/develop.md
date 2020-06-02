@@ -239,7 +239,3 @@ namespace NEP5
 
 `NeoContract1.abi.json` 是智能合约的描述文档，文档中对合约的 ScriptHash、入口、方法、参数、返回值等进行了描述。关于更多智能合约 ABI 的信息，可以参考 [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki)。
 
-## 继续阅读
-
-[部署与调用合约](deploy.md)
-

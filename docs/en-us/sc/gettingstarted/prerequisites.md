@@ -34,7 +34,3 @@ Neo-CLI runs in the following environments:
   Take Windows 10 for example:
 
   Download the latest [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package according to your operating system on Github and unzip it.
-
-## What's next?
-
-[Setting up local network](enviroment.md)
