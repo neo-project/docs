@@ -22,7 +22,7 @@ The NEO network consists of two kind of protocols: a protocol to communicate wit
                               NEO node
 ```
 
-In this tutorial, we will focus on the other protocol, the [NEO protocol](https://docs.neo.org/docs/en-us/tooldev/advanced/network-protocol.html). Using the Golang programming language, we will learn how to communicate with a NEO node.
+In this tutorial, we will focus on the other protocol, the [NEO protocol](../../../docs/en-us/tooldev/network-protocol.html). Using the Golang programming language, we will learn how to communicate with a NEO node.
 
 ## NEO Ping with Golang
 
