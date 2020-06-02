@@ -22,13 +22,13 @@ The NEO network consists of two kind of protocols: a protocol to communicate wit
                               NEO node
 ```
 
-In this tutorial, we will focus on the other protocol, the [NEO protocol](https://docs.neo.org/docs/en-us/tooldev/advanced/network-protocol.html). Using the Golang programming language, we will learn how to communicate with a NEO node.
+In this tutorial, we will focus on the other protocol, the [NEO protocol](../../../docs/en-us/tooldev/network-protocol.md). Using the Golang programming language, we will learn how to communicate with a NEO node.
 
 ## NEO Ping with Golang
 
 Although many [core libraries of NEO](https://github.com/neo-project/neo) are written in C# or Python, for this tutorial we will use [Golang](https://golang.org/). The communication basics are the same for all languages.
 
-The NEO protocol defines However, ia header and a payload. Every message needs to be sent with this specific format, with a 24 bytes header and its payload:
+The NEO protocol defines a block header and a payload. Every message needs to be sent with this specific format, with a 24 bytes header and its payload:
 
 ```
  0                   1                   2                   3
@@ -54,8 +54,7 @@ Communication with other NEO nodes is handled via TCP or via [WebSockets](https:
 The header contains a 4 bytes magic, which stands for "Ant" (little-endian), the name that was used before the NEO rebranding. The testnet uses slightly different magic bytes, allowing messages to be distinguished between the MainNet and TestNet.
 
 ---
-**Exercise 1**:However, i
-Please answer the following question:
+**Exercise 1**: Please answer the following question:
 
 Although compatibility is very important and changing the format of the protocol could break many clients, what theoretical optimizations could be done in the protocol header?
 
@@ -80,7 +79,7 @@ For every protocol, it must be defined which byte order is used. In case of NEO 
 ```
 0x00746E41 -> [41][6E][74][00]
 ```
-Big-endian encoding would like as follows: [00][74][6E][41]. Many programming languages have utilities to handle the conversion, such as Golang:
+Big-endian encoding would like as follows: 00 6E. Many programming languages have utilities to handle the conversion, such as Golang:
 
 ```
 binary.LittleEndian.PutUint32(b[0:], 0x00746E41)
@@ -185,7 +184,7 @@ With this information we can implement the NEO node ping. First we need to write
 
 ---
 **Exercise 3**:
-Write an encoder and decoder for ping/version. Use the following template at [https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo_ping_template.go](https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo_ping_template.go) and complete the following two functions: `encodeVersion(userAgent string) []byte`, `encodePing() []byte`, `decodeVersion(b []byte) string`, which returns the user agent, and `decodePing(b []byte)`. Print relevant information to the console in the decoder.
+Write an encoder and decoder for ping/version. Use the [template](https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo_ping_template.go) and complete the following two functions: `encodeVersion(userAgent string) []byte`, `encodePing() []byte`, `decodeVersion(b []byte) string`, which returns the user agent, and `decodePing(b []byte)`. Print relevant information to the console in the decoder.
 
 Hint: the timestamp can be encoded as:
 
