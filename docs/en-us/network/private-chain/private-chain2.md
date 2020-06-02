@@ -14,7 +14,7 @@ Install [SimplePolicy](https://github.com/neo-project/neo-plugins/releases/) to 
 
 ## Creating wallet files
 
-1. Run Neo-CLI and enter the command  `create wallet <path> `  to create four wallets, 1.json, 2.json, 3.json, and 4.json, with the passwords 1, 2, 3, 4, in sequence.
+1. Run Neo-CLI and enter the command  `create wallet <path> `  to create four wallets, for example, 1.json, 2.json, 3.json, and 4.json, with the passwords 1, 2, 3, 4, in sequence.
 2. Record the onscreen public keys for each wallet, which will be used later.
 3. Place each wallet file under each folder of the four nodes. 
 
