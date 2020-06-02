@@ -74,7 +74,3 @@ f113ec3dc34fbd0d2102e2baf21e36df2007189d05b9e682f4192a101dcdf
 ### NEO DB3
 在引入NEP-6文件格式之前，NEO db3是NEO GUI所支持的一种遗留的文件格式。强烈建议升级到NEP-6文件格式，这可以在 [NEO-GUI](../../../docs/zh-cn/node/gui/wallet.md) 中完成。
 
-## 阅读下节
-
-[UTXO 与账户模型](4-UTXO_and_account_models.md)
-

@@ -6,7 +6,7 @@
 
 从这个意义上说，我们必须依靠同步的基本概念来提供网络的活性。
 
-有关pBFT状态图的概述可以查看下图。![Neo 规范](https://github.com/NeoResearch/yellowpaper/blob/master/sections/graphviz-images/graphviz-pbft.jpg?raw=true)
+有关pBFT状态图的概述可以查看下图。
 
 
 ## dBFT
@@ -39,7 +39,5 @@
 
 同时，设计的另一个策略是当节点看到网络有进展时，避免`更改视图`。每次节点与其他节点共享签名信息时，会将额外的超时信息添加到它们的内部计时器中，表明节点正在参与共识并与其他节点进行通信。
 
-## 阅读下节
 
-[dBFT 共识示例与场景](4-Examples_and_consensus_scenarios_for_dBFT.md)
 

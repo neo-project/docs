@@ -531,7 +531,3 @@ func decodePing(b []byte) {
 
 ```
 
-## 阅读下节
-
-[持久化](../6-persistence/1-persistence.md)
-

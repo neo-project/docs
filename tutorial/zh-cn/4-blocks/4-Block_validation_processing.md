@@ -111,7 +111,3 @@
 
 如果使用验证脚本中七分之五的公钥对调用脚本中5个签名的验证执行通过的话，则认为区块是有效的。
 
-## 阅读下节
-
-[NEO 协议和网络](../5-network/1-Introduction_to_the_NEO_network_protocol)
-

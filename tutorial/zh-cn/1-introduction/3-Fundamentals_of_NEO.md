@@ -27,8 +27,3 @@ NEO，作为治理通证，用于通过投票机制选举共识节点。NEO 的�
 为了尽可能对开发者友好，NEO 支持使用多种编程语言创建智能合约。 目前，NEO 支持 C＃，Java，Python，Golang，JavaScript / TypeScript 和其他语言。
 
 在部署到 NEO 区块链之前，NEO 上的合约被编译为 NVM 字节码。调用时，这些已部署的合约由 NeoVM 解析和执行。
-
-## 阅读下节
-
-[了解钱包](../2-wallet/1-Introduction_to_wallets.md)
-

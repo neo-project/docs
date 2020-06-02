@@ -494,7 +494,3 @@ NEO的原生资产使用了UTXO模型，这意味着要想花费代币，你需�
 
 附加网络费
 
-## 阅读下节
-
-[LevelDB 区块链数据结构 ](2-levelDB_data_structure.md)
-

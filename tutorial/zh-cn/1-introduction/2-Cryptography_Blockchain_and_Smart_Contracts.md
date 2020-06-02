@@ -13,8 +13,3 @@
 智能合约自动且确定地执行，确保结果可预测。用户可以与基于合约的服务进行交互，就像与现实世界中的中介交互一样，所有这些都不会影响信任。
 
 关于更详细的区块链入门技术，可参考 [这里](https://www2.deloitte.com/insights/us/en/topics/emerging-technologies/blockchain-technical-primer.html)。
-
-## 阅读下节
-
-[NEO 基础知识](3-Fundamentals_of_NEO.md)
-

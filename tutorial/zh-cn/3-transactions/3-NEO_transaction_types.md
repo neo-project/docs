@@ -296,6 +296,3 @@ NEO中有几种不同类型的交易，每种交易都有不同的用途和属�
 
 NEO支持使用`RegisterTransaction`和`IssueTransaction`交易在区块链上注册原生（UTXO）资产。 NEO和GAS都属于这类原生资产。 对于数字资产的注册，现在更常见的是使用（NEP-5兼容）智能合约。 使用智能合约比使用原生资产有着更高的可扩展性和灵活性。 可以使用[InvocationTransaction](#InvocationTransaction)交易将新的代币智能合约部署到区块链上。
 
-## 阅读下节
-
-[交易手续费](4-NEO_transaction_fees.md)

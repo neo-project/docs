@@ -146,6 +146,3 @@ curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d
 
  -  ***nextblockhash***：下一个区块的哈希，从而形成由区块构成的链表。区块结构中不包含这个字段，它是由节点发起RPC请求同步区块时计算得出的。
 
-## 阅读下节
-
- [区块创建与广播](3-Block_creation_broadcasting.md)
