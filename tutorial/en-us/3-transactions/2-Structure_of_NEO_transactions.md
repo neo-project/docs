@@ -1,7 +1,7 @@
-## Structure of transactions on the NEO blockchain
-A NEO transaction is a signed data package with an instruction for the network, for example a user indicating that he wants to transfer assets to another address. Each NEO block in the blockchain ledger contains one or more transactions, making each block a transaction batch. 
+## Structure of transactions on the Neo blockchain
+A Neo transaction is a signed data package with an instruction for the network, for example a user indicating that he wants to transfer assets to another address. Each Neo block in the blockchain ledger contains one or more transactions, making each block a transaction batch. 
 
-NEO currently has a maximum transaction size of 100 KiB and a maximum of 500 transactions per block. These limits can be increased in the future if necessary. NEO supports both the UTXO (*unspent transaction output*) and account/balance-based record-keeping models. All native assets like NEO and GAS use the UTXO model, while all contract tokens use an account/balance model.
+Neo currently has a maximum transaction size of 100 KiB and a maximum of 500 transactions per block. These limits can be increased in the future if necessary. Neo supports both the UTXO (*unspent transaction output*) and account/balance-based record-keeping models. All native assets like NEO and GAS use the UTXO model, while all contract tokens use an account/balance model.
 
 ## Structure
 Each transaction has a minimum set of attributes.
@@ -259,8 +259,3 @@ The verification script with a multi-signature contract is constructed with the 
 4. `0xAE` (CHECKMULTISIG) to verify the signatures with the provided public keys
 
 To maintain performance it is required to have the same order for public keys and signatures during the verification of a multi-signature contract.
-
-## What's next?
-
-[Transaction Types](3-NEO_transaction_types.md)
-

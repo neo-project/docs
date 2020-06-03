@@ -14,7 +14,3 @@ Smart contracts are executed automatically and deterministically, ensuring that 
 
 A good resource with a more detailed primer on blockchain technology and its implications can be found [here](https://www2.deloitte.com/insights/us/en/topics/emerging-technologies/blockchain-technical-primer.html).
 
-## What's next?
-
-[NEO Fundamentals](3-Fundamentals_of_NEO.md)
-

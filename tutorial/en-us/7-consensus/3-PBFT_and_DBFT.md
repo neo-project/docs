@@ -20,7 +20,7 @@ The current dBFT 2.0 flow of states can be seen below: ![here](https://github.co
 
 ### One-block finality
 
-One block finality offers significant advantages for real-world applications. For example, end users, merchants, and exchanges can be confident that their transactions were definitively processed and settled, with no chance for them to be reverted. While the NEO blockchain has been designed for hosting Decentralized Applications (DApps), it is noteworthy that persisting SC transactions, which involves State Machine Replication (SMR) and is the core functionality of several DApps, poses a unique set of challenges. Maintaining block finality is a difficult task, as consensus nodes may not expose and reveal the information of duplicated blocks. Due to this, block signatures should be only provided when the majority of consensus nodes are already in an agreement.
+One block finality offers significant advantages for real-world applications. For example, end users, merchants, and exchanges can be confident that their transactions were definitively processed and settled, with no chance for them to be reverted. While the Neo blockchain has been designed for hosting Decentralized Applications (DApps), it is noteworthy that persisting SC transactions, which involves State Machine Replication (SMR) and is the core functionality of several DApps, poses a unique set of challenges. Maintaining block finality is a difficult task, as consensus nodes may not expose and reveal the information of duplicated blocks. Due to this, block signatures should be only provided when the majority of consensus nodes are already in an agreement.
 
 This problem has been called as the **indefatigable miners problem** (defined below):
 
@@ -41,7 +41,5 @@ This mechanism ensured an extra layer of protection before asking for changing v
 Along with this, another strategy that has been designed was to avoid `change_views` when nodes are seeing progress on the network.
 In this sense, each time that nodes shared signed information between them, extra timeout are added to their internal timers, summarizing that nodes are reaching agreements and communicating between them.
 
-## What's next?
 
-[Examples and consensus scenarios for dBFT](4-Examples_and_consensus_scenarios_for_dBFT.md) 
 

@@ -36,16 +36,16 @@ Let's compare the smart contract with vending machines. In the real world, after
 - Economy
   Smart contract eliminated the need for a vast chain of middlemen includes lawyers, witness and other intermediatries.
 
-## NEO smart contract
+## Neo smart contract
 
-The NEO Smart Contract  includes the following features: certainty, high performance, and expandability. The contract types include: validation contracts, function contracts, and application contracts.
+The Neo Smart Contract  includes the following features: certainty, high performance, and expandability. The contract types include: validation contracts, function contracts, and application contracts.
 
-From the performance point of view, NEO uses the lightweight NeoVM (NEO Virtual Machine) as its intelligent contract execution environment. It starts very fast and takes up a small amount of resources and is suitable for smart contracts such as short procedures. Static compilation and caching of hotspot contracts can be significantly enhanced by JIT (real-time compiler) technology. The instructional setup of the NEO virtual machine provides a series of cryptographic instructions to optimize the execution efficiency of cryptographic algorithms in smart contracts. In addition, data manipulation instructions provide support for arrays and complex data structures directly.
+From the performance point of view, Neo uses the lightweight NeoVM (Neo Virtual Machine) as its intelligent contract execution environment. It starts very fast and takes up a small amount of resources and is suitable for smart contracts such as short procedures. Static compilation and caching of hotspot contracts can be significantly enhanced by JIT (real-time compiler) technology. The instructional setup of the Neo virtual machine provides a series of cryptographic instructions to optimize the execution efficiency of cryptographic algorithms in smart contracts. In addition, data manipulation instructions provide support for arrays and complex data structures directly.
 
-NEO Smart Contract achieves a scalable approach through a combination of high concurrency and dynamic partitioning, combined with its low-coupling design. The low coupling contract procedure is executed in a virtual machine (NEO virtual machine) and communicates with the outside through the interactive service layer. Therefore, the vast majority of upgrades to the smart contract function can be achieved through API of the interactive service layer.
+Neo Smart Contract achieves a scalable approach through a combination of high concurrency and dynamic partitioning, combined with its low-coupling design. The low coupling contract procedure is executed in a virtual machine (Neo virtual machine) and communicates with the outside through the interactive service layer. Therefore, the vast majority of upgrades to the smart contract function can be achieved through API of the interactive service layer.
 
 ### Write smart contracts in any language
-From the language point of view, the difference between NEO Smart Contract and  other blockchain such as Ethereum is more intuitive: unlike the original Solidity language in Ethereum, the NEO smart contract can be used directly by almost any high-level programming language. NEO provides compilers and plug-ins for these languages, which are used to compile high-level languages ​​into instruction sets supported by NEO virtual machines. The first compiler will be for MSIL (Microsoft intermediate language), so theoretically any .Net language and any language that can be translated into MSIL will be immediately supported.
+From the language point of view, the difference between Neo Smart Contract and  other blockchain such as Ethereum is more intuitive: unlike the original Solidity language in Ethereum, the Neo smart contract can be used directly by almost any high-level programming language. Neo provides compilers and plug-ins for these languages, which are used to compile high-level languages ​​into instruction sets supported by Neo virtual machines. The first compiler will be for MSIL (Microsoft intermediate language), so theoretically any .Net language and any language that can be translated into MSIL will be immediately supported.
 
 The languages that are currently supported are:
 
@@ -59,9 +59,9 @@ The languages that are currently supported are:
 
 - JavaScript (Typescript)
 
-With multiple-language support, more than 90% of developers can directly participate in the development of an NEO smart contract without the need to learn a new language. Existing business system code might even be directly ported to the blockchain. We envision that this will greatly increase the overall popularity of the future blockchain.
+With multiple-language support, more than 90% of developers can directly participate in the development of an Neo smart contract without the need to learn a new language. Existing business system code might even be directly ported to the blockchain. We envision that this will greatly increase the overall popularity of the future blockchain.
 
-Additionally, traditional smart contracts are difficult to debug and test given lack of tool supports and access to clear instructions. NEO, however, provides major support for debugging at the NEO virtual machine level, allowing you to develop NEO Smart Contract both easier and faster.
+Additionally, traditional smart contracts are difficult to debug and test given lack of tool supports and access to clear instructions. Neo, however, provides major support for debugging at the Neo virtual machine level, allowing you to develop Neo Smart Contract both easier and faster.
 
 Developing a smart contract is very simple. Here is a Hello world  smart contract using C#:
 
@@ -82,11 +82,7 @@ def Main():
     print("Hello World")
 ```
 
-After compiled and tested by using the tools NEO provided, the smart contract can be invoked on the main-net, test-net, or the private-net by yourself.
+After compiled and tested by using the tools Neo provided, the smart contract can be invoked on the main-net, test-net, or the private-net by yourself.
 
-In this smart contract tutorial, developers can understand the theory behind the smart contract itself with the technical detail of NEO blockchain, and learn how to develop a smart contract based on different programming languages and using different tools.
-
-## Next Step
-
-Now, let's begin to learn the smart contract development. The first thing to do is [Set up your Private Chain](Development_privateChain.md).
+In this smart contract tutorial, developers can understand the theory behind the smart contract itself with the technical detail of Neo blockchain, and learn how to develop a smart contract based on different programming languages and using different tools.
 

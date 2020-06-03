@@ -1,12 +1,12 @@
-# NEO Protocol and Networking
+# Neo Protocol and Networking
 
-The NEO network consists of two kind of protocols: a protocol to communicate with local clients and wallets, and an external protocol to communicate with other NEO nodes. To connect to a local node, [JSON-RPC](https://www.jsonrpc.org/) is used. This JSON-RPC can also be exposed to other external nodes.
+The Neo network consists of two kind of protocols: a protocol to communicate with local clients and wallets, and an external protocol to communicate with other Neo nodes. To connect to a local node, [JSON-RPC](https://www.jsonrpc.org/) is used. This JSON-RPC can also be exposed to other external nodes.
 
 ```
                           +--------------+
 +----------+              | +----------+ |
-|          | NEO Protocol | |          | |
-| NEO node +----------------+ NEO peer | |
+|          | Neo Protocol | |          | |
+| Neo node +----------------+ Neo peer | |
 |          |              | |          | |
 +----------+              | +----+-----+ |
                           |      |       |
@@ -19,16 +19,16 @@ The NEO network consists of two kind of protocols: a protocol to communicate wit
                           | |          | |
                           | +----------+ |
                           +--------------+
-                              NEO node
+                              Neo node
 ```
 
-In this tutorial, we will focus on the other protocol, the [NEO protocol](https://docs.neo.org/docs/en-us/tooldev/advanced/network-protocol.html). Using the Golang programming language, we will learn how to communicate with a NEO node.
+In this tutorial, we will focus on the other protocol, the [Neo protocol](https://docs.neo.org/docs/en-us/tooldev/advanced/network-protocol.html). Using the Golang programming language, we will learn how to communicate with a Neo node.
 
-## NEO Ping with Golang
+## Neo Ping with Golang
 
-Although many [core libraries of NEO](https://github.com/neo-project/neo) are written in C# or Python, for this tutorial we will use [Golang](https://golang.org/). The communication basics are the same for all languages.
+Although many [core libraries of Neo](https://github.com/neo-project/neo) are written in C# or Python, for this tutorial we will use [Golang](https://golang.org/). The communication basics are the same for all languages.
 
-The NEO protocol defines However, ia header and a payload. Every message needs to be sent with this specific format, with a 24 bytes header and its payload:
+The Neo protocol defines However, ia header and a payload. Every message needs to be sent with this specific format, with a 24 bytes header and its payload:
 
 ```
  0                   1                   2                   3
@@ -49,9 +49,9 @@ The NEO protocol defines However, ia header and a payload. Every message needs t
 |                                                               |
 |                           Payload                             |
 ```
-Communication with other NEO nodes is handled via TCP or via [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). The advantage of using WebSockets is that you could connect to a NEO node with a web browser, however in this tutorial we will use TCP.
+Communication with other Neo nodes is handled via TCP or via [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). The advantage of using WebSockets is that you could connect to a Neo node with a web browser, however in this tutorial we will use TCP.
 
-The header contains a 4 bytes magic, which stands for "Ant" (little-endian), the name that was used before the NEO rebranding. The testnet uses slightly different magic bytes, allowing messages to be distinguished between the MainNet and TestNet.
+The header contains a 4 bytes magic, which stands for "Ant" (little-endian), the name that was used before the Neo rebranding. The testnet uses slightly different magic bytes, allowing messages to be distinguished between the MainNet and TestNet.
 
 ---
 **Exercise 1**:However, i
@@ -61,21 +61,21 @@ Although compatibility is very important and changing the format of the protocol
 
 ---
 
-In order to participate in the NEO distributed system, firstly we need to open a connection to a NEO node. Since we want to issue ping/pong commands, which was released in NEO version 2.10.1 on 4. April 2019, we need to make sure that our node has this version. A list of NEO nodes with versions can be found here: [http://monitor.cityofzion.io/](http://monitor.cityofzion.io/). The following nodes announce this version at the time of writing:
+In order to participate in the Neo distributed system, firstly we need to open a connection to a Neo node. Since we want to issue ping/pong commands, which was released in Neo version 2.10.1 on 4. April 2019, we need to make sure that our node has this version. A list of Neo nodes with versions can be found here: [http://monitor.cityofzion.io/](http://monitor.cityofzion.io/). The following nodes announce this version at the time of writing:
 
 * node1.ledgercate.com:10333
 * seed.neoeconomy.io:10333
 * seed10.ngd.network:10333
 
-Please note that peers can go offline at any time, and those peers above may not be online anymore. Any other NEO node above v2.10.1 may be substituted.
+Please note that peers can go offline at any time, and those peers above may not be online anymore. Any other Neo node above v2.10.1 may be substituted.
 
 These nodes must be well reachable on the respective port. The default port in the mainnet is 10333. In case a node is behind a firewall, a node can use UPnP to configure the router to accept incoming connection to the node. NAT-PMP is currently not supported. In our tutorial we won't accept any incoming connections, that means we don't have any NAT issues.
 
-Let's implement the protocol. Here is what we need to do: first we set the magic number, then we set the command followed by the payload length. Then we calculate the checksum and append the payload. Now, we can send our packet to one of the NEO nodes. Sounds easy, right?
+Let's implement the protocol. Here is what we need to do: first we set the magic number, then we set the command followed by the payload length. Then we calculate the checksum and append the payload. Now, we can send our packet to one of the Neo nodes. Sounds easy, right?
 
 ### Little-Endian vs. Big-Endian
 
-For every protocol, it must be defined which byte order is used. In case of NEO its little-endian. Thus, the magic byte will be encoded as follows:
+For every protocol, it must be defined which byte order is used. In case of Neo its little-endian. Thus, the magic byte will be encoded as follows:
 
 ```
 0x00746E41 -> [41][6E][74][00]
@@ -85,10 +85,10 @@ Big-endian encoding would like as follows: [00][74][6E][41]. Many programming la
 ```
 binary.LittleEndian.PutUint32(b[0:], 0x00746E41)
 ```
-While most CPUs use little-endian encoding, network protocols such as TCP or UDP use big-endian. More information on endianness can be found in [https://en.wikipedia.org/wiki/Endianness](https://en.wikipedia.org/wiki/Endianness). For this tutorial we will use little-endian, as most data is encoded in little-endian in NEO, and we won't touch the exceptions.
+While most CPUs use little-endian encoding, network protocols such as TCP or UDP use big-endian. More information on endianness can be found in [https://en.wikipedia.org/wiki/Endianness](https://en.wikipedia.org/wiki/Endianness). For this tutorial we will use little-endian, as most data is encoded in little-endian in Neo, and we won't touch the exceptions.
 
 ### Checksum
-The checksum field in the header is the checksum calculated over the payload. Although TCP also has a checksum over its payload, the TCP checksum is only 16 bits. The payload checksum in NEO is the first 4 bytes (32 bits) of the double SHA256 hash of the payload. In Golang, the checksum can be calculated as follows:
+The checksum field in the header is the checksum calculated over the payload. Although TCP also has a checksum over its payload, the TCP checksum is only 16 bits. The payload checksum in Neo is the first 4 bytes (32 bits) of the double SHA256 hash of the payload. In Golang, the checksum can be calculated as follows:
 
 ```
  tmp := sha256.Sum256(payload)
@@ -113,11 +113,11 @@ fmt.Printf("magic: 0x%x\n", binary.LittleEndian.Uint32(b))
 ---
 
 ### Payload protocol
-After implementing the encoding and decoding of the headers for the NEO protocol, we can focus on the payload. The NEO protocol supports the following commands, though not every command has a payload.
+After implementing the encoding and decoding of the headers for the Neo protocol, we can focus on the payload. The Neo protocol supports the following commands, though not every command has a payload.
 
 * version - information about the version of the node, including version number
 * verack - on successfully receiving of version information, send back verack (no payload)
-* getaddr - request to send a send active NEO nodes
+* getaddr - request to send a send active Neo nodes
 * addr - response to getaddr request
 * getblocks - request to send blocks
 * block - response to getblocks or getdata
@@ -134,11 +134,11 @@ After implementing the encoding and decoding of the headers for the NEO protocol
 * pong - response to a ping message
 * tx - response to a getdata message
 
-To write a NEO ping message it is important to understand that there is a strict order of commands that needs to be issued. For every connection, a version and its acknowledgment verack needs to be exchanged twice; once from your node and once from the remote node. The following flow diagram shows this sequence of commands:
+To write a Neo ping message it is important to understand that there is a strict order of commands that needs to be issued. For every connection, a version and its acknowledgment verack needs to be exchanged twice; once from your node and once from the remote node. The following flow diagram shows this sequence of commands:
 
 ```
 +-------+             +-------+
-| NEO1  |             | NEO2  |
+| Neo1  |             | Neo2  |
 +-------+             +-------+
     |                     |
     | command version     |
@@ -161,7 +161,7 @@ To write a NEO ping message it is important to understand that there is a strict
     |                     |
 ```
 
-For the NEO ping, we will only use the version and ping command with a payload. The verack command does not have any payload and will not be described. The payload of those two commands are defined as follows:
+For the Neo ping, we will only use the version and ping command with a payload. The verack command does not have any payload and will not be described. The payload of those two commands are defined as follows:
 
 ### Command "version"
 
@@ -181,7 +181,7 @@ For the NEO ping, we will only use the version and ping command with a payload. 
 * Nonce (uint32) - random number
 
 ### Protocol
-With this information we can implement the NEO node ping. First we need to write the encoders and decoders for the payload of version and ping.
+With this information we can implement the Neo node ping. First we need to write the encoders and decoders for the payload of version and ping.
 
 ---
 **Exercise 3**:
@@ -201,7 +201,7 @@ fmt.Printf("time: %v\n", time.Unix(int64(binary.LittleEndian.Uint32(b[12:])), 0)
 ---
 
 ### Putting It together
-First, connect to a NEO node that supports ping/pong. We will check for the correct version later on.
+First, connect to a Neo node that supports ping/pong. We will check for the correct version later on.
 
 ```
 func main() {
@@ -212,7 +212,7 @@ func main() {
 	defer remote.Close()
 	fmt.Println("Conneced to: %v", remote.RemoteAddr())
 ```
-Now we send our version to the remote NEO node.
+Now we send our version to the remote Neo node.
 ```
 	payloadVersion := encodeVersion("/Our NEO client:0.0.1/")
 	packetVersion := encodeHeader("version", payloadVersion)
@@ -235,7 +235,7 @@ We wrote the version and now we can expect the version from the remote host. In 
 	userAgent := decodeVersion(read)
 ```
 
-On receiving the version from the NEO node, we additionally check the checksum to ensure that they match. The checksum is the first 4 bytes of the double SHA256 hash of the payload.
+On receiving the version from the Neo node, we additionally check the checksum to ensure that they match. The checksum is the first 4 bytes of the double SHA256 hash of the payload.
 
 ```
 	tmp := sha256.Sum256(read)
@@ -325,7 +325,7 @@ Merge your encoder/decoder code with the main function from the template and run
 
 ---
 
-After successfully sending a NEO ping and receiving a pong back, we can send `getaddr` and receive further nodes in the NEO network. For that, you can use the connection you have already established. Finding other peers is crucial for P2P and distributed systems, as peers may go offline at any time, and having other nodes to connect to is vital.
+After successfully sending a Neo ping and receiving a pong back, we can send `getaddr` and receive further nodes in the Neo network. For that, you can use the connection you have already established. Finding other peers is crucial for P2P and distributed systems, as peers may go offline at any time, and having other nodes to connect to is vital.
 
 ---
 **Exercise 5**:
@@ -336,7 +336,7 @@ The output contains a list of IP addresses (16 bytes IPv6/4, 2 bytes port) that 
 
 ---
 
-You now have successfully implemented a NEO client that can initiate a connection to other NEO nodes, send a ping, receive a pong, and get a list of further peers.
+You now have successfully implemented a Neo client that can initiate a connection to other Neo nodes, send a ping, receive a pong, and get a list of further peers.
 
 
 ## Appendix A: Quick & Dirty Template
@@ -505,6 +505,3 @@ func decodePing(b []byte) {
 
 ```
 
-## What's next?
-
-[Persistence](../6-persistence/1-persistence.md)

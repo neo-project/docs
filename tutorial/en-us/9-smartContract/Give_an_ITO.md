@@ -19,11 +19,11 @@ lang-ref: Give_an_ITO
 
 ## What is ITO (Initial Token Offering)
 
-We already know what is a `NEP-5` token how to [implement](What_is_nep5.md) your NEP-5 token. The NEP-5 token is used as an asset which can used to transfer between users. However, only issue such a `NEP-5` token is not profitable for issuer because you have to link this asset to outside world manually. In NEO, there is a way for your to trade between `NEP-5` token  and global asset such as NEO.
+We already know what is a `NEP-5` token how to [implement](What_is_nep5.md) your NEP-5 token. The NEP-5 token is used as an asset which can used to transfer between users. However, only issue such a `NEP-5` token is not profitable for issuer because you have to link this asset to outside world manually. In Neo, there is a way for your to trade between `NEP-5` token  and global asset such as Neo.
 
 ITO stands for Initial Token Offering. With this process, you can digitize or tokenize your asset and make it publicly available through the internet. This means you can start a business, company or project with any asset value. Via ITO, you generate digital coins or tokens which represent your asset. Consecutively, you can electronically transfer these coins or tokens.
 
-The ITO standard in NEO is based on the NEP-5 which we implemented before. In addition to those methods and properties already defined in the NEP-5, in the ITO, there are several new emthods and property should add in.
+The ITO standard in Neo is based on the NEP-5 which we implemented before. In addition to those methods and properties already defined in the NEP-5, in the ITO, there are several new emthods and property should add in.
 
 ## Timestamp
 It is worth noting that every ITO has limited amount of time and number of tokens. Therefore, in the ITO contract, we should define the start time of ITO and the finish time of ITO. Besides this period, the ITO can not be invoked successfully.
@@ -63,7 +63,7 @@ private static ulong CurrentSwapRate()
 
 ## MintToken
 
-The `MintToken` method is the most important method in the ITO contract (which also has more things to learn). Think of the idea that project is published and offer its tokens as a share of that project. What customer can to is donate NEO on the hand to that project and get it's `NEP-5token` as a share of that project. This process we call it `MintToken`
+The `MintToken` method is the most important method in the ITO contract (which also has more things to learn). Think of the idea that project is published and offer its tokens as a share of that project. What customer can to is donate Neo on the hand to that project and get it's `NEP-5token` as a share of that project. This process we call it `MintToken`
 
 
 
@@ -73,7 +73,7 @@ Now let us implement the `MintToken` function. Firstly, in the `MintToken` metho
 Transaction tx = (Transaction)ExecutionEngine.ScriptContainer;
 ```
 
-Next, we have to get the `references` of this transaction. Here, a reference stands for the corresponding output for the inputs of the transaction. After get the references，we’re verifying that the output that is sent to the contract address (this.address) is NEO. After confirm this, we can get the corresponding `sender` address through the `ScriptHash` of this `TransactionOutput` object. We can learn more about `reference`,`inputs` and `outputs` in the [UTXO](UTXO.md).
+Next, we have to get the `references` of this transaction. Here, a reference stands for the corresponding output for the inputs of the transaction. After get the references，we’re verifying that the output that is sent to the contract address (this.address) is Neo. After confirm this, we can get the corresponding `sender` address through the `ScriptHash` of this `TransactionOutput` object. We can learn more about `reference`,`inputs` and `outputs` in the [UTXO](UTXO.md).
 
 ```csharp
 TransactionOutput reference = tx.GetReferences()[0];
@@ -82,7 +82,7 @@ if (reference.AssetId != neo_asset_id) return false;
 byte[] sender = reference.ScriptHash;
 ```
 
-Now we have to collect the total amount of NEO from the outputs of the transactionOutput.  The `outputs` here is every output of the current transaction. In this kind of `MintToken` method of ITO contract, usually we only aaccpt one global asset such as `NEO`. Therefore, in the for loop that checks for only NEO assets, sum the amount by `output.Value` .
+Now we have to collect the total amount of NEO from the outputs of the transactionOutput.  The `outputs` here is every output of the current transaction. In this kind of `MintToken` method of ITO contract, usually we only aaccpt one global asset such as `NEO`. Therefore, in the for loop that checks for only Neo assets, sum the amount by `output.Value` .
 
 ```csharp
 TransactionOutput[] outputs = tx.GetOutputs();
@@ -124,8 +124,4 @@ return true;
 ```
 
 
-## Next Step
-Now you have successfully make your first ITO and familiar with the most ideas of smart contract, the next one will be more difficult contract [which is CGAS](cgas/1_what_is_cgas.md).
-
-If you want to know how to implement the NEP5, click [here](Implementation_of_NEP5.md).
 

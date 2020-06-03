@@ -14,11 +14,11 @@ NEO also supports more sophisticated account types. In these cases, the funds ar
 
 The most common case for this type of account is a multi-signature account. A multi-signature account requires that *N* of *X* people provides signatures for the transaction in order to transfer funds. For example, 2 out of 3 of the account owners must sign in order for the funds to be withdrawn.
 
-We can generate a simple contract for this account using NEO op codes. Suppose we want to create a multi-signature contract account for THREE different persons (public keys):
+We can generate a simple contract for this account using Neo op codes. Suppose we want to create a multi-signature contract account for THREE different persons (public keys):
 
 > [!Warning]
 >
-> You need to sort public keys by its ECPoint(X,Y) in ascending order before the operation otherwise you will get a different scripthash which leads to different NEO address.
+> You need to sort public keys by its ECPoint(X,Y) in ascending order before the operation otherwise you will get a different scripthash which leads to different Neo address.
 
 ```
 //pubkey1
@@ -61,14 +61,10 @@ Calculate the scripthash (and address): 4d0c0932fa032debdceaaf5cd8086cf3f882961f
 
 *Multi-sig example courtesy of NeoResearch*
 
-This contract information can also be stored in the NEP-6 file, which allows a user to keep track of accounts that are not necessarily associated with a single private key. More complex account types can be created using NEO's scripting capabilities. 
+This contract information can also be stored in the NEP-6 file, which allows a user to keep track of accounts that are not necessarily associated with a single private key. More complex account types can be created using Neo's scripting capabilities. 
 
-Multi-signatures are currently supported in the [NEO-GUI](https://github.com/neo-project/neo-gui) and [neo-python](https://github.com/CityOfZion/neo-python) clients.
+Multi-signatures are currently supported in the [Neo-GUI](https://github.com/neo-project/neo-gui) and [neo-python](https://github.com/CityOfZion/neo-python) clients.
 
-### NEO DB3
-NEO db3 is a legacy file format that was previously supported in NEO-GUI prior to the introduction of the NEP-6 file format. It is highly reccommended to upgrade to NEP-6 file format, which can be done in [NEO-GUI](../../../docs/en-us/node/gui/wallet.md).
-
-## What's next?
-
-[UTXO and Account Model](4-UTXO_and_account_models.md)
+### Neo DB3
+Neo db3 is a legacy file format that was previously supported in Neo-GUI prior to the introduction of the NEP-6 file format. It is highly reccommended to upgrade to NEP-6 file format, which can be done in [Neo-GUI](../../../docs/en-us/node/gui/wallet.md).
 

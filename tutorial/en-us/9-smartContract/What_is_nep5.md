@@ -11,21 +11,21 @@ lang-ref: What_is_nep5
 >
 > **Main points**:
 >
-> 1. What is NEP (NEO Enhancement Proposals)
+> 1. What is NEP (Neo Enhancement Proposals)
 >
 > 2. The detail of NEP5
 >
 
 ## What is NEP?
-NEP stands for NEO Enhancement Proposal. An NEP is a design document providing information to the NEO community, or describing a new feature for NEO or its processes or environment. The NEP should provide a concise technical specification of the feature and a rationale for the feature. The NEP author is responsible for building consensus within the community and documenting dissenting opinions. There is already more then 10 NEPS in this [github repository](https://github.com/neo-project/proposals)
+NEP stands for Neo Enhancement Proposal. An NEP is a design document providing information to the Neo community, or describing a new feature for Neo or its processes or environment. The NEP should provide a concise technical specification of the feature and a rationale for the feature. The NEP author is responsible for building consensus within the community and documenting dissenting opinions. There is already more then 10 NEPS in this [github repository](https://github.com/neo-project/proposals)
 
-For NEO implementers, NEPs are a convenient way to track the progress of their implementation. Ideally each implementation maintainer would list the NEPs that they have implemented. This will give end users a convenient way to know the current status of a given implementation or library.
+For Neo implementers, NEPs are a convenient way to track the progress of their implementation. Ideally each implementation maintainer would list the NEPs that they have implemented. This will give end users a convenient way to know the current status of a given implementation or library.
 
 If someone are interested in proposing a new NEP, first review [NEP-1](https://github.com/neo-project/proposals/blob/master/nep-1.mediawiki), then clone the repository and add your NEP to it. There is a template NEP here. Then submit a Pull Request to this repository.
 
 ## Introduction to NEP-5
 
-The NEP-5 standard is a token standard which represents a tokenized smart contract. This standard can regulated the token which is issued on the NEO blockchain. A standard method for interacting with these tokens relieves the entire ecosystem from maintaining a definition for basic operations that are required by every Smart Contract that employs a token.
+The NEP-5 standard is a token standard which represents a tokenized smart contract. This standard can regulated the token which is issued on the Neo blockchain. A standard method for interacting with these tokens relieves the entire ecosystem from maintaining a definition for basic operations that are required by every Smart Contract that employs a token.
 
 In NEP-5 standard, you have some methods and trigger one event
 
@@ -116,8 +116,5 @@ A token contract which creates new tokens MUST trigger a <code>transfer</code> e
 
 A token contract which burns tokens MUST trigger a <code>transfer</code> event with the <code>to</code> address set to <code>null</code> when tokens are burned.
 
-## Next Step
-Now let us [implement a NEP5-Token!](Implementation_of_NEP5.md)
 
-If you want to learn the knowledge points of smart contract, click [here](Smart_Contract_basics.md).
 

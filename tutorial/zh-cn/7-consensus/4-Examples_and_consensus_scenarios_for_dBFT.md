@@ -2,7 +2,7 @@
 
 ## Watch-only模式的共识节点
 
-正如可以在[网络教程](../5-network/1-Introduction_to_the_NEO_network_protocol.md)中验证的那样，NEO网络以完全分布式的方式运行，如上图所示，摘自[Medium文章](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
+正如可以在[网络教程](../5-network/1-Introduction_to_the_NEO_network_protocol.md)中验证的那样，Neo网络以完全分布式的方式运行，如上图所示，摘自[Medium文章](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
 
 ![转发交易，直至达到共识节点（绿色）](https://cdn-images-1.medium.com/max/800/1*vKbm_Di8GgQep8SyKeAWNw.png)
 
@@ -70,7 +70,7 @@
 
 ## 一个由4个节点组成的共识
 
-正如你可能知道的那样，NEO区块链2.x中的地址由`21`（表示[“向计算栈推送34个字节”](https://github.com/neo-project/neo-vm/blob/f81c3039d5fb4417b3c1ad780378c7f92499964a/src/neo-vm/OpCode.cs＃L144)）、 公钥和`ac`（操作码，用于调用一个脚本来对地址见证人执行验证）组成。
+正如你可能知道的那样，Neo区块链2.x中的地址由`21`（表示[“向计算栈推送34个字节”](https://github.com/neo-project/neo-vm/blob/f81c3039d5fb4417b3c1ad780378c7f92499964a/src/neo-vm/OpCode.cs＃L144)）、 公钥和`ac`（操作码，用于调用一个脚本来对地址见证人执行验证）组成。
 
 建议读者看看以下文章：
 

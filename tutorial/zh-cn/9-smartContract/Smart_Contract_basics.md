@@ -5,7 +5,7 @@ lang-ref: Smart_Contract_basics
 ---
 
 
-# NEO智能合约101
+# Neo智能合约101
 
 <p align="center">
   <img width="60%" src="./imgs/newbie.jpg">
@@ -38,13 +38,13 @@ namespace Helloworld
 
 ##  合约结构
 
-每个智能合约都继承了NEO框架中的 `SmartContract` 基类，并实现了一些基本的方法。
+每个智能合约都继承了Neo框架中的 `SmartContract` 基类，并实现了一些基本的方法。
 
-命名空间 `NEO` 是NEO区块链所提供的API，它提供了访问区块链数据和操作持久存储的方法。这些API分为两类:
+命名空间 `NEO` 是Neo区块链所提供的API，它提供了访问区块链数据和操作持久存储的方法。这些API分为两类:
 
 1.  区块链分类账本。合约可以通过interops层访问整个区块链上的所有数据，包括完整的区块和交易数据，以及它们的所有字段。
 
-2.  持久化存储。部署在NEO上的每个应用程序合约都有一个只能由合约自身访问的存储空间。所提供的这些方法可以用来访问合约中的数据。
+2.  持久化存储。部署在Neo上的每个应用程序合约都有一个只能由合约自身访问的存储空间。所提供的这些方法可以用来访问合约中的数据。
 
 ##  合约属性
 
@@ -70,7 +70,7 @@ public  static  string  Name() =>  "name of the token";
 
 在开发智能合约时，必须将应用程序的数据存储在区块链上。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。存储在智能合约存储区中的所有数据在智能合约的调用期间会自动持久化。区块链中的全节点会存储链上每一个智能合约的状态。
 
-NEO提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 `Storage` 类来读写持久性存储区。 `Storage` 类是一个静态类，不需要构造函数。 `Storage` 类的方法可以查看这个[API 参考文档](https://docs.neo.org/en-us/sc/reference/fw/dotnet/neo/Storage.html) 。
+Neo提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 `Storage` 类来读写持久性存储区。 `Storage` 类是一个静态类，不需要构造函数。 `Storage` 类的方法可以查看这个[API 参考文档](https://docs.neo.org/en-us/sc/reference/fw/dotnet/neo/Storage.html) 。
 
 例如，如果你想将token的总供应量存储到存储区:
 
@@ -177,7 +177,7 @@ namespace Neo.SmartContract
 
 ### 触发器
 
-智能合约触发器是触发智能合约执行逻辑的机制。在NEO智能合约中引入了四个触发器,最常用的是 `Verification` 触发器和 `Application` 触发器。
+智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了四个触发器,最常用的是 `Verification` 触发器和 `Application` 触发器。
 
 ### Verification 触发器
 
@@ -309,9 +309,3 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ## Assignment
 
 在上面的 `DNS` 智能合约中，有一个delete方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 `Storage.Delete` 方法来删除相应的键值对。请实现这个功能。
-
-## 阅读下节
-
-你刚完成了第一个智能合约。现在让我们学习下[NEP 5 Token](What_is_nep5.md)的相关知识。
-
-要返回上节查看如何编译和部署合约，点击[这里](Development_compile.md)。

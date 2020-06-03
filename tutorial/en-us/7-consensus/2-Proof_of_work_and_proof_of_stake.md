@@ -15,7 +15,7 @@ Since then, mining has evolved from GPUs, FPGAs and ASICs, reaching the impressi
 If computers and knowledge dedicated in generating hashes has been evolving so drastically, why would not be the same for digital signatures and communication protocols?
 IoT has been a hot topic and focus of dedication of renowned researchers and industries, and its roots are related with communication and agreement between autonomous devices.
 
-The roots of NEO dBFT are digital signatures shared by a group of nodes (autonomous agents), which were selected by the majority of all NEO holders.
+The roots of Neo dBFT are digital signatures shared by a group of nodes (autonomous agents), which were selected by the majority of all Neo holders.
 
 ## Coordination x Proof-of-Stake x Voting
 
@@ -27,8 +27,3 @@ The power of voting can even remove those that are acting as promised.
 
 Summarizing this, we should see that coordination is the core for reaching agreement in decentralized scenarios.
 Coordination not in the sense of a centralized coordinator, but in the sense that multiple goals are considered when a decision is being taken.
-
-## What's next?
-
-[pBFT and dBFT](3-PBFT_and_DBFT.md)
-

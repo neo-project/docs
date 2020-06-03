@@ -1,5 +1,5 @@
 # Block Creation by Consensus Nodes
-As discussed in [Introduction to blocks and blockchain](1-Introduction_to_blocks_and_blockchain.md), NEO uses the dBFT mechanism to generate new blocks. In short, this means there are a selected amount of consensus nodes, elected by the network, which are required to reach a 2/3 majority agreement on any new potential block.
+As discussed in [Introduction to blocks and blockchain](1-Introduction_to_blocks_and_blockchain.md), Neo uses the dBFT mechanism to generate new blocks. In short, this means there are a selected amount of consensus nodes, elected by the network, which are required to reach a 2/3 majority agreement on any new potential block.
 
 For each new block that needs to be generated, one of these nodes is elected as the speaker. In the best case scenario, where we have no Byzantine nodes, the speaker node will propose a new block and distribute it to all other consensus nodes for agreement. When the speaker node receives enough signatures from other consensus nodes, the block is propagated to the network and final. For more details on the dBFT consensus mechanism, have a look at the [whitepaper](../../../docs/en-us/basic/technology/dbft.md).
 
@@ -34,8 +34,4 @@ A transaction fee is used to gain priority on the network. There are, however, f
 
 ## Block broadcasting
 Once the consensus nodes agree on a new block according to the dBFT mechanism, they will broadcast the new block to the entire network. Because of the characteristics of the dBFT consensus mechanism, block finality is achieved immediately in 1 single block. This means that all clients can interrogate the blockchain (any RPC or P2P node) immediately after a new block has been created, and be certain these transactions are final.
-
-## What's next?
-
-[Validation of blocks](4-Block_validation_processing.md)
 

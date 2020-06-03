@@ -1,7 +1,7 @@
 #  持久化
 
 ## 序列化模型
-NEO平台支持的原生数据类型有Integer、Decimal和String、UInt160和UInt256。该模型在持久化层和网络层中都有使用。
+Ne'o平台支持的原生数据类型有Integer、Decimal和String、UInt160和UInt256。该模型在持久化层和网络层中都有使用。
 
 ### 整数序列化
 
@@ -55,7 +55,7 @@ public static void WriteVarInt(this BinaryWriter writer, long value)
 ```
 
 #### 字节顺序
-除IP地址和端口号外，NEO中所有变长的整数类型都使用小端存储。
+除IP地址和端口号外，Neo中所有变长的整数类型都使用小端存储。
 
 ### 字符串序列化
 字符串使用变长的字符串变量进行编码，由一个表示字符串长度的整数以及随后紧跟的以UTF8编码的字符串构成。
@@ -88,7 +88,7 @@ public static void WriteVarBytes(this BinaryWriter writer, byte[] value)
 }
 ```
 
-在某些特殊场景，NEO会序列化一个固定长度的字符串。 对于这种情况，我们通过下面这种方式实现序列化：
+在某些特殊场景，Neo会序列化一个固定长度的字符串。 对于这种情况，我们通过下面这种方式实现序列化：
 
 ``` CSharp
 public static void WriteFixedString(this BinaryWriter writer, string value, int length)
@@ -108,9 +108,9 @@ public static void WriteFixedString(this BinaryWriter writer, string value, int 
 
 
 ### UInt160 与 UInt256 序列化
-UInt160和UInt256都存储为固定大小的字节数组，数组长度分别是20和32字节。NEO使用RIPMED160算法计算脚本哈希，并用SHA256算法计算交易和区块的哈希值。
+UInt160和UInt256都存储为固定大小的字节数组，数组长度分别是20和32字节。Neo使用RIPMED160算法计算脚本哈希，并用SHA256算法计算交易和区块的哈希值。
 
-请注意，在NEO中，我们会使用两次哈希函数。其中第一次始终是SHA256。
+请注意，在Neo中，我们会使用两次哈希函数。其中第一次始终是SHA256。
 
 UInt160最常用于计算合约的哈希值：
 
@@ -338,7 +338,7 @@ public static readonly RegisterTransaction UtilityToken = new RegisterTransactio
 **RegisterTransaction** 和 **IssueTransaction** 这两种交易都已经被弃用了。 可以通过创建[NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)合约来发行自己的token。NEP-5合约通过创建 **InvocationTransaction** 交易来部署和运行智能合约。
 
 #### 代币参考（交易输入）
-NEO的原生资产使用了UTXO模型，这意味着要想花费代币，你需要引用给你发送代币的那个交易。该引用使用了两个属性：`PrevHash`和`PrevIndex`。 `PrevHash`表示的是交易哈希，`PrevIndex`表示该交易在交易输出数组中所处的索引号。
+Neo的原生资产使用了UTXO模型，这意味着要想花费代币，你需要引用给你发送代币的那个交易。该引用使用了两个属性：`PrevHash`和`PrevIndex`。 `PrevHash`表示的是交易哈希，`PrevIndex`表示该交易在交易输出数组中所处的索引号。
 
 在该交易中，一个代币引用（在`vin`数组中）会被转换为多个交易输出（`vout`）。 请注意，最后一个交易输出用于将零钱发送回发送方，这样他/她就可以获得另一个未花费的交易，将来可以使用。
 

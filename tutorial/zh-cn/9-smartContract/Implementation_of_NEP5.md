@@ -14,7 +14,7 @@ lang-ref: Implementation_of_NEP5
 >
 > 1. 根据NEP-5标准来实现每个要点
 >
-> 2. 在NEO-Gui上使用NEP-5通证
+> 2. 在Neo-Gui上使用NEP-5通证
 >
 
 首先，我们定义一个只读属性Owner来表示合约的所有者。如下所示，`Owner` 是一个字节数组，长度为 `20` 。
@@ -216,14 +216,4 @@ private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] c
 <p align="center">
 	<img src="imgs/20190222-155608.png">
 </p>
-
-## 作业
-
-自己定义一个新的NEP-5通证。
-
-## 阅读下节
-
-在本教程中，你已经了解了NEP-5的标准，以及如何通过定义自己的通证来实现NEP-5标准。现在我们可以扩展这一步骤来[发起我们的通证，并公开发布](Give_an_ITO.md)。
-
-要返回上节查看什么是NEP5，点击[这里](What_is_nep5.md)。
 
