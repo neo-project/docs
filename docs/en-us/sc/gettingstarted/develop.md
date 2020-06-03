@@ -46,6 +46,10 @@ We will complete the following tasks in this section:
 
 4. Add the publishing directory to the environment variable Path:
 
+   > [!Note]
+   >
+   > Remove the old Neo2.x neon path if there is one.
+
    ![env](../../../zh-cn/sc/assets/env.png)
 
 5. Start PowerShell anywhere and run the command `neon.exe` to check if it works.
