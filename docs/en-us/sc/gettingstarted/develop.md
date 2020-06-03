@@ -44,7 +44,11 @@ We will complete the following tasks in this section:
 
    ![neon](../../../zh-cn/sc/assets/neon.png)
 
-4. Add the publishing directory to the environment variable Path (If have the old neon  for neo2.x, don't forget to remove it):
+4. Add the publishing directory to the environment variable Path:
+
+   > [!Note]
+   >
+   > Remove the old Neo2.x neon path if there is one.
 
    ![env](../../../zh-cn/sc/assets/env.png)
 
