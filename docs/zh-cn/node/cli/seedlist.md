@@ -130,7 +130,3 @@
 ### 相关工具
 如果觉得上述操作繁琐，可以编写一个自动更新 `protocol.json ` 的脚本，具体参见 [这里](https://github.com/HandsomeJeff/neo-cli-protocol-maker)。
 
-## 阅读下节
-
-[命令参考](cli.md)
-

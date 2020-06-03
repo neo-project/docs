@@ -1,5 +1,5 @@
 # Transaction Types
-There are several different types of transactions on NEO, each with a different purpose and different properties. Some previously used transaction types are now deprecated or removed from the network, so these should not be used when creating new transactions on the MainNet.
+There are several different types of transactions on Neo, each with a different purpose and different properties. Some previously used transaction types are now deprecated or removed from the network, so these should not be used when creating new transactions on the MainNet.
 
 | Byte   | Name                    | Status       | Transaction fee | Description                                             |
 |--------|-------------------------|--------------|-----------------|---------------------------------------------------------|
@@ -65,14 +65,14 @@ Claim GAS from unclaimed transaction outputs
 | `claims` | array | References to spent outputs in previous transactions |
 
 #### Claims
-A `claim` is a reference to a spent [`output`](2-Structure_of_NEO_transactions.md#outputs) (only for the NEO asset) in a previous transaction. Each transaction can have up to 65536 claim references. Each claim reference in the array of claims has a set of required attributes.
+A `claim` is a reference to a spent [`output`](2-Structure_of_NEO_transactions.md#outputs) (only for the Neo asset) in a previous transaction. Each transaction can have up to 65536 claim references. Each claim reference in the array of claims has a set of required attributes.
 
 | Field  | Type    | Description                                    |
 |--------|---------|------------------------------------------------|
 | `txid` | uint256 | The transaction hash of the referenced output  |
 | `vout` | uint16  | The index of the outputs array to use as input |
 
-Once an output from a previous transaction is used as a claim reference, it will be considered `claimed` and cannot be used anymore in any future claims. The amount of GAS that can be claimed will be calculated by the total GAS distribution in all blocks while the referenced NEO asset was in the respective contract address.
+Once an output from a previous transaction is used as a claim reference, it will be considered `claimed` and cannot be used anymore in any future claims. The amount of GAS that can be claimed will be calculated by the total GAS distribution in all blocks while the referenced Neo asset was in the respective contract address.
 
 Example:
 
@@ -279,9 +279,5 @@ Example:
 ```
 
 ## Registering assets (deprecated)
-NEO supports the registration of native (UTXO) assets on the blockchain with the `RegisterTransaction` and `IssueTransaction` transaction types. NEO and GAS are both examples of these native assets. For digital asset registration it is more common now to use a (NEP-5 compatible) smart contract. Using a smart contract is more scalable and flexible than using native assets. The new token smart contract may be deployed to the blockchain with an [InvocationTransaction](#InvocationTransaction).
-
-## What's next?
-
-[Transaction Fees](4-NEO_transaction_fees.md)
+Neo supports the registration of native (UTXO) assets on the blockchain with the `RegisterTransaction` and `IssueTransaction` transaction types. NEO and GAS are both examples of these native assets. For digital asset registration it is more common now to use a (NEP-5 compatible) smart contract. Using a smart contract is more scalable and flexible than using native assets. The new token smart contract may be deployed to the blockchain with an [InvocationTransaction](#InvocationTransaction).
 

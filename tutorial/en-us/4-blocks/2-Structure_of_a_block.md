@@ -1,6 +1,6 @@
 # Structure of a block
 
-Below is the JSON dump of block #3649960 on the NEO MainNet. It can be obtained using the following command (NB: the node chosen is random and may stop working in the future. It can be replaced with any node on the NEO MainNet that accepts RPC requests):
+Below is the JSON dump of block #3649960 on the Neo MainNet. It can be obtained using the following command (NB: the node chosen is random and may stop working in the future. It can be replaced with any node on the Neo MainNet that accepts RPC requests):
 
 ```
 curl https://seed4.switcheo.network:10331 -H 'Content-Type: application/json' -d '{ "jsonrpc": "2.0", "id": 1, "method": "getblock", "params": ["ad83d993ca2d9783ca86a000b39920c20508c8ccae7b7db11806646a4832bc50",1] }'
@@ -106,7 +106,7 @@ The block can be inspected in a more user-friendly way by using a block explorer
 
 	Since the block will always reference the previous block by the hash of its header, any changes to any of the transactions inside the previous block would result in a new hash of the [Merkle root](resource.md) of that previous block. Since the Merkle root hash is used in calculating the block header hash, changing any transaction would totally change the block header hash. This hash would then be totally different from what it was, thus changing what the next block is referring to as its parent block. This way any change can easily be detected, as it would effectively break the chain. This ensures that fraudulent blocks can be detected and ignored by all other nodes, securing the network. In a Proof of Work-based blockchain like Bitcoin, getting a malicious block accepted would mean recalculating all Nonces of the malicious block *plus* all blocks thereafter to come up with a longer chain than the current one, so it will be accepted by all other nodes as the single truth. This is why the younger the block is, the less secure it is, and the general rule is to wait for 6 blocks before assuming a transaction is final. This generally is about 1 hour (6 x 10min block) in Bitcoin.
 
-	NEO however is using [dBFT](https://docs.neo.org/en-us/basic/consensus/whitepaper.html), which results in a block being final as soon as it is committed to the blockchain. For a hacker to submit a malicious block, he would need to convince 66% of the consensus nodes to build the next block on top of his malicious blockchain, and use his malicious block header as the 'previous block hash' in the new block.
+	Neo however is using [dBFT](https://docs.neo.org/en-us/basic/consensus/whitepaper.html), which results in a block being final as soon as it is committed to the blockchain. For a hacker to submit a malicious block, he would need to convince 66% of the consensus nodes to build the next block on top of his malicious blockchain, and use his malicious block header as the 'previous block hash' in the new block.
 
 - ***merkleroot***: The hash of the root of the Merkle Tree of the block's transactions.
 
@@ -114,7 +114,7 @@ The block can be inspected in a more user-friendly way by using a block explorer
 
 - ***index***: The height of the current block. The Genesis block has index 0. This field is not present in the block itself but is calculated by the node serving the RPC request for completeness.
 
-- ***Nonce***: A random number that can be used as such by a Smart Contract. It should be understood that this is quite different from the nonce in on other blockchain protocols such as Bitcoin, where miners compete to find the nonce that results in a has that will satisfy a certain difficulty level. Because of the dBFT consensus mechanism in NEO, there is no Proof of Work (PoW) and nodes are working together to achieve consensus. Since there is no PoW required, the Nonce field is used as a random number to be used by all transactions occurring in that block. When each block is generated, the consensus nodes will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any block by referencing the Nonce field.
+- ***Nonce***: A random number that can be used as such by a Smart Contract. It should be understood that this is quite different from the nonce in on other blockchain protocols such as Bitcoin, where miners compete to find the nonce that results in a has that will satisfy a certain difficulty level. Because of the dBFT consensus mechanism in Neo, there is no Proof of Work (PoW) and nodes are working together to achieve consensus. Since there is no PoW required, the Nonce field is used as a random number to be used by all transactions occurring in that block. When each block is generated, the consensus nodes will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any block by referencing the Nonce field.
 
 - ***nextconsensus***: During consensus on the current block, the algorithm ensures a new consensus node is chosen, which is stored in this field.
 
@@ -128,26 +128,22 @@ The body of a block contains all the transactions that are embodied in that bloc
 Below are the type of transactions that can occur in a block:
 
 - **MinerTransaction**: The first transaction in each block must be the MinerTransaction. It is used to award all transaction fees of the current block to the validator.
-- **IssueTransaction**: Used to issue an asset. Asset managers can create the assets that have been registered in NEO's blockchain through IssueTransaction, and send them to any address.
-- **ClaimTransaction**: Transaction invoked to claim NeoGas that was not yet claimed for holding NEO.
+- **IssueTransaction**: Used to issue an asset. Asset managers can create the assets that have been registered in Neo's blockchain through IssueTransaction, and send them to any address.
+- **ClaimTransaction**: Transaction invoked to claim NeoGas that was not yet claimed for holding Neo.
 - **EnrollmentTransaction**: The transaction represents an enrollment form, which indicates that the sponsor of the transaction would like to sign up as a validator.
-- **ContractTransaction**: This is a very common kind of transaction as it allows one wallet to send NEO to another. The inputs and outputs transaction fields will usually be important for this transaction (for example, to govern how much NEO will be sent, and to what address).
+- **ContractTransaction**: This is a very common kind of transaction as it allows one wallet to send Neo to another. The inputs and outputs transaction fields will usually be important for this transaction (for example, to govern how much Neo will be sent, and to what address).
 - **InvocationTransaction**: Transaction type used to invoke a Smart Contract.
 
 ### Transaction structure
 - **Type**: Type of the transaction, which must be one of the above. Furthermore, the first transaction of a block must always be of the type ***MinerTransaction***.
 - **Version**: Version used to define transactions. Currently at 0. Similar to block version, but on the level of a transaction.
 - **Attributes**: Additional features that the transaction has.
-- **Inputs**: The transaction inputs. When sending NEO from one address to another, this refers to the UTXO of the NEO being sent by the sender.
-- **Outputs**: The transaction outputs. When sending NEO from one address to another, this creates new UTXO for the recipient to spend after this block has been mined.
-- **Scripts**: List of scripts used to validate the transaction. When sending NEO from one address to another, this validates the spending of any UTXO's that are referenced in the inputs.
+- **Inputs**: The transaction inputs. When sending Neo from one address to another, this refers to the UTXO of the Neo being sent by the sender.
+- **Outputs**: The transaction outputs. When sending Neo from one address to another, this creates new UTXO for the recipient to spend after this block has been mined.
+- **Scripts**: List of scripts used to validate the transaction. When sending Neo from one address to another, this validates the spending of any UTXO's that are referenced in the inputs.
 
 ## Additional fields
 
 - ***confirmations***: The amount of blocks that were built on top of this block. Each time a new block is confirmed on top of the chain that contains this block, the latter block gets an extra confirmation. This field is not present in the block itself but is calculated by the node serving the RPC request for completeness.
 - ***nextblockhash***: The hash of the next block, resulting in a linked-list of blocks. This field is not present in the block itself but is calculated by the node serving the RPC request for completeness.
-
-## What's next?
-
-[Block Creation by Consensus Nodes](3-Block_creation_broadcasting.md)
 

@@ -19,11 +19,11 @@ lang-ref: Give_an_ITO
 
 ## 什么是ITO（首次通证发行）
 
-我们已经知道什么是 `NEP-5` 通证以及如何实现NEP-5通证。 NEP-5通证可用于在用户之间进行转账的资产。但是，仅仅发行此类 `NEP-5` 通证对资产发行人而言并不能盈利，因为你必须手动将此类资产与外部世界进行链接。在NEO中，允许你在 `NEP-5` 通证和NEO等全局资产之间进行交易。
+我们已经知道什么是 `NEP-5` 通证以及如何实现NEP-5通证。 NEP-5通证可用于在用户之间进行转账的资产。但是，仅仅发行此类 `NEP-5` 通证对资产发行人而言并不能盈利，因为你必须手动将此类资产与外部世界进行链接。在Neo中，允许你在 `NEP-5` 通证和NEO等全局资产之间进行交易。
 
 ITO代表首次通证发行。通过这个过程，你可以对资产进行数字化或通证化，并通过互联网公开发布。这意味着你可以通过任何资产的价值创建业务、公司或项目。通过ITO，你可以生成代表你的资产的数字代币或通证。你可以不断地以电子方式转移这些代币或者通证。
 
-NEO中的ITO标准是基于我们之前实现的NEP-5标准的。除了已经在NEP-5中定义的那些方法和属性之外，ITO中还应该添加一些新的方法和属性。
+Neo中的ITO标准是基于我们之前实现的NEP-5标准的。除了已经在NEP-5中定义的那些方法和属性之外，ITO中还应该添加一些新的方法和属性。
 
 ## 时间戳
 值得注意的是，每个ITO的有效时间和通证数量都是有限制的。因此，在ITO合约中，我们应该定义ITO的开始时间和ITO的完成时间。在这段时间之外，ITO不能被成功调用。
@@ -59,11 +59,11 @@ private static ulong CurrentSwapRate()
 ```
 > [!Note]
 >
-> 在这个 `CurrentSwapRate` 	的代码片段中，只返回了基本汇率，但是，在真实的ITO中，由于时间周期不同，程序可以返回不同的兑换汇率。
+> 在这个 `CurrentSwapRate` 的代码片段中，只返回了基本汇率，但是，在真实的ITO中，由于时间周期不同，程序可以返回不同的兑换汇率。
 
 ## MintToken
 
-`MintToken` 方法是ITO合约中最重要的方法（要学习的内容还有很多）。考虑一下这种情况，项目已经发布并将其通证作为该项目的一部分对外提供。客户可以将手头上的NEO捐赠给该项目，同时将获得该项目的部分 `NEP-5` 通证。这个过程我们称之为 `MintToken`。
+`MintToken` 方法是ITO合约中最重要的方法（要学习的内容还有很多）。考虑一下这种情况，项目已经发布并将其通证作为该项目的一部分对外提供。客户可以将手头上的Neo捐赠给该项目，同时将获得该项目的部分 `NEP-5` 通证。这个过程我们称之为 `MintToken`。
 
 现在让我们实现 `MintToken` 函数。首先，在 `MintToken` 方法中，我们必须首先获取 `交易` 对象，这是该智能合约的脚本容器。
 
@@ -71,7 +71,7 @@ private static ulong CurrentSwapRate()
 Transaction tx = (Transaction)ExecutionEngine.ScriptContainer;
 ```
 
-接下来，我们必须获取该交易的 `引用` 。这里，引用代表该交易输入的相应输出。获取引用后，我们将验证发送到合约地址（this.address）的输出是否为NEO。确认后，我们可以通过此 `TransactionOutput` 对象的 `ScriptHash` 获取相应的 `发送者` 地址。我们可以在[UTXO](UTXO.md)中了解有关 `引用` 、 `输入` 和` 输出`的更多信息。
+接下来，我们必须获取该交易的 `引用` 。这里，引用代表该交易输入的相应输出。获取引用后，我们将验证发送到合约地址（this.address）的输出是否为Neo。确认后，我们可以通过此 `TransactionOutput` 对象的 `ScriptHash` 获取相应的 `发送者` 地址。我们可以在[UTXO](UTXO.md)中了解有关 `引用` 、 `输入` 和` 输出`的更多信息。
 
 ```csharp
 TransactionOutput reference = tx.GetReferences()[0];
@@ -80,7 +80,7 @@ if (reference.AssetId != neo_asset_id) return false;
 byte[] sender = reference.ScriptHash;
 ```
 
-现在我们必须从transactionOutput的输出中获取NEO的总数。这里的 `输出` 是当前交易的每个输出。在ITO合约的这种类型的 `MintToken` 方法中，通常我们只接受一个全局资产如 `NEO` 。因此，在仅检查NEO资产的for循环中，对 `output.Value` 的值求和。
+现在我们必须从transactionOutput的输出中获取NEO的总数。这里的 `输出` 是当前交易的每个输出。在ITO合约的这种类型的 `MintToken` 方法中，通常我们只接受一个全局资产如 `NEO` 。因此，在仅检查Neo资产的for循环中，对 `output.Value` 的值求和。
 
 ```csharp
 TransactionOutput[] outputs = tx.GetOutputs();
@@ -117,10 +117,4 @@ Storage.Put(Storage.CurrentContext, "totalSupply", token + totalSupply);
 Transferred(null, sender, token);
 return true;
 ```
-
-
-## 阅读下节
-现在你已经成功地完成了你的第一个ITO，同时也熟悉了智能合约的大部分内容，下一部分内容涉及到更为复杂的合约，[即CGAS](cgas/1_what_is_cgas.md)。
-
-要返回上节查看如何实现NEP5合约，点击[这里](Implementation_of_NEP5.md)。
 

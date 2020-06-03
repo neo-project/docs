@@ -1,18 +1,19 @@
-# NEO Python 小白入门
+# Neo Python 小白入门
 
-本教程适合初步接触 NEO 的 Python 开发者快速入门使用，如想进行更全面的学习可移步我们的 [技术文档](http://docs.neo.org/zh-cn/index.html)。为避免遇到不必要的麻烦，建议按照教程的顺序一步步进行。
+本教程适合初步接触 Neo 的 Python 开发者快速入门使用，如想进行更全面的学习可移步我们的 [技术文档](http://docs.neo.org/zh-cn/index.html)。为避免遇到不必要的麻烦，建议按照教程的顺序一步步进行。
 
 > [!Note]
 >
-> 在NEO Python中我们使用NEO-CLI。
+> 在Neo Python中我们使用Neo-CLI。
+>
 > 相关项目：[neo-python-rpc](https://github.com/CityOfZion/neo-python-rpc)、[neo-boa](https://github.com/CityOfZion/neo-boa)
 
-## 关于NEO Python
+## 关于Neo Python
 
 目的：
- 1. 将[NEO Project](https://github.com/neo-project)从C#完全移植到 Python 
+ 1. 将[Neo Project](https://github.com/neo-project)从C#完全移植到 Python 
 
-NEO-Python目前的功能:
+Neo-Python目前的功能:
 
  1. 运行基于Python的P2P节点
  2. 提供可交互CLI进行配置节点和检测区块链
@@ -33,7 +34,7 @@ NEO-Python目前的功能:
 
 ## 你将会学到什么
 
-- 部署 NEO Python 环境
+- 部署 Neo Python 环境
 - 管理钱包
 - 搭建私链
 - 编写、部署和调用智能合约
@@ -47,7 +48,7 @@ NEO-Python目前的功能:
 
 > [!Note]
 >
-> Docker 是一个开源的应用引擎容器，让开发者可以打包应用及其以来包到一个可移植的容器（Container）中，再发布到 Linux 机器上，实现虚拟化，容器之间不会有任何接口，以保持独立。在 NEO Python 中，我们将用Docker打包 NEO 私链，用于开发。
+> Docker 是一个开源的应用引擎容器，让开发者可以打包应用及其以来包到一个可移植的容器（Container）中，再发布到 Linux 机器上，实现虚拟化，容器之间不会有任何接口，以保持独立。在 Neo Python 中，我们将用Docker打包 Neo 私链，用于开发。
 
 安装 Docker：
 
@@ -76,7 +77,7 @@ brew install leveldb
 sudo docker pull cityofzion/neo-privatenet
 ```
 
-下载可能花费较长时间，建议科学上网。成功下载后得到了一个区块高度为0，且有足够NEO和Gas的私链，可用于后续测试及开发。接下来打开容器：
+下载可能花费较长时间，建议科学上网。成功下载后得到了一个区块高度为0，且有足够NEO和GAS的私链，可用于后续测试及开发。接下来打开容器：
 
 ```shell
 sudo docker run --rm -d --name neo-privatenet -p 20333-20336:20333-20336/tcp -p 30333-30336:30333-30336/tcp cityofzion/neo-privatenet
@@ -94,9 +95,9 @@ sudo docker exec -it neo-privatenet /bin/bash
 sudo docker rm -f neo-privatenet
 ```
 
-### 运行 NEO Python
+### 运行 Neo Python
 
-如果还没有安装git，可以点击[此处](https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)。再从这里下载[NEO Python](https://github.com/CityOfZion/neo-python/releases/tag/v0.7.1)。解压后进入 neo-python-0.7.1 文件夹。
+如果还没有安装git，可以点击[此处](https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)。再从这里下载[Neo Python](https://github.com/CityOfZion/neo-python/releases/tag/v0.7.1)。解压后进入 neo-python-0.7.1 文件夹。
 
 创建虚拟环境，使安装过程保持独立：
 
@@ -105,20 +106,20 @@ sudo python3.6 -m venv venv
 source venv/bin/activate
 ```
 
-安装 NEO Python：
+安装 Neo Python：
 
 ```shell
 sudo pip install -r requirements.txt
 sudo pip install -e .
 ```
 
-运行 NEO Python：
+运行 Neo Python：
 
 ```shell
 np-prompt -p
 ```
 
-关闭 NEO Python：
+关闭 Neo Python：
 
 ```shell
 exit
@@ -179,7 +180,7 @@ np-prompt -p
 
 ## 第三步 智能合约
 
-NEO Python 中的智能合约使用 Python 编写并由 neo-boa 编译。注意我们使用的不是 Python 原本的翻译器，所以智能合约使用的语言是语法和 Python 类似的另一门语言，这造成了对调用第三方库的限制。接下来我们将使用几个合约介绍如何操作。首先下载 smart-contracts，其中包含了五个简单的例子。将该文件夹置于 neo-python 目录下。
+Neo Python 中的智能合约使用 Python 编写并由 neo-boa 编译。注意我们使用的不是 Python 原本的翻译器，所以智能合约使用的语言是语法和 Python 类似的另一门语言，这造成了对调用第三方库的限制。接下来我们将使用几个合约介绍如何操作。首先下载 smart-contracts，其中包含了五个简单的例子。将该文件夹置于 neo-python 目录下。
 
 ### Hello World
 
@@ -384,7 +385,7 @@ testinvoke {contract_hash} transfer ['{name}', 'another_ad']
 
 ## 结束语
 
-至此，我们已经进行了一些在neo-python上基本的命令行操作，对如何在NEO上部署智能合约有了更清楚的认识。
+至此，我们已经进行了一些在neo-python上基本的命令行操作，对如何在Neo上部署智能合约有了更清楚的认识。
 有兴趣的话，可以加入我们的[Discord](https://discordapp.com/invite/bXhmTGp)。
 
 ### 鸣谢

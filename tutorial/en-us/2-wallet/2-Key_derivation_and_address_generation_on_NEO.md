@@ -21,13 +21,13 @@ It would be nice to have something that is a bit more human-readable, so we can 
 Although this is still not entirely readable, it is certainly better than the original string. The WIF also has some basic error checking, so that when you send to an address denominated by WIF format, you are more likely to catch an error. The conversion from the raw private key to the WIF format was done via a Base58 check encoding algorithm.
 
 ## Base58 check encoding
-Base58 is similar to the common Base64 encoding scheme, except that it removes non-alphanumeric characters as well as characters that might look similar to each other to the human eye. For example 0 (zero), O (capital o), I (capital i) and l (lower case L) are all omitted from the Base58 encoding scheme. The full list of available characters in NEO's Base58 encoding is: 
+Base58 is similar to the common Base64 encoding scheme, except that it removes non-alphanumeric characters as well as characters that might look similar to each other to the human eye. For example 0 (zero), O (capital o), I (capital i) and l (lower case L) are all omitted from the Base58 encoding scheme. The full list of available characters in Neo's Base58 encoding is: 
 
 ```
 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
 ```
 
-A full implementation of NEO's check encoding (written in Go) can be seen below:
+A full implementation of Neo's check encoding (written in Go) can be seen below:
 
 ```Go
 func b58checkencode(ver uint8, b []byte) (s string) {
@@ -76,7 +76,7 @@ The steps to perform the check encoding can be broken down as follows:
 So to go from the original private key described above to the WIF format we can use this simple function:
 
 ```Go
-// ToWIF converts a NEO private key to a Wallet Import Format string.
+// ToWIF converts a Neo private key to a Wallet Import Format string.
 func (priv *PrivateKey) ToWIF() (wif string) {
 	/* See https://en.bitcoin.it/wiki/Wallet_import_format */
 
@@ -100,7 +100,7 @@ The form of elliptic curve equation is the following:
 
 *y^2 = x^3 + ax + b*
 
-Bitcoin uses an elliptic curve called secp256k1, while NEO uses secp256r1, where k -- means Koblitz and r -- means Random.
+Bitcoin uses an elliptic curve called secp256k1, while Neo uses secp256r1, where k -- means Koblitz and r -- means Random.
 Essentially, secp256k1's parameters were chosen in a way that allows more efficient calculation (for a very small security trade-off), while secp256r1's parameters were chosen randomly.
 
 The secp256k1 equation is:
@@ -153,22 +153,22 @@ Assume private key, public key, and base point as *k*, *K*, and *G* respectively
 Deduction is as follows  
 ![](https://docs.neo.org/developerguide/en/images/blockchain_paradigm/formula_ecdsa.jpg)
 
-## NEO Address
-A NEO address is generated from the address script, which defines who can spend a transaction output.
+## Neo Address
+A Neo address is generated from the address script, which defines who can spend a transaction output.
 
 Usually the script used is of the form:
 
 *PUSHBYTES21* opcode (*0x21*) + compressed public key (33 bytes) + *CHECKSIG* opcode (*0xAC*), meaning the output could be spent only by the owner of the private key for the specified public key.
 
-To calculate a NEO address from transaction script:
+To calculate a Neo address from transaction script:
 1. Calculate SHA-256 hash of transaction script
 2. Calculate RIPEMD-160 hash of the previous output (this is known as the script hash)
 3. Use Base58 check to encode previous output with the version 0x17 (meaning result will start with A)
 
-Below you will find example code to generate a NEO address from a public key:
+Below you will find example code to generate a Neo address from a public key:
 
 ```Go
-// ToNeoAddress converts a NEO public key to a NEO address string.
+// ToNeoAddress converts a Neo public key to a Neo address string.
 func (pub *PublicKey) ToNeoAddress() (address string) {
 	/* Convert the public key to bytes */
 	pub_bytes := pub.ToBytes()
@@ -198,8 +198,3 @@ func (pub *PublicKey) ToNeoAddress() (address string) {
 ```
 
 The script hash is typically used in smart contracts as the public identifier, as opposed to the address. Since the use of byte arrays is common, it makes a lot more sense as the Base58 encoded versions is meant to be read by humans, not computers!
-
-## What's next?
-
-[Private key and Wallet files](3-Key_encryption_and_contract_accounts.md) 
-

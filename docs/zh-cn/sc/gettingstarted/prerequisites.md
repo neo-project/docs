@@ -35,7 +35,3 @@ Neo-CLI 支持以下环境：
 
   在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-cli/releases) 程序包并解压。
 
-
-## 继续阅读
-
-[搭建本地网络](enviroment.md)

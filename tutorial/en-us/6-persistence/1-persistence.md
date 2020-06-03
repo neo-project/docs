@@ -2,7 +2,7 @@
 # Persistence
 
 ## Serialization Model
-The native types in NEO platform are Integer, Decimal and String, UInt160 and UInt256.
+The native types in Neo platform are Integer, Decimal and String, UInt160 and UInt256.
 This model is used for both the persistence and the network layer.
 
 
@@ -57,7 +57,7 @@ public static void WriteVarInt(this BinaryWriter writer, long value)
 ```
 
 #### Byte order
-All variable length integer of NEO are little endian except for IP address and port number.
+All variable length integer of Neo are little endian except for IP address and port number.
 
 ### String serialization
 Strings are encoded using variable length strings, consisting of variable length integer followed by the string encoded in UTF8.
@@ -88,7 +88,7 @@ public static void WriteVarBytes(this BinaryWriter writer, byte[] value)
 }
 ```
 
-In special occasions NEO serializes a string with a fixed length. In this case, this is how we do it:
+In special occasions Neo serializes a string with a fixed length. In this case, this is how we do it:
 
 ``` CSharp
 public static void WriteFixedString(this BinaryWriter writer, string value, int length)
@@ -109,8 +109,8 @@ public static void WriteFixedString(this BinaryWriter writer, string value, int 
 
 ### UInt160 and UInt256 serialization
 Both UInt160 and UInt256 are stored as fixed size byte arrays, using 20 and 32 bytes respectively.
-NEO uses RIPMED160 for script-hashes and SHA256 for transaction and block hashes.  
-Note that in NEO we use hash functions twice. The first hash is always SHA256.
+Neo uses RIPMED160 for script-hashes and SHA256 for transaction and block hashes.  
+Note that in Neo we use hash functions twice. The first hash is always SHA256.
 
 A very common use for UInt160 are contract hashes:
 ![contract](persistence_contract.png)
@@ -296,7 +296,7 @@ public static readonly Block GenesisBlock = new Block
 };
 ```
 
-NEO is represented as the "GoverningToken", and after it is registered, it is sent to the `Validators` multi-signature contract address:
+Neo is represented as the "GoverningToken", and after it is registered, it is sent to the `Validators` multi-signature contract address:
 
 ``` CSharp
 public static readonly RegisterTransaction GoverningToken = new RegisterTransaction
@@ -340,7 +340,7 @@ The **RegisterTransaction** and **IssueTransaction** are both *deprecated*. You 
 NEP-5 contracts use **InvocationTransaction** for both deploying and running SmartContracts.
 
 #### Coin Reference (Transaction Input)
-NEO utilize the UTXO model in it's native assets, meaning that that to spend a coin, you need to reference the transaction where you received it.
+Neo utilize the UTXO model in it's native assets, meaning that that to spend a coin, you need to reference the transaction where you received it.
 This reference is done using two properties: `PrevHash` and `PrevIndex`. The `PrevHash` references to a transaction hash and the `PrevIndex` points to the index in the TransactionOutput array in that transaction.
 
 In this transaction, one CoinReference (in `vin` array) is transformed into multiple TransactionOutputs (`vout`). Note that the last transaction is used to send the change back to the sender, so he/she can have another unspent transaction to be used in the future.
@@ -490,7 +490,3 @@ The serialization of a transaction varies depending on the action to be register
 
 ##### Contract Transaction
 Contract transactions have Type `0x80`. The verification script used is usually a 64 bytes signatures.
-
-## What's next?
-
-[LevelDB Blockchain Data Structure](2-levelDB_data_structure.md)

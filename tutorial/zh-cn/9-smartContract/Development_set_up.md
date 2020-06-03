@@ -7,16 +7,16 @@ lang-ref: Development_set_up
 
 # C#智能合约开发环境
 
-NEO C#的开发人员是非常幸运的，因为NEO区块链本身是基于C#搭建的，从编译器到工具箱，C#开发环境得到了广泛的支持，因此对于那些.NET开发人员来说，开始学习NEO智能合约的开发是一件非常容易的事情。而对于那些没有接触过C#的用户而言，开始编写智能合约和dApp也不是一件难事。
+Neo C#的开发人员是非常幸运的，因为Neo区块链本身是基于C#搭建的，从编译器到工具箱，C#开发环境得到了广泛的支持，因此对于那些.NET开发人员来说，开始学习Neo智能合约的开发是一件非常容易的事情。而对于那些没有接触过C#的用户而言，开始编写智能合约和dApp也不是一件难事。
 
 ## 环境
-使用C#语言编写智能合约最好的方式是，在本地开发环境中使用支持NEO智能合约的IDE进行开发。幸运的是，NEO正在为开发人员提供一系列工具从而可以方便他们的开发。对开发环境的唯一的要求是Windows的操作系统，建议是Windows 10 64位系统。
+使用C#语言编写智能合约最好的方式是，在本地开发环境中使用支持Neo智能合约的IDE进行开发。幸运的是，Neo正在为开发人员提供一系列工具从而可以方便他们的开发。对开发环境的唯一的要求是Windows的操作系统，建议是Windows 10 64位系统。
 
 对于非windows用户，如MAC和Linux用户，最好的选择是使用在线编辑器和编译器，这样更便于智能合约的开发和部署。这部分内容在这篇[文档]( https://medium.com/neweconolab/with-neoray-neo-smart-contract-development-has-never-been-easier-edad41cc3ae6)中有详细说明。
 
 ### Windows
 
-为了建立一个NEO私有网络和开发环境，开发人员必须安装一些依赖项:
+为了建立一个Neo私有网络和开发环境，开发人员必须安装一些依赖项:
 
 -  [NET FrameWork](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net472)
 -  [NET Core](https://dotnet.microsoft.com/download)
@@ -40,7 +40,7 @@ NEO C#的开发人员是非常幸运的，因为NEO区块链本身是基于C#搭
 
 #### 安装 NeoContractPlugin
 
-打开Visual Studio 2017,点击 `工具` - > `扩展和更新` ,单击左侧栏的 `联机` 选项，搜索NEO并安装NeoContractPlugin (过程中必须联网操作)。
+打开Visual Studio 2017,点击 `工具` - > `扩展和更新` ,单击左侧栏的 `联机` 选项，搜索Neo并安装NeoContractPlugin (过程中必须联网操作)。
 
  <p align="center">
   <img width="80%" src="./imgs/plugin.jpg" />
@@ -77,8 +77,3 @@ NEO C#的开发人员是非常幸运的，因为NEO区块链本身是基于C#搭
  </p>
 然而，上面只演示了一种简单的数据存储方法——使用键值对的方法在私有存储区域中存储数据。
 
-## 阅读下节
-
-你已经完成开发环境搭建，下节我们将介绍[编译，部署和调用合约](Development_compile.md)。
-
-要返回上节查看如何搭建一个私链，点击[这里](Development_privateChain.md)。

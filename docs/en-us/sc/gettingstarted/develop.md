@@ -239,7 +239,3 @@ When the compilation is done, Neo smart contract file named `NeoContract1.avm` i
 
 `NeoContract1.abi.json` is a descriptive file of the smart contract, which contains desciptions of the ScriptHash, entry, parameters and return values of the contract. More information about the smart contract ABI can be found in [NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki).
 
-## What's next?
-
-[Deploying and invoking contract](deploy.md)
-

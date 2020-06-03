@@ -20,12 +20,12 @@ WIF相对来说比较好理解。 在实际操作中，最终生成的私钥可�
 虽然这仍不能让人完全理解，但肯定会比使用原字符串好。 WIF还能提供一些基本的错误检查，因此当发送代币到WIF格式的地址时，你更有可能发现错误。 从原始的私钥到WIF格式的转换是通过Base58Check算法实现的。
 
 ## Base58Check编码
-Base58与常见的Base64编码方案类似，只不过它除去了非字母数字的字符以及那些肉眼看起来相似的字符。 例如，0（零），O（大写o），I（大写i）和l（小写L）都在Base58编码方案中删除了。 NEO 的 Base58 编码中可用字符的完整列表是
+Base58与常见的Base64编码方案类似，只不过它除去了非字母数字的字符以及那些肉眼看起来相似的字符。 例如，0（零），O（大写o），I（大写i）和l（小写L）都在Base58编码方案中删除了。 Neo 的 Base58 编码中可用字符的完整列表是
 ```
 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
 ```
 
-下面是用 Go 语言编写的 NEO 检验编码的完整实现：
+下面是用 Go 语言编写的 Neo 检验编码的完整实现：
 
 ```go
 func b58checkencode(ver uint8, b []byte) (s string) {
@@ -97,7 +97,7 @@ func (priv *PrivateKey) ToWIF() (wif string) {
 椭圆曲线方程的形式如下：  
 *y^2 = x^3 + ax + b*
 
-比特币使用称为secp256k1的椭圆曲线，而NEO使用的是secp256r1，其中k -- 表示Koblitz，r -- 表示随机。本质上来说，secp256k1的参数选择方式的计算效率更高（以非常小的安全性来换取），而secp256r1的参数则是随机选择的。
+比特币使用称为secp256k1的椭圆曲线，而Neo使用的是secp256r1，其中k -- 表示Koblitz，r -- 表示随机。本质上来说，secp256k1的参数选择方式的计算效率更高（以非常小的安全性来换取），而secp256r1的参数则是随机选择的。
 
 secp256k1等式是：
 *y^2 = x^3 + 7*
@@ -149,18 +149,18 @@ secp256r1 等式是:
 
 ![](https://docs.neo.org/developerguide/en/images/blockchain_paradigm/formula_ecdsa.jpg)
 
-## NEO地址
-NEO地址由地址脚本生成，该脚本定义了谁可以花费交易输出。
+## Neo地址
+Neo地址由地址脚本生成，该脚本定义了谁可以花费交易输出。
 通常使用的脚本形式如下：
 *PUSHBYTES21*操作码（*0x21*）+压缩型公钥（33字节）+ *CHECKSIG*操作码（*0xAC*），意味着输出只能被给定公钥对应的私钥所有者花费。
 
-要从交易脚本中计算出NEO地址：
+要从交易脚本中计算出Neo地址：
 
 1. 计算交易脚本的SHA-256哈希
 2. 计算步骤1中结果的RIPEMD-160哈希（也就是脚本哈希）
 3. 在输出的脚本哈希前添加版本号0x17，之后做Base58Check编码（意味着结果将以字符A开头）
 
-以下是从公钥生成NEO地址的示例代码：
+以下是从公钥生成Neo地址的示例代码：
 
 ```go
 // ToNeoAddress将NEO公钥转换为NEO地址字符串。
@@ -194,7 +194,5 @@ func (pub *PublicKey) ToNeoAddress() (address string) {
 
 智能合约中通常使用的公共标识符是脚本哈希，而不是地址。由于字节数组在计算机中是很常见的，因此更具有意义，而进行 Base58 编码则是为了具有更高的可读性。
 
-## 阅读下节
 
-[加密私钥与合约账户](3-Key_encryption_and_contract_accounts.md)
 

@@ -246,7 +246,3 @@ If you want the external program to access the node API need to open the firewal
 > [!CAUTION]
 >
 > If you open the API service and the wallet in Neo-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
-
-## What's next?
-
-[Neo-CLI SeedList](seedlist.md)

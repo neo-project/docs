@@ -22,7 +22,3 @@ Now we will create a new wallet file used for deploying smart contracts.
 2. Open the recipient wallets of NEO and GAS, transfer all the wallet assets to 0.json and wait for the transaction to be confirmed.
 3. Open 0.json and assets is displayed in the account. 
 
-## What's next?
-
-[Compiling a contract sample](develop.md)
-

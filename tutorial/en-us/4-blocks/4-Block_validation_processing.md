@@ -2,11 +2,11 @@
 As with transactions, blocks are validated by every node on the network. The goal for this validation is that every block can independently be validated on any node, and is not depending on any external characteristics. 
 
 ## Invocation and Verification Script
-Every full node on the network receives the full NEO blockchain from its peers, and will independently validate every block it receives to ensure that the block received was not sent by a malicious or faulty node. This way, the nodes are not required to trust any other node, creating a secure and trustless system. For every block received, the node will validate all individual transactions in that block by means of using the Verification Script to validate the Invocation Script. This Invocation Script can be seen as the key to unlock the UTXO, proving that it has the right to spend it, and passing the Verification Script as a tool for every node to validate this. For more information on transaction validation, have a look at [Transactions](../3-transactions/1-Introduction_to_transactions.md).
+Every full node on the network receives the full Neo blockchain from its peers, and will independently validate every block it receives to ensure that the block received was not sent by a malicious or faulty node. This way, the nodes are not required to trust any other node, creating a secure and trustless system. For every block received, the node will validate all individual transactions in that block by means of using the Verification Script to validate the Invocation Script. This Invocation Script can be seen as the key to unlock the UTXO, proving that it has the right to spend it, and passing the Verification Script as a tool for every node to validate this. For more information on transaction validation, have a look at [Transactions](../3-transactions/1-Introduction_to_transactions.md).
 
 Apart from the Invocation Script and Validation Script on each individual transaction, every block itself also contains an Invocation Script and Validation Script. The Validation Script is sometimes referred to as the *Witness* as well.
 
-When we look at the block with height 3,649,960, which was introduced in [Structure of transactions on the NEO blockchain](2-Structure_of_a_block.md), we can identify these 2 scripts in the field "script." It is repeated below for convenience:
+When we look at the block with height 3,649,960, which was introduced in [Structure of transactions on the Neo blockchain](2-Structure_of_a_block.md), we can identify these 2 scripts in the field "script." It is repeated below for convenience:
 
 ```
 "script": {
@@ -18,7 +18,7 @@ When we look at the block with height 3,649,960, which was introduced in [Struct
 Now this might seem some totally random cryptic code. However, there's a method to this madness. Let us dig in.
 
 ## Opcodes
-The OpCodes for NEO can be found [here](https://github.com/neo-project/neo-vm/blob/master/src/neo-vm/OpCode.cs). When validating a block, these OpCodes tell the NeoVM how to proceed. Let's start by looking at the verification string. As this is a HEX representation of the byte code, we take it byte per byte. The way it works is that you interpret every OpCode and push it onto the execution stack, one at a time. This stack eventually gets executed by the NeoVM to validate the block.
+The OpCodes for Neo can be found [here](https://github.com/neo-project/neo-vm/blob/master/src/neo-vm/OpCode.cs). When validating a block, these OpCodes tell the NeoVM how to proceed. Let's start by looking at the verification string. As this is a HEX representation of the byte code, we take it byte per byte. The way it works is that you interpret every OpCode and push it onto the execution stack, one at a time. This stack eventually gets executed by the NeoVM to validate the block.
 
 ```   
 5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae
@@ -113,7 +113,3 @@ Now all we need to be able to do, is to validate that these 5 signatures are act
 We already found the meaning of the Verification Script. What happens is that the 7 public keys of the consensus nodes that were involved in creating this specific block are used. The way this is done is with a concept similar to a multisig transaction, which is then applied on a block. The last OpCode `CHECKMULTISIG` is the one that gives meaning to everything that came before. The syntax is interpreted as a 5-out-of-7 multisig, and the 7 33-byte strings on the stack are therefore interpreted as the public keys of these 7 nodes.
 
 A block is then considered valid if the 5 signatures in the Invocation Script can be verified using 5 out of the 7 provided public keys in the Verification Script.
-
-## What's next?
-
-[NEO Protocol and Networking](../5-network/1-Introduction_to_the_NEO_network_protocol.md)

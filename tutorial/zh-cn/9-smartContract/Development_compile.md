@@ -17,7 +17,7 @@ lang-ref: Development_compile
 
 在Visual Studio菜单中单击 `生成`->`生成解决方案` (快捷键: Ctrl + Shift + B) 开始编译。
 
-编译完成后，在项目的`bin/Debug`路径下会生成一个名为`NEP5.avm`的NEO 智能合约文件。
+编译完成后，在项目的`bin/Debug`路径下会生成一个名为`NEP5.avm`的Neo 智能合约文件。
 
 `SmartContractDemo.abi.json`是一个智能合约的描述文件，它包含有关于合约的ScriptHash、合约项、参数和返回值信息。有关智能合约ABI的更多信息可以查看[NeoContract ABI](https://github.com/neo-project/proposals/blob/master/nep-3.mediawiki)。
 
@@ -45,7 +45,7 @@ lang-ref: Development_compile
   <img src="imgs/20190219-140958.png" />
  </p>
 
- 我们可以使用NEO-GUI来部署新生成的合约文件。
+ 我们可以使用Neo-GUI来部署新生成的合约文件。
 
 1. 打开0.json钱包文件，单击 `高级` -> `部署合约`。
 
@@ -80,7 +80,3 @@ lang-ref: Development_compile
 
 如果调用成功，账户余额中将减少相应的GAS数。
 
-## 阅读下节
-你已经成功地设置了私有网络并调用了你的第一个智能合约。现在让我们开始学习[NEO 智能合约的基础知识并开发你的第一个合约](Smart_Contract_basics.md)。
-
-要返回上节搭建开发环境，点击[这里](Development_set_up.md)。

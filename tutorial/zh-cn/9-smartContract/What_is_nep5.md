@@ -11,21 +11,21 @@ lang-ref: What_is_nep5
 >
 > **要点:**:
 >
-> 1. 什么是NEP (NEO加强提案)
+> 1. 什么是NEP (Neo加强提案)
 >
 > 2. NEP5的细节
 >
 
 ## 什么是NEP?
-NEP代表NEO增强提案。NEP是一种设计文档，用于向NEO社区提供信息，或者描述NEO/流程/环境的新特性。NEP应该提供该特性的简明的技术规范和基本原理。NEP作者负责在社区内建立共识并记录不同意见。在这个 [github存储库]( https://github.com/neo-project/proposals) 中已经有超过10个NEPS。
+NEP代表Neo增强提案。NEP是一种设计文档，用于向Neo社区提供信息，或者描述Neo/流程/环境的新特性。NEP应该提供该特性的简明的技术规范和基本原理。NEP作者负责在社区内建立共识并记录不同意见。在这个 [github存储库]( https://github.com/neo-project/proposals) 中已经有超过10个NEPS。
 
-对于NEO实现者而言，NEPs是跟踪其实现进度的一种简便的方法。理想情况下，每个实现维护者都会列出他们已经实现的NEPs。这将为终端用户提供一种便捷的方法，来了解给定实现或库的当前状态。
+对于Neo实现者而言，NEPs是跟踪其实现进度的一种简便的方法。理想情况下，每个实现维护者都会列出他们已经实现的NEPs。这将为终端用户提供一种便捷的方法，来了解给定实现或库的当前状态。
 
 如果有人有兴趣提出一个新的NEP，那么可以先查看一下 [NEP-1]( https://github.com/neo-project/proposals/blob/master/nep-1.mediawiki)，然后克隆存储库并将你所提出的NEP添加到存储库中。这里有一个模板NEP。然后向这个存储库提交一个Pull-Request请求。
 
 ## NEP-5介绍
 
-NEP-5标准是一个通证标准，它表示一个通证化的智能合约。该标准可以规范在NEO区块链上发行的通证。提供一个规范的与通证进行交互的方法，可以使生态系统无需去维护一些基本操作的定义，而这些操作是使用了通证的智能合约所必需的。
+NEP-5标准是一个通证标准，它表示一个通证化的智能合约。该标准可以规范在Neo区块链上发行的通证。提供一个规范的与通证进行交互的方法，可以使生态系统无需去维护一些基本操作的定义，而这些操作是使用了通证的智能合约所必需的。
 
 在NEP-5标准中，提供了一些方法同时可以触发一个事件。
 
@@ -116,8 +116,7 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 
 销毁通证的合约必须在通证销毁时触发<code>转账</code>事件，其中地址<code>to</code>设置为<code>null</code>。
 
-## 阅读下节
-现在让我们[实现一个NEP-5通证](Implementation_of_NEP5.md)。
 
-如果要返回上节查看智能合约基础知识，点击[这里](Smart_Contract_basics.md)。
+
+
 

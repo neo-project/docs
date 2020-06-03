@@ -2,7 +2,7 @@
 
 ## Watch-only consensus nodes
 
-As could be verified in the [Network tutorial](../5-network/1-Introduction_to_the_NEO_network_protocol.md), NEO network operates in a fully distributed fashion, such as this figure above, extracted from this [Medium Article](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
+As could be verified in the [Network tutorial](../5-network/1-Introduction_to_the_NEO_network_protocol.md), Neo network operates in a fully distributed fashion, such as this figure above, extracted from this [Medium Article](https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0):
 
 ![Transaction is retransmitted until it reaches the Consensus Nodes (green)](https://cdn-images-1.medium.com/max/800/1*vKbm_Di8GgQep8SyKeAWNw.png)
 
@@ -24,7 +24,7 @@ We will now outline possible consensus scenarios, using the following characters
 - **N1:** Erik Zhang, the Jedi Master;
 - **N2:** Da Hongfei, the hearth of the Smart Economy;
 - **N3:** Peter Lin, the truth in the hearth;
-- **N4:** NEO Ecosystem, the sum of all projects and interests of users, exchanges, and developers;
+- **N4:** Neo Ecosystem, the sum of all projects and interests of users, exchanges, and developers;
 - **N5:** City of Zion, the combination and partnership of individuals around the world;
 - **N6:** NeoResearch Butterfly, the ability to explore, recover, and transform;
 - **N7:** Master Yoda, learning from past.
@@ -73,7 +73,7 @@ It should be noticed that 3 faulty nodes are `f+1` which is expected to halt the
 
 ## A 4-node consensus multi-sig
 
-As you may already known, an address in the NEO blockchain 2.x is formed by `21`, which means ["Push 34 bytes on the evaluation stack"](https://github.com/neo-project/neo-vm/blob/f81c3039d5fb4417b3c1ad780378c7f92499964a/src/neo-vm/OpCode.cs#L144), the public key and `ac`, which is an opcode that invokes an script for checking witness of the address.
+As you may already known, an address in the Neo blockchain 2.x is formed by `21`, which means ["Push 34 bytes on the evaluation stack"](https://github.com/neo-project/neo-vm/blob/f81c3039d5fb4417b3c1ad780378c7f92499964a/src/neo-vm/OpCode.cs#L144), the public key and `ac`, which is an opcode that invokes an script for checking witness of the address.
 
 We suggest readers to take a look at the following article:
 
@@ -107,8 +107,3 @@ Let's take the first node (N1) previous described and create a multi-signatures 
 `512102b3622bf4017bdfe317c58aed5f4c753f206b7db896046fa7d774bbc4bf7f8dc251ae`
 
 The latter would result in the following Address: `AbU69m8WUZJSWanfr1Cy66cpEcsmMcX7BR`
-
-## What's next?
-
-[What is smart contract?](../9-smartContract/What_is_smart_contract.md) 
-

@@ -15,7 +15,7 @@ lang-ref: Implementation_of_NEP5
 >
 > 1. Implementation of each point according to the NEP-5 standard
 >
-> 2. Use your NEP-5 Token on the NEO-Gui
+> 2. Use your NEP-5 Token on the Neo-Gui
 >
 
 First of all, we define a readably property owner to present the owner of the contract. The is the `Owner` and it is a `20` length byte array.
@@ -199,7 +199,7 @@ After compile the NEP5.cs and get the avm file, deploy it. And if the contract i
 	<img src="imgs/20190222-1https://peterlinx.github.io/DataTransformationTools/53712.png">
 </p>
 
-Now, in the NEO-GUI click `Advanced`->`Option`, add the scriptHash of your contract, you can view the NEP-5 asset you have in the Asset tab。
+Now, in the Neo-GUI click `Advanced`->`Option`, add the scriptHash of your contract, you can view the NEP-5 asset you have in the Asset tab。
 
 <p align="center">
 	<img src="imgs/20190222-153941.png"/>
@@ -219,9 +219,3 @@ After the transaction to be recorded and confirmed, you can open the wallet of t
 ## Assignment
 
 Define a new NEP5-token by yourself.
-
-## Next Step
-
-In this tutorial, you have learned the standard of NEP-5 and how to implement the NEP-5 standard by define your own token. Now we can extend this step and go to [offer our token and make it publicly available](Give_an_ITO.md)
-
-If you want to know what is NEP5, click [here](What_is_nep5.md).

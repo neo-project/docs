@@ -113,6 +113,4 @@ dotnet publish -c release -r osx-x64
 //Enter the directory where the compiled files are stored and copy the libleveldb.dll downloaded before to here.
 ```
 
-## What's next?
 
-[Configuring and Starting Neo-CLI](config.md)

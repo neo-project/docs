@@ -1,5 +1,5 @@
 # LevelDB Blockchain Data Structure
-The current implementation of NEO in C# uses LevelDB, a fast key-value database, to persist blockchain information. This DB is used for both system data, like blocks and transactions, but also for smart contract data.  
+The current implementation of Neo in C# uses LevelDB, a fast key-value database, to persist blockchain information. This DB is used for both system data, like blocks and transactions, but also for smart contract data.  
 When the node receives a message that triggers a change in state (like a new block or header), it retrieves and updates a snapshot, commiting its results when the operation is done.   
 Below we have a simplified example of how this is happens:
 
@@ -137,7 +137,7 @@ private bool AddTransaction(Transaction tx, bool verify)
 
 ### 0x40 - Accounts
 
-NEO uses this collection to track user balance, but without tracking UTXO.
+Neo uses this collection to track user balance, but without tracking UTXO.
 
 ### 0x44 - (Unspent) Coins collections
 A transaction is considered "unspent" if this it is not referenced as input by some transaction. The node keeps track of these unspent coins to validate transactions but doesn't group it by account, meaning it can determine if a coin is spendable, but it cannot get all spendable coins for a specific account. The role of tracking the spendable coins by account is done by the wallet or an indexer service like [neoscan](neoscan.io) or [neotracker](neotracker.io).
@@ -162,7 +162,7 @@ public static bool IsDoubleSpend(this IPersistence persistence, Transaction tx)
 Note that at this moment, we are not checking the memory pool. This is done before the `IsDoubleSpend` check.
 
 ### 0x45 - Spent Coins
-NEO tracks the spent coins in order to allow users to `claim GAS`. The claimable GAS is calculated based on interval of blocks between the block where the transaction was created to the moment it is spent.   
+Neo tracks the spent coins in order to allow users to `claim GAS`. The claimable GAS is calculated based on interval of blocks between the block where the transaction was created to the moment it is spent.   
 This means that, to be able to Claim GAS, you need to use that transaction. It is common to send it to yourself to "unlock" the claimable GAS.
 
 ``` CSharp
@@ -362,7 +362,7 @@ protected bool Storage_Get(ExecutionEngine engine)
 ```
 
 ### 0x80 - Header hash list
-NEO nodes sync block headers and block transactions separately, this means that first nodes download a list of headers (referenced by its hash), and pull the transactions list for each of this blocks separately, including getting this information from multiple nodes.  
+Neo nodes sync block headers and block transactions separately, this means that first nodes download a list of headers (referenced by its hash), and pull the transactions list for each of this blocks separately, including getting this information from multiple nodes.  
 Note that the `Block` collections is also changed when we get new headers because a block is a header with transactions.
 
 ```CSharp
@@ -535,7 +535,5 @@ thread.Start();
 }
 ```
 
-## What's next?
 
-[Introduction to Consensus](../7-consensus/1-Introduction_to_consensus.md)
 
