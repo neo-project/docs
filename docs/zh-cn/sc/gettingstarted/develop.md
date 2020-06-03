@@ -42,7 +42,7 @@
 
    ![neon](../assets/neon.png)
 
-4. 将发布目录添加到环境变量 Path 中:
+4. 将发布目录添加到环境变量 Path 中 （如果有旧版本的neon, 不要忘了删除下）:
 
    ![env](../assets/env.png)
 
