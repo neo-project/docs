@@ -55,12 +55,21 @@
 | System.StorageContext.AsReadOnly| 0.00000400  |
 | System.Storage.Get| 0.01000000  |
 | System.Storage.Find| 0.01000000  |
-| System.Storage.Put| (Key.Size + Value.Size) * GasPerByte  |
-| System.Storage.PutEx| (Key.Size + Value.Size) * GasPerByte  |
+| System.Storage.Put| 参见 [1] |
+| System.Storage.PutEx| 参见 [1] |
 | System.Storage.Delete| 1 * GasPerByte  |
 | Neo.Native.Deploy| 0  |
 | Neo.Crypto.ECDsaVerify| 0.01000000  |
 | Neo.Crypto.ECDsaCheckMultiSig| 0.01000000 * n |
+
+> [!Note]
+>
+> [1] 向数据库中写入Key和Value时，
+>
+> - 如果新的键值对字节数大于旧的键值对，则 fee = [(newKey.Size +newValue.Size) - (oldKey.Size + oldValue.Size)] * GasPerByte
+> - 如果新的键值对字节数小于等于旧的键值对，则 fee = 1 * GasPerByte
+> - 如果数据库中不存在旧的键值对，则 fee = (key.Size + value.Size) * GasPerByte
+
 <table class="table table-hover">
 	<tr>
 	    <th>互操作服务</th>

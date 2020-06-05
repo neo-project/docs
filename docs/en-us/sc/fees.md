@@ -56,12 +56,21 @@ The fee of each interop service and instruction is shown in the table below.
 | System.StorageContext.AsReadOnly| 0.00000400  |
 | System.Storage.Get| 0.01000000  |
 | System.Storage.Find| 0.01000000  |
-| System.Storage.Put| (Key.Size + Value.Size) * GasPerByte  |
-| System.Storage.PutEx| (Key.Size + Value.Size) * GasPerByte  |
+| System.Storage.Put| See [1] |
+| System.Storage.PutEx| See [1] |
 | System.Storage.Delete| 1 * GasPerByte  |
 | Neo.Native.Deploy| 0  |
 | Neo.Crypto.ECDsaVerify| 0.01000000  |
 | Neo.Crypto.ECDsaCheckMultiSig| 0.01000000 * n |
+
+> [!Note]
+>
+> [1] When a Key-Value pair is written to the storage:
+>
+> - If the new pair key-value size is greater than the old key-value size, fee = [(newKey.Size +newValue.Size) - (oldKey.Size + oldValue.Size)] * GasPerByte
+> - If the new pair key-value size is less than or equal to the old key-value size, fee = 1 * GasPerByte
+> - If there is no existing key-value, fee = (key.Size + value.Size) * GasPerByte
+
 <table class="table table-hover">
 	<tr>
 	    <th>Interop Service</th>
