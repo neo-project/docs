@@ -55,12 +55,24 @@
 | System.StorageContext.AsReadOnly| 0.00000400  |
 | System.Storage.Get| 0.01000000  |
 | System.Storage.Find| 0.01000000  |
-| System.Storage.Put| (Key.Size + Value.Size) * GasPerByte  |
-| System.Storage.PutEx| (Key.Size + Value.Size) * GasPerByte  |
+| System.Storage.Put| (Key.Size + Value.Size) * GasPerByte  // Note1 |
+| System.Storage.PutEx| (Key.Size + Value.Size) * GasPerByte  // Note1 |
 | System.Storage.Delete| 1 * GasPerByte  |
 | Neo.Native.Deploy| 0  |
 | Neo.Crypto.ECDsaVerify| 0.01000000  |
 | Neo.Crypto.ECDsaCheckMultiSig| 0.01000000 * n |
+
+> ![Note1]
+>
+> ```python
+> if newKey.Size + newValue.Size  > oldKey.Size + oldValue.Size
+>     fee =[(newKey.Size +newValue.Size) - (oldKey.Size + oldValue.Size)] * GasPerByte
+> else if (oldKey and oldValue != null):
+>     fee = 1 * GasPerByte
+> else
+>     fee = (key.Size + value.Size) * GasPerByte
+> ```
+
 <table class="table table-hover">
 	<tr>
 	    <th>互操作服务</th>
