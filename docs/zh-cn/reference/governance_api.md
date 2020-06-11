@@ -97,7 +97,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 #### 相关合约方法
 
-| 方法 | 参数 | 费用（GAS） | 描述 |
+| 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
 | `getcommittee` | null | 1 | 返回当前委员会（Array<ECPoint>） |
 
@@ -114,7 +114,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 #### 相关合约方法
 
-| 方法 | 参数 | 费用（GAS） | 描述 |
+| 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
 | `getvalidators` | null | 1 | 返回当前共识节点（Array<ECPoint>） |
 | `getnextblockvalidators` | null | 1 | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
@@ -135,7 +135,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)合约。Nep5的合约方法如下：
 
-| 方法 | 参数 | 费用（GAS） | 描述 |
+| 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ---- | ---- | ---- |
 | `name` | null | 0 | 返回Token名称（String）|
 | `symbol` | null | 0 | 返回Token标志（String） |
@@ -146,6 +146,6 @@ NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5
 
 Neo扩展的合约方法如下：
 
-| 方法 | 参数 | 费用（GAS） | 描述 |
+| 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
 | `unclaimedgas` | byte[] account | 0.03 | 返回该账户未提取的GAS（uint） |
