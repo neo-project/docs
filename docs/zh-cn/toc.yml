@@ -299,15 +299,13 @@
       - name: validateaddress
         href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
   - name: 智能合约API
-    - name: API 参考
-      items: 
-      - name: Neo
-        href: /docs/zh-cn/reference/scapi/api/neo.md
-      - name: System
-        href: /docs/zh-cn/reference/scapi/api/System.md
-    - name: 框架
+    - name: 框架开发
+      href: /docs/zh-cn/reference/scapi/api.md
+    - name: 合约开发
       items: 
       - name: .net 框架
+        href: /docs/zh-cn/reference/scapi/fw/dotnet.md
+      - name: 合约 API
         items:
         - name: Neo
           items:
