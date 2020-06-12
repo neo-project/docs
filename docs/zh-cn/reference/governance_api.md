@@ -147,6 +147,6 @@ NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5
 
 NEO扩展的合约方法如下：
 
-| 方法 | 参数 | 费用（GAS） | 作用 |
+| 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
 | `unclaimedGas` | byte[] account | 0.03 | 返回该账户未提取的GAS（uint） |
