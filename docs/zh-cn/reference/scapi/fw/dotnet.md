@@ -19,13 +19,13 @@ NEO 智能合约的.net 框架是对智能合约 API 的封装，使 .net 程序
 
 SmartContract 类提供了一些散列算法以及验签方法等。
 
-|                                                        | 名称                                             | 说明                                                        |
-| ------------------------------------------------------ | ------------------------------------------------ | ----------------------------------------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha1(byte[])                                     | 对传入的 byte 数组进行 Sha1 运算                            |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Sha256(byte[])                                   | 对传入的 byte 数组进行 Sha256 运算                          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash160(byte[])                                  | 对传入的 byte 数组进行 Sha256 运算后，再进行 Ripemd160 运算 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Hash256(byte[])                                  | 对传入的 byte 数组进行两次 Sha256 运算                      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | VerifySignature(byte[] signature, byte[] pubkey) | 通过公钥和已签名的数据来验证验证是否通过                    |
+| 名称                                             | 说明                                                        |
+| ------------------------------------------------ | ----------------------------------------------------------- |
+| Sha1(byte[])                                     | 对传入的 byte 数组进行 Sha1 运算                            |
+| Sha256(byte[])                                   | 对传入的 byte 数组进行 Sha256 运算                          |
+| Hash160(byte[])                                  | 对传入的 byte 数组进行 Sha256 运算后，再进行 Ripemd160 运算 |
+| Hash256(byte[])                                  | 对传入的 byte 数组进行两次 Sha256 运算                      |
+| VerifySignature(byte[] signature, byte[] pubkey) | 通过公钥和已签名的数据来验证验证是否通过                    |
 
 > [!Note]
 >
@@ -35,10 +35,10 @@ SmartContract 类提供了一些散列算法以及验签方法等。
 
 你可以使用扩展方法来从 SmartContract 存储中持久存储和检索对象。
 
-|      | 名称                     | 说明                     |
-| ---- | ------------------------ | ------------------------ |
-|      | Serialize(this object[]) | 将对象数组转换为字节数组 |
-|      | Deserialize(this byte[]) | 将字节数组转换为对象数组 |
+| 名称                     | 说明                     |
+| ------------------------ | ------------------------ |
+| Serialize(this object[]) | 将对象数组转换为字节数组 |
+| Deserialize(this byte[]) | 将字节数组转换为对象数组 |
 
 可以参见 [这里](https://github.com/Red4Sec/NEO-SmartVote/blob/master/CSharp/SmartVote.cs) 的示例。
 
@@ -46,8 +46,8 @@ SmartContract 类提供了一些散列算法以及验签方法等。
 
 下面的这些方法是智能合约 .net 框架中的 Helper 类提供给 byte 数组的一些 ` 扩展方法 `。
 
-|                                          | 名称                           | 说明                                   |
-| ---------------------------------------- | ---------------------------- | ------------------------------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Concat(this byte[], byte[])  | 连接两个 byte 数组                         |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Range(this byte[], int, int) | 截取 byte 数组，参数为：index, count          |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | Take(this byte[], int)       | 从 byte 数组中取左侧固定长度的 byte 数组，参数为：count |
+| 名称                         | 说明                                                    |
+| ---------------------------- | ------------------------------------------------------- |
+| Concat(this byte[], byte[])  | 连接两个 byte 数组                                      |
+| Range(this byte[], int, int) | 截取 byte 数组，参数为：index, count                    |
+| Take(this byte[], int)       | 从 byte 数组中取左侧固定长度的 byte 数组，参数为：count |
