@@ -40,10 +40,10 @@ An address can be registered as candidate or unregister afterwards. Correspondin
 
 | Function | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| registercandidate | byte[] publicKey | 0.05 |
-| unregistercandidate | byte[] publicKey | 0.05 |
+| registerCandidate | byte[] publicKey | 0.05 |
+| unregisterCandidate | byte[] publicKey | 0.05 |
 
-Please note that registering / unregistering candidate requires signature. It means only candidate registering / unregistering is only self-determined. 
+Please note that registering / unregistering candidate requires the candidate's signature. It means candidate registering / unregistering is only self-determined. 
 
 About candidate voting: Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received vote is defined as the sum of NEO held by its voter. Committee members as well as validators are certain number of candidates with the most votes. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as voted address becomes a candidate. Every standby committee member will vote to itself in genesis block. Voting contract method is as follows. Please not that voter's signature will be checked. 
 
@@ -57,7 +57,7 @@ As voters' votes & held NEO, as well as registered candidates keep change, candi
 
 | Function | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| getcandidates | null | 1 |
+| getCandidates | null | 1 |
 
 ### Committee
 
@@ -74,11 +74,11 @@ Function definition and corresponding fee are defined in PolicyContract as shown
 
 | Function | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| setmaxblocksize | uint blockSize | 0.03 |
-| setmaxtransactionsperblock | uint maxTransactions | 0.03 |
-| setfeeperbyte | long feePerByte | 0.03 |
-| blockaccount | byte[] account | 0.03 |
-| unblockaccount | byte[] account | 0.03 |
+| setMaxBlockSize | uint blockSize | 0.03 |
+| setMaxTransactionsPerBlock | uint maxTransactions | 0.03 |
+| setFeePerByte | long feePerByte | 0.03 |
+| blockAccount | byte[] account | 0.03 |
+| unblockAccount | byte[] account | 0.03 |
 
 To bring such modification into effect, committee members should send a transaction which calls corresponding function & includes enough signatures on chain. This transaction will be executed as long as it's signed by more than half of the committee members.
 
@@ -86,10 +86,10 @@ Furthermore, PolicyContract also supports corresponding reading function:
 
 | Function | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| getmaxblocksize | null | 0.01 |
-| getmaxtransactionsperblock | null | 0.01 |
-| getfeeperbyte | null | 0.01 |
-| getblockedaccounts | null | 0.01 |
+| getMaxBlockSize | null | 0.01 |
+| getMaxTransactionsPerBlock | null | 0.01 |
+| getFeePerByte | null | 0.01 |
+| getBlockedAccounts | null | 0.01 |
 
 #### How Are Committee Members Elected
 
@@ -101,7 +101,7 @@ Committee members will be refreshed every block.
 
 | Function | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| getcommittee | null | 1 | Current committee members in format of Array<ECPoint> |
+| getCommittee | null | 1 | Current committee members in format of Array<ECPoint> |
 
 ### Validator
 
@@ -119,8 +119,8 @@ Similar to committee members, validators will be refreshed every block.
 
 | Function | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| getvalidators | null | 1 | Current validators in format of Array<ECPoint> |
-| getnextblockvalidators | null | 1 | Validators by persisting block in format of Array<ECPoint> |
+| getValidators | null | 1 | Current validators in format of Array<ECPoint> |
+| getNextBlockValidators | null | 1 | Validators by persisting block in format of Array<ECPoint> |
 
 ## Token Distribution
 
@@ -139,12 +139,14 @@ NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-
 | name | null | 0 | Token name in String |
 | symbol | null | 0 | Token symbol in String |
 | decimals | null | 0.01 | Token decimals in UInt |
-| totalsupply | null | 0.01 | Token total supply in BigInteger |
-| balanceof | byte[] account | 0.01 | account balance in BigInteger |
+| totalSupply | null | 0.01 | Token total supply in BigInteger |
+| balanceOf | byte[] account | 0.01 | account balance in BigInteger |
 | transfer | byte[] from, byte[] to, BigInteger amount | 0.08 | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
+| onPersist | null | 0 | Manually perform actions this Nep5 contract will do upon block persisting |
+| supportedStandards | null | 0 | Supported NEP standards in String[] |
 
 Contract functions by NEO:
 
 | Function | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| unclaimedgas | byte[] account | 0.03 | unclaimed GAS of this address in uint |
+| unclaimedGas | byte[] account | 0.03 | unclaimed GAS amount of this address in uint |

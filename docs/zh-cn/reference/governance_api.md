@@ -20,7 +20,7 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 >| GasToken     | 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc |
 >| Policy       | 0xce06595079cd69583126dbfd1d2e25cca74cffe9 |
 >
->原生合约调用方法，与普通合约调用方法一样。`Contract.Call(NEO.hash, method, params)`
+>原生合约调用方法，与普通合约调用方法一样。`Contract.Call(NEO.hash, method, params)`。C#版本稍有不同：`Native.NEO(method, params);`
 
 
 
@@ -40,8 +40,8 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| registercandidate | byte[] publicKey | 0.05 |
-| unregistercandidate | byte[] publicKey | 0.05 |
+| registerCandidate | byte[] publicKey | 0.05 |
+| unregisterCandidate | byte[] publicKey | 0.05 |
 
 这里注意，注册/注销候选人均需要验证候选人地址的签名，即只有候选人自己才能执行注册/注销操作。
 
@@ -57,7 +57,7 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| getcandidates | null | 1 |
+| getCandidates | null | 1 |
 
 ### 委员会（Committee）
 
@@ -74,11 +74,11 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| setmaxblocksize | uint blockSize | 0.03 |
-| setmaxtransactionsperblock | uint maxTransactions | 0.03 |
-| setfeeperbyte | long feePerByte | 0.03 |
-| blockaccount | byte[] account | 0.03 |
-| unblockaccount | byte[] account | 0.03 |
+| setMaxBlockSize | uint blockSize | 0.03 |
+| setMaxTransactionsPerBlock | uint maxTransactions | 0.03 |
+| setFeePerByte | long feePerByte | 0.03 |
+| blockAccount | byte[] account | 0.03 |
+| unblockAccount | byte[] account | 0.03 |
 
 委员会可以通过发送包含多签的，调用相应合约方法的交易上链使投票生效。投票数超过委员会数量的一半的向上取整即为有效投票，相应操作将被执行生效。
 
@@ -86,10 +86,10 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| getmaxblocksize | null | 0.01 |
-| getmaxtransactionsperblock | null | 0.01 |
-| getfeeperbyte | null | 0.01 |
-| getblockedaccounts | null | 0.01 |
+| getMaxBlockSize | null | 0.01 |
+| getMaxTransactionsPerBlock | null | 0.01 |
+| getFeePerByte | null | 0.01 |
+| getBlockedAccounts | null | 0.01 |
 
 #### 产生方式
 
@@ -99,7 +99,7 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
-| getcommittee | null | 1 | 返回当前委员会（Array<ECPoint>） |
+| getCommittee | null | 1 | 返回当前委员会（Array<ECPoint>） |
 
 ### 共识节点（Validator）
 
@@ -115,8 +115,8 @@ GAS最小单位为10^-8。GAS代表着Neo网络的使用权，可通过持有NEO
 
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
-| getvalidators | null | 1 | 返回当前共识节点（Array<ECPoint>） |
-| getnextblockvalidators | null | 1 | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
+| getValidators | null | 1 | 返回当前共识节点（Array<ECPoint>） |
+| getNextBlockValidators | null | 1 | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
 
 ## Token分配
 
@@ -135,12 +135,14 @@ NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5
 | name | null | 0 | 返回Token名称（String）|
 | symbol | null | 0 | 返回Token标志（String） |
 | decimals | null | 0.01 | 返回Token精度（UInt） |
-| totalsupply | null | 0.01 | 返回Token当前流通量（BigInteger） |
-| balanceof | byte[] account | 0.01 | 返回该账户的余额（BigInteger） |
+| totalSupply | null | 0.01 | 返回Token当前流通量（BigInteger） |
+| balanceOf | byte[] account | 0.01 | 返回该账户的余额（BigInteger） |
 | transfer | byte[] from, byte[] to, BigInteger amount | 0.08 | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
+| onPersist | null | 0 | 手动执行Nep5在持久化区块时进行的操作 |
+| supportedStandards | null | 0 | 返回支持的NEP标准（String[]） |
 
 NEO扩展的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
-| unclaimedgas | byte[] account | 0.03 | 返回该账户未领取GAS（uint） |
+| unclaimedGas | byte[] account | 0.03 | 返回该账户未领取GAS（uint） |
