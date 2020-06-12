@@ -1,5 +1,7 @@
 ﻿- name: General
   href: /v3/faq/en-us/basic.md
+- name: Neo-CLI
+  href: /v3/faq/en-us/cli.md
 - name: Development
   href: /v3/faq/en-us/dev.md
 - name: Smart Contract

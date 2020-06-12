@@ -1,6 +1,7 @@
 {
   "collapse":[
     "basic.md",
+    "cli.md",
     "client.md",
     "dev.md",
     "sc.md"
