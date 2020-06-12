@@ -28,7 +28,7 @@
         "tcpPort": 21333,
         "wsPort": 21334,
         "nonce": 1403108496,
-        "useragent": "/Neo:3.0.0-preview1/"
+        "userAgent": "/Neo:3.0.0-preview1/"
     }
 }
 ```
