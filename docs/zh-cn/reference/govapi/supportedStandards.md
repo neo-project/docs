@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(nativeHash, "supportedStandards", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{

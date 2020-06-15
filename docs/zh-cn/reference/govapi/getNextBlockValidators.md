@@ -1,6 +1,6 @@
-# getCandidates 方法
+# getNextBlockValidators 方法
 
-获取所有候选人。
+获取下个块（正在持久化的块）的共识节点成员。
 
 ## 所属合约
 
@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
-var result = Contract.Call(neoHash, "getCandidates", new object[] { });
+```json
+var result = Contract.Call(neoHash, "getNextBlockValidators", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -34,6 +34,6 @@ var result = Contract.Call(neoHash, "getCandidates", new object[] { });
 
 响应说明：
 
-- Array类型：成功获取候选人列表。
+- Array类型：成功获取下轮共识节点成员。
 
 - 其他：失败。

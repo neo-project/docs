@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(nep5Hash, "totalSupply", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"100000000"

@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(policyHash, "getFeePerByte", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"300"

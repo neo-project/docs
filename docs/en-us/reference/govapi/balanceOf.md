@@ -1,6 +1,6 @@
-# Function balanceOf
+# balanceOf Method
 
-Return account balance.
+Returns the account balance.
 
 ## Contract
 
@@ -8,29 +8,29 @@ Return account balance.
 
 ## Parameters
 
-- byte[] account: queried account
+`byte[] account`: The account to query
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 ...
 var result = Contract.Call(nep5Hash, "balanceOf", new object[] { account });
 ```
 
-Respond Content:
+Response content:
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"100000000"
 }
 ```
 
-Respond Illustration:
+Response description:
 
-- Integer type: account balance successfully requested.
+- Integer type: account balance is successfully requested.
 
 - Others: failed.

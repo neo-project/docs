@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(policyHash, "getBlockedAccounts", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{

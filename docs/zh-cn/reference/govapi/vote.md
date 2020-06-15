@@ -13,15 +13,15 @@
 
 ## 参数说明
 
-- byte[] account: 投票者账户
+- `byte[] account`: 投票者账户
 
-- byte[] voteTo: 被投票的候选人公钥
+- `byte[] voteTo`: 被投票的候选人公钥
 
 ## 调用示例
 
 请求正文：
 
-```
+```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 static byte[] pubkey = "024b817ef37f2fc3d4a33fe36687e592d9f30fe24b3e28187dc8f12b3b3b2b839e".HexToBytes();
 ...
@@ -30,7 +30,7 @@ var result = Contract.Call(neoHash, "vote", new object[] { account, pubkey });
 
 响应正文：
 
-```
+```json
 {
 	"Type":"Boolean",
 	"value":"true"

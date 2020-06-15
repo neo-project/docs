@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(nativeHash, "name", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"Type":"ByteString",
 	"value":"NEO"

@@ -1,6 +1,6 @@
-# getCommittee 方法
+# getCandidates 方法
 
-获取委员会成员。
+获取所有候选人。
 
 ## 所属合约
 
@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
-var result = Contract.Call(neoHash, "getCommittee", new object[] { });
+```json
+var result = Contract.Call(neoHash, "getCandidates", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -34,6 +34,6 @@ var result = Contract.Call(neoHash, "getCommittee", new object[] { });
 
 响应说明：
 
-- Array类型：成功获取委员会成员。
+- Array类型：成功获取候选人列表。
 
 - 其他：失败。

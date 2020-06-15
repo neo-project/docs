@@ -1,4 +1,4 @@
-# Neo3 Governance API
+# MNeo3 Governance API
 
 ## Economic Model
 
@@ -32,9 +32,9 @@ There is no duty assigned to candidates. However, committee members and validato
 
 #### How to Become a Candidate
 
-An address can be registered as candidate or unregister afterwards. Corresponding contract functions are as follows:
+An address can be registered as candidate or unregister afterwards. Corresponding contract methods are as follows:
 
-| Function | Parameters | Fee in GAS |
+| Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
 | `registerCandidate` | byte[] publicKey | 0.05 |
 | `unregisterCandidate` | byte[] publicKey | 0.05 |
@@ -47,7 +47,7 @@ An address can be registered as candidate or unregister afterwards. Correspondin
 
 Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received vote is defined as the sum of NEO held by its voter. Committee members as well as validators are certain number of candidates with the most votes. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as voted address becomes a candidate. Every standby committee member will vote to itself in genesis block. Voting contract method is as follows. Please not that voter's signature will be checked. 
 
-| Function | Parameters | Fee in GAS |
+| Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
 | `vote` | byte[] account, byte[] voteTo | 5 |
 
@@ -55,7 +55,7 @@ As voters' votes & held NEO, as well as registered candidates keep change, candi
 
 #### Corresponding contract methods
 
-| Function | Parameters | Fee in GAS |
+| Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
 | `getCandidates` | null | 1 |
 
@@ -72,7 +72,7 @@ Committee members have the privilege to modify the configuration of Neo network 
 
 Function definition and corresponding fee are defined in PolicyContract as shown below:
 
-| Function | Parameters | Fee in GAS |
+| Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
 | `setMaxBlockSize` | uint blockSize | 0.03 |
 | `setMaxTransactionsPerBlock` | uint maxTransactions | 0.03 |
@@ -80,11 +80,11 @@ Function definition and corresponding fee are defined in PolicyContract as shown
 | `blockAccount` | byte[] account | 0.03 |
 | `unblockAccount` | byte[] account | 0.03 |
 
-To bring such modification into effect, committee members should send a transaction which calls corresponding function & includes enough signatures on chain. This transaction will be executed as long as it's signed by more than half of the committee members.
+To bring such modification into effect, committee members should send a transaction which calls corresponding method & includes enough signatures on chain. This transaction will be executed as long as it's signed by more than half of the committee members.
 
-Furthermore, PolicyContract also supports corresponding reading function:
+Furthermore, PolicyContract also supports corresponding reading method:
 
-| Function | Parameters | Fee in GAS |
+| Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
 | `getMaxBlockSize` | null | 0.01 |
 | `getMaxTransactionsPerBlock` | null | 0.01 |
@@ -97,9 +97,9 @@ Furthermore, PolicyContract also supports corresponding reading function:
 2. Take certain numbers of candidates (21 by default) with the most votes as committee members.
 Committee members will be refreshed every block.
 
-#### Corresponding Contract Function
+#### Corresponding Contract method
 
-| Function | Parameters | Fee in GAS | Return value |
+| Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
 | `getCommittee` | null | 1 | Current committee members in format of Array<ECPoint> |
 
@@ -115,9 +115,9 @@ Validators are nodes which are able to start or vote to new block proposals. Det
 2. Take certain numbers of candidates (7 by default) with the most votes as validators.
 Similar to committee members, validators will be refreshed every block.
 
-#### Corresponding Contract Function
+#### Corresponding Contract method
 
-| Function | Parameters | Fee in GAS | Return value |
+| Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
 | `getValidators` | null | 1 | Current validators in format of Array<ECPoint> |
 | `getNextBlockValidators` | null | 1 | Validators by persisting block in format of Array<ECPoint> |
@@ -131,11 +131,11 @@ Half of total NEO amount, or 50 million tokens are distributed in genesis block 
 3. Remaining half is distributed to standby validators' multi-signature address
 All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
 
-## Nep5 Contract Function
+## Nep5 Contract method
 
-NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) contracts. Nep5 contract functions are as follows:
+NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) contracts. Nep5 contract methods are as follows:
 
-| Function | Parameters | Fee in GAS | Result |
+| Method | Parameters | Fee in GAS | Result |
 | ---- | ---- | ---- | ---- |
 | `name` | null | 0 | Token name in String |
 | `symbol` | null | 0 | Token symbol in String |
@@ -146,8 +146,8 @@ NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-
 | `onPersist` | null | 0 | Manually perform actions this Nep5 contract will do upon block persisting |
 | `supportedStandards` | null | 0 | Supported NEP standards in String[] |
 
-Contract functions by NEO:
+Contract methods by NEO:
 
-| Function | Parameters | Fee in GAS | Return value |
+| Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
 | `unclaimedGas` | byte[] account | 0.03 | unclaimed GAS amount of this address in uint |

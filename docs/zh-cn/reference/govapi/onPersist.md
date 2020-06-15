@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(nativeHash, "onPersist", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"Type":"Void",
 	"value":"NULL"

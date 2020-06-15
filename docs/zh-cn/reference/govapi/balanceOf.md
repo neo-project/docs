@@ -8,13 +8,13 @@
 
 ## 参数说明
 
-- byte[] account: 查询账户
+`byte[] account`: 查询账户
 
 ## 调用示例
 
 请求正文：
 
-```
+```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 ...
 var result = Contract.Call(nep5Hash, "balanceOf", new object[] { account });
@@ -22,7 +22,7 @@ var result = Contract.Call(nep5Hash, "balanceOf", new object[] { account });
 
 响应正文：
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"100000000"

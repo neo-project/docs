@@ -10,13 +10,13 @@
 
 请求正文：
 
-```
+```json
 var result = Contract.Call(nep5Hash, "symbol", new object[] { });
 ```
 
 响应正文：
 
-```
+```json
 {
 	"Type":"ByteString",
 	"value":"neo"

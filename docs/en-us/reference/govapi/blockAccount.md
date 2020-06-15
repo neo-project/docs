@@ -1,10 +1,10 @@
-# Function blockAccount
+# blockAccount Method
 
-Block an account.
+Blocks an account.
 
 > [!Note]
 >
-> - Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
+> Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
 
 ## Contract
 
@@ -12,11 +12,11 @@ Block an account.
 
 ## Parameters
 
-- byte[] account: blocked account
+`byte[] account`: blocked account
 
-## Sample
+## Example
 
-请求正文：
+Request text：
 
 ```
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
