@@ -1,12 +1,6 @@
 # 合约框架开发参考
 
-NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链账本数据、操作持久化存储区、访问执行环境等。它是NEO虚拟机（NeoVM）互操作服务层的一部分。
-
-
-| 命名空间                          | 说明                                       |
-| ----------------------------- | ---------------------------------------- |
-| [Neo](neo命名空间) | NEO 命名空间是NEO区块链所提供的 API，提供了访问区块链账本数据的和操作持久化存储区的方法。 |
-| [System](system命名空间) | System 命名空间是智能合约执行引擎提供的 API，提供了访问该智能合约的执行环境的方法。 |
+NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链账本数据、操作持久化存储区、访问执行环境等。它是Neo虚拟机（NeoVM）互操作服务层的一部分。
 
 ## Neo命名空间
 
@@ -102,8 +96,6 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | Neo.Runtime.Notify       | 在智能合约中向执行该智能合约的客户端发送通知            |
 | Neo.Runtime.Log          | 在智能合约中向执行该智能合约的客户端发送日志            |
 
-参考：以上 API 的源码位于 NEO 项目中的 [src/neo/SmartContract/StateReader.cs](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateReader.cs) 文件。
-
 ### 状态修改
 
 此类 API 会对智能合约的状态进行修改
@@ -121,8 +113,6 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | Neo.Storage.Put                | 插入操作，以 key-value 的形式向持久化存储区中插入数据 |
 | Neo.Storage.Delete             | 删除操作，在持久化存储区中通过 key 删除对应的 value   |
 
-参考：以上 API 的源码位于 NEO 项目中的 [src/neo/SmartContract/StateMachine.cs](https://github.com/neo-project/neo/blob/master/neo/SmartContract/StateMachine.cs) 文件。
-
 ## System 命名空间
 
 | API                                           | 说明                                                 |
@@ -132,4 +122,3 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | System.ExecutionEngine.GetCallingScriptHash   | 获得该智能合约的调用者的脚本散列                     |
 | System.ExecutionEngine.GetEntryScriptHash     | 获得该智能合约的入口点（合约调用链的起点）的脚本散列 |
 
-参考：以上 API 的源码位于 Neo.VM 项目中的 src\Neo.VM\InteropService.cs 文件。
