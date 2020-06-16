@@ -1,30 +1,30 @@
-# Function getMaxBlockSize
+# getMaxBlockSize Method
 
-Return the maximum block size
+Returns the maximum block size
 
 ## Contract
 
 	PolicyContract
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(policyHash, "getMaxBlockSize", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"500"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Integer type: maximum block size successfully requested.
+- Integer type: maximum block size is successfully requested.
 
 - Others: failed.

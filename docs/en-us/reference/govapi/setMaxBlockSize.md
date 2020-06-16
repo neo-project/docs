@@ -1,10 +1,10 @@
-# Function setMaxBlockSize
+# setMaxBlockSize Method
 
-Set the maximum block size.
+Sets the maximum block size.
 
 > [!Note]
 >
-> - Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
+> The method needs to check muti-signature of committee members, and it is executed as long as it's signed by more than half of the committee members.
 
 ## Contract
 
@@ -12,26 +12,26 @@ Set the maximum block size.
 
 ## Parameters
 
-- uint blockSize: maximum block size
+`uint blockSize`: maximum block size
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(policyHash, "setMaxBlockSize", new object[] { 3000 });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Boolean",
 	"value":"true"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
 - true: successfully set maximum block size.
 

@@ -1,10 +1,10 @@
-# Function registerCandidate
+# registerCandidate Method
 
-Register candidate
+Register the candidate
 
 > [!Note]
 >
-> - Registering candidate requires the candidate's signature. It means candidate registering is only self-determined. 
+> Candidate registration requires the candidate's signature. It means candidate registering is only self-determined. 
 
 ## Contract
 
@@ -12,29 +12,29 @@ Register candidate
 
 ## Parameters
 
-- byte[] publicKey: public key of registered candidate
+`byte[] publicKey`: public key of the registered candidate
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 static byte[] pubkey = "024b817ef37f2fc3d4a33fe36687e592d9f30fe24b3e28187dc8f12b3b3b2b839e".HexToBytes();
 ...
 var result = Contract.Call(neoHash, "registerCandidate", new object[] { pubkey });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
    	"Type":"Boolean",
    	"value":"true"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- true: candidate registration succeeded.
+- true: candidate registration is succeeded.
 
 - Others: failed.

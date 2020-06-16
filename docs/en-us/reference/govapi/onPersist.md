@@ -1,6 +1,6 @@
-# Function onPersist
+# onPersist Method
 
-Manually perform actions this Nep5 contract will do upon block persisting.
+Manually performs actions the Nep5 contract will do upon block persisting.
 
 ## Contract
 
@@ -8,23 +8,23 @@ Manually perform actions this Nep5 contract will do upon block persisting.
 
 ## Parameters
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(nativeHash, "onPersist", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Void",
 	"value":"NULL"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Void type: successfully perfromed.
+- Void type: The method is successfully performed.
 
 - Others: failed.

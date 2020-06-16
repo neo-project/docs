@@ -1,10 +1,10 @@
-# Function setMaxTransactionsPerBlock
+# setMaxTransactionsPerBlock Method
 
-Set maximum transactions in a block.
+Sets maximum transactions in a block.
 
 > [!Note]
 >
-> - Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
+> The method needs to check muti-signature of committee members, and it is executed as long as it's signed by more than half of the committee members.
 
 ## Contract
 
@@ -12,26 +12,26 @@ Set maximum transactions in a block.
 
 ## Parameters
 
-- uint maxTransactions: maximum transactions in a block
+`uint maxTransactions`: maximum transactions in a block
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(policyHash, "setMaxTransactionsPerBlock", new object[] { 1000 });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Boolean",
 	"value":"true"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
 - true: successfully set maximum transactions in a block
 

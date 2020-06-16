@@ -1,22 +1,22 @@
-# Function getCandidates
+# getCandidates Method
 
-Return all candidates.
+Returns all candidates.
 
 ## Contract
 
 	NeoToken
 
-## Sample
+## Example
 
 Request Content:
 
-```
+```json
 var result = Contract.Call(neoHash, "getCandidates", new object[] { });
 ```
 
 Respond Content:
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -32,8 +32,8 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Array type: candidates successfully requested.
+- Array type: candidates are successfully requested.
 
 - Others: failed.

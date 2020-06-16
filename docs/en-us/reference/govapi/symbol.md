@@ -1,30 +1,30 @@
-# Function symbol
+# symbol Method
 
-Return token symbol.
+Returns token symbol.
 
 ## Contract
 
 	Nep5Token
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(nep5Hash, "symbol", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"ByteString",
 	"value":"neo"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- ByteString type: token symbol successfully requested.
+- ByteString type: token symbol is successfully requested.
 
 - Others: failed.

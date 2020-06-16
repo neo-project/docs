@@ -1,10 +1,10 @@
-# Function transfer
+# transfer Method
 
-Send specified amount of token from an address to another.
+Sends specified amount of token from an address to another.
 
 > [!Note]
 >
-> - Will check sender's signature, whether caller is sender, whether receiver is payable, whether sender's balance is enough.
+> The method will check sender's signature, whether caller is sender, whether receiver is payable, and whether sender's balance is enough.
 
 ## Contract
 
@@ -12,34 +12,34 @@ Send specified amount of token from an address to another.
 
 ## Parameters
 
-- byte[] from: sender
+- `byte[] from`: sender
 
-- byte[] to: receiver
+- `byte[] to`: receiver
 
-- BigInteger amount: token amount
+- `BigInteger amount`: token amount
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 static byte[] from = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 static byte[] to = "NWfRjyLqixtrB8JCW5tuH8MMzgZ7QN3GHj".ToScriptHash();
 ...
 var result = Contract.Call(nep5Hash, "transfer", new object[] { from, to, 10000 });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Boolean",
 	"value":"true"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- true: transferred successfully.
+- true:  assets are transferred successfully.
 
 - Others: failed.

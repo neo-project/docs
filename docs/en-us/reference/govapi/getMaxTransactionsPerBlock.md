@@ -1,20 +1,20 @@
-# Function getMaxTransactionsPerBlock
+# getMaxTransactionsPerBlock Method
 
-Return maximum transactions in a block.
+Returns maximum transactions in a block.
 
 ## Contract
 
 	PolicyContract
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
 ```
 var result = Contract.Call(policyHash, "getMaxTransactionsPerBlock", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
 ```
 {
@@ -23,8 +23,8 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Integer type: maximum transactions in a block successfully requested.
+- Integer type: maximum transactions in a block are successfully requested.
 
 - Others: failed.

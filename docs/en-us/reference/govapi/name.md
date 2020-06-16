@@ -1,30 +1,30 @@
-# Function name
+# name Method
 
-Return contract name.
+Returns contract name.
 
 ## Contract
 
 	NativeContract
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(nativeHash, "name", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"ByteString",
 	"value":"NEO"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- ByteString type: contract name successfully requested.
+- ByteString type: contract name is successfully requested.
 
 - Others: failed.

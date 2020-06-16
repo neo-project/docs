@@ -1,22 +1,22 @@
-# Function getCommittee
+# getCommittee Method
 
-Return committee members.
+Returns committee members.
 
 ## Contract
 
 	NeoToken
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(neoHash, "getCommittee", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -32,8 +32,8 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Array type: committee members successfully requested.
+- Array type: committee members are successfully requested.
 
 - Others: failed.

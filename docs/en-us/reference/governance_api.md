@@ -1,4 +1,4 @@
-# MNeo3 Governance API
+# Neo3 Governance API
 
 ## Economic Model
 
@@ -12,13 +12,13 @@ NEO has a max supply of 100 million tokens and the smallest unit of 1, or in oth
 
 GAS is the fuel token for the realization of Neo network resource control, with a smallest unit of 0.00000001. Users can obtain GAS either through a claim or purchase. When using the Neo network, they need to pay a certain amount of GAS as network fees, such as transfer, registering assets, publishing assets, running DApps, etc.
 
-| Native Contract Name | Contract Hash                                   |
+| Native Contract | Contract Hash                                   |
 | ------------ | ------------------------------------------ |
 | `NeoToken` | 0xde5f57d430d3dece511cf975a8d37848cb9e0525 |
 | `GasToken` | 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc |
 | `Policy` | 0xce06595079cd69583126dbfd1d2e25cca74cffe9 |
 
-Method to call native contract function is the same as calling other ordinary contracts. `Contract.Call(NEO.hash, method, params)`
+The way to call the native contract methods is the same as calling other ordinary contracts. `Contract.Call(NEO.hash, method, params)`
 
 ## Governance Strategy
 
@@ -32,12 +32,12 @@ There is no duty assigned to candidates. However, committee members and validato
 
 #### How to Become a Candidate
 
-An address can be registered as candidate or unregister afterwards. Corresponding contract methods are as follows:
+An address can be registered as candidate or unregistered afterwards. Corresponding contract methods are as follows:
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| `registerCandidate` | byte[] publicKey | 0.05 |
-| `unregisterCandidate` | byte[] publicKey | 0.05 |
+| [`registerCandidate`](govapi/registerCandidate.md) | byte[] publicKey | 0.05 |
+| [`unregisterCandidate`](govapi/unregisterCandidate.md) | byte[] publicKey | 0.05 |
 
 > [!Note]
 >
@@ -45,19 +45,21 @@ An address can be registered as candidate or unregister afterwards. Correspondin
 
 #### Candidate Voting 
 
-Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received vote is defined as the sum of NEO held by its voter. Committee members as well as validators are certain number of candidates with the most votes. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as voted address becomes a candidate. Every standby committee member will vote to itself in genesis block. Voting contract method is as follows. Please not that voter's signature will be checked. 
+Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received vote is defined as the sum of NEO held by its voter. Committee members as well as validators are certain number of candidates with the most votes. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as voted address becomes a candidate. Every standby committee member will vote to itself in genesis block. 
+
+Voting contract method is as follows. Please not that voter's signature will be checked. 
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| `vote` | byte[] account, byte[] voteTo | 5 |
+| [`vote`](govapi/vote.md) | byte[] account, byte[] voteTo | 5 |
 
-As voters' votes & held NEO, as well as registered candidates keep change, candidate set and their votes are re-calculated in every block.
+As voters' votes & held NEO, as well as registered candidates keep changing, candidate set and their votes are re-calculated in every block.
 
 #### Corresponding contract methods
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| `getCandidates` | null | 1 |
+| [`getCandidates`](govapi/getCandidates.md) | null | 1 |
 
 ### Committee
 
@@ -70,30 +72,30 @@ Committee members have the privilege to modify the configuration of Neo network 
 * Set fee per byte for network transmission
 * Block / unblock account
 
-Function definition and corresponding fee are defined in PolicyContract as shown below:
+Method definition and corresponding fee are defined in PolicyContract as shown below:
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| `setMaxBlockSize` | uint blockSize | 0.03 |
-| `setMaxTransactionsPerBlock` | uint maxTransactions | 0.03 |
-| `setFeePerByte` | long feePerByte | 0.03 |
-| `blockAccount` | byte[] account | 0.03 |
-| `unblockAccount` | byte[] account | 0.03 |
+| [`setMaxBlockSize`](govapi/setMaxBlockSize.md) | uint blockSize | 0.03 |
+| [`setMaxTransactionsPerBlock`](govapi/setMaxTransactionsPerBlock.md) | uint maxTransactions | 0.03 |
+| [`setFeePerByte`](govapi/setFeePerByte.md) | long feePerByte | 0.03 |
+| [`blockAccount`](govapi/blockAccount.md) | byte[] account | 0.03 |
+| [`unblockAccount`](govapi/unblockAccount.md) | byte[] account | 0.03 |
 
-To bring such modification into effect, committee members should send a transaction which calls corresponding method & includes enough signatures on chain. This transaction will be executed as long as it's signed by more than half of the committee members.
+To bring such modification into effect, committee members should send a transaction which calls corresponding method & includes enough signatures on chain. This transaction is executed as long as it's signed by more than half of the committee members.
 
-Furthermore, PolicyContract also supports corresponding reading method:
+Furthermore, PolicyContract also supports corresponding reading methods:
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| `getMaxBlockSize` | null | 0.01 |
-| `getMaxTransactionsPerBlock` | null | 0.01 |
-| `getFeePerByte` | null | 0.01 |
-| `getBlockedAccounts` | null | 0.01 |
+| [`getMaxBlockSize`](govapi/getMaxBlockSize.md) | null | 0.01 |
+| [`getMaxTransactionsPerBlock`](govapi/getMaxTransactionsPerBlock.md) | null | 0.01 |
+| [`getFeePerByte`](govapi/getFeePerByte.md) | null | 0.01 |
+| [`getBlockedAccounts`](govapi/getBlockedAccounts.md) | null | 0.01 |
 
 #### How Are Committee Members Elected
 
-1. Sort registered candidates by votes
+1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (21 by default) with the most votes as committee members.
 Committee members will be refreshed every block.
 
@@ -101,7 +103,7 @@ Committee members will be refreshed every block.
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| `getCommittee` | null | 1 | Current committee members in format of Array<ECPoint> |
+| [`getCommittee`](govapi/getCommittee.md) | null | 1 | Current committee members in format of Array<ECPoint> |
 
 ### Validator
 
@@ -111,7 +113,7 @@ Validators are nodes which are able to start or vote to new block proposals. Det
 
 #### How Are Validators Elected
 
-1. Sort registered candidates by votes
+1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (7 by default) with the most votes as validators.
 Similar to committee members, validators will be refreshed every block.
 
@@ -119,17 +121,20 @@ Similar to committee members, validators will be refreshed every block.
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| `getValidators` | null | 1 | Current validators in format of Array<ECPoint> |
-| `getNextBlockValidators` | null | 1 | Validators by persisting block in format of Array<ECPoint> |
+| [`getValidators`](govapi/getValidators.md) | null | 1 | Current validators in format of Array<ECPoint> |
+|  [`getNextBlockValidators`](govapi/getNextBlockValidators.md)  | null | 1 | Validators by persisting block in format of Array<ECPoint> |
 
 ## Token Distribution
 
 Half of total NEO amount, or 50 million tokens are distributed in genesis block to all standby committee members in the following rules:
 
 1. Get N1 = amount of standby committee members & N2 = amount of standby validators according to protocol.json
+
 2. Separate 50 million NEO tokens into (N1 + N2) portions and distribute them to all committee members: every non-validator with 1 portion and every validator with 2 portions
+
 3. Remaining half is distributed to standby validators' multi-signature address
-All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
+
+  All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
 
 ## Nep5 Contract method
 
@@ -137,17 +142,17 @@ NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-
 
 | Method | Parameters | Fee in GAS | Result |
 | ---- | ---- | ---- | ---- |
-| `name` | null | 0 | Token name in String |
-| `symbol` | null | 0 | Token symbol in String |
-| `decimals` | null | 0.01 | Token decimals in UInt |
-| `totalSupply` | null | 0.01 | Token total supply in BigInteger |
-| `balanceOf` | byte[] account | 0.01 | account balance in BigInteger |
-| `transfer` | byte[] from, byte[] to, BigInteger amount | 0.08 | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
-| `onPersist` | null | 0 | Manually perform actions this Nep5 contract will do upon block persisting |
-| `supportedStandards` | null | 0 | Supported NEP standards in String[] |
+| [`name`](govapi/name.md)  | null | 0 | Token name in String |
+| [`symbol`](govapi/symbol.md)  | null | 0 | Token symbol in String |
+|  [`decimals`](govapi/decimals.md)  | null | 0.01 | Token decimals in UInt |
+|  [`totalSupply`](govapi/totalSupply.md) | null | 0.01 | Token total supply in BigInteger |
+| [`balanceOf`](govapi/balanceOf.md) | byte[] account | 0.01 | account balance in BigInteger |
+|  [`transfer`](govapi/transfer.md) | byte[] from, byte[] to, BigInteger amount | 0.08 | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
+|  [`onPersist`](govapi/onPersist.md) | null | 0 | Manually perform actions this Nep5 contract will do upon block persisting |
+| [`supportedStandards`](govapi/supportedStandards.md) | null | 0 | Supported NEP standards in String[] |
 
 Contract methods by NEO:
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| `unclaimedGas` | byte[] account | 0.03 | unclaimed GAS amount of this address in uint |
+|  [`unclaimedGas`](govapi/unclaimedGas.md) | byte[] account | 0.03 | unclaimed GAS amount of this address in uint |

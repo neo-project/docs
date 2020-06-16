@@ -1,22 +1,22 @@
-# Function getBlockedAccounts
+# getBlockedAccounts Method
 
-Return blocked accounts.
+Returns the blocked accounts.
 
 ## Contract
 
 	PolicyContract
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(policyHash, "getBlockedAccounts", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -32,8 +32,8 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Array type: account balance successfully requested.
+- Array type: account address is successfully requested.
 
 - Others: failed.

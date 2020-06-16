@@ -4,7 +4,7 @@ Blocks an account.
 
 > [!Note]
 >
-> Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
+> The method needs to check muti-signature of committee members, and it is executed as long as it's signed by more than half of the committee members.
 
 ## Contract
 
@@ -12,7 +12,7 @@ Blocks an account.
 
 ## Parameters
 
-`byte[] account`: blocked account
+`byte[] account`: The account address to block.
 
 ## Example
 
@@ -24,7 +24,7 @@ static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 var result = Contract.Call(policyHash, "blockAccount", new object[] { account });
 ```
 
-Request Content:
+Request content:
 
 ```
 {
@@ -33,8 +33,8 @@ Request Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- true: account blocked successfully.
+- true: The account is blocked successfully.
 
 - Others: failed.

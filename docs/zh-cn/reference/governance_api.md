@@ -137,7 +137,7 @@ NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
 | [`name`](govapi/name.md) | null | 0 | 返回Token名称（String）|
-| [`symbol`]((govapi/symbol.md)) | null | 0 | 返回Token标志（String） |
+| [`symbol`](govapi/symbol.md) | null | 0 | 返回Token标志（String） |
 | [`decimals`](govapi/decimals.md) | null | 0.01 | 返回Token精度（UInt） |
 | [`totalSupply`](govapi/totalSupply.md) | null | 0.01 | 返回Token当前流通量（BigInteger） |
 | [`balanceOf`](govapi/balanceOf.md) | byte[] account | 0.01 | 返回该账户的余额（BigInteger） |

@@ -1,10 +1,10 @@
-# Function setFeePerByte
+# setFeePerByte Method
 
-Set fee per byte for network transmission.
+Sets fee per byte for network transmission.
 
 > [!Note]
 >
-> - Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
+> The method needs to check muti-signature of committee members, and it is executed as long as it's signed by more than half of the committee members.
 
 ## Contract
 
@@ -12,26 +12,26 @@ Set fee per byte for network transmission.
 
 ## Parameters
 
-- long feePerByte: fee per byte for network transmission
+`long feePerByte`: fee per byte for network transmission
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(policyHash, "setFeePerByte", new object[] { 30 });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Boolean",
 	"value":"true"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
 - true: successfully set fee per byte for network transmission.
 

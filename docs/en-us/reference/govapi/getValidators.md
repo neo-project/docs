@@ -1,22 +1,22 @@
-# Function getValidators
+# getValidators Method
 
-Return current validators.
+Returns current validators.
 
 ## Contract
 
 	NeoToken
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(neoHash, "getValidators", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -32,8 +32,8 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Array type: current validators successfully requested.
+- Array type: current validators are successfully requested.
 
 - Others: failed.

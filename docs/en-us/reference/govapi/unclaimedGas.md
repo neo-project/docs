@@ -1,6 +1,6 @@
-# Function unclaimedGas
+# unclaimedGas Method
 
-Return unclaimed GAS amount of this address.
+Returns unclaimed GAS amount of this address.
 
 ## Contract
 
@@ -8,29 +8,29 @@ Return unclaimed GAS amount of this address.
 
 ## Parameters
 
-- byte[] account: queried account
+`byte[] account`: queried account
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 ...
 var result = Contract.Call(neoHash, "unclaimedGas", new object[] { account });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"100000"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Integer type: unclaimed GAS amount of this address successfully requested.
+- Integer type: unclaimed GAS amount of this address is successfully requested.
 
 - Others: failed.

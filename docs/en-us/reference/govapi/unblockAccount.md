@@ -1,10 +1,10 @@
-# Function unblockAccount
+# unblockAccount Method
 
-Unblock an account.
+Unblocks an account.
 
 > [!Note]
 >
-> - Need to check muti-signature of committee members. Will be executed as long as it's signed by more than half of the committee members.
+> The method needs to check muti-signature of committee members and it is executed as long as it's signed by more than half of the committee members.
 
 ## Contract
 
@@ -12,29 +12,29 @@ Unblock an account.
 
 ## Parameters
 
-- byte[] account: unblocked account
+`byte[] account`: unblocked account
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 ...
 var result = Contract.Call(policyHash, "unblockAccount", new object[] { account });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Boolean",
 	"value":"true"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- true: successfully unblocked account.
+- true: The account is successfully unblocked.
 
 - Others: failed.

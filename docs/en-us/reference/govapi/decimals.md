@@ -1,30 +1,30 @@
-# Function decimals
+# decimals Method
 
-Return Token decimals.
+Returns token decimals.
 
 ## Contract
 
 	Nep5Token
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(nep5Hash, "decimals", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"Type":"Integer",
 	"value":"0"
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Integer type: Token balance successfully requested.
+- Integer type: Token balance is obtained.
 
 - Others: failed.

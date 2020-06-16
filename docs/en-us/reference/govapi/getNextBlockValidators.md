@@ -1,22 +1,22 @@
-# Function getNextBlockValidators
+# getNextBlockValidators Method
 
-Return validators by persisting block.
+Returns validators by persisting block.
 
 ## Contract
 
 	NeoToken
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(neoHash, "getNextBlockValidators", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -32,8 +32,8 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
-- Array type: validators by persisting block successfully requested.
+- Array type: validators by persisting block are successfully requested.
 
 - Others: failed.

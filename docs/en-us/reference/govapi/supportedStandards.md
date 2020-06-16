@@ -1,22 +1,22 @@
-# Function supportedStandards
+# supportedStandards Method
 
-Return supported NEP standards.
+Returns supported NEP standards.
 
 ## Contract
 
 	NativeContract
 
-## Sample
+## Example
 
-Request Content:
+Request content:
 
-```
+```json
 var result = Contract.Call(nativeHash, "supportedStandards", new object[] { });
 ```
 
-Respond Content:
+Respond content:
 
-```
+```json
 {
 	"type": "Array",
 	"value": [{
@@ -29,7 +29,7 @@ Respond Content:
 }
 ```
 
-Respond Illustration:
+Respond description:
 
 - Array type: supported NEP standards successfully requested.
 
