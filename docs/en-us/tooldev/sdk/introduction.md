@@ -32,6 +32,10 @@ This document is applicable to Neo3 preview2. It is recommended you use NEO SDK 
    using Neo.Network.RPC;
    ```
 
+> [!Note]
+>
+> In case that you use SDK to construct a transaction and invoke the contract method that requires a signature, you need to copy the protocol.json file of the current Neo-CLI node into the Visual Studio 2019 running directory, such as \bin or \publish, to ensure the `Magic` used by SDK is the same as that of blockchain, or the transaction will not be verified through blockchain.
+
 ## Exception handing
 
 `Neo RPC SDK` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:

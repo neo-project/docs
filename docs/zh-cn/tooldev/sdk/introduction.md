@@ -1,9 +1,5 @@
 # 关于 Neo RPC SDK
 
-> [!Note]
->
-> 本文档中使用的 Neo 版本为 3.0 及以上。
-
 `Neo RPC SDK` 是一个 C# 版本的依赖库，可用来开发各种基于 Neo 的应用，如钱包客户端，游戏等。 使用本项目可以方便地调用 Neo RPC 接口，构造交易以及调用合约等。
 
 此文档是完全[开源](https://github.com/neo-project/docs)的，可通过任何方式参与此文档，如创建问题、编写文档等。
@@ -40,7 +36,7 @@
 
 > [!Note]
 >
-> 如果使用 SDK 中构造交易并附有签名相关的方法，需要维护一份当前所在 NEO 区块链的 protocol.json 在程序运行目录下，例如 \bin 或 \publish 目录，以确保 SDK 使用的 `Magic` 和  区块链一致，否则 SDK 构造的交易在区块链中将无法验签通过。
+> 如果使用SDK构造交易，调用要添加签名的合约方法，需要拷贝一份当前Neo-CLI节点的 protocol.json 到Visual Studio 2019程序运行目录下，例如 \bin 或 \publish 目录，以确保 SDK 使用的 `Magic` 和区块链一致，否则 SDK 构造的交易在区块链中将无法验签通过。
 
 ## 异常处理
 
