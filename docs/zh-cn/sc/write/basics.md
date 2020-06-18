@@ -165,7 +165,42 @@ namespace Domain
 [Features(ContractFeatures.HasStorage)]
 ```
 
-在合约的类的上方可以写合约特性，这一句的意思是合约可以访问存储区。
+在合约的类的上方可以写合约特性，这一句的意思是合约可以使用存储区。
+
+除此之外，合约中还可以声明其它特性：
+
+```c#
+[ManifestExtra("Author", "Neo")]
+[ManifestExtra("Email", "dev@neo.org")]
+[ManifestExtra("Description", "This is a contract example")]
+[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
+public class Contract1 : SmartContract
+{
+    public static bool Main(string operation, object[] args)
+    {
+        // 其他代码
+    }
+}
+```
+
+`ManifestExtra` 表示 Manifest 文件中的额外字段，可以添加 `Author`、 `Email`、 `Description` 等值。
+
+也可以添加其它字段，如：
+
+```c#
+[ManifestExtra("Name", "sample contract")]
+[ManifestExtra("Version", "1.0.0")]
+```
+
+`Features` 表示合约本身的功能，目前有四种可选：
+
+1、`[Features(ContractFeatures.NoProperty)]` 或不写，表示合约没有特殊功能
+
+2、`[Features(ContractFeatures.HasStorage)]` 合约可以使用存储区
+
+3、`[Features(ContractFeatures.Payable)]` 合约可以接收资产（NEO、GAS、NEP-5资产等）
+
+4、`[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]` 同时包括 2 和 3 的功能。
 
 ## Main 方法
 
