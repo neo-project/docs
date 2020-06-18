@@ -159,7 +159,7 @@ namespace Domain
 
 Let's slice it and learn it step by step.
 
-## Contract Features
+### Contract Features
 
 ```c#
 [Features(ContractFeatures.HasStorage)]
@@ -167,7 +167,39 @@ Let's slice it and learn it step by step.
 
 Upon the contract class we add a contract feature, which enables the contract to access the storage.
 
-## Main method
+Besides, you can declare more features:
+
+```c#
+[ManifestExtra("Author", "Neo")]
+[ManifestExtra("Email", "dev@neo.org")]
+[ManifestExtra("Description", "This is a contract example")]
+[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
+public class Contract1 : SmartContract
+{
+    public static bool Main(string operation, object[] args)
+    {
+        // other code
+    }
+}
+```
+
+`ManifestExtra` represents the extra fields in the Manifest file, where you can add `Author`, `Email`,  `Description` and etc.
+
+You can also add other fields, such as:
+
+```c#
+[ManifestExtra("Name", "sample contract")]
+[ManifestExtra("Version", "1.0.0")]
+```
+
+`Features` are contract features. There are four options for now: 
+
+- `[Features(ContractFeatures.NoProperty)]`: no special feature added to the contract.
+- `[Features(ContractFeatures.HasStorage)]`: enables the contract to access the storage.
+- `[Features(ContractFeatures.Payable)]`: enables the contract to accept NEP-5 assets.
+- `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`: enables both features described above.
+
+### Main method
 
 Theoretically, smart contracts can have any entry points, but we recommend you use the main function as the entry point of smart contracts for easier invocation. In the main function, user can call other function according to the different entry point calling. Usually in the main method, developer has to handle the `trigger`.
 
@@ -175,7 +207,7 @@ Theoretically, smart contracts can have any entry points, but we recommend you u
 
 A smart contract trigger is a mechanism that triggers the execution of smart contracts. There are two triggers introduced in the Neo smart contract，`Verification` and  `Application`.
 
-### Verification trigger
+#### Verification trigger
 
 A Verification trigger is used to call the contract as a verification function, which can accept multiple parameters and should return a valid Boolean value, indicating the validity of the transaction or block.
 
@@ -196,7 +228,7 @@ public static bool Main(byte[] signature)
 }
 ```
 
-### Application trigger
+#### Application trigger
 
 An application trigger is used to invoke the contract as a verification function, which can accept multiple parameters, change the blockchain status, and return values of any type.
 
@@ -258,7 +290,7 @@ private static byte[] Query(string domain)
 }
 ```
 
-## CheckWitness
+### CheckWitness
 
 In many, if not all cases, you will probably be wanting to validate whether the address invoking your contract code is really who they say they are.
 
@@ -281,7 +313,7 @@ private static bool Register(string domain, byte[] owner)
 
 Similar to the Register method, the Delete function check the owner first and if it exists and it is the same as the one who invoke the contract, delete the pair using the `Storage.Delete`method.  This method is leaving as a question in the end of this part.
 
-## Events
+### Events
 
 In Smart contract, events are a way  to communicate that something happened on the blockchain to your app front-end (or back-end), which can be 'listening' for certain events and take action when they happen. You might use this to update an external database, do analytics, or update a UI. In some specified contract standard,  it defined some events should be posted. It is not cover in this page, but is very useful for the other smart contracts. For instance, in the NEP-5 Token, the events `transfer` should be fired when user invoke the transfer function.
 
@@ -290,6 +322,6 @@ In Smart contract, events are a way  to communicate that something happened on t
 public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ```
 
-## Assignment
+### Assignment
 
 In the above `DNS` smart contract, there is a delete method. The general idea is  check the owner first and if it exists and it is the same as the one who invoke the contract, delete the pair using the `Storage.Delete`method. Please finish this function.
