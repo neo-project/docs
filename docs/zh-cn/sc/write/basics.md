@@ -35,7 +35,7 @@ namespace Helloworld
 
 ## 合约属性
 
-在合约类中，使用 `static readonly` 或 `const` 定义的合约属性是常量属性且值不能更改。例如，如果想要定义合约的所属者或在以后的资产转账中使用的因数时，我们可以这样定义这些常量:
+在合约类中，使用 `static readonly` 或 `const` 定义的合约属性是常量属性且值不能更改。例如，如果想要定义合约的所属者或在以后的资产转账中使用的因数时，我们可以这样定义这些常量：
 
 ```csharp
 // 代表该合约的所属者，表示为固定的地址。通常是合约的创建者
@@ -159,13 +159,13 @@ namespace Domain
 
 我们来逐步地看看这个合约。
 
-## 合约特性
+### 合约特性
 
-```c#
+在合约的类的上方添加了如下合约特性，表示合约可以使用存储区。
+
+```
 [Features(ContractFeatures.HasStorage)]
 ```
-
-在合约的类的上方可以写合约特性，这一句的意思是合约可以使用存储区。
 
 除此之外，合约中还可以声明其它特性：
 
@@ -194,15 +194,12 @@ public class Contract1 : SmartContract
 
 `Features` 表示合约本身的功能，目前有四种可选：
 
-1、`[Features(ContractFeatures.NoProperty)]` 或不写，表示合约没有特殊功能
+- `[Features(ContractFeatures.NoProperty)]`：或不写，表示合约没有特殊功能
+- `[Features(ContractFeatures.HasStorage)]`：合约可以使用存储区
+- `[Features(ContractFeatures.Payable)]`：合约可以接收资产（NEO、GAS、NEP-5资产等）
+- `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`：同时包括上述两种功能。
 
-2、`[Features(ContractFeatures.HasStorage)]` 合约可以使用存储区
-
-3、`[Features(ContractFeatures.Payable)]` 合约可以接收资产（NEO、GAS、NEP-5资产等）
-
-4、`[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]` 同时包括 2 和 3 的功能。
-
-## Main 方法
+### Main 方法
 
 理论上来说，智能合约可以有任意的入口函数，但是我们建议使用main函数作为智能合约的入口点，从而能够能更容易地进行方法调用。在main函数中，用户可以根据不同的入口点调用其他的函数。通常在main方法中，开发人员必须处理 `触发器` 逻辑。
 
@@ -210,7 +207,7 @@ public class Contract1 : SmartContract
 
 智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了两个触发器 `Verification` 触发器和 `Application` 触发器。
 
-### Verification 触发器
+#### Verification 触发器
 
 Verification触发器作为验证函数来调用合约，该函数可以接受多个参数，并且返回一个有效的布尔值，从而表明交易或区块的有效性。
 
@@ -231,7 +228,7 @@ public static bool Main(byte[] signature)
 }
 ```
 
-### Application 触发器
+#### Application 触发器
 
 Application触发器作为验证函数来调用合约, 该函数可以接受多个参数、更改区块链状态并返回任何类型的值。
 
@@ -293,7 +290,7 @@ private static byte[] Query(string domain)
 }
 ```
 
-## CheckWitness
+### CheckWitness
 
 在许多情况下(如果不是所有情况)，你可能希望对调用合约代码的地址进行验证。
 
@@ -316,7 +313,7 @@ private static bool Register(string domain, byte[] owner)
 
 与 `Register` 方法类似，`Delete` 方法首先检查域名所属者是否存在，如果存在，再判断调用合约的是否是该域名的所属者，如果是，则使用 `Storage.Delete` 方法来删除该键值对。关于这个方法，本节最后留有一个问题。
 
-## 事件
+### 事件
 
 在智能合约中，事件是区块链与应用程序前端(或后端)进行通信的一种方式，后者可以“监听”某些事件，并在事件发生时做一些操作。你可以使用这个机制来更新外部数据库、做一些分析或更新 UI。在某些特定的合约标准中，它定义了一些应该发布的事件。本节没有涉及到这方面的相关内容，但是它对于其他智能合约而言确实非常有用。例如，在 NEP-5Token 标准中，事件 `转账` 应该在用户调用转账方法时触发。
 
@@ -325,6 +322,6 @@ private static bool Register(string domain, byte[] owner)
 public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ```
 
-## Assignment
+### Assignment
 
-在上面的 `DNS` 智能合约中，有一个 `delete` 方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 `Storage.Delete` 方法来删除相应的键值对。请实现这个功能。
+在上面的 `DNS` 智能合约中，有一个 `delete` 方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 `Storage.Delete` 方法来删除相应的键值对。
