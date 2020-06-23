@@ -1,4 +1,4 @@
-# getbalance 方法
+# getwalletbalance 方法
 
 根据指定的资产编号，返回钱包中对应资产的余额信息。该方法适用于符合 [NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准的合约资产。
 
@@ -30,7 +30,7 @@ Gas为：0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getbalance",
+  "method": "getwalletbalance",
   "params": ["0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36"],
   "id": 1
 }
