@@ -1,4 +1,4 @@
-# getunclaimedgas 方法
+# getwalletunclaimedgas 方法
 
 显示钱包中未提取的 GAS 数量。
 
@@ -14,7 +14,7 @@
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getunclaimedgas",
+  "method": "getwalletunclaimedgas",
   "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"],
   "id": 1
 }
