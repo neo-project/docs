@@ -1,4 +1,4 @@
-﻿# getbalance Method
+﻿# getwalletbalance Method
 
 Returns the balance of the corresponding asset in the wallet, based on the specified asset number. This method applies to the contract assets that conform to NEP-5 standards.
 
@@ -32,7 +32,7 @@ Request body:
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getbalance",
+  "method": "getwalletbalance",
   "params": ["0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36"],
   "id": 1
 }

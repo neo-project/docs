@@ -61,7 +61,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- |
 | [closewallet](api/closewallet.md) |  | 关闭当前打开着的钱包 |
 | [dumpprivkey](api/dumpprivkey.md) | \<address>                              | 导出指定地址的私钥 |
-| [getbalance](api/getbalance.md) | \<asset_id> | 查询资产余额 |
+| [getwalletbalance](api/getwalletbalance.md) | \<asset_id> | 查询资产余额 |
 | [getnewaddress](api/getnewaddress.md) |  | 创建一个新的地址 |
 | [getunclaimedgas](api/getunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
 | [importprivkey](api/importprivkey.md) | \<key> | 导入私钥到钱包 |

@@ -141,8 +141,8 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
     - name: getapplicationlog
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
-    - name: getbalance
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getbalance.md
+    - name: getwalletbalance
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletbalance.md
     - name: getbestblockhash
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.md
     - name: getblock
