@@ -65,7 +65,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [dumpprivkey](api/dumpprivkey.md) | \<address>                              | Exports the private key of the specified address. |
 | [getbalance](api/getbalance.md) | \<asset_id> | Returns the balance of the corresponding asset in the wallet. |
 | [getnewaddress](api/getnewaddress.md) |  | Creates a new address. |
-| [getunclaimedgas](api/getunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. |
+| [getwalletunclaimedgas](api/getwalletunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. |
 | [importprivkey](api/importprivkey.md) | \<key> | Imports the private key to the wallet. |
 | [listaddress](api/listaddress.md) |  | Lists all the addresses in the current wallet. |
 | [openwallet](api/openwallet.md) | \<path> \<password> | Opens the specified wallet. |

@@ -175,8 +175,8 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
     - name: gettransactionheight
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.md
-    - name: getunclaimedgas
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
+    - name: getwalletunclaimedgas
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getwalletunclaimedgas.md
     - name: getvalidators
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.md
     - name: getversion

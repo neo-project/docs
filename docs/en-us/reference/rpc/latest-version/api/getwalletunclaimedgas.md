@@ -1,4 +1,4 @@
-﻿# getunclaimedgas Method
+﻿# getwalletunclaimedgas Method
 
 Gets the amount of unclaimed GAS in the wallet.
 
@@ -16,7 +16,7 @@ Request body:
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getunclaimedgas",
+  "method": "getwalletunclaimedgas",
   "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"],
   "id": 1
 }
