@@ -88,7 +88,7 @@ SmartContract 类提供了一些散列算法以及验签方法，通过继承Sma
 | byte[] Concat(this byte[] first, byte[] second)        | 连接两个 byte 数组                                           |
 | byte[] Range(this byte[] source, int index, int count) | 截取 byte 数组，参数为：index, count                         |
 | byte[] Take(this byte[] source, int count)             | 从 byte 数组中取左侧固定长度的 byte 数组，参数为：count      |
-| byte[] Last(this byte[] source, int count)             | 获取字节数组的最后一个元素                                   |
+| byte[] Last(this byte[] source, int count)             | 从 byte 数组中取右侧固定长度的 byte 数组，参数为：count      |
 | byte[] Reverse(this byte[] source)                     | 逆转字节数组                                                 |
 |                                                        |                                                              |
 | **序列化**                                             |                                                              |
