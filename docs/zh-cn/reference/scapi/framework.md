@@ -91,6 +91,6 @@ SmartContract 类提供了一些散列算法以及验签方法，通过继承Sma
 | byte[] Last(byte[] source, int count)  | 获取字节数组的最后一个元素                                   |
 | byte[] Reverse(byte[] source)          | 逆转字节数组                                                 |
 |                                        |                                                              |
-| **系列化**                             |                                                              |
-| byte[] Serialize(object source)        | 系列化对象为字节数组                                         |
-| object Deserialize(byte[] source)      | 反系列化字节数组为对象                                       |
+| **序列化**                             |                                                              |
+| byte[] Serialize(object source)        | 序列化对象为字节数组                                         |
+| object Deserialize(byte[] source)      | 反序列化字节数组为对象                                       |
