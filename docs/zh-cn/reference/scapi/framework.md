@@ -73,24 +73,24 @@ SmartContract 类提供了一些散列算法以及验签方法，通过继承Sma
 
 下面的这些方法是智能合约框架中的 Helper 类提供的一些 ` 扩展方法 `。
 
-| 名称                                   | **说明**                                                     |
-| -------------------------------------- | ------------------------------------------------------------ |
-| **不同数据类型的转换**                 |                                                              |
-| byte[] AsByteArray(source)             | 源数据 => byte[]，支持：<br />byte, byte[], sbyte, sbyte[], BigInteger, string, |
-| byte[] HexToBytes(string hex)          | Hex字符串 => byte[]                                          |
-| BigInteger AsBigInteger(byte[] source) | byte[] => BigInteger                                         |
-| BigInteger ToBigInteger( source)       | byte[] => BigInteger<br />string => BigInteger               |
-| string AsString(byte[] source)         | byte[] => string                                             |
-| byte ToByte(source)                    | BigInteger => byte<br />int => byte                          |
-| byte[] ToScriptHash(string address)    | 钱包地址 => ScriptHash                                       |
-|                                        |                                                              |
-| **Byte数组相关**                       |                                                              |
-| Concat(byte[], byte[])                 | 连接两个 byte 数组                                           |
-| Range(byte[], int, int)                | 截取 byte 数组，参数为：index, count                         |
-| Take(byte[], int)                      | 从 byte 数组中取左侧固定长度的 byte 数组，参数为：count      |
-| byte[] Last(byte[] source, int count)  | 获取字节数组的最后一个元素                                   |
-| byte[] Reverse(byte[] source)          | 逆转字节数组                                                 |
-|                                        |                                                              |
-| **序列化**                             |                                                              |
-| byte[] Serialize(object source)        | 序列化对象为字节数组                                         |
-| object Deserialize(byte[] source)      | 反序列化字节数组为对象                                       |
+| 名称                                                   | **说明**                                                     |
+| ------------------------------------------------------ | ------------------------------------------------------------ |
+| **不同数据类型的转换**                                 |                                                              |
+| byte[] AsByteArray(this source)                        | 源数据 => byte[]，支持：<br />byte, byte[], sbyte, sbyte[], BigInteger, string, |
+| byte[] HexToBytes(this string hex)                     | Hex字符串 => byte[]                                          |
+| BigInteger AsBigInteger(this byte[] source)            | byte[] => BigInteger                                         |
+| BigInteger ToBigInteger(this source)                   | byte[] => BigInteger<br />string => BigInteger               |
+| string AsString(this byte[] source)                    | byte[] => string                                             |
+| byte ToByte(this source)                               | BigInteger => byte<br />int => byte                          |
+| byte[] ToScriptHash(this string address)               | 钱包地址 => ScriptHash                                       |
+|                                                        |                                                              |
+| **Byte数组相关**                                       |                                                              |
+| byte[] Concat(this byte[] first, byte[] second)        | 连接两个 byte 数组                                           |
+| byte[] Range(this byte[] source, int index, int count) | 截取 byte 数组，参数为：index, count                         |
+| byte[] Take(this byte[] source, int count)             | 从 byte 数组中取左侧固定长度的 byte 数组，参数为：count      |
+| byte[] Last(this byte[] source, int count)             | 获取字节数组的最后一个元素                                   |
+| byte[] Reverse(this byte[] source)                     | 逆转字节数组                                                 |
+|                                                        |                                                              |
+| **序列化**                                             |                                                              |
+| byte[] Serialize(this object source)                   | 序列化对象为字节数组                                         |
+| object Deserialize(this byte[] source)                 | 反序列化字节数组为对象                                       |
