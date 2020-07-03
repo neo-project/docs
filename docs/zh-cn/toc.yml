@@ -301,7 +301,7 @@
   - name: 智能合约API
     items: 
       - name: 智能合约框架
-        href: /docs/zh-cn/reference/scapi/fw/dotnet.md
+        href: /docs/zh-cn/reference/scapi/framework.md
       - name: API
         items:
         - name: Neo
