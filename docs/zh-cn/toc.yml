@@ -300,7 +300,7 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
   - name: 智能合约API
     items: 
-      - name: 智能合约框架
+      - name: 合约框架
         href: /docs/zh-cn/reference/scapi/framework.md
       - name: API
         items:
