@@ -1,4 +1,4 @@
-﻿- name: 站点地图
+- name: 站点地图
   href: /docs/zh-cn/index.md
 - name: Neo 介绍
   items:
@@ -300,51 +300,51 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
   - name: 智能合约API
     items: 
-      - name: 合约框架
-        href: /docs/zh-cn/reference/scapi/framework.md
-      - name: API
+    - name: 合约框架
+      href: /docs/zh-cn/reference/scapi/framework.md
+    - name: API
+      items:
+      - name: Neo
         items:
-        - name: Neo
-          items:
-          - name: Account
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
-          - name: Asset
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.md
-          - name: Block
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
-          - name: Blockchain
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.md
-          - name: Contract
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
-          - name: Header
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.md
-          - name: Helper
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Helper.md
-          - name: InvocationTransaction
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/InvocationTransaction.md
-          - name: Runtime
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
-          - name: Storage
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
-          - name: StorageContext
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.md
-          - name: StorageMap
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageMap.md
-          - name: Transaction
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.md
-          - name: TransactionAttribute
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.md
-          - name: TransactionInput
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.md
-          - name: TransactionOutput
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.md
-          - name: ContractPropertyState
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractPropertyState.md
-          - name: TriggerType
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.md
-        - name: System
-          items:
-          - name: ExecutionEngine
-            href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+        - name: Account
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
+        - name: Asset
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.md
+        - name: Block
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
+        - name: Blockchain
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.md
+        - name: Contract
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
+        - name: Header
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.md
+        - name: Helper
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Helper.md
+        - name: InvocationTransaction
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/InvocationTransaction.md
+        - name: Runtime
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
+        - name: Storage
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
+        - name: StorageContext
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.md
+        - name: StorageMap
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageMap.md
+        - name: Transaction
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.md
+        - name: TransactionAttribute
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.md
+        - name: TransactionInput
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.md
+        - name: TransactionOutput
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.md
+        - name: ContractPropertyState
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractPropertyState.md
+        - name: TriggerType
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.md
+      - name: System
+        items:
+        - name: ExecutionEngine
+          href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: NeoVM 指令集
     href: /docs/zh-cn/reference/neo_vm.md
