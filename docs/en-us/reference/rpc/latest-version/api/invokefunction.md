@@ -10,32 +10,31 @@ Invokes a smart contract with its scripthash based on the specified operation an
 ## Parameter Description
 
 * scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
-
 * operation: The operation name (string)
-
 * params: The parameters to be passed into the smart contract operation
+* cosigners: Add signatures when required.
 
-  > [!Note]
->
-  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-  
-* checkWitnessHashes: list of contract signature accounts
 
-  For example:
+You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 
-    ```json
-    {
-      "type": "String",
-      "value": "Hello"
-    }
-    ```
+For example:
 
-    ```json
-    {
-      "type": "Hash160",
-      "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
-    }
-    ```
+```json
+  {
+    "type": "String",
+    "value": "Hello"
+  }
+
+  {
+    "type": "Hash160",
+    "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+  }
+
+  {
+    "type": "ByteArray",
+    "value": "7472616e73666572"
+  }
+```
 
 ## Example
 
@@ -47,23 +46,28 @@ Request body:
   "id": 1,
   "method": "invokefunction",
   "params": [
-    "0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0",
+    "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
     "transfer",
     [
       {
-        "type": "Hash160",
-        "value": "0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"
-      },
+        "type":"Hash160",
+        "value":"0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+        },
       {
-        "type": "Hash160",
-        "value": "0x2916eba24e652fa006f3e5eb8f9892d2c3b00399"
-      },
+        "type":"Hash160",
+        "value":"0x1f177332c467db9ba734d3ca85645fbadd7e13e3"
+        },
       {
-        "type": "Integer",
-        "value": "1000"
-      }
+        "type":"Integer",
+        "value":"8"
+        }        
     ],
-    ["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]
+    [
+        {
+          "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
+          "scopes": "CalledByEntry"      
+        }
+    ]
   ]
 }
 ```
@@ -75,15 +79,16 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
+        "script": "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
         "state": "HALT",
-        "gas_consumed": "9413130",
+        "gasconsumed": "9007960",
         "stack": [
             {
-                "type": "Integer",
-                "value": "1"
+                "type": "Boolean",
+                "value": true
             }
-        ]
+        ],
+        "tx": "0005d16e331c0357464b777ecf6b5f3ac3893ace1f8b1621f658738900000000001e47130000000000a81f200001011c0357464b777ecf6b5f3ac3893ace1f8b1621f60154180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b5201420c40de4c406084b738675c42519643018748215cf9de3ef9c6ec40eecf70b403250a2dddca6045e020bf713503c649ba4df0ff6cfc39459fb26929c0699aebcb0a0c290c210222d8515184c7d62ffa99b829aeb4938c4704ecb0dd7e340e842e9df1218263430b4195440d78"
     }
 }
 ```
@@ -93,11 +98,11 @@ Response description:
 - script: the invocation script of the contract. By reference to [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter) you can convert the script to the following OpCode (NeoVM is a stack-based virtual machine that executes from bottom to top when executing):
 
   ```
-  PUSHINT16 1000
-  PUSHDATA1 0x2916eba24e652fa006f3e5eb8f9892d2c3b00399
-  PUSHDATA1 0xcadb3dc2faa3ef14a13b619c9a43124755aa2569
+  PUSHINT16 8
+  PUSHDATA1 0x1f177332c467db9ba734d3ca85645fbadd7e13e3
+  PUSHDATA1 0xf621168b1fce3a89c33a5f6bcf7e774b4657031c
   PUSHDATA1 transfer
-  PUSHDATA1 0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0
+  PUSHDATA1 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
   SYSCALL System.Contract.Call
   ```
 
@@ -107,7 +112,9 @@ Response description:
 
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
+- tx: It defaults to null and returns the constructed transaction (i.e. the hexadecimal string of the contract invocation transaction) when the proper signature is passed to the wallet. The transaction can be sent to the blockchain with [sendrawtransaction](sendrawtransaction.md).
+
 > [!Note]
 >
-> After entering the `invokefunction` command,  the node invokes the `main` method of the contract rather than directly invokes the `operation` method, and pass `operation` and `params` as arguments. If `operation` and `params` are not processed in the `main` method, the expected result cannot be returned.
+> The `invokefunction` command invokes the `operation` method and pass  `params` as arguments. If `operation` is not found in the contract abi file, the expected result cannot be returned.
 
