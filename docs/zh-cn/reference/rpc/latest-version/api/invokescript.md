@@ -4,13 +4,13 @@
 
 > [!Note]
 >
-> - 此方法用于测试你的虚拟机脚本，调用时只是在 RPC 对应的节点试运行脚本并返回结果，并不会对区块链数据产生影响。
+> - 此方法用于测试你的虚拟机脚本，调用时只是在 RPC 对应的节点试运行脚本并返回结果，不会对区块链数据产生影响。
 > - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
 ## 参数说明
 
 - script：一个可由虚拟机运行的脚本，可参考 [invokefunction](invokefunction.md) 接口响应正文中的 script。
-- cosigners: 需要添加的签名列表，如不需要签名，无需传递此参数。
+- cosigners：需要添加的签名列表，如不需要签名，无需传递此参数。
 
 ## 调用示例
 
@@ -21,8 +21,7 @@
   "jsonrpc": "2.0",
   "id": 1,
   "method": "invokescript",
-  "params": [
-    "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
+  "params": [    "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
     [
         {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",

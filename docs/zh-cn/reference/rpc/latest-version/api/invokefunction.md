@@ -4,7 +4,7 @@
 
 > [!Note]
 >
-> - 此方法用于测试你的虚拟机脚本，调用时只是在 RPC 对应的节点试运行脚本并返回结果，并不会对区块链数据产生影响。
+> - 此方法用于测试你的虚拟机脚本，调用时只是在 RPC 对应的节点试运行脚本并返回结果，不会对区块链数据产生影响。
 > - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
 ## 参数说明
@@ -15,13 +15,11 @@
 
 - params：传递给智能合约操作的参数。
 
-- cosigners: 需要添加的签名列表，如不需要签名，无需传递此参数。
+- cosigners：需要添加的签名列表，如不需要签名，无需传递此参数。
 
+注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
 
-  > [!Note]
-  >
-  > 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
-    例如：
+例如：
 
   ```json
   {
@@ -101,15 +99,15 @@
 
 - script：合约的调用脚本，参考 [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter)  项目，可以将脚本转为如下OpCode（NeoVM 是基于栈的虚拟机，执行时从下向上执行）：
 
-```
-PUSHINT16 8
-PUSHDATA1 0x1f177332c467db9ba734d3ca85645fbadd7e13e3
-PUSHDATA1 0xf621168b1fce3a89c33a5f6bcf7e774b4657031c
-PUSHDATA1 transfer
-PUSHDATA1 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
-SYSCALL System.Contract.Call
-```
-
+   ```
+   PUSHINT16 8
+   PUSHDATA1 0x1f177332c467db9ba734d3ca85645fbadd7e13e3
+   PUSHDATA1 0xf621168b1fce3a89c33a5f6bcf7e774b4657031c
+   PUSHDATA1 transfer
+   PUSHDATA1 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+   SYSCALL System.Contract.Call
+   ```
+   
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
 - gas_consumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
