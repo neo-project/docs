@@ -19,6 +19,11 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 ```json
   {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
@@ -27,10 +32,10 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
       "WsPort": 20334
     },
     "UnlockWallet": {
-      "Path": "wallet.json",
-      "Password": "11111111",
+      "Path": "",
+      "Password": "",
       "StartConsensus": false,
-      "IsActive": true
+      "IsActive": false
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
@@ -39,12 +44,14 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 说明：
 
+- ConsoleOutput ：是否在控制台打印出 Log 信息。（true：前后台打印，false：后台记录）
+- Active ：是否开启 Log 信息。
 - Engine ：默认 LevelDBStore。表示区块链数据存储使用的引擎。
 - PluginURL ：表示下载插件的地址，使用 CLI 的 install 命令时会用到。
 
 ### 将节点连接到网络
 
-在 Neo3 中连接主网或测试网可以在启动节点时使用参数控制。如果要连接测试网，启动 CLI 时使用命令 `neo-cli --testnet` 或 `neo-cli -t`。
+在 Neo3 中连接主网或测试网可以在启动节点时使用参数控制。
 
 如果要将节点接入私链，需要配置 `protocol.json` 文件。详细信息，请参见[搭建私有链](../../network/private-chain/solo.md)中的修改 `protocol.json` 说明。
 
@@ -73,7 +80,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/LevelDBStore.zip">LevelDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/LevelDBStore.zip">LevelDBStore</a>
             </td>
             <td>区块链数据使用 LevelDB 存储引擎</td>
             <td></td>    
@@ -81,7 +88,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RocksDBStore.zip">RocksDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RocksDBStore.zip">RocksDBStore</a>
             </td>
             <td>区块链数据使用 RocksDBStore 存储引擎</td>
             <td></td>
@@ -89,7 +96,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RpcServer.zip">RpcServer</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcServer.zip">RpcServer</a>
             </td>
             <td>提供节点的 RPC 功能</td>
             <td><a href="../../reference/rpc/latest-version/api.html#命令列表"> RPC API </a></td>
@@ -97,7 +104,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>同步智能合约和 NativeContract 的日志（Notify）</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -105,7 +112,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
@@ -114,20 +121,12 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>导出 Neo-CLI 状态数据</td>
             <td></td>
             <td>可选</td>
         </tr>   
-         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/SystemLog.zip">SystemLog</a>
-            </td>
-            <td>打印共识日志</td>
-            <td></td>
-            <td>可选</td>
-        </tr>    
     </tbody>
 </table>
 
@@ -142,7 +141,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 ```
 neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2-00/StatesDumper.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 
@@ -185,11 +184,6 @@ dotnet neo-cli.dll
 >
 > 如果使用 dotnet，需要先安装 .net core 环境。
 
-如果想在启动节点时接入测试网，可以输入参数 `--testnet` 或 `-t` 如：
-
-```
-dotnet neo-cli.dll -t
-```
 
 如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
 
