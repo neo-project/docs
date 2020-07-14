@@ -23,6 +23,7 @@
 | :----------------- | -------------------------------------- |
 | version            | 显示当前软件的版本                     |
 | help [plugin-name] | 帮助菜单，也可以查看部分插件的提示信息 |
+| [parse](#parse) \<value> | 根据输入的字符串，转换成各种支持的数据格式 |
 | clear              | 清除屏幕                               |
 | exit               | 退出程序                               |
 
@@ -65,6 +66,21 @@
 | show state      |                     | 显示当前区块链同步状态                         |
 | show pool       | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
 
+#### Nep5 命令
+
+| 命令            | 参数                | 说明                                           |
+| --------------- | ------------------- | ---------------------------------------------- |
+| balanceof (#balanceof)     |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
+| decimals(#decimals)        | \<tokenHash>           | 查询指定 token 的精度 |
+| name(#name)        | \<tokenHash>           | 查询指定 token 的名字 |
+| transfer (#transfer)        | \<tokenHash> \<to> \<amount>           | 调用 token 的 transfer 方法转账 |
+
+#### 原生合约命令
+
+| 命令            | 参数                | 说明                                           |
+| --------------- | ------------------- | ---------------------------------------------- |
+| list nativecontract      |                     | 列出所有原生合约的名字及 scripthash                         |
+
 #### 网络命令
 
 | 命令            | 参数                | 说明                                           |
@@ -86,6 +102,19 @@
 | [install](#install) | [Plugin name] | 安装指定插件     |
 | [uninstall](#install) | [Plugin name] | 卸载指定插件     |
 | [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
+
+#### 投票命令
+
+| 命令                    | 参数       | 说明         |
+| ----------------------- | ---------------- | ---------------- |
+| get candidates(#get candidates) |  | 获取候选人公钥及票数 |
+| get committee(#get committee) |  | 获取委员会成员公钥 |
+| get next validators(#get next validators) |  | 获取下一轮验证人公钥 |
+| get validators(#get validators) |  | 获取当前验证人公钥 |
+| register candidate (#register candidate) |\<senderAccount>  | 注册候选人 |
+| unregister candidate (#unregister candidate) |\<senderAccount>  | 注销候选人 |
+| vote (#vote) |\<senderAccount> \<publicKey>  | 投票 |
+
 #### 高级命令
 
 | 命令                                | 参数     | 说明                                                   |
@@ -94,6 +123,36 @@
 | [start consensus](#start-consensus) |          | 启动共识                                               |
 
 ## 命令说明
+
+### parse
+
+根据输入的字符串，转换成各种支持的数据格式
+
+##### 句法
+
+ `parse <value>`
+
+##### 示例
+
+```
+neo> parse NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
+Address to ScriptHash           0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9
+Address to Base64               uXtKzX+CD2HS1NT5rqXrUEmN31U=
+String to Hex String            4e637068746a675479653363335a4c354a356e445a68736633554a4d47416a64376f
+String to Base64                TmNwaHRqZ1R5ZTNjM1pMNUo1bkRaaHNmM1VKTUdBamQ3bw==
+neo> parse AHVYXVTcKw==
+Base64 to String                 uX]T?+
+Base64 to Big Integer           12345678900000000
+String to Hex String            41485659585654634b773d3d
+String to Base64                QUhWWVhWVGNLdz09
+neo> parse 0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9
+ScriptHash to Address           NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
+Hex String to String            ?{J??a???????PI??U
+Hex String to Big Integer       490249589479789641828817600658206854216357149625
+String to Hex String            307835356466386434393530656261356165663964346434643236313066383237666364346137626239
+String to Base64                MHg1NWRmOGQ0OTUwZWJhNWFlZjlkNGQ0ZDI2MTBmODI3ZmNkNGE3YmI5
+```
+对于无法转换的数据类型可能出现乱码
 
 ### create wallet
 
@@ -203,6 +262,272 @@ neo> create address 3
 The file 'address.txt' already exists, do you want to overwrite it? (yes|no): yes
 [3/3]
 export addresses to address.txt
+```
+
+### balanceof
+
+查询指定 token 指定地址的余额
+
+##### 句法
+
+ `balanceof <tokenHash> <address>`
+
+##### 参数
+
+- `tokenHash`：指定 token 的 hash
+
+- `address`：指定查询地址
+
+##### 示例
+
+```
+neo> balanceof 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
+Invoking script with: '0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52'
+VM State: HALT
+Gas Consumed: 0.0373876
+Result Stack: [{"type":"Integer","value":"1998380000000000"}]
+
+Token Name balance: 19983800
+```
+
+### decimals
+
+查询指定 token 的精度
+
+##### 句法
+
+ `decimals <tokenHash>`
+
+##### 参数
+
+- `tokenHash`：指定 token 的 hash
+
+##### 示例
+
+```
+neo> decimals 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec
+Invoking script with: '10c00c08646563696d616c730c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52'
+VM State: HALT
+Gas Consumed: 0.0125075
+Result Stack: [{"type":"Integer","value":"8"}]
+Result : 8
+```
+
+### transfer
+
+调用指定 token 的 transfer 方法转账
+
+##### 句法
+
+ `transfer <tokenHash> <to> <amount>`
+
+##### 参数
+
+- `tokenHash`：指定 token 的 hash
+
+- `to`：指定收款地址
+
+- `amount`：转账金额
+
+##### 示例
+
+```
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000
+Relay tx(no|yes): y
+Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
+```
+
+### list nativecontract
+
+
+##### 句法
+
+ `list nativecontract`
+
+##### 参数
+
+无
+
+
+##### 示例
+
+```
+neo> list nativecontract
+        NEO     0xde5f57d430d3dece511cf975a8d37848cb9e0525
+        GAS     0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+        Policy  0xce06595079cd69583126dbfd1d2e25cca74cffe9
+```
+
+### get candidates
+
+获取候选人公钥及票数
+
+##### 句法
+
+ `get candidates`
+
+##### 参数
+
+无
+
+##### 示例
+
+```
+neo> get candidates
+Invoking script with: '10c00c0d67657443616e646964617465730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Candidates:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d      49900000
+```
+
+### get committee
+
+获取候选人公钥及票数
+
+##### 句法
+
+ `get committee`
+
+##### 参数
+
+无
+
+##### 示例
+
+```
+neo> get committee
+Invoking script with: '10c00c0c676574436f6d6d69747465650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Committee:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+```
+
+### get next validators
+
+获取下一轮验证人公钥
+
+##### 句法
+
+ `get next validators`
+
+##### 参数
+
+无
+
+##### 示例
+
+```
+neo> get next validators
+Invoking script with: '10c00c166765744e657874426c6f636b56616c696461746f72730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Next validators:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+```
+
+### get  validators
+
+获取当前验证人公钥
+
+##### 句法
+
+ `get validators`
+
+##### 参数
+
+无
+
+##### 示例
+
+```
+neo> get validators
+Invoking script with: '10c00c0d67657456616c696461746f72730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Validators:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+```
+
+### register candidate
+
+注册候选人
+
+##### 句法
+
+ `register candidate`
+
+##### 参数
+
+- `senderAccount`：注册者账户
+
+##### 示例
+
+```
+neo> register candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
+Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c11726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 0.0600775
+Evaluation Stack: [{"type":"Boolean","value":true}]
+
+relay tx(no|yes): y
+Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663819ff8b473ad11b03e035c67bb5
+```
+
+### unregister candidate
+
+注册候选人
+
+##### 句法
+
+ `unregister candidate`
+
+##### 参数
+
+- `senderAccount`：注册者账户
+
+##### 示例
+
+```
+neo> unregister candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
+Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c13756e726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 0.0600775
+Evaluation Stack: [{"type":"Boolean","value":true}]
+
+relay tx(no|yes): yes
+Signed and relayed transaction with hash=0x02706d846d6cce1f10b5643e72bbb8011376c623edf2f4e98c4aec80615120e8
+```
+
+### vote
+
+投票
+
+##### 句法
+
+ `vote <senderAccount> <publicKey>`
+
+##### 参数
+
+- `senderAccount`：注册者账户
+- `publickey`：被投票地址的公钥
+
+##### 示例
+
+```
+neo> vote Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z 02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+Invoking script with: '0c2102344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d0c14ef3b46067f2f47b2f7f0442aa2372085d08708ef12c00c04766f74650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 5.0100793
+Evaluation Stack: [{"type":"Boolean","value":true}]
+
+relay tx(no|yes): y
+Signed and relayed transaction with hash=0x8083633ecc4827b7967ba8b0a30f02992dc524e4a5356accebdf080e9cd26df2
 ```
 
 ### export key
@@ -672,4 +997,4 @@ Install successful, please restart neo-cli.
 
 > [!NOTE]
 >
-> 若需要查看共识过程日志，需要先安装 [SystemLog](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/SystemLog.zip) 插件 。
+> 若需要查看共识过程日志，需将`config.json`中的 active 字段设置为 true。
