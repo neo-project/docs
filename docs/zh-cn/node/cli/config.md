@@ -32,10 +32,10 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
       "WsPort": 20334
     },
     "UnlockWallet": {
-      "Path": "",
-      "Password": "",
+      "Path": "wallet.json",
+      "Password": "11111111",
       "StartConsensus": false,
-      "IsActive": false
+      "IsActive": true
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
