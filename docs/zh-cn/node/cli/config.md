@@ -51,9 +51,9 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 ### 将节点连接到网络
 
-在 Neo3 中连接主网或测试网可以在启动节点时使用参数控制。
+在 Neo3 中连接测试网需要配置 `config.json` 和 `protocol.json` 文件，用 `*.testnet.json` 中的内容去替换即可。
 
-如果要将节点接入私链，需要配置 `protocol.json` 文件。详细信息，请参见[搭建私有链](../../network/private-chain/solo.md)中的修改 `protocol.json` 说明。
+如果要将节点接入私链，详细信息请参见[搭建私有链](../../network/private-chain/solo.md)中的说明。
 
 ## 安装插件
 
