@@ -12,9 +12,9 @@ In NEO3 every time a NEO transfer transaction occurs in the address, GASs genera
 
 Claimed *GAS = f(neo_amount, Δt_const)*
 
--  Δt_const = t_end - t_start
-  -  t_end = the current time that Neo is transferred into or out of the address. 
-  -  t_start = the last time that Neo was transferred into or out of the address. 
+Δt_const = t_end - t_start
+-  t_end = the current time that Neo is transferred into or out of the address. 
+-  t_start = the last time that Neo was transferred into or out of the address. 
 
 Δt_const is fixed, thus the claimed Gas is of a fixed amount too. And this amount depends on the amount of Neo held by the user and the duration between the moments that the user transferred this amount of Neo into and out of his or her address. 
 
@@ -49,6 +49,6 @@ The following table lists the GAS claiming steps and corresponding commands.
 | 4    | Open a wallet                                                | `open wallet /home/NeoNode/test.json`           |
 | 5    | Check the addresses and assets in the wallet                 | `list asset`                                    |
 | 6    | Check the GAS balance in the wallet                          | `show gas`                                      |
-| 7    | Transfer NEO to your address（e.g. AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM） to claim the GAS automatically. | `send neo AaAHt6Xi51iMCaDaYoDFTFLnGbBN1m75SM 1` |
+| 7    | Transfer NEO to your address（e.g. NTdzVdQ8SmFobD1XWCA1fR9tQr7gFv1SXf） to claim the GAS automatically. | `send neo NTdzVdQ8SmFobD1XWCA1fR9tQr7gFv1SXf 1` |
 | 8    | Check the asset balance again.                               | `list asset`                                    |
 

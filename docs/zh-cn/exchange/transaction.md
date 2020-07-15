@@ -178,46 +178,51 @@ symbol
 }
 ```
 
-发送请求后，将收到如下响应：
+发送请求后，根据不同合约写法，将收到两种响应：
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
-        "state": "HALT",
-        "gas_consumed": "8295750",
-        "stack": [
-            {
-                "type": "ByteString",
-                "value": "AADBb/KGIw=="
-            }
-        ]
-    }
-}
-```
-也有可能收到这种响应
+- 返回值为base64 编码后的 ByteString：
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52",
-        "state": "HALT",
-        "gasconsumed": "3738760",
-        "stack": [
-            {
-                "type": "Integer",
-                "value": "10000000000000000"
-            }
-        ]
-    }
-}
-```
+  ```json
+  {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+          "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+          "state": "HALT",
+          "gas_consumed": "8295750",
+          "stack": [
+              {
+                  "type": "ByteString",
+                  "value": "AADBb/KGIw=="
+              }
+          ]
+      }
+  }
+  ```
 
-返回值根据具体合约写法，可能为base64 编码后的 ByteArray，也有可能直接是 Integer 类型。 "AADBb/KGIw==" 由 base64 解码返回值再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**, 如返回类型为 Integer，则无需转换，只需除以 decimals 得到余额即可。
+  返回值 "AADBb/KGIw==" 由 base64 解码再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
+
+- 返回值是 Integer 类型：
+
+  ```json
+  {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+          "script": "0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52",
+          "state": "HALT",
+          "gasconsumed": "3738760",
+          "stack": [
+              {
+                  "type": "Integer",
+                  "value": "10000000000000000"
+              }
+          ]
+      }
+  }
+  ```
+
+  返回值无需转换，只需除以 decimals 得到余额即可。
 
 ##### **调用 decimals**
 
@@ -363,19 +368,21 @@ symbol
 > -  失败的 NEP-5 交易也可以上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
 > -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
-- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是 此Nep5 资产的脚本哈希，是该资产在全网的唯一标识。
+其中与交易相关的参数如下：
 
-- **eventname**:该字段为合约事件标识，对于交易所来说，应当只监听标识为transfer类型的交易以确认是否为用户的转账交易。 
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该Nep5 资产的脚本哈希，是该资产在全网的唯一标识。
+
+- **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为transfer类型的交易以确认是否为用户的转账交易。 
 
 - 对于转账交易，"state" 中 "value" 对应的数组包含以下三个对象：
 
   [转出账户，转入账户，金额]
-    
+  
   - 数组中的的第一个对象，为转出账户地址，类型为 bytearray，值为 "uXtKzX+CD2HS1NT5rqXrUEmN31U="，经过 base64 解码为 ByteArray 后再转换为字符串 "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o"。
   
-    > 提示
+    > [!Note]
     >
-    > - Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    > Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
     ```json
     {
       "type": "ByteString",
@@ -390,7 +397,12 @@ symbol
       "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
     }
     ```
-  - 数组中的的第三个对象，为转账金额，类型为 Integer, 值为"800000000000",因为 decimal 为 8 位，所以实际值就是 8000.00000000。根据合约写法不同，这里会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同，如对于当前返回值，类型为 ByteString 时，值为 "AEC3Q7oA"，经 base64 解码后为 "0040b743ba"。因前面没加 0x，按小端序处理, 翻转后为 "ba43b74000", 值为 8x10<sup>11</sup>, 因为 decimal 为 8 位，所以实际值就是 8000.00000000.
+  - 数组中的的第三个对象，为转账金额，根据合约写法不同，这里会有两种类型返回值：Integer 或 ByteString，两种类型的数值转换方式不同。
+    
+    如类型为 Integer 时，值为 "800000000000"。因为 decimal 为 8 位，所以实际值是 8000.00000000。
+    
+    类型为 ByteString 时，值为 "AEC3Q7oA"，经 base64 解码后为 "0040b743ba"。因前面没加 0x，按小端序处理，翻转后为 "ba43b74000"，值为 8x10<sup>11</sup>，因为 decimal 为 8 位，所以实际值是 8000.00000000。
+    
     ```json
     {
       "type": "Integer",
