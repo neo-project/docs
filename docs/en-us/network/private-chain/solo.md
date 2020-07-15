@@ -43,7 +43,7 @@ Here is an example：
       "SslCertPassword": ""
     },
     "UnlockWallet": {
-      "Path": "a.json",
+      "Path": "1.json",
       "Password": "1",
       "StartConsensus": true,
       "IsActive": true
@@ -56,7 +56,7 @@ Here is an example：
 ### Modifying protocol.json
 
 1. Open protocol.json under the Neo-cli directory
-2. In StandbyValidators enter the public key of the wallet 1.json created before (It is single node mode when there is only one public key included in StandbyValidators).
+2. In StandbyValidators enter the public key of wallet `1.json` created before (It is single node mode when there is only one public key included in StandbyValidators).
 
 Here is an example：
 
@@ -68,7 +68,7 @@ Here is an example：
     "SecondsPerBlock": 5,
     "LowPriorityThreshold": 0.001,
     "StandbyValidators": [
-      "03d08d6f766b54e35745bc99d643c939ec6f3d37004f2a59006be0e53610f0be25"
+      "0364cd3878c4f9a2e785c6a996e8ac29e37ae0d2b9a67479786f27ed739a4de3e7"
     ],
     "SeedList": [
       "127.0.0.1:10003"
@@ -103,15 +103,19 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
 
 ### Withdrawing NEO/GAS using Neo-CLI
 
-1. From Neo-CLI command line enter  `open wallet a.json` to open the wallet.
+1. From Neo-CLI command line enter  `open wallet 1.json` to open the wallet.
 
 2. Enter the command `import multisigaddress m pubkeys` to create a multi-part signed address, where:
 
-   `m` is 1 as the minimal signature number and `pubkeys` is the public key of a.json
+   `m` is 1 as the minimal signature number and `pubkeys` is the public key of `1.json`
 
    ```
-   import multisigaddress 1 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad
+   import multisigaddress 1 0364cd3878c4f9a2e785c6a996e8ac29e37ae0d2b9a67479786f27ed739a4de3e7
    ```
 
 3. Enter `list asset`，then you should see 100 million NEO and 30 million GAS displayed.
-
+4. Transfer the assets to a regular address 
+   ``` 
+   send neo <address> 100000000
+   send gas <address> 30000000
+   ```
