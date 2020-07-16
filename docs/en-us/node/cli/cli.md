@@ -17,16 +17,17 @@ All the commands described in this document conform with these conventions:
 - `|` separates multiple parameters where any one of them can be used at your choice.
 - `=` indicates the default value of the optional parameter without an input.
 
-#### Console Commands
+#### Console commands
 
 | Command      | Description      |
 | ------- | --------- |
 | version | Shows the current software version |
 | help [plugin-name] | Help menu, which can also show plugin related commands. |
+| [parse](#parse) \<value> | Convert the input string into various supported data format |
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
-#### Wallet Commands
+#### Wallet commands
 
 | Command                                           | Parameters                             | Description                                                  |
 | ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
@@ -51,7 +52,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
-#### Contract Commands
+#### Contract commands
 
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
@@ -59,14 +60,29 @@ The commands listed in the table below requires you to open the wallet before in
 | [invoke](#invoke) | \<scripthash> \<command> \[optionally quoted params separated by space\] \[witness address separated by space\] | Invokes a contract |
 
 
-#### Node Commands
+#### Node commands
 
 | Command         | Parameters          | Description                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------ |
 | show state      |                     | Displays the current status of blockchain synchronization.   |
 | show pool       | [verbose]           | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
 
-####Network Commands
+#### Nep5 commands
+
+| Command                 | Parameters                   | Description                                                  |
+| ----------------------- | ---------------------------- | ------------------------------------------------------------ |
+| [balanceof](#balanceof) | \<tokenHash> \<address>      | Queries the balance of specified token at the specified address |
+| [decimals](#decimals)   | \<tokenHash>                 | Queries the precision of specified token                     |
+| [name](#name)           | \<tokenHash>                 | Queries the specified token name                             |
+| [transfer](#transfer)   | \<tokenHash> \<to> \<amount> | Invokes the transfer method to transfer the specified token  |
+
+#### Native contract commond
+
+| Command                                     | Parameters | Description                                        |
+| ------------------------------------------- | ---------- | -------------------------------------------------- |
+| [list nativecontract](#list-nativecontract) |            | Lists all the native contract names and scripthash |
+
+####Network commands
 
 | Command         | Parameters          | Description                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------ |
@@ -79,7 +95,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | Broadcasts the inventory data |
 | [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | Broadcasts a transaction |
 
-#### Plugin Commands
+#### Plugin commands
 
 | Command                       | Parameters    | Description                              |
 | ----------------------------- | ------------- | ---------------------------------------- |
@@ -87,6 +103,18 @@ The commands listed in the table below requires you to open the wallet before in
 | [install](#install)           | [Plugin name] | Installs the specified plugin            |
 | [uninstall](#install)         | [Plugin name] | Uninstalls the specified plugin          |
 | [dump storage](#dump-storage) | \<key>        | Exports all or the specified state data. |
+
+#### Voting comands
+
+| Command                                       | Parameters                    | Description                             |
+| --------------------------------------------- | ----------------------------- | --------------------------------------- |
+| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes  |
+| [get committee](#get-committee)               |                               | Gets the committee member's public key  |
+| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key   |
+| [get validators](#get-validators)             |                               | Gets the current validator's public key |
+| [register candidate](#register-candidate)     | \<senderAccount>              | Registers the candidate                 |
+| [unregister candidate](#unregister-candidate) | \<senderAccount>              | Unregisters the candidate               |
+| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                    |
 
 #### Advanced Commands
 
@@ -96,6 +124,37 @@ The commands listed in the table below requires you to open the wallet before in
 | [start consensus](#d320b143)    |                                        | Starts consensus                                             |
 
 ## Command Description
+
+### parse
+
+Converts the input string into various supported data formats.
+
+##### Syntax
+
+ `parse <value>`
+
+##### Example
+
+```
+neo> parse NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
+Address to ScriptHash           0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9
+Address to Base64               uXtKzX+CD2HS1NT5rqXrUEmN31U=
+String to Hex String            4e637068746a675479653363335a4c354a356e445a68736633554a4d47416a64376f
+String to Base64                TmNwaHRqZ1R5ZTNjM1pMNUo1bkRaaHNmM1VKTUdBamQ3bw==
+neo> parse AHVYXVTcKw==
+Base64 to String                 uX]T?+
+Base64 to Big Integer           12345678900000000
+String to Hex String            41485659585654634b773d3d
+String to Base64                QUhWWVhWVGNLdz09
+neo> parse 0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9
+ScriptHash to Address           NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
+Hex String to String            ?{J??a???????PI??U
+Hex String to Big Integer       490249589479789641828817600658206854216357149625
+String to Hex String            307835356466386434393530656261356165663964346434643236313066383237666364346137626239
+String to Base64                MHg1NWRmOGQ0OTUwZWJhNWFlZjlkNGQ0ZDI2MTBmODI3ZmNkNGE3YmI5
+```
+
+If you see messy codes that is because some data types cannot be converted. 
 
 ### create wallet
 
@@ -196,7 +255,7 @@ Creates a new address. One can also enter `create address 100` to create 100 new
 
 ##### Parameters
 
-`n`：Number of addresses to create. n is an integer and defaults to 1.
+`n`: Number of addresses to create. n is an integer and defaults to 1.
 
 ##### Example
 
@@ -205,6 +264,254 @@ neo> create address 3
 The file 'address.txt' already exists, do you want to overwrite it? (yes|no): yes
 [3/3]
 export addresses to address.txt
+```
+
+### balanceof
+
+Queries the balance of specified token at the specified address
+
+##### Syntax
+
+ `balanceof <tokenHash> <address>`
+
+##### Parameters
+
+- `tokenHash`: The token hash
+
+- `address`: The address to query
+
+##### Example
+
+```
+neo> balanceof 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
+Invoking script with: '0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52'
+VM State: HALT
+Gas Consumed: 0.0373876
+Result Stack: [{"type":"Integer","value":"1998380000000000"}]
+
+Token Name balance: 19983800
+```
+
+### decimals
+
+Queries the precision of specified token
+
+##### Syntax
+
+ `decimals <tokenHash>`
+
+##### Parameters
+
+`tokenHash`: The token hash
+
+##### Example
+
+```
+neo> decimals 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec
+Invoking script with: '10c00c08646563696d616c730c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52'
+VM State: HALT
+Gas Consumed: 0.0125075
+Result Stack: [{"type":"Integer","value":"8"}]
+Result : 8
+```
+
+### transfer
+
+Invokes the transfer method to transfer the specified token.
+
+##### Syntax
+
+ `transfer <tokenHash> <to> <amount>`
+
+##### Parameters
+
+- `tokenHash`: The token hash
+
+- `to`: The address you transfer the token to
+
+- `amount`: The amount to transfer
+
+##### Example
+
+```
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000
+Relay tx(no|yes): y
+Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
+```
+
+### list nativecontract
+
+Lists all the native contract names and scripthash
+
+
+##### Syntax
+
+ `list nativecontract`
+
+
+##### Example
+
+```
+neo> list nativecontract
+        NEO     0xde5f57d430d3dece511cf975a8d37848cb9e0525
+        GAS     0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+        Policy  0xce06595079cd69583126dbfd1d2e25cca74cffe9
+```
+
+### get candidates
+
+Gets candidates' public keys and votes
+
+##### Syntax
+
+ `get candidates`
+
+##### Example
+
+```
+neo> get candidates
+Invoking script with: '10c00c0d67657443616e646964617465730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Candidates:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d      49900000
+```
+
+### get committee
+
+Gets the committee member's public key
+
+##### Syntax
+
+ `get committee`
+
+##### Example
+
+```
+neo> get committee
+Invoking script with: '10c00c0c676574436f6d6d69747465650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Committee:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+```
+
+### get next validators
+
+Gets the next validator's public key
+
+##### Syntax
+
+ `get next validators`
+
+##### Example
+
+```
+neo> get next validators
+Invoking script with: '10c00c166765744e657874426c6f636b56616c696461746f72730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Next validators:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+```
+
+### get validators
+
+Gets the current validator's public key
+
+##### Syntax
+
+ `get validators`
+
+##### Example
+
+```
+neo> get validators
+Invoking script with: '10c00c0d67657456616c696461746f72730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 1.0100757
+
+Validators:
+02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+```
+
+### register candidate
+
+Registers the candidate
+
+##### Syntax
+
+ `register candidate`
+
+##### Parameters
+
+`senderAccount`: The account to register candidate
+
+##### Example
+
+```
+neo> register candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
+Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c11726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 0.0600775
+Evaluation Stack: [{"type":"Boolean","value":true}]
+
+relay tx(no|yes): y
+Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663819ff8b473ad11b03e035c67bb5
+```
+
+### unregister candidate
+
+Unregisters the candidate
+
+##### Syntax
+
+ `unregister candidate`
+
+##### Parameters
+
+`senderAccount`：The account to unregister candidate
+
+##### Example
+
+```
+neo> unregister candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
+Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c13756e726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 0.0600775
+Evaluation Stack: [{"type":"Boolean","value":true}]
+
+relay tx(no|yes): yes
+Signed and relayed transaction with hash=0x02706d846d6cce1f10b5643e72bbb8011376c623edf2f4e98c4aec80615120e8
+```
+
+### vote
+
+Votes for condidates
+
+##### Syntax
+
+ `vote <senderAccount> <publicKey>`
+
+##### Parameters
+
+- `senderAccount`：The account to vote for
+- `publickey`：The public key of account to vote for
+
+##### Example
+
+```
+neo> vote Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z 02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
+Invoking script with: '0c2102344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d0c14ef3b46067f2f47b2f7f0442aa2372085d08708ef12c00c04766f74650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+VM State: HALT
+Gas Consumed: 5.0100793
+Evaluation Stack: [{"type":"Boolean","value":true}]
+
+relay tx(no|yes): y
+Signed and relayed transaction with hash=0x8083633ecc4827b7967ba8b0a30f02992dc524e4a5356accebdf080e9cd26df2
 ```
 
 ### export key
@@ -678,7 +985,7 @@ Starts the consensus on the premise that the wallet has a consensus authority, a
 
 > [!NOTE]
 >
-> If you wan to view the consensus log, install the plugin [SystemLog](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview2/SystemLog.zip) first.
+> If you wan to view the consensus log, set `active` in config.json to `true`.
 
 
 
