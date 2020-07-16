@@ -70,16 +70,16 @@
 
 | 命令            | 参数                | 说明                                           |
 | --------------- | ------------------- | ---------------------------------------------- |
-| balanceof (#balanceof)     |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
-| decimals(#decimals)        | \<tokenHash>           | 查询指定 token 的精度 |
-| name(#name)        | \<tokenHash>           | 查询指定 token 的名字 |
-| transfer (#transfer)        | \<tokenHash> \<to> \<amount>           | 调用 token 的 transfer 方法转账 |
+| [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
+| [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
+| [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>           | 调用 token 的 transfer 方法转账 |
 
-#### 原生合约命令
+#### 原生合约令
 
 | 命令            | 参数                | 说明                                           |
 | --------------- | ------------------- | ---------------------------------------------- |
-| list nativecontract      |                     | 列出所有原生合约的名字及 scripthash                         |
+| [list nativecontract](#list-nativecontract) |                     | 列出所有原生合约的名字及 scripthash                         |
 
 #### 网络命令
 
@@ -107,13 +107,13 @@
 
 | 命令                    | 参数       | 说明         |
 | ----------------------- | ---------------- | ---------------- |
-| get candidates(#get candidates) |  | 获取候选人公钥及票数 |
-| get committee(#get committee) |  | 获取委员会成员公钥 |
-| get next validators(#get next validators) |  | 获取下一轮验证人公钥 |
-| get validators(#get validators) |  | 获取当前验证人公钥 |
-| register candidate (#register candidate) |\<senderAccount>  | 注册候选人 |
-| unregister candidate (#unregister candidate) |\<senderAccount>  | 注销候选人 |
-| vote (#vote) |\<senderAccount> \<publicKey>  | 投票 |
+| [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
+| [get committee](#get-committee) |  | 获取委员会成员公钥 |
+| [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
+| [get validators](#get-validators) |  | 获取当前验证人公钥 |
+| [register candidate](#register-candidate) |\<senderAccount>  | 注册候选人 |
+| [unregister candidate](#unregister-candidate) |\<senderAccount>  | 注销候选人 |
+| [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
 
 #### 高级命令
 
@@ -339,6 +339,8 @@ Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fb
 
 ### list nativecontract
 
+列出所有原生合约的名字及 scripthash
+
 
 ##### 句法
 
@@ -384,7 +386,7 @@ Candidates:
 
 ### get committee
 
-获取候选人公钥及票数
+获取委员会成员公钥
 
 ##### 句法
 
@@ -430,7 +432,7 @@ Next validators:
 02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
 ```
 
-### get  validators
+### get validators
 
 获取当前验证人公钥
 
@@ -464,7 +466,7 @@ Validators:
 
 ##### 参数
 
-- `senderAccount`：注册者账户
+`senderAccount`：注册者账户
 
 ##### 示例
 
@@ -481,7 +483,7 @@ Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663
 
 ### unregister candidate
 
-注册候选人
+注销候选人
 
 ##### 句法
 
@@ -514,7 +516,7 @@ Signed and relayed transaction with hash=0x02706d846d6cce1f10b5643e72bbb8011376c
 
 ##### 参数
 
-- `senderAccount`：注册者账户
+- `senderAccount`：被投票账户
 - `publickey`：被投票地址的公钥
 
 ##### 示例

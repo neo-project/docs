@@ -44,10 +44,10 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 说明：
 
-- ConsoleOutput ：是否在控制台打印出 Log 信息。（true：前后台打印，false：后台记录）
-- Active ：是否开启 Log 信息。
-- Engine ：默认 LevelDBStore。表示区块链数据存储使用的引擎。
-- PluginURL ：表示下载插件的地址，使用 CLI 的 install 命令时会用到。
+- `ConsoleOutput` ：是否在控制台打印出 Log 信息。（true：前后台打印，false：后台记录）
+- `Active` ：是否开启 Log 信息。
+- `Engine` ：默认 LevelDBStore。表示区块链数据存储使用的引擎。
+- `PluginURL`：表示下载插件的地址，使用 CLI 的 install 命令时会用到。
 
 ### 将节点连接到网络
 
