@@ -145,7 +145,7 @@
 
 - Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 
-- StandbyCommittee ：备用共识节点的公钥，这里输入 4 个钱包的公钥。
+- StandbyCommittee ：委员会成员节点的公钥，票数前4的即为共识节点，这里可以输入 4 个或以上钱包的公钥。
 
 - SeedList ：种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 config.json 中配置的 4 个 P2P Port。
 
