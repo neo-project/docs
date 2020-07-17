@@ -8,9 +8,9 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 1. 首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
 
-2. 运行 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet 1.json`。
+2. 运行 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet consensus.json`。
 
-   ![](../assets/create-wallet.png)
+ ![](../assets/create-wallet.png)
 
 3. 记录钱包公钥（ pubkey），后面会用到。
 
@@ -22,21 +22,27 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 - 设置 UnlockWallet 下的参数 `Path` 为钱包文件名，`Password` 为钱包密码。
 - 设置 `StartConsensus` 和 `IsActive` 为 `true`。
+- 设置 `ConsoleOutput` 和 `Active`  为 `true`。
 
 可参照下面的配置：
 
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
+      "Port": 10003,
+      "WsPort": 10004
     },
     "UnlockWallet": {
-      "Path": "1.json",
+      "Path": "consensus.json",
       "Password": "1",
       "StartConsensus": true,
       "IsActive": true
@@ -49,17 +55,19 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 ### 修改 protocol.json
 
 1. 打开 Neo-CLI 下面的 protocol.json 文件。
-2. 在参数 StandbyValidators 中输入前面创建的1.json钱包的公钥（StandbyValidators  中只有一个公钥的时候为单节点模式）。
+2. 设置 ValidatorsCount 为1。
+3. 在参数 StandbyCommittee 中输入前面创建的consensus.json钱包的公钥（StandbyCommittee 中只有一个公钥的时候为单节点模式）。
 
 可参照下面的配置：
 
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 5195086,
-    "MillisecondsPerBlock": 15000,
-    "StandbyValidators": [
-      "03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad"
+    "Magic": 213123,
+    "MillisecondsPerBlock": 5000,
+    "ValidatorsCount": 1,
+    "StandbyCommittee": [
+      "02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722"
     ],
     "SeedList": [
     ]
@@ -73,21 +81,15 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 ![](../assets/solo.png)
 
-> [!Note]
->
-> 安装 SystemLog 插件后，会输出共识日志。这里为了方便在 Neo-CLI 中输入命令没有安装。
->
-> 输入 `show state` 命令可以查看区块高度。
-
 如果关闭窗口，将停止私有链。
 
 ## 提取私有链中的 NEO/GAS
 
 在 NEO 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
-1. 启动私链
-
-2. 使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
+1. 启动私链。
+2. 复制另一个节点连接共识节点，在 protocol.json 里面把共识节并在其内进行操作。
+3. 使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
    这里设置最小签名数 m 为 1，pubkeys 为钱包 a.json 的公钥。例如：
 
@@ -95,4 +97,4 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
    import multisigaddress 1 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad
     ```
 
-3. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
+4. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。

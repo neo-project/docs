@@ -28,16 +28,21 @@
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
+      "Port": 10003,
+      "WsPort": 10004
     },
     "UnlockWallet": {
       "Path": "1.json",
-      "Password": "1",
+      "Password": "11111111",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -51,16 +56,21 @@
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 20333,
-      "WsPort": 20334
+      "Port": 20003,
+      "WsPort": 20004
     },
     "UnlockWallet": {
       "Path": "2.json",
-      "Password": "1",
+      "Password": "11111111",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -74,16 +84,21 @@
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 30333,
-      "WsPort": 30334
+      "Port": 30003,
+      "WsPort": 30004
     },
     "UnlockWallet": {
       "Path": "3.json",
-      "Password": "1",
+      "Password": "11111111",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -97,16 +112,21 @@
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 40333,
-      "WsPort": 40334
+      "Port": 40003,
+      "WsPort": 40004
     },
     "UnlockWallet": {
       "Path": "4.json",
-      "Password": "1",
+      "Password": "11111111",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -125,7 +145,7 @@
 
 - Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 
-- StandbyValidators ：备用共识节点的公钥，这里输入 4 个钱包的公钥。
+- StandbyCommittee ：备用共识节点的公钥，这里输入 4 个钱包的公钥。
 
 - SeedList ：种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 config.json 中配置的 4 个 P2P Port。
 
@@ -135,59 +155,64 @@
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 5195086,
+    "Magic": 123456,
     "MillisecondsPerBlock": 15000,
-    "StandbyValidators": [
-      "03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad",
-      "023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e",
-      "03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0",
-      "024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2"
+    "ValidatorsCount": 4,
+    "StandbyCommittee": [
+      "026f24dca10b5d105afc60d0ea78437fb2ae2386b27c3caf761e81122c2d83ff00",
+      "02b30bf169cb0a8eca4623fda5d118b78b12e89b0e010027342fc1aa4c05c5cf0d",
+      "02f3107876d6fb1d202ff0028d103a01cd8ed33f646a8b25f347e00143f1da01f3",
+      "025b7494b61f850bed16efee84628c44559772055d2fdf67c005ac60906cf80f1b"
     ],
     "SeedList": [
-      "localhost:10333",
-      "localhost:20333",
-      "localhost:30333",
-      "localhost:40333"
+      "localhost:10001",
+      "localhost:20001",
+      "localhost:30001",
+      "localhost:40001"
     ]
-  }
 }
 ```
 
 ## 创建快捷启动
 
-为了方便启动私链，创建一个记事本文件，输入 `dotnet neo-cli.dll /rpc` 然后重命名为 1Run.cmd。将其复制到 4 个节点目录下。
+为了方便启动私链，创建一个记事本文件，输入 
+```
+start cmd /k "cd node1 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd node2 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd node3 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+```
+然后重命名为 Run.cmd。将其复制到 4 个节点目录外的同级目录下。
 
 到此，私有链已经搭建完成了，所有修改过的文件结构如下
 
 ```
+├─Run.cmd
+|
 ├─node1
 │      1.json
-│      1Run.cmd
 │      config.json
 │      protocol.json
 │
 ├─node2
-│      1Run.cmd
 │      2.json
 │      config.json
 │      protocol.json
 │
 ├─node3
-│      1Run.cmd
 │      3.json
 │      config.json
 │      protocol.json
 │
 └─node4
-        1Run.cmd
-        4.json
-        config.json
-        protocol.json
+|       4.json
+|       config.json
+|       protocol.json
 ```
 
 ## 启动私有链
 
-进入每个节点目录，双击 `1Run.cmd`，在其中一个节点输入 `show state`，如果连接 3 个节点并且区块高度增长表示私链成功搭建：
+进入每个节点目录，双击 `Run.cmd`，如果控制台打印出共识信息并且区块高度增长表示私链成功搭建：
 
 ![](../../assets/privatechain_demo.png)
 
