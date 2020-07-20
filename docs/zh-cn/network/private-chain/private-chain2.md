@@ -210,9 +210,9 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 │      protocol.json
 │
 └─node4
-|       4.json
-|       config.json
-|       protocol.json
+|      4.json
+|      config.json
+|      protocol.json
 ```
 
 ## 启动私有链
