@@ -42,7 +42,7 @@
     },
     "UnlockWallet": {
       "Path": "1.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -70,7 +70,7 @@
     },
     "UnlockWallet": {
       "Path": "2.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -98,7 +98,7 @@
     },
     "UnlockWallet": {
       "Path": "3.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -126,7 +126,7 @@
     },
     "UnlockWallet": {
       "Path": "4.json",
-      "Password": "11111111",
+      "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     },
@@ -145,6 +145,8 @@
 
 - Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 
+- MillisecondsPerBlock：出块时间
+
 - StandbyCommittee ：委员会成员节点的公钥，票数前4的即为共识节点，这里可以输入 4 个或以上钱包的公钥。
 
 - SeedList ：种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 config.json 中配置的 4 个 P2P Port。
@@ -155,22 +157,25 @@
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 123456,
-    "MillisecondsPerBlock": 15000,
+    "Magic": 213123,
+    "MillisecondsPerBlock": 5000,
     "ValidatorsCount": 4,
     "StandbyCommittee": [
-      "026f24dca10b5d105afc60d0ea78437fb2ae2386b27c3caf761e81122c2d83ff00",
-      "02b30bf169cb0a8eca4623fda5d118b78b12e89b0e010027342fc1aa4c05c5cf0d",
-      "02f3107876d6fb1d202ff0028d103a01cd8ed33f646a8b25f347e00143f1da01f3",
-      "025b7494b61f850bed16efee84628c44559772055d2fdf67c005ac60906cf80f1b"
+      "0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca",
+      "0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21",
+      "02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3",
+      "02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a"
     ],
     "SeedList": [
-      "localhost:10001",
-      "localhost:20001",
-      "localhost:30001",
-      "localhost:40001"
+    "localhost:10003",
+    "localhost:20003",
+    "localhost:30003",
+    "localhost:40003",
+    "localhost:12333"
     ]
+  }
 }
+
 ```
 
 ## 创建快捷启动
@@ -226,19 +231,21 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 1. 启动私链
 
-2. 在一个节点中使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
+2. 复制一个共识节点作为外部节点来进行操作
+
+3. 在一个节点中使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
    这里设置最小签名数 m 为 3，pubkeys 为四个共识节点的公钥（见 protocal.json）。例如：
 
     ``` 
-   import multisigaddress 3 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad 023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e 03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0 024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2
+   import multisigaddress 3 0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
     ```
 
-3. 在其它三个节点中重复步骤 2
+4 在其它三个节点中重复步骤 2
 
-4. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
+5. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
 
-![](../../assets/claim_gas.png)
+![](../assets/initial-balance.png)
 
 > [!Note]
 >
@@ -253,7 +260,7 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 2. 复制 SignatureContext 内容并关闭钱包。
 
-   ![image](../../../en-us/assets/privatechain_29.png)
+   ![image](../assets/private_multi_tx1.png)
 
 3. 打开第二个钱包（2.json）。
 
@@ -261,14 +268,14 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 5. 复制 Signed Output 内容并关闭钱包。
 
-   ![image](../../../en-us/assets/privatechain_30.png)
+   ![image](../assets/private_multi_tx2.png)
 
 6. 打开第三个钱包（3.json）重复前面的签名步骤，然后就可以使用 `relay <jsonObjectToSign>` 广播交易完成签名。
 
-   ![image](../../../en-us/assets/privatechain_31.png)
+   ![image](../assets/private_multi_tx3.png)
 
 7. 输入 `list asset` 查看钱包资产，可以看到 NEO 已经转入。
 
    ![image](../../../en-us/assets/privatechain_32.png)
 
-参考前面提取 NEO 进行的多方签名操作，提取 GAS 到目标地址即可。
+参考前面提取 NEO 进行的多方签名操作，同样可以提取 GAS 到目标地址。
