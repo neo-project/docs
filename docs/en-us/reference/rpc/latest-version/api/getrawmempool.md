@@ -6,7 +6,7 @@ Obtains a list of confirmed / unconfirmed transactions in memory.
 >
 > You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-## Example
+## Example 1 - Get verified transactions
 
 Request body:
 
@@ -34,4 +34,33 @@ Response body:
 ```
 
 These are the confirmed transactions received by nodes.
+
+## Example 2 - Get verified and unverified transactions
+
+Request body:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getrawmempool",
+  "params": [true],
+  "id": 1
+}
+```
+
+Response body:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "height": 5882071,
+    "verified": [
+      "0x0c65fbfd2598aee5f30cd18f1264b458f1db137c4a460f4a174facb3f2d59d06",
+      "0xc8040c285aa495f5b5e5b3761fd9333899f4ed902951c46d86c3bbb1cb12f2c0"
+    ],
+    "unverified": []
+  }
+}
 
