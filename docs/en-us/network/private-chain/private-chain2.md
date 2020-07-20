@@ -28,12 +28,17 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
+      "Port": 10003,
+      "WsPort": 10004
     },
     "UnlockWallet": {
       "Path": "1.json",
@@ -51,12 +56,17 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 20333,
-      "WsPort": 20334
+      "Port": 20003,
+      "WsPort": 20004
     },
     "UnlockWallet": {
       "Path": "2.json",
@@ -74,12 +84,17 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 30333,
-      "WsPort": 30334
+      "Port": 30003,
+      "WsPort": 30004
     },
     "UnlockWallet": {
       "Path": "3.json",
@@ -97,12 +112,17 @@ You can refer to the following example：
 ```json
 {
   "ApplicationConfiguration": {
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
     "Storage": {
       "Engine": "LevelDBStore"
     },
     "P2P": {
-      "Port": 40333,
-      "WsPort": 40334
+      "Port": 40003,
+      "WsPort": 40004
     },
     "UnlockWallet": {
       "Path": "4.json",
@@ -123,10 +143,8 @@ You can refer to the following example：
 
 Configure the following parameters in each node protocol.json. Ensure the configuration in each file is consistent.
 
-- Magic : The private chain ID, which can be any integer in the range of [0 - 4294967295].
-
-- StandbyValidators: The public key of the alternate consensus node. Enter the public keys of four wallets.
-
+- Magic: The private chain ID, which can be any integer in the range of [0 - 4294967295].
+- StandbyCommittee: The public keys of committee members. The top 4 nodes with the most votes will become consensus nodes. Here enter the public keys of four wallets.
 - SeedList: The IP address and port number of the seed node. Specify the IP address as `localhost` and the ports as four P2P ports configured before in config.json.
 
 
@@ -135,19 +153,21 @@ You can refer to the following example：
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 5195086,
-    "MillisecondsPerBlock": 15000,
-    "StandbyValidators": [
-      "03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad",
-      "023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e",
-      "03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0",
-      "024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2"
+    "Magic": 213123,
+    "MillisecondsPerBlock": 5000,
+    "ValidatorsCount": 4,
+    "StandbyCommittee": [
+      "0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca",
+      "0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21",
+      "02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3",
+      "02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a"
     ],
     "SeedList": [
-      "localhost:10333",
-      "localhost:20333",
-      "localhost:30333",
-      "localhost:40333"
+    "localhost:10003",
+    "localhost:20003",
+    "localhost:30003",
+    "localhost:40003",
+    "localhost:12333"
     ]
   }
 }
@@ -155,39 +175,46 @@ You can refer to the following example：
 
 ## Creating a shortcut to start
 
-Create a notepad file for ease of starting the private chain. In the file, enter `dotnet neo-cli.dll /rpc`  , rename it as 1Run.cmd, and then place it under the folder of each node.
+Create a notepad file for ease of starting the private chain. In the file, enter the following:
+
+```
+start cmd /k "cd node1 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd node2 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd node3 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+```
+
+Rename it as Run.cmd, and then place four copies under the same level directories outside each node directory.
 
 At this point the private chain has been set up. All the files  we modified are as follows:
 
 ```
+├─Run.cmd
+|
 ├─node1
 │      1.json
-│      1Run.cmd
 │      config.json
 │      protocol.json
 │
 ├─node2
-│      1Run.cmd
 │      2.json
 │      config.json
 │      protocol.json
 │
 ├─node3
-│      1Run.cmd
 │      3.json
 │      config.json
 │      protocol.json
 │
 └─node4
-        1Run.cmd
-        4.json
-        config.json
-        protocol.json
+|      4.json
+|      config.json
+|      protocol.json
 ```
 
 ## Starting the private chain
 
-Enter each node directory and double-click `1Run.cmd`. From one client input the command  `show state`, when the screen shows 3 nodes connected and block height is increasing as shown below, the private chain is set up successfully.
+Enter each node directory and double-click `Run.cmd`. When the screen shows consensus information and block height is increasing as shown below, the private chain is set up successfully.
 
 ![](../../../zh-cn/assets/privatechain_demo.png)
 
@@ -201,20 +228,22 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
 
 1. Start your private chain.
 
-2. Open one wallet and create a multi-signature address using the command `import multisigaddress m pubkeys`:
+2. For ease of operation, copy one of consensus nodes directory as an extra node
+
+3. Open one wallet and create a multi-signature address using the command `import multisigaddress m pubkeys`:
 
    - `m`: the minimal number of signatures needed to complete the transaction. 
-   - `pubkeys`: the public keys in StandbyValidators in all consensus node wallets.
+   - `pubkeys`: the public keys in StandbyCommittee in all consensus node wallets.
 
    For example:
-   
-   ```
-   import multisigaddress 3 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad 023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e 03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0 024debe4763ebb14b3ede443409c2a8bcd7a823feab211623b34551321d37de8b2
-   ```
-   
-3. Repeat the last step to create multi-signature addresses in other 3 wallets.
 
-4. Enter the command `list asset` and you can see 100 million NEO and 30 million GAS displayed.
+   ```
+   import multisigaddress 3    0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
+   ```
+
+4. Repeat the last step to create multi-signature addresses in other 3 wallets.
+
+5. Enter the command `list asset` and you can see 100 million NEO and 30 million GAS displayed.
 
    ![image](../../assets/privatechain_28.png)
 

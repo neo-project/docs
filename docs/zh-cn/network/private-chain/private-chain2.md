@@ -145,9 +145,7 @@
 
 - Magic ：私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 
-- MillisecondsPerBlock：出块时间
-
-- StandbyCommittee ：委员会成员节点的公钥，票数前4的即为共识节点，这里可以输入 4 个或以上钱包的公钥。
+- StandbyCommittee ：委员会成员节点的公钥，票数前4的即为共识节点，这里可以输入 4 个钱包的公钥。
 
 - SeedList ：种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 config.json 中配置的 4 个 P2P Port。
 
@@ -175,12 +173,11 @@
     ]
   }
 }
-
 ```
 
 ## 创建快捷启动
 
-为了方便启动私链，创建一个记事本文件，输入 
+为了方便启动私链，创建一个记事本文件，输入以下命令：
 ```
 start cmd /k "cd node1 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 start cmd /k "cd node2 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
@@ -238,14 +235,14 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
    这里设置最小签名数 m 为 3，pubkeys 为四个共识节点的公钥（见 protocal.json）。例如：
 
     ``` 
-   import multisigaddress 3 0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
+   import multisigaddress 3    0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
     ```
 
-4 在其它三个节点中重复步骤 2
+4. 在其它三个节点中重复步骤 2
 
 5. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
 
-![](../assets/initial-balance.png)
+   ![](../assets/initial-balance.png)
 
 > [!Note]
 >
