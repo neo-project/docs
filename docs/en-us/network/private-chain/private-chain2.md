@@ -245,7 +245,7 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
 
 5. Enter the command `list asset` and you can see 100 million NEO and 30 million GAS displayed.
 
-   ![image](../../assets/privatechain_28.png)
+   ![](../assets/initial-balance.png)
 
 > [!Note]
 >
@@ -259,7 +259,7 @@ Here we want to send NEO from the contract address to the normal address.
 
 2. Copy the SignatureContext and close the wallet.
 
-   ![image](../../assets/privatechain_29.png)
+   ![image](../assets/private_multi_tx1.png)
 
 3. Open another wallet (2.json) listed on the multi-signature
 
@@ -267,11 +267,11 @@ Here we want to send NEO from the contract address to the normal address.
 
 5. Copy the object in Signed Output and close the wallet.
 
-   ![image](../../assets/privatechain_30.png)
+   ![image](../assets/private_multi_tx2.png)
 
 6. Repeat the previous steps in the third wallet 3.json. Then you can use `relay <jsonObjectToSign>` and your wallet is ready.
 
-   ![image](../../assets/privatechain_31.png)
+   ![image](../assets/private_multi_tx3.png)
 
 7. Use `list asset` to check the wallet balance:
 
