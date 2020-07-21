@@ -11,51 +11,19 @@ Neo区块去掉区块头部分就是一串交易构成的区块主体，因而�
 | `version`    | byte   | 交易版本号，目前为0                    |
 | `nonce`    | uint   | 随机数                   |
 | `validUntilBlock`    | uint   |  交易的有效期                |
-| `sender`    | UInt160   | 发送方的地址脚本哈希                    |
+| `signers`    | Signer[]   | 发送方以及限制签名的作用范围           |
 | `sysfee`    | long   | 支付给网络的资源费用     |
 | `netfee`    | long   | 支付给验证人打包交易的费用    |
 | `attributes` | TransactionAttribute[]   | 交易所具备的额外特性  |
-| `cosigners` | Cosigner[]   | 限制签名的作用范围  |
 | `script`     | byte[]   | 交易的合约脚本 |
 | `witnesses`  | Witness[]   | 用于验证交易的脚本列表    |
 
 ### version
 version属性允许对交易结构进行更新，使其具有向后兼容性。 目前版本为0。
-### sender
-由于Neo3弃用了UTXO模型，仅保留有账户余额模型。原生资产NEO和GAS的转账交易统一为NEP-5资产操作方式，因此交易结构中不再记录inputs和outputs字段，通过sender字段来跟踪交易的发送方。该字段是钱包中交易发起账户的地址哈希。
-### sysfee
-系统费用是根据NeoVM要执行的指令计算得出的费用，每一个指令所对应的费用，请参考[opcode 费用](../虚拟机#费用)。Neo3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
+### signers
+规定signers中的第一个为交易发送方。因为由于Neo3弃用了UTXO模型，仅保留有账户余额模型。原生资产NEO和GAS的转账交易统一为NEP-5资产操作方式，因此交易结构中不再记录inputs和outputs字段，通过signers字段来跟踪交易的发送方。该字段是钱包中交易发起账户的地址哈希。
 
-![](..\images\transaction\system_fee.png)
-
-其中，*OpcodeSet* 为指令集，𝑂𝑝𝑐𝑜𝑑𝑒𝑃𝑟𝑖𝑐𝑒<sub>𝑖</sub>为第 *i* 种指令的费用，𝑛<sub>𝑖</sub>为第 *i* 种指令在合约脚本中的执行次数。
-### netfee
-网络费是用户向Neo网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，用户支付的网络费需要大于或等于此基础值，否则交易无法通过验证。基础网络费计算公式如下所示：
-
-![network fee](..\images\transaction\network_fee.png)
-
-其中，*VerificationCost*为虚拟机验证交易签名执行的指令相对应的费用，*tx.Length*为交易数据的字节长度，*FeePerByte*为交易每字节的费用，目前为0.00001GAS。
-
-### attributes
-根据具体的交易类型允许向交易添加额外的属性。 对于每个属性，必须指定使用类型，以及外部数据和外部数据的大小。
-
-| 字段| 类型| 说明|
-|----------|-------|------------------------|
-| `usage`  | uint8 | 属性使用类型                  |
-| `data`   | byte[] |   交易待校验脚本   |
-
-#### usage
-以下使用类型可以包括在交易的attributes中。
-
-| 值    | 名称| 说明| 类型|
-|---------------|-------------|---------------|--------------|
-| `0x81`           | `Url`          | 外部介绍信息地址    | `byte`  |
-
-每个交易最多可以添加16个属性。
-
-### cosigners
-
-当前交易签名是全局有效的，为了让用户能更细粒度地控制签名的作用范围，Neo3中对交易结构中的cosigners字段进行了变更，可实现签名只限于验证指定合约的功能。当checkwitness用于交易验证时，除交易发送者sender外，其他的cosigners都需要定义其签名的作用范围。
+signers中余下的为限制签名的作用范围。当前交易签名是全局有效的，为了让用户能更细粒度地控制签名的作用范围，Neo3中对交易结构中的cosigners字段进行了变更，可实现签名只限于验证指定合约的功能。当checkwitness用于交易验证时，除交易发送者sender外，其他的cosigners都需要定义其签名的作用范围。
 
 | 字段 | 说明|  类型|
 |--------------|------------------| --|
@@ -70,11 +38,29 @@ Scopes字段定义了签名的作用范围，包括以下四种类型：
 
 | 值    | 名称| 说明| 类型|
 |---------------|-------------|---------------|--------------|
-| `0x00`           | `Global`          | 签名全局有效，Neo2的默认值，保证向后兼容性   | `byte`  |
+| `0x00`           | `FeeOnly`          | 用于标记交易发送者   | `byte`  |
 | `0x01`           | `CalledByEntry`          | 签名只限于由Entry脚本调用的合约脚本    | `byte`  |
 | `0x10`           | `CustomContracts`          | 签名只限于用户指定的合约脚本    | `byte`  |
 | `0x20`           | `CustomGroups`          | 签名对组内的合约有效    | `byte`  |
+| `0x80`           | `Global`          | 签名全局有效，Neo2的默认值，保证向后兼容性   | `byte`  |
 
+### sysfee
+系统费用是根据NeoVM要执行的指令计算得出的费用，每一个指令所对应的费用，请参考[opcode 费用](../虚拟机#费用)。Neo3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
+
+![](../images/transaction/system_fee.png)
+
+其中，*OpcodeSet* 为指令集，𝑂𝑝𝑐𝑜𝑑𝑒𝑃𝑟𝑖𝑐𝑒<sub>𝑖</sub>为第 *i* 种指令的费用，𝑛<sub>𝑖</sub>为第 *i* 种指令在合约脚本中的执行次数。
+### netfee
+网络费是用户向Neo网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，用户支付的网络费需要大于或等于此基础值，否则交易无法通过验证。基础网络费计算公式如下所示：
+
+![network fee](../images/transaction/network_fee.png)
+
+其中，*VerificationCost*为虚拟机验证交易签名执行的指令相对应的费用，*tx.Length*为交易数据的字节长度，*FeePerByte*为交易每字节的费用，目前为0.00001GAS。
+
+### attributes
+根据具体的交易类型允许向交易添加额外的属性。 对于每个属性，必须指定使用类型，以及外部数据和外部数据的大小。
+
+每个交易最多可以添加16个属性。
 
 ### script
 虚拟机所执行的合约脚本。
@@ -98,7 +84,7 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 
 #### 验证脚本
 
-验证脚本，常见为地址脚本，包括普通地址脚本和多签地址脚本，该地址脚本可以从钱包账户中直接获取，其构造方式，请参考[钱包-地址](../wallets#地址)；
+验证脚本，常见为地址脚本，包括普通地址脚本和多签地址脚本，该地址脚本可以从钱包账户中直接获取，其构造方式，请参考[钱包-地址](../wallets.md#地址)；
 
 也可以为自定义的鉴权合约脚本。
 
@@ -110,12 +96,11 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 |----------|------------|
 | `version`  | - |
 | `nonce`   | - |
-| `sender`   | - |
 | `systemFee`   | - |
 | `networkFee`   | -|
 | `validUntilBlock`   | - |
+| `signers`   | 需先序列化数组长度`WriteVarInt(length)`，之后再分别序列化数组各个元素 |
 | `attributes`   |需先序列化数组长度`WriteVarInt(length)`，之后再分别序列化数组各个元素 |
-| `cosigners`   | 需先序列化数组长度`WriteVarInt(length)`，之后再分别序列化数组各个元素 |
 | `script`   | 需先序列化数组长度`WriteVarInt(length)`，之后再序列化字节数组 |
 | `witnesses`   | 需先序列化数组长度`WriteVarInt(length)`之后再分别序列化数组各个元素 |
 
@@ -138,27 +123,28 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 
 ```Json
 {
-  "hash": "0x2b03f7a8db3649c9e2cb6d429dd358819b3fd536825d2a698e19de237583e60a",
-  "size": 57,
+  "hash": "0xd2b24b57ea05821766877241a51e17eae06ed66a6c72adb5727f8ba701d995be",
+  "size": 265,
   "version": 0,
-  "nonce": 0,
-  "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt",
-  "sys_fee": "0",
-  "net_fee": "0",
-  "valid_until_block": 0,
+  "nonce": 739807055,
+  "sender": "NMDf1XCbioM7ZrPZAdQKQt8nnx3fWr1wdr",
+  "sys_fee": "9007810",
+  "net_fee": "1264390",
+  "valid_until_block": 2102402,
+  "signers": [{
+    "account": "0xdf93ea5a0283c01e8cdfae891ff700faad70500e",
+    "scopes": "FeeOnly"
+  },
+  {
+    "account": "0xdf93ea5a0283c01e8cdfae891ff700faad70500e",
+    "scopes": "CalledByEntry"
+  }],
   "attributes": [],
-  "cosigners": [],
-  "script": "aBI+f+g=",
-  "witnesses": [
-    {
-      "invocation": "",
-      "verification": "UQ=="
-    }
-  ],
-  "blockhash": "0x7d581e115ebe1c512eef985fd52d75336acb77826dafacc3281399a0e6204958",
-  "confirmations": 1,
-  "blocktime": 1468595301000,
-  "vmState": "HALT"
+  "script": "EQwUDlBwrfoA9x\u002BJrt\u002BMHsCDAlrqk98MFA5QcK36APcfia7fjB7AgwJa6pPfE8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSOA==",
+  "witnesses": [{
+    "invocation": "DEDy/g4Lt\u002BFTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE\u002B\u002B6f6XoZeaEoUPeH",
+    "verification": "DCECCJr46zTvjDE0jA5v5jrry4Wi8Wm7Agjf6zGH/7/1EVELQQqQatQ="
+  }]
 }
 ```
 

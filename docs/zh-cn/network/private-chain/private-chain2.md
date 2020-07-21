@@ -27,6 +27,11 @@
 
 ```json
 {
+  "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": false,
+      "Active": false
+    },
   "ApplicationConfiguration": {
     "Storage": {
       "Engine": "LevelDBStore"
@@ -50,6 +55,11 @@
 
 ```json
 {
+  "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": false,
+      "Active": false
+    },
   "ApplicationConfiguration": {
     "Storage": {
       "Engine": "LevelDBStore"
@@ -73,6 +83,11 @@
 
 ```json
 {
+  "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": false,
+      "Active": false
+    },
   "ApplicationConfiguration": {
     "Storage": {
       "Engine": "LevelDBStore"
@@ -96,6 +111,11 @@
 
 ```json
 {
+  "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": false,
+      "Active": false
+    },
   "ApplicationConfiguration": {
     "Storage": {
       "Engine": "LevelDBStore"
@@ -137,7 +157,8 @@
   "ProtocolConfiguration": {
     "Magic": 5195086,
     "MillisecondsPerBlock": 15000,
-    "StandbyValidators": [
+    "ValidatorsCount": 4,
+    "StandbyCommittee": [
       "03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad",
       "023e3da62b3bc314017e2b6ac11ebc2b66270f74b41dc680c77be1cf90c724882e",
       "03f4c4132e592f448607d135b3ea98ebb5aeb86f4e786ad23f62cbe8b5e3c38fd0",

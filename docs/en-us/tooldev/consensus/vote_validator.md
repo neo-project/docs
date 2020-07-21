@@ -2,7 +2,7 @@
 
 Neo is an open and transparent blockchain network where anyone who holds the NEO token can either initiate a transaction to apply for being a validator candidate or vote to decide which validator candidate can become a consensus node and the number of consensus nodes at anytime. The votes of consensus nodes are calculated by an algorithm described in this chapter. 
 
-![](../../../zh-cn/tooldev/images/consensus/vote_candidate.jpg)
+![](../images/consensus/vote_candidate.png)
 
 Voting is a dynamic and continuous process. If the NEO asset of a voter is changed, the number of votes at the previous voting address will also change, and the list of consensus nodes will change accordingly.
 
