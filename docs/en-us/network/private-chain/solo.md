@@ -8,7 +8,7 @@ Alternatively, you can build a private chain with one node from scratch, which w
 
 1. Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install Neo-CLI.
 
-2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet 1.json`:
+2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet consensus.json`:
 
    ![](../../../zh-cn/network/assets/create-wallet.png)
 
@@ -20,35 +20,34 @@ Alternatively, you can build a private chain with one node from scratch, which w
 
 In config.json under the Neo-cli directory, make the following configurations:
 
-- In "UnlockWallet" specify the wallet path and wallet password.
+- In `UnlockWallet` specify the wallet path and wallet password.
 - Set  `StartConsensus` and `IsActive` as true.
+- Set  `ConsoleOutput` and `Active` as true.
 
 Here is an example：
 
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "Index": "Index_{0}"
+    "Logger": {
+      "Path": "Logs_{0}",
+      "ConsoleOutput": true,
+      "Active": true
+    },
+    "Storage": {
+      "Engine": "LevelDBStore"
     },
     "P2P": {
       "Port": 10003,
       "WsPort": 10004
     },
-    "RPC": {
-      "BindAddress": "127.0.0.1",
-      "Port": 10002,
-      "SslCert": "",
-      "SslCertPassword": ""
-    },
     "UnlockWallet": {
-      "Path": "a.json",
+      "Path": "consensus.json",
       "Password": "1",
       "StartConsensus": true,
       "IsActive": true
     },
-    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -56,29 +55,22 @@ Here is an example：
 ### Modifying protocol.json
 
 1. Open protocol.json under the Neo-cli directory
-2. In StandbyValidators enter the public key of the wallet 1.json created before (It is single node mode when there is only one public key included in StandbyValidators).
+2. Set `ValidatorsCount` to 1
+3. In StandbyCommittee enter the public key of the wallet consensus.json created before (It is single node mode when there is only one public key included in StandbyCommittee).
 
 Here is an example：
 
 ```json
 {
   "ProtocolConfiguration": {
-    "Magic": 1840412,
-    "AddressVersion": 23,
-    "SecondsPerBlock": 5,
-    "LowPriorityThreshold": 0.001,
-    "StandbyValidators": [
-      "03d08d6f766b54e35745bc99d643c939ec6f3d37004f2a59006be0e53610f0be25"
+    "Magic": 213123,
+    "MillisecondsPerBlock": 5000,
+    "ValidatorsCount": 1,
+    "StandbyCommittee": [
+      "02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722"
     ],
     "SeedList": [
-      "127.0.0.1:10003"
-    ],
-    "SystemFee": {
-      "EnrollmentTransaction": 1000,
-      "IssueTransaction": 500,
-      "PublishTransaction": 500,
-      "RegisterTransaction": 10000
-    }
+    ]
   }
 }
 ```
@@ -87,13 +79,7 @@ Here is an example：
 
 Run the command line and enter the Neo-CLI directory. Then enter  `neo-cli.exe` to start the private chain. The private chain is set up successfully when it goes as shown below:
 
-![img](../../../zh-cn/network/assets/solo.png)
-
-> [!Note]
->
-> If the plugin SystemLog is installed, the consensus log is printed. Here we didn't install the plugin for the convenience of entering commands.
->
-> Using `show state` you can check the block height.
+![](../assets/solo.png)
 
 The private chain is terminated if you close the window.
 
@@ -101,11 +87,57 @@ The private chain is terminated if you close the window.
 
 In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI, to facilitate your blockchain development and testing.
 
-### Withdrawing NEO/GAS using Neo-CLI
+1. Copy another Neo-CLI directory as an external node.
 
-1. From Neo-CLI command line enter  `open wallet a.json` to open the wallet.
+2. In the node `protocol.json` file, add the consensus node tcp address (localhost:10333) into the `seedlist` field, as shown below:
 
-2. Enter the command `import multisigaddress m pubkeys` to create a multi-part signed address, where:
+   ```
+   {
+     "ProtocolConfiguration": {
+       "Magic": 213123,
+       "MillisecondsPerBlock": 5000,
+       "ValidatorsCount": 1,
+       "StandbyCommittee": [
+         "02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722"
+       ],
+       "SeedList": [
+       "localhost:10333"
+       ]
+     }
+   }
+   ```
+
+3. Modify the node config.json:
+
+   ```
+   {
+     "ApplicationConfiguration": {
+       "Logger": {
+         "Path": "Logs_{0}",
+         "ConsoleOutput": true,
+         "Active": true
+       },
+       "Storage": {
+         "Engine": "LevelDBStore"
+       },
+       "P2P": {
+         "Port": 20003,
+         "WsPort": 20004
+       },
+       "UnlockWallet": {
+         "Path": "",
+         "Password": "",
+         "StartConsensus": false,
+         "IsActive": false
+       },
+       "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+     }
+   }
+   ```
+
+4. Start the private chain and the external node
+
+5. From the external node command line, enter `import multisigaddress m pubkeys` to create a multi-part signed address, where:
 
    `m` is 1 as the minimal signature number and `pubkeys` is the public key of a.json
 
@@ -113,5 +145,5 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
    import multisigaddress 1 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad
    ```
 
-3. Enter `list asset`，then you should see 100 million NEO and 30 million GAS displayed.
+6. Enter `list asset`，then you should see 100 million NEO and 30 million GAS displayed.
 
