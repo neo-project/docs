@@ -11,7 +11,7 @@ On Neo blockchain all transactions are of one type, which data structure is as f
 | `version`    | byte   | Transaction version, currently 0            |
 | `nonce`    | uint   | Random number      |
 | `validUntilBlock`    | uint   |  Transaction validity period  |
-| `sender`    | UInt160   | Script hash of the sender's address |
+| `signers`         | Signer[] | Sender and the limited scope of signature |
 | `sysfee`    | long   | System fee paid for network resource |
 | `netfee`    | long   | Network fee paid for the validator packaging transactions |
 | `attributes` | TransactionAttribute[]   | Transaction attributes                                    |

@@ -1,48 +1,20 @@
 # Consensus Nodes Election
 
-Neo is an open and transparent blockchain network where anyone who holds the NEO token can either initiate a transaction to apply for being a validator candidate or vote to decide which validator candidate can become a consensus node and the number of consensus nodes at anytime. The votes of consensus nodes are calculated by an algorithm described in this chapter. 
-
-![](../images/consensus/vote_candidate.png)
-
-Voting is a dynamic and continuous process. If the NEO asset of a voter is changed, the number of votes at the previous voting address will also change, and the list of consensus nodes will change accordingly.
-
-There are 2 steps in voting for consensus nodes: 
-
-1. calculate the number of consensus nodes;
-
-2. determine the specific consensus nodes.
-
-### The number of consensus nodes
-
-According to the voting described above, we may get a diagram of votes for the number of consensus nodes.
-
-[![calculate_consensus_count_0](../images/consensus/calculate_consensus_count_0.jpg)](../../images/consensus/calculate_consensus_count_0.jpg)
-
-The following formula is to demonstrate the probability distribution function F(discrete function), in which the probability of the `i`th consensus node equals its proportion of votes.
-
-[![formula_vote](../images/consensus/formula_vote.jpg)](../../images/consensus/formula_vote.jpg)
-
-On the probability distribution function, take the portion F ∈ [0.25, 0.75] that covers consensus nodes. Then take the expected value for these points. Compare it with the count of backup validators. Take the larger one as the final number of consensus nodes.
-
-![formula_vote_count](../images/consensus/formula_vote_count.jpg)
-
-- `⌈A⌉` represents the first F<sub>i</sub> >= 0.25 point
-
-- `⌈B⌉` represents the first  F<sub>i</sub> >= 0.75 point
-
-- min(0.75, F<sub>i</sub>) - max( F<sub>i - 1</sub>, 0.25 ) is the shadow part
-
-- `StandbyValidators` is standby validators
+Neo is an open and transparent blockchain network where anyone can either initiate a transaction to apply for being a validator candidate or vote to decide which validator candidate can become a consensus node. The committee members and validators are elected based on the voting result.
 
 > [!Note]
 >
-> We only consider the middle part in the voting diagram, filter out too large or too small points which may have great impact on the average value.
+> Committee members have the privilege to modify the configuration of Neo network by voting, currently including setting the maximum block size, maximum transactions in a block, fee per byte for network transmission, block / unblock account, etc.
 
-### Consensus Nodes
+There is no duty assigned to candidates. However, committee members and validators are elected from certain number of candidates with most votes. Their relationship can be described in the following picture. There is no explicit relationship between committee members and validators but, as default committee member amount (21) is more than that of validators, generally speaking validators are a subset of committee members. 
 
-In the above steps, we calcuate the number of consensus nodes as `Count`, and take validators from the candiate list ranked by votes in descending order. When candidates is not enough, it will be supplemented from `StandbyValidators`. Finally, the consensus nodes are determined.
+![](../images/consensus/vote_candidate.png)
 
-[![](../images/consensus/calculate_consensus_count_1.jpg)](../images/consensus/calculate_consensus_count_1.jpg)
+每个地址均有投票给另一个地址的权利，候选人票数为所有投票给它的地址的NEO余额之和。这里注意，投给非候选人地址的票数会被统计但不会被计入票数，只有当该地址注册为候选人时投票才会生效。
+
+Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as the voted address becomes a candidate. 
+
+Voting is a dynamic and continuous process. If the NEO asset of a voter is changed, the number of votes at the previous voting address will also change, and the list of consensus nodes and committee members will change accordingly.
 
 > [!Note]
 >

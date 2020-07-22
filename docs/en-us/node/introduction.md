@@ -42,8 +42,8 @@ There are two full-node programs:
 | Deploy contract | ✔   | ✔   |
 | Invoke contract | ✔   | ✔   |
 | **Advanced** |  |  |
-| Consensus nodes election | ✔   |      |
-| Voting | ✔   |      |
+| Register to candidate | ✔   |      |
+| Voting | ✔   | ✔ |
 | Custom transaction construction | ✔   |  |
 | Signature | ✔   | ✔ |
 | Data conversion | ✔   |  |
