@@ -171,9 +171,9 @@
         "version": 0,
         "nonce": 714785378,
         "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-        "sys_fee": "100000000",
-        "net_fee": "2051390",
-        "valid_until_block": 2139412,
+        "sysfee": "100000000",
+        "netfee": "2051390",
+        "validuntilblock": 2139412,
         "attributes": [],
         "cosigners": [
             {

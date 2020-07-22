@@ -25,10 +25,10 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblockhash](api/getblockhash.md)                 | \<index>                     | 根据指定的索引，返回对应区块的散列值           |
 | [getblockheader](api/getblockheader.md)             | \<hash \| index> [verbose=0] | 根据指定的哈希或索引，返回对应的区块头信息     |
 | [getcontractstate](api/getcontractstate.md)         | \<script_hash>               | 根据合约脚本散列，查询合约信息                 |
-| [getrawmempool](api/getrawmempool.md)               | [shouldGetUnverified=0]      | 获取内存中未确认的交易列表                     |
+| [getrawmempool](api/getrawmempool.md)               | [shouldGetUnverified=0]      | 获取内存中已确认的交易列表,如果参数为1，则获取内存中所有的交易列表（包括已确认和未确认交易）                     |
 | [getrawtransaction](api/getrawtransaction.md)       | \<txid> [verbose=0]          | 根据指定的散列值，返回对应的交易信息           |
 | [getstorage](api/getstorage.md)                     | \<script_hash>  \<key>       | 根据合约脚本散列和存储的 key，返回存储的 value |
-| [gettransactionheight](api/gettransactionheight.md) | \<txid>                      | 获取交易高度                                   |
+| [gettransactionheight](api/gettransactionheight.md) | \<txid>                      | 根据交易哈希获取交易所在的区块高度                                   |
 | [getvalidators](api/getvalidators.md)               |                              | 查看当前共识节点的信息                         |
 
 ### 节点
@@ -36,7 +36,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | 方法                                            | 参数   | 说明                                       |
 | ----------------------------------------------- | ------ | ------------------------------------------ |
 | [getconnectioncount](api/getconnectioncount.md) |        | 获取节点当前的连接数                       |
-| [getpeers](api/getpeers.md)                     |        | 获得该节点当前已连接/未连接的节点列表      |
+| [getpeers](api/getpeers.md)                     |        | 获得节点当前已连接/未连接的节点列表      |
 | [getversion](api/getversion.md)                 |        | 获取查询节点的版本信息                     |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex> | 广播交易                                   |
 | [submitblock](api/submitblock.md)               | \<hex> | 提交新的区块<br>**注意**：需要成为共识节点 |

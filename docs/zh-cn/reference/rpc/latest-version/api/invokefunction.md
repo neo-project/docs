@@ -77,7 +77,7 @@
     "result": {
         "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
         "state": "HALT",
-        "gas_consumed": "9413130",
+        "gasconsumed": "9413130",
         "stack": [
             {
                 "type": "Integer",
@@ -102,7 +102,7 @@ SYSCALL System.Contract.Call
 ```
 
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
-- gas_consumed：调用智能合约时消耗的系统手续费。
+- gasconsumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 
 > [!Note]

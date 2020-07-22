@@ -39,7 +39,7 @@ script_hash：合约脚本散列。
             },
             "abi": {
                 "hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-                "entryPoint": {
+                "entrypoint": {
                     "name": "main",
                     "parameters": [
                         {
@@ -51,7 +51,7 @@ script_hash：合约脚本散列。
                             "type": "Array"
                         }
                     ],
-                    "returnType": "ByteArray"
+                    "returntype": "ByteArray"
                 },
                 "methods": [
                     {
@@ -62,37 +62,37 @@ script_hash：合约脚本散列。
                                 "type": "ByteArray"
                             }
                         ],
-                        "returnType": "Integer"
+                        "returntype": "Integer"
                     },
                     {
                         "name": "decimals",
                         "parameters": [],
-                        "returnType": "Integer"
+                        "returntype": "Integer"
                     },
                     {
                         "name": "deploy",
                         "parameters": [],
-                        "returnType": "Boolean"
+                        "returntype": "Boolean"
                     },
                     {
                         "name": "name",
                         "parameters": [],
-                        "returnType": "String"
+                        "returntype": "String"
                     },
                     {
                         "name": "symbol",
                         "parameters": [],
-                        "returnType": "String"
+                        "returntype": "String"
                     },
                     {
                         "name": "supportedStandards",
                         "parameters": [],
-                        "returnType": "Array"
+                        "returntype": "Array"
                     },
                     {
                         "name": "totalSupply",
                         "parameters": [],
-                        "returnType": "Integer"
+                        "returntype": "Integer"
                     }
                 ],
                 "events": [
@@ -112,7 +112,7 @@ script_hash：合约脚本散列。
                                 "type": "Integer"
                             }
                         ],
-                        "returnType": "Signature"
+                        "returntype": "Signature"
                     }
                 ]
             },
@@ -123,7 +123,7 @@ script_hash：合约脚本散列。
                 }
             ],
             "trusts": [],
-            "safeMethods": [],
+            "safemethods": [],
             "extra": null
         }
     }

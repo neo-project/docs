@@ -25,10 +25,10 @@
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "tcpPort": 21333,
-        "wsPort": 21334,
+        "tcpport": 21333,
+        "wsport": 21334,
         "nonce": 1403108496,
-        "userAgent": "/Neo:3.0.0-preview1/"
+        "useragent": "/Neo:3.0.0-preview3/"
     }
 }
 ```

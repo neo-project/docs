@@ -33,7 +33,7 @@ txid：交易ID
         "txid": "0x760dffe5ac809baa81b002864e8d8a7cec90dc6905d38fdc7e9c5fdc70d2cb64",
         "trigger": "Application",
         "vmstate": "HALT",
-        "gas_consumed": "12196370",
+        "gasconsumed": "12196370",
         "stack": [],
         "notifications": [
             {
@@ -66,4 +66,4 @@ txid：交易ID
 ```
 
 响应说明：
-gas_consumed ：该交易消耗的 gas 数量，即交易手续费。
+gasconsumed ：该交易消耗的 gas 数量，即交易手续费。
