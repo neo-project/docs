@@ -27,7 +27,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getblockhash](api/getblockhash.md)      | \<index>                                 | Returns the block hash with the specified index. |
 | [getblockheader](api/getblockheader.md) | \<hash \| index> [verbose=0] | Returns the information of the block header with the specified script hash or index. |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | Returns information of the contract with the specified script hash. |
-| [getrawmempool](api/getrawmempool.md)    | [shouldGetUnverified=0]         | Gets a list of unconfirmed transactions in memory. |
+| [getrawmempool](api/getrawmempool.md)    | [shouldGetUnverified=0]         | Gets a list of confirmed / unconfirmed transactions in memory in memory. |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | Returns the transaction information with the specified hash value. |
 | [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | Returns the value with the contract script hash and the key. |
 | [gettransactionheight](api/gettransactionheight.md) | \<txid> | Returns the block index in which the transaction is found. |

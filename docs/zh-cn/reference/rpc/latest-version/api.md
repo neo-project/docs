@@ -25,7 +25,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getblockhash](api/getblockhash.md)                 | \<index>                     | 根据指定的索引，返回对应区块的散列值           |
 | [getblockheader](api/getblockheader.md)             | \<hash \| index> [verbose=0] | 根据指定的哈希或索引，返回对应的区块头信息     |
 | [getcontractstate](api/getcontractstate.md)         | \<script_hash>               | 根据合约脚本散列，查询合约信息                 |
-| [getrawmempool](api/getrawmempool.md)               | [shouldGetUnverified=0]      | 获取内存中未确认的交易列表                     |
+| [getrawmempool](api/getrawmempool.md)               | [shouldGetUnverified=0]      | 获取内存中已确认与未确认的交易列表             |
 | [getrawtransaction](api/getrawtransaction.md)       | \<txid> [verbose=0]          | 根据指定的散列值，返回对应的交易信息           |
 | [getstorage](api/getstorage.md)                     | \<script_hash>  \<key>       | 根据合约脚本散列和存储的 key，返回存储的 value |
 | [gettransactionheight](api/gettransactionheight.md) | \<txid>                      | 获取交易高度                                   |
