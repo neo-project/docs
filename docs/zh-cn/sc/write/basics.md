@@ -209,12 +209,13 @@ namespace Neo.Compiler.MSIL.UnitTests.TestClasses
     }
 }
 ```
-编译器会在abi中, 标记"Start"的offset, 并在调用合约时, 赋给initialPosition参数, 来调整入口函数
+编译器会在abi中, 标记`First`与`Second` 方法的offset, 并在调用合约时, 赋给initialPosition参数, 来调整入口函数
 在调用时, 会根据abi中记录的offset, 自行找到匹配的方法, 进入并执行.
 
 ### 触发器
 
 智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了三个触发器 `Verification` 触发器, `Application` 触发器 和 `System` 触发器。
+但在大部分的合约开发中, 不会直接涉及触发器判断, 仅需在合约中实现Verify方法, 提供签名验证逻辑.
 
 
 #### Verification 触发器
