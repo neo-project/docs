@@ -11,6 +11,9 @@ using System;
 
 namespace Helloworld
 {
+    [ManifestExtra("Author", "Neo")]
+    [ManifestExtra("Email", "dev@neo.org")]
+    [ManifestExtra("Description", "This is a contract example")]
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
@@ -120,25 +123,15 @@ namespace Domain
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
-        public static object Main(string method, params object[] args)
-        {
-            return method switch
-            {
-                "query" => Query((string)args[0]),
-                "register" => Register((string)args[0], (byte[])args[1]),
-                "delete" => Delete((string)args[0]),
-                _ => false,
-            };
-        }
 
         [DisplayName("query")]
-        private static byte[] Query(string domain)
+        public static byte[] Query(string domain)
         {
             return Storage.Get(Storage.CurrentContext, domain);
         }
 
         [DisplayName("register")]
-        private static bool Register(string domain, byte[] owner)
+        publilc static bool Register(string domain, byte[] owner)
         {
             // 检查合约的调用者是否是合约的所属者
             if (!Runtime.CheckWitness(owner)) return false;
@@ -149,7 +142,7 @@ namespace Domain
         }
 
         [DisplayName("delete")]
-        private static bool Delete(string domain)
+        public static bool Delete(string domain)
         {
             // 待完成的其他代码
         }
@@ -199,95 +192,45 @@ public class Contract1 : SmartContract
 - `[Features(ContractFeatures.Payable)]`：合约可以接收资产（NEO、GAS、NEP-5资产等）
 - `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`：同时包括上述两种功能。
 
-### Main 方法
+### 合约入口函数
 
-理论上来说，智能合约可以有任意的入口函数，但是我们建议使用main函数作为智能合约的入口点，从而能够能更容易地进行方法调用。在main函数中，用户可以根据不同的入口点调用其他的函数。通常在main方法中，开发人员必须处理 `触发器` 逻辑。
+理论上来说，智能合约可以有任意的入口函数，例如:
+```c#
+using Neo.SmartContract.Framework;
+
+namespace Neo.Compiler.MSIL.UnitTests.TestClasses
+{
+    class Contract_a : SmartContract.Framework.SmartContract
+    {
+        public static object First(string method, object[] args)
+        {
+            return 'a';
+        }
+        public static object Second(string method, object[] args)
+        {
+            return 'b';
+        }
+    }
+}
+```
+编译器会在abi中, 标记"Start"的offset, 并在调用合约时, 赋给initialPosition参数, 来调整入口函数
+在调用时, 会根据abi中记录的offset, 自行找到匹配的方法, 进入并执行.
 
 ### 触发器
 
-智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了两个触发器 `Verification` 触发器和 `Application` 触发器。
+智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了三个触发器 `Verification` 触发器, `Application` 触发器 和 `System` 触发器。
+
 
 #### Verification 触发器
 
-Verification触发器作为验证函数来调用合约，该函数可以接受多个参数，并且返回一个有效的布尔值，从而表明交易或区块的有效性。
-
-当将资产从账户A转移到账户B时，会触发Verification合约。所有接收到交易的节点(包括普通节点和异常的共识节点) 会对账户A的合约进行验证。如果返回值为true，则表示转账交易已经成功。如果返回false，则表示转账失败。
-
-因此，Verification触发器可以用来判断是否需要将交易转发到网络的其余部分。如果返回 `false` ，则意味着交易不会记录在区块链中，并且交易失败。
+当合约地址被包含在交易签名中时, 合约需要实现函数Verify.
+用来提供在验证签名时, 需要执行的具体逻辑
 
 ```c#
-public static bool Main(byte[] signature)
-{
-    if (Runtime.Trigger == TriggerType.Verification)
-    {
-        if (/*condition A*/)
-                return true;
-            else
-                return false;
-    }  
-}
-```
-
-#### Application 触发器
-
-Application触发器作为验证函数来调用合约, 该函数可以接受多个参数、更改区块链状态并返回任何类型的值。
-
-与由转账交易触发的 Verification 触发器不同，Application触发器是由特殊交易`InvocationTransaction` 触发的。如果应用程序(Web/App)调用一个智能合约，就会构造一个 `InvocationTransaction` ，然后在procaAn应用程序触发器中进行签名和广播，将合约作为验证函数调用。在 `InvocationTransaction` 交易被确认后，共识节点就会执行智能合约。公共节点在转发交易时不会执行智能合约。
-
-由于应用程序合约是在 `InvocationTransaction` 被确认后执行的，所以无论应用程序合约的执行是否成功，该交易都将记录在区块链中。
-
-InvocationTransaction 的成功与否和智能合约执行的成功或失败没有必然联系。
-
-通常在智能合约中， verification 触发器和 application 触发器都是可以捕获到的，开发人员必须对这些触发器进行处理。
-
-```c#
-public static Object Main(string operation, params object[] args)
-{
-    if (Runtime.Trigger == TriggerType.Verification)
-    {
-        if (/*Condition A*/)
-                return true;
-            else
-                return false;
-    }  
-    if (Runtime.Trigger == TriggerType.Application)
-    {
-        if (operation == "FunctionA") return FunctionA(args);
-    }  
-}
-
-// 有一个智能合约的入口点，并从Main方法中重定向
-public static bool FunctionA(params object[] args)
-{
-    // 其他代码  
-}
-```
-
-在我们的 `DNS智能合约` 中，第一个方法是 `Main` 方法，它是智能合约的主要入口点。Main 方法将第一个参数解析为操作参数，剩下的为其他参数。
-
-```c#
-public static object Main(string method, params object[] args)
-{
-    return method switch
-    {
-        "query" => Query((string)args[0]),
-        "register" => Register((string)args[0], (byte[])args[1]),
-        "transfer" => Transfer((string)args[0], (byte[])args[1]),
-        "delete" => Delete((string)args[0]),
-        _ => false,
-    };
-}
-```
-
-在 Main 方法中，我们首先使用触发器来判断用户是否使用 `invocationTransaction` 来调用智能合约，这个交易表示用户在调用智能合约程序。这里，由于它是一个没有资产转账的普通类型的智能合约，因此只考虑Application触发器。在判断语句中，方法将根据操作类型重定向至其他函数。
-
-现在我们可以看看每个具体的函数中执行了什么操作。第一个是 Query 方法，它用来查询域名地址的所属者。这里我们使用 `Storage.Get` 方法，第一个参数是 context，这里我们传入 CurrentContext。第二个参数是存储的键值对的键。这里我们使用域名作为参数。
-
-```c#
-private static byte[] Query(string domain)
-{
-    return Storage.Get(Storage.CurrentContext, domain);
-}
+        public static bool Verify()
+        {
+            return Runtime.CheckWitness(Owner);
+        }
 ```
 
 ### CheckWitness
@@ -325,3 +268,46 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ### Assignment
 
 在上面的 `DNS` 智能合约中，有一个 `delete` 方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 `Storage.Delete` 方法来删除相应的键值对。
+
+### Json序列化
+
+在智能合约中, 新添加了Json正/反序列化功能, 可以用来处理类型的存储与发送. 合约示例如下:
+```c#
+using Neo.SmartContract.Framework.Services.Neo;
+
+namespace Neo.Compiler.MSIL.TestClasses
+{
+    public class Contract_Json : SmartContract.Framework.SmartContract
+    {
+        public static string Serialize(object obj)
+        {
+            return Json.Serialize(obj);
+        }
+
+        public static object Deserialize(string json)
+        {
+            return Json.Deserialize(json);
+        }
+    }
+}
+```
+
+### 支持指针
+```c#
+namespace Neo.Compiler.MSIL.TestClasses
+{
+    public class Contract_Pointers : SmartContract.Framework.SmartContract
+    {
+        public static object CreateFuncPointer()
+        {
+            return new Func<int>(MyMethod);
+        }
+
+        public static int MyMethod()
+        {
+            return 123;
+        }
+    }
+}
+```
+在示例代码中, 可以通过调用`CreateFuncPointer` 获取 `MyMethod` 方法的指针
