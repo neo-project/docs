@@ -40,7 +40,7 @@ Response body:
             },
             "abi": {
                 "hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-                "entryPoint": {
+                "entrypoint": {
                     "name": "main",
                     "parameters": [
                         {
@@ -52,7 +52,7 @@ Response body:
                             "type": "Array"
                         }
                     ],
-                    "returnType": "ByteArray"
+                    "returntype": "ByteArray"
                 },
                 "methods": [
                     {
@@ -63,37 +63,37 @@ Response body:
                                 "type": "ByteArray"
                             }
                         ],
-                        "returnType": "Integer"
+                        "returntype": "Integer"
                     },
                     {
                         "name": "decimals",
                         "parameters": [],
-                        "returnType": "Integer"
+                        "returntype": "Integer"
                     },
                     {
                         "name": "deploy",
                         "parameters": [],
-                        "returnType": "Boolean"
+                        "returntype": "Boolean"
                     },
                     {
                         "name": "name",
                         "parameters": [],
-                        "returnType": "String"
+                        "returntype": "String"
                     },
                     {
                         "name": "symbol",
                         "parameters": [],
-                        "returnType": "String"
+                        "returntype": "String"
                     },
                     {
                         "name": "supportedStandards",
                         "parameters": [],
-                        "returnType": "Array"
+                        "returntype": "Array"
                     },
                     {
                         "name": "totalSupply",
                         "parameters": [],
-                        "returnType": "Integer"
+                        "returntype": "Integer"
                     }
                 ],
                 "events": [
@@ -113,7 +113,7 @@ Response body:
                                 "type": "Integer"
                             }
                         ],
-                        "returnType": "Signature"
+                        "returntype": "Signature"
                     }
                 ]
             },
@@ -124,7 +124,7 @@ Response body:
                 }
             ],
             "trusts": [],
-            "safeMethods": [],
+            "safemethods": [],
             "extra": null
         }
     }

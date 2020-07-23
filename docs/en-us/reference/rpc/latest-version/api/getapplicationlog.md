@@ -33,7 +33,7 @@ Response body：
         "txid": "0x760dffe5ac809baa81b002864e8d8a7cec90dc6905d38fdc7e9c5fdc70d2cb64",
         "trigger": "Application",
         "vmstate": "HALT",
-        "gas_consumed": "12196370",
+        "gasconsumed": "12196370",
         "stack": [],
         "notifications": [
             {
@@ -66,5 +66,5 @@ Response body：
 ```
 
 Response description：
-gas_consumed: The transaction fee, which means the gas consumed in the transaction execution. 
+gasconsumed: The transaction fee, which means the gas consumed in the transaction execution. 
 

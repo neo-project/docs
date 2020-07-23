@@ -34,7 +34,7 @@ Response body:
     "result": {
         "script": "0c142bf173f849d1d59123d097c009aa31624d39e73911c00c0962616c616e63654f660c14897720d8cd76f4f00abfa37c0edd889c208fde9b41627d5b52",
         "state": "HALT",
-        "gas_consumed": "2007570",
+        "gasconsumed": "2007570",
         "stack": [
             {
                 "type": "Integer",

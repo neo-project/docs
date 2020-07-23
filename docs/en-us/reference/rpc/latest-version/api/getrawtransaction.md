@@ -62,9 +62,10 @@ Response body:
         "version": 0,
         "nonce": 873509762,
         "sender": "NPJRHLjDm4r1wd8wHBGFRWqzsneFX9tBch",
-        "sys_fee": "100000000",
-        "net_fee": "1272390",
-        "valid_until_block": 2156387,
+        "sysfee": "100000000",
+        "netfee": "1272390",
+        "validuntilblock": 2156387,
+        "signers": [],
         "attributes": [],
         "cosigners": [
             {
@@ -82,7 +83,7 @@ Response body:
         "blockhash": "0xbd96fddf3c19381671f96de6b9e7779b7aef9972b87f5cff8412f4fbd64a9d47",
         "confirmations": 30,
         "blocktime": 1579168140997,
-        "vmState": "HALT"
+        "vmstate": "HALT"
     }
 }
 ```

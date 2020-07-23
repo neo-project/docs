@@ -119,9 +119,9 @@ Response body:
         "version": 0,
         "nonce": 1247163501,
         "sender": "ARfyrX28D2H2wP6KR6xxaUbvqvkv5SbMNe",
-        "sys_fee": "100000000",
-        "net_fee": "1433240",
-        "valid_until_block": 2403778,
+        "sysfee": "100000000",
+        "netfee": "1433240",
+        "validuntilblock": 2403778,
         "attributes": [],
         "cosigners": [
             {

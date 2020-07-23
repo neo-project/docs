@@ -18,7 +18,7 @@ Invokes a smart contract with its scripthash based on the specified operation an
   > [!Note]
 >
   > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-  
+
 * checkWitnessHashes: list of contract signature accounts
 
   For example:
@@ -77,7 +77,7 @@ Response body:
     "result": {
         "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
         "state": "HALT",
-        "gas_consumed": "9413130",
+        "gasconsumed": "9413130",
         "stack": [
             {
                 "type": "Integer",
@@ -103,7 +103,7 @@ Response description:
 
 - state:  `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
 
-- gas_consumed: the system fee consumed for invocation.
+- gasconsumed: the system fee consumed for invocation.
 
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
