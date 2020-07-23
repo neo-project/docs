@@ -87,20 +87,16 @@ return contract.Get("totalSupply").AsBigInteger();
 
 NeoVM提供了以下的基本类型:
 
-- `ByteArray`
-- `Integer`
+- `Pointer`
 - `Boolean`
+- `Integer`
+- `ByteString`
+- `Buffer`
 - `Array`
 - `Struct`
 - `Map`
-- `Interface`
+- `InteropInterface`
 
-AVM代码可直接生成的基本类型只有:
-
-- `ByteArray`（ByteArray 可用来表示Integer和 Boolean两种基本类型）
-- `Array`
-- `Struct`
-- `Map`
 
 C#的基本类型是:
 
