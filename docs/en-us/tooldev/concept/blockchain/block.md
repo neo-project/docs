@@ -35,7 +35,7 @@ Block `hash` and `index` can be used to identify a block. The hash value is obta
 ### Block Body
 The block body is a transaction list. In one round of consensus activity, the Speaker selects all the transactions in the memory pool, sort and filter by plugin, package them into a new proposal block. For more details about consensus, please read "Consensus Mechanism" section.
 
-At present, there can be up to 512 transactions per block and 20 free transactions among them.
+At present, there can be up to 512 transactions per block.
 
 > [!NOTE]
 >

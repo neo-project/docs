@@ -9,7 +9,8 @@ You can find the SeedList in `protcol.json`, under the neo-cli directory.
   "ProtocolConfiguration": {
     "Magic": ...,
     "MillisecondsPerBlock": ...,
-    "StandbyValidators": [
+    "ValidatorsCount":...,
+    "StandbyCommittee": [
       ...
     ],
     "SeedList": [

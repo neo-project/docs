@@ -11,11 +11,10 @@ On Neo blockchain all transactions are of one type, which data structure is as f
 | `version`    | byte   | Transaction version, currently 0            |
 | `nonce`    | uint   | Random number      |
 | `validUntilBlock`    | uint   |  Transaction validity period  |
-| `sender`    | UInt160   | Script hash of the sender's address |
+| `signers`         | Signer[] | Sender and the effective scope of signature |
 | `sysfee`    | long   | System fee paid for network resource |
 | `netfee`    | long   | Network fee paid for the validator packaging transactions |
 | `attributes` | TransactionAttribute[]   | Transaction attributes                                    |
-| `cosigners` | Cosigner[]   | Limits the scope of signature |
 | `script`     | byte[]   | Script hash of the transaction contract |
 | `witnesses`  | Witness[]   | List of scripts used to validate the transaction    |
 
@@ -23,9 +22,32 @@ On Neo blockchain all transactions are of one type, which data structure is as f
 
 The version allows the transaction structure to be updated to make it backward compatible. The current version is 0.
 
-### sender
+### signers
 
-Since Neo3 deprecated the UTXO model and the native assets NEO and GAS turned into NEP-5 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. This field is the address hash of the transaction initiating account in the wallet.
+The first field is the script hash of the transaction sender account. Since UTXO model has been deprecated in Neo3 and the native assets NEO and GAS turned into NEP-5 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. 
+
+The rest fields are used to define the effective scope of signature. The current transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo3, so that the signature can be used only for verifying the specified contract. 
+
+When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature.
+
+| Field              | Description                                      | Type           |
+| ------------------ | ------------------------------------------------ | -------------- |
+| `Account`          | Script hash of the account                       | `UInt160`      |
+| `Scopes`           | Effective range of the signature                 | `WitnessScope` |
+| `AllowedContracts` | Signs array of the allowed contract scripts      | `UInt160[]`    |
+| `AllowedGroups`    | Signs public keys of the allowed contract groups | `ECPoint[]`    |
+
+#### Scopes
+
+Scopes defines the effective range of the signature, including these types:
+
+| Field  | Name              | Description                                                  | Type   |
+| ------ | ----------------- | ------------------------------------------------------------ | ------ |
+| `0x00` | `FeeOnly`         | The signature is used to mark the transaction sender         | `byte` |
+| `0x01` | `CalledByEntry`   | The signature is only effective to the contract script called by Entry | `byte` |
+| `0x10` | `CustomContracts` | The signature is only effective to the specified contract script | `byte` |
+| `0x20` | `CustomGroups`    | The signature is effective to contracts in the group.        | `byte` |
+| `0x80` | `Global`          | The signature is globally effective. It is the default value of Neo2 and is backward compatible. | `byte` |
 
 ### sysfee
 
@@ -47,44 +69,7 @@ where *VerificationCost* is the fee for instructions executed by NeoVM to verify
 
 Additional attributes are allowed to be added to transactions of specific types. You need to define the usage type, internal and external data size for each attribute.
 
-| Size | Field | Description |
-| ------- | ------ | -------------- |
-| `usage` | uint8  | Usage type |
-| `data`  | byte[] | Transaction script to be verified |
-
-#### usage
-
-The following usage type can be included in the transaction attributes.
-
-| Value  | Name | Description                                  | Type   |
-| ------ | ---- | -------------------------------------------- | ------ |
-| `0x81` | `Url | Address of external introduction information | `byte` |
-
-Up to 16 attributes can be added to each transaction.
-
-### cosigners
-
-The current transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo3, so that the signature can be used only for verifying the specified contract. 
-
-When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature.
-
-| Field              | Description                                      | Type           |
-| ------------------ | ------------------------------------------------ | -------------- |
-| `Account`          | Script hash of the account                       | `UInt160`      |
-| `Scopes`           | Effective range of the signature                 | `WitnessScope` |
-| `AllowedContracts` | Signs array of the allowed contract scripts      | `UInt160[]`    |
-| `AllowedGroups`    | Signs public keys of the allowed contract groups | `ECPoint[]`    |
-
-#### Scopes
-
-Scopes defines the effective range of the signature, including these types:
-
-| Field  | Name              | Description                                                  | Type   |
-| ------ | ----------------- | ------------------------------------------------------------ | ------ |
-| `0x00` | `Global`          | The signature is globally effective. It is the default value of Neo2 and is backward compatible. | `byte` |
-| `0x01` | `CalledByEntry`   | The signature is only effective to the contract script called by Entry | `byte` |
-| `0x10` | `CustomContracts` | The signature is only effective to the specified contract script | `byte` |
-| `0x20` | `CustomGroups`    | The signature is effective to contracts in the group.        | `byte` |
+Up to 16 attributes can be added to one transaction.
 
 
 ### script
@@ -112,7 +97,7 @@ By repeating this step, the invocation script can push multiple signatures for t
 
 #### VerificationScript
 
-Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](../wallets#address).
+Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](../wallets.md#address).
 
 It can also be used as a custom authentication contract script.
 
@@ -124,12 +109,11 @@ In Neo all variable-length integer types except IP addresses and port numbers ar
 | ----------------- | ------------------------------------------------------------ |
 | `version`         | -                                                            |
 | `nonce`           | -                                                            |
-| `sender`          | -                                                            |
 | `systemFee`       | -                                                            |
 | `networkFee`      | -                                                            |
 | `validUntilBlock` | -                                                            |
+| `signers`         | Need to serializes `WriteVarInt(length) `first and then other elements of the array |
 | `attributes`      | Need to serializes `WriteVarInt(length)` first and then other elements of the array |
-| `cosigners`       | Need to serializes `WriteVarInt(length) `first and then other elements of the array |
 | `script`          | Need to serializes `WriteVarInt(length) `first and then the byte array |
 | `witnesses`       | Need to serializes `WriteVarInt(length) `first and then other elements of the array |
 
@@ -153,27 +137,28 @@ Here is an example of a transaction data structure, where the script and witness
 
 ```Json
 {
-  "hash": "0x2b03f7a8db3649c9e2cb6d429dd358819b3fd536825d2a698e19de237583e60a",
-  "size": 57,
+  "hash": "0xd2b24b57ea05821766877241a51e17eae06ed66a6c72adb5727f8ba701d995be",
+  "size": 265,
   "version": 0,
-  "nonce": 0,
-  "sender": "Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt",
-  "sys_fee": "0",
-  "net_fee": "0",
-  "valid_until_block": 0,
+  "nonce": 739807055,
+  "sender": "NMDf1XCbioM7ZrPZAdQKQt8nnx3fWr1wdr",
+  "sys_fee": "9007810",
+  "net_fee": "1264390",
+  "valid_until_block": 2102402,
+  "signers": [{
+    "account": "0xdf93ea5a0283c01e8cdfae891ff700faad70500e",
+    "scopes": "FeeOnly"
+  },
+  {
+    "account": "0xdf93ea5a0283c01e8cdfae891ff700faad70500e",
+    "scopes": "CalledByEntry"
+  }],
   "attributes": [],
-  "cosigners": [],
-  "script": "aBI+f+g=",
-  "witnesses": [
-    {
-      "invocation": "",
-      "verification": "UQ=="
-    }
-  ],
-  "blockhash": "0x7d581e115ebe1c512eef985fd52d75336acb77826dafacc3281399a0e6204958",
-  "confirmations": 1,
-  "blocktime": 1468595301000,
-  "vmState": "HALT"
+  "script": "EQwUDlBwrfoA9x\u002BJrt\u002BMHsCDAlrqk98MFA5QcK36APcfia7fjB7AgwJa6pPfE8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSOA==",
+  "witnesses": [{
+    "invocation": "DEDy/g4Lt\u002BFTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE\u002B\u002B6f6XoZeaEoUPeH",
+    "verification": "DCECCJr46zTvjDE0jA5v5jrry4Wi8Wm7Agjf6zGH/7/1EVELQQqQatQ="
+  }]
 }
 ```
 
