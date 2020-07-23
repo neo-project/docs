@@ -52,7 +52,7 @@ NEO3中所有交易都为合约的调用，当一笔交易被广播和确认后�
 
 验证触发器的目的在于将该合约作为验证函数进行调用，验证函数可以接受多个参数，并且应返回有效的布尔值，标志着交易或区块的有效性。
 
-当你想从 A 账户向 B 账户进行转账时，会触发验证合约，所有收到这笔交易的节点（包括普通节点和共识节点）都会验证 A 账户的合约，如果返回值为 true，即转账成功。如果返回 false，即转账失败。
+当你想从 A 账户向 B 账户进行转账时，会触发验证合约,调用合约的Verify方法，所有收到这笔交易的节点（包括普通节点和共识节点）都会验证 A 账户的合约，如果返回值为 true，即转账成功。如果返回 false，即转账失败。
 
 如果鉴权合约执行失败，这笔交易将不会被写入区块链中。
 
@@ -61,15 +61,9 @@ NEO3中所有交易都为合约的调用，当一笔交易被广播和确认后�
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static bool Main(byte[] signature)
+        public static bool Verify()
         {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                if (/*条件A*/)
-                        return true;
-                    else
-                        return false;
-            }  
+            return Runtime.CheckWitness(Owner);
         }
     }
 ```
