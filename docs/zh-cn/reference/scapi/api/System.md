@@ -6,8 +6,8 @@
 
 | API                           | 说明                              |
 |--|--|
-| System.Binary.Serialize| 将栈元素序列化为字节数组     |
-| System.Binary.Deserialize | 将字节数组反序列化为栈元素             |
+| System.Binary.Base64Decode| 将栈元素解码为字节数组     |
+| System.Binary.Base64Encode | 将字节数组编码位Base64字符串             |
 
 **BlockChain API**:
 
@@ -64,14 +64,9 @@
 |System.Runtime.Platform|获取当前执行智能合约的平台信息|
 |System.Runtime.GetTrigger|获取该智能合约的触发条件|
 |System.Runtime.GetTime|获取当前区块的时间戳|
-|System.Runtime.GetScriptContainer|获取合约脚本容器|
-|System.Runtime.GetExecutingScriptHash|获得该智能合约执行的脚本哈希|
-|System.Runtime.GetCallingScriptHash|获得该智能合约的调用者的脚本哈希|
-|System.Runtime.GetEntryScriptHash|获得该智能合约的入口点（合约调用链的起点）的脚本哈希|
 |System.Runtime.CheckWitness|验证调用该合约的容器是否被指定账户脚本哈希签名|
 |System.Runtime.GetInvocationCounter|获取当前合约的调用次数|
 |System.Runtime.Log|记录合约日志信息|
-|System.Runtime.Notify|向执行智能合约的程序发送通知|
 |System.Runtime.GetNotifications|获取某合约执行的所有通知|
 |System.Runtime.GasLeft|获取剩余未消耗的GAS数|
 

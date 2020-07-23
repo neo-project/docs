@@ -31,6 +31,8 @@ public class Contract
 | [Create(byte\[\] script, string manifest)](Contract/Create.md)      | 新建智能合约 |
 | [Update(byte\[\] script, string manifest)](Contract/Update.md)       | 更新智能合约 |
 | [Destroy()](Contract/Destroy.md)         | 销毁智能合约 |
+| [GetCallFlags()](Contract/GetCallFlags.md)         | 获取调用标志 |
+| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | 根据公钥创建标准账户 |
 
 ## 构造方法
 
