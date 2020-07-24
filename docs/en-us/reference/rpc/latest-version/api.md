@@ -41,14 +41,14 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getpeers](api/getpeers.md)              |                                          | Gets a list of nodes that are currently connected/disconnected by this node. |
 | [getversion](api/getversion.md)          |                                          | Gets the version information of the node. |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex> | Broadcasts a transaction over the network. |
-| [submitblock](api/submitblock.md) | \<hex> | Submits a new block to the network.<br/>**Note**：Need to be a validator |
+| [submitblock](api/submitblock.md) | \<hex> | Submits a new block to the network.<br/>**Note**: Need to be a validator |
 
 ### Smart Contract
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<checkWitnessHashes> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
-| [invokescript](api/invokescript.md) | \<script> \<checkWitnessHashes> | Runs a script through the virtual machine and returns the results. |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
+| [invokescript](api/invokescript.md) | \<script> \<signers> | Runs a script through the virtual machine and returns the results. |
 | [getunclaimedgas](api/getunclaimedgas.md) | \<address> | Get unclaimed gas of the specified address. |
 
 ### Tool
