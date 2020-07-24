@@ -18,7 +18,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
-  "params": ["0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc"],
+  "params": ["0x27c229e71e2e7b4aa8062f695586e4243ae60a49"],
   "id": 1
 }
 ```
