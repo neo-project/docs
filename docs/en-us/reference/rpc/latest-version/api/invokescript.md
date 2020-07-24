@@ -9,7 +9,7 @@ Returns the result after passing a script through the VM.
 
 ### Parameter Description
 
-- script: A script runnable in the VM. This is the same script that is carried in InvocationTransaction
+- script: A script runnable in the VM. This is the same script that is returned in invokefunction
 - signers: list of contract signature accounts
   * account: signature account
   * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
@@ -62,11 +62,8 @@ Response body:
 
 - state:  `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
 
-
 - gasconsumed: the system fee consumed for invocation.	- gasconsumed: the system fee consumed for invocation.
 
-
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
-
 
 - tx: the transaction's hex string of this invocation, need open wallet and added signers correctly.
