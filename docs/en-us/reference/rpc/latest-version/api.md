@@ -39,7 +39,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getnep5balances](api/getnep5balances.md) | \<address> | Returns the balance of all NEP-5 assets in the specified address. | |
 | [getnep5transfers](api/getnep5transfers.md) | \<address> | Returns all the NEP-5 transaction information occurred in the specified address. | |
 | [getnewaddress](api/getnewaddress.md)           |                                             | Creates a new address                                        | Need to open the wallet      |
-| [getrawmempool](api/getrawmempool.md)           |                                             | Gets a list of unconfirmed transactions in memory            |                              |
+| [getrawmempool](api/getrawmempool.md)           |                                             | Gets a list of confirmed / unconfirmed transactions in memory. |                              |
 | [getrawtransaction](api/getrawtransaction.md)   | \<txid> [verbose=0]                         | Returns the corresponding transaction information based on the specified hash value |                              |
 | [getunclaimed](api/getunclaimed.md) | \<address> | Returns unclaimed GAS amount of the specified address. | |
 | [getunclaimedgas](api/getunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. | Need to open the wallet |

@@ -1,8 +1,10 @@
 # getrawmempool Method
 
-Obtains the list of unconfirmed transactions in memory.
+Obtains a list of confirmed / unconfirmed transactions in memory.
 
-#### Example
+#### Examples
+
+##### Example 1 - Get verified transactions
 
 Request body:
 
@@ -29,4 +31,39 @@ Response body:
 }
 ```
 
-These are the unconfirmed transactions received by nodes, i.e. transactions with zero confirmations.
+These are the confirmed transactions received by nodes.
+
+##### Example 2 - Get verified and unverified transactions
+
+Request body:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getrawmempool",
+  "params": [true],
+  "id": 1
+}
+```
+
+Response body:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "height": 5896416,
+    "verified": [
+      "0xb8115f90ce5ac2462807480cdbfdd027777dfe1e9759440c4dd474cc6b711ad1",
+      "0xd92cd0cdf20249141db91bf1ffdef538fa36e46140fe6caa319581682025c687"
+      ],
+    "unverified": [
+      "0xfffc3a0f014833110fc23cfa05873b04a07922e812402eeabd0a412185f3b2b4",
+      "0xfffc9c3c6f7e82df32042cdd24a2eaedf66e3fbb927eb7245fb9a441729b4f07"
+      ]
+    }
+}    
+```
+
+These are the unconfirmed and confirmed transactions received by nodes.
