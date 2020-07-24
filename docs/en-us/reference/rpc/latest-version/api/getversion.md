@@ -29,7 +29,7 @@ Response body:
         "tcpport": 12333,
         "wsport": 12334,
         "nonce": 1403108496,
-        "useragent": "/Neo:3.0.0-preview1/"
+        "useragent": "/Neo:3.0.0-preview3/"
     }
 }
 ```
