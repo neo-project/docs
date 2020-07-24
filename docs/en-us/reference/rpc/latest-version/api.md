@@ -27,10 +27,10 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getblockhash](api/getblockhash.md)      | \<index>                                 | Returns the block hash with the specified index. |
 | [getblockheader](api/getblockheader.md) | \<hash \| index> [verbose=0] | Returns the information of the block header with the specified script hash or index. |
 | [getcontractstate](api/getcontractstate.md) | \<script_hash>                           | Returns information of the contract with the specified script hash. |
-| [getrawmempool](api/getrawmempool.md)    | [shouldGetUnverified=0]         | Gets a list of unconfirmed transactions in memory. |
+| [getrawmempool](api/getrawmempool.md)    | [shouldGetUnverified=0]         | Gets a list of unconfirmed or confirmed transactions in memory. |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | Returns the transaction information with the specified hash value. |
 | [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | Returns the value with the contract script hash and the key. |
-| [gettransactionheight](api/gettransactionheight.md) | \<txid> | Returns the block index in which the transaction is found. |
+| [gettransactionheight](api/gettransactionheight.md) | \<txid> | Returns the transaction height with the specified transaction hash. |
 | [getvalidators](api/getvalidators.md) | | Gets the information about the validators. |
 
 ### Node
@@ -41,14 +41,15 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getpeers](api/getpeers.md)              |                                          | Gets a list of nodes that are currently connected/disconnected by this node. |
 | [getversion](api/getversion.md)          |                                          | Gets the version information of the node. |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex> | Broadcasts a transaction over the network. |
-| [submitblock](api/submitblock.md) | \<hex> | Submits a new block to the network.<br/>**Note**：Need to be a validator |
+| [submitblock](api/submitblock.md) | \<hex> | Submits a new block to the network.<br/>**Note**: Need to be a validator |
 
 ### Smart Contract
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<checkWitnessHashes> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
-| [invokescript](api/invokescript.md) | \<script> \<checkWitnessHashes> | Runs a script through the virtual machine and returns the results. |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
+| [invokescript](api/invokescript.md) | \<script> \<signers> | Runs a script through the virtual machine and returns the results. |
+| [getunclaimedgas](api/getunclaimedgas.md) | \<address> | Get unclaimed gas of the specified address. |
 
 ### Tool
 

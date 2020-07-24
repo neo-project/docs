@@ -72,7 +72,7 @@ verbose = 1，返回 JSON 格式的结果。
                 "verification": "EQwhAh4VY6oypRkf9xmOjCjvAqjGszrs8yb1syxqYgE41CAbEQtBMHOzuw=="
             }
         ],
-        "consensus_data": {
+        "consensusdata": {
             "primary": 0,
             "nonce": "46701c52aeb46bf8"
         },
@@ -140,7 +140,7 @@ verbose = 1，返回 JSON 格式的结果。
                 "verification": "EQwhAh4VY6oypRkf9xmOjCjvAqjGszrs8yb1syxqYgE41CAbEQtBMHOzuw=="
             }
         ],
-        "consensus_data": {
+        "consensusdata": {
             "primary": 0,
             "nonce": "46701c52aeb46bf8"
         },

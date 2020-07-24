@@ -1,6 +1,6 @@
 ﻿# gettransactionheight method
 
-Returns the block index in which the transaction is found.
+Returns the transaction height with the specified transaction hash.
 
 > [!Note]
 >

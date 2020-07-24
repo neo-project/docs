@@ -18,8 +18,13 @@ Invokes a smart contract with its scripthash based on the specified operation an
   > [!Note]
 >
   > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+
+* signers: list of contract signature accounts
+  * account: signature account
+  * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
+  * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
+  * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
-* checkWitnessHashes: list of contract signature accounts
 
   For example:
 
@@ -47,23 +52,30 @@ Request body:
   "id": 1,
   "method": "invokefunction",
   "params": [
-    "0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0",
+    "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
     "transfer",
     [
       {
-        "type": "Hash160",
-        "value": "0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"
-      },
+        "type":"Hash160",
+        "value":"0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+        },
       {
-        "type": "Hash160",
-        "value": "0x2916eba24e652fa006f3e5eb8f9892d2c3b00399"
-      },
+        "type":"Hash160",
+        "value":"0x1f177332c467db9ba734d3ca85645fbadd7e13e3"
+        },
       {
-        "type": "Integer",
-        "value": "1000"
-      }
+        "type":"Integer",
+        "value":"8"
+        }        
     ],
-    ["0xcadb3dc2faa3ef14a13b619c9a43124755aa2569"]
+    [
+        {
+          "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
+          "scopes": "CalledByEntry",
+          "allowedcontracts":["0xde5f57d430d3dece511cf975a8d37848cb9e0525","0x1f177332c467db9ba734d3ca85645fbadd7e13e3"],
+          "allowedgroups":["0222d8515184c7d62ffa99b829aeb4938c4704ecb0dd7e340e842e9df121826343"]
+        }
+    ]
   ]
 }
 ```
@@ -75,15 +87,16 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "1a0c149903b0c3d292988febe5f306a02f654ea2eb16290c146925aa554712439a9c613ba114efa3fac23ddbca13c00c087472616e736665720c14b0a9d4b90dd57f0a1b1e2ec4d6463bdba07f6b8041627d5b52",
+        "script": "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
         "state": "HALT",
-        "gas_consumed": "9413130",
+        "gasconsumed": "9007960",
         "stack": [
             {
-                "type": "Integer",
-                "value": "1"
+                "type": "Boolean",
+                "value": true
             }
-        ]
+        ],
+        "tx": null
     }
 }
 ```
@@ -103,11 +116,12 @@ Response description:
 
 - state:  `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
 
-- gas_consumed: the system fee consumed for invocation.
+- gasconsumed: the system fee consumed for invocation.
 
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
+- tx: the transaction's hex string of this invocation, need open wallet and added signers correctly.
 > [!Note]
 >
-> After entering the `invokefunction` command,  the node invokes the `main` method of the contract rather than directly invokes the `operation` method, and pass `operation` and `params` as arguments. If `operation` and `params` are not processed in the `main` method, the expected result cannot be returned.
+> After entering the `invokefunction` command,  the node invokes the `operation` method, and pass `params` as arguments. If `operation` and `params` are not processed in the contract, the expected result cannot be returned.
 

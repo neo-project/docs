@@ -26,10 +26,10 @@ Response body:
     "jsonrpc": "2.0",
     "id": "3",
     "result": {
-        "tcpPort": 12333,
-        "wsPort": 12334,
+        "tcpport": 12333,
+        "wsport": 12334,
         "nonce": 1403108496,
-        "userAgent": "/Neo:3.0.0-preview1/"
+        "useragent": "/Neo:3.0.0-preview3/"
     }
 }
 ```
