@@ -6,16 +6,19 @@ NeoVM has following built-in data types:
 
 | Type | Description |
 |------|------|
-| Any | Null Type                                                                                    |
-| Pointer | Implemented as a context script `Script` and a instruction position `Position`                                                                        |
+| Array | Implemented as a `List<StackItem>`, the `StackItem` is an abstract class, and all the built-in data types are inherited from it. |
 | Boolean |  Implemented as two byte arrays, `TRUE` and `FALSE`.  |
+| Buffer        | Readonly byte array, implemented as a buffer array `byte[]`  |
+| ByteString        | Readonly byte array, implemented as a `ReadOnlyMemory<byte>` |
 | Integer | Implemented as a `BigInteger` value.  |
-| ByteString        | Readonly byte array, implemented as a `byte[]`                                                                   |
-| Buffer        | Readonly byte array, implemented as a buffer array `byte[]`                                                                    |
-| Array |  Implemented as a `List<StackItem>`, the `StackItem` is an abstract class, and all the built-in data types are inherited from it. |
-| Struct |  Inherited from Array, a `Clone` method is added and `Equals` method is overridden. |
+| InteropInterface | Interoperable interface |
 | Map | Implemented as a key-value pair `Dictionary<StackItem, StackItem>`.  |
-| InteropInterface |  Interoperable interface |
+| Null | Null type |
+| Pointer    | Implemented as a context `Script` and an instruction `Position` |
+| Struct |  Inherited from Array, a `Clone` method is added and `Equals` method is overridden. |
+
+- `CompoundType` : Compound type, which includes  `Array`, `Map` and `Struct`。
+- `PrimitiveType`: Basic type which includes `Boolean`, `ByteString` and `Integer`。
 
 ```c#
 // boolean type
@@ -27,7 +30,7 @@ private bool value;
 
 ## Instructions
 
-NeoVM has implemented 184 instructions. The categories are as follows:
+NeoVM has implemented 189 instructions. The categories are as follows:
 
 | Constant | Flow Control | Stack Operation | Slot Operation |String Operation | Logical Operation | Arithmetic Operation | Advanced Data Structure | Type Operation |
 | ---- | -------- | ------ | ------ | -------- | -------- | -------- | ---- | ---- |
@@ -45,7 +48,7 @@ The constant instructions mainly complete the function of pushing constants or a
 |----------|---------------------------------------|
 | Bytecode | 0x00, 0x01, 0x02, 0x03, 0x04, 0x05                                                  |
 | Fee | 0.00000030 GAS, 0.00000030 GAS, 0.00000030 GAS, 0.00000030 GAS, 0.00000120 GAS, 0.00000120 GAS                     |
-| Function   | Push an integer onto the stack, the bit length of which is specified with the number 8\16\32\64\128\256。 |
+| Function   | Push an integer onto the stack, the bit length of which is specified with the number 8\16\32\64\128\256. |
 
 #### PUSHA
 
@@ -288,8 +291,48 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | THROW                 |
 |----------|-----------------------|
 | Bytecode | 0x3A                  |
-| Fee | 0.00000030 GAS                                                        |
-| Function   | Set the state of vm to FAULT. |
+| Fee | 0.00022000 GAS                                          |
+| Function   | Throws the exception of stack top |
+
+#### TRY
+
+| Instruction | TRY                                                          |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0x3B                                                         |
+| Fee         | 0.00000100 GAS                                               |
+| Function    | Enters the block of Try statement. The Catch and Finally address offset are represented as a 1-byte signed offset from the beginning of the current instruction. |
+
+#### TRY_L
+
+| Instruction | TRY_L                                                        |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0x3C                                                         |
+| Fee         | 0.00000100 GAS                                               |
+| Function    | Enters the block of Try statement. The Catch and Finally address offset are represented as a 4-byte signed offset from the beginning of the current instruction. |
+
+#### ENDTRY
+
+| Instruction | ENDTRY                                                       |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0x3D                                                         |
+| Fee         | 0.00000100 GAS                                               |
+| Function    | Terminates the block Try and unconditionally transfers control to a target instruction. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
+
+#### ENDTRY_L
+
+| Instruction | ENDTRY_L                                                     |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0x3E                                                         |
+| Fee         | 0.00000100 GAS                                               |
+| Function    | Terminates the block Try and unconditionally transfers control to a target instruction. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
+
+#### ENDFINALLY
+
+| Instruction | ENDFINALLY                                                   |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0x3F                                                         |
+| Fee         | 0.00000100 GAS                                               |
+| Function    | Terminates the block Finally and goes to the target instruction ENDTRY/ENDTRY_L if there is no exception, or throw the exception to the  upper level again. |
 
 #### RET
 
@@ -342,6 +385,7 @@ Copy, remove and swap the elements of the stack.
 | Function   | The item n back in the main stack is removed. |
 | Input   | Xn Xn-1 ... X2 X1 X0 n                             |
 | Output   | Xn-1 ... X2 X1 X0                                  |
+| Function | Gets the integer N from the top stack and removes elements indexed to N from the remaining elements of the stack. |
 
 #### CLEAR
 
@@ -357,9 +401,7 @@ Copy, remove and swap the elements of the stack.
 |----------|------------------------|
 | Bytecode | 0x4A                   |
 | Fee | 0.00000060 GAS                                                        |
-| Function   | Duplicates the top stack item. |
-| Input   | X                      |
-| Output   | X X                    |
+| Function   | Copies the top stack item to the top. |
 
 #### OVER
 
@@ -368,8 +410,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x4B                   |
 | Fee | 0.00000060 GAS                                                        |
 | Function   | Copies the second-to-top stack item to the top. |
-| Input   | X1 X0                      |
-| Output   | X1 X0 X1                   |
 
 #### PICK
 
@@ -377,9 +417,7 @@ Copy, remove and swap the elements of the stack.
 |----------|------------------------|
 | Bytecode | 0x4D                   |
 | Fee | 0.00000060 GAS                                                        |
-| Function   | The item n back in the stack is copied to the top. |
-| Input   | Xn Xn-1 ... X2 X1 X0 n                      |
-| Output   |Xn Xn-1 ... X2 X1 X0 Xn                   |
+| Function   | Gets the integer N from the top stack and copies elements indexed to N from the remaining elements of the stack to the top. |
 
 #### TUCK
 
@@ -388,8 +426,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x4E                   |
 | Fee | 0.00000060 GAS                                                        |
 | Function   | The item at the top of the stack is copied and inserted before the second-to-top item. |
-| Input   | X1 X0                      |
-| Output   | X0 X1 X0                    |
 
 #### SWAP
 
@@ -398,8 +434,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x50                   |
 | Fee | 0.00000060 GAS                                                        |
 | Function   | The top two items on the stack are swapped. |
-| Input   | X0 X1                      |
-| Output   | X1 X0                    |
 
 #### ROT
 
@@ -407,9 +441,7 @@ Copy, remove and swap the elements of the stack.
 |----------|------------------------|
 | Bytecode | 0x51                   |
 | Fee | 0.00000060 GAS                                                        |
-| Function   | The top three items on the stack are rotated to the left. |
-| Input   | X2 X1 X0                      |
-| Output   | X1 X0 X2                    |
+| Function   | Moves the elements indexed to 2 to the top |
 
 #### ROLL
 
@@ -417,9 +449,7 @@ Copy, remove and swap the elements of the stack.
 |----------|------------------------|
 | Bytecode | 0x52                   |
 | Fee | 0.00000400 GAS                                                        |
-| Function   | The item n back in the stack is moved to the top. |
-| Input   | Xn Xn-1 ... X2 X1 X0 n                      |
-| Output   | Xn-1 ... X2 X1 X0 Xn                    |
+| Function   | Gets the integer N from the top stack and moves elements indexed to N from the remaining elements of the stack to the top. |
 
 #### REVERSE3
 
@@ -428,8 +458,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x53                   |
 | Fee | 0.00000060 GAS                                                        |
 | Function   | Reverse the order of the top 3 items on the stack. |
-| Input   | X0 X1 X2                      |
-| Output   | X2 X1 X0                   |
 
 #### REVERSE4
 
@@ -438,8 +466,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x54                   |
 | Fee | 0.00000060 GAS                                                        |
 | Function   | Reverse the order of the top 4 items on the stack. |
-| Input   | X0 X1 X2 X3                     |
-| Output   | X3 X2 X1 X0                    |
 
 #### REVERSEN
 
@@ -447,7 +473,7 @@ Copy, remove and swap the elements of the stack.
 |----------|------------------------|
 | Bytecode | 0x55                   |
 | Fee | 0.00000400 GAS                                                        |
-| Function   | Pop the number N on the stack, and reverse the order of the top N items on the stack. |
+| Function   | Gets the integer N from the top stack, and reverse the order of the top N items on the stack. |
 | Input   | Xn-1 ... X2 X1 X0 n                      |
 | Output   | X0 X1 X2 ... Xn-1                    |
 
@@ -605,9 +631,7 @@ Copy, remove and swap the elements of the stack.
 |----------|----------------------------------------------|
 | Bytecode | 0x8D                                         |
 | Fee | 0.00080000 GAS                                                        |
-| Function   | Keeps only characters left of the specified point in a string. |
-| Input   | X len                                        |
-| Output   | SubString(X,0,len)                                  |
+| Function   | Gets characters in the left of the specified point in a string. |
 
 #### RIGHT
 
@@ -615,9 +639,7 @@ Copy, remove and swap the elements of the stack.
 |----------|----------------------------------------------|
 | Bytecode | 0x8E                                         |
 | Fee | 0.00080000 GAS                                                        |
-| Function   | Keeps only characters right of the specified point in a string. |
-| Input   | X len                                        |
-| Output   | SubString(X,X.Length - len,len)                                 |
+| Function   | Gets characters in the right of the specified point in a string. |
 
 ### Logical Operation
 
@@ -628,8 +650,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x90                         |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | Flips all of the bits in the input. |
-| Input   | X                            |
-| Output   | \~X                          |
 
 #### AND
 
@@ -638,8 +658,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x91                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Boolean and between each bit in the inputs |
-| Input   | AB                                     |
-| Output   | A&B                                    |
 
 #### OR
 
@@ -648,8 +666,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x92                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Boolean or between each bit in the inputs. |
-| Input   | AB                                     |
-| Output   | A\|B                                   |
 
 #### XOR
 
@@ -658,8 +674,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x93                                     |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Boolean exclusive or between each bit in the inputs. |
-| Input   | AB                                       |
-| Output   | A\^B                                     |
 
 #### EQUAL
 
@@ -686,8 +700,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x99                                         |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | Puts the sign of top stack item on top of the main stack. If value is negative, put -1; if positive, put 1; if value is zero, put 0. |
-| Input   | X                                            |
-| Output   | X.Sign()                                     |
 
 #### ABS
 
@@ -696,8 +708,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x9A                           |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | The input is made positive. |
-| Input   | X                              |
-| Output   | Abs(X)                         |
 
 #### NEGATE
 
@@ -706,8 +716,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x9B                           |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | The sign of the input is flipped. |
-| Input   | X                              |
-| Output   | \-X                            |
 
 #### INC
 
@@ -716,8 +724,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x9C                               |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | 1 is added to the input. |
-| Input   | X                                  |
-| Output   | X+1                                |
 
 #### DEC
 
@@ -726,8 +732,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x9D                               |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | 1 is subtracted from the input. |
-| Input   | X                                  |
-| Output   | X-1                                |
 
 #### ADD
 
@@ -736,8 +740,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x9E                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | a is added to b. |
-| Input   | AB                                     |
-| Output   | A+B                                    |
 
 #### SUB
 
@@ -746,8 +748,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0x9F                                  |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | b is subtracted from a. |
-| Input   | AB                                     |
-| Output   | A-B                                    |
 
 #### MUL
 
@@ -756,8 +756,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xA0                                   |
 | Fee | 0.00000300 GAS                                                        |
 | Function   | a is multiplied by b. |
-| Input   | AB                                     |
-| Output   | A\*B                                   |
 
 #### DIV
 
@@ -766,8 +764,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xA1                                   |
 | Fee | 0.00000300 GAS                                                        |
 | Function   | a is divided by b. |
-| Input   | AB                                     |
-| Output   | A/B                                    |
 
 #### MOD
 
@@ -776,8 +772,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xA2                                   |
 | Fee | 0.00000300 GAS                                                        |
 | Function   | Returns the remainder after dividing a by b. |
-| Input   | AB                                     |
-| Output   | A%B                                    |
 
 #### SHL
 
@@ -785,9 +779,7 @@ Copy, remove and swap the elements of the stack.
 |----------|----------------------------------|
 | Bytecode | 0xA8                             |
 | Fee | 0.00000300 GAS                                                        |
-| Function   | Shifts a left b bits, preserving sign. |
-| Instruction   | Xn                               |
-| Bytecode | X\<\<n                           |
+| Function   | Gets the integer n from the top stack and performs a n-bit left shift operation on the remaining BigInteger on the stack. |
 
 #### SHR
 
@@ -795,9 +787,7 @@ Copy, remove and swap the elements of the stack.
 |----------|----------------------------------|
 | Bytecode | 0xA9                             |
 | Fee | 0.00000300 GAS                                                        |
-| Function   | Shifts a right b bits, preserving sign. |
-| Input   | Xn                               |
-| Output   | X\>\>n                           |
+| Function   | Gets the integer n from the top stack and performs a n-bit right shift operation on the remaining BigInteger on the stack. |
 
 #### NOT
 
@@ -806,8 +796,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xAA                               |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | If the input is 0 or 1, it is flipped. Otherwise the output will be 0. |
-| Input   | X                                  |
-| Output   | !X                                 |
 
 #### BOOLAND
 
@@ -816,8 +804,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xAB                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | If both a and b are not 0, the output is 1. Otherwise 0. |
-| Input   | AB                                     |
-| Output   | A&&B                                   |
 
 #### BOOLOR
 
@@ -826,8 +812,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xAC                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | If a or b is not 0, the output is 1. Otherwise 0. |
-| Input   | AB                                     |
-| Output   | A\|\|B                                 |
 
 #### NZ
 
@@ -836,8 +820,7 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB1                                |
 | Fee | 0.00000100 GAS                                                        |
 | Function   | Returns 0 if the input is 0. 1 otherwise. |
-| Input   | X                                   |
-| Output   | X!=0                                |
+
 
 #### NUMEQUAL
 
@@ -846,8 +829,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB3                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Returns 1 if the numbers are equal, 0 otherwise. |
-| Input   | AB                                     |
-| Output   | A==B                                   |
 
 #### NUMNOTEQUAL
 
@@ -856,8 +837,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB4                                     |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Returns 1 if the numbers are not equal, 0 otherwise.|
-| Input   | AB                                       |
-| Output   | A!=B                                     |
 
 #### LT 
 
@@ -866,8 +845,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB5                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Returns 1 if a is less than b, 0 otherwise. |
-| Input   | AB                                     |
-| Output   | A\<B                                   |
 
 #### LE
 
@@ -876,8 +853,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB6                                       |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Returns 1 if a is less than or equal to b, 0 otherwise. |
-| Input   | AB                                         |
-| Output   | A\<=B                                      |
 
 #### GT
 
@@ -886,8 +861,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB7                                   |
 | Fee | 0.00000200 GAS                                                        |
 | Function   | Returns 1 if a is greater than b, 0 otherwise. |
-| Input   | AB                                     |
-| Output   | A\>B                                   |
 
 #### GE
 
@@ -896,8 +869,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB8                                       |
 | Fee | 0.00000200  GAS                                                        |
 | Function   | Returns 1 if a is greater than or equal to b, 0 otherwise. |
-| Input   | AB                                         |
-| Output   | A\>=B                                      |
 
 #### MIN
 
@@ -906,8 +877,7 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB9                                   |
 | Fee | 0.00000200  GAS                                                        |
 | Function   | Returns the smaller of a and b. |
-| Input   | AB                                     |
-| Output   | Min(A,B)                               |
+
 
 #### MAX
 
@@ -916,8 +886,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xBA                                   |
 | Fee | 0.00000200  GAS                                                        |
 | Function   | Returns the larger of a and b. |
-| Input   | AB                                     |
-| Output   | Max(A,B)                               |
 
 #### WITHIN
 
@@ -926,8 +894,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xBB                                         |
 | Fee | 0.00000200  GAS                                                        |
 | Function   | Returns 1 if x is within the specified range (left-inclusive), 0 otherwise. |
-| Input   | XAB                                          |
-| Output   | A\<=X&&X\<B                                  |
 
 ### Advanced Data Structure
 
@@ -940,8 +906,6 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode | 0xC0                              |
 | Fee | 0.00007000 GAS                                                        |
 | Function   | A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized array and this array is put on top of the main stack. |
-| Input   | Xn-1 ... X2 X1 X0 n               |
-| Output   | [X0 X1 X2 ... Xn-1]               |
 
 #### UNPACK
 
@@ -950,8 +914,6 @@ It has implemented common operations for array, map, struct, etc.
 | Bytecode | 0xC1                               |
 | Fee | 0.00007000 GAS                                                        |
 | Function   | An array is removed from top of the main stack. Its elements are put on top of the main stack (in reverse order) and the array size is also put on main stack. |
-| Input   | [X0 X1 X2 ... Xn-1]                |
-| Output   | Xn-1 ... X2 X1 X0 n                |
 
 #### NEWARRAY0
 
@@ -959,7 +921,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|------------------------------------|
 | Bytecode | 0xC2                               |
 | Fee | 0.00000400 GAS                                                        |
-| Function   | An empty array (with size 0) is put on top of the main stack. |
+| Function   | An array with size n is put on top of the main stack. |
 
 #### NEWARRAY
 
@@ -975,7 +937,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|------------------------------------|
 | Bytecode | 0xC4                               |
 | Fee | 0.00015000 GAS                                                        |
-| Function   | A value n is taken from top of main stack. An array of type T with size n is put on top of the main stack. |
+| Function   | An array of type T with size n is put on top of the main stack. |
 
 #### NEWSTRUCT0
 
@@ -983,7 +945,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|------------------------------------|
 | Bytecode | 0xC5                               |
 | Fee | 0.00000400 GAS                                                        |
-| Function   | An empty struct (with size 0) is put on top of the main stack. |
+| Function   | A structure with size n and all 0 elements is put on top of the main stack. |
 
 #### NEWSTRUCT
 
@@ -999,9 +961,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|-------------------------|
 | Bytecode | 0xC8                    |
 | Fee | 0.00000200 GAS                                                        |
-| Function   | A Map is created and put on top of the main stack. |
-| Input   | None                      |
-| Output   | Map()                   |
+| Function   | An empty Map is put on top of the main stack. |
 
 #### SIZE
 
@@ -1009,7 +969,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|-------------------------|
 | Bytecode | 0xCA                    |
 | Fee | 0.00000150 GAS                                                        |
-| Function   | An array is removed from top of the main stack. Its size is put on top of the main stack. |
+| Function   | Gets the size of elements on the top stack. |
 
 #### HASKEY
 
@@ -1017,7 +977,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|-------------------------|
 | Bytecode | 0xCB                    |
 | Fee | 0.00270000 GAS                                                        |
-| Function   | An input index n (or key) and an array (or map) are removed from the top of the main stack. Puts True on top of main stack if array[n] (or map[n]) exist, and False otherwise. |
+| Function   | An input index n (or key) and an array (Map，Buffer, ByteString) are returned from the top of the main stack. Puts True on top of main stack if n is in the length range of the array (Map，Buffer, ByteString), and False otherwise. |
 
 #### KEYS
 
@@ -1025,9 +985,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|-------------------------------------|
 | Bytecode | 0xCC                                |
 | Fee | 0.00000500 GAS                                                        |
-| Function   | A map is taken from top of the main stack. The keys of this map are put on top of the main stack. |
-| Input   | Map                                 |
-| Output   | [key1 key2 ... key n]               |
+| Function   | Gets all Keys of the map from top of the main stack and constructs a new array with all Key and puts it on top of the main stack. |
 
 #### VALUES
 
@@ -1035,9 +993,7 @@ It has implemented common operations for array, map, struct, etc.
 |----------|-----------------------------------------|
 | Bytecode | 0xCD                                    |
 | Fee | 0.00007000 GAS                                                        |
-| Function   | A map is taken from top of the main stack. The values of this map are put on top of the main stack.|
-| Input   | Map                              |
-| Output   | [Value1 Value2... Value n]              |
+| Function   | Gets all Values of the elements (Array or Map) from top of the main stack and constructs a new array with all Value and puts it on top of the main stack.|
 
 #### PICKITEM
 
@@ -1045,28 +1001,23 @@ It has implemented common operations for array, map, struct, etc.
 |----------|------------------------------------|
 | Bytecode | 0xCE                               |
 | Fee | 0.00270000 GAS                                                        |
-| Function   | An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack. |
-| Input   | [X0 X1 X2 ... Xn-1] i              |
-| Output   | Xi                                 |
+| Function   | Gets the Nth element in the array of the top stack|
 
-#### APPEND*
+#### APPEND
+
 | Instruction   | APPEND                |
 |----------|-----------------------|
 | Bytecode | 0xCF                  |
 | Fee | 0.00015000 GAS                                                        |
-| Function   | The item on top of main stack is removed and appended to the second item on top of the main stack. |
-| Input   | Array item            |
-| Output   | Array.add(item)       |
+| Function   | Adds a new item to the arry of the top stack |
 
-#### SETITEM*
+#### SETITEM
 
 | Instruction   | SETITEM                                  |
 |----------|------------------------------------------|
 | Bytecode | 0xD0                                     |
 | Fee | 0.00270000 GAS                                                        |
-| Function   | A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed. |
-| Input   | [X0 X1 X2 ... Xn-1] I V                  |
-| Output   | [X0 X1 X2 Xi-1 V Xi+1 ... Xn-1]         |
+| Function   | Assigns a value to the specified index of element （Array，Map or Buffer）in the top stack |
 
 #### REVERSEITEMS
 
@@ -1074,19 +1025,15 @@ It has implemented common operations for array, map, struct, etc.
 |----------|------------------------------------------|
 | Bytecode | 0xD1                                     |
 | Fee | 0.00000500 GAS                                                        |
-| Function   | An array is removed from the top of the main stack and its elements are reversed.|
-| Input   | [X0 X1 X2 ... Xn-1]                  |
-| Output   | [Xn-1 ... X2 X1 X0]         |
+| Function   | Reverses the elements in Array or Buffer from the top stack.|
 
-#### REMOVE*
+#### REMOVE
 
 | Instruction   | REMOVE                            |
 |----------|-----------------------------------|
 | Bytecode | 0xD2                              |
 | Fee | 0.00000500 GAS                                                        |
-| Function   | An input index n (or key) and an array (or map) are removed from the top of the main stack. Element array[n] (or map[n]) is removed.        |
-| Input   | [X0 X1 X2 ... Xn-1] m             |
-| Output   | [X0 X1 X2 ... Xm-1 Xm+1 ... Xn-1] |
+| Function   | Removes the specified index or Key elements from Array or Map        |
 
 #### CLEARITEMS
 

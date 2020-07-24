@@ -6,7 +6,7 @@ NeoVM 内置的数据类型如下表所示
 
 | 类型             | 描述                                                                                           |
 | ---------------- | ---------------------------------------------------------------------------------------------- |
-| Array            | 数组，实现为一个`List<StackItem>`，`StackItem`是一个抽象类，NeoVM内置的数据类型均继承自`StackItem`。 |
+| Array            | 数组，实现为一个 `List<StackItem>`，`StackItem` 是一个抽象类，NeoVM内置的数据类型均继承自`StackItem`。 |
 | Boolean         | 布尔类型，实现为一个bool值和两个字节数组`TRUE`和`FALSE`。|
 | Buffer          | 只读字节数组，实现为一个缓存数组`byte[]`。           |
 | ByteString      | 只读字节数组，实现为一个`ReadOnlyMemory<byte>`。|
@@ -17,9 +17,10 @@ NeoVM 内置的数据类型如下表所示
 | Pointer | 指针类型，实现为一个上下文脚本`Script`和一个指令位置`Position`                                                            |
 | Struct           | 结构体，继承自`Array`。结构与`Array`相同，只是添加了`Clone`方法和重写了`Equals`方法。                  |
 
-`CompoundType` ：复合类型，包括`Array`、`Map`和`Struct`。
+- `CompoundType` ：复合类型，包括`Array`、`Map`和`Struct`。
 
-`PrimitiveType` ：基本类型，包括`Boolean`、`ByteString`和`Integer`。
+- `PrimitiveType` ：基本类型，包括`Boolean`、`ByteString`和`Integer`。
+
 
 ```c#
 // boolean 类型
