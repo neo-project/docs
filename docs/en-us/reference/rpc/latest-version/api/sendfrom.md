@@ -15,8 +15,7 @@ Transfer from the specified address to the destination address.
 
   e.g. NEO is 0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-  Gas is 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
-
+​        GAS is 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 * from: transfering address.
 
 * address: destination address.

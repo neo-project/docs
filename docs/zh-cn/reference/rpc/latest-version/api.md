@@ -2,7 +2,7 @@
 
 每个 Neo-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-要启用 RPC服务，你需要安装 [RpcServer插件](https://github.com/neo-project/neo-modules/releases)，启动 Neo-CLI 时无需添加参数。
+要启用 RPC服务，你需要安装 [RpcServer 插件](https://github.com/neo-project/neo-modules/releases)，启动 Neo-CLI 时无需添加参数。
 
 ## 监听端口
 
@@ -45,8 +45,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                    | 参数                                    | 说明                                           |
 | --------------------------------------- | --------------------------------------- | ---------------------------------------------- |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<checkWitnessHashes> | 以指定的脚本散列值调用智能合约，传入操作及参数 |
-| [invokescript](api/invokescript.md)     | \<script>  \<checkWitnessHashes>                  | 通过虚拟机运行脚本并返回结果                   |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | 以指定的脚本散列值调用智能合约，传入操作及参数 |
+| [invokescript](api/invokescript.md)     | \<script>  \<signers>                  | 通过虚拟机运行脚本并返回结果                   |
 | [getunclaimedgas](api/getunclaimedgas.md) | \<address> | 查询指定地址未获取的 gas |
 
 ### 工具

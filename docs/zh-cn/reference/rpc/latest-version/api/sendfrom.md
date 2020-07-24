@@ -11,9 +11,9 @@
 
 - asset_id：资产 ID（资产标识符），即 NEP-5合约的脚本哈希。
 
-  如 NEO 为：0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-  Gas 为：0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+  Gas 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
 - from：转账地址。
 
