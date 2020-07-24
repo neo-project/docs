@@ -123,5 +123,5 @@ Response description:
 - tx: the transaction's hex string of this invocation, need open wallet and added signers correctly.
 > [!Note]
 >
-> After entering the `invokefunction` command,  the node invokes the `operation` method, and pass `operation` and `params` as arguments. If `operation` and `params` are not processed in the contract, the expected result cannot be returned.
+> After entering the `invokefunction` command,  the node invokes the `operation` method, and pass `params` as arguments. If `operation` and `params` are not processed in the contract, the expected result cannot be returned.
 
