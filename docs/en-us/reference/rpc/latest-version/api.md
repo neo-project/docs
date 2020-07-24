@@ -49,6 +49,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
 | [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<checkWitnessHashes> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
 | [invokescript](api/invokescript.md) | \<script> \<checkWitnessHashes> | Runs a script through the virtual machine and returns the results. |
+| [getunclaimedgas](api/getunclaimedgas.md) | \<address> | Get unclaimed gas of the specified address. |
 
 ### Tool
 
