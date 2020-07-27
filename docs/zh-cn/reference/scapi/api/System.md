@@ -85,4 +85,4 @@
 
 > [!Note]
 >
-> 以上 API 的源码位于 Neo 项目中的 [src\neo\SmartContract\InteropService.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/InteropService.cs) 文件。
+> 以上 API 的源码位于 Neo 项目中的 [src\neo\SmartContract\](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 下。
