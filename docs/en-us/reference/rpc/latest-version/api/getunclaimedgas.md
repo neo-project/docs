@@ -2,7 +2,7 @@
 
 Returns the unclaimed GAS with the specified address.
 
-## 参数说明
+## Parameter Description
 
 - address: Specified address.
 
