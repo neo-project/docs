@@ -20,7 +20,7 @@ public static class Runtime
 | Platform | 获取当前执行智能合约的平台信息 |
 | Time | 获取当前区块的时间戳 |
 | InvocationCounter | 获取当前合约的调用次数 |
-| GasLeft | 获取余下Gas数量 |
+| GasLeft | 获取当前交易剩余的 GAS 费用数量 |
 
 
 ## 方法
