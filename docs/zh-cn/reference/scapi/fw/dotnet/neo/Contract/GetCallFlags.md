@@ -1,18 +1,18 @@
-# Contract.GetCallFlags ·½·¨ ()
+# Contract.GetCallFlags æ–¹æ³• ()
 
-»ñÈ¡ºÏÔ¼µÃ¹²Ïí×´Ì¬
+è·å–åˆçº¦çš„è°ƒç”¨æƒé™ Flag
 
-ÃüÃû¿Õ¼ä£º[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+å‘½åç©ºé—´ï¼š[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-³ÌĞò¼¯£ºNeo.SmartContract.Framework
+ç¨‹åºé›†ï¼šNeo.SmartContract.Framework
 
-## Óï·¨
+## è¯­æ³•
 
 ```c#
 public static extern byte GetCallFlags();
 ```
 
-## Ê¾Àı
+## ç¤ºä¾‹
 
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
@@ -26,4 +26,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 
 
-[·µ»ØÉÏ¼¶](../Contract.md)
+[è¿”å›ä¸Šçº§](../Contract.md)
