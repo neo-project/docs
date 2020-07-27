@@ -14,11 +14,12 @@ namespace Helloworld
     [ManifestExtra("Author", "Neo")]
     [ManifestExtra("Email", "dev@neo.org")]
     [ManifestExtra("Description", "This is a contract example")]
+    [SupportedStandards("NEP-5", "NEP-10")]
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
         private const string test_str = "Hello World";
-        public static String Main(string operation, object[] args)
+        public static string Hello()
         {
             Storage.Put("Hello", "World");
             return test_str;
@@ -162,6 +163,7 @@ namespace Domain
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
+[SupportedStandards("NEP-5", "NEP-10")]
 [Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
 public class Contract1 : SmartContract
 {
@@ -172,7 +174,9 @@ public class Contract1 : SmartContract
 }
 ```
 
-`ManifestExtra` 表示 Manifest 文件中的额外字段，可以添加 `Author`、 `Email`、 `Description` 等值。
+`ManifestExtra` 表示 Manifest 文件中的额外字段，可以添加 `Author`、 `Email`、 `Description` 等值；
+
+`SupportedStandards` 表示合约符合的 NEP 标准，比如 `NEP-5` 是 Neo 上的代币标准。
 
 也可以添加其它字段，如：
 
@@ -186,11 +190,11 @@ public class Contract1 : SmartContract
 - `[Features(ContractFeatures.NoProperty)]`：或不写，表示合约没有特殊功能
 - `[Features(ContractFeatures.HasStorage)]`：合约可以使用存储区
 - `[Features(ContractFeatures.Payable)]`：合约可以接收资产（NEO、GAS、NEP-5资产等）
-- `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`：同时包括上述两种功能。
+- `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`：同时包括上述两种功能
 
 ### 合约入口函数
 
-理论上来说，智能合约可以有任意的入口函数，例如:
+理论上来说，智能合约可以有任意的入口函数，合约中 public static 类型的方法都可以用作入口函数被外部调用，例如:
 ```c#
 using Neo.SmartContract.Framework;
 
@@ -209,25 +213,23 @@ namespace Neo.Compiler.MSIL.UnitTests.TestClasses
     }
 }
 ```
-编译器会在abi中, 标记`First`与`Second` 方法的offset, 并在调用合约时, 赋给initialPosition参数, 来调整入口函数
-在调用时, 会根据abi中记录的offset, 自行找到匹配的方法, 进入并执行.
+编译器会在abi中, 标记`First`与`Second` 方法的offset, 并在调用合约时, 赋给initialPosition参数, 来调整入口函数，
+在调用时, 会根据abi中记录的offset, 自行找到匹配的方法, 进入并执行。
 
 ### 触发器
 
-智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了三个触发器 `Verification` 触发器, `Application` 触发器 和 `System` 触发器。
-但在大部分的合约开发中, 不会直接涉及触发器判断, 仅需在合约中实现Verify方法, 提供签名验证逻辑.
+智能合约触发器是触发智能合约执行逻辑的机制。在Neo智能合约中引入了三个触发器 `Verification` 触发器, `Application` 触发器 和 `System` 触发器，但在大部分的合约开发中, 不会直接涉及触发器判断, 仅需在合约中实现Verify方法, 提供签名验证逻辑。
 
 
 #### Verification 触发器
 
-当合约地址被包含在交易签名中时, 合约需要实现函数Verify.
-用来提供在验证签名时, 需要执行的具体逻辑
+当合约地址被包含在交易签名中时, 合约需要实现函数Verify，用来提供在验证签名时, 需要执行的具体逻辑。
 
 ```c#
-        public static bool Verify()
-        {
-            return Runtime.CheckWitness(Owner);
-        }
+public static bool Verify()
+{
+    return Runtime.CheckWitness(Owner);
+}
 ```
 
 ### CheckWitness
@@ -251,7 +253,7 @@ private static bool Register(string domain, byte[] owner)
 }
 ```
 
-与 `Register` 方法类似，`Delete` 方法首先检查域名所属者是否存在，如果存在，再判断调用合约的是否是该域名的所属者，如果是，则使用 `Storage.Delete` 方法来删除该键值对。关于这个方法，本节最后留有一个问题。
+与 `Register` 方法类似，`Delete` 方法首先检查域名所属者是否存在，如果存在，再判断调用合约的是否是该域名的所属者，如果是，则使用 `Storage.Delete` 方法来删除该键值对。
 
 ### 事件
 
@@ -259,12 +261,10 @@ private static bool Register(string domain, byte[] owner)
 
 ```c#
 //当对NEP-5资产进行转账时调用
-public static event transfer(byte[] from, byte[] to, BigInteger amount)
+[DisplayName("Transfer")]
+public static event Action<byte[], byte[], BigInteger> OnTransfer;
 ```
-
-### Assignment
-
-在上面的 `DNS` 智能合约中，有一个 `delete` 方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 `Storage.Delete` 方法来删除相应的键值对。
+Transfer 是事件名。
 
 ### Json序列化
 
@@ -307,4 +307,4 @@ namespace Neo.Compiler.MSIL.TestClasses
     }
 }
 ```
-在示例代码中, 可以通过调用`CreateFuncPointer` 获取 `MyMethod` 方法的指针
+在示例代码中, 可以通过调用`CreateFuncPointer` 获取 `MyMethod` 方法的指针。
