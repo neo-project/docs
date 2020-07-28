@@ -6,8 +6,8 @@ The interop service layer provides APIs for smart contracts to access the blockc
 
 | API                           | Description                              |
 |--|--|
-| System.Binary.Serialize| Converts StackItem to byte array    |
-| System.Binary.Deserialize | Converts byte array to StackItem            |
+| System.Binary.Base64Decode | Decodes StackItem to byte array |
+| System.Binary.Base64Encode | Encodes byte array to Base64 string |
 
 **BlockChain API**:
 
@@ -64,14 +64,9 @@ The interop service layer provides APIs for smart contracts to access the blockc
 |System.Runtime.Platform|Gets the platform information of the contract being executed|
 |System.Runtime.GetTrigger|Gets the triggering condition of the contract|
 |System.Runtime.GetTime|Gets the timestamp of the current block |
-|System.Runtime.GetScriptContainer|Gets the script container of the contract|
-|System.Runtime.GetExecutingScriptHash|Gets the scripthash of the executing smart contract|
-|System.Runtime.GetCallingScriptHash|Gets the scripthash of the caller for this smart contract|
-|System.Runtime.GetEntryScriptHash|Gets the scripthash of the entry point for the smart contract (the starting point of the contract call chain)|
 |System.Runtime.CheckWitness|Verifies whether the container calling the contract is signed by the<br/>script hash of the specific account|
 |System.Runtime.GetInvocationCounter|Gets invocation count of the current contract|
 |System.Runtime.Log|Records the log|
-|System.Runtime.Notify|Notifies the client executing the contract|
 |System.Runtime.GetNotifications|Gets notifications of a contract|
 |System.Runtime.GasLeft|Gets the unconsumed gas|
 

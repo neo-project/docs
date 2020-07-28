@@ -7,7 +7,7 @@
 | API                           | 说明                              |
 |--|--|
 | System.Binary.Base64Decode| 将栈元素解码为字节数组     |
-| System.Binary.Base64Encode | 将字节数组编码位Base64字符串             |
+| System.Binary.Base64Encode | 将字节数组编码为Base64字符串            |
 
 **BlockChain API**:
 
