@@ -16,8 +16,14 @@ public static class Crypto
 
 | 名称                                       | 说明              |
 | ---------------------------------------- | --------------- |
-| ECDsaVerify(byte[] message, byte[] pubkey, byte[] signature) | 根据文本、公钥数组、签名来验证是否是正确的签名 |
-| ECDsaCheckMultiSig(byte[] message, byte[][] pubkey, byte[][] signature) | 根据文本、公钥数组、签名数组来验证是否是正确的多方签名 |
+| SHA256(byte[] value) | 对字节数组进行SHA256哈希计算 |
+| RIPEMD160(byte[] value) | 对字节数组进行RIPEMD160哈希计算 |
+| Hash160(byte[] value) | 对字节数组进行一次SHA256,一次RIPEMD160哈希计算 |
+| Hash256(byte[] value) | 对字节数组进行二次SHA256哈希计算 |
+| Secp256r1.Verify(byte[] message, byte[] pubkey, byte[] signature) | 根据公钥数组、签名来验证是否是正确的签名(r1曲线) |
+| Secp256r1.CheckMultiSig(byte[] message, byte[][] pubkey, byte[][] signature) | 根据公钥数组、签名来验证是否是正确的签名(r1曲线) |
+| Secp256k1.Verify(byte[] message, byte[] pubkey, byte[] signature) | 根据公钥数组、签名来验证是否是正确的签名(k1曲线) |
+| Secp256k1.CheckMultiSig(byte[] message, byte[][] pubkey, byte[][] signature) | 根据公钥数组、签名来验证是否是正确的签名(k1曲线) |
 
 ## 构造方法
 

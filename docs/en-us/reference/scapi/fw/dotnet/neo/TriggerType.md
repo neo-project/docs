@@ -54,24 +54,18 @@ In Neo3 all transactions are invocations of contracts. When a transaction is bro
 
 A Verification trigger is used to call the contract as a verification function, which can accept multiple parameters and should return a valid Boolean value, indicating the validity of the transaction or block.
 
-When you transfer assets from account A to account B, a verification contract is triggered. All the nodes that received the transaction (including normal nodes and blue consensus nodes) verify account A's contract. If the return value is true, the transfer is completed successfully. If false is returned, the transfer is failed.
+When you transfer assets from account A to account B, a verification contract that invokes  the Verify method of the contract is triggered. All the nodes that received the transaction (including normal nodes and blue consensus nodes) verify account A's contract. If the return value is true, the transfer is completed successfully. If false is returned, the transfer is failed.
 
 If return `false` , that means the transaction will not be recorded in the blockchain.
 
-Here is a simple example of verification contract, which returns true when the condition A is met, or returns false when the transfer fails
+Here is a simple example of verification contract, which returns true when the transaction contains signature of the owner account, or returns false when the transfer fails.
 
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static bool Main(byte[] signature)
+        public static bool Verify()
         {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                if (/*Condition A*/)
-                        return true;
-                    else
-                        return false;
-            }  
+            return Runtime.CheckWitness(Owner);
         }
     }
 ```

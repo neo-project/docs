@@ -11,11 +11,15 @@ using System;
 
 namespace Helloworld
 {
+    [ManifestExtra("Author", "Neo")]
+    [ManifestExtra("Email", "dev@neo.org")]
+    [ManifestExtra("Description", "This is a contract example")]
+    [SupportedStandards("NEP-5", "NEP-10")]
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
         private const string test_str = "Hello World";
-        public static String Main(string operation, object[] args)
+        public static string Hello()
         {
             Storage.Put("Hello", "World");
             return test_str;
@@ -30,8 +34,8 @@ Every Smart Contract inherits the `SmartContract` base class which is in the Neo
 
 The `NEO` namespace is the API provided by the Neo blockchain, providing a way to access the block-chain data and manipulate the persistent store. These APIs are divided into two categories:
 
-1. Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
-2. Persistent store. Each application contract deployed on Neo has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
+- Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
+- Persistent store. Each application contract deployed on Neo has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
 
 ## Contract property
 
@@ -84,20 +88,15 @@ Because NeoVM is more compact, we can only compile limited C# / dotnet features 
 
 NeoVM provides the following basic types：
 
-- `ByteArray`
-- `Integer`
+- `Pointer`
 - `Boolean`
+- `Integer`
+- `ByteString`
+- `Buffer`
 - `Array`
 - `Struct`
 - `Map`
-- `Interface`
-
-The basic types that can be directly generated from AVM code are only：
-
-- `ByteArray`（Both Integer and Boolean are represented by ByteArray）
-- `Array`
-- `Struct`
-- `Map`
+- `InteropInterface`
 
 The basic types of C# are:
 
@@ -120,25 +119,15 @@ namespace Domain
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
-        public static object Main(string method, params object[] args)
-        {
-            return method switch
-            {
-                "query" => Query((string)args[0]),
-                "register" => Register((string)args[0], (byte[])args[1]),
-                "delete" => Delete((string)args[0]),
-                _ => false,
-            };
-        }
 
         [DisplayName("query")]
-        private static byte[] Query(string domain)
+        public static byte[] Query(string domain)
         {
             return Storage.Get(Storage.CurrentContext, domain);
         }
 
         [DisplayName("register")]
-        private static bool Register(string domain, byte[] owner)
+        publilc static bool Register(string domain, byte[] owner)
         {
             // Check if the contract owner is the same as the one who invokes the contract
             if (!Runtime.CheckWitness(owner)) return false;
@@ -149,7 +138,7 @@ namespace Domain
         }
 
         [DisplayName("delete")]
-        private static bool Delete(string domain)
+        public static bool Delete(string domain)
         {
             // To do
         }
@@ -173,6 +162,7 @@ Besides, you can declare more features:
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
+[SupportedStandards("NEP-5", "NEP-10")]
 [Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
 public class Contract1 : SmartContract
 {
@@ -184,6 +174,8 @@ public class Contract1 : SmartContract
 ```
 
 `ManifestExtra` represents the extra fields in the Manifest file, where you can add `Author`, `Email`,  `Description` and etc.
+
+`SupportedStandards` represents the NEP standards the contract conform to, such as NEP-5, a token standard on Neo. 
 
 You can also add other fields, such as:
 
@@ -199,94 +191,43 @@ You can also add other fields, such as:
 - `[Features(ContractFeatures.Payable)]`: enables the contract to accept NEP-5 assets.
 - `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`: enables both features described above.
 
-### Main method
+### Entry function
 
-Theoretically, smart contracts can have any entry points, but we recommend you use the main function as the entry point of smart contracts for easier invocation. In the main function, user can call other function according to the different entry point calling. Usually in the main method, developer has to handle the `trigger`.
+Theoretically, smart contracts can have any entry points. Methods of the public static type in the contract can be used as an entry function to be invoked externally, for example:
+
+```c#
+using Neo.SmartContract.Framework;
+
+namespace Neo.Compiler.MSIL.UnitTests.TestClasses
+{
+    class Contract_a : SmartContract.Framework.SmartContract
+    {
+        public static object First(string method, object[] args)
+        {
+            return 'a';
+        }
+        public static object Second(string method, object[] args)
+        {
+            return 'b';
+        }
+    }
+}
+```
+
+The compiler marks the offset of `First` and `Second` in ABI. When invoking the contract, it assigns the value to initialPosition, finds and executes the matching method according to the offset recorded in the ABI.
 
 ### Trigger
 
-A smart contract trigger is a mechanism that triggers the execution of smart contracts. There are two triggers introduced in the Neo smart contract，`Verification` and  `Application`.
+A smart contract trigger is a mechanism that triggers the execution of smart contracts. There are three triggers introduced in the Neo smart contract，`Verification`,   `Application`, and `System`. However, for most smart contract development, you only need to implement the Verify method to provide the signature verification logic, without having to decide the trigger. 
 
 #### Verification trigger
 
 A Verification trigger is used to call the contract as a verification function, which can accept multiple parameters and should return a valid Boolean value, indicating the validity of the transaction or block.
 
-When you transfer assets from account A to account B, a verification contract is triggered. All the nodes that received the transaction (including normal nodes and blue consensus nodes) verify account A's contract. If the return value is true, the transfer is completed successfully. If false is returned, the transfer is failed.
-
-Therefore, the verification trigger determines whether the transaction will be relayed to the rest of the network. If return `false`, that means the transaction will not be recorded in the blockchain and the transaction failed.
-
 ```c#
-public static bool Main(byte[] signature)
+public static bool Verify()
 {
-    if (Runtime.Trigger == TriggerType.Verification)
-    {
-        if (/*condition A*/)
-                return true;
-            else
-                return false;
-    }  
-}
-```
-
-#### Application trigger
-
-An application trigger is used to invoke the contract as a verification function, which can accept multiple parameters, change the blockchain status, and return values of any type.
-
-Unlike the verification trigger which is triggered by a transfer, an application trigger is triggered by a special transaction  `InvocationTransaction`. If the application (Web/App) calls a smart contract, an  `InvocationTransaction`  is constructed, and then signed and broadcast in the blockchain. An application trigger is used to invoke the contract as a verification function, which can accept multiple parameters, change the blockchain status, and return values of any type. After the  `InvocationTransaction`  transaction is confirmed, the smart contract is executed by the consensus node. The common node does not execute the smart contract when forwarding the transaction.
-
-Since the application contract is executed after  `InvocationTransaction`  is confirmed, the transaction is recorded in the blockchain no matter the execution of the application contract is successful or not.
-
-The success and failure of InvocationTransaction is not necessarily related to the success or failure of execution of smart contracts.
-
-Usually in a smart contract, both verification trigger and application trigger can be caught and developer have to handle the trigger.
-
-```c#
-public static Object Main(string operation, params object[] args)
-{
-    if (Runtime.Trigger == TriggerType.Verification)
-    {
-        if (/*Condition A*/)
-                return true;
-            else
-                return false;
-    }  
-    if (Runtime.Trigger == TriggerType.Application)
-    {
-        if (operation == "FunctionA") return FunctionA(args);
-    }  
-}
-
-// There is a smart contract entry point and redirected from main method
-public static bool FunctionA(params object[] args)
-{
-    //some code  
-}
-```
-
-In our `DNS smart contract`, the first function is the `main` function which is the main entry of the smart contract. The main function reads the first argument as operation and the remaining as other arguments.
-
-```c#
-public static object Main(string method, params object[] args)
-{
-    return method switch
-    {
-        "query" => Query((string)args[0]),
-        "register" => Register((string)args[0], (byte[])args[1]),
-        "transfer" => Transfer((string)args[0], (byte[])args[1]),
-        "delete" => Delete((string)args[0]),
-        _ => false,
-    };
-}
-```
-
-Inside the main function, we first use the Trigger to judge whether user invoke smart contract with `invocationTransaction`, which means user calls the smart contract application. Here because it is a normal smart contract without asset transfer, therefore, the only trigger need to be considered is the Application Trigger. In side of the judgment statement, the function will redirect other function depends on the operation type.
-
-Now we can see what happened in each detailed function. The first one is the Query function, which query the owner of the domain address. Here we use the `Storage.Get`method, and the first argument is context, and here we pass the CurrentContext. The second parameter is the key of the storing key-value pair. Here we use the domain.
-
-```c#
-private static byte[] Query(string domain)
-{
-    return Storage.Get(Storage.CurrentContext, domain);
+    return Runtime.CheckWitness(Owner);
 }
 ```
 
@@ -311,7 +252,7 @@ private static bool Register(string domain, byte[] owner)
 }
 ```
 
-Similar to the Register method, the Delete function check the owner first and if it exists and it is the same as the one who invoke the contract, delete the pair using the `Storage.Delete`method.  This method is leaving as a question in the end of this part.
+Similar to the Register method, the Delete function check the owner first and if it exists and it is the same as the one who invoke the contract, delete the pair using the `Storage.Delete`method. 
 
 ### Events
 
@@ -319,9 +260,55 @@ In Smart contract, events are a way  to communicate that something happened on t
 
 ```c#
 //Should be called when caller transfer nep-5 asset.
-public static event transfer(byte[] from, byte[] to, BigInteger amount)
+[DisplayName("Transfer")]
+public static event Action<byte[], byte[], BigInteger> OnTransfer;
 ```
 
-### Assignment
+Transfer is the event name.
 
-In the above `DNS` smart contract, there is a delete method. The general idea is  check the owner first and if it exists and it is the same as the one who invoke the contract, delete the pair using the `Storage.Delete`method. Please finish this function.
+### Json serialization
+
+In Neo3 smart contract, the Json serialization/deserialization feature is added:
+
+```c#
+using Neo.SmartContract.Framework.Services.Neo;
+
+namespace Neo.Compiler.MSIL.TestClasses
+{
+    public class Contract_Json : SmartContract.Framework.SmartContract
+    {
+        public static string Serialize(object obj)
+        {
+            return Json.Serialize(obj);
+        }
+
+        public static object Deserialize(string json)
+        {
+            return Json.Deserialize(json);
+        }
+    }
+}
+```
+
+### Pointer support
+
+```c#
+namespace Neo.Compiler.MSIL.TestClasses
+{
+    public class Contract_Pointers : SmartContract.Framework.SmartContract
+    {
+        public static object CreateFuncPointer()
+        {
+            return new Func<int>(MyMethod);
+        }
+
+        public static int MyMethod()
+        {
+            return 123;
+        }
+    }
+}
+```
+
+In this code, you can get the pointer of  `MyMethod` by invoking `CreateFuncPointer`.
+

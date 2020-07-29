@@ -27,10 +27,12 @@ A standard nep-5 asset verifies the IsPayable function of the deposit address in
 | Name | Description |
 | -------------------------------- | ------ |
 | [Call(byte[\] scriptHash, string method, object[] arguments)](Contract/Call.md) | Invokes the contract |
-| [CallEx(byte[\] scriptHash, string method, object[] arguments, CallFlags flag)](Contract/CallEx.md) | Invokes the contract by flag |
+| [CallEx(byte[\] scriptHash, string method, object[] arguments, CallFlags flag)](Contract/CallEx.md) | Invokes the contract by call privilege flag |
 | [Create(byte[] script, string manifest)](Contract/Create.md) | Creates a contract |
 | [Update(byte[] script, string manifest)](Contract/Update.md) | Updates the contract |
 | [Destroy()](Contract/Destroy.md)         | Destroys the contract    |
+| [GetCallFlags()](Contract/GetCallFlags.md)         | Gets the privilege flag of the contract |
+| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | Creates a standard account with public key |
 
 ## Constructor
 
