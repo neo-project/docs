@@ -20,6 +20,7 @@ public static class Runtime
 | Platform                      | Gets information of the platform on which the smart contract is currently executed |
 | Time                          | Gets the timestamp of the current block                      |
 | InvocationCounter             | Gets the call number of the current contract                 |
+| GasLeft                       | Gets the left GAS of the fee of current transaction          |
 
 ## Method
 
@@ -28,7 +29,6 @@ public static class Runtime
 | [GetNotifications(byte[] hash = null)](Runtime/GetNotifications.md) | Gets all notifications of the execution of a contract        |
 | [CheckWitness(byte[])](Runtime/CheckWitness.md)              | Verifies that the transactions / block of the calling contract has validated the required script hashes. |
 | [Log(string)](Runtime/Log.md)                                | Sends a log message to the client executing the smart contract. |
-| [Notify(params object[])](Runtime/Notify.md)                 | Sends a notification to the client executing the smart contract. |
 
 
 ## Constructor

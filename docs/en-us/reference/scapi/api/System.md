@@ -85,4 +85,7 @@ The interop service layer provides APIs for smart contracts to access the blockc
 
 > [!Note]
 >
-> The source code for the API above can be found under `Neo` in the `src\neo\SmartContract\InteropService.cs` file.
+> The source code for the API above can be found under `Neo` in the 
+>
+> [src\neo\SmartContract](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) file.
+

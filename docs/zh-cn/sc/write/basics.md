@@ -213,8 +213,7 @@ namespace Neo.Compiler.MSIL.UnitTests.TestClasses
     }
 }
 ```
-编译器会在abi中, 标记`First`与`Second` 方法的offset, 并在调用合约时, 赋给initialPosition参数, 来调整入口函数，
-在调用时, 会根据abi中记录的offset, 自行找到匹配的方法, 进入并执行。
+编译器会在abi中标记`First`与`Second` 方法的offset，并在调用合约时赋给initialPosition参数来调整入口函数。在调用时，会根据abi中记录的offset，自行找到匹配的方法进入并执行。
 
 ### 触发器
 

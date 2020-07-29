@@ -17,6 +17,7 @@ public class Notification : IApiInterface
 | Name                                   | Description              |
 | ---------------------------------------- | -------------------------- |
 | ScriptHash | The script hash of the notification sender |
+| EventName | The event name of the notification |
 | State          |   The object representing the notification content, which can be of any type such as value, string, array, etc.   |
 
 ## Constructor
