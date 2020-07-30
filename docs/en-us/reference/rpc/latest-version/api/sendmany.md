@@ -58,7 +58,7 @@ Request body：
 }
 ```
 
-Request body (system fee and change address included)
+Request body (network fee and change address included)
 
 ```json
 {
