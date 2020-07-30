@@ -45,7 +45,7 @@ An address can be registered as candidate or unregistered afterwards. Correspond
 
 #### Candidate Voting 
 
-Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as the voted address becomes a candidate. Every standby committee member will vote to itself in genesis block. 
+Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. Every standby committee member will vote to itself in genesis block. 
 
 Voting contract method is as follows. Please not that voter's signature will be checked. 
 

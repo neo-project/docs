@@ -10,9 +10,7 @@ There is no duty assigned to candidates. However, committee members and validato
 
 ![](../images/consensus/vote_candidate.png)
 
-每个地址均有投票给另一个地址的权利，候选人票数为所有投票给它的地址的NEO余额之和。这里注意，投给非候选人地址的票数会被统计但不会被计入票数，只有当该地址注册为候选人时投票才会生效。
-
-Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as the voted address becomes a candidate. 
+Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. 
 
 Voting is a dynamic and continuous process. If the NEO asset of a voter is changed, the number of votes at the previous voting address will also change, and the list of consensus nodes and committee members will change accordingly.
 
