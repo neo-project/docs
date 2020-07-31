@@ -11,19 +11,18 @@
 
 `[fromAddress]<outputs_array>`
 
-- fromAddress： 资产出金的地址（可选）
+- fromAddress： 资产出金的地址（可选）。
 
 - outputs_array：数组，数组中的每个元素的数据结构如下：
 
   `{"asset": <asset>,"value": <value>,"address": <address>}`
 
-  - asset_id：资产 ID，即 NEP-5 合约的脚本哈希
+  - asset_id：资产 ID，即 NEP-5 合约的脚本哈希。
 
 	  如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-	  Gas 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
-
-	- value：转账金额。
+	  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+  - value：转账金额。
 
   - address：收款地址。
 
@@ -134,7 +133,7 @@
 
 返回如上的交易详情说明交易发送成功，否则交易发送失败。
 
-JSON 格式不正确，会返回 Parse error。                                                                                                                                         
+JSON 格式不正确，会返回 Parse error。
 
 如果签名不完整会返回待签名的交易。
 
