@@ -37,7 +37,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | ----------------------------------------------- | ------ | ------------------------------------------ |
 | [getconnectioncount](api/getconnectioncount.md) |        | 获取节点当前的连接数                       |
 | [getpeers](api/getpeers.md)                     |        | 获得节点当前已连接/未连接的节点列表      |
-| [getversion](api/getversion.md)                 |        | 获取查询节点的版本信息                     |
+| [getversion](api/getversion.md)                 |        | 获取节点的版本信息                     |
 | [sendrawtransaction](api/sendrawtransaction.md) | \<hex> | 广播交易                                   |
 | [submitblock](api/submitblock.md)               | \<hex> | 提交新的区块<br>**注意**：需要成为共识节点 |
 
@@ -45,7 +45,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                    | 参数                                    | 说明                                           |
 | --------------------------------------- | --------------------------------------- | ---------------------------------------------- |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | 以指定的脚本散列值调用智能合约，传入操作及参数 |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | 用指定的哈希调用智能合约，传入方法名及参数 |
 | [invokescript](api/invokescript.md)     | \<script>  \<signers>                  | 通过虚拟机运行脚本并返回结果                   |
 | [getunclaimedgas](api/getunclaimedgas.md) | \<address> | 查询指定地址未获取的 gas |
 
@@ -69,14 +69,14 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [listaddress](api/listaddress.md) |  | 列出当前钱包内的所有地址 |
 | [openwallet](api/openwallet.md) | \<path> \<password> | 打开指定钱包 |
 | [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
-| [sendmany](api/sendmany.md) | \<outputs_array> | 在一笔交易中向指定地址发起多笔转账 |
+| [sendmany](api/sendmany.md) | \<outputs_array> | 在一笔交易中向多个地址发起多笔转账 |
 | [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
 
 ### ApplicationLogs 插件
 
 | 方法                                          | 参数    | 说明                                  |
 | --------------------------------------------- | ------- | ------------------------------------- |
-| [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据指定的 NEP-5 交易 ID 获取合约日志 |
+| [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
 ### RpcNep5Tracker 插件
 

@@ -13,7 +13,7 @@
 
   如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-  Gas 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
 - from：转账地址。
 

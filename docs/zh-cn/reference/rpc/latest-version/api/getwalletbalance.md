@@ -11,9 +11,9 @@
 
 asset_id：资产 ID（资产标识符），即合约的 Script Hash。
 
-如NEO为：0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-Gas为：0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
 资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 

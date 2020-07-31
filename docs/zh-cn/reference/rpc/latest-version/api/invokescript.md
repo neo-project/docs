@@ -10,11 +10,11 @@
 ## 参数说明
 
 - script：一个由虚拟机运行的脚本，与 invokefunction 返回的 script 相同；
-- signers: 签名账户列表
+- signers：签名账户列表
   * account: 签名账户
   * scopes: 签名的作用域，允许的值: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
-  * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名允许的合约 Hash 列表
-  * allowedgroups: 如果 scopes 是 CustomGroups，该字段是签名允许的公钥列表。
+  * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
+  * allowedgroups: 如果 scopes 是 CustomGroups，该字段是签名生效的公钥列表。
 
 ## 调用示例
 

@@ -4,7 +4,7 @@
 
 > [!Note]
 >
-> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-modules/releases) 和[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 

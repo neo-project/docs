@@ -1,6 +1,6 @@
 # getapplicationlog 方法
 
-根据指定的 NEP-5 交易 ID 获取合约日志。完整的合约日志会记录到 ApplicationLogs 目录。
+根据交易 txid 获取合约的事件信息。合约事件信息会保存到 ApplicationLogs 目录。
 
 > [!Note]
 >
