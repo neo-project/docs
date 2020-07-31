@@ -13,9 +13,9 @@ Returns the balance of the corresponding asset in the wallet, based on the speci
 
 Asset_id: Asset ID (asset identifier), which is the script hash of the contract for contract assets.
 
-For example, NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+For example, NEO is 0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-Gas is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+Gas is 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
 You can query asset ID using the [CLI command](../../../../node/cli/cli.md) `list asset` or using the blockchain browser.
 

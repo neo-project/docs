@@ -1,6 +1,6 @@
 # getapplicationlog method
 
-Returns the contract log based on the specified txid. The complete contract logs are stored under the ApplicationLogs directory.
+Returns the contract event information based on the specified txid. The contract event information is stored under the ApplicationLogs directory.
 
 > [!Note]
 >

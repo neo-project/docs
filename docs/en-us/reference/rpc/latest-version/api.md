@@ -47,7 +47,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | Invokes a smart contract with the specified script hash, passing in an operation and its params. |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | Invokes a smart contract with the specified script hash, passing in the method name and its params. |
 | [invokescript](api/invokescript.md) | \<script> \<signers> | Runs a script through the virtual machine and returns the results. |
 | [getunclaimedgas](api/getunclaimedgas.md) | \<address> | Get unclaimed gas of the specified address. |
 
@@ -71,14 +71,14 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [listaddress](api/listaddress.md) |  | Lists all the addresses in the current wallet. |
 | [openwallet](api/openwallet.md) | \<path> \<password> | Opens the specified wallet. |
 | [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | Transfers from the specified address to the destination address. |
-| [sendmany](api/sendmany.md) | \<outputs_array> | Initiates multiple transfers to designated addresses in a transaction. |
+| [sendmany](api/sendmany.md) | \<outputs_array> | Initiates multiple transfers to multiple addresses in a transaction. |
 | [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> | Transfers to the specified address. |
 
 ### ApplicationLogs plugin
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getapplicationlog](api/getapplicationlog.md) | \<txid> | Returns the contract log based on the specified txid. |
+| [getapplicationlog](api/getapplicationlog.md) | \<txid> | Returns the contract event information based on the specified txid. |
 
 ### RpcNep5Tracker plugin
 

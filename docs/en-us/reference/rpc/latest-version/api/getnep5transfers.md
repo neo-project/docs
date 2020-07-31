@@ -18,7 +18,7 @@ timestamp (Optional):
 
 ## Example
 
-Example 1 - no timestamp is specified:
+##### Example 1 - no timestamp is specified:
 
 Request body:
 
@@ -64,7 +64,7 @@ Response body:
 }
 ```
 
-Example 2 - start and end timestamps are specified:
+##### Example 2 - start and end timestamps are specified:
 
 Request body:
 
