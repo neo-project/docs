@@ -17,7 +17,7 @@ public class Contract
 |                                                        | 名称                                         | 说明                      |
 | ------------------------------------------------------ | -------------------------------------------- | ------------------------- |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [IsPayable](Contract/IsPayable.md)           | 该合约能否接收 NEP-5 资产 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md)                 | 获得该合约的脚本哈西      |
+| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md)                 | 获得该合约的脚本哈希      |
 | ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [StorageContext](Contract/StorageContext.md) | 获得该合约的存储区上下文  |
 
 ## 方法
