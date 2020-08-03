@@ -11,9 +11,9 @@
 
 - asset_id：资产 ID，即 NEP-5 合约的脚本哈希
 
-  如 NEO 为：0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-  Gas 为：0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
   以上资产可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
@@ -28,38 +28,47 @@
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "sendtoaddress",
-  "params": ["0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b","NPJRHLjDm4r1wd8wHBGFRWqzsneFX9tBch", 5000],
-  "id": 1
+  "params": ["0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc","NPJRHLjDm4r1wd8wHBGFRWqzsneFX9tBch",21]
 }
 ```
 
 响应正文：
 
 ```json
+{
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x09df034eee12224964ccc0c93fcfbfce8d922ab2b0b673388fd8951d2f25d5d9",
-        "size": 272,
+        "hash": "0xfa17173184bce48315f72e11e42362f94019b345e72ca07fd630f186ae29f79f",
+        "size": 378,
         "version": 0,
-        "nonce": 760727272,
-        "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-        "sys_fee": "100000000",
-        "net_fee": "1272390",
-        "valid_until_block": 2136389,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 1657481343,
+        "sender": "NZoiUCBHBZ4DquVE5mbdpTQGozvJkWHtE8",
+        "sysfee": "9007990",
+        "netfee": "2378780",
+        "validuntilblock": 2105205,
+        "signers": [
             {
-                "account": "0x39e7394d6231aa09c097d02391d5d149f873f12b",
+                "account": "0x84515341137defbf06b9d246a7ca210efcfa6298",
+                "scopes": "FeeOnly"
+            },
+            {
+                "account": "0xb120f50f804d3a203c43475212894ab1c911ce18",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "AwCIUmp0AAAADBQlJ1AGgA5zzGQoZ1OjpzJCJSHI5AwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5",
+        "attributes": [],
+        "script": "AgB1K30MFCUnUAaADnPMZChnU6OnMkIlIcjkDBQYzhHJsUqJElJHQzwgOk2AD/UgsRPADAh0cmFuc2ZlcgwUvK9B1oTH1K1u4NmdqXB7nR8MjmZBYn1bUjg=",
         "witnesses": [
             {
-                "invocation": "DEBPVJeyFAroQcgVtVi9qmbemtAV1cIIdivDELileXwlbNFanQqRXq9UV5CxHA5qQ/U7beaJcLdQBiAPIkvGXSdZ",
-                "verification": "DCEDucRsbVxnHvXCG8eqfDBGiusIGi44lSaa35R3GNZQzh4LQQqQatQ="
+                "invocation": "DEBvKiq5NHkE3PsjbXe0YvNmSDq9c6PzoK1fsDljhEAvvoPSqhhoSj+gVyAuQqUKFuBM0O/+HM5xorM8vdm60hNb",
+                "verification": "DCECIItAHAHzOQfla6fHzYkOv5cXTzazCk9DZ6xRAlIUXH4LQZVEDXg="
+            },
+            {
+                "invocation": "DEAbhpq036r6sZaRSPXjv+cC6G85rhIDcnpvcFvNmsNFlFoUVUIoyBDUqa/1wxajj5yjH0VPgsvhlBwoK7hGOMZU",
+                "verification": "DCECi9GQLE0UGfACuCHm3mU939U1gGMgjkJnVjmL5v+jqsgLQZVEDXg="
             }
         ]
     }

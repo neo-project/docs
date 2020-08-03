@@ -26,11 +26,13 @@ public class Contract
 
 | 名称                                       | 说明              |
 | ---------------------------------------- | --------------- |
-| [Call(byte\[\] scriptHash, string method, object\[\] arguments)](Contract/Call.md) | 调用智能合约    |
-| [CallEx(byte\[\] scriptHash, string method, object\[\] arguments, CallFlags flag)](Contract/CallEx.md) | 根据flag调用合约    |
-| [Create(byte\[\] script, string manifest)](Contract/Create.md)      | 新建智能合约 |
-| [Update(byte\[\] script, string manifest)](Contract/Update.md)       | 更新智能合约 |
+| [Call(byte[] scriptHash, string method, object[] arguments)](Contract/Call.md) | 调用智能合约    |
+| [CallEx(byte[] scriptHash, string method, object[] arguments, CallFlags flag)](Contract/CallEx.md) | 根据调用权限 Flag 调用合约    |
+| [Create(byte[] script, string manifest)](Contract/Create.md)      | 新建智能合约 |
+| [Update(byte[] script, string manifest)](Contract/Update.md)       | 更新智能合约 |
 | [Destroy()](Contract/Destroy.md)         | 销毁智能合约 |
+| [GetCallFlags()](Contract/GetCallFlags.md)         | 获取合约的调用权限 Flag |
+| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | 根据公钥创建标准账户 |
 
 ## 构造方法
 

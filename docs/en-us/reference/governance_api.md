@@ -26,9 +26,9 @@ The way to call the native contract methods is the same as calling other ordinar
 
 #### Function & Scope
 
-There is no duty assigned to candidates. However, committee members and validators are elected from candidates according to voting result. Their relationship can be described in the following picture. There is no explicit relationship between committee members and validators but, as default committee member amount (21) is more than that of validators, so generally speaking validators are a subset of committee members. 
+There is no duty assigned to candidates. However, committee members and validators are elected from certain number of candidates with most votes. Their relationship can be described in the following picture. There is no explicit relationship between committee members and validators but, as default committee member amount (21) is more than that of validators, generally speaking validators are a subset of committee members. 
 
-![avatar](/assets/candidateRelationship.png)
+![avatar](./assets/candidateRelationship.png)
 
 #### How to Become a Candidate
 
@@ -45,7 +45,7 @@ An address can be registered as candidate or unregistered afterwards. Correspond
 
 #### Candidate Voting 
 
-Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received vote is defined as the sum of NEO held by its voter. Committee members as well as validators are certain number of candidates with the most votes. Please note that voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as voted address becomes a candidate. Every standby committee member will vote to itself in genesis block. 
+Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. Every standby committee member will vote to itself in genesis block. 
 
 Voting contract method is as follows. Please not that voter's signature will be checked. 
 

@@ -17,7 +17,7 @@ script_hash：合约脚本散列。
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
-  "params": ["0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc"],
+  "params": ["0x27c229e71e2e7b4aa8062f695586e4243ae60a49"],
   "id": 1
 }
 ```
@@ -27,33 +27,93 @@ script_hash：合约脚本散列。
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 1,
+    "id": "1",
     "result": {
-        "hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-        "script": "VgIMFCvxc/hJ0dWRI9CXwAmqMWJNOec5YAwHAADBb/KGI2FXEAIhIUHpfTigDAEgs3BoJykAAAAhIQwUK/Fz+EnR1ZEj0JfACaoxYk055zkhQfgn7IxxI14BAAAhQel9OKAMAUCzcmonRgEAACEhQTlTbjxzeAwJYmFsYW5jZU9ml3RsJxQAAAB5EM4hNSoBAABxIyIBAAB4DAhkZWNpbWFsc5d1bScRAAAAITVrAQAAcSMDAQAAeAwGZGVwbG95l3ZuJxEAAAAhNXMBAABxI+YAAAB4DARuYW1ll3cHbwcnEQAAACE1CQIAAHEjyQAAAHgMBnN5bWJvbJd3CG8IJxEAAAAhNfkBAABxI6oAAAB4DBJzdXBwb3J0ZWRTdGFuZGFyZHOXdwlvCScRAAAAITXUAQAAcSN/AAAAeAwLdG90YWxTdXBwbHmXdwpvCicRAAAAITXSAQAAcSNbAAAAeAwIdHJhbnNmZXKXdwtvCyc+AAAAIXnKE7MQs3cPbw8nDAAAABBxIy8AAAB5EM53DHkRzncNeRLOdw5vDG8Nbw4hUzWqAQAAcSMNAAAAIRBxIwUAAABpQFcCASF4ygwBFLMQs3BoJzwAAAAMMlRoZSBwYXJhbWV0ZXIgYWNjb3VudCBTSE9VTEQgYmUgMjAtYnl0ZSBhZGRyZXNzZXMuIUU3IUGb9mfOeCFQQZJd6DFxIwUAAABpQBhAVwIBIXghQanFS0FwaCcNAAAAaBLOIwYAAAARcSMFAAAAaUBXAgAhIUGb9mfODAt0b3RhbFN1cHBseSFQQZJd6DFwIUGb9mfOIQwUK/Fz+EnR1ZEj0JfACaoxYk055zkhDAcAAMFv8oYjIVNB5j8YhCEhQZv2Z84MC3RvdGFsU3VwcGx5IQwHAADBb/KGIyFTQeY/GIQhIQshDBQr8XP4SdHVkSPQl8AJqjFiTTnnOSEMBwAAwW/yhiMhUwwIVHJhbnNmZXIUwEGVAW9hIRFxIwUAAABpQAwMRGF5IERheSBUZXN0QAwDRERBQBPDShAMBU5FUC010EoRDAVORVAtN9BKEgwGTkVQLTEw0EBXAQAhIUGb9mfODAt0b3RhbFN1cHBseSFQQZJd6DFwIwUAAABoQFcKAyF6ELZyaicMAAAAEHMjUgEAAHghQfgn7IwQs3RsJwwAAAAQcyM7AQAAecoMARSzELN1bScMAAAAEHMjJQEAACFBm/ZnznghUEGSXegxcGh6tXZuJwwAAAAQcyMFAQAAeHmzdwdvBycMAAAAEXMj8gAAAGh6s3cIbwgnGQAAACFBm/ZnznghUEEvWMXtISMXAAAAIUGb9mfOeGh6nyFTQeY/GIQhIUGb9mfOeSFQQZJd6DFxadh3CW8JJz0AAAAhDAdpZiBwYXNzIUHP50eWISFBm/Znznl6IVNB5j8YhCEMCHB1dCBwYXNzIUHP50eWISEjTwAAACEMBGVsc2UhQc/nR5YhIUGb9mfOeWl6niFTQeY/GIQhDCB0b192YWx1ZS5Bc0JpZ0ludGVnZXIoKSArIGFtb3VudCFBz+dHliEhIXh5eiFTDAhUcmFuc2ZlchTAQZUBb2EhEXMjBQAAAGtA",
+        "id": 4,
+        "hash": "0x27c229e71e2e7b4aa8062f695586e4243ae60a49",
+        "script": "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",
         "manifest": {
             "groups": [],
             "features": {
                 "storage": true,
-                "payable": false
+                "payable": true
             },
+            "supportedstandards": [
+                "NEP-5",
+                "NEP-10"
+            ],
             "abi": {
-                "hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-                "entryPoint": {
-                    "name": "main",
-                    "parameters": [
-                        {
-                            "name": "method",
-                            "type": "String"
-                        },
-                        {
-                            "name": "args",
-                            "type": "Array"
-                        }
-                    ],
-                    "returnType": "ByteArray"
-                },
+                "hash": "0x27c229e71e2e7b4aa8062f695586e4243ae60a49",
                 "methods": [
+                    {
+                        "name": "deploy",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Boolean"
+                    },
+                    {
+                        "name": "migrate",
+                        "parameters": [
+                            {
+                                "name": "script",
+                                "type": "ByteArray"
+                            },
+                            {
+                                "name": "manifest",
+                                "type": "String"
+                            }
+                        ],
+                        "offset": 258,
+                        "returntype": "Boolean"
+                    },
+                    {
+                        "name": "destroy",
+                        "parameters": [],
+                        "offset": 329,
+                        "returntype": "Boolean"
+                    },
+                    {
+                        "name": "mint",
+                        "parameters": [],
+                        "offset": 459,
+                        "returntype": "Boolean"
+                    },
+                    {
+                        "name": "verify",
+                        "parameters": [],
+                        "offset": 946,
+                        "returntype": "Boolean"
+                    },
+                    {
+                        "name": "name",
+                        "parameters": [],
+                        "offset": 979,
+                        "returntype": "String"
+                    },
+                    {
+                        "name": "symbol",
+                        "parameters": [],
+                        "offset": 997,
+                        "returntype": "String"
+                    },
+                    {
+                        "name": "decimals",
+                        "parameters": [],
+                        "offset": 1016,
+                        "returntype": "Integer"
+                    },
+                    {
+                        "name": "supportedStandards",
+                        "parameters": [],
+                        "offset": 1023,
+                        "returntype": "Array"
+                    },
+                    {
+                        "name": "totalSupply",
+                        "parameters": [],
+                        "offset": 1119,
+                        "returntype": "Integer"
+                    },
                     {
                         "name": "balanceOf",
                         "parameters": [
@@ -62,37 +122,33 @@ script_hash：合约脚本散列。
                                 "type": "ByteArray"
                             }
                         ],
-                        "returnType": "Integer"
+                        "offset": 1170,
+                        "returntype": "Integer"
                     },
                     {
-                        "name": "decimals",
-                        "parameters": [],
-                        "returnType": "Integer"
+                        "name": "transfer",
+                        "parameters": [
+                            {
+                                "name": "from",
+                                "type": "ByteArray"
+                            },
+                            {
+                                "name": "to",
+                                "type": "ByteArray"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "Integer"
+                            }
+                        ],
+                        "offset": 1274,
+                        "returntype": "Boolean"
                     },
                     {
-                        "name": "deploy",
+                        "name": "_initialize",
                         "parameters": [],
-                        "returnType": "Boolean"
-                    },
-                    {
-                        "name": "name",
-                        "parameters": [],
-                        "returnType": "String"
-                    },
-                    {
-                        "name": "symbol",
-                        "parameters": [],
-                        "returnType": "String"
-                    },
-                    {
-                        "name": "supportedStandards",
-                        "parameters": [],
-                        "returnType": "Array"
-                    },
-                    {
-                        "name": "totalSupply",
-                        "parameters": [],
-                        "returnType": "Integer"
+                        "offset": 1776,
+                        "returntype": "Void"
                     }
                 ],
                 "events": [
@@ -111,8 +167,7 @@ script_hash：合约脚本散列。
                                 "name": "arg3",
                                 "type": "Integer"
                             }
-                        ],
-                        "returnType": "Signature"
+                        ]
                     }
                 ]
             },
@@ -123,8 +178,12 @@ script_hash：合约脚本散列。
                 }
             ],
             "trusts": [],
-            "safeMethods": [],
-            "extra": null
+            "safemethods": [],
+            "extra": {
+                "Author": "Neo",
+                "Email": "dev@neo.org",
+                "Description": "This is a NEP5 example"
+            }
         }
     }
 }

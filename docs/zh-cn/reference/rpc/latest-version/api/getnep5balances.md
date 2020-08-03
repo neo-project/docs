@@ -4,7 +4,7 @@
 
 > [!Note]
 >
-> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases) 和[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
@@ -32,29 +32,29 @@ address：要查看资产余额的地址。
     "result": {
         "balance": [
             {
-                "asset_hash": "0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36",
+                "assethash": "0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36",
                 "amount": "9990000000000000",
-                "last_updated_block": 17418
+                "lastupdatedblock": 17418
             },
             {
-                "asset_hash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
                 "amount": "1002531616708175",
-                "last_updated_block": 54499
+                "lastupdatedblock": 54499
             },
             {
-                "asset_hash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "assethash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
                 "amount": "9999785",
-                "last_updated_block": 54496
+                "lastupdatedblock": 54496
             },
             {
-                "asset_hash": "0x433f0891e80c107b9e63d5f5b7cddf1fc35eb0b9",
+                "assethash": "0x433f0891e80c107b9e63d5f5b7cddf1fc35eb0b9",
                 "amount": "9999200000000000",
-                "last_updated_block": 19810
+                "lastupdatedblock": 19810
             },
             {
-                "asset_hash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
+                "assethash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
                 "amount": "9995000000000000",
-                "last_updated_block": 17145
+                "lastupdatedblock": 17145
             }
         ],
         "address": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"

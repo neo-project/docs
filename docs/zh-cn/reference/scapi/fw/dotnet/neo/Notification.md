@@ -17,6 +17,7 @@ public class Notification : IApiInterface
 | 名称                                       | 说明                         |
 | ---------------------------------------- | -------------------------- |
 | ScriptHash | 通知发送者Sender的脚本哈希    |
+| EventName | 通知的事件名 |
 | State          |   代表通知内容的对象，可为任意类型（数值、字符串、数组）               |
 
 ## 构造方法

@@ -17,6 +17,12 @@
 
 - cosigners：需要添加的签名列表，如不需要签名，无需传递此参数。
 
+- signers: 签名账户列表
+  * account: 签名账户
+  * scopes: 签名的作用域，允许的值: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
+  * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
+  * allowedgroups: 如果 scopes 是 CustomGroups，该字段是签名生效的公钥列表。
+
 注意你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
 
 例如：
@@ -67,7 +73,9 @@
     [
         {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
-          "scopes": "CalledByEntry"      
+          "scopes": "CalledByEntry",
+          "allowedcontracts":[],
+          "allowedgroups":[]
         }
     ]
   ]
@@ -90,7 +98,7 @@
                 "value": true
             }
         ],
-        "tx": "0005d16e331c0357464b777ecf6b5f3ac3893ace1f8b1621f658738900000000001e47130000000000a81f200001011c0357464b777ecf6b5f3ac3893ace1f8b1621f60154180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b5201420c40de4c406084b738675c42519643018748215cf9de3ef9c6ec40eecf70b403250a2dddca6045e020bf713503c649ba4df0ff6cfc39459fb26929c0699aebcb0a0c290c210222d8515184c7d62ffa99b829aeb4938c4704ecb0dd7e340e842e9df1218263430b4195440d78"
+        "tx": null
     }
 }
 ```
@@ -109,10 +117,10 @@
    ```
    
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
-- gas_consumed：调用智能合约时消耗的系统手续费。
+- gasconsumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
-- tx：默认为 null，当打开钱包并传入正确的签名时会返回构造好的交易，即本次调用合约交易的 16 进制字符串，该交易可以直接使用 [sendrawtransaction](sendrawtransaction.md) 接口发送至链上。
+- tx：本次调用合约交易的 hex string，需要打开钱包并且传入正确的签名账户参数，否则 tx 为 null。
 
 > [!Note]
 >
-> invokefunction 命令执行的时候是调用合约的 `operation` 方法，`params` 将作为实参传入。如果合约 abi 里没有对应的 `operation` 方法，将不能返回预期的结果。
+> 当输入 invokefunction 命令后，节点调用该合约的 `operation` 方法，并将 `params` 作为实参传入。如果合约里没有对 `operation` 和 `params` 做处理，将不能返回预期的结果。

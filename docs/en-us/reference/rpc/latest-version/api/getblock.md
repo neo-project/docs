@@ -73,7 +73,7 @@ Response body:
                 "verification": "EQwhAh4VY6oypRkf9xmOjCjvAqjGszrs8yb1syxqYgE41CAbEQtBMHOzuw=="
             }
         ],
-        "consensus_data": {
+        "consensusdata": {
             "primary": 0,
             "nonce": "46701c52aeb46bf8"
         },
@@ -141,7 +141,7 @@ Response body:
                 "verification": "EQwhAh4VY6oypRkf9xmOjCjvAqjGszrs8yb1syxqYgE41CAbEQtBMHOzuw=="
             }
         ],
-        "consensus_data": {
+        "consensusdata": {
             "primary": 0,
             "nonce": "46701c52aeb46bf8"
         },
