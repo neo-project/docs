@@ -85,7 +85,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 ## 提取私有链中的 NEO/GAS
 
-在 NEO 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
+在 Neo 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
 1. 复制共识节点成为一个外部节点。
 2. 将共识节点的tcp地址localhost:10003加入外部节点protocol.json中的seedlist。可参照下面的配置：
@@ -135,10 +135,10 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 4. 启动私链及外部节点，后续操作均在外部节点上。
 5. 使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
-   这里设置最小签名数 m 为 1，pubkeys 为钱包 a.json 的公钥。例如：
+   这里设置最小签名数 m 为 1，pubkeys 为钱包 1.json 的公钥。例如：
 
     ``` 
-   import multisigaddress 1 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad
+   import multisigaddress 1 0364cd3878c4f9a2e785c6a996e8ac29e37ae0d2b9a67479786f27ed739a4de3e7
     ```
 
 6. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。

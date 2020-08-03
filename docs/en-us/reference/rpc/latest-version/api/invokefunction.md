@@ -10,37 +10,40 @@ Invokes a smart contract with its scripthash based on the specified operation an
 ## Parameter Description
 
 * scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
-
 * operation: The operation name (string)
-
 * params: The parameters to be passed into the smart contract operation
+* cosigners: Add signatures when required.
 
   > [!Note]
->
+  >
   > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 
-* signers: list of contract signature accounts
+  * signers: list of contract signature accounts
   * account: signature account
   * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
+You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 
-  For example:
+For example:
 
-    ```json
-    {
-      "type": "String",
-      "value": "Hello"
-    }
-    ```
+```json
+  {
+    "type": "String",
+    "value": "Hello"
+  }
 
-    ```json
-    {
-      "type": "Hash160",
-      "value": "39e7394d6231aa09c097d02391d5d149f873f12b"
-    }
-    ```
+  {
+    "type": "Hash160",
+    "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+  }
+
+  {
+    "type": "ByteArray",
+    "value": "7472616e73666572"
+  }
+```
 
 ## Example
 
@@ -106,11 +109,11 @@ Response description:
 - script: the invocation script of the contract. By reference to [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter) you can convert the script to the following OpCode (NeoVM is a stack-based virtual machine that executes from bottom to top when executing):
 
   ```
-  PUSHINT16 1000
-  PUSHDATA1 0x2916eba24e652fa006f3e5eb8f9892d2c3b00399
-  PUSHDATA1 0xcadb3dc2faa3ef14a13b619c9a43124755aa2569
+  PUSHINT16 8
+  PUSHDATA1 0x1f177332c467db9ba734d3ca85645fbadd7e13e3
+  PUSHDATA1 0xf621168b1fce3a89c33a5f6bcf7e774b4657031c
   PUSHDATA1 transfer
-  PUSHDATA1 0x806b7fa0db3b46d6c42e1e1b0a7fd50db9d4a9b0
+  PUSHDATA1 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
   SYSCALL System.Contract.Call
   ```
 
@@ -124,4 +127,3 @@ Response description:
 > [!Note]
 >
 > After entering the `invokefunction` command,  the node invokes the `operation` method, and pass `params` as arguments. If `operation` and `params` are not processed in the contract, the expected result cannot be returned.
-
