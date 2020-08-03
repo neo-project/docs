@@ -12,7 +12,7 @@
 public static extern bool IsStandard(byte[] scripthash)
 ```
 
-参数：账户的脚本哈西。
+参数：账户的脚本哈希。
 
 返回值：该账户是否是标准账户。
 
