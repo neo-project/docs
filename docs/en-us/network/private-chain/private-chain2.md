@@ -167,7 +167,6 @@ You can refer to the following example：
     "localhost:20003",
     "localhost:30003",
     "localhost:40003",
-    "localhost:12333"
     ]
   }
 }
@@ -238,7 +237,7 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
    For example:
 
    ```
-   import multisigaddress 3    0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
+   import multisigaddress 3 0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
    ```
 
 4. Repeat the last step to create multi-signature addresses in other 3 wallets.

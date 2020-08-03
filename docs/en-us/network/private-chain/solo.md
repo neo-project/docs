@@ -89,7 +89,7 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
 
 1. Copy another Neo-CLI directory as an external node.
 
-2. In the node `protocol.json` file, add the consensus node tcp address (localhost:10333) into the `seedlist` field, as shown below:
+2. In the node `protocol.json` file, add the consensus node tcp address (localhost:10003) into the `seedlist` field, as shown below:
 
    ```
    {
@@ -101,7 +101,7 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
          "02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722"
        ],
        "SeedList": [
-       "localhost:10333"
+       "localhost:10003"
        ]
      }
    }
