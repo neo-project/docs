@@ -88,7 +88,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 在 NEO 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 或 Neo-GUI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
 1. 复制共识节点成为一个外部节点。
-2. 将共识节点的tcp地址localhost:10333加入外部节点protocol.json中的seedlist。可参照下面的配置：
+2. 将共识节点的tcp地址localhost:10003加入外部节点protocol.json中的seedlist。可参照下面的配置：
 
 ```json
 {
@@ -100,7 +100,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
       "02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722"
     ],
     "SeedList": [
-    "localhost:10333"
+    "localhost:10003"
     ]
   }
 }
