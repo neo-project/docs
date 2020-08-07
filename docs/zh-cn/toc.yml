@@ -262,5 +262,7 @@
         items:
         - name: ExecutionEngine
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: 治理 API
+    href: /v3/docs/zh-cn/reference/governance_api.md
   - name: NeoVM 指令集
     href: /v3/docs/zh-cn/reference/neo_vm.md

@@ -260,5 +260,7 @@
         items:
         - name: ExecutionEngine
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: Governance API
+    href: /v3/docs/en-us/reference/governance_api.md
   - name: NeoVM Instructions
     href: /v3/docs/en-us/reference/neo_vm.md
