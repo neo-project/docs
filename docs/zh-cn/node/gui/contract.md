@@ -15,7 +15,7 @@
 - 合约特性：
   - `storage` ：合约使用了存储区。
   - `payable` ：合约可以接收资产。在 NEP-5 标准中，转账时要检查收款方的 payable 字段。
-- `合约方法&事件`：合约中包含的方法以及事件的详细信息，包括方法名、参数以及返回值
+- `合约方法&通知`：合约中包含的方法以及事件的详细信息，包括方法名、参数以及返回值
 
 ## 部署合约
 
@@ -47,20 +47,6 @@
 
 部署好合约后就可以进入调用合约页面来进行调用。
 
-### 参数类型
-
-调用合约之前需要先根据链上合约的manifest文件来确定所需要填写的参数类型。
-
-+ 参数类型：`ByteArray`
-
-  在Neo3-preview2中，ByteArray对应的编码使用Base64替代了Base58，可以通过GUI提供的数据转换把钱包地址转换为Base64的 ByteArray。
-
-  ![](../assets/guiConvertor.png)
-
-+ 参数类型：`Integer`
-
-  调用nep5标准中的tranfer方法时，参数中的金额需要乘以该nep5的精度。
-
 ### 调用合约操作
 
 要调用已经部署到区块链上的合约，进行以下操作：
@@ -71,13 +57,25 @@
 
 2. 选择调用方法，并填写相应的参数。例如，要调用一个nep5标准中的transfer方法，填写如下参数：
 
-   + `from`：`NX9MAhkkwHDGxUxgUPZaNtB8oxo1tVKmme` -> `ezEkAcv5c2svBlSTRoCze4sw3/k=`
-   + `to`: `NdLN76VVUb4yhYsTha83F5Ch4jQiPfKSzA` -> `vxdA9sHh+RPS8weym4CCVRuppcU=`
-   + `amount`：1*10000 (精度)
+   + `from`/ `to`：资产转出/转入地址。通常参数类型选择Address并输入转账地址即可。Neo-GUI会将钱包地址转换为Base64的 ByteArray。
 
-   ![](../assets/guiInvokeContract.png)
+     如果选择以下参数类型，需要使用GUI的数据转换工具（点击页面右侧按钮![](../assets/datatransf.png)）将地址转成对应的字符串：
 
-3. （可选）在调用某些合约方法的时候，需要附加签名，可以在`附加签名`中选择标准账户，如上图所示。可以选择多个地址。
+     - `ByteArray`：输入小端序，Base64 编码的 String
+
+       ![](../assets/datatransf_1.png)
+
+     - Hash160：输入大端序 String
+
+       ![](../assets/datatransf_2.png)
+
+   + `amount`：1*10000 (精度)。
+
+     调用nep5标准中的tranfer方法时，参数中的金额需要乘以该nep5的精度。
+
+     ![](../assets/guiInvokeContract.png)
+
+   + `附加签名`：（可选）在调用某些合约方法的时候，需要附加签名，可以在`附加签名`中选择标准账户，如上图所示。可以选择多个地址。
 
 4. 点击`试运行`，查看运行结果
 
