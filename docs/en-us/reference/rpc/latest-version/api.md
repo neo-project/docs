@@ -44,6 +44,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getunclaimed](api/getunclaimed.md) | \<address> | Returns unclaimed GAS amount of the specified address. | |
 | [getunclaimedgas](api/getunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. | Need to open the wallet |
 | [getunspents](api/getunspents.md) | \<address> | Returns information of the unspent UTXO assets at the specified address. |  |
+| [getutxotransfers](api/getutxotransfers.md) | \<address> [asset] [timestamp] | Returns UTXO transaction information occurred in the specified time period for the specified address. | |
 | [getstorage](api/getstorage.md)                 | \<script_hash>  \<key>                      | Returns the stored value based on the contract script hash and key |                              |
 | [gettransactionheight](api/gettransactionheight.md)| \<txid>                                  | Returns the block index in which the transaction is found. ||
 | [gettxout](api/gettxout.md)                     | \<txid> \<n>                                | Returns the corresponding transaction output (change) information based on the specified hash and index |                              |
