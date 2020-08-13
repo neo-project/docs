@@ -1,6 +1,6 @@
 # 安装 Neo-GUI
 
-Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，目前支持 Windows 10、macOS 系统上运行。
+Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，目前支持在Windows 10、macOS 系统上运行。
 
 其主要功能如下；
 
