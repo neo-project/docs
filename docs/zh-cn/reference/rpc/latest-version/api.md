@@ -36,7 +36,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getmetricblocktimestamp](api/getmetricblocktimestamp.md) | \<blocks numbers>  \<endHeight> | 返回指定区块高度及之前 n 个区块的 timestamp。 | |
 | [getnep5balances](api/getnep5balances.md) | \<address> | 返回指定地址内的所有 NEP-5 资产余额。 | |
 | [getnep5transfers](api/getnep5transfers.md) | \<address> | 返回指定地址内的所有 NEP-5 交易记录。 | |
-| [getutxotransfers](api/getutxotransfers.md) | \<address> [asset] [timestamp] | 返回指定地址在指定时间段内的 utxo 交易记录 | |
+| [getutxotransfers](api/getutxotransfers.md) | \<address> [asset] [timestamp] | 返回指定地址在指定时间段内的 UTXO 交易记录 | |
 | [getnewaddress](api/getnewaddress.md)    |                                          | 创建一个新的地址                     | 需要打开钱包   |
 | [getrawmempool](api/getrawmempool.md)    |                                          | 获取内存中已确认或未确认的交易列表 |          |
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | 根据指定的散列值，返回对应的交易信息           |          |
