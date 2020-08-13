@@ -12,7 +12,7 @@ var references = tx.GetReferences();
 
 `tx.GetRenferences`方法实际上是用于获取其他交易的`输出`结果，用于构建当前交易的输入。因此，这里的每个引用都包含一个表示资产类型的AssetId以及一个ScriptHash，其中ScriptHash表示对应输出的接收者。
 
-在mintToken方法中，`引用`用于跟踪用户地址以及发送到CGAS合约的资产类型。为了获得发送到当前CGAS合约的全局资产的数量，我们需要调用api的 txt.getoutput()方法来获取当前交易的`输出`。在当前交易的每个输出中，将scriptionHash与CGAS scriptHash和AssetId进行比较，然后对每个输出的值求和。
+在mintToken方法中，`引用`用于跟踪用户地址以及发送到CGAS合约的资产类型。为了获得发送到当前CGAS合约的全局资产的数量，我们需要调用api的 tx.GetOutputs()方法来获取当前交易的`输出`。在当前交易的每个输出中，将 scriptHash 与CGAS scriptHash和AssetId进行比较，然后对每个输出的值求和。
 
 ```csharp
 //兑换数量
