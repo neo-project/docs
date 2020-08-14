@@ -49,7 +49,8 @@
 | [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥      |
 | [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥                     |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约            |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | 向指定地址转账               |
+| [import watchonly](#import-watchonly) | \<wif\|path>            | 导入监听地址（如合约账户）            |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [from=null] [signerAccounts=null] | 向指定地址转账               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
@@ -57,7 +58,7 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> \[optionally quoted params separated by space\] \[witness address separated by space\]| 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null]| 调用合约 |
 
 #### 节点命令
 
@@ -73,9 +74,9 @@
 | [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
 | [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
-| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>           | 调用 token 的 transfer 方法转账 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [from=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
 
-#### 原生合约令
+#### 原生合约命令
 
 | 命令            | 参数                | 说明                                           |
 | --------------- | ------------------- | ---------------------------------------------- |
@@ -319,7 +320,7 @@ Result : 8
 
 ##### 句法
 
- `transfer <tokenHash> <to> <amount>`
+ `transfer <tokenHash> <to> <amount> [from=null] [signersAccounts=null]`
 
 ##### 参数
 
@@ -329,10 +330,14 @@ Result : 8
 
 - `amount`：转账金额
 
+- `from`：转出地址
+
+- `signersAccounts`：添加签名的账户
+
 ##### 示例
 
 ```
-neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 Relay tx(no|yes): y
 Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
 ```
@@ -626,19 +631,40 @@ neo> import multisigaddress 1 022b386a0ac6fa5abad4bfabc7dff3c016654fa97176811cb6
 Multisig. Addr.: AYpc268sh4tff7CTj5W4tztt1qheVTUa6P
 ```
 
+### import watchonly
+
+导入只监听的地址，例如合约账户。
+
+##### 句法
+
+`import watchonly scriptHash`
+
+##### 参数
+
+- `scriptHash`：账户 hash 或合约 hash
+
+##### 示例
+
+```
+neo> import watchonly 0xbfe215933f29b29dacf0e8383722a62974ac8aa6
+Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
+```
+
 ### send
 
 向指定地址转账。该命令需要验证钱包密码。
 
 ##### 句法
 
-`send <id|alias> <address> <amount>|all`
+`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
 ##### 参数
 
 - `id|alias`：资产 ID或资产缩写，如 neo，gas
 - `address`：收款地址
 - `amount|all`：转账金额
+- `from`：转出地址
+- `signerAccounts`：需要添加签名的账户
 
 ##### 示例
 
@@ -667,6 +693,13 @@ neo> send gas ARfyrX28D2H2wP6KR6xxaUbvqvkv5SbMNe 2
 password: ********
 SignatureContext:
 {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"0071c0992d42e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c00e1f50500000000ac0c240000000000cb152300000142e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c01550400c2eb0b146c93f190909dea8dfe3caeb2ee90530b4ef21e861442e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1","items":{"0x0c2a95d2bba739e2b2e1b0e55d3b768b2ca6e242":{"script":"5221032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff002102685dd451efbf38cf859a80f250815f503303dd7b9f6546786164de219ede87735268c7c34cba","parameters":[{"type":"Signature"},{"type":"Signature"}],"signatures":{"032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff00":"d9ac57bac4260c60707e0b641585c70789e1a2eb5438c95de972af9aff99f5f4485b81cd2382218583b7f4950da54dbd8d1468f72b91809e14bb1c8139cca637"}}}}
+```
+
+如果从合约中转出资产，from 为合约 hash，签名账户需要包含合约 hash 和鉴权账户 verify account，例如：
+```
+neo> send 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+password: *
+TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```
 
 ### sign
@@ -718,7 +751,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ##### 句法
 
-`invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
 
 ##### 参数
 
@@ -734,6 +767,8 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
   [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
   [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
   ```
+
+- `sender` ：交易发送方，即支付 GAS 费的账户
 
 - `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
 
@@ -803,9 +838,26 @@ Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
 relay tx(no|yes): no
 ```
 
+##### 示例 3
+
+示例输入：
+
+```
+neo> invoke 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+```
+示例输出：
+
+```
+Invoking script with: '110c14f2cfb15144b24d3804986ad91d6238eabe98bab40c146a8b58aba3799ea84101093b32c024b6e7186b4313c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52'
+VM State: HALT
+Gas Consumed: 0.0900796
+Result Stack: [{"type":"Boolean","value":true}]
+Relay tx(no|yes): no
+```
+
 > [!Note]
 >
-> 当输入 invoke 命令后，节点并不是直接调用合约中的 `operation` 方法。而是调用该合约的 `main` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果 main 方法里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+> 当输入 invoke 命令后，节点调用合约中的 `operation` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
 
 ### relay
 
