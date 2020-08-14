@@ -74,7 +74,7 @@ Address is a string of numbers and letters after a series of transformations of 
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
 
-3. Add the version prefix in the hash (Currently, the Neo version is `0x53`).
+3. Add the version prefix in the hash (Currently, the Neo protocol version is 53 and the corresponding byte is  `0x35`).
 
 4. Make Base58Check encoding for the above byte data.
 
@@ -84,8 +84,8 @@ Example：
 |----------|:-------------:|
 | Private Key | 3bf2c2c3a43ee817c5a7704b60e5265e73e585eb85b17091c451ddf72fd80c41 |
 | Public Key (Compressed) | 02208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de375 |
-| Script | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b410a906ad4 |
-| Address | NWRRMt1FGSZiiT8Wg7naBwrEKLN4SXcUzH |
+| Script | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b4195440d78 |
+| Address | NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg |
 
 #### Multi-Signature Address
 
@@ -99,7 +99,7 @@ Example：
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script).
 
-3. Add the version prefix in the hash. (Currently, the Neo version is `0x53`)
+3. Add the version prefix in the hash. (Currently, the Neo protocol version is 53 and the corresponding byte is  `0x35`)
 
 4. Make Base58Check encoding for the above byte data.
 
@@ -108,9 +108,9 @@ Example:
 | Format                  | Value                                                        |
 | ----------------------- | ------------------------------------------------------------ |
 | Private Key             | 97374afac1e801407d6a60006e00d555297c5019788795f017d4cd1fff3df529， aab9d4e4223e088aa6eb1f0ce75c11d149625f6d6a19452d765f8737200a4c35 |
-| Public Key (Compressed) | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50，03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
-| Script                  | 120c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b413073b3bb |
-| Address                 | Nh6qrufMRfPNsRh3sNo6asWvvQXrzWdwoK                           |
+| Public Key (Compressed) | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50<br/>03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
+| Script                  | 110c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b41138defaf |
+| Address                 | Nax5LtYnKqZ741eUbrs6sCViMqjTCk39JP                           |
 
 > [!Note]
 >
@@ -323,7 +323,7 @@ Example:
 | data       | hello world                                                  |
 | PrivateKey | f72b8fab85fdcc1bdd20b107e5da1ab4713487bc88fc53b5b134f5eddeaa1a19 |
 | PublicKey  | 031f64da8a38e6c1e5423a72ddd6d4fc4a777abe537e5cb5aa0425685cda8e063b |
-| signature  | 261e894dd456a190f9e99e39cea9f64ca4f939b24cf47ee3498bf883967035b446f554753d5f76219397bc2abb281a13a3c3acce43978c02c510ccb91cb03f87 |
+| signature  | b1855cec16b6ebb372895d44c7be3832b81334394d80bec7c4f00a9c1d9c3237541834638d11ad9c62792ed548c9602c1d8cd0ca92fdd5e68ceea40e7bcfbeb2 |
 
 ## Wallet Function
 
