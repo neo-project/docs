@@ -76,7 +76,7 @@
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
 | [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [from=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
 
-#### 原生合约令
+#### 原生合约命令
 
 | 命令            | 参数                | 说明                                           |
 | --------------- | ------------------- | ---------------------------------------------- |
@@ -857,7 +857,7 @@ Relay tx(no|yes): no
 
 > [!Note]
 >
-> 当输入 invoke 命令后，节点调用合约中的 `operation` 方法。并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+> 当输入 invoke 命令后，节点调用合约中的 `operation` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
 
 ### relay
 

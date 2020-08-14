@@ -49,7 +49,8 @@ The commands listed in the table below requires you to open the wallet before in
 | [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.         |
 | [export key](#export-key)                         | \[path] [address script hash]          | Exports private keys.                                        |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.                          |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all | Sends assets to the specified address.                       |
+| [import watchonly](#import-watchonly) | \<wif\|path>            | Imports the watch-only address (e.g. contract address)
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [from=null] [signerAccounts=null] | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract commands
@@ -57,7 +58,7 @@ The commands listed in the table below requires you to open the wallet before in
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> \[optionally quoted params separated by space\] \[witness address separated by space\] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] | Invokes a contract |
 
 
 #### Node commands
@@ -69,14 +70,14 @@ The commands listed in the table below requires you to open the wallet before in
 
 #### Nep5 commands
 
-| Command                 | Parameters                   | Description                                                  |
-| ----------------------- | ---------------------------- | ------------------------------------------------------------ |
-| [balanceof](#balanceof) | \<tokenHash> \<address>      | Queries the balance of specified token at the specified address |
-| [decimals](#decimals)   | \<tokenHash>                 | Queries the precision of specified token                     |
-| [name](#name)           | \<tokenHash>                 | Queries the specified token name                             |
-| [transfer](#transfer)   | \<tokenHash> \<to> \<amount> | Invokes the transfer method to transfer the specified token  |
+| Command                 | Parameters                                                   | Description                                                  |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [balanceof](#balanceof) | \<tokenHash> \<address>                                      | Queries the balance of specified token at the specified address |
+| [decimals](#decimals)   | \<tokenHash>                                                 | Queries the precision of specified token                     |
+| [name](#name)           | \<tokenHash>                                                 | Queries the specified token name                             |
+| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  [from=null] [signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
-#### Native contract commond
+#### Native contract commands
 
 | Command                                     | Parameters | Description                                        |
 | ------------------------------------------- | ---------- | -------------------------------------------------- |
@@ -321,20 +322,20 @@ Invokes the transfer method to transfer the specified token.
 
 ##### Syntax
 
- `transfer <tokenHash> <to> <amount>`
+ `transfer <tokenHash> <to> <amount> [from=null] [signersAccounts=null]`
 
 ##### Parameters
 
 - `tokenHash`: The token hash
-
 - `to`: The address you transfer the token to
-
 - `amount`: The amount to transfer
+- `from`：The address you transfer the token from
+- `signersAccounts`：The signer's address
 
 ##### Example
 
 ```
-neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 Relay tx(no|yes): y
 Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
 ```
@@ -473,7 +474,7 @@ Unregisters the candidate
 
 ##### Parameters
 
-`senderAccount`：The account to unregister candidate
+`senderAccount`ďźThe account to unregister candidate
 
 ##### Example
 
@@ -498,8 +499,8 @@ Votes for condidates
 
 ##### Parameters
 
-- `senderAccount`：The account to vote for
-- `publickey`：The public key of account to vote for
+- `senderAccount`ďźThe account to vote for
+- `publickey`ďźThe public key of account to vote for
 
 ##### Example
 
@@ -524,8 +525,8 @@ Exports private key of the address to the specified file. The command also requi
 
 ##### Parameters
 
-- `address`：Address to export private key.
-- `path`：Path to the file used to store the private key.
+- `address`ďźAddress to export private key.
+- `path`ďźPath to the file used to store the private key.
 
 ##### Example
 
@@ -570,7 +571,7 @@ Imports a private key, or  a file with a number of private keys.
 
 ##### Parameters
 
-`wif|path`：The key to import or the file path.
+`wif|path`ďźThe key to import or the file path.
 
 ##### Example
 
@@ -596,8 +597,8 @@ Creates a multi-party signed address.
 
 ##### Parameters
 
-- `m`：m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2.
-- `pubkeys`：Public keys of multiple parties involved.
+- `m`ďźm is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2.
+- `pubkeys`ďźPublic keys of multiple parties involved.
 
 ##### Example
 
@@ -606,23 +607,44 @@ neo> import multisigaddress 1 022b386a0ac6fa5abad4bfabc7dff3c016654fa97176811cb6
 Multisig. Addr.: AYpc268sh4tff7CTj5W4tztt1qheVTUa6P
 ```
 
+### import watchonly
+
+Imports the watch-only address, e.g contract account.
+
+##### Syntax
+
+`import watchonly scriptHash`
+
+##### Parameters
+
+`scriptHash`：account hash or contract hash
+
+##### Example
+
+```
+neo> import watchonly 0xbfe215933f29b29dacf0e8383722a62974ac8aa6
+Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
+```
+
 ### send
 
 Transfers the asset to the specified address. The command requires the verification of the wallet password.
 
 ##### Syntax
 
-`send <id|alias> <address> <amount>|all `
+`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
 ##### Parameters
 
-- `id|alias`：asset ID or asset abbreviations, e.g. neo，gas
-- `address`：payment address
-- `amount|all`：transfer amount
+- `id|alias`: asset ID or asset abbreviations, e.g. neo, gas
+- `address`: address to transfer assets to
+- `amount|all`: transfer amount
+- `from`: address to transfer assets from
+- `signerAccounts`: signer's address
 
 ##### Example
 
-Transfer 100 Neo to the address  “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”：
+Transfer 100 Neo to the address  âAMwS5twG1LLJA4USMPFf5UugfUvEfNDz6eâďź
 
 ```
 neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
@@ -649,6 +671,14 @@ SignatureContext:
 {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"0071c0992d42e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c00e1f50500000000ac0c240000000000cb152300000142e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c01550400c2eb0b146c93f190909dea8dfe3caeb2ee90530b4ef21e861442e2a62c8b763b5de5b0e1b2e239a7bbd2952a0c53c1087472616e73666572142582d1b275e86c8f0e93a9b2facd5fdb760976a168627d5b52f1","items":{"0x0c2a95d2bba739e2b2e1b0e55d3b768b2ca6e242":{"script":"5221032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff002102685dd451efbf38cf859a80f250815f503303dd7b9f6546786164de219ede87735268c7c34cba","parameters":[{"type":"Signature"},{"type":"Signature"}],"signatures":{"032528d085e55de82b801374ea91cc51b5e6e990ba2eddb2f461c4d95da54aff00":"d9ac57bac4260c60707e0b641585c70789e1a2eb5438c95de972af9aff99f5f4485b81cd2382218583b7f4950da54dbd8d1468f72b91809e14bb1c8139cca637"}}}}
 ```
 
+When withdrawing assets from a contract, `from` is the contract hash and the signer account must contain the contract hash and verify account, for example:
+
+```
+neo> send 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+password: *
+TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
+```
+
 ### sign
 
 This command is used to sign when withdrawing assets from a multi-signed address which requires multiple signatures. The translation can be broadcasted only after signing is completed.
@@ -659,7 +689,7 @@ This command is used to sign when withdrawing assets from a multi-signed address
 
 ##### Parameters
 
-`jsonObjectToSign`：The json string that records the transaction information. 
+`jsonObjectToSign`ďźThe json string that records the transaction information. 
 
 ##### Example
 
@@ -679,8 +709,8 @@ Deploys a contract on the blockchain.
 
 ##### Parameters
 
-- `nefFilePath`：Path to the executable file (.nef) of NeoVM.
-- `manifestFile`：Path to the file manifest.json, which records each interface information and configuration content of the contract.
+- `nefFilePath`ďźPath to the executable file (.nef) of NeoVM.
+- `manifestFile`ďźPath to the file manifest.json, which records each interface information and configuration content of the contract.
 
 ##### Example
 
@@ -698,7 +728,7 @@ Invokes a contract.
 
 ##### Syntax
 
-`invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
 
 ##### Parameters
 
@@ -714,6 +744,8 @@ Invokes a contract.
   [{"type":"ByteArray","value":"1M0SGc6OFytQJzgj15mjZfq2sOQ="}]
   [{"type":"Hash160","value":"0xe4b0b6fa65a399d7233827502b178ece1912cdd4"}]
   ```
+
+- `sender` : Transaction sender, i.e. the GAS payment account.
 
 - `witnessAddress` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
 
@@ -735,11 +767,11 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-- `VM State`：there are two states:
+- `VM State`ďźthere are two states:
   -  `HALT` : the virtual machine executes successfully.
   -  `FAULT` : the virtual machine exits during execution due to an exception. 
-- `Gas Consumed`：the system fees consumed for smart contract invocation.
-- `Evaluation Stack`：shows the result of contract execution, where the value is encoded with Base64.
+- `Gas Consumed`ďźthe system fees consumed for smart contract invocation.
+- `Evaluation Stack`ďźshows the result of contract execution, where the value is encoded with Base64.
 
 Input:
 
@@ -780,10 +812,24 @@ Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
 
 relay tx(no|yes): no
 ```
+##### Example 3
+
+Input:
+
+    neo> invoke 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+
+Output:
+
+    Invoking script with: '110c14f2cfb15144b24d3804986ad91d6238eabe98bab40c146a8b58aba3799ea84101093b32c024b6e7186b4313c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52'
+    VM State: HALT
+    Gas Consumed: 0.0900796
+    Result Stack: [{"type":"Boolean","value":true}]
+    Relay tx(no|yes): no
+
 
 > [!Note]
 >
-> After entering the invoke command, the node invokes the `main` method of the contract rather than directly invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the `main` method, the expected result will not be returned.
+> After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
 
 ### relay
 
@@ -795,7 +841,7 @@ After signing completed, this command can be used to broadcast the transaction i
 
 ##### Parameters
 
-`jsonObjectToSign`：The json string that records the transaction information.
+`jsonObjectToSign`ďźThe json string that records the transaction information.
 
 ##### Example
 
@@ -890,7 +936,7 @@ neo>
 
 ### broadcast inv
 
-Broadcasts inventory data。
+Broadcasts inventory dataă
 
 ##### Syntax
 
@@ -977,11 +1023,11 @@ Exports the block data from the specified block height. The output can be used f
 
 ##### Parameters
 
-`<index> `：The height of the starting block from which the data is exported.
+`<index> `ďźThe height of the starting block from which the data is exported.
 
 ### start consensus
 
-Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain2.md)。
+Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain2.md)ă
 
 > [!NOTE]
 >
