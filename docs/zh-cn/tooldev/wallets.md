@@ -74,7 +74,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 2. 计算地址脚本合约哈希 (20字节，由地址脚本合约先做一次SHA256再做一次RIPEMD160得到)
 
-3. 在地址脚本合约哈希前添加版本号（目前Neo所使用的协议版本是83所以对应字节为`0x53`）
+3. 在地址脚本合约哈希前添加版本号（目前Neo所使用的协议版本是53所以对应字节为`0x35`）
 
 4. 对字节数据做Base58Check编码
 
@@ -84,8 +84,8 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 |----------|:-------------:|
 | 私钥 | 3bf2c2c3a43ee817c5a7704b60e5265e73e585eb85b17091c451ddf72fd80c41 |
 | 压缩型公钥 | 02208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de375 |
-| 地址脚本 | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b410a906ad4 |
-| 地址 | NWRRMt1FGSZiiT8Wg7naBwrEKLN4SXcUzH |
+| 地址脚本 | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b4195440d78 |
+| 地址 | NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg |
 
 #### 多方签名地址
 
@@ -98,7 +98,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
 
-3. 在地址脚本合约哈希前添加版本号（ 目前Neo所使用的协议版本是83所以对应字节为`0x53`）
+3. 在地址脚本合约哈希前添加版本号（ 目前Neo所使用的协议版本是53所以对应字节为`0x35`）
 
 4. 对字节数据做Base58Check编码
 
@@ -107,9 +107,9 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 | 名称       | 值                                                           |
 | ---------- | ------------------------------------------------------------ |
 | 私钥       | 97374afac1e801407d6a60006e00d555297c5019788795f017d4cd1fff3df529， aab9d4e4223e088aa6eb1f0ce75c11d149625f6d6a19452d765f8737200a4c35 |
-| 压缩性公钥 | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50，03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
-| 地址脚本   | 120c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b413073b3bb |
-| 地址       | Nh6qrufMRfPNsRh3sNo6asWvvQXrzWdwoK                           |
+| 压缩性公钥 | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50<br/>03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
+| 地址脚本   | 110c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b41138defaf |
+| 地址       | Nax5LtYnKqZ741eUbrs6sCViMqjTCk39JP                           |
 
 emitPush(number) 注意其取值范围， number的类型为 BigInteger时，data = number.ToByteArray()：
 
@@ -323,7 +323,7 @@ Java示例代码：
 | 原文      | hello world                                                  |
 | 私钥      | f72b8fab85fdcc1bdd20b107e5da1ab4713487bc88fc53b5b134f5eddeaa1a19 |
 | 公钥      | 031f64da8a38e6c1e5423a72ddd6d4fc4a777abe537e5cb5aa0425685cda8e063b |
-| signature | 261e894dd456a190f9e99e39cea9f64ca4f939b24cf47ee3498bf883967035b446f554753d5f76219397bc2abb281a13a3c3acce43978c02c510ccb91cb03f87 |
+| signature | b1855cec16b6ebb372895d44c7be3832b81334394d80bec7c4f00a9c1d9c3237541834638d11ad9c62792ed548c9602c1d8cd0ca92fdd5e68ceea40e7bcfbeb2 |
 
 ## 钱包功能
 
@@ -365,7 +365,7 @@ Neo-CLI 和 Neo-GUI 都是全节点钱包，相关信息请参考 [Neo节点](..
 
 SPV (Simplified Payment Verification, 简单支付验证)钱包不同于全节点钱包，它不会存储所有的区块数据，仅存储区块头数据，并使用布隆过滤器和梅克尔树算法。它主要在移动端App或者轻节点中使用，因为它能有效得节省存储空间。
 
-如果要开发SPV钱包，请参考NEO网络协议接口。
+如果要开发SPV钱包，请参考Neo网络协议接口。
 
 使用：
 
