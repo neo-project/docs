@@ -16,23 +16,26 @@ To view more detailed information of the block, click the block entry in the lis
 
 ![](../assets/guiBlocks.png)
 
-### Block Details
+### Block Information
 
-The Block Details page displays the following information:
+The Block Info page displays the following information:
 
 - Block header: basic data of the block, such as block height, generation time, block size, block hash, random number, witness, etc.
-- Transaction list: all transactions packaged in this block.
+- Transaction list: all transactions packaged in this block. Click any of transaction items to view details.
 
 
 ## Transaction
 
 A block can have one or more transactions. A transaction may be a collection of one or more transfers, or an invocation of a smart contract.
 
+You can view the transactions of two states in the Transaction page:
+
+- Transactions: all transactions packaged on the blockchain.
+- Pending: transactions in the memory pool of the node, waiting to be packaged on the blockchain.
+
 ### Transaction List
 
-The transaction list shows the unconfirmed transactions and the latest transactions on the current blockchain.  You can enter the transaction details page by clicking a confirmed transaction entry.
-
-### Transaction details
+The transaction list shows the confirmed transactions on the current blockchain.  You can enter the transaction details page by clicking any of transaction entries.
 
 ![](../assets/guiTransaction.png)
 
@@ -49,6 +52,6 @@ All digital assets in Neo3 are contract assets, including NEO and GAS.
 
 ### Asset list
 
-The Asset list shows all assets on the blockchain, including information such as the asset script hash, accuracy, and etc.
+The Asset list shows all assets on the blockchain, including information such as the asset script hash, precision, and etc.
 
 Click on the specific asset entry to enter the asset details page. Here you can view all transaction records related to the asset.

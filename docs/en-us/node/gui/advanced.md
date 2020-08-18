@@ -18,7 +18,12 @@ After the candidates are registered, the NEO token holders can vote for consensu
 To register as a candidate:
 
 1. In Neo-GUI home page click `Advanced` -> `Election`
+
 2. Select the public key of the account in the list and click `OK`. 
+
+   > [!Note]
+   >
+   > The multi-signature address is not displayed in the list as it cannot be registered to a candidate.
 
 After the transaction is sent successfully, you can do one of the following to check if the candidate has been registered:
 
@@ -41,4 +46,12 @@ To vote:
 After voting you can use the API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) to check the candidate votes, or you can check the votes in the candidates list after the block data has been updated.
 
 ## Signature
+
+When initiating any transaction from a multi-signature address, e.g. transferring assets, invoking a contract, or voting, the transaction needs to obtain the minimum number of signatures to carry out the transaction.
+
+1. When GUI prompts there is insufficient signature after you send a transaction from a multi-signature address, copy the transaction information displayed in the pop-up window. 
+2. In Neo-GUI, click `Advanced`-> `Signature`.
+3. Paste the transaction information copied before into the Transaction Json box, and then click `Signature`.
+4. Copy the output data, enter the next wallet participating in the signature, and repeat that same operation until the signature is completed.
+5. Click `Broadcast`.
 
