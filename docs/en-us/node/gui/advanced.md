@@ -50,8 +50,18 @@ After voting you can use the API [getvalidators](../../reference/rpc/latest-vers
 When initiating any transaction from a multi-signature address, e.g. transferring assets, invoking a contract, or voting, the transaction needs to obtain the minimum number of signatures to carry out the transaction.
 
 1. When GUI prompts there is insufficient signature after you send a transaction from a multi-signature address, copy the transaction information displayed in the pop-up window. 
+
 2. In Neo-GUI, click `Advanced`-> `Signature`.
+
 3. Paste the transaction information copied before into the Transaction Json box, and then click `Signature`.
+
+   ![](../assets/sign_2.png)
+
 4. Copy the output data, enter the next wallet participating in the signature, and repeat that same operation until the signature is completed.
+
+   ![](../assets/sign_3.png)
+
 5. Click `Broadcast`.
+
+   ![](../assets/sign_4.png)
 
