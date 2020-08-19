@@ -329,8 +329,8 @@ Invokes the transfer method to transfer the specified token.
 - `tokenHash`: The token hash
 - `to`: The address you transfer the token to
 - `amount`: The amount to transfer
-- `from`：The address you transfer the token from
-- `signersAccounts`：The signer's address
+- `from`: The address you transfer the token from
+- `signersAccounts`: The signer's address
 
 ##### Example
 
@@ -474,7 +474,7 @@ Unregisters the candidate
 
 ##### Parameters
 
-`senderAccount`ďźThe account to unregister candidate
+`senderAccount`: The account to unregister candidate
 
 ##### Example
 
@@ -499,8 +499,8 @@ Votes for condidates
 
 ##### Parameters
 
-- `senderAccount`ďźThe account to vote for
-- `publickey`ďźThe public key of account to vote for
+- `senderAccount`: The account to vote for
+- `publickey`: The public key of account to vote for
 
 ##### Example
 
@@ -525,8 +525,8 @@ Exports private key of the address to the specified file. The command also requi
 
 ##### Parameters
 
-- `address`ďźAddress to export private key.
-- `path`ďźPath to the file used to store the private key.
+- `address`: Address to export private key.
+- `path`: Path to the file used to store the private key.
 
 ##### Example
 
@@ -571,7 +571,7 @@ Imports a private key, or  a file with a number of private keys.
 
 ##### Parameters
 
-`wif|path`ďźThe key to import or the file path.
+`wif|path`: The key to import or the file path.
 
 ##### Example
 
@@ -597,8 +597,8 @@ Creates a multi-party signed address.
 
 ##### Parameters
 
-- `m`ďźm is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2.
-- `pubkeys`ďźPublic keys of multiple parties involved.
+- `m`: m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2.
+- `pubkeys`: Public keys of multiple parties involved.
 
 ##### Example
 
@@ -617,7 +617,7 @@ Imports the watch-only address, e.g contract account.
 
 ##### Parameters
 
-`scriptHash`：account hash or contract hash
+`scriptHash`: account hash or contract hash
 
 ##### Example
 
@@ -644,7 +644,7 @@ Transfers the asset to the specified address. The command requires the verificat
 
 ##### Example
 
-Transfer 100 Neo to the address  âAMwS5twG1LLJA4USMPFf5UugfUvEfNDz6eâďź
+Transfer 100 Neo to the address AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e: 
 
 ```
 neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
@@ -689,7 +689,7 @@ This command is used to sign when withdrawing assets from a multi-signed address
 
 ##### Parameters
 
-`jsonObjectToSign`ďźThe json string that records the transaction information. 
+`jsonObjectToSign`: The json string that records the transaction information. 
 
 ##### Example
 
@@ -709,8 +709,8 @@ Deploys a contract on the blockchain.
 
 ##### Parameters
 
-- `nefFilePath`ďźPath to the executable file (.nef) of NeoVM.
-- `manifestFile`ďźPath to the file manifest.json, which records each interface information and configuration content of the contract.
+- `nefFilePath`: Path to the executable file (.nef) of NeoVM.
+- `manifestFile`: Path to the file manifest.json, which records each interface information and configuration content of the contract.
 
 ##### Example
 
@@ -767,11 +767,11 @@ Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
 relay tx(no|yes):
 ```
 
-- `VM State`ďźthere are two states:
+- `VM State`: there are two states:
   -  `HALT` : the virtual machine executes successfully.
   -  `FAULT` : the virtual machine exits during execution due to an exception. 
-- `Gas Consumed`ďźthe system fees consumed for smart contract invocation.
-- `Evaluation Stack`ďźshows the result of contract execution, where the value is encoded with Base64.
+- `Gas Consumed`: the system fees consumed for smart contract invocation.
+- `Evaluation Stack`: shows the result of contract execution, where the value is encoded with Base64.
 
 Input:
 
@@ -841,7 +841,7 @@ After signing completed, this command can be used to broadcast the transaction i
 
 ##### Parameters
 
-`jsonObjectToSign`ďźThe json string that records the transaction information.
+`jsonObjectToSign`: The json string that records the transaction information.
 
 ##### Example
 
@@ -936,7 +936,7 @@ neo>
 
 ### broadcast inv
 
-Broadcasts inventory dataă
+Broadcasts inventory data.
 
 ##### Syntax
 
@@ -1023,11 +1023,11 @@ Exports the block data from the specified block height. The output can be used f
 
 ##### Parameters
 
-`<index> `ďźThe height of the starting block from which the data is exported.
+`<index> `: The height of the starting block from which the data is exported.
 
 ### start consensus
 
-Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain2.md)ă
+Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../network/private-chain/private-chain2.md).
 
 > [!NOTE]
 >
