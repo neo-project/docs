@@ -15,7 +15,7 @@ Upon searching the contract details page is displayed, where you can view the fo
 - Contract features：
   - `storage` : The contract uses a storage area。
   - `payable` : The contract can receive assets. In the NEP-5 standard, the payable field of the payee is checked when transferring assets.
-- Contract methods&events: methods and events included in the contract, including the method name, parameter, and returned value details.
+- Contract methods&notifications: methods and events/notifications included in the contract, including the method name, parameter, and returned value details.
 
 ## Deploying a contract
 
@@ -46,39 +46,31 @@ For more information refer to [Deploying Smart Contracts](../../sc/deploy/deploy
 
 After the contract deployed on the blockchain you can enter the **Invoke** page to invoke the contract.
 
-### Data type
-
-Before invoking the contract you need to first figure out the data type to fill based on the contract manifest file on the blockchain.
-
-+ Data type: `ByteArray`
-
-  In Neo3-preview2  ByteArray uses Base64 encoding instead of Base58. You can use the Data Transform tool built in Neo-GUI to convert the wallet address into the Base64-encoding ByteArray.
-
-  ![](../assets/guiConvertor.png)
-
-+ Data type: `Integer`
-
-  When invoking the tranfer method in the nep5 standard, the amount filled in needs to be multiplied by the nep5 accuracy.
-
-### Invoke a contract
-
-To invoke a contract already deployed on the blockchain, do the following:
-
 1. Enter the contract script hash in the search box and click `Search` .
 
    The methods and parameters included in the current contract are displayed. These information was obtained from the contract manifest file on the blockchain.
 
 2. Select the desired method and fill in the parameters. Suppose we invoke a transfer method in the nep5 standard, fill in the following：
 
-   + `from`：`NX9MAhkkwHDGxUxgUPZaNtB8oxo1tVKmme` -> `ezEkAcv5c2svBlSTRoCze4sw3/k=`
-   + `to`: `NdLN76VVUb4yhYsTha83F5Ch4jQiPfKSzA` -> `vxdA9sHh+RPS8weym4CCVRuppcU=`
+   + `from`/`to`: Addresses you transfer assets from and to. You can select one of the following data types and enter corresponding string:
+
+     + Address - standard address
+     + Hash160 - endian hash of the address
+     + ByteArray - little endian hash (Base64-encoding) of the address
+
+     You can use the Data Transform tool built in Neo-GUI to convert the wallet address into required string.
+
+     ![](../assets/datatransf_1.png)
+
    + `amount`：1*10000 (accuracy)
+
+     When invoking the tranfer method in the nep5 standard, the amount filled in needs to be multiplied by the nep5 accuracy.
 
    ![](../assets/guiInvokeContract.png)
 
-3. (Optional) In case that cosigners are required by some methods when invoked, you need to add one or multiple standard accounts in the Cosigners field.
+   + `Cosigners`: (Optional) In case that cosigners are required by some methods when invoked, you need to add one or multiple standard accounts in the Cosigners field.
 
-4. Click `Trial Run` to test running and check the result.
+4. Click `Test Invoke` to test running and check the result.
 
    A trial run just creates a NeoVM locally and simulates execution. It does not affect the blockchain.
 
