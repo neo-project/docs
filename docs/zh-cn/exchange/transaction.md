@@ -12,9 +12,11 @@ Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 网络费
 
-网络费是用户向 Neo 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
+网络费是用户向 Neo 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如下所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。   
 
-   ![netfee](assets/netfee.png)
+```
+NetworkFee = VerificationCost + tx.size * FeePerByte
+```
 
 - VerficationCost：NeoVM 验证交易签名执行的指令相对应的费用
 - tx.size：交易数据的字节长度
@@ -24,7 +26,9 @@ Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../sc/fees.md)。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
-   ![sysfee](assets/sysfee.png)
+```
+SystemFee = InvocationCost = The sum of all executed opcode fee   
+```
 
 ### 操作码费用
 
@@ -59,7 +63,9 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
   "id": 1
 }
 ```
+
 发送请求后，将收到如下响应：
+
 ```json
 {
     "jsonrpc": "2.0",
@@ -81,6 +87,7 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
     }
 }
 ```
+
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 700000000/10⁸ NEO = 7 GAS, 2 NEO
 
@@ -122,7 +129,7 @@ GAS脚本哈希是：*0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc*
 balanceOf
 
 - 语法：`public static BigInteger balanceOf(byte[] account)`
-- 说明："balanceOf" 返回 "account" 的余额。
+- 说明："balanceOf" 返回 "account" 的最小粒度为1单位的余额。
 
 decimals
 
@@ -307,15 +314,18 @@ symbol
 根据所有返回值，可以计算出用户余额为：
 用户余额 = balanceOf 返回值 / 10<sup>decimals</sup>。
 
-### 处理用户查询账户余额请求
+### 交易所用户的账户余额
 
 用户实际在交易所里的余额，应当记录在交易所的数据库里。 交易所需要编写程序监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额，以供用户查询使用。
 
 ## 处理充值交易
 
 交易所处理充值交易的操作如下：
+
 1. 通过 getblock API 获取每个区块的详情，其中便包括该区块中所有交易的详情；
+
 2. 分析每笔交易的交易类型，过滤出所有类型为 "InvocationTransaction" 的交易，任何非 "InvocationTransaction" 类型的交易都不可能成为 NEP-5 类型资产的转账交易；
+
 3. 调用 getapplicationlog API 获取每笔 "InvocationTransaction" 交易的详情，分析交易内容，完成用户充值。
 
 ### 调用 getapplicationlog
@@ -435,27 +445,37 @@ symbol
 
 ##### 语法
 
-`send <txid|script hash> <address> <value> `
+`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
 ##### 参数
 
-- `txid|script hash`：资产 ID。
-- `address`：付款地址。
-- `value`：转账金额。
+- `id|alias`：资产 ID或资产缩写，如 neo，gas
+- `address`：收款地址
+- `amount|all`：转账金额
+- `from`：转出地址
+- `signerAccounts`：需要添加签名的账户
 
 该命令会检查钱包密码。
 
 ##### 示例
 
-要将 100 个某 NEP5 转账到地址 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，输入以下命令：
+将 100 GAS 转到地址 “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”，输入以下命令：
 
 ```
-send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
 
-如果要转账 neo/gas，只需要将第一个参数改为 NEO/GAS 对应的 scriptHash。例如:
-* NEO: 0xde5f57d430d3dece511cf975a8d37848cb9e0525
-* GAS: 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+第二个参数除了资产 ID，还可以填写资产缩写，所以以上命令也可以写成：
+
+```
+neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
+```
+
+要查看资产 ID ，可输入 `list asset` 命令查看钱包中的所有资产。
 
 ### RPC 方法：openwallet
 

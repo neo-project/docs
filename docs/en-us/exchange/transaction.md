@@ -16,7 +16,9 @@ Following flow charts show the work processes of these operations:
 
 The network fee, as a reward for the consensus nodes generating blocks, is charged when the user submits a transactions to Neo blockchain. There is a  base fee for each transaction and the calculation formula is shown below. The transaction is only executed if the fee paid by the user is greater than or equal to the base fee; otherwise, the transaction will be treated as invalid.  
 
-![netfee](../../zh-cn/exchange/assets/netfee.png)
+```
+NetworkFee = VerificationCost + tx.size * FeePerByte
+```
 
 - VerficationCost：Fees for instructions executed by NeoVM to verify transaction signatures.
 - tx.size：The transaction data byte length
@@ -26,7 +28,9 @@ The network fee, as a reward for the consensus nodes generating blocks, is charg
 
 The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../sc/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
 
- ![netfee](../../zh-cn/exchange/assets/sysfee.png)
+```
+SystemFee = InvocationCost = The sum of all executed opcode fee
+```
 
 ### **Instructions fee**
 
@@ -445,29 +449,38 @@ The exchange can choose one of the following way to send assets to users:
 
 ##### Syntax
 
-`send <txid|script hash> <address> <value> `
+`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
 ##### Parameters
 
-- `txid|script hash`: the asset ID.
-- `address`: the payment address.
-- `value`: the transfer amount.
+- `id|alias`: asset ID or asset abbreviations, e.g. neo, gas
+- `address`: address to transfer assets to
+- `amount|all`: transfer amount
+- `from`: address to transfer assets from
+- `signerAccounts`: signer's address
 
 
 This command verifies the wallet password. 
 
 ##### Example
 
-To transfer 100 NEP5 assets to the address NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, enter the following:
+Transfer 100 Neo to the address AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e: 
 
 ```
-send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
 
-If you want to send NEO or GAS, just change the first parameter to the corresponding asset scriptHash. For example, 
+If you are not sure of the asset ID, you can enter `list asset` to view all assets in the wallet.
 
-NEO: 0xde5f57d430d3dece511cf975a8d37848cb9e0525
-GAS: 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+In above example, we can also replace the asset ID with asset abbreviation, as shown below:
+
+```
+neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
+```
 
 ### RPC Method: openwallet
 

@@ -7,7 +7,7 @@
 
 ## Install plugins
 
-Some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Installing plugins](../node/cli/config.md#installing-plugins).
+Some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to [Installing plugins](../node/cli/config.html#installing-plugins).
 
 Go to [here](https://github.com/neo-project/neo-modules/releases/) to download plugins. Exchanges need to install the following plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package:
 
