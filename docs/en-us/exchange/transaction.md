@@ -434,7 +434,7 @@ The parameters related to a transaction in the file are the following:
 
 > [!Note]
 >
-> Regarding the notification format conversion of the transfer in the file, you can refer to [Neo3 data conversion](https://neo.org/converter/index).
+> Regarding the data format conversion of the transfer in the file, you can refer to [Neo3 data conversion](https://neo.org/converter/index).
 
 ## Dealing with User Withdrawals
 

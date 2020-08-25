@@ -177,12 +177,14 @@
 ## 创建快捷启动
 
 为了方便启动私链，创建一个记事本文件，输入以下命令：
+
 ```
 start cmd /k "cd node1 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 start cmd /k "cd node2 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 start cmd /k "cd node3 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 ```
+
 然后重命名为 Run.cmd。将其复制到 4 个节点目录外的同级目录下。
 
 到此，私有链已经搭建完成了，所有修改过的文件结构如下

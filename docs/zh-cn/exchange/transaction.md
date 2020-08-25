@@ -430,7 +430,7 @@ symbol
 
 > [!Note]
 >
-> 关于文件中 transfer 通知格式的转换，可以参考官方页面 [neo3.0 数据转换](https://neo.org/converter/index)。
+> 关于文件中 transfer 数据格式的转换，可以参考官方页面 [neo3.0 数据转换](https://neo.org/converter/index)。
 
 ## 处理提现交易
 
