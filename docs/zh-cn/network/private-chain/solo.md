@@ -9,10 +9,11 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 1. 首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
 
 2. 运行 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet consensus.json`。
+3. 设置钱包密码（password），并确认密码。
 
  ![](../assets/create-wallet.png)
 
-3. 记录钱包公钥（ pubkey），后面会用到。
+4. 记录钱包公钥（pubkey），后面会用到。
 
 ## 修改节点配置文件
 
@@ -137,10 +138,10 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 4. 启动私链及外部节点，后续操作均在外部节点上。
 5. 使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
-   这里设置最小签名数 m 为 1，pubkeys 为钱包 1.json 的公钥。例如：
+   这里设置最小签名数 m 为 1，pubkeys 为钱包 consensus.json 的公钥。例如：
 
     ``` 
-   import multisigaddress 1 0364cd3878c4f9a2e785c6a996e8ac29e37ae0d2b9a67479786f27ed739a4de3e7
+   import multisigaddress 1 02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722
     ```
 
 6. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
