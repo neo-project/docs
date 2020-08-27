@@ -28,13 +28,16 @@
    sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
    ```
    
-   如果选用RocksDB存储数据，修改config.json中的    
+   如果选用RocksDB存储数据，还需要修改config.json，如下所示：
+   
    ```
    "Storage": {
       "Engine": "RocksDBStore"
     },
    ```
+   
     并在ubuntu 18.04 上输入以下命令：
+    
    ```
    sudo apt-get install librocksdb-dev
    ```
