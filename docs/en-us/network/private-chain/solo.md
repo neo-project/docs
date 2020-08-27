@@ -139,11 +139,11 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
 
 5. From the external node command line, enter `import multisigaddress m pubkeys` to create a multi-part signed address, where:
 
-   `m` is 1 as the minimal signature number and `pubkeys` is the public key of `1.json`
+   `m` is 1 as the minimal signature number and `pubkeys` is the public key of `consensus.json`
    
 
    ```
-   import multisigaddress 1 0364cd3878c4f9a2e785c6a996e8ac29e37ae0d2b9a67479786f27ed739a4de3e7
+   import multisigaddress 1 02ab72b02e1c58b1999a31d88863548afbdd72e8ae48769e6bf07f0a8dc2621722
    ```
    
 6. Enter `list asset`，then you should see 100 million NEO and 30 million GAS displayed.
