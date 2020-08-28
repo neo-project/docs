@@ -223,7 +223,9 @@ The private chain is terminated if you close all the windows.
 
 In the genesis block of the NEO network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI for internal development and testing.
 
-### Creating multi-party signature addresses
+### Using Neo-CLI to withdraw
+
+#### Creating multi-party signature addresses
 
 1. Start your private chain.
 
@@ -250,7 +252,7 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
 >
 > You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
 
-### Transferring NEO to a normal address
+#### Transferring NEO to a normal address
 
 Here we want to send NEO from the contract address to the normal address.
 
@@ -277,3 +279,26 @@ Here we want to send NEO from the contract address to the normal address.
    ![image](../../assets/privatechain_32.png)
 
 Similarly, you can refer to the preceding steps to withdraw GAS from the multi-party signature address.
+
+### Using Neo-GUI to withdraw
+
+#### Creating multi-party signature addresses
+
+1. Refer to [Installing Neo-GUI](../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
+2. Configure the file config.private.json to make sure the Neo-GUI port is not conflict with the one of Neo-CLI; otherwise, Neo-GUI cannot work as Neo-CLI is running.
+3. Start Neo-GUI and open any of the four wallets.
+4. Click  `+`  besides `Accounts`  and select `Create Multi-signature Address`.
+5. Fill in the public keys of four wallets and set the minimal signature number to `3`. Click  `OK`.
+6. Repeat the step 4 and 5 in other three wallets to create the same multi-signature address.
+
+Now you should see 100 million NEO and 30 million GAS displayed. 
+
+#### Transferring NEO/GAS to a normal address
+
+1. Open any of the four wallets and click `Transfer`.
+
+2. Enter the recipient address and the transfer amount.
+
+3. Refer to [Signature](../../node/gui/advanced.html#signature) to complete the transaction. 
+
+   Once the transfer transaction begins broadcasting it will take a while for successful remittance to the account.

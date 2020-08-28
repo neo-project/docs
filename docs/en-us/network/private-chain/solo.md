@@ -85,6 +85,8 @@ The private chain is terminated if you close the window.
 
 ## Withdrawing NEO and GAS
 
+### Using Neo-CLI to withdraw
+
 In the genesis block of the Neo network, 100 million NEO and 30 million GAS are generated. When the private chain is set up, you can withdraw those NEO and GAS from a multi-party address with Neo-CLI, to facilitate your blockchain development and testing.
 
 1. Copy another Neo-CLI directory as an external node.
@@ -147,3 +149,13 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
    ```
    
 6. Enter `list asset`，then you should see 100 million NEO and 30 million GAS displayed.
+
+### Using Neo-GUI to withdraw
+
+1. Refer to [Installing Neo-GUI](../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
+2. Configure the file config.private.json to make sure the Neo-GUI port is not conflict with the one of Neo-CLI; otherwise, Neo-GUI cannot work as Neo-CLI is running.
+3. Start Neo-GUI and open the wallet consensus.json.
+4. Click  `+`  besides `Accounts`  and select `Create Multi-signature address`.
+5. Fill in the public key of consensus.json and set the minimal signature number to `1`. Click  `OK`.
+
+Now you should see 100 million NEO and 30 million GAS displayed. Since this multi-signature address only requires one signature, operations for transferring assets from a contract address are as same as the normal address.

@@ -225,7 +225,9 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 在 NEO 网络的创世块中存放着 1 亿份 NEO 和 3 千万 GAS，当私链搭建起来后，GAS 也将伴着新区块的生成而生成。你可以使用 Neo-CLI 从多方签名合约中提取出这部分 NEO 和 GAS 以便内部开发测试使用。
 
-### 创建多方签名地址
+### 从 Neo-CLI 提取
+
+#### 创建多方签名地址
 
 1. 启动私链
 
@@ -250,7 +252,7 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 > 四个钱包中都必须创建多方签名地址才能成功完成转账交易的签名。
 
 
-### 提取 NEO/GAS 到普通地址
+#### 提取 NEO/GAS 到普通地址
 
 接下来我们将 NEO 从合约地址转入普通地址：
 
@@ -277,3 +279,33 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
    ![image](../../../en-us/assets/privatechain_32.png)
 
 参考前面提取 NEO 进行的多方签名操作，同样可以提取 GAS 到目标地址。
+
+### 从 Neo-GUI 提取
+
+#### 创建多方签名地址
+
+1. 参考 [安装 Neo-GUI](../../node/gui/install.md) 下载安装 Neo-GUI 并将其连接到私链。
+
+2. 配置 config.private.json 文件，设置端口与 Neo-CLI 的端口不冲突。如果端口冲突，Neo-GUI 将无法与 Neo-CLI 同时运行。
+
+3. 运行 Neo-GUI，打开任意一个钱包。
+
+4. 点击 `账户列表` 旁的 `+` 按钮，并选择`创建多签地址`。
+
+5. 输入四个钱包的公钥，并设置最小签名数量为3，点击 `确定`。
+
+6. 依次打开其它三个钱包，重复步骤4和5，创建多方签名地址。
+
+   你将看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
+
+
+#### 提取 NEO /GAS 到标准地址
+
+1. 打开四个钱包中的任意一个，点击 ` 交易 ` -> ` 转账 ` 。
+
+2. 输入要转入的标准地址，将 Neo/GAS 转到这个地址中。
+
+3. 参考 [签名](../../node/gui/advanced.html#签名) 完成转账交易。
+
+   等待片刻后将看到 NEO/GAS 成功转入了标准地址。
+
