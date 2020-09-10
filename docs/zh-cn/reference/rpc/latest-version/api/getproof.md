@@ -35,4 +35,7 @@
 }
 ```
 
+响应说明：
+
 `success`代表proof结果是否获取成功，如果为`true`，代表成功，可以通过proof解出指定StateRoot状态中，对应key的value，如果为`false`代表获取proof失败，无法从proof中获取value。
+
