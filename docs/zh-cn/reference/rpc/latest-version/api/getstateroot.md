@@ -1,10 +1,10 @@
 # getstateroot 方法
 
-获取区块的状态根信息
+获取区块的状态根信息。
 
 #### 参数说明
 
-key: 区块高度或区块哈希
+key：区块高度或区块哈希
 
 #### 调用示例
 
@@ -24,7 +24,7 @@ key: 区块高度或区块哈希
 响应正文：
 
 ```json
-{
+{w
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
@@ -42,10 +42,6 @@ key: 区块高度或区块哈希
   }
 }
 ```
-
-响应说明：
-
-`flag`代表本地计算的StateRoot还是共识确认过的StateRoot，如果值为`Verified`表示StateRoot经过了共识确认并有共识节点的多方签名
 
 ##### 示例2 - 获取未经校验的StateRoot
 
@@ -81,4 +77,7 @@ key: 区块高度或区块哈希
 
 响应说明：
 
-`flag`的值为`unverified`代表此StateRoot是节点本地计算的值，并未与共识节点确认的StateRoot做一致性校验。如果值为`Invalid`代表本地计算结果与共识计算不一致不可相信。
+`flag` 表示StateRoot是否经过共识确认，有两个值：
+
+- `Verified`：StateRoot经过了共识确认并有共识节点的多方签名
+- `unverified`：StateRoot是节点本地计算的值，并未与共识节点确认的StateRoot做一致性校验。 如果值为`Invalid`代表本地计算结果与共识计算不一致，不可相信。

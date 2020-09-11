@@ -4,9 +4,9 @@
 
 #### 参数
 
-- state_root: 某个区块高度的StateRoot
-- script_hash: 合约脚本散列。
-- key: 存储区的键。（需要转化为hex string）
+- state_root：某个区块高度的StateRoot
+- script_hash：合约脚本散列。
+- key：存储区的键（需要转化为hex string）
 
 
 #### 调用示例 - 成功
@@ -63,5 +63,4 @@
 
 响应说明：
 
-`success`代表proof结果是否获取成功，如果为`true`，代表成功，可以通过proof解出指定StateRoot状态中，对应key的value，如果为`false`代表获取proof失败，无法从proof中获取value。
-
+`success` ：值为true或false，表示是否成功获取proof结果，通过proof可以获取指定StateRootc状态中对应key的value。

@@ -34,6 +34,6 @@
 
 响应说明：
 
-`blockheight`表示节点同步的区块高度
+`blockheight`：节点同步的区块高度
 
-`stateheight`表示节点经过校验的StateRoot的高度
+`stateheight`：节点经过校验的StateRoot的高度
