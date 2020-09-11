@@ -45,8 +45,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                    | 参数                                    | 说明                                           |
 | --------------------------------------- | --------------------------------------- | ---------------------------------------------- |
-| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \<params> \<signers> | 用指定的哈希调用智能合约，传入方法名及参数 |
-| [invokescript](api/invokescript.md)     | \<script>  \<signers>                  | 通过虚拟机运行脚本并返回结果                   |
+| [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \[params] \[sender] \[signers] | 用指定的哈希调用智能合约，传入方法名及参数 |
+| [invokescript](api/invokescript.md)     | \<script> \[sender] \[signers]                | 通过虚拟机运行脚本并返回结果                   |
 | [getunclaimedgas](api/getunclaimedgas.md) | \<address> | 查询指定地址未获取的 gas |
 
 ### 工具
@@ -69,8 +69,8 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [listaddress](api/listaddress.md) |  | 列出当前钱包内的所有地址 |
 | [openwallet](api/openwallet.md) | \<path> \<password> | 打开指定钱包 |
 | [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
-| [sendmany](api/sendmany.md) | \<outputs_array> | 在一笔交易中向多个地址发起多笔转账 |
-| [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> | 向指定地址转账 |
+| [sendmany](api/sendmany.md) | \<outputs_array> \[signers] | 在一笔交易中向多个地址发起多笔转账 |
+| [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> \[signers]| 向指定地址转账 |
 
 ### ApplicationLogs 插件
 

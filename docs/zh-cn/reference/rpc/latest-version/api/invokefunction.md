@@ -13,11 +13,11 @@
 
 - operation：操作名称（字符串）。
 
-- params：传递给智能合约操作的参数。
+- params：传递给智能合约操作的参数，可选。
 
-- cosigners：需要添加的签名列表，如不需要签名，无需传递此参数。
+- sender：交易发送者，支付交易费的账户，默认是 singers 中第一个账户，可选。
 
-- signers: 签名账户列表
+- signers: 签名账户列表，可选
   * account: 签名账户
   * scopes: 签名的作用域，允许的值: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
@@ -70,6 +70,7 @@
         "value":"8"
         }        
     ],
+    "0x1f5da2e47b37c4b96668a98da4ed8feb94bdf146",
     [
         {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
