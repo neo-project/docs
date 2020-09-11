@@ -45,10 +45,13 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getunclaimedgas](api/getunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. | Need to open the wallet |
 | [getunspents](api/getunspents.md) | \<address> | Returns information of the unspent UTXO assets at the specified address. |  |
 | [getutxotransfers](api/getutxotransfers.md) | \<address> [asset] [timestamp] | Returns UTXO transaction information occurred in the specified time period for the specified address. | |
+| [getstateheight](api/getstateheight.md) |  | Gets the latest block height and the the verified state height. | |
+| [getstateroot](api/getstateroot.md) | \<key> | Gets the state root information of the block. | |
 | [getstorage](api/getstorage.md)                 | \<script_hash>  \<key>                      | Returns the stored value based on the contract script hash and key |                              |
 | [gettransactionheight](api/gettransactionheight.md)| \<txid>                                  | Returns the block index in which the transaction is found. ||
 | [gettxout](api/gettxout.md)                     | \<txid> \<n>                                | Returns the corresponding transaction output (change) information based on the specified hash and index |                              |
 | [getpeers](api/getpeers.md)                     |                                             | Gets a list of nodes that are currently connected/disconnected by this node |                              |
+| [getproof](api/getproof.md) | \<state_root>  \<script_hash>  \<key> | Gets proof of the stored value according to the specified StateRoot, contract script hash, and the stored key. | |
 | [getversion](api/getversion.md)                 |                                             | Gets version information of this node                        |                              |
 | [getvalidators](api/getvalidators.md)           |                                             | Gets NEO consensus nodes information                         |                              |
 | [getwalletheight](api/getwalletheight.md)       |                                             | Gets the current wallet index height.                        |  Need to open the wallet |
@@ -63,6 +66,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [sendmany](api/sendmany.md)                     | \<outputs_array> \[fee=0] \[change_address] | Bulk transfer order                                          | Need to open the wallet      |
 | [submitblock](api/submitblock.md)               | \<hex>                                      | Relay a new block to the network                             | Needs to be a consensus node |
 | [validateaddress](api/validateaddress.md)       | \<address>                                  | Verify that the address is a correct NEO address             |                              |
+| [verifyproof](api/verifyproof.md) | \<state_root> \<proof> | Gets the calculated value according to StateRoot and proof. | |
 
 ## GET request example
 
