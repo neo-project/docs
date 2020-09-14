@@ -16,7 +16,7 @@ NEO-CLI的结构如下图。（由于版本升级，部分结构可能会有变�
 
 ### NEO-CLI 命令行
 
-NEO-CLI 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。更多信息，请参考[NEO-CLI 命令行](../node/cli/cli.md)。
+NEO-CLI 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。更多信息，请参考 [NEO-CLI 命令行](../node/cli/cli.md)。
 
 ### 账本 API
 
@@ -105,7 +105,7 @@ NEO-CLI的节点程序在执行过程中会访问下述配置文件。
  - RPC/Port : JSON-RPC 服务的监听端口号。
  - RPC/SslCert : JSON-RPC 服务的安全连接的认证。默认为空时，不使用安全连接。
  - RPC/SslCertPassword : JSON-RPC 服务的安全连接的密码。默认为空时，不使用安全连接。
- - RPC/ExtraGasInvoke : JSON-RPC 允许本地执行 vm 的额外系统费数量。系统费 = 10 gas (免费额度) + ExtraGasInvoke (额外额度)。
+ - RPC/ExtraGasInvoke: JSON-RPC 允许本地执行 VM 的额外系统费数量。系统费 = 10 GAS (免费额度) + ExtraGasInvoke (额外额度)。
  - RPC/MaxConcurrentConnections : JSON-RPC 允许最大并发连接数。
  - UnlockWallet/IsActive : 启动网络节点时是否自动解锁钱包。
  - UnlockWallet/Path : 启动网络节点时解锁钱包的钱包文件地址。
@@ -165,7 +165,7 @@ NEO-CLI的节点程序在执行过程中会访问下述配置文件。
  - AddressVersion : 地址版本。固定值23
  - SecondsPerBlock : 出块时间间隔。同一网络中共识节点必须相同。
  - StateRootEnableIndex : StateRoot 产生的起始高度。
- - FreeGasChangeHeight : 50 gas 免费系统费额度施行的区块高度。
+ - FreeGasChangeHeight : 50 GAS 免费系统费额度施行的区块高度。
  - MinimumNetworkFee : 最低网络手续费 (共识节点使用)。
  - StandbyValidators : 备用共识节点的公钥列表。
  - SeedList : 种子节点列表。种子节点不是共识节点。种子节点向网络中的新节点提供其它节点的地址查询服务。

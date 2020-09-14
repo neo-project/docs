@@ -10,7 +10,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 启动 Neo-CLI 前，你需要在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
 
-- ExtraGasInvoke：允许通过 RPC 调用虚拟机执行消耗的额外 GAS 数额（默认起始免费额度为 10 gas）
+- ExtraGasInvoke：允许通过 RPC 调用虚拟机执行消耗的额外 GAS 数额（默认起始免费额度为 10 GAS）
 - Path：钱包路径
 - Password：钱包密码
 - IsActive：设为 true 允许自动打开钱包
