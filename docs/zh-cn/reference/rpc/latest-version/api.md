@@ -64,6 +64,7 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [sendmany](api/sendmany.md)              | \<outputs_array> \[fee=0] \[change_address] | 批量转账命令                       | 需要打开钱包   |
 | [submitblock](api/submitblock.md) | \<hex>                                   | 提交新的区块                       | 需要成为共识节点 |
 | [validateaddress](api/validateaddress.md) | \<address>                               | 验证地址是否是正确的 NEO 地址            |          |
+| [verifyproof](api/verifyproof.md) | \<state_root> \<proof> | 根据StateRoot和proof，返回解出的value。 | |
 
 
 ## GET 请求示例
