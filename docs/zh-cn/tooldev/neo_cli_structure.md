@@ -105,6 +105,8 @@ NEO-CLI的节点程序在执行过程中会访问下述配置文件。
  - RPC/Port : JSON-RPC 服务的监听端口号。
  - RPC/SslCert : JSON-RPC 服务的安全连接的认证。默认为空时，不使用安全连接。
  - RPC/SslCertPassword : JSON-RPC 服务的安全连接的密码。默认为空时，不使用安全连接。
+ - RPC/ExtraGasInvoke : JSON-RPC 允许本地执行 vm 的额外系统费数量。系统费 = 10 gas (免费额度) + ExtraGasInvoke (额外额度)。
+ - RPC/MaxConcurrentConnections : JSON-RPC 允许最大并发连接数。
  - UnlockWallet/IsActive : 启动网络节点时是否自动解锁钱包。
  - UnlockWallet/Path : 启动网络节点时解锁钱包的钱包文件地址。
  - UnlockWallet/Password : 启动网络节点时解锁钱包的密码。
@@ -121,7 +123,11 @@ NEO-CLI的节点程序在执行过程中会访问下述配置文件。
   "ProtocolConfiguration": {
     "Magic": 7630401,
     "AddressVersion": 23,
-    "SecondsPerBlock": 15, 
+    "SecondsPerBlock": 15,
+    "LowPriorityThreshold": 0.001,
+    "StateRootEnableIndex": 6016000,
+    "FreeGasChangeHeight": 6216000,
+    "MinimumNetworkFee": 0,
     "StandbyValidators": [
       "03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c",
       "02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093",
@@ -141,12 +147,7 @@ NEO-CLI的节点程序在执行过程中会访问下述配置文件。
       "seed7.ngd.network:10333",
       "seed8.ngd.network:10333",
       "seed9.ngd.network:10333",
-      "seed10.ngd.network:10333",
-      "seed1.neo.org:10333",
-      "seed2.neo.org:10333",
-      "seed3.neo.org:10333",
-      "seed4.neo.org:10333",
-      "seed5.neo.org:10333"
+      "seed10.ngd.network:10333"
     ],
     "SystemFee": {
       "EnrollmentTransaction": 1000,
@@ -163,6 +164,9 @@ NEO-CLI的节点程序在执行过程中会访问下述配置文件。
  - Magic : 魔法数字。主网：7630401(0x00746E41) 测试网：1953787457(0x74746E41)。搭建私有链网络时，魔法数字可以改为任意整数，但是同一网络中的节点的魔法数字必须相同。
  - AddressVersion : 地址版本。固定值23
  - SecondsPerBlock : 出块时间间隔。同一网络中共识节点必须相同。
+ - StateRootEnableIndex : StateRoot 产生的起始高度。
+ - FreeGasChangeHeight : 50 gas 免费系统费额度施行的区块高度。
+ - MinimumNetworkFee : 最低网络手续费 (共识节点使用)。
  - StandbyValidators : 备用共识节点的公钥列表。
  - SeedList : 种子节点列表。种子节点不是共识节点。种子节点向网络中的新节点提供其它节点的地址查询服务。
  - SystemFee : 系统手续费定义。

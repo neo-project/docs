@@ -10,7 +10,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 启动 Neo-CLI 前，你需要在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
 
-- MaxGasInvoke：允许通过 RPC 调用虚拟机执行消耗的最大 GAS 数额
+- ExtraGasInvoke：允许通过 RPC 调用虚拟机执行消耗的额外 GAS 数额（默认起始免费额度为 10 gas）
 - Path：钱包路径
 - Password：钱包密码
 - IsActive：设为 true 允许自动打开钱包
@@ -18,28 +18,31 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 下面是一个标准设置的例子：
 
 ```json
-  {
+{
   "ApplicationConfiguration": {
     "Paths": {
-      "Chain": "Chain_{0}"
+      "Chain": "Chain_{0}",
+      "Index": "Index_{0}"
     },
     "P2P": {
-      "Port": 20333,
-      "WsPort": 20334
+      "Port": 10333,
+      "WsPort": 10334
     },
     "RPC": {
       "BindAddress": "127.0.0.1",
-      "Port": 20332,
+      "Port": 10332,
       "SslCert": "",
       "SslCertPassword": "",
-      "MaxGasInvoke": 10
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "wallet.json",
       "Password": "11111111",
       "StartConsensus": false,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -65,7 +68,9 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
     "RPC": {
       "Port": 10331,
       "SslCert": "YourSslCertFile.xxx",
-      "SslCertPassword": "YourPassword"
+      "SslCertPassword": "YourPassword",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     }
   ...
 ```

@@ -45,12 +45,14 @@ install RpcNep5Tracker
 在启动 NEO-CLI 前需先配置 config.json 文件中的以下参数：
 
 - BindAddress：默认为本地127.0.0.1。可以绑定指定网卡的 ipv4 地址以允许远程调用 rpc。若没有指定对象，则可以设成 0.0.0.0。
+- ExtraGasInvoke: 在 10 gas免费系统费以外添加额外额度以让 vm 执行更多内容。
+- MaxConcurrentConnections: RPC调用最大并发数
 - UnlockWallet：可选。可以设置开启自动绑定并打开钱包的功能。Path 是钱包的路径， Password 是钱包的密码， IsActive 设为 true 意味着允许自动打开钱包。
 
 下面是一个标准设置的例子。
 
 ```json
-  {
+{
   "ApplicationConfiguration": {
     "Paths": {
       "Chain": "Chain_{0}",
@@ -61,21 +63,22 @@ install RpcNep5Tracker
       "WsPort": 10334
     },
     "RPC": {
-      "BindAddress": "0.0.0.0",
+      "BindAddress": "127.0.0.1",
       "Port": 10332,
       "SslCert": "",
-      "SslCertPassword": ""
+      "SslCertPassword": "",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "",
       "Password": "",
       "StartConsensus": false,
-      "IsActive": false
+      "IsActive": true
     },
     "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
   }
 }
-
 ...
 
 ```
