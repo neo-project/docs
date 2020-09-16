@@ -17,7 +17,7 @@
 
 - sender：交易发送者，支付交易费的账户，默认是 singers 中第一个账户，可选。
 
-- signers: 签名账户列表，可选
+- signers: 签名账户列表，可选。
   * account: 签名账户
   * scopes: 签名的作用域，允许的值: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表

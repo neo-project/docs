@@ -28,15 +28,17 @@ Bulk transfer order, and you can specify a change address.
   {"asset": <asset>,"value": <value>,"address": <address>}
   ```
 
-  * `asset`：Asset ID (asset identifier),  the NEP-5 contract scripthash
+  * `asset`: Asset ID (asset identifier),  the NEP-5 contract scripthash
   
     e.g. NEO is 0xde5f57d430d3dece511cf975a8d37848cb9e0525
   
     Gas is 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
   
-  * `value`：Transfer amount
+  * `value`: Transfer amount
   
-  * `address`：destination address.
+  * `address`: Destination address.
+  
+  * `signers`: The signature account of transaction
 
 ## Example
 
