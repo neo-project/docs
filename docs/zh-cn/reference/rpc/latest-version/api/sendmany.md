@@ -15,7 +15,7 @@
 
 - outputs_array：数组，数组中的每个元素的数据结构如下：
 
-  `{"asset": <asset>,"value": <value>,"address": <address>}`
+  `{"asset": <asset>, "value": <value>, "address": <address>, "signers": <signers>}`
 
   - asset_id：资产 ID，即 NEP-5 合约的脚本哈希。
 
@@ -25,6 +25,8 @@
   - value：转账金额。
 
   - address：收款地址。
+
+  - signers：交易签名账户。
 
 
 ## 调用示例
@@ -54,7 +56,8 @@
                 "value": 2,
                 "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             }
-    ]    
+    ],
+    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
   ]
 }
 ```
@@ -83,7 +86,8 @@
                 "value": 2,
                 "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             }
-    ]    
+    ],
+    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
   ]
 }
 ```
@@ -105,11 +109,11 @@
         "validuntilblock": 2105186,
         "signers": [
             {
-                "account": "0x84515341137defbf06b9d246a7ca210efcfa6298",
+                "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
                 "scopes": "CalledByEntry"
             },
             {
-                "account": "0xb120f50f804d3a203c43475212894ab1c911ce18",
+                "account": "0x1e01f56dbb2a9799422512752b900a5a49ca5d99",
                 "scopes": "CalledByEntry"
             }
         ],

@@ -21,6 +21,8 @@
 
 - value：转账金额。
 
+- signers：交易签名账户。
+
 
 ## 调用示例
 
@@ -31,7 +33,7 @@
   "jsonrpc": "2.0",
   "id": 1,
   "method": "sendfrom",
-  "params": ["0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc","NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y","NZoiUCBHBZ4DquVE5mbdpTQGozvJkWHtE8", 20]
+  "params": ["0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc","NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y","NZoiUCBHBZ4DquVE5mbdpTQGozvJkWHtE8", 20, ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]]
 }
 ```
 
@@ -54,14 +56,22 @@
             {
                 "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
                 "scopes": "CalledByEntry"
+            },
+            {
+                "account": "0x1e01f56dbb2a9799422512752b900a5a49ca5d99",
+                "scopes": "CalledByEntry"
             }
         ],
         "attributes": [],
         "script": "AgCUNXcMFJhi+vwOIcqnRtK5Br/vfRNBU1GEDBQcA1dGS3d+z2tfOsOJOs4fixYh9hPADAh0cmFuc2ZlcgwUvK9B1oTH1K1u4NmdqXB7nR8MjmZBYn1bUjg=",
         "witnesses": [
             {
-                "invocation": "DECnvSyJY/EnXpncenAA8AL9ufUrmskkxE+J+ODbjro7VgLp2sHV2tffyA2fYsqAaZzsqhnZK/Ay8sEUSozOyT+n",
-                "verification": "DCECIthRUYTH1i/6mbgprrSTjEcE7LDdfjQOhC6d8SGCY0MLQZVEDXg="
+                "invocation": "DEBIGjD61/KPyUq51sfsgla6MlruIbBG3eYkmI2cWXHrcGYMm6ucO6Va2Dc7v7mzF8XnQvJtrBVjv/caRpqt08OA",
+                "verification": "DCECIItAHAHzOQfla6fHzYkOv5cXTzazCk9DZ6xRAlIUXH4LQZVEDXg="
+            },
+            {
+                "invocation": "DEC5O1ZFX46Vhdm4H8uY3IfYWHMbMnIkl5QljOYK8lVIfinYfbvyFuHsELDUM1io1RrbShjwkoFiVG1UKfC0nlqC",
+                "verification": "DCECi9GQLE0UGfACuCHm3mU939U1gGMgjkJnVjmL5v+jqsgLQZVEDXg="
             }
         ]
     }

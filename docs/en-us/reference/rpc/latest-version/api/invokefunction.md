@@ -10,20 +10,25 @@ Invokes a smart contract with its scripthash based on the specified operation an
 ## Parameter Description
 
 * scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
+
 * operation: The operation name (string)
-* params: The parameters to be passed into the smart contract operation
-* cosigners: Add signatures when required.
+
+* params: Optional. The parameters to be passed into the smart contract operation
+
+* sender: Optional. The transaction sender and the account paying transaction fee. By default it is the first account in signers. 
+
+* signers: Optional. List of contract signature accounts.
 
   > [!Note]
   >
   > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 
-  * signers: list of contract signature accounts
   * account: signature account
   * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
+
 You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 
 For example:
@@ -71,12 +76,13 @@ Request body:
         "value":"8"
         }        
     ],
+    "0x1f5da2e47b37c4b96668a98da4ed8feb94bdf146",
     [
         {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
           "scopes": "CalledByEntry",
-          "allowedcontracts":["0xde5f57d430d3dece511cf975a8d37848cb9e0525","0x1f177332c467db9ba734d3ca85645fbadd7e13e3"],
-          "allowedgroups":["0222d8515184c7d62ffa99b829aeb4938c4704ecb0dd7e340e842e9df121826343"]
+          "allowedcontracts":[],
+          "allowedgroups":[]
         }
     ]
   ]

@@ -10,7 +10,8 @@
 ## 参数说明
 
 - script：一个由虚拟机运行的脚本，与 invokefunction 返回的 script 相同；
-- signers：签名账户列表
+- sender：交易发送者，支付交易费的账户，默认是 singers 中第一个账户，可选。
+- signers：签名账户列表，可选
   * account: 签名账户
   * scopes: 签名的作用域，允许的值: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
@@ -27,6 +28,7 @@
   "method": "invokescript",
   "params": [
     "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
+    ["0x1f5da2e47b37c4b96668a98da4ed8feb94bdf146"],
     [
          {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",

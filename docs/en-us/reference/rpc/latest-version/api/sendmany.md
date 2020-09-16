@@ -25,24 +25,24 @@ Bulk transfer order, and you can specify a change address.
 * `outputs_array`：Array, the data structure of each element in the array is as follows:
 
   ```json
-  {"asset": <asset>,"value": <value>,"address": <address>}
+  {"asset": <asset>,"value": <value>,"address": <address>, "signers": <signers>}
   ```
 
-  * `asset`：Asset ID (asset identifier),  the NEP-5 contract scripthash
+  * `asset`: Asset ID (asset identifier),  the NEP-5 contract scripthash
   
     e.g. NEO is 0xde5f57d430d3dece511cf975a8d37848cb9e0525
   
     Gas is 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
   
-  * `value`：Transfer amount
+  * `value`: Transfer amount
   
-  * `address`：destination address.
+  * `address`: Destination address
+  
+  * `signers`: The signature account of transaction
 
 ## Example
 
-**Example 1 - transferring from a specified address**
-
-Request body：
+Request text:
 
 ```json
 {
@@ -67,47 +67,13 @@ Request body：
                 "value": 2,
                 "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             }
-    ]    
+    ],
+    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
   ]
 }
 ```
 
-Response body:
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "hash": "0x01ccb37af435f0e7220473ae51334e5f2c2d896968411c14044537e22b8e045e",
-        "size": 424,
-        "version": 0,
-        "nonce": 93138602,
-        "sender": "NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y",
-        "sysfee": "27023970",
-        "netfee": "1424390",
-        "validuntilblock": 2105183,
-        "signers": [
-            {
-                "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
-                "scopes": "CalledByEntry"
-            }
-        ],
-        "attributes": [],
-        "script": "AgDh9QUMFLC8S2S+4uI9PTLeAsqsGFP6u7QDDBQcA1dGS3d+z2tfOsOJOs4fixYh9hPADAh0cmFuc2ZlcgwUvK9B1oTH1K1u4NmdqXB7nR8MjmZBYn1bUjgCAMLrCwwUmGL6/A4hyqdG0rkGv+99E0FTUYQMFBwDV0ZLd37Pa186w4k6zh+LFiH2E8AMCHRyYW5zZmVyDBS8r0HWhMfUrW7g2Z2pcHudHwyOZkFifVtSOBIMFLC8S2S+4uI9PTLeAsqsGFP6u7QDDBQcA1dGS3d+z2tfOsOJOs4fixYh9hPADAh0cmFuc2ZlcgwUJQWey0h406h1+RxRzt7TMNRXX95BYn1bUjg=",
-        "witnesses": [
-            {
-                "invocation": "DEB4NucKpf2vnr18txXcHI5hFDWTZNXZsamoxkkOfHPlKNfYgZloDb6v4wsdjkrMoohEXBqW2cc6fVxsgOQEYxOV",
-                "verification": "DCECIthRUYTH1i/6mbgprrSTjEcE7LDdfjQOhC6d8SGCY0MLQZVEDXg="
-            }
-        ]
-    }
-}
-```
-
-**Example 2 - transferring without specifying an address**
-
-Request body：
+Request text (without fromAddress):
 
 ```json
 {
@@ -131,12 +97,13 @@ Request body：
                 "value": 2,
                 "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             }
-    ]    
+    ],
+    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
   ]
 }
 ```
 
-Response body：
+Response text:
 
 ```json
 {
@@ -153,11 +120,11 @@ Response body：
         "validuntilblock": 2105186,
         "signers": [
             {
-                "account": "0x84515341137defbf06b9d246a7ca210efcfa6298",
+                "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
                 "scopes": "CalledByEntry"
             },
             {
-                "account": "0xb120f50f804d3a203c43475212894ab1c911ce18",
+                "account": "0x1e01f56dbb2a9799422512752b900a5a49ca5d99",
                 "scopes": "CalledByEntry"
             }
         ],
