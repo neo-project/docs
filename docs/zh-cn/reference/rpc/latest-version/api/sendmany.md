@@ -15,7 +15,7 @@
 
 - outputs_array：数组，数组中的每个元素的数据结构如下：
 
-  `{"asset": <asset>,"value": <value>,"address": <address>}`
+  `{"asset": <asset>, "value": <value>, "address": <address>, "signers": <signers>}`
 
   - asset_id：资产 ID，即 NEP-5 合约的脚本哈希。
 
@@ -86,7 +86,8 @@
                 "value": 2,
                 "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
             }
-    ]    
+    ],
+    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
   ]
 }
 ```
