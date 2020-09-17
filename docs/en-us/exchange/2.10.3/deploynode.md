@@ -45,6 +45,8 @@ install RpcNep5Tracker
 Before running NEO-CLI, you need to configure the following parameters in the config.json file:
 
 - BindAddress: It defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0. 
+- ExtraGasInvoke: Add extra GAS on top of the 10 Gas free system fee to let VM perform more content.
+- MaxConcurrentConnections: Maximum concurrent connections allowed for RPC invoking. 
 - UnlockWallet: Optional. You can enable automatic binding and opening of the wallet. The following is an configuration example, where `Path` is the wallet path, `Password` is the wallet password, and `IsActive` is set to `true` to allow the wallet to be opened automatically. 
 
 ```
@@ -59,19 +61,23 @@ Before running NEO-CLI, you need to configure the following parameters in the co
       "WsPort": 10334
     },
     "RPC": {
+      "BindAddress": "127.0.0.1",
       "Port": 10332,
       "SslCert": "",
-      "SslCertPassword": ""
+      "SslCertPassword": "",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "",
       "Password": "",
       "StartConsensus": false,
-      "IsActive": false
+      "IsActive": true
     },
-     "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
-  } 
+    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
+  }
 }
+...
 ```
 
 > [!Note]

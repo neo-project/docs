@@ -10,7 +10,7 @@ Neo-CLI accesses two configuration files during execution: `config.json` and `pr
 
 Before you can invoke the wallet related API, you need to configure a wallet in the config.json file to enable Neo-CLI to open the wallet automatically when running. 
 
-- `MaxGasInvoke`: The maximum GAS amount allowed to be consumed when invoking virtual machine by RPC
+- `ExtraGasInvoke`: The extra GAS amount allowed to be consumed when invoking virtual machine by RPC. The default free limit is 10 GAS.
 - `Path`: the wallet path
 - `Password`: the wallet password
 - `IsActive`: Set to `true` to allow Neo-CLI to open the wallet automatically.
@@ -18,7 +18,7 @@ Before you can invoke the wallet related API, you need to configure a wallet in 
 Here is an example:
 
 ```
-  {
+{
   "ApplicationConfiguration": {
     "Paths": {
       "Chain": "Chain_{0}",
@@ -32,21 +32,24 @@ Here is an example:
       "BindAddress": "127.0.0.1",
       "Port": 10332,
       "SslCert": "",
-      "SslCertPassword": ""
+      "SslCertPassword": "",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "wallet.json",
       "Password": "11111111",
       "StartConsensus": false,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
   }
 }
 ```
 
 > [!Note]
 >
-> The BindAddress option has been added to Neo-CLI 2.9.1, which defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0.
+> The BindAddress option defaults to local 127.0.0.1. You can set it to 0.0.0.0 to allow RPC invoking. In order to ensure the security of the node, set the firewall policy for the corresponding port.
 
 ### Configuring HTTPS
 
