@@ -10,7 +10,7 @@ Neo-CLI accesses two configuration files during execution: `config.json` and `pr
 
 Before you can invoke the wallet related API, you need to configure a wallet in the config.json file to enable Neo-CLI to open the wallet automatically when running. 
 
-- `MaxGasInvoke`: The maximum GAS amount allowed to be consumed when invoking virtual machine by RPC
+- `ExtraGasInvoke`: The extra GAS amount allowed to be consumed when invoking virtual machine by RPC. The default free limit is 10 GAS.
 - `Path`: the wallet path
 - `Password`: the wallet password
 - `IsActive`: Set to `true` to allow Neo-CLI to open the wallet automatically.
@@ -18,7 +18,7 @@ Before you can invoke the wallet related API, you need to configure a wallet in 
 Here is an example:
 
 ```
-  {
+{
   "ApplicationConfiguration": {
     "Paths": {
       "Chain": "Chain_{0}",
@@ -32,21 +32,24 @@ Here is an example:
       "BindAddress": "127.0.0.1",
       "Port": 10332,
       "SslCert": "",
-      "SslCertPassword": ""
+      "SslCertPassword": "",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "wallet.json",
       "Password": "11111111",
       "StartConsensus": false,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
   }
 }
 ```
 
 > [!Note]
 >
-> The BindAddress option has been added to Neo-CLI 2.9.1, which defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0.
+> The BindAddress option defaults to local 127.0.0.1. You can set it to 0.0.0.0 to allow RPC invoking. In order to ensure the security of the node, set the firewall policy for the corresponding port.
 
 ### Configuring HTTPS
 
@@ -96,7 +99,7 @@ Download the plugins you need from the following table.
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB.</td>
             <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -104,7 +107,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip">ImportBlocks</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/ImportBlocks.zip">ImportBlocks</a>
             </td>
             <td>Synchronizes the client using offline packages.</td>
             <td></td>
@@ -112,7 +115,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcWallet.zip">RpcWallet</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>Provides wallet-specific RPC functionalities.</td>
             <td><a href="../../reference/rpc/latest-version/api/claimgas.html">claimgas</a><br><a
@@ -132,7 +135,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/SimplePolicy.zip">SimplePolicy</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/SimplePolicy.zip">SimplePolicy</a>
             </td>
             <td>Enables policies for filtrate illegal transactions</td>
             <td></td>
@@ -140,7 +143,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/CoreMetrics.zip">CoreMetrics</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>Enquiries the timestamp of history blocks.</td>
             <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
@@ -148,7 +151,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>Enquiries the UTXO assets related information.</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getunclaimed</a><br><a
@@ -158,7 +161,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getnep5balances</a><br><a
@@ -167,7 +170,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSecurity.zip">RpcSecurity</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcSecurity.zip">RpcSecurity</a>
             </td>
             <td>Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file.</td>
             <td></td>
@@ -175,7 +178,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
@@ -191,11 +194,17 @@ To install plugins, unzip the package under the Neo-CLI root directory, as shown
 
 ### Downloading plugins using command
 
-For Neo-CLI 2.9.4 and later, it is easier to automatically install or uninstall the plugin using commands, for example:
+It is easier to automatically install or uninstall the plugin using commands, for example:
 
 ```
-install ImportBlocks
-uninstall ApplicationLogs
+neo> install ImportBlocks
+Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.12.0/ImportBlocks.zip
+Install successful, please restart neo-cli.
+```
+
+```
+neo> uninstall RpcWallet
+Uninstall successful, please restart neo-cli.
 ```
 
 After installation, restart Neo-CLI for the plugin to take effect.

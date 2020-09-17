@@ -10,7 +10,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 启动 Neo-CLI 前，你需要在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
 
-- MaxGasInvoke：允许通过 RPC 调用虚拟机执行消耗的最大 GAS 数额
+- ExtraGasInvoke：允许通过 RPC 调用虚拟机执行消耗的额外 GAS 数额（默认起始免费额度为 10 GAS）
 - Path：钱包路径
 - Password：钱包密码
 - IsActive：设为 true 允许自动打开钱包
@@ -18,28 +18,31 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 下面是一个标准设置的例子：
 
 ```json
-  {
+{
   "ApplicationConfiguration": {
     "Paths": {
-      "Chain": "Chain_{0}"
+      "Chain": "Chain_{0}",
+      "Index": "Index_{0}"
     },
     "P2P": {
-      "Port": 20333,
-      "WsPort": 20334
+      "Port": 10333,
+      "WsPort": 10334
     },
     "RPC": {
       "BindAddress": "127.0.0.1",
-      "Port": 20332,
+      "Port": 10332,
       "SslCert": "",
       "SslCertPassword": "",
-      "MaxGasInvoke": 10
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     },
     "UnlockWallet": {
       "Path": "wallet.json",
       "Password": "11111111",
       "StartConsensus": false,
       "IsActive": true
-    }
+    },
+    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
   }
 }
 ```
@@ -65,7 +68,9 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
     "RPC": {
       "Port": 10331,
       "SslCert": "YourSslCertFile.xxx",
-      "SslCertPassword": "YourPassword"
+      "SslCertPassword": "YourPassword",
+      "ExtraGasInvoke": "0",
+      "MaxConcurrentConnections": "10"
     }
   ...
 ```
@@ -101,7 +106,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip">ImportBlocks</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/ImportBlocks.zip">ImportBlocks</a>
             </td>
             <td>同步离线包。</td>
             <td></td>
@@ -109,7 +114,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcWallet.zip">RpcWallet</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>提供钱包相关的 RPC 功能。</td>
             <td><a
@@ -130,7 +135,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/SimplePolicy.zip">SimplePolicy</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/SimplePolicy.zip">SimplePolicy</a>
             </td>
             <td>过滤非法交易。</td>
             <td></td>
@@ -138,7 +143,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/Applicationlogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/Applicationlogs.zip">ApplicationLogs</a>
             </td>
             <td>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -146,7 +151,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/CoreMetrics.zip">CoreMetrics</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>查询历史区块的时间戳。</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
@@ -154,7 +159,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
@@ -163,7 +168,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>查询 UTXO 资产相关信息。</td>
             <td><a href="../../reference/rpc/latest-version/api/getunclaimed.html">getunclaimed</a><br><a
@@ -173,7 +178,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>导出 Neo-CLI 状态数据。</td>
             <td></td>
@@ -181,7 +186,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
         </tr> 
         <tr>            
             <td><a                    
-                   href="https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/RpcSecurity.zip">RpcSecurity</a>                        </td>
+                   href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcSecurity.zip">RpcSecurity</a>                        </td>
             <td>对HTTP Request 进行 base64 加密，提升 RPC 请求的安全性。需要在该插件的 config.json 文件中设置 username 和 password</td>
             <td></td>
             <td>可选</td>
@@ -202,7 +207,7 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
 
 ```
 neo> install ImportBlocks
-Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip
+Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.12.0/ImportBlocks.zip
 Install successful, please restart neo-cli.
 ```
 

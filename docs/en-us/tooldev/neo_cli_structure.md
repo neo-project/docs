@@ -95,7 +95,7 @@ It defines basic configurations such as database path, network configuration, an
 }
 ```
 
-Attribute Description:
+Attribute description:
 
  - Paths/Chain : The prefix of storage directory for the blockchain database. The suffix of the storage directory is an 8-digit hexadecimal called the MagicNumber. MagicNumber will be mentioned later.
  - Paths/Index : The prefix of storage directory for the wallet index.
@@ -105,7 +105,9 @@ Attribute Description:
  - RPC/Port : The listening port number of the JSON-RPC service.
  - RPC/SslCert : Authentication of the secure connection of the JSON-RPC service. When the default is empty, no secure connection is used.
  - RPC/SslCertPassword : The password for the secure connection of the JSON-RPC service. When the default is empty, no secure connection is used.
- - UnlockWallet/IsActive : Whether to automatically unlock the wallet when starting the network node.
+ - RPC/ExtraGasInvoke: The extra GAS amount allowed by JSON-RPC for consumption of local VM execution. System fee = 10 GAS (free allowance) + ExtraGasInvoke (extra allowance).
+ - RPC/MaxConcurrentConnections: The maximum concurrent connections allowed by JSON-RPC.
+ - UnlockWallet/IsActive: Whether to automatically unlock the wallet when starting the network node.
  - UnlockWallet/Path : The path of the wallet file to unlock when starting the network node.
  - UnlockWallet/Password : The password to unlock the wallet file when starting the network node.
  - UnlockWallet/StartConsensus : Whether to automatically start consensus when starting a network node. Auto-starting consensus relies on automatically unlocking the wallet.
@@ -121,7 +123,11 @@ It defines protocol-level variables, public keys of spare consensus nodes, list 
   "ProtocolConfiguration": {
     "Magic": 7630401,
     "AddressVersion": 23,
-    "SecondsPerBlock": 15, 
+    "SecondsPerBlock": 15,
+    "LowPriorityThreshold": 0.001,
+    "StateRootEnableIndex": 6016000,
+    "FreeGasChangeHeight": 6216000,
+    "MinimumNetworkFee": 0,
     "StandbyValidators": [
       "03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c",
       "02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093",
@@ -141,12 +147,7 @@ It defines protocol-level variables, public keys of spare consensus nodes, list 
       "seed7.ngd.network:10333",
       "seed8.ngd.network:10333",
       "seed9.ngd.network:10333",
-      "seed10.ngd.network:10333",
-      "seed1.neo.org:10333",
-      "seed2.neo.org:10333",
-      "seed3.neo.org:10333",
-      "seed4.neo.org:10333",
-      "seed5.neo.org:10333"
+      "seed10.ngd.network:10333"
     ],
     "SystemFee": {
       "EnrollmentTransaction": 1000,
@@ -160,11 +161,14 @@ It defines protocol-level variables, public keys of spare consensus nodes, list 
 
 Attribute Description:
 
- - Magic : Magic Number. Mainnet: 7630401 (0x00746E41) Testnet: 1953787457 (0x74746E41). When building a private chain network, the magic number can be changed to any integer, but the magic number used by all the nodes in the same network must be the same.
- - AddressVersion : The address version. Fixed value 23
- - SecondsPerBlock : The block interval. The consensus nodes in the same network must have the same value.
+ - Magic: Magic Number. Mainnet: 7630401 (0x00746E41) Testnet: 1953787457 (0x74746E41). When building a private chain network, the magic number can be changed to any integer, but the magic number used by all the nodes in the same network must be the same.
+ - AddressVersion: The address version. Fixed value 23
+ - SecondsPerBlock: The block interval. The consensus nodes in the same network must have the same value.
+ - StateRootEnableIndex: The start height of StateRoot.
+ - FreeGasChangeHeight: The height of the block in which 50 free GAS applied.
+ - MinimumNetworkFee: Minimum network fees for consensus nodes.
  - StandbyValidators: A list of public keys of the alternate consensus node.
- - SeedList : List of seed nodes. The seed node is not a consensus node. New nodes in the network can ask the seed nodes for the IP addresses and port number of other nodes.
+ - SeedList: List of seed nodes. The seed node is not a consensus node. New nodes in the network can ask the seed nodes for the IP addresses and port number of other nodes.
  - SystemFee: System Fee Definition.
 
 protocol.mainnet.json and protocol.testnet.json are two backup files that store the configuration for the mainnet and the testnet.

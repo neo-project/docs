@@ -193,16 +193,16 @@
   items:
   - name: 概述
     href:  /docs/zh-cn/exchange/general.md
-  - name: v2.10.3
+  - name: v2.12.0
     items:
     - name: 部署 Neo 节点
-      href: /docs/zh-cn/exchange/2.10.3/deploynode.md
+      href: /docs/zh-cn/exchange/2.12.0/deploynode.md
     - name: 使用 Neo-CLI 客户端
-      href: /docs/zh-cn/exchange/2.10.3/client.md
+      href: /docs/zh-cn/exchange/2.12.0/client.md
     - name: 处理资产交易
-      href: /docs/zh-cn/exchange/2.10.3/transaction.md
+      href: /docs/zh-cn/exchange/2.12.0/transaction.md
     - name: 给用户分发 GAS
-      href: /docs/zh-cn/exchange/2.10.3/gas.md 
+      href: /docs/zh-cn/exchange/2.12.0/gas.md 
   - name: 更新记录
     href: /docs/zh-cn/exchange/changelog.md
 - name: 开发参考
@@ -210,7 +210,7 @@
   - name: RPC API
     - name: API 参考
       href:  /docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: v2.10.3
+    - name: v2.12.0
       items:
       - name: claimgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/claimgas.md
