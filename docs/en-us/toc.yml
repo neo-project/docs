@@ -179,16 +179,16 @@
   items:
   - name: Overview
     href:  /docs/en-us/exchange/general.md
-  - name: v2.10.3
+  - name: v2.12.0
     items:
     - name: Deploying Neo nodes
-      href: /docs/en-us/exchange/2.10.3/deploynode.md
+      href: /docs/en-us/exchange/2.12.0/deploynode.md
     - name: Using Neo-CLI
-      href: /docs/en-us/exchange/2.10.3/client.md
+      href: /docs/en-us/exchange/2.12.0/client.md
     - name: Dealing with assets transactions
-      href: /docs/en-us/exchange/2.10.3/transaction.md
+      href: /docs/en-us/exchange/2.12.0/transaction.md
     - name: Distributing GAS to users
-      href: /docs/en-us/exchange/2.10.3/gas.md 
+      href: /docs/en-us/exchange/2.12.0/gas.md 
   - name: Changelog
     href: /docs/en-us/exchange/changelog.md
 - name: Reference
@@ -196,7 +196,7 @@
   - name: RPC API
     - name: API Reference
       href:  /docs/en-us/reference/rpc/latest-version/api.md
-    - name: v2.10.3
+    - name: v2.12.0
       items:
       - name: claimgas
         href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
