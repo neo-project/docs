@@ -18,7 +18,7 @@ Request body：
 {
   "jsonrpc": "2.0",
   "method": "getnep5balances",
-  "params": ["1aada0032aba1ef6d1f07bbd8bec1d85f5380fb3"],
+  "params": ["AY6eqWjsUFCzsVELG7yG72XDukKvC34p2w"],
   "id": 1
 }
 ```
