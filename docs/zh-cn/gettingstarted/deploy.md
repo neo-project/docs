@@ -55,7 +55,7 @@ relay tx(no|yes):
 
 其中：
 
-- VM State ： `HALT` 表示虚拟机执行成功， `FAULT` 表示虚拟机执行时遇到异常退出。
-- Evaluation Stack ：合约执行结果，如果 value 是字符串或 ByteArray，则是 Base64 编码后的结果。
+- VM State:  `HALT` 表示虚拟机执行成功， `FAULT` 表示虚拟机执行时遇到异常退出。
+- Evaluation Stack: 合约执行结果，如果 value 是字符串或 ByteArray，则是 Base64 编码后的结果。
 
 更多智能合调用信息请参考 [调用智能合约](../deploy/dinvoke.md)。

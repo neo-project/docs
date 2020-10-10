@@ -1,6 +1,6 @@
 # 开发示例合约
 
-我们已经搭建私链并启动节点连接私链，下文将以使用 windows 10 和 C# 为例，带领开发者配置环境、编写、编译以及在私链上部署和调用 Neo 智能合约。
+我们已经搭建私链并启动节点连接私链，下文将以使用 Windows 10 和 C# 为例，带领开发者配置环境、编写、编译以及在私链上部署和调用 Neo 智能合约。
 
 在本节我们将完成以下任务：
 
@@ -40,7 +40,7 @@
 
 3. 进入上一步的发布路径，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动，如下图所示：
 
-   ![neon](../assets/neon.png)
+   ![neon](assets/neon.png)
 
 4. 将发布目录添加到环境变量 Path 中 :
 
@@ -48,7 +48,7 @@
    >
    > 如果存在旧版本的neon，需要先删除。
 
-   ![env](../assets/env.png)
+   ![](assets/env.png)
 
 5. 在任意位置启动 PowerShell，输入命令 `neon.exe` 确保环境变量已正确配置。
 
@@ -65,7 +65,7 @@
 
 2. 在项目模板对话框中，搜索neocontract，选择C#对应的NeoContact，并根据向导完成项目创建。
 
-   ![neocontract](../assets/neocontract.png)
+   ![neocontract](assets/neocontract.png)
 
 3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用。
 

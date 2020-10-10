@@ -14,7 +14,7 @@ Neo-CLI 支持以下环境：
 
 ## 下载客户端
 
-参考 [Neo-CLI 安装](../../node/cli/setup.md) 下载并安装 Neo-CLI Preview2 程序包。
+参考 [Neo-CLI 安装](../../node/cli/setup.md) 下载并安装 Neo-CLI Preview3 程序包。
 
 ## 继续阅读
 
