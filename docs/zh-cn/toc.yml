@@ -2,6 +2,47 @@
   href: /v3/docs/zh-cn/index.md
 - name: 术语表
   href: /v3/docs/zh-cn/glossary.md
+- name: 快速入门（C#）
+  items:
+  - name: 准备工作
+    href: /v3/docs/zh-cn/gettingstarted/prerequisites.md
+  - name: 搭建网络环境
+    href: /v3/docs/zh-cn/gettingstarted/enviroment.md
+  - name: 开发示例合约
+    href: /v3/docs/zh-cn/gettingstarted/develop.md
+  - name: 部署并调用合约
+    href: /v3/docs/zh-cn/gettingstarted/deploy.md
+- name: Neo 基础
+  items:
+  - name: 基本概念
+    - name: 区块模型
+      - name: 区块
+        href: /v3/docs/zh-cn/basic/concept/blockchain/block.md
+      - name: 通证
+        href: /v3/docs/zh-cn/basic/concept/blockchain/token_model.md  
+    - name: 收费模型
+      href: /v3/docs/zh-cn/basic/concept/charging_model.md
+    - name: 密码学
+      href:
+      - name: 编码算法
+        href:  /v3/docs/zh-cn/basic/concept/cryptography/encode_algorithm.md
+      - name: 哈希算法
+        href: /v3/docs/zh-cn/basic/concept/cryptography/hash_algorithm.md
+      - name: 加密算法
+        href: /v3/docs/zh-cn/basic/concept/cryptography/encryption_algorithm.md
+     - name: 大小端序的使用
+      href:  /v3/docs/zh-cn/basic/concept/endian.md
+  - name: 共识机制
+    - name: 共识算法
+      href: /v3/docs/zh-cn/basic/consensus/consensus_algorithm.md
+    - name: 共识协议
+      href: /v3/docs/zh-cn/basic/consensus/consensus_protocol.md
+    - name: 投票
+      href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
+  - name: 钱包
+    href: /v3/docs/zh-cn/basic/wallets.md
+  - name: 交易
+    href: /v3/docs/zh-cn/basic/transaction/transaction.md
 - name: Neo 节点
   items:
   - name: 节点介绍
@@ -26,30 +67,18 @@
       href: /v3/docs/zh-cn/node/gui/contract.md
     - name: 高级功能
       href: /v3/docs/zh-cn/node/gui/advanced.md
-- name: Neo 网络
+- name: 开发指南
   items:
-  - name: 主网与测试网
-    href: /v3/docs/zh-cn/network/testnet.md
-  - name: 搭建私有链
+  - name: Neo 网络
     items:
-    - name: 单节点模式
-      href: /v3/docs/zh-cn/network/private-chain/solo.md
-    - name: 在本地主机搭建
-      href: /v3/docs/zh-cn/network/private-chain/private-chain2.md
-- name: 智能合约开发
-  items:
-  - name: 快速入门（C#）
-    items:
-    - name: 介绍
-      href: /v3/docs/zh-cn/sc/gettingstarted/introduction.md
-    - name: 准备工作
-      href: /v3/docs/zh-cn/sc/gettingstarted/prerequisites.md
-    - name: 搭建网络环境
-      href: /v3/docs/zh-cn/sc/gettingstarted/enviroment.md
-    - name: 开发示例合约
-      href: /v3/docs/zh-cn/sc/gettingstarted/develop.md
-    - name: 部署并调用合约
-      href: /v3/docs/zh-cn/sc/gettingstarted/deploy.md
+    - name: 主网与测试网
+      href: /v3/docs/zh-cn/network/testnet.md
+    - name: 搭建私有链
+      items:
+      - name: 单节点模式
+        href: /v3/docs/zh-cn/network/private-chain/solo.md
+      - name: 在本地主机搭建
+        href: /v3/docs/zh-cn/network/private-chain/private-chain2.md
   - name: 合约编写
     items:
     - name: 合约编写基础
@@ -58,15 +87,8 @@
       href: /v3/docs/zh-cn/sc/write/limitation.md
     - name: NEP-5
       href: /v3/docs/zh-cn/sc/write/nep5.md
-  - name: 部署和调用
-    - name: 部署合约
-      href: /v3/docs/zh-cn/sc/deploy/deploy.md
-    - name: 调用合约
-      href: /v3/docs/zh-cn/sc/deploy/invoke.md
-  - name: 合约升级
-    href: /v3/docs/zh-cn/sc/migrate.md
-  - name: 手续费
-    href: /v3/docs/zh-cn/sc/fees.md
+    - name: 合约升级
+      href: /v3/docs/zh-cn/sc/migrate.md
   - name: 合约示例
     items: 
     - name: Hello World
@@ -75,51 +97,27 @@
       href: /v3/docs/zh-cn/sc/sample/Domain.md
     - name: 存证合约
       href: /v3/docs/zh-cn/sc/sample/storage.md
- - name: Neo工具开发
-  - name: 基本概念
-    - name: 区块模型
-      - name: 区块
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/block.md
-      - name: 通证
-        href: /v3/docs/zh-cn/tooldev/concept/blockchain/token_model.md  
-    - name: 收费模型
-      href: /v3/docs/zh-cn/tooldev/concept/charging_model.md
-    - name: 密码学
-      href:
-      - name: 编码算法
-        href:  /v3/docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.md
-      - name: 哈希算法
-        href: /v3/docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.md
-      - name: 加密算法
-        href: /v3/docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
-    - name: 大小端序的使用
-      href:  /v3/docs/zh-cn/tooldev/concept/endian.md
-  - name: 共识机制
-    - name: 共识算法
-      href: /v3/docs/zh-cn/tooldev/consensus/consensus_algorithm.md
-    - name: 共识协议
-      href: /v3/docs/zh-cn/tooldev/consensus/consensus_protocol.md
-    - name: 投票
-      href: /v3/docs/zh-cn/tooldev/consensus/vote_validator.md
-  - name: 钱包
-    href: /v3/docs/zh-cn/tooldev/wallets.md
-  - name: 交易
-    - name: 交易
-      href: /v3/docs/zh-cn/tooldev/transaction/transaction.md
-  - name: Neo SDK
-    items:
-    - name: 关于 Neo RPC SDK
-      href: /v3/docs/zh-cn/tooldev/sdk/introduction.md
-    - name: RPC 调用方法
-      href: /v3/docs/zh-cn/tooldev/sdk/rpc.md
-    - name: 获取区块信息
-      href: /v3/docs/zh-cn/tooldev/sdk/monitor.md
-    - name: 钱包相关接口
-      href: /v3/docs/zh-cn/tooldev/sdk/wallet.md
-    - name: 构造交易
-      href: /v3/docs/zh-cn/tooldev/sdk/transaction.md
-    - name: 合约部署与调用
-      href: /v3/docs/zh-cn/tooldev/sdk/contract.md
+  - name: 部署和调用
+    - name: 部署合约
+      href: /v3/docs/zh-cn/sc/deploy/deploy.md
+    - name: 调用合约
+      href: /v3/docs/zh-cn/sc/deploy/invoke.md
+  - name: 开发工具
+    - name: Neo SDK
+      href: /v3/docs/zh-cn/sc/deploy/sdk.md
+      items:
+      - name: 关于 Neo RPC SDK
+        href: /v3/docs/zh-cn/basic/sdk/introduction.md
+      - name: RPC 调用方法
+        href: /v3/docs/zh-cn/basic/sdk/rpc.md
+      - name: 获取区块信息
+        href: /v3/docs/zh-cn/basic/sdk/monitor.md
+      - name: 钱包相关接口
+        href: /v3/docs/zh-cn/basic/sdk/wallet.md
+      - name: 构造交易
+        href: /v3/docs/zh-cn/basic/sdk/transaction.md
+      - name: 合约部署与调用
+        href: /v3/docs/zh-cn/basic/sdk/contract.md
 - name: 交易所对接指南
   items:
   - name: 概述
@@ -264,5 +262,7 @@
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: 治理 API
     href: /v3/docs/zh-cn/reference/governance_api.md
+  - name: 手续费
+    href: /v3/docs/zh-cn/reference/fees.md
   - name: NeoVM 指令集
     href: /v3/docs/zh-cn/reference/neo_vm.md
