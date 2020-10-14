@@ -75,7 +75,7 @@
   - name: Development Environment 
     items:
     - name: Using C# on Windows
-      href: /docs/zh-cn/sc/devenv/getting-started-csharp.md
+      href: /docs/en-us/sc/devenv/getting-started-csharp.md
     - name: Using C# on macOS
       href: /docs/en-us/sc/devenv/getting-started-csharp-mac.md
     - name: Using C# on ubuntu
@@ -179,16 +179,16 @@
   items:
   - name: Overview
     href:  /docs/en-us/exchange/general.md
-  - name: v2.12.0
+  - name: v2.12.2
     items:
     - name: Deploying Neo nodes
-      href: /docs/en-us/exchange/2.12.0/deploynode.md
+      href: /docs/en-us/exchange/2.12.2/deploynode.md
     - name: Using Neo-CLI
-      href: /docs/en-us/exchange/2.12.0/client.md
+      href: /docs/en-us/exchange/2.12.2/client.md
     - name: Dealing with assets transactions
-      href: /docs/en-us/exchange/2.12.0/transaction.md
+      href: /docs/en-us/exchange/2.12.2/transaction.md
     - name: Distributing GAS to users
-      href: /docs/en-us/exchange/2.12.0/gas.md 
+      href: /docs/en-us/exchange/2.12.2/gas.md 
   - name: Changelog
     href: /docs/en-us/exchange/changelog.md
 - name: Reference
@@ -196,7 +196,7 @@
   - name: RPC API
     - name: API Reference
       href:  /docs/en-us/reference/rpc/latest-version/api.md
-    - name: v2.12.0
+    - name: v2.12.2
       items:
       - name: claimgas
         href: /docs/en-us/reference/rpc/latest-version/api/claimgas.md
@@ -242,6 +242,10 @@
         href: /docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
       - name: getrawtransaction
         href: /docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
+      - name: getstateheight
+        href: /docs/en-us/reference/rpc/latest-version/api/getstateheight.md
+      - name: getstateroot
+        href: /docs/en-us/reference/rpc/latest-version/api/getstateroot.md
       - name: getstorage
         href: /docs/en-us/reference/rpc/latest-version/api/getstorage.md
       - name: gettransactionheight
@@ -250,12 +254,16 @@
         href: /docs/en-us/reference/rpc/latest-version/api/gettxout.md
       - name: getpeers
         href: /docs/en-us/reference/rpc/latest-version/api/getpeers.md
+      - name: getproof
+        href: /docs/en-us/reference/rpc/latest-version/api/getproof.md
       - name: getunclaimedgas
         href: /docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
       - name: getunclaimed
         href: /docs/en-us/reference/rpc/latest-version/api/getunclaimed.md
       - name: getunspents
         href: /docs/en-us/reference/rpc/latest-version/api/getunspents.md
+      - name: getutxotransfers
+        href: /docs/en-us/reference/rpc/latest-version/api/getutxotransfers.md
       - name: getvalidators
         href: /docs/en-us/reference/rpc/latest-version/api/getvalidators.md
       - name: getversion
@@ -284,6 +292,8 @@
         href: /docs/en-us/reference/rpc/latest-version/api/submitblock.md
       - name: validateaddress
         href: /docs/en-us/reference/rpc/latest-version/api/validateaddress.md
+      - name: verifyproof
+        href: /docs/en-us/reference/rpc/latest-version/api/verifyproof.md
   - name: Smart Contract API
     - name: .net Framework
       href: /docs/en-us/reference/scapi/framework.md

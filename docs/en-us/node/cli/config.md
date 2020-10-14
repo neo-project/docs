@@ -99,7 +99,7 @@ Download the plugins you need from the following table.
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB.</td>
             <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -107,7 +107,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/ImportBlocks.zip">ImportBlocks</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/ImportBlocks.zip">ImportBlocks</a>
             </td>
             <td>Synchronizes the client using offline packages.</td>
             <td></td>
@@ -115,7 +115,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcWallet.zip">RpcWallet</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcWallet.zip">RpcWallet</a>
             </td>
             <td>Provides wallet-specific RPC functionalities.</td>
             <td><a href="../../reference/rpc/latest-version/api/claimgas.html">claimgas</a><br><a
@@ -135,7 +135,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/SimplePolicy.zip">SimplePolicy</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/SimplePolicy.zip">SimplePolicy</a>
             </td>
             <td>Enables policies for filtrate illegal transactions</td>
             <td></td>
@@ -143,7 +143,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/CoreMetrics.zip">CoreMetrics</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/CoreMetrics.zip">CoreMetrics</a>
             </td>
             <td>Enquiries the timestamp of history blocks.</td>
             <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
@@ -151,7 +151,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
             </td>
             <td>Enquiries the UTXO assets related information.</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getunclaimed</a><br><a
@@ -161,7 +161,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcNep5Tracker.zip">RpcNep5Tracker</a>
             </td>
             <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
             <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getnep5balances</a><br><a
@@ -170,7 +170,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/RpcSecurity.zip">RpcSecurity</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcSecurity.zip">RpcSecurity</a>
             </td>
             <td>Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file.</td>
             <td></td>
@@ -178,7 +178,7 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.0/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
@@ -198,7 +198,7 @@ It is easier to automatically install or uninstall the plugin using commands, fo
 
 ```
 neo> install ImportBlocks
-Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.12.0/ImportBlocks.zip
+Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.12.2/ImportBlocks.zip
 Install successful, please restart neo-cli.
 ```
 

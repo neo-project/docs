@@ -193,16 +193,16 @@
   items:
   - name: 概述
     href:  /docs/zh-cn/exchange/general.md
-  - name: v2.12.0
+  - name: v2.12.2
     items:
     - name: 部署 Neo 节点
-      href: /docs/zh-cn/exchange/2.12.0/deploynode.md
+      href: /docs/zh-cn/exchange/2.12.2/deploynode.md
     - name: 使用 Neo-CLI 客户端
-      href: /docs/zh-cn/exchange/2.12.0/client.md
+      href: /docs/zh-cn/exchange/2.12.2/client.md
     - name: 处理资产交易
-      href: /docs/zh-cn/exchange/2.12.0/transaction.md
+      href: /docs/zh-cn/exchange/2.12.2/transaction.md
     - name: 给用户分发 GAS
-      href: /docs/zh-cn/exchange/2.12.0/gas.md 
+      href: /docs/zh-cn/exchange/2.12.2/gas.md 
   - name: 更新记录
     href: /docs/zh-cn/exchange/changelog.md
 - name: 开发参考
@@ -210,7 +210,7 @@
   - name: RPC API
     - name: API 参考
       href:  /docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: v2.12.0
+    - name: v2.12.2
       items:
       - name: claimgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/claimgas.md
@@ -256,6 +256,10 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
       - name: getrawtransaction
         href: /docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.md
+      - name: getstateheight
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getstateheight.md
+      - name: getstateroot
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getstateroot.md
       - name: getstorage
         href: /docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
       - name: gettransactionheight
@@ -264,12 +268,16 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/gettxout.md
       - name: getpeers
         href: /docs/zh-cn/reference/rpc/latest-version/api/getpeers.md
+      - name: getproof
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getproof.md
       - name: getunclaimedgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
       - name: getunclaimed
         href: /docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.md
       - name: getunspents
         href: /docs/zh-cn/reference/rpc/latest-version/api/getunspents.md
+      - name: getutxotransfers
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getutxotransfers.md
       - name: getvalidators
         href: /docs/zh-cn/reference/rpc/latest-version/api/getvalidators.md
       - name: getversion
@@ -298,6 +306,8 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/submitblock.md
       - name: validateaddress
         href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
+      - name: verifyproof
+        href: /docs/zh-cn/reference/rpc/latest-version/api/verifyproof.md
   - name: 智能合约API
     items: 
     - name: 合约框架
