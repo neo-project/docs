@@ -256,6 +256,10 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
       - name: getrawtransaction
         href: /docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.md
+      - name: getstateheight
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getstateheight.md
+      - name: getstateroot
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getstateroot.md
       - name: getstorage
         href: /docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
       - name: gettransactionheight
@@ -264,12 +268,16 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/gettxout.md
       - name: getpeers
         href: /docs/zh-cn/reference/rpc/latest-version/api/getpeers.md
+      - name: getproof
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getproof.md
       - name: getunclaimedgas
         href: /docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
       - name: getunclaimed
         href: /docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.md
       - name: getunspents
         href: /docs/zh-cn/reference/rpc/latest-version/api/getunspents.md
+      - name: getutxotransfers
+        href: /docs/zh-cn/reference/rpc/latest-version/api/getutxotransfers.md
       - name: getvalidators
         href: /docs/zh-cn/reference/rpc/latest-version/api/getvalidators.md
       - name: getversion
@@ -298,6 +306,8 @@
         href: /docs/zh-cn/reference/rpc/latest-version/api/submitblock.md
       - name: validateaddress
         href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
+      - name: verifyproof
+        href: /docs/zh-cn/reference/rpc/latest-version/api/verifyproof.md
   - name: 智能合约API
     items: 
     - name: 合约框架
