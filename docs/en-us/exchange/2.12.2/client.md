@@ -60,7 +60,7 @@ NEO-CLI provides the following features：
 
   > [!Note]
   >
-  > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.9.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [NEO-CLI Installation](../../node/cli/setup.md).
+  > To synchronize the NEP-5 assets log, you need only to install the [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/ApplicationLogs.zip) plugin and turn on --rpc. For more information refer to [NEO-CLI Installation](../../node/cli/setup.md).
 
 
 | #    | Function                                                  | Command                   |
