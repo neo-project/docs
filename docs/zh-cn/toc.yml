@@ -40,9 +40,9 @@
     - name: 投票
       href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
   - name: 钱包
-    href: /v3/docs/zh-cn/basic/wallets.md
+    href: /v3/docs/zh-cn/basic/concept/wallets.md
   - name: 交易
-    href: /v3/docs/zh-cn/basic/transaction/transaction.md
+    href: /v3/docs/zh-cn/basic/concept/transaction.md
 - name: Neo 节点
   items:
   - name: 节点介绍
@@ -72,52 +72,51 @@
   - name: Neo 网络
     items:
     - name: 主网与测试网
-      href: /v3/docs/zh-cn/network/testnet.md
+      href: /v3/docs/zh-cn/develop/network/testnet.md
     - name: 搭建私有链
       items:
       - name: 单节点模式
-        href: /v3/docs/zh-cn/network/private-chain/solo.md
+        href: /v3/docs/zh-cn/develop/network/private-chain/solo.md
       - name: 在本地主机搭建
-        href: /v3/docs/zh-cn/network/private-chain/private-chain2.md
+        href: /v3/docs/zh-cn/develop/network/private-chain/private-chain2.md
   - name: 合约编写
     items:
     - name: 合约编写基础
-      href: /v3/docs/zh-cn/sc/write/basics.md
+      href: /v3/docs/zh-cn/develop/write/basics.md
     - name: 编写限制
-      href: /v3/docs/zh-cn/sc/write/limitation.md
+      href: /v3/docs/zh-cn/develop/write/limitation.md
     - name: NEP-5
-      href: /v3/docs/zh-cn/sc/write/nep5.md
+      href: /v3/docs/zh-cn/develop/write/nep5.md
     - name: 合约升级
-      href: /v3/docs/zh-cn/sc/migrate.md
+      href: /v3/docs/zh-cn/develop/write/migrate.md
   - name: 合约示例
     items: 
     - name: Hello World
-      href: /v3/docs/zh-cn/sc/sample/HelloWorld.md
+      href: /v3/docs/zh-cn/develop/sample/HelloWorld.md
     - name: Domain（域名系统）
-      href: /v3/docs/zh-cn/sc/sample/Domain.md
+      href: /v3/docs/zh-cn/develop/sample/Domain.md
     - name: 存证合约
-      href: /v3/docs/zh-cn/sc/sample/storage.md
+      href: /v3/docs/zh-cn/develop/sample/storage.md
   - name: 部署和调用
     - name: 部署合约
-      href: /v3/docs/zh-cn/sc/deploy/deploy.md
+      href: /v3/docs/zh-cn/develop/deploy/deploy.md
     - name: 调用合约
-      href: /v3/docs/zh-cn/sc/deploy/invoke.md
+      href: /v3/docs/zh-cn/develop/deploy/invoke.md
   - name: 开发工具
     - name: Neo SDK
-      href: /v3/docs/zh-cn/sc/deploy/sdk.md
       items:
       - name: 关于 Neo RPC SDK
-        href: /v3/docs/zh-cn/basic/sdk/introduction.md
+        href: /v3/docs/zh-cn/develop/tool/sdk/introduction.md
       - name: RPC 调用方法
-        href: /v3/docs/zh-cn/basic/sdk/rpc.md
+        href: /v3/docs/zh-cn/develop/tool/sdk/rpc.md
       - name: 获取区块信息
-        href: /v3/docs/zh-cn/basic/sdk/monitor.md
+        href: /v3/docs/zh-cn/develop/tool/sdk/monitor.md
       - name: 钱包相关接口
-        href: /v3/docs/zh-cn/basic/sdk/wallet.md
+        href: /v3/docs/zh-cn/develop/tool/sdk/wallet.md
       - name: 构造交易
-        href: /v3/docs/zh-cn/basic/sdk/transaction.md
+        href: /v3/docs/zh-cn/develop/tool/sdk/transaction.md
       - name: 合约部署与调用
-        href: /v3/docs/zh-cn/basic/sdk/contract.md
+        href: /v3/docs/zh-cn/develop/tool/sdk/contract.md
 - name: 交易所对接指南
   items:
   - name: 概述
