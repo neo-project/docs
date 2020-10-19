@@ -53,7 +53,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 在 Neo3 中连接测试网需要配置 `config.json` 和 `protocol.json` 文件，用 `*.testnet.json` 中的内容去替换即可。 
 
-如果要将节点接入私链，详细信息请参见[搭建私有链](../../network/private-chain/solo.md)中的说明。 
+如果要将节点接入私链，详细信息请参见[搭建私有链](../../develop/network/private-chain/solo.md)中的说明。 
 
 ## 安装插件
 

@@ -1,6 +1,6 @@
 # 收费模型
 
-用户在使用 Neo 网络时，需要支付一定的费用，总手续费包含系统费(System Fee)和网络费(Network Fee)，费用单位为 GAS。费用分配如下图所示。
+用户在使用 Neo 网络时，需要支付一定的费用，总手续费包含系统费 (System Fee) 和网络费 (Network Fee)，费用单位为 GAS。费用分配如下图所示。
 
 [![economic model](../images/blockchain/economic_model.jpg)](../../images/blockchain/economic_model.jpg)
 
@@ -11,5 +11,5 @@
 ### 系统费
 系统费是交易在虚拟机中执行消耗的资源费用，费用总额受合约脚本的指令数量和指令类型影响。
 
-此外，运行智能合约时，产生的系统调用或虚拟机对指令的执行，也会产生系统费用。具体收费信息请参见 [手续费](../../sc/fees.md)。
+此外，运行智能合约时，产生的系统调用或虚拟机对指令的执行，也会产生系统费用。具体收费信息请参见 [手续费](../../reference/fees.md)。
 

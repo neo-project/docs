@@ -6,7 +6,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 ## 准备工作
 
-1. 首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。
+1. 首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../../node/cli/setup.md)。
 
 2. 运行 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet consensus.json`。
 3. 设置钱包密码（password），并确认密码。
@@ -150,7 +150,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 ### 使用 Neo-GUI 提取
 
-1. 参考 [安装 Neo-GUI](../../node/gui/install.md) 下载安装 Neo-GUI 并将其连接到私链。
+1. 参考 [安装 Neo-GUI](../../../node/gui/install.md) 下载安装 Neo-GUI 并将其连接到私链。
 2. 配置 config.private.json 文件，设置端口与 Neo-CLI 的端口不冲突。如果端口冲突，Neo-GUI 将无法与 Neo-CLI 同时运行。
 3. 运行 Neo-GUI，打开钱包 consensus.json。
 4. 点击 `账户列表` 旁的 `+` 按钮，并选择`创建多签地址`。

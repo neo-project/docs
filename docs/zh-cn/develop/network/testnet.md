@@ -26,11 +26,11 @@ Neo 也提供了测试网（Test Net）供开发者进行开发、调试和测�
 
 1. 将客户端目录下的 `protocol.testnet.json` 里的内容复制到 `protocol.json`（替换原有配置文件），如图所示：
 
-   ![](../assets/testnet_1_v2.png)
+   ![](../../assets/testnet_1_v2.png)
 
 2. 将客户端目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），如图所示：
 
-   ![](../assets/testnet_2_v2.png)
+   ![](../../assets/testnet_2_v2.png)
 
 ## 申请测试网 GAS 和 NEO
 
@@ -51,7 +51,7 @@ Neo 也提供了测试网（Test Net）供开发者进行开发、调试和测�
 #### 第 2 步 - 填写申请
 
 填写申请表：https://neo.org/testcoin/apply ，注意选择Neo版本为Neo3。
-一般一天后将收到邮件回复，包含一个多方签名地址和发件人的公钥。关于多方签名地址，请参见 [多方签名地址](../node/gui/sc.md)。
+一般一天后将收到邮件回复，包含一个多方签名地址和发件人的公钥。关于多方签名地址，请参见 [签名](../../node/gui/advanced.md)。
 
 #### 第 3 步 - 创建多方签名地址并转账
 

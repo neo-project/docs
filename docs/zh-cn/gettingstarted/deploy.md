@@ -26,7 +26,7 @@ Gas: 3
 Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
 ```
 
-更多部署信息请参考 [部署智能合约](../deploy/deploy.md)。
+更多部署信息请参考 [部署智能合约](../develop/deploy/deploy.md)。
 
 ## 调用合约
 
@@ -58,4 +58,4 @@ relay tx(no|yes):
 - VM State:  `HALT` 表示虚拟机执行成功， `FAULT` 表示虚拟机执行时遇到异常退出。
 - Evaluation Stack: 合约执行结果，如果 value 是字符串或 ByteArray，则是 Base64 编码后的结果。
 
-更多智能合调用信息请参考 [调用智能合约](../deploy/dinvoke.md)。
+更多智能合调用信息请参考 [调用智能合约](../develop/deploy/invoke.md)。

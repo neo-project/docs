@@ -21,9 +21,9 @@
 | [Neo 网络](develop/network/testnet.md) | [合约编写](develop/write/basics.md)          | [部署与调用](develop/deploy/deploy.md)   |      |
 |                                        | [开发工具](develop/tool/sdk/introduction.md) | [合约示例](develop/sample/HelloWorld.md) |      |
 
-| 进阶知识                     |                                                |      |      |
-| ---------------------------- | ---------------------------------------------- | ---- | ---- |
-| [Oracle](network/testnet.md) | [Ploy network ](network/private-chain/solo.md) |      |      |
+| 进阶知识   |                   |      |      |
+| ---------- | ----------------- | ---- | ---- |
+| [Oracle]() | [Ploy network ]() |      |      |
 
 | 交易所对接                            |      |      |      |
 | ------------------------------------- | ---- | ---- | ---- |

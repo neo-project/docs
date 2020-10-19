@@ -9,16 +9,15 @@
   在 Neo上开发部署智能合约需要消耗一定量的Gas作为手续费，考虑到开发成本以及方便性，建议开发者首先搭建Neo私链或者使用Neo测试网，用于初期的开发和测试。详情请参考：
 
   - [搭建 Neo 私链](../network/private-chain/solo.md)；
-  - [使用 Neo-local 快速搭建本地网络](../network/private-chain/neolocal.md);
   - [使用 Neo 测试网](../network/testnet.md)
-
+  
 2. 运行 Neo 节点
 
-  针对不同开发者的偏好和经验，Neo 提供了命令行和用户界面两种节点供开发者选择，详情请参考 [Neo 节点](../node/introduction.md)
+  针对不同开发者的偏好和经验，Neo 提供了命令行和用户界面两种节点供开发者选择，详情请参考 [Neo 节点](../../node/introduction.md)
 
 3. 开发智能合约
 
-  智能合约实现了 DApp 的核心业务逻辑，请参考 [智能合约开发](../sc/gettingstarted/introduction.md) 完成自己项目需要使用的智能合约。
+  智能合约实现了 DApp 的核心业务逻辑，请参考 [编写智能合约](../../gettingstarted/prerequisites) 完成自己项目需要使用的智能合约。
 
 4. DApp 集成
 

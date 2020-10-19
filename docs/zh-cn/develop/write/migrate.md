@@ -26,12 +26,12 @@ public static bool Update(byte[] script, string manifest)
 }
 ```
 
-如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 `update` 接口。关于部署合约，请参考 [部署和调用合约](deploy/deploy.md)。
+如果希望未来对合约进行迁移，那么此合约在部署之前必须实现 `update` 接口。关于部署合约，请参考 [部署和调用合约](../deploy/deploy.md)。
 
 ### 进行合约迁移
 首先准备好新合约，然后通过 Neo-CLI 调用旧合约的 Migrate 的接口。
 
-关于调用合约，请参考 [调用合约](deploy/invoke.md)。
+关于调用合约，请参考 [调用合约](../deploy/invoke.md)。
 
 执行 Update 方法后，合约的存储区已迁移到新的合约上，旧合约被销毁。
 

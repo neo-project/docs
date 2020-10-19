@@ -6,7 +6,7 @@
 
 首先安装 Neo-CLI，并将节点文件复制为 4 份，文件夹名分别命名为 node1、node2、node3、node4。
 
-安装过程请参考 [Neo 节点的安装部署](../../node/cli/setup.md)。 
+安装过程请参考 [Neo 节点的安装部署](../../../node/cli/setup.md)。 
 
 ## 创建钱包文件
 
@@ -217,7 +217,7 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 进入每个节点目录，双击 `Run.cmd`，如果控制台打印出共识信息并且区块高度增长表示私链成功搭建：
 
-![](../../assets/privatechain_demo.png)
+![](../../../assets/privatechain_demo.png)
 
 如果关闭所有窗口，将停止私有链。
 
@@ -276,7 +276,7 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 7. 输入 `list asset` 查看钱包资产，可以看到 NEO 已经转入。
 
-   ![image](../../../en-us/assets/privatechain_32.png)
+   ![image](../../../../en-us/assets/privatechain_32.png)
 
 参考前面提取 NEO 进行的多方签名操作，同样可以提取 GAS 到目标地址。
 
@@ -284,7 +284,7 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 #### 创建多方签名地址
 
-1. 参考 [安装 Neo-GUI](../../node/gui/install.md) 下载安装 Neo-GUI 并将其连接到私链。
+1. 参考 [安装 Neo-GUI](../../../node/gui/install.md) 下载安装 Neo-GUI 并将其连接到私链。
 
 2. 配置 config.private.json 文件，设置端口与 Neo-CLI 的端口不冲突。如果端口冲突，Neo-GUI 将无法与 Neo-CLI 同时运行。
 
@@ -305,7 +305,7 @@ start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 2. 输入要转入的标准地址，将 Neo/GAS 转到这个地址中。
 
-3. 参考 [签名](../../node/gui/advanced.html#签名) 完成转账交易。
+3. 参考 [签名](../../../node/gui/advanced.html#签名) 完成转账交易。
 
    等待片刻后将看到 NEO/GAS 成功转入了标准地址。
 
