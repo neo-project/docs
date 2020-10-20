@@ -2,7 +2,7 @@
 
 定义了触发器类型。触发器可以使合约根据不同的使用场景执行不同的逻辑。
 
-更多关于触发器的知识，请查看 [合约开发基础](../../../../../sc/write/basics.md)。
+更多关于触发器的知识，请查看 [合约开发基础](../../../../../develop/write/basics.md)。
 
 命名[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

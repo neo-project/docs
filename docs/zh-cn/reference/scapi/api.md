@@ -2,8 +2,6 @@
 
 NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链账本数据、操作持久化存储区、访问执行环境等。它是NEO虚拟机（NeoVM）互操作服务层的一部分。
 
-有关 NeoVM 的相关信息，请参阅 [NeoVM](../../basic/technology/neovm.md)。
-
 有关在高级语言中如何使用框架方便地调用 API，请参阅 [NEO智能合约框架](fw.md)。
 
 
