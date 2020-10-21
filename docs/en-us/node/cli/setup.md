@@ -11,12 +11,12 @@ This document will describe the two installation ways.
 
 The following table lists the minimum and recommended hardware requirements for the computer running Neo-CLI.
 
-|           | Minimum                                              | Recommended                                          |
-| --------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| System    | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 |
-| CPU       | Dual core                                            | Quad core                                            |
-| Memory    | 8G                                                   | 16G                                                  |
-| Hard Disk | 50G SSD hard drive                                   | 100G SSD hard drive                                  |
+|           | Minimum                                              | Recommended                                          | Optimum                                              |
+| --------- | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| System    | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 |
+| CPU       | Dual core                                            | Quad core                                            | Eight core                                           |
+| Memory    | 8G                                                   | 16G                                                  | 32G                                                  |
+| Hard Disk | 50G SSD hard drive                                   | 100G SSD hard drive                                  | 500G SSD hard drive                                  |
 
 ## Installing the Neo-CLI package
 
