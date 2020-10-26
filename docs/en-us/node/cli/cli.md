@@ -30,7 +30,7 @@ All the commands described in this document conform with these conventions:
 
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
-| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
+| [deploy](#deploy) | deploy \<avmFilePath>...\<contractDescription>               | Deploys a contract |
 | [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | Invokes a contract |
 
 #### Wallet Commands
@@ -88,21 +88,18 @@ Deploys a contract on the blockchain.
 
 ##### Syntax
 
-`deploy <nefFilePath> [manifestFile]` 
-
-##### Parameters
-
-- `nefFilePath`：Path to the executable file (.nef) of NeoVM.
-- `manifestFile`：Path to the file manifest.json, which records each interface information and configuration content of the contract.
+`deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
 
 ##### Example
 
 ```
-neo> deploy Template.nef Template.manifest.json  
-Script hash: 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6
-Gas Consumed: 100000000
+neo> deploy Template.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello   
+Script hash: 0xee91a961c1464d43c4e80a44a447698973cb818b
+VM State: HALT
+Gas Consumed: 500
+Evaluation Stack: [{"type":"InteropInterface"}]
 
-Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c767813be5d53e02a983f4e561d284
+Signed and relayed transaction with hash=0x81dae9680b75befb450920bdc8693cba34c913aa421cd1226ed1620555c95f23
 ```
 
 ### invoke
