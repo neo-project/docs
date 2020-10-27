@@ -30,7 +30,7 @@
 
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
+| [deploy](#deploy) | deploy \<avmFilePath>...\<contractDescription>               | 发布合约 |
 | [invoke](#invoke) | \<scripthash> \<command> [optionally quoted params separated by space] | 调用合约 |
 
 #### 钱包命令
@@ -87,21 +87,28 @@
 
 ##### 句法
 
-`deploy <nefFilePath> [manifestFile]` 
+`deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
 
 ##### 参数
 
-- `nefFilePath`：NeoVM的可执行文件 .nef 的路径
-- `manifestFile`：manifest.json 文件的路径。manifest 记录了合约的各个接口信息以及配置内容。
+- `avmFilePath`：合约路径
+- `paramTypes`： main 函数传入参数类型
+- `returnTypeHexString`：返回数据类型
+- `hasStorage (true|false)`：是否需要存储区
+- `hasDynamicInvoke (true|false)`：是否需要动态调用
+- `isPayable (true|false)`：合约地址是否能被转账
+- `contractName`/ `contractVersion` /`contractAuthor`/ `contractEmail` /`contractDescription`：合约名称 / 合约版本号 / 合约作者 / 联系邮箱 / 合约介绍
 
 ##### 示例
 
 ```
-neo> deploy Template.nef Template.manifest.json  
-Script hash: 0x1e5ce27b9af630aed82bc94695fa8d424cdbe5c6
-Gas Consumed: 100000000
+neo> deploy Template.avm 0710 05 true false false aws 1.0.0 owen neo@neo.org hello   
+Script hash: 0xee91a961c1464d43c4e80a44a447698973cb818b
+VM State: HALT
+Gas Consumed: 500
+Evaluation Stack: [{"type":"InteropInterface"}]
 
-Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c767813be5d53e02a983f4e561d284
+Signed and relayed transaction with hash=0x81dae9680b75befb450920bdc8693cba34c913aa421cd1226ed1620555c95f23
 ```
 
 ### invoke
