@@ -89,6 +89,16 @@
 
 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
 
+##### 参数
+
+- `avmFilePath`：合约路径
+- `paramTypes`： main 函数传入参数类型
+- `returnTypeHexString`：返回数据类型
+- `hasStorage (true|false)`：是否需要存储区
+- `hasDynamicInvoke (true|false)`：是否需要动态调用
+- `isPayable (true|false)`：合约地址是否能被转账
+- `contractName`/ `contractVersion` /`contractAuthor`/ `contractEmail` /`contractDescription`：合约名称 / 合约版本号 / 合约作者 / 联系邮箱 / 合约介绍
+
 ##### 示例
 
 ```

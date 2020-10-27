@@ -90,6 +90,16 @@ Deploys a contract on the blockchain.
 
 `deploy <avmFilePath> <paramTypes> <returnTypeHexString> <hasStorage (true|false)> <hasDynamicInvoke (true|false)> <isPayable (true|false) <contractName> <contractVersion> <contractAuthor> <contractEmail> <contractDescription>` 
 
+##### Parameters
+
+- `avmFilePath`: Contract path.
+- `paramTypes`: Parameter type passed to the main function.
+- `returnTypeHexString`: Data type returned.
+- `hasStorage (true|false)`: Whether to use a storage.
+- `hasDynamicInvoke (true|false)` : Whether to make a dynamic call.
+- `isPayable (true|false)`: Is the contract address payable.
+- `contractName`/ `contractVersion`/ `contractAuthor`/`contractEmail`/ `contractDescription`: contract related information.
+
 ##### Example
 
 ```
