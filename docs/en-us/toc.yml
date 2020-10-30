@@ -2,6 +2,46 @@
   href: /v3/docs/en-us/index.md
 - name: Glossary
   href: /v3/docs/en-us/glossary.md
+- name: Getting Started (C#)
+  items:
+  - name: Before You Begin
+    href: /v3/docs/en-us/gettingstarted/prerequisites.md
+  - name: Setting up local network
+    href: /v3/docs/en-us/gettingstarted/enviroment.md
+  - name: Compiling a Contract Sample
+    href: /v3/docs/en-us/gettingstarted/develop.md
+  - name: Deploying and Invoking the Contract
+    href: /v3/docs/en-us/gettingstarted/deploy.md
+- name: Neo Basics
+  - name: Main Concepts
+    - name: Blockchain Models
+      - name: Block
+        href: /v3/docs/en-us/basic/concept/blockchain/block.md
+      - name: Tokens
+        href: /v3/docs/en-us/basic/concept/blockchain/token_model.md
+    - name: Charging Model
+      href: /v3/docs/en-us/basic/concept/charging_model.md
+    - name: Cryptography
+      href:
+      - name: Encode Algorithm
+        href:  /v3/docs/en-us/basic/concept/cryptography/encode_algorithm.md
+      - name: Hash Algorithm
+        href: /v3/docs/en-us/basic/concept/cryptography/hash_algorithm.md
+      - name: Encryption Algorithm
+        href: /v3/docs/en-us/basic/concept/cryptography/encryption_algorithm.md
+    - name: Big and Little Endian Usage
+       href: /v3/docs/en-us/basic/concept/endian.md
+  - name: Consensus
+    - name: Consensus Algorithm
+      href: /v3/docs/en-us/basic/consensus/consensus_algorithm.md
+    - name: Consensus Protocol
+      href: /v3/docs/en-us/basic/consensus/consensus_protocol.md
+    - name: Election
+      href: /v3/docs/en-us/basic/consensus/vote_validator.md
+  - name: Wallet
+    href: /v3/docs/en-us/basic/concept/wallets.md
+  - name: Transaction
+    href: /v3/docs/en-us/basic/concept/transaction.md
 - name: Neo Node
   items:
   - name: Introduction
@@ -26,98 +66,56 @@
       href: /v3/docs/en-us/node/gui/contract.md
     - name: Advanced Functions
       href: /v3/docs/en-us/node/gui/advanced.md
-- name: Neo Network
+- name: Development Guide
   items:
-  - name: Main Net and Test Net
-    href: /v3/docs/en-us/network/testnet.md
-  - name: Setting up Private Chain
+  - name: Neo Network
     items:
-    - name: Solo Mode
-      href: /v3/docs/en-us/network/private-chain/solo.md
-    - name: Multiple Nodes
-      href: /v3/docs/en-us/network/private-chain/private-chain2.md
-- name: Smart Contract Development
-  items:
-  - name: Getting Started (C#)
-    items:
-    - name: Before You Begin
-      href: /v3/docs/en-us/sc/gettingstarted/prerequisites.md
-    - name: Setting up local network
-      href: /v3/docs/en-us/sc/gettingstarted/enviroment.md
-    - name: Compiling a Contract Sample
-      href: /v3/docs/en-us/sc/gettingstarted/develop.md
-    - name: Deploying and Invoking the Contract
-      href: /v3/docs/en-us/sc/gettingstarted/deploy.md
+    - name: Main Net and Test Net
+      href: /v3/docs/en-us/develop/network/testnet.md
+    - name: Setting up Private Chain
+      items:
+      - name: Solo Mode
+        href: /v3/docs/en-us/develop/network/private-chain/solo.md
+      - name: Multiple Nodes
+        href: /v3/docs/en-us/develop/network/private-chain/private-chain2.md
   - name: Writing smart contracts
     items:
     - name: Basics
-      href: /v3/docs/en-us/sc/write/basics.md
+      href: /v3/docs/en-us/develop/write/basics.md
     - name: Limitations
-      href: /v3/docs/en-us/sc/write/limitation.md
+      href: /v3/docs/en-us/develop/write/limitation.md
     - name: NEP-5
-      href: /v3/docs/en-us/sc/write/nep5.md
-  - name: Deploying and Invoking Smart Contracts
-    - name: Deploying Smart Contracts
-      href: /v3/docs/en-us/sc/deploy/deploy.md
-    - name: Invoking Smart Contracts
-      href: /v3/docs/en-us/sc/deploy/invoke.md
-  - name: Contract Migration and Destruction
-    href: /v3/docs/en-us/sc/migrate.md
-  - name: Fees
-    href: /v3/docs/en-us/sc/fees.md
+      href: /v3/docs/en-us/develop/write/nep5.md
+    - name: Contract Migration and Destruction
+      href: /v3/docs/en-us/develop/migrate.md
   - name: Contract Samples
     items: 
     - name: Hello World
-      href: /v3/docs/en-us/sc/sample/HelloWorld.md
+      href: /v3/docs/en-us/develop/sample/HelloWorld.md
     - name: Domain
-      href: /v3/docs/en-us/sc/sample/Domain.md
+      href: /v3/docs/en-us/develop/sample/Domain.md
     - name: Storage
-      href: /v3/docs/en-us/sc/sample/storage.md
-- name: Neo Tools Development
-  - name: Main Concepts
-    - name: Blockchain Models
-      - name: Block
-        href: /v3/docs/en-us/tooldev/concept/blockchain/block.md
-      - name: Tokens
-        href: /v3/docs/en-us/tooldev/concept/blockchain/token_model.md
-    - name: Charging Model
-      href: /v3/docs/en-us/tooldev/concept/charging_model.md
-    - name: Cryptography
-      href:
-      - name: Encode Algorithm
-        href:  /v3/docs/en-us/tooldev/concept/cryptography/encode_algorithm.md
-      - name: Hash Algorithm
-        href: /v3/docs/en-us/tooldev/concept/cryptography/hash_algorithm.md
-      - name: Encryption Algorithm
-        href: /v3/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.md
-    - name: Big and Little Endian Usage
-       href: /v3/docs/en-us/tooldev/concept/endian.md
-  - name: Consensus
-    - name: Consensus Algorithm
-      href: /v3/docs/en-us/tooldev/consensus/consensus_algorithm.md
-    - name: Consensus Protocol
-      href: /v3/docs/en-us/tooldev/consensus/consensus_protocol.md
-    - name: Election
-      href: /v3/docs/en-us/tooldev/consensus/vote_validator.md
-  - name: Wallet
-    href: /v3/docs/en-us/tooldev/wallets.md
-  - name: Transaction
-    - name: Transaction
-      href: /v3/docs/en-us/tooldev/transaction/transaction.md
-  - name: Neo SDK
-    items:
-    - name: About Neo SDK
-      href: /v3/docs/en-us/tooldev/sdk/introduction.md
-    - name: RPC Invocation Methods
-      href: /v3/docs/en-us/tooldev/sdk/rpc.md
-    - name: Getting Blockchain Information
-      href: /v3/docs/en-us/tooldev/sdk/monitor.md
-    - name: Wallet Interfaces
-      href: /v3/docs/en-us/tooldev/sdk/wallet.md
-    - name: Transaction Construction
-      href: /v3/docs/en-us/tooldev/sdk/transaction.md
-    - name: Deploying and Invoking Contracts
-      href: /v3/docs/en-us/tooldev/sdk/contract.md
+      href: /v3/docs/en-us/develop/sample/storage.md
+  - name: Deploying and Invoking Smart Contracts
+    - name: Deploying Smart Contracts
+      href: /v3/docs/en-us/develop/deploy/deploy.md
+    - name: Invoking Smart Contracts
+      href: /v3/docs/en-us/develop/deploy/invoke.md
+  - name: Development Tools
+    - name: Neo SDK
+      items:
+      - name: About Neo SDK
+        href: /v3/docs/en-us/develop/tool/sdk/introduction.md
+      - name: RPC Invocation Methods
+        href: /v3/docs/en-us/develop/tool/sdk/rpc.md
+      - name: Getting Blockchain Information
+        href: /v3/docs/en-us/develop/tool/sdk/monitor.md
+      - name: Wallet Interfaces
+        href: /v3/docs/en-us/develop/tool/sdk/wallet.md
+      - name: Transaction Construction
+        href: /v3/docs/en-us/develop/tool/sdk/transaction.md
+      - name: Deploying and Invoking Contracts
+        href: /v3/docs/en-us/develop/tool/sdk/contract.md
 - name: Document for Exchange Developers
   items:
   - name: Overview
@@ -262,5 +260,7 @@
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: Governance API
     href: /v3/docs/en-us/reference/governance_api.md
+  - name: Fees
+    href: /v3/docs/en-us/reference/fees.md
   - name: NeoVM Instructions
     href: /v3/docs/en-us/reference/neo_vm.md
