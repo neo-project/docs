@@ -4,7 +4,6 @@
 
 > [!Note]
 >
-> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
 > - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
