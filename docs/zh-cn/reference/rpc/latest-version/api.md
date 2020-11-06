@@ -29,7 +29,6 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | [getrawtransaction](api/getrawtransaction.md)       | \<txid> [verbose=0]          | 根据指定的散列值，返回对应的交易信息           |
 | [getstorage](api/getstorage.md)                     | \<script_hash>  \<key>       | 根据合约脚本散列和存储的 key，返回存储的 value |
 | [gettransactionheight](api/gettransactionheight.md) | \<txid>                      | 根据交易哈希获取交易所在的区块高度                                   |
-| [getvalidators](api/getvalidators.md)               |                              | 查看当前共识节点的信息                         |
 | [getcommittee](api/getcommittee.md)               |                              | 获取委员会成员公钥列表                         |
 
 ### 节点
