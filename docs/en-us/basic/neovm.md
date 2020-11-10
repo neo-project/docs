@@ -14,7 +14,7 @@ In addition, NeoVM is highly decoupled from the upper-level code and customizabl
 
 The NeoVM architecture is mainly composed of the execution engine, stack, and interoperation service layer. 
 
-![](../../assets/neovm.png)
+![](../assets/neovm.png)
 
 #### ExecutionEngine
 

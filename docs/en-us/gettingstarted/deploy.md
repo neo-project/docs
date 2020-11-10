@@ -26,7 +26,7 @@ Gas: 3
 Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
 ```
 
-For more information, refer to [Deploying Smart Contracts](../deploy/deploy.md)。
+For more information, refer to [Deploying Smart Contracts](../develop/deploy/deploy.md).
 
 ## Invoking contract
 
@@ -58,4 +58,4 @@ Where:
 - VM State: `HALT` indicates the vm executed successfully;  `FAULT` indicates the vm exited during execution due to an exception.
 - Evaluation Stack: the result of contract execution, where the value is encoded with Base64 when it is a string or ByteArray.
 
-For more information, refer to [Invoking Smart Contracts](../deploy/invoke.md).
+For more information, refer to [Invoking Smart Contracts](../develop/deploy/invoke.md).

@@ -42,7 +42,7 @@ We will complete the following tasks in this section:
 
 3. Go to the publishing directory, run PowerShell and enter the command `./neon.exe` to check if neon works as below:
 
-   ![neon](../../../zh-cn/sc/assets/neon.png)
+   ![neon](../../zh-cn/gettingstarted/assets/neon.png)
 
 4. Add the publishing directory to the environment variable Path:
 
@@ -50,7 +50,7 @@ We will complete the following tasks in this section:
    >
    > Remove the old Neo2.x neon path if there is one.
 
-   ![env](../../../zh-cn/sc/assets/env.png)
+   ![env](../../zh-cn/gettingstarted/assets/env.png)
 
 5. Start PowerShell anywhere and run the command `neon.exe` to check if it works.
 
@@ -67,7 +67,7 @@ We will complete the following tasks in this section:
 
 2. In the project template dialog that appears, search for `neocontract` and select NeoContract for C#. Follow the wizard to create the project.
 
-   ![neocontract](../../../zh-cn/sc/assets/neocontract.png)
+   ![neocontract](../../zh-cn/gettingstarted/assets/neocontract.png)
 
 3. In the Solution panel, right click the project and then select `Manage NuGet Package`. Uninstall the NuGet reference for `Neo.SmartContract.Framework`.
 
@@ -112,7 +112,3 @@ When the compilation is done, the following files are generated under the `bin/D
 
 - `NEP5.nef` : The smart contract execution file for Neo3, just as .avm for Neo2.
 - `NEP5.manifest.json` : The descriptive file of the smart contract, covering descriptions of functions, ScriptHash, entry, method, parameters, and return values of the contract.
-
-## What's next?
-
-[Deploying and invoking contract](deploy.md)

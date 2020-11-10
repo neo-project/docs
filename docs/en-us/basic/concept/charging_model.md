@@ -11,4 +11,4 @@ Network fee is the fee to pack transactions into a block. Users can define the a
 ### System Fee
 System fees are the cost of resources consumed by the transaction execution in NeoVM. The total fee depends on the number and type of instructions executed in the smart contract script. 
 
-Additionally, when running a smart contract, system calls or instructions executed by NeoVM also incur system fees. For details, refer to [Fees](../../sc/fees.md).
+Additionally, when running a smart contract, system calls or instructions executed by NeoVM also incur system fees. For details, refer to [Fees](../../reference/fees.md).

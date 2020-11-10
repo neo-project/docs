@@ -34,7 +34,7 @@ A new block will be generated with each round of consensus, with at least N − 
 
 ###  General Procedures 
 
-![](../../tooldev/images/consensus/1.png)
+![](../../basic/images/consensus/1.png)
 
 A round of consensus consists of 4 steps, as shown in the Figure above.
 
@@ -72,11 +72,3 @@ Hence the success of block generation means:
 - The rest of the validators are insufficient to produce another different block.
 
 Therefore, the finality of the new block can be guaranteed at a given height.
-
-## Further Reading
-
-[Consensus Algorithm](../../tooldev/consensus/consensus_algorithm.md)
-
-[Consensus Protocol](../../tooldev/consensus/consensus_protocol.md)
-
-[Voting](../../tooldev/consensus/vote_validator.md)
