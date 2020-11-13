@@ -64,7 +64,5 @@ Neo-modules：https://github.com/neo-project/neo-modules
 
 https://github.com/neo-project/neo-modules/issues
 
-## 阅读下节
 
-[RPC 调用方法](rpc.md)
 

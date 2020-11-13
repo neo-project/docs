@@ -199,7 +199,7 @@
 	</tr>
 </table>
 
-关于表格中API的含义，请参见 [NEO命名空间](../reference/scapi/api/neo.md)。
+关于表格中API的含义，请参见 [Neo命名空间](../reference/scapi/api/neo.md)。
 
 ### 指令费用
 

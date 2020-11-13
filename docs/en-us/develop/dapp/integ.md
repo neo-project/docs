@@ -89,6 +89,3 @@ These wallets or wallet plugins support DAPI:
 
 NEO·ONE provides comprehensive documentation, learning courses, and tutorials. For more information refer to [NEO·ONE website]( https://neo-one.io/ ).
 
-## What's next?
-
-[A DApp Development Demo](demo.md)

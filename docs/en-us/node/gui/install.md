@@ -23,7 +23,7 @@ Neo-GUI is an open source project, thus you can download the installation packag
 
 After installation Neo-GUI connects to the Neo test net automatically. 
 
-If you have already built a private chain (see [Setting up private chain](../../network/private-chain/solo.md)), you can also connect Neo-GUI to it.
+If you have already built a private chain (see [Setting up private chain](../../develop/network/private-chain/solo.md)), you can also connect Neo-GUI to it.
 
 1. Find the `config.json` and `protocol.json` files of your private chain.
 
