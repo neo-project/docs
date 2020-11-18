@@ -8,7 +8,9 @@
 
 ## 参数说明
 
-txid：交易ID
+txid/blockhash：交易 ID 或区块 hash
+trigger type:  可选参数， trigger 种类，分为 OnPersist, PostPersist, Application, Verification, System 和 All。System = OnPersist | PostPersist, All = OnPersist | PostPersist | Verification | Application
+默认获取所有类型，也可以指定某种类型。 
 
 ## 调用示例
 
@@ -17,10 +19,12 @@ txid：交易ID
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getapplicationlog",
-  "params": ["0x5af8769d0a209e55c8d27dab8be6c8c6288e2083b02f11043d9586377cd30295"],
-  "id": 1
-} 
+  "params": [
+    "0xd6ea48f1c33defc1815562b3ace4ead99bf33a8ae67b2642cf73c2f192a717e5"
+  ]
+}
 ```
 
 响应正文：
@@ -28,34 +32,162 @@ txid：交易ID
 ```json
 {
     "jsonrpc": "2.0",
-    "id": "1",
+    "id": 1,
     "result": {
-        "txid": "0x5af8769d0a209e55c8d27dab8be6c8c6288e2083b02f11043d9586377cd30295",
-        "trigger": "Application",
-        "vmstate": "HALT",
-        "gasconsumed": "9007990",
-        "stack": [],
-        "notifications": [
+        "txid": "0xd6ea48f1c33defc1815562b3ace4ead99bf33a8ae67b2642cf73c2f192a717e5",
+        "executions": [
             {
-                "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                "eventname": "Transfer",
-                "state": {
-                    "type": "Array",
-                    "value": [
-                        {
-                            "type": "ByteString",
-                            "value": "+pU2/Hks6bMS9XhEc3F6o2fineE="
-                        },
-                        {
-                            "type": "ByteString",
-                            "value": "GM4RybFKiRJSR0M8IDpNgA/1ILE="
-                        },
-                        {
-                            "type": "Integer",
-                            "value": "1223300000000"
+                "trigger": "Application",
+                "vmstate": "HALT",
+                "gasconsumed": "9007990",
+                "stack": [],
+                "notifications": [
+                    {
+                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "Any"
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "9S37k0BBDIaRxjEhW0Sk+9lDN4s="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "400000000"
+                                }
+                            ]
                         }
-                    ]
-                }
+                    },
+                    {
+                        "contract": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "ByteString",
+                                    "value": "9S37k0BBDIaRxjEhW0Sk+9lDN4s="
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+请求正文2：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "getapplicationlog",
+  "params": [
+    "0x0745a04ddb7803ebd549af4d80de03fc69349b0b77615a06d9ef052637de5931", "System"
+  ]
+}
+
+```
+
+响应正文2：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "blockhash": "0x0745a04ddb7803ebd549af4d80de03fc69349b0b77615a06d9ef052637de5931",
+        "executions": [
+            {
+                "trigger": "System",
+                "vmstate": "HALT",
+                "gasconsumed": "2031260",
+                "stack": [],
+                "notifications": [
+                    {
+                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "ByteString",
+                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
+                                },
+                                {
+                                    "type": "Any"
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "11384830"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "Any"
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "2376840"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "trigger": "System",
+                "vmstate": "HALT",
+                "gasconsumed": "2031260",
+                "stack": [],
+                "notifications": [
+                    {
+                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "Any"
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "25000000"
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         ]
     }
