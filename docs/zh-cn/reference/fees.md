@@ -14,18 +14,27 @@
 |--|--|
 | System.Binary.Serialize | 0.00100000  |
 | System.Binary.Deserialize| 0.00500000  |
+| System.Binary.Base64Encode| 0.00100000  |
+| System.Binary.Base64Decode| 0.00100000  |
+| System.Binary.Base58Encode| 0.00100000  |
+| System.Binary.Base58Decode| 0.00100000  |
 | System.Blockchain.GetHeight | 0.00000400  |
 | System.Blockchain.GetBlock | 0.02500000  |
 | System.Blockchain.GetTransaction | 0.01000000  |
 | System.Blockchain.GetTransactionHeight | 0.01000000  |
 | System.Blockchain.GetTransactionFromBlock | 0.01000000  |
 | System.Blockchain.GetContract | 0.01000000  |
-| System.Contract.Create | (Script.Size + Manifest.Size) * GasPerByte  |
-| System.Contract.Update | (Script.Size + Manifest.Size) * GasPerByte  |
+| System.Callback.Create | 0.00000400  |
+| System.Callback.CreateFromMethod | 0.01000000  |
+| System.Callback.CreateFromSyscall | 0.00000400  |
+| System.Callback.Invoke | 0.01000000  |
+| System.Contract.Create | 0  |
+| System.Contract.Update | 0  |
 | System.Contract.Destroy | 0.01000000  |
 | System.Contract.Call | 0.01000000  |
 | System.Contract.CallEx | 0.01000000  |
 | System.Contract.IsStandard | 0.00030000  |
+| System.Contract.GetCallFlags | 0.00030000  |
 | System.Enumerator.Create | 0.00000400  |
 | System.Enumerator.Next | 0.01000000  |
 | System.Enumerator.Value | 0.00000400  |
@@ -55,20 +64,17 @@
 | System.StorageContext.AsReadOnly| 0.00000400  |
 | System.Storage.Get| 0.01000000  |
 | System.Storage.Find| 0.01000000  |
-| System.Storage.Put| 参见 [1] |
-| System.Storage.PutEx| 参见 [1] |
-| System.Storage.Delete| 1 * GasPerByte  |
+| System.Storage.Put| 0 |
+| System.Storage.PutEx| 0 |
+| System.Storage.Delete| 1 * StoragePrice  |
 | Neo.Native.Deploy| 0  |
-| Neo.Crypto.ECDsaVerify| 0.01000000  |
-| Neo.Crypto.ECDsaCheckMultiSig| 0.01000000 * n |
-
-> [!Note]
->
-> [1] 向数据库中写入Key和Value时，
->
-> - 如果新的键值对字节数大于旧的键值对，则 fee = [(newKey.Size +newValue.Size) - (oldKey.Size + oldValue.Size)] * GasPerByte
-> - 如果新的键值对字节数小于等于旧的键值对，则 fee = 1 * GasPerByte
-> - 如果数据库中不存在旧的键值对，则 fee = (key.Size + value.Size) * GasPerByte
+| Neo.Native.Call| 0  |
+| Neo.Crypto.RIPEMD160| 0.01000000  |
+| Neo.Crypto.SHA256| 0.01000000 |
+| Neo.Crypto.VerifyWithECDsaSecp256r1| 0.01000000  |
+| Neo.Crypto.VerifyWithECDsaSecp256k1| 0.01000000 |
+| Neo.Crypto.CheckMultisigWithECDsaSecp256r1| 0  |
+| Neo.Crypto.CheckMultisigWithECDsaSecp256k1| 0 |
 
 <table class="table table-hover">
 	<tr>
@@ -77,7 +83,7 @@
 	    <th>费用 (GAS)</th>  
 	</tr >
 	<tr >
-	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
+	    <td rowspan="15">Neo.Native.Tokens.NEO</td>
 	    <td>name</td>
 	    <td>0</td>
 	</tr>
@@ -101,24 +107,41 @@
 	    <td>transfer</td>
 	    <td>0.08000000</td>
 	</tr>
-    <tr>
-	    <td>registerValidator</td>
+		<tr>
+	    <td>setGasPerBlock</td>
 	    <td>0.05000000</td>
 	</tr>
-	<tr>
-	    <td>vote</td>
-	    <td>5.00000000</td>
+		<tr>
+	    <td>getGasPerBlock</td>
+	    <td>0.05000000</td>
 	</tr>
-	<tr>
-	    <td>getRegisteredValidators</td>
-	    <td>1.00000000</td>
-	</tr>
-	<tr>
-	    <td>getValidators</td>
-	    <td>1.00000000</td>
-	</tr>
-	<tr><td>unclaimedGas</td>
+		<tr>
+	    <td>unclaimedGas</td>
 	    <td>0.03000000</td>
+	</tr>
+		<tr>
+	    <td>registerCandidate</td>
+	    <td>0.05000000</td>
+	</tr>
+		<tr>
+	    <td>unregisterCandidate</td>
+	    <td>0.05000000</td>
+	</tr>
+		<tr>
+	    <td>vote</td>
+	    <td>0.08000000</td>
+	</tr>
+		<tr>
+	    <td>GetCandidates</td>
+	    <td>1.00000000</td>
+	</tr>
+		<tr>
+	    <td>getCommittee</td>
+	    <td>1.00000000</td>
+	</tr>
+		<tr>
+	    <td>getNextBlockValidators</td>
+	    <td>1.00000000</td>
 	</tr>
 </table>
 
@@ -166,7 +189,7 @@
 	    <th>费用 (GAS)</th>  
 	</tr >
 	<tr >
-	    <td rowspan="9">Neo.Native.Policy</td>
+	    <td rowspan="11">Neo.Native.Policy</td>
 	    <td>getMaxTransactionsPerBlock</td>
 	    <td>0.01000000</td>
 	</tr>
@@ -175,31 +198,58 @@
 	    <td>0.01000000</td>
 	</tr>
 	<tr>
-	    <td>getFeePerByte</td>
+	    <td>GetMaxBlockSystemFee</td>
 	    <td>0.01000000</td>
 	</tr>
 	<tr>
-	    <td>setMaxBlockSize</td>
-	    <td>0.03000000</td>
-	</tr>
-	<tr><td>getBlockedAccounts</td>
+	    <td>GetFeePerByte</td>
 	    <td>0.01000000</td>
 	</tr>
-    <tr><td>setMaxTransactionsPerBlock</td>
+	<tr><td>IsBlocked</td>
+	    <td>0.01000000</td>
+	</tr>
+    <tr><td>SetMaxBlockSize</td>
 	    <td>0.03000000</td>
 	</tr>
-    <tr><td>setFeePerByte</td>
+    <tr><td>SetMaxTransactionsPerBlock</td>
 	    <td>0.03000000</td>
 	</tr>
-    <tr><td>blockAccount</td>
+    <tr><td>SetMaxBlockSystemFee</td>
 	    <td>0.03000000</td>
 	</tr>
-    <tr><td>unblockAccount</td>
+    <tr><td>SetFeePerByte</td>
+	    <td>0.03000000</td>
+	</tr>
+	 <tr><td>BlockAccount</td>
+	    <td>0.03000000</td>
+	</tr>
+	 <tr><td>UnblockAccount</td>
 	    <td>0.03000000</td>
 	</tr>
 </table>
 
-关于表格中API的含义，请参见 [Neo命名空间](../reference/scapi/api/neo.md)。
+<table class="table table-hover">
+	<tr>
+	    <th>互操作服务</th>
+	    <th>方法名</th>
+	    <th>费用 (GAS)</th>  
+	</tr >
+	<tr >
+	    <td rowspan="3">Neo.Native.Oracle</td>
+	     <td>finish</td>
+	    <td>0</td>
+	</tr>
+    <tr>
+	    <td>request</td>
+	    <td>0.50000000</td>
+	</tr>
+	<tr>
+	    <td>verify</td>
+	    <td>0.01000000</td>
+	</tr>
+</table>
+
+关于表格中API的含义，请参见 [NEO命名空间](../reference/scapi/api/neo.md)。
 
 ### 指令费用
 
@@ -261,7 +311,7 @@
 |REVERSE4|0.00000060|
 |REVERSEN|0.00000400|
 |INITSSLOT|0.00000400|
-|INITSLOT|0.00000800|
+|INITSLOT|0.00001600|
 |LDSFLD0\~LDSFLD6|0.00000060|
 |LDSFLD|0.00000060|
 |STSFLD0\~STSFLD6|0.0000006|
@@ -284,8 +334,8 @@
 |AND|0.00000200|
 |OR|0.00000200|
 |XOR|0.00000200|
-|EQUAL|0.00000200|
-|NOTEQUAL|0.00000200|
+|EQUAL|0.00001000|
+|NOTEQUAL|0.00001000|
 |SIGN|0.00000100|
 |ABS|0.00000100|
 |NEGATE|0.00000100|
@@ -311,8 +361,8 @@
 |MIN|0.00000200|
 |MAX|0.00000200|
 |WITHIN|0.00000200|
-|PACK|0.00007000|
-|UNPACK|0.00007000|
+|PACK|0.00015000|
+|UNPACK|0.00015000|
 |NEWARRAY0|0.00000400|
 |NEWARRAY|0.00015000|
 |NEWARRAY_T|0.00015000|
@@ -322,11 +372,11 @@
 |SIZE|0.00000150|
 |HASKEY|0.00270000|
 |KEYS|0.00000500|
-|VALUES|0.00007000|
+|VALUES|0.00270000|
 |PICKITEM|0.00270000|
-|APPEND|0.00015000|
+|APPEND|0.00270000|
 |SETITEM|0.00270000|
-|REVERSEITEMS|0.00000500|
+|REVERSEITEMS|0.00270000|
 |REMOVE|0.00000500|
 |CLEARITEMS|0.00000400|
 |ISNULL|0.00000060|

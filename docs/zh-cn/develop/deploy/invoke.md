@@ -4,7 +4,7 @@
 
 ## 合约详情查询
 
-使用 Neo-CLI 或 Neo-GUI 可以查询合约的详细信息，如合约的基本信息、入口点、方法、通知等。
+使用 Neo-CLI 或 Neo-GUI 可以查询合约的详细信息，如合约的基本信息、方法、通知等。
 
 ### 使用 Neo-CLI 查询
 
@@ -26,7 +26,7 @@ Neo-GUI 中会更直观地显示合约信息，也能查看 manifest 和 nef 文
 - 使用 invoke 命令调用智能合约，命令如下：
 
    ```
-   invoke <scriptHash> <operation> [contractParameters=null]    [witnessAddress=null]
+   invoke <scriptHash> <operation> [contractParameters=null]  [sender=null]  [signerAccounts=null]
    ```
 
    详情请参考 [invoke](../../node/cli/cli.md#invoke) 命令。
@@ -58,7 +58,7 @@ Neo-GUI 中会更直观地显示合约信息，也能查看 manifest 和 nef 文
 在 Neo-CLI 中，我们可以通过 `invoke` 命令附加签名。
 
 ```
-invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
+invoke <scriptHash> <operation> [contractParameters=null]  [sender=null]  [signerAccounts=null]
 ```
 
 在 Neo-GUI 中，在调用合约时，可以点击下方的 `附加签名`，选择 `公钥` 然后点击  `签名` 来进行附加签名。

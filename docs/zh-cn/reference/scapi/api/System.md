@@ -6,8 +6,12 @@
 
 | API                           | 说明                              |
 |--|--|
-| System.Binary.Base64Decode| 将栈元素解码为字节数组     |
+| System.Binary.Base64Decode| 将Base64编码的字符串解码为字节数组     |
 | System.Binary.Base64Encode | 将字节数组编码为Base64字符串            |
+| System.Binary.Serialize| 将栈元素序列化为字节数组     |
+| System.Binary.Deserialize | 将字节数组反序列化为栈元素            |
+| System.Binary.Base58Decode | 将Base58编码的字符串解码为字节数组            |
+| System.Binary.Base58Encode| 将字节数组编码为Base58字符串     |
 
 **BlockChain API**:
 
@@ -20,6 +24,15 @@
 |System.Blockchain.GetTransactionFromBlock|根据区块中交易ID获取交易|
 |System.Blockchain.GetContract|根据合约哈希获取合约|
 
+**Callback API**:
+
+| API                           | 说明                              |
+|--|--|
+|System.Callback.Create|根据栈指针创建回调服务|
+|System.Callback.CreateFromMethod|创建指定合约指定方法的回调服务|
+|System.Callback.CreateFromSyscall|创建系统调用的回调服务|
+|System.Callback.Invoke|调用回调方法|
+
 **Contract API**:
 
 | API                           | 说明                              |
@@ -30,6 +43,18 @@
 |System.Contract.Call|调用合约|
 |System.Contract.CallEx|根据Flag调用合约|
 |System.Contract.IsStandard|判断合约是否为标准的单签或多签合约|
+|System.Contract.GetCallFlags|获取当前上下文的执行权限|
+
+**Crypto API**:
+
+| API                           | 说明                              |
+|--|--|
+|System.Crypto.RIPEMD160|计算栈元素的RIPEMD160哈希值|
+|System.Crypto.SHA256|计算栈元素的Sha256哈希值|
+|System.Crypto.VerifyWithECDsaSecp256r1|使用Secp256r1曲线验证单签|
+|System.Crypto.VerifyWithECDsaSecp256k1|使用Secp256k1曲线验证单签|
+|System.Crypto.CheckMultisigWithECDsaSecp256r1|使用Secp256r1曲线验证多签|
+|System.Crypto.CheckMultisigWithECDsaSecp256k1|使用Secp256k1曲线验证多签|
 
 **Enumerator API**:
 
@@ -64,9 +89,14 @@
 |System.Runtime.Platform|获取当前执行智能合约的平台信息|
 |System.Runtime.GetTrigger|获取该智能合约的触发条件|
 |System.Runtime.GetTime|获取当前区块的时间戳|
+|System.Runtime.GetScriptContainer|获得该智能合约的脚本容器（最开始的触发者）|
+|System.Runtime.GetExecutingScriptHash|获得该智能合约执行的脚本散列|
+|System.Runtime.GetCallingScriptHash|获得该智能合约的调用者的脚本散列|
+|System.Runtime.GetEntryScriptHash|获得该智能合约的入口点（合约调用链的起点）的脚本散列|
 |System.Runtime.CheckWitness|验证调用该合约的容器是否被指定账户脚本哈希签名|
 |System.Runtime.GetInvocationCounter|获取当前合约的调用次数|
 |System.Runtime.Log|记录合约日志信息|
+|System.Runtime.Notify|记录合约通知信息|
 |System.Runtime.GetNotifications|获取某合约执行的所有通知|
 |System.Runtime.GasLeft|获取剩余未消耗的GAS数|
 
