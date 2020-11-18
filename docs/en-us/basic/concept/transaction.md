@@ -53,15 +53,15 @@ Scopes defines the effective range of the signature, including these types:
 
 The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee is canceled in Neo3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
 
-![](../../../zh-cn/tooldev/images/transaction/system_fee.png)
+![](../../../zh-cn/basic/images/transaction/system_fee.png)
 
-where *OpcodeSet* is opcode set, *OpcodePrice<sub>i</sub>* is the cost of opcode i, *n<sub>i</sub>* is the execution times of instruction i in the contract script. For each opcode fee refer to [Fees for Instructions](../../sc/fees.md#fees-for-instructions).
+where *OpcodeSet* is opcode set, *OpcodePrice<sub>i</sub>* is the cost of opcode i, *n<sub>i</sub>* is the execution times of instruction i in the contract script. For each opcode fee refer to [Fees for Instructions](../../reference/fees.md#fees-for-instructions).
 
 ### netfee
 
 The network fee is charged when the user submits a transactions to Neo blockchain as a reward for consensus nodes generating blocks. There is a  base fee for each transaction. The transaction is only executed if the fee paid by the user is greater than or equal to the base fee; otherwise, the transaction will be treated as invalid. The calculation formula is as follows:
 
-![network fee](../../../zh-cn/tooldev/images/transaction/network_fee.png)
+![network fee](../../../zh-cn/basic/images/transaction/network_fee.png)
 
 where *VerificationCost* is the fee for instructions executed by NeoVM to verify transaction signatures, *tx.Length* is the transaction data byte length, and *FeePerByte* is transaction fee per byte, currently 0.00001 GAS.
 
@@ -97,7 +97,7 @@ By repeating this step, the invocation script can push multiple signatures for t
 
 #### VerificationScript
 
-Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](../wallets.md#address).
+Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](wallets.md#address).
 
 It can also be used as a custom authentication contract script.
 

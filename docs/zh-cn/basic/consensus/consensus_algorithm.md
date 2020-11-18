@@ -1,7 +1,5 @@
 # dBFT 2.0 算法
 
-NEO 在PBFT（Practical Byzantine Fault Tolerance， 实用拜占庭容错）算法的基础上，提出了dBFT（delegated Byzantine Fault Tolerance， 委托拜占庭容错）共识算法。算法根据区块链实时投票情况，决定下一轮参与共识的节点，有效降低了算法耗时，从而提高了出块速度，同时降低了交易确认周期。2019年3月又在原dBFT算法的基础上提出了升级版算法dBFT2.0，引入了三阶段共识机制和恢复机制，进一步提升了算法的鲁棒性和安全性。
-
 ## 共识术语
 
 | **名称** | **定义**                                                     |

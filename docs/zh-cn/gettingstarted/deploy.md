@@ -4,7 +4,7 @@
 
 ## 部署合约
 
-在 Neo-CLI 中，输入部署合约命令  `deploy <nefFilePath> [manifestFile]` ，例如：
+在 Neo-CLI 中，打开前面在 [准备工作](prerequisites.md) 里创建的钱包 0.json，输入部署合约命令  `deploy <nefFilePath> [manifestFile]` ，例如：
 
 ```bash
 deploy NEP5.nef

@@ -275,6 +275,3 @@ namespace ConsoleApp1
 
 ```
 
-## What's next?
-
-[Contract Deployment and Invocation](contract.md)

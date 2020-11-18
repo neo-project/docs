@@ -26,11 +26,11 @@ For Neo-CLI, since it connects to the main net that is not available yet by defa
 
 1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
 
-   ![image](../assets/testnet_1.png)
+   ![image](../../assets/testnet_1.png)
 
 2. Copy the contents of the program directory `config.testnet.json` into the `config.json` as shown in Figure
 
-   ![image](../assets/testnet_2_v2.png)
+   ![image](../../assets/testnet_2_v2.png)
 
 ## Applying for Test GAS and Test NEO
 
@@ -52,7 +52,7 @@ The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE
 #### Step 2 - Fill in the request
 Complete the form here: https://neo.org/testcoin/apply. Note that you need to change `Neo Version` to Neo3.
 
-After a day or so you will be sent an email containing a "Multi-party signed address" and the PUBLIC key of the sender. See [Multi-party signed address](../node/gui/sc.md).
+After a day or so you will be sent an email containing a "Multi-party signed address" and the PUBLIC key of the sender. See [Signature](../../node/gui/advanced.md).
 
 #### Step 3 - Create a multi-party signed address
 To access the assets, in your Neo-gui you will create a "Multi-party signed address" in your wallet using 

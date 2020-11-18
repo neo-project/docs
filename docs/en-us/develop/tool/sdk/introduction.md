@@ -61,8 +61,3 @@ Neo-modules：https://github.com/neo-project/neo-modules
 Welcome to raise any problems you encountered in practice in the project issue list:
 
 https://github.com/neo-project/neo-modules/issues
-
-## What's next?
-
-[RPC Invocation Methods](rpc.md)
-

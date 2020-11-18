@@ -433,8 +433,3 @@ If no parameter is specified transactions in the past seven days are returned.
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
 RpcNep5Transfers transfers = client.GetNep5Transfers(address, 0);
 ```
-
-### What's next?
-
-[Getting Blockchain Data](monitor.md)
-

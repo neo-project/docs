@@ -53,7 +53,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 在 Neo3 中连接测试网需要配置 `config.json` 和 `protocol.json` 文件，用 `*.testnet.json` 中的内容去替换即可。 
 
-如果要将节点接入私链，详细信息请参见[搭建私有链](../../develop/network/private-chain/solo.md)中的说明。 
+如果要将节点接入私链，详细信息请参见 [搭建私有链](../../develop/network/private-chain/solo.md) 中的说明。 
 
 ## 安装插件
 
@@ -190,8 +190,4 @@ dotnet neo-cli.dll
 > [!WARNING]
 >
 > 如果开通了 API 服务，并且在 Neo-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
-
-## 阅读下节
-
-[CLI 命令参考](cli.md)
 

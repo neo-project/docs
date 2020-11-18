@@ -40,7 +40,7 @@ To deploy a contract on the blockchain, open a wallet first and then do the foll
 
 After the contract is deployed on the blockchain successfully, you can search and invoke the contract with the contract hash.
 
-For more information refer to [Deploying Smart Contracts](../../sc/deploy/deploy.md).
+For more information refer to [Deploying Smart Contracts](../../develop/deploy/deploy.md).
 
 ## Invoking a contract
 
@@ -76,5 +76,5 @@ After the contract deployed on the blockchain you can enter the **Invoke** page 
 
 5. If the trial run goes successfully, click `Invoke`.
 
-For more information refer to [Invoking Smart Contracts](../../sc/deploy/invoke.md).
+For more information refer to [Invoking Smart Contracts](../../develop/deploy/invoke.md).
 

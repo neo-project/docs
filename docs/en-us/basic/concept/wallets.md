@@ -8,7 +8,7 @@ You can redesign and modify Neo wallets following your own thoughts, but the bel
 
 In Neo, the account is the smart contract and the address represents a contract script. The below flow diagram shows how to derive the public key from the private key and then to the address:
 
-![](images\wallets\privatekey-2-publickey-address.png)
+![](../images/wallets/privatekey-2-publickey-address.png)
 
 ### Private Key
 
@@ -24,7 +24,7 @@ There are two main encoding formats for private keys in Neo:
 
    The wif format is to add prefix `0x80` and suffix `0x01` in the original 32-byte data, and get the string after Base58Check encoding.
 
-![](images\wallets\wif_format.png)
+![](../images/wallets\wif_format.png)
 
  Example: 
 
@@ -70,7 +70,7 @@ Address is a string of numbers and letters after a series of transformations of 
     0x0C + 0x21 + Public Key(Compressed 33 bytes) + 0x0B + 0x41 + 0x0a906ad4
     ```
 
-    ![](images\wallets\account_address_script_checksign.png)
+    ![](..\images\wallets\account_address_script_checksign.png)
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
 
@@ -231,7 +231,7 @@ An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and
 
 #### Encryption steps
 
-![](images\wallets\nep2key.png)
+![](..\images\wallets\nep2key.png)
 
 1. The address is derived from the public key, and the address hash is the first four bytes of `SHA256(SHA256(Address))`
 
@@ -358,7 +358,7 @@ Example:
 
 The full-node wallet is a complete backup of blockchain data, which saves all the onchain data and participates in p2p network, therefore it needs a large storage space.
 
-Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo node](../node/introduction.md).
+Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo node](../../node/introduction.md).
 
 ### SPV wallet
 

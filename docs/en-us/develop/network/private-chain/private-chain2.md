@@ -6,7 +6,7 @@ In this document we will introduce a simple way to build a private chain on a wi
 
 Install Neo-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
 
-For more information refer to [Installation of Neo-CLI](../../node/cli/setup.md). 
+For more information refer to [Installation of Neo-CLI](../../../node/cli/setup.md). 
 
 ## Creating wallet files
 
@@ -215,7 +215,7 @@ At this point the private chain has been set up. All the files  we modified are 
 
 Enter each node directory and double-click `Run.cmd`. When the screen shows consensus information and block height is increasing as shown below, the private chain is set up successfully.
 
-![](../../../zh-cn/assets/privatechain_demo.png)
+![](../../../../zh-cn/assets/privatechain_demo.png)
 
 The private chain is terminated if you close all the windows. 
 
@@ -276,7 +276,7 @@ Here we want to send NEO from the contract address to the normal address.
 
 7. Use `list asset` to check the wallet balance:
 
-   ![image](../../assets/privatechain_32.png)
+   ![image](../../../assets/privatechain_32.png)
 
 Similarly, you can refer to the preceding steps to withdraw GAS from the multi-party signature address.
 
@@ -284,7 +284,7 @@ Similarly, you can refer to the preceding steps to withdraw GAS from the multi-p
 
 #### Creating multi-party signature addresses
 
-1. Refer to [Installing Neo-GUI](../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
+1. Refer to [Installing Neo-GUI](../../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
 2. Configure the file config.private.json to make sure the Neo-GUI port is not conflict with the one of Neo-CLI; otherwise, Neo-GUI cannot work as Neo-CLI is running.
 3. Start Neo-GUI and open any of the four wallets.
 4. Click  `+`  besides `Accounts`  and select `Create Multi-signature Address`.
@@ -299,6 +299,6 @@ Now you should see 100 million NEO and 30 million GAS displayed.
 
 2. Enter the recipient address and the transfer amount.
 
-3. Refer to [Signature](../../node/gui/advanced.html#signature) to complete the transaction. 
+3. Refer to [Signature](../../../node/gui/advanced.html#signature) to complete the transaction. 
 
    Once the transfer transaction begins broadcasting it will take a while for successful remittance to the account.

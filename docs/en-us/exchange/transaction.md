@@ -26,7 +26,7 @@ NetworkFee = VerificationCost + tx.size * FeePerByte
 
 ## System fee
 
-The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../sc/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
+The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../reference/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
 
 ```
 SystemFee = InvocationCost = The sum of all executed opcode fee

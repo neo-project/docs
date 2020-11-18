@@ -2,8 +2,6 @@
 
 In next sections, we will work you through an example of how to release an NEP-5 asset on Neo blockchain, which includes the tasks of setting up and configuring the development environment, compiling, deploying and invoking the smart contract on a private Neo chain.
 
-Neo provides two full-node clients: NEO-GUI and NEO-CLI. This tutorial is based on the usage of Neo-CLI.
-
 ## System environment
 
 Neo-CLI runs in the following environments:
@@ -14,8 +12,6 @@ Neo-CLI runs in the following environments:
 
 ### Download Neo-CLI
 
-Refer to [Neo-CLI Setup](../../node/cli/setup.md) to download and install Neo-CLI Preview2 package from GitHub.
+Neo provides two full-node clients: NEO-GUI and NEO-CLI. This tutorial is based on the usage of Neo-CLI.
 
-## What's next?
-
-[Setting up local network](enviroment.md)
+Refer to [Neo-CLI Setup](../node/cli/setup.md) to download and install Neo-CLI Preview4 package from GitHub.

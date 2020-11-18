@@ -16,10 +16,9 @@ Let's look at a standard wallet address and corresponding scripthash strings in 
   - Big endian：0x946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - Little endian：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
-To convert between the wallet address and scripthash, or between big endian and little endian byte order, use one of the following:
+To convert between the wallet address and scripthash, or between big endian and little endian byte order, use the following:
 
 - [DataTransformationTools](https://peterlinx.github.io/DataTransformationTools/)
-- Neo SDK (See [Data Conversion](../sdk/conversion.md))
 
 ### The contract scripthash
 When a contract has been deployed a scripthash is generated as a unified identifier of the contract. The contract scripthash can be converted into the standard 20-byte address for receiving assets from transfer transactions. In that case the contract scripthash is used in big endian format. For example:

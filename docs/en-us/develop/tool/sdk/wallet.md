@@ -246,7 +246,5 @@ Transaction tx = walletAPI.CreateTransferTx(gas, 3, new ECPoint[] { keyPair1.Pub
 RpcClient.SendRawTransaction(tx);
 ```
 
-## What's next?
 
-[Transaction Construction](transaction.md)
 

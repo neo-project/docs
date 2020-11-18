@@ -14,7 +14,7 @@ NeoVM 是一个用于执行 NEO 智能合约的轻量级虚拟机。 作为 NEO 
 
 NEO 虚拟机 (NeoVM) 的系统架构，主要由执行引擎、栈、互操作接口等部分构成。 
 
-![](../../assets/neovm.png)
+![](../assets/neovm.png)
 
 #### 执行引擎
 

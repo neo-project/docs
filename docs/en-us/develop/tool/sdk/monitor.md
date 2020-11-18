@@ -70,7 +70,3 @@ Nep5API nep5API = new Nep5API(client);
 RpcNep5TokenInfo tokenInfo = nep5API.GetTokenInfo(NativeContract.NEO.Hash);
 ```
 
-## What's next?
-
-[Wallet Interfaces](wallet.md)
-

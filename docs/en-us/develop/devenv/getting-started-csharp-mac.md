@@ -22,7 +22,7 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 
 4. Search for `neo.smart` and choose `Neo.SmartContract.Framework`, then click `Add Packge`.
 
-   ![](../../../zh-cn/sc/assets/mac5.jpg)
+   ![](../../../zh-cn/develop/assets/mac5.jpg)
 
 5. Write the following sample code in your Class1.cs file.
 
@@ -64,13 +64,11 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 
 4. Publish neon to the default path. After published, you can find neon.dll is generated under the path.
 
-
-
 ## Compiling your smart contract to .avm
 
 1. Download and install [.NET Core](https://www.microsoft.com/net/download/macos ).
 
-   ![](../../../zh-cn/sc/assets/mac8.jpg)
+   ![](../../../zh-cn/develop/assets/mac8.jpg)
 
 2. Copy the new-created project file test.dll generated in previous steps into the directory where neon.dll locates in.
 
@@ -78,6 +76,6 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 
    The output should look like this
    
-   ![](../../../zh-cn/sc/assets/mac0.jpg)
+   ![](../../../zh-cn/develop/assets/mac0.jpg)
 
 You should now find the `.avm` file in the test output folder.
