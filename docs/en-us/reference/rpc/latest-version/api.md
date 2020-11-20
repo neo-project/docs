@@ -31,7 +31,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getrawtransaction](api/getrawtransaction.md) | \<txid> [verbose=0]                      | Returns the transaction information with the specified hash value. |
 | [getstorage](api/getstorage.md)          | \<script_hash>  \<key>                   | Returns the value with the contract script hash and the key. |
 | [gettransactionheight](api/gettransactionheight.md) | \<txid> | Returns the transaction height with the specified transaction hash. |
-| [getvalidators](api/getvalidators.md) | | Gets the information about the validators. |
+| [getcommittee](api/getcommittee.md) | | Gets the public key list of current Neo committee members. |
 
 ### Node
 
@@ -68,6 +68,7 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | [getnewaddress](api/getnewaddress.md) |  | Creates a new address. |
 | [getwalletunclaimedgas](api/getwalletunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. |
 | [importprivkey](api/importprivkey.md) | \<key> | Imports the private key to the wallet. |
+| [calculatenetworkfee](api/calculatenetworkfee.md) | \<tx> | Calculates network fee for the specified transaction. |
 | [listaddress](api/listaddress.md) |  | Lists all the addresses in the current wallet. |
 | [openwallet](api/openwallet.md) | \<path> \<password> | Opens the specified wallet. |
 | [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | Transfers from the specified address to the destination address. |

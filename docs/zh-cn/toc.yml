@@ -134,6 +134,8 @@
   - name: RPC API
     - name: API 参考
       href:  /v3/docs/zh-cn/reference/rpc/latest-version/api.md
+    - name: calculatenetworkfee
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/calculatenetworkfee.md
     - name: closewallet
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/closewallet.md
     - name: dumpprivkey
@@ -174,8 +176,8 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.md
     - name: getwalletunclaimedgas
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getwalletunclaimedgas.md
-    - name: getvalidators
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.md
+    - name: getcommittee
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getcommittee.md
     - name: getversion
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getversion.md
     - name: importprivkey
