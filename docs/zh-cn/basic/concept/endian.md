@@ -17,7 +17,7 @@ Neo 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
   - 大端序：0x946d6caa602a2b85fbeb7cf05335b2c3b124f1e4
   - 小端序：e4f124b1c3b23553f07cebfb852b2a60aa6c6d94
 
-要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下一种方法:
+要进行钱包地址与ScriptHash的互转，以及ScriptHash的大小端序之间的互转，可以使用以下方法:
 
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
 
@@ -47,7 +47,7 @@ var outputs = new List<TransferOutput>{ new TransferOutput()
 
 #### 通过RPC接口调用合约
 
-这里以 [InvokeFunction](../../reference/rpc/latest-version/api/invokefunction.html) 为例，调用 NEP-5 合约的 balanceOf 方法。
+这里以 [InvokeFunction](../../reference/rpc/latest-version/api/invokefunction.md) 为例，调用 NEP-5 合约的 balanceOf 方法。
 
 如果传入的地址，参数类型为Hash160，需要使用**大端序**的地址ScriptHash。
 

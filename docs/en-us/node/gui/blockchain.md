@@ -4,7 +4,7 @@ You can click `Block` on the Neo-GUI main page to enter the blockchain page to v
 
 ## Block
 
-The block is a logical structure and the most basic unit of the blockchain. Data is permanently recorded on the blockchain via blocks. For information about the basic concept of the block refer to [Block](../../tooldev/concept/blockchain/block.md).
+The block is a logical structure and the most basic unit of the blockchain. Data is permanently recorded on the blockchain via blocks. For information about the basic concept of the block refer to [Block](../../basic/concept/blockchain/block.md).
 
 ### Viewing block list
 
@@ -44,7 +44,7 @@ You can view the following information by switching tabs in this page:
 - **Transaction**: Displays the basic information of the transaction, such as the block, size, time stamp, as well as the transaction transfer record and the witness of the transaction.
 - **Notifications**: Displays the execution log of the smart contract in the transaction, including information such as whether the NEP-5 transfer was successful.
 
-For information about the basic concept of transactions refer to [Transaction](../../tooldev/transaction/transaction.md).
+For information about the basic concept of transactions refer to [Transaction](../../basic/concept/transaction.md).
 
 ## Assets
 

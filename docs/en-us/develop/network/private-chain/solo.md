@@ -6,11 +6,11 @@ Alternatively, you can build a private chain with one node from scratch, which w
 
 ## Prerequisites
 
-1. Refer to [Installation of NEO-CLI](../../node/cli/setup.md) to install Neo-CLI.
+1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI.
 
 2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet consensus.json`:
 
-   ![](../../../zh-cn/network/assets/create-wallet.png)
+   ![](../../../../zh-cn/develop/network/assets/create-wallet.png)
 
 3. Record the wallet pubkey that appears. This will be used in later steps.
 
@@ -152,7 +152,7 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
 
 ### Using Neo-GUI to withdraw
 
-1. Refer to [Installing Neo-GUI](../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
+1. Refer to [Installing Neo-GUI](../../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
 2. Configure the file config.private.json to make sure the Neo-GUI port is not conflict with the one of Neo-CLI; otherwise, Neo-GUI cannot work as Neo-CLI is running.
 3. Start Neo-GUI and open the wallet consensus.json.
 4. Click  `+`  besides `Accounts`  and select `Create Multi-signature address`.

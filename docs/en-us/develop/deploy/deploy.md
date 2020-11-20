@@ -1,6 +1,6 @@
 # Deploying Smart Contracts
 
-When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the NEO blockchain using Neo-CLI or Neo-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 assets. 
+When a smart contract is deployed on the blockchain, it can be used by other users or invoked by other contracts. This section describes how to deploy and invoke the smart contract in the Neo blockchain using Neo-CLI or Neo-GUI. The instructions in this section are generic and applicable to all contract types including NEP-5 assets. 
 
 ## What contracts need to be deployed?
 
@@ -16,7 +16,7 @@ From the programming language perspective, only when a smart contract will be us
 
 Smart contracts are deployed by invoking API through an Invocation transaction. Usually we use Neo-CLI or Neo-GUI to deploy smart contracts. 
 
-Deploying and invoking smart contracts will cost fees. For more information, refer to [Fees](../fees.md).
+Deploying and invoking smart contracts will cost fees. For more information, refer to [Fees](../../reference/fees.md).
 
 ## Before you start
 Make sure you have done the following:

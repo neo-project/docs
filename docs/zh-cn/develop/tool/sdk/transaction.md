@@ -279,6 +279,3 @@ namespace ConsoleApp1
 
 ```
 
-## 阅读下节
-
-[合约部署与调用](contract.md)

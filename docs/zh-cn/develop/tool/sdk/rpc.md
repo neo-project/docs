@@ -418,7 +418,5 @@ string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
 RpcNep5Transfers transfers = client.GetNep5Transfers(address, 0);
 ```
 
-### 阅读下节
 
-[获取区块信息](monitor.md)
 

@@ -23,7 +23,7 @@ Claimed *GAS = f(neo_amount, Δt_const)*
 Suppose all the exchange addresses are stored in one wallet, the following chart demonstrates the procedure and computational formula how the exchange distributes GAS to the user A.
 
 
-![gasflow_en](../sc/assets/gasflow_en.png)
+![gasflow_en](../develop/assets/gasflow_en.png)
 
 The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
 

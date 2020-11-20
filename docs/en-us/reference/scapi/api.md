@@ -2,8 +2,6 @@
 
 The NEO Smart Contract API expands the capabilities of the Smart Contract to access the blockchain data, manipulate persistent storage, and query the execution environment. It is part of the Neo Virtual Machine (NeoVM) Interoperability Service Layer.
 
-For information about NeoVM, see [NEO Smart Contract Introduction](../../sc/gettingstarted/introduction.md).
-
 For more information on how to use the framework to easily call APIs in high-level languages, see [Smart Contracts Framework](fw.md).
 
 
