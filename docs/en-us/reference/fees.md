@@ -3,7 +3,7 @@
 The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee will be cancled in NEO3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
 
 
-![](../../zh-cn/assets/system_fee.png)
+![](C:/neo-project/docs/docs/zh-cn/assets/system_fee.png)
 
 where OpcodeSet is opcode set, OpcodePrice<sub>i</sub> is the cost of opcode i, n<sub>i</sub> is the execution times of instruction i in the contract script.
 
@@ -11,22 +11,31 @@ The fee of each interop service and instruction is shown in the table below.
 
 ### Fees for interop service
 
-| Interop Service                       | Fee (GAS) |
+| Interop Service | Fee (GAS) |
 |--|--|
 | System.Binary.Serialize | 0.00100000  |
 | System.Binary.Deserialize| 0.00500000  |
+| System.Binary.Base64Encode| 0.00100000  |
+| System.Binary.Base64Decode| 0.00100000  |
+| System.Binary.Base58Encode| 0.00100000  |
+| System.Binary.Base58Decode| 0.00100000  |
 | System.Blockchain.GetHeight | 0.00000400  |
 | System.Blockchain.GetBlock | 0.02500000  |
 | System.Blockchain.GetTransaction | 0.01000000  |
 | System.Blockchain.GetTransactionHeight | 0.01000000  |
 | System.Blockchain.GetTransactionFromBlock | 0.01000000  |
 | System.Blockchain.GetContract | 0.01000000  |
-| System.Contract.Create | (Script.Size + Manifest.Size) * GasPerByte  |
-| System.Contract.Update | (Script.Size + Manifest.Size) * GasPerByte  |
+| System.Callback.Create | 0.00000400  |
+| System.Callback.CreateFromMethod | 0.01000000  |
+| System.Callback.CreateFromSyscall | 0.00000400  |
+| System.Callback.Invoke | 0.01000000  |
+| System.Contract.Create | 0  |
+| System.Contract.Update | 0  |
 | System.Contract.Destroy | 0.01000000  |
 | System.Contract.Call | 0.01000000  |
 | System.Contract.CallEx | 0.01000000  |
 | System.Contract.IsStandard | 0.00030000  |
+| System.Contract.GetCallFlags | 0.00030000  |
 | System.Enumerator.Create | 0.00000400  |
 | System.Enumerator.Next | 0.01000000  |
 | System.Enumerator.Value | 0.00000400  |
@@ -56,20 +65,17 @@ The fee of each interop service and instruction is shown in the table below.
 | System.StorageContext.AsReadOnly| 0.00000400  |
 | System.Storage.Get| 0.01000000  |
 | System.Storage.Find| 0.01000000  |
-| System.Storage.Put| See [1] |
-| System.Storage.PutEx| See [1] |
-| System.Storage.Delete| 1 * GasPerByte  |
+| System.Storage.Put| 0 |
+| System.Storage.PutEx| 0 |
+| System.Storage.Delete| 1 * StoragePrice  |
 | Neo.Native.Deploy| 0  |
-| Neo.Crypto.ECDsaVerify| 0.01000000  |
-| Neo.Crypto.ECDsaCheckMultiSig| 0.01000000 * n |
-
-> [!Note]
->
-> [1] When a Key-Value pair is written to the storage:
->
-> - If the new pair key-value size is greater than the old key-value size, fee = [(newKey.Size +newValue.Size) - (oldKey.Size + oldValue.Size)] * GasPerByte
-> - If the new pair key-value size is less than or equal to the old key-value size, fee = 1 * GasPerByte
-> - If there is no existing key-value, fee = (key.Size + value.Size) * GasPerByte
+| Neo.Native.Call| 0  |
+| Neo.Crypto.RIPEMD160| 0.01000000  |
+| Neo.Crypto.SHA256| 0.01000000 |
+| Neo.Crypto.VerifyWithECDsaSecp256r1| 0.01000000  |
+| Neo.Crypto.VerifyWithECDsaSecp256k1| 0.01000000 |
+| Neo.Crypto.CheckMultisigWithECDsaSecp256r1| 0  |
+| Neo.Crypto.CheckMultisigWithECDsaSecp256k1| 0 |
 
 <table class="table table-hover">
 	<tr>
@@ -78,7 +84,7 @@ The fee of each interop service and instruction is shown in the table below.
 	    <th>Fee (GAS)</th>  
 	</tr >
 	<tr >
-	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
+	    <td rowspan="15">Neo.Native.Tokens.NEO</td>
 	    <td>name</td>
 	    <td>0</td>
 	</tr>
@@ -102,26 +108,44 @@ The fee of each interop service and instruction is shown in the table below.
 	    <td>transfer</td>
 	    <td>0.08000000</td>
 	</tr>
-    <tr>
-	    <td>registerValidator</td>
+		<tr>
+	    <td>setGasPerBlock</td>
 	    <td>0.05000000</td>
 	</tr>
-	<tr>
-	    <td>vote</td>
-	    <td>5.00000000</td>
+		<tr>
+	    <td>getGasPerBlock</td>
+	    <td>0.05000000</td>
 	</tr>
-	<tr>
-	    <td>getRegisteredValidators</td>
-	    <td>1.00000000</td>
-	</tr>
-	<tr>
-	    <td>getValidators</td>
-	    <td>1.00000000</td>
-	</tr>
-	<tr><td>unclaimedGas</td>
+		<tr>
+	    <td>unclaimedGas</td>
 	    <td>0.03000000</td>
 	</tr>
+		<tr>
+	    <td>registerCandidate</td>
+	    <td>0.05000000</td>
+	</tr>
+		<tr>
+	    <td>unregisterCandidate</td>
+	    <td>0.05000000</td>
+	</tr>
+		<tr>
+	    <td>vote</td>
+	    <td>0.08000000</td>
+	</tr>
+		<tr>
+	    <td>GetCandidates</td>
+	    <td>1.00000000</td>
+	</tr>
+		<tr>
+	    <td>getCommittee</td>
+	    <td>1.00000000</td>
+	</tr>
+		<tr>
+	    <td>getNextBlockValidators</td>
+	    <td>1.00000000</td>
+	</tr>
 </table>
+
 
 <br/>
 
@@ -158,6 +182,7 @@ The fee of each interop service and instruction is shown in the table below.
 	</tr>
 </table>
 
+
 <br/>
 
 <table class="table table-hover">
@@ -167,7 +192,7 @@ The fee of each interop service and instruction is shown in the table below.
 	    <th>Fee (GAS)</th>  
 	</tr >
 	<tr >
-	    <td rowspan="9">Neo.Native.Policy</td>
+	    <td rowspan="11">Neo.Native.Policy</td>
 	    <td>getMaxTransactionsPerBlock</td>
 	    <td>0.01000000</td>
 	</tr>
@@ -176,37 +201,64 @@ The fee of each interop service and instruction is shown in the table below.
 	    <td>0.01000000</td>
 	</tr>
 	<tr>
-	    <td>getFeePerByte</td>
+	    <td>GetMaxBlockSystemFee</td>
 	    <td>0.01000000</td>
 	</tr>
 	<tr>
-	    <td>setMaxBlockSize</td>
-	    <td>0.03000000</td>
-	</tr>
-	<tr><td>getBlockedAccounts</td>
+	    <td>GetFeePerByte</td>
 	    <td>0.01000000</td>
 	</tr>
-    <tr><td>setMaxTransactionsPerBlock</td>
+	<tr><td>IsBlocked</td>
+	    <td>0.01000000</td>
+	</tr>
+    <tr><td>SetMaxBlockSize</td>
 	    <td>0.03000000</td>
 	</tr>
-    <tr><td>setFeePerByte</td>
+    <tr><td>SetMaxTransactionsPerBlock</td>
 	    <td>0.03000000</td>
 	</tr>
-    <tr><td>blockAccount</td>
+    <tr><td>SetMaxBlockSystemFee</td>
 	    <td>0.03000000</td>
 	</tr>
-    <tr><td>unblockAccount</td>
+    <tr><td>SetFeePerByte</td>
+	    <td>0.03000000</td>
+	</tr>
+	 <tr><td>BlockAccount</td>
+	    <td>0.03000000</td>
+	</tr>
+	 <tr><td>UnblockAccount</td>
 	    <td>0.03000000</td>
 	</tr>
 </table>
 
-For the description of API in the table above, refer to [NEO Namespace](../reference/scapi/api/neo.md)
+<table class="table table-hover">
+	<tr>
+	    <th>Interop Service</th>
+	    <th>Method Name</th>
+	    <th>Fee (GAS)</th>  
+	</tr >
+	<tr >
+	    <td rowspan="3">Neo.Native.Oracle</td>
+	     <td>finish</td>
+	    <td>0</td>
+	</tr>
+    <tr>
+	    <td>request</td>
+	    <td>0.50000000</td>
+	</tr>
+	<tr>
+	    <td>verify</td>
+	    <td>0.01000000</td>
+	</tr>
+</table>
 
+
+For the description of API in the table above, refer to [NEO Namespace](../reference/scapi/api/neo.md).
 
 ### Fees for Instructions
 
-| Instruction                          | Fee (Gas) |
-|---------------------|-------------|
+| Instruction | Fee (GAS) |
+|--|--|
 |PUSHINT8|0.00000030|
 |PUSHINT16|0.00000030|
 |PUSHINT32|0.00000030|
@@ -263,7 +315,7 @@ For the description of API in the table above, refer to [NEO Namespace](../refer
 |REVERSE4|0.00000060|
 |REVERSEN|0.00000400|
 |INITSSLOT|0.00000400|
-|INITSLOT|0.00000800|
+|INITSLOT|0.00001600|
 |LDSFLD0\~LDSFLD6|0.00000060|
 |LDSFLD|0.00000060|
 |STSFLD0\~STSFLD6|0.0000006|
@@ -286,8 +338,8 @@ For the description of API in the table above, refer to [NEO Namespace](../refer
 |AND|0.00000200|
 |OR|0.00000200|
 |XOR|0.00000200|
-|EQUAL|0.00000200|
-|NOTEQUAL|0.00000200|
+|EQUAL|0.00001000|
+|NOTEQUAL|0.00001000|
 |SIGN|0.00000100|
 |ABS|0.00000100|
 |NEGATE|0.00000100|
@@ -313,8 +365,8 @@ For the description of API in the table above, refer to [NEO Namespace](../refer
 |MIN|0.00000200|
 |MAX|0.00000200|
 |WITHIN|0.00000200|
-|PACK|0.00007000|
-|UNPACK|0.00007000|
+|PACK|0.00015000|
+|UNPACK|0.00015000|
 |NEWARRAY0|0.00000400|
 |NEWARRAY|0.00015000|
 |NEWARRAY_T|0.00015000|
@@ -324,11 +376,11 @@ For the description of API in the table above, refer to [NEO Namespace](../refer
 |SIZE|0.00000150|
 |HASKEY|0.00270000|
 |KEYS|0.00000500|
-|VALUES|0.00007000|
+|VALUES|0.00270000|
 |PICKITEM|0.00270000|
-|APPEND|0.00015000|
+|APPEND|0.00270000|
 |SETITEM|0.00270000|
-|REVERSEITEMS|0.00000500|
+|REVERSEITEMS|0.00270000|
 |REMOVE|0.00000500|
 |CLEARITEMS|0.00000400|
 |ISNULL|0.00000060|

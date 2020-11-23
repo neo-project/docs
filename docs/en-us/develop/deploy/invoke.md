@@ -4,7 +4,7 @@ After you deployed a smart contract on the blockchain, you can then invoke it by
 
 ## Querying the contract details
 
-You can query a contract details using Neo-CLI or Neo-GUI, such as the contract general information, entry point, methods, notifications, etc. 
+You can query a contract details using Neo-CLI or Neo-GUI, such as the contract general information, methods, notifications, etc. 
 
 ### Querying using Neo-CLI
 
@@ -26,7 +26,7 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 - Use the command invoke, which syntax is:
 
    ```
-   invoke <scriptHash> <operation> [contractParameters=null]    [witnessAddress=null]
+   invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]
    ```
 
    For more information refer to [invoke](../../node/cli/cli.md#invoke).
@@ -58,7 +58,7 @@ When `Runtime.CheckWitness (owner)` is written in the contract, the owner's sign
 In Neo-CLI, you can attach a signature using the invoke command.
 
 ```
-invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
+invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signerAccounts=null]
 ```
 
 When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  

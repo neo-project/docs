@@ -190,6 +190,7 @@ NEO命名空间提供了原生合约操作以及数字签名验证的API。
 </table>
 
 > [!Note]
+>
 > 以上 API 部分用于给Committee调用, 普通用户会在验签过程中失败
 > 以上 API 的源码位于 NEO 项目中的 (https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs) 文件。
 

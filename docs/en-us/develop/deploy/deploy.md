@@ -4,19 +4,19 @@ When a smart contract is deployed on the blockchain, it can be used by other use
 
 ## What contracts need to be deployed?
 
-When a smart contract needs to store data or to be invoked by another smart contract (called appcall) on the blockchain, it needs to be deployed. Contracts triggered only by the verification trigger, such as the lock contract and multi-signature contract, do not need to be deployed as they will not be invoked by other contracts. Contracts such as  `return 1+1`  do not need to be deployed as they do not require any input parameters.
+When a smart contract needs to store data or to be invoked by another smart contract  through syscall `System.Contract.Call` on the blockchain, it needs to be deployed. Contracts triggered only by the verification trigger, such as the lock contract and multi-signature contract, do not need to be deployed as they will not be invoked by other contracts. Contracts such as  `return 1+1`  do not need to be deployed as they do not require any input parameters.
 
 From the programming language perspective, only when a smart contract will be used as a class library, it needs to be deployed. For example: 
 
-- When a smart contract has variable incoming parameters, it must serve as a storage. The caller (Invocation transaction) or other smart contracts provide the parameters.
+- When a smart contract has variable incoming parameters, it must serve as a storage. The caller or other smart contracts provide the parameters.
 - When a smart contract uses storage it must serve as a class library.
 - When a smart contract implements NEP-5 standard assets, the contract needs to be deployed on the blockchain.
 
 ### How to deploy?
 
-Smart contracts are deployed by invoking API through an Invocation transaction. Usually we use Neo-CLI or Neo-GUI to deploy smart contracts. 
+Smart contracts are deployed by invoking APIs. Usually we use Neo-CLI or Neo-GUI to deploy smart contracts. 
 
-Deploying and invoking smart contracts will cost fees. For more information, refer to [Fees](../../reference/fees.md).
+Deploying and invoking smart contracts cost fees. For more information, refer to [Fees](../../reference/fees.md).
 
 ## Before you start
 Make sure you have done the following:
