@@ -234,16 +234,22 @@
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Crypto.md
         - name: Enumerator
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Enumerator.md
+        - name: Gas
+          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Gas.md
         - name: Helper
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Helper.md
         - name: Iterator
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Iterator.md
         - name: Json
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Json.md
-        - name: Native
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Native.md
+        - name: Neo
+          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Neo.md
         - name: Notification
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Notification.md
+        - name: Policy
+          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Policy.md
+        - name: Oracle
+          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Oracle.md
         - name: Runtime
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.md
         - name: Storage

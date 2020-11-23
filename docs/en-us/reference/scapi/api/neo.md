@@ -44,19 +44,19 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	</tr>
     <tr>
 	    <td>SetGasPerBlock</td>
-	    <td>设置每出一个区块所产生的GAS数</td>
+	    <td>Sets the number of GAS generated for each block</td>
 	</tr>
 	<tr>
 	    <td>GetGasPerBlock</td>
-	    <td>获取当前每个区块可产生的GAS数</td>
+	    <td>Gets the number of GAS generated for each block</td>
 	</tr>
 	<tr>
 	    <td>RegisterCandidate</td>
-	    <td>注册为候选人</td>
+	    <td>Registers as a candidate</td>
 	</tr>
 	<tr>
 	    <td>UnregisterCandidate</td>
-	    <td>取消注册为候选人</td>
+	    <td>Unregisters as a candidate</td>
 	</tr>
 	<tr>
 	    <td>vote</td>
@@ -64,16 +64,17 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	</tr>
 	<tr>
 	    <td>GetCandidates</td>
-	    <td>获取候选人列表</td>
+	    <td>Gets a list of candidates</td>
 	</tr>
 	<tr>
 	    <td>GetCommittee</td>
-	    <td>获取委员会成员列表</td>
+	    <td>Gets a list of committee members</td>
 	</tr>
 	<tr><td>unclaimedGas</td>
 	    <td>Gets unclaimed Gas</td>
 	</tr>
 </table>
+
 
 
 <br/>
@@ -130,7 +131,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	</tr>
     	<tr>
 	    <td>GetMaxBlockSystemFee</td>
-	    <td>获取区块最大的系统费</td>
+	    <td>Gets the maximum system fee for the block</td>
 	</tr>
 	<tr>
 	    <td>getFeePerByte</td>
@@ -138,7 +139,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	</tr>
    	<tr>
 		<td>IsBlocked</td>
-	    <td>验证是否为黑名单账户</td>
+	    <td>Verifies whether the account is blocked</td>
 	</tr>
 	<tr>
 	    <td>setMaxBlockSize</td>
@@ -146,7 +147,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	</tr>
 	<tr>
 		<td>SetMaxBlockSystemFee</td>
-	    <td>设置区块最大的系统费</td>
+	    <td>Sets the maximum system fee for the block</td>
     </tr>
     <tr><td>setMaxTransactionsPerBlock</td>
 	    <td>Sets max transaction per block</td>
@@ -167,28 +168,30 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 <table class="table table-hover">
 	<tr>
 	    <th>API</th>
-	    <th>方法名</th>
-	    <th>说明</th>  
+	    <th>Method Name</th>
+	    <th>Description</th>  
 	</tr >
 	<tr >
 	    <td rowspan="3">Neo.Native.Oracle</td>
 	    <td>Finish</td>
-	    <td>在获取Oracle响应后调用回调函数</td>
+	    <td>Invokes the callback function after getting the Oracle response</td>
 	</tr>
 	<tr>
 	    <td>Request</td>
-	    <td>发起Oracle请求</td>
+	    <td>Initiates an Oracle request</td>
 	</tr>
 	<tr>
 	    <td>Verify</td>
-	    <td>验证Oracle响应交易的合法性</td>
+	    <td>Verifies if the Oracle response transaction is legal</td>
 	</tr>
 </table>
 
+
 > [!Note]
 >
-> 以上 API 部分用于给Committee调用, 普通用户会在验签过程中失败
-> 以上 API 的源码位于 NEO 项目中的 (https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs) 文件。
+> The above API are used for committee members only; ordinary users will fail during the signature verification process.
+>
+> The source code for the above API can be found under `NEO` in the  (https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs).
 
 **Crypto API**：
 
