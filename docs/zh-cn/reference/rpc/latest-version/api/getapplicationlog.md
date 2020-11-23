@@ -8,13 +8,22 @@
 
 ## 参数说明
 
-txid/blockhash：交易 ID 或区块 hash
-trigger type:  可选参数， trigger 种类，分为 OnPersist, PostPersist, Application, Verification, System 和 All。System = OnPersist | PostPersist, All = OnPersist | PostPersist | Verification | Application
-默认获取所有类型，也可以指定某种类型。 
+- txid/blockhash：交易 ID 或区块 hash
+
+- trigger type:  可选参数， 有以下 trigger 类型：
+
+  - OnPersist
+  - PostPersist
+  - Application
+  - Verification
+  - System: OnPersist | PostPersist
+  - All: OnPersist | PostPersist | Verification | Application
+
+  默认获取所有类型，也可以指定某种类型。 
 
 ## 调用示例
 
-请求正文：
+请求正文 1：
 
 ```json
 {
@@ -27,7 +36,7 @@ trigger type:  可选参数， trigger 种类，分为 OnPersist, PostPersist, A
 }
 ```
 
-响应正文：
+响应正文 1：
 
 ```json
 {
@@ -90,7 +99,7 @@ trigger type:  可选参数， trigger 种类，分为 OnPersist, PostPersist, A
 }
 ```
 
-请求正文2：
+请求正文 2：
 
 ```json
 {
@@ -104,7 +113,7 @@ trigger type:  可选参数， trigger 种类，分为 OnPersist, PostPersist, A
 
 ```
 
-响应正文2：
+响应正文 2：
 
 ```json
 {

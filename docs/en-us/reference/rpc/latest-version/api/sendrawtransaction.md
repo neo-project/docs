@@ -8,7 +8,7 @@ Broadcasts transactions over the NEO network.
 
 ## Parameter Description
 
-hex: A hexadecimal string that has been serialized after the transaction signed in the program.
+hex: A Base64-encoded string that has been serialized after the transaction signed in the program.
 
 ## Example
 
@@ -18,7 +18,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendrawtransaction",
-  "params": ["004715897d2bf173f849d1d59123d097c009aa31624d39e73900e1f50500000000466a130000000000f699200000012bf173f849d1d59123d097c009aa31624d39e739015d0300d0ed902e0000000c1425275006800e73cc64286753a3a732422521c8e40c142bf173f849d1d59123d097c009aa31624d39e73913c00c087472616e736665720c143b7d3711c6f0ccf9b1dca903d1bfa1d896f1238c41627d5b523901420c40632d2abc04cce02a7d373a2def1b5d126ce75cdd6f40ef8ab9258960841c4123c48288a6f44bc86d94e83755faee3c17d059b99561a18d923202717796e0b68f290c2103b9c46c6d5c671ef5c21bc7aa7c30468aeb081a2e3895269adf947718d650ce1e0b410a906ad4"],
+  "params": ["ALmNfAb4lqIAAAAAAAZREgAAAAAA8S8AAAEKo4e1Ppa3mJpjFDGgVt0fQKBC9gEAKQwFd29ybGQRwAwDcHV0DBR9rbALvBGpMrl7cXVBdSsPOC0EmUFifVtSAUIMQACXF48H1VRmI50ievPfC042rJgj7ZQ3Y4ff27abOpeclh+6KpsL6gWfZTAUyFOwdjkA7CWLM3HsovQeDQlI0oopDCEDzqPi+B8a+TUi0p7eTySh8L7erXKTOR0ziA9Uddl4eMkLQZVEDXg="],
   "id": 1
 }
 ```
