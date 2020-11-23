@@ -26,7 +26,7 @@ Neo 交易是一个带有网络操作指令的签名数据包，例如，将资�
 
 ```
 PUSHDATA1 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad
-SYSCALL Neo.Crypto.ECDsaVerify
+SYSCALL Neo.Crypto.VerifyWithECDsaSecp256r1
 ```
 
 #### 脚本哈希
@@ -51,15 +51,15 @@ NEP5 协议是 Neo 补充协议中的第5号协议。其目的是为 Neo 建立�
 
 #### 系统调用（SysCall）
 
-系统调用是一种特殊的操作码。通过 SycCall 可以调用互操作服务层接口。 SycCall 打通了 NeoVM 与外部世界的通道。通过调用互操作服务层接口， NeoVM 可以访问智能合约执行时所需要的区块、交易、合约、资产信息等数据。请参考 [Neo 智能合约模块](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 中里面以 `InteropService.` 开头的文件，如 `InteropService.Binary.cs`、`InteropService.Blockchain.cs`
+系统调用是一种特殊的操作码。通过 SycCall 可以调用互操作服务层接口。 SycCall 打通了 NeoVM 与外部世界的通道。通过调用互操作服务层接口， NeoVM 可以访问智能合约执行时所需要的区块、交易、合约、资产信息等数据。请参考 [Neo 智能合约模块](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 中里面以 `ApplicationEngine.` 开头的文件，如 `ApplicationEngine.Contract.cs`、`ApplicationEngine.Blockchain.cs`
 
 #### 动态调用
 
-动态调用是一种特殊的系统调用，是指在合约中调用另一个合约。其写法为 `Contract.Call(scriptHash, method, params)`。详情请参见 [调用合约](sc/deploy/invoke)。
+动态调用是一种特殊的系统调用，是指在合约中调用另一个合约。其写法为 `Contract.Call(scriptHash, method, params)`。详情请参见 [调用合约](../reference/scapi/fw/dotnet/neo/Contract/Call.md)。
 
 #### 存储区
 
-每个被部署到 Neo 区块链上的智能合约程序，都拥有一个私有存储区用于存放应用程序的数据。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。每个合约都可以声明一块存储区，声名方式为在合约的类上添加一段自定义特性。详情请参见 [存储区操作](sc/sample/storage.md)
+每个被部署到 Neo 区块链上的智能合约程序，都拥有一个私有存储区用于存放应用程序的数据。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。每个合约都可以声明一块存储区，声名方式为在合约的类上添加一段自定义特性。详情请参见 [存储区操作](../reference/scapi/fw/dotnet/neo/storage.md)
 
 #### NEF
 
