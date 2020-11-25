@@ -8,9 +8,9 @@
 
 ## 合约部署
 
-`ContractClient` 中提供了合约部署交易的构建方法 `CreateDeployContractTx`, 参数为合约脚本，manifest 和支付系统费和网络费的账户密钥对，其中合约脚本和 manifest 可通过编译获取，账户中需要有足够的 GAS 支付所需费用。
+`ContractClient` 中提供了合约部署交易的构建方法 `CreateDeployContractTxAsync`, 参数为合约脚本，manifest 和支付系统费和网络费的账户密钥对，其中合约脚本和 manifest 可通过编译获取，账户中需要有足够的 GAS 支付所需费用。
 
-读取合约 nef 和 manifest.json 文件：
+1. 读取合约 nef 和 manifest.json 文件：
 
 ```C#
 // read nefFile & manifestFile
@@ -28,14 +28,14 @@ ContractManifest manifest = ContractManifest.Parse(File.ReadAllBytes(manifestFil
 ```c#
 // create the deploy contract transaction
 byte[] script = nefFile.Script;
-Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKeyPair);
+Transaction transaction = await contractClient.CreateDeployContractTxAsync(script, manifest, senderKeyPair);
 ```
 
 交易构建后需要广播到链上:
 
 ```c#
 // Broadcast the transaction over the Neo network
-client.SendRawTransaction(transaction);
+await client.SendRawTransactionAsync(transaction);
 Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 ```
 
@@ -44,7 +44,7 @@ Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 ```c#
 // print a message after the transaction is on chain
 WalletAPI neoAPI = new WalletAPI(client);
-neoAPI.WaitTransaction(transaction)
+await neoAPI.WaitTransactionAsync(transaction)
     .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
 
 ```
@@ -58,6 +58,8 @@ using Neo.SmartContract;
 using Neo.SmartContract.Manifest;
 using Neo.Wallets;
 using System;
+using Neo.IO;
+using System.IO;
 
 namespace ConsoleApp1
 {
@@ -65,12 +67,18 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+            Test().GetAwaiter().GetResult();
+            Console.Read();
+        }
+
+        private static async Task Test()
+        {
+            // choose a neo node with rpc opened, here we use the localhost
+            RpcClient client = new RpcClient("http://127.0.0.1:10332");
             ContractClient contractClient = new ContractClient(client);
 
-            string nefFilePath = "Test.nef";
-            string manifestFilePath = "Test.manifest.json";
+            string nefFilePath = "sc/Contract1.nef";
+            string manifestFilePath = "sc/Contract1.manifest.json";
 
             // read nefFile & manifestFile
             NefFile nefFile;
@@ -82,22 +90,20 @@ namespace ConsoleApp1
             ContractManifest manifest = ContractManifest.Parse(File.ReadAllBytes(manifestFilePath));
 
             // deploying contract needs sender to pay the system fee
-            KeyPair senderKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
+            KeyPair senderKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
 
             // create the deploy transaction
             byte[] script = nefFile.Script;
-            Transaction transaction = contractClient.CreateDeployContractTx(script, manifest, senderKey);
+            Transaction transaction = await contractClient.CreateDeployContractTxAsync(script, manifest, senderKey).ConfigureAwait(false);
 
-            // Broadcast the transaction over the Neo network
-            client.SendRawTransaction(transaction);
+            // Broadcast the transaction over the NEO network
+            await client.SendRawTransactionAsync(transaction).ConfigureAwait(false);
             Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 
             // print a message after the transaction is on chain
             WalletAPI neoAPI = new WalletAPI(client);
-            neoAPI.WaitTransaction(transaction)
+            await neoAPI.WaitTransactionAsync(transaction)
                .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
-
-            Console.ReadKey();
         }
     }
 }
@@ -105,28 +111,34 @@ namespace ConsoleApp1
 
 ## 合约模拟调用
 
-`ContractClient` 提供了 `TestInvoke` 方法来对合约进行模拟调用，执行后不会影响链上数据。可以直接调用读取信息的合约方法，比如下面的例子调用了NEO原生合约中的name方法
+`ContractClient` 提供了 `TestInvokeAsync` 方法来对合约进行模拟调用，执行后不会影响链上数据。可以直接调用读取信息的合约方法，比如下面的例子调用了NEO原生合约中的name方法
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+RpcClient client = new RpcClient("http://127.0.0.1:10332");
 ContractClient contractClient = new ContractClient(client);
 
 // get the contract hash
 UInt160 scriptHash = NativeContract.NEO.Hash;
 
 // test invoking the method provided by the contract 
-string name = contractClient.TestInvoke(scriptHash, "name")
-    .Stack.Single().ToStackItem().GetString();
+RpcInvokeResult invokeResult = await contractClient.TestInvokeAsync(scriptHash, "name").ConfigureAwait(false);
+Console.WriteLine($"The name is {invokeResult.Stack.Single().GetString()}");
 ```
 
-或者使用 `MakeScript` 构造想要执行的脚本，再调用 `InvokeScript` 获取执行结果
+或者使用 `MakeScript` 构造想要执行的脚本，再调用 `RpcClient`中的方法`InvokeScriptAsync` 获取执行结果
 
 ```c#
-// construct the script you want to run in test mode
+// choose a neo node with rpc opened
+RpcClient client = new RpcClient("http://127.0.0.1:10332");
+
+// get the contract hash
+UInt160 scriptHash = NativeContract.NEO.Hash;
+
 byte[] script = scriptHash.MakeScript("name");
 // call invoke script
-name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
+RpcInvokeResult invokeResult = await client.InvokeScriptAsync(script).ConfigureAwait(false);
+Console.WriteLine($"The name is {invokeResult.Stack.Single().GetString()}");
 ```
 
 ## 合约调用（上链交易）
@@ -138,30 +150,27 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
     以调用原生合约 NEO 的 `transfer` 方法为例：
 
     ```c#
-    // construct the script, in this example, we will transfer 1 NEO to receiver
+    // construct the script, in this example, we will transfer 1024 NEO to receiver
     UInt160 scriptHash = NativeContract.NEO.Hash;
-    byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
+    byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024);
     ```
 
 2. 构建交易：
 
     ```c#
-    // initialize the TransactionManager with rpc client and sender scripthash
-    Transaction tx = new TransactionManager(client, sender)
-        // fill the script, attributes and cosigners
-        .MakeTransaction(script, null, cosigners)
-        // add signature for the transaction with sendKey
-        .AddSignature(sendKey)
-        // sign transaction with the added signature
-        .Sign()
-        .Tx;
+    // initialize the TransactionManagerFactory with rpc client and magic
+    // fill the script and cosigners
+    TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
+        .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+    // add signature and sign transaction with the added signature
+    Transaction tx = await txManager.AddSignature(sendKey).SignAsync().ConfigureAwait(false);
     ```
 
 3. 交易构造后广播到链上:
 
     ```c#
     // broadcasts the transaction over the Neo network
-    client.SendRawTransaction(tx);
+    await client.SendRawTransactionAsync(tx).ConfigureAwait(false);
     ```
 
 4. 等待交易上链后，获取交易的执行状态以确保合约调用成功:
@@ -169,7 +178,7 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
     ```c#
     // print a message after the transaction is on chain
     WalletAPI neoAPI = new WalletAPI(client);
-    neoAPI.WaitTransaction(tx)
+    await neoAPI.WaitTransactionAsync(tx)
         .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
     ```
 
@@ -181,21 +190,28 @@ name =  client.InvokeScript(script).Stack.Single().ToStackItem().GetString();
 
 ```c#
 Nep5API nep5API = new Nep5API(client);
-Transaction tx = nep5API.CreateTransferTx(scriptHash, sendKey, receiver, 1);
+Transaction tx = await nep5API.CreateTransferTxAsync(scriptHash, sendKey, receiver, 1).ConfigureAwait(false);
 ```
 
-此外 `Nep5API` 还提供了简单的读取方法：
+此外 `Nep5API` 还提供了以下6种读取方法：
 
 ```c#
 // get nep5 name
-string name = nep5API.Name(scriptHash);
+string name = await nep5API.NameAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
 // get nep5 symbol
-string symbol = nep5API.Symbol(scriptHash);
+string symbol = await nep5API.SymbolAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
 // get nep5 token decimals
-uint decimals = nep5API.Decimals(scriptHash);
+byte decimals = await nep5API.DecimalsAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
 // get nep5 token total supply
-BigInteger totalSupply = nep5API.TotalSupply(scriptHash);
+BigInteger totalSupply = await nep5API.TotalSupplyAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+
+// get the balance of nep5 token
+UInt160 account = Utility.GetScriptHash("NXjtqYERuvSWGawjVux8UerNejvwdYg7eE");
+BigInteger balance = await nep5API.BalanceOfAsync(NativeContract.NEO.Hash, account).ConfigureAwait(false);
+
+// get token information
+RpcNep5TokenInfo tokenInfo = await nep5API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 ```

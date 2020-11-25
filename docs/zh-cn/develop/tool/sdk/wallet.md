@@ -124,7 +124,7 @@ using (wallet.Unlock(password))
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+RpcClient client = new RpcClient("http://127.0.0.1:10332");
 WalletAPI walletAPI = new WalletAPI(client);
 ```
 
@@ -140,7 +140,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 // get the neo balance of account
 string tokenHash = NativeContract.NEO.Hash.ToString();
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
-BigInteger balance = walletAPI.GetTokenBalance(tokenHash, address);
+BigInteger balance = await walletAPI.GetTokenBalanceAsync(tokenHash, address).ConfigureAwait(false);
 ```
 
 也可以使用 ScriptHash 类型的参数：
@@ -150,17 +150,17 @@ BigInteger balance = walletAPI.GetTokenBalance(tokenHash, address);
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
 UInt160 accountHash = Utility.GetScriptHash(address);
 Nep5API nep5API = new Nep5API(client);
-BigInteger balance = nep5API.BalanceOf(tokenScriptHash, accountHash);
+BigInteger balance = await nep5API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
 
 在 Neo3 中 NEO 和 GAS 都是 NEP5 资产，且脚本哈希固定，所以这里提供了更简单的接口：
 
 ```c#
 // Get the NEO balance
-uint neoBalance = walletAPI.GetNeoBalance(address);
+uint neoBalance = await walletAPI.GetNeoBalanceAsync(address).ConfigureAwait(false);
 
 // Get the GAS balance
-decimal gasBalance = walletAPI.GetGasBalance(address);
+decimal gasBalance = await walletAPI.GetGasBalanceAsync(address).ConfigureAwait(false);
 ```
 
 ## 提取 GAS
@@ -172,7 +172,7 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
     ```c#
     // Get the claimable GAS of one address
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
-    decimal gasAmount = walletAPI.GetUnclaimedGas(address);
+    decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(address).ConfigureAwait(false);
     ```
     
     也可以使用账户的 ScriptHash 查询：
@@ -180,7 +180,7 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
     ```c#
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     UInt160 accountHash = Utility.GetScriptHash(address);
-    decimal gasAmount = walletAPI.GetUnclaimedGas(accountHash);
+    decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(accountHash).ConfigureAwait(false);
     ```
 
 2. 构建一笔给自己转账的交易，自动提取 GAS：
@@ -188,13 +188,13 @@ decimal gasBalance = walletAPI.GetGasBalance(address);
     ```c#
     // Claiming GAS needs the KeyPair of account. You can also use wif or private key hex string
     string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
-    Transaction transaction = walletAPI.ClaimGas(wif);
+    Transaction transaction = await walletAPI.ClaimGasAsync(wif).ConfigureAwait(false);
     ```
     也可以使用`KeyPair`：
     
     ```c#
     KeyPair keyPair = Utility.GetKeyPair(wif);
-    Transaction transaction = walletAPI.ClaimGas(keyPair);
+    Transaction transaction = await walletAPI.ClaimGasAsync(keyPair).ConfigureAwait(false);
     ```
 
 ## 资产转账
@@ -209,12 +209,12 @@ string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
 // Transfer 10 NEO from wif to address
-walletAPI.Transfer(tokenHash, wif, address, 10);
+await walletAPI.TransferAsync(tokenHash, wif, address, 10).ConfigureAwait(false);
 
 // Print a message after the transaction is on chain
 WalletAPI neoAPI = new WalletAPI(client);
-neoAPI.WaitTransaction(transaction)
-    .ContinueWith(async (p) => Console.WriteLine($"Transaction is on block {(await p).BlockHash}"));
+await neoAPI.WaitTransactionAsync(transaction)
+  .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
 ```
 也可以使用 `KeyPair` 和  `UInt160` (ScriptHash)：
 
@@ -226,7 +226,7 @@ KeyPair sender = Utility.GetKeyPair(wif);
 UInt160 receiver = Utility.GetScriptHash(address);
 
 // Transfer 10 NEO from wif to address
-walletAPI.Transfer(NativeContract.NEO.Hash, sender, receiver, 10);
+await walletAPI.TransferAsync(NativeContract.NEO.Hash, sender, receiver, 10).ConfigureAwait(false);
 ```
 
 多签账户的 NEP5 转账：
@@ -239,10 +239,7 @@ KeyPair keyPair3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5
 KeyPair keyPair4 = Utility.GetKeyPair("L3Ke1RSBycXmRukv27L6o7sQWzDwDbFcbfR9oBBwXbCKHdBvb4ZM");
 
 //make transaction 
-Transaction tx = walletAPI.CreateTransferTx(gas, 3, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey, keyPair3.PublicKey, keyPair4.PublicKey }, new KeyPair[] { keyPair1, keyPair2, keyPair3 }, Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash, new BigInteger(10));
-
-//broadcast
-RpcClient.SendRawTransaction(tx);
+Transaction tx = await walletAPI.TransferAsync(NativeContract.GAS.Hash, 3, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey, keyPair3.PublicKey, keyPair4.PublicKey }, new KeyPair[] { keyPair1, keyPair2, keyPair3 }, Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash, new BigInteger(10 * NativeContract.GAS.Factor)).ConfigureAwait(false);
 ```
 
 
