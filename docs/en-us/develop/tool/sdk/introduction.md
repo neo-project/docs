@@ -40,9 +40,9 @@ This document is applicable to Neo3 preview2. It is recommended you use NEO SDK 
 
 `Neo RPC SDK` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:
 
-- -100, "Unknown transaction" or "Unknown block"
+- -100, "Unknown transaction/blockhash"
 - -300, "Insufficient funds"
-- -301, "The transaction is failed because the necessary fee exceeds the Max_fee. Please increase your Max_fee value."
+- -301, "The necessary fee is more than the Max_fee, this transaction is failed. Please increase your Max_fee value."
 - -400, "Access denied"
 - -500, Relay does not succeed, the detailed reasons contain "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
 - -32600, "Invalid Request"

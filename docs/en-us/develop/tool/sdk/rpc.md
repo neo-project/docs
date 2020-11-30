@@ -17,7 +17,7 @@ Local node (the local Neo-CLI that can be connected to main net, test net, or pr
 
 ```c#
 // Local Node
-RpcClient client = new RpcClient("http://localhost:10332");
+RpcClient client = new RpcClient("http://127.0.0.1:10332");
 ```
 
 > [!Note]
@@ -26,52 +26,52 @@ RpcClient client = new RpcClient("http://localhost:10332");
 
 ## Blockchain data
 
-### GetBestBlockHash
+### GetBestBlockHashAsync
 Gets the hash of the highest block in the blockchain:
 
 ```c#
-string hexString = client.GetBestBlockHash();
+string hexString = await client.GetBestBlockHashAsync().ConfigureAwait(false);
 byte[] hashBytes = hexString.HexToBytes();
 UInt256 hash256 = UInt256.Parse(hexString);
 ```
 
-### GetBlock
+### GetBlockAsync
 Gets the detailed block information by the block hash or block index.
 
 ```c#
-Block block = client.GetBlock("773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e").Block;
+RpcBlock rpcBlock = await client.GetBlockAsync("773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e").ConfigureAwait(false);
+Block block = rpcBlock.Block;
 ```
 
 or 
 
 ```c#
-Block block = client.GetBlock("10000").Block;
+RpcBlock rpcBlock = await client.GetBlockAsync("1024").ConfigureAwait(false);
+Block block = rpcBlock.Block;
 ```
 
-### GetBlockHex
-
-Gets the serialized block information by the block hash or block index:
+You can also get the serialized block information through the block hash value or block index:
 
 ```c#
-string serializedBlock = client.GetBlockHex("773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e");
+string serializedBlock = await client.GetBlockHexAsync("773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e").ConfigureAwait(false);
 ```
 
-### GetBlockCount
+### GetBlockCountAsync
 
 Gets the current block quantity.
 
 Block index（Index） = Block height（Height） = Block count（Count） - 1
 
 ```c#
-uint blockCount = client.GetBlockCount();
+uint blockCount = await client.GetBlockCountAsync().ConfigureAwait(false);
 ```
 
-### GetBlockHash
+### GetBlockHashAsync
 
 Gets the block hash by the block index.
 
 ```c#
-string hexString = client.GetBlockHash(10000);
+string hexString = await client.GetBlockHashAsync(10000).ConfigureAwait(false);
 byte[] hashBytes = hexString.HexToBytes();
 UInt256 hash256 = UInt256.Parse(hexString);
 ```
@@ -80,92 +80,102 @@ UInt256 hash256 = UInt256.Parse(hexString);
 Get the specific block header information by the block hash or block index:
 
 ```c#
-Header header = client.GetBlockHeader("a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957").Header;
+RpcBlockHeader blockHeader = await client.GetBlockHeaderAsync("a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957").ConfigureAwait(false);
+Header header = blockHeader.Header;
 ```
 
 or
 
 ```c#
-Header header = client.GetBlockHeader("10000").Header;
+RpcBlockHeader blockHeader = await client.GetBlockHeaderAsync("10000").ConfigureAwait(false);
+Header header = blockHeader.Header;
 ```
 
 Get the serialized block header information from the block hash or block index:
 
 ```c#
-string serializedBlockHeader = client.GetBlockHeaderHex("a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957");
+string serializedBlockHeader = await client.GetBlockHeaderHexAsync("a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957").ConfigureAwait(false);
 ```
 
-### GetBlockSysFee
-Gets the system fee for the block and all the previous blocks through the specific block index.
+or
 
-```c#
-BigInteger sysFee = client.GetBlockSysFee(10000);
+```
+string serializedBlockHeader = await client.GetBlockHeaderHexAsync("10000").ConfigureAwait(false);
 ```
 
-### GetContractState
+### GetContractStateAsync
 Gets the contract information from the contract hash or contract ID
 
 ```c#
-ContractState contractState = client.GetContractState("dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f");
+ContractState contractState = await client.GetContractStateAsync("dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f").ConfigureAwait(false);
 ```
 
 ```c#
 ContractState contractState = client.GetContractState(-1);
 ```
 
-### GetRawMempool
+### GetRawMempoolAsync
 Gets hash list of the confirmed transactions in the memory.
 
 ```c#
-string[] verifiedTransactions = client.GetRawMempool();
+string[] verifiedTransactions = await client.GetRawMempoolAsync().ConfigureAwait(false);
 ```
 
-### GetRawMempoolBoth
+### GetRawMempoolBothAsync
 
-Gets the hash list of both confirmed and unconfirmed transactions in memory.
+Gets both confirmed and unconfirmed transaction hashes in memory:
 
 ```c#
-RpcRawMemPool memPool = client.GetRawMempoolBoth();
+RpcRawMemPool memPool = await client.GetRawMempoolBothAsync().ConfigureAwait(false);
 string[] verifiedTransactions = memPool.Verified;
 string[] unverifiedTransactions = memPool.UnVerified;
 ```
 
-### GetRawTransaction
+### GetRawTransactionAsync
 
 Gets the transaction information by transaction ID.
 
 ```c#
-RpcTransaction rpcTransaction = client.GetRawTransaction("f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657");
+RpcTransaction rpcTransaction = await client.GetRawTransactionAsync("f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657").ConfigureAwait(false);
 Transaction transaction = rpcTransaction.Transaction;
 ```
 
-### GetRawTransactionHex
+### GetRawTransactionHexAsync
 
 Gets the serialized transaction by transaction ID.
 
 ```c#
-string serializedTransaction = client.GetRawTransactionHex("f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657");
+string serializedTransaction = await client.GetRawTransactionHexAsync("f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657").ConfigureAwait(false);
 ```
 
-### GetStorage
+### CalculateNetworkFeeAsync
+
+Calculates network fee of the specified transaction.
+
+```
+long networkFee = await rpcClient.CalculateNetworkFeeAsync(transaction).ConfigureAwait(false);
+```
+
+### GetStorageAsync
+
 Gets the stored value through the contract script hash and stored key (which needs to be converted into a hex string):
 
 ```c#
-string value = client.GetStorage("03febccf81ac85e3d795bc5cbd4e84e907812aa3", "5065746572");
+string value = await client.GetStorageAsync("03febccf81ac85e3d795bc5cbd4e84e907812aa3", "5065746572").ConfigureAwait(false);
 ```
 
-### GetTransactionHeight
+### GetTransactionHeightAsync
 Gets the block height of the specified transaction by transaction ID:
 
 ```c#
-uint height = client.GetTransactionHeight("f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657");
+uint height = await client.GetTransactionHeightAsync("f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657").ConfigureAwait(false);
 ```
 
-### GetValidators
+### GetNextBlockValidatorsAsync
 Gets the consensus nodes information and voting status in the current network.
 
 ```c#
-RpcValidator[] rpcValidators = client.GetValidators();
+RpcValidator[] rpcValidators = await client.GetNextBlockValidatorsAsync().ConfigureAwait(false);
 foreach (var validator in rpcValidators)
 {
     string publicKey = validator.PublicKey;
@@ -174,20 +184,28 @@ foreach (var validator in rpcValidators)
 }
 ```
 
+### GetCommitteeAsync
+
+Gets the public key list of the current committee members.
+
+```c#
+string[] committees = await client.GetCommitteeAsync().ConfigureAwait(false);
+```
+
 ## Node
 
 ### GetConnectionCount
 Gets the number of nodes connected to this node.
 
 ```c#
-int connectionCount = client.GetConnectionCount();
+int connectionCount = await client.GetConnectionCountAsync().ConfigureAwait(false);
 ```
 
-### GetPeers
+### GetPeersAsync
 Gets a list of currently connected / unconnected nodes for this node, including IP address and port.
 
 ```c#
-RpcPeers rpcPeers = client.GetPeers();
+RpcPeers rpcPeers = await client.GetPeersAsync().ConfigureAwait(false);;
 RpcPeer[] connected = rpcPeers.Connected;
 RpcPeer[] unconnected = rpcPeers.Unconnected;
 if (connected.Length > 0)
@@ -198,39 +216,37 @@ if (connected.Length > 0)
 }
 ```
 
-### GetVersion
+### GetVersionAsync
 Gets the version of the node receiving the RPC request:
 
 ```c#
-RpcVersion rpcVersion = client.GetVersion();
+RpcVersion rpcVersion = await client.GetVersionAsync().ConfigureAwait(false);
 string version = rpcVersion.UserAgent;
 ```
 
-### SendRawTransaction
+### SendRawTransactionAsync
 Sends and broadcasts the serialized transaction.
 
 ```c#
-bool result = client.SendRawTransaction("80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac");
+UInt256 txHash = await client.SendRawTransactionAsync("80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac").ConfigureAwait(false);
 ```
 
-When `result` is `true` the transaction is broadcast successfully.  
+Or broadcasts the transaction (tx) over the blockchain:
 
-When `result` is `false` the transaction broadcast fails due to double costs, incomplete signatures, etc.
+```c#
+UInt256 txHash = await client.SendRawTransactionAsync(transaction).ConfigureAwait(false);
+```
 
-### SubmitBlock
+### SubmitBlockAsync
 Sends and broadcasts the serialized block：
 
 ```c#
-bool result = client.SubmitBlock("000000000000000000000000000000000000000000000000000000000000000000000000845c34e7c1aed302b1718e914da0c42bf47c476ac4d89671f278d8ab6d27aa3d65fc8857000000001dac2b7c00000000be48d3a3f5d10013ab9ffee489706078714f1ea2010001510400001dac2b7c00000000400000455b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e882a1227d2c7b226c616e67223a22656e222c226e616d65223a22416e745368617265227d5d0000c16ff28623000000da1745e9b549bd0bfa1a569971c77eba30cd5a4b00000000400001445b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e5b881227d2c7b226c616e67223a22656e222c226e616d65223a22416e74436f696e227d5d0000c16ff286230008009f7fd096d37ed2c0e3f7f0cfc924beef4ffceb680000000001000000019b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50000c16ff2862300be48d3a3f5d10013ab9ffee489706078714f1ea201000151");
+UInt256 blockHash = await client.SubmitBlockAsync("000000000000000000000000000000000000000000000000000000000000000000000000845c34e7c1aed302b1718e914da0c42bf47c476ac4d89671f278d8ab6d27aa3d65fc8857000000001dac2b7c00000000be48d3a3f5d10013ab9ffee489706078714f1ea2010001510400001dac2b7c00000000400000455b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e882a1227d2c7b226c616e67223a22656e222c226e616d65223a22416e745368617265227d5d0000c16ff28623000000da1745e9b549bd0bfa1a569971c77eba30cd5a4b00000000400001445b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e5b881227d2c7b226c616e67223a22656e222c226e616d65223a22416e74436f696e227d5d0000c16ff286230008009f7fd096d37ed2c0e3f7f0cfc924beef4ffceb680000000001000000019b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50000c16ff2862300be48d3a3f5d10013ab9ffee489706078714f1ea201000151").ConfigureAwait(false);
 ```
-
-When `result` is `true` the block is broadcast successfully. 
-
-When `result` is `false` the block broadcast fails with exception.
 
 ## Smart contract
 
-### InvokeFunction
+### InvokeFunctionAsync
 Invokes the specific method of the smart contract through the specified smart contract script hash, method name, and parameters, and returns the result after running in the virtual machine.
 
 ```c#
@@ -240,7 +256,7 @@ RpcStack rpcStack = new RpcStack()
     Value = "91b83e96f2a7c4fdf0c1688441ec61986c7cae26"
 };
 UInt160 scriptHashesForVerifying = UInt160.Parse("0x20e22e16cfbcfdd29f347268427b76863b7679fa");
-RpcInvokeResult rpcInvokeResult = client.InvokeFunction("af7c7328eee5a275a3bcaee2bf0cf662b5e739be", "balanceOf", new RpcStack[] { rpcStack },scriptHashesForVerifying);
+RpcInvokeResult rpcInvokeResult = await client.InvokeFunctionAsync("af7c7328eee5a275a3bcaee2bf0cf662b5e739be", "balanceOf", new RpcStack[] { rpcStack },scriptHashesForVerifying).ConfigureAwait(false);
 string script = rpcInvokeResult.Script;
 string engineState = rpcInvokeResult.State;
 long gasConsumed = long.Parse(rpcInvokeResult.GasConsumed);
@@ -253,22 +269,32 @@ foreach (var item in resultStacks)
 string transaction = rpcInvokeResult.Tx;
 ```
 
-### InvokeScript
+### InvokeScriptAsync
 Returns the result after running the specified script in the virtual machine.
 
 ```c#
 byte[] script = "00046e616d656724058e5e1b6008847cd662728549088a9ee82191".HexToBytes();
 UInt160 scriptHashesForVerifying = UInt160.Parse("0x20e22e16cfbcfdd29f347268427b76863b7679fa");
-RpcInvokeResult rpcInvokeResult = client.InvokeScript(script,scriptHashesForVerifying);
+RpcInvokeResult rpcInvokeResult = await client.InvokeScriptAsync(script, scriptHashesForVerifying).ConfigureAwait(false);
+```
+
+### GetUnclaimedGasAsync
+
+Gets amount of unclaimed GAS at the specified address.
+
+```c#
+RpcUnclaimedGas unclaimedGas = await client.GetUnclaimedGasAsync("NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM").ConfigureAwait(false);
+BigInteger unclaimed = unclaimedGas.Unclaimed;
+string address = unclaimedGas.Address;
 ```
 
 ## Tools
 
-### ListPlugins
+### ListPluginsAsync
 Lists all the plugins loaded in the node.
 
 ```c#
-RpcPlugin[] rpcPlugins = client.ListPlugins();
+RpcPlugin[] rpcPlugins = await client.ListPluginsAsync().ConfigureAwait(false);
 foreach (var item in rpcPlugins)
 {
     string name = item.Name;
@@ -276,11 +302,12 @@ foreach (var item in rpcPlugins)
 }
 ```
 
-### ValidateAddress
+### ValidateAddressAsync
 Validates if the specified address is a valid Neo address.
 
 ```c#
-RpcValidateAddressResult result = client.ValidateAddress("AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i");
+RpcValidateAddressResult result = await client.ValidateAddressAsync("AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i").ConfigureAwait(false);
+string address = result.Address;
 bool isValid = result.IsValid;
 ```
 
@@ -289,66 +316,67 @@ The node local wallet interface contains the function of accessing the local wal
 
 This method is disabled by default in the node configuration file for preventing high security risks.
 
-### CloseWallet
+### OpenWalletAsync
+
+Opens the wallet file in the machine running the node.
+
+```c#
+string path = "D:/temp/123.json";
+string password = "Password***";
+bool result = await client.OpenWalletAsync(path, password).ConfigureAwait(false);
+```
+
+### CloseWalletAsync
 Closes the wallet and clears the wallet information in memory.
 
 ```c#
-bool result = client.CloseWallet();
+bool result = await client.CloseWalletAsync().ConfigureAwait(false);
 ```
 
-### DumpPrivKey
+### DumpPrivKeyAsync
 Exports the private key of the specified address.
 
 ```c#
-string wif = client.DumpPrivKey("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ");
+string wif = await client.DumpPrivKeyAsync("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ").ConfigureAwait(false);
 ```
 
-### GetBalance
+### GetBalanceAsync
 Returns balance of the specified asset in the wallet by the asset id. This method is applicable to the native contract assets and NEP-5 compliant assets.
 
 ```c#
-BigInteger balance = client.GetBalance(NativeContract.NEO.Hash.ToString());
+BigDecimal balance = await client.GetWalletBalanceAsync(NativeContract.NEO.Hash.ToString()).ConfigureAwait(false);
 ```
 
-### GetNewAddress
+### GetNewAddressAsync
 Creates a new account in the wallet and returns the corresponding address.
 
 ```c#
-string address = client.GetNewAddress();
+string address = await client.GetNewAddressAsync().ConfigureAwait(false);
 ```
 
-### GetUnclaimedGas
+### GetUnclaimedGasAsync
 Displays amount of the unclaimed GAS in the wallet.
 
 ```c#
-BigInteger amount = client.GetUnclaimedGas();
+BigInteger amount = await client.GetWalletUnclaimedGasAsync().ConfigureAwait(false);
 ```
 
-### ImportPrivKey
+### ImportPrivKeyAsync
 Imports the private key into the wallet.
 
 ```c#
 string wif = "KyoYyZpoccbR6KZ25eLzhMTUxREwCpJzDsnuodGTKXSG8fDW9t7x";
-RpcAccount account = client.ImportPrivKey(wif);
+RpcAccount account = await client.ImportPrivKeyAsync(wif).ConfigureAwait(false);
 ```
 
-### ListAddress
+### ListAddressAsync
 Lists all the addresses in the wallet.
 
 ```c#
-List<RpcAccount> acoounts = client.ListAddress();
+List<RpcAccount> acoounts = await client.ListAddressAsync().ConfigureAwait(false);
 ```
 
-### OpenWallet
-Opens the wallet file in the machine where the node is located:
-
-```c#
-string path = "D:/temp/123.json";
-string pass = "Password***";
-bool result = client.OpenWallet(path, pass);
-```
-
-### SendFrom
+### SendFromAsync
 Transfers asset from a specified address to another address.
 
 ```c#
@@ -356,7 +384,7 @@ string assetId = NativeContract.NEO.Hash.ToString();
 string fromAddress = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
 string toAddress= "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 string amount = "100";
-JObject result = client.SendFrom(assetId, fromAddress, toAddress, amount);
+JObject result = await client.SendFromAsync(assetId, fromAddress, toAddress, amount).ConfigureAwait(false);
 ```
 If the JSON transaction information is returned the transaction was sent successfully, or the transaction failed to be sent.
 
@@ -364,7 +392,7 @@ If the signature is incomplete transaction to be signed is returned.
 
 If the balance is insufficient an error is returned.
 
-### SendMany
+### SendManyAsync
 Transfers assets to multiple addresses. You can specify the sending address.
 
 ```c#
@@ -381,7 +409,7 @@ outs.Add(new RpcTransferOut
     ScriptHash = Utility.GetScriptHash("NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW"),
     Value = "100.12345678"
 });
-JObject result = client.SendMany("", outs);
+JObject result = await client.SendManyAsync("", outs).ConfigureAwait(false);
 ```
 If the JSON transaction information is returned the transaction was sent successfully, or the transaction failed to be sent.
 
@@ -389,14 +417,14 @@ If the signature is incomplete transaction to be signed is returned.
 
 If the balance is insufficient an error is returned.
 
-### SendToAddress
+### SendToAddressAsync
 Transfers asset to the specified address.
 
 ```c#
 string assetId = NativeContract.NEO.Hash.ToString();
 string toAddress = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 string amount = "100";
-JObject result = client.SendToAddress(assetId, toAddress,amount);
+JObject result = await client.SendToAddressAsync(assetId, toAddress, amount).ConfigureAwait(false);
 ```
 If the JSON transaction information is returned the transaction was sent successfully, or the transaction failed to be sent.
 
@@ -406,23 +434,31 @@ If the balance is insufficient an error is returned.
 
 ## Plugins
 
-### GetApplicationLog
+### GetApplicationLogAsync
 Gets the contract log by the specific transaction ID. The plugin ApplicationLogs is required for invoking this method. 
 
 ```c#
 string txHash = "0x23bf33766d00b4bb3314185f1ff0c2c85182d4d5e4e96f7c2df7506e7f99098b";
-RpcApplicationLog log = client.GetApplicationLog(txHash);
+RpcApplicationLog log = await client.GetApplicationLogAsync(txHash).ConfigureAwait(false);
 ```
 
-### GetNep5Balances
+Or gets the contract log based on the specified transaction ID and trigger type
+
+```c#
+string txHash = "0x23bf33766d00b4bb3314185f1ff0c2c85182d4d5e4e96f7c2df7506e7f99098b";
+RpcApplicationLog log = await client.GetApplicationLogAsync(txHash, TriggerType.Application).ConfigureAwait(false);
+```
+
+### GetNep5BalancesAsync
+
 Returns all NEP-5 assets balance at the specified address. The plugin RpcNep5Tracker is required for invoking this method.
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
-RpcNep5Balances balances = client.GetNep5Balances(address);
+RpcNep5Balances balances = await client.GetNep5BalancesAsync(address).ConfigureAwait(false);
 ```
 
-### GetNep5Transfers
+### GetNep5TransfersAsync
 Returns all NEP-5 transaction records at the specific address. The plugin RpcNep5Tracker is required for invoking this method.
 
 If start and end timestamps are specified, transactions occurred in the time range is returned.
@@ -431,5 +467,5 @@ If no parameter is specified transactions in the past seven days are returned.
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
-RpcNep5Transfers transfers = client.GetNep5Transfers(address, 0);
+RpcNep5Transfers transfers = await client.GetNep5TransfersAsync(address, 0).ConfigureAwait(false);
 ```
