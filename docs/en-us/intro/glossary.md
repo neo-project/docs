@@ -26,7 +26,7 @@ A script is a piece of code that consists of opcodes and operands. Each account 
 
 ```
 PUSHDATA1 03ac765294075da6f7927c96bfe3d3f64ae3680c5eb50f82f55170a9f1bea59dad
-SYSCALL Neo.Crypto.ECDsaVerify
+SYSCALL Neo.Crypto.VerifyWithECDsaSecp256r1
 ```
 
 #### Script Hash
@@ -51,15 +51,15 @@ The NEP-5 proposal outlines a token standard for the Neo blockchain that will pr
 
 #### SysCall
 
-The system call is a special operation code, through which you can call the interoperable service layer interface. By calling the interoperable service layer interface, NeoVM can access data such as block, transaction , contract, and asset information that are required for running smart contracts. For more information refer to the files in  [Neo smart contract module](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) starting with  `InteropService.` , such as  `InteropService.Binary.cs`, `InteropService.Blockchain.cs`.
+The system call is a special operation code, through which you can call the interoperable service layer interface. By calling the interoperable service layer interface, NeoVM can access data such as block, transaction , contract, and asset information that are required for running smart contracts. For more information refer to the files in  [Neo smart contract module](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) starting with  `ApplicationEngine.` , such as  `ApplicationEngine.Contract.cs`, `ApplicationEngine.Blockchain.cs`.
 
 #### Dynamic Call
 
-A special system call that invokes another contract within a contract. It can be wrote as `Contract.Call(scriptHash, method, params)`. For more information refer to [Invoking Smart Contracts](sc/deploy/invoke).
+A special system call that invokes another contract within a contract. It can be wrote as `Contract.Call(scriptHash, method, params)`. For more information refer to [Invoking Smart Contracts](../develop/deploy/invoke.md).
 
 #### Storage
 
-Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](../develop/sample/storage.md).
+Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](../reference/scapi/fw/dotnet/neo/storage.md).
 
 #### NEF
 

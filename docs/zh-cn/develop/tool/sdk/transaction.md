@@ -16,21 +16,14 @@
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
     ```
 
-2. 初始化 `TransactionManager` ，将 `RpcClient ` 和发起账户的 `ScriptHash ` 作为参数。
+2. 构造 `TransactionManagerFactory`，将`RpcClient`和 `Magic`作为参数; 构造`TransactionManager`, 将`Script`和`Signers`作为参数。
 
     ```c#
-    // initialize the TransactionManager with rpc client and the sender scripthash
-    TransactionManager txManager = new TransactionManager(client, sender);
+    TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
+            .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
     ```
 
-3. 调用 `MakeTransaction` 方法，传入交易脚本、交易属性和cosigner。
-
-  ```c#
-    // fill the script, attributes and cosigners
-    txManager.MakeTransaction(script, null, cosigners);
-  ```
-
-4. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数。
+3. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数；并且签名。
 
     - 单签
     
@@ -62,15 +55,13 @@
 
     ```c#
     // sign the transaction with the added signatures
-    txManager.Sign();
-    Transaction tx = txManager.Tx;
+    Transaction tx = await txManager.SignAsync().ConfigureAwait(false);
     ```
-
 ## 交易构造示例
 
 ### 构造 NEP5 转账交易
 
-下面的示例实现了从send账户转账1个NEO到receiver账户的功能。构建不同交易时需要关注交易中脚本和所需签名的不同。
+下面的示例实现了从sender账户转账1024个NEO到receiver账户的功能。构建不同交易时需要关注交易中脚本和所需签名的不同。
 
 ```c#
 using Neo;
@@ -81,7 +72,6 @@ using Neo.SmartContract.Native;
 using Neo.VM;
 using Neo.Wallets;
 using System;
-using Utility = Neo.Network.RPC.Utility;
 
 namespace ConsoleApp1
 {
@@ -89,55 +79,91 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+            TestNep5Transfer().GetAwaiter().GetResult();
+            Console.Read();
+        }
 
+        private static async Task TestNep5Transfer()
+        {
+            // choose a neo node with rpc opened
+            RpcClient client = new RpcClient("http://127.0.0.1:10332");
             // get the KeyPair of your account, which will pay the system and network fee
-            KeyPair sendKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
+            KeyPair sendKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
             UInt160 sender = Contract.CreateSignatureContract(sendKey.PublicKey).ScriptHash;
 
-            // add Cosigners, which is a collection of scripthashs that need to be signed
-            Cosigner[] cosigners = new[] { new Cosigner { Scopes = WitnessScope.CalledByEntry, Account = sender } };
+            // add Signers, which is a collection of scripthashs that need to be signed
+            Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
 
             // get the scripthash of the account you want to transfer to
-            UInt160 receiver = Utility.GetScriptHash("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ");
+            UInt160 receiver = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
 
-            // construct the script, in this example, we will transfer 1 NEO to receiver
+            // construct the script, in this example, we will transfer 1024 NEO to receiver
             UInt160 scriptHash = NativeContract.NEO.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
+            byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024);
 
-            // initialize the TransactionManager with rpc client and sender scripthash
-            Transaction tx = new TransactionManager(client, sender)
-                // fill the script, attributes and cosigners
-                .MakeTransaction(script, null, cosigners)
-                // add signature for the transaction with sendKey
-                .AddSignature(sendKey)
-                // sign transaction with the added signature
-                .Sign()
-                .Tx;
+            // initialize the TransactionManagerFactory with rpc client and magic
+            // fill in the TransactionManager with the script and cosigners
+            TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
+                .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+            // add signature and sign transaction with the added signature
+            Transaction tx = await txManager.AddSignature(sendKey).SignAsync().ConfigureAwait(false);
 
             // broadcasts the transaction over the Neo network.
-            client.SendRawTransaction(tx);
+            await client.SendRawTransactionAsync(tx).ConfigureAwait(false);
             Console.WriteLine($"Transaction {tx.Hash.ToString()} is broadcasted!");
 
             // print a message after the transaction is on chain
             WalletAPI neoAPI = new WalletAPI(client);
-            neoAPI.WaitTransaction(tx)
+            await neoAPI.WaitTransactionAsync(tx)
                .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is {(await p).VMState}"));
-
-            Console.ReadKey();
         }
     }
 }
-
-
 ```
 
 `WalletAPI` 封装了上面的过程，NEP5 转账可以简化为：
 
 ```c#
-WalletAPI walletAPI = new WalletAPI(client);
-Transaction tx = walletAPI.Transfer(NativeContract.NEO.Hash, sendKey, receiver, 1);
+using Neo;
+using Neo.Network.P2P.Payloads;
+using Neo.Network.RPC;
+using Neo.SmartContract;
+using Neo.SmartContract.Native;
+using Neo.VM;
+using Neo.Wallets;
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            TestNep5Transfer().GetAwaiter().GetResult();
+            Console.Read();
+        }
+
+        private static async Task TestNep5Transfer()
+        {
+            // choose a neo node with rpc opened
+            RpcClient client = new RpcClient("http://127.0.0.1:10332");
+            // get the KeyPair of your account, which will pay the system and network fee
+            KeyPair sendKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
+
+            // get the scripthash of the account you want to transfer to
+            UInt160 receiver = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
+
+            // use WalletAPI to create and send the transfer transaction
+            WalletAPI walletAPI = new WalletAPI(client);
+            Transaction tx = await walletAPI.TransferAsync(NativeContract.NEO.Hash, sendKey, receiver, 1024).ConfigureAwait(false);
+
+            // print a message after the transaction is on chain
+            WalletAPI neoAPI = new WalletAPI(client);
+            await neoAPI.WaitTransactionAsync(tx)
+               .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is {(await p).VMState}"));
+        }
+    }
+}
 ```
 
 ### 构造交易向多签账户转账
@@ -161,50 +187,50 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+            TestToMultiTransfer().GetAwaiter().GetResult();
+            Console.Read();
+        }
 
+        private static async Task TestToMultiTransfer()
+        {
+            // choose a neo node with rpc opened
+            RpcClient client = new RpcClient("http://127.0.0.1:10332");
             // get the KeyPair of your account, which will pay the system and network fee
-            KeyPair sendKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
+            KeyPair sendKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
             UInt160 sender = Contract.CreateSignatureContract(sendKey.PublicKey).ScriptHash;
 
             // get the KeyPair of your accounts
-            KeyPair key2 = Utility.GetKeyPair("L2ynA5aq6KPJjpisXb8pGXnRvgDqYVkgC2Rw85GM51B9W33YcdiZ");
-            KeyPair key3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5Zbx5NAjPbdb");
+            KeyPair key2 = Utility.GetKeyPair("L1bQBbZWnKbPkpHM3jXWD3E5NwK7nui2eWHYXVZPy3t8jSFF1Qj3");
+            KeyPair key3 = Utility.GetKeyPair("KwrJfYyc7KWfZG5h97SYfcCQyW4jRw1njmHo48kZhZmuQWeTtUHM");
 
             // create multi-signatures contract, this contract needs at least 2 of 3 KeyPairs to sign
             Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
             // get the scripthash of the multi-signature Contract
             UInt160 multiAccount = multiContract.Script.ToScriptHash();
 
-            // construct the script, in this example, we will transfer 10 GAS to multi-sign account
+            // construct the script, in this example, we will transfer 1024 GAS to multi-sign account
             // in contract parameter, the amount type is BigInteger, so we need to muliply the contract factor
             UInt160 scriptHash = NativeContract.GAS.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", sender, multiAccount, 10 * NativeContract.GAS.Factor);
+            byte[] script = scriptHash.MakeScript("transfer", sender, multiAccount, 1024 * NativeContract.GAS.Factor);
 
-            // add Cosigners, this is a collection of scripthashs which need to be signed
-            Cosigner[] cosigners = new[] { new Cosigner { Scopes = WitnessScope.CalledByEntry, Account = sender } };
+            // add Signers, which is a collection of scripthashs that need to be signed
+            Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
 
-            // initialize the TransactionManager with rpc client and sender scripthash
-            Transaction tx = new TransactionManager(client, sender)
-                // fill the script, attributes and cosigners
-                .MakeTransaction(script, null, cosigners)
-                // add signature for the transaction with sendKey
-                .AddSignature(sendKey)
-                // sign transaction with the added signature
-                .Sign()
-                .Tx;
+            // initialize the TransactionManager with rpc client and magic
+            // fill the script and cosigners
+            TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
+                .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+            // add signature and sign transaction with the added signature
+            Transaction tx = await txManager.AddSignature(sendKey).SignAsync().ConfigureAwait(false);
 
-            // broadcasts transaction over the Neo network.
-            client.SendRawTransaction(tx);
+            // broadcasts the transaction over the Neo network.
+            await client.SendRawTransactionAsync(tx).ConfigureAwait(false);
             Console.WriteLine($"Transaction {tx.Hash.ToString()} is broadcasted!");
 
             // print a message after the transaction is on chain
             WalletAPI neoAPI = new WalletAPI(client);
-            neoAPI.WaitTransaction(tx)
+            await neoAPI.WaitTransactionAsync(tx)
                .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is {(await p).VMState}"));
-
-            Console.ReadKey();
         }
     }
 }
@@ -213,7 +239,7 @@ namespace ConsoleApp1
 
 ### 构造交易从多签账户转账
 
-下面的示例实现了从多签账户转出1个GAS的功能。多签账户的scripthash由多签合约脚本的hash得来。因为需要从多签账户转账，添加签名时要根据多签合约要求的签名数量添加。
+下面的示例实现了从多签账户转出1024个GAS的功能。多签账户的scripthash由多签合约脚本的hash得来。因为需要从多签账户转账，添加签名时要根据多签合约要求的签名数量添加。
 
 ```c#
 using Neo;
@@ -232,50 +258,53 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            TestFromMultiTransfer().GetAwaiter().GetResult();
+            Console.Read();
+        }
+
+        private static async Task TestFromMultiTransfer()
+        {
             // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+            RpcClient client = new RpcClient("http://127.0.0.1:10332");
 
             // get the KeyPair of your account
-            KeyPair receiverKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
-            KeyPair key2 = Utility.GetKeyPair("L2ynA5aq6KPJjpisXb8pGXnRvgDqYVkgC2Rw85GM51B9W33YcdiZ");
-            KeyPair key3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5Zbx5NAjPbdb");
+            KeyPair receiverKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
+            KeyPair key2 = Utility.GetKeyPair("L1bQBbZWnKbPkpHM3jXWD3E5NwK7nui2eWHYXVZPy3t8jSFF1Qj3");
+            KeyPair key3 = Utility.GetKeyPair("KwrJfYyc7KWfZG5h97SYfcCQyW4jRw1njmHo48kZhZmuQWeTtUHM");
 
             // create multi-signature contract, this contract needs at least 2 of 3 KeyPairs to sign
             Contract multiContract = Contract.CreateMultiSigContract(2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
-
-            // construct the script, in this example, we will transfer 10 GAS to receiver
-            UInt160 scriptHash = NativeContract.GAS.Hash;
+            // get the scripthash of the multi-signature Contract
             UInt160 multiAccount = multiContract.Script.ToScriptHash();
+
             UInt160 receiver = Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash;
-            byte[] script = scriptHash.MakeScript("transfer", multiAccount, receiver, 10 * NativeContract.GAS.Factor);
 
-            // add Cosigners, this is a collection of scripthashs which need to be signed
-            Cosigner[] cosigners = new[] { new Cosigner { Scopes = WitnessScope.CalledByEntry, Account = multiAccount } };
+            // construct the script, in this example, we will transfer 1024 GAS to multi-sign account
+            // in contract parameter, the amount type is BigInteger, so we need to muliply the contract factor
+            UInt160 scriptHash = NativeContract.GAS.Hash;
+            byte[] script = scriptHash.MakeScript("transfer", multiAccount, receiver, 1024 * NativeContract.GAS.Factor);
 
-            // initialize the TransactionManager with rpc client and sender scripthash
-            Transaction tx = new TransactionManager(client, multiAccount)
-                // fill the script, attributes and cosigners
-                .MakeTransaction(script, null, cosigners)
-                // add multi-signature for the transaction with sendKey
-                .AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
-                .AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
-                // sign the transaction with the added signature
-                .Sign()
-                .Tx;
+            // add Signers, which is a collection of scripthashs that need to be signed
+            Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = multiAccount } };
 
-            // broadcast the transaction over the Neo network.
-            client.SendRawTransaction(tx);
+            // initialize the TransactionManager with rpc client and magic
+            // fill the script and cosigners
+            TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
+                .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+            // add signature and sign transaction with the added signature
+            Transaction tx = await txManager.AddMultiSig(new KeyPair[]{receiverKey, key2}, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
+                .SignAsync().ConfigureAwait(false);
+
+            // broadcasts the transaction over the Neo network.
+            await client.SendRawTransactionAsync(tx).ConfigureAwait(false);
             Console.WriteLine($"Transaction {tx.Hash.ToString()} is broadcasted!");
 
             // print a message after the transaction is on chain
             WalletAPI neoAPI = new WalletAPI(client);
-            neoAPI.WaitTransaction(tx)
-               .ContinueWith(async (p) => Console.WriteLine($"Transaction is on block {(await p).BlockHash}"));
-
-            Console.ReadKey();
+            await neoAPI.WaitTransactionAsync(tx)
+               .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is {(await p).VMState}"));
         }
     }
 }
-
 ```
 

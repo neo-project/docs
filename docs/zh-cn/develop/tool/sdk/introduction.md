@@ -42,9 +42,9 @@
 
 `Neo RPC SDK` 主要通过 RPC 请求与 Neo 节点进行交互，当 RPC 请求返回的消息中带有 Error 时系统就会抛出异常，所以最常见的异常类型是 `RpcException`， 主要包含下面几种：
 
-- -100, "Unknown transaction" or "Unknown block"
+- -100, "Unknown transaction/blockhash"
 - -300, "Insufficient funds"
-- -301, "The transaction is failed because the necessary fee exceeds the Max_fee. Please increase your Max_fee value."
+- -301, "The necessary fee is more than the Max_fee, this transaction is failed. Please increase your Max_fee value."
 - -400, "Access denied"
 - -500, Relay does not succeed, the detailed reasons contain "AlreadyExists, OutOfMemory, UnableToVerify, Invalid, Expired, InsufficientFunds, PolicyFail, Unknown"
 - -32600, "Invalid Request"

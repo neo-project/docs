@@ -1,8 +1,8 @@
-# NEP-5
+# NEP-17
 
-NEP5 协议是 Neo 补充协议中的第5号协议。其目的是为 Neo 建立标准的 token 化智能合约通用交互机制。NEP5资产是在合约存储区内记账，通过对存储区内不同账户 hash 所记录余额数值的变化，完成交易。
+NEP17 协议是 Neo 补充协议中的第17号协议，替代了原先的NEP5协议。其目的是为 Neo 建立标准的 token 化智能合约通用交互机制。NEP17资产是在合约存储区内记账，通过对存储区内不同账户 hash 记录余额数值的变化，完成交易。
 
-参照 NEP5 协议的要求，在编写 NEP5 资产智能合约时必须实现以下方法：
+参照 NEP17 协议的要求，在编写 NEP17 资产智能合约时必须实现以下方法：
 
 **totalSupply**    
 
@@ -10,17 +10,7 @@ NEP5 协议是 Neo 补充协议中的第5号协议。其目的是为 Neo 建立�
 public static BigInteger totalSupply()
 ```
 
-Returns 部署在系统内该 token 的总数。 
-
-**name**    
-
-```c#
-public static string name()
-```
-
-Returns token的名称. e.g. "MyToken"。
-
-该方法每次被调用时必需返回一样的值。
+返回部署在系统内该 token 的总数。 
 
 **symbol**
 
@@ -28,11 +18,11 @@ Returns token的名称. e.g. "MyToken"。
 public static string symbol()
 ```
 
-Returns 合约所管理的token的短字符串符号 . e.g. "MYT"。
+返回合约所管理的token的短字符串符号 . e.g. `"MYT"`。
 
-该符号需要应该比较短小 (建议3-8个字符),  没有空白字符或换行符 ，并限制为大写拉丁字母 (26个英文字符)。 
+该符号必须是一个有效的ASCII字符串，不能有空白字符或换行符，应该限制为简短的（建议为3-8个字符长）大写拉丁字母 (即26个英文字符)。 
 
-该方法每次被调用时必需返回一样的值。
+该方法每次被调用时必须返回一样的值。
 
 **decimals**
 
@@ -40,9 +30,9 @@ Returns 合约所管理的token的短字符串符号 . e.g. "MYT"。
 public static byte decimals()
 ```
 
-Returns token使用的小数位数 - e.g. 8，意味着把 token 数量除以 100,000,000 来获得它的表示值。
+返回token使用的小数位数 - e.g. `8`，意味着把 token 数量除以 `100,000,000` 来获得它的表示值。
 
-该方法每次被调用时必需返回一样的值。 
+该方法每次被调用时必须返回一样的值。 
 
 **balanceOf**
 
@@ -50,43 +40,44 @@ Returns token使用的小数位数 - e.g. 8，意味着把 token 数量除以 10
 public static BigInteger balanceOf(byte[] account)
 ```
 
-Returns 账户的token金额。
+返回`account`的token余额。
 
-参数账户必需是一个 20 字节的地址。如果不是，该方法会抛出一个异常。
+参数`account`必须是一个 20 字节的地址。如果不是，该方法应该`抛出异常`。
 
-如果该账户是个未被使用的地址，该方法会返回0。
+如果`account`是个未被使用的地址，该方法必须返回`0`。
 
 **transfer**
 
 ```c#
 public static bool transfer(byte[] from, byte[] to, BigInteger amount)
 ```
+从账户`from`转移数量为`amount`的token到地址`to`。
 
-从一个账户转移一定数量的 token 到另一个账户. 参数 from 和 to 必需是 20 字节的地址，否则，该方法会报错。
+参数 `from` 和 `to` 必须是 20 字节长的地址。否则，该方法应该`抛出异常`。
 
-参数 amount 必需大于等于0，否则，该方法会报错。
+参数 `amount` 必须大于或等于`0`。否则，该方法应该`抛出异常`。
 
-如果账户没有足够的支付金额，该函数会返回 false。
+如果账户`from`的余额不足以支付费用，该函数必须返回 `false`。
 
-如果方法执行成功，会触发转移事件，并返回 true，即使数量为 0 或者 from 和 to 是同一个地址。
+如果方法执行成功，必须触发`Transfer`事件，并且必须返回 `true`，即使`amount`为 0 或者 `from` 和 `to` 是同一个地址。
 
-函数会检查 from 的地址是否等于调用合约的 hash，如果是，则转移会被处理；否则，函数会调用 SYSCALL `Neo.Runtime.CheckWitness`来确认转移。
+函数应该检查当前调用该方法的合约哈希是否等于地址`from`。如果是，则应该对转账操作进行处理；否则，函数应该调用 SYSCALL `Neo.Runtime.CheckWitness`来验证转账操作。
 
-如果 to 地址是一个部署合约，函数会检查其 payable 标志位来决定是否把 token 转移到该合约。
+如果转账操作没有执行成功，该函数必须返回`false`。
 
-如果转移没有被处理，函数会返回false。
+如果 `to` 是一个已部署合约的地址哈希，函数必须在触发`Transfer`事件后调用合约`to`的`onPayment`方法。如果合约`to`不想接收这笔转账，则必须调用操作码`ABORT`。
 
-**事件 transfer**
+**事件 Transfer**
 
 ```c#
 public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ```
 
-会在token被转移时触发，包括零值转移。
+在token转账完成后必须触发该事件，包括`amount`为0以及`from`和`to`为同一地址的情况。
 
-一个创建新 token 的 token 合约在创建 token 时会触发转移事件，并将from的地址设置为 null。
+一个创建新 token 的 token 合约在创建 token 时必须触发`Transfer`事件，并将地址`from`设置为 `null`。
 
-一个销毁 token 的 token 合约在销毁 token 时会触发转移事件，并将to的地址设置为 null。
+一个销毁 token 的 token 合约在销毁 token 时必须触发`Transfer`事件，并将地址`to`设置为 `null`。
 
 完整的 NEP-5 合约如下，也可参考 [GitHub 源码](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs)
 
@@ -103,7 +94,7 @@ namespace NEP5
     [Features(ContractFeatures.HasStorage)]
     public class NEP5 : SmartContract
     {
-        [DisplayName("transfer")]
+        [DisplayName("Transfer")]
         public static event Action<byte[], byte[], BigInteger> Transferred;
 
         private static readonly BigInteger TotalSupplyValue = 10000000000000000;
@@ -159,17 +150,16 @@ namespace NEP5
         public static BigInteger BalanceOf(byte[] account)
         {
             if (account.Length != 20)
-                throw new InvalidOperationException("The parameter account SHOULD be 20-byte addresses.");
+                throw new InvalidOperationException("The parameter account SHOULD be 20-byte non-zero addresses.");
             return asset.Get(account).TryToBigInteger();
         }
 
         [DisplayName("decimals")]
         public static byte Decimals() => 8;
 
-        private static bool IsPayable(byte[] to)
+        private static void onPayment(BigInteger amount)
         {
-            var c = Blockchain.GetContract(to);
-            return c == null || c.IsPayable;
+            SmartContract.Abort();
         }
 
         [DisplayName("name")]
@@ -199,8 +189,6 @@ namespace NEP5
                 throw new InvalidOperationException("The parameters from and to SHOULD be 20-byte addresses.");
             if (amount <= 0)
                 throw new InvalidOperationException("The parameter amount MUST be greater than 0.");
-            if (!IsPayable(to))
-                return false;
             if (!Runtime.CheckWitness(from) && from.TryToBigInteger() != callscript.TryToBigInteger())
                 return false;
             var fromAmount = asset.Get(from).TryToBigInteger();
@@ -220,6 +208,9 @@ namespace NEP5
             asset.Put(to, toAmount + amount);
 
             Transferred(from, to, amount);
+
+            // Validate payable
+            if (Blockchain.GetContract(to) != null) Contract.Call(to, "onPayment", new object[] { amount });
             return true;
         }
     }
