@@ -16,7 +16,3 @@ Neo 官方提供了供用户开发、调试和测试的测试网（Test Net）�
 3. 打开钱包文件 0.json，可以看到其中的资产。
 
 更多 Neo-CLI 命令，请参考 [CLI](../node/cli/cli.md)。
-
-## 继续阅读
-
-[开发示例合约](develop.md)
