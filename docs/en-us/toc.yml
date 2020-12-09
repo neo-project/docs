@@ -30,7 +30,11 @@
       - name: Encryption Algorithm
         href: /v3/docs/en-us/basic/concept/cryptography/encryption_algorithm.md
     - name: Big and Little Endian Usage
-       href: /v3/docs/en-us/basic/concept/endian.md
+      href: /v3/docs/en-us/basic/concept/endian.md
+    - name: Wallet
+      href: /v3/docs/en-us/basic/concept/wallets.md
+    - name: Transaction
+      href: /v3/docs/en-us/basic/concept/transaction.md
   - name: Consensus
     - name: Overview
       href: /v3/docs/en-us/basic/consensus/dbft.md
@@ -40,10 +44,6 @@
       href: /v3/docs/en-us/basic/consensus/consensus_protocol.md
     - name: Election
       href: /v3/docs/en-us/basic/consensus/vote_validator.md
-  - name: Wallet
-    href: /v3/docs/en-us/basic/concept/wallets.md
-  - name: Transaction
-    href: /v3/docs/en-us/basic/concept/transaction.md
 - name: Neo Node
   items:
   - name: Introduction
@@ -175,6 +175,8 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getstorage.md
     - name: gettransactionheight
       href: /v3/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.md
+    - name: getunclaimedgas
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
     - name: getwalletunclaimedgas
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletunclaimedgas.md
     - name: getcommittee

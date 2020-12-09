@@ -110,7 +110,3 @@
 
 - `NEP5.nef` ：与 Neo2 中的 .avm 文件类似，.nef 是 Neo3 的智能合约执行文件。
 - `NEP5.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
-
-## 继续阅读
-
-[部署与调用合约](deploy.md)

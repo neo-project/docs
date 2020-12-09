@@ -6,15 +6,15 @@ A smart contract is a set of commitments which are defined in digital form, incl
 
 ## What are the characteristics of Neo smart contracts?
 
-Neo Smart Contract 2.0 includes the following features: certainty, high performance, and expandability. 
+Neo Smart Contract includes the following features: certainty, high performance, and expandability. 
 
-From the performance point of view, Neo uses the lightweight NeoVM (Neo Virtual Machine) as its intelligent contract execution environment. It starts very fast and occupies a small amount of resources and is suitable for short procedures like smart contracts. Static compilation and caching of hotspot contracts can be significantly enhanced by JIT (real-time compiler) technology. The instruction set of the Neo virtual machine includes a series of cryptographic instructions to optimize the execution efficiency of cryptographic algorithms in smart contracts. In addition, data manipulation instructions provide direct support for arrays and complex data structures. All of the above will enhance the execution performance for Neo Smart Contract 2.0.
+From the performance point of view, Neo uses the lightweight NeoVM (Neo Virtual Machine) as its intelligent contract execution environment. It starts very fast and occupies a small amount of resources and is suitable for short procedures like smart contracts. Static compilation and caching of hotspot contracts can be significantly enhanced by JIT (real-time compiler) technology. The instruction set of the Neo virtual machine includes a series of cryptographic instructions to optimize the execution efficiency of cryptographic algorithms in smart contracts. In addition, data manipulation instructions provide direct support for arrays and complex data structures. All of the above will enhance the execution performance for Neo Smart Contract.
 
-Neo Smart Contract 2.0 improves its scalability through a combination of high concurrency and dynamic partitioning, along with its low coupling design. The low coupling contract procedure is executed in a virtual machine (Neo virtual machine) and communicates with the outside through the interactive service layer. Therefore, the majority of the smart contract function upgrades can be achieved through API of the interactive service layer.
+Neo Smart Contract improves its scalability through a combination of high concurrency and dynamic partitioning, along with its low coupling design. The low coupling contract procedure is executed in a virtual machine (Neo virtual machine) and communicates with the outside through the interactive service layer. Therefore, the majority of the smart contract function upgrades can be achieved through API of the interactive service layer.
 
 ## Write smart contracts in any language
 
-From the language point of view, the difference between Neo Smart Contract 2.0 and Ethereum is more intuitive: unlike the original Solidity language in Ethereum, the Neo smart contract can be created directly in almost any high-level programming language. The first supported languages ​​are C#, VB.Net, F#, Java, and Kotlin. Neo provides compilers and plugins for these languages, which are used to compile high-level languages ​​into instruction sets supported by Neo virtual machines. The compiler is working on MSIL (Microsoft intermediate language), so theoretically any .Net language and any language that can be translated into MSIL will be immediately supported.
+From the language point of view, the difference between Neo Smart Contract and Ethereum is more intuitive: unlike the original Solidity language in Ethereum, the Neo smart contract can be created directly in almost any high-level programming language. The first supported languages ​​are C#, VB.Net, F#, Java, and Kotlin. Neo provides compilers and plugins for these languages, which are used to compile high-level languages ​​into instruction sets supported by Neo virtual machines. The compiler is working on MSIL (Microsoft intermediate language), so theoretically any .Net language and any language that can be translated into MSIL will be immediately supported.
 
 The languages that are currently supported are:
 
@@ -34,7 +34,7 @@ Additionally, traditional smart contracts are difficult to debug and test given 
 
 ## Smart contract triggers
 
-Neo Smart Contract 2.0 include four types of triggers: System Trigger, Verification Trigger, Application Trigger, and All Trigger (containing the first three types). The commonly used types are Verification Trigger and Application Trigger.
+Neo Smart Contracts include six types of triggers: OnPersist, PostPersist, Verification, Application, System (containing OnPersist and PostPersist), and All (containing the first five types). The commonly used types are Verification Trigger and Application Trigger. 
 
 The above two trigger types determine the two ways to trigger smart contracts:
 
@@ -47,13 +47,13 @@ A smart contract can support multiple trigger types. Since the contract triggere
 
 NeoVM is the virtual machine that executes the Neo smart contract code. The concept of virtual machine here is in a more narrow scope. It's not a simulation of a physical machine under the assistance of the operating system, like VMware or Hyper-V. It's a virtual machine for a specific kind of machine code.
 
-For example, in JVM or .NET CLR, source code will be compiled into the relevant bytecode and then run on the corresponding virtual machine. The JVM or CLR will run the bytecode, which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result. For more infomation, refer to [NeoVM Instructions](../../reference/neo_vm.md).
+For example, in JVM or .NET CLR, source code will be compiled into the relevant bytecode and then run on the corresponding virtual machine. The JVM or CLR will run the bytecode, which is similar to running instructions on a real physical machine. Notably, the corresponding binary instructions are still run on a physical machine. The physical machine fetches instructions from memory, transfers it to the CPU via the bus, then decodes, executes, and stores the result. For more infomation, refer to [NeoVM Instructions](../reference/neo_vm.md).
 
 ## Charging Model
 
 A smart contract can be programmed to charge a certain amount of fee, including deployment costs and execution costs.
 
-Deployment costs refers to the fee which a developer needs to pay to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. For more information, refer to [Smart Contract Fees](../fees.md).
+Deployment costs refers to the fee which a developer needs to pay to deploy a smart contract on the block chain (100~1000 GAS). Execution costs refers to the fee the user pays for execution of the smart contract. All operations have a costs, with most operations defaulting to 0.001 GAS. The first 10 GAS is free. Priority processing can be achieved by manually increasing the execution fee. For more information, refer to [Smart Contract Fees](../reference/fees.md).
 
 ## Some simple smart contracts (C#)
 

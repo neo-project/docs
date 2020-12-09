@@ -11,30 +11,36 @@ Gets the latest block height or hash:
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+RpcClient client = new RpcClient("http://127.0.0.1:10332");
 
-// get the highest block hash
-string hash = client.GetBestBlockHash();
+// get the hash of the tallest block in the main chain
+string hash = await client.GetBestBlockHashAsync().ConfigureAwait(false);
 
-// get the highest block height
-uint height = client.GetBlockCount() - 1;
+// get the number of blocks in the main chain
+uint count = await client.GetBlockCountAsync().ConfigureAwait(false);
 ```
 
 Gets the specific data inside a block, including transaction list, etc.
 
 ```c#
-// get block data
-RpcBlock block = client.GetBlock("166396");
+// get the Base64 string of the block with block height
+string blockHex = await client.GetBlockHexAsync("166396").ConfigureAwait(false);
+
+// get the Base64 string of the block with block hash
+string blockHex = await client.GetBlockHexAsync("0x4e61cd9d76e30e9147ee0f5b9c92f4447decbe52c6c8b412d0382a14d3a0b408").ConfigureAwait(false);
+
+// get block data with block height
+RpcBlock block = await client.GetBlockAsync("166396").ConfigureAwait(false);
 
 // get block data with block hash
-RpcBlock block = client.GetBlock("0x953f6efa29c740b68c87e0a060942056382a6912a0ddeddc2f6641acb92d9700");
+RpcBlock block = await client.GetBlockAsync("0x4e61cd9d76e30e9147ee0f5b9c92f4447decbe52c6c8b412d0382a14d3a0b408").ConfigureAwait(false);
 ```
 
 Gets the contract script, hash, and manifest through `RpcClient`:
 
 ```c#
 // get NEO contract state
-ContractState contractState = client.GetContractState(NativeContract.NEO.Hash.ToString());
+ContractState contractState = await client.GetContractStateAsync(NativeContract.NEO.Hash.ToString()).ConfigureAwait(false);
 ```
 
 For more information refer to [RPC invocation methods](rpc.md).
@@ -45,19 +51,20 @@ Invokes the method  `policyAPI` in the native contract `PolicyContract` to get t
 
 ```c#
 // choose a neo node with rpc opened
-PolicyAPI policyAPI = new PolicyAPI(new RpcClient("http://seed1t.neo.org:20332"));
-
-// get the accounts blocked by policy
-UInt160[] blockedAccounts = policyAPI.GetBlockedAccounts(); // [], no account is blocked by now
+PolicyAPI policyAPI = new PolicyAPI(new RpcClient("http://127.0.0.1:10332"));
 
 // get the system fee per byte
-long feePerByte = policyAPI.GetFeePerByte(); // 1000, 0.00001000 GAS per byte
+long feePerByte = await policyAPI.GetFeePerByteAsync().ConfigureAwait(false); // 1000, 0.00001000 GAS per byte
 
 // get the max size of one block
-uint maxBlockSize = policyAPI.GetMaxBlockSize(); // 262144, (1024 * 256) bytes one block
+uint maxBlockSize = await policyAPI.GetMaxBlockSizeAsync().ConfigureAwait(false); // 262144, (1024 * 256) bytes one block
 
 // get the max transaction count per block
-uint maxTransactionsPerBlock = policyAPI.GetMaxTransactionsPerBlock(); // 512, max 512 transactions one block
+uint maxTransactionsPerBlock = await policyAPI.GetMaxTransactionsPerBlockAsync().ConfigureAwait(false); // 512, max 512 transactions one block
+
+// check if the account is blocked
+UInt160 account = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
+bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 ```
 
 ## Getting NEP-5 contract information
@@ -66,7 +73,7 @@ NEP5 is an asset standard for Neo3, such as NEO and GAS, both of which are asset
 
 ```c#
 // get nep5 token info
-Nep5API nep5API = new Nep5API(client);
-RpcNep5TokenInfo tokenInfo = nep5API.GetTokenInfo(NativeContract.NEO.Hash);
+Nep5API nep5API = new Nep5API(new RpcClient("http://127.0.0.1:10332"));
+RpcNep5TokenInfo tokenInfo = await nep5API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 ```
 

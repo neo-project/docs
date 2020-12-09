@@ -126,7 +126,7 @@ Initializing `WalletAPI`：
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+RpcClient client = new RpcClient("http://127.0.0.1:10332");
 WalletAPI walletAPI = new WalletAPI(client);
 ```
 
@@ -142,27 +142,27 @@ Inquiry NEP-5 asset balance using the string parameter:
 // get the neo balance of account
 string tokenHash = NativeContract.NEO.Hash.ToString();
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
-BigInteger balance = walletAPI.GetTokenBalance(tokenHash, address);
+BigInteger balance = await walletAPI.GetTokenBalanceAsync(tokenHash, address).ConfigureAwait(false);
 ```
 
 or using the parameter of ScriptHash type:
 
 ```c#
-// get the neo balance of account
+// Get the NEO balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
 UInt160 accountHash = Utility.GetScriptHash(address);
 Nep5API nep5API = new Nep5API(client);
-BigInteger balance = nep5API.BalanceOf(tokenScriptHash, accountHash);
+BigInteger balance = await nep5API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
 
 In Neo 3 NEO and GAS are both NEP5 assets with the fixed scripthash. Here we provide a simpler interface:
 
 ```c#
-// get the neo balance
-uint neoBalance = walletAPI.GetNeoBalance(address);
+// Get the NEO balance
+uint neoBalance = await walletAPI.GetNeoBalanceAsync(address).ConfigureAwait(false);
 
-// get the neo balance
-decimal gasBalance = walletAPI.GetGasBalance(address);
+// Get the GAS balance
+decimal gasBalance = await walletAPI.GetGasBalanceAsync(address).ConfigureAwait(false);
 ```
 
 ## Claiming GAS
@@ -172,30 +172,30 @@ In Neo3 GAS is automatically claimed when NEO is transferred. You can construct 
 1. First check the claimable GAS amount at current address:
 
     ```c#
-    // get the claimable GAS of one address
+    // Get the claimable GAS of one address
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
-    decimal gasAmount = walletAPI.GetUnclaimedGas(address);
+    decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(address).ConfigureAwait(false);
     ```
     or use ScriptHash of the account to check:
 
     ```c#
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     UInt160 accountHash = Utility.GetScriptHash(address);
-    decimal gasAmount = walletAPI.GetUnclaimedGas(accountHash);
+    decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(accountHash).ConfigureAwait(false);
     ```
 
 2. Construct a transaction sending NEO to yourself:
 
     ```c#
-    // claiming gas needs the KeyPair of account. You can also use wif or private key hex string
+    // Claiming GAS needs the KeyPair of account. You can also use wif or private key hex string
     string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
-    Transaction transaction = walletAPI.ClaimGas(wif);
+    Transaction transaction = await walletAPI.ClaimGasAsync(wif).ConfigureAwait(false);
     ```
     or use `KeyPair`:
     
     ```c#
     KeyPair keyPair = Utility.GetKeyPair(wif);
-    Transaction transaction = walletAPI.ClaimGas(keyPair);
+    Transaction transaction = await walletAPI.ClaimGasAsync(keyPair).ConfigureAwait(false);
     ```
 
 ## Asset Transfer
@@ -209,13 +209,13 @@ string tokenHash = NativeContract.NEO.Hash.ToString();
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
-// transfer 10 NEO from wif to address
-walletAPI.Transfer(tokenHash, wif, address, 10);
+// Transfer 10 NEO from wif to address
+await walletAPI.TransferAsync(tokenHash, wif, address, 10).ConfigureAwait(false);
 
-// print a message after the transaction is on chain
+// Print a message after the transaction is on chain
 WalletAPI neoAPI = new WalletAPI(client);
-neoAPI.WaitTransaction(transaction)
-    .ContinueWith(async (p) => Console.WriteLine($"Transaction is on block {(await p).BlockHash}"));
+await neoAPI.WaitTransactionAsync(transaction)
+  .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
 ```
 or use `KeyPair` and  `UInt160` (ScriptHash):
 
@@ -226,8 +226,8 @@ string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 KeyPair sender = Utility.GetKeyPair(wif);
 UInt160 receiver = Utility.GetScriptHash(address);
 
-// transfer 10 NEO from wif to address
-walletAPI.Transfer(NativeContract.NEO.Hash, sender, receiver, 10);
+// Transfer 10 NEO from wif to address
+await walletAPI.TransferAsync(NativeContract.NEO.Hash, sender, receiver, 10).ConfigureAwait(false);
 ```
 
 NEP5 transfer from multi-signature account:
@@ -240,10 +240,7 @@ KeyPair keyPair3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5
 KeyPair keyPair4 = Utility.GetKeyPair("L3Ke1RSBycXmRukv27L6o7sQWzDwDbFcbfR9oBBwXbCKHdBvb4ZM");
 
 //make transaction 
-Transaction tx = walletAPI.CreateTransferTx(gas, 3, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey, keyPair3.PublicKey, keyPair4.PublicKey }, new KeyPair[] { keyPair1, keyPair2, keyPair3 }, Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash, new BigInteger(10));
-
-//broadcast
-RpcClient.SendRawTransaction(tx);
+Transaction tx = await walletAPI.TransferAsync(NativeContract.GAS.Hash, 3, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey, keyPair3.PublicKey, keyPair4.PublicKey }, new KeyPair[] { keyPair1, keyPair2, keyPair3 }, Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash, new BigInteger(10 * NativeContract.GAS.Factor)).ConfigureAwait(false);
 ```
 
 

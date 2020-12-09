@@ -30,19 +30,21 @@
         href: /v3/docs/zh-cn/basic/concept/cryptography/hash_algorithm.md
       - name: 加密算法
         href: /v3/docs/zh-cn/basic/concept/cryptography/encryption_algorithm.md
-     - name: 大小端序的使用
+    - name: 大小端序的使用
       href:  /v3/docs/zh-cn/basic/concept/endian.md
+    - name: 钱包
+      href: /v3/docs/zh-cn/basic/concept/wallets.md
+    - name: 交易
+      href: /v3/docs/zh-cn/basic/concept/transaction.md
   - name: 共识机制
+    - name: 概述
+      href: /v3/docs/zh-cn/basic/consensus/dbft.md
     - name: 共识算法
       href: /v3/docs/zh-cn/basic/consensus/consensus_algorithm.md
     - name: 共识协议
       href: /v3/docs/zh-cn/basic/consensus/consensus_protocol.md
     - name: 投票
       href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
-  - name: 钱包
-    href: /v3/docs/zh-cn/basic/concept/wallets.md
-  - name: 交易
-    href: /v3/docs/zh-cn/basic/concept/transaction.md
 - name: Neo 节点
   items:
   - name: 节点介绍
@@ -117,18 +119,10 @@
         href: /v3/docs/zh-cn/develop/tool/sdk/transaction.md
       - name: 合约部署与调用
         href: /v3/docs/zh-cn/develop/tool/sdk/contract.md
-- name: 交易所对接指南
+- name: 进阶知识
   items:
-  - name: 概述
+  - name: 预言机
     href:  /v3/docs/zh-cn/exchange/general.md
-  - name: 部署 Neo 节点
-    href: /v3/docs/zh-cn/exchange/deploynode.md
-  - name: 使用 Neo-CLI 客户端
-    href: /v3/docs/zh-cn/exchange/client.md
-  - name: 处理资产交易
-    href: /v3/docs/zh-cn/exchange/transaction.md
-  - name: 给用户分发 GAS
-    href: /v3/docs/zh-cn/exchange/gas.md 
 - name: 开发参考
   items:
   - name: RPC API
@@ -174,6 +168,8 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
     - name: gettransactionheight
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.md
+    - name: getunclaimedgas
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
     - name: getwalletunclaimedgas
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getwalletunclaimedgas.md
     - name: getcommittee
@@ -273,3 +269,15 @@
     href: /v3/docs/zh-cn/reference/fees.md
   - name: NeoVM 指令集
     href: /v3/docs/zh-cn/reference/neo_vm.md
+- name: 交易所对接指南
+  items:
+  - name: 概述
+    href:  /v3/docs/zh-cn/exchange/general.md
+  - name: 部署 Neo 节点
+    href: /v3/docs/zh-cn/exchange/deploynode.md
+  - name: 使用 Neo-CLI 客户端
+    href: /v3/docs/zh-cn/exchange/client.md
+  - name: 处理资产交易
+    href: /v3/docs/zh-cn/exchange/transaction.md
+  - name: 给用户分发 GAS
+    href: /v3/docs/zh-cn/exchange/gas.md 
