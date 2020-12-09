@@ -6,10 +6,14 @@
 
 程序集：Neo.SmartContract.Framework
 
+> [!Note]
+>
+> 需要验证委员会的多签。签名超过委员会数量的一半的向上取整即为有效，相应操作将被执行。
+
 ## 语法
 
 ```c#
-public static extern bool UnblockAccount(byte[] account);
+public static extern bool UnblockAccount(UInt160 account);
 ```
 
 参数：
@@ -21,7 +25,7 @@ public static extern bool UnblockAccount(byte[] account);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
+    private static readonly UInt160 account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
 
     public static object Main()
     {
@@ -30,5 +34,20 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
+响应正文：
+
+```json
+{
+	"type":"Boolean",
+	"value":"true"
+}
+```
+
+响应说明：
+
+- Boolean类型：true表示解除屏蔽地址成功。
+
+- 其他：失败。
 
 [返回上级](../Policy.md)

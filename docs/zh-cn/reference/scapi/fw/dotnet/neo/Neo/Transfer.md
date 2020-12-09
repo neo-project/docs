@@ -6,10 +6,14 @@ NEO转账。
 
 程序集：Neo.SmartContract.Framework
 
+> [!Note]
+>
+> 需要校验付款人的签名，方法调用者是否为付款人，收款人是否能够收款，以及付款人余额是否充足。
+
 ## 语法
 
 ```c#
-public static extern bool Transfer(byte[] from, byte[] to, BigInteger amount);
+public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount);
 ```
 
 参数：
@@ -23,8 +27,8 @@ public static extern bool Transfer(byte[] from, byte[] to, BigInteger amount);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
-    private static readonly byte[] to = "NXjtqYERuvSWGawjVux8UerNejvwdYg7eE".ToScriptHash();
+    private static readonly UInt160 from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
+    private static readonly UInt160 to = "NXjtqYERuvSWGawjVux8UerNejvwdYg7eE".ToScriptHash();
 
     public static object Main()
     {
@@ -34,5 +38,18 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+响应正文：
 
+```json
+{
+	"type":"Boolean",
+	"value":"true"
+}
+```
+
+响应说明：
+
+- Boolean类型：true表示成功转账。
+
+- 其他：失败。
 [返回上级](../Neo.md)

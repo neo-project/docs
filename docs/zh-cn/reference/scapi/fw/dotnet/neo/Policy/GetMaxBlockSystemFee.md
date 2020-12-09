@@ -24,5 +24,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+响应正文：
+
+```json
+{
+	"type":"Integer",
+	"value":"900000000000"
+}
+```
+
+响应说明：
+
+- Integer类型：成功获取区块最大手续费。
+
+- 其他：失败。
 
 [返回上级](../Policy.md)

@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern string[] IsBlocked(byte[] account);
+public static extern string[] IsBlocked(UInt160 account);
 ```
 
 参数：
@@ -21,14 +21,29 @@ public static extern string[] IsBlocked(byte[] account);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
+    private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
     public static object Main()
     {
-        string[] result = Policy.IsBlocked(account);
+        bool result = Policy.IsBlocked(account);
         return result;
     }
 }
 ```
+
+响应正文：
+
+```json
+{
+	"type":"Boolean",
+	"value":"false"
+}
+```
+
+响应说明：
+
+- Boolean类型：true表示账户已被屏蔽。
+
+- 其他：失败。
 
 [返回上级](../Policy.md)
