@@ -10,7 +10,7 @@
 
 `ContractClient` 中提供了合约部署交易的构建方法 `CreateDeployContractTxAsync`, 参数为合约脚本，manifest 和支付系统费和网络费的账户密钥对，其中合约脚本和 manifest 可通过编译获取，账户中需要有足够的 GAS 支付所需费用。
 
-1. 读取合约 nef 和 manifest.json 文件：
+读取合约 nef 和 manifest.json 文件：
 
 ```C#
 // read nefFile & manifestFile
@@ -193,7 +193,7 @@ Nep5API nep5API = new Nep5API(client);
 Transaction tx = await nep5API.CreateTransferTxAsync(scriptHash, sendKey, receiver, 1).ConfigureAwait(false);
 ```
 
-此外 `Nep5API` 还提供了以下6种读取方法：
+此外 `Nep5API` 还提供了以下读取方法：
 
 ```c#
 // get nep5 name
