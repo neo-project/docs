@@ -86,7 +86,7 @@
       href: /v3/docs/en-us/develop/write/basics.md
     - name: Limitations
       href: /v3/docs/en-us/develop/write/limitation.md
-    - name: NEP-5
+    - name: NEP-17
       href: /v3/docs/en-us/develop/write/nep5.md
     - name: Contract Migration and Destruction
       href: /v3/docs/en-us/develop/migrate.md
@@ -118,18 +118,6 @@
         href: /v3/docs/en-us/develop/tool/sdk/transaction.md
       - name: Deploying and Invoking Contracts
         href: /v3/docs/en-us/develop/tool/sdk/contract.md
-- name: Document for Exchange Developers
-  items:
-  - name: Overview
-    href:  /v3/docs/en-us/exchange/general.md
-  - name: Deploying Neo nodes
-    href: /v3/docs/en-us/exchange/deploynode.md
-  - name: Using Neo-CLI
-    href: /v3/docs/en-us/exchange/client.md
-  - name: Dealing with assets transactions
-    href: /v3/docs/en-us/exchange/transaction.md
-  - name: Distributing GAS to users
-    href: /v3/docs/en-us/exchange/gas.md 
 - name: Reference
   items:
   - name: RPC API
@@ -276,3 +264,15 @@
     href: /v3/docs/en-us/reference/fees.md
   - name: NeoVM Instructions
     href: /v3/docs/en-us/reference/neo_vm.md
+- name: Document for Exchange Developers
+  items:
+  - name: Overview
+    href:  /v3/docs/en-us/exchange/general.md
+  - name: Deploying Neo nodes
+    href: /v3/docs/en-us/exchange/deploynode.md
+  - name: Using Neo-CLI
+    href: /v3/docs/en-us/exchange/client.md
+  - name: Dealing with assets transactions
+    href: /v3/docs/en-us/exchange/transaction.md
+  - name: Distributing GAS to users
+    href: /v3/docs/en-us/exchange/gas.md 
