@@ -1,4 +1,4 @@
-# RegisterCandidate 方法 (byte[])
+# RegisterCandidate 方法 (ECPoint)
 
 注册成为候选人。
 

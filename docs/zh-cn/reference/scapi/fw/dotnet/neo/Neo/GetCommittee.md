@@ -1,6 +1,6 @@
 # GetCommittee 方法 ()
 
-获取委员会成员列表。
+获取委员会成员列表。将候选人根据票数多少排序，取最前面的一定数量候选人（默认21个）作为委员会。委员会名单将在每个区块根据最新投票更新。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

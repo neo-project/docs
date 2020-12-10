@@ -1,4 +1,4 @@
-# BlockAccount 方法 (byte[])
+# BlockAccount 方法 (UInt160)
 
 将指定账户加入黑名单。
 

@@ -1,4 +1,4 @@
-# IsBlocked 方法 (byte[])
+# IsBlocked 方法 (UInt160)
 
 验证是否为黑名单账户。
 

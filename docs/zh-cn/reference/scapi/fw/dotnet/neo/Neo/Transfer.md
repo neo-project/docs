@@ -1,4 +1,4 @@
-# Transfer 方法 (byte[], byte[], BigInteger)
+# Transfer 方法 (UInt160, UInt160, BigInteger)
 
 NEO转账。
 

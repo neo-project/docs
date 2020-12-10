@@ -1,4 +1,4 @@
-# BalanceOf 方法 (byte[])
+# BalanceOf 方法 (UInt160)
 
 获取账户的GAS余额。
 

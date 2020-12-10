@@ -1,4 +1,4 @@
-# UnRegisterCandidate 方法 (byte[])
+# UnRegisterCandidate 方法 (ECPoint)
 
 取消注册为候选人。
 

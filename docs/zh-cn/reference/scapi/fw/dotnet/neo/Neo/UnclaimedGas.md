@@ -1,4 +1,4 @@
-# UnclaimedGas 方法 (byte[], uint)
+# UnclaimedGas 方法 (UInt160, uint)
 
 获取未领取的Gas数.
 

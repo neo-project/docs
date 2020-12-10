@@ -1,4 +1,4 @@
-# UnblockAccount 方法 (byte[])
+# UnblockAccount 方法 (UInt160)
 
 将指定账户解除黑名单。
 

@@ -1,6 +1,6 @@
 # GetNextBlockValidators 方法 ()
 
-获取下个区块的验证人列表。
+获取下个区块的验证人列表。将候选人根据票数多少排序，取最前面的一定数量候选人（默认7个）作为共识节点。与委员会类似，共识节点名单将在每个区块根据最新投票更新。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
