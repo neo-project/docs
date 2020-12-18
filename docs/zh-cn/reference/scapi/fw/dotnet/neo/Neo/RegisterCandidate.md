@@ -1,4 +1,4 @@
-# RegisterCandidate 方法 (byte[])
+# RegisterCandidate 方法 (ECPoint)
 
 注册成为候选人。
 
@@ -6,10 +6,14 @@
 
 程序集：Neo.SmartContract.Framework
 
+> [!Note]
+>
+> 注册候选人需要验证候选人地址的签名，即只有候选人自己才能执行注册/注销操作。
+
 ## 语法
 
 ```c#
-public static extern bool RegisterCandidate(byte[] pubkey);
+public static extern bool RegisterCandidate(ECPoint pubkey);
 ```
 
 参数：
@@ -21,15 +25,29 @@ public static extern bool RegisterCandidate(byte[] pubkey);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] pubkey = new byte[] { 0x02, 0xe8, 0xff, 0x17, 0xc5, 0x67, 0xd6, 0x2f, 0x27, 0x4f, 0xe2,
-         0x47, 0xcc, 0x88, 0x4a, 0x2a, 0x6c, 0xd3, 0xb8, 0xfd, 0x0d, 0x77, 0x9a, 0x8c, 0x58, 0x56, 0x28, 0x9a, 0x56, 0x0a, 0xcc, 0xac, 0xb4 };
+    private static readonly byte[] pubkey = "02e8ff17c567d62f274fe247cc884a2a6cd3b8fd0d779a8c5856289a560accacb4".HexToBytes();
 
     public static object Main()
     {
-        bool result = NEO.RegisterCandidate(pubkey);
+        bool result = NEO.RegisterCandidate((ECPoint)pubkey);
         return result;
     }
 }
 ```
+
+响应正文：
+
+```json
+{
+   	"type":"Boolean",
+   	"value":"true"
+}
+```
+
+响应说明：
+
+- Boolean类型：true表示注册候选人成功。
+
+- 其他：失败。
 
 [返回上级](../Neo.md)

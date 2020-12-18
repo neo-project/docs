@@ -25,4 +25,22 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+Response body:
+
+```json
+[{
+	"type": "Array",
+	"value": [{
+		"type": "ByteString",
+		"value": "Auj/F8Vn1i8nT\u002BJHzIhKKmzTuP0Nd5qMWFYomlYKzKy0"
+	}]
+}]
+```
+
+Response description:
+
+- Array type: validators by persisting block are successfully requested.
+
+- Others: failed.
+
 [Back](../Neo.md)

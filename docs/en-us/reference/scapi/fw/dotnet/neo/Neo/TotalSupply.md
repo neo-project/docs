@@ -25,4 +25,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+Response body:
+
+```json
+{
+	"Type":"Integer",
+	"value":"100000000"
+}
+```
+
+Response description:
+
+- Integer type: token total supply is successfully requested.
+
+- Others: failed.
+
 [Back](../Neo.md)

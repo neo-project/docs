@@ -31,4 +31,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+Response body:
+
+```json
+{
+	"type":"Boolean",
+	"value":"false"
+}
+```
+
+Response description:
+
+- Boolean type: true means the account is blocked.
+
+- Others: failed
+
 [Back](../Policy.md)

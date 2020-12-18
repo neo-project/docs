@@ -1,6 +1,6 @@
 # GetMaxTransactionsPerBlock 方法 ()
 
-获取每区块最大交易数。
+获取区块包含最大交易数。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -24,5 +24,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
+响应正文：
+
+```json
+{
+	"type":"Integer",
+	"value":"500"
+}
+```
+
+响应说明：
+
+- Integer类型：成功获取区块包含最大交易量。
+- 其他：失败。
 
 [返回上级](../Policy.md)

@@ -25,4 +25,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+Response body:
+
+```json
+{
+	"Type":"Integer",
+	"value":"500"
+}
+```
+
+Response description:
+
+- Integer type: maximum block size is successfully requested.
+
+- Others: failed.
+
 [Back](../Policy.md)

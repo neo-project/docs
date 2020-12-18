@@ -1,6 +1,6 @@
 # GetGasPerBlock Method ()
 
-Gets the number of GAS generated for each block.
+Gets the number of GAS generated in each block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -24,5 +24,20 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
+Response body:
+
+```json
+{
+	"Type":"Integer",
+	"value":"100000000"
+}
+```
+
+Response description:
+
+- Integer type: the number of GAS generated in each block
+
+- Others: failed
 
 [Back](../Neo.md)

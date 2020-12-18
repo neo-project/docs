@@ -25,4 +25,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+响应正文：
+
+```json
+{
+	"type":"Integer",
+	"value":"900000000000"
+}
+```
+
+响应说明：
+
+- Integer type: Maximum system fee is obtained successfully.
+
+- Others: failed.
+
 [Back](../Policy.md)

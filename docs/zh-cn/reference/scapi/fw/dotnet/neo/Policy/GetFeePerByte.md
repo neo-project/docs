@@ -1,6 +1,6 @@
 # GetFeePerByte 方法 ()
 
-获取每字节手续费。
+获取交易每字节网络费。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -24,5 +24,20 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
+响应正文：
+
+```json
+{
+	"type":"Integer",
+	"value":"300"
+}
+```
+
+响应说明：
+
+- Integer类型：成功获取交易每字节网络费。
+
+- 其他：失败。
 
 [返回上级](../Policy.md)

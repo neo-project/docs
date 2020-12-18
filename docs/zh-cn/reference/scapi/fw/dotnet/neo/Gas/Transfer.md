@@ -1,4 +1,4 @@
-# Transfer 方法 (byte[], byte[], BigInteger)
+# Transfer 方法 (UInt160, UInt160, BigInteger)
 
 GAS转账。
 
@@ -9,7 +9,7 @@ GAS转账。
 ## 语法
 
 ```c#
-public static extern bool Transfer(byte[] from, byte[] to, BigInteger amount);
+public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount);
 ```
 
 参数：
@@ -23,16 +23,30 @@ public static extern bool Transfer(byte[] from, byte[] to, BigInteger amount);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
-    private static readonly byte[] to = "NXjtqYERuvSWGawjVux8UerNejvwdYg7eE".ToScriptHash();
+    private static readonly UInt160 from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
+    private static readonly UInt160 to = "NXjtqYERuvSWGawjVux8UerNejvwdYg7eE".ToScriptHash();
 
     public static object Main()
     {
-        BigInterger value = 1000;
-        bool result = GAS.Transfer(from, to, value);
+        bool result = GAS.Transfer(from, to, 1000);
         return result;
     }
 }
 ```
+
+响应正文：
+
+```json
+{
+	"type":"Boolean",
+	"value":"true"
+}
+```
+
+响应说明：
+
+- Boolean类型：true表示成功转账。
+
+- 其他：失败。
 
 [返回上级](../Gas.md)

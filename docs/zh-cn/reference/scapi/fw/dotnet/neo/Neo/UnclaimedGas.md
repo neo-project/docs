@@ -1,4 +1,4 @@
-# UnclaimedGas 方法 (byte[], uint)
+# UnclaimedGas 方法 (UInt160, uint)
 
 获取未领取的Gas数.
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern BigInteger UnclaimedGas(byte[] account, uint end);
+public static extern BigInteger UnclaimedGas(UInt160 account, uint end);
 ```
 
 参数：
@@ -22,7 +22,7 @@ public static extern BigInteger UnclaimedGas(byte[] account, uint end);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
+    private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
     public static object Main()
     {
@@ -31,5 +31,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+响应正文：
+
+```json
+{
+	"Type":"Integer",
+	"value":"100000"
+}
+```
+
+响应说明：
+
+- Integer类型：成功获取该账户未领取GAS。
+
+- 其他：失败。
 
 [返回上级](../Neo.md)

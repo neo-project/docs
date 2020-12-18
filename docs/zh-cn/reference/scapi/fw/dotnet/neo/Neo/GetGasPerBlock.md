@@ -25,4 +25,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+响应正文：
+
+```json
+{
+	"Type":"Integer",
+	"value":"100000000"
+}
+```
+
+响应说明：
+
+- Integer类型：每区块可产生的GAS数。
+
+- 其他：失败。
+
 [返回上级](../Neo.md)

@@ -25,4 +25,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+响应正文：
+
+```json
+{
+	"type":"Integer",
+	"value":"500"
+}
+```
+
+响应说明：
+
+- Integer类型：成功获取区块最大大小。
+
+- 其他：失败。
+
 [返回上级](../Policy.md)
