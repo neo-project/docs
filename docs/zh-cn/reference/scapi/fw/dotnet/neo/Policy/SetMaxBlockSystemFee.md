@@ -48,6 +48,8 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 - 其他：失败。
 
-[返回上级](../Policy.md)
+> [!Note]
+>
+> 设置的手续费值应不小于4007600。
 
->注：设置的手续费值应不小于4007600。
+[返回上级](../Policy.md)

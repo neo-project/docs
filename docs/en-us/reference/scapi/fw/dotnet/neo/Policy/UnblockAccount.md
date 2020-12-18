@@ -1,4 +1,4 @@
-# UnblockAccount Method (byte[])
+# UnblockAccount Method (UInt160)
 
 Unblocks accounts.
 
@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern bool UnblockAccount(byte[] account);
+public static extern bool UnblockAccount(UInt160 account);
 ```
 
 Parameter：
@@ -21,7 +21,7 @@ Parameter：
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
+    private static readonly UInt160 account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
 
     public static object Main()
     {
@@ -30,6 +30,21 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
+Response body:
+
+```json
+{
+	"Type":"Boolean",
+	"value":"true"
+}
+```
+
+Response description:
+
+- true: The account is successfully unblocked.
+
+- Others: failed.
 
 [Back](../Policy.md)
 

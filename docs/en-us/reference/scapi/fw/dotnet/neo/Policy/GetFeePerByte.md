@@ -25,4 +25,19 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
+Response body:
+
+```json
+{
+	"type":"Integer",
+	"value":"300"
+}
+```
+
+Response description:
+
+- Integer type: fee per byte for network transmission is successfully requested.
+
+- Others: failed.
+
 [Back](../Policy.md)

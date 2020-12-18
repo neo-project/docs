@@ -52,4 +52,5 @@ public class Contract1 : SmartContract.Framework.SmartContract
 - Boolean类型：true表示成功转账。
 
 - 其他：失败。
+
 [返回上级](../Neo.md)

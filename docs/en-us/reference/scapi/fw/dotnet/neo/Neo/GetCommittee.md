@@ -1,6 +1,6 @@
 # GetCommittee Method ()
 
-Gets the list of committee members
+Gets the list of committee members.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -24,5 +24,23 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
+Response body:
+
+```json
+[{
+	"type": "Array",
+	"value": [{
+		"type": "ByteString",
+		"value": "Auj/F8Vn1i8nT\u002BJHzIhKKmzTuP0Nd5qMWFYomlYKzKy0"
+	}]
+}]
+```
+
+Respond description:
+
+- Array type: committee members are successfully requested.
+
+- Others: failed.
 
 [Back](../Neo.md)

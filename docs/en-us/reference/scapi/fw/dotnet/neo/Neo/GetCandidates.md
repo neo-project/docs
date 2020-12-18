@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern (string, BigInteger)[] GetCandidates();
+public static extern (ECPoint, BigInteger)[] GetCandidates();
 ```
 
 ## Example
@@ -19,11 +19,35 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static object Main()
     {
-        (string, BigInteger)[] result = NEO.GetCandidates();
+        (ECPoint, BigInteger)[] result = NEO.GetCandidates();
         return result;
     }
 }
 ```
+
+Response description:
+
+```json
+[{
+	"type": "Array",
+	"value": [{
+		"type": "Struct",
+		"value": [{
+			"type": "ByteString",
+			"value": "Apls6R4n/uoL7MTn/cB3Llj8G\u002BuLJ7LUyL/JWBQg4I0y"
+		}, {
+			"type": "Integer",
+			"value": "10000"
+		}]
+	}]
+}]
+```
+
+Response description:
+
+- Array type: candidates are successfully requested.
+
+- Others: failed.
 
 [Back](../Neo.md)
 

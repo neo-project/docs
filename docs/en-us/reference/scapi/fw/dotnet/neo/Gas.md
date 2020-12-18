@@ -1,6 +1,6 @@
 # GAS Class
 
-Provides a series of attributes and methods of the native contract GasToken.
+Provides a series of attributes and methods of the native contract GasToken, which contract hash is 0x36a019d836d964c438c573f78badf79b9e7eebdd.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -25,5 +25,5 @@ public class GAS
 | Name                                                         | Description                  |
 | ------------------------------------------------------------ | ---------------------------- |
 | [TotalSupply()](Gas/TotalSupply.md)                          | Gets the total supply of GAS |
-| [BalanceOf(byte\[\] account)](Gas/BalanceOf.md)              | Gets the balance             |
-| [Transfer(byte\[\] from, byte\[\] to, BigInteger amount)](Gas/Transfer.md) | Transfers GAS                |
+| [BalanceOf(UInt160 account)](Gas/BalanceOf.md)               | Gets the balance             |
+| [Transfer(UInt160 from, UInt160 to, BigInteger amount)](Gas/Transfer.md) | Transfers GAS                |

@@ -1,4 +1,4 @@
-# UnRegisterCandidate Method (byte[])
+# UnRegisterCandidate Method (ECPoint)
 
 Unregisters as a candidate.
 
@@ -6,10 +6,14 @@ Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
+> [!Note]
+>
+> Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
+
 ## Syntax
 
 ```c#
-public static extern bool UnRegisterCandidate(byte[] pubkey);
+public static extern bool UnRegisterCandidate(ECPoint pubkey);
 ```
 
 Parameter:
@@ -21,15 +25,29 @@ Parameter:
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static readonly byte[] pubkey = new byte[] { 0x02, 0xe8, 0xff, 0x17, 0xc5, 0x67, 0xd6, 0x2f, 0x27, 0x4f, 0xe2,
-         0x47, 0xcc, 0x88, 0x4a, 0x2a, 0x6c, 0xd3, 0xb8, 0xfd, 0x0d, 0x77, 0x9a, 0x8c, 0x58, 0x56, 0x28, 0x9a, 0x56, 0x0a, 0xcc, 0xac, 0xb4 };
+    private static readonly byte[] pubkey = "02e8ff17c567d62f274fe247cc884a2a6cd3b8fd0d779a8c5856289a560accacb4".HexToBytes();
 
     public static object Main()
     {
-        bool result = NEO.UnRegisterCandidate(pubkey);
+        bool result = NEO.UnRegisterCandidate((ECPoint)pubkey);
         return result;
     }
 }
 ```
+
+Response body:
+
+```json
+{
+	"Type":"Boolean",
+	"value":"true"
+}
+```
+
+Response description:
+
+- true: The candidate is successfully unregistered.
+
+- Others: failed.
 
 [Back](../Neo.md)

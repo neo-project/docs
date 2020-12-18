@@ -44,7 +44,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 响应说明：
 
-- Array类型：成功获取候选人列表。
+- Array 类型：成功获取候选人列表。
 
 - 其他：失败。
 
