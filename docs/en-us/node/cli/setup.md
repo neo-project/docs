@@ -51,11 +51,11 @@ You can download and compile the Neo-CLI source directly from Github.
 ### Installing required files
 
 1. Git clone Neo-CLI source code from [Github](https://github.com/neo-project/neo-node) or using the following command:
-  
+
   ```
-  $ git clone https://github.com/neo-project/neo-node.git
+ $ git clone -b master-2.x https://github.com/neo-project/neo-node.git
   ```
-  
+
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
 
 3. Install the latest version of  [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)
