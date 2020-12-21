@@ -95,7 +95,7 @@ dotnet publish -c release -r linux-x64
 1. Git clone [Neo-CLI](https://github.com/neo-project/neo-cli.git) source code from Github or use the following commands:
 
    ```
-   $ git clone https://github.com/neo-project/neo-node/tree/master-2.x
+   $ git clone -b master-2.x https://github.com/neo-project/neo-node.git
    ```
    
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
