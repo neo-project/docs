@@ -87,7 +87,7 @@
       href: /v3/docs/zh-cn/develop/write/basics.md
     - name: 编写限制
       href: /v3/docs/zh-cn/develop/write/limitation.md
-    - name: NEP-5
+    - name: NEP-17
       href: /v3/docs/zh-cn/develop/write/nep5.md
     - name: 合约升级
       href: /v3/docs/zh-cn/develop/write/migrate.md
@@ -122,7 +122,7 @@
 - name: 进阶知识
   items:
   - name: 预言机
-    href:  /v3/docs/zh-cn/exchange/general.md
+    href:  /v3/docs/zh-cn/advanced/oracle.md
 - name: 开发参考
   items:
   - name: RPC API

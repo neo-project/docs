@@ -89,7 +89,7 @@
     - name: NEP-17
       href: /v3/docs/en-us/develop/write/nep5.md
     - name: Contract Migration and Destruction
-      href: /v3/docs/en-us/develop/migrate.md
+      href: /v3/docs/en-us/develop/write/migrate.md
   - name: Contract Samples
     items: 
     - name: Hello World
@@ -118,6 +118,10 @@
         href: /v3/docs/en-us/develop/tool/sdk/transaction.md
       - name: Deploying and Invoking Contracts
         href: /v3/docs/en-us/develop/tool/sdk/contract.md
+- name: Advanced Topics
+  items:
+  - name: Oracles
+    href:  /v3/docs/en-us/advanced/oracle.md
 - name: Reference
   items:
   - name: RPC API

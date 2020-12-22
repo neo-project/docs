@@ -21,9 +21,9 @@
 | [Neo Network](develop/network/testnet.md) | [Writing Smart Contracts](develop/write/basics.md) | [Deploying and Invoking Contracts](develop/deploy/deploy.md) |      |
 | [Tools](develop/tool/sdk/introduction.md) | [Contract Samples](develop/sample/HelloWorld.md)   |                                                              |      |
 
-| Advanced Topics |      |      |      |
-| --------------- | ---- | ---- | ---- |
-| [Oracle]()      |      |      |      |
+| Advanced Topics              |      |      |      |
+| ---------------------------- | ---- | ---- | ---- |
+| [Oracle](advanced/oracle.md) |      |      |      |
 
 | Reference                                      |                                               |                                                   |                                           |
 | ---------------------------------------------- | --------------------------------------------- | ------------------------------------------------- | ----------------------------------------- |
