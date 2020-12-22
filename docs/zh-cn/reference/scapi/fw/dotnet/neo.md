@@ -25,14 +25,18 @@ NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | [Runtime](neo/Runtime.md)                | 提供智能合约运行时的一些方法     |
 | [Storage](neo/Storage.md)                | 提供了持久化存储区的插入、查询、删除的方法    |
 | [StorageContext](neo/StorageContext.md)  | 用来表示私有存储区存储上下文的类   |
-| [StorageFlags](neo/StorageFlags.md)  | 表明了写入数据的属性   |
 | [StorageMap](neo/StorageMap.md)  | 表示给定存储上下文中指定前缀的key-value存储区   |
 | [Transaction](neo/Transaction.md)        | 用来表示交易的基类                |
+| [NEO](neo/Neo.md)        |                 |
+| [GAS](neo/Gas.md)        | 用来表示交易的基类                |
+| [Policy](neo/Policy.md)        |                 |
+| [Oracle](neo/Oracle.md)        |                 |
 
 ## 枚举
 
 | 枚举                                       | 说明                        |
 | ---------------------------------------- | ------------------------- |
 | [CallFlags](neo/CallFlags.md) | 定义调用合约方法时的模式|
+| [StorageFlags](neo/StorageFlags.md)  | 表明了写入数据的属性   |
 | [TriggerType](neo/TriggerType.md) | 定义了触发器类型 |
 

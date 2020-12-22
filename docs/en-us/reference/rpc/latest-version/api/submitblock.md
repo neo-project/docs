@@ -17,7 +17,7 @@ Broadcasts a new block in the NEO network.
 
 ### Parameter Description
 
-hex: A hexadecimal string of a serialized block.
+hex: A Base64-encoded string of a serialized block.
 
 ## Example
 
@@ -27,7 +27,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "submitblock",
-  "params": ["0000000020101cfb80de52766575a91310fddd7bf4fbd4f904e5574373649092cffffcf154badd3ae13d8aa76e75ebf9a1b2fcff874e85798a940da9e21f9533625b5a135bf545ce74010000180000000b2222301e1d5984be6d5a928e946d269603505801420c40ffe24193611172117b7cb49915afe91ec7bf314c6f855f13f82f84329238e8e1649c1aea471873fb374f548a70bb04d0cb127ddb1d4765f67d3b29a2a10e42822b110c2102470d8f746f040f8b9355be5e6fd1dc280f0c6ba9270420290337b07a37f706bd110b41138defaf010088e65a74589edfbf"],
+  "params": ["AAAAACMSKFbGpGl6t7uroMpi2ilhQd84eU/pUrRfQyswXYl76woLOY0oW1z4InfxoKyxFAAB+8FS6cRu2Pm0iaOiD8OMCnLadQEAAMgcAAD6lrDvowCyjK9dBALCmE1fvMuahQFCDEAd8EoEFBcxOLCZfh8w0tUEHHmyn++KzW4I8oeJ1WyMmjHVcolpNzOnAOzXTn/xujwy93gJ9ijvVo6wAF5qC3wCKxEMIQL4L//X3jDpIyMLze0sPNW+yFcufrrL3bnzOipdJpNLixELQRON768CAGUTt7+NSxXGAA7aoUS2kokAAAAAACYcEwAAAAAARzMAAAHNWK7P0zW+HrPTEeHcgAlj39ctnwEAXQMA5AtUAgAAAAwUzViuz9M1vh6z0xHh3IAJY9/XLZ8MFM1Yrs/TNb4es9MR4dyACWPf1y2fE8AMCHRyYW5zZmVyDBS8r0HWhMfUrW7g2Z2pcHudHwyOZkFifVtSOAFCDEADRhUarLK+/BBjhqaWY5ieento21zgkcsUMWNCBWGd+v8a35zatNRgFbUkni4dDNI/BGc3zOgPT6EwroUsgvR+KQwhAv3yei642bBp1hrlpk26E7iWN8VC2MdMXWurST/mONaPC0GVRA14"],
   "id": 1
 }
 ```

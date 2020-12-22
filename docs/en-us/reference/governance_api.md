@@ -36,8 +36,8 @@ An address can be registered as candidate or unregistered afterwards. Correspond
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`registerCandidate`](govapi/registerCandidate.md) | byte[] publicKey | 0.05 |
-| [`unregisterCandidate`](govapi/unregisterCandidate.md) | byte[] publicKey | 0.05 |
+| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | UInt160 publicKey | 0.05 |
+| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | UInt160 publicKey | 0.05 |
 
 > [!Note]
 >
@@ -51,7 +51,7 @@ Voting contract method is as follows. Please not that voter's signature will be 
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`vote`](govapi/vote.md) | byte[] account, byte[] voteTo | 5 |
+| [`Vote`](scapi/fw/dotnet/neo/Neo/Vote.md) | UInt160 account, byte[] voteTo | 5 |
 
 As voters' votes & held NEO, as well as registered candidates keep changing, candidate set and their votes are re-calculated in every block.
 
@@ -59,7 +59,7 @@ As voters' votes & held NEO, as well as registered candidates keep changing, can
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`getCandidates`](govapi/getCandidates.md) | null | 1 |
+| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 1 |
 
 ### Committee
 
@@ -76,11 +76,11 @@ Method definition and corresponding fee are defined in PolicyContract as shown b
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`setMaxBlockSize`](govapi/setMaxBlockSize.md) | uint blockSize | 0.03 |
-| [`setMaxTransactionsPerBlock`](govapi/setMaxTransactionsPerBlock.md) | uint maxTransactions | 0.03 |
-| [`setFeePerByte`](govapi/setFeePerByte.md) | long feePerByte | 0.03 |
-| [`blockAccount`](govapi/blockAccount.md) | byte[] account | 0.03 |
-| [`unblockAccount`](govapi/unblockAccount.md) | byte[] account | 0.03 |
+| [`SetMaxBlockSize`](scapi/fw/dotnet/neo/Policy/SetMaxBlockSize.md) | uint blockSize | 0.03 |
+| [`SetMaxTransactionsPerBlock`](scapi/fw/dotnet/neo/Policy/SetMaxTransactionsPerBlock.md) | uint maxTransactions | 0.03 |
+| [`SetFeePerByte`](scapi/fw/dotnet/neo/Policy/SetFeePerByte.md) | long feePerByte | 0.03 |
+| [`BlockAccount`](scapi/fw/dotnet/neo/Policy/BlockAccount.md) | UInt160 account | 0.03 |
+| [`UnblockAccount`](scapi/fw/dotnet/neo/Policy/UnblockAccount.md) | UInt160 account | 0.03 |
 
 To bring such modification into effect, committee members should send a transaction which calls corresponding method & includes enough signatures on chain. This transaction is executed as long as it's signed by more than half of the committee members.
 
@@ -88,9 +88,9 @@ Furthermore, PolicyContract also supports corresponding reading methods:
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`getMaxBlockSize`](govapi/getMaxBlockSize.md) | null | 0.01 |
-| [`getMaxTransactionsPerBlock`](govapi/getMaxTransactionsPerBlock.md) | null | 0.01 |
-| [`getFeePerByte`](govapi/getFeePerByte.md) | null | 0.01 |
+| [`GetMaxBlockSize`](scapi/fw/dotnet/neo/Policy/GetMaxBlockSize.md) | null | 0.01 |
+| [`GetMaxTransactionsPerBlock`](scapi/fw/dotnet/neo/Policy/GetMaxTransactionsPerBlock.md) | null | 0.01 |
+| [`GetFeePerByte`](scapi/fw/dotnet/neo/Policy/GetFeePerByte.md) | null | 0.01 |
 | [`getBlockedAccounts`](govapi/getBlockedAccounts.md) | null | 0.01 |
 
 #### How Are Committee Members Elected
@@ -103,7 +103,7 @@ Committee members will be refreshed every block.
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`getCommittee`](govapi/getCommittee.md) | null | 1 | Current committee members in format of Array<ECPoint> |
+| [`GetCommittee`](scapi/fw/dotnet/neo/Neo/GetCommittee.md) | null | 1 | Current committee members in format of Array<ECPoint> |
 
 ### Validator
 
@@ -122,7 +122,7 @@ Similar to committee members, validators will be refreshed every block.
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
 | [`getValidators`](govapi/getValidators.md) | null | 1 | Current validators in format of Array<ECPoint> |
-|  [`getNextBlockValidators`](govapi/getNextBlockValidators.md)  | null | 1 | Validators by persisting block in format of Array<ECPoint> |
+|  [`GetNextBlockValidators`](scapi/fw/dotnet/neo/Neo/GetNextBlockValidators.md)  | null | 1 | Validators by persisting block in format of Array<ECPoint> |
 
 ## Token Distribution
 
@@ -134,7 +134,7 @@ Half of total NEO amount, or 50 million tokens are distributed in genesis block 
 
 3. Remaining half is distributed to standby validators' multi-signature address
 
-  All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
+   All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
 
 ## Nep5 Contract method
 
@@ -145,9 +145,9 @@ NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-
 | [`name`](govapi/name.md)  | null | 0 | Token name in String |
 | [`symbol`](govapi/symbol.md)  | null | 0 | Token symbol in String |
 |  [`decimals`](govapi/decimals.md)  | null | 0.01 | Token decimals in UInt |
-|  [`totalSupply`](govapi/totalSupply.md) | null | 0.01 | Token total supply in BigInteger |
-| [`balanceOf`](govapi/balanceOf.md) | byte[] account | 0.01 | account balance in BigInteger |
-|  [`transfer`](govapi/transfer.md) | byte[] from, byte[] to, BigInteger amount | 0.08 | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
+| [`TotalSupply`](scapi/fw/dotnet/neo/Neo/TotalSupply.md) | null | 0.01 | Token total supply in BigInteger |
+| [`BalanceOf`](scapi/fw/dotnet/neo/Neo/BalanceOf.md) | UInt160 account | 0.01 | account balance in BigInteger |
+| [`Transfer`](scapi/fw/dotnet/neo/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.08 | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
 |  [`onPersist`](govapi/onPersist.md) | null | 0 | Manually perform actions this Nep5 contract will do upon block persisting |
 | [`supportedStandards`](govapi/supportedStandards.md) | null | 0 | Supported NEP standards in String[] |
 
@@ -155,4 +155,4 @@ Contract methods by NEO:
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-|  [`unclaimedGas`](govapi/unclaimedGas.md) | byte[] account | 0.03 | unclaimed GAS amount of this address in uint |
+| [`UnclaimedGas`](scapi/fw/dotnet/neo/Neo/UnclaimedGas.md) | UInt160 account | 0.03 | unclaimed GAS amount of this address in uint |

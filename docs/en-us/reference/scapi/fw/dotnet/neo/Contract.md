@@ -16,7 +16,7 @@ public class Contract
 
 | Name | description |
 | ---------------------------- | ---------- |
-| [Script](Contract/Script.md) | Returns the scripthash of the contract |
+| Script | Returns the scripthash of the contract |
 | HasStorage | Whether the contract contains the storage |
 | IsPayable | Whether the contract is able to accept assets |
 

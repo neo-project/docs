@@ -17,22 +17,6 @@
       "git": "https://github.com/neo-project/docs/blob/new-release-neo3/docs/en-us/"
     },
     {
-      "origin": "tutorial\\zh-cn",
-      "template": "template",
-      "destination": "..\\docs\\wwwroot\\v3\\tutorial\\zh-cn",
-      "catalog": "tutorial\\zh-cn\\toc.yml",
-      "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/new-release-neo3/tutorial/zh-cn/"
-    },
-    {
-      "origin": "tutorial\\en-us",
-      "template": "template",
-      "destination": "..\\docs\\wwwroot\\v3\\tutorial\\en-us",
-      "catalog": "tutorial\\en-us\\toc.yml",
-      "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/new-release-neo3/tutorial/en-us/"
-    },
-    {
       "origin": "faq\\zh-cn",
       "template": "template",
       "destination": "..\\docs\\wwwroot\\v3\\faq\\zh-cn",

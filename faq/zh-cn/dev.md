@@ -8,8 +8,8 @@
 
 要搭建私链，有以下方法可供选择：
 
-- [单节点模式快速搭建](../../docs/zh-cn/network/private-chain/solo.md)
-- [在本地主机搭建私有链](../../docs/zh-cn/network/private-chain/private-chain2.md)
+- [单节点模式快速搭建](../../docs/zh-cn/develop/network/private-chain/solo.md)
+- [在本地主机搭建私有链](../../docs/zh-cn/develop/network/private-chain/private-chain2.md)
 
 还可以参见 [社区文章](../../articles/zh-cn/index.md)，学习更多私链搭建方法。
 

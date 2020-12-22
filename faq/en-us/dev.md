@@ -8,8 +8,8 @@ Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https:
 
 To build a private chain, you have the following options：
 
-- Build a private chain with one node. See [here](../../docs/en-us/network/private-chain/solo.md).
-- Build a private chain on your local host. See [here](../../docs/en-us/network/private-chain/private-chain2.md).
+- Build a private chain with one node. See [here](../../docs/en-us/develop/network/private-chain/solo.md).
+- Build a private chain on your local host. See [here](../../docs/en-us/develop/network/private-chain/private-chain2.md).
 
 You can also refer to the [community articles](../../articles/en-us/index.md) to learn more options.
 

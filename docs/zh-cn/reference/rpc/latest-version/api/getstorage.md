@@ -7,7 +7,7 @@
 
 ## 参数说明
 
-script_hash: 合约脚本散列。
+script_hash/id: 合约脚本散列或合约id。
 
 key: 存储区的键（需要转化为hex string）。
 
@@ -17,10 +17,10 @@ key: 存储区的键（需要转化为hex string）。
 
 ```json
 {
-	"jsonrpc": "2.0",
-	"method": "getstorage",
-	"params": ["03febccf81ac85e3d795bc5cbd4e84e907812aa3", "5065746572"],
-	"id": 15
+    "jsonrpc": "2.0",
+    "method": "getstorage",
+    "params": ["0x99042d380f2b754175717bb932a911bc0bb0ad7d", "48656c6c6f"],
+    "id": 1
 }
 ```
 
@@ -28,9 +28,9 @@ key: 存储区的键（需要转化为hex string）。
 
 ```json
 {
-	"jsonrpc": "2.0",
-	"id": 15,
-	"result": "4c696e"
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": "776f726c64"
 }
 ```
 

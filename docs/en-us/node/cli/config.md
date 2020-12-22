@@ -53,7 +53,7 @@ Where:
 
 To connect the node to test net, replace the content of configuration files  `config.json` and `protocol.json` with the content of  `config.testnet.json` and `protocol.testnet.json` respectively.
 
-To connect the node to your private net, refer to [Setting up Private Chain](../../network/private-chain/solo.md).
+To connect the node to your private net, refer to [Setting up Private Chain](../../develop/network/private-chain/solo.md).
 
 ## Installing plugins
 
@@ -188,7 +188,3 @@ If you want the external program to access the node API need to open the firewal
 > [!WARNING]
 >
 > If you open the API service and the wallet in Neo-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.
-
-## What's next?
-
-[CLI Command Reference](cli.md)

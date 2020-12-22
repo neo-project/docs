@@ -37,7 +37,7 @@
    ```
    
     并在ubuntu 18.04 上输入以下命令：
-    
+   
    ```
    sudo apt-get install librocksdb-dev
    ```
@@ -52,7 +52,7 @@
 1. 下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
 
    ```
-   $ git clone https://github.com/neo-project/neo-node.git
+   $ git clone -b master-2.x https://github.com/neo-project/neo-node.git
    ```
 
 2. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。

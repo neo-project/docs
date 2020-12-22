@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static class Json
 ```
 
-## Attributes
+## Methods
 
 | Name                                   | Description              |
 | ---------------------------------------- | -------------------------- |

@@ -15,8 +15,6 @@ Invokes a smart contract with its scripthash based on the specified operation an
 
 * params: Optional. The parameters to be passed into the smart contract operation
 
-* sender: Optional. The transaction sender and the account paying transaction fee. By default it is the first account in signers. 
-
 * signers: Optional. List of contract signature accounts.
 
   > [!Note]
@@ -76,7 +74,6 @@ Request body:
         "value":"8"
         }        
     ],
-    "0x1f5da2e47b37c4b96668a98da4ed8feb94bdf146",
     [
         {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",

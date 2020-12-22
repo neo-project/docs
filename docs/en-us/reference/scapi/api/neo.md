@@ -7,6 +7,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 | API                           | Description                         |
 | -- | --|
 |Neo.Native.Deploy|Deploys and initializes all native contracts|
+|Neo.Native.Call|Invokes native contracts|
 
 <br/>
 
@@ -17,7 +18,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	    <th>Description</th>  
 	</tr >
 	<tr >
-	    <td rowspan="11">Neo.Native.Tokens.NEO</td>
+	    <td rowspan="15">Neo.Native.Tokens.NEO</td>
 	    <td>name</td>
 	    <td>Gets token name, ie: NEO</td>
 	</tr>
@@ -41,26 +42,40 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	    <td>transfer</td>
 	    <td>Transfers the token</td>
 	</tr>
+    <tr>
+	    <td>SetGasPerBlock</td>
+	    <td>Sets the number of GAS generated for each block</td>
+	</tr>
 	<tr>
-	    <td>registerValidator</td>
-	    <td>Registers to be a validator</td>
+	    <td>GetGasPerBlock</td>
+	    <td>Gets the number of GAS generated for each block</td>
+	</tr>
+	<tr>
+	    <td>RegisterCandidate</td>
+	    <td>Registers as a candidate</td>
+	</tr>
+	<tr>
+	    <td>UnregisterCandidate</td>
+	    <td>Unregisters as a candidate</td>
 	</tr>
 	<tr>
 	    <td>vote</td>
-	    <td>Votes for validators</td>
+	    <td>Vote</td>
 	</tr>
 	<tr>
-	    <td>getRegisteredValidators</td>
-	    <td>Gets registered validators</td>
+	    <td>GetCandidates</td>
+	    <td>Gets a list of candidates</td>
 	</tr>
 	<tr>
-	    <td>getValidators</td>
-	    <td>Gets validators</td>
+	    <td>GetCommittee</td>
+	    <td>Gets a list of committee members</td>
 	</tr>
 	<tr><td>unclaimedGas</td>
 	    <td>Gets unclaimed Gas</td>
 	</tr>
 </table>
+
+
 
 <br/>
 
@@ -106,7 +121,7 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	    <th>Description</th>  
 	</tr >
 	<tr >
-	    <td rowspan="9">Neo.Native.Policy</td>
+	    <td rowspan="11">Neo.Native.Policy</td>
 	    <td>getMaxTransactionsPerBlock</td>
 	    <td>Gets max transaction number per block</td>
 	</tr>
@@ -114,30 +129,69 @@ NEO namespace provides APIs for native contracts and verifying digital signature
 	    <td>getMaxBlockSize</td>
 	    <td>Gets max block size</td>
 	</tr>
+    	<tr>
+	    <td>GetMaxBlockSystemFee</td>
+	    <td>Gets the maximum system fee for the block</td>
+	</tr>
 	<tr>
 	    <td>getFeePerByte</td>
 	    <td>Gets fee per byte</td>
+	</tr>
+   	<tr>
+		<td>IsBlocked</td>
+	    <td>Verifies whether the account is blocked</td>
 	</tr>
 	<tr>
 	    <td>setMaxBlockSize</td>
 	    <td>Sets the max block size</td>
 	</tr>
-	<tr><td>getBlockedAccounts</td>
-	    <td>Gets blocked accounts</td>
-	</tr>
+	<tr>
+		<td>SetMaxBlockSystemFee</td>
+	    <td>Sets the maximum system fee for the block</td>
+    </tr>
     <tr><td>setMaxTransactionsPerBlock</td>
 	    <td>Sets max transaction per block</td>
 	</tr>
     <tr><td>setFeePerByte</td>
 	    <td>Sets fee per byte</td>
 	</tr>
-    <tr><td>blockAccount</td>
+    <tr>
+		<td>BlockAccount</td>
 	    <td>Sets blocked accounts</td>
 	</tr>
-    <tr><td>unblockAccount</td>
+    <tr>
+		<td>UnblockAccount</td>
 	    <td>Unblocks accounts</td>
 	</tr>
 </table>
+
+<table class="table table-hover">
+	<tr>
+	    <th>API</th>
+	    <th>Method Name</th>
+	    <th>Description</th>  
+	</tr >
+	<tr >
+	    <td rowspan="3">Neo.Native.Oracle</td>
+	    <td>Finish</td>
+	    <td>Invokes the callback function after getting the Oracle response</td>
+	</tr>
+	<tr>
+	    <td>Request</td>
+	    <td>Initiates an Oracle request</td>
+	</tr>
+	<tr>
+	    <td>Verify</td>
+	    <td>Verifies if the Oracle response transaction is legal</td>
+	</tr>
+</table>
+
+
+> [!Note]
+>
+> The above API are used for committee members only; ordinary users will fail during the signature verification process.
+>
+> The source code for the above API can be found under `NEO` in the  (https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs).
 
 **Crypto API**：
 

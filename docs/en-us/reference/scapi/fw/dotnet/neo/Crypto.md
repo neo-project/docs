@@ -2,7 +2,7 @@
 
 Static class, which provides a method to verify signatures by ECDsa
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
