@@ -45,6 +45,8 @@
       href: /v3/docs/zh-cn/basic/consensus/consensus_protocol.md
     - name: 投票
       href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
+  - name: NeoVM
+    href: /v3/docs/zh-cn/basic/neovm.md
 - name: Neo 节点
   items:
   - name: 节点介绍
