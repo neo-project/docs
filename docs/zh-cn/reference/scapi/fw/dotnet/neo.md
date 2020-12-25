@@ -27,10 +27,12 @@ NEO 命名空间是 NEO 区块链所提供的 API，提供了访问区块链账�
 | [StorageContext](neo/StorageContext.md)  | 用来表示私有存储区存储上下文的类   |
 | [StorageMap](neo/StorageMap.md)  | 表示给定存储上下文中指定前缀的key-value存储区   |
 | [Transaction](neo/Transaction.md)        | 用来表示交易的基类                |
-| [NEO](neo/Neo.md)        |                 |
-| [GAS](neo/Gas.md)        | 用来表示交易的基类                |
-| [Policy](neo/Policy.md)        |                 |
-| [Oracle](neo/Oracle.md)        |                 |
+| [NEO](neo/Neo.md)        |         原生合约NeoToken的一系列属性与方法        |
+| [GAS](neo/Gas.md)        | 原生合约GasToken的一系列属性与方法                |
+| [Policy](neo/Policy.md)        |     提供访问、更改系统参数的方法            |
+| [Oracle](neo/Oracle.md)        |        提供发起Oracle请求的方法         |
+| [ManagementContract](neo/ManagementContract.md)        |    提供部署、更新、销毁、获取合约的方法            |
+| [Designation](neo/Designation.md)        |    提供获取指定角色节点信息的方法            |
 
 ## 枚举
 

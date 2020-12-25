@@ -1,6 +1,6 @@
 # GAS 类
 
-提供了原生合约GasToken的一系列属性与方法，合约哈希为`0x36a019d836d964c438c573f78badf79b9e7eebdd`。
+提供了原生合约GasToken的一系列属性与方法，合约哈希为`0xa6a6c15dcdc9b997dac448b6926522d22efeedfb`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -16,7 +16,7 @@ public class GAS
 
 | 名称              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| Name              | 获取名称, GAS                                             |
+| Hash              | 获取合约哈希                                            |
 | Symbol           | 获取符号, 即: gas                                           |
 | Decimals          | 获取精度                                   |
 

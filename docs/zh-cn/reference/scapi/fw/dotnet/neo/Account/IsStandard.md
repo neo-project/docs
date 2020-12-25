@@ -1,4 +1,4 @@
-# Account.IsStandard 方法 (byte[])
+# Account.IsStandard 方法 (UInt160)
 
 根据 scripthash 判断该合约是否是标准账户（单方签名账户）。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern bool IsStandard(byte[] scripthash)
+public static extern bool IsStandard(UInt160 scripthash)
 ```
 
 参数：scripthash，账户的脚本散列。
@@ -24,11 +24,9 @@ public class Contract1 : SmartContract.Framework.SmartContract
     public static void Main()
     {
         byte[] scriptHash = { 36, 23, 241, 177, 228, 54, 109, 223, 27, 237, 139, 54, 207, 38, 132, 101, 172, 3, 10, 73 };
-        Account.IsStandard(scriptHash);
+        Account.IsStandard((UInt160)scriptHash);
     }
 }
 ```
-
-
 
 [返回上级](../Account.md)

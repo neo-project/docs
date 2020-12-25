@@ -1,6 +1,6 @@
 # Neo 类
 
-提供了原生合约NeoToken的一系列属性与方法，合约哈希为`0xe22f9134cef8b03e53f71b3f960a20a65cddc972`。
+提供了原生合约NeoToken的一系列属性与方法，合约哈希为`0x0a46e2e37c9987f570b4af253fb77e7eef0f72b6`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
