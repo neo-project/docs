@@ -38,15 +38,15 @@ You can check it on any Neo blockchain explorer, such as <https://neoscan.io/>.
 
 ## Is there an equivalent of ERC-20 standard for Neo?
 
-Yes, it's called [NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) (NEP is short for *Neo Enhancement Proposals*).
+Yes. NEP-17, the replacement of the standard NEP-5, is the Neo3 token standard which outlines the specifications to be followed by contracts deployed on the Neo blockchain. 
 
 ## How to view NEP-5 assets in Neo-CLI？
 
 To view NEP-5 assets invoke the API `getbalance`.
 
-## What is the difference between NEP-5 and NEP-6？
+## What is NEP-6？
 
-NEP-5 is a token standard that specifies the token issuance in Neo smart contract. NEP-6 is a wallet standard that specifies the wallet format, the definition of parameters in it, the creation rules of wallet address and so on. NEP-6 is applicable to several current Neo client versions including 2.7.6. The Neo client supports wallets in two formats,  sqlite wallet (in .db3) and NEP-6 wallet (in .json). Considering the processing speed, the sqlite wallet is strongly recommended for exchanges. 
+NEP-6 is a wallet standard that specifies the wallet format, the definition of parameters in it, the creation rules of wallet address and so on. NEP-6 is applicable to several current Neo client versions including 2.7.6. The Neo client supports wallets in two formats,  sqlite wallet (in .db3) and NEP-6 wallet (in .json). Considering the processing speed, the sqlite wallet is strongly recommended for exchanges. 
 
 ## Can you store NEO the same way as Bitcoin? I am nervous about the storage safety.
 
