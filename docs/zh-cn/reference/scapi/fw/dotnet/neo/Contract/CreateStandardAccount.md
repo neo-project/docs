@@ -1,4 +1,4 @@
-# Contract.CreateStandardAccount 方法 ()
+# Contract.CreateStandardAccount 方法 (Cryptography.ECC.ECPoint)
 
 根据公钥创建标准账户
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern byte[] CreateStandardAccount(byte[] pubKey);
+public static extern UInt160 CreateStandardAccount(ECPoint pubKey);
 ```
 
 ## 示例
@@ -17,9 +17,9 @@ public static extern byte[] CreateStandardAccount(byte[] pubKey);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-        public static byte[] CreateStandardAccount(byte[] pubKey)
+        public static UInt160 CreateStandardAccount(byte[] pubKey)
         {
-            return Contract.CreateStandardAccount(pubKey);
+            return Contract.CreateStandardAccount((ECPoint)pubKey);
         }
 }
 ```

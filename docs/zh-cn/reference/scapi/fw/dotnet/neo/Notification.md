@@ -22,4 +22,4 @@ public class Notification : IApiInterface
 
 ## 构造方法
 
-通过 [Runtime.GetNotifications(byte[] hash = null)](Runtime/GetNotifications.md) 来获得 Notification 对象。
+通过 [Runtime.GetNotifications(UInt160 hash = null)](Runtime/GetNotifications.md) 来获得 Notification 对象。

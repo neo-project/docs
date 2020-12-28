@@ -1,4 +1,4 @@
-# Blockchain.GetTransaction 方法 (byte[])
+# Blockchain.GetTransaction 方法 (UInt256)
 
 通过交易哈希查找交易。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern Transaction GetTransaction(byte[] hash)
+public static extern Transaction GetTransaction(UInt256 hash)
 ```
 
 参数：
@@ -26,7 +26,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     public static void Main()
     {
         byte[] transaction = new byte[] { 88, 114, 160, 206, 130, 137, 41, 94, 119, 120, 242, 71, 232, 244, 3, 20, 165, 69, 182, 232, 106, 185, 119, 239, 183, 65, 174, 220, 157, 251, 28, 215 };
-        Transaction tx = Blockchain.GetTransaction(transaction);
+        Transaction tx = Blockchain.GetTransaction((UInt256)transaction);
     }
 }
 ```

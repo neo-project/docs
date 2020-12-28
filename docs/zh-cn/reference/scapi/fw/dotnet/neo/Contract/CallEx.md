@@ -1,4 +1,4 @@
-# Contract.CallEx 方法 (byte[], string, object[], CallFlags)
+# Contract.CallEx 方法 (UInt160, string, object[], CallFlags)
 
 调用合约。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern object CallEx(byte[] scriptHash, string method, object[] arguments, CallFlags flag)
+public static extern object CallEx(UInt160 scriptHash, string method, object[] arguments, CallFlags flag)
 ```
 
 参数：
@@ -35,11 +35,11 @@ public static extern object CallEx(byte[] scriptHash, string method, object[] ar
      {
          if (operation == "name")
          {
-             return Contract.Call(ScriptHash, "name", new object[0], CallFlags.ReadOnly);
+             return Contract.Call((UInt160)ScriptHash, "name", new object[0], CallFlags.ReadOnly);
          }
          if (operation == "totalSupply")
          {
-             return Contract.Call(ScriptHash, "totalSupply", new object[0], CallFlags.ReadOnly);
+             return Contract.Call((UInt160)ScriptHash, "totalSupply", new object[0], CallFlags.ReadOnly);
          }
          return true;
      }

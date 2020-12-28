@@ -1,6 +1,6 @@
 # Oracle 类
 
-提供了原生合约Oracle的一系列方法，合约哈希为`0x35e4fc2e69a4d04d1db4d755c4150c50aff2e9a9`。
+提供了原生合约Oracle的一系列方法，合约哈希为`0xb1c37d5847c2ae36bdde31d0cc833a7ad9667f8f`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -16,7 +16,7 @@ public class Oracle
 
 | 名称              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| Name              | 合约名称                                             |
+| Hash              | 合约哈希                                            |
 
 ## 方法
 

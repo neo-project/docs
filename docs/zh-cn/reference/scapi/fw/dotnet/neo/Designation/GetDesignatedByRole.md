@@ -1,6 +1,6 @@
-# GetDesignatedByRole 方法 (DesignationRole, uint )
+# GetDesignatedByRole 方法 (DesignationRole, uint)
 
-发起Oracle请求。
+获取给定角色的节点公钥数组。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 

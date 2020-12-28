@@ -1,4 +1,4 @@
-# Runtime.GetNotifications 方法 (byte[])
+# Runtime.GetNotifications 方法 (UInt160)
 
 获取给定合约执行的所有通知。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern Notification[] GetNotifications(byte[] hash = null)
+public static extern Notification[] GetNotifications(UInt160 hash = null)
 ```
 
 参数：
@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     {
         Notification[] result1 = Runtime.GetNotifications();
         byte[] hash = { 2, 123, 48, 51, 62, 13, 14, 101, 82, 174, 109, 29, 169, 249, 64, 159, 85, 30, 53, 238};
-        Notification[] result2 = Runtime.GetNotifications(hash);
+        Notification[] result2 = Runtime.GetNotifications((UInt160)hash);
     }
 }
 ```

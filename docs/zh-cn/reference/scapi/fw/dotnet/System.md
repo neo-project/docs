@@ -7,4 +7,7 @@ System 命名空间是智能合约执行引擎（NeoVM）提供的 API，提供�
 | 类                                           | 说明                                                 |
 | -------------------------------------------- | ---------------------------------------------------- |
 | [ExecutionEngine](System/ExecutionEngine.md) | 虚拟机的执行引擎，可以获取当前合约的调用者和执行容器 |
+| [Binary](System/Binary.md) | 虚拟机的执行引擎，可以获取当前合约的调用者和执行容器 |
+| [Callback](System/Callback.md) | 虚拟机的执行引擎，可以获取当前合约的调用者和执行容器 |
+| [SysCallback](System/SysCallback.md) | 虚拟机的执行引擎，可以获取当前合约的调用者和执行容器 |
 

@@ -1,4 +1,4 @@
-# Contract.Call 方法 (byte[], string, object[])
+# Contract.Call 方法 (UInt160, string, object[])
 
 调用合约。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern object Call(byte[] scriptHash, string method, object[] arguments)
+public static extern object Call(UInt160 scriptHash, string method, object[] arguments)
 ```
 
 参数：
@@ -34,11 +34,11 @@ public static extern object Call(byte[] scriptHash, string method, object[] argu
      {
          if (operation == "name")
          {
-             return Contract.Call(ScriptHash, "name", new object[0]);
+             return Contract.Call((UInt160)ScriptHash, "name", new object[0]);
          }
          if (operation == "totalSupply")
          {
-             return Contract.Call(ScriptHash, "totalSupply", new object[0]);
+             return Contract.Call((UInt160)ScriptHash, "totalSupply", new object[0]);
          }
          return true;
      }

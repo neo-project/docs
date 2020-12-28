@@ -1,4 +1,4 @@
-# Blockchain.GetBlock 方法 (byte[])
+# Blockchain.GetBlock 方法 (UInt256)
 
 通过区块哈希，在区块链中查找该区块。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern Block GetBlock(byte[] hash)
+public static extern Block GetBlock(UInt256 hash)
 ```
 
 参数：
@@ -26,7 +26,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     public static void Main()
     {
         byte[] block = new byte[] { 206, 240, 165, 25, 76, 228, 58, 100, 117, 184, 213, 171, 61, 96, 34, 234, 129, 116, 60, 232, 71, 11, 231, 143, 195, 123, 5, 190, 250, 182, 14, 152 };
-        Block bl = Blockchain.GetBlock(block);
+        Block bl = Blockchain.GetBlock((UInt256)block);
     }
 }
 ```

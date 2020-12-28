@@ -1,6 +1,6 @@
 # Policy 类
 
-提供了原生合约Policy的一系列方法，合约哈希为`0x1ca594b36b6b6b3f05efce8b106c824053d18713`。
+提供了原生合约Policy的一系列方法，合约哈希为`0xdde31084c0fdbebc7f5ed5f53a38905305ccee14`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -11,6 +11,12 @@
 ```c#
 public class Policy
 ```
+
+## 属性
+
+| 名称              | 说明                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| Hash              | 合约哈希                                            |
 
 ## 方法
 

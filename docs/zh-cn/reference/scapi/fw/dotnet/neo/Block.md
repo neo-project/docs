@@ -27,6 +27,6 @@ public class Block
 
 ## 构造方法
 
-通过 [Blockchain.GetBlock(byte [])](Blockchain/GetBlock.md) 来构造 Block 对象。
+通过 [Blockchain.GetBlock(UInt256)](Blockchain/GetBlock.md) 来构造 Block 对象。
 
 通过 [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md) 来构造 Block 对象。
