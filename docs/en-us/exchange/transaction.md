@@ -380,7 +380,7 @@ The following shows an example of the API invoking result.
 
 The parameters related to a transaction in the file are the following:
 
-- **contract**: the script hash of smart contract. For exchanges, it is the script hash of Nep17 assets type and the unique identity of the asset. For example, here "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" is the Nep17 asset script hash.
+- **contract**: the script hash of smart contract. For exchanges, it is the script hash of NEP17 assets type and the unique identity of the asset. For example, here "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" is the NEP17 asset script hash.
 
 - **eventname**: the event identifier of smart contact. Exchanges only need to listen on “transfer” transactions to find out users' transfer transactions.
 
@@ -688,6 +688,6 @@ After sending the request, you will get the following response：
 
 ## See Also
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "Nep17")
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP17")
 
 [Neo3 Data Conversion](https://neo.org/converter/index)

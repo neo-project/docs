@@ -49,7 +49,7 @@ Neo-CLI 提供以下功能：
 
   要查看更多 API 信息，请参阅 [API 参考](../reference/rpc/latest-version/api.md)。
 
-- 提供 Nep17 资产的交易信息。
+- 提供 NEP17 资产的交易信息。
 
 ## 创建钱包
 

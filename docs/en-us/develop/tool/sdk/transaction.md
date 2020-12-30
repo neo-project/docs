@@ -60,7 +60,7 @@ Neo RPC SDK encapsulates the transaction construction module, which allows you t
 
 ## Transaction Construction Examples
 
-### Constructing an Nep17 transfer transaction
+### Constructing an NEP17 transfer transaction
 
 The following example implements a function that transfers 1024 NEO from the sender account to the receiver account. You need to pay attention to the difference between the script and the signature in a transaction for constructing different transactions.
 
@@ -122,7 +122,7 @@ namespace ConsoleApp1
 }
 ```
 
-`WalletAPI` encapsulates the above process, so you can simplify the Nep17 transfer as follows:
+`WalletAPI` encapsulates the above process, so you can simplify the NEP17 transfer as follows:
 
 ```c#
 using Neo;

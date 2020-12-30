@@ -6,7 +6,7 @@ This document introduces the following SDK features:
 
 - The construction method of contract deployment transaction
 - Invoking methods in the contract under read-only mode
-- `Nep17API` class that encapsulates the methods for invoking Nep17 contracts
+- `Nep17API` class that encapsulates the methods for invoking NEP17 contracts
 
 ## Contract deployment
 

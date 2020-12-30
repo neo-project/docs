@@ -24,7 +24,7 @@ You need to declare a storage in your contract for invoking the storage related 
 
 ```c#
 [Features(ContractFeatures.HasStorage)]
-public class Nep17 : SmartContract
+public class NEP17 : SmartContract
 {
     ……
 }

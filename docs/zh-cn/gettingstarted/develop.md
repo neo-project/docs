@@ -79,7 +79,7 @@
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-1. 从 Github 上下载 Neo3 的 [Nep17 示例](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/Nep17/Contract1.cs)。
+1. 从 Github 上下载 Neo3 的 [NEP17 示例](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP17/Contract1.cs)。
 
 2. 在之前创建的合约项目里打开示例文件 Contract1.cs
 
@@ -93,7 +93,7 @@
 >
 >   ```c#
 >   [Features(ContractFeatures.HasStorage)]
->   public class Nep17 : SmartContract
+>   public class NEP17 : SmartContract
 >   ……
 >   ```
 >
@@ -108,5 +108,5 @@
 
 编译成功后会在该项目的 `bin/Debug` 目录生成以下文件：
 
-- `Nep17.nef` ：与 Neo2 中的 .avm 文件类似，.nef 是 Neo3 的智能合约执行文件。
-- `Nep17.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
+- `NEP17.nef` ：与 Neo2 中的 .avm 文件类似，.nef 是 Neo3 的智能合约执行文件。
+- `NEP17.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。

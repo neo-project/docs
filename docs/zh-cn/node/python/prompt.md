@@ -233,19 +233,19 @@ Relayed Tx: a43dfb30af63bd0e5a510b05f02b3d40932af26d4564e040e3812ce78e76ce71
 neo>
 ```
 
-## Nep17 Tokens
+## NEP17 Tokens
 
-### 导入 Nep17 代币
+### 导入 NEP17 代币
 
-您可以使用钱包观察 `Nep17` 代币并与之交互，为此，您需要首先注册钱包以观察代币，如下所示：
+您可以使用钱包观察 `NEP17` 代币并与之交互，为此，您需要首先注册钱包以观察代币，如下所示：
 
 ```python
 neo> import token f8d448b227991cf07cb96a6f9c0322437f1599b9
 added token {
-    "name": "Nep17 Standard",
+    "name": "NEP17 Standard",
     "script_hash": "f8d448b227991cf07cb96a6f9c0322437f1599b9",
     "decimals": 8,
-    "symbol": "Nep17",
+    "symbol": "NEP17",
     "contract address": "AYhE3Svuqdfh1RtzvE8hUhNR7HSpaSDFQg"
 }
 neo> wallet
@@ -265,7 +265,7 @@ Wallet {
             "version": 0,
             "is_watch_only": false,
             "tokens": [
-                "[f8d448b227991cf07cb96a6f9c0322437f1599b9] Nep17 : 4519175.65580000"
+                "[f8d448b227991cf07cb96a6f9c0322437f1599b9] NEP17 : 4519175.65580000"
             ],
             "frozen": false
         },

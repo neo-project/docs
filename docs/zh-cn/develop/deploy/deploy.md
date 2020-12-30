@@ -1,6 +1,6 @@
 # 部署智能合约
 
-智能合约的部署是将智能合约部署到区块链中，供其它用户使用或者供其它智能合约调用。本文将介绍如何使用 Neo-CLI 和 Neo-GUI 在 Neo 区块链上部署智能合约。本文中的操作步骤是通用的，适用于包括 Nep17 资产在内的所有合约类型。
+智能合约的部署是将智能合约部署到区块链中，供其它用户使用或者供其它智能合约调用。本文将介绍如何使用 Neo-CLI 和 Neo-GUI 在 Neo 区块链上部署智能合约。本文中的操作步骤是通用的，适用于包括 NEP17 资产在内的所有合约类型。
 
 ## 为什么需要部署？
 
@@ -35,19 +35,19 @@
 ### 示例
 
 ```
-deploy Nep17.nef
+deploy NEP17.nef
 ```
 
 或
 
 ```
-deploy Nep17.nef Nep17.manifest.json
+deploy NEP17.nef NEP17.manifest.json
 ```
 
 输入完命令后，程序会部署此智能合约并且自动支付手续费。
 
 ```
-neo> deploy Nep17.nef
+neo> deploy NEP17.nef
 Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
 Gas: 3
 

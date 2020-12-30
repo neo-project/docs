@@ -4,7 +4,7 @@
 
 - 提供了合约部署交易的构建方法
 - 使用只读模式调用合约中方法
-- `Nep17API` 类封装了调用 Nep17 合约相关的方法
+- `Nep17API` 类封装了调用 NEP17 合约相关的方法
 
 ## 合约部署
 
@@ -184,7 +184,7 @@ Console.WriteLine($"The name is {invokeResult.Stack.Single().GetString()}");
 
 完整示例请参考[构造交易](transaction.md)。
 
-## Nep17 合约
+## NEP17 合约
 
 `Nep17API` 封装了转账交易的生成方法，以上交易过程可简化为：
 

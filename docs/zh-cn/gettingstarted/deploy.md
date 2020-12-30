@@ -1,25 +1,25 @@
 # 部署与调用合约
 
-在上节我们已编译好一个NEP-5合约文件（Nep17.nef ）和合约描述文件（Nep17.manifest.json ），本节我们将使用Neo-CLI部署并调用该合约。
+在上节我们已编译好一个NEP-5合约文件（NEP17.nef ）和合约描述文件（NEP17.manifest.json ），本节我们将使用Neo-CLI部署并调用该合约。
 
 ## 部署合约
 
 在 Neo-CLI 中，打开前面在 [准备工作](prerequisites.md) 里创建的钱包 0.json，输入部署合约命令  `deploy <nefFilePath> [manifestFile]` ，例如：
 
 ```bash
-deploy Nep17.nef
+deploy NEP17.nef
 ```
 
 或
 
 ```bash
-deploy Nep17.nef Nep17.manifest.json
+deploy NEP17.nef NEP17.manifest.json
 ```
 
 输入命令后，程序会部署NEP-5合约并且自动支付手续费。
 
 ```bash
-neo> deploy Nep17.nef
+neo> deploy NEP17.nef
 Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
 Gas: 3
 

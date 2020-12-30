@@ -1,25 +1,25 @@
 # Deploying and invoking contract
 
-In the previous section we have compiled an NEP-5 contract file (Nep17.nef) and contract descriptive file (Nep17.manifest.json), next we will move on to deployment and invocation of the contract with Neo-CLI.
+In the previous section we have compiled an NEP-5 contract file (NEP17.nef) and contract descriptive file (NEP17.manifest.json), next we will move on to deployment and invocation of the contract with Neo-CLI.
 
 ## Deploying contract
 
 In Neo-CLI, input the deploy command  `deploy <nefFilePath> [manifestFile]` , for example:
 
 ```bash
-deploy Nep17.nef
+deploy NEP17.nef
 ```
 
 Or
 
 ```bash
-deploy Nep17.nef Nep17.manifest.json
+deploy NEP17.nef NEP17.manifest.json
 ```
 
 After the command is executed, the NEP-5 contract is deployed and the related fee is charged by the system automatically.
 
 ```bash
-neo> deploy Nep17.nef
+neo> deploy NEP17.nef
 Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
 Gas: 3
 

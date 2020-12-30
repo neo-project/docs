@@ -47,7 +47,7 @@ SYSCALL Neo.Crypto.VerifyWithECDsaSecp256r1
 
 #### NEP-5
 
-Nep17 协议是 Neo 补充协议中的第5号协议。其目的是为 Neo 建立标准的 token 化智能合约通用交互机制。Nep17资产是在合约存储区内记账，通过对存储区内不同账户 hash 所记录余额数值的变化，完成交易。
+NEP17 协议是 Neo 补充协议中的第5号协议。其目的是为 Neo 建立标准的 token 化智能合约通用交互机制。NEP17资产是在合约存储区内记账，通过对存储区内不同账户 hash 所记录余额数值的变化，完成交易。
 
 #### 系统调用（SysCall）
 
