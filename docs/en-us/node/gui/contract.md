@@ -50,7 +50,7 @@ After the contract deployed on the blockchain you can enter the **Invoke** page 
 
    The methods and parameters included in the current contract are displayed. These information was obtained from the contract manifest file on the blockchain.
 
-2. Select the desired method and fill in the parameters. Suppose we invoke a transfer method in the nep5 standard, fill in the following：
+2. Select the desired method and fill in the parameters. Suppose we invoke a transfer method in the nep17 standard, fill in the following：
 
    + `from`/`to`: Addresses you transfer assets from and to. You can select one of the following data types and enter corresponding string:
 
@@ -64,7 +64,7 @@ After the contract deployed on the blockchain you can enter the **Invoke** page 
 
    + `amount`：1*10000 (accuracy)
 
-     When invoking the tranfer method in the nep5 standard, the amount filled in needs to be multiplied by the nep5 accuracy.
+     When invoking the tranfer method in the nep17 standard, the amount filled in needs to be multiplied by the nep17 accuracy.
 
    ![](../assets/guiInvokeContract.png)
 

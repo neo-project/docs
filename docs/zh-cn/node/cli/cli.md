@@ -67,7 +67,7 @@
 | show state      |                     | 显示当前区块链同步状态                         |
 | show pool       | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
 
-#### Nep5 命令
+#### Nep17 命令
 
 | 命令            | 参数                | 说明                                           |
 | --------------- | ------------------- | ---------------------------------------------- |
@@ -1004,7 +1004,7 @@ Loaded plugins:
         ApplicationLogs
         LevelDBStore
         RpcServer
-        RpcNep5Tracker
+        RpcNep17Tracker
         StatesDumper
         SystemLog
 ```

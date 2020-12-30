@@ -112,11 +112,11 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
             <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>推荐</td>
         </tr>
         <tr>

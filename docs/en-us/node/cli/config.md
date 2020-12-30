@@ -112,11 +112,11 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
             <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>Recommended</td>
         </tr>
         <tr>

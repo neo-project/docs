@@ -81,7 +81,7 @@ When the project is created, a simple smart contract template is automatically c
 
 Since many developers are concerned about how to publish their own contract assets on the Neo block chain, now let's work through the process on private chain.
 
-1. Download the NEP-5 template from [NEP5 example of Neo3](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs).
+1. Download the NEP-5 template from [Nep17 example of Neo3](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/Nep17/Contract1.cs).
 
 2. In the NeoContract project created in previous steps, open the sample file Contract1.cs
 
@@ -95,7 +95,7 @@ Since many developers are concerned about how to publish their own contract asse
 >
 >    ```c#
 >    [Features(ContractFeatures.HasStorage)]
->    public class NEP5 : SmartContract
+>    public class Nep17 : SmartContract
 >    ……
 >    ```
 >
@@ -110,5 +110,5 @@ When you complete coding, click `Build` -> `Build Solutions` (hotkeys: Ctrl + Sh
 
 When the compilation is done, the following files are generated under the `bin/Debug` directory of the project.
 
-- `NEP5.nef` : The smart contract execution file for Neo3, just as .avm for Neo2.
-- `NEP5.manifest.json` : The descriptive file of the smart contract, covering descriptions of functions, ScriptHash, entry, method, parameters, and return values of the contract.
+- `Nep17.nef` : The smart contract execution file for Neo3, just as .avm for Neo2.
+- `Nep17.manifest.json` : The descriptive file of the smart contract, covering descriptions of functions, ScriptHash, entry, method, parameters, and return values of the contract.

@@ -4,14 +4,14 @@ Returns token total supply.
 
 ## Contract
 
-	Nep5Token
+	Nep17Token
 
 ## Example
 
 Request content:
 
 ```json
-var result = Contract.Call(nep5Hash, "totalSupply", new object[] { });
+var result = Contract.Call(nep17Hash, "totalSupply", new object[] { });
 ```
 
 Respond content:

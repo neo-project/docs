@@ -154,7 +154,7 @@ C# 委托可以定义，定义的委托有两个功能，都是 NeoVM 的特别�
 
  `public static event acall dododo;`
 
-调用这个事件则会被 NEO C# 编译器理解为调用 Notify 方法，可参考 NEP5 的通知事件。
+调用这个事件则会被 NEO C# 编译器理解为调用 Notify 方法，可参考 Nep17 的通知事件。
 
  另一个是可以将一个 bytearray 转型为一个委托：
 

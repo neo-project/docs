@@ -79,12 +79,12 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | --------------------------------------------- | ------- | ------------------------------------- |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
-### RpcNep5Tracker 插件
+### RpcNep17Tracker 插件
 
 | 方法                                        | 参数                  | 说明                                |
 | ------------------------------------------- | --------------------- | ----------------------------------- |
-| [getnep5balances](api/getnep5balances.md)   | \<address>            | 返回指定地址内的所有 NEP-5 资产余额 |
-| [getnep5transfers](api/getnep5transfers.md) | \<address>[timestamp] | 返回指定地址内的所有 NEP-5 交易记录 |
+| [getnep17balances](api/getnep17balances.md)   | \<address>            | 返回指定地址内的所有 NEP-5 资产余额 |
+| [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | 返回指定地址内的所有 NEP-5 交易记录 |
 
 ## GET 请求示例
 

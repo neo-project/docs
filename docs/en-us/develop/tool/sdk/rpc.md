@@ -449,17 +449,17 @@ string txHash = "0x23bf33766d00b4bb3314185f1ff0c2c85182d4d5e4e96f7c2df7506e7f990
 RpcApplicationLog log = await client.GetApplicationLogAsync(txHash, TriggerType.Application).ConfigureAwait(false);
 ```
 
-### GetNep5BalancesAsync
+### GetNep17BalancesAsync
 
-Returns all NEP-5 assets balance at the specified address. The plugin RpcNep5Tracker is required for invoking this method.
+Returns all NEP-5 assets balance at the specified address. The plugin RpcNep17Tracker is required for invoking this method.
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
-RpcNep5Balances balances = await client.GetNep5BalancesAsync(address).ConfigureAwait(false);
+RpcNep17Balances balances = await client.GetNep17BalancesAsync(address).ConfigureAwait(false);
 ```
 
-### GetNep5TransfersAsync
-Returns all NEP-5 transaction records at the specific address. The plugin RpcNep5Tracker is required for invoking this method.
+### GetNep17TransfersAsync
+Returns all NEP-5 transaction records at the specific address. The plugin RpcNep17Tracker is required for invoking this method.
 
 If start and end timestamps are specified, transactions occurred in the time range is returned.
 
@@ -467,5 +467,5 @@ If no parameter is specified transactions in the past seven days are returned.
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
-RpcNep5Transfers transfers = await client.GetNep5TransfersAsync(address, 0).ConfigureAwait(false);
+RpcNep17Transfers transfers = await client.GetNep17TransfersAsync(address, 0).ConfigureAwait(false);
 ```

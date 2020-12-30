@@ -416,22 +416,22 @@ RpcApplicationLog log = await client.GetApplicationLogAsync(txHash, TriggerType.
 
 ### 查询 NEP-5 资产余额
 返回指定地址内的所有 NEP-5 资产余额：
-需要节点安装 RpcNep5Tracker  插件才可以调用。
+需要节点安装 RpcNep17Tracker  插件才可以调用。
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
-RpcNep5Balances balances = await client.GetNep5BalancesAsync(address).ConfigureAwait(false);
+RpcNep17Balances balances = await client.GetNep17BalancesAsync(address).ConfigureAwait(false);
 ```
 
 ### 查询交易记录
 返回指定地址内的所有 NEP-5 交易记录：
-需要节点安装 RpcNep5Tracker  插件才可以调用。
+需要节点安装 RpcNep17Tracker  插件才可以调用。
 如果设置起始和结束时间戳，则返回时间戳范围内的交易信息。
 如果不设置此参数，则返回近七天内的交易信息。
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
-RpcNep5Transfers transfers = await client.GetNep5TransfersAsync(address, 0).ConfigureAwait(false);
+RpcNep17Transfers transfers = await client.GetNep17TransfersAsync(address, 0).ConfigureAwait(false);
 ```
 
 

@@ -47,18 +47,18 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep5balances（需提前安装 RpcNep5Tracker 插件）
+   - getnep17balances（需提前安装 RpcNep17Tracker 插件）
    - invokefunction
 2. 向 Neo RPC 服务器发送文件请求。
 3. 根据返回值计算出用户余额。
 
-#### 调用 getnep5balances
+#### 调用 getnep17balances
 
-在 JSON 文件中，getnep5balances 的请求正文通常为以下格式：
+在 JSON 文件中，getnep17balances 的请求正文通常为以下格式：
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getnep5balances",
+  "method": "getnep17balances",
   "params": ["NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih", 0],
   "id": 1
 }
@@ -380,7 +380,7 @@ symbol
 
 其中与交易相关的参数如下：
 
-- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该Nep5 资产的脚本哈希，是该资产在全网的唯一标识。
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 Nep17 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该Nep17 资产的脚本哈希，是该资产在全网的唯一标识。
 
 - **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为transfer类型的交易以确认是否为用户的转账交易。 
 
@@ -684,6 +684,6 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 ## 相关参考
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5") 
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "Nep17") 
 
 [neo3.0 数据转换](https://neo.org/converter/index)

@@ -130,9 +130,9 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
   
    所有在Neo网络中的互动均通过交易（Transaction）进行，而交易需要GAS作为费用支付方式。交易包含系统费和网络费两种费用。其中，系统费作为交易执行的资源被消耗掉，而网络费将作为上链奖励，发放给交易所在区块的议长。
 
-## Nep5合约方法
+## Nep17合约方法
 
-NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)合约。Nep5的合约方法如下：
+NEO及GAS均为[Nep17](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)合约。Nep17的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
@@ -142,7 +142,7 @@ NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5
 | [`TotalSupply`](scapi/fw/dotnet/neo/Neo/TotalSupply.md) | null | 0.01 | 返回Token当前流通量（BigInteger） |
 | [`BalanceOf`](scapi/fw/dotnet/neo/Neo/BalanceOf.md) | UInt160 account | 0.01 | 返回该账户的余额（BigInteger） |
 | [`Transfer`](scapi/fw/dotnet/neo/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.08 | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
-| [`onPersist`](govapi/onPersist.md) | null | 0 | 手动执行Nep5在持久化区块时进行的操作 |
+| [`onPersist`](govapi/onPersist.md) | null | 0 | 手动执行Nep17在持久化区块时进行的操作 |
 | [`supportedStandards`](govapi/supportedStandards.md) | null | 0 | 返回支持的NEP标准（String[]） |
 
 NEO扩展的合约方法如下：

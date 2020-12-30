@@ -41,7 +41,7 @@
             ]
         },
         {
-            "name": "RpcNep5Tracker",
+            "name": "RpcNep17Tracker",
             "version": "3.0.0.0",
             "interfaces": [
                 "IPersistencePlugin"

@@ -8,7 +8,7 @@
 
 ## 所属合约
 
-	Nep5Token
+	Nep17Token
 
 ## 参数说明
 
@@ -26,7 +26,7 @@
 static byte[] from = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 static byte[] to = "NWfRjyLqixtrB8JCW5tuH8MMzgZ7QN3GHj".ToScriptHash();
 ...
-var result = Contract.Call(nep5Hash, "transfer", new object[] { from, to, 10000 });
+var result = Contract.Call(nep17Hash, "transfer", new object[] { from, to, 10000 });
 ```
 
 响应正文：

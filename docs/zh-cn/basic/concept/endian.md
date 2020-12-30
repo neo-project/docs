@@ -22,7 +22,7 @@ Neo 系统中所有的整数类型都是采用小端序 (Little Endian) 编码�
 - [数据转换工具](https://peterlinx.github.io/DataTransformationTools/)
 
 ### 合约的ScriptHash
-每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。Neo的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收NEP5资产。这种情况下合约的ScriptHash作为大端序使用，例如：
+每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。Neo的合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收Nep17资产。这种情况下合约的ScriptHash作为大端序使用，例如：
 
 - CGas ScriptHash (大端序)：0x 74f2dc36a68fdc4682034178eb2220729231db76 
 

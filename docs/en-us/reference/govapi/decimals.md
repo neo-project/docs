@@ -4,14 +4,14 @@ Returns token decimals.
 
 ## Contract
 
-	Nep5Token
+	Nep17Token
 
 ## Example
 
 Request content:
 
 ```json
-var result = Contract.Call(nep5Hash, "decimals", new object[] { });
+var result = Contract.Call(nep17Hash, "decimals", new object[] { });
 ```
 
 Respond content:

@@ -90,7 +90,7 @@
     - name: 编写限制
       href: /v3/docs/zh-cn/develop/write/limitation.md
     - name: NEP-17
-      href: /v3/docs/zh-cn/develop/write/nep5.md
+      href: /v3/docs/zh-cn/develop/write/nep17.md
     - name: 合约升级
       href: /v3/docs/zh-cn/develop/write/migrate.md
   - name: 合约示例
@@ -154,10 +154,10 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.md
-    - name: getnep5balances
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.md
-    - name: getnep5transfers
-      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.md
+    - name: getnep17balances
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.md
+    - name: getnep17transfers
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep17transfers.md
     - name: getnewaddress
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.md
     - name: getpeers

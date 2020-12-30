@@ -26,7 +26,7 @@
 
 ```c#
 [Features(ContractFeatures.HasStorage)]
-public class NEP5 : SmartContract
+public class Nep17 : SmartContract
 {
     ……
 }

@@ -60,7 +60,7 @@ Neo RPC SDK encapsulates the transaction construction module, which allows you t
 
 ## Transaction Construction Examples
 
-### Constructing an NEP5 transfer transaction
+### Constructing an Nep17 transfer transaction
 
 The following example implements a function that transfers 1024 NEO from the sender account to the receiver account. You need to pay attention to the difference between the script and the signature in a transaction for constructing different transactions.
 
@@ -80,11 +80,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            TestNep5Transfer().GetAwaiter().GetResult();
+            TestNep17Transfer().GetAwaiter().GetResult();
             Console.Read();
         }
 
-        private static async Task TestNep5Transfer()
+        private static async Task TestNep17Transfer()
         {
             // choose a neo node with rpc opened
             RpcClient client = new RpcClient("http://127.0.0.1:10332");
@@ -122,7 +122,7 @@ namespace ConsoleApp1
 }
 ```
 
-`WalletAPI` encapsulates the above process, so you can simplify the NEP5 transfer as follows:
+`WalletAPI` encapsulates the above process, so you can simplify the Nep17 transfer as follows:
 
 ```c#
 using Neo;
@@ -140,11 +140,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            TestNep5Transfer().GetAwaiter().GetResult();
+            TestNep17Transfer().GetAwaiter().GetResult();
             Console.Read();
         }
 
-        private static async Task TestNep5Transfer()
+        private static async Task TestNep17Transfer()
         {
             // choose a neo node with rpc opened
             RpcClient client = new RpcClient("http://127.0.0.1:10332");

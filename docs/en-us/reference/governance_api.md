@@ -136,9 +136,9 @@ Half of total NEO amount, or 50 million tokens are distributed in genesis block 
 
    All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
 
-## Nep5 Contract method
+## Nep17 Contract method
 
-NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) contracts. Nep5 contract methods are as follows:
+NEO and GAS are [Nep17](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) contracts. Nep17 contract methods are as follows:
 
 | Method | Parameters | Fee in GAS | Result |
 | ---- | ---- | ---- | ---- |
@@ -148,7 +148,7 @@ NEO and GAS are [Nep5](https://github.com/neo-project/proposals/blob/master/nep-
 | [`TotalSupply`](scapi/fw/dotnet/neo/Neo/TotalSupply.md) | null | 0.01 | Token total supply in BigInteger |
 | [`BalanceOf`](scapi/fw/dotnet/neo/Neo/BalanceOf.md) | UInt160 account | 0.01 | account balance in BigInteger |
 | [`Transfer`](scapi/fw/dotnet/neo/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.08 | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
-|  [`onPersist`](govapi/onPersist.md) | null | 0 | Manually perform actions this Nep5 contract will do upon block persisting |
+|  [`onPersist`](govapi/onPersist.md) | null | 0 | Manually perform actions this Nep17 contract will do upon block persisting |
 | [`supportedStandards`](govapi/supportedStandards.md) | null | 0 | Supported NEP standards in String[] |
 
 Contract methods by NEO:

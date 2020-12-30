@@ -59,7 +59,7 @@
     ```
 ## 交易构造示例
 
-### 构造 NEP5 转账交易
+### 构造 Nep17 转账交易
 
 下面的示例实现了从sender账户转账1024个NEO到receiver账户的功能。构建不同交易时需要关注交易中脚本和所需签名的不同。
 
@@ -79,11 +79,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            TestNep5Transfer().GetAwaiter().GetResult();
+            TestNep17Transfer().GetAwaiter().GetResult();
             Console.Read();
         }
 
-        private static async Task TestNep5Transfer()
+        private static async Task TestNep17Transfer()
         {
             // choose a neo node with rpc opened
             RpcClient client = new RpcClient("http://127.0.0.1:10332");
@@ -121,7 +121,7 @@ namespace ConsoleApp1
 }
 ```
 
-`WalletAPI` 封装了上面的过程，NEP5 转账可以简化为：
+`WalletAPI` 封装了上面的过程，Nep17 转账可以简化为：
 
 ```c#
 using Neo;
@@ -139,11 +139,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            TestNep5Transfer().GetAwaiter().GetResult();
+            TestNep17Transfer().GetAwaiter().GetResult();
             Console.Read();
         }
 
-        private static async Task TestNep5Transfer()
+        private static async Task TestNep17Transfer()
         {
             // choose a neo node with rpc opened
             RpcClient client = new RpcClient("http://127.0.0.1:10332");

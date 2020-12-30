@@ -1,10 +1,10 @@
-# getnep5balances 方法
+# getnep17balances 方法
 
 返回指定地址内的所有 NEP-5 资产余额。
 
 > [!Note]
 >
-> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
@@ -17,7 +17,7 @@ address：要查看资产余额的地址。
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getnep5balances",
+  "method": "getnep17balances",
   "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1", 0],
   "id": 1
 }

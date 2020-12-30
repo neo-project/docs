@@ -37,19 +37,19 @@ In Neo-CLI run the following command to deploy your contract:
 ### Example
 
 ```
-deploy NEP5.nef
+deploy Nep17.nef
 ```
 
 or
 
 ```
-deploy NEP5.nef NEP5.manifest.json
+deploy Nep17.nef Nep17.manifest.json
 ```
 
 After the command is executed, the program deploys the smart contract and pays the fee automatically.
 
 ```
-neo> deploy NEP5.nef
+neo> deploy Nep17.nef
 Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
 Gas: 3
 

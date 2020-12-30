@@ -4,14 +4,14 @@ Returns token symbol.
 
 ## Contract
 
-	Nep5Token
+	Nep17Token
 
 ## Example
 
 Request content:
 
 ```json
-var result = Contract.Call(nep5Hash, "symbol", new object[] { });
+var result = Contract.Call(nep17Hash, "symbol", new object[] { });
 ```
 
 Respond content:

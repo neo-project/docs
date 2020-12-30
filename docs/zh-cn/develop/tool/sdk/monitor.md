@@ -2,7 +2,7 @@
 
 基本的区块链数据和状态信息，如区块高度、区块内容、交易内容和合约等可以通过 `RPC` 模块直接获取，详细信息请参见 [RPC 调用方法](rpc.md)。
 
-而某些特定的合约信息，如区块最大交易数量，每字节系统费，NEP5 合约信息等则需要调用特定的合约方法。
+而某些特定的合约信息，如区块最大交易数量，每字节系统费，Nep17 合约信息等则需要调用特定的合约方法。
 
 
 ## 通过 RPC 接口获取区块数据
@@ -67,13 +67,13 @@ UInt160 account = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
 bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 ```
 
-## 获取 NEP5 合约信息
+## 获取 Nep17 合约信息
 
-NEP5 是 Neo3 中的资产标准，NEO 和 GAS 都基于 NEP5 原生合约。调用 `Nep5API` 可以获取 NEP5 合约的名称、标记、小数位和总量等信息：
+Nep17 是 Neo3 中的资产标准，NEO 和 GAS 都基于 Nep17 原生合约。调用 `Nep17API` 可以获取 Nep17 合约的名称、标记、小数位和总量等信息：
 
 ```c#
-// get nep5 token info
-Nep5API nep5API = new Nep5API(new RpcClient("http://127.0.0.1:10332"));
-RpcNep5TokenInfo tokenInfo = await nep5API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+// get nep17 token info
+Nep17API nep17API = new Nep17API(new RpcClient("http://127.0.0.1:10332"));
+RpcNep17TokenInfo tokenInfo = await nep17API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 ```
 

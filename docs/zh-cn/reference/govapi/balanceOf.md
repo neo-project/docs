@@ -4,7 +4,7 @@
 
 ## 所属合约
 
-	Nep5Token
+	Nep17Token
 
 ## 参数说明
 
@@ -17,7 +17,7 @@
 ```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 ...
-var result = Contract.Call(nep5Hash, "balanceOf", new object[] { account });
+var result = Contract.Call(nep17Hash, "balanceOf", new object[] { account });
 ```
 
 响应正文：

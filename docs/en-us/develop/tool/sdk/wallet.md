@@ -151,11 +151,11 @@ or using the parameter of ScriptHash type:
 // Get the NEO balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
 UInt160 accountHash = Utility.GetScriptHash(address);
-Nep5API nep5API = new Nep5API(client);
-BigInteger balance = await nep5API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
+Nep17API nep17API = new Nep17API(client);
+BigInteger balance = await nep17API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
 
-In Neo 3 NEO and GAS are both NEP5 assets with the fixed scripthash. Here we provide a simpler interface:
+In Neo 3 NEO and GAS are both Nep17 assets with the fixed scripthash. Here we provide a simpler interface:
 
 ```c#
 // Get the NEO balance
@@ -230,7 +230,7 @@ UInt160 receiver = Utility.GetScriptHash(address);
 await walletAPI.TransferAsync(NativeContract.NEO.Hash, sender, receiver, 10).ConfigureAwait(false);
 ```
 
-NEP5 transfer from multi-signature account:
+Nep17 transfer from multi-signature account:
 
 ```
 KeyPair receiverKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");

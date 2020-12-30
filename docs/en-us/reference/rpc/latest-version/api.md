@@ -81,12 +81,12 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | Returns the contract event information based on the specified txid. |
 
-### RpcNep5Tracker plugin
+### RpcNep17Tracker plugin
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getnep5balances](api/getnep5balances.md) | \<address> | Returns the balance of all NEP-5 assets in the specified address. |
-| [getnep5transfers](api/getnep5transfers.md) | \<address>[timestamp] | Returns all the NEP-5 transaction information occurred in the specified address. |
+| [getnep17balances](api/getnep17balances.md) | \<address> | Returns the balance of all NEP-5 assets in the specified address. |
+| [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | Returns all the NEP-5 transaction information occurred in the specified address. |
 
 ## GET request example
 

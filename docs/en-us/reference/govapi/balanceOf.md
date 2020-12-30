@@ -4,7 +4,7 @@ Returns the account balance.
 
 ## Contract
 
-	Nep5Token
+	Nep17Token
 
 ## Parameters
 
@@ -17,7 +17,7 @@ Request content:
 ```json
 static byte[] account = "NYXBPFgUM2Wa9wUdtEZV3zk1pLWamNEJB1".ToScriptHash();
 ...
-var result = Contract.Call(nep5Hash, "balanceOf", new object[] { account });
+var result = Contract.Call(nep17Hash, "balanceOf", new object[] { account });
 ```
 
 Response content:

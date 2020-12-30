@@ -1,6 +1,6 @@
 # NEP-17
 
-NEP17 协议是 Neo 补充协议中的第17号协议，替代了原先的NEP5协议。其目的是为 Neo 建立标准的 token 化智能合约通用交互机制。NEP17资产是在合约存储区内记账，通过对存储区内不同账户 hash 记录余额数值的变化，完成交易。
+NEP17 协议是 Neo 补充协议中的第17号协议，替代了原先的Nep17协议。其目的是为 Neo 建立标准的 token 化智能合约通用交互机制。NEP17资产是在合约存储区内记账，通过对存储区内不同账户 hash 记录余额数值的变化，完成交易。
 
 参照 NEP17 协议的要求，在编写 NEP17 资产智能合约时必须实现以下方法：
 
@@ -79,7 +79,7 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 
 一个销毁 token 的 token 合约在销毁 token 时必须触发`Transfer`事件，并将地址`to`设置为 `null`。
 
-完整的 NEP-5 合约如下，也可参考 [GitHub 源码](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP5/Contract1.cs)
+完整的 NEP-5 合约如下，也可参考 [GitHub 源码](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/Nep17/Contract1.cs)
 
 ```c#
 using Neo.SmartContract.Framework;
@@ -89,10 +89,10 @@ using System;
 using System.ComponentModel;
 using System.Numerics;
 
-namespace NEP5
+namespace Nep17
 {
     [Features(ContractFeatures.HasStorage)]
-    public class NEP5 : SmartContract
+    public class Nep17 : SmartContract
     {
         [DisplayName("Transfer")]
         public static event Action<byte[], byte[], BigInteger> Transferred;

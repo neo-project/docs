@@ -152,7 +152,7 @@ One can be used to define events:
 
  `public static event acall dododo;`
 
-When invoking this event, the NEO C# compiler regards it as the Notify method. Refer to the NEP5 notification event.
+When invoking this event, the NEO C# compiler regards it as the Notify method. Refer to the Nep17 notification event.
 
  The other can be used to convert a bytearray to a delegate:
 

@@ -24,6 +24,6 @@ A new block is generated about every 15 seconds according to system design. Thus
 
 ![](../../images/blockchain/gas-distribution-en.jpg)
 
-### NEP5 Assets (Tokens)
+### Nep17 Assets (Tokens)
 
-NEP5 tokens need to be issued and managed through smart contract. Their information is stored in a smart contract's storage. Account model is used. For detailed inforamtion, please refer to `NEP5` part in chapter `Smart Contract`.
+Nep17 tokens need to be issued and managed through smart contract. Their information is stored in a smart contract's storage. Account model is used. For detailed inforamtion, please refer to `Nep17` part in chapter `Smart Contract`.

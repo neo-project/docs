@@ -4,7 +4,7 @@
 
 - 提供了合约部署交易的构建方法
 - 使用只读模式调用合约中方法
-- `Nep5API` 类封装了调用 NEP5 合约相关的方法
+- `Nep17API` 类封装了调用 Nep17 合约相关的方法
 
 ## 合约部署
 
@@ -184,34 +184,34 @@ Console.WriteLine($"The name is {invokeResult.Stack.Single().GetString()}");
 
 完整示例请参考[构造交易](transaction.md)。
 
-## NEP5 合约
+## Nep17 合约
 
-`Nep5API` 封装了转账交易的生成方法，以上交易过程可简化为：
+`Nep17API` 封装了转账交易的生成方法，以上交易过程可简化为：
 
 ```c#
-Nep5API nep5API = new Nep5API(client);
-Transaction tx = await nep5API.CreateTransferTxAsync(scriptHash, sendKey, receiver, 1).ConfigureAwait(false);
+Nep17API nep17API = new Nep17API(client);
+Transaction tx = await nep17API.CreateTransferTxAsync(scriptHash, sendKey, receiver, 1).ConfigureAwait(false);
 ```
 
-此外 `Nep5API` 还提供了以下读取方法：
+此外 `Nep17API` 还提供了以下读取方法：
 
 ```c#
-// get nep5 name
-string name = await nep5API.NameAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+// get nep17 name
+string name = await nep17API.NameAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
-// get nep5 symbol
-string symbol = await nep5API.SymbolAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+// get nep17 symbol
+string symbol = await nep17API.SymbolAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
-// get nep5 token decimals
-byte decimals = await nep5API.DecimalsAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+// get nep17 token decimals
+byte decimals = await nep17API.DecimalsAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
-// get nep5 token total supply
-BigInteger totalSupply = await nep5API.TotalSupplyAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+// get nep17 token total supply
+BigInteger totalSupply = await nep17API.TotalSupplyAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 
-// get the balance of nep5 token
+// get the balance of nep17 token
 UInt160 account = Utility.GetScriptHash("NXjtqYERuvSWGawjVux8UerNejvwdYg7eE");
-BigInteger balance = await nep5API.BalanceOfAsync(NativeContract.NEO.Hash, account).ConfigureAwait(false);
+BigInteger balance = await nep17API.BalanceOfAsync(NativeContract.NEO.Hash, account).ConfigureAwait(false);
 
 // get token information
-RpcNep5TokenInfo tokenInfo = await nep5API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
+RpcNep17TokenInfo tokenInfo = await nep17API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 ```

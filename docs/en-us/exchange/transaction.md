@@ -49,19 +49,19 @@ The way for a exchange itself to query balance of the user deposit address is di
 The exchange needs to do the following:
 
 1. Construct JSON files to invoke either of the following RPC methods:
-   - getnep5balances
+   - getnep17balances
    - invokefunction
 2. Send the JSON files to Neo RPC server.
 3. Calculate the user balance according to the returned values.
 
-#### Invoking getnep5balances to query
+#### Invoking getnep17balances to query
 
-In JSON, a general getnep5balances request body is in the following form: 
+In JSON, a general getnep17balances request body is in the following form: 
 
 ```
 {
 "jsonrpc": "2.0",
-"method": "getnep5balances",
+"method": "getnep17balances",
 "params": ["NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"],
 "id": 1
 }
@@ -380,7 +380,7 @@ The following shows an example of the API invoking result.
 
 The parameters related to a transaction in the file are the following:
 
-- **contract**: the script hash of smart contract. For exchanges, it is the script hash of NEP5 assets type and the unique identity of the asset. For example, here "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" is the NEP5 asset script hash.
+- **contract**: the script hash of smart contract. For exchanges, it is the script hash of Nep17 assets type and the unique identity of the asset. For example, here "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" is the Nep17 asset script hash.
 
 - **eventname**: the event identifier of smart contact. Exchanges only need to listen on “transfer” transactions to find out users' transfer transactions.
 
@@ -688,6 +688,6 @@ After sending the request, you will get the following response：
 
 ## See Also
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "Nep17")
 
 [Neo3 Data Conversion](https://neo.org/converter/index)

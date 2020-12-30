@@ -89,7 +89,7 @@
     - name: Limitations
       href: /v3/docs/en-us/develop/write/limitation.md
     - name: NEP-17
-      href: /v3/docs/en-us/develop/write/nep5.md
+      href: /v3/docs/en-us/develop/write/nep17.md
     - name: Contract Migration and Destruction
       href: /v3/docs/en-us/develop/write/migrate.md
   - name: Contract Samples
@@ -153,10 +153,10 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
-    - name: getnep5balances
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep5balances.md
-    - name: getnep5transfers
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep5transfers.md
+    - name: getnep17balances
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep17balances.md
+    - name: getnep17transfers
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep17transfers.md
     - name: getnewaddress
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getnewaddress.md
     - name: getpeers

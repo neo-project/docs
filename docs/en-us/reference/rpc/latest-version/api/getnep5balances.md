@@ -1,10 +1,10 @@
-# getnep5balances Method
+# getnep17balances Method
 
 Returns the balance of all NEP-5 assets in the specified address.
 
 > [!Note]
 >
-> You must install the plugin [RpcNep5Tracker](https://github.com/neo-project/neo-plugins/releases) and [LevelDBStore](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+> You must install the plugin [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) and [LevelDBStore](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
 
@@ -17,7 +17,7 @@ Request body：
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getnep5balances",
+  "method": "getnep17balances",
   "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1", 0],
   "id": 1
 }

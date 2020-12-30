@@ -14,7 +14,7 @@
 - ApplicationLogs（必选）
 - LevelDBStore（已预装）
 - RpcServer（必选）
-- RpcNep5Tracker（推荐）
+- RpcNep17Tracker（推荐）
 
  将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构如下图:
 
@@ -26,13 +26,13 @@
 install ApplicationLogs
 install LevelDBStore
 install RpcServer
-install RpcNep5Tracker
+install RpcNep17Tracker
 ```
 
 > [!Note]
 >
-> RpcNep5Tracker 插件需要 RpcServer 插件已安装的前提下使用；
-> ApplicationLogs 和 RpcNep5Tracker 插件需在初始同步之前就必须安装，否则会遗漏安装前已同步区块中交易日志的内容。
+> RpcNep17Tracker 插件需要 RpcServer 插件已安装的前提下使用；
+> ApplicationLogs 和 RpcNep17Tracker 插件需在初始同步之前就必须安装，否则会遗漏安装前已同步区块中交易日志的内容。
 
 ## 修改配置文件
 

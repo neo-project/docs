@@ -1,10 +1,10 @@
-# getnep5transfers 方法
+# getnep17transfers 方法
 
 返回指定地址内的所有 NEP-5 交易记录。
 
 > [!Note]
 >
-> 此方法由插件提供，需要安装 [RpcNep5Tracker](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
@@ -25,7 +25,7 @@ timestamp (可选)：
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "getnep5transfers",
+    "method": "getnep17transfers",
     "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"],
     "id": 1
 }
@@ -71,7 +71,7 @@ timestamp (可选)：
 ```json
 {
     "jsonrpc": "2.0",
-    "method": "getnep5transfers",
+    "method": "getnep17transfers",
     "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH", 1579170709528, 1579170725319],
     "id": 1
 }

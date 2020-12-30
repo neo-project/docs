@@ -68,7 +68,7 @@ The commands listed in the table below requires you to open the wallet before in
 | show state      |                     | Displays the current status of blockchain synchronization.   |
 | show pool       | [verbose]           | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
 
-#### Nep5 commands
+#### Nep17 commands
 
 | Command                 | Parameters                                                   | Description                                                  |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -984,7 +984,7 @@ Loaded plugins:
         ApplicationLogs
         LevelDBStore
         RpcServer
-        RpcNep5Tracker
+        RpcNep17Tracker
         StatesDumper
         SystemLog
 ```

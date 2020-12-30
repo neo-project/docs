@@ -134,7 +134,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 >
 > 账户余额的类型一般是 `BigInteger`，这是把小数部分取整后的一种表示，需要除以 `Factor` 才能得出Token 的实际数量。
 
-查询 NEP5 资产余额查询可以使用字符串参数：
+查询 Nep17 资产余额查询可以使用字符串参数：
 
 ```c#
 // get the neo balance of account
@@ -149,11 +149,11 @@ BigInteger balance = await walletAPI.GetTokenBalanceAsync(tokenHash, address).Co
 // Get the NEO balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
 UInt160 accountHash = Utility.GetScriptHash(address);
-Nep5API nep5API = new Nep5API(client);
-BigInteger balance = await nep5API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
+Nep17API nep17API = new Nep17API(client);
+BigInteger balance = await nep17API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
 
-在 Neo3 中 NEO 和 GAS 都是 NEP5 资产，且脚本哈希固定，所以这里提供了更简单的接口：
+在 Neo3 中 NEO 和 GAS 都是 Nep17 资产，且脚本哈希固定，所以这里提供了更简单的接口：
 
 ```c#
 // Get the NEO balance
@@ -199,7 +199,7 @@ decimal gasBalance = await walletAPI.GetGasBalanceAsync(address).ConfigureAwait(
 
 ## 资产转账
 
-`WalletAPI` 中封装了 NEP5 转账方法。
+`WalletAPI` 中封装了 Nep17 转账方法。
 
 可以使用字符串参数：
 
@@ -229,7 +229,7 @@ UInt160 receiver = Utility.GetScriptHash(address);
 await walletAPI.TransferAsync(NativeContract.NEO.Hash, sender, receiver, 10).ConfigureAwait(false);
 ```
 
-多签账户的 NEP5 转账：
+多签账户的 Nep17 转账：
 
 ```C#
 KeyPair receiverKey = Utility.GetKeyPair("L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb");
