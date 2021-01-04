@@ -1,6 +1,6 @@
 # NEP-17
 
-The NEP-17 proposal is a replacement of the original NEP17 proposal, which outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized Smart Contracts. 
+The NEP-17 proposal is a replacement of the original NEP5 proposal, which outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized Smart Contracts. 
 
 NEP17 assets are recorded in the contract storage area, through updating account balance in the storage area, to complete the transaction.
 
@@ -80,7 +80,7 @@ A token contract which creates new tokens MUST trigger a `Transfer` event with t
 
 A token contract which burns tokens MUST trigger a `Transfer` event with the `to` address set to null when tokens are burned.
 
-Here is the complete [NEP-5 contract code](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP17/Contract1.cs):
+Here is the complete [NEP-17 contract code](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP17/Contract1.cs):
 
 ```c#
 using Neo.SmartContract.Framework;
