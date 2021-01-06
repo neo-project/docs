@@ -1,6 +1,6 @@
 # Before You Begin
 
-In next sections, we will work you through an example of how to release an NEP-5 asset on Neo blockchain, which includes the tasks of setting up and configuring the development environment, compiling, deploying and invoking the smart contract on a private Neo chain.
+In next sections, we will work you through an example of how to release an NEP17 asset on Neo blockchain, which includes the tasks of setting up and configuring the development environment, compiling, deploying and invoking the smart contract on a private Neo chain.
 
 ## System environment
 

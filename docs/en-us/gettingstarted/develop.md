@@ -5,7 +5,7 @@ So far, we have learned how to build a private chain and connect nodes to the ch
 We will complete the following tasks in this section:
 
 1. Install contract development environment
-2. Create a NEP-5 contract project
+2. Create a NEP17 contract project
 3. Compile a contract
 
 ## Setting up development environment
@@ -59,7 +59,7 @@ We will complete the following tasks in this section:
 1. Get back to Visual Studio, right-click `Neo.SmartContract.Framework` in the `neo-devpack-dotnet` project solution panel, and click `Build` to build the project.
 2. Go to the output directory and copy the file `Neo.SmartContract.Framework.dll` . We will use it later.
 
-## Creating an NEP-5 contract project
+## Creating an NEP17 contract project
 
 ### Creating a project
 
@@ -75,13 +75,13 @@ We will complete the following tasks in this section:
 
 5. Right click `Dependencies` and then `Add Reference`. Follow the prompts to add the `Neo.SmartContract.Framework.dll` pasted in last step to the project.
 
-### Editing NEP-5 Code
+### Editing NEP17 Code
 
 When the project is created, a simple smart contract template is automatically created, which writes a key-value pair of "Hello" "World" to the storage.
 
 Since many developers are concerned about how to publish their own contract assets on the Neo block chain, now let's work through the process on private chain.
 
-1. Download the NEP-5 template from [NEP17 example of Neo3](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP17/Contract1.cs).
+1. Download the NEP17 template from [NEP17 example of Neo3](https://github.com/neo-project/examples/tree/37487a324b4be695af422f37d668e15a05d75e1e/csharp/NEP17).
 
 2. In the NeoContract project created in previous steps, open the sample file Contract1.cs
 
@@ -89,7 +89,7 @@ Since many developers are concerned about how to publish their own contract asse
 
 > [!Note]
 >
-> In comparison with Neo2, the Neoe3 NEP-5 sample has the following changes:
+> In comparison with Neo2, the Neoe3 NEP17 sample has the following changes:
 >
 > - Adds customized attributes above the smart contract class
 >

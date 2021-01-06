@@ -684,6 +684,6 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 ## 相关参考
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP17") 
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki) 
 
 [neo3.0 数据转换](https://neo.org/converter/index)

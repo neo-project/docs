@@ -1,6 +1,6 @@
 # 部署与调用合约
 
-在上节我们已编译好一个NEP-5合约文件（NEP17.nef ）和合约描述文件（NEP17.manifest.json ），本节我们将使用Neo-CLI部署并调用该合约。
+在上节我们已编译好一个NEP17合约文件（NEP17.nef ）和合约描述文件（NEP17.manifest.json ），本节我们将使用Neo-CLI部署并调用该合约。
 
 ## 部署合约
 

@@ -688,6 +688,6 @@ After sending the request, you will get the following response：
 
 ## See Also
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP17")
+[NEP17 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki)
 
 [Neo3 Data Conversion](https://neo.org/converter/index)

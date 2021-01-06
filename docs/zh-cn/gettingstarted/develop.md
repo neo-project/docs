@@ -5,7 +5,7 @@
 在本节我们将完成以下任务：
 
 1. 安装合约开发环境
-2. 创建一个 NEP-5 合约项目
+2. 创建一个 NEP17 合约项目
 3. 编译合约
 
 ## 安装开发环境
@@ -57,7 +57,7 @@
 1. 返回Visual Studio，在解决方案 `neo-devpack-dotnet` 项目列表中右键单击 `Neo.SmartContract.Framework`，点击 `生成` 编译该项目。
 2. 进入编译后的文件输出目录，复制 `Neo.SmartContract.Framework.dll` 备用。
 
-## 创建 NEP-5 合约项目
+## 创建 NEP17 合约项目
 
 ### 创建项目
 
@@ -73,13 +73,13 @@
 
 5. 右键单击 `依赖项` -> `添加引用`，选择刚复制到该项目下的 `Neo.SmartContract.Framework.dll` 文件，将其添加到项目。
 
-### 编辑 NEP-5 代码
+### 编辑 NEP17 代码
 
 创建项目后，会自动生成一个智能合约的代码模板，功能是向存储区存入 "Hello" "World" 的键值对。
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-1. 从 Github 上下载 Neo3 的 [NEP17 示例](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP17/Contract1.cs)。
+1. 从 Github 上下载 Neo3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/37487a324b4be695af422f37d668e15a05d75e1e/csharp/NEP17)。
 
 2. 在之前创建的合约项目里打开示例文件 Contract1.cs
 
@@ -87,7 +87,7 @@
 
 > [!Note]
 >
-> 相对于 Neo2 来说， Neo3 的 NEP-5 合约模板有以下改动：
+> 相对于 Neo2 来说， Neo3 的 NEP17 合约模板有以下改动：
 >
 > - 在智能合约类上方添加了自定义特性：
 >
