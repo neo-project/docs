@@ -80,147 +80,44 @@ A token contract which creates new tokens MUST trigger a `Transfer` event with t
 
 A token contract which burns tokens MUST trigger a `Transfer` event with the `to` address set to null when tokens are burned.
 
-Here is the complete [NEP-17 contract code](https://github.com/neo-ngd/Neo3-Smart-Contract-Examples/blob/master/NEP17/Contract1.cs):
+NEP17 methods are as follows. For the complete code refer to [NEP-17 contract code](https://github.com/neo-project/examples/tree/37487a324b4be695af422f37d668e15a05d75e1e/csharp/NEP17).
 
 ```c#
+using Neo;
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using Neo.SmartContract.Framework.Services.System;
 using System;
-using System.ComponentModel;
 using System.Numerics;
 
-namespace NEP17
+namespace Template.NEP17.CSharp
 {
-    [Features(ContractFeatures.HasStorage)]
-    public class NEP17 : SmartContract
+    public partial class NEP17 : SmartContract
     {
-        [DisplayName("Transfer")]
-        public static event Action<byte[], byte[], BigInteger> Transferred;
+        public static BigInteger TotalSupply() => TotalSupplyStorage.Get();
 
-        private static readonly BigInteger TotalSupplyValue = 10000000000000000;
-
-        private static readonly byte[] Owner = "NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9".ToScriptHash(); //Owner Address
-
-        private static readonly StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-
-        private static readonly StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
-
-        public static object Main(string method, object[] args)
+        public static BigInteger BalanceOf(UInt160 account)
         {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                return Runtime.CheckWitness(Owner);
-            }
-            else if (Runtime.Trigger == TriggerType.Application)
-            {
-                var callscript = ExecutionEngine.CallingScriptHash;
-
-                if (method == "deploy") return Deploy();
-
-                if (method == "balanceOf") return BalanceOf((byte[])args[0]);
-
-                if (method == "decimals") return Decimals();
-
-                if (method == "name") return Name();
-
-                if (method == "symbol") return Symbol();
-
-                if (method == "supportedStandards") return SupportedStandards();
-
-                if (method == "totalSupply") return TotalSupply();
-
-                if (method == "transfer") return Transfer((byte[])args[0], (byte[])args[1], (BigInteger)args[2], callscript);
-            }
-            return false;
+            if (!ValidateAddress(account)) throw new Exception("The parameters account SHOULD be a 20-byte non-zero address.");
+            return AssetStorage.Get(account);
         }
 
-        [DisplayName("deploy")]
-        public static bool Deploy()
+        public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
         {
-            if (TotalSupply() != 0) return false;
-            
-            contract.Put("totalSupply", TotalSupplyValue);
-            
-            asset.Put(Owner, TotalSupplyValue);
-            Transferred(null, Owner, TotalSupplyValue);
-            return true;
-        }
+            if (!ValidateAddress(from) || !ValidateAddress(to)) throw new Exception("The parameters from and to SHOULD be 20-byte non-zero addresses.");
+            if (amount <= 0) throw new Exception("The parameter amount MUST be greater than 0.");
+            if (!Runtime.CheckWitness(from) && !from.Equals(ExecutionEngine.CallingScriptHash)) throw new Exception("No authorization.");
+            if (AssetStorage.Get(from) < amount) throw new Exception("Insufficient balance.");
+            if (from == to) return true;
 
-        [DisplayName("balanceOf")]
-        public static BigInteger BalanceOf(byte[] account)
-        {
-            if (account.Length != 20)
-                throw new InvalidOperationException("The parameter account SHOULD be 20-byte non-zero addresses.");
-            return asset.Get(account).TryToBigInteger();
-        }
+            AssetStorage.Reduce(from, amount);
+            AssetStorage.Increase(to, amount);
 
-        [DisplayName("decimals")]
-        public static byte Decimals() => 8;
-
-        private static void onPayment(BigInteger amount)
-        {
-            SmartContract.Abort();
-        }
-
-        [DisplayName("name")]
-        public static string Name() => "MyToken"; //name of the token
-
-        [DisplayName("symbol")]
-        public static string Symbol() => "MYT"; //symbol of the token
-
-        [DisplayName("supportedStandards")]
-        public static string[] SupportedStandards() => new string[] { "NEP-5", "NEP-7", "NEP-10" };
-
-        [DisplayName("totalSupply")]
-        public static BigInteger TotalSupply()
-        {
-            return contract.Get("totalSupply").TryToBigInteger();
-        }
-
-#if DEBUG
-        [DisplayName("transfer")] //Only for ABI file
-        public static bool Transfer(byte[] from, byte[] to, BigInteger amount) => true;
-#endif
-        //Methods of actual execution
-        private static bool Transfer(byte[] from, byte[] to, BigInteger amount, byte[] callscript)
-        {
-            //Check parameters
-            if (from.Length != 20 || to.Length != 20)
-                throw new InvalidOperationException("The parameters from and to SHOULD be 20-byte addresses.");
-            if (amount <= 0)
-                throw new InvalidOperationException("The parameter amount MUST be greater than 0.");
-            if (!Runtime.CheckWitness(from) && from.TryToBigInteger() != callscript.TryToBigInteger())
-                return false;
-            var fromAmount = asset.Get(from).TryToBigInteger();
-            if (fromAmount < amount)
-                return false;
-            if (from == to)
-                return true;
-
-            //Reduce payer balances
-            if (fromAmount == amount)
-                asset.Delete(from);
-            else
-                asset.Put(from, fromAmount - amount);
-
-            //Increase the payee balance
-            var toAmount = asset.Get(to).TryToBigInteger();
-            asset.Put(to, toAmount + amount);
-
-            Transferred(from, to, amount);
+            OnTransfer(from, to, amount);
 
             // Validate payable
-            if (Blockchain.GetContract(to) != null) Contract.Call(to, "onPayment", new object[] { amount });
+            if (IsDeployed(to)) Contract.Call(to, "onPayment", new object[] { from, amount, data });
             return true;
-        }
-    }
-
-    public static class Helper
-    {
-        public static BigInteger TryToBigInteger(this byte[] value)
-        {
-            return value?.ToBigInteger() ?? 0;
         }
     }
 }
