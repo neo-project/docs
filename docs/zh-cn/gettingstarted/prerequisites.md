@@ -6,11 +6,12 @@ Neo 有两个全节点客户端：Neo-GUI 和 Neo-CLI。本教程将使用 Neo-C
 
 ## 系统环境 
 
-Neo-CLI 支持以下环境：
+经测试，Neo-CLI 支持但不限于以下系统环境：
 
 - Windows 10
 - Ubuntu 16.04/18.04
 - CentOS 7.4/7.6
+- macOS Big Sur/version 11.1
 
 ## 下载客户端
 

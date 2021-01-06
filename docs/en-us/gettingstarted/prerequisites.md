@@ -4,11 +4,12 @@ In next sections, we will work you through an example of how to release an NEP17
 
 ## System environment
 
-Neo-CLI runs in the following environments:
+You are recommended to run Neo-CLI in the following environments that we have tested:
 
 - Windows 10
 - Ubuntu 16.04/18.04
 - CentOS 7.4/7.6
+- macOS Big Sur/version 11.1
 
 ### Download Neo-CLI
 
