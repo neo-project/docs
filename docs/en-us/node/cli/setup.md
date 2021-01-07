@@ -83,6 +83,3 @@ You can also use .NET Core CLI to pubish the project. For more information refer
 
 2. Go to the directory where the compiled files are outputted and copy the libleveldb.dll downloaded before to here.
 
-## What's next?
-
-[Configuring and Starting Neo-CLI](config.md)

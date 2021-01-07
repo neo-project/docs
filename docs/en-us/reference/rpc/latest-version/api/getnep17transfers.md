@@ -1,6 +1,6 @@
 # getnep17transfers Method
 
-Returns all the NEP-5 transaction information occurred in the specified address.
+Returns all the NEP17 transaction information occurred in the specified address.
 
 > [!Note]
 >

@@ -80,7 +80,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/LevelDBStore.zip">LevelDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/LevelDBStore.zip">LevelDBStore</a>
             </td>
             <td>区块链数据使用 LevelDB 存储引擎</td>
             <td></td>    
@@ -88,7 +88,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RocksDBStore.zip">RocksDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/RocksDBStore.zip">RocksDBStore</a>
             </td>
             <td>区块链数据使用 RocksDBStore 存储引擎</td>
             <td></td>
@@ -96,7 +96,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcServer.zip">RpcServer</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/RpcServer.zip">RpcServer</a>
             </td>
             <td>提供节点的 RPC 功能</td>
             <td><a href="../../reference/rpc/latest-version/api.html#命令列表"> RPC API </a></td>
@@ -104,7 +104,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>同步智能合约和 NativeContract 的日志（Notify）</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -112,16 +112,16 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/RpcNep17Tracker.zip">RpcNep17Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
-            <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
+            <td>提供 NEP17 余额及交易历史的 RPC 查询功能。</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
                     href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>推荐</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>导出 Neo-CLI 状态数据</td>
             <td></td>
@@ -129,6 +129,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
         </tr>   
     </tbody>
 </table>
+
 
 
 将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。
@@ -141,7 +142,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 
 ```
 neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/StatesDumper.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 

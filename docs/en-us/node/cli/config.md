@@ -114,14 +114,14 @@ Download the plugins you need from the following table.
             <td><a
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
-            <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
+            <td>Enquiries NEP17 balance and transactions history of accounts through RPC</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
                     href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>Recommended</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
@@ -129,6 +129,7 @@ Download the plugins you need from the following table.
         </tr>  
     </tbody>
 </table>
+
 
 
 To install plugins, unzip plugin packages under the the Neo-CLI root directory, as shown below:
@@ -141,7 +142,7 @@ It is easier to automatically install or uninstall the plugin using commands, fo
 
 ```
 neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview3-00/StatesDumper.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview4/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 

@@ -85,8 +85,8 @@ For P2P and WebSocket information see [Node Introduction](../../../node/introduc
 
 | Command                                             | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getnep17balances](api/getnep17balances.md) | \<address> | Returns the balance of all NEP-5 assets in the specified address. |
-| [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | Returns all the NEP-5 transaction information occurred in the specified address. |
+| [getnep17balances](api/getnep17balances.md) | \<address> | Returns the balance of all NEP17 assets in the specified address. |
+| [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | Returns all the NEP17 transaction information occurred in the specified address. |
 
 ## GET request example
 
