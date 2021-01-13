@@ -24,13 +24,18 @@ The NEO namespace is the API provided by the Neo blockchain, providing a way to 
 | [Runtime](neo/Runtime.md)          | Provides a set of methods during smart contract execution   |
 | [Storage](neo/Storage.md)          | Provides a set of methods to insert, query, or delete data of a persistent store   |
 | [StorageContext](neo/StorageContext.md) | A class representing storage context of the persistent storage |
-| [StorageFlags](neo/StorageFlags.md) | The property of the written data |
 | [StorageMap](neo/StorageMap.md) | A key-value storage for a specific prefix in the given storage context. |
 | [Transaction](neo/Transaction.md)  |  The base class representing the transaction            |
-
+| [NEO](neo/Neo.md)        |        A set of properties and methods of the native contract NeoToken.        |
+| [GAS](neo/Gas.md)        | A set of properties and methods of the native contract GasToken. |
+| [Policy](neo/Policy.md)        |     Provides methods to access and modify system parameters.     |
+| [Oracle](neo/Oracle.md)        |        Provides methods to initiate Oracle requests.        |
+| [ManagementContract](neo/ManagementContract.md)        |    Provides methods to deploy, update, destroy, and get contracts.    |
+| [Designation](neo/Designation.md)        | Provides methods to obtain node information of the specified role |
 ## Enumeration
 
 | Enumeration | Description |
 | ---------------------------------------- | ----------------------- |
 | [CallFlags](neo/CallFlags.md) | Defines the pattern when invoking contracts |
+| [StorageFlags](neo/StorageFlags.md) | Represents the property of written data |
 | [TriggerType](neo/TriggerType.md) | Defines the trigger type |

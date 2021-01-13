@@ -23,6 +23,6 @@ public class Account
 
 | Name | Description |
 | ---------------------------------------- | ------------------ |
-| [IsStandard(byte[] scripthash)](Account/IsStandard.md) | Verifies if the contract is a standard account according to its scripthash (unilateral signature account) |
+| [IsStandard(UInt160 scripthash)](Account/IsStandard.md) | Verifies if the contract is a standard account according to its scripthash (unilateral signature account) |
 
 

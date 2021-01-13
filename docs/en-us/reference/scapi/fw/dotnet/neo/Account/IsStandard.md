@@ -1,4 +1,4 @@
-# Account.IsStandard method (byte[])
+# Account.IsStandard method (UInt160)
 
 Verifies whether the contract is a standard account according to its scripthash (unilateral signature account)
 
@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern bool IsStandard(byte[] scripthash)
+public static extern bool IsStandard(UInt160 scripthash)
 ```
 
 Parameters: scripthash, the account scripthash
@@ -23,7 +23,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
-        byte[] scriptHash = { 36, 23, 241, 177, 228, 54, 109, 223, 27, 237, 139, 54, 207, 38, 132, 101, 172, 3, 10, 73 };
+        UInt160 scriptHash = { 36, 23, 241, 177, 228, 54, 109, 223, 27, 237, 139, 54, 207, 38, 132, 101, 172, 3, 10, 73 };
         Account.IsStandard(scriptHash);
     }
 }
