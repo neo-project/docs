@@ -1,21 +1,21 @@
 # CreateFromSyscall(SyscallCallback)
 
-创建系统调用的回调函数。
+Creates the callback function of syscall.
 
-命名空间：[Neo.SmartContract.Framework.Services.System](../../system.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../../system.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public static extern Callback CreateFromSyscall(SyscallCallback method);
 ```
 
-参数：
-- method: 回调函数类型
+Parameters:
+- method: the type of callback function
 
-## 示例
+## Example
 
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+Response body:
 
 ```json
 [{
@@ -36,10 +36,10 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }]
 ```
 
-响应说明：
+Response description:
 
-- ByteString类型：回调函数返回值。
+- ByteString type: The return value of callback function
 
-- 其他：失败。
+- Other: failed.
 
-[返回上级](../Callback.md)
+[Back](../Callback.md)

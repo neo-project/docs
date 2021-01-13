@@ -1,22 +1,22 @@
 # CreateFromMethod(UInt160, string)
 
-创建指定合约指定方法的回调函数。
+Creates a callback function with the specified method of the specified contract.
 
-命名空间：[Neo.SmartContract.Framework.Services.System](../../system.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../../system.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public static extern Callback CreateFromMethod(UInt160 hash, string method);
 ```
 
-参数：
-- hash: 合约哈希；
-- method：合约方法名
+Parameters:
+- hash: contract hash
+- method: contract method
 
-## 示例
+## Example
 
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
@@ -28,7 +28,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+Response body:
 
 ```json
 [{
@@ -37,10 +37,10 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }]
 ```
 
-响应说明：
+Response description:
 
-- Integer类型：NEO的总供应量`100000000`。
+- Integer type: The total supply of NEO is 100000000.
 
-- 其他：失败。
+- Other: failed.
 
-[返回上级](../Callback.md)
+[Back](../Callback.md)

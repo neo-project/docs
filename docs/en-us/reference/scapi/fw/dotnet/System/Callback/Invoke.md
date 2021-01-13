@@ -1,23 +1,23 @@
 # Invoke(object)
 
-调用回调函数。
+Invokes the callback function.
 
-命名空间：[Neo.SmartContract.Framework.Services.System](../../system.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../../system.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public extern object Invoke(object[] args);
 ```
 
-参数：
-- args:回调函数的参数
+Parameters:
+- args: The parameter of callback function
 
-返回值：回调函数的返回值。
+Return: The return value of callback function
 
-## 示例
+## Example
 
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
@@ -35,7 +35,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+Response body:
 
 ```json
 [{
@@ -44,10 +44,10 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }]
 ```
 
-响应说明：
+Response description:
 
-- Integer类型：回调函数的返回值`3`。
+- Integer type: The return value of callback function is `3`.
 
-- 其他：失败。
+- Other: failed.
 
-[返回上级](../Callback.md)
+[Back](../Callback.md)

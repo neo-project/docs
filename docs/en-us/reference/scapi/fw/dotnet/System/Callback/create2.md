@@ -1,21 +1,21 @@
 # Create<T, TResult>(Func<TResult>)
 
-创建回调函数。
+Creates callback functions.
 
-命名空间：[Neo.SmartContract.Framework.Services.System](../../system.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../../system.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public static extern Callback Create<TResult>(Func<TResult> func);
 ```
 
-参数：
-- func: 委托方法对象，方法参数为空，返回值类型为`TResult`。
+Parameters:
+- func: Delegate method object. The method parameter is blank, and return value type is `TResult`.
 
-## 示例
+## Example
 
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
@@ -33,7 +33,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+Response body:
 
 ```json
 [{
@@ -42,10 +42,9 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }]
 ```
 
-响应说明：
+Response description:
 
-- Integer类型：回调函数返回值`1024`。
+- Integer type: The return value of callback function is `1024`.
+- Other: failed.
 
-- 其他：失败。
-
-[返回上级](../Callback.md)
+[Back](../Callback.md)

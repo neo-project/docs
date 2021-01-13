@@ -1,26 +1,28 @@
 # Itoa(BigInteger, int)
 
-将特定类型的数值转换为字符串表示。可以是10进制或者16进制数，默认是10进制。
+Converts the specific type of value to a decimal or hexadecimal string. The default is decimal.
 
-命名空间：[Neo.SmartContract.Framework.Services.System](../../system.md)
+Namespace: [Neo.SmartContract.Framework.Services.System](../../system.md)
 
-程序集：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
-## 语法
+## Syntax
 
 ```c#
 public static extern string Itoa(BigInteger value, int @base = 10);
 ```
 
-参数：
-- value： 指定类型的数值
-- base：数值的进位制
+Parameters:
+- value: The specific type value
+- base: The value base.
 
-返回值：Base64编码的字符串。
+Return: Base64-encoded string
 
-注：`value`可为`BigInteger, int, uint, long, ulong, short, ushort, byte, sbyte9`种类型。
+> [!Note]
+>
+> `value` can be `BigInteger`, `int`, `uint`, `long`, `ulong`, `short`, `ushort`, `byte`, `sbyte`.
 
-## 示例
+## Example
 
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
@@ -32,7 +34,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+Response body:
 
 ```json
 [{
@@ -41,10 +43,9 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }]
 ```
 
-响应说明：
+Response description:
 
-- ByteString类型：Base64编码的字符串。
+- ByteString type: Base64-encoded string
+- Other: failed.
 
-- 其他：失败。
-
-[返回上级](../Binary.md)
+[Back](../Binary.md)
