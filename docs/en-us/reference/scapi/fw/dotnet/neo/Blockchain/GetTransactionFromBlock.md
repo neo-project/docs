@@ -1,4 +1,4 @@
-# Blockchain.GetTransactionFromBlock Method (byte[], int)
+# Blockchain.GetTransactionFromBlock Method (UInt256, int)
 
 Returns a transaction from the given block hash and transaction index.
 
@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Transaction GetTransactionFromBlock(byte[] blockHash, int txIndex);
+public static extern Transaction GetTransactionFromBlock(UInt256 blockHash, int txIndex);
 ```
 
 Parameters: 
@@ -30,7 +30,7 @@ public class Contract1 : System.Blockchain.GetContract
     {
         byte[] blockHash = new byte[] { 88, 114, 160, 206, 130, 137, 41, 94, 119, 120, 242, 71, 232, 244, 3, 20, 165, 69, 182, 232, 106, 185, 119, 239, 183, 65, 174, 220, 157, 251, 28, 215 };
         int txIndex = 2;
-        Transaction tx = Blockchain.GetTransactionFromBlock(blockHash, txIndex);
+        Transaction tx = Blockchain.GetTransactionFromBlock((UInt256)blockHash, txIndex);
     }
 }
 ```

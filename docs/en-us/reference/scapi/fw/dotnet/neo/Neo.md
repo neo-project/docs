@@ -1,6 +1,6 @@
 # Neo Class
 
-Provides a series of attributes and methods of the native contract NeoToken, which contract hash is 0xe22f9134cef8b03e53f71b3f960a20a65cddc972.
+Provides a series of attributes and methods of the native contract NeoToken, which contract hash is 0x0a46e2e37c9987f570b4af253fb77e7eef0f72b6.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

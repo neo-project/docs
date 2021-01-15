@@ -12,7 +12,7 @@
 public static extern bool CheckWitness(UInt160 hash);
 ```
 
-or 
+或
 
 ```c#
 public static extern bool CheckWitness(ECPoint pubkey);

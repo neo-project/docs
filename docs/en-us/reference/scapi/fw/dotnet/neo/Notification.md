@@ -22,4 +22,4 @@ public class Notification : IApiInterface
 
 ## Constructor
 
-Gets Notification objects from [Runtime.GetNotifications(byte[] hash = null)](Runtime/GetNotifications.md) .
+Gets Notification objects from [Runtime.GetNotifications(UInt160 hash = null)](Runtime/GetNotifications.md).

@@ -1,4 +1,4 @@
-# Contract.CreateStandardAccount Method ()
+# Contract.CreateStandardAccount Method (Cryptography.ECC.ECPoint)
 
 Creates a standard account with the public key.
 
@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern byte[] CreateStandardAccount(byte[] pubKey);
+public static extern UInt160 CreateStandardAccount(ECPoint pubKey);
 ```
 
 ## Example
@@ -17,9 +17,9 @@ public static extern byte[] CreateStandardAccount(byte[] pubKey);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-        public static byte[] CreateStandardAccount(byte[] pubKey)
+        public static UInt160 CreateStandardAccount(byte[] pubKey)
         {
-            return Contract.CreateStandardAccount(pubKey);
+            return Contract.CreateStandardAccount((ECPoint)pubKey);
         }
 }
 ```

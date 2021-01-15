@@ -1,6 +1,6 @@
 # Oracle Class
 
-Provides a series of methods of the native contract Oracle, which contract hash is `0x35e4fc2e69a4d04d1db4d755c4150c50aff2e9a9`.
+Provides a series of methods of the native contract Oracle, which contract hash is `0xb1c37d5847c2ae36bdde31d0cc833a7ad9667f8f`.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -16,7 +16,7 @@ public class Oracle
 
 | Name | Description       |
 | ---- | ----------------- |
-| Name | The contract name |
+| Hash | The contract hash |
 
 ## Method
 

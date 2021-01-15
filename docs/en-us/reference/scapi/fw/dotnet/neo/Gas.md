@@ -1,6 +1,6 @@
 # GAS Class
 
-Provides a series of attributes and methods of the native contract GasToken, which contract hash is 0x36a019d836d964c438c573f78badf79b9e7eebdd.
+Provides a series of attributes and methods of the native contract GasToken, which contract hash is 0xa6a6c15dcdc9b997dac448b6926522d22efeedfb.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -16,7 +16,7 @@ public class GAS
 
 | Name          | Description                                              |
 | ----------------- | ------------------------------------------------------------ |
-| Name              | Gets the name, GAS                                |
+| Hash           | Gets the contract hash                  |
 | Symbol           | Gets the symbol, gas                            |
 | Decimals          | Gets decimals                   |
 

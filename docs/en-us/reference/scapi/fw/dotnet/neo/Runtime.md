@@ -26,10 +26,10 @@ public static class Runtime
 
 | Name                                                         | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [GetNotifications(byte[] hash = null)](Runtime/GetNotifications.md) | Gets all notifications of the execution of a contract        |
-| [CheckWitness(byte[])](Runtime/CheckWitness.md)              | Verifies that the transactions / block of the calling contract has validated the required script hashes. |
+| [GetNotifications(UInt160 hash = null)](Runtime/GetNotifications.md) | Gets all notifications of the execution of a contract        |
 | [Log(string)](Runtime/Log.md)                                | Sends a log message to the client executing the smart contract. |
-
+| [CheckWitness(UInt160 hash)](Runtime/CheckWitness.md)        | Verifies whether the transactions / block of the calling contract has validated the required script hashes. |
+| [CheckWitness(ECPoint pubkey)](Runtime/CheckWitness.md)      | Verifies whether the transactions / block of the calling contract has validated the required script hashes. |
 
 ## Constructor
 

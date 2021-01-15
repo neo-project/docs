@@ -1,4 +1,4 @@
-# Blockchain.GetTransaction Method (byte[])
+# Blockchain.GetTransaction Method (UInt256)
 
 Returns a transaction from the given transaction hash.
 
@@ -9,7 +9,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Transaction GetTransaction(byte[] hash)
+public static extern Transaction GetTransaction(UInt256 hash)
 ```
 
 Parameters: Transaction ID (Transaction Hash) as a byte array of length 32.
@@ -24,7 +24,7 @@ public class Contract1: SmartContract.Framework.SmartContract
      public static void Main()
      {
          byte[] transaction = new byte[] {88, 114, 160, 206, 130, 137, 41, 94, 119, 120, 242, 71, 232, 244, 3, 20, 165, 69, 182, 106, 185, 119, 239, 183, 65, 174, 220, 157, 251, 28, 215};
-         Transaction tx = Blockchain.GetTransaction(transaction);
+         Transaction tx = Blockchain.GetTransaction((UInt256)transaction);
      }
 }
 ```

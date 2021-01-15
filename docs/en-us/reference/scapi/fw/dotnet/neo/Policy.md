@@ -1,6 +1,6 @@
 # Policy Class
 
-Provides a series of methods of the native contract Policy, which contract hash is `0x1ca594b36b6b6b3f05efce8b106c824053d18713`.
+Provides a series of methods of the native contract Policy, which contract hash is `0xdde31084c0fdbebc7f5ed5f53a38905305ccee14`.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -11,6 +11,12 @@ Assembly: Neo.SmartContract.Framework
 ```c#
 public class Policy
 ```
+
+## Attribute
+
+| Name | Description       |
+| ---- | ----------------- |
+| Hash | The contract hash |
 
 ## Methods
 

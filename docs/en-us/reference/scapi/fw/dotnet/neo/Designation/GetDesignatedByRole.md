@@ -1,6 +1,6 @@
-# GetDesignatedByRole Method (DesignationRole, uint )
+# GetDesignatedByRole Method (DesignationRole, uint)
 
-Initiates an Oracle request.
+Gets the node public key array for the specific role.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
