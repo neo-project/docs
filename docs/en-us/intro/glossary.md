@@ -45,9 +45,9 @@ Cryptographic private key refers to the encryption of the private key through th
 
 From the blockchain perspective, a smart contract is a set of promises, specified in digital form, including protocols within which the parties perform on these promises.
 
-#### NEP-5
+#### NEP-17
 
-The NEP-5 proposal outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized smart contracts.
+The NEP-17 proposal outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized smart contracts.
 
 #### SysCall
 
