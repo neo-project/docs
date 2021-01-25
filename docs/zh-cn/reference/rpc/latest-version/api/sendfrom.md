@@ -9,11 +9,11 @@
 
 ## 参数说明
 
-- asset_id：资产 ID（资产标识符），即 NEP-5合约的脚本哈希。
+- asset_id：资产 ID（资产标识符），即 NEP-17合约的脚本哈希。
 
   如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+  GasToken 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
 - from：转账地址。
 

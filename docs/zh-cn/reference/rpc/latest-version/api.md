@@ -4,32 +4,62 @@
 
 要启用 RPC服务，你需要安装 [RpcServer 插件](https://github.com/neo-project/neo-modules/releases)，启动 Neo-CLI 时无需添加参数。
 
+## 插件安装
+
+### 自动安装
+
+启动 neo-cli，输入命令 `install RpcServer` 安装 RpcServer 插件。
+
+安装成功后重新启动 neo-cli。
+
+### 手动安装
+
+在 [GitHub](https://github.com/neo-project/neo-modules/releases) 上下载对应版本的 RpcServer.zip 文件，解压后放到 neo-cli.dll 所在的目录即可。
+
+安装成功后重新启动 neo-cli。
+
+### 常见的安装错误
+
+> 如果自动安装时遇到以下错误
+>
+> ```
+> Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-CI01168/RpcServer.zip
+> error: The remote server returned an error: (404) Not Found.
+> ```
+>
+> 或手动安装时找不到对应版本的下载文件。
+>
+> 则表示当前未发布对应版本的 RpcServer 插件，开发者可以自行编译 [neo-modules](https://github.com/neo-project/neo-modules) 项目。在 neo-cli.dll 所在的目录新建 Plugins 文件夹，并将编译后的 RpcServer 文件放到 Plugins 文件夹中。安装成功后重新启动 neo-cli。
+
 ## 监听端口
 
-JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P 和 WebSocket 的端口详见 [Neo 节点介绍](../../../node/introduction.md)。
+JSON-RPC 服务器启动后，会监听 TCP 端口，默认为本地地址（127.0.0.1）的 10332 端口，即
 
-|                | 主网（Main Net） | 测试网（Test Net） |
-| -------------- | ------------ | ------------- |
-| JSON-RPC HTTPS | 10331        | 20331         |
-| JSON-RPC HTTP  | 10332        | 20332         |
+```
+http://127.0.0.1:10332/
+```
+
+如需更改可修改 RpcServer 文件夹中的 config.json 配置文件。
 
 ## 命令列表
 
 ### 区块链
 
-| 方法                                                | 参数                         | 说明                                           |
-| --------------------------------------------------- | ---------------------------- | ---------------------------------------------- |
-| [getbestblockhash](api/getbestblockhash.md)         |                              | 获取主链中高度最大的区块的散列                 |
-| [getblock](api/getblock.md)                         | \<hash \| index> [verbose=0] | 根据指定的哈希或索引，返回对应的区块信息       |
-| [getblockcount](api/getblockcount.md)               |                              | 获取主链中区块的数量                           |
-| [getblockhash](api/getblockhash.md)                 | \<index>                     | 根据指定的索引，返回对应区块的散列值           |
-| [getblockheader](api/getblockheader.md)             | \<hash \| index> [verbose=0] | 根据指定的哈希或索引，返回对应的区块头信息     |
-| [getcontractstate](api/getcontractstate.md)         | \<script_hash>               | 根据合约脚本散列，查询合约信息                 |
-| [getrawmempool](api/getrawmempool.md)               | [shouldGetUnverified=0]      | 获取内存中已确认的交易列表,如果参数为1，则获取内存中所有的交易列表（包括已确认和未确认交易）                     |
-| [getrawtransaction](api/getrawtransaction.md)       | \<txid> [verbose=0]          | 根据指定的散列值，返回对应的交易信息           |
-| [getstorage](api/getstorage.md)                     | \<script_hash>  \<key>       | 根据合约脚本散列和存储的 key，返回存储的 value |
-| [gettransactionheight](api/gettransactionheight.md) | \<txid>                      | 根据交易哈希获取交易所在的区块高度                                   |
-| [getcommittee](api/getcommittee.md)               |                              | 获取委员会成员公钥列表                         |
+| 方法                                                    | 参数                         | 说明                                                         |
+| ------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
+| [getbestblockhash](api/getbestblockhash.md)             |                              | 获取当前链中高度最大的区块的散列                             |
+| [getblock](api/getblock.md)                             | \<hash \| index> [verbose=0] | 根据指定的哈希或索引，返回对应的区块信息                     |
+| [getblockcount](api/getblockcount.md)                   |                              | 获取当前链中区块的数量                                       |
+| [getblockhash](api/getblockhash.md)                     | \<index>                     | 根据指定的索引，返回对应区块的散列值                         |
+| [getblockheader](api/getblockheader.md)                 | \<hash \| index> [verbose=0] | 根据指定的哈希或索引，返回对应的区块头信息                   |
+| [getcommittee](api/getcommittee.md)                     |                              | 获取委员会成员公钥列表                                       |
+| [getnativecontracts](api/getnativecontracts.md)         |                              | 获得原生合约的列表                                           |
+| [getnextblockvalidators](api/getnextblockvalidators.md) |                              | 获得下个区块的验证人列表                                     |
+| [getcontractstate](api/getcontractstate.md)             | \<script_hash>               | 根据合约脚本散列，查询合约信息                               |
+| [getrawmempool](api/getrawmempool.md)                   | [shouldGetUnverified=0]      | 获取内存中已确认的交易列表,如果参数为1，则获取内存中所有的交易列表（包括已确认和未确认交易） |
+| [getrawtransaction](api/getrawtransaction.md)           | \<txid> [verbose=0]          | 根据指定的散列值，返回对应的交易信息                         |
+| [getstorage](api/getstorage.md)                         | \<script_hash>  \<key>       | 根据合约脚本散列和存储的 key，返回存储的 value               |
+| [gettransactionheight](api/gettransactionheight.md)     | \<txid>                      | 根据交易哈希获取交易所在的区块高度                           |
 
 ### 节点
 
@@ -45,9 +75,9 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                    | 参数                                    | 说明                                           |
 | --------------------------------------- | --------------------------------------- | ---------------------------------------------- |
+| [getunclaimedgas](api/getunclaimedgas.md) | \<address> | 查询指定地址未获取的 gas |
 | [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \[params] \[sender] \[signers] | 用指定的哈希调用智能合约，传入方法名及参数 |
 | [invokescript](api/invokescript.md)     | \<script> \[sender] \[signers]                | 通过虚拟机运行脚本并返回结果                   |
-| [getunclaimedgas](api/getunclaimedgas.md) | \<address> | 查询指定地址未获取的 gas |
 
 ### 工具
 
@@ -60,15 +90,16 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 | 方法                                       | 参数                                       | 说明                           |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------- |
+| [calculatenetworkfee](api/calculatenetworkfee.md) | \<key> | 计算指定交易的网络费GasToken |
 | [closewallet](api/closewallet.md) |  | 关闭当前打开着的钱包 |
 | [dumpprivkey](api/dumpprivkey.md) | \<address>                              | 导出指定地址的私钥 |
-| [getwalletbalance](api/getwalletbalance.md) | \<asset_id> | 查询资产余额 |
 | [getnewaddress](api/getnewaddress.md) |  | 创建一个新的地址 |
-| [getwalletunclaimedgas](api/getwalletunclaimedgas.md) |  | 显示钱包中未提取的 GAS 数量 |
+| [getwalletbalance](api/getwalletbalance.md) | \<asset_id> | 查询资产余额 |
+| [getwalletunclaimedgas](api/getwalletunclaimedgas.md) |  | 显示钱包中未提取的 GasToken 数量 |
 | [importprivkey](api/importprivkey.md) | \<key> | 导入私钥到钱包 |
-| [calculatenetworkfee](api/calculatenetworkfee.md) | \<key> | 计算指定交易的网络费GAS |
+| [invokecontractverify](api/invokecontractverify.md) | \<script_hash>   \[params] \[signers] | 调用合约的验证方法 |
 | [listaddress](api/listaddress.md) |  | 列出当前钱包内的所有地址 |
-| [openwallet](api/openwallet.md) | \<path> \<password> | 打开指定钱包 |
+| [openwallet](api/openwallet.md) | \<path> \<password> | 打开指定钱包，为了安全该方法默认禁用 |
 | [sendfrom](api/sendfrom.md) | \<asset_id>\<from>\<to>\<value> | 从指定地址，向指定地址转账 |
 | [sendmany](api/sendmany.md) | \<outputs_array> \[signers] | 在一笔交易中向多个地址发起多笔转账 |
 | [sendtoaddress](api/sendtoaddress.md) | \<asset_id>\<address>\<value> \[signers]| 向指定地址转账 |
@@ -79,7 +110,13 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 | --------------------------------------------- | ------- | ------------------------------------- |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
-### RpcNep17Tracker 插件
+### OracleService 插件
+
+| 方法                                                | 参数                                                      | 说明                            |
+| --------------------------------------------------- | --------------------------------------------------------- | ------------------------------- |
+| [submitoracleresponse](api/submitoracleresponse.md) | \<oracle_publickey>\<request_Id>\<tx_sign>\<message_sign> | Oracle 的节点向 Oracle 提交数据 |
+
+## RpcNep17Tracker 插件
 
 | 方法                                          | 参数                  | 说明                                |
 | --------------------------------------------- | --------------------- | ----------------------------------- |
@@ -90,12 +127,12 @@ JSON-RPC 服务器启动后，会监听 TCP 端口，默认端口如下。P2P �
 
 一次典型的 JSON-RPC GET 请求格式如下：
 
-下面以获取主链中区块的数量方法为例。
+下面以获取当前链中区块的数量方法为例。
 
 请求 URL：
 
 ```
-http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
+http://127.0.0.1:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 ```
 
 发送请求后，将会得到如下的响应：
@@ -112,12 +149,12 @@ http://somewebsite.com:10332?jsonrpc=2.0&method=getblockcount&params=[]&id=1
 
 一次典型的 JSON-RPC Post 请求的格式如下：
 
-下面以获取主链中区块的数量方法为例。
+下面以获取当前链中区块的数量方法为例。
 
 请求 URL：
 
 ```
-http://somewebsite.com:10332
+http://127.0.0.1:10332
 ```
 
 请求 Body：

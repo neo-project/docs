@@ -1,6 +1,6 @@
 # getnep17balances 方法
 
-返回指定地址内的所有 NEP-5 资产余额。
+返回指定地址内的所有 NEP-17 资产余额。
 
 > [!Note]
 >
@@ -10,6 +10,10 @@
 
 address：要查看资产余额的地址。
 
+startTime：可选参数，UTC 时间戳，统计资产开始时间（含）。
+
+endTime：可选参数，UTC 时间戳，统计资产截止时间（含）。
+
 ## 调用示例
 
 请求正文：
@@ -18,7 +22,7 @@ address：要查看资产余额的地址。
 {
   "jsonrpc": "2.0",
   "method": "getnep17balances",
-  "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1", 0],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF", 0],
   "id": 1
 }
 ```
@@ -32,32 +36,17 @@ address：要查看资产余额的地址。
     "result": {
         "balance": [
             {
-                "assethash": "0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36",
-                "amount": "9990000000000000",
-                "lastupdatedblock": 17418
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "amount": "3000004699999955",
+                "lastupdatedblock": 94
             },
             {
-                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "amount": "1002531616708175",
-                "lastupdatedblock": 54499
-            },
-            {
-                "assethash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
-                "amount": "9999785",
-                "lastupdatedblock": 54496
-            },
-            {
-                "assethash": "0x433f0891e80c107b9e63d5f5b7cddf1fc35eb0b9",
-                "amount": "9999200000000000",
-                "lastupdatedblock": 19810
-            },
-            {
-                "assethash": "0x9c33bbf2f5afbbc8fe271dd37508acd93573cffc",
-                "amount": "9995000000000000",
-                "lastupdatedblock": 17145
+                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "amount": "99999999",
+                "lastupdatedblock": 94
             }
         ],
-        "address": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"
+        "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
     }
 }
 ```
@@ -67,7 +56,7 @@ address：要查看资产余额的地址。
 > [!Note]
 > 
 >- 当未同步到发布合约的区块时，执行该 API 会报错，只有当区块同步到发布该合约资产的区块时，才会返回正确的结果。
-> - 当输入的参数为非 NEP-5 标准的智能合约的 Script Hash 时，执行该 API 会报错。
+> - 当输入的参数为非 NEP-17 标准的智能合约的 Script Hash 时，执行该 API 会报错。
 >
 > - 当区块未完全同步时，返回的资产余额可能不是最新的，请确保使用该 API 时区块已经同步到最新高度。
 

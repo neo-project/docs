@@ -9,11 +9,11 @@
 
 ## 参数说明
 
-- asset_id：资产 ID，即 NEP-5 合约的脚本哈希
+- asset_id：资产 ID，即 NEP-17 合约的脚本哈希
 
   如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
 
-  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+  GasToken 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 
   以上资产可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 

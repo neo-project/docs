@@ -1,6 +1,6 @@
 # getunclaimedgas 方法
 
-返回指定地址未提取的 GAS。
+返回指定地址未提取的 GasToken。
 
 ## 参数说明
 

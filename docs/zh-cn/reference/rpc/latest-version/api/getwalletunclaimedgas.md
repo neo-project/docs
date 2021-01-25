@@ -1,6 +1,6 @@
 # getwalletunclaimedgas 方法
 
-显示钱包中未提取的 GAS 数量。
+显示钱包中未提取的 GasToken 数量。
 
 > [!Note]
 >
@@ -33,5 +33,5 @@
 
 响应说明：
 
-返回未提取的 GAS 数量。
+返回未提取的 GasToken 数量。
 
