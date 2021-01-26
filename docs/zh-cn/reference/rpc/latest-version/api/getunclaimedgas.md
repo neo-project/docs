@@ -2,9 +2,13 @@
 
 返回指定地址未提取的 GasToken。
 
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+
 ## 参数说明
 
-- address：要查询的地址。
+address：要查询的地址。
 
 ## 调用示例
 
@@ -14,7 +18,7 @@
 {
   "jsonrpc": "2.0",
   "method": "getunclaimedgas",
-  "params": ["NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y"],
+  "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"],
   "id": 1
 }
 ```
@@ -26,8 +30,8 @@
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "unclaimed": "9693738",
-        "address": "NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y"
+        "unclaimed": "0.00000003",
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```

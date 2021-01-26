@@ -5,15 +5,16 @@
 > [!Note]
 >
 > - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+>
 > - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
 asset_id：资产 ID（资产标识符），即合约的 Script Hash。
 
-如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
+如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
 
-GasToken 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
 
 资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
@@ -31,7 +32,7 @@ GasToken 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 {
   "jsonrpc": "2.0",
   "method": "getwalletbalance",
-  "params": ["0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36"],
+  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
   "id": 1
 }
 ```
@@ -43,7 +44,7 @@ GasToken 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "balance": "16000000000"
+        "balance": "3000001638985890"
     }
 }
 ```
@@ -53,8 +54,9 @@ GasToken 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 balance：钱包中该资产的余额，因为 NEP-17 资产是余额系统，而非 UTXO 系统，所以返回结果中没有 confirmed，balance 即实际可用的余额。
 
 > [!Note]
-> 
->- 当未同步到发布合约的区块时，执行该 API 会报错，只有当区块同步到发布该合约资产的区块时，才会返回正确的结果。
+>
+> - 当未同步到发布合约的区块时，执行该 API 会报错，只有当区块同步到发布该合约资产的区块时，才会返回正确的结果。
 > - 当输入的参数为非 NEP-17 标准的智能合约的 Script Hash 时，执行该 API 会报错。
+> - 目前显示的金额是不带精度的，需要自己换算成正确的数值，如将 `3000004699999955` GAS 换算成 `30000046.99999955` GAS，之后可能会修改，以最新的代码为准。
 >
 

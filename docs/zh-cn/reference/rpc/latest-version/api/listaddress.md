@@ -13,10 +13,10 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "listaddress",
-  "params": [],
-  "id": 1
+    "jsonrpc": "2.0",
+    "method": "listaddress",
+    "params": [],
+    "id": 1
 }
 ```
 
@@ -28,13 +28,13 @@
     "id": 1,
     "result": [
         {
-            "address": "NZos4XyLUEUrD7RQBn9J1A1PyeCwQKqwtT",
+            "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
             "haskey": true,
             "label": null,
             "watchonly": false
         },
         {
-            "address": "NdAth5nq7RyG4HEJRsVJxnk9Q6XHoeB3No",
+            "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
             "haskey": true,
             "label": null,
             "watchonly": false
@@ -46,6 +46,10 @@
 响应说明：
 
 address：钱包内的地址。
+
+haskey：是否有该地址的私钥
+
+label：地址标签
 
 watchonly：该地址是否为监视地址。
 

@@ -110,12 +110,6 @@ http://127.0.0.1:10332/
 | --------------------------------------------- | ------- | ------------------------------------- |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
-### OracleService 插件
-
-| 方法                                                | 参数                                                      | 说明                            |
-| --------------------------------------------------- | --------------------------------------------------------- | ------------------------------- |
-| [submitoracleresponse](api/submitoracleresponse.md) | \<oracle_publickey>\<request_Id>\<tx_sign>\<message_sign> | Oracle 的节点向 Oracle 提交数据 |
-
 ## RpcNep17Tracker 插件
 
 | 方法                                          | 参数                  | 说明                                |

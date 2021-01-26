@@ -52,7 +52,7 @@
         "stack": [],
         "notifications": [
           {
-            "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
             "eventname": "Transfer",
             "state": {
               "type": "Array",
@@ -72,7 +72,7 @@
             }
           },
           {
-            "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
             "eventname": "Transfer",
             "state": {
               "type": "Array",
@@ -100,7 +100,7 @@
         "stack": [],
         "notifications": [
           {
-            "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
             "eventname": "Transfer",
             "state": {
               "type": "Array",

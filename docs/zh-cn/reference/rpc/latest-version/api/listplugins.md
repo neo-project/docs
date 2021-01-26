@@ -27,18 +27,16 @@
     "id": 1,
     "result": [
         {
-            "name": "ApplicationLogs",
+            "name": "DBFTPlugin",
             "version": "3.0.0.0",
             "interfaces": [
-                "IPersistencePlugin"
+                "IP2PPlugin"
             ]
         },
         {
             "name": "LevelDBStore",
             "version": "3.0.0.0",
-            "interfaces": [
-                "IStoragePlugin"
-            ]
+            "interfaces": []
         },
         {
             "name": "RpcNep17Tracker",
@@ -51,13 +49,6 @@
             "name": "RpcServer",
             "version": "3.0.0.0",
             "interfaces": []
-        },
-        {
-            "name": "StatesDumper",
-            "version": "3.0.0.0",
-            "interfaces": [
-                "IPersistencePlugin"
-            ]
         },
         {
             "name": "SystemLog",
