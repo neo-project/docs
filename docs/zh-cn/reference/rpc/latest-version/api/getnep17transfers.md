@@ -8,9 +8,11 @@
 
 ## 参数说明
 
-address：要查看交易记录的地址。
+address：要查看资产余额的地址。
 
-timestamp (可选)：
+startTime：可选参数，UTC 时间戳，统计资产开始时间（含）。
+
+endTime：可选参数，UTC 时间戳，统计资产截止时间（含）。
 
 - 如果设置起始和结束时间戳，则返回时间戳范围内的交易信息。
 - 如果仅设置一个时间戳，则返回自该时间戳以后发生的交易信息。
@@ -18,7 +20,72 @@ timestamp (可选)：
 
 ## 调用示例
 
-示例 1  - 不设置时间戳：
+示例 1  - 设置起始时间戳：
+
+请求正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getnep17transfers",
+  "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ", 0],
+  "id": 1
+}
+```
+
+响应正文：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "sent": [
+            {
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
+                "transfernotifyindex": 0,
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
+            }
+        ],
+        "received": [
+            {
+                "timestamp": 1611715807166,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "100",
+                "blockindex": 4,
+                "transfernotifyindex": 2,
+                "txhash": "0x2e7ffdeaa9f74f1c0a85eb545d412b98d9821e9ebaffc373b116d17767e40c49"
+            },
+            {
+                "timestamp": 1611715807166,
+                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "1",
+                "blockindex": 4,
+                "transfernotifyindex": 1,
+                "txhash": "0x9be136667651d0abd02f6976ff08b317f0c4689e0e95b4d1fb5f1fafefc4bfc1"
+            },
+            {
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
+                "transfernotifyindex": 0,
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
+            }
+        ],
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
+    }
+}
+```
+
+示例 2 - 设置起始和结束时间戳：
 
 请求正文：
 
@@ -26,7 +93,7 @@ timestamp (可选)：
 {
     "jsonrpc": "2.0",
     "method": "getnep17transfers",
-    "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
+    "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ", 1611716619654, 2011716619654],
     "id": 1
 }
 ```
@@ -40,75 +107,29 @@ timestamp (可选)：
     "result": {
         "sent": [
             {
-                "timestamp": 1611565978345,
-                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
-                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
-                "amount": "99999999",
-                "blockindex": 94,
-                "transfernotifyindex": 1,
-                "txhash": "0xe3173802dda4797abbc383c5208ea39999c5ab8f3d2fc932ffd215fc3d703918"
-            }
-        ],
-        "received": [
-            {
-                "timestamp": 1611565978345,
+                "timestamp": 1611716619654,
                 "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "transferaddress": null,
-                "amount": "4499999955",
-                "blockindex": 94,
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
                 "transfernotifyindex": 0,
-                "txhash": "0xe3173802dda4797abbc383c5208ea39999c5ab8f3d2fc932ffd215fc3d703918"
-            },
-            {
-                "timestamp": 1611565978345,
-                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
-                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
-                "amount": "99999999",
-                "blockindex": 94,
-                "transfernotifyindex": 1,
-                "txhash": "0xe3173802dda4797abbc383c5208ea39999c5ab8f3d2fc932ffd215fc3d703918"
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
             }
         ],
-        "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
-    }
-}
-```
-
-示例 2 - 设置起始和结束时间戳：
-
-请求正文：
-
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "getnep17transfers",
-    "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH", 1579170709528, 1579170725319],
-    "id": 1
-}
-```
-
-响应正文：
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "sent": [],
         "received": [
             {
-                "timestamp": 1579170725318,
-                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-                "amount": "10000000000",
-                "blockindex": 54499,
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
                 "transfernotifyindex": 0,
-                "txhash": "0x1c25607fda68a2ab5793fb83b5bc87f781afb310127b440620b4ad176d77fa3d"
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
             }
         ],
-        "address": "NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```
 
-目前显示的金额是不带精度的，需要自己换算成正确的数值，如将 `3000004699999955` GAS 换算成 `30000046.99999955` GAS，之后可能会修改，以最新的代码为准。
+
