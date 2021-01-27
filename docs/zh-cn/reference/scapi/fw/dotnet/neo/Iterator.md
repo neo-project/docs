@@ -1,6 +1,6 @@
 # Iterator 类
 
-智能合约中的自定义迭代器。
+智能合约中的迭代器。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -9,17 +9,8 @@
 ## 语法
 
 ```c#
-public class Iterator<TKey, TValue>
+public class Iterator
 ```
-
-## 属性
-
-| 名称  | 说明                     |
-| ----- | ------------------------ |
-| Key | 获取迭代器当前Key值 |
-| Value | 获得迭代器当前Value值 |
-| Keys | 获取迭代器所有Key的迭代器 |
-| Values | 获取迭代器所有Value的迭代器 |
 
 ## 方法
 
