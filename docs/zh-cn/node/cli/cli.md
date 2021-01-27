@@ -1,10 +1,10 @@
 # CLI 命令参考
 
-打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 Neo 的命令行钱包。
+打开命令行，定位到 Neo-CLI 所在目录，输入以下命令即可启动 Neo 的命令行节点。
 
 `dotnet neo-cli.dll`
 
-本节将介绍命令行钱包的所有命令，你可以通过输入命令操作钱包，如创建打开钱包、导入导出私钥、转账、启动共识等。
+本节将介绍命令行节点的所有命令，你可以通过输入命令操作节点，如创建打开钱包、导入导出私钥、转账、启动共识、部署、调用合约等。
 
 ## 命令概览
 
@@ -21,7 +21,7 @@
 
 | 命令               | 说明                                   |
 | :----------------- | -------------------------------------- |
-| version            | 显示当前软件的版本                     |
+| version            | 显示当前节点的版本                     |
 | help [plugin-name] | 帮助菜单，也可以查看部分插件的提示信息 |
 | [parse](#parse) \<value> | 根据输入的字符串，转换成各种支持的数据格式 |
 | clear              | 清除屏幕                               |
@@ -50,7 +50,7 @@
 | [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥                     |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约            |
 | [import watchonly](#import-watchonly) | \<wif\|path>            | 导入监听地址（如合约账户）            |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [from=null] [signerAccounts=null] | 向指定地址转账               |
+| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [data=null] [from=null] [signerAccounts=null] | 向指定地址转账               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
@@ -74,7 +74,7 @@
 | [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
 | [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
-| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [from=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [data=null] [from=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
 
 #### 原生合约命令
 
@@ -102,7 +102,14 @@
 | [plugins](#plugins) |  | 显示已加载的插件 |
 | [install](#install) | [Plugin name] | 安装指定插件     |
 | [uninstall](#install) | [Plugin name] | 卸载指定插件     |
-| [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据 |
+| [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据，需要安装 StatesDumper 插件 |
+| [start consensus](#start-consensus) | \<key> | 启动共识，需要安装 DBFTPlugin 插件 |
+| [start oracle](#start-oracle) | \<key> | 启动 Oracle，需要安装 OracleService 插件 |
+| [stop oracle](#stop-oracle) | \<key> | 停止 Oracle，需要安装 OracleService 插件 |
+| [state root](#state-root) | \<key> | 通过高度查询 state root，需要安装 StatePlugin 插件 |
+| [state height](#state-height) | \<key> | 查询 state 高度，需要安装 OracleService 插件 |
+| [get proof](#get-proof) | \<key> |  |
+| [verify proof](#verify-proof) | \<key> |  |
 
 #### 投票命令
 
@@ -121,7 +128,6 @@
 | 命令                                | 参数     | 说明                                                   |
 | ----------------------------------- | -------- | ------------------------------------------------------ |
 | [export blocks](#export-blocks) | \<start> \[block count] \[export path] | 从指定区块高度导出区块数据，导出的结果可以用作离线同步 |
-| [start consensus](#start-consensus) |          | 启动共识                                               |
 
 ## 命令说明
 
@@ -142,13 +148,11 @@ Address to Base64               uXtKzX+CD2HS1NT5rqXrUEmN31U=
 String to Hex String            4e637068746a675479653363335a4c354a356e445a68736633554a4d47416a64376f
 String to Base64                TmNwaHRqZ1R5ZTNjM1pMNUo1bkRaaHNmM1VKTUdBamQ3bw==
 neo> parse AHVYXVTcKw==
-Base64 to String                 uX]T?+
 Base64 to Big Integer           12345678900000000
 String to Hex String            41485659585654634b773d3d
 String to Base64                QUhWWVhWVGNLdz09
 neo> parse 0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9
 ScriptHash to Address           NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
-Hex String to String            ?{J??a???????PI??U
 Hex String to Big Integer       490249589479789641828817600658206854216357149625
 String to Hex String            307835356466386434393530656261356165663964346434643236313066383237666364346137626239
 String to Base64                MHg1NWRmOGQ0OTUwZWJhNWFlZjlkNGQ0ZDI2MTBmODI3ZmNkNGE3YmI5
