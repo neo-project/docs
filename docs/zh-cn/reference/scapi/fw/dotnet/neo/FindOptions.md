@@ -18,9 +18,7 @@ public enum FindOptions : byte
     ValuesOnly = 1 << 2,
     DeserializeValues = 1 << 3,
     PickField0 = 1 << 4,
-    PickField1 = 1 << 5,
-
-    All = KeysOnly | RemovePrefix | ValuesOnly | DeserializeValues | PickField0 | PickField1
+    PickField1 = 1 << 5
 }
 ```
 

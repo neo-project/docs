@@ -360,9 +360,9 @@ Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fb
 
 ```
 neo> list nativecontract
-        NEO     0xde5f57d430d3dece511cf975a8d37848cb9e0525
-        GAS     0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
-        Policy  0xce06595079cd69583126dbfd1d2e25cca74cffe9
+        NEO     0xf61eebf573ea36593fd43aa150c055ad7906ab83
+        GAS     0x70e2301955bf1e74cbb31d18c2f96972abadb328
+        Policy  0x79bcd398505eb779df6e67e4be6c14cded08e2f2
 ```
 
 ### get candidates
@@ -697,7 +697,7 @@ SignatureContext:
 
 如果从合约中转出资产，from 为合约 hash，签名账户需要包含合约 hash 和鉴权账户 verify account，例如：
 ```
-neo> send 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 password: *
 TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```
@@ -843,7 +843,7 @@ relay tx(no|yes): no
 示例输入：
 
 ```
-neo> invoke 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> invoke 0x70e2301955bf1e74cbb31d18c2f96972abadb328 transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 ```
 示例输出：
 

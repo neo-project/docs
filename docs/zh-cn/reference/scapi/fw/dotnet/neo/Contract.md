@@ -27,12 +27,11 @@ public class Contract
 | 名称                                       | 说明              |
 | ---------------------------------------- | --------------- |
 | [Call(UInt160 scriptHash, string method, object\[\] arguments)](Contract/Call.md) | 调用智能合约    |
-| [CallEx(UInt160 scriptHash, string method, object\[\] arguments, CallFlags flag)](Contract/CallEx.md) | 根据调用权限 Flag 调用合约    |
-| [GetCallFlags()](Contract/GetCallFlags.md)         | 获取合约的调用权限 Flag |
+| [GetCallFlags()](Contract/GetCallFlags.md)         | 获取原生合约的调用权限 Flag |
 | [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | 根据公钥创建标准账户 |
 
 ## 构造方法
 
-通过 [Blockchain.GetContract(UInt60 hash)](ManagementContract/GetContract.md) 方法来构造 Contract 对象。
+通过 [ContractManagement.GetContract(UInt60 hash)](ContractManagement/GetContract.md) 方法来构造 Contract 对象。
 
-通过 [Deploy(byte\[\] nefFile, string manifest)](ManagementContract/Deploy.md) 方法来部署合约，并返回 Contract 对象。
+通过 [ContractManagement.Deploy(byte\[\] nefFile, string manifest)](ContractManagement/Deploy.md) 方法来部署合约，并返回 Contract 对象。
