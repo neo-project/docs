@@ -26,8 +26,6 @@ script_hash / name：合约脚本散列或者原生合约的名称。
 
 或
 
-请求正文：
-
 ```json
 {
   "jsonrpc": "2.0",

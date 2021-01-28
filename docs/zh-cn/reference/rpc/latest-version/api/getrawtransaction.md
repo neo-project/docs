@@ -7,11 +7,11 @@
 
 ## 参数说明
 
-txid：交易 ID。
+- txid：交易 ID。
 
-verbose：可选参数，verbose 默认值为 0。
-- verbose 为 false 时返回的是区块的序列化后的信息，用 base64 编码表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
-- verbose 为 true（或 1） 时返回的是对应区块的详细信息，用 JSON 格式字符串表示。
+- verbose：可选参数，verbose 默认值为 false。
+  - verbose 为 false 时返回的是区块的序列化后的信息，用 Base64 编码表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
+  - verbose 为 true（或 1） 时返回的是对应区块的详细信息，用 JSON 格式字符串表示。
 
 ## 调用示例
 

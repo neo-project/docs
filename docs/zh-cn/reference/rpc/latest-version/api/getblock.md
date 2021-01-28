@@ -2,7 +2,7 @@
 
 根据指定的哈希或索引，返回对应的区块信息。
 
-该方法与 getblockheader 方法的用法一样，区别是 getblockheader 只获取区块头，而 getblock 获取完整区块。
+该方法与 `getblockheader` 方法的用法一样，区别是 `getblockheader` 只获取区块头，而 `getblock` 获取完整区块。
 
 > [!Note]
 >
@@ -52,7 +52,7 @@
 }
 ```
 
-**示例1 - 获取 JSON 格式的区块信息**
+**示例2 - 获取 JSON 格式的区块信息**
 
 请求正文：
 
