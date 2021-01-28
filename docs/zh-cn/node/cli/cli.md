@@ -46,11 +46,11 @@
 | list key                                          |                                        | 列出钱包中的所有公钥         |
 | [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS |
 | [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址      |
-| [import key](#import-key)                         | \<wif\|path>                           | 导入私钥 / 批量导入私钥      |
+| [import key](#import-key)                         | \<wif \| path>                           | 导入私钥 / 批量导入私钥      |
 | [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥                     |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名合约            |
-| [import watchonly](#import-watchonly) | \<wif\|path>            | 导入监听地址（如合约账户）            |
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [data=null] [from=null] [signerAccounts=null] | 向指定地址转账               |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名地址            |
+| [import watchonly](#import-watchonly) | \<wif \| path>            | 导入监听地址（如合约账户）            |
+| [send](#send)                                     | \<id \| alias> \<address> \<amount> [data=null] [from=null] [signerAccounts=null] | 向指定地址转账               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
@@ -103,13 +103,13 @@
 | [install](#install) | [Plugin name] | 安装指定插件     |
 | [uninstall](#install) | [Plugin name] | 卸载指定插件     |
 | [dump storage](#dump-storage) | \<key> | 导出全部或指定的状态量数据，需要安装 StatesDumper 插件 |
-| [start consensus](#start-consensus) | \<key> | 启动共识，需要安装 DBFTPlugin 插件 |
-| [start oracle](#start-oracle) | \<key> | 启动 Oracle，需要安装 OracleService 插件 |
-| [stop oracle](#stop-oracle) | \<key> | 停止 Oracle，需要安装 OracleService 插件 |
-| [state root](#state-root) | \<key> | 通过高度查询 state root，需要安装 StatePlugin 插件 |
-| [state height](#state-height) | \<key> | 查询 state 高度，需要安装 OracleService 插件 |
-| [get proof](#get-proof) | \<key> |  |
-| [verify proof](#verify-proof) | \<key> |  |
+| [start consensus](#start-consensus) |  | 启动共识，需要安装 DBFTPlugin 插件 |
+| [start oracle](#start-oracle) | | 启动 Oracle，需要安装 OracleService 插件 |
+| [stop oracle](#stop-oracle) | | 停止 Oracle，需要安装 OracleService 插件 |
+| [state root](#state-root) | \<index> | 通过高度查询 state root，需要安装 StateService 插件 |
+| state height | | 查询 state 高度，需要安装 StateService 插件 |
+| [get proof](#get-proof) | \<rootHash> \<scriptHash> \<key> |  |
+| [verify proof](#verify-proof) | \<rootHash> \<proof> |  |
 
 #### 投票命令
 
@@ -118,7 +118,6 @@
 | [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
 | [get committee](#get-committee) |  | 获取委员会成员公钥 |
 | [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
-| [get validators](#get-validators) |  | 获取当前验证人公钥 |
 | [register candidate](#register-candidate) |\<senderAccount>  | 注册候选人 |
 | [unregister candidate](#unregister-candidate) |\<senderAccount>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
@@ -239,7 +238,7 @@ Wallet file upgrade complete. New wallet file has been auto-saved at: test.json
 
 ```
 neo> show gas
-unclaimed gas: 0
+Unclaimed gas: 16.7367406
 ```
 
 > [!NOTE]
@@ -266,7 +265,7 @@ unclaimed gas: 0
 neo> create address 3
 The file 'address.txt' already exists, do you want to overwrite it? (yes|no): yes
 [3/3]
-export addresses to address.txt
+Export addresses to address.txt
 ```
 
 ### balanceof
@@ -364,9 +363,14 @@ Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fb
 
 ```
 neo> list nativecontract
-        NEO     0xde5f57d430d3dece511cf975a8d37848cb9e0525
-        GAS     0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
-        Policy  0xce06595079cd69583126dbfd1d2e25cca74cffe9
+        ContractManagement  0xa501d7d7d10983673b61b7a2d3a813b36f9f0e43
+        LedgerContract      0x971d69c6dd10ce88e7dfffec1dc603c6125a8764
+        NeoToken            0xf61eebf573ea36593fd43aa150c055ad7906ab83
+        GasToken            0x70e2301955bf1e74cbb31d18c2f96972abadb328
+        PolicyContract      0x79bcd398505eb779df6e67e4be6c14cded08e2f2
+        RoleManagement      0x597b1471bbce497b7809e2c8f10db67050008b02
+        OracleContract      0x8dc0e742cbdfdeda51ff8a8b78d46829144c80ee
+        NameService         0xa2b524b68dfe43a9d56af84f443c6b9843b8028c
 ```
 
 ### get candidates
@@ -438,30 +442,6 @@ VM State: HALT
 Gas Consumed: 1.0100757
 
 Next validators:
-02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
-```
-
-### get validators
-
-获取当前验证人公钥
-
-##### 句法
-
- `get validators`
-
-##### 参数
-
-无
-
-##### 示例
-
-```
-neo> get validators
-Invoking script with: '10c00c0d67657456616c696461746f72730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
-VM State: HALT
-Gas Consumed: 1.0100757
-
-Validators:
 02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
 ```
 
@@ -595,11 +575,11 @@ password: ********
 
 ##### 句法
 
- `import key <wif|path>`
+ `import key <wif | path>`
 
 ##### 参数
 
-`wif|path`：指定要导入的私钥，或者存放私钥的文件路径
+`wif | path`：指定要导入的私钥，或者存放私钥的文件路径
 
 ##### 示例
 
@@ -617,7 +597,7 @@ neo> import key key1.txt
 
 ### import multisigaddress
 
-创建多方签名的合约地址。
+创建多方签名地址。
 
 ##### 句法
 
@@ -625,8 +605,8 @@ neo> import key key1.txt
 
 ##### 参数
 
-- `m`：以 m 个最小签名数量来创建多方签名的合约地址，例如两个公钥创建的多方签名地址， m 可以为 1 或 2
-- `pubkeys`：创建多方签名合约地址的各方公钥
+- `m`：以 m 个最小签名数量来创建多方签名的地址，例如两个公钥创建的多方签名地址， m 可以为 1 或 2
+- `pubkeys`：创建多方签名地址的各方公钥
 
 ##### 示例
 
@@ -660,13 +640,13 @@ Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
 
 ##### 句法
 
-`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
+`send <id | alias> <address> <amount> [from=null] [signerAccounts=null]`
 
 ##### 参数
 
-- `id|alias`：资产 ID或资产缩写，如 neo，gas
+- `id | alias`：资产 ID或资产缩写，如 neo，gas
 - `address`：收款地址
-- `amount|all`：转账金额
+- `amount`：转账金额
 - `from`：转出地址
 - `signerAccounts`：需要添加签名的账户
 
@@ -1051,8 +1031,23 @@ Install successful, please restart neo-cli.
 
 ### start consensus
 
-启动共识。启动共识的前提是该钱包有共识的权限，在 Neo 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../develop/network/private-chain/private-chain2.md)。
+启动共识。此命令是 DBFTPlugin 插件提供的，使用前需要安装该插件。启动共识的前提是当前钱包有共识的权限，在 Neo 主网上可以通过投票选举获得共识的权限，如果自己部署的私有链，可以在 `protocol.json` 中设置共识节点的公钥，详情可参考 [私链搭建](../../develop/network/private-chain/private-chain2.md)。
 
-> [!NOTE]
->
-> 若需要查看共识过程日志，需将`config.json`中的 active 字段设置为 true。
+
+### start oracle
+启动 Oracle 服务。此命令由 OracleService 插件提供，使用前需要安装该插件。开启 Oracle 服务的前提是当前钱包地址的公钥已经被委员会指定了 Oracle 角色。
+
+### stop oracle
+停止 Oracle 服务。此命令由 OracleService 插件提供，使用前需要安装该插件。
+
+### state root
+通过高度查询 state root，需要安装 StatePlugin 插件。
+
+##### 句法
+
+`state root 20000`
+
+### get proof
+
+
+### verify proof
