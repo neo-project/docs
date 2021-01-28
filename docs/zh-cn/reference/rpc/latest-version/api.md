@@ -2,34 +2,14 @@
 
 每个 Neo-CLI 节点都可选的提供了一套 API 接口，用于从该节点获取区块链数据，使得开发区块链应用变得十分方便。接口通过 [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html) 的方式提供，底层使用 HTTP/HTTPS 协议进行通讯。
 
-要启用 RPC服务，你需要安装 [RpcServer 插件](https://github.com/neo-project/neo-modules/releases)，启动 Neo-CLI 时无需添加参数。
+要启用 RPC服务，你需要安装 [RpcServer 插件](https://github.com/neo-project/neo-modules/releases)，可参考 [安装插件](../../../node/cli/config.html#安装插件) 进行安装。启动 Neo-CLI 时无需添加参数。
 
-## 插件安装
-
-### 自动安装
-
-启动 neo-cli，输入命令 `install RpcServer` 安装 RpcServer 插件。
-
-安装成功后重新启动 neo-cli。
-
-### 手动安装
-
-在 [GitHub](https://github.com/neo-project/neo-modules/releases) 上下载对应版本的 RpcServer.zip 文件，解压后放到 neo-cli.dll 所在的目录即可。
-
-安装成功后重新启动 neo-cli。
-
-### 常见的安装错误
-
-> 如果自动安装时遇到以下错误
+> [!Note]
 >
-> ```
-> Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-CI01168/RpcServer.zip
-> error: The remote server returned an error: (404) Not Found.
-> ```
->
-> 或手动安装时找不到对应版本的下载文件。
->
-> 则表示当前未发布对应版本的 RpcServer 插件，开发者可以自行编译 [neo-modules](https://github.com/neo-project/neo-modules) 项目。在 neo-cli.dll 所在的目录新建 Plugins 文件夹，并将编译后的 RpcServer 文件放到 Plugins 文件夹中。安装成功后重新启动 neo-cli。
+> 如果安装时找不到对应版本的文件，则表示当前未发布对应版本的 RpcServer 插件，开发者可以自行编译 [neo-modules](https://github.com/neo-project/neo-modules) 项目:
+> 
+> 1. 在 neo-cli.dll 所在的目录新建 Plugins 文件夹
+> 2. 将编译后的 RpcServer 文件放到 Plugins 文件夹中，然后重新启动 Neo-CLI。
 
 ## 监听端口
 
@@ -110,7 +90,7 @@ http://127.0.0.1:10332/
 | --------------------------------------------- | ------- | ------------------------------------- |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
-## RpcNep17Tracker 插件
+### RpcNep17Tracker 插件
 
 | 方法                                          | 参数                  | 说明                                |
 | --------------------------------------------- | --------------------- | ----------------------------------- |
