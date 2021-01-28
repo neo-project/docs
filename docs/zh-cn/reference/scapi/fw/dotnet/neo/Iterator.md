@@ -20,3 +20,5 @@ public class Iterator
 | Create(IEnumerable\<TValue\> entry)  | 静态方法，创建迭代器                                                |
 | Concat(Iterator\<TKey, TValue\> value) |合并迭代器 |
 | Next()            | 获得迭代器中是否有下个元素，如果有则迭代器将当前位置定位到下个元素 |
+
+也可通过 [Storage.Find(StorageContext, ByteString, FindOptions)](Storage/Find.md) 和  [Storage.Find(StorageContext, byte[], FindOptions)](Storage/Find2.md)  来构造 Iterator 对象。

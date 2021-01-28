@@ -28,3 +28,4 @@ public class Transaction
 ## 构造方法
 
 通过 [Ledger.GetTransaction(UInt256)](Ledger/GetTransaction.md)，[Ledger.GetTransactionFromBlock(UInt256, int)](Ledger/GetTransactionFromBlock.md)以及[Ledger.GetTransactionFromBlock(uint, int)](Ledger/GetTransactionFromBlock2.md) 来构造 Transaction 对象。
+

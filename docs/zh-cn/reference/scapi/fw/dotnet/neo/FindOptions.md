@@ -38,5 +38,5 @@ PickField0：搜索Value数组的第一个元素，必须和DeserializeValues一
 
 PickField1：搜索Value数组的第二个元素，必须和DeserializeValues一同使用，不能与PickField0同时使用
 
-FindOptions 用在 [Storage.Find(StorageContext, ByteString, FindOptions)](Storage/Find.md) 和  [Storage.Find(StorageContext, byte[], FindOptions)](Storage/Find.md)  方法中。
+FindOptions 用在 [Storage.Find(StorageContext, ByteString, FindOptions)](Storage/Find.md) 和  [Storage.Find(StorageContext, byte[], FindOptions)](Storage/Find2.md)  方法中。
 
