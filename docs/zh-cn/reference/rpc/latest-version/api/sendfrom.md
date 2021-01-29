@@ -9,11 +9,11 @@
 
 ## 参数说明
 
-- asset_id：资产 ID（资产标识符），即 NEP-5合约的脚本哈希。
+- asset_id：资产 ID（资产标识符），即 NEP-17合约的脚本哈希。
 
-  如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
+  如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
 
-  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+  GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
 
 - from：转账地址。
 
@@ -30,10 +30,15 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "sendfrom",
-  "params": ["0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc","NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y","NZoiUCBHBZ4DquVE5mbdpTQGozvJkWHtE8", 20, ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]]
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendfrom",
+    "params": [
+        "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+        "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        20
+    ]
 }
 ```
 
@@ -44,34 +49,26 @@
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x5530ac26a55ec9652ee2300879ba8dcbe0abe2d4a077426fc6783bbc269ba39b",
-        "size": 248,
+        "hash": "0x425bf77f08dd3e0815a4e95ab9109b73773b375c6e5402c51f65a0f7537f6fec",
+        "size": 249,
         "version": 0,
-        "nonce": 737954039,
-        "sender": "NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y",
-        "sysfee": "9007990",
-        "netfee": "1248390",
-        "validuntilblock": 2105164,
+        "nonce": 1556413479,
+        "sender": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "sysfee": "0.0999954",
+        "netfee": "0.0123261",
+        "validuntilblock": 6129,
         "signers": [
             {
-                "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
-                "scopes": "CalledByEntry"
-            },
-            {
-                "account": "0x1e01f56dbb2a9799422512752b900a5a49ca5d99",
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
                 "scopes": "CalledByEntry"
             }
         ],
         "attributes": [],
-        "script": "AgCUNXcMFJhi+vwOIcqnRtK5Br/vfRNBU1GEDBQcA1dGS3d+z2tfOsOJOs4fixYh9hPADAh0cmFuc2ZlcgwUvK9B1oTH1K1u4NmdqXB7nR8MjmZBYn1bUjg=",
+        "script": "CwAUDBT6ifssFN8PWd3fBPblZRfys0qu6wwU4rZTInKT6ZxPKQbVNVOrtKZy34YUwB8MCHRyYW5zZmVyDBSDqwZ5rVXAUKE61D9ZNupz9ese9kFifVtSOQ==",
         "witnesses": [
             {
-                "invocation": "DEBIGjD61/KPyUq51sfsgla6MlruIbBG3eYkmI2cWXHrcGYMm6ucO6Va2Dc7v7mzF8XnQvJtrBVjv/caRpqt08OA",
-                "verification": "DCECIItAHAHzOQfla6fHzYkOv5cXTzazCk9DZ6xRAlIUXH4LQZVEDXg="
-            },
-            {
-                "invocation": "DEC5O1ZFX46Vhdm4H8uY3IfYWHMbMnIkl5QljOYK8lVIfinYfbvyFuHsELDUM1io1RrbShjwkoFiVG1UKfC0nlqC",
-                "verification": "DCECi9GQLE0UGfACuCHm3mU939U1gGMgjkJnVjmL5v+jqsgLQZVEDXg="
+                "invocation": "DEBq62IVg6HCr2qLAARGS5E/7bWLu1bm6k5Z6Njjwp4/DdNgDnPYw5wcTzeQULSlEx1QvHLsHJCht/43XZsiaz8T",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
             }
         ]
     }

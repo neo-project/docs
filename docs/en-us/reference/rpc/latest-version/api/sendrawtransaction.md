@@ -8,7 +8,7 @@ Broadcasts transactions over the NEO network.
 
 ## Parameter Description
 
-hex: A Base64-encoded string that has been serialized after the transaction signed in the program.
+transaction: A Base64-encoded string that has been serialized after the transaction signed in the program.
 
 ## Example
 

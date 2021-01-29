@@ -1,13 +1,15 @@
 # getcontractstate 方法
 
-根据合约脚本散列，查询合约信息。
+根据合约脚本散列或原生合约名称，查询合约的信息。
 > [!Note]
 >
 > 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
-script_hash：合约脚本散列。
+script_hash / name：合约脚本散列或者原生合约的名称。
+
+因为用户部署的合约名称可重复，所以这里搜索的合约名称仅限于原生合约。
 
 ## 调用示例
 
@@ -17,7 +19,18 @@ script_hash：合约脚本散列。
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
-  "params": ["0x99042d380f2b754175717bb932a911bc0bb0ad7d"],
+  "params": ["neotoken"],
+  "id": 1
+}
+```
+
+或
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getcontractstate",
+  "params": ["0xf61eebf573ea36593fd43aa150c055ad7906ab83"],
   "id": 1
 }
 ```
@@ -29,82 +42,193 @@ script_hash：合约脚本散列。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "id": 8,
-        "hash": "0x99042d380f2b754175717bb932a911bc0bb0ad7d",
-        "script": "DBQKo4e1Ppa3mJpjFDGgVt0fQKBC9kH4J+yMQDTkQFcBAAwFSGVsbG9Bm/ZnzkGSXegxcGhAVwQBEnAMF0ludm9rZSBTdHJvYWdlLlB1dCBmb3IgaBpQQXvjun0MByB0aW1lcy6Li9soQc/nR5YMBUhlbGxveFBBm/ZnzkHmPxiEDAJOb0Gb9mfOQZJd6DHYqnNrJiwMAk5vDAJOb0Gb9mfOQZJd6DFK2CYFEFBF2yERnlBBm/ZnzkHmPxiEIhMhDAJObxFQQZv2Z85B5j8YhAwCTm9Bm/ZnzkGSXegxcWlK2CYFEFBF2yEaUEF747p9chXDShAMBFB1dCDQShF40EoSDB0gaW50byBzdG9yYWdlIGNvbXBsZXRlbHkgZm9yINBKE2rQShQMBiB0aW1lc9DBShEyCJ1Ti1Ai+EXbKEHP50eWeBHADARXb3JkQZUBb2FpEcAMDkludm9rZVB1dENvdW50QZUBb2FAVwECNZL+//8Qs3BoJhYMEU5vIGF1dGhvcml6YXRpb24uOnh5UEExxjMdQFcBADVn/v//ELNwaCYWDBFObyBhdXRob3JpemF0aW9uLjohQcafHfBAVgEMFAqjh7U+lreYmmMUMaBW3R9AoEL2YEA=",
+        "id": -3,
+        "updatecounter": 0,
+        "hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+        "nef": {
+            "magic": 860243278,
+            "compiler": "neo-core-v3.0",
+            "tokens": [],
+            "script": "AP1BGvd7Zw==",
+            "checksum": 3921333105
+        },
         "manifest": {
+            "name": "NeoToken",
             "groups": [],
-            "supportedstandards": [],
+            "supportedstandards": [
+                "NEP-17"
+            ],
             "abi": {
-                "hash": "0x99042d380f2b754175717bb932a911bc0bb0ad7d",
                 "methods": [
                     {
-                        "name": "verify",
-                        "parameters": [],
-                        "offset": 28,
-                        "returntype": "Boolean"
-                    },
-                    {
-                        "name": "myMethod",
-                        "parameters": [],
-                        "offset": 31,
-                        "returntype": "ByteArray"
-                    },
-                    {
-                        "name": "put",
+                        "name": "balanceOf",
                         "parameters": [
                             {
-                                "name": "word",
-                                "type": "String"
+                                "name": "account",
+                                "type": "Hash160"
                             }
                         ],
-                        "offset": 54,
-                        "returntype": "Void"
+                        "offset": 0,
+                        "returntype": "Integer",
+                        "safe": true
                     },
                     {
-                        "name": "update",
+                        "name": "decimals",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Integer",
+                        "safe": true
+                    },
+                    {
+                        "name": "getCandidates",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Array",
+                        "safe": true
+                    },
+                    {
+                        "name": "getCommittee",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Array",
+                        "safe": true
+                    },
+                    {
+                        "name": "getGasPerBlock",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Integer",
+                        "safe": true
+                    },
+                    {
+                        "name": "getNextBlockValidators",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Array",
+                        "safe": true
+                    },
+                    {
+                        "name": "registerCandidate",
                         "parameters": [
                             {
-                                "name": "script",
+                                "name": "pubkey",
                                 "type": "ByteArray"
+                            }
+                        ],
+                        "offset": 0,
+                        "returntype": "Boolean",
+                        "safe": false
+                    },
+                    {
+                        "name": "setGasPerBlock",
+                        "parameters": [
+                            {
+                                "name": "gasPerBlock",
+                                "type": "Integer"
+                            }
+                        ],
+                        "offset": 0,
+                        "returntype": "Boolean",
+                        "safe": false
+                    },
+                    {
+                        "name": "symbol",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "String",
+                        "safe": true
+                    },
+                    {
+                        "name": "totalSupply",
+                        "parameters": [],
+                        "offset": 0,
+                        "returntype": "Integer",
+                        "safe": true
+                    },
+                    {
+                        "name": "transfer",
+                        "parameters": [
+                            {
+                                "name": "from",
+                                "type": "Hash160"
                             },
                             {
-                                "name": "manifest",
-                                "type": "String"
+                                "name": "to",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "Integer"
+                            },
+                            {
+                                "name": "data",
+                                "type": "Any"
                             }
                         ],
-                        "offset": 363,
-                        "returntype": "Void"
+                        "offset": 0,
+                        "returntype": "Boolean",
+                        "safe": false
                     },
                     {
-                        "name": "destroy",
-                        "parameters": [],
-                        "offset": 406,
-                        "returntype": "Void"
+                        "name": "unclaimedGas",
+                        "parameters": [
+                            {
+                                "name": "account",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "end",
+                                "type": "Integer"
+                            }
+                        ],
+                        "offset": 0,
+                        "returntype": "Integer",
+                        "safe": true
                     },
                     {
-                        "name": "_initialize",
-                        "parameters": [],
-                        "offset": 447,
-                        "returntype": "Void"
+                        "name": "unregisterCandidate",
+                        "parameters": [
+                            {
+                                "name": "pubkey",
+                                "type": "ByteArray"
+                            }
+                        ],
+                        "offset": 0,
+                        "returntype": "Boolean",
+                        "safe": false
+                    },
+                    {
+                        "name": "vote",
+                        "parameters": [
+                            {
+                                "name": "account",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "voteTo",
+                                "type": "ByteArray"
+                            }
+                        ],
+                        "offset": 0,
+                        "returntype": "Boolean",
+                        "safe": false
                     }
                 ],
                 "events": [
                     {
-                        "name": "Word",
+                        "name": "Transfer",
                         "parameters": [
                             {
-                                "name": "obj",
-                                "type": "String"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "InvokePutCount",
-                        "parameters": [
+                                "name": "from",
+                                "type": "Hash160"
+                            },
                             {
-                                "name": "obj",
-                                "type": "ByteArray"
+                                "name": "to",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "Integer"
                             }
                         ]
                     }
@@ -117,13 +241,7 @@ script_hash：合约脚本散列。
                 }
             ],
             "trusts": [],
-            "safemethods": [],
-            "extra": {
-                "Author": "Neo",
-                "Name": "Sample",
-                "Email": "dev@neo.org",
-                "Description": "This is a contract example"
-            }
+            "extra": null
         }
     }
 }

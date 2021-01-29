@@ -2,9 +2,13 @@
 
 Returns the unclaimed GAS with the specified address.
 
+> [!Note]
+>
+> Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases).
+
 ## Parameter Description
 
-- address: Specified address.
+address: Specified address.
 
 ## Example
 
@@ -14,7 +18,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getunclaimedgas",
-  "params": ["NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y"],
+  "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"],
   "id": 1
 }
 ```
@@ -26,8 +30,8 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "unclaimed": "9693738",
-        "address": "NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y"
+        "unclaimed": "0.00000003",
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```

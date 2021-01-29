@@ -17,11 +17,11 @@
 
   `{"asset": <asset>, "value": <value>, "address": <address>, "signers": <signers>}`
 
-  - asset_id：资产 ID，即 NEP-5 合约的脚本哈希。
+  - asset_id：资产 ID，即 NEP-17 合约的脚本哈希。
 
-	  如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
+	  如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
 
-	  GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+	  GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
   - value：转账金额。
 
   - address：收款地址。
@@ -35,30 +35,24 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "sendmany",
-  "params": [
-    "NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y",
-    [
-      {
-                "asset": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendmany",
+    "params": [
+        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        [
+            {
+                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "value": 1,
-                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
             },
             {
-                "asset": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                "value": 2,
-                "address": "NZoiUCBHBZ4DquVE5mbdpTQGozvJkWHtE8"
-            },
-            {
-                "asset": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
-                "value": 2,
-                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "value": 0.5,
+                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
             }
-    ],
-    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
-  ]
+        ]
+    ]
 }
 ```
 
@@ -66,29 +60,32 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "sendmany",
-  "params": [
-    [
-      {
-                "asset": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                "value": 1,
-                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
-            },
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x4595231a7812d005d52ef00da438ff9d454401f431edd97cac07ac37c9ed3dc8",
+        "size": 337,
+        "version": 0,
+        "nonce": 1728677081,
+        "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        "sysfee": "0.1999908",
+        "netfee": "0.0132055",
+        "validuntilblock": 6143,
+        "signers": [
             {
-                "asset": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                "value": 2,
-                "address": "NZoiUCBHBZ4DquVE5mbdpTQGozvJkWHtE8"
-            },
-            {
-                "asset": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
-                "value": 2,
-                "address": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA"
+                "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
+                "scopes": "CalledByEntry"
             }
-    ],
-    ["0xf621168b1fce3a89c33a5f6bcf7e774b4657031c","NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C"]
-  ]
+        ],
+        "attributes": [],
+        "script": "CxEMFOK2UyJyk+mcTykG1TVTq7Smct+GDBT6ifssFN8PWd3fBPblZRfys0qu6xTAHwwIdHJhbnNmZXIMFIOrBnmtVcBQoTrUP1k26nP16x72QWJ9W1I5CwKA8PoCDBTitlMicpPpnE8pBtU1U6u0pnLfhgwU+on7LBTfD1nd3wT25WUX8rNKrusUwB8MCHRyYW5zZmVyDBQos62rcmn5whgds8t0Hr9VGTDicEFifVtSOQ==",
+        "witnesses": [
+            {
+                "invocation": "DEAUC+0vrddYCXqqT6UP1wsRC9N/N4tir4Pb1zeAgmGCtTKAHhnTshes+FNiQIn+OypIE6/zCUm6PMHqEHcTr3c9",
+                "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
+            }
+        ]
+    }
 }
 ```
 
