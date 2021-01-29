@@ -2,6 +2,8 @@
 
 提供了原生合约NeoToken的一系列属性与方法，合约哈希为`0xf61eebf573ea36593fd43aa150c055ad7906ab83`。
 
+NeoToken 同时也是NEP-17合约，继承了NEP-17合约所有的属性和方法。
+
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 程序集：Neo.SmartContract.Framework

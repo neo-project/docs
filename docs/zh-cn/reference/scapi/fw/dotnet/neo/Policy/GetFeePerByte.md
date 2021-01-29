@@ -17,7 +17,7 @@ public static extern BigInteger GetFeePerByte();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = Policy.GetFeePerByte();
         return result;

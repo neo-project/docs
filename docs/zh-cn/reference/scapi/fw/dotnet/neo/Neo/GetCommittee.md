@@ -17,7 +17,7 @@ public static extern ECPoint[] GetCommittee();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         ECPoint[] result = NEO.GetCommittee();
         return result;

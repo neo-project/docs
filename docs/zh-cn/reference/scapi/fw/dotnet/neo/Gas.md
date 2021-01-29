@@ -2,6 +2,8 @@
 
 提供了原生合约GasToken的一系列属性与方法，合约哈希为`0x70e2301955bf1e74cbb31d18c2f96972abadb328`。
 
+GasToken 同时也是NEP-17合约，继承了NEP-17合约所有的属性和方法。
+
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 程序集：Neo.SmartContract.Framework

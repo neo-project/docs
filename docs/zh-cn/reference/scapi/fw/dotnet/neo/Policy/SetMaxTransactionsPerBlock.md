@@ -1,6 +1,6 @@
 # SetMaxTransactionsPerBlock 方法
 
-设置每区块最大交易数。
+设置每区块最大能打包的交易个数。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -25,7 +25,7 @@ public static extern bool SetMaxTransactionsPerBlock(uint value);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetMaxTransactionsPerBlock(1024);
         return result;

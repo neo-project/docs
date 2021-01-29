@@ -20,7 +20,7 @@ public static class Helper
 | ---------------------------------------------------------- | ------------------------------------------------------------ |
 | CreateMap(this StorageContext context, byte[] prefix)      | 创建StorageMap对象，前缀为字节数组                           |
 | CreateMap(this StorageContext context, ByteString prefix)  | 创建StorageMap对象，前缀为字符串                             |
-| CreateMap(this StorageContext context, byte prefix)        | 创建StorageMap对象，，前缀为字节                             |
+| CreateMap(this StorageContext context, byte prefix)        | 创建StorageMap对象，前缀为字节                             |
 | Delete(this StorageMap map, ByteString key)                | 删除存储上下文中给定的字符串类型的键                         |
 | Get(this StorageMap map, ByteString key)                   | 返回与存储上下文的给定字节数组、字符串类型的键对应的字节数组类型的值 |
 | Put(this StorageMap map, ByteString key, ByteString value  | 在给定存储上下文的字节数组类型的键上写入字节数组、字符串类型的值 |

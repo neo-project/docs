@@ -10,7 +10,14 @@
 
 ```c#
 public class Iterator
+public class Iterator<T> : Iterator, IApiInterface
 ```
+
+## 属性
+
+| 名称  | 说明               |
+| ----- | ------------------ |
+| Value | 获得迭代器当前的值 |
 
 ## 方法
 
@@ -21,4 +28,4 @@ public class Iterator
 | Concat(Iterator\<TKey, TValue\> value) |合并迭代器 |
 | Next()            | 获得迭代器中是否有下个元素，如果有则迭代器将当前位置定位到下个元素 |
 
-也可通过 [Storage.Find(StorageContext, ByteString, FindOptions)](Storage/Find.md) 和  [Storage.Find(StorageContext, byte[], FindOptions)](Storage/Find2.md)  来构造 Iterator 对象。
+也可通过 [Storage.Find()](Storage/Find.md) 来构造 Iterator 对象。

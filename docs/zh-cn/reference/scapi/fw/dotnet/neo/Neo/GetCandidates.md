@@ -17,7 +17,7 @@ public static extern (ECPoint, BigInteger)[] GetCandidates();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         (ECPoint, BigInteger)[] result = NEO.GetCandidates();
         return result;

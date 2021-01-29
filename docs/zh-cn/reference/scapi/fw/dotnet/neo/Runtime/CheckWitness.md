@@ -10,11 +10,6 @@
 
 ```c#
 public static extern bool CheckWitness(UInt160 hash);
-```
-
-或
-
-```c#
 public static extern bool CheckWitness(ECPoint pubkey);
 ```
 

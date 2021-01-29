@@ -16,9 +16,9 @@ public class Contract
 
 | 名称       | 说明                             |
 | ---------- | -------------------------------- |
-| Id     | 合约Id             |
+| Id     | 合约Id，原生合约的ID为负整数，普通合约的ID为正整数 |
 | UpdateCounter | 合约更新次数计数             |
-| Hash  | 合约哈希  |
+| Hash  | 合约哈希，合约哈希由部署人的脚本散列、合约NEF校验码、合约名称共同决定 |
 | Script  | 合约脚本数组  |
 | Manifest  | 合约Manifest的Json字符串表示  |
 

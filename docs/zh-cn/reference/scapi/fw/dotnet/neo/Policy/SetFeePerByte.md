@@ -1,6 +1,6 @@
 # SetFeePerByte 方法
 
-设置每字节手续费。
+设置交易的每字节所需要的网络手续费。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -25,7 +25,7 @@ public static extern bool SetFeePerByte(long value);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetFeePerByte(1200);
         return result;

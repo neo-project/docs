@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     private static readonly UInt160 from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
     private static readonly UInt160 to = "NXjtqYERuvSWGawjVux8UerNejvwdYg7eE".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         bool result = GAS.Transfer(from, to, 1000);
         return result;
