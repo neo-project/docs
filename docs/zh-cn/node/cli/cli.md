@@ -108,8 +108,8 @@
 | [stop oracle](#stop-oracle) | | 停止 Oracle，需要安装 OracleService 插件 |
 | [state root](#state-root) | \<index> | 通过高度查询 state root，需要安装 StateService 插件 |
 | state height | | 查询 state 高度，需要安装 StateService 插件 |
-| [get proof](#get-proof) | \<rootHash> \<scriptHash> \<key> |  |
-| [verify proof](#verify-proof) | \<rootHash> \<proof> |  |
+| [get proof](#get-proof) | \<rootHash> \<scriptHash> \<key> |  通过 root hash，合约 hash 和 storage key 查询得到 proof |
+| [verify proof](#verify-proof) | \<rootHash> \<proof> | 使用 root hash 和 proof 进行验证 |
 
 #### 投票命令
 
@@ -985,12 +985,14 @@ neo>
 ```
 neo> plugins
 Loaded plugins:
-        ApplicationLogs
-        LevelDBStore
-        RpcServer
-        RpcNep17Tracker
-        StatesDumper
-        SystemLog
+        ApplicationLogs     Synchronizes the smart contract log with the NativeContract log (Notify)
+        DBFTPlugin          Consensus plugin with dBFT algorithm.
+        LevelDBStore        Uses LevelDB to store the blockchain data
+        OracleService       Built-in oracle plugin
+        RpcNep17Tracker     Enquiries NEP-17 balances and transaction history of accounts through RPC
+        RpcServer           Enables RPC for the node
+        StatesDumper        Exports Neo-CLI status data
+        StateService        Enables MPT for the node
 ```
 
 ### install
@@ -1003,7 +1005,7 @@ Loaded plugins:
 
 ```
 neo> install RpcServer
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview2-00/RpcServer.zip
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview5/RpcServer.zip
 Install successful, please restart neo-cli.
 ```
 
@@ -1047,7 +1049,15 @@ Install successful, please restart neo-cli.
 
 `state root 20000`
 
+```
+neo> state root 20000
+{"version":0,"index":20000,"roothash":"0x0121262f9833b21eae7b8d375c1c334fdd4d4500f1d3fad2da669d5b83e94157","witness":{"invocation":"DECny9LhRZpH61UNC/sXG9WEBFMl7cf1rZPT7U0tCvZa\u002BHs6rG/fz2gKTfvLBUp5lcmGDlrMlKCCfKoougYGt7s4DEAuhkhPROcr2FM5SSHCl5LFWSTrcvxa6rvmLc1NGXwpgcRHV9LY5/H6q5SnwdAW3DSspap93FjvSHqU48Mn41nGDEDI5G6bGhGvyLl8rZbT0LzAHRbQUZ2OWIcnFi/Jo/QtwZoCGrK6L3g2miCXsgkckzUsJ1DoruMzKgVEFb4t/KYBDEAWC2fagW\u002BOt6iUGyo\u002BNu0zC1jl105uLyv5bY4tE03vBjbJDTm1T3o17jC8b3HMaeYMro2IGZTSOGt3b9YF6ntiDEBaMGwM/\u002Bd\u002BkTHmBb9c\u002BuCfMkEHOez8XuyoSZotQdDCtaVMCT4wHwIHspxeGGp1iVIEtEYFhJl0EfPEObcO0YfGDEBCC3/hBNLGmusDpr4gDfD6asqjyNCGPNerYIHunu2gsOr6kr3uQJBFqaXSYp\u002BCkz9HBrc6Cq2fNz4HPn/tIo5S","verification":"FgwhAwAqLhjDnN7Qb8Yd2UoHuOnz\u002BgNqcFvu\u002BHZCUpVOgtDXDCECAM1gQDlYokm5qzKbbAjI/955zDMJc2eji/a1GIEJU2EMIQIhkM6Z1WxnvBcDTCedOLpwWTZHFtEduMhLpf3Z/AJgEQwhAzU7wXKtEGB62apHDocfRKJil\u002ByBAIP6J8aLnJSjTL/5DCECNxinjeXEq5HT3NK2m0dPLTUIuN3EeHiMupRY6Sj\u002B/qYMIQKXhyDsbFxYdeA0d\u002BFsbZj5AQhamA13R64ysGgh19j6UwwhAqPXy4P0JIWNvpx5c9df/ut8OUCIRJ9onGacn09vEIVODCEDySUJ5CjN1/ek/dSpfGeJELQPFGXd3k8En3MlrzOAeSkYC0ETje\u002Bv"}}
+```
+
 ### get proof
 
+通过 root hash，合约 hash 和 storage key 查询得到 proof
 
 ### verify proof
+
+使用 root hash 和 proof 进行验证
