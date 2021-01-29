@@ -47,7 +47,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSHINT8, PUSHINT16, PUSHINT32, PUSHINT64, PUSHINT128, PUSHINT256                                   |
 |----------|---------------------------------------|
 | Bytecode | 0x00, 0x01, 0x02, 0x03, 0x04, 0x05                                                  |
-| Fee | 0.00000030 GAS, 0.00000030 GAS, 0.00000030 GAS, 0.00000030 GAS, 0.00000120 GAS, 0.00000120 GAS                     |
+| Fee | 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000004 GAS, 0.00000004 GAS |
 | Function   | Push an integer onto the stack, the bit length of which is specified with the number 8\16\32\64\128\256. |
 
 #### PUSHA
@@ -55,7 +55,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSHA                                 |
 |----------|----------|
 | Bytecode | 0x0A                                  |
-| Fee | 0.00000120 GAS                           |
+| Fee | 0.00000004 GAS             |
 | Function | Convert the next four bytes to an address, and push the address onto the stack. |
 
 #### PUSHNULL
@@ -63,7 +63,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSHNULL                                   |
 |----------|------------------------------------------|
 | Bytecode | 0x0B                                     |
-| Fee | 0.00000030 GAS                               |
+| Fee | 0.00000001 GAS                 |
 | Function   | The item `null` is pushed onto the stack. |
 
 #### PUSHDATA
@@ -71,7 +71,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSHDATA1, PUSHDATA2, PUSHDATA4                                   |
 |----------|---------------------------------------|
 | Bytecode | 0x0C, 0x0D, 0x0E                                                  |
-| Fee | 0.00000180 GAS, 0.00013000 GAS, 0.00110000 GAS                    |
+| Fee | 0.00000008 GAS, 0.00000512 GAS, 0.00004096 GAS |
 | Function   | The next `n` bytes contain the number of bytes to be pushed onto the stack, where n is specified by 1\|2\|4. |
 
 #### PUSHM1
@@ -79,7 +79,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSHM1                                   |
 |----------|------------------------------------------|
 | Bytecode | 0x0F                                     |
-| Fee | 0.00000030 GAS                             |
+| Fee | 0.00000001 GAS               |
 | Function   | The number -1 is pushed onto the stack. |
 
 #### PUSHN
@@ -87,7 +87,7 @@ The constant instructions mainly complete the function of pushing constants or a
 | Instruction   | PUSH0\~PUSH16                               |
 |----------|---------------------------------------------|
 | Bytecode | 0x10\~0x20                                  |
-| Fee | 0.00000030 GAS                                      |
+| Fee | 0.00000001 GAS                        |
 | Function   | The number `n` is pushed onto the stack，where n is specified by 0\~16. |
 
 ### Flow Control
@@ -99,7 +99,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | NOP                                         |
 |----------|---------------------------------------------|
 | Bytecode | 0x21                                        |
-| Fee | 0.00000030 GAS                                |
+| Fee | 0.00000001 GAS                  |
 | Function   | The `NOP` operation does nothing. It is intended to fill in space if opcodes are patched. |
 
 #### JMP
@@ -107,7 +107,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMP                                                     |
 |----------|---------------------------------------------------------|
 | Bytecode | 0x22                                                    |
-| Fee | 0.00000070 GAS                                            |
+| Fee | 0.00000002 GAS                              |
 | Function   | Unconditionally transfers control to a target instruction. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMP_L
@@ -115,7 +115,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMP_L                                                     |
 |----------|---------------------------------------------------------|
 | Bytecode | 0x23                                                    |
-| Fee | 0.00000070 GAS                                            |
+| Fee | 0.00000002 GAS                              |
 | Function   | Unconditionally transfers control to a target instruction. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.|
 
 #### JMPIF
@@ -123,7 +123,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPIF                                                                                                                |
 |----------|----------------------------------------------------------------------------------------------------------------------|
 | Bytecode | 0x24                                                                                                                 |
-| Fee | 0.00000070 GAS                                                                                                         |
+| Fee | 0.00000002 GAS                                                                                           |
 | Function   | Transfers control to a target instruction if the value is `true`, not `null`, or non-zero. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.|
 
 #### JMPIF_L
@@ -131,7 +131,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPIF                                                                                                                |
 |----------|----------------------------------------------------------------------------------------------------------------------|
 | Bytecode | 0x25                                                                                                                 |
-| Fee | 0.00000070 GAS                                                                                                         |
+| Fee | 0.00000002 GAS                                                                                           |
 | Function   | Transfers control to a target instruction if the value is `true`, not `null`, or non-zero. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPIFNOT
@@ -139,7 +139,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPIFNOT                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x26                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the value is `false`, a `null` reference, or zero. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPIFNOT_L
@@ -147,7 +147,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPIFNOT_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x27                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the value is `false`, a `null` reference, or zero. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPEQ
@@ -155,7 +155,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPEQ                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x28                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if two values are equal. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPEQ_L
@@ -163,7 +163,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPEQ_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x29                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if two values are equal. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPNE
@@ -171,7 +171,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPNE                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x2A                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction when two values are not equal. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPNE_L
@@ -179,7 +179,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPNE_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x2B                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction when two values are not equal. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPGT
@@ -187,7 +187,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPGT                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x2C                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is greater than the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPGT_L
@@ -195,7 +195,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPGT_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x2D                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is greater than the second value. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPGE
@@ -203,7 +203,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPGE                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x2E                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is greater than or equal to the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPGE_L
@@ -211,7 +211,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPGE_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x2F                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is greater than or equal to the second value. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPLT
@@ -219,7 +219,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPLT                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x30                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is less than the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPLT_L
@@ -227,7 +227,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPLT_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x31                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is less than the second value. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### JMPLE
@@ -235,7 +235,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPLE                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x32                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is less than or equal to the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### JMPLE_L
@@ -243,7 +243,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | JMPLE_L                                                           |
 |----------|--------------------------------------------------------------------|
 | Bytecode | 0x33                                                               |
-| Fee | 0.00000070 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Transfers control to a target instruction if the first value is less than or equal to the second value. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### CALL
@@ -251,7 +251,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | CALL                                                  |
 |----------|-------------------------------------------------------|
 | Bytecode | 0x34                                                  |
-| Fee | 0.00022000 GAS                           |
+| Fee | 0.00000512 GAS             |
 | Function   | Calls the function at the target address which is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### CALL_L
@@ -259,7 +259,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | CALL_L                                                  |
 |----------|-------------------------------------------------------|
 | Bytecode | 0x35                                                  |
-| Fee | 0.00022000 GAS                           |
+| Fee | 0.00000512 GAS             |
 | Function   | Calls the function at the target address which is represented as a 4-bytes signed offset from the beginning of the current instruction. |
 
 #### CALLA
@@ -267,15 +267,23 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | CALLA                                                  |
 |----------|-------------------------------------------------------|
 | Bytecode | 0x36                                                  |
-| Fee | 0.00022000 GAS                           |
-| Function   | Pop the address of a function from the stack, and call the function. |
+| Fee | 0.00000512 GAS             |
+| Function   | Pops the address of a function from the stack, and call the function. |
+
+#### CALLT
+
+| Instruction | CALLT                                                        |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0x37                                                         |
+| Fee         | 0.00032768 GAS                                               |
+| Function    | Pops the function Token from the stack, and call the function. |
 
 #### ABORT
 
 | Instruction   | ABORT                                                  |
 |----------|-------------------------------------------------------|
 | Bytecode | 0x37                                                  |
-| Fee | 0.00000030 GAS                           |
+| Fee | 0 GAS                           |
 | Function   | It turns the vm state to FAULT immediately, and the exception cannot be caught. |
 
 #### ASSERT
@@ -283,7 +291,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | ASSERT                                                       |
 |----------|------------------------------------------------------------------|
 | Bytecode | 0x38                                                             |
-| Fee | 0.00000030 GAS                                                        |
+| Fee | 0.00000001 GAS                                          |
 | Function   | Pop the top value of the stack, if it is false, then exit vm execution and set vm state to FAULT. |
 
 #### THROW
@@ -291,7 +299,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction   | THROW                 |
 |----------|-----------------------|
 | Bytecode | 0x3A                  |
-| Fee | 0.00022000 GAS                                          |
+| Fee | 0.00000512 GAS                            |
 | Function   | Throws the exception of stack top |
 
 #### TRY
@@ -299,7 +307,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction | TRY                                                          |
 | ----------- | ------------------------------------------------------------ |
 | Bytecode    | 0x3B                                                         |
-| Fee         | 0.00000100 GAS                                               |
+| Fee         | 0.00000004 GAS                                               |
 | Function    | Enters the block of Try statement. The Catch and Finally address offset are represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### TRY_L
@@ -307,7 +315,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction | TRY_L                                                        |
 | ----------- | ------------------------------------------------------------ |
 | Bytecode    | 0x3C                                                         |
-| Fee         | 0.00000100 GAS                                               |
+| Fee         | 0.00000004 GAS                                               |
 | Function    | Enters the block of Try statement. The Catch and Finally address offset are represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### ENDTRY
@@ -315,7 +323,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction | ENDTRY                                                       |
 | ----------- | ------------------------------------------------------------ |
 | Bytecode    | 0x3D                                                         |
-| Fee         | 0.00000100 GAS                                               |
+| Fee         | 0.00000004 GAS                                               |
 | Function    | Terminates the block Try and unconditionally transfers control to a target instruction. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction. |
 
 #### ENDTRY_L
@@ -323,7 +331,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction | ENDTRY_L                                                     |
 | ----------- | ------------------------------------------------------------ |
 | Bytecode    | 0x3E                                                         |
-| Fee         | 0.00000100 GAS                                               |
+| Fee         | 0.00000004 GAS                                               |
 | Function    | Terminates the block Try and unconditionally transfers control to a target instruction. The target instruction is represented as a 4-byte signed offset from the beginning of the current instruction. |
 
 #### ENDFINALLY
@@ -331,7 +339,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Instruction | ENDFINALLY                                                   |
 | ----------- | ------------------------------------------------------------ |
 | Bytecode    | 0x3F                                                         |
-| Fee         | 0.00000100 GAS                                               |
+| Fee         | 0.00000004 GAS                                               |
 | Function    | Terminates the block Finally and goes to the target instruction ENDTRY/ENDTRY_L if there is no exception, or throw the exception to the  upper level again. |
 
 #### RET
@@ -357,7 +365,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | DEPTH                          |
 |----------|------------------------------------------|
 | Bytecode | 0x43                                     |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function | Puts the number of stack items onto the stack. |
 
 #### DROP
@@ -365,7 +373,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | DROP                   |
 |----------|------------------------|
 | Bytecode | 0x45                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Removes the top stack item. |
 
 #### NIP
@@ -373,7 +381,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NIP                               |
 |----------|------------------------------------------|
 | Bytecode | 0x46                                     |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Removes the second-to-top stack item. |
 
 #### XDROP
@@ -381,10 +389,8 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | XDROP                                              |
 |----------|----------------------------------------------------|
 | Bytecode | 0x48                                               |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | The item n back in the main stack is removed. |
-| Input   | Xn Xn-1 ... X2 X1 X0 n                             |
-| Output   | Xn-1 ... X2 X1 X0                                  |
 | Function | Gets the integer N from the top stack and removes elements indexed to N from the remaining elements of the stack. |
 
 #### CLEAR
@@ -392,7 +398,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | CLEAR                             |
 |----------|------------------------------------------|
 | Bytecode | 0x49                                     |
-| Fee | 0.00000400 GAS                               |
+| Fee | 0.00000016 GAS                 |
 | Function   | Clear the stack |
 
 #### DUP
@@ -400,7 +406,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | DUP                    |
 |----------|------------------------|
 | Bytecode | 0x4A                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Copies the top stack item to the top. |
 
 #### OVER
@@ -408,7 +414,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | OVER                    |
 |----------|------------------------|
 | Bytecode | 0x4B                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Copies the second-to-top stack item to the top. |
 
 #### PICK
@@ -416,7 +422,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | PICK                    |
 |----------|------------------------|
 | Bytecode | 0x4D                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Gets the integer N from the top stack and copies elements indexed to N from the remaining elements of the stack to the top. |
 
 #### TUCK
@@ -424,7 +430,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | TUCK                    |
 |----------|------------------------|
 | Bytecode | 0x4E                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | The item at the top of the stack is copied and inserted before the second-to-top item. |
 
 #### SWAP
@@ -432,7 +438,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | SWAP                    |
 |----------|------------------------|
 | Bytecode | 0x50                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | The top two items on the stack are swapped. |
 
 #### ROT
@@ -440,7 +446,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | ROT                    |
 |----------|------------------------|
 | Bytecode | 0x51                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Moves the elements indexed to 2 to the top |
 
 #### ROLL
@@ -448,7 +454,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | ROLL                    |
 |----------|------------------------|
 | Bytecode | 0x52                   |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | Gets the integer N from the top stack and moves elements indexed to N from the remaining elements of the stack to the top. |
 
 #### REVERSE3
@@ -456,7 +462,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | REVERSE3                    |
 |----------|------------------------|
 | Bytecode | 0x53                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Reverse the order of the top 3 items on the stack. |
 
 #### REVERSE4
@@ -464,7 +470,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | REVERSE4                    |
 |----------|------------------------|
 | Bytecode | 0x54                   |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Reverse the order of the top 4 items on the stack. |
 
 #### REVERSEN
@@ -472,10 +478,8 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | REVERSEN                    |
 |----------|------------------------|
 | Bytecode | 0x55                   |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | Gets the integer N from the top stack, and reverse the order of the top N items on the stack. |
-| Input   | Xn-1 ... X2 X1 X0 n                      |
-| Output   | X0 X1 X2 ... Xn-1                    |
 
 ### Slot
 
@@ -484,7 +488,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | INITSSLOT                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x56                                  |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | Initialize the static field list for the current execution context. |
 
 #### INITSLOT
@@ -492,7 +496,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | INITSLOT                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x57                                  |
-| Fee | 0.00000800 GAS                                                        |
+| Fee | 0.00000064 GAS                                          |
 | Function   | Initialize the argument slot and the local variable list for the current execution context. |
 
 #### LDSFLDN
@@ -500,7 +504,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LDSFLD0\~LDSFLD6                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x58\~0x5E                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Loads the static field at index `n` onto the evaluation stack, where the n is 0\~6。 |
 
 #### LDSFLD
@@ -508,7 +512,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LDSFLD                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x5F                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Loads the static field at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer. |
 
 #### STSFLDN
@@ -516,7 +520,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | STSFLD0\~STSFLD6                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x60\~0x0x66                                  |
-| Fee | 0.0000006 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Stores the value on top of the evaluation stack in the static field list at index `n`, where the n is 0\~6。 |
 
 #### STSFLD
@@ -524,7 +528,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | STSFLD                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x67                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Stores the value on top of the evaluation stack in the static field list at a specified index. The index is represented as a 1-byte unsigned integer. |
 
 #### LDLOCN
@@ -532,7 +536,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LDLOC0\~LDLOC6                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x68\~0x6E                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Loads the local variable at index `n` onto the evaluation stack, where the n is 0\~6。 |
 
 #### LDLOC
@@ -540,7 +544,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LDLOC                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x6F                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Loads the local variable at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer. |
 
 #### STLOCN
@@ -548,7 +552,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | STLOC0\~STLOC6                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x70\~0x76                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Stores the value on top of the evaluation stack in the local variable list at index `n`, where the n is 0\~6。 |
 
 #### STLOC
@@ -556,7 +560,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | STLOC                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x77                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Stores the value on top of the evaluation stack in the local variable list at a specified index. The index is represented as a 1-byte unsigned integer. |
 
 #### LDARGN
@@ -564,7 +568,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LDARG0\~LDARG6                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x78\~0x7E                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Loads the argument at index `n` onto the evaluation stack, where the n is 0\~6. |
 
 #### LDARG
@@ -572,7 +576,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LDARG                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x7F                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Loads the argument at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer. |
 
 #### STARGN
@@ -580,7 +584,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | STARG0\~STARG6                                  |
 |----------|---------------------------------------|
 | Bytecode | 0x80\~0x86                                |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Stores the value on top of the evaluation stack in the argument slot at index `n`, where the n is 0\~6. |
 
 #### STARG
@@ -588,7 +592,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | STARG                                 |
 |----------|--------------------------------------|
 | Bytecode | 0x87                                  |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Stores the value on top of the evaluation stack in the argument slot at a specified index. The index is represented as a 1-byte unsigned integer. |
 
 ### String Operation
@@ -598,7 +602,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NEWBUFFER                                              |
 |----------|--------------------------------------------------|
 | Bytecode | 0x88                                             |
-| Fee | 0.00080000  GAS                                                        |
+| Fee | 0.00000256  GAS                                         |
 | Function   | Create a new buffer |
 
 #### MEMCPY
@@ -606,7 +610,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | MEMCPY                                              |
 |----------|--------------------------------------------------|
 | Bytecode | 0x89                                             |
-| Fee | 0.00080000  GAS                                                        |
+| Fee | 0.00002048  GAS                                         |
 | Function   | memory copy |
 
 #### CAT
@@ -614,7 +618,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | CAT                                              |
 |----------|--------------------------------------------------|
 | Bytecode | 0x8B                                             |
-| Fee | 0.00080000  GAS                                                        |
+| Fee | 0.00002048  GAS                                         |
 | Function   | Concatenates two strings. |
 
 #### SUBSTR
@@ -622,7 +626,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | SUBSTR                                       |
 |----------|----------------------------------------------|
 | Bytecode | 0x8C                                         |
-| Fee | 0.00080000 GAS                                                        |
+| Fee | 0.00002048 GAS                                          |
 | Function   | Returns a section of a string. |
 
 #### LEFT
@@ -630,7 +634,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LEFT                                         |
 |----------|----------------------------------------------|
 | Bytecode | 0x8D                                         |
-| Fee | 0.00080000 GAS                                                        |
+| Fee | 0.00002048 GAS                                          |
 | Function   | Gets characters in the left of the specified point in a string. |
 
 #### RIGHT
@@ -638,7 +642,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | RIGHT                                        |
 |----------|----------------------------------------------|
 | Bytecode | 0x8E                                         |
-| Fee | 0.00080000 GAS                                                        |
+| Fee | 0.00002048 GAS                                          |
 | Function   | Gets characters in the right of the specified point in a string. |
 
 ### Logical Operation
@@ -648,7 +652,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | INVERT                       |
 |----------|------------------------------|
 | Bytecode | 0x90                         |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | Flips all of the bits in the input. |
 
 #### AND
@@ -656,7 +660,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | AND                                    |
 |----------|----------------------------------------|
 | Bytecode | 0x91                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Boolean and between each bit in the inputs |
 
 #### OR
@@ -664,7 +668,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | OR                                     |
 |----------|----------------------------------------|
 | Bytecode | 0x92                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Boolean or between each bit in the inputs. |
 
 #### XOR
@@ -672,7 +676,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | XOR                                      |
 |----------|------------------------------------------|
 | Bytecode | 0x93                                     |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Boolean exclusive or between each bit in the inputs. |
 
 #### EQUAL
@@ -680,7 +684,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | EQUAL                                        |
 |----------|----------------------------------------------|
 | Bytecode | 0x97                                         |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000032 GAS                                          |
 | Function   | Returns 1 if the inputs are exactly equal, 0 otherwise. |
 
 #### NOTEQUAL
@@ -688,7 +692,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NOTEQUAL                                        |
 |----------|----------------------------------------------|
 | Bytecode | 0x98                                         |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000032 GAS                                          |
 | Function   | Returns 1 if the inputs are not equal, 0 otherwise. |
 
 ### Arithmetic Operation
@@ -698,7 +702,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | SIGN                                         |
 |----------|----------------------------------------------|
 | Bytecode | 0x99                                         |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | Puts the sign of top stack item on top of the main stack. If value is negative, put -1; if positive, put 1; if value is zero, put 0. |
 
 #### ABS
@@ -706,7 +710,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | ABS                            |
 |----------|--------------------------------|
 | Bytecode | 0x9A                           |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | The input is made positive. |
 
 #### NEGATE
@@ -714,7 +718,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NEGATE                         |
 |----------|--------------------------------|
 | Bytecode | 0x9B                           |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | The sign of the input is flipped. |
 
 #### INC
@@ -722,7 +726,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | INC                                |
 |----------|------------------------------------|
 | Bytecode | 0x9C                               |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | 1 is added to the input. |
 
 #### DEC
@@ -730,7 +734,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | DEC                                |
 |----------|------------------------------------|
 | Bytecode | 0x9D                               |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | 1 is subtracted from the input. |
 
 #### ADD
@@ -738,7 +742,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | ADD                                    |
 |----------|----------------------------------------|
 | Bytecode | 0x9E                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | a is added to b. |
 
 #### SUB
@@ -746,7 +750,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | SUB                                    |
 |----------|----------------------------------------|
 | Bytecode | 0x9F                                  |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | b is subtracted from a. |
 
 #### MUL
@@ -754,7 +758,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | MUL                                    |
 |----------|----------------------------------------|
 | Bytecode | 0xA0                                   |
-| Fee | 0.00000300 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | a is multiplied by b. |
 
 #### DIV
@@ -762,7 +766,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | DIV                                    |
 |----------|----------------------------------------|
 | Bytecode | 0xA1                                   |
-| Fee | 0.00000300 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | a is divided by b. |
 
 #### MOD
@@ -770,7 +774,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | MOD                                    |
 |----------|----------------------------------------|
 | Bytecode | 0xA2                                   |
-| Fee | 0.00000300 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns the remainder after dividing a by b. |
 
 #### SHL
@@ -778,7 +782,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | SHL                              |
 |----------|----------------------------------|
 | Bytecode | 0xA8                             |
-| Fee | 0.00000300 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Gets the integer n from the top stack and performs a n-bit left shift operation on the remaining BigInteger on the stack. |
 
 #### SHR
@@ -786,7 +790,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | SHR                              |
 |----------|----------------------------------|
 | Bytecode | 0xA9                             |
-| Fee | 0.00000300 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Gets the integer n from the top stack and performs a n-bit right shift operation on the remaining BigInteger on the stack. |
 
 #### NOT
@@ -794,7 +798,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NOT                                |
 |----------|------------------------------------|
 | Bytecode | 0xAA                               |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | If the input is 0 or 1, it is flipped. Otherwise the output will be 0. |
 
 #### BOOLAND
@@ -802,7 +806,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | BOOLAND                                |
 |----------|----------------------------------------|
 | Bytecode | 0xAB                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | If both a and b are not 0, the output is 1. Otherwise 0. |
 
 #### BOOLOR
@@ -810,7 +814,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | BOOLOR                                 |
 |----------|----------------------------------------|
 | Bytecode | 0xAC                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | If a or b is not 0, the output is 1. Otherwise 0. |
 
 #### NZ
@@ -818,7 +822,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NZ                                  |
 |----------|-------------------------------------|
 | Bytecode | 0xB1                                |
-| Fee | 0.00000100 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | Returns 0 if the input is 0. 1 otherwise. |
 
 
@@ -827,7 +831,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NUMEQUAL                               |
 |----------|----------------------------------------|
 | Bytecode | 0xB3                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if the numbers are equal, 0 otherwise. |
 
 #### NUMNOTEQUAL
@@ -835,7 +839,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | NUMNOTEQUAL                              |
 |----------|------------------------------------------|
 | Bytecode | 0xB4                                     |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if the numbers are not equal, 0 otherwise.|
 
 #### LT 
@@ -843,7 +847,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LT                                     |
 |----------|----------------------------------------|
 | Bytecode | 0xB5                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if a is less than b, 0 otherwise. |
 
 #### LE
@@ -851,7 +855,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | LE                                        |
 |----------|--------------------------------------------|
 | Bytecode | 0xB6                                       |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if a is less than or equal to b, 0 otherwise. |
 
 #### GT
@@ -859,7 +863,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | GT                                     |
 |----------|----------------------------------------|
 | Bytecode | 0xB7                                   |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if a is greater than b, 0 otherwise. |
 
 #### GE
@@ -867,7 +871,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | GE                                        |
 |----------|--------------------------------------------|
 | Bytecode | 0xB8                                       |
-| Fee | 0.00000200  GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if a is greater than or equal to b, 0 otherwise. |
 
 #### MIN
@@ -875,7 +879,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | MIN                                    |
 |----------|----------------------------------------|
 | Bytecode | 0xB9                                   |
-| Fee | 0.00000200  GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns the smaller of a and b. |
 
 
@@ -884,7 +888,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | MAX                                    |
 |----------|----------------------------------------|
 | Bytecode | 0xBA                                   |
-| Fee | 0.00000200  GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns the larger of a and b. |
 
 #### WITHIN
@@ -892,7 +896,7 @@ Copy, remove and swap the elements of the stack.
 | Instruction   | WITHIN                                       |
 |----------|----------------------------------------------|
 | Bytecode | 0xBB                                         |
-| Fee | 0.00000200  GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | Returns 1 if x is within the specified range (left-inclusive), 0 otherwise. |
 
 ### Advanced Data Structure
@@ -904,7 +908,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | PACK                              |
 |----------|-----------------------------------|
 | Bytecode | 0xC0                              |
-| Fee | 0.00007000 GAS                                                        |
+| Fee | 0.00000512 GAS                                          |
 | Function   | A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized array and this array is put on top of the main stack. |
 
 #### UNPACK
@@ -912,7 +916,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | UNPACK                             |
 |----------|------------------------------------|
 | Bytecode | 0xC1                               |
-| Fee | 0.00007000 GAS                                                        |
+| Fee | 0.00000512 GAS                                          |
 | Function   | An array is removed from top of the main stack. Its elements are put on top of the main stack (in reverse order) and the array size is also put on main stack. |
 
 #### NEWARRAY0
@@ -920,7 +924,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | NEWARRAY0                             |
 |----------|------------------------------------|
 | Bytecode | 0xC2                               |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | An array with size n is put on top of the main stack. |
 
 #### NEWARRAY
@@ -928,7 +932,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | NEWARRAY                             |
 |----------|------------------------------------|
 | Bytecode | 0xC3                               |
-| Fee | 0.00015000 GAS                                                        |
+| Fee | 0.00000512 GAS                                          |
 | Function   | A value n is taken from top of main stack. A null-filled array with size n is put on top of the main stack. |
 
 #### NEWARRAY_T
@@ -936,7 +940,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | NEWARRAY_T                           |
 |----------|------------------------------------|
 | Bytecode | 0xC4                               |
-| Fee | 0.00015000 GAS                                                        |
+| Fee | 0.00000512 GAS                                          |
 | Function   | An array of type T with size n is put on top of the main stack. |
 
 #### NEWSTRUCT0
@@ -944,7 +948,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | NEWSTRUCT0                           |
 |----------|------------------------------------|
 | Bytecode | 0xC5                               |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | A structure with size n and all 0 elements is put on top of the main stack. |
 
 #### NEWSTRUCT
@@ -952,7 +956,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | NEWSTRUCT                           |
 |----------|------------------------------------|
 | Bytecode | 0xC6                               |
-| Fee | 0.00015000 GAS                                                        |
+| Fee | 0.00000512 GAS                                          |
 | Function   | A value n is taken from top of main stack. A zero-filled struct with size n is put on top of the main stack. |
 
 #### NEWMAP
@@ -960,7 +964,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | NEWMAP                  |
 |----------|-------------------------|
 | Bytecode | 0xC8                    |
-| Fee | 0.00000200 GAS                                                        |
+| Fee | 0.00000008 GAS                                          |
 | Function   | An empty Map is put on top of the main stack. |
 
 #### SIZE
@@ -968,7 +972,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | SIZE                  |
 |----------|-------------------------|
 | Bytecode | 0xCA                    |
-| Fee | 0.00000150 GAS                                                        |
+| Fee | 0.00000004 GAS                                          |
 | Function   | Gets the size of elements on the top stack. |
 
 #### HASKEY
@@ -976,7 +980,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | HASKEY                  |
 |----------|-------------------------|
 | Bytecode | 0xCB                    |
-| Fee | 0.00270000 GAS                                                        |
+| Fee | 0.00000064 GAS                                          |
 | Function   | An input index n (or key) and an array (Map，Buffer, ByteString) are returned from the top of the main stack. Puts True on top of main stack if n is in the length range of the array (Map，Buffer, ByteString), and False otherwise. |
 
 #### KEYS
@@ -984,7 +988,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | KEYS                                |
 |----------|-------------------------------------|
 | Bytecode | 0xCC                                |
-| Fee | 0.00000500 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | Gets all Keys of the map from top of the main stack and constructs a new array with all Key and puts it on top of the main stack. |
 
 #### VALUES
@@ -992,7 +996,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | VALUES                                  |
 |----------|-----------------------------------------|
 | Bytecode | 0xCD                                    |
-| Fee | 0.00007000 GAS                                                        |
+| Fee | 0.00008192 GAS                                          |
 | Function   | Gets all Values of the elements (Array or Map) from top of the main stack and constructs a new array with all Value and puts it on top of the main stack.|
 
 #### PICKITEM
@@ -1000,7 +1004,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | PICKITEM                           |
 |----------|------------------------------------|
 | Bytecode | 0xCE                               |
-| Fee | 0.00270000 GAS                                                        |
+| Fee | 0.00000064 GAS                                          |
 | Function   | Gets the Nth element in the array of the top stack|
 
 #### APPEND
@@ -1008,7 +1012,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | APPEND                |
 |----------|-----------------------|
 | Bytecode | 0xCF                  |
-| Fee | 0.00015000 GAS                                                        |
+| Fee | 0.00008192 GAS                                          |
 | Function   | Adds a new item to the arry of the top stack |
 
 #### SETITEM
@@ -1016,7 +1020,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | SETITEM                                  |
 |----------|------------------------------------------|
 | Bytecode | 0xD0                                     |
-| Fee | 0.00270000 GAS                                                        |
+| Fee | 0.00008192 GAS                                          |
 | Function   | Assigns a value to the specified index of element （Array，Map or Buffer）in the top stack |
 
 #### REVERSEITEMS
@@ -1024,7 +1028,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | REVERSEITEMS                                  |
 |----------|------------------------------------------|
 | Bytecode | 0xD1                                     |
-| Fee | 0.00000500 GAS                                                        |
+| Fee | 0.00008192 GAS                                          |
 | Function   | Reverses the elements in Array or Buffer from the top stack.|
 
 #### REMOVE
@@ -1032,7 +1036,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | REMOVE                            |
 |----------|-----------------------------------|
 | Bytecode | 0xD2                              |
-| Fee | 0.00000500 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | Removes the specified index or Key elements from Array or Map        |
 
 #### CLEARITEMS
@@ -1040,8 +1044,16 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | CLEARITEMS                                  |
 |----------|-----------------------------------------|
 | Bytecode | 0xD3                                    |
-| Fee | 0.00000400 GAS                                                        |
+| Fee | 0.00000016 GAS                                          |
 | Function   | Remove all the items from the compound-type. |
+
+#### POPITEM
+
+| Instruction | POPITEM                                                      |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0xD4                                                         |
+| Fee         | 0.00000016 GAS                                               |
+| Function    | Pops the last element in Array from the stack top and push into the stack. |
 
 ### Type 
 
@@ -1050,7 +1062,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | ISNULL                                  |
 |----------|-----------------------------------------|
 | Bytecode | 0xD8                                    |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                            |
 | Function   | Returns true if the input is null. Returns false otherwise. |
 
 #### ISTYPE
@@ -1058,7 +1070,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | ISTYPE                                  |
 |----------|-----------------------------------------|
 | Bytecode | 0xD9                                    |
-| Fee | 0.00000060 GAS                                                        |
+| Fee | 0.00000002 GAS                                          |
 | Function   | Returns true if the top item is of the specified type.|
 
 #### CONVERT
@@ -1066,7 +1078,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | CONVERT                                  |
 |----------|-----------------------------------------|
 | Bytecode | 0xDB                                    |
-| Fee | 0.00080000 GAS                                                        |
+| Fee | 0.00002048 GAS                            |
 | Function   | Converts the top item to the specified type. |
 
 > [!Note]
