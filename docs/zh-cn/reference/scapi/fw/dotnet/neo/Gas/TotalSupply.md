@@ -1,4 +1,4 @@
-# TotalSupply 方法 ()
+# GAS.TotalSupply 方法
 
 获取GAS总发行量。
 

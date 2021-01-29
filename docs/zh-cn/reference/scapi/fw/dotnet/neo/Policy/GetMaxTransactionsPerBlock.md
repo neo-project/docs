@@ -1,4 +1,4 @@
-# GetMaxTransactionsPerBlock 方法 ()
+# GetMaxTransactionsPerBlock 方法
 
 获取区块包含最大交易数。
 
@@ -25,7 +25,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

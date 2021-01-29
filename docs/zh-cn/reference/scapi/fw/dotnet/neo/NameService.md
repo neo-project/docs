@@ -28,6 +28,7 @@ public class NameService
 | [BalanceOf(UInt160 owner)](NameService/BalanceOf.md) | 获取某人持有的域名数量                         |
 | [OwnerOf(string name)](NameService/OwnerOf.md) | 获取域名的所有人 |
 | [Properties(string name)](NameService/Properties.md) | 获取域名的属性 |
+| [Tokens()](NameService/Tokens.md) | 获取该合约内的所有域名 |
 | [TokensOf(UInt160 owner)](NameService/TokensOf.md) | 获取某人持有的域名 |
 | [Transfer(UInt160 from, UInt160 to, BigInteger amount)](NameService/Transfer.md) | 转账                                     |
 | [IsAvailable(string name)](NameService/Transfer.md) | 域名是否可用 |

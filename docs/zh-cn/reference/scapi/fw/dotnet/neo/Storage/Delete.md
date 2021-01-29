@@ -10,7 +10,7 @@
 
 ```c#
 public static extern void Delete(StorageContext context, byte[] key);
-public static extern void Delete(StorageContext context, string key);
+public static extern void Delete(StorageContext context, ByteString key);
 ```
 参数：
 

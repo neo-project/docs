@@ -1,4 +1,4 @@
-# BalanceOf 方法 (UInt160)
+# GAS.BalanceOf 方法
 
 获取账户的GAS余额。
 
@@ -30,7 +30,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

@@ -38,4 +38,4 @@ All：允许被调用的合约的全部行为
 
 CallFlags 用在 [Call(UInt160, string, CallFlags, params object[])](Contract/Call.md) 方法中
 
-也可以通过 [GetCallFlags()](../Contract/GetCallFlags.md) 获得原生合约的 CallFlags，但基本上原生合约的 CallFalags 均为 None，即不允许其它合约修改其状态、不允许其它合约调用自己发送通知。
+也可以通过 [GetCallFlags()](../Contract/GetCallFlags.md) 获得原生合约的 CallFlags。

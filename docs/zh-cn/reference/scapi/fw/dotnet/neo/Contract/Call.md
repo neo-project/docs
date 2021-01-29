@@ -1,4 +1,4 @@
-# Contract.Call 方法 (UInt160, string, object[])
+# Contract.Call 方法
 
 调用合约。
 

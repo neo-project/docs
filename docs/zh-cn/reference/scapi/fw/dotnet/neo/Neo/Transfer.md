@@ -1,4 +1,4 @@
-# Transfer 方法 (UInt160, UInt160, BigInteger)
+# Neo.Transfer 方法
 
 NEO转账。
 
@@ -14,6 +14,7 @@ NEO转账。
 
 ```c#
 public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount);
+public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data);
 ```
 
 参数：
@@ -38,7 +39,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

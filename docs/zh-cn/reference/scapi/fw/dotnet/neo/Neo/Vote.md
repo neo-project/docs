@@ -1,4 +1,4 @@
-# Vote 方法 (UInt160, ECPoint)
+# NEO.Vote 方法
 
 每个地址均有投票给一个地址的权利，候选人票数为所有向该账户投票的地址的NEO余额之和。初始块所有默认候选人均会向自己投票。
 
@@ -37,7 +37,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

@@ -1,4 +1,4 @@
-# Deploy 方法 (byte[], string)
+# ManagementContract.Deploy 方法
 
 部署合约。
 
@@ -9,7 +9,8 @@
 ## 语法
 
 ```c#
-public static extern Contract Deploy(byte[] nefFile, string manifest);
+public static extern Contract Deploy(ByteString nefFile, string manifest);
+public static extern Contract Deploy(ByteString nefFile, string manifest, object data);
 ```
 
 参数：
@@ -33,7 +34,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 [{

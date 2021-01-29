@@ -1,4 +1,4 @@
-# Destroy 方法 ()
+# ManagementContract.Destroy 方法
 
 销毁合约。
 
@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 [{"type":"Any"}]

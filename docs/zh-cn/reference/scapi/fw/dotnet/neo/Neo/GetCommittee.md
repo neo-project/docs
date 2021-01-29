@@ -1,4 +1,4 @@
-# GetCommittee 方法 ()
+# NEO.GetCommittee 方法
 
 获取委员会成员列表。候选人将根据得票数排序，最前面一定数量的候选人（默认21个）成为委员会成员。委员会名单将在每个区块根据最新投票更新。
 
@@ -25,7 +25,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 [{

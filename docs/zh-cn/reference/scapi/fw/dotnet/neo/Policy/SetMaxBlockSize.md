@@ -1,4 +1,4 @@
-# SetMaxBlockSize 方法 (uint)
+# SetMaxBlockSize 方法
 
 设置最大区块大小。
 
@@ -33,7 +33,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

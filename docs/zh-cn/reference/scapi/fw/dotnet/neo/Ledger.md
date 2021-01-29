@@ -24,10 +24,10 @@ public class Ledger
 
 | 名称                                                         | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [GetBlock(UInt256 hash)](Blockchain/GetBlock.md)             | 通过区块 hash ，查找区块                                     |
-| [GetBlock(uint height)](Blockchain/GetBlock2.md)             | 通过区块高度，查找区块                                       |
+| [GetBlock(UInt256 hash)](Blockchain/GetBlock.md)             | 通过区块哈希，查找区块                                       |
+| [GetBlock(uint height)](Blockchain/GetBlock.md)              | 通过区块高度，查找区块                                       |
 | [GetTransaction(UInt256 hash)](Blockchain/GetTransaction.md) | 通过交易 ID 查找交易                                         |
 | [GetTransactionFromBlock(UInt256 blockHash, int txIndex)](Blockchain/GetTransactionFromBlock.md) | 通过区块 hash 和交易索引查找交易                             |
-| [GetTransactionFromBlock(uint blockIndex, int txIndex)](Blockchain/GetTransactionFromBlock2.md) | 通过区块索引和交易索引查找交易                               |
+| [GetTransactionFromBlock(uint blockIndex, int txIndex)](Blockchain/GetTransactionFromBlock.md) | 通过区块索引和交易索引查找交易                               |
 | [GetTransactionHeight(UInt256 hash)](Blockchain/GetTransactionHeight.md) | 通过区块 hash ，获得区块中的交易高度<br/>交易高度 = 交易索引 = 交易数 - 1<br/>Height = Index = Count - 1 |
 

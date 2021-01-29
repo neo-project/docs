@@ -1,4 +1,4 @@
-# RegisterCandidate 方法 (ECPoint)
+# NEO.RegisterCandidate 方法
 
 注册成为候选人。
 
@@ -35,7 +35,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

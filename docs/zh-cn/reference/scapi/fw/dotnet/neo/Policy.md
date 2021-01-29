@@ -1,4 +1,4 @@
-# GAS 类
+# Policy 类
 
 提供了原生合约 Policy 的一系列方法，合约哈希为 `0x79bcd398505eb779df6e67e4be6c14cded08e2f2`。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public class GAS
+public class Policy
 ```
 
 ## 属性
@@ -17,8 +17,6 @@ public class GAS
 | 名称              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
 | Hash              | 获取合约哈希                                            |
-| Symbol           | 获取符号, 即: gas                                           |
-| Decimals          | 获取精度                                   |
 
 ## 方法
 

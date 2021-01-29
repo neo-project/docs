@@ -12,12 +12,12 @@
 
 ```c#
 public enum TriggerType : byte
-    {
-        System = 0x01,
-        Verification = 0x20,
-        Application = 0x40,
-        All = System | Verification | Application
-    }
+{
+    System = 0x01,
+    Verification = 0x20,
+    Application = 0x40,
+    All = System | Verification | Application
+}
 ```
 
 ## System 触发器

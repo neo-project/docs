@@ -1,4 +1,4 @@
-# GetContract 方法 (UInt160)
+# ManagementContract.GetContract 方法
 
 获取合约信息。
 
@@ -31,7 +31,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 [{

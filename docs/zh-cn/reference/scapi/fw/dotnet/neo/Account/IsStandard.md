@@ -1,4 +1,4 @@
-# Account.IsStandard 方法 (UInt160)
+# Account.IsStandard 方法
 
 根据脚本散列判断该合约是否是标准账户（单方签名账户）。
 

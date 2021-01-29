@@ -1,6 +1,6 @@
-# StorageFlags 类
+# RecordType 类
 
-表明了写入数据的属性，默认None，数据可以被读写。如果是Constant，数据被写入存储区后不能被修改也不能被删除。
+定义了 NameServices 的 DNS 记录的类型。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -9,9 +9,18 @@
 ## 语法
 
 ```c#
-   public enum StorageFlags : byte
-    {
-        None = 0x00,
-        Constant = 0x01
-    }
+public enum RecordType : byte
+{
+    #region [RFC 1035](https://tools.ietf.org/html/rfc1035)
+    A = 1,
+    CNAME = 5,
+    TXT = 16,
+    #endregion
+
+    #region [RFC 3596](https://tools.ietf.org/html/rfc3596)
+    AAAA = 28,
+    #endregion
+}
 ```
+
+具体使用参考 [NameService](NameService.md) 类的中的 SetRecord 和 GetRecord 方法。
