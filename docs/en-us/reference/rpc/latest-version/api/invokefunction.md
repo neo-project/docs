@@ -17,36 +17,33 @@ Invokes a smart contract with its scripthash based on the specified operation an
 
 * signers: Optional. List of contract signature accounts.
 
-  > [!Note]
-  >
-  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-
   * account: signature account
   * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
-  * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+* allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
-
-You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-
-For example:
-
-```json
-  {
-    "type": "String",
-    "value": "Hello"
-  }
-
-  {
-    "type": "Hash160",
-    "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
-  }
-
-  {
-    "type": "ByteArray",
-    "value": "7472616e73666572"
-  }
-```
+  > [!Note]
+  >
+  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+  
+  For example:
+  
+  ```json
+    {
+      "type": "String",
+      "value": "Hello"
+    }
+  
+    {
+      "type": "Hash160",
+      "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+    }
+  
+    {
+      "type": "ByteArray",
+      "value": "7472616e73666572"
+    }
+  ```
 
 ## Example
 

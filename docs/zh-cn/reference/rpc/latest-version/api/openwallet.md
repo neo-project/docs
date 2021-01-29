@@ -8,8 +8,8 @@
 
 ## 参数说明
 
-path：钱包文件路径。
-password：明文密码。
+- path：钱包文件路径。
+- password：明文密码。
 
 ## 调用示例
 
@@ -37,6 +37,7 @@ password：明文密码。
 响应说明：
 
 true：打开成功。
+
 其他：打开失败。
 
 如果返回消息为`Access denied`，则表示默认禁用了 `openwallet` 方法，如果确实需要使用，请修改 RpcServer/config.json 中的 DisabledMethods 字段，将 `openwallet` 移除。
