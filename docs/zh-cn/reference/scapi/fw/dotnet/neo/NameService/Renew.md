@@ -1,4 +1,4 @@
-# Transfer 方法 (UInt160, UInt160, BigInteger)
+# Renew 方法 (string)
 
 更新域名的过期时间戳（单位：秒），每调用一次，域名的有效期延长一年时间。
 
