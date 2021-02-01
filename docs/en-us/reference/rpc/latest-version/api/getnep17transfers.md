@@ -8,17 +8,16 @@ Returns all the NEP17 transaction information occurred in the specified address.
 
 ## Parameter Description
 
-address：The address to query the transaction information.
+- address: The address to query the transaction information.
 
-timestamp (Optional): 
-
-- If start and end timestamps are specified, transactions occurred in the time range are returned.
-- If only one timestamp is specified, transactions occurred since that time are returned.
-- If not specified, transactions in recent seven days are returned.
+- startTime | endTime: Optional. The UTC timestamp which records the asset start or end  time (included).
+  - If start and end timestamps are specified, transactions occurred in the time range are returned.
+  - If only one timestamp is specified, transactions occurred since that time are returned.
+  - If not specified, transactions in recent seven days are returned.
 
 ## Example
 
-##### Example 1 - no timestamp is specified:
+##### Example 1 - Set the start time:
 
 Request body:
 
@@ -26,7 +25,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getnep17transfers",
-  "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"],
+  "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ", 0],
   "id": 1
 }
 ```
@@ -38,33 +37,52 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "sent": [],
-        "received": [
+        "sent": [
             {
-                "timestamp": 1579170709527,
-                "assethash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-                "amount": "100",
-                "blockindex": 54496,
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
                 "transfernotifyindex": 0,
-                "txhash": "0x49f40ea86de140849fc5eb1c1ab8dbbe4d1186c47807963a162338d979e79c0f"
-            },
-            {
-                "timestamp": 1579170725318,
-                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-                "amount": "10000000000",
-                "blockindex": 54499,
-                "transfernotifyindex": 0,
-                "txhash": "0x1c25607fda68a2ab5793fb83b5bc87f781afb310127b440620b4ad176d77fa3d"
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
             }
         ],
-        "address": "NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"
+        "received": [
+            {
+                "timestamp": 1611715807166,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "100",
+                "blockindex": 4,
+                "transfernotifyindex": 2,
+                "txhash": "0x2e7ffdeaa9f74f1c0a85eb545d412b98d9821e9ebaffc373b116d17767e40c49"
+            },
+            {
+                "timestamp": 1611715807166,
+                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "1",
+                "blockindex": 4,
+                "transfernotifyindex": 1,
+                "txhash": "0x9be136667651d0abd02f6976ff08b317f0c4689e0e95b4d1fb5f1fafefc4bfc1"
+            },
+            {
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
+                "transfernotifyindex": 0,
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
+            }
+        ],
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```
 
-##### Example 2 - start and end timestamps are specified:
+##### Example 2 - Set both timestamps:
 
 Request body:
 
@@ -72,7 +90,7 @@ Request body:
 {
     "jsonrpc": "2.0",
     "method": "getnep17transfers",
-    "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH", 1579170709528, 1579170725319],
+    "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ", 1611716619654, 2011716619654],
     "id": 1
 }
 ```
@@ -84,19 +102,29 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "sent": [],
-        "received": [
+        "sent": [
             {
-                "timestamp": 1579170725318,
-                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-                "amount": "10000000000",
-                "blockindex": 54499,
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
                 "transfernotifyindex": 0,
-                "txhash": "0x1c25607fda68a2ab5793fb83b5bc87f781afb310127b440620b4ad176d77fa3d"
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
             }
         ],
-        "address": "NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"
+        "received": [
+            {
+                "timestamp": 1611716619654,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "amount": "0.1",
+                "blockindex": 40,
+                "transfernotifyindex": 0,
+                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
+            }
+        ],
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```

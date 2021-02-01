@@ -1,6 +1,6 @@
 # validateaddress 方法
 
-验证地址是否是正确的 NEO 地址。
+验证地址是否是正确的 Neo 地址。
 
 > [!Note]
 >

@@ -1,6 +1,6 @@
 # openwallet Method
 
-Opens the specified wallet file.
+Opens the specified wallet file. To be on the safe side this method is disabled by default. If you do need to use this method you can manually enable this method in the RpcServer configuration file.
 
 > [!Note]
 >
@@ -8,8 +8,8 @@ Opens the specified wallet file.
 
 ## Parameter Description
 
-path: The wallet file path
-password: In plain text.
+- path: The wallet file path
+- password: In plain text.
 
 ## Example
 
@@ -39,4 +39,6 @@ Response description：
 true: The wallet is opened.
 
 Others: The wallet cannot be opened.
+
+If `Access denied` is returned this is because `openwallet` is disabled. To enable it, you can remove  `openwallet` in the field DisabledMethods in RpcServer config.json.
 
