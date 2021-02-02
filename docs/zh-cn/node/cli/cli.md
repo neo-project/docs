@@ -451,7 +451,7 @@ Next validators:
 
 ##### 句法
 
- `register candidate`
+ `register candidate <senderAccount> [maxGas]`
 
 ##### 参数
 
@@ -477,7 +477,7 @@ Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663
 
 ##### 句法
 
- `unregister candidate`
+ `unregister candidate <senderAccount>`
 
 ##### 参数
 
