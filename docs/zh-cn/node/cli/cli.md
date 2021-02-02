@@ -58,7 +58,7 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null]| 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]| 调用合约 |
 
 #### 节点命令
 
@@ -118,7 +118,7 @@
 | [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
 | [get committee](#get-committee) |  | 获取委员会成员公钥 |
 | [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
-| [register candidate](#register-candidate) |\<senderAccount>  | 注册候选人 |
+| [register candidate](#register-candidate) |\<senderAccount> [maxGas] | 注册候选人 |
 | [unregister candidate](#unregister-candidate) |\<senderAccount>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
 
@@ -456,6 +456,7 @@ Next validators:
 ##### 参数
 
 `senderAccount`：注册者账户
+`maxGas`: 最大花费 GAS
 
 ##### 示例
 
@@ -735,7 +736,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ##### 句法
 
-`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]` 
 
 ##### 参数
 
@@ -755,6 +756,8 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 - `sender` ：交易发送方，即支付 GAS 费的账户
 
 - `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
+
+- `maxGas`: 最大花费 GAS
 
 ##### 示例 1 
 
