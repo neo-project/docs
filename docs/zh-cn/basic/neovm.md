@@ -22,7 +22,7 @@ NEO 虚拟机 (NeoVM) 的系统架构，主要由执行引擎、栈、互操作�
 
 #### 栈 
 
-NeoVM 是基于栈的虚拟机。其内部共有三种类型的栈，分别是调用栈 (InvocationStack)、计算栈 (EvaluationStack) 和结果栈 (ReaultStack)。 
+NeoVM 是基于栈的虚拟机。其内部共有三种类型的栈，分别是调用栈 (InvocationStack)、计算栈 (EvaluationStack) 和结果栈 (ResultStack)。 
 
 - 调用栈，用于保存当前虚拟机的所有执行上下文(ExecutionContext)，不同的上下文之 间实现栈隔离。上下文切换依靠当前上下文（CurrentContext）和入口上下文 （EntryContext）来完成。其中当前上下文指向调用栈的栈顶元素，在系统架构图中 对应 ExecutionContext0，入口上下文指向调用栈的栈底元素，在图中对应 ExecutionContextN。 
 - 计算栈，用于保存指令在相应执行过程中所用到的数据，每个执行上下文都有自己独立的计算栈。  

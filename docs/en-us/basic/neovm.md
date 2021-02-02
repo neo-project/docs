@@ -22,11 +22,10 @@ ExecutionEngine is the core of NeoVM, mainly responsible for loading scripts and
 
 #### Stack  
 
-NeoVM is a stack-based virtual machine. NeoVM has four types of stack:InvocationStack, EvaluationStack, AltStack and ResultStack.  
+NeoVM is a stack-based virtual machine. NeoVM has three types of stack: InvocationStack, EvaluationStack,  and ResultStack.  
 
 -  InvocationStack is used to store all execution contexts of current NeoVM, which are isolated from each other in the stack. Context switching is performed based on the current context and entry context. The current context points to the top element of invocation stack, which is ExecutionContext0 in the architecture figure. And the entry context points to the tail element of invocation stack, which is ExecutionContextN in the architecture figure.
 - EvaluationStack is for storing the data used by the instruction in execution process. Each execution context has its own evaluation stack.
-- AltStack is for storing the temporary data used by the instruction in execution process. Each execution context has its own alt stack.
 - ResultStack is used to store execution result after all scripts are executed. 
 
 #### Interoperation Service Layer 
