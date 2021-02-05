@@ -1,6 +1,6 @@
-# SetFeePerByte Method (long)
+# SetFeePerByte Method
 
-Sets fee per byte
+Sets network fee required for transactions per byte.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -25,7 +25,7 @@ Parameter:
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetFeePerByte(1200);
         return result;

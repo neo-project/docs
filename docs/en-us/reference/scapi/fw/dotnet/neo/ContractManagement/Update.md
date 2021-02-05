@@ -1,4 +1,4 @@
-# Update Method (byte[], string)
+# ManagementContract.Update Method
 
 Update the contract.
 
@@ -9,7 +9,8 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern void Update(byte[] nefFile, string manifest);
+public static extern void Update(ByteString nefFile, string manifest);
+public static extern void Update(ByteString nefFile, string manifest, object data = null);
 ```
 
 Parameters:

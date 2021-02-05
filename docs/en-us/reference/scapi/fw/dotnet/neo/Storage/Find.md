@@ -9,8 +9,8 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Iterator<byte[], byte[]> Find(StorageContext context, byte[] prefix);
-public static extern Iterator<string, byte[]> Find(StorageContext context, string prefix);
+public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
+public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
 ```
 
 Parameters:
@@ -18,18 +18,7 @@ Parameters:
 - context: Storage context as a [StorageContext](../StorageContext.md)
 - prefix: Prefix as a byte array or string.
 
-Return value: The iterator composed of the elements  that meet conditions in the context
-
-```c#
-public static extern Iterator<byte[], byte[]> Find(byte[] prefix);
-public static extern Iterator<string, byte[]> Find(string prefix);
-```
-
-Parameters:
-
-prefix: Prefix as a byte array or string.
-
-Return value: The iterator composed of the elements  that meet conditions in the context
+Return value: The iterator composed of the elements  that meet conditions in the context.
 
 ## Example
 

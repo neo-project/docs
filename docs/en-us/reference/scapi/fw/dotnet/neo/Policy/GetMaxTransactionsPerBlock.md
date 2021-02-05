@@ -1,4 +1,4 @@
-# GetMaxTransactionsPerBlock Method ()
+# GetMaxTransactionsPerBlock Method
 
 Sets max transaction per block
 
@@ -17,7 +17,7 @@ public static extern uint GetMaxTransactionsPerBlock();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         uint result = Policy.GetMaxTransactionsPerBlock();
         return result;

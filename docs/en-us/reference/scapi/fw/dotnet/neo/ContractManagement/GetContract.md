@@ -1,4 +1,4 @@
-# GetContract Method (UInt160)
+# ManagementContract.GetContract Method
 
 Gets the contract information.
 
@@ -21,11 +21,11 @@ Parameters:
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    private static byte[] ScriptHash = "0xf32bcab10aeadcd0bb60b9b4ddd7ff9fb9b9a5a0".HexToBytes(reverse: true);
+    private static UInt160 ScriptHash = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
     public static object GetContract()
     {
-        Contract contract = ManagementContract.GetContract((UInt160)ScriptHash);
+        Contract contract = ManagementContract.GetContract(ScriptHash);
         return contract != null;
     }
 }

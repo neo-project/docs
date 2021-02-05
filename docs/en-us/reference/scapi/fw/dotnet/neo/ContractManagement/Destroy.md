@@ -1,4 +1,4 @@
-# Destroy Method ()
+# ManagementContract.Destroy Method
 
 Destroies the contract.
 

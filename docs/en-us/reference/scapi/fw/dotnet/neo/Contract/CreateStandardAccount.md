@@ -1,4 +1,4 @@
-# Contract.CreateStandardAccount Method (Cryptography.ECC.ECPoint)
+# Contract.CreateStandardAccount Method
 
 Creates a standard account with the public key.
 

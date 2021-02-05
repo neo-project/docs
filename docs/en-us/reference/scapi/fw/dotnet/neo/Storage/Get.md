@@ -10,7 +10,7 @@ Assembly: Neo.SmartContract.Framework
 
 ```c#
 public static extern byte[] Get(StorageContext context, byte[] key);
-public static extern byte[] Get(StorageContext context, string key);
+public static extern byte[] Get(StorageContext context, ByteString key);
 ```
 
 Parameters:
@@ -24,15 +24,13 @@ Return Value: The value corresponding to the key as a byte array.
 ## Example
 
 ```c#
-public class Contract1: SmartContract.Framework.SmartContract
+public class Contract1 : SmartContract.Framework.SmartContract
 {
-     public static void Main()
-     {
-         byte[] value = Storage.Get(Storage.CurrentContext, new byte[] {0});
-         byte[] value = Storage.Get(Storage.CurrentContext, "aa");
-         byte[] value = Storage.Get(new byte[] { 0 });
-         byte[] value = Storage.Get("aa");
-     }
+    public static void Main()
+    {
+        byte[] value = Storage.Get(Storage.CurrentContext, new byte[] { 0 });
+        byte[] value = Storage.Get(Storage.CurrentContext, "aa");
+    }
 }
 ```
 

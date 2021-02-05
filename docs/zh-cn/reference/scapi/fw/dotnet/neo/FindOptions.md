@@ -22,21 +22,22 @@ public enum FindOptions : byte
 }
 ```
 
-## 说明
+##### 说明
 
-None：搜索全部
+- None：搜索全部
 
-KeysOnly：仅搜索 Key，与 ValuesOnly、DeserializeValues、 PickField0、PickField1 不能同时使用
+- KeysOnly：仅搜索 Key，不能与 ValuesOnly、DeserializeValues、 PickField0、PickField1 同时使用
 
-RemovePrefix：与KeysOnly类似，但会过滤到Key的第一个字节，一般Key的第一个字节为Key的前缀。与 ValuesOnly 不能同时使用
+- RemovePrefix：与KeysOnly类似，但会过滤到Key的第一个字节，一般Key的第一个字节为Key的前缀。不能与 ValuesOnly 同时使用
 
-ValuesOnly：仅搜索 Value，与 KeysOnly、RemovePrefix 不能同时使用
+- ValuesOnly：仅搜索 Value，不能与 KeysOnly、RemovePrefix 同时使用
 
-DeserializeValues：搜索 Value，并将 Value 反序列化
+- DeserializeValues：搜索 Value，并将 Value 反序列化
 
-PickField0：搜索Value数组的第一个元素，必须和DeserializeValues一同使用，不能与PickField1同时使用
+- PickField0：搜索Value数组的第一个元素，必须和DeserializeValues一同使用，不能与PickField1同时使用
 
-PickField1：搜索Value数组的第二个元素，必须和DeserializeValues一同使用，不能与PickField0同时使用
+- PickField1：搜索Value数组的第二个元素，必须和DeserializeValues一同使用，不能与PickField0同时使用
 
-FindOptions 用在 [Storage.Find(StorageContext, ByteString, FindOptions)](Storage/Find.md) 方法中。
+- FindOptions 用在 [Storage.Find(StorageContext, ByteString, FindOptions)](Storage/Find.md) 方法中。
+
 

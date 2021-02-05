@@ -1,4 +1,4 @@
-# GetGasPerBlock Method ()
+# NEO.GetGasPerBlock Method ()
 
 Gets the number of GAS generated in each block.
 
@@ -17,7 +17,7 @@ public static extern BigInteger GetGasPerBlock();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = NEO.GetGasPerBlock();
         return result;

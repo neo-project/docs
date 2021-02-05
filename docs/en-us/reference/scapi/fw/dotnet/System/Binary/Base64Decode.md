@@ -1,4 +1,4 @@
-# Base64Decode Method (string)
+# Binary.Base64Decode Method
 
 Decodes the Base64-encoded string into an equivalent byte array.
 

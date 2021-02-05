@@ -26,7 +26,9 @@ public static extern string Itoa(sbyte value, int @base = 10);
 
 返回值：Base64编码的字符串。
 
-注：`value`可为`BigInteger, int, uint, long, ulong, short, ushort, byte, sbyte9`种类型。
+> [!Note]
+>
+> `value`可为`BigInteger, int, uint, long, ulong, short, ushort, byte, sbyte9`种类型。
 
 ## 示例
 

@@ -46,6 +46,8 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 - 其他：失败。
 
-注意： 更新后合约哈希保持不变。
+> [!Note]
+>
+> 更新后合约哈希保持不变。
 
 [返回上级](../ManagementContract.md)

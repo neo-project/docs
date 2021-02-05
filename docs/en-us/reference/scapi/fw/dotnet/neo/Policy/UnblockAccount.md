@@ -1,4 +1,4 @@
-# UnblockAccount Method (UInt160)
+# UnblockAccount Method
 
 Unblocks accounts.
 
@@ -23,7 +23,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.UnblockAccount(account);
         return result;

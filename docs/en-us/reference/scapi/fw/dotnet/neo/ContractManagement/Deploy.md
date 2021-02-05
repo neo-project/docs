@@ -1,4 +1,4 @@
-# Deploy Method (byte[], string)
+# ManagementContract.Deploy Method
 
 Deploys the contract.
 
@@ -9,7 +9,8 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Contract Deploy(byte[] nefFile, string manifest);
+public static extern Contract Deploy(ByteString nefFile, string manifest);
+public static extern Contract Deploy(ByteString nefFile, string manifest, object data);
 ```
 
 Parameters:

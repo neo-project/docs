@@ -1,4 +1,4 @@
-# Itoa(BigInteger, int)
+# Binary.Itoa Method
 
 Converts the specific type of value to a decimal or hexadecimal string. The default is decimal.
 
@@ -10,6 +10,14 @@ Assembly: Neo.SmartContract.Framework
 
 ```c#
 public static extern string Itoa(BigInteger value, int @base = 10);
+public static extern string Itoa(int value, int @base = 10);
+public static extern string Itoa(uint value, int @base = 10);
+public static extern string Itoa(long value, int @base = 10);
+public static extern string Itoa(ulong value, int @base = 10);
+public static extern string Itoa(short value, int @base = 10);
+public static extern string Itoa(ushort value, int @base = 10);
+public static extern string Itoa(byte value, int @base = 10);
+public static extern string Itoa(sbyte value, int @base = 10);
 ```
 
 Parameters:
@@ -34,7 +42,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-Response body:
+When invoke the deployed contract ,the response body is:
 
 ```json
 [{

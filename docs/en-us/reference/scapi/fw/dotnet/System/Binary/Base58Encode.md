@@ -1,4 +1,4 @@
-# Base58Encode Method (byte[])
+# Binary.Base58Encode Method
 
 Converts the byte array into a Base58-encoded string.
 

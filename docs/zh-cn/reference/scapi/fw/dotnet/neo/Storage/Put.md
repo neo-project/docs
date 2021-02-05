@@ -9,7 +9,6 @@
 ## 语法
 
 ```c#
-
 Put(StorageContext context, byte[] key, ByteString value);
 Put(StorageContext context, byte[] key, byte[] value);
 Put(StorageContext context, byte[] key, BigInteger value);
