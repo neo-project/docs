@@ -1,4 +1,4 @@
-# Register 方法 (string, UInt160)
+# Register method (string, UInt160)
 
 Registers a new domain.
 

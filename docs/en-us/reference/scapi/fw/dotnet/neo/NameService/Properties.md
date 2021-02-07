@@ -35,9 +35,9 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 ```json
 [{
     "type":"Map","value":[
-    {"key":{"type":"ByteString","value":"bmFtZQ=="},"value":{"type":"ByteString","value":"dGVzdC5jb20="}}, // admin信息
-    {"key":{"type":"ByteString","value":"ZGVzY3JpcHRpb24="},"value":{"type":"ByteString","value":""}},  // 域名描述信息
-    {"key":{"type":"ByteString","value":"ZXhwaXJhdGlvbg=="},"value":{"type":"Integer","value":"1643630146"}}  // 域名过期时间
+    {"key":{"type":"ByteString","value":"bmFtZQ=="},"value":{"type":"ByteString","value":"dGVzdC5jb20="}}, // admin
+    {"key":{"type":"ByteString","value":"ZGVzY3JpcHRpb24="},"value":{"type":"ByteString","value":""}},  // description
+    {"key":{"type":"ByteString","value":"ZXhwaXJhdGlvbg=="},"value":{"type":"Integer","value":"1643630146"}}  // expiration time
     ]
 }]
 ```
