@@ -58,7 +58,7 @@ The commands listed in the table below requires you to open the wallet before in
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas] | Invokes a contract |
 
 
 #### Node commands
@@ -119,7 +119,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes |
 | [get committee](#get-committee)               |                               | Gets the committee member's public key |
 | [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key  |
-| [register candidate](#register-candidate)     | \<senderAccount>              | Registers the candidate                |
+| [register candidate](#register-candidate)     | \<senderAccount> [maxGas]     | Registers the candidate                |
 | [unregister candidate](#unregister-candidate) | \<senderAccount>              | Unregisters the candidate              |
 | [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                   |
 
@@ -345,7 +345,7 @@ Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fb
 
 ### list nativecontract
 
-Lists all the native contract names and scripthash
+Lists all the native contract names and scripthash.
 
 
 ##### Syntax
@@ -433,11 +433,13 @@ Registers the candidate
 
 ##### Syntax
 
- `register candidate`
+ `register candidate <senderAccount> [maxGas]`
 
 ##### Parameters
 
 `senderAccount`: The account to register candidate
+
+`maxGas`: The maximum GAS can be consumed.
 
 ##### Example
 
@@ -458,7 +460,7 @@ Unregisters the candidate
 
 ##### Syntax
 
- `unregister candidate`
+ `unregister candidate <senderAccount>`
 
 ##### Parameters
 
@@ -716,7 +718,7 @@ Invokes a contract.
 
 ##### Syntax
 
-`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null][maxGas]` 
 
 ##### Parameters
 
@@ -736,6 +738,8 @@ Invokes a contract.
 - `sender` : Transaction sender, i.e. the GAS payment account.
 
 - `witnessAddress` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
+
+- `maxGas`: The maximum GAS can be consumed.
 
 ##### Example 1
 

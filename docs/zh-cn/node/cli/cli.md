@@ -456,6 +456,7 @@ Next validators:
 ##### 参数
 
 `senderAccount`：注册者账户
+
 `maxGas`: 最大花费 GAS
 
 ##### 示例
