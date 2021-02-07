@@ -457,6 +457,8 @@ Next validators:
 
 `senderAccount`：注册者账户
 
+`maxGas`: 最大花费 GAS
+
 ##### 示例
 
 ```
@@ -755,6 +757,8 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 - `sender` ：交易发送方，即支付 GAS 费的账户
 
 - `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
+
+- `maxGas`: 最大花费 GAS
 
 ##### 示例 1 
 
