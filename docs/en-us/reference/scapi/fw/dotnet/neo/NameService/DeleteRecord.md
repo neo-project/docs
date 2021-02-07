@@ -86,6 +86,6 @@ namespace ConsoleApp1
 }
 ```
 
-After running this program, you can get the response `Transaction 0xf66d7382949bf1700da3b86c59e1392b2d9003425d33998f68e76ccd7dfb1bfa is broadcasted!`， which means the success of the transaction.
+After running this program, you can get the response `Transaction 0xf66d7382949bf1700da3b86c59e1392b2d9003425d33998f68e76ccd7dfb1bfa is broadcasted!`，which means the success of the transaction.
 
 [Back](../NameService.md)

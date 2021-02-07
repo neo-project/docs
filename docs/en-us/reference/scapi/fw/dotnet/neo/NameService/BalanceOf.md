@@ -2,9 +2,9 @@
 
 Gets the registered domains of the specified address.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 
 ## Syntax
@@ -41,8 +41,8 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 
 Response description:
 
-- Integer type：the number of the domain of the specified address;
+- Integer type: the number of the domain of the specified address;
 
-- Others：Failed.
+- Others: Failed.
 
 [Back](../NameService.md)

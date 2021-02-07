@@ -2,14 +2,15 @@
 
 Registers a new domain.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 > [!Note]
-> Only supports to register a second domain name；
-> Needs to register the corresponding top-level domain first；
-> Needs to verify the signature of the domain owner.
+>
+> - Only supports to register a second domain name；
+> - Needs to register the corresponding top-level domain first；
+> - Needs to verify the signature of the domain owner.
 
 ## Syntax
 
@@ -85,6 +86,6 @@ namespace ConsoleApp1
     }
 }
 ```
-After running this program, you can get the response `Transaction 0xf3cfdda662afe98696171893b9f03855bf66e6e85a67cc93936f51f099a4ace0 is broadcasted!`， which means the success of the transaction.
+After running this program, you can get the response `Transaction 0xf3cfdda662afe98696171893b9f03855bf66e6e85a67cc93936f51f099a4ace0 is broadcasted!`, which means the success of the transaction.
 
 [Back](../NameService.md)

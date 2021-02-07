@@ -2,12 +2,14 @@
 
 Sets the type of the specified domain name and the corresponding type data.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 > [!Note]
+>
 > Currently only `RecordType.A`、`RecordType.CNAME`、`RecordType.TXT` and `RecordType.AAAA` are suported；
+>
 > Needs to verify the signature of the admin or the owner of the domain.
 
 ## Syntax

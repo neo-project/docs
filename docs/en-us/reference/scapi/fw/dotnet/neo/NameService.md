@@ -16,7 +16,7 @@ public class NameService
 
 ## Attributes
 
-| 名称     | 说明              |
+| Name  | Description    |
 | -------- | ----------------- |
 | Hash     | Gets the contract hash          |
 | Symbol   | Gets the symbol, NNS |
@@ -41,4 +41,4 @@ public class NameService
 | [GetRecord(string name, RecordType type)](NameService/GetRecord.md) | Gets the type data of the domain |
 | [DeleteRecord(string name, RecordType type)](NameService/DeleteRecord.md) | Deletes the type data of the domain |
 | [Resolve(string name, RecordType type)](NameService/Resolve.md) | Resolves a domain |
-| [GetPrice()](NameService/GetPrice.md) | Gets the price of registering or renewsing a domain |
+| [GetPrice()](NameService/GetPrice.md) | Gets the price of registering or renewing a domain |

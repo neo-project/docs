@@ -2,9 +2,9 @@
 
 Gets the properties of the domain name.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
@@ -14,7 +14,7 @@ public static extern Map<string, object> Properties(string name);
 
 Parameters：
 
-- name：the domain name
+- name: the domain name
 
 ## Example
 
@@ -30,7 +30,7 @@ public class Demo : SmartContract
 }
 ```
 
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x2ba77f19d8294e9d32c59a18b005cc82353d6ccc properties [{"type":"String","value":"test.com"}]`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x2ba77f19d8294e9d32c59a18b005cc82353d6ccc properties [{"type":"String","value":"test.com"}]`, of which the response is shown as below：
 
 ```json
 [{
@@ -44,8 +44,8 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 
 Response Description：
 
-- Map type：the property information of the domain name, including: admin, description and expiration time;
+- Map type: the property information of the domain name, including: admin, description and expiration time;
 
-- Others：failed.
+- Others: failed.
 
 [Back](../NameService.md)

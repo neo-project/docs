@@ -2,9 +2,9 @@
 
 Gets all domain names owned by the specified address.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
@@ -40,7 +40,7 @@ public class Demo : SmartContract
 ```
 
 
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x5da989558a73c4418d2c05e86cbdd9d07f9edd8b tokensOf [{"type":"Hash160","value":"0x75b75932a1451cc0c56a95eff7fcc01de45aa5a3"}]`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x5da989558a73c4418d2c05e86cbdd9d07f9edd8b tokensOf [{"type":"Hash160","value":"0x75b75932a1451cc0c56a95eff7fcc01de45aa5a3"}]`, of which the response is shown as below：
 
 ```json
 [{
