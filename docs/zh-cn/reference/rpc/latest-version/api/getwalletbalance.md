@@ -44,7 +44,7 @@ GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "balance": "30000016.3898589"
+        "balance": "3000000830000920"
     }
 }
 ```

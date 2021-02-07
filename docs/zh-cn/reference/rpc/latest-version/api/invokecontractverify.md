@@ -66,7 +66,7 @@
     "result": {
         "script": "IQwU9mRDSY04eNMrmU5OEoPGk0Qh2v4hQfgn7IxAEUBXAQAhDAVIZWxsbyFBm/ZnzkGSXegxcCMFAAAAaEBXAQEheHBoJwoAAAAjIAAAAAwFSGVsbG8MBVdvcmxkIVBBm/ZnzkHmPxiEIUBXAQIhITWQ////ELNwaCcaAAAADBFObyBhdXRob3JpemF0aW9uLiE6eHkhUEExxjMdIUBXAQAhITVd////ELNwaCcaAAAADBFObyBhdXRob3JpemF0aW9uLiE6IUHGnx3wIUAhVgEMFPZkQ0mNOHjTK5lOThKDxpNEIdr+YCFA",
         "state": "HALT",
-        "gasconsumed": "0.0101685",
+        "gasconsumed": "1016850",
         "exception": null,
         "stack": [
             {

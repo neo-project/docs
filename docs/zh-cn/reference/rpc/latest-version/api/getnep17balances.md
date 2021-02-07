@@ -39,21 +39,19 @@
         "balance": [
             {
                 "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "amount": "30000046.99999955",
-                "lastupdatedblock": 94
+                "amount": "3000000100000000",
+                "lastupdatedblock": 2
             },
             {
                 "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
-                "amount": "99999999",
-                "lastupdatedblock": 94
+                "amount": "99999900",
+                "lastupdatedblock": 2
             }
         ],
         "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
     }
 }
 ```
-
-
 
 > [!Note]
 > 

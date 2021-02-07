@@ -162,6 +162,7 @@ http://127.0.0.1:10332
 
 ![](../../../assets/api_3.jpg)
 
-## 其它参考
+## 注意事项
 
-[C# JSON-RPC 使用方法](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
+- RPC 中所有的金额（手续费、NEP-17 余额、钱包余额、转账金额等）相关的返回值均为无符号整形，通过 [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient)（C# 轻节点 SDK） 请求时会自动根据资产精度自动换算。若开发者自行编写代码请求，则需要手动对返回值的精度进行处理。假如返回值为 1234560，资产精度为 8，则实际金额为 0.0123456。
+- 为了安全起见，所有需要打开钱包才能操作的 RPC 命令，需要通过 [openwallet](api/openwallet.md) API 打开钱包才可以正常请求。在 neo-cli 中输入 `open wallet` 命令打开的钱包而不是通过 [openwallet](api/openwallet.md) 打开的钱包，会被拒绝访问。
