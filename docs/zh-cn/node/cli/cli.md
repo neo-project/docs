@@ -58,7 +58,7 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]| 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null]| 调用合约 |
 
 #### 节点命令
 
@@ -118,7 +118,7 @@
 | [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
 | [get committee](#get-committee) |  | 获取委员会成员公钥 |
 | [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
-| [register candidate](#register-candidate) |\<senderAccount> [maxGas] | 注册候选人 |
+| [register candidate](#register-candidate) |\<senderAccount>  | 注册候选人 |
 | [unregister candidate](#unregister-candidate) |\<senderAccount>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
 
@@ -451,13 +451,11 @@ Next validators:
 
 ##### 句法
 
- `register candidate <senderAccount> [maxGas]`
+ `register candidate`
 
 ##### 参数
 
 `senderAccount`：注册者账户
-
-`maxGas`: 最大花费 GAS
 
 ##### 示例
 
@@ -478,7 +476,7 @@ Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663
 
 ##### 句法
 
- `unregister candidate <senderAccount>`
+ `unregister candidate`
 
 ##### 参数
 
@@ -683,7 +681,7 @@ SignatureContext:
 
 如果从合约中转出资产，from 为合约 hash，签名账户需要包含合约 hash 和鉴权账户 verify account，例如：
 ```
-neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> send 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 password: *
 TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```
@@ -737,7 +735,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ##### 句法
 
-`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
 
 ##### 参数
 
@@ -757,8 +755,6 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 - `sender` ：交易发送方，即支付 GAS 费的账户
 
 - `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
-
-- `maxGas`: 最大花费 GAS
 
 ##### 示例 1 
 
@@ -831,7 +827,7 @@ relay tx(no|yes): no
 示例输入：
 
 ```
-neo> invoke 0x70e2301955bf1e74cbb31d18c2f96972abadb328 transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> invoke 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 ```
 示例输出：
 
@@ -1051,7 +1047,11 @@ Install successful, please restart neo-cli.
 
 ##### 句法
 
-`state root 20000`
+`state root <index>`
+
+##### 参数
+
+`<index> `：区块索引
 
 ```
 neo> state root 20000
@@ -1061,7 +1061,33 @@ neo> state root 20000
 ### get proof
 
 通过 root hash，合约 hash 和 storage key 查询得到 proof
+##### 句法
+
+`get proof <root hash> <script hash> <key>`
+
+##### 参数
+* `<root hash>`: state root 的 hash
+* `<script hash>`: 合约 hash
+* `<key>`: 存储区的 key值，使用 Base64 编码格式
+
+```
+neo> get proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 Fw==
+Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFtRI5V11s58vA+8CZ5GArFLkGUYLO98RLaMaYmA5MEnx0upnVI45XTpoUDRvwrlPD59uWy9aIrdS4T0D2cA6Rwv/l3GmrctRzL1me+iTUFdDgooaz+esFHFXJdDANfA2bdshZMp5ox2goVAOMjvoxNIWWOqjJoRPu6ZOw2kdj6A8xovEK1Mp6cAG9z/jfFDrSEM60kuo97MNaVOP/cDZ1wA1nf4WdI+jksYz0EJgzBukK8rEzz8jE2cb2Zx2fytVyQBANC7v2RaLMCRF1XgLpSri12L2IwL9Zcjz5LZiaB5nHKNgQpAQYPDw8PDw8DggFffnsVMyqAfZjg+4gu97N/gKpOsAK8Q27s56tijRlSAAMm26DYxOdf/IjEgkE/u/CoRL6dDnzvs1dxCg/00esMvgPGioeOqQCkDOTfliOnCxYjbY/0XvVUOXkceuDm1W0FzQQEBAQEBAQEBAQEBAQEBJIABAPH1PnX/P8NOgV4KHnogwD7xIsD8KvNhkTcDxgCo7Ec6gPQs1zD4igSJB4M9jTREq+7lQ5PbTH/6d138yUVvtM8bQP9Df1kh7asXrYjZolKhLcQ1NoClQgEzbcJfYkCHXv6DQQEBAOUw9zNl/7FJrWD7rCv0mbOoy6nLlHWiWuyGsA12ohRuAQEBAQEBAQEBAYCBAIAAgA=
+```
 
 ### verify proof
 
-使用 root hash 和 proof 进行验证
+使用 root hash 和 proof 进行验证，得到 key 对应存储区的值
+
+##### 句法
+
+`verify proof <root hash> <proof>`
+
+##### 参数
+* `<root hash>`: state root 的 hash
+* `<proof>`: state root 对应的 proof 数据，使用 Base64 编码格式
+
+```
+neo> verify proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFtRI5V11s58vA+8CZ5GArFLkGUYLO98RLaMaYmA5MEnx0upnVI45XTpoUDRvwrlPD59uWy9aIrdS4T0D2cA6Rwv/l3GmrctRzL1me+iTUFdDgooaz+esFHFXJdDANfA2bdshZMp5ox2goVAOMjvoxNIWWOqjJoRPu6ZOw2kdj6A8xovEK1Mp6cAG9z/jfFDrSEM60kuo97MNaVOP/cDZ1wA1nf4WdI+jksYz0EJgzBukK8rEzz8jE2cb2Zx2fytVyQBANC7v2RaLMCRF1XgLpSri12L2IwL9Zcjz5LZiaB5nHKNgQpAQYPDw8PDw8DggFffnsVMyqAfZjg+4gu97N/gKpOsAK8Q27s56tijRlSAAMm26DYxOdf/IjEgkE/u/CoRL6dDnzvs1dxCg/00esMvgPGioeOqQCkDOTfliOnCxYjbY/0XvVUOXkceuDm1W0FzQQEBAQEBAQEBAQEBAQEBJIABAPH1PnX/P8NOgV4KHnogwD7xIsD8KvNhkTcDxgCo7Ec6gPQs1zD4igSJB4M9jTREq+7lQ5PbTH/6d138yUVvtM8bQP9Df1kh7asXrYjZolKhLcQ1NoClQgEzbcJfYkCHXv6DQQEBAOUw9zNl/7FJrWD7rCv0mbOoy6nLlHWiWuyGsA12ohRuAQEBAQEBAQEBAYCBAIAAgA=
+AAI=
+```

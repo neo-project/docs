@@ -140,7 +140,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview5/OracleService.zip">OracleService</a>
             </td>
             <td>Oracle 服务插件</td>
-            <td><a href="../../reference/rpc/latest-version/api/submitoracleresponse.html">submitoracleresponse</a></td>
+            <td></td>
             <td>作为 Oracle 服务节点时必选</td>
         </tr>   
         </tr>   
@@ -149,7 +149,7 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview5/StateService.zip">StateService</a>
             </td>
             <td>StateRoot 共识服务插件</td>
-            <td><a href="../../reference/rpc/latest-version/api/votestateroot.html">votestateroot</a><br>
+            <td>
                 <a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
                 <a href="../../reference/rpc/latest-version/api/getproof.html">getproof</a><br>
                 <a href="../../reference/rpc/latest-version/api/verifyproof.html">verifyproof</a><br>
