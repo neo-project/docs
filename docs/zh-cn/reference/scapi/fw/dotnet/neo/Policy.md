@@ -1,6 +1,6 @@
 # Policy 类
 
-提供了原生合约Policy的一系列方法，合约哈希为`0xdde31084c0fdbebc7f5ed5f53a38905305ccee14`。
+提供了原生合约 Policy 的一系列方法，合约哈希为 `0x79bcd398505eb779df6e67e4be6c14cded08e2f2`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -16,21 +16,16 @@ public class Policy
 
 | 名称              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| Hash              | 合约哈希                                            |
+| Hash              | 获取合约哈希                                            |
 
 ## 方法
 
-| 名称                                                         | 说明                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Name()          | 合约名称                                     |
-| [GetMaxTransactionsPerBlock()](Policy/GetMaxTransactionsPerBlock.md)             | 获取每区块最大交易数                                       |
-| [GetMaxBlockSize()](Policy/GetMaxBlockSize.md) | 获取区块最大大小                                     |
-| [GetMaxBlockSystemFee()](Policy/GetMaxBlockSystemFee.md)            | 获取区块最大的系统费                                     |
-| [GetFeePerByte()](Policy/GetFeePerByte.md)           | 获取每字节手续费                                   |
-| [IsBlocked(UInt160 account)](Policy/IsBlocked.md)            | 验证是否为黑名单账户                                   |
-| [SetMaxBlockSize(uint value)](Policy/SetMaxBlockSize.md)            | 设置最大区块大小                                  |
-| [SetMaxTransactionsPerBlock(uint value)](Policy/SetMaxTransactionsPerBlock.md)            | 设置每区块最大交易数                                     |
-| [SetMaxBlockSystemFee(long value)](Policy/SetMaxBlockSystemFee.md)            | 设置区块最大系统手续费                                 |
-| [SetFeePerByte(long value)](Policy/SetFeePerByte.md)         | 设置每字节手续费                               |
-| [BlockAccount(UInt160 account)](Policy/BlockAccount.md)            | 将指定账户加入黑名单                                   |
-| [UnblockAccount(UInt160 account)](Policy/UnblockAccount.md)           | 将指定账户解除黑名单                                   |
+| 名称                                                         | 说明                 |
+| ------------------------------------------------------------ | -------------------- |
+| [GetMaxTransactionsPerBlock()](Policy/GetMaxTransactionsPerBlock.md) | 获取每区块最大交易数 |
+| [GetMaxBlockSize()](Policy/GetMaxBlockSize.md)               | 获取区块最大大小     |
+| [GetMaxBlockSystemFee()](Policy/GetMaxBlockSystemFee.md)     | 获取区块最大的系统费 |
+| [GetFeePerByte()](Policy/GetFeePerByte.md)                   | 获取每字节手续费     |
+| [IsBlocked(UInt160 account)](Policy/IsBlocked.md)            | 验证是否为黑名单账户 |
+| [BlockAccount(UInt160 account)](Policy/BlockAccount.md)      | 将指定账户加入黑名单 |
+| [UnblockAccount(UInt160 account)](Policy/UnblockAccount.md)  | 将指定账户解除黑名单 |

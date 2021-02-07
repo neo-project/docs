@@ -1,4 +1,4 @@
-# Contract.CreateStandardAccount 方法 (Cryptography.ECC.ECPoint)
+# Contract.CreateStandardAccount 方法
 
 根据公钥创建标准账户
 

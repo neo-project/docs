@@ -27,6 +27,5 @@ public class Block
 
 ## Constructor
 
-The Block object can be constructed through [Blockchain.GetBlock(UInt256)](Blockchain/GetBlock.md).
+The Block object can be constructed through [Ledger.GetBlock()](Ledger/GetBlock.md).
 
-The Block object can be constructed through [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).

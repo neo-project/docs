@@ -1,4 +1,4 @@
-# BalanceOf Method (UInt160)
+# **NEO.BalanceOf** Method (UInt160)
 
 Gets the NEO balance in the account.
 
@@ -23,7 +23,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = NEO.BalanceOf(account);
         return result;

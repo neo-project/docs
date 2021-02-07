@@ -1,4 +1,4 @@
-# GetMaxBlockSize 方法 ()
+# GetMaxBlockSize 方法
 
 获取区块最大大小。
 
@@ -17,7 +17,7 @@ public static extern uint GetMaxBlockSize()；
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         uint result = Policy.GetMaxBlockSize();
         return result;
@@ -25,7 +25,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

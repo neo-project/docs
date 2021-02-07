@@ -1,4 +1,4 @@
-# Atoi(string, int @base = 10)
+# Binary.Atoi 方法
 
 将字符串转换为特定进制的数值表示。可以是10进制或者16进制数，默认是10进制。
 
@@ -30,7 +30,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 [{

@@ -1,4 +1,4 @@
-# UnblockAccount 方法 (UInt160)
+# UnblockAccount 方法
 
 将指定账户解除黑名单。
 
@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.UnblockAccount(account);
         return result;
@@ -35,7 +35,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

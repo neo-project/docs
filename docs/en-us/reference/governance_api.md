@@ -14,9 +14,9 @@ GAS is the fuel token for the realization of Neo network resource control, with 
 
 | Native Contract | Contract Hash                                   |
 | ------------ | ------------------------------------------ |
-| `NeoToken` | 0xde5f57d430d3dece511cf975a8d37848cb9e0525 |
-| `GasToken` | 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc |
-| `Policy` | 0xce06595079cd69583126dbfd1d2e25cca74cffe9 |
+| `NeoToken` | 0xf61eebf573ea36593fd43aa150c055ad7906ab83 |
+| `GasToken` | 0x70e2301955bf1e74cbb31d18c2f96972abadb328 |
+| `Policy` | 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 |
 
 The way to call the native contract methods is the same as calling other ordinary contracts. `Contract.Call(NEO.hash, method, params)`
 
@@ -109,7 +109,7 @@ Committee members will be refreshed every block.
 
 #### Function & Scope
 
-Validators are nodes which are able to start or vote to new block proposals. Detailed description can be found in Neo3 write paper.
+Validators are nodes which are able to start or vote to new block proposals. 
 
 #### How Are Validators Elected
 

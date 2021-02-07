@@ -1,4 +1,4 @@
-# Base58Decode Method (string)
+# Binary.Base58Decode Method
 
 Decodes the Base58-encoded string into an equivalent byte array.
 

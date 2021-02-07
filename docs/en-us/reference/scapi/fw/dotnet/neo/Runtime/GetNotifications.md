@@ -1,4 +1,4 @@
-# Runtime.GetNotifications Method (UInt160)
+# Runtime.GetNotifications Method
 
 Gets all notifications of the given contract execution.
 

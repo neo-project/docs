@@ -1,4 +1,4 @@
-# GetNextBlockValidators 方法 ()
+# NEO.GetNextBlockValidators 方法
 
 获取下个区块的验证人列表。候选人将根据得票数排序，取最前面一定数量的候选人（默认7个）作为共识节点。与委员会类似，共识节点名单将在每个区块根据最新投票更新。
 
@@ -17,14 +17,14 @@ public static extern ECPoint[] GetNextBlockValidators();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         ECPoint[] result = NEO.GetNextBlockValidators();
         return result;
     }
 }
 ```
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 [{

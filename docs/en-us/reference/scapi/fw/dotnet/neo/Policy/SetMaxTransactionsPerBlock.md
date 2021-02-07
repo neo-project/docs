@@ -1,6 +1,6 @@
-# SetMaxTransactionsPerBlock Method (uint)
+# SetMaxTransactionsPerBlock Method
 
-Sets max transaction per block
+Sets the max transactions can be packaged by each block.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -25,7 +25,7 @@ Parameter：
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetMaxTransactionsPerBlock(1024);
         return result;

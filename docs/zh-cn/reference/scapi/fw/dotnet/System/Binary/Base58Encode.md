@@ -1,4 +1,4 @@
-# Base58Encode 方法 (byte[])
+# Binary.Base58Encode 方法
 
 将字节数组转换成Base58编码的字符串。
 

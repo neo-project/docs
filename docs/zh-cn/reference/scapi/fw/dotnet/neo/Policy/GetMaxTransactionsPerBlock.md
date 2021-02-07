@@ -1,4 +1,4 @@
-# GetMaxTransactionsPerBlock 方法 ()
+# GetMaxTransactionsPerBlock 方法
 
 获取区块包含最大交易数。
 
@@ -17,7 +17,7 @@ public static extern uint GetMaxTransactionsPerBlock();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         uint result = Policy.GetMaxTransactionsPerBlock();
         return result;
@@ -25,7 +25,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

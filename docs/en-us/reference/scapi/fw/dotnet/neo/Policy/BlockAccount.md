@@ -1,6 +1,6 @@
-# BlockAccount Method (UInt160)
+# BlockAccount Method
 
-Sets the blocked accounts
+Sets the blocked accounts. Transactions sent from the blocked accounts will not be packaged by consensus nodes.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.BlockAccount(account);
         return result;

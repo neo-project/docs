@@ -14,6 +14,4 @@ public static extern StorageContext CurrentContext { get; }
 
 属性值：当前存储区上下文，[StorageContext](../StorageContext.md) 类型。
 
-
-
 [返回上级](../Storage.md)

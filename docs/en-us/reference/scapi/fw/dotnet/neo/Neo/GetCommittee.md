@@ -1,4 +1,4 @@
-# GetCommittee Method ()
+# NEO.GetCommittee Method ()
 
 Gets the list of committee members.
 
@@ -17,7 +17,7 @@ public static extern string[] GetCommittee();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         string[] result = NEO.GetCommittee();
         return result;

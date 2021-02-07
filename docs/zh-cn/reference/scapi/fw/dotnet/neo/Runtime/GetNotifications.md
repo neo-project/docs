@@ -1,4 +1,4 @@
-# Runtime.GetNotifications 方法 (UInt160)
+# Runtime.GetNotifications 方法
 
 获取给定合约执行的所有通知。
 
