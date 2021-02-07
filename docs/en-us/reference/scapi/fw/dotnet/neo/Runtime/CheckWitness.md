@@ -1,4 +1,4 @@
-# Runtime.CheckWitness Method (UInt160/ECPoint)
+# Runtime.CheckWitness Method
 
 Verifies that the transactions / block of the calling contract has validated the required script hashes.
 
@@ -10,11 +10,6 @@ Assembly: Neo.SmartContract.Framework
 
 ```c#
 public static extern bool CheckWitness(UInt160 hash);
-```
-
-or
-
-```
 public static extern bool CheckWitness(ECPoint pubkey);
 ```
 

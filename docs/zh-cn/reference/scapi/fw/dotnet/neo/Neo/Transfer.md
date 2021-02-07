@@ -1,4 +1,4 @@
-# Neo.Transfer 方法
+# NEO.Transfer 方法
 
 NEO转账。
 

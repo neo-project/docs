@@ -1,10 +1,10 @@
 # CallFlags Enumerator
 
-Defines the flag when invoking smart contracts.
+Defines special behaviors allowed when invoking smart contracts, such as chain calls, sending notifications, modifying states, etc.
 
-Namespace：Neo.SmartContract
+Namespace: Neo.SmartContract
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
@@ -22,3 +22,20 @@ public enum CallFlags : byte
 }
 ```
 
+### Parameters description
+
+None: Special behaviors of the invoked contract are not allowed, such as chain calls, sending notifications, modifying state, etc.
+
+AllowModifyStates: Allows the invoked contract to modify status.
+
+AllowCall: Allows the invoked contract to do chain calls.
+
+AllowNotify: Allows the invoked contract to send notifications.
+
+ReadOnly: Allows the invoked contract to do chain calls and send notifications.
+
+All: All behaviors of the invoked contract are allowed.
+
+CallFlags is used in the method [Call(UInt160, string, CallFlags, params object[])](Contract/Call.md).
+
+You can also get CallFlags of native contract by [GetCallFlags()](../Contract/GetCallFlags.md) .

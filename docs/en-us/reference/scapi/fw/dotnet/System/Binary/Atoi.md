@@ -1,4 +1,4 @@
-# Atoi(string, int @base = 10)
+# Binary.Atoi Method
 
 Converts a character string to a specific base value, decimal or hexadecimal. The default is decimal.
 
@@ -30,7 +30,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-Response body:
+Deploy and then invoke the contract, the response body is:
 
 ```json
 [{

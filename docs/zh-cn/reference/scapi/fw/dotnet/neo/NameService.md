@@ -32,8 +32,8 @@ public class NameService
 | [Properties(string name)](NameService/Properties.md) | 获取域名的属性 |
 | [Tokens()](NameService/Tokens.md) | 获取该合约内的所有域名 |
 | [TokensOf(UInt160 owner)](NameService/TokensOf.md) | 获取某人持有的域名 |
-| [Transfer(UInt160 from, UInt160 to, BigInteger amount)](NameService/Transfer.md) | 转账                                     |
-| [IsAvailable(string name)](NameService/Transfer.md) | 域名是否可用 |
+| [Transfer(UInt160, string)](NameService/Transfer.md) | 转账                                     |
+| [IsAvailable(string name)](NameService/IsAvailable.md) | 域名是否可用 |
 | [Register(string name, UInt160 owner)](NameService/Register.md) | 注册域名 |
 | [Renew(string name)](NameService/Renew.md) | 续费域名 |
 | [SetAdmin(string name, UInt160 admin)](NameService/SetAdmin.md) | 设置域名管理员 |

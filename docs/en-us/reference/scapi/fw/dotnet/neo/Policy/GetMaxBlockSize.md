@@ -1,4 +1,4 @@
-# GetMaxBlockSize Method ()
+# GetMaxBlockSize Method
 
 Gets max block size
 
@@ -17,7 +17,7 @@ public static extern uint GetMaxBlockSize()；
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         uint result = Policy.GetMaxBlockSize();
         return result;

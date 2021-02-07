@@ -1,4 +1,4 @@
-# Account.IsStandard method (UInt160)
+# Account.IsStandard method
 
 Verifies whether the contract is a standard account according to its scripthash (unilateral signature account)
 

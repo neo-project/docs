@@ -76,12 +76,12 @@ After sending the request you will get the following response:
     "result": {
         "balance": [
             {
-                "asset_hash": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
+                "asset_hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "amount": "2",
                 "last_updated_block": 52675
             },
             {
-                "asset_hash": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+                "asset_hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
                 "amount": "700000000",
                 "last_updated_block": 52675
             }
@@ -120,8 +120,8 @@ You need to replace these strings when querying the user's balance:
 
   The script hash of the NEP-5 asset you are querying. For example:
   
-  - NEO is *0xde5f57d430d3dece511cf975a8d37848cb9e0525*
-  - GAS is *0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc*
+  - NEO is *0xf61eebf573ea36593fd43aa150c055ad7906ab83*
+  - GAS is *0x70e2301955bf1e74cbb31d18c2f96972abadb328*
 
 
 - method name
@@ -530,7 +530,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendfrom",
-  "params": ["0xde5f57d430d3dece511cf975a8d37848cb9e0525","NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o","Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 10],
+  "params": ["0xf61eebf573ea36593fd43aa150c055ad7906ab83","NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o","Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 10],
   "id": 1
 }
 ```
@@ -582,7 +582,7 @@ Request Body：
 {
   "jsonrpc": "2.0",
   "method": "sendtoaddress",
-  "params": ["0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc", "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 1000],
+  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328", "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 1000],
   "id": 1
 }
 ```
@@ -638,12 +638,12 @@ Request Body：
     "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
         [
             {
-                "asset": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
+                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "value": 100,
                 "address": "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"
             },
             {
-                "asset": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
+                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
                 "value": 1000,
                 "address": "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"
             }

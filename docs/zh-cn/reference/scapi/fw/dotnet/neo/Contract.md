@@ -26,7 +26,7 @@ public class Contract
 
 | 名称                                       | 说明              |
 | ---------------------------------------- | --------------- |
-| [Call(UInt160 scriptHash, string method, object\[\] arguments)](Contract/Call.md) | 调用智能合约    |
+| [Call(UInt160 scriptHash, string method, object[] arguments)](Contract/Call.md) | 调用智能合约    |
 | [GetCallFlags()](Contract/GetCallFlags.md)         | 获取原生合约的调用权限 Flag |
 | [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | 根据公钥创建标准账户 |
 
@@ -34,4 +34,5 @@ public class Contract
 
 通过 [ContractManagement.GetContract(UInt60 hash)](ContractManagement/GetContract.md) 方法来构造 Contract 对象。
 
-通过 [ContractManagement.Deploy(byte\[\] nefFile, string manifest)](ContractManagement/Deploy.md) 方法来部署合约，并返回 Contract 对象。
+通过 [ContractManagement.Deploy(byte[] nefFile, string manifest)](ContractManagement/Deploy.md) 方法来部署合约，并返回 Contract 对象。
+
