@@ -1,4 +1,4 @@
-# TotalSupply Method ()
+# NEO.TotalSupply Method
 
 Gets the total supply of NEO.
 
@@ -17,7 +17,7 @@ public static extern BigInteger TotalSupply();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = NEO.TotalSupply();
         return result;

@@ -1,4 +1,4 @@
-# Request 方法 (string, string, string, object, long)
+# Request 方法
 
 发起Oracle请求。
 

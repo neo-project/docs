@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 # RecordType 枚举
 
 定义域名的类型。
 
 命名空间：Neo.SmartContract
+=======
+# RecordType 类
+
+定义了 NameServices 的 DNS 记录的类型。
+
+命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+>>>>>>> 81a6b623e728c99d1a89e6aa4bb3aa41913c9432
 
 程序集：Neo.SmartContract.Framework
 
@@ -11,14 +19,16 @@
 ```c#
 public enum RecordType : byte
 {
-    // 域名指向一个IPv4地址
-    A = 1,     
-    // 域名指向另一个域名，实现与被指向域名相同的访问效果     
+    #region [RFC 1035](https://tools.ietf.org/html/rfc1035)
+    A = 1,
     CNAME = 5,
-    // 文本字符串
     TXT = 16,
-    // 域名指向一个IPv6地址
+    #endregion
+
+    #region [RFC 3596](https://tools.ietf.org/html/rfc3596)
     AAAA = 28,
+    #endregion
 }
 ```
 
+具体使用参考 [NameService](NameService.md) 类的中的 SetRecord 和 GetRecord 方法。

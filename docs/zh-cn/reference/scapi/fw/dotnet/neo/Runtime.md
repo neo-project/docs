@@ -29,8 +29,7 @@ public static class Runtime
 | ------------------------------------------------------------ | ------------------------------------------------------- |
 | [GetNotifications(UInt160 hash = null)](Runtime/GetNotifications.md) | 获取某智能合约执行时的所有通知                          |
 | [Log(string message)](Runtime/Log.md)                        | 在智能合约中向执行该智能合约的客户端发送日志            |
-| [CheckWitness(UInt160 hash)](Runtime/CheckWitness.md) | 验证调用该智能合约的交易 / 区块是否验证过所需的脚本散列 |
-| [CheckWitness(ECPoint pubkey)](Runtime/CheckWitness.md) | 验证调用该智能合约的交易 / 区块是否验证过所需的脚本散列 |
+| [CheckWitness()](Runtime/CheckWitness.md)                    | 验证调用该智能合约的交易 / 区块是否验证过所需的脚本散列 |
 
 ## 构造方法
 

@@ -1,4 +1,4 @@
-# SetMaxBlockSystemFee 方法 (uint)
+# SetMaxBlockSystemFee 方法
 
 设置区块最大系统手续费。
 
@@ -25,7 +25,7 @@ public static extern bool SetMaxBlockSystemFee(long value);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetMaxBlockSystemFee(4007800L);
         return result;
@@ -33,7 +33,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

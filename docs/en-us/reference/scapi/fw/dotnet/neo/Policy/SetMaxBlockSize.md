@@ -1,4 +1,4 @@
-# SetMaxBlockSize Method  (uint)
+# SetMaxBlockSize Method
 
 Sets the max block size.
 
@@ -25,7 +25,7 @@ Parameter:
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetMaxBlockSize(1024);
         return result;

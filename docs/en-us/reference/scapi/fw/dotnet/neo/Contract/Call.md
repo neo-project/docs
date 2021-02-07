@@ -1,4 +1,4 @@
-# Contract.Call Method (UInt160, string, object[])
+# Contract.Call Method
 
 Invokes the contract.
 
@@ -28,9 +28,9 @@ public class Contract1 : SmartContract
      //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 in little endian order
      //HexToBytes()、ToScriptHash() can only operate on constants and cannot be written in the Main method
      //scriptHash can be modified to be passed in from the parameter or read from storage
-     static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
+     static UInt160 ScriptHash = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
-     public static object Main(string operation, object[] args)
+     public static object Test(string operation, object[] args)
      {
          if (operation == "name")
          {
@@ -38,7 +38,7 @@ public class Contract1 : SmartContract
          }
          if (operation == "totalSupply")
          {
-             return Contract.Call((UInt160)ScriptHash, "totalSupply", new object[0]);
+             return Contract.Call(ScriptHash, "totalSupply", new object[0]);
          }
          return true;
      }

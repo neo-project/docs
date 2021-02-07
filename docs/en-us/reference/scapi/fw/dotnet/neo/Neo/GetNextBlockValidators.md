@@ -1,4 +1,4 @@
-# GetNextBlockValidators Method ()
+# NEO.GetNextBlockValidators Method ()
 
 Gets the list of validators for the next block
 
@@ -17,7 +17,7 @@ public static extern string[] GetNextBlockValidators();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         string[] result = NEO.GetNextBlockValidators();
         return result;

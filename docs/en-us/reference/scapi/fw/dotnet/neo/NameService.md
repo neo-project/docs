@@ -1,6 +1,8 @@
-# NameService class
+# NameService Class
 
-Provides a series of attributes and methods of the native contract NameService, which contract hash is `0xa2b524b68dfe43a9d56af84f443c6b9843b8028c`.
+Provides a series of attributes and methods of the native contract NameService, which contract hash is  `0xa2b524b68dfe43a9d56af84f443c6b9843b8028c`.
+
+NameService is also an NFT（Non-fungible token）contract that inherits all attributes and methods of NFT contracts.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

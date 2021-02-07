@@ -1,4 +1,4 @@
-# Runtime.CheckWitness 方法 (UInt160/ECPoint)
+# Runtime.CheckWitness 方法
 
 验证调用该智能合约的交易/区块是否验证过所需的脚本散列。
 
@@ -10,11 +10,6 @@
 
 ```c#
 public static extern bool CheckWitness(UInt160 hash);
-```
-
-或
-
-```c#
 public static extern bool CheckWitness(ECPoint pubkey);
 ```
 

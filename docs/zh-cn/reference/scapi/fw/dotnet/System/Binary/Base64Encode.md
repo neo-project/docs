@@ -1,4 +1,4 @@
-# Base64Encode 方法 (byte[])
+# Binary.Base64Encode 方法
 
 将字节数组转换成Base64编码的字符串。
 

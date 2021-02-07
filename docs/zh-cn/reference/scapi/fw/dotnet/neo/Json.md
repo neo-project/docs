@@ -16,8 +16,8 @@ public static class Json
 
 | 名称                                       | 说明                         |
 | ---------------------------------------- | -------------------------- |
-| Serialize(object obj) | 将对象元素序列化为Json串  |
-| Deserialize(string json)        | 将Json串反序列化为对象元素                  |
+| [Serialize(object obj)](Json/Serialize.md) | 将对象元素序列化为Json格式的字符串 |
+| [Deserialize(string json)](Json/Deserialize.md) | 将Json格式的字符串反序列化为对象元素            |
 
 ## 构造方法
 

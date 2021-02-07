@@ -1,4 +1,4 @@
-# Base64Encode Method (byte[])
+# Binary.Base64Encode Method
 
 Converts the byte array into a Base64-encoded string.
 

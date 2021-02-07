@@ -9,12 +9,15 @@
 ## 语法
 
 ```c#
-public static extern void Put(StorageContext context, byte[] key, byte[] value);
-public static extern void Put(StorageContext context, byte[] key, BigInteger value);
-public static extern void Put(StorageContext context, byte[] key, string value);
-public static extern void Put(StorageContext context, string key, byte[] value);
-public static extern void Put(StorageContext context, string key, BigInteger value);
-public static extern void Put(StorageContext context, string key, string value);
+Put(StorageContext context, byte[] key, ByteString value);
+Put(StorageContext context, byte[] key, byte[] value);
+Put(StorageContext context, byte[] key, BigInteger value);
+Put(StorageContext context, ByteString key, ByteString value);
+Put(StorageContext context, ByteString key, BigInteger value);
+Put(StorageContext context, byte[] key, byte[] value, StorageFlags flags);
+Put(StorageContext context, byte[] key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags);
 ```
 
 参数：
@@ -22,21 +25,7 @@ public static extern void Put(StorageContext context, string key, string value);
 - context：存储上下文，[StorageContext](../StorageContext.md) 类型；
 - key：键，字节数组/字符串；
 - value：值，字节数组/大整数/字符串。
-
-返回值：void。
-
-```c#
-public static extern void Put(byte[] key, byte[] value);
-public static extern void Put(byte[] key, BigInteger value);
-public static extern void Put(byte[] key, string value);
-public static extern void Put(string key, byte[] value);
-public static extern void Put(string key, BigInteger value);
-public static extern void Put(string key, string value);
-```
-参数：
-
-- key：键，字节数组/字符串；
-- value：值，字节数组/大整数/字符串。
+- flags：StorageFlags 类型，标识存储的是变量还是常量
 
 返回值：void。
 
@@ -58,12 +47,6 @@ public class Contract1 : SmartContract.Framework.SmartContract
         Storage.Put(Storage.CurrentContext, key2, value1);
         Storage.Put(Storage.CurrentContext, key2, value2);
         Storage.Put(Storage.CurrentContext, key2, value3);
-        Storage.Put(key1, value1);
-        Storage.Put(key1, value2);
-        Storage.Put(key1, value3);
-        Storage.Put(key2, value1);
-        Storage.Put(key2, value2);
-        Storage.Put(key2, value3);
     }
 }
 ```

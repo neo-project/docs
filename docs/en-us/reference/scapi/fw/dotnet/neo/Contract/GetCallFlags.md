@@ -1,4 +1,4 @@
-# Contract.GetCallFlags Method ()
+# Contract.GetCallFlags Method
 
 Gets the call privilege of the contract.
 

@@ -1,4 +1,4 @@
-# Request Method (string, string, string, object, long)
+# Request Method
 
 Initiates an Oracle request.
 

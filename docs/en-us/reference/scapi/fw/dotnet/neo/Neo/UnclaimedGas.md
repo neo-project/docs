@@ -1,4 +1,4 @@
-# UnclaimedGas Method (UInt160, uint)
+# NEO.UnclaimedGas Method
 
 Gets the number of unclaimed GAS.
 
@@ -24,7 +24,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = NEO.UnclaimedGas(account, 100);
         return result;

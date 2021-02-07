@@ -9,8 +9,8 @@
 ## 语法
 
 ```c#
-public static extern Iterator<byte[], byte[]> Find(StorageContext context, byte[] prefix);
-public static extern Iterator<string, byte[]> Find(StorageContext context, string prefix);
+public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
+public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
 ```
 
 参数：
@@ -19,16 +19,6 @@ public static extern Iterator<string, byte[]> Find(StorageContext context, strin
 - prefix：前缀，字节数组/字符串；
 
 返回值：context中符合条件的元素构成的Iterator。
-
-```c#
-public static extern Iterator<byte[], byte[]> Find(byte[] prefix);
-public static extern Iterator<string, byte[]> Find(string prefix);
-```
-
-参数：
-prefix：前缀，字节数组/字符串；
-
-返回值：当前存储上下文中符合条件的元素构成的Iterator。
 
 ## 示例
 
