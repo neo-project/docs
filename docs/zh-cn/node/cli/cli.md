@@ -58,7 +58,7 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null]| 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]| 调用合约 |
 
 #### 节点命令
 
@@ -118,7 +118,7 @@
 | [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
 | [get committee](#get-committee) |  | 获取委员会成员公钥 |
 | [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
-| [register candidate](#register-candidate) |\<senderAccount>  | 注册候选人 |
+| [register candidate](#register-candidate) |\<senderAccount> [maxGas] | 注册候选人 |
 | [unregister candidate](#unregister-candidate) |\<senderAccount>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
 
@@ -451,7 +451,7 @@ Next validators:
 
 ##### 句法
 
- `register candidate`
+ `register candidate <senderAccount> [maxGas]`
 
 ##### 参数
 
@@ -476,7 +476,7 @@ Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663
 
 ##### 句法
 
- `unregister candidate`
+ `unregister candidate <senderAccount>`
 
 ##### 参数
 
@@ -681,7 +681,7 @@ SignatureContext:
 
 如果从合约中转出资产，from 为合约 hash，签名账户需要包含合约 hash 和鉴权账户 verify account，例如：
 ```
-neo> send 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 password: *
 TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```
@@ -735,7 +735,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 ##### 句法
 
-`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]` 
 
 ##### 参数
 
@@ -827,7 +827,7 @@ relay tx(no|yes): no
 示例输入：
 
 ```
-neo> invoke 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> invoke 0x70e2301955bf1e74cbb31d18c2f96972abadb328 transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 ```
 示例输出：
 
