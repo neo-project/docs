@@ -6,10 +6,6 @@
 
 程序集：Neo.SmartContract.Framework
 
-> [!Note]
->
-> 需要校验付款人的签名，方法调用者是否为付款人，收款人是否能够收款，以及付款人余额是否充足。
-
 ## 语法
 
 ```c#
@@ -49,4 +45,4 @@ public class Demo : SmartContract
 
 - 其他：失败。
 
-[返回上级](../Neo.md)
+[返回上级](../Nameservice.md)

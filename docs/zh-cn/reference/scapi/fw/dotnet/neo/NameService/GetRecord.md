@@ -6,10 +6,6 @@
 
 程序集：Neo.SmartContract.Framework
 
-> [!Note]
->
-> 返回的是二级域名对应的类型数据。
-
 ## 语法
 
 ```c#
