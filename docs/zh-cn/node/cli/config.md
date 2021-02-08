@@ -160,8 +160,6 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
     </tbody>
 </table>
 
-
-
 将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。
 
 ![plugins.png](../../assets/PluginsForExchange.png)

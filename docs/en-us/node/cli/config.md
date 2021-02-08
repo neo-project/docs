@@ -140,7 +140,7 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview5/OracleService.zip">OracleService</a>
             </td>
             <td>Oracle service plugin</td>
-            <td><a href="../../reference/rpc/latest-version/api/submitoracleresponse.html">submitoracleresponse</a></td>
+            <td></td>
             <td>Mandatory when served as an Oracle node</td>
         </tr>   
         </tr>   
@@ -149,8 +149,7 @@ Download the plugins you need from the following table.
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview5/StateService.zip">StateService</a>
             </td>
             <td>StateRoot consensus service plugin</td>
-            <td><a href="../../reference/rpc/latest-version/api/votestateroot.html">votestateroot</a><br>
-                <a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
+            <td><a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
                 <a href="../../reference/rpc/latest-version/api/getproof.html">getproof</a><br>
                 <a href="../../reference/rpc/latest-version/api/verifyproof.html">verifyproof</a><br>
                 <a href="../../reference/rpc/latest-version/api/getstateheight.html">getstateheight</a>
@@ -159,9 +158,6 @@ Download the plugins you need from the following table.
         </tr>   
     </tbody>
 </table>
-
-
-
 
 To install plugins, unzip plugin packages under the the Neo-CLI root directory, as shown below:
 

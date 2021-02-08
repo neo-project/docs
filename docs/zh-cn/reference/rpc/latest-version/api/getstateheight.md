@@ -1,5 +1,5 @@
 # getstateheight 方法
-查询 stateroot 高度
+查询 stateroot 高度。
 
 > [!Note]
 >
