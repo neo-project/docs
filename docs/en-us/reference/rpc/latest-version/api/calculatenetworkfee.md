@@ -30,7 +30,7 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "networkfee": 0.2384840
+        "networkfee": 23848400
     }
 }
 

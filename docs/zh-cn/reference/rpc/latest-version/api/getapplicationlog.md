@@ -36,7 +36,7 @@
 }
 ```
 
-注：该交易是将 100 GAS 从 NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF 转到 NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ。
+该交易是将 100 GAS 从 NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF 转到 NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ。
 
 响应正文 ：
 
@@ -84,19 +84,20 @@
 
 响应说明：
 
-txid：交易 ID。
+- txid：交易 ID。
 
-trigger：触发器。
+- trigger：触发器。
 
-vmstate：虚拟机执行状态，HALT 代表成功，FAULT 代表失败。
+- vmstate：虚拟机执行状态，HALT 代表成功，FAULT 代表失败。
 
-gasconsumed ：该交易消耗的 GasToken 数量，即交易手续费。
+- gasconsumed ：该交易消耗的 GasToken 数量，即交易手续费。
 
-notifications：智能合约通知。
+- notifications：智能合约通知。
 
-contract：发出通知的合约，这里是 GasToken 原生合约。
+- contract：发出通知的合约，这里是 GasToken 原生合约。
 
-eventname：通知的事件名称。
+- eventname：通知的事件名称。
 
-state：通知内容。其中 ByteString 为 Base64 编码，可以在 https://neo.org/converter/index 进行转换。
+- state：通知内容。其中 ByteString 为 Base64 编码，可以在 https://neo.org/converter/index 进行转换。
+
 

@@ -67,43 +67,43 @@ Response body:
                                 "type": "Hash160"
                             }
                         ],
-                        "offset": 0,
                         "returntype": "Integer",
+                        "offset": 0,
                         "safe": true
                     },
                     {
                         "name": "decimals",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "Integer",
+                        "offset": 0,
                         "safe": true
                     },
                     {
                         "name": "getCandidates",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "Array",
+                        "offset": 0,
                         "safe": true
                     },
                     {
                         "name": "getCommittee",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "Array",
+                        "offset": 0,
                         "safe": true
                     },
                     {
                         "name": "getGasPerBlock",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "Integer",
+                        "offset": 0,
                         "safe": true
                     },
                     {
                         "name": "getNextBlockValidators",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "Array",
+                        "offset": 0,
                         "safe": true
                     },
                     {
@@ -114,8 +114,8 @@ Response body:
                                 "type": "ByteArray"
                             }
                         ],
-                        "offset": 0,
                         "returntype": "Boolean",
+                        "offset": 0,
                         "safe": false
                     },
                     {
@@ -126,22 +126,22 @@ Response body:
                                 "type": "Integer"
                             }
                         ],
+                        "returntype": "Void",
                         "offset": 0,
-                        "returntype": "Boolean",
                         "safe": false
                     },
                     {
                         "name": "symbol",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "String",
+                        "offset": 0,
                         "safe": true
                     },
                     {
                         "name": "totalSupply",
                         "parameters": [],
-                        "offset": 0,
                         "returntype": "Integer",
+                        "offset": 0,
                         "safe": true
                     },
                     {
@@ -164,8 +164,8 @@ Response body:
                                 "type": "Any"
                             }
                         ],
-                        "offset": 0,
                         "returntype": "Boolean",
+                        "offset": 0,
                         "safe": false
                     },
                     {
@@ -180,8 +180,8 @@ Response body:
                                 "type": "Integer"
                             }
                         ],
-                        "offset": 0,
                         "returntype": "Integer",
+                        "offset": 0,
                         "safe": true
                     },
                     {
@@ -192,8 +192,8 @@ Response body:
                                 "type": "ByteArray"
                             }
                         ],
-                        "offset": 0,
                         "returntype": "Boolean",
+                        "offset": 0,
                         "safe": false
                     },
                     {
@@ -208,8 +208,8 @@ Response body:
                                 "type": "ByteArray"
                             }
                         ],
-                        "offset": 0,
                         "returntype": "Boolean",
+                        "offset": 0,
                         "safe": false
                     }
                 ],

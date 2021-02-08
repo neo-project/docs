@@ -28,7 +28,7 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "33"
+    "result": "750000000"
 }
 ```
 
