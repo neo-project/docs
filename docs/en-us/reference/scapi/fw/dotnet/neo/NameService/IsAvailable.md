@@ -34,7 +34,7 @@ public class Demo : SmartContract
 }
 ```
 
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x614a8f0015607d72cba71659ff83dea33cadb0c1 isAvailable [{"type":"String","value":"test.com"}]`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x614a8f0015607d72cba71659ff83dea33cadb0c1 isAvailable [{"type":"String","value":"test.com"}]`, of which the response is shown as below：
 
 ```json
 {
@@ -45,8 +45,8 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 
 Response description：
 
-- Boolean type：available if true;
+- Boolean type: available if true;
 
-- Others：failed.
+- Others: failed.
 
 [Back](../NameService.md)

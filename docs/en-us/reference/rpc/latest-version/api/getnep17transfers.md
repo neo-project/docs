@@ -37,44 +37,25 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "sent": [
-            {
-                "timestamp": 1611716619654,
-                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
-                "amount": "0.1",
-                "blockindex": 40,
-                "transfernotifyindex": 0,
-                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
-            }
-        ],
+        "sent": [],
         "received": [
             {
-                "timestamp": 1611715807166,
-                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
-                "amount": "100",
-                "blockindex": 4,
-                "transfernotifyindex": 2,
-                "txhash": "0x2e7ffdeaa9f74f1c0a85eb545d412b98d9821e9ebaffc373b116d17767e40c49"
-            },
-            {
-                "timestamp": 1611715807166,
+                "timestamp": 1612690497725,
                 "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
-                "amount": "1",
-                "blockindex": 4,
+                "amount": "100",
+                "blockindex": 2,
                 "transfernotifyindex": 1,
-                "txhash": "0x9be136667651d0abd02f6976ff08b317f0c4689e0e95b4d1fb5f1fafefc4bfc1"
+                "txhash": "0x5f957960a782514d6587c445288ee1cca7d6b0f952edc204f14d9be83b8152ff"
             },
             {
-                "timestamp": 1611716619654,
+                "timestamp": 1612690513541,
                 "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
-                "amount": "0.1",
-                "blockindex": 40,
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "10000000000",
+                "blockindex": 3,
                 "transfernotifyindex": 0,
-                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
+                "txhash": "0xe42108b343626035cb51fbcb54949bb38aac50c8ba278841d304e9fdce0807ac"
             }
         ],
         "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
@@ -102,26 +83,25 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "sent": [
-            {
-                "timestamp": 1611716619654,
-                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
-                "amount": "0.1",
-                "blockindex": 40,
-                "transfernotifyindex": 0,
-                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
-            }
-        ],
+        "sent": [],
         "received": [
             {
-                "timestamp": 1611716619654,
+                "timestamp": 1612690497725,
+                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "100",
+                "blockindex": 2,
+                "transfernotifyindex": 1,
+                "txhash": "0x5f957960a782514d6587c445288ee1cca7d6b0f952edc204f14d9be83b8152ff"
+            },
+            {
+                "timestamp": 1612690513541,
                 "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "transferaddress": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
-                "amount": "0.1",
-                "blockindex": 40,
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "10000000000",
+                "blockindex": 3,
                 "transfernotifyindex": 0,
-                "txhash": "0x917c2dee69250dd0be6268ea8e060d4d553122e13d1530b008b67f9083acc476"
+                "txhash": "0xe42108b343626035cb51fbcb54949bb38aac50c8ba278841d304e9fdce0807ac"
             }
         ],
         "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"

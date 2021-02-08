@@ -2,11 +2,12 @@
 
 Updates the TTL of the domain name (unit: second). Each call will extend the validity period of the domain name by one year.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 > [!Note]
+>
 > Only supports to renew the second domain name.
 
 ## Syntax
@@ -15,7 +16,7 @@ Assembly：Neo.SmartContract.Framework
 public static extern uint Renew(string name);
 ```
 
-parameter：
+parameter:
 
 - name: the domain name.
 
@@ -32,7 +33,7 @@ public class Demo : SmartContract
     public static uint Renew(string name) { return NameService.Renew(name); }
 }
 ```
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0xa09b9567b74fc195dd1aded35ec72a6246776b8c renew [{"type":"String","value":"test.com"}]`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0xa09b9567b74fc195dd1aded35ec72a6246776b8c renew [{"type":"String","value":"test.com"}]`, of which the response is shown as below：
 
 ```json
 [{
@@ -41,10 +42,10 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 }]
 ```
 
-Response description：
+Response description:
 
-- Integer type：the expiration of the domain;
+- Integer type: the expiration of the domain;
 
-- Others：failed.
+- Others: failed.
 
 [Back](../NameService.md)

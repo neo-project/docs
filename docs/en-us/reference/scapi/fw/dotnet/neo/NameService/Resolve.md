@@ -2,9 +2,9 @@
 
 Resolves a domain name.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
@@ -31,7 +31,7 @@ public class Demo : SmartContract
 }
 ```
 
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x64405d6cc3b144cd0c2470dac7410ac797b134dc resolve [{"type":"String","value":"test.com"},{"type":"Integer","value":"1"}]`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x64405d6cc3b144cd0c2470dac7410ac797b134dc resolve [{"type":"String","value":"test.com"},{"type":"Integer","value":"1"}]`, of which the response is shown as below：
 
 ```json
 [{
@@ -42,7 +42,7 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 
 Response description：
 
-- ByteString type：the Base64-encoded string of the resolution result；
+- ByteString type: the Base64-encoded string of the resolution result；
 
 - Others: failed.
 

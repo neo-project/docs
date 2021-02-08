@@ -106,6 +106,10 @@ http://127.0.0.1:10332/
 | [verifyproof](api/verifyproof.md)       | \<roothash>\<proof>            | 使用 root hash 和 proof 进行验证，得到 key 对应存储区的值。 |
 | [getstateheight](api/getstateheight.md) |                                | 查询 stateroot 高度。                                       |
 
+> [!Note]
+>
+> RPC 中所有的金额（手续费、NEP-17 余额、钱包余额、转账金额等）相关的返回值均为无符号整数，通过 [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient)（C# 轻节点 SDK） 请求时会自动根据资产精度自动换算。若开发者自行编写代码请求，则需要手动对返回值的精度进行处理。例如，返回值为 1234560，资产精度为 8，则实际金额为 0.0123456。
+
 ## GET 请求示例
 
 一次典型的 JSON-RPC GET 请求格式如下：
@@ -171,6 +175,3 @@ http://127.0.0.1:10332
 
 ![](../../../assets/api_3.jpg)
 
-## 其它参考
-
-[C# JSON-RPC 使用方法](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)

@@ -2,9 +2,9 @@
 
 Gets all domain names registered in the contract.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
@@ -36,7 +36,7 @@ public class Demo : SmartContract
 ```
 
 
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0xb51f703aae951c58ebd89d9448bf8cb4c7f2efcc tokens`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0xb51f703aae951c58ebd89d9448bf8cb4c7f2efcc tokens`, of which the response is shown as below：
 
 ```json
 [{"type":"Array","value":
@@ -49,8 +49,8 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 
 Response Description：
 
-- Array type：returns a Base64-encoded string array of all domain names registered by the system;
+- Array type: returns a Base64-encoded string array of all domain names registered by the system;
 
-- Others：failed.
+- Others: failed.
 
 [Back](../NameService.md)

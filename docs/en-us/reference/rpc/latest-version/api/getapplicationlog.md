@@ -31,102 +31,73 @@ Request body：
   "id": 1,
   "method": "getapplicationlog",
   "params": [
-    "0x6ea186fe714b8168ede3b78461db8945c06d867da649852352dbe7cbf1ba3724"
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
   ]
 }
 ```
+
+This transaction transfers 100 GAS from NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF to NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ.
 
 Response body 1:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "blockhash": "0x6ea186fe714b8168ede3b78461db8945c06d867da649852352dbe7cbf1ba3724",
-    "executions": [
-      {
-        "trigger": "OnPersist",
-        "vmstate": "HALT",
-        "gasconsumed": "0.0203126",
-        "stack": [],
-        "notifications": [
-          {
-            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-            "eventname": "Transfer",
-            "state": {
-              "type": "Array",
-              "value": [
-                {
-                  "type": "ByteString",
-                  "value": "CqOHtT6Wt5iaYxQxoFbdH0CgQvY="
-                },
-                {
-                  "type": "Any"
-                },
-                {
-                  "type": "Integer",
-                  "value": "18083410"
-                }
-              ]
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+        "executions": [
+            {
+                "trigger": "Application",
+                "vmstate": "HALT",
+                "exception": null,
+                "gasconsumed": "9999540",
+                "stack": [],
+                "notifications": [
+                    {
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "ByteString",
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "10000000000"
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
-          },
-          {
-            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-            "eventname": "Transfer",
-            "state": {
-              "type": "Array",
-              "value": [
-                {
-                  "type": "Any"
-                },
-                {
-                  "type": "ByteString",
-                  "value": "z6LDQN4w1uEMToIZiPSxToNRPog="
-                },
-                {
-                  "type": "Integer",
-                  "value": "1252390"
-                }
-              ]
-            }
-          }
         ]
-      },
-      {
-        "trigger": "PostPersist",
-        "vmstate": "HALT",
-        "gasconsumed": "0.0203126",
-        "stack": [],
-        "notifications": [
-          {
-            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-            "eventname": "Transfer",
-            "state": {
-              "type": "Array",
-              "value": [
-                {
-                  "type": "Any"
-                },
-                {
-                  "type": "ByteString",
-                  "value": "z6LDQN4w1uEMToIZiPSxToNRPog="
-                },
-                {
-                  "type": "Integer",
-                  "value": "50000000"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  }
+    }
 }
 ```
 
-Response description：
+Response description:
 
-gasconsumed: The transaction fee, which means the GAS consumed in the transaction execution. 
+- txid: Transaction ID.
+
+- trigger: Triggers.
+
+- vmstate: VM execution state. HALT represents success, and FAULT represents failure.
+- gasconsumed: The transaction fee, which means the GAS consumed in the transaction execution. 
+- notifications: The notification sent by the smart contract.
+
+- contract: The contract sending the notification. Here is GasToken.
+
+- eventname: Event name of the notification.
+
+- state: Notification content, where ByteString is Base64-encoded and can be converted at https://neo.org/converter/index.
+
+
+
 

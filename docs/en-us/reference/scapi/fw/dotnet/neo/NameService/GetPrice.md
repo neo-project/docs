@@ -25,7 +25,7 @@ public class Demo : SmartContract
     public static long GetPrice() { return NameService.GetPrice(); }
 }
 ```
-After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x0830764620067b85f374ef72b2e4f61b7020c620 getPrice`，of which the response is shown as below：
+After deploying the contract in cli, then you can invoke the contract by typing `invoke 0x0830764620067b85f374ef72b2e4f61b7020c620 getPrice`, of which the response is shown as below：
 
 ```json
 [{
@@ -36,7 +36,7 @@ After deploying the contract in cli, then you can invoke the contract by typing 
 
 Response description：
 
-- Integer type：10 Gas(the decimal is 8)。
+- Integer type: 10 Gas (the decimal is 8).
 
 - Others: failed.
 

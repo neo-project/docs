@@ -31,101 +31,73 @@
   "id": 1,
   "method": "getapplicationlog",
   "params": [
-    "0x6ea186fe714b8168ede3b78461db8945c06d867da649852352dbe7cbf1ba3724"
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
   ]
 }
 ```
+
+该交易是将 100 GAS 从 NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF 转到 NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ。
 
 响应正文 ：
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "blockhash": "0x6ea186fe714b8168ede3b78461db8945c06d867da649852352dbe7cbf1ba3724",
-    "executions": [
-      {
-        "trigger": "OnPersist",
-        "vmstate": "HALT",
-        "gasconsumed": "0.0203126",
-        "stack": [],
-        "notifications": [
-          {
-            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-            "eventname": "Transfer",
-            "state": {
-              "type": "Array",
-              "value": [
-                {
-                  "type": "ByteString",
-                  "value": "CqOHtT6Wt5iaYxQxoFbdH0CgQvY="
-                },
-                {
-                  "type": "Any"
-                },
-                {
-                  "type": "Integer",
-                  "value": "18083410"
-                }
-              ]
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+        "executions": [
+            {
+                "trigger": "Application",
+                "vmstate": "HALT",
+                "exception": null,
+                "gasconsumed": "9999540",
+                "stack": [],
+                "notifications": [
+                    {
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "ByteString",
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "10000000000"
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
-          },
-          {
-            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-            "eventname": "Transfer",
-            "state": {
-              "type": "Array",
-              "value": [
-                {
-                  "type": "Any"
-                },
-                {
-                  "type": "ByteString",
-                  "value": "z6LDQN4w1uEMToIZiPSxToNRPog="
-                },
-                {
-                  "type": "Integer",
-                  "value": "1252390"
-                }
-              ]
-            }
-          }
         ]
-      },
-      {
-        "trigger": "PostPersist",
-        "vmstate": "HALT",
-        "gasconsumed": "0.0203126",
-        "stack": [],
-        "notifications": [
-          {
-            "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-            "eventname": "Transfer",
-            "state": {
-              "type": "Array",
-              "value": [
-                {
-                  "type": "Any"
-                },
-                {
-                  "type": "ByteString",
-                  "value": "z6LDQN4w1uEMToIZiPSxToNRPog="
-                },
-                {
-                  "type": "Integer",
-                  "value": "50000000"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  }
+    }
 }
 ```
 
 响应说明：
 
-gasconsumed ：该交易消耗的 GasToken 数量，即交易手续费。
+- txid：交易 ID。
+
+- trigger：触发器。
+
+- vmstate：虚拟机执行状态，HALT 代表成功，FAULT 代表失败。
+
+- gasconsumed ：该交易消耗的 GasToken 数量，即交易手续费。
+
+- notifications：智能合约通知。
+
+- contract：发出通知的合约，这里是 GasToken 原生合约。
+
+- eventname：通知的事件名称。
+
+- state：通知内容。其中 ByteString 为 Base64 编码，可以在 https://neo.org/converter/index 进行转换。
+
+

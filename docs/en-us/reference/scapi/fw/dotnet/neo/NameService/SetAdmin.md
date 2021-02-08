@@ -2,9 +2,9 @@
 
 Sets the admin for the specified domain name.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
-Assembly：Neo.SmartContract.Framework
+Assembly: Neo.SmartContract.Framework
 
 > [!Note]
 >
@@ -35,7 +35,7 @@ public class Demo : SmartContract
 }
 ```
 
-After deploying the contract in cli，you can make a transaction by using [SDK](../../../../../../develop/tool/sdk/transaction.md) to query this method,
+After deploying the contract in cli, you can make a transaction by using [SDK](../../../../../../develop/tool/sdk/transaction.md) to query this method,
 
 ```c#
 using Neo;
@@ -88,6 +88,6 @@ namespace ConsoleApp1
     }
 }
 ```
-After running this program, you can get the response `Transaction 0x10d1d01b1281078c7d714067c1123e14838bc2c0d9e70abe57581b82018b5d00 is broadcasted!`， which means the success of the transaction.
+After running this program, you can get the response `Transaction 0x10d1d01b1281078c7d714067c1123e14838bc2c0d9e70abe57581b82018b5d00 is broadcasted!`,  which means the success of the transaction.
 
 [Back](../NameService.md)

@@ -95,7 +95,7 @@
     "result": {
         "script": "DAABECcMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFIOrBnmtVcBQoTrUP1k26nP16x72QWJ9W1I=",
         "state": "HALT",
-        "gasconsumed": "0.0999972",
+        "gasconsumed": "9999720",
         "exception": null,
         "stack": [
             {
