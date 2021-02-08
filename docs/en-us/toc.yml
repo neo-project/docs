@@ -137,8 +137,6 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
     - name: getapplicationlog
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
-    - name: getwalletbalance
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletbalance.md
     - name: getbestblockhash
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.md
     - name: getblock
@@ -149,36 +147,50 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockhash.md
     - name: getblockheader
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockheader.md
+    - name: getcommittee
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getcommittee.md
     - name: getconnectioncount
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
+    - name: getnativecontracts
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnativecontracts.md
     - name: getnep17balances
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep17balances.md
     - name: getnep17transfers
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep17transfers.md
     - name: getnewaddress
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getnewaddress.md
+    - name: getnextblockvalidators
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnextblockvalidators.md
     - name: getpeers
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getpeers.md
+    - name: getproof
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getproof.md
     - name: getrawmempool
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
     - name: getrawtransaction
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
+    - name: getstateheight
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getstateheight.md
+    - name: getstateroot
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getstateroot.md
     - name: getstorage
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getstorage.md
     - name: gettransactionheight
       href: /v3/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.md
     - name: getunclaimedgas
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
-    - name: getwalletunclaimedgas
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletunclaimedgas.md
-    - name: getcommittee
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getcommittee.md
     - name: getversion
       href: /v3/docs/en-us/reference/rpc/latest-version/api/getversion.md
+    - name: getwalletbalance
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletbalance.md
+    - name: getwalletunclaimedgas
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletunclaimedgas.md
     - name: importprivkey
       href: /v3/docs/en-us/reference/rpc/latest-version/api/importprivkey.md
+    - name: invokecontractverify
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/invokecontractverify.md
     - name: invokefunction
       href: /v3/docs/en-us/reference/rpc/latest-version/api/invokefunction.md
     - name: invokescript
@@ -201,6 +213,8 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/submitblock.md
     - name: validateaddress
       href: /v3/docs/en-us/reference/rpc/latest-version/api/validateaddress.md
+    - name: verifyproof
+      href: /v3/docs/en-us/reference/rpc/latest-version/api/verifyproof.md
   - name: Smart Contract API
     - name: API Reference
       items: 
