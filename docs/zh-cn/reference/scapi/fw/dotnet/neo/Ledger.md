@@ -1,6 +1,6 @@
 # Ledger 类
 
-提供了原生合约GasToken的一系列属性与方法，合约哈希为`0x971d69c6dd10ce88e7dfffec1dc603c6125a8764`。
+提供了原生合约GasToken的一系列属性与方法，合约哈希为`0xda65b600f7124ce6c79950c1772a36403104f2be`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

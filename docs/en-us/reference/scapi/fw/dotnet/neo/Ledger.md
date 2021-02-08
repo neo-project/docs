@@ -1,6 +1,6 @@
 # Ledger Class
 
-Provides a series attributes and methods of the native contract GasToken, which hash is`0x971d69c6dd10ce88e7dfffec1dc603c6125a8764`.
+Provides a series attributes and methods of the native contract GasToken, which hash is`0xda65b600f7124ce6c79950c1772a36403104f2be`.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

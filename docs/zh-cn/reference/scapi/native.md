@@ -4,14 +4,14 @@ Neo3 提供了大量的原生合约，原生合约是 Neo3 中NeoContract组件�
 
 在 Neo3 中，一切皆合约。对于NEO和GAS这类系统对象，它们也运行在智能合约之中。虽然使用普通的智能合约来构建NEO和GAS也是一个可行的方案，但是采用原生合约来构建的NEO和GAS的运行速度更快。
 
-| 合约名称                                                  | 合约哈希                                   | 说明             |
-| --------------------------------------------------------- | ------------------------------------------ | ---------------- |
-| [ContractManagement](fw/dotnet/neo/ContractManagement.md) | 0xa501d7d7d10983673b61b7a2d3a813b36f9f0e43 | 管理合约的合约   |
-| [GasToken](fw/dotnet/neo/GAS.md)                          | 0x70e2301955bf1e74cbb31d18c2f96972abadb328 | GAS相关合约      |
-| [LedgerContract](fw/dotnet/neo/Ledger.md)                 | 0x971d69c6dd10ce88e7dfffec1dc603c6125a8764 | 区块链协议层合约 |
-| [NameService](fw/dotnet/neo/NameService.md)               | 0xa2b524b68dfe43a9d56af84f443c6b9843b8028c | Neo域名服务合约  |
-| [NeoToken](fw/dotnet/neo/NEO.md)                          | 0xf61eebf573ea36593fd43aa150c055ad7906ab83 | NEO相关合约      |
-| [OracleContract](fw/dotnet/neo/Oracle.md)                 | 0x8dc0e742cbdfdeda51ff8a8b78d46829144c80ee | 预言机合约       |
-| [PolicyContract](fw/dotnet/neo/Policy.md)                 | 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 | 共识策略合约     |
-| [RoleManagement](fw/dotnet/neo/RoleManagement.md)         | 0x597b1471bbce497b7809e2c8f10db67050008b02 | 权限查询合约     |
+| 合约名称                                                  | 合约哈希                                   | 说明                                                         |
+| --------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------ |
+| [ContractManagement](fw/dotnet/neo/ContractManagement.md) | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd | 管理合约的合约                                               |
+| [GasToken](fw/dotnet/neo/GAS.md)                          | 0xd2a4cff31913016155e38e474a2c06d08be276cf | GAS相关合约                                                  |
+| [LedgerContract](fw/dotnet/neo/Ledger.md)                 | 0xda65b600f7124ce6c79950c1772a36403104f2be | 包括所有与账本相关的功能（如区块，交易等）的合约             |
+| [NameService](fw/dotnet/neo/NameService.md)               | 0x7a8fcf0392cd625647907afa8e45cc66872b596b | Neo域名服务合约，通过该合约，用户将可以直接向某个域名发起交易，而不需要记住繁杂的对方地址。 |
+| [NeoToken](fw/dotnet/neo/NEO.md)                          | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 | NEO相关合约                                                  |
+| [OracleContract](fw/dotnet/neo/Oracle.md)                 | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 | 预言机合约，通过去中心化的方式获取相应信息供调用者合约使用   |
+| [PolicyContract](fw/dotnet/neo/Policy.md)                 | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b | 共识策略合约                                                 |
+| [RoleManagement](fw/dotnet/neo/RoleManagement.md)         | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 | 权限查询合约                                                 |
 

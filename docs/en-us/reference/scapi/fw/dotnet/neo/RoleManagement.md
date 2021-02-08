@@ -1,6 +1,6 @@
 # RoleManagement Class
 
-Provides a series attributes and methods of the native contract `RoleManagement`, which contract hash is`0x597b1471bbce497b7809e2c8f10db67050008b02`.
+Provides a series attributes and methods of the native contract `RoleManagement`, which contract hash is`0x49cf4e5378ffcd4dec034fd98a174c5491e395e2`.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
