@@ -98,6 +98,10 @@ You can modify the port in config.json in the RpcServer folder.
 | [getnep17balances](api/getnep17balances.md) | \<address> | Returns the balance of all NEP17 assets in the specified address. |
 | [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | Returns all the NEP17 transaction information occurred in the specified address. |
 
+> [!Note]
+>
+> For RPC API, all the return values related to the amount such as fees, NEP-17 asset balance, wallet balance, transfer amount, etc. are unsigned integer, which are automatically converted according to the asset decimal when requested by [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient) (C# light node SDK). If you write the request by yourselves, you need to convert the amount manually. For example, if the return value is 1234560 and the asset decimal is 8, the  actual amount is 0.0123456.
+
 ## GET request example
 
 The format of a typical JSON-RPC GET request is as follows:

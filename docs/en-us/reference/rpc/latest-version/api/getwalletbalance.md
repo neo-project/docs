@@ -45,7 +45,7 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "balance": "30000016.3898589"
+        "balance": "3000000830000920"
     }
 }
 ```

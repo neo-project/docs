@@ -18,7 +18,7 @@ address：要查询的地址。
 {
   "jsonrpc": "2.0",
   "method": "getunclaimedgas",
-  "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
   "id": 1
 }
 ```
@@ -30,8 +30,8 @@ address：要查询的地址。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "unclaimed": "0.00000003",
-        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
+        "unclaimed": "499999500",
+        "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
     }
 }
 ```
