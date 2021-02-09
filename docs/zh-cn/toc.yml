@@ -218,11 +218,7 @@
       href: /v3/docs/zh-cn/reference/rpc/latest-version/api/verifyproof.md
   - name: 智能合约API
     - name: API 参考
-      items: 
-      - name: Neo
-        href: /v3/docs/zh-cn/reference/scapi/api/neo.md
-      - name: System
-        href: /v3/docs/zh-cn/reference/scapi/api/System.md
+      href: /v3/docs/zh-cn/reference/scapi/api.md
     - name: .net 框架
       items: 
       - name: Neo 命名空间

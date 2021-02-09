@@ -217,11 +217,7 @@
       href: /v3/docs/en-us/reference/rpc/latest-version/api/verifyproof.md
   - name: Smart Contract API
     - name: API Reference
-      items: 
-      - name: Neo
-        href: /v3/docs/en-us/reference/scapi/api/neo.md
-      - name: System
-        href: /v3/docs/en-us/reference/scapi/api/System.md
+      href: /v3/docs/en-us/reference/scapi/api.md
     - name: .net Framework
       items: 
       - name: Neo Namespace
