@@ -1,7 +1,7 @@
 ﻿- name: 站点地图
   href: /v3/docs/zh-cn/index.md
 - name: 术语表
-  href: /v3/docs/zh-cn/glossary.md
+  href: /v3/docs/zh-cn/intro/glossary.md
 - name: 快速入门（C#）
   items:
   - name: 准备工作
@@ -235,16 +235,16 @@
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
         - name: Block
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
-        - name: Blockchain
-          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.md
         - name: CallFlags
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/CallFlags.md
         - name: Contract
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
+        - name: ContractManagement
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractManagement.md
         - name: Crypto
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Crypto.md
-        - name: Enumerator
-          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Enumerator.md
+        - name: FindOptions
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/FindOptions.md
         - name: Gas
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Gas.md
         - name: Helper
@@ -253,14 +253,26 @@
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Iterator.md
         - name: Json
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Json.md
+        - name: Ledger
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Ledger.md
+        - name: NameService
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/NameService.md
         - name: Neo
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Neo.md
         - name: Notification
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Notification.md
         - name: Oracle
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Oracle.md
+        - name: OracleResponseCode
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/OracleResponseCode.md
         - name: Policy
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Policy.md
+        - name: RecordType
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/RecordType.md
+        - name: Role
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Role.md
+        - name: RoleManagement
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/RoleManagement.md
         - name: Runtime
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
         - name: Storage
