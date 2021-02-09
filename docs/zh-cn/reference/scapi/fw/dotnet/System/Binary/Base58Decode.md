@@ -1,4 +1,4 @@
-# Base58Decode 方法 (string)
+# Binary.Base58Decode 方法
 
 将Base58编码的字符串解码成等价的字节数组。
 

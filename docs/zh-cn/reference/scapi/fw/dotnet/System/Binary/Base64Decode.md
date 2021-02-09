@@ -1,4 +1,4 @@
-# Base64Decode 方法 (string)
+# Binary.Base64Decode 方法
 
 将Base64编码的字符串解码成等价的字节数组。
 

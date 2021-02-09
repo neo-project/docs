@@ -1,4 +1,4 @@
-# RegisterCandidate 方法 (ECPoint)
+# NEO.RegisterCandidate 方法
 
 注册成为候选人。
 
@@ -27,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly byte[] pubkey = "02e8ff17c567d62f274fe247cc884a2a6cd3b8fd0d779a8c5856289a560accacb4".HexToBytes();
 
-    public static object Main()
+    public static object Test()
     {
         bool result = NEO.RegisterCandidate((ECPoint)pubkey);
         return result;
@@ -35,7 +35,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

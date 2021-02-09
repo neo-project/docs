@@ -14,9 +14,9 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 | 原生合约   | 合约hash                                   |
 | ---------- | ------------------------------------------ |
-| `NeoToken` | 0xde5f57d430d3dece511cf975a8d37848cb9e0525 |
-| `GasToken` | 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc |
-| `Policy`   | 0xce06595079cd69583126dbfd1d2e25cca74cffe9 |
+| `NeoToken` | 0xf61eebf573ea36593fd43aa150c055ad7906ab83 |
+| `GasToken` | 0x70e2301955bf1e74cbb31d18c2f96972abadb328 |
+| `Policy`   | 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 |
 
 原生合约调用方法，与普通合约调用方法一样：`Contract.Call(NEO.hash, method, params)`
 
@@ -105,7 +105,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 #### 职能
 
-共识节点即具有发起新块提案和提案投票权限的节点。关于共识的详细信息，请参考NEO3白皮书。
+共识节点即具有发起新块提案和提案投票权限的节点。
 
 #### 产生方式
 

@@ -1,4 +1,4 @@
-# Contract.GetCallFlags 方法 ()
+# Contract.GetCallFlags 方法
 
 获取合约的调用权限 Flag
 

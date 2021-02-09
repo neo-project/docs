@@ -17,7 +17,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getwalletunclaimedgas",
-  "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
   "id": 1
 }
 ```
@@ -28,7 +28,7 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "897299680935"
+    "result": "750000000"
 }
 ```
 

@@ -1,6 +1,6 @@
 ﻿# getcontractstate Method
 
-Queries the contract information with the contract script hash. 
+Queries the contract information with the contract script hash or native contract name. 
 
 > [!Note]
 >
@@ -8,7 +8,7 @@ Queries the contract information with the contract script hash.
 
 ## Parameter Description
 
-script_hash: Contract script hash 
+script_hash / name: Contract script hash or the native contract name.
 
 ## Example
 
@@ -18,7 +18,18 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
-  "params": ["0x99042d380f2b754175717bb932a911bc0bb0ad7d"],
+  "params": ["neotoken"],
+  "id": 1
+}
+```
+
+or
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getcontractstate",
+  "params": ["0xf61eebf573ea36593fd43aa150c055ad7906ab83"],
   "id": 1
 }
 ```
@@ -30,82 +41,193 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "id": 8,
-        "hash": "0x99042d380f2b754175717bb932a911bc0bb0ad7d",
-        "script": "DBQKo4e1Ppa3mJpjFDGgVt0fQKBC9kH4J+yMQDTkQFcBAAwFSGVsbG9Bm/ZnzkGSXegxcGhAVwQBEnAMF0ludm9rZSBTdHJvYWdlLlB1dCBmb3IgaBpQQXvjun0MByB0aW1lcy6Li9soQc/nR5YMBUhlbGxveFBBm/ZnzkHmPxiEDAJOb0Gb9mfOQZJd6DHYqnNrJiwMAk5vDAJOb0Gb9mfOQZJd6DFK2CYFEFBF2yERnlBBm/ZnzkHmPxiEIhMhDAJObxFQQZv2Z85B5j8YhAwCTm9Bm/ZnzkGSXegxcWlK2CYFEFBF2yEaUEF747p9chXDShAMBFB1dCDQShF40EoSDB0gaW50byBzdG9yYWdlIGNvbXBsZXRlbHkgZm9yINBKE2rQShQMBiB0aW1lc9DBShEyCJ1Ti1Ai+EXbKEHP50eWeBHADARXb3JkQZUBb2FpEcAMDkludm9rZVB1dENvdW50QZUBb2FAVwECNZL+//8Qs3BoJhYMEU5vIGF1dGhvcml6YXRpb24uOnh5UEExxjMdQFcBADVn/v//ELNwaCYWDBFObyBhdXRob3JpemF0aW9uLjohQcafHfBAVgEMFAqjh7U+lreYmmMUMaBW3R9AoEL2YEA=",
+        "id": -3,
+        "updatecounter": 0,
+        "hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+        "nef": {
+            "magic": 860243278,
+            "compiler": "neo-core-v3.0",
+            "tokens": [],
+            "script": "AP1BGvd7Zw==",
+            "checksum": 3921333105
+        },
         "manifest": {
+            "name": "NeoToken",
             "groups": [],
-            "supportedstandards": [],
+            "supportedstandards": [
+                "NEP-17"
+            ],
             "abi": {
-                "hash": "0x99042d380f2b754175717bb932a911bc0bb0ad7d",
                 "methods": [
                     {
-                        "name": "verify",
-                        "parameters": [],
-                        "offset": 28,
-                        "returntype": "Boolean"
-                    },
-                    {
-                        "name": "myMethod",
-                        "parameters": [],
-                        "offset": 31,
-                        "returntype": "ByteArray"
-                    },
-                    {
-                        "name": "put",
+                        "name": "balanceOf",
                         "parameters": [
                             {
-                                "name": "word",
-                                "type": "String"
+                                "name": "account",
+                                "type": "Hash160"
                             }
                         ],
-                        "offset": 54,
-                        "returntype": "Void"
+                        "returntype": "Integer",
+                        "offset": 0,
+                        "safe": true
                     },
                     {
-                        "name": "update",
+                        "name": "decimals",
+                        "parameters": [],
+                        "returntype": "Integer",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "getCandidates",
+                        "parameters": [],
+                        "returntype": "Array",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "getCommittee",
+                        "parameters": [],
+                        "returntype": "Array",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "getGasPerBlock",
+                        "parameters": [],
+                        "returntype": "Integer",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "getNextBlockValidators",
+                        "parameters": [],
+                        "returntype": "Array",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "registerCandidate",
                         "parameters": [
                             {
-                                "name": "script",
+                                "name": "pubkey",
                                 "type": "ByteArray"
+                            }
+                        ],
+                        "returntype": "Boolean",
+                        "offset": 0,
+                        "safe": false
+                    },
+                    {
+                        "name": "setGasPerBlock",
+                        "parameters": [
+                            {
+                                "name": "gasPerBlock",
+                                "type": "Integer"
+                            }
+                        ],
+                        "returntype": "Void",
+                        "offset": 0,
+                        "safe": false
+                    },
+                    {
+                        "name": "symbol",
+                        "parameters": [],
+                        "returntype": "String",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "totalSupply",
+                        "parameters": [],
+                        "returntype": "Integer",
+                        "offset": 0,
+                        "safe": true
+                    },
+                    {
+                        "name": "transfer",
+                        "parameters": [
+                            {
+                                "name": "from",
+                                "type": "Hash160"
                             },
                             {
-                                "name": "manifest",
-                                "type": "String"
+                                "name": "to",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "Integer"
+                            },
+                            {
+                                "name": "data",
+                                "type": "Any"
                             }
                         ],
-                        "offset": 363,
-                        "returntype": "Void"
+                        "returntype": "Boolean",
+                        "offset": 0,
+                        "safe": false
                     },
                     {
-                        "name": "destroy",
-                        "parameters": [],
-                        "offset": 406,
-                        "returntype": "Void"
+                        "name": "unclaimedGas",
+                        "parameters": [
+                            {
+                                "name": "account",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "end",
+                                "type": "Integer"
+                            }
+                        ],
+                        "returntype": "Integer",
+                        "offset": 0,
+                        "safe": true
                     },
                     {
-                        "name": "_initialize",
-                        "parameters": [],
-                        "offset": 447,
-                        "returntype": "Void"
+                        "name": "unregisterCandidate",
+                        "parameters": [
+                            {
+                                "name": "pubkey",
+                                "type": "ByteArray"
+                            }
+                        ],
+                        "returntype": "Boolean",
+                        "offset": 0,
+                        "safe": false
+                    },
+                    {
+                        "name": "vote",
+                        "parameters": [
+                            {
+                                "name": "account",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "voteTo",
+                                "type": "ByteArray"
+                            }
+                        ],
+                        "returntype": "Boolean",
+                        "offset": 0,
+                        "safe": false
                     }
                 ],
                 "events": [
                     {
-                        "name": "Word",
+                        "name": "Transfer",
                         "parameters": [
                             {
-                                "name": "obj",
-                                "type": "String"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "InvokePutCount",
-                        "parameters": [
+                                "name": "from",
+                                "type": "Hash160"
+                            },
                             {
-                                "name": "obj",
-                                "type": "ByteArray"
+                                "name": "to",
+                                "type": "Hash160"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "Integer"
                             }
                         ]
                     }
@@ -118,13 +240,7 @@ Response body:
                 }
             ],
             "trusts": [],
-            "safemethods": [],
-            "extra": {
-                "Author": "Neo",
-                "Name": "Sample",
-                "Email": "dev@neo.org",
-                "Description": "This is a contract example"
-            }
+            "extra": null
         }
     }
 }

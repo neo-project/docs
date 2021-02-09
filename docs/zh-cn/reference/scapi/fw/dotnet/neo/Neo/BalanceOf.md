@@ -1,4 +1,4 @@
-# BalanceOf 方法 (UInt160)
+# NEO.BalanceOf 方法
 
 获取账户的NEO余额。
 
@@ -23,7 +23,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = NEO.BalanceOf(account);
         return result;
@@ -31,7 +31,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

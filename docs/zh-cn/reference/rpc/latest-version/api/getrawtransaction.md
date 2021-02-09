@@ -9,9 +9,9 @@
 
 - txid：交易 ID。
 
-- verbose：可选参数，verbose 默认值为 0。
-  - verbose 为 0 时返回的是交易的序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
-  - verbose 为 1 时返回的是对应交易的详细信息，用 Json 格式字符串表示。
+- verbose：可选参数，verbose 默认值为 false。
+  - verbose 为 false 时返回的是区块的序列化后的信息，用 Base64 编码表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
+  - verbose 为 true（或 1） 时返回的是对应区块的详细信息，用 JSON 格式字符串表示。
 
 ## 调用示例
 
@@ -20,9 +20,9 @@
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getrawtransaction",
-  "params": ["0xdcdac54af951034bccc5079e8619f9ce9803a5e2fb90e351571657a62e38b28a"],
-  "id": 1
+  "params": ["0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"]
 }
 ```
 
@@ -32,19 +32,19 @@
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "AA7aoUS2kokAAAAAACYcEwAAAAAARzMAAAHNWK7P0zW+HrPTEeHcgAlj39ctnwEAXQMA5AtUAgAAAAwUzViuz9M1vh6z0xHh3IAJY9/XLZ8MFM1Yrs/TNb4es9MR4dyACWPf1y2fE8AMCHRyYW5zZmVyDBS8r0HWhMfUrW7g2Z2pcHudHwyOZkFifVtSOAFCDEADRhUarLK+/BBjhqaWY5ieento21zgkcsUMWNCBWGd+v8a35zatNRgFbUkni4dDNI/BGc3zOgPT6EwroUsgvR+KQwhAv3yei642bBp1hrlpk26E7iWN8VC2MdMXWurST/mONaPC0GVRA14"
+    "result": "AIsJtw60lJgAAAAAAAjoIwAAAAAACxcAAAL6ifssFN8PWd3fBPblZRfys0qu6wDitlMicpPpnE8pBtU1U6u0pnLfhgEAXwsDAOQLVAIAAAAMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFCizratyafnCGB2zy3Qev1UZMOJwQWJ9W1I5AkIMQLfVkTWSIgU9qfupqX+H0ViwPYtOTot/SbQptuHUYTFSpMB/J7sEOPITKV9HnT8BU1CSv6D6NdcwcZzEXgxRgFApDCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXhCDED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5TKxEMIQLO1DI5fdxE7boDHAvDuTPyj92Wd3kteyDmwDbdqqzx4hELQRON768="
 }
 ```
 
 请求正文：
 
-verbose = 1，返回 JSON 格式的结果。
+verbose = true，返回 JSON 格式的结果。
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "getrawtransaction",
-  "params": ["0xdcdac54af951034bccc5079e8619f9ce9803a5e2fb90e351571657a62e38b28a", 1],
+  "params": ["0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c", true],
   "id": 1
 }
 ```
@@ -56,32 +56,39 @@ verbose = 1，返回 JSON 格式的结果。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0xdcdac54af951034bccc5079e8619f9ce9803a5e2fb90e351571657a62e38b28a",
-        "size": 252,
+        "hash": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+        "size": 386,
         "version": 0,
-        "nonce": 1151457806,
-        "sender": "NedjwsfAJYFas9rn8UHWQftTW4oKAQyW9h",
-        "sysfee": "9015990",
-        "netfee": "1252390",
-        "validuntilblock": 13127,
+        "nonce": 246876555,
+        "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        "sysfee": "0.0999954",
+        "netfee": "0.0235316",
+        "validuntilblock": 5899,
         "signers": [
             {
-                "account": "0x9f2dd7df630980dce111d3b31ebe35d3cfae58cd",
+                "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
+                "scopes": "None"
+            },
+            {
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
                 "scopes": "CalledByEntry"
             }
         ],
         "attributes": [],
-        "script": "AwDkC1QCAAAADBTNWK7P0zW+HrPTEeHcgAlj39ctnwwUzViuz9M1vh6z0xHh3IAJY9/XLZ8TwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4",
+        "script": "CwMA5AtUAgAAAAwU+on7LBTfD1nd3wT25WUX8rNKrusMFOK2UyJyk+mcTykG1TVTq7Smct+GFMAfDAh0cmFuc2ZlcgwUKLOtq3Jp+cIYHbPLdB6/VRkw4nBBYn1bUjk=",
         "witnesses": [
             {
-                "invocation": "DEADRhUarLK+/BBjhqaWY5ieento21zgkcsUMWNCBWGd+v8a35zatNRgFbUkni4dDNI/BGc3zOgPT6EwroUsgvR+",
-                "verification": "DCEC/fJ6LrjZsGnWGuWmTboTuJY3xULYx0xda6tJP+Y41o8LQZVEDXg="
+                "invocation": "DEC31ZE1kiIFPan7qal/h9FYsD2LTk6Lf0m0Kbbh1GExUqTAfye7BDjyEylfR50/AVNQkr+g+jXXMHGcxF4MUYBQ",
+                "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
+            },
+            {
+                "invocation": "DED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5T",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
             }
         ],
-        "blockhash": "0x5f0b81b921eebf719f97e98e8c56e260db8720138b4a7def766b1498a3f4296b",
-        "confirmations": 44,
-        "blocktime": 1605687708300,
-        "vmstate": "HALT"
+        "blockhash": "0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c",
+        "confirmations": 26,
+        "blocktime": 1612687482881
     }
 }
 ```

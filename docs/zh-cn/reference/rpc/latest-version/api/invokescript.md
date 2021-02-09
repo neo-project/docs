@@ -30,7 +30,7 @@
          {
           "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
           "scopes": "CustomContracts",
-          "allowedcontracts":["0xde5f57d430d3dece511cf975a8d37848cb9e0525","0x1f177332c467db9ba734d3ca85645fbadd7e13e3","0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc"],
+          "allowedcontracts":["0xf61eebf573ea36593fd43aa150c055ad7906ab83","0x1f177332c467db9ba734d3ca85645fbadd7e13e3","0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
           "allowedgroups":[]
         }
     ]
@@ -62,4 +62,4 @@
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
 - gasconsumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
-- tx：本次调用合约交易的 hex string，需要打开钱包并且传入正确的签名账户参数，否则 tx 为 null。
+- tx：本次调用合约交易的 Base64 编码，需要打开钱包并且传入正确的签名账户参数，否则 tx 为 null。

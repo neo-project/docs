@@ -1,4 +1,4 @@
-# Transfer 方法 (UInt160, UInt160, BigInteger)
+# GAS.Transfer 方法
 
 GAS转账。
 
@@ -9,7 +9,7 @@ GAS转账。
 ## 语法
 
 ```c#
-public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount);
+public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null);
 ```
 
 参数：
@@ -17,6 +17,7 @@ public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount);
 - from: 转出账户的脚本哈希；
 - to: 转入账户的脚本哈希；
 - amount: 要转账的金额。
+- data：额外参数，在 NEP-17 的转账方法中会调用接收方的 onNEP17Payment 方法，并将 data 作为参数传入。
 
 ## 示例
 
@@ -26,7 +27,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     private static readonly UInt160 from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
     private static readonly UInt160 to = "NXjtqYERuvSWGawjVux8UerNejvwdYg7eE".ToScriptHash();
 
-    public static object Main()
+    public static object Test()
     {
         bool result = GAS.Transfer(from, to, 1000);
         return result;
@@ -34,7 +35,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

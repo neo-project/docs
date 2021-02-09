@@ -14,7 +14,7 @@
   "jsonrpc": "2.0",
   "method": "getversion",
   "params": [],
-  "id": 3
+  "id": 1
 }
 ```
 
@@ -23,12 +23,13 @@
 ```json
 {
     "jsonrpc": "2.0",
-    "id": 3,
+    "id": 1,
     "result": {
-        "tcpport": 21333,
-        "wsport": 21334,
-        "nonce": 1403108496,
-        "useragent": "/Neo:3.0.0-preview3/"
+        "tcpport": 10333,
+        "wsport": 10334,
+        "nonce": 639577408,
+        "useragent": "/Neo:3.0.0-CI01171/",
+        "magic": 5195086
     }
 }
 ```

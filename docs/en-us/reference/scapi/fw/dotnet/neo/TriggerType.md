@@ -35,7 +35,7 @@ Here is a simple C# smart contract:
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static Object Main(string operation, params object[] args)
+        public static object Test(string operation, params object[] args)
         {
             if (Runtime.Trigger == TriggerType.Application)
             {

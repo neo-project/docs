@@ -1,19 +1,20 @@
 # getwalletbalance 方法
 
-根据指定的资产编号，返回钱包中对应资产的余额信息。该方法适用于符合 [NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准的合约资产。
+根据指定的资产编号，返回钱包中对应资产的余额信息。该方法适用于符合 [NEP-17](https://github.com/neo-project/proposals/blob/1937ff56a09ac7e8380637e61129e9359e01a1b6/nep-17.mediawiki) 标准的合约资产。
 
 > [!Note]
 >
 > - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+>
 > - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
 asset_id：资产 ID（资产标识符），即合约的 Script Hash。
 
-如 NEO 为：0xde5f57d430d3dece511cf975a8d37848cb9e0525
+如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
 
-GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
+GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
 
 资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
@@ -23,7 +24,7 @@ GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 >
 > 当区块未完全同步时，返回的资产余额可能不是最新的，请确保使用该 API 时区块已经同步到最新高度。
 
-示例：查询 NEP-5 资产的余额
+示例：查询 NEP-17 资产的余额
 
 请求正文：
 
@@ -31,7 +32,7 @@ GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
 {
   "jsonrpc": "2.0",
   "method": "getwalletbalance",
-  "params": ["0x8d06bc235c2585c9d27ede8ed7085b3e13fc0c36"],
+  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
   "id": 1
 }
 ```
@@ -43,18 +44,18 @@ GAS 为：0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "balance": "16000000000"
+        "balance": "3000000830000920"
     }
 }
 ```
 
 响应说明：
 
-balance：钱包中该资产的余额，因为 NEP-5 资产是余额系统，而非 UTXO 系统，所以返回结果中没有 confirmed，balance 即实际可用的余额。
+balance：钱包中该资产的余额，因为 NEP-17 资产是余额系统，而非 UTXO 系统，所以返回结果中没有 confirmed，balance 即实际可用的余额。
 
 > [!Note]
-> 
->- 当未同步到发布合约的区块时，执行该 API 会报错，只有当区块同步到发布该合约资产的区块时，才会返回正确的结果。
-> - 当输入的参数为非 NEP-5 标准的智能合约的 Script Hash 时，执行该 API 会报错。
 >
+> - 当未同步到发布合约的区块时，执行该 API 会报错，只有当区块同步到发布该合约资产的区块时，才会返回正确的结果。
+> - 当输入的参数为非 NEP-17 标准的智能合约的 Script Hash 时，执行该 API 会报错。
+> 
 

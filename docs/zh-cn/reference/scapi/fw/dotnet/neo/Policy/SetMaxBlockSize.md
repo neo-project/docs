@@ -1,4 +1,4 @@
-# SetMaxBlockSize 方法 (uint)
+# SetMaxBlockSize 方法
 
 设置最大区块大小。
 
@@ -25,7 +25,7 @@ public static extern bool SetMaxBlockSize(uint value);
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetMaxBlockSize(1024);
         return result;
@@ -33,7 +33,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

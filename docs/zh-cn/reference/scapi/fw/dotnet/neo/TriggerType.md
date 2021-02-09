@@ -12,12 +12,12 @@
 
 ```c#
 public enum TriggerType : byte
-    {
-        System = 0x01,
-        Verification = 0x20,
-        Application = 0x40,
-        All = System | Verification | Application
-    }
+{
+    System = 0x01,
+    Verification = 0x20,
+    Application = 0x40,
+    All = System | Verification | Application
+}
 ```
 
 ## System 触发器
@@ -33,7 +33,7 @@ public enum TriggerType : byte
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static Object Main(string operation, params object[] args)
+        public static object Test(string operation, params object[] args)
         {
             if (Runtime.Trigger == TriggerType.Application)
             {
@@ -46,7 +46,7 @@ public enum TriggerType : byte
         }
     }
 ```
-NEO3中所有交易都为合约的调用，当一笔交易被广播和确认后，智能合约由共识节点执行，普通节点在转发交易时不执行智能合约。智能合约执行成功不代表交易的成功，而交易的成功也不决定智能合约执行的成功。
+Neo3中所有交易都为合约的调用，当一笔交易被广播和确认后，智能合约由共识节点执行，普通节点在转发交易时不执行智能合约。智能合约执行成功不代表交易的成功，而交易的成功也不决定智能合约执行的成功。
 
 ## Verification 触发器
 

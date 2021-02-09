@@ -23,7 +23,7 @@
 
 ## 调用示例
 
-请求正文 1：
+请求正文：
 
 ```json
 {
@@ -31,167 +31,46 @@
   "id": 1,
   "method": "getapplicationlog",
   "params": [
-    "0xd6ea48f1c33defc1815562b3ace4ead99bf33a8ae67b2642cf73c2f192a717e5"
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
   ]
 }
 ```
 
-响应正文 1：
+该交易是将 100 GAS 从 NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF 转到 NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ。
+
+响应正文 ：
 
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xd6ea48f1c33defc1815562b3ace4ead99bf33a8ae67b2642cf73c2f192a717e5",
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
         "executions": [
             {
                 "trigger": "Application",
                 "vmstate": "HALT",
-                "gasconsumed": "9007990",
+                "exception": null,
+                "gasconsumed": "9999540",
                 "stack": [],
                 "notifications": [
                     {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "ByteString",
-                                    "value": "9S37k0BBDIaRxjEhW0Sk+9lDN4s="
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "400000000"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "contract": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
                         "eventname": "Transfer",
                         "state": {
                             "type": "Array",
                             "value": [
                                 {
                                     "type": "ByteString",
-                                    "value": "9S37k0BBDIaRxjEhW0Sk+9lDN4s="
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
                                 },
                                 {
                                     "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
                                 },
                                 {
                                     "type": "Integer",
-                                    "value": "1"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-}
-```
-
-请求正文 2：
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "getapplicationlog",
-  "params": [
-    "0x0745a04ddb7803ebd549af4d80de03fc69349b0b77615a06d9ef052637de5931", "System"
-  ]
-}
-
-```
-
-响应正文 2：
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "blockhash": "0x0745a04ddb7803ebd549af4d80de03fc69349b0b77615a06d9ef052637de5931",
-        "executions": [
-            {
-                "trigger": "System",
-                "vmstate": "HALT",
-                "gasconsumed": "2031260",
-                "stack": [],
-                "notifications": [
-                    {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
-                                },
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "11384830"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "2376840"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            },
-            {
-                "trigger": "System",
-                "vmstate": "HALT",
-                "gasconsumed": "2031260",
-                "stack": [],
-                "notifications": [
-                    {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "25000000"
+                                    "value": "10000000000"
                                 }
                             ]
                         }
@@ -204,4 +83,21 @@
 ```
 
 响应说明：
-gasconsumed ：该交易消耗的 gas 数量，即交易手续费。
+
+- txid：交易 ID。
+
+- trigger：触发器。
+
+- vmstate：虚拟机执行状态，HALT 代表成功，FAULT 代表失败。
+
+- gasconsumed ：该交易消耗的 GasToken 数量，即交易手续费。
+
+- notifications：智能合约通知。
+
+- contract：发出通知的合约，这里是 GasToken 原生合约。
+
+- eventname：通知的事件名称。
+
+- state：通知内容。其中 ByteString 为 Base64 编码，可以在 https://neo.org/converter/index 进行转换。
+
+

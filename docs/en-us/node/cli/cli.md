@@ -1,10 +1,10 @@
 # CLI Command Reference
 
-Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line wallet (i.e. the Neo node).
+Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line Neo node.
 
 `dotnet neo-cli.dll`
 
-This section will introduce all the commands in the command line wallet. You can manipulate your wallet with commands for creating a wallet, importing and exporting of private key, transferring, starting consensus, etc.
+This section will introduce all the commands in the command line node. You can manipulate your node with commands for creating a wallet, importing and exporting of private key, transferring, starting consensus, etc.
 
 ## Overview
 
@@ -21,7 +21,7 @@ All the commands described in this document conform with these conventions:
 
 | Command      | Description      |
 | ------- | --------- |
-| version | Shows the current software version |
+| version | Shows the current Neo-CLI version |
 | help [plugin-name] | Help menu, which can also show plugin related commands. |
 | [parse](#parse) \<value> | Convert the input string into various supported data format |
 | clear   | Clear screen      |
@@ -38,19 +38,19 @@ All the commands described in this document conform with these conventions:
 
 The commands listed in the table below requires you to open the wallet before invoking.
 
-| Command                                           | Parameters                             | Description                                                  |
-| ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [change password](#change-password)               | \<path>                                | Changes the wallet password                                  |
-| list address                                      |                                        | lists all the accounts in the wallet.                        |
-| list asset                                        |                                        | Lists all assets in the wallet.                              |
-| list key                                          |                                        | Lists all public keys in your wallet.                        |
-| [show gas](#show-gas)                             |                                        | Lists all the GAS in your wallet.                            |
-| [create address](#create-address)                 | [n=1]                                  | Creates address / batch create address                       |
-| [import key](#import-key)                         | \<wif\|path>                           | Imports a private key / bulk import of private keys.         |
-| [export key](#export-key)                         | \[path] [address script hash]          | Exports private keys.                                        |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | Creates a multi-signature contract.                          |
-| [import watchonly](#import-watchonly) | \<wif\|path>            | Imports the watch-only address (e.g. contract address)
-| [send](#send)                                     | \<id\|alias> \<address> \<amount>\|all [from=null] [signerAccounts=null] | Sends assets to the specified address.                       |
+| Command                                           | Parameters                    | Description                                          |
+| ------------------------------------------------- | ----------------------------- | ---------------------------------------------------- |
+| [change password](#change-password)               | \<path>                       | Changes the wallet password                          |
+| list address                                      |                               | lists all the accounts in the wallet.                |
+| list asset                                        |                               | Lists all assets in the wallet.                      |
+| list key                                          |                               | Lists all public keys in your wallet.                |
+| [show gas](#show-gas)                             |                               | Lists all the GAS in your wallet.                    |
+| [create address](#create-address)                 | [n=1]                         | Creates address / batch create address               |
+| [import key](#import-key)                         | \<wif \| path>                | Imports a private key / bulk import of private keys. |
+| [export key](#export-key)                         | \[path] [address script hash] | Exports private keys.                                |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>   | Creates a multi-signature contract.                  |
+| [import watchonly](#import-watchonly) | \<wif \| path>           | Imports the watch-only address (e.g. contract address)|
+| [send](#send)                                  | \<id \| alias> \<address> \<amount> [data=null] [from=null] [signerAccounts=null] | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract commands
@@ -58,7 +58,7 @@ The commands listed in the table below requires you to open the wallet before in
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas] | Invokes a contract |
 
 
 #### Node commands
@@ -75,7 +75,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [balanceof](#balanceof) | \<tokenHash> \<address>                                      | Queries the balance of specified token at the specified address |
 | [decimals](#decimals)   | \<tokenHash>                                                 | Queries the precision of specified token                     |
 | [name](#name)           | \<tokenHash>                                                 | Queries the specified token name                             |
-| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  [from=null] [signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
+| [transfer](#transfer)   | \<tokenHash> \<to> \<amount> [data=null] [from=null] [signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
 #### Native contract commands
 
@@ -83,7 +83,7 @@ The commands listed in the table below requires you to open the wallet before in
 | ------------------------------------------- | ---------- | -------------------------------------------------- |
 | [list nativecontract](#list-nativecontract) |            | Lists all the native contract names and scripthash |
 
-####Network commands
+#### Network commands
 
 | Command         | Parameters          | Description                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------ |
@@ -103,26 +103,31 @@ The commands listed in the table below requires you to open the wallet before in
 | [plugins](#plugins)           |               | Lists loaded plugins                     |
 | [install](#install)           | [Plugin name] | Installs the specified plugin            |
 | [uninstall](#install)         | [Plugin name] | Uninstalls the specified plugin          |
-| [dump storage](#dump-storage) | \<key>        | Exports all or the specified state data. |
+| [dump storage](#dump-storage) | \<key>        | Exports all or the specified state data. This command requires installation of the StatesDumper plugin. |
+| [start consensus](#start-consensus) |  | Starts consensus. This command requires installation of the DBFTPlugin plugin. |
+| [start oracle](#start-oracle) | | Starts Oracle. This command requires installation of the OracleService plugin. |
+| [stop oracle](#stop-oracle) | | Stops Oracle. This command requires installation of the OracleService plugin. |
+| [state root](#state-root) | \<index> | Queries the state root with index. This command requires installation of the StateService plugin. |
+| state height | | Queries the state height. This command requires installation of the StateService plugin. |
+| [get proof](#get-proof) | \<rootHash> \<scriptHash> \<key> | Gets proof with root hash, contract hash, and storage key. |
+| [verify proof](#verify-proof) | \<rootHash> \<proof> | Verifies with root hash and proof. |
 
 #### Voting comands
 
-| Command                                       | Parameters                    | Description                             |
-| --------------------------------------------- | ----------------------------- | --------------------------------------- |
-| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes  |
-| [get committee](#get-committee)               |                               | Gets the committee member's public key  |
-| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key   |
-| [get validators](#get-validators)             |                               | Gets the current validator's public key |
-| [register candidate](#register-candidate)     | \<senderAccount>              | Registers the candidate                 |
-| [unregister candidate](#unregister-candidate) | \<senderAccount>              | Unregisters the candidate               |
-| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                    |
+| Command                                       | Parameters                    | Description                            |
+| --------------------------------------------- | ----------------------------- | -------------------------------------- |
+| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes |
+| [get committee](#get-committee)               |                               | Gets the committee member's public key |
+| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key  |
+| [register candidate](#register-candidate)     | \<senderAccount> [maxGas]     | Registers the candidate                |
+| [unregister candidate](#unregister-candidate) | \<senderAccount>              | Unregisters the candidate              |
+| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                   |
 
 #### Advanced Commands
 
 | Command                         | Parameters                             | Description                                                  |
 | ------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronzation. |
-| [start consensus](#d320b143)    |                                        | Starts consensus                                             |
+| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronization. |
 
 ## Command Description
 
@@ -143,13 +148,11 @@ Address to Base64               uXtKzX+CD2HS1NT5rqXrUEmN31U=
 String to Hex String            4e637068746a675479653363335a4c354a356e445a68736633554a4d47416a64376f
 String to Base64                TmNwaHRqZ1R5ZTNjM1pMNUo1bkRaaHNmM1VKTUdBamQ3bw==
 neo> parse AHVYXVTcKw==
-Base64 to String                 uX]T?+
 Base64 to Big Integer           12345678900000000
 String to Hex String            41485659585654634b773d3d
 String to Base64                QUhWWVhWVGNLdz09
 neo> parse 0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9
 ScriptHash to Address           NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
-Hex String to String            ?{J??a???????PI??U
 Hex String to Big Integer       490249589479789641828817600658206854216357149625
 String to Hex String            307835356466386434393530656261356165663964346434643236313066383237666364346137626239
 String to Base64                MHg1NWRmOGQ0OTUwZWJhNWFlZjlkNGQ0ZDI2MTBmODI3ZmNkNGE3YmI5
@@ -237,7 +240,7 @@ lists all the unclaimed GAS in the current wallet.
 
 ```
 neo> show gas
-unclaimed gas: 0
+unclaimed gas: 16.7367406
 ```
 
 > [!NOTE]
@@ -264,7 +267,7 @@ Creates a new address. One can also enter `create address 100` to create 100 new
 neo> create address 3
 The file 'address.txt' already exists, do you want to overwrite it? (yes|no): yes
 [3/3]
-export addresses to address.txt
+Export addresses to address.txt
 ```
 
 ### balanceof
@@ -342,7 +345,7 @@ Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fb
 
 ### list nativecontract
 
-Lists all the native contract names and scripthash
+Lists all the native contract names and scripthash.
 
 
 ##### Syntax
@@ -354,9 +357,14 @@ Lists all the native contract names and scripthash
 
 ```
 neo> list nativecontract
-        NEO     0xde5f57d430d3dece511cf975a8d37848cb9e0525
-        GAS     0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
-        Policy  0xce06595079cd69583126dbfd1d2e25cca74cffe9
+        ContractManagement  0xa501d7d7d10983673b61b7a2d3a813b36f9f0e43
+        LedgerContract      0x971d69c6dd10ce88e7dfffec1dc603c6125a8764
+        NeoToken            0xf61eebf573ea36593fd43aa150c055ad7906ab83
+        GasToken            0x70e2301955bf1e74cbb31d18c2f96972abadb328
+        PolicyContract      0x79bcd398505eb779df6e67e4be6c14cded08e2f2
+        RoleManagement      0x597b1471bbce497b7809e2c8f10db67050008b02
+        OracleContract      0x8dc0e742cbdfdeda51ff8a8b78d46829144c80ee
+        NameService         0xa2b524b68dfe43a9d56af84f443c6b9843b8028c
 ```
 
 ### get candidates
@@ -419,37 +427,19 @@ Next validators:
 02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
 ```
 
-### get validators
-
-Gets the current validator's public key
-
-##### Syntax
-
- `get validators`
-
-##### Example
-
-```
-neo> get validators
-Invoking script with: '10c00c0d67657456616c696461746f72730c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
-VM State: HALT
-Gas Consumed: 1.0100757
-
-Validators:
-02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
-```
-
 ### register candidate
 
 Registers the candidate
 
 ##### Syntax
 
- `register candidate`
+ `register candidate <senderAccount> [maxGas]`
 
 ##### Parameters
 
 `senderAccount`: The account to register candidate
+
+`maxGas`: The maximum GAS can be consumed.
 
 ##### Example
 
@@ -470,7 +460,7 @@ Unregisters the candidate
 
 ##### Syntax
 
- `unregister candidate`
+ `unregister candidate <senderAccount>`
 
 ##### Parameters
 
@@ -567,11 +557,11 @@ Imports a private key, or  a file with a number of private keys.
 
 ##### Syntax
 
- `import key <wif|path>`
+ `import key <wif | path>`
 
 ##### Parameters
 
-`wif|path`: The key to import or the file path.
+`wif | path`: The key to import or the file path.
 
 ##### Example
 
@@ -632,13 +622,13 @@ Transfers the asset to the specified address. The command requires the verificat
 
 ##### Syntax
 
-`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
+`send <id | alias> <address> <amount> [from=null] [signerAccounts=null]`
 
 ##### Parameters
 
-- `id|alias`: asset ID or asset abbreviations, e.g. neo, gas
+- `id | alias`: asset ID or asset abbreviations, e.g. neo, gas
 - `address`: address to transfer assets to
-- `amount|all`: transfer amount
+- `amount`: transfer amount
 - `from`: address to transfer assets from
 - `signerAccounts`: signer's address
 
@@ -674,7 +664,7 @@ SignatureContext:
 When withdrawing assets from a contract, `from` is the contract hash and the signer account must contain the contract hash and verify account, for example:
 
 ```
-neo> send 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 password: *
 TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```
@@ -728,7 +718,7 @@ Invokes a contract.
 
 ##### Syntax
 
-`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]` 
+`invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null][maxGas]` 
 
 ##### Parameters
 
@@ -748,6 +738,8 @@ Invokes a contract.
 - `sender` : Transaction sender, i.e. the GAS payment account.
 
 - `witnessAddress` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
+
+- `maxGas`: The maximum GAS can be consumed.
 
 ##### Example 1
 
@@ -816,7 +808,7 @@ relay tx(no|yes): no
 
 Input:
 
-    neo> invoke 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+    neo> invoke 0x70e2301955bf1e74cbb31d18c2f96972abadb328 transfer [{"type":"Hash160","value":"0x436b18e7b624c0323b090141a89e79a3ab588b6a"},{"type":"Hash160","value":"0xb4ba98beea38621dd96a9804384db24451b1cff2"},{"type":"Integer","value":"1"}] 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 
 Output:
 
@@ -981,12 +973,14 @@ Shows all the loaded plugins.
 ```
 neo> plugins
 Loaded plugins:
-        ApplicationLogs
-        LevelDBStore
-        RpcServer
-        RpcNep17Tracker
-        StatesDumper
-        SystemLog
+        ApplicationLogs     Synchronizes the smart contract log with the NativeContract log (Notify)
+        DBFTPlugin          Consensus plugin with dBFT algorithm.
+        LevelDBStore        Uses LevelDB to store the blockchain data
+        OracleService       Built-in oracle plugin
+        RpcNep17Tracker     Enquiries NEP-17 balances and transaction history of accounts through RPC
+        RpcServer           Enables RPC for the node
+        StatesDumper        Exports Neo-CLI status data
+        StateService        Enables MPT for the node
 ```
 
 ### install
@@ -999,7 +993,7 @@ To install a plugin, enter the command as follows:
 
 ```
 neo> install RpcServer
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview2-00/RpcServer.zip
+Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview5/RpcServer.zip
 Install successful, please restart neo-cli.
 ```
 
@@ -1027,12 +1021,68 @@ Exports the block data from the specified block height. The output can be used f
 
 ### start consensus
 
-Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../develop/network/private-chain/private-chain2.md).
+Starts the consensus on the premise that the wallet has a consensus authority, allows consensus authority to be obtained on the main net through voting. This command requires  installation of the DBFTPlugin. If a private chain is deployed, public key of the consensus can be set up in the `protocol.json`. For more information refer to [Setting up Private Chain](../../develop/network/private-chain/private-chain2.md).
 
-> [!NOTE]
->
-> If you wan to view the consensus log, set `active` in config.json to `true`.
+### start oracle
 
+Starts Oracle. This command requires installation of the OracleService plugin. The Oracle service is enabled only if the public key of the current wallet address has been assigned the Oracle role by the committee.
 
+### stop oracle
+
+Stops Oracle. This command requires installation of the OracleService plugin.
+
+### state root
+
+Queries the state root with index. This command requires installation of the StateService plugin.
+
+##### Syntax
+
+`state root <index>`
+
+##### Parameters
+
+`<index> `: The block index
+
+```
+neo> state root 20000
+{"version":0,"index":20000,"roothash":"0x0121262f9833b21eae7b8d375c1c334fdd4d4500f1d3fad2da669d5b83e94157","witness":{"invocation":"DECny9LhRZpH61UNC/sXG9WEBFMl7cf1rZPT7U0tCvZa\u002BHs6rG/fz2gKTfvLBUp5lcmGDlrMlKCCfKoougYGt7s4DEAuhkhPROcr2FM5SSHCl5LFWSTrcvxa6rvmLc1NGXwpgcRHV9LY5/H6q5SnwdAW3DSspap93FjvSHqU48Mn41nGDEDI5G6bGhGvyLl8rZbT0LzAHRbQUZ2OWIcnFi/Jo/QtwZoCGrK6L3g2miCXsgkckzUsJ1DoruMzKgVEFb4t/KYBDEAWC2fagW\u002BOt6iUGyo\u002BNu0zC1jl105uLyv5bY4tE03vBjbJDTm1T3o17jC8b3HMaeYMro2IGZTSOGt3b9YF6ntiDEBaMGwM/\u002Bd\u002BkTHmBb9c\u002BuCfMkEHOez8XuyoSZotQdDCtaVMCT4wHwIHspxeGGp1iVIEtEYFhJl0EfPEObcO0YfGDEBCC3/hBNLGmusDpr4gDfD6asqjyNCGPNerYIHunu2gsOr6kr3uQJBFqaXSYp\u002BCkz9HBrc6Cq2fNz4HPn/tIo5S","verification":"FgwhAwAqLhjDnN7Qb8Yd2UoHuOnz\u002BgNqcFvu\u002BHZCUpVOgtDXDCECAM1gQDlYokm5qzKbbAjI/955zDMJc2eji/a1GIEJU2EMIQIhkM6Z1WxnvBcDTCedOLpwWTZHFtEduMhLpf3Z/AJgEQwhAzU7wXKtEGB62apHDocfRKJil\u002ByBAIP6J8aLnJSjTL/5DCECNxinjeXEq5HT3NK2m0dPLTUIuN3EeHiMupRY6Sj\u002B/qYMIQKXhyDsbFxYdeA0d\u002BFsbZj5AQhamA13R64ysGgh19j6UwwhAqPXy4P0JIWNvpx5c9df/ut8OUCIRJ9onGacn09vEIVODCEDySUJ5CjN1/ek/dSpfGeJELQPFGXd3k8En3MlrzOAeSkYC0ETje\u002Bv"}}
+```
+
+### get proof
+
+Gets proof with root hash, contract hash, and storage key.
+
+##### Syntax
+
+`get proof <root hash> <script hash> <key>`
+
+##### Parameters
+
+* `<root hash>`: hash of the state root.
+* `<script hash>`: Contract hash
+* `<key>`: key of the storage; Base64-encoded.
+
+```
+neo> get proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 Fw==
+Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFtRI5V11s58vA+8CZ5GArFLkGUYLO98RLaMaYmA5MEnx0upnVI45XTpoUDRvwrlPD59uWy9aIrdS4T0D2cA6Rwv/l3GmrctRzL1me+iTUFdDgooaz+esFHFXJdDANfA2bdshZMp5ox2goVAOMjvoxNIWWOqjJoRPu6ZOw2kdj6A8xovEK1Mp6cAG9z/jfFDrSEM60kuo97MNaVOP/cDZ1wA1nf4WdI+jksYz0EJgzBukK8rEzz8jE2cb2Zx2fytVyQBANC7v2RaLMCRF1XgLpSri12L2IwL9Zcjz5LZiaB5nHKNgQpAQYPDw8PDw8DggFffnsVMyqAfZjg+4gu97N/gKpOsAK8Q27s56tijRlSAAMm26DYxOdf/IjEgkE/u/CoRL6dDnzvs1dxCg/00esMvgPGioeOqQCkDOTfliOnCxYjbY/0XvVUOXkceuDm1W0FzQQEBAQEBAQEBAQEBAQEBJIABAPH1PnX/P8NOgV4KHnogwD7xIsD8KvNhkTcDxgCo7Ec6gPQs1zD4igSJB4M9jTREq+7lQ5PbTH/6d138yUVvtM8bQP9Df1kh7asXrYjZolKhLcQ1NoClQgEzbcJfYkCHXv6DQQEBAOUw9zNl/7FJrWD7rCv0mbOoy6nLlHWiWuyGsA12ohRuAQEBAQEBAQEBAYCBAIAAgA=
+```
+
+### verify proof
+
+Verifies with root hash and proof.
+
+##### Syntax
+
+`verify proof <root hash> <proof>`
+
+##### Parameters
+
+* `<root hash>`: hash of the state root.
+* `<proof>`: proof of the state root; Base64-encoded.
+
+```
+neo> verify proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFtRI5V11s58vA+8CZ5GArFLkGUYLO98RLaMaYmA5MEnx0upnVI45XTpoUDRvwrlPD59uWy9aIrdS4T0D2cA6Rwv/l3GmrctRzL1me+iTUFdDgooaz+esFHFXJdDANfA2bdshZMp5ox2goVAOMjvoxNIWWOqjJoRPu6ZOw2kdj6A8xovEK1Mp6cAG9z/jfFDrSEM60kuo97MNaVOP/cDZ1wA1nf4WdI+jksYz0EJgzBukK8rEzz8jE2cb2Zx2fytVyQBANC7v2RaLMCRF1XgLpSri12L2IwL9Zcjz5LZiaB5nHKNgQpAQYPDw8PDw8DggFffnsVMyqAfZjg+4gu97N/gKpOsAK8Q27s56tijRlSAAMm26DYxOdf/IjEgkE/u/CoRL6dDnzvs1dxCg/00esMvgPGioeOqQCkDOTfliOnCxYjbY/0XvVUOXkceuDm1W0FzQQEBAQEBAQEBAQEBAQEBJIABAPH1PnX/P8NOgV4KHnogwD7xIsD8KvNhkTcDxgCo7Ec6gPQs1zD4igSJB4M9jTREq+7lQ5PbTH/6d138yUVvtM8bQP9Df1kh7asXrYjZolKhLcQ1NoClQgEzbcJfYkCHXv6DQQEBAOUw9zNl/7FJrWD7rCv0mbOoy6nLlHWiWuyGsA12ohRuAQEBAQEBAQEBAYCBAIAAgA=
+AAI=
+```
 
 

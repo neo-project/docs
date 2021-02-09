@@ -1,4 +1,4 @@
-# SetMaxBlockSystemFee Method (uint)
+# SetMaxBlockSystemFee Method
 
 Sets the maximum system fee for the block
 
@@ -25,7 +25,7 @@ Parameter:
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         bool result = Policy.SetMaxBlockSystemFee(4007800L);
         return result;

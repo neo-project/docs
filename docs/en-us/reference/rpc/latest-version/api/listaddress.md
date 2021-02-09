@@ -30,13 +30,13 @@ Response body：
     "id": 1,
     "result": [
         {
-            "address": "NZos4XyLUEUrD7RQBn9J1A1PyeCwQKqwtT",
+            "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
             "haskey": true,
             "label": null,
             "watchonly": false
         },
         {
-            "address": "NdAth5nq7RyG4HEJRsVJxnk9Q6XHoeB3No",
+            "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
             "haskey": true,
             "label": null,
             "watchonly": false
@@ -48,5 +48,9 @@ Response body：
 Response description：
 
 address: The address in the wallet.
+
+haskey: Whether there is a private key for the address.
+
+label: Address label.
 
 watchonly: Indicates whether it is a watch only address.

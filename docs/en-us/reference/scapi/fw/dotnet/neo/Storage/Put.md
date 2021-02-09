@@ -9,39 +9,23 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern void Put(StorageContext context, byte[] key, byte[] value);
-public static extern void Put(StorageContext context, byte[] key, BigInteger value);
-public static extern void Put(StorageContext context, byte[] key, string value);
-public static extern void Put(StorageContext context, string key, byte[] value);
-public static extern void Put(StorageContext context, string key, BigInteger value);
-public static extern void Put(StorageContext context, string key, string value);
+Put(StorageContext context, byte[] key, ByteString value);
+Put(StorageContext context, byte[] key, byte[] value);
+Put(StorageContext context, byte[] key, BigInteger value);
+Put(StorageContext context, ByteString key, ByteString value);
+Put(StorageContext context, ByteString key, BigInteger value);
+Put(StorageContext context, byte[] key, byte[] value, StorageFlags flags);
+Put(StorageContext context, byte[] key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags);
 ```
 
 Parameters:
 
-- Context: Storage context as a [StorageContext](../StorageContext.md).
-
-- Key: Key as a byte array.
-
-- Value: Value as a byte array.
-
-
-Return value: void.
-
-```c#
-public static extern void Put(byte[] key, byte[] value);
-public static extern void Put(byte[] key, BigInteger value);
-public static extern void Put(byte[] key, string value);
-public static extern void Put(string key, byte[] value);
-public static extern void Put(string key, BigInteger value);
-public static extern void Put(string key, string value);
-```
-
-Parameters:
-
-- Key: Key as a byte array.
-
-- Value: Value as a byte array, BigInteger or string.
+- context: Storage context as a [StorageContext](../StorageContext.md).
+- key: Key as a byte array or string.
+- value: Value as a byte array, Biginteger, or string.
+- flag: StorageFlags type, representing a variable or constant in storage.
 
 
 Return value: void.
@@ -64,12 +48,6 @@ public class Contract1 : SmartContract.Framework.SmartContract
         Storage.Put(Storage.CurrentContext, key2, value1);
         Storage.Put(Storage.CurrentContext, key2, value2);
         Storage.Put(Storage.CurrentContext, key2, value3);
-        Storage.Put(key1, value1);
-        Storage.Put(key1, value2);
-        Storage.Put(key1, value3);
-        Storage.Put(key2, value1);
-        Storage.Put(key2, value2);
-        Storage.Put(key2, value3);
     }
 }
 ```

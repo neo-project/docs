@@ -1,6 +1,6 @@
 # getbestblockhash 方法
 
-获取主链中高度最大的区块的散列。
+获取当前链中高度最大的区块的散列。
 > [!Note]
 >
 > 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
@@ -30,5 +30,5 @@
 
 响应说明：
 
-result：主链中高度最大的区块的散列。
+result：当前链中高度最大的区块的散列。
 

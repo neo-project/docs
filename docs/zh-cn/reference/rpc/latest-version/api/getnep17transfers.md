@@ -1,6 +1,6 @@
 # getnep17transfers 方法
 
-返回指定地址内的所有 NEP-5 交易记录。
+返回指定地址内的所有 NEP-17 交易记录。
 
 > [!Note]
 >
@@ -8,26 +8,26 @@
 
 ## 参数说明
 
-address：要查看交易记录的地址。
+- address：要查看交易记录的地址。
 
-timestamp (可选)：
+- startTime | endTime：可选参数，UTC 时间戳，统计资产开始或截止时间（含）。
 
-- 如果设置起始和结束时间戳，则返回时间戳范围内的交易信息。
-- 如果仅设置一个时间戳，则返回自该时间戳以后发生的交易信息。
-- 如果不设置此参数，则返回近七天内的交易信息。
+  - 如果设置起始和结束时间戳，则返回时间戳范围内的交易信息。
+  - 如果仅设置一个时间戳，则返回自该时间戳以后发生的交易信息。
+  - 如果不设置此参数，则返回近七天内的交易信息。
 
 ## 调用示例
 
-示例 1  - 不设置时间戳：
+示例 1  - 设置起始时间戳：
 
 请求正文：
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "method": "getnep17transfers",
-    "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"],
-    "id": 1
+  "jsonrpc": "2.0",
+  "method": "getnep17transfers",
+  "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ", 0],
+  "id": 1
 }
 ```
 
@@ -41,25 +41,25 @@ timestamp (可选)：
         "sent": [],
         "received": [
             {
-                "timestamp": 1579170709527,
-                "assethash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
+                "timestamp": 1612690497725,
+                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
                 "amount": "100",
-                "blockindex": 54496,
-                "transfernotifyindex": 0,
-                "txhash": "0x49f40ea86de140849fc5eb1c1ab8dbbe4d1186c47807963a162338d979e79c0f"
+                "blockindex": 2,
+                "transfernotifyindex": 1,
+                "txhash": "0x5f957960a782514d6587c445288ee1cca7d6b0f952edc204f14d9be83b8152ff"
             },
             {
-                "timestamp": 1579170725318,
-                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
+                "timestamp": 1612690513541,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
                 "amount": "10000000000",
-                "blockindex": 54499,
+                "blockindex": 3,
                 "transfernotifyindex": 0,
-                "txhash": "0x1c25607fda68a2ab5793fb83b5bc87f781afb310127b440620b4ad176d77fa3d"
+                "txhash": "0xe42108b343626035cb51fbcb54949bb38aac50c8ba278841d304e9fdce0807ac"
             }
         ],
-        "address": "NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```
@@ -72,7 +72,7 @@ timestamp (可选)：
 {
     "jsonrpc": "2.0",
     "method": "getnep17transfers",
-    "params": ["NNSri1QcdtidykMxryz1xpmzSFwEXeYohH", 1579170709528, 1579170725319],
+    "params": ["NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ", 1611716619654, 2011716619654],
     "id": 1
 }
 ```
@@ -87,16 +87,25 @@ timestamp (可选)：
         "sent": [],
         "received": [
             {
-                "timestamp": 1579170725318,
-                "assethash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "transferaddress": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
+                "timestamp": 1612690497725,
+                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+                "amount": "100",
+                "blockindex": 2,
+                "transfernotifyindex": 1,
+                "txhash": "0x5f957960a782514d6587c445288ee1cca7d6b0f952edc204f14d9be83b8152ff"
+            },
+            {
+                "timestamp": 1612690513541,
+                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "transferaddress": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
                 "amount": "10000000000",
-                "blockindex": 54499,
+                "blockindex": 3,
                 "transfernotifyindex": 0,
-                "txhash": "0x1c25607fda68a2ab5793fb83b5bc87f781afb310127b440620b4ad176d77fa3d"
+                "txhash": "0xe42108b343626035cb51fbcb54949bb38aac50c8ba278841d304e9fdce0807ac"
             }
         ],
-        "address": "NNSri1QcdtidykMxryz1xpmzSFwEXeYohH"
+        "address": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ"
     }
 }
 ```

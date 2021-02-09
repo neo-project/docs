@@ -2,6 +2,8 @@
 
 Returns the corresponding block information according to the specified hash or index.
 
+The usage of this method is as same as `getblockheader`. The only difference is that `getblockeader` gets the block header and `getblock` gets the complete block.
+
 > [!Note]
 >
 > You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
@@ -10,13 +12,13 @@ Returns the corresponding block information according to the specified hash or i
 
 * hash | index: Block hash string or block index (i.e. block height = number of blocks - 1).
 
-* verbose: Optional. The default value is 0. 
-  * When verbose is 0, serialized information of the block is returned in a hexadecimal string. If you need the detailed information, use SDK for deserialization. 
-  * When verbose is 1, detailed information of the block is returned in Json format.
+* verbose: Optional. The default value is false. 
+  * When verbose is false, serialized information of the block is returned in a Base64-encoded string. If you need the detailed information, use SDK for deserialization. 
+  * When verbose is true or 1, detailed information of the block is returned in Json format.
 
 ## Example
 
-**Example 1 - invoke with block hash**
+**Example 1 - Get serialized information of the block**
 
 Request body:
 
@@ -24,8 +26,19 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblock",
-  "params": ["0xdf9c92cdb8d503214d0bf6c231ccbfa25c20ce24fc4d03a966760e4423889710", 0],
+  "params": [140],
   "id": 1
+}
+```
+
+or
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "getblock",
+  "params": ["0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c"]
 }
 ```
 
@@ -35,56 +48,11 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "AAAAAFjOB3LXvZFhG/DF9PnA4Zh/buBfAFhvwG6JAzP4EAht5itJ14qK/tiaUxujBBTdZAYFAKnwJroJd8AQAp+vHgzyjenQdQEAANAHAAD6lrDvowCyjK9dBALCmE1fvMuahQFCDEBxGiRWC9d/xNWdbZ1uM9Z/yBVoPLKG6WTQ22aMOgk/AwQMTFdgoZEoSkvyA0791Y1AV146AJEu2R/jFOZZyj37KxEMIQL4L//X3jDpIyMLze0sPNW+yFcufrrL3bnzOipdJpNLixELQRON768BAGgp5HJL+bHp"
+    "result": "AAAAAFrf0tgylRv20FkZygEC2UDiMHJTukXJPQ/DFP5sezdzm3A7VffHxK0b4rwXh/xR/zV24Mj6+Vhq25qoN1WlxRIBIKp7dwEAAIwAAADitlMicpPpnE8pBtU1U6u0pnLfhgFCDEDGZIUihuWK6RLqloq6UiKxkoW0QFhqGhoQU3cK5IQRATFUY807W/hGmYqP80N8qjKQ/e4o8URTzgRUXJKXf1/sKxEMIQLO1DI5fdxE7boDHAvDuTPyj92Wd3kteyDmwDbdqqzx4hELQRON768CAPKRpz5nJf56AIsJtw60lJgAAAAAAAjoIwAAAAAACxcAAAL6ifssFN8PWd3fBPblZRfys0qu6wDitlMicpPpnE8pBtU1U6u0pnLfhgEAXwsDAOQLVAIAAAAMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFCizratyafnCGB2zy3Qev1UZMOJwQWJ9W1I5AkIMQLfVkTWSIgU9qfupqX+H0ViwPYtOTot/SbQptuHUYTFSpMB/J7sEOPITKV9HnT8BU1CSv6D6NdcwcZzEXgxRgFApDCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXhCDED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5TKxEMIQLO1DI5fdxE7boDHAvDuTPyj92Wd3kteyDmwDbdqqzx4hELQRON768="
 }
 ```
 
-Request body:
-
-verbose = 1，returns the result in JSON format:
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "getblock",
-  "params": ["0xdf9c92cdb8d503214d0bf6c231ccbfa25c20ce24fc4d03a966760e4423889710", 1],
-  "id": 1
-}
-```
-
-Response body:
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "hash": "0xdf9c92cdb8d503214d0bf6c231ccbfa25c20ce24fc4d03a966760e4423889710",
-        "size": 222,
-        "version": 0,
-        "previousblockhash": "0x6d0810f83303896ec06f58005fe06e7f98e1c0f9f4c5f01b6191bdd77207ce58",
-        "merkleroot": "0x0c1eaf9f0210c07709ba26f0a900050664dd1404a31b539ad8fe8a8ad7492be6",
-        "time": 1605527768562,
-        "index": 2000,
-        "nextconsensus": "NikxdvEetzBKLHAddYJ7BHZT9USwm8qGFP",
-        "witnesses": [
-            {
-                "invocation": "DEBxGiRWC9d/xNWdbZ1uM9Z/yBVoPLKG6WTQ22aMOgk/AwQMTFdgoZEoSkvyA0791Y1AV146AJEu2R/jFOZZyj37",
-                "verification": "EQwhAvgv/9feMOkjIwvN7Sw81b7IVy5+usvdufM6Kl0mk0uLEQtBE43vrw=="
-            }
-        ],
-        "consensusdata": {
-            "primary": 0,
-            "nonce": "e9b1f94b72e42968"
-        },
-        "tx": [],
-        "confirmations": 5313,
-        "nextblockhash": "0x09638b66b8254485b594e7849dc279675e7631a06cdff857bee6991c1daa8105"
-    }
-}
-```
-
-**Example 2 - invoke with block index**
+**Example 2 - Get block information in Json**
 
 Request body:
 
@@ -92,31 +60,19 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getblock",
-  "params": [7368],
+  "params": [140, true],
   "id": 1
 }
 ```
 
-Response body:
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": "AAAAACMSKFbGpGl6t7uroMpi2ilhQd84eU/pUrRfQyswXYl76woLOY0oW1z4InfxoKyxFAAB+8FS6cRu2Pm0iaOiD8OMCnLadQEAAMgcAAD6lrDvowCyjK9dBALCmE1fvMuahQFCDEAd8EoEFBcxOLCZfh8w0tUEHHmyn++KzW4I8oeJ1WyMmjHVcolpNzOnAOzXTn/xujwy93gJ9ijvVo6wAF5qC3wCKxEMIQL4L//X3jDpIyMLze0sPNW+yFcufrrL3bnzOipdJpNLixELQRON768CAGUTt7+NSxXGAA7aoUS2kokAAAAAACYcEwAAAAAARzMAAAHNWK7P0zW+HrPTEeHcgAlj39ctnwEAXQMA5AtUAgAAAAwUzViuz9M1vh6z0xHh3IAJY9/XLZ8MFM1Yrs/TNb4es9MR4dyACWPf1y2fE8AMCHRyYW5zZmVyDBS8r0HWhMfUrW7g2Z2pcHudHwyOZkFifVtSOAFCDEADRhUarLK+/BBjhqaWY5ieento21zgkcsUMWNCBWGd+v8a35zatNRgFbUkni4dDNI/BGc3zOgPT6EwroUsgvR+KQwhAv3yei642bBp1hrlpk26E7iWN8VC2MdMXWurST/mONaPC0GVRA14"
-}
-```
-
-Request body:
-
-Verbose = 1, returns the result in JSON format:
+or
 
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getblock",
-  "params": [7368,1],
-  "id": 1
+  "params": ["0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c", true]
 }
 ```
 
@@ -127,52 +83,60 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x5f0b81b921eebf719f97e98e8c56e260db8720138b4a7def766b1498a3f4296b",
-        "size": 474,
+        "hash": "0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c",
+        "size": 608,
         "version": 0,
-        "previousblockhash": "0x7b895d302b435fb452e94f7938df416129da62caa0abbbb77a69a4c656281223",
-        "merkleroot": "0xc30fa2a389b4f9d86ec4e952c1fb010014b1aca0f17722f85c5b288d390b0aeb",
-        "time": 1605687708300,
-        "index": 7368,
-        "nextconsensus": "NikxdvEetzBKLHAddYJ7BHZT9USwm8qGFP",
+        "previousblockhash": "0x73377b6cfe14c30f3dc945ba537230e240d90201ca1959d0f61b9532d8d2df5a",
+        "merkleroot": "0x12c5a55537a89adb6a58f9fac8e07635ff51fc8717bce21badc4c7f7553b709b",
+        "time": 1612687482881,
+        "index": 140,
+        "nextconsensus": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
         "witnesses": [
             {
-                "invocation": "DEAd8EoEFBcxOLCZfh8w0tUEHHmyn++KzW4I8oeJ1WyMmjHVcolpNzOnAOzXTn/xujwy93gJ9ijvVo6wAF5qC3wC",
-                "verification": "EQwhAvgv/9feMOkjIwvN7Sw81b7IVy5+usvdufM6Kl0mk0uLEQtBE43vrw=="
+                "invocation": "DEDGZIUihuWK6RLqloq6UiKxkoW0QFhqGhoQU3cK5IQRATFUY807W/hGmYqP80N8qjKQ/e4o8URTzgRUXJKXf1/s",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
             }
         ],
         "consensusdata": {
             "primary": 0,
-            "nonce": "c6154b8dbfb71365"
+            "nonce": "7afe25673ea791f2"
         },
         "tx": [
             {
-                "hash": "0xdcdac54af951034bccc5079e8619f9ce9803a5e2fb90e351571657a62e38b28a",
-                "size": 252,
+                "hash": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+                "size": 386,
                 "version": 0,
-                "nonce": 1151457806,
-                "sender": "NedjwsfAJYFas9rn8UHWQftTW4oKAQyW9h",
-                "sysfee": "9015990",
-                "netfee": "1252390",
-                "validuntilblock": 13127,
+                "nonce": 246876555,
+                "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+                "sysfee": "0.0999954",
+                "netfee": "0.0235316",
+                "validuntilblock": 5899,
                 "signers": [
                     {
-                        "account": "0x9f2dd7df630980dce111d3b31ebe35d3cfae58cd",
+                        "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
+                        "scopes": "None"
+                    },
+                    {
+                        "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
                         "scopes": "CalledByEntry"
                     }
                 ],
                 "attributes": [],
-                "script": "AwDkC1QCAAAADBTNWK7P0zW+HrPTEeHcgAlj39ctnwwUzViuz9M1vh6z0xHh3IAJY9/XLZ8TwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4",
+                "script": "CwMA5AtUAgAAAAwU+on7LBTfD1nd3wT25WUX8rNKrusMFOK2UyJyk+mcTykG1TVTq7Smct+GFMAfDAh0cmFuc2ZlcgwUKLOtq3Jp+cIYHbPLdB6/VRkw4nBBYn1bUjk=",
                 "witnesses": [
                     {
-                        "invocation": "DEADRhUarLK+/BBjhqaWY5ieento21zgkcsUMWNCBWGd+v8a35zatNRgFbUkni4dDNI/BGc3zOgPT6EwroUsgvR+",
-                        "verification": "DCEC/fJ6LrjZsGnWGuWmTboTuJY3xULYx0xda6tJP+Y41o8LQZVEDXg="
+                        "invocation": "DEC31ZE1kiIFPan7qal/h9FYsD2LTk6Lf0m0Kbbh1GExUqTAfye7BDjyEylfR50/AVNQkr+g+jXXMHGcxF4MUYBQ",
+                        "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
+                    },
+                    {
+                        "invocation": "DED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5T",
+                        "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
                     }
                 ]
             }
         ],
-        "confirmations": 2,
-        "nextblockhash": "0x1545a328149baf8037873793d7e45d27385221dd69ddb606ee55434eb173a3ff"
+        "confirmations": 34,
+        "nextblockhash": "0xd087785fc3cf5b59c6a4631bdbdd63ed3e44947c22eb69ba866ea9291473b2b5"
     }
 }
 ```

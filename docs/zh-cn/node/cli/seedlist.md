@@ -8,6 +8,7 @@
   "ProtocolConfiguration": {
     "Magic": ...,
     "MillisecondsPerBlock": ...,
+    "MaxTraceableBlocks": ···,
     "ValidatorsCount":...,
     "StandbyCommittee": [
       ...
@@ -65,6 +66,7 @@
   "ProtocolConfiguration": {
     "Magic": 7630401,
     "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 7,
     "StandbyCommittee": [
       "03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c",

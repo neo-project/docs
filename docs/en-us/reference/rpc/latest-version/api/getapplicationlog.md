@@ -23,7 +23,7 @@ Returns the contract event information based on the specified txid. The contract
 
 ## Example
 
-Request body 1：
+Request body：
 
 ```json
 {
@@ -31,10 +31,12 @@ Request body 1：
   "id": 1,
   "method": "getapplicationlog",
   "params": [
-    "0xd6ea48f1c33defc1815562b3ace4ead99bf33a8ae67b2642cf73c2f192a717e5"
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
   ]
 }
 ```
+
+This transaction transfers 100 GAS from NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF to NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ.
 
 Response body 1:
 
@@ -43,51 +45,32 @@ Response body 1:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xd6ea48f1c33defc1815562b3ace4ead99bf33a8ae67b2642cf73c2f192a717e5",
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
         "executions": [
             {
                 "trigger": "Application",
                 "vmstate": "HALT",
-                "gasconsumed": "9007990",
+                "exception": null,
+                "gasconsumed": "9999540",
                 "stack": [],
                 "notifications": [
                     {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "ByteString",
-                                    "value": "9S37k0BBDIaRxjEhW0Sk+9lDN4s="
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "400000000"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "contract": "0xde5f57d430d3dece511cf975a8d37848cb9e0525",
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
                         "eventname": "Transfer",
                         "state": {
                             "type": "Array",
                             "value": [
                                 {
                                     "type": "ByteString",
-                                    "value": "9S37k0BBDIaRxjEhW0Sk+9lDN4s="
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
                                 },
                                 {
                                     "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
                                 },
                                 {
                                     "type": "Integer",
-                                    "value": "1"
+                                    "value": "10000000000"
                                 }
                             ]
                         }
@@ -99,110 +82,22 @@ Response body 1:
 }
 ```
 
-Request body 2：
+Response description:
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "getapplicationlog",
-  "params": [
-    "0x0745a04ddb7803ebd549af4d80de03fc69349b0b77615a06d9ef052637de5931", "System"
-  ]
-}
+- txid: Transaction ID.
 
-```
+- trigger: Triggers.
 
-Response body 2：
+- vmstate: VM execution state. HALT represents success, and FAULT represents failure.
+- gasconsumed: The transaction fee, which means the GAS consumed in the transaction execution. 
+- notifications: The notification sent by the smart contract.
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "blockhash": "0x0745a04ddb7803ebd549af4d80de03fc69349b0b77615a06d9ef052637de5931",
-        "executions": [
-            {
-                "trigger": "System",
-                "vmstate": "HALT",
-                "gasconsumed": "2031260",
-                "stack": [],
-                "notifications": [
-                    {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
-                                },
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "11384830"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "2376840"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            },
-            {
-                "trigger": "System",
-                "vmstate": "HALT",
-                "gasconsumed": "2031260",
-                "stack": [],
-                "notifications": [
-                    {
-                        "contract": "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-                        "eventname": "Transfer",
-                        "state": {
-                            "type": "Array",
-                            "value": [
-                                {
-                                    "type": "Any"
-                                },
-                                {
-                                    "type": "ByteString",
-                                    "value": "1rSxahaE1EDW2TzNNlNk0rjQEpI="
-                                },
-                                {
-                                    "type": "Integer",
-                                    "value": "25000000"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-}
-```
+- contract: The contract sending the notification. Here is GasToken.
 
-Response description：
-gasconsumed: The transaction fee, which means the gas consumed in the transaction execution. 
+- eventname: Event name of the notification.
+
+- state: Notification content, where ByteString is Base64-encoded and can be converted at https://neo.org/converter/index.
+
+
+
 

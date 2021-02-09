@@ -1,4 +1,4 @@
-# GetMaxBlockSystemFee Method ()
+# GetMaxBlockSystemFee Method
 
 Gets the maximum system fee for the block
 
@@ -17,7 +17,7 @@ public static extern long GetMaxBlockSystemFee();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         long result = Policy.GetMaxBlockSystemFee();
         return result;

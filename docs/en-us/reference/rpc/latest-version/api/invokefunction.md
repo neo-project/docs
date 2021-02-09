@@ -17,36 +17,33 @@ Invokes a smart contract with its scripthash based on the specified operation an
 
 * signers: Optional. List of contract signature accounts.
 
-  > [!Note]
-  >
-  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-
   * account: signature account
   * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
-  * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+* allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
-
-You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-
-For example:
-
-```json
-  {
-    "type": "String",
-    "value": "Hello"
-  }
-
-  {
-    "type": "Hash160",
-    "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
-  }
-
-  {
-    "type": "ByteArray",
-    "value": "7472616e73666572"
-  }
-```
+  > [!Note]
+  >
+  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+  
+  For example:
+  
+  ```json
+    {
+      "type": "String",
+      "value": "Hello"
+    }
+  
+    {
+      "type": "Hash160",
+      "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+    }
+  
+    {
+      "type": "ByteArray",
+      "value": "7472616e73666572"
+    }
+  ```
 
 ## Example
 
@@ -54,35 +51,39 @@ Request body:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "invokefunction",
-  "params": [
-    "0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc",
-    "transfer",
-    [
-      {
-        "type":"Hash160",
-        "value":"0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
-        },
-      {
-        "type":"Hash160",
-        "value":"0x1f177332c467db9ba734d3ca85645fbadd7e13e3"
-        },
-      {
-        "type":"Integer",
-        "value":"8"
-        }        
-    ],
-    [
-        {
-          "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
-          "scopes": "CalledByEntry",
-          "allowedcontracts":[],
-          "allowedgroups":[]
-        }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "invokefunction",
+    "params": [
+        "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+        "transfer",
+        [
+            {
+                "type": "Hash160",
+                "value": "0x86df72a6b4ab5335d506294f9ce993722253b6e2"
+            },
+            {
+                "type": "Hash160",
+                "value": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa"
+            },
+            {
+                "type": "Integer",
+                "value": "10000"
+            },
+            {
+                "type": "String",
+                "value": ""
+            }
+        ],
+        [
+            {
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
+                "scopes": "CalledByEntry",
+                "allowedcontracts": [],
+                "allowedgroups": []
+            }
+        ]
     ]
-  ]
 }
 ```
 
@@ -93,31 +94,33 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
+        "script": "DAABECcMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFIOrBnmtVcBQoTrUP1k26nP16x72QWJ9W1I=",
         "state": "HALT",
-        "gasconsumed": "9007960",
+        "gasconsumed": "999972",
+        "exception": null,
         "stack": [
             {
                 "type": "Boolean",
                 "value": true
             }
         ],
-        "tx": null
+        "tx": "AI3PBQRolZgAAAAAAMrSEgAAAAAAtRcAAAHitlMicpPpnE8pBtU1U6u0pnLfhgEAWQwAARAnDBT6ifssFN8PWd3fBPblZRfys0qu6wwU4rZTInKT6ZxPKQbVNVOrtKZy34YUwB8MCHRyYW5zZmVyDBSDqwZ5rVXAUKE61D9ZNupz9ese9kFifVtSAUIMQB87UjubTE7Kb/fOe8Yu2QDUQJ6c5pL9LjcoFaNkEiJzLY5yd72jrsvVbVFNZ6ObWloAmLkjCgDXw9enkVtwVBMrEQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
     }
 }
 ```
 
 Response description:
 
-- script: the invocation script of the contract. By reference to [OpCodeConverter](https://github.com/chenzhitong/OpCodeConverter) you can convert the script to the following OpCode (NeoVM is a stack-based virtual machine that executes from bottom to top when executing):
+- script: the invocation script of the contract. You can analysis from https://neo.org/converter:
 
   ```
-  PUSHINT16 8
-  PUSHDATA1 0x1f177332c467db9ba734d3ca85645fbadd7e13e3
-  PUSHDATA1 0xf621168b1fce3a89c33a5f6bcf7e774b4657031c
-  PUSHDATA1 transfer
-  PUSHDATA1 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc
   SYSCALL System.Contract.Call
+  PUSHDATA1 0xf61eebf573ea36593fd43aa150c055ad7906ab83
+  PUSHDATA1 transfer
+  PUSHDATA1 0x86df72a6b4ab5335d506294f9ce993722253b6e2
+  PUSHDATA1 0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa
+  PUSHINT16 10000
+  PUSHDATA1
   ```
 
 - state:  `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
@@ -127,6 +130,3 @@ Response description:
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
 - tx: the transaction's hex string of this invocation, need open wallet and added signers correctly.
-> [!Note]
->
-> After entering the `invokefunction` command,  the node invokes the `operation` method, and pass `params` as arguments. If `operation` and `params` are not processed in the contract, the expected result cannot be returned.

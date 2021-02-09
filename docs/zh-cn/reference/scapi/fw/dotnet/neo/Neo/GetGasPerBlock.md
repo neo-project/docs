@@ -1,4 +1,4 @@
-# GetGasPerBlock 方法 ()
+# NEO.GetGasPerBlock 方法
 
 获取当前每个区块可产生的GAS数。
 
@@ -17,7 +17,7 @@ public static extern BigInteger GetGasPerBlock();
 ```c#
 public class Contract1 : SmartContract.Framework.SmartContract
 {
-    public static object Main()
+    public static object Test()
     {
         BigInteger result = NEO.GetGasPerBlock();
         return result;
@@ -25,7 +25,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-响应正文：
+部署后，调用该合约，响应正文为：
 
 ```json
 {

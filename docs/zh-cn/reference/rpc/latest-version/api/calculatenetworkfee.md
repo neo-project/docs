@@ -1,10 +1,10 @@
 # calculatenetworkfee 方法
 
-计算指定交易的网络费GAS。
+计算指定交易的网络费 GasToken。
 
 > [!Note]
 >
-> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
@@ -30,8 +30,8 @@ tx ：交易信息Base64编码的字符串。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "networkfee": 2384840
+        "networkfee": 23848400
     }
 }
-
 ```
+
