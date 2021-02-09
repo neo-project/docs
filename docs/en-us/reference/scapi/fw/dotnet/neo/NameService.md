@@ -1,6 +1,6 @@
 # NameService Class
 
-Provides a series of attributes and methods of the native contract NameService, which contract hash is  `0xa2b524b68dfe43a9d56af84f443c6b9843b8028c`.
+Provides a series of attributes and methods of the native contract NameService, which contract hash is  `0x7a8fcf0392cd625647907afa8e45cc66872b596b`.
 
 NameService is also an NFT（Non-fungible token）contract that inherits all attributes and methods of NFT contracts.
 

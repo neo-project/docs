@@ -1,6 +1,6 @@
 # ContractManagement 类
 
-提供了原生合约 ContractManagement 的一系列方法，合约哈希为`0xa501d7d7d10983673b61b7a2d3a813b36f9f0e43`。
+提供了原生合约 ContractManagement 的一系列方法，合约哈希为`0xfffdc93764dbaddd97c48f252a53ea4643faa3fd`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 

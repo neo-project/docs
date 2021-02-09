@@ -13,7 +13,7 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount);
+public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null);
 ```
 
 Parameters:
@@ -21,6 +21,7 @@ Parameters:
 - from: Script hash of the account you transfer from
 - to: Script hash of the account you transfer to
 - amount: The amount to be transferred.
+- data: An additional parameter, which will be passed as a parameter when the onNEP17Payment method of the receiver is called in the transfer method of NEP-17.
 
 ## Example
 

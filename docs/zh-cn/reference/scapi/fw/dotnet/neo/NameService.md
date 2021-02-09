@@ -1,6 +1,6 @@
 # NameService 类
 
-提供了原生合约 NameService 的一系列方法，合约哈希为 `0xa2b524b68dfe43a9d56af84f443c6b9843b8028c`。
+提供了原生合约 NameService 的一系列方法，合约哈希为 `0x7a8fcf0392cd625647907afa8e45cc66872b596b`。
 
 NameService 同时也是NFT（Non-fungible token）合约，继承了NFT合约所有的属性和方法。
 

@@ -1,6 +1,6 @@
 # Neo 类
 
-提供了原生合约NeoToken的一系列属性与方法，合约哈希为`0xf61eebf573ea36593fd43aa150c055ad7906ab83`。
+提供了原生合约NeoToken的一系列属性与方法，合约哈希为`0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5`。
 
 NeoToken 同时也是NEP-17合约，继承了NEP-17合约所有的属性和方法。
 
@@ -28,7 +28,7 @@ public class NEO
 | ------------------------------------------------------------ | ----------------------------- |
 | [TotalSupply()](Neo/TotalSupply.md)                          | 获取NEO总发行量               |
 | [BalanceOf(UInt160 account)](Neo/BalanceOf.md)               | 获取余额                      |
-| [Transfer(UInt160 from, UInt160 to, BigInteger amount)](Neo/Transfer.md) | 转账                          |
+| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Neo/Transfer.md) | 转账                          |
 | [GetGasPerBlock()](Neo/GetGasPerBlock.md)                    | 获取当前每个区块可产生的GAS数 |
 | [UnclaimedGas(UInt160 account, uint end)](Neo/UnclaimedGas.md) | 获取未领取的GAS数             |
 | [RegisterCandidate(ECPoint pubkey)](Neo/RegisterCandidate.md) | 注册为候选人                  |
