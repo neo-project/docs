@@ -6,19 +6,6 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 
 有关在高级语言中如何使用框架方便地调用 API 以及调用原生合约，请参阅 [Neo智能合约框架](fw.md)。
 
-**Binary API**:
-
-| API                        | 说明                               |
-| -------------------------- | ---------------------------------- |
-| System.Binary.Base64Decode | 将Base64编码的字符串解码为字节数组 |
-| System.Binary.Base64Encode | 将字节数组编码为Base64字符串       |
-| System.Binary.Serialize    | 将栈元素序列化为字节数组           |
-| System.Binary.Deserialize  | 将字节数组反序列化为栈元素         |
-| System.Binary.Base58Decode | 将Base58编码的字符串解码为字节数组 |
-| System.Binary.Base58Encode | 将字节数组编码为Base58字符串       |
-| System.Binary.Itoa         | 把整数转换为字符串                 |
-| System.Binary.Atoi         | 把字符串转换成整型数               |
-
 **Contract API**:
 
 | API                                   | 说明                               |
@@ -31,17 +18,6 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | System.Contract.NativeOnPersist       | 触发原生合约 OnPersist 方法        |
 | System.Contract.NativePostPersist     | 触发原生合约 PostPersist 方法      |
 
-**Crypto API**:
-
-| API                                        | 说明                        |
-| ------------------------------------------ | --------------------------- |
-| Neo.Crypto.RIPEMD160                       | 计算栈元素的RIPEMD160哈希值 |
-| Neo.Crypto.SHA256                          | 计算栈元素的Sha256哈希值    |
-| Neo.Crypto.VerifyWithECDsaSecp256r1        | 使用Secp256r1曲线验证单签   |
-| Neo.Crypto.VerifyWithECDsaSecp256k1        | 使用Secp256k1曲线验证单签   |
-| Neo.Crypto.CheckMultisigWithECDsaSecp256r1 | 使用Secp256r1曲线验证多签   |
-| Neo.Crypto.CheckMultisigWithECDsaSecp256k1 | 使用Secp256k1曲线验证多签   |
-
 **Iterator API**:
 
 | API                    | 说明                        |
@@ -49,13 +25,6 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | System.Iterator.Create | 创建迭代器                  |
 | System.Iterator.Next   | 迭代器流标向后移动          |
 | System.Iterator.Values | 获取迭代器所有Value的迭代器 |
-
-**Json API**:
-
-| API                     | 说明                       |
-| ----------------------- | -------------------------- |
-| System.Json.Serialize   | 将栈元素序列化为字节数组   |
-| System.Json.Deserialize | 将Json对象反序列化为栈元素 |
 
 **Runtime API**:
 
