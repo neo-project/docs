@@ -65,7 +65,7 @@ public static bool transfer(byte[] from, byte[] to, BigInteger amount)
 
 如果转账操作没有执行成功，该函数必须返回`false`。
 
-如果 `to` 是一个已部署合约的地址哈希，函数必须在触发`Transfer`事件后调用合约`to`的`onPayment`方法。如果合约`to`不想接收这笔转账，则必须调用操作码`ABORT`。
+如果 `to` 是一个已部署合约的地址哈希，函数必须在触发`Transfer`事件后调用合约`to`的`onNEP17Payment`方法。如果合约`to`不想接收这笔转账，则必须调用操作码`ABORT`。
 
 **事件 Transfer**
 
@@ -115,7 +115,7 @@ namespace Template.NEP17.CSharp
             OnTransfer(from, to, amount);
 
             // Validate payable
-            if (IsDeployed(to)) Contract.Call(to, "onPayment", new object[] { from, amount, data });
+            if (IsDeployed(to)) Contract.Call(to, "onNEP17Payment", new object[] { from, amount, data });
             return true;
         }
     }

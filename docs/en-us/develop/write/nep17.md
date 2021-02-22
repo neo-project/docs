@@ -100,7 +100,7 @@ The function SHOULD check whether the `from` address equals the caller contract 
 
 If the transfer is not processed, the function MUST return `false`.
 
-If the receiver is a deployed contract, the function MUST call `onPayment` method on receiver contract with the `data` parameter from `transfer` AFTER firing the `Transfer` event. If the receiver doesn't want to receive this transfer it MUST call `ABORT`. 
+If the receiver is a deployed contract, the function MUST call `onNEP17Payment` method on receiver contract with the `data` parameter from `transfer` AFTER firing the `Transfer` event. If the receiver doesn't want to receive this transfer it MUST call `ABORT`. 
 
 **Transfer Event**
 
@@ -164,7 +164,7 @@ namespace Template.NEP17.CSharp
             OnTransfer(from, to, amount);
 
             // Validate payable
-            if (IsDeployed(to)) Contract.Call(to, "onPayment", new object[] { from, amount, data });
+            if (IsDeployed(to)) Contract.Call(to, "onNEP17Payment", new object[] { from, amount, data });
             return true;
         }
     }
