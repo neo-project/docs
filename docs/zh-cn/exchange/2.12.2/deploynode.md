@@ -21,7 +21,7 @@
 
 将解压出来的插件拷贝到neo-cli 根目录即可，如下所示。
 
-![PluginsForExchange.png](../../assets/PluginsForExchange.png)
+![PluginsForExchange](../../assets/PluginsForExchange.png)
 
 对于 Neo-CLI 2.9.4 及之后版本，可以使用以下命令自动进行安装：
 

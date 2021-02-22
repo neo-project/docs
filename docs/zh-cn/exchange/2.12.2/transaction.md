@@ -4,11 +4,11 @@
 
 NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，使用 UTXO 模型来管理资产。另一种是合约资产，例如：NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这两种类型资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
-   ![query.png](../assets/query.png)
+   ![query](../assets/query.png)
 
-   ![deposit.png](../assets/deposit.png)
+   ![deposit](../assets/deposit.png)
 
-   ![withdraw.png](../assets/withdraw.png)
+   ![withdraw](../assets/withdraw.png)
 
 ## 网络手续费
 

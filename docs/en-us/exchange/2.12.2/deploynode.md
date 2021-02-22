@@ -21,7 +21,7 @@ Go to [here](https://github.com/neo-project/neo-plugins/releases/) to download p
 
 Copy the unzipped plugins into the NEO-CLI root directory, as shown below. 
 
-![PluginsForExchange.png](../../assets/PluginsForExchange.png)
+![PluginsForExchange](../../assets/PluginsForExchange.png)
 
 For NEO-CLI 2.9.4 and later, you can install plugins using CLI commands：
 
