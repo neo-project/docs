@@ -4,7 +4,7 @@ NEO is a blockchain system based on a peer-to-peer network. It provides a digita
 
 ## The Whole Network
 
-[![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
+![neo p2p network](../images/neo_cli_structure/neo-p2p-network.png)
 
 Each node in the network runs a NEO-CLI program or a protocol-compatible program. Among them, the consensus nodes are involved in the consensus process. Non-consensus nodes are not involved in the consensus process. The consensus process will be described in subsequent chapters.
 
@@ -12,7 +12,7 @@ Each node in the network runs a NEO-CLI program or a protocol-compatible program
 
 The structure of NEO-CLI is shown below. (Some parts of structure may change due to version upgrade)
 
-[![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
+![NEO-CLI structure](../images/neo_cli_structure/NEO-CLI.png)
 
 ### NEO-CLI command line tools
 

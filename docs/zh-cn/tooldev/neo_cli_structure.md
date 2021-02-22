@@ -4,7 +4,7 @@ NEO是一个基于点对点网络的区块链系统。它提供基于UTXO模型�
 
 ## 整个网络
 
-[![neo p2p network](images/neo_cli_structure/neo-p2p-network.png)](../images/neo_cli_structure/neo-p2p-network.png)
+![neo p2p network](../images/neo_cli_structure/neo-p2p-network.png)
 
 网络中的每个节点运行一个 NEO-CLI 程序或者协议兼容程序。其中参与共识的是共识节点。不参与共识的是非共识节点。
 
@@ -12,7 +12,7 @@ NEO是一个基于点对点网络的区块链系统。它提供基于UTXO模型�
 
 NEO-CLI的结构如下图。（由于版本升级，部分结构可能会有变化 ）
 
-[![NEO-CLI structure](images/neo_cli_structure/NEO-CLI.png)](../images/neo_cli_structure/NEO-CLI.png)
+![NEO-CLI structure](../images/neo_cli_structure/NEO-CLI.png)
 
 ### NEO-CLI 命令行
 

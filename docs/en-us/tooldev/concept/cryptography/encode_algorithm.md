@@ -85,7 +85,7 @@ Interface definition:
 
 3.  Encode data twice with SHA256 to get a hashed byte array. Check whether the first 4 bytes of the hashed value are identical with the last 4 bytes in byte array of step 1. If so, the decoded data is correct. Otherwise the data is corrupted.
 
-[![Base58Check Encoding & Decoding](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode-en.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/20)](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
+![Base58Check Encoding & Decoding](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
 
 Example:
 

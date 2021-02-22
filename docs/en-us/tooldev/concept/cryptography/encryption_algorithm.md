@@ -64,7 +64,7 @@ Verification procedure:
 
 Deduction is as follows:
 
-[![formula_ecdsa](../../images/blockchain_paradigm/formula_ecdsa.jpg)](../../images/blockchain_paradigm/formula_ecdsa.jpg)
+![formula_ecdsa](../../images/blockchain_paradigm/formula_ecdsa.jpg)
 
 Example:
 

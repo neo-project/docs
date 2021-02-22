@@ -6,13 +6,13 @@ NEO中的交易，也是采用类似比特币交易的设计，每一笔交易�
 
 ## 一般流程
 
-[![tx_flow_graph](../images/tx_execution/tx_flow_graph.jpg)](../images/tx_execution/tx_flow_graph.jpg)
+![tx_flow_graph](../images/tx_execution/tx_flow_graph.jpg)
 
 一笔交易，在NEO-CLI、NEO-GUI或通过RPC请求被创建，经钱包签名，构建出完整的交易数据，并通过节点进行验证和全网广播。
 
 共识节点收到该笔交易后，校验并放入到内存池。在某次共识阶段，议长打包该交易到新块中。最后，伴随着新块的全网广播，该交易被全网节点执行处理。 整个流程可以简化成下图：
 
-[![tx_process_flow](../images/tx_execution/tx_process_flow.jpg)](../images/tx_execution/tx_process_flow.jpg)
+![tx_process_flow](../images/tx_execution/tx_process_flow.jpg)
 
 1. 交易构建： 用户发起一笔交易
 
@@ -180,7 +180,7 @@ public Transaction MakeTransaction(List<TransactionAttribute> attributes, IEnume
 
 钱包所在节点，将进行P2P广播该交易。
 
-[![tx_p2p_flow](../images/tx_execution/tx_p2p_flow.jpg)](../images/tx_execution/tx_p2p_flow.jpg)
+![tx_p2p_flow](../images/tx_execution/tx_p2p_flow.jpg)
 
 **广播步骤**：
 
@@ -414,9 +414,9 @@ GAS是由持有NEO用户进行Claim操作，进行增发GAS（并非每出一个
 
 其中，**一笔有NEO的tx.output产生的GAS计算**如下图计算所示：
 
-[![tx_claim_gas](../images/tx_execution/tx_claim_gas.jpg)](../images/tx_execution/tx_claim_gas.jpg)
+![tx_claim_gas](../images/tx_execution/tx_claim_gas.jpg)
 
-[![formula_gas](../images/tx_execution/formula_gas.jpg)](../images/tx_execution/formula_gas.jpg)
+![formula_gas](../images/tx_execution/formula_gas.jpg)
 
 - Gas： 一笔持有NEO的tx.output能提取到的Gas数量
 - M: 交易的块高度， 起始高度

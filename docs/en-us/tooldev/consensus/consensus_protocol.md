@@ -57,7 +57,7 @@
 
 When a consensus message enters the P2P network, it's broadcasted and transmitted like other messages. That is because consensus nodes do not have IP address of other consensus nodes. Consensus nodes are not directly connected. That is to say, ordinary nodes can also receive consensus message. The broadcast flow of consensus messages is as follows.
 
-[![consensus_msg_seq](../images/consensus/consensus_msg_seq.jpg)](../../images/consensus/consensus_msg_seq.jpg)
+![consensus_msg_seq](../../images/consensus/consensus_msg_seq.jpg)
 
   1. Consensus node A will directly broadcast 'consensus' message to connected nodes(e.g. node B).
 

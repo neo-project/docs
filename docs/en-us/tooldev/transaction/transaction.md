@@ -79,7 +79,7 @@ Invocation script performs stack operation instructions, provides parameters for
 
 `Block.NextConsensus` represents the script hash of multi-signature contract ([`Opt.CHECKMULTISIG`](../neo_vm.md#checkmultisig)), which needs the signatures of the consensus nodes, shown in the following figure. When executed in NVM internally, it completes the verification of signatures and public keys.
 
-[![nextconsensus_witness](../images/blockchain/nextconsensus_witness_en.jpg)](../../images/blockchain/nextconsensus_witness_en.jpg)
+![nextconsensus_witness](../../images/blockchain/nextconsensus_witness_en.jpg)
 
 
 ## Transaction Type

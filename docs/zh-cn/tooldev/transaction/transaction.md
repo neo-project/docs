@@ -79,7 +79,7 @@ Description和Remark1-15，也必须明确给出数据长度，且最大存储�
 
 `Block.NextConsensus`所代表的多方签名脚本，填充签名参数后的可执行脚本，如下图所示，[`Opt.CHECKMULTISIG`](../neo_vm.md#checkmultisig) 在NVM内部执行时，完成对签名以及公钥之间的多方签名校验。
 
-[![nextconsensus_witness](../images/blockchain/nextconsensus_witness.jpg)](../../images/blockchain/nextconsensus_witness.jpg)
+![nextconsensus_witness](../../images/blockchain/nextconsensus_witness.jpg)
 
 
 ## 交易类型

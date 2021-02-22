@@ -64,7 +64,7 @@ Example:
 
 推导原理如下：
 
-[![formula_ecdsa](../../images/blockchain_paradigm/formula_ecdsa.jpg)](../../images/blockchain_paradigm/formula_ecdsa.jpg)
+![formula_ecdsa](../../images/blockchain_paradigm/formula_ecdsa.jpg)
 
 Example:
 

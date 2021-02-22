@@ -6,13 +6,13 @@ Transactions in NEO are similiar to the design in Bitcoin, including 3 important
 
 ## General Process
 
-[![tx_flow_graph](../images/tx_execution/tx_flow_graph.jpg)](../images/tx_execution/tx_flow_graph.jpg)
+![tx_flow_graph](../images/tx_execution/tx_flow_graph.jpg)
 
 A transaction is created using NEO-CLI, NEO-GUI or RPC requests. Fulfilled transaction data is signed, and then broadcasted over the whole network.
 
 Consensus nodes will verify this new transaction and put it into memory pool upon receiving. A specified speaker node will pack the transaction into a new block. Finally, this transaction is processed over the whole network after new block is broadcasted. The overall process is briefly shown as follows:
 
-[![tx_process_flow](../images/tx_execution/tx_process_flow_en.jpg)](../images/tx_execution/tx_process_flow_en.jpg)
+![tx_process_flow](../images/tx_execution/tx_process_flow_en.jpg)
 
 1. Transaction construction: a user creates a transaction
 
@@ -180,7 +180,7 @@ Occasions where transaction verification is needed:
 
 The node where the wallet is located, will broadcast the transaction through the P2P network.
 
-[![tx_p2p_flow](../images/tx_execution/tx_p2p_flow.jpg)](../images/tx_execution/tx_p2p_flow.jpg)
+![tx_p2p_flow](../images/tx_execution/tx_p2p_flow.jpg)
 
 **Broadcasting Steps**：
 
@@ -414,9 +414,9 @@ Therefore, claiming GAS is actually:
 
 Here, **the amount of GAS of an NEO tx.output** is calculated as follows:
 
-[![tx_claim_gas](../images/tx_execution/tx_claim_gas.jpg)](../images/tx_execution/tx_claim_gas.jpg)
+![tx_claim_gas](../images/tx_execution/tx_claim_gas.jpg)
 
-[![formula_gas](../images/tx_execution/formula_gas.jpg)](../images/tx_execution/formula_gas.jpg)
+![formula_gas](../images/tx_execution/formula_gas.jpg)
 
 - Gas: An NEO transaction's claimable GAS amount.
 - M: input transaction's block height, or start height.

@@ -20,7 +20,7 @@ NEO的钱包可以自行设计和修改，但需要满足一定的规则。
 
    wif 格式是在原有32字节数据前后添加前缀0x80和后缀0x01,并做Base58Check编码的字符串
 
-[![Base58Check编解码](images/wallets/privateKey-wif.png)](../images/wallets/privateKey-wif.png)
+![Base58Check编解码](../images/wallets/privateKey-wif.png)
 
  Example: 
 

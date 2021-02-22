@@ -85,7 +85,7 @@ byte[] Base58CheckDecode(string input)
 
 3.  把 data 做两次 SHA256 得到的哈希值的前4字节作为版本前缀 checksum，与 byte[] 数据的后4字节比较是否相同，相同则返回data, 否则判定为数据无效。
 
-[![Base58Check编解码](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/20)](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
+![Base58Check编解码](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
 
 Example:
 

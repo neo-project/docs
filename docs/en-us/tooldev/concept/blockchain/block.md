@@ -17,7 +17,7 @@ The data structure of block as following:
 | ?    | Witness       | Witness                | Witness       | The executable verification scripts                                            |
 | ?\*? | Transactions  | Transaction List       | Transaction[] | The payload of the block                                                       |
 
-[![../../images/blockchain/blockchain.jpg](../../images/blockchain/blockchain.jpg)](../../images/blockchain/blockchain.jpg)
+![../../images/blockchain/blockchain.jpg](../../images/blockchain/blockchain.jpg)
 
 ### Block Header
 
@@ -31,7 +31,7 @@ Block `hash` and `index` can be used to identify a block. The hash value is obta
 
 `Witness` is the verification script of the block, it contains `InvocationScript` and `VerificationScript`. The `InvocationScript` provides the parameters for the `VerificationScript` to execute. 
 
-[![../../images/blockchain/nextconsensus_script.jpg](../../images/blockchain/nextconsensus_script.jpg)](../../images/blockchain/nextconsensus_script.jpg)
+![../../images/blockchain/nextconsensus_script.jpg](../../images/blockchain/nextconsensus_script.jpg)
 
 ### Block Body
 The block body is a transaction list. In one round of consensus activity, the Speaker selects all the transactions in the memeory pool, sort and filter by plugin, package them into a new proposal block. For more details about consensus, please read "Consensus Mechanism" section.

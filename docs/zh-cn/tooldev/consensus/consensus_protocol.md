@@ -57,7 +57,7 @@
 
 共识消息进入P2P网络后，和其他数据包一样，进行广播传输，（因为共识节点之间并不知道对方的IP地址), 即普通节点都可能收到共识数据包。共识消息的广播流程如下图。
 
-[![consensus_msg_seq](../images/consensus/consensus_msg_seq.jpg)](../../images/consensus/consensus_msg_seq.jpg)
+![consensus_msg_seq](../../images/consensus/consensus_msg_seq.jpg)
 
   1. 共识节点A， 直接将共识消息`consensus` 广播连接上的节点B
 
