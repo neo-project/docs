@@ -171,3 +171,47 @@ namespace Template.NEP17.CSharp
 }
 ```
 
+## Changes to NEP-17 compared to NEP-5
+
+### onNEP17Payment
+
+The Transfer method should determine if the recipient is a deployed contract, and if so, call its `onNEP17Payment` method.
+
+The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring token. the NonfungibleToken (NameService) calls the `onNEP11Tokens` method when transferring token.
+
+The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract to call on it.
+
+### name method
+
+Removed the name method and put it in manifest, add `[DisplayName("Token Name")]` when writing the contract.
+
+```c#
+[DisplayName("Token Name")]
+[ManifestExtra("Author", "Neo")]
+[ManifestExtra("Email", "dev@neo.org")]
+[ManifestExtra("Description", "This is a NEP17 example")]
+[SupportedStandards("NEP17", "NEP10")]
+public partial class NEP17 : SmartContract
+{
+    [DisplayName("Transfer")]
+    public static event Action<UInt160, UInt160, BigInteger> OnTransfer;
+
+    public static string Symbol() => "TokenSymbol";
+
+    public static ulong Decimals() => 8;
+    
+    //……
+}
+```
+
+### Transfer event
+
+transfer event changed to Transfer event (first letter capitalized).
+
+### IsPayable
+
+In Neo 2.x, the IsPayable checkbox was required when deploying contracts to indicate whether or not they could receive NEP-5 assets.
+
+In Neo 3.x, the payable check has been removed and the corresponding logic has been placed in the `onNEP17Payment` method.
+
+The ability of the contract to receive assets has been changed from a fixed constant to code logic within the contract.
