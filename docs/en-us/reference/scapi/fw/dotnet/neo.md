@@ -32,7 +32,7 @@ The Neo namespace is the API provided by the Neo blockchain, providing a way to 
 | [CryptoLib](fw/dotnet/neo/CryptoLib.md)                   | 0x726cb6e0cd8628a1350a611384688911ab75f51b | A contract that integrates cryptographic methods such as hash calculation and signature verification |
 | [GasToken](fw/dotnet/neo/GAS.md)                          | 0xd2a4cff31913016155e38e474a2c06d08be276cf | GAS related contract                                         |
 | [LedgerContract](fw/dotnet/neo/Ledger.md)                 | 0xda65b600f7124ce6c79950c1772a36403104f2be | Blockchain protocol layer contracts                          |
-| [NameService](fw/dotnet/neo/NameService.md)               | 0x7a8fcf0392cd625647907afa8e45cc66872b596b | Neo domain name dervice contract                             |
+| [NameService](fw/dotnet/neo/NameService.md)               | 0x7a8fcf0392cd625647907afa8e45cc66872b596b | Neo domain name device contract                              |
 | [NeoToken](fw/dotnet/neo/NEO.md)                          | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 | Neo related contract                                         |
 | [OracleContract](fw/dotnet/neo/Oracle.md)                 | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 | Oracle contract                                              |
 | [PolicyContract](fw/dotnet/neo/Policy.md)                 | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b | Consensus policy contract                                    |

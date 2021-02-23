@@ -18,9 +18,16 @@ Invokes a smart contract with its scripthash based on the specified operation an
 * signers: Optional. List of contract signature accounts.
 
   * account: signature account
-  * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
+  * scopes: signature's valid scopes, allowed values are:
+    * None: Only transactions are signed and no contracts are allowed to use this signature.
+    * CalledByEntry: It only applies to the chain call entry. That is,  if the user invokes contract A, and then contract A calls contract B, only contract A can use the signature. It is recommended as the default value for the wallet.
+    * CustomContracts: Custom contract. The signature can be used in the specified contract.
+      It can be used in conjunction with CalledByEntry.
+    * CustomGroups: Custom contract groups that can be used in a specified contract group.
+      It can be used in conjunction with CalledByEntry.
+    * Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
-* allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+  * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
   > [!Note]
   >
