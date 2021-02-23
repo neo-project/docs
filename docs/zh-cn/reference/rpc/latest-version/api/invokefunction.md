@@ -17,7 +17,12 @@
 
 - signers: 签名账户列表，可选。
   * account: 签名账户
-  * scopes: 签名的作用域，允许的值: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
+  * scopes: 签名的作用域，定义用户签名的可用范围，防止未经授权的合约随意使用用户签名。允许的值为：
+    * None：空，只对交易签名，不允许任何合约使用该签名
+    * CalledByEntry：只作用链式调用的入口，比如用户调用 A 合约，那么只有 A 合约可以使用签名，A 合约再调用 B 合约，在 B 合约中是不能使用用户签名的。建议作为钱包的默认签名作用。
+    * CustomContracts：自定义合约，在指定的合约中可以使用该签名。可与 CalledByEntry 配合使用。
+    * CustomGroups：自定义合约组，在指定的合约组中可以使用该签名。可与 CalledByEntry 配合使用。
+    * Global：全局。风险极高，合约有可能会转移地址中的所有资产，仅在极其信任该合约时选择。
   * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
   * allowedgroups: 如果 scopes 是 CustomGroups，该字段是签名生效的公钥列表。
 

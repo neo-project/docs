@@ -103,3 +103,26 @@ The key statement is `Contract.Call(scriptHash, method, params)`, where:
 - method is the method of the contract invoked, such as  `name`, `balanceOf`, or`transfer` . String type.
 
 - params is the parameter list of the method of the invoked contract. Array type.
+
+### Invocation permission
+
+Three fields related to the contract invocation permission are defined in the contract manifest file, as shown in the following table. The wallet decides whether to give a security warning to the user based on the setting in the Groups and Trusts fields. Permissions and signature scopes determine whether contracts can be called by each other. For more information about signature scopes, refer to parameters description in [invokefunction method](../../reference/rpc/latest-version/api/invokefunction.md).
+
+| Fields        | Type                          | Description                                                  |
+| ------------- | ----------------------------- | ------------------------------------------------------------ |
+| `Groups`      | `ContractGroup[]`             | Defines a group of trusted contracts, consisting of a public key and a signature of contract hash. |
+| `Permissions` | `ContractPermission[]`        | This field is an array containing a permission object, which defines other contracts and methods that the contract wants to call. The contract can be ScriptHash, Group, or wildcard *. The method is the method name or wildcard *. Contracts or methods not declared in the manifest cannot be called by the contract. |
+| `Trusts`      | `WildcardContainer\<UInt160>` | Defines other contracts trusted by the contract. The contract can be ScriptHash, Group, or wildcard *. If a contract is trusted, the user will not receive any warning message when the contract is called. |
+
+Assuming that the contract A calls the contract B, the following table details the invoking behavior and wallet behavior of the contract in various setting scenarios.
+
+| Scenario                                                     | Wallet Prompt                                                | Wallet sets signature scope to...                            | Can contract B  be invoked? |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------- |
+| Permissions of contract A do not include contract B          | None                                                         | Default                                                      | No                          |
+| Permissions of contract A include contract B<br/>Contract A and contract B are in the same groups and the groups signature is verified. | None                                                         | Default and adds CustomGroups                                | Yes                         |
+| Permissions of contract A  include contract B<br/>Trusts of contract B include contract A | None                                                         | Default and adds CustomContract                              | Yes                         |
+| Permissions of contract A  include contract B<br/>Trusts of contract B do not include contract A | Prompts that contract A will call contract B, and asks whether to authorize the signature to contract B. | Default and adds CustomContract        according to the user's decision | Determined by the user      |
+| Permissions of contract A include a Groups B                 | Prompts that contract A will call any contract in group B and asks whether to authorize the signature to group B. | Default and adds CustomGroups according to the user's decision | Determined by the user      |
+| The contract defined in the Permissions of contract A is wildcard * and the method is m<br/>{"contract":"\*", "method": "m"} | Prompts that contract A will call the method m of any contract and asks whether to authorize the signature to contract B. | Default or Global according to the user's decision           | Determined by the user      |
+| The contract defined in the Permissions of contract A is wildcard * and the method is wildcard \*<br/>{"contract":"\*", "method": "*"} | Prompts that contract A will call any method of any contract and asks whether to set the signature to Global. | Default or Global according to the user's decision           | Determined by the user      |
+
