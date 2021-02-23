@@ -1,6 +1,6 @@
 # CryptoLib 类
 
-提供了原生合约GasToken的一系列属性与方法，合约哈希为`0x726cb6e0cd8628a1350a611384688911ab75f51b`。
+提供了原生合约CryptoLib的一系列属性与方法，合约哈希为`0x726cb6e0cd8628a1350a611384688911ab75f51b`。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
