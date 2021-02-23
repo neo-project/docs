@@ -239,6 +239,8 @@
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractManagement.md
         - name: Crypto
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Crypto.md
+        - name: CryptoLib
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/CryptoLib.md
         - name: FindOptions
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/FindOptions.md
         - name: Gas
@@ -271,6 +273,8 @@
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/RoleManagement.md
         - name: Runtime
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
+        - name: StdLib
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/StdLib.md
         - name: Storage
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
         - name: StorageContext
