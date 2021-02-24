@@ -51,7 +51,7 @@ Response body:
     "id": 1,
     "result": {
         "address": "152f1muMCNa7goXYhYAQC61hxEgGacmncB",
-        "isvalid": false
+        "isvalid": true
     }
 }
 ```
