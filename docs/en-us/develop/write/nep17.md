@@ -26,7 +26,7 @@ Returns the total token supply deployed in the system.
 
 Returns a short string symbol of the token managed in this contract. e.g. "MYT". 
 
- This string MUST be valid ASCII, MUST NOT contain whitespace or control characters, SHOULD be limited to uppercase Latin alphabet (i.e. the 26 letters used in English) and SHOULD be short (3-8 characters is recommended). 
+This string MUST be valid ASCII, MUST NOT contain whitespace or control characters, SHOULD be limited to uppercase Latin alphabet (i.e. the 26 letters used in English) and SHOULD be short (3-8 characters is recommended). 
 
 This method MUST always return the same value every time it is invoked.
 
@@ -171,19 +171,22 @@ namespace Template.NEP17.CSharp
 }
 ```
 
-## Changes to NEP-17 compared to NEP-5
+## NEP-17 changes
+
+This section summaries NEP-17 changes compared to the previous NEP-5 protocol.  
 
 ### onNEP17Payment
 
-The Transfer method should determine if the recipient is a deployed contract, and if so, call its `onNEP17Payment` method.
+- The Transfer method should determine if the recipient is the deployed contract, and if so, call its `onNEP17Payment` method.
 
-The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring token. the NonfungibleToken (NameService) calls the `onNEP11Tokens` method when transferring token.
+- The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring assets. The NonfungibleToken (NameService) calls the `onNEP11Tokens` method when transferring assets.
 
-The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract to call on it.
+- The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract.
+
 
 ### name method
 
-Removed the name method and put it in manifest, add `[DisplayName("Token Name")]` when writing the contract.
+The name method is moved to the manifest file, and you need to add `[DisplayName("Token Name")]` when writing the contract.
 
 ```c#
 [DisplayName("Token Name")]
@@ -206,12 +209,12 @@ public partial class NEP17 : SmartContract
 
 ### Transfer event
 
-transfer event changed to Transfer event (first letter capitalized).
+The transfer event is changed to Transfer event (first letter capitalized).
 
 ### IsPayable
 
-In Neo 2.x, the IsPayable checkbox was required when deploying contracts to indicate whether or not they could receive NEP-5 assets.
+In Neo 2.x, you should check the IsPayable checkbox when deploying contracts to receive NEP-5 assets.
 
 In Neo 3.x, the payable check has been removed and the corresponding logic has been placed in the `onNEP17Payment` method.
 
-The ability of the contract to receive assets has been changed from a fixed constant to code logic within the contract.
+The ability of the contract to receive assets has been changed from a fixed constant to the code logic within the contract.

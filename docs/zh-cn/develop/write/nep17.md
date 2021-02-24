@@ -122,15 +122,18 @@ namespace Template.NEP17.CSharp
 }
 ```
 
-## NEP-17 与 NEP-5 相比改动内容
+## NEP-17 变化
+
+本节总结了NEP-17相对于NEP-5协议发生的改动。
 
 ### onNEP17Payment
 
-Transfer 方法应该判断收款方是否是部署的合约，如果是，则调用它的 `onNEP17Payment` 方法。
+- Transfer 方法需判断收款方是否是部署的合约，如果是，则调用它的 `onNEP17Payment` 方法。
 
-原生合约的 FungibleToken（NeoToken、GasToken） 在转账时会调用 `onNEP17Tokens` 方法。NonfungibleToken（NameService） 在转账时会调用 `onNEP11Tokens` 方法。
+- 原生合约的 FungibleToken（NeoToken、GasToken） 在转账时会调用 `onNEP17Tokens` 方法。NonfungibleToken（NameService） 在转账时会调用 `onNEP11Tokens` 方法。
 
-TokenSale 合约应该实现 `onNEP17Payment` 方法，以接收资产，并修改 Manifest 文件以信任接收的资产合约对其调用。
+- TokenSale 合约需要实现 `onNEP17Payment` 方法，以接收资产，并修改 Manifest 文件以信任接收的资产合约对其调用。
+
 
 ### name 方法
 
