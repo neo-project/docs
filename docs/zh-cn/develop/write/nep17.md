@@ -65,7 +65,7 @@ public static bool transfer(byte[] from, byte[] to, BigInteger amount)
 
 如果转账操作没有执行成功，该函数必须返回`false`。
 
-如果 `to` 是一个已部署合约的地址哈希，函数必须在触发`Transfer`事件后调用合约`to`的`onPayment`方法。如果合约`to`不想接收这笔转账，则必须调用操作码`ABORT`。
+如果 `to` 是一个已部署合约的地址哈希，函数必须在触发`Transfer`事件后调用合约`to`的`onNEP17Payment`方法。如果合约`to`不想接收这笔转账，则必须调用操作码`ABORT`。
 
 **事件 Transfer**
 
@@ -115,10 +115,58 @@ namespace Template.NEP17.CSharp
             OnTransfer(from, to, amount);
 
             // Validate payable
-            if (IsDeployed(to)) Contract.Call(to, "onPayment", new object[] { from, amount, data });
+            if (IsDeployed(to)) Contract.Call(to, "onNEP17Payment", new object[] { from, amount, data });
             return true;
         }
     }
 }
 ```
+
+## NEP-17 变化
+
+本节总结了NEP-17相对于NEP-5协议发生的改动。
+
+### onNEP17Payment
+
+- Transfer 方法需判断收款方是否是部署的合约，如果是，则调用它的 `onNEP17Payment` 方法。
+
+- 原生合约的 FungibleToken（NeoToken、GasToken） 在转账时会调用 `onNEP17Tokens` 方法。NonfungibleToken（NameService） 在转账时会调用 `onNEP11Tokens` 方法。
+
+- TokenSale 合约需要实现 `onNEP17Payment` 方法，以接收资产，并修改 Manifest 文件以信任接收的资产合约对其调用。
+
+
+### name 方法
+
+移除了 name 方法，将 name 方法放到了 manifest 中，在写合约时要添加 `[DisplayName("Token Name")]`。
+
+```c#
+[DisplayName("Token Name")]
+[ManifestExtra("Author", "Neo")]
+[ManifestExtra("Email", "dev@neo.org")]
+[ManifestExtra("Description", "This is a NEP17 example")]
+[SupportedStandards("NEP17", "NEP10")]
+public partial class NEP17 : SmartContract
+{
+    [DisplayName("Transfer")]
+    public static event Action<UInt160, UInt160, BigInteger> OnTransfer;
+
+    public static string Symbol() => "TokenSymbol";
+
+    public static ulong Decimals() => 8;
+    
+    //……
+}
+```
+
+### Transfer 事件
+
+transfer 事件变更为 Transfer 事件 （首字母大写）。
+
+### IsPayable
+
+在 Neo 2.x 中部署合约时需要勾选 IsPayable 表示能否接收 NEP-5 资产。
+
+在 Neo 3.x 中移除了 payable 检查，相应逻辑将放到 `onNEP17Payment` 方法中。
+
+合约能否接收资产从固定不变的常量改为合约内的代码逻辑。
 
