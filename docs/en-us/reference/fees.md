@@ -1,388 +1,168 @@
-# System Fees
+# Fees
 
-The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee will be cancled in NEO3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
+Participants in Neo ecosystem need to pay network fees and system fees with GAS when using the Neo network.
 
+System fees are the cost of resources consumed by the transaction execution in NeoVM. The execution of smart contracts, including the execution of its own scripts and the invocation of other contracts, requires system fees.
 
-![](../../zh-cn/assets/system_fee.png)
+Network fee is the fee to pack transactions into a block. Transactions that deploy and invoke smart contracts on the blockchain and execute the Verify method requires network fees. 
 
-where OpcodeSet is opcode set, OpcodePrice<sub>i</sub> is the cost of opcode i, n<sub>i</sub> is the execution times of instruction i in the contract script.
+Therefore, a smart contract invocation transaction requires both system fee and network fee.
 
-The fee of each interop service and instruction is shown in the table below.
+Fees in Neo3 can be dynamically changed. In this document we only introduce the basic fees. 
 
-### Fees for interop service
+## System fees
 
-| Interop Service | Fee (GAS) |
-|--|--|
-| System.Binary.Serialize | 0.00100000  |
-| System.Binary.Deserialize| 0.00500000  |
-| System.Binary.Base64Encode| 0.00100000  |
-| System.Binary.Base64Decode| 0.00100000  |
-| System.Binary.Base58Encode| 0.00100000  |
-| System.Binary.Base58Decode| 0.00100000  |
-| System.Blockchain.GetHeight | 0.00000400  |
-| System.Blockchain.GetBlock | 0.02500000  |
-| System.Blockchain.GetTransaction | 0.01000000  |
-| System.Blockchain.GetTransactionHeight | 0.01000000  |
-| System.Blockchain.GetTransactionFromBlock | 0.01000000  |
-| System.Blockchain.GetContract | 0.01000000  |
-| System.Callback.Create | 0.00000400  |
-| System.Callback.CreateFromMethod | 0.01000000  |
-| System.Callback.CreateFromSyscall | 0.00000400  |
-| System.Callback.Invoke | 0.01000000  |
-| System.Contract.Create | 0  |
-| System.Contract.Update | 0  |
-| System.Contract.Destroy | 0.01000000  |
-| System.Contract.Call | 0.01000000  |
-| System.Contract.CallEx | 0.01000000  |
-| System.Contract.IsStandard | 0.00030000  |
-| System.Contract.GetCallFlags | 0.00030000  |
-| System.Enumerator.Create | 0.00000400  |
-| System.Enumerator.Next | 0.01000000  |
-| System.Enumerator.Value | 0.00000400  |
-| System.Enumerator.Concat | 0.00000400  |
-| System.Iterator.Create | 0.00000400  |
-| System.Iterator.Key | 0.00000400  |
-| System.Iterator.Keys | 0.00000400  |
-| System.Iterator.Values | 0.00000400  |
-| System.Iterator.Concat | 0.00000400  |
-| System.Json.Serialize | 0.00100000  |
-| System.Json.Deserialize | 0.00500000  |
-| System.Runtime.Platform | 0.00000250  |
-| System.Runtime.GetTrigger | 0.00000250  |
-| System.Runtime.GetTime | 0.00000250  |
-| System.Runtime.GetScriptContainer | 0.00000250  |
-| System.Runtime.GetExecutingScriptHash | 0.00000400  |
-| System.Runtime.GetCallingScriptHash | 0.00000400  |
-| System.Runtime.GetEntryScriptHash | 0.00000400  |
-| System.Runtime.CheckWitness | 0.00030000  |
-| System.Runtime.GetInvocationCounter | 0.00000400 |
-| System.Runtime.Log | 0.01000000 |
-| System.Runtime.Notify | 0.01000000  |
-| System.Runtime.GetNotifications | 0.00010000 |
-| System.Runtime.GasLeft | 0.00000400 |
-| System.Storage.GetContext| 0.00000400  |
-| System.Storage.GetReadOnlyContext| 0.00000400 |
-| System.StorageContext.AsReadOnly| 0.00000400  |
-| System.Storage.Get| 0.01000000  |
-| System.Storage.Find| 0.01000000  |
-| System.Storage.Put| 0 |
-| System.Storage.PutEx| 0 |
-| System.Storage.Delete| 1 * StoragePrice  |
-| Neo.Native.Deploy| 0  |
-| Neo.Native.Call| 0  |
-| Neo.Crypto.RIPEMD160| 0.01000000  |
-| Neo.Crypto.SHA256| 0.01000000 |
-| Neo.Crypto.VerifyWithECDsaSecp256r1| 0.01000000  |
-| Neo.Crypto.VerifyWithECDsaSecp256k1| 0.01000000 |
-| Neo.Crypto.CheckMultisigWithECDsaSecp256r1| 0  |
-| Neo.Crypto.CheckMultisigWithECDsaSecp256k1| 0 |
+System fees include:
 
-<table class="table table-hover">
-	<tr>
-	    <th>Interop Service</th>
-	    <th>Method Name</th>
-	    <th>Fee (GAS)</th>  
-	</tr >
-	<tr >
-	    <td rowspan="15">Neo.Native.Tokens.NEO</td>
-	    <td>name</td>
-	    <td>0</td>
-	</tr>
-    <tr>
-	    <td>symbol</td>
-	    <td>0</td>
-	</tr>
-	<tr>
-	    <td>decimals</td>
-	    <td>0</td>
-	</tr>
-	<tr>
-	    <td>totalSupply</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>balanceOf</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>transfer</td>
-	    <td>0.08000000</td>
-	</tr>
-		<tr>
-	    <td>setGasPerBlock</td>
-	    <td>0.05000000</td>
-	</tr>
-		<tr>
-	    <td>getGasPerBlock</td>
-	    <td>0.05000000</td>
-	</tr>
-		<tr>
-	    <td>unclaimedGas</td>
-	    <td>0.03000000</td>
-	</tr>
-		<tr>
-	    <td>registerCandidate</td>
-	    <td>0.05000000</td>
-	</tr>
-		<tr>
-	    <td>unregisterCandidate</td>
-	    <td>0.05000000</td>
-	</tr>
-		<tr>
-	    <td>vote</td>
-	    <td>0.08000000</td>
-	</tr>
-		<tr>
-	    <td>GetCandidates</td>
-	    <td>1.00000000</td>
-	</tr>
-		<tr>
-	    <td>getCommittee</td>
-	    <td>1.00000000</td>
-	</tr>
-		<tr>
-	    <td>getNextBlockValidators</td>
-	    <td>1.00000000</td>
-	</tr>
-</table>
+- Instruction fee (OpCode)
+- SysCall fee
+- CPU processing fee for native contracts
+- Storage fee
 
 
-<br/>
+### Instruction fee
 
-<table class="table table-hover">
-	<tr>
-	    <th>Interop Service</th>
-	    <th>Method Name</th>
-	    <th>Fee (GAS)</th>  
-	</tr >
-	<tr >
-	    <td rowspan="7">Neo.Native.Tokens.GAS</td>
-	     <td>name</td>
-	    <td>0</td>
-	</tr>
-    <tr>
-	    <td>symbol</td>
-	    <td>0</td>
-	</tr>
-	<tr>
-	    <td>decimals</td>
-	    <td>0</td>
-	</tr>
-	<tr>
-	    <td>totalSupply</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>balanceOf</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>transfer</td>
-	    <td>0.08000000</td>
-	</tr>
-</table>
+| Fee（GAS） | OpCode                                                       |
+| ---------- | ------------------------------------------------------------ |
+| 0.00032768 | CALLT                                                        |
+| 0.00008192 | APPEND, REVERSEITEMS, SETITEM, VALUES                        |
+| 0.00004096 | PUSHDATA4                                                    |
+| 0.00002048 | CAT, CONVERT, LEFT, MEMCPY, RIGHT, SUBSTR                    |
+| 0.00000512 | CALL, CALL_L, CALLA, NEWARRAY, NEWARRAY_T, NEWSTRUCT, PACK, PUSHDATA2, THROW, UNPACK |
+| 0.00000256 | NEWBUFFER                                                    |
+| 0.00000064 | HASKEY,INITSLOT,PICKITEM                                     |
+| 0.00000032 | EQUAL,NOTEQUAL                                               |
+| 0.00000016 | CLEAR, CLEARITEMS, INITSSLOT, KEYS, NEWARRAY0, NEWSTRUCT0, POPITEM, REMOVE, REVERSEN, ROLL, XDROP |
+| 0.00000008 | ADD, AND, BOOLAND, BOOLOR, DIV, GE, GT, LE, LT, MAX, MIN, MOD, MUL, NEWMAP, NUMEQUAL, NUMNOTEQUAL, OR, PUSHDATA1, SHL, SHR, SUB, WITHIN, XOR |
+| 0.00000004 | ABS, DEC, ENDFINALLY, ENDTRY, ENDTRY_L, INC, INVERT, NEGATE, NOT, NZ, PUSHA, PUSHINT128, PUSHINT256, SIGN, SIZE, TRY, TRY_L |
+| 0.00000002 | DEPTH, DROP, DUP, ISNULL, ISTYPE, JMP, JMP_L, JMPEQ, JMPEQ_L, JMPGE, JMPGE_L, JMPGT, JMPGT_L, JMPIF, JMPIF_L, JMPIFNOT, JMPIFNOT_L, JMPLE, JMPLE_L, JMPLT, JMPLT_L, JMPNE, JMPNE_L, LDARG, LDARG0, LDARG1, LDARG2, LDARG3, LDARG4, LDARG5, LDARG6, LDLOC, LDLOC0, LDLOC1, LDLOC2, LDLOC3, LDLOC4, LDLOC5, LDLOC6, LDSFLD, LDSFLD0, LDSFLD1, LDSFLD2, LDSFLD3, LDSFLD4, LDSFLD5, LDSFLD6, NIP, OVER, PICK, REVERSE3, REVERSE4, ROT, STARG,STARG0,STARG1,STARG2,STARG3,STARG4,STARG5,STARG6,STLOC,STLOC0,STLOC1,STLOC2,STLOC3,STLOC4,STLOC5,STLOC6,STSFLD,STSFLD0,STSFLD1,STSFLD2,STSFLD3,STSFLD4,STSFLD5,STSFLD6,SWAP,TUCK |
+| 0.00000001 | ASSERT, NOP, PUSH0, PUSH1, PUSH10, PUSH11, PUSH12, PUSH13, PUSH14, PUSH15, PUSH16,PUSH2,PUSH3,PUSH4,PUSH5,PUSH6,PUSH7,PUSH8,PUSH9,PUSHINT16,PUSHINT32,PUSHINT64,PUSHINT8,PUSHM1,PUSHNULL |
+| 0          | ABORT, RET, SYSCALL                                          |
 
+Reference: [ApplicationEngine.OpCodePrices.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.OpCodePrices.cs)
 
-<br/>
+### System call fee
 
-<table class="table table-hover">
-	<tr>
-	    <th>Interop Service</th>
-	    <th>Method Name</th>
-	    <th>Fee (GAS)</th>  
-	</tr >
-	<tr >
-	    <td rowspan="11">Neo.Native.Policy</td>
-	    <td>getMaxTransactionsPerBlock</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>getMaxBlockSize</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>GetMaxBlockSystemFee</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr>
-	    <td>GetFeePerByte</td>
-	    <td>0.01000000</td>
-	</tr>
-	<tr><td>IsBlocked</td>
-	    <td>0.01000000</td>
-	</tr>
-    <tr><td>SetMaxBlockSize</td>
-	    <td>0.03000000</td>
-	</tr>
-    <tr><td>SetMaxTransactionsPerBlock</td>
-	    <td>0.03000000</td>
-	</tr>
-    <tr><td>SetMaxBlockSystemFee</td>
-	    <td>0.03000000</td>
-	</tr>
-    <tr><td>SetFeePerByte</td>
-	    <td>0.03000000</td>
-	</tr>
-	 <tr><td>BlockAccount</td>
-	    <td>0.03000000</td>
-	</tr>
-	 <tr><td>UnblockAccount</td>
-	    <td>0.03000000</td>
-	</tr>
-</table>
+| **Interop Service**                   | Fee（GAS）                                               |
+| ------------------------------------- | -------------------------------------------------------- |
+| System.Contract.Call                  | 0.00032768                                               |
+| System.Contract.CallNative            | Refer to native contract fee                             |
+| System.Contract.IsStandard            | 0.00001024                                               |
+| System.Contract.GetCallFlags          | 0.00001024                                               |
+| System.Contract.CreateStandardAccount | 0.00000256                                               |
+| System.Contract.CreateMultisigAccount | 0.00000256                                               |
+| Neo.Crypto.CheckSig                   | 0.00032768                                               |
+| Neo.Crypto.CheckMultisig              | Dynamically calculated based on the number of signatures |
+| System.Iterator.Create                | 0.00000016                                               |
+| System.Iterator.Next                  | 0.00032768                                               |
+| System.Iterator.Value                 | 0.00000016                                               |
+| System.Runtime.Platform               | 0.00000008                                               |
+| System.Runtime.GetTrigger             | 0.00000008                                               |
+| System.Runtime.GetTime                | 0.00000008                                               |
+| System.Runtime.GetScriptContainer     | 0.00000008                                               |
+| System.Runtime.GetExecutingScriptHash | 0.00000016                                               |
+| System.Runtime.GetCallingScriptHash   | 0.00000016                                               |
+| System.Runtime.GetEntryScriptHash     | 0.00000016                                               |
+| System.Runtime.CheckWitness           | 0.00001024                                               |
+| System.Runtime.GetInvocationCounter   | 0.00000016                                               |
+| System.Runtime.Log                    | 0.00032768                                               |
+| System.Runtime.Notify                 | 0.00032768                                               |
+| System.Runtime.GetNotifications       | 0.00000256                                               |
+| System.Runtime.GasLeft                | 0.00000016                                               |
 
-<table class="table table-hover">
-	<tr>
-	    <th>Interop Service</th>
-	    <th>Method Name</th>
-	    <th>Fee (GAS)</th>  
-	</tr >
-	<tr >
-	    <td rowspan="3">Neo.Native.Oracle</td>
-	     <td>finish</td>
-	    <td>0</td>
-	</tr>
-    <tr>
-	    <td>request</td>
-	    <td>0.50000000</td>
-	</tr>
-	<tr>
-	    <td>verify</td>
-	    <td>0.01000000</td>
-	</tr>
-</table>
+Reference:
 
+[ApplicationEngine.Contract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Contract.cs)
 
-For the description of API in the table above, refer to [NEO Namespace](../reference/scapi/api/neo.md).
+[ApplicationEngine.Crypto.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Crypto.cs)
 
-### Fees for Instructions
+[ApplicationEngine.Contract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Contract.cs)
 
-| Instruction | Fee (GAS) |
-|--|--|
-|PUSHINT8|0.00000030|
-|PUSHINT16|0.00000030|
-|PUSHINT32|0.00000030|
-|PUSHINT64|0.00000030|
-|PUSHINT128|0.00000120|
-|PUSHINT256|0.00000120|
-|PUSHA|0.00000120|
-|PUSHNULL|0.00000030|
-|PUSHDATA1|0.00000180|
-|PUSHDATA2|0.00013000|
-|PUSHDATA4|0.00110000|
-|PUSHM1|0.00000030|
-|PUSH0\~PUSH16|0.00000030|
-|NOP|0.00000030|
-|JMP|0.00000070|
-|JMP_L|0.00000070|
-|JMPIF|0.00000070|
-|JMPIF_L|0.00000070|
-|JMPIFNOT|0.00000070|
-|JMPIFNOT_L|0.00000070|
-|JMPEQ|0.00000070|
-|JMPEQ_L|0.00000070|
-|JMPNE|0.00000070|
-|JMPNE_L|0.00000070|
-|JMPGT|0.00000070|
-|JMPGT_L|0.00000070|
-|JMPGE|0.00000070|
-|JMPGE_L|0.00000070|
-|JMPLT|0.00000070|
-|JMPLT_L|0.00000070|
-|JMPLE|0.00000070|
-|JMPLE_L|0.00000070|
-|CALL|0.00022000|
-|CALL_L|0.00022000|
-|CALLA|0.00022000|
-|ABORT|0.00000030|
-|ASSERT|0.00000030|
-|THROW|0.00000030|
-|RET|0|
-|SYSCALL|0|
-|DEPTH|0.00000060|
-|DROP|0.00000060|
-|NIP|0.00000060|
-|XDROP|0.00000400|
-|CLEAR|0.00000400|
-|DUP|0.00000060|
-|OVER|0.00000060|
-|PICK|0.00000060|
-|TUCK|0.00000060|
-|SWAP|0.00000060|
-|ROT|0.00000060|
-|ROLL|0.00000400|
-|REVERSE3|0.00000060|
-|REVERSE4|0.00000060|
-|REVERSEN|0.00000400|
-|INITSSLOT|0.00000400|
-|INITSLOT|0.00001600|
-|LDSFLD0\~LDSFLD6|0.00000060|
-|LDSFLD|0.00000060|
-|STSFLD0\~STSFLD6|0.0000006|
-|STSFLD|0.0000006|
-|LDLOC0\~LDLOC6|0.00000060|
-|LDLOC|0.00000060|
-|STLOC0\~STLOC6 |0.00000060|
-|STLOC|0.00000060|
-|LDARG0\~LDARG6|0.00000060|
-|LDARG|0.00000060|
-|STARG0\~STARG6|0.00000060|
-|STARG|0.00000060|
-|NEWBUFFER|0.00080000|
-|MEMCPY|0.00080000|
-|CAT|0.00080000|
-|SUBSTR|0.00080000|
-|LEFT|0.00080000|
-|RIGHT|0.00080000|
-|INVERT|0.00000100|
-|AND|0.00000200|
-|OR|0.00000200|
-|XOR|0.00000200|
-|EQUAL|0.00001000|
-|NOTEQUAL|0.00001000|
-|SIGN|0.00000100|
-|ABS|0.00000100|
-|NEGATE|0.00000100|
-|INC|0.00000100|
-|DEC|0.00000100|
-|ADD|0.00000200|
-|SUB|0.00000200|
-|MUL|0.00000300|
-|DIV|0.00000300|
-|MOD|0.00000300|
-|SHL|0.00000300|
-|SHR|0.00000300|
-|NOT|0.00000100|
-|BOOLAND|0.00000200|
-|BOOLOR|0.00000200|
-|NZ|0.00000100|
-|NUMEQUAL|0.00000200|
-|NUMNOTEQUAL|0.00000200|
-|LT|0.00000200|
-|LE|0.00000200|
-|GT|0.00000200|
-|GE|0.00000200|
-|MIN|0.00000200|
-|MAX|0.00000200|
-|WITHIN|0.00000200|
-|PACK|0.00015000|
-|UNPACK|0.00015000|
-|NEWARRAY0|0.00000400|
-|NEWARRAY|0.00015000|
-|NEWARRAY_T|0.00015000|
-|NEWSTRUCT0|0.00000400|
-|NEWSTRUCT|0.00015000|
-|NEWMAP|0.00000200|
-|SIZE|0.00000150|
-|HASKEY|0.00270000|
-|KEYS|0.00000500|
-|VALUES|0.00270000|
-|PICKITEM|0.00270000|
-|APPEND|0.00270000|
-|SETITEM|0.00270000|
-|REVERSEITEMS|0.00270000|
-|REMOVE|0.00000500|
-|CLEARITEMS|0.00000400|
-|ISNULL|0.00000060|
-|ISTYPE|0.00000060|
-|CONVERT|0.00080000|
+[ApplicationEngine.Iterator.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Iterator.cs)
+
+[ApplicationEngine.Runtime.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Runtime.cs)
+
+[ApplicationEngine.Storage.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Storage.cs)
+
+### Native contract execution fee
+
+| Native Contract                 | Method                  | Fee（GAS）                                                   |
+| ------------------------------- | ----------------------- | ------------------------------------------------------------ |
+| ContractManagement              | Deploy                  | Refer to storage fee. Minimum is  10 GAS.                    |
+| ContractManagement              | Update                  | Refer to storage fee                                         |
+| LedgerContract                  | GetTransactionFromBlock | 0.00065536                                                   |
+| NameService                     | Resolve                 | 0.00131072                                                   |
+| NeoToken                        | UnclaimedGas            | 0.00131072                                                   |
+| NeoToken                        | RegisterCandidate       | Calculated dynamically. Default is 1000 GAS                  |
+| NeoToken                        | UnregisterCandidate     | 0.00065536                                                   |
+| NeoToken                        | Vote                    | 0.00065536                                                   |
+| NeoToken                        | GetCandidates           | 0.04194304                                                   |
+| NeoToken                        | GetCommittee            | 0.04194304                                                   |
+| NeoToken                        | GetNextBlockValidators  | 0.04194304                                                   |
+| NeoToken、GasToken、NameService | Transfer                | 0.00131072                                                   |
+| OracleContract                  | Request                 | Calculated dynamically. The user specifies the fee when invoking. |
+| StdLib                          | Deserialize             | 0.00008192                                                   |
+| StdLib                          | JsonDeserialize         | 0.00008192                                                   |
+| StdLib                          | Other                   | 0.00002048                                                   |
+
+The fee for other native contract methods not listed is 0.00032768 GAS.
+
+Reference: [neo/SmartContract/Native](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract/Native)
+
+### Storage fee
+
+The storage fee is charged according to the written byte. The default unit price is 0.001 GAS / Byte. Committee members can dynamically adjust the fee, and the upper limit is 1 GAS / Byte.
+
+For the key data written to the storage, the fee charged for the first time write-in and the subsequent write-in are different. See the following table for details.
+
+| Scenarios                                          | Charging Rule                                                | Example                                                      | Fee<br/>(Based on unit price 0.001)   |
+| -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------- |
+| First-time write in                                | （key.Length + value.Length）× unit price                    | key = `key`, value= `hello world`, totally 14 bytes          | **0.014** GAS                         |
+| Subsequent write in. New data size ≤ Old data size | No fee for key. The first byte of the value is normally charged, and the remaining bytes are charged at a 75% discount | The value modified as `hello neo3`, totally 10 bytes         | (1+(10-1)/4 )×0.001 = **0.003** GAS   |
+| Subsequent write in. New data size > Old data size | The previous fee plus the new data byte fee (i.e. new data byte × unit price) | The value modified as `hello neo3.0`, totally 12 bytes       | 0.003 + (12-10)×0.001 = **0.005** GAS |
+| Subsequent write in. New data size > Old data size | The same as above line                                       | The value modified as `hello neo3.0 preview5`, totally 21 bytes | 0.005 + (21-12)×0.001 = **0.014** GAS |
+| The value removed                                  | 0                                                            | The value removed                                            | **0** GAS                             |
+
+Reference: [ApplicationEngine.Storage.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Storage.cs)
+
+## Network fee
+
+The network fee includes:
+
+- Network byte fee
+- Script verification fee
+
+### Network byte fee
+
+By default the network byte fee is 0.00001 GAS / Byte. Committee members can dynamically adjust the fee.
+
+Reference: 
+
+[PolicyContract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs)
+
+[Transaction.cs#L302](https://github.com/neo-project/neo/blob/ee898bf41667cdbe3b836b3bd08c2d3199046c2e/src/neo/Network/P2P/Payloads/Transaction.cs#L302)
+
+### Script verification fee
+
+The script verification fee is limit to 0.5 GAS. Its formula is:
+
+`Script verification fee`= `Execution fee of script verification` * `multiple`
+
+Where,
+
+Execution fee of script verification = OpCode execution fee + SysCall fee + CPU processing fee for native contracts + Storage fee
+
+The multiple for script verification fee defaults to 30, which can be dynamically adjusted by committee with the upper limit of 1000.
+
+Developers can use the API `InvokeContractVerify` to evaluate the fee for script verification.
+
+For example:
+
+The script verification fee for a standard address is (OpCode.PUSHDATA1 + OpCode.PUSHDATA1 + OpCode.SYSCALL + Neo.Crypto.CheckSig) ×30 = **0.0098352** GAS.
+
+Reference: 
+
+[PolicyContract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs)
+
+[Transaction.cs#L302](https://github.com/neo-project/neo/blob/ee898bf41667cdbe3b836b3bd08c2d3199046c2e/src/neo/Network/P2P/Payloads/Transaction.cs#L302)
+

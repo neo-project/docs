@@ -20,8 +20,6 @@
         href: /v3/docs/zh-cn/basic/concept/blockchain/block.md
       - name: 通证
         href: /v3/docs/zh-cn/basic/concept/blockchain/token_model.md  
-    - name: 收费模型
-      href: /v3/docs/zh-cn/basic/concept/charging_model.md
     - name: 密码学
       href:
       - name: 编码算法
