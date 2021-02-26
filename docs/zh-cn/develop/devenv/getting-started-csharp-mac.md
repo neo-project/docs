@@ -46,28 +46,16 @@
 
 6. 在菜单栏中点击 `生成` -> `全部生成` 编译相应代码。
 
-   编译成功后，会在 bin/Debug/netstandard2.0/ 目录下生成 test.dll 文件，之后会用 neon 将其二次编译为 .avm 智能合约文件。
+   编译成功后，会在 bin/Debug/net5.0/ 目录下生成 test.dll 文件，之后会用 neon 将其二次编译为 .avm 智能合约文件。
 
 
 ## 下载编译器
 
 1. 在 GitHub 上下载 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目。
 
-2. 进入目录 `neo-devpack-dotnet/src/Neo.Compiler.MSIL/`，使用文本编辑器打开文件 Neo.Compiler.MSIL.csproj 进行编辑，将以下语句
+2. 用 Visual Studio for Mac 打开解决方案neo-devpack-dotnet.sln，右键单击Neo.Compiler.MSIL并选择发布
 
-   ```
-   <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
-   ```
-
-   替换为：
-
-   ```
-   <TargetFramework>netcoreapp3.1</TargetFramework>
-   ```
-
-3. 用 Visual Studio for Mac 打开解决方案neo-devpack-dotnet.sln，右键单击Neo.Compiler.MSIL并选择发布
-
-4. 将 neon 发布到默认路径 。发布成功后，会在该目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
+3. 将 neon 发布到默认路径 。发布成功后，会在该目录下生成 neon.dll 文件，记住这个文件夹，之后会用到。
 
 
 

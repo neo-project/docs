@@ -38,7 +38,7 @@ We will complete the following tasks in this section:
 
 1. Run Visual Studio and open the project file `neo-devpack-dotnet.sln` again.
 
-2. In the Solution panel, right-click `Neo.Compiler.MSIL` and click `Publish`. Follow the prompts to publish the project to the default directory `\bin\Release\netcoreapp3.1\publish`
+2. In the Solution panel, right-click `Neo.Compiler.MSIL` and click `Publish`. Follow the prompts to publish the project to the default directory `\bin\Release\net5.0\publish`
 
 3. Go to the publishing directory, run PowerShell and enter the command `./neon.exe` to check if neon works as below:
 
@@ -53,6 +53,8 @@ We will complete the following tasks in this section:
    ![env](../../zh-cn/gettingstarted/assets/env.png)
 
 5. Start PowerShell anywhere and run the command `neon.exe` to check if it works.
+
+6. ![](assets/3_1545037391347.png)
 
 ### Compiling Smart Contract Framework
 
@@ -69,7 +71,7 @@ We will complete the following tasks in this section:
 
    ![neocontract](../../zh-cn/gettingstarted/assets/neocontract.png)
 
-3. In the Solution panel, right click the project and then select `Manage NuGet Package`. Uninstall the NuGet reference for `Neo.SmartContract.Framework`.
+3. In the Solution panel, right click the project and then select `Manage NuGet Package`. Uninstall the NuGet reference for `Neo.SmartContract.Framework`. (Neo.SmartContract.Framework in the template is Neo 3.0.0 preview5).
 
 4. Right click the project name and then `Paste` to paste the `Neo.SmartContract.Framework.dll` copied before into the NeoContract project list.
 
@@ -81,7 +83,7 @@ When the project is created, a simple smart contract template is automatically c
 
 Since many developers are concerned about how to publish their own contract assets on the Neo block chain, now let's work through the process on private chain.
 
-1. Download the NEP17 template from [NEP17 example of Neo3](https://github.com/neo-project/examples/tree/37487a324b4be695af422f37d668e15a05d75e1e/csharp/NEP17).
+1. Download the NEP17 template from [NEP17 example of Neo3](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17).
 
 2. In the NeoContract project created in previous steps, open the sample file Contract1.cs
 
@@ -94,15 +96,30 @@ Since many developers are concerned about how to publish their own contract asse
 > - Adds customized attributes above the smart contract class
 >
 >    ```c#
->    [Features(ContractFeatures.HasStorage)]
+>    [DisplayName("Token Name")]
+>    [ManifestExtra("Author", "Neo")]
+>    [ManifestExtra("Email", "dev@neo.org")]
+>    [ManifestExtra("Description", "This is a NEP17 example")]
+>    [SupportedStandards("NEP-17")]
+>    [ContractPermission("*", "onNEP17Payment")]
 >    public class NEP17 : SmartContract
 >    ……
 >    ```
 >
-> - Replaces all `ToBigInteger()` methods with `TryToBigInteger()`
+> - Removed the Name method
 >
-> - Adds the Deploy method for first distribution of assets. You can modify the method to suit your needs.
+> - Added _deploy method, which will be executed immediately after the contract is deployed
 >
+> - Added Update, Destroy methods
+>
+> - All Crowdsale methods are in NEP17.Crowdsale.cs file, developers can choose to use this file or not if they want
+>
+> - Call the onNEP17Payment method of the recipient in the Transfer method
+>
+> - Implement onNEP17Payment to automatically execute the smart contract when NEP17 assets are received
+>
+
+Reference [NEP-17](../develop/write/nep17.md)
 
 ## Compiling contract file
 

@@ -36,7 +36,7 @@
 
 1. 运行 Visual Studio，重新打开项目文件 neo-devpack-dotnet.sln
 
-2. 在解决方案列表中右键单击 `Neo.Compiler.MSIL` ，选择 `发布`，将该项目发布到默认文件夹\bin\Release\netcoreapp3.1\publish
+2. 在解决方案列表中右键单击 `Neo.Compiler.MSIL` ，选择 `发布`，将该项目发布到默认文件夹\bin\Release\net5.0\publish
 
 3. 进入上一步的发布路径，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动，如下图所示：
 
@@ -51,6 +51,8 @@
    ![](assets/env.png)
 
 5. 在任意位置启动 PowerShell，输入命令 `neon.exe` 确保环境变量已正确配置。
+
+   ![](assets/3_1545037391347.png)
 
 ### 编译智能合约框架
 
@@ -67,7 +69,7 @@
 
    ![neocontract](assets/neocontract.png)
 
-3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用。
+3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用（模板中的 Neo.SmartContract.Framework 是 Neo 3.0.0 preview5 的版本）。
 
 4. 右键单击项目名 -> `粘贴`，将上一步复制的 `Neo.SmartContract.Framework.dll` 文件粘贴到NeoContract 项目下。
 
@@ -79,11 +81,7 @@
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-1. 从 Github 上下载 Neo3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/37487a324b4be695af422f37d668e15a05d75e1e/csharp/NEP17)。
-
-2. 在之前创建的合约项目里打开示例文件 Contract1.cs
-
-   示例中主要写了资产的基本信息和供调用的方法，你可以根据自己的需要增删或修改。
+首先从 GitHub 上下载 Neo3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17)。
 
 > [!Note]
 >
@@ -92,15 +90,32 @@
 > - 在智能合约类上方添加了自定义特性：
 >
 >   ```c#
->   [Features(ContractFeatures.HasStorage)]
+>   [DisplayName("Token Name")]
+>   [ManifestExtra("Author", "Neo")]
+>   [ManifestExtra("Email", "dev@neo.org")]
+>   [ManifestExtra("Description", "This is a NEP17 example")]
+>   [SupportedStandards("NEP-17")]
+>   [ContractPermission("*", "onNEP17Payment")]
 >   public class NEP17 : SmartContract
 >   ……
 >   ```
 >
-> - 将所有的 `ToBigInteger()` 方法改为 `TryToBigInteger()`
+> - 将 Transfer 事件改为首字母大写
 >
-> - 添加了Deploy 方法以供第一次分发资产，开发者可以根据需求自定义方法
+> - 移除了 Name 方法
 >
+> - 添加了 _deploy 方法，合约部署后会立即执行
+>
+> - 添加了 Update、Destroy 方法
+>
+> - 所有 Crowdsale 方法都在 NEP17.Crowdsale.cs 文件中，开发者可以根据需要选择是否使用该文件
+>
+> - 在 Transfer 方法中调用接收方的 onNEP17Payment 方法
+>
+> - 实现 onNEP17Payment 以便在收到 NEP17 资产时自动执行智能合约
+>
+
+参考 [NEP-17](../develop/write/nep17.md)
 
 ## 编译合约文件
 

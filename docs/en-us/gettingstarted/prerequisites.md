@@ -15,4 +15,4 @@ You are recommended to run Neo-CLI in the following environments that we have te
 
 Neo provides two full-node clients: NEO-GUI and NEO-CLI. This tutorial is based on the usage of Neo-CLI.
 
-Refer to [Neo-CLI Setup](../node/cli/setup.md) to download and install Neo-CLI Preview4 package from GitHub.
+Refer to [Neo-CLI Setup](../node/cli/setup.md) to download and install Neo-CLI Preview5 package from GitHub.
