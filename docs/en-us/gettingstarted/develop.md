@@ -54,7 +54,7 @@ We will complete the following tasks in this section:
 
 5. Start PowerShell anywhere and run the command `neon.exe` to check if it works.
 
-6. ![](assets/3_1545037391347.png)
+   ![](assets/3_1545037391347.png)
 
 ### Compiling Smart Contract Framework
 
@@ -91,9 +91,9 @@ Since many developers are concerned about how to publish their own contract asse
 
 > [!Note]
 >
-> In comparison with Neo2, the Neoe3 NEP17 sample has the following changes:
+> In comparison with Neo2, the Neo3 NEP17 sample has the following changes:
 >
-> - Adds customized attributes above the smart contract class
+> - Added the customized attributes above the smart contract class
 >
 >    ```c#
 >    [DisplayName("Token Name")]
@@ -110,16 +110,16 @@ Since many developers are concerned about how to publish their own contract asse
 >
 > - Added _deploy method, which will be executed immediately after the contract is deployed
 >
-> - Added Update, Destroy methods
+> - Added the Update and Destroy methods
 >
-> - All Crowdsale methods are in NEP17.Crowdsale.cs file, developers can choose to use this file or not if they want
+> - All the Crowdsale methods are in the NEP17.Crowdsale.cs file. Developers can choose to use this file if need be.
 >
-> - Call the onNEP17Payment method of the recipient in the Transfer method
+> - Called the onNEP17Payment method of the recipient in the Transfer method
 >
-> - Implement onNEP17Payment to automatically execute the smart contract when NEP17 assets are received
+> - Implemented onNEP17Payment to automatically execute the smart contract when NEP17 assets are received.
 >
 
-Reference [NEP-17](../develop/write/nep17.md)
+Reference: [NEP-17](../develop/write/nep17.md)
 
 ## Compiling contract file
 
