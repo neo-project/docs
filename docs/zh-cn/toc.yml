@@ -92,7 +92,7 @@
     - name: NEF 和 Manifest 文件
       href: /v3/docs/zh-cn/develop/write/manifest.md
     - name: 合约升级
-      href: /v3/docs/zh-cn/develop/write/migrate.md
+      href: /v3/docs/zh-cn/develop/write/update.md
   - name: 合约示例
     items: 
     - name: Hello World

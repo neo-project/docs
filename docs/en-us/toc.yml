@@ -93,7 +93,7 @@
     - name: NEF and Manifest Files
       href: /v3/docs/en-us/develop/write/manifest.md
     - name: Contract Migration and Destruction
-      href: /v3/docs/en-us/develop/write/migrate.md
+      href: /v3/docs/en-us/develop/write/update.md
   - name: Contract Samples
     items: 
     - name: Hello World
