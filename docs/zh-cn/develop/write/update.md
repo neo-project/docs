@@ -4,10 +4,10 @@
 
 ## 合约升级
 
-当需要将原来已经部署使用的合约进行升级或者想将旧合约的存储区迁移到新合约的时候，需要用到合约迁移的功能。合约升级时合约哈希和存储区都不会改变。
+当需要将原来已经部署使用的合约进行升级或者想将旧合约的存储区迁移到新合约的时候，需要用到合约升级的功能。合约升级时合约哈希和存储区都不会改变。
 
 ### 实现 Update 方法
-要使用合约升级的功能，需要在原有合约中实现升级方法，合约模板中已默认实现了 `update` 方法，如下所示：
+要使用合约升级的功能，需要在原有合约中实现升级方法，合约模板中已默认实现了 `Update` 方法，如下所示：
 
 ```c#
 public static bool Verify() => IsOwner();
@@ -23,15 +23,14 @@ public static void Update(ByteString nefFile, string manifest)
 
 ### 进行合约升级
 
-- 准备好新合约编译后的 NEF 文件和 Manifest 文件
+1. 准备好新合约编译后的 NEF 文件和 Manifest 文件
 
-- 获得 Base64 格式的 NEF，[文件在线转 Base64](https://www.hitoy.org/tool/file_base64.php)
+2. 获得 Base64 格式的 NEF，可使用 [文件在线转 Base64](https://www.hitoy.org/tool/file_base64.php)
 
-- 获得压缩转义的 Manifest，[JSON在线压缩转义](http://www.bejson.com/zhuanyi/)
+3. 获得压缩转义的 Manifest，可使用 [JSON在线压缩转义](http://www.bejson.com/zhuanyi/)
 
-- 构造 invoke 命令的参数
+4. 使用 invoke 命令调用合约的 update 方法
 
-- 调用合约的 update 方法
 
 ![](../assets/update.png)
 
@@ -43,7 +42,7 @@ public static void Update(ByteString nefFile, string manifest)
 
 智能合约支持在发布之后进行销毁操作，但需要在旧合约内预留销毁方法。
 
-要使用合约销毁的功能，需要在原有合约中实现销毁方法。方法，合约模板中已默认实现了 `destroy` 方法，如下所示：
+要使用合约销毁的功能，需要在原有合约中实现销毁方法。合约模板中已默认实现了 `destroy` 方法，如下所示：
 
 ```c#
 public static bool Verify() => IsOwner();
