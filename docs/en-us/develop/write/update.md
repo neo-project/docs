@@ -1,4 +1,4 @@
-# Contract Update and Destruction
+# Contract Update and Destroy
 
 Smart contracts support to be updated or destroyed after release. Before you can do that you need to reserve the specific interfaces in the old contracts.
 
@@ -38,7 +38,7 @@ For information about invoking the contract, refer to [Invoking contracts](../de
 
 After the `update` method is executed, the contract is upgraded and neither the contract hash nor the storage area is changed.
 
-## Contract Destruction
+## Contract Destroy
 
 To destroy a contract, you need to reserve the destruction method in the contract.
 
