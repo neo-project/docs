@@ -21,7 +21,7 @@ deploy NEP17.nef NEP17.manifest.json
 ```bash
 neo> deploy NEP17.nef
 Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
-Gas: 3
+Gas: 10.1477624
 
 Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
 ```
@@ -39,7 +39,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
 例如：
 
 ```bash
-invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 symbol
 ```
 
 成功执行后，屏幕输出如下信息：
@@ -48,7 +48,7 @@ invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
 Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
 VM State: HALT
 Gas Consumed: 0.0103609
-Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
+Evaluation Stack: [{"type":"ByteArray","value":"VG9rZW5TeW1ib2w="}]
 
 relay tx(no|yes):
 ```
@@ -57,5 +57,6 @@ relay tx(no|yes):
 
 - VM State:  `HALT` 表示虚拟机执行成功， `FAULT` 表示虚拟机执行时遇到异常退出。
 - Evaluation Stack: 合约执行结果，如果 value 是字符串或 ByteArray，则是 Base64 编码后的结果。
+- 你可以在 [这里](https://neo.org/converter/) 进行数据格式转换 `VG9rZW5TeW1ib2w=` => `TokenSymbol`。
 
 更多智能合调用信息请参考 [调用智能合约](../develop/deploy/invoke.md)。

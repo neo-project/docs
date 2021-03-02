@@ -765,7 +765,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 示例输入：
 
 ```
-invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
+invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 symbol
 ```
 
 示例输出：
@@ -774,7 +774,7 @@ invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 name
 Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
 VM State: HALT
 Gas Consumed: 0.0103609
-Evaluation Stack: [{"type":"ByteArray","value":"TXlUb2tlbg=="}]
+Evaluation Stack: [{"type":"ByteArray","value":"VG9rZW5TeW1ib2w="}]
 
 relay tx(no|yes):
 ```

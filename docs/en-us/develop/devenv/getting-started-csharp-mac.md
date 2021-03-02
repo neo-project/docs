@@ -44,25 +44,15 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 
 6. In the menu choose `Build` ->`Build All` to compile the corresponding code. 
 
-   A test.dll file is created in the folder `bin/Debug/netstandard2.0/`.  Next we will use neon to compile it into a .avm smart contract file that can be deployed on the blockchain.
+   A test.dll file is created in the folder `bin/Debug/net5.0/`.  Next we will use neon to compile it into a .avm smart contract file that can be deployed on the blockchain.
 
 ## Downloading contract compiler
 
 1. Download [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) from GitHub. 
-
-2. Locate the file Neo.Compiler.MSIL.csproj at `neo-devpack-dotnet/src/Neo.Compiler.MSIL/`, open it using a text editor and replace 
-
-   ```
-   <TargetFrameworks>netcoreapp3.1;netstandard2.1</TargetFrameworks>
-   ```
-   with
-   ```
-   <TargetFramework>netcoreapp3.1</TargetFramework>
-   ```
    
-3. Run Visual Studio for Mac and open the solution neo-devpack-dotnet.sln. Right-click Neo.Compiler.MSIL and then select `Publish`.
+2. Run Visual Studio for Mac and open the solution neo-devpack-dotnet.sln. Right-click Neo.Compiler.MSIL and then select `Publish`.
 
-4. Publish neon to the default path. After published, you can find neon.dll is generated under the path.
+3. Publish neon to the default path. After published, you can find neon.dll is generated under the path.
 
 ## Compiling your smart contract to .avm
 
