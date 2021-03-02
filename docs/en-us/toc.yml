@@ -90,6 +90,8 @@
       href: /v3/docs/en-us/develop/write/limitation.md
     - name: NEP-17
       href: /v3/docs/en-us/develop/write/nep17.md
+    - name: NEF and Manifest Files
+      href: /v3/docs/en-us/develop/write/manifest.md
     - name: Contract Migration and Destruction
       href: /v3/docs/en-us/develop/write/migrate.md
   - name: Contract Samples

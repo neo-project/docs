@@ -89,6 +89,8 @@
       href: /v3/docs/zh-cn/develop/write/limitation.md
     - name: NEP-17
       href: /v3/docs/zh-cn/develop/write/nep17.md
+    - name: NEF 和 Manifest 文件
+      href: /v3/docs/zh-cn/develop/write/manifest.md
     - name: 合约升级
       href: /v3/docs/zh-cn/develop/write/migrate.md
   - name: 合约示例
