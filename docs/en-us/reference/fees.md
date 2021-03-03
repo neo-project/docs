@@ -117,7 +117,7 @@ For the key data written to the storage, the fee charged for the first time writ
 
 | Scenarios                                          | Charging Rule                                                | Example                                                      | Fee<br/>(Based on unit price 0.001)   |
 | -------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------- |
-| First-time write in                                | （key.Length + value.Length）× unit price                    | key = `key`, value= `hello world`, totally 14 bytes          | **0.014** GAS                         |
+| First-time write in                                | (key.Length + value.Length) × unit price                     | key = `key`, value= `hello world`, totally 14 bytes          | **0.014** GAS                         |
 | Subsequent write in. New data size ≤ Old data size | No fee for key. The first byte of the value is normally charged, and the remaining bytes are charged at a 75% discount | The value modified as `hello neo3`, totally 10 bytes         | (1+(10-1)/4 )×0.001 = **0.003** GAS   |
 | Subsequent write in. New data size > Old data size | The previous fee plus the new data byte fee (i.e. new data byte × unit price) | The value modified as `hello neo3.0`, totally 12 bytes       | 0.003 + (12-10)×0.001 = **0.005** GAS |
 | Subsequent write in. New data size > Old data size | The same as above line                                       | The value modified as `hello neo3.0 preview5`, totally 21 bytes | 0.005 + (21-12)×0.001 = **0.014** GAS |
@@ -150,7 +150,7 @@ The script verification fee is limit to 0.5 GAS. Its formula is:
 
 Where,
 
-Execution fee of script verification = OpCode execution fee + SysCall fee + CPU processing fee for native contracts + Storage fee
+`Execution fee of script verification` = `OpCode execution fee` + `SysCall fee` + `CPU processing fee for native contracts` + `Storage fee`
 
 The multiple for script verification fee defaults to 30, which can be dynamically adjusted by committee with the upper limit of 1000.
 
