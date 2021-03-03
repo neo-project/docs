@@ -4,7 +4,7 @@
 
 When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NeoVM and Dotnet IL. 
 
-Because NeoVM is more compact, we can only compile limited C# / dotnet features into an AVM file.
+Because NeoVM is more compact, we can only compile limited C# / dotnet features into an nef file.
 
 ### C#  integral types
 
@@ -101,9 +101,7 @@ public class info
 }
 ```
 
-Defining custom member functions is not supported, with the exception of extern member functions that use features like APPCALL. 
-
-Custom constructors are not supported, with the exception of extern constructors that use the OPCALL attribute.
+Methods, constructors, and destructors are not supported, with the exception of extern member functions that use the Syscall feature.
 
 ### C# array
 
@@ -131,7 +129,7 @@ C# common List Dictionary containers are not supported.
 
 The List function can be replaced by an array.  
 
-The Dictionary function can be replaced with MAP in Neo Dotnet DevPack.
+The Dictionary function can be replaced with MAP in neo-devpack-dotnet.
 
 ### C# variables
 
@@ -186,15 +184,6 @@ You may find there are lots of extern external functions of NEO DEVPACK. In fact
 
 You can use these functions in your smart contracts.
 
-### APPCALL
-
-Calling a function with the APPCALL attribute calls the specified smart contract.
-
-```c#
-[Appcall("97b9373228d508155d5bdf75cd4703dfb1137fe0")]
-public static extern bool AnotherContract(string arg, object[] args);
-```
-
 ### SYSCALL
 
 Calling a function with the Syscall attribute actually calls the corresponding system function:
@@ -211,15 +200,6 @@ When a function with the OPCODE attribute is called, the call is translated into
 ```c#
 [OpCode(Neo.VM.OpCode.LEFT)]
 public extern static byte[] Take(byte[] good, int index);
-```
-
-### NONEMIT
-
-Executing a function with the NonEMit attribute is usually used to complete conversions that meet syntax rules. In fact, there is no need to make the conversion in the underlying NeoVM.
-
-```c#
-[Nonemit]
-public extern static Delegate ToDelegate(this byte[] source);
 ```
 
 ### NonemitWithConvert

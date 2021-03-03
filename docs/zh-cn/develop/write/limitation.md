@@ -4,7 +4,7 @@
 
 使用 C# 开发智能合约时，你无法使用 C# 的全部特性。会存在一些限制以及不支持的功能，这些限制的根源，来自于 NeoVM 和 Dotnet IL 的差异性。
 
-因为 NeoVM 更加精简，所以我们只能将有限的 C# / dotnet 特性编译为 AVM 文件。
+因为 NeoVM 更加精简，所以我们只能将有限的 C# / dotnet 特性编译为 nef 文件。
 
 ### C# 整数类型的支持
 
@@ -101,9 +101,7 @@ public class info
 }
 ```
 
-不支持在其中自定义成员函数，使用 APPCALL 之类特性的 extern 成员函数例外。
-
-不支持自定义构造函数，使用 OPCALL 特性的 extern 构造函数例外。
+不支持在其中自定义成员函数、构造函数、析构函数，使用 Syscall 特性的 extern 成员函数例外。
 
 ### C# 数组的支持
 
@@ -133,7 +131,7 @@ return some;
 
 List 功能可以用数组替代。
 
-Dictionary 功能可以用 Neo Dotnet DevPack 中的 MAP 替代。
+Dictionary 功能可以用 neo-devpack-dotnet 中的 MAP 替代。
 
 ### C# 变量的支持
 
@@ -186,15 +184,6 @@ C# 的委托和事件具有特殊的功能，参考 C# 委托和事件的支持�
 
 也可以在你的智能合约代码中使用这些功能。
 
-### APPCALL特性
-
-调用一个具有 APPCALL 特性的函数，会调用指定的智能合约。
-
-```c#
-[Appcall("97b9373228d508155d5bdf75cd4703dfb1137fe0")]
-public static extern bool AnotherContract(string arg, object[] args);
-```
-
 ### SYSCALL特性
 
 调用一个具有 Syscall 特性的函数，实际上会调用对应的系统函数：
@@ -211,15 +200,6 @@ public extern long GetBalance(byte[] asset_id);
 ```c#
 [OpCode(Neo.VM.OpCode.LEFT)]
 public extern static byte[] Take(byte[] good, int index);
-```
-
-### NONEMIT 特性
-
-执行一个具有 NonEMit 特性的函数，通常都是用来完成一些满足语法的转换，实际上在 NeoVM 底层并不需要转换。
-
-```c#
-[Nonemit]
-public extern static Delegate ToDelegate(this byte[] source);
 ```
 
 ### NonemitWithConvert 特性
