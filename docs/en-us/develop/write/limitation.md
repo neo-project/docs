@@ -23,7 +23,7 @@ BigInteger balance_neo = total_neo - ico_neo;
 ulong value = 150;
 ```
 
-Note that when converting a numeric type to a smaller one, compiling to AVM does not truncate the value (byte) (ulong)
+Note that when converting a numeric type to a smaller one, compiling to nef does not truncate the value (byte) (ulong)
 
 Mathematical operators are supported for all integer types：
 
@@ -66,7 +66,7 @@ Basic support. The underlying behavior is similar to INT; false is int 0.
 
 ### C# char string types
 
-Not fully support. Unlike the string in C#, the string in NeoVM is treated as bytearray, thus the string compiled into AVM is actually its UTF8 encoded bytearray. 
+Not fully support. Unlike the string in C#, the string in NeoVM is treated as bytearray, thus the string compiled into nef is actually its UTF8 encoded bytearray. 
 
 Only string variables are supported. Built-in methods of string types are not supported, such as `+`, `Contains`,` Replace`, `Trim`,` IndexOf`, etc. `ToString ()` methods of any type are not supported, neither. Thus do not use any string advanced handlers. Just treat string as a special type. Particularly do not use string to handle Chinese.
 

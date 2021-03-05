@@ -84,7 +84,7 @@ return contract.Get("totalSupply").AsBigInteger();
 
 由于NeoVM和Dotnet IL之间的差异，当使用C#开发智能合约时并不能使用C#的全部特性。
 
-由于NeoVM更紧凑，我们只能将有限的C# / dotnet特性编译到AVM文件中。
+由于NeoVM更紧凑，我们只能将有限的C# / dotnet特性编译到 NEF 文件中。
 
 NeoVM提供了以下的基本类型:
 

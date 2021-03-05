@@ -84,7 +84,7 @@ return contract.Get("totalSupply").AsBigInteger();
 
 When using C# to develop smart contracts, you cannot use the full set of C# features due to the difference between NeoVM and Dotnet IL.
 
-Because NeoVM is more compact, we can only compile limited C# / dotnet features into an AVM file.
+Because NeoVM is more compact, we can only compile limited C# / dotnet features into an NEF file.
 
 NeoVM provides the following basic types：
 

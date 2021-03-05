@@ -23,7 +23,7 @@ BigInteger balance_neo = total_neo - ico_neo;
 ulong value = 150;
 ```
 
-需要注意在将数值类型转型为更小的类型时，编译为 AVM 之后并不会截断数值（byte）（ulong）
+需要注意在将数值类型转型为更小的类型时，编译为 nef 之后并不会截断数值（byte）（ulong）
 
 对所有整数类型支持数学运算符 + - * / % 加减乘除余：
 
@@ -66,7 +66,7 @@ for (int j = 0; j < 3; j++)
 
 ### C# char string 类型的支持
 
-不完全支持，由于在 NeoVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 AVM 的 string 实际是它的 UTF8 编码的 bytearray。仅支持声明字符串变量，不支持字符串类型的内置方法，如  `+`、`Contains`、`Replace`、`Trim`、`IndexOf` 等，也不支持任意类型的 `ToString()` 方法。所以请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
+不完全支持，由于在 NeoVM 层次，string 也是作为 bytearray 处理，和 C# 中的 string 是不同的，编译到 nef 的 string 实际是它的 UTF8 编码的 bytearray。仅支持声明字符串变量，不支持字符串类型的内置方法，如  `+`、`Contains`、`Replace`、`Trim`、`IndexOf` 等，也不支持任意类型的 `ToString()` 方法。所以请勿使用任何 string 高级处理函数，仅将 string 作为一种特殊类型处理。
 
 尤其不要使用 string 处理中文。
 
