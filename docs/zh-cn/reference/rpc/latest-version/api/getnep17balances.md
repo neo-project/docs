@@ -4,17 +4,27 @@
 
 > [!Note]
 >
-> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases)  [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
 - address：要查看资产余额的地址。
 
-- startTime | endTime：可选参数，UTC 时间戳，统计资产开始或截止时间（含）。
+## 配置说明
+使用时需要将TrackHistory设置为true，如果需要追溯空地址记录，则RecordNullAddressHistory需要设置为true。MaxResults表示记录的最多记录数，超过数额将不会被存储。Network需要配置为和neo-cli中的config.json中的magic相同。
 
-  - 如果设置起始和结束时间戳，则返回时间戳范围内的资产余额。
-  - 如果仅设置一个时间戳，则返回自该时间戳以后发生的资产余额。
-  - 如果不设置此参数，则返回近七天内的资产余额。
+
+```json
+{
+  "PluginConfiguration": {
+    "DBPath": "Nep17BalanceData",
+    "TrackHistory": true,
+    "RecordNullAddressHistory": false,
+    "MaxResults": 1000,
+    "Network": 5195086
+  }
+}
+```
 
 ## 调用示例
 
