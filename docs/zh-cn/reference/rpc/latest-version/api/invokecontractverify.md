@@ -57,14 +57,15 @@
 {
   "jsonrpc": "2.0",
   "method": "invokecontractverify",
-  "params": [ "0x92f5c79b88560584a900cfec15b0e00dc4d58b54", 
-						 [ ],
-	[
+  "params": [ 
+  "0x92f5c79b88560584a900cfec15b0e00dc4d58b54", 
+  [ ],
+  [
       {
         "account": "NTpqYncLsNNsMco71d9qrd5AWXdCq8YLAA",
         "scopes": "CalledByEntry"
       }
-    ]
+  ]
 ],
   "id": 1
 }
