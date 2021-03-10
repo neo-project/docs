@@ -16,6 +16,8 @@ address：地址。
 
 ## 调用示例
 
+### Example 1
+
 请求正文：
 
 ```json
@@ -40,6 +42,8 @@ address：地址。
 }
 ```
 
+### Example 2
+
 请求正文：
 
 ```json
@@ -61,6 +65,32 @@ address：地址。
         "address": "152f1muMCNa7goXYhYAQC61hxEgGacmncB",
         "isvalid": false
     }
+}
+```
+
+### Example 3
+
+请求正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "validateaddress",
+  "params": ["0x9127ea19791e3f3fc59309778a4abf275d5290e5"],
+  "id": 1
+}
+```
+
+响应正文：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "address": "0x9127ea19791e3f3fc59309778a4abf275d5290e5",
+    "isvalid": false
+  }
 }
 ```
 
