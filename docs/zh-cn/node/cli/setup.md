@@ -1,4 +1,4 @@
-# 安装
+#  安装
 
 你可以通过两种方式安装 Neo-CLI：
 
@@ -16,7 +16,7 @@
 | 操作系统 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 |
 | CPU      | 双核                                                 | 四核                                                 |
 | 内存     | 8G                                                   | 16G                                                  |
-| 硬盘     | 50G 固定硬盘                                         | 100G 固定硬盘                                        |
+| 硬盘     | 50G 固态硬盘                                         | 100G 固态硬盘                                        |
 
 ## 安装 Neo-CLI 程序包
 
@@ -26,6 +26,20 @@
 
    ```
    sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
+   ```
+   
+   如果选用RocksDB存储数据，还需要修改config.json，如下所示：
+   
+   ```
+   "Storage": {
+      "Engine": "RocksDBStore"
+    },
+   ```
+   
+    并在ubuntu 18.04 上输入以下命令：
+   
+   ```
+   sudo apt-get install librocksdb-dev
    ```
 
    对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
@@ -38,12 +52,12 @@
 1. 下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
 
    ```
-   $ git clone https://github.com/neo-project/neo-node.git
+   $ git clone -b master-2.x https://github.com/neo-project/neo-node.git
    ```
 
-3. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
+2. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
 
-4. 安装最新版的 [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)。
+3. 安装最新版的 [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)。
 
 ### 使用Visual Studio发布（仅Windows）
 
@@ -64,11 +78,9 @@
    dotnet restore
    dotnet publish -c release -r <RUNTIME_IDENTIFIER>
    ```
+   
    其中 `<RUNTIME_IDENTIFIER>` 为运行时标识符，应根据系统选择对应的 [RID 目录](https://docs.microsoft.com/zh-cn/dotnet/core/rid-catalog)，如 `win-x64`、 `linux-x64`、 `osx-x64` 等。
    
-5. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
+2. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
 
 
-## 阅读下节
-
-[配置与启动 Neo-CLI](config.md)

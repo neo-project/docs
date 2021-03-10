@@ -1,6 +1,6 @@
 # getwalletunclaimedgas 方法
 
-显示钱包中未提取的 GAS 数量。
+显示钱包中未提取的 GasToken 数量。
 
 > [!Note]
 >
@@ -15,7 +15,7 @@
 {
   "jsonrpc": "2.0",
   "method": "getwalletunclaimedgas",
-  "params": ["NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1"],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
   "id": 1
 }
 ```
@@ -26,12 +26,10 @@
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "897299680935"
+    "result": "750000000"
 }
-
 ```
 
 响应说明：
 
-返回未提取的 GAS 数量。
-
+返回未提取的 GasToken 数量。

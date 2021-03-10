@@ -4,14 +4,14 @@
 
 ## 所属合约
 
-	Nep5Token
+	Nep17Token
 
 ## 调用示例
 
 请求正文：
 
 ```json
-var result = Contract.Call(nep5Hash, "symbol", new object[] { });
+var result = Contract.Call(nep17Hash, "symbol", new object[] { });
 ```
 
 响应正文：

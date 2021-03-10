@@ -23,5 +23,5 @@ public class Account
 
 | 名称                                       | 说明                  |
 | ---------------------------------------- | ------------------- |
-| [IsStandard(byte[] scripthash)](Account/IsStandard.md) | 根据 scripthash 判断该合约是否是标准账户（单方签名账户） |
+| [IsStandard(UInt160 scripthash)](Account/IsStandard.md) | 根据 scripthash 判断该合约是否是标准账户（单方签名账户） |
 

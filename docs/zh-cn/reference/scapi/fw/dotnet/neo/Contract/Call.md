@@ -1,4 +1,4 @@
-# Contract.Call 方法 (byte[], string, object[])
+# Contract.Call 方法
 
 调用合约。
 
@@ -9,7 +9,7 @@
 ## 语法
 
 ```c#
-public static extern object Call(byte[] scriptHash, string method, object[] arguments)
+public static extern object Call(UInt160 scriptHash, string method, object[] arguments)
 ```
 
 参数：
@@ -28,9 +28,9 @@ public static extern object Call(byte[] scriptHash, string method, object[] argu
      //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 的小端序
      //HexToBytes()、ToScriptHash() 只能对常量进行操作，不能写在 Main 方法里
      //scriptHash 也可以改为从参数传入或从存储区中读取
-     static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
+     static UInt160 ScriptHash = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();
 
-     public static object Main(string operation, object[] args)
+     public static object Test(string operation, object[] args)
      {
          if (operation == "name")
          {

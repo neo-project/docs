@@ -20,11 +20,11 @@ Transfers to the specified address.
 
 ## Parameter Description
 
-* asset_id： Asset ID (asset identifier),  the script hash of NEP-5 contract
+* asset_id： Asset ID (asset identifier),  the script hash of NEP-17 contract
 
-  e.g. NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  e.g. NeoToken is 0xf61eebf573ea36593fd43aa150c055ad7906ab83
 
-  Gas is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+  GasToken is 0x70e2301955bf1e74cbb31d18c2f96972abadb328
 
 * address: Payment address
 
@@ -36,39 +36,44 @@ Request body:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "sendtoaddress",
-  "params": ["0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b","NPJRHLjDm4r1wd8wHBGFRWqzsneFX9tBch", 5000],
-  "id": 1
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendtoaddress",
+    "params": [
+        "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+        "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        1
+    ]
 }
 ```
 
 Response body:
 
 ```json
+{
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x09df034eee12224964ccc0c93fcfbfce8d922ab2b0b673388fd8951d2f25d5d9",
-        "size": 272,
+        "hash": "0x5c721fb081d70ff4d6af716793130d024702fa789800c35e0f6763244a7589df",
+        "size": 246,
         "version": 0,
-        "nonce": 760727272,
-        "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-        "sys_fee": "100000000",
-        "net_fee": "1272390",
-        "valid_until_block": 2136389,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 376451427,
+        "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        "sysfee": "9999540",
+        "netfee": "1229550",
+        "validuntilblock": 5786,
+        "signers": [
             {
-                "account": "0x39e7394d6231aa09c097d02391d5d149f873f12b",
+                "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "AwCIUmp0AAAADBQlJ1AGgA5zzGQoZ1OjpzJCJSHI5AwUK/Fz+EnR1ZEj0JfACaoxYk055zkTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5",
+        "attributes": [],
+        "script": "CxEMFOK2UyJyk+mcTykG1TVTq7Smct+GDBT6ifssFN8PWd3fBPblZRfys0qu6xTAHwwIdHJhbnNmZXIMFIOrBnmtVcBQoTrUP1k26nP16x72QWJ9W1I5",
         "witnesses": [
             {
-                "invocation": "DEBPVJeyFAroQcgVtVi9qmbemtAV1cIIdivDELileXwlbNFanQqRXq9UV5CxHA5qQ/U7beaJcLdQBiAPIkvGXSdZ",
-                "verification": "DCEDucRsbVxnHvXCG8eqfDBGiusIGi44lSaa35R3GNZQzh4LQQqQatQ="
+                "invocation": "DEB9iM26NTkdhHkiIji4Cwk+5Ng9cfThzzPiOqz71ymvFWVKBx4/GMK4LQzaSO6PQwyGe8jrlieB2JEHWCf18mXX",
+                "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
             }
         ]
     }

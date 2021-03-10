@@ -1,6 +1,6 @@
 # 安装 Neo-GUI
 
-Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，目前支持 Windows 10、macOS 系统上运行。
+Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平台技术，目前支持在Windows 10、macOS 系统上运行。
 
 其主要功能如下；
 
@@ -15,14 +15,14 @@ Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-
 
 > [!Note]
 >
-> - 请确认你的 Windows / macOS系统已安装 [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
+> - 请确认你的 Windows / macOS系统已安装 [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
 > - 安装时请避免将Neo-GUI安装在默认路径C:\Program Files下，否则需要以管理员权限运行客户端程序才能连接到网络同步数据。
 
 ## 连接网络
 
-完成安装后，Neo-GUI默认连接到Neo3-Preview2测试网。
+完成安装后，Neo-GUI默认连接到Neo3-Preview3测试网。
 
-你也可以将Neo-GUI连接到搭建好的私链（参见[搭建私链](../../network/private-chain/solo.md)）。要连接到私链，请按照以下操作进行：
+你也可以将Neo-GUI连接到搭建好的私链（参见[搭建私链](../../develop/network/private-chain/solo.md)）。要连接到私链，请按照以下操作进行：
 
 1. 复制私链对应的 `config.json` 和 `protocol.json` 文件
 

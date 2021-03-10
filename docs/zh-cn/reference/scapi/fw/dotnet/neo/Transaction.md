@@ -27,4 +27,5 @@ public class Transaction
 
 ## 构造方法
 
-通过 [Blockchain.GetTransaction(byte\[\])](Blockchain/GetTransaction.md) 或 [Blockchain.GetTransactionFromBlock](Blockchain/GetTransactionFromBlock.md)来构造 Transaction 对象。
+通过 [Ledger.GetTransaction(UInt256)](Ledger/GetTransaction.md)，[Ledger.GetTransactionFromBlock()](Ledger/GetTransactionFromBlock.md) 来构造 Transaction 对象。
+

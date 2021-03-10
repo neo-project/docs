@@ -14,9 +14,9 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 | 原生合约   | 合约hash                                   |
 | ---------- | ------------------------------------------ |
-| `NeoToken` | 0xde5f57d430d3dece511cf975a8d37848cb9e0525 |
-| `GasToken` | 0x668e0c1f9d7b70a99dd9e06eadd4c784d641afbc |
-| `Policy`   | 0xce06595079cd69583126dbfd1d2e25cca74cffe9 |
+| `NeoToken` | 0xf61eebf573ea36593fd43aa150c055ad7906ab83 |
+| `GasToken` | 0x70e2301955bf1e74cbb31d18c2f96972abadb328 |
+| `Policy`   | 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 |
 
 原生合约调用方法，与普通合约调用方法一样：`Contract.Call(NEO.hash, method, params)`
 
@@ -26,7 +26,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 #### 职能
 
-候选人本身并无职能。但委员会成员以及共识节点从候选人中，根据选票数量排序选出。三者之间逻辑关系如下图所示。委员会和共识节点没有明确的大小关系，但默认的委员会数目（21）大于共识节点数（7），一般认为共识节点包含于委员会。
+候选人本身并无职能。根据候选人得票数量排序，排在最前面的一定数量的候选人将被选为委员会成员和共识节点。三者之间逻辑关系如下图所示。委员会和共识节点没有明确的大小关系，但默认的委员会数目（21）大于共识节点数（7）。
 
 ![avatar](./assets/candidateRelationship.png)
 
@@ -36,8 +36,8 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`registerCandidate`](govapi/registerCandidate.md) | byte[] publicKey | 0.05 |
-| [`unregisterCandidate`](govapi/unregisterCandidate.md) | byte[] publicKey | 0.05 |
+| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | UInt160 publicKey | 0.05 |
+| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | UInt160 publicKey | 0.05 |
 
 > [!Note]
 >
@@ -45,19 +45,19 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 #### 候选人投票
 
-每个地址均有投票给一个地址的权利，被投票的地址即为候选人。候选人票数为所有向该账户投票的地址的NEO余额之和。通过票数将候选人排序，排在最前面的一定数量的候选人将被选为委员会成员和共识节点。这里注意，投给非候选人的地址的票数会被统计但不会被计入票数，只有当该地址注册为候选人投票才会生效。初始块所有默认候选人均会向自己投票。
+每个地址均有投票给一个地址的权利，候选人票数为所有向该账户投票的地址的NEO余额之和。初始块所有默认候选人均会向自己投票。
 
 投票相关合约方法如下，这里注意，投票需要验证投票者的签名。
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`vote`](govapi/vote.md) | byte[] account, byte[] voteTo | 5 |
+| [`Vote`](scapi/fw/dotnet/neo/Neo/Vote.md) | UInt160 account, byte[] voteTo | 5 |
 
 由于账户NEO余额会随交易而不断变化，而且投票和注册的候选人也在不断变化，因此在每个区块都会根据以上变化更新候选人及相应投票结果。
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`getCandidates`](govapi/getCandidates.md) | null | 1 |
+| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 1 |
 
 ### 委员会（Committee）
 
@@ -74,11 +74,11 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`setMaxBlockSize`](govapi/setMaxBlockSize.md) | uint blockSize | 0.03 |
-| [`setMaxTransactionsPerBlock`](govapi/setMaxTransactionsPerBlock.md) | uint maxTransactions | 0.03 |
-| [`setFeePerByte`](govapi/setFeePerByte.md) | long feePerByte | 0.03 |
-| [`blockAccount`](govapi/blockAccount.md) | byte[] account | 0.03 |
-| [`unblockAccount`](govapi/unblockAccount.md) | byte[] account | 0.03 |
+| [`SetMaxBlockSize`](scapi/fw/dotnet/neo/Policy/SetMaxBlockSize.md) | uint blockSize | 0.03 |
+| [`SetMaxTransactionsPerBlock`](scapi/fw/dotnet/neo/Policy/SetMaxTransactionsPerBlock.md) | uint maxTransactions | 0.03 |
+| [`SetFeePerByte`](scapi/fw/dotnet/neo/Policy/SetFeePerByte.md) | long feePerByte | 0.03 |
+| [`BlockAccount`](scapi/fw/dotnet/neo/Policy/BlockAccount.md) | UInt160 account | 0.03 |
+| [`UnblockAccount`](scapi/fw/dotnet/neo/Policy/UnblockAccount.md) | UInt160 account | 0.03 |
 
 委员会可以通过发送包含多签的，调用相应合约方法的交易上链使投票生效。投票数超过委员会数量的一半的向上取整即为有效投票，相应操作将被执行生效。
 
@@ -86,9 +86,9 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`getMaxBlockSize`](govapi/getMaxBlockSize.md) | null | 0.01 |
-| [`getMaxTransactionsPerBlock`](govapi/getMaxTransactionsPerBlock.md) | null | 0.01 |
-| [`getFeePerByte`](govapi/getFeePerByte.md) | null | 0.01 |
+| [`GetMaxBlockSize`](scapi/fw/dotnet/neo/Policy/GetMaxBlockSize.md) | null | 0.01 |
+| [`GetMaxTransactionsPerBlock`](scapi/fw/dotnet/neo/Policy/GetMaxTransactionsPerBlock.md) | null | 0.01 |
+| [`GetFeePerByte`](scapi/fw/dotnet/neo/Policy/GetFeePerByte.md) | null | 0.01 |
 | [`getBlockedAccounts`](govapi/getBlockedAccounts.md) | null | 0.01 |
 
 #### 产生方式
@@ -99,13 +99,13 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`getCommittee`](govapi/getCommittee.md) | null | 1 | 返回当前委员会（Array<ECPoint>） |
+| [`GetCommittee`](scapi/fw/dotnet/neo/Neo/GetCommittee.md) | null | 1 | 返回当前委员会（Array<ECPoint>） |
 
 ### 共识节点（Validator）
 
 #### 职能
 
-共识节点即具有发起新块提案和提案投票权限的节点。关于共识的详细信息，请参考NEO3白皮书。
+共识节点即具有发起新块提案和提案投票权限的节点。
 
 #### 产生方式
 
@@ -116,7 +116,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
 | [`getValidators`](govapi/getValidators.md) | null | 1 | 返回当前共识节点（Array<ECPoint>） |
-| [`getNextBlockValidators`](govapi/getNextBlockValidators.md) | null | 1 | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
+| [`GetNextBlockValidators`](scapi/fw/dotnet/neo/Neo/GetNextBlockValidators.md) | null | 1 | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
 
 ## Token分配
 
@@ -130,23 +130,24 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
   
    所有在Neo网络中的互动均通过交易（Transaction）进行，而交易需要GAS作为费用支付方式。交易包含系统费和网络费两种费用。其中，系统费作为交易执行的资源被消耗掉，而网络费将作为上链奖励，发放给交易所在区块的议长。
 
-## Nep5合约方法
+## Nep17合约方法
 
-NEO及GAS均为[Nep5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)合约。Nep5的合约方法如下：
+NEO及GAS均为[Nep17](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki)合约。Nep17的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
 | [`name`](govapi/name.md) | null | 0 | 返回Token名称（String）|
 | [`symbol`](govapi/symbol.md) | null | 0 | 返回Token标志（String） |
 | [`decimals`](govapi/decimals.md) | null | 0.01 | 返回Token精度（UInt） |
-| [`totalSupply`](govapi/totalSupply.md) | null | 0.01 | 返回Token当前流通量（BigInteger） |
-| [`balanceOf`](govapi/balanceOf.md) | byte[] account | 0.01 | 返回该账户的余额（BigInteger） |
-| [`transfer`](govapi/transfer.md) | byte[] from, byte[] to, BigInteger amount | 0.08 | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
-| [`onPersist`](govapi/onPersist.md) | null | 0 | 手动执行Nep5在持久化区块时进行的操作 |
+| [`TotalSupply`](scapi/fw/dotnet/neo/Neo/TotalSupply.md) | null | 0.01 | 返回Token当前流通量（BigInteger） |
+| [`BalanceOf`](scapi/fw/dotnet/neo/Neo/BalanceOf.md) | UInt160 account | 0.01 | 返回该账户的余额（BigInteger） |
+| [`Transfer`](scapi/fw/dotnet/neo/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.08 | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
+| [`onPersist`](govapi/onPersist.md) | null | 0 | 手动执行Nep17在持久化区块时进行的操作 |
 | [`supportedStandards`](govapi/supportedStandards.md) | null | 0 | 返回支持的NEP标准（String[]） |
 
 NEO扩展的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`unclaimedGas`](govapi/unclaimedGas.md) | byte[] account | 0.03 | 返回该账户未提取的GAS（uint） |
+| [`UnclaimedGas`](scapi/fw/dotnet/neo/Neo/UnclaimedGas.md) | UInt160 account | 0.03 | 返回该账户未提取的GAS（uint） |
+

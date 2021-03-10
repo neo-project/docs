@@ -9,28 +9,17 @@ Transfer from the specified address to the destination address.
 > 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases) 
 > 2. Call the RPC method `openwallet` to open the wallet first.
 
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "sendfrom",
-  "params": [asset_id, from, to, value],
-  "id": 1
-}
-```
-
 ### Parameter Description
 
-* asset_id: Asset ID（asset identifier）, the script hash of nep-5 contract.
+* asset_id: Asset ID（asset identifier）, the script hash of nep-17 contract.
 
-  e.g. NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
+  e.g. NEO is 0xf61eebf573ea36593fd43aa150c055ad7906ab83
 
-  Gas is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
-
+​        GAS is 0x70e2301955bf1e74cbb31d18c2f96972abadb328
 * from: transfering address.
-
-* to: destination address.
-
+* address: destination address.
 * value: Transfer amount
+* signers: The signature account of transaction
 
 ## Example
 
@@ -38,10 +27,15 @@ Request body：
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "sendfrom",
-  "params": ["0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789","NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1","NZos4XyLUEUrD7RQBn9J1A1PyeCwQKqwtT", 100],
-  "id": 1
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendfrom",
+    "params": [
+        "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+        "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        100000000
+    ]
 }
 ```
 
@@ -52,26 +46,26 @@ Request body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0xce199d5e5234b3e6090c92eec809839f5f0c89c1fca496612715a7135e031147",
-        "size": 265,
+        "hash": "0xe01b16626dec583941c1053467100041ce868e3b35e5fe3a85e530792cc9149d",
+        "size": 252,
         "version": 0,
-        "nonce": 1328111799,
-        "sender": "NPvKVTGZapmFWABLsyvfreuqn73jCjJtN1",
-        "sys_fee": "100000000",
-        "net_fee": "1265390",
-        "valid_until_block": 2139664,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 2114899852,
+        "sender": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "sysfee": "9999540",
+        "netfee": "1235610",
+        "validuntilblock": 5810,
+        "signers": [
             {
-                "account": "0x39e7394d6231aa09c097d02391d5d149f873f12b",
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "AGQMFJhqJxj678F6Dhr7cKZZf5jiYWxuDBQr8XP4SdHVkSPQl8AJqjFiTTnnORPADAh0cmFuc2ZlcgwUiXcg2M129PAKv6N8Dt2InCCP3ptBYn1bUjk=",
+        "attributes": [],
+        "script": "CwIA4fUFDBT6ifssFN8PWd3fBPblZRfys0qu6wwU4rZTInKT6ZxPKQbVNVOrtKZy34YUwB8MCHRyYW5zZmVyDBQos62rcmn5whgds8t0Hr9VGTDicEFifVtSOQ==",
         "witnesses": [
             {
-                "invocation": "DECZTw4d1vAWFBCV3hTDNmxeXKv4tBciY3n2rS1HLlSfcbqh86qs5C+hxNse/L7+WVI+i9KpFUx2eqdIF/P4QGKk",
-                "verification": "DCEDucRsbVxnHvXCG8eqfDBGiusIGi44lSaa35R3GNZQzh4LQQqQatQ="
+                "invocation": "DEAUQ3hUPg/qi77rnSzXRgd2RYdZCsPDBa/n0a6M+sCsOpC/YyLPeeoqcVNAyh73qpocOqdX1tnGeizh+C8cXoK0",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
             }
         ]
     }

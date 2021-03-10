@@ -1,6 +1,6 @@
 ## Using Neo-CLI
 
-The Neo-CLI client works as an normal node in the P2P network and meanwhile a cross-platform wallet handling various assets transactions. 
+The Neo-CLI client works as a node in the P2P network and meanwhile a cross-platform wallet handling various assets transactions. 
 
 ### Neo-CLI Security Policies
 

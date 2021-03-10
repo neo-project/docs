@@ -14,26 +14,25 @@ public class Contract
 
 ## Attributes
 
-| Name | description |
-| ---------------------------- | ---------- |
-| [Script](Contract/Script.md) | Returns the scripthash of the contract |
-| HasStorage | Whether the contract contains the storage |
-| IsPayable | Whether the contract is able to accept assets |
-
-A standard nep-5 asset verifies the IsPayable function of the deposit address in the transfer method to determine whether the transfer can be performed.
+| Name | Description |
+| -------------------------------- | ------ |
+| Id     | Contract Id. The native contract ID is a negative integer, and the normal contract ID is a positive integer. |
+| UpdateCounter | Contract update counter |
+| Hash  | Contract hash, which is determined by the deployer's script hash, the contract NEF checkcode, and the contract name. |
+| Script  | Contract script array |
+| Manifest  | Json strings that represents the contract Manifest |
 
 ## Methods
 
 | Name | Description |
 | -------------------------------- | ------ |
-| [Call(byte[\] scriptHash, string method, object[] arguments)](Contract/Call.md) | Invokes the contract |
-| [CallEx(byte[\] scriptHash, string method, object[] arguments, CallFlags flag)](Contract/CallEx.md) | Invokes the contract by flag |
-| [Create(byte[] script, string manifest)](Contract/Create.md) | Creates a contract |
-| [Update(byte[] script, string manifest)](Contract/Update.md) | Updates the contract |
-| [Destroy()](Contract/Destroy.md)         | Destroys the contract    |
+| [Call(UInt160 scriptHash, string method, object[] arguments)](Contract/Call.md) | Invokes the contract |
+| [GetCallFlags()](Contract/GetCallFlags.md)         | Gets the CallFlag of the contract |
+| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | Creates a standard account with public key |
 
 ## Constructor
 
-The Contract object can be constructed through [Blockchain.GetContract(byte[]) script_hash](Blockchain/GetContract.md).
+The Contract object can be constructed through [ContractManagement.GetContract(UInt60 hash)](ContractManagement/GetContract.md).
 
-[Create(byte [] script, string manifest)](Contract/Create.md) publishes the contract onto the blockchain and returns a Contract object.
+ [ContractManagement.Deploy(byte[] nefFile, string manifest)](ContractManagement/Deploy.md) publishes the contract onto the blockchain and returns a contract object.
+

@@ -1,6 +1,6 @@
 ﻿# getbestblockhash Method
 
-Returns the latest block hash of the main chain.
+Returns the latest block hash of the block chain.
 
 > [!Note]
 >
@@ -31,4 +31,4 @@ Returns the latest block hash of the main chain.
 
 ##### Response Description
 
-Result: The latest block hash of the main chain.
+Result: The latest block hash of the block chain.

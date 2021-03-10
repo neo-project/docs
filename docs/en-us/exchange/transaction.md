@@ -16,7 +16,9 @@ Following flow charts show the work processes of these operations:
 
 The network fee, as a reward for the consensus nodes generating blocks, is charged when the user submits a transactions to Neo blockchain. There is a  base fee for each transaction and the calculation formula is shown below. The transaction is only executed if the fee paid by the user is greater than or equal to the base fee; otherwise, the transaction will be treated as invalid.  
 
-![netfee](../../zh-cn/exchange/assets/netfee.png)
+```
+NetworkFee = VerificationCost + tx.size * FeePerByte
+```
 
 - VerficationCost：Fees for instructions executed by NeoVM to verify transaction signatures.
 - tx.size：The transaction data byte length
@@ -24,9 +26,11 @@ The network fee, as a reward for the consensus nodes generating blocks, is charg
 
 ## System fee
 
-The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../sc/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
+The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../reference/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
 
- ![netfee](../../zh-cn/exchange/assets/sysfee.png)
+```
+SystemFee = InvocationCost = The sum of all executed opcode fee
+```
 
 ### **Instructions fee**
 
@@ -45,19 +49,19 @@ The way for a exchange itself to query balance of the user deposit address is di
 The exchange needs to do the following:
 
 1. Construct JSON files to invoke either of the following RPC methods:
-   - getnep5balances
+   - getnep17balances
    - invokefunction
 2. Send the JSON files to Neo RPC server.
 3. Calculate the user balance according to the returned values.
 
-#### Invoking getnep5balances to query
+#### Invoking getnep17balances to query
 
-In JSON, a general getnep5balances request body is in the following form: 
+In JSON, a general getnep17balances request body is in the following form: 
 
 ```
 {
 "jsonrpc": "2.0",
-"method": "getnep5balances",
+"method": "getnep17balances",
 "params": ["NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih"],
 "id": 1
 }
@@ -72,12 +76,12 @@ After sending the request you will get the following response:
     "result": {
         "balance": [
             {
-                "asset_hash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "asset_hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "amount": "2",
                 "last_updated_block": 52675
             },
             {
-                "asset_hash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "asset_hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
                 "amount": "700000000",
                 "last_updated_block": 52675
             }
@@ -116,8 +120,8 @@ You need to replace these strings when querying the user's balance:
 
   The script hash of the NEP-5 asset you are querying. For example:
   
-  - NEO is 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
-  - GAS is 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+  - NEO is *0xf61eebf573ea36593fd43aa150c055ad7906ab83*
+  - GAS is *0x70e2301955bf1e74cbb31d18c2f96972abadb328*
 
 
 - method name
@@ -183,27 +187,51 @@ Request Body：
 }
 ```
 
-After sending the request, you will get the following response：
+After sending the request, depending on your smart contract code you will get the response like one of the following：
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
-        "state": "HALT",
-        "gas_consumed": "8295750",
-        "stack": [
-            {
-                "type": "ByteArray",
-                "value": "AADBb/KGIw=="
-            }
-        ]
-    }
-}
-```
+- The ByteString value encoded by base64 is returned:
 
-Decode the returned value ”AADBb/KGIw==“ with base64 and convert it to BigInteger you will get **1x10<sup>16</sup>**, and then divide it by 8-bit decimals you will get the NEP-5 assets balance **1x10<sup>8</sup>**.
+  ```json
+  {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+          "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+          "state": "HALT",
+          "gas_consumed": "8295750",
+          "stack": [
+              {
+                  "type": "ByteString",
+                  "value": "AADBb/KGIw=="
+              }
+          ]
+      }
+  }
+  ```
+
+  Decode the returned value ”AADBb/KGIw==“ with base64 and convert it to BigInteger you will get **1x10<sup>16</sup>**, and then divide it by 8-bit decimals you will get the NEP-5 assets balance **1x10<sup>8</sup>**.
+
+- The Integer type value is returned：
+
+  ```json
+  {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+          "script": "0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52",
+          "state": "HALT",
+          "gasconsumed": "3738760",
+          "stack": [
+              {
+                  "type": "Integer",
+                  "value": "10000000000000000"
+              }
+          ]
+      }
+  }
+  ```
+
+  Divide the returned value by 8-bit decimals directly to get the NEP-5 assets balance.
 
 ##### **Invoking decimals**
 
@@ -273,7 +301,7 @@ After sending the request, you will get the following response：
         "gas_consumed": "8106560",
         "stack": [
             {
-                "type": "ByteArray",
+                "type": "ByteString",
                 "value": "dDE="
             }
         ]
@@ -313,37 +341,29 @@ The following shows an example of the API invoking result.
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xe7b3782ea15c74889ee914de6acb7c311603ea7b5c3209d0e8b8e7a805848750",
+        "txid": "0xd9aaa1243cae91e063a140239807a9de45f82850130ec36403f44770955dd2d7",
         "trigger": "Application",
         "vmstate": "HALT",
-        "gas_consumed": "13805550",
-        "stack": [
-            {
-                "type": "Integer",
-                "value": "1"
-            }
-        ],
+        "gasconsumed": "11819770",
+        "stack": [],
         "notifications": [
             {
-                "contract": "0x293b54c743f7a6433b2619da037beb9ed22aa73b",
+                "contract": "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec",
+                "eventname": "Transfer",
                 "state": {
                     "type": "Array",
                     "value": [
                         {
-                            "type": "ByteArray",
-                            "value": "VHJhbnNmZXI="
+                            "type": "ByteString",
+                            "value": "uXtKzX+CD2HS1NT5rqXrUEmN31U="
                         },
                         {
-                            "type": "ByteArray",
-                            "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
+                            "type": "ByteString",
+                            "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
                         },
                         {
-                            "type": "ByteArray",
-                            "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "AADBb/KGIw=="
+                            "type": "Integer",
+                            "value": "800000000000"
                         }
                     ]
                 }
@@ -353,8 +373,6 @@ The following shows an example of the API invoking result.
 }
 ```
 
-
-
 > [!Note]
 >
 > - The failed NEP-5 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
@@ -362,54 +380,61 @@ The following shows an example of the API invoking result.
 
 The parameters related to a transaction in the file are the following:
 
-- **contract**: the script hash of smart contract, by which the exchange can identify assets type. For example, "0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263" is the script hash and the unique identification of the QLC asset.
+- **contract**: the script hash of smart contract. For exchanges, it is the script hash of NEP17 assets type and the unique identity of the asset. For example, here "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" is the NEP17 asset script hash.
 
-- The four objects included in the "value" array of "state" are:
+- **eventname**: the event identifier of smart contact. Exchanges only need to listen on “transfer” transactions to find out users' transfer transactions.
 
-  [event, from account, to account, amount]
+- The objects included in the "value" array of "state" are:
 
-  - The first object with the type "bytearray" and the value "VHJhbnNmZXI=", as shown in the example, can be decoded to the string "transfer" with base64. "transfer" is a method in NEP-5 that represents an asset transfer.
+  [from account, to account, amount]
 
-    ```json
-    {
-      "type": "ByteArray",
-      "value": "VHJhbnNmZXI="
-    }
-    ```
-
-  - The second object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "0wzwBoLXDacAgxEkGaxxo1Ezxh4=“ can be  decoded to "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T" with base64. Note that for the hexadecimal string with "0x" prefix, it is processed as big endian; otherwise, it is processed as small endian.
-
-    ```json
-    {
-      "type": "ByteArray",
-      "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
-    }
-    ```
+  - The first object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "uXtKzX+CD2HS1NT5rqXrUEmN31U=“ can be  decoded to "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o" with base64. 
 
     > [!Note]
     >
     > In Neo, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
-  - The third object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "yX4yS6wVpOpYn0I+SymnIQuPrQk=“ can be decoded to "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV" with base64. If the address is an exchange account address, it is a deposit transaction.
+    
+    ```json
+    {
+  "type": "ByteString",
+      "value": "uXtKzX+CD2HS1NT5rqXrUEmN31U="
+  }
+    ```
+    
+  - The second object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "7ztGBn8vR7L38EQqojcghdCHCO8=“ can be decoded to "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z" with base64. If the address is an exchange account address, it is a deposit transaction.
   
     ```json
     {
-    "type": "ByteArray",
-      "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
+  "type": "ByteString",
+      "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
   }
     ```
   
-  - The fourth object in the array is the transfer amount and its type is "bytearray". The value "AADBb/KGIw==“ can be decoded to "0000c16ff28623" with base64. It is processed as little endian and turns to 2386f26fc10000  (i.e. 1x10<sup>16</sup> ) after reversed. Since the decimal is 8 bit the actual value is 100000000.00000000. There are two types of amount,  integer and bytearray. Note that when dealing with amount of the integer type, the value conversion method is different than that of the bytearray type. For the current returned value, the integer type is 10000000000000000.
+  - The last object in the array is the transfer amount, which type can be Integer or ByteString depending on the contract code. The conversion methods of the two types are different.
   
-    ```json
+    For the type Integer, the value 800000000000 is actually 8000.00000000 since the decimal is 8 bit.
+    
+    For the type ByteString, the value AEC3Q7oA should be base64-decoded to "0040b743ba", and then the little endian string be reversed to "ba43b74000", which value is 8x10<sup>11</sup> . Since the decimal is 8 bit, the final value is 8000.00000000
+    
+    ```
     {
-      "type": "ByteArray",
-      "value": "AADBb/KGIw=="
+      "type": "Integer",
+      "value": "800000000000"
+    }
+    ```
+    
+    or 
+    
+    ```
+    {
+      "type": "ByteString",
+      "value": "AEC3Q7oA"
     }
     ```
 
 > [!Note]
 >
-> Regarding the notification format conversion of the transfer in the file, you can refer to [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool).
+> Regarding the data format conversion of the transfer in the file, you can refer to [Neo3 data conversion](https://neo.org/converter/index).
 
 ## Dealing with User Withdrawals
 
@@ -424,28 +449,38 @@ The exchange can choose one of the following way to send assets to users:
 
 ##### Syntax
 
-`send <txid|script hash> <address> <value> `
+`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
 ##### Parameters
 
-- `txid|script hash`: the asset ID.
-- `address`: the payment address.
-- `value`: the transfer amount.
+- `id|alias`: asset ID or asset abbreviations, e.g. neo, gas
+- `address`: address to transfer assets to
+- `amount|all`: transfer amount
+- `from`: address to transfer assets from
+- `signerAccounts`: signer's address
 
 
 This command verifies the wallet password. 
 
 ##### Example
 
-To transfer 100 NEP5 assets to the address NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, enter the following:
+Transfer 100 Neo to the address AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e: 
 
 ```
-send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
 
-If you want to send NEO or GAS, just change the first parameter to the corresponding asset scriptHash. For example, 
-NEO: 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
-GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+If you are not sure of the asset ID, you can enter `list asset` to view all assets in the wallet.
+
+In above example, we can also replace the asset ID with asset abbreviation, as shown below:
+
+```
+neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
+```
 
 ### RPC Method: openwallet
 
@@ -487,7 +522,7 @@ The key "params" includes an array of four parameters.
 
 `"params":[script hash, address from, address to, amount]`
 
-For example, to send 10 NEO from NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV to  NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK, construct a JSON file as follows and send it to RPC server.
+For example, to send 10 NEO from NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o to  Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z, construct a JSON file as follows and send it to RPC server.
 
 Request body:
 
@@ -495,7 +530,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "sendfrom",
-  "params": ["0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789","NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV","NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",10],
+  "params": ["0xf61eebf573ea36593fd43aa150c055ad7906ab83","NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o","Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 10],
   "id": 1
 }
 ```
@@ -507,30 +542,30 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0xfc69052f7875ab934098c22086e6025b6e99c2d5383ede6b5e7ffc5cada0f526",
-        "size": 258,
+        "hash": "0x2dad82755c3b3e3233c10a49402bea9b8bb3f43b079102bbc3c5a50c3b522137",
+        "size": 264,
         "version": 0,
-        "nonce": 1499649081,
-        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
-        "sys_fee": "100000000",
-        "net_fee": "1258270",
-        "valid_until_block": 2408902,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 1073258915,
+        "sender": "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
+        "sysfee": "9007990",
+        "netfee": "1264390",
+        "validuntilblock": 2107189,
+        "attributes": [
             {
-                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "type": "Cosigner",
+                "account": "0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "WhQzapXCv4GGc3VXYkpfCfc5hNkgIBTJfjJLrBWk6lifQj5LKachC4+tCVPBCHRyYW5zZmVyFBXKoEIUMQZw1eWjmOFH4NvtmM9DaGJ9W1Lx",
+        "script": "GgwU7ztGBn8vR7L38EQqojcghdCHCO8MFLl7Ss1/gg9h0tTU+a6l61BJjd9VE8AMCHRyYW5zZmVyDBQlBZ7LSHjTqHX5HFHO3tMw1Fdf3kFifVtSOA==",
         "witnesses": [
             {
-                "invocation": "QKw6QhHNOTcvifIw6Jxyomb7Rto2SZZYR/H48tS5f0UYlYKQdRsgxVycB/f/HXEqYZVaL7G9WYGp6WsexKoOb4I=",
-                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+                "invocation": "DEBL7Fxz2ZyIgtz+kESSs8YjbJd5dcc13gpxOwrLjU+WiIa0fuFQSgHXM75S1Z21wDMvEirUHpU1rIYylfnQH6Ul",
+                "verification": "DCECTLb+CYh0tAkrQbRliAmdLaB5NLR0FqIWxgiCPlnz/B4LQZVEDXg="
             }
         ]
     }
-
+}
 ```
 
 ### RPC Method: sendtoaddress
@@ -539,20 +574,16 @@ The key "params" includes an array of three parameters.
 
 `"params":[script hash, address, amount]`
 
-For example, to send 1000 GAS to NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK , construct a JSON file as follows and send it to RPC server.
+For example, to send 1000 GAS to Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z , construct a JSON file as follows and send it to RPC server.
 
 Request Body：
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "method":"sendtoaddress",
-    "params":[
-        "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-        "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",
-        "1000"
-    ],
-    "id":1
+  "jsonrpc": "2.0",
+  "method": "sendtoaddress",
+  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328", "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 1000],
+  "id": 1
 }
 ```
 
@@ -563,30 +594,26 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x5e810bf58c9c14f49c821e7d12adb435a4fac413b817390bae850e578202c214",
-        "size": 370,
+        "hash": "0xda4de7d6fc3bcd0eba51a3dcba01eaba7d59467acf91525c5f3f0b56df06aec8",
+        "size": 272,
         "version": 0,
-        "nonce": 370378736,
-        "sender": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA",
-        "sys_fee": "100000000",
-        "net_fee": "2370540",
-        "valid_until_block": 2409087,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 1325103139,
+        "sender": "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
+        "sysfee": "9007990",
+        "netfee": "1272390",
+        "validuntilblock": 2107253,
+        "attributes": [
             {
-                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "type": "Cosigner",
+                "account": "0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "BQDodkgXFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "script": "AwDodkgXAAAADBTvO0YGfy9HsvfwRCqiNyCF0IcI7wwUuXtKzX+CD2HS1NT5rqXrUEmN31UTwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4",
         "witnesses": [
             {
-                "invocation": "QPKQ71AqXJ83CdatB7+jb7oQdFV94g6Qr00y7i59w/bp4WH6OcvZxr2PNkpBCNIO/wkGiiySOB0N4a14ptKQ6b0=",
-                "verification": "IQL8lC/gCB0zH17Y7ioOmrUAqlGeGpUXpON83NH7CDJfY1BoCpBq1A=="
-            },
-            {
-                "invocation": "QOmJGUTaynsVo7a4doEnBsDj3qjrBgu6f5jG7IQ9tHWzxHlZg9OknmIWhLYatCLX1qbPb2KartjAYezE5uWra2U=",
-                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+                "invocation": "DEBd+BDi7LWMQ5zzWxmzvH9zsO9fRZpdqn9SqnyEfSzazVnFsUlDJG7ik79epcqpF+IWGQJM1lS1oDeI4Eh/Yq04",
+                "verification": "DCECTLb+CYh0tAkrQbRliAmdLaB5NLR0FqIWxgiCPlnz/B4LQZVEDXg="
             }
         ]
     }
@@ -599,7 +626,7 @@ The key "params" includes an array of at least two parameter:
 
 `"params":[address from(optional), []]`
 
-For example, to send 100 NEO and 1000 GAS to NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK from NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV, you can construct a JSON file as follows and send it to RPC server.
+For example, to send 100 NEO and 1000 GAS to Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z  from NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o, you can construct a JSON file as follows and send it to RPC server.
 
 Request Body：
 
@@ -608,17 +635,17 @@ Request Body：
     "jsonrpc": "2.0",
     "method": "sendmany",
     "params": [
-    "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+    "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
         [
             {
-                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "value": 100,
-                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+                "address": "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"
             },
             {
-                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "value": 2,
-                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "value": 1000,
+                "address": "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"
             }
         ]
     ],
@@ -633,26 +660,26 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x01bdee95fe77ebca78bd17a8bbfd4f538671941381560e9f842e07d5bd86ec5e",
-        "size": 344,
+        "hash": "0xea4564840441713481363ffc0b3e2df95e5319af4d5da4189603c2333d6702f5",
+        "size": 358,
         "version": 0,
-        "nonce": 1882341262,
-        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
-        "sys_fee": "100000000",
-        "net_fee": "1344270",
-        "valid_until_block": 2409235,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 93745276,
+        "sender": "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
+        "sysfee": "18015980",
+        "netfee": "1358390",
+        "validuntilblock": 2107284,
+        "attributes": [
             {
-                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "type": "Cosigner",
+                "account": "0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "AWQUM2qVwr+BhnN1V2JKXwn3OYTZICAUyX4yS6wVpOpYn0I+SymnIQuPrQlTwQh0cmFuc2ZlchQVyqBCFDEGcNXlo5jhR+Db7ZjPQ2hifVtS8QQAwusLFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "script": "AGQMFO87RgZ/L0ey9/BEKqI3IIXQhwjvDBS5e0rNf4IPYdLU1PmupetQSY3fVRPADAh0cmFuc2ZlcgwUJQWey0h406h1+RxRzt7TMNRXX95BYn1bUjgDAOh2SBcAAAAMFO87RgZ/L0ey9/BEKqI3IIXQhwjvDBS5e0rNf4IPYdLU1PmupetQSY3fVRPADAh0cmFuc2ZlcgwUvK9B1oTH1K1u4NmdqXB7nR8MjmZBYn1bUjg=",
         "witnesses": [
             {
-                "invocation": "QA9OZduN6MyEczPEV12TW7EFise5+riC9wagEv/M2SV7rrcRPiDAjbDbZxY0bcIz4JSafTJtF9FEo9laJwuhSMs=",
-                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+                "invocation": "DEA1J31Wq9CS6s7Zyzv71jS/LXbJroKgzMhTk176KaCNDBIas5kqBgsv0hHVxetxdwnapXU7Cui/9PlHr3fZNPf3",
+                "verification": "DCECTLb+CYh0tAkrQbRliAmdLaB5NLR0FqIWxgiCPlnz/B4LQZVEDXg="
             }
         ]
     }
@@ -661,6 +688,6 @@ After sending the request, you will get the following response：
 
 ## See Also
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
+[NEP17 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki)
 
-[Data Transformation Examples](https://github.com/PeterLinX/NeoDataTransformation)
+[Neo3 Data Conversion](https://neo.org/converter/index)

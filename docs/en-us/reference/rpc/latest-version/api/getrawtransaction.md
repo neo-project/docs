@@ -10,9 +10,9 @@ Returns the corresponding transaction information based on the specified hash va
 
 * txid: Transaction ID
 
-* verbose: Optional. The default value is 0. 
-  * When verbose is 0, serialized information of the block is returned in a hexadecimal string. If you need the detailed information, use the SDK for deserialization. 
-  * When verbose is 1, detailed information of the block is returned in Json format string.
+* verbose: Optional. The default value is false. 
+  * When verbose is false, serialized information of the block is returned in a Base64-encoded string. If you need the detailed information, use the SDK for deserialization. 
+  * When verbose is true or 1, detailed information of the block is returned in Json format string.
 
 ## Example
 
@@ -21,9 +21,9 @@ Request body:
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getrawtransaction",
-  "params": ["0x1df1a550a2764326e14ae5609b066a01b692660e7df612bbc88f5a920c69b3ac", 0],
-  "id": 1
+  "params": ["0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"]
 }
 ```
 
@@ -33,19 +33,19 @@ Response body:
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "0082b3103425275006800e73cc64286753a3a732422521c8e400e1f50500000000466a13000000000063e72000000125275006800e73cc64286753a3a732422521c8e4015d0300e40b54020000000c142bf173f849d1d59123d097c009aa31624d39e7390c1425275006800e73cc64286753a3a732422521c8e413c00c087472616e736665720c143b7d3711c6f0ccf9b1dca903d1bfa1d896f1238c41627d5b523901420c4048f7972d1785bc159a998aa9b87935e869597c224b23b4c3a0860c9df2a252d084295b4529c52dbd262ce36ffe7089fd61b746de92c5a7e9684cf26ada409aa1290c2102c9885a0be8be46eef981a95da7d57a38a1568f6e8455deda4dc5e2009327ff4a0b410a906ad4"
+    "result": "AIsJtw60lJgAAAAAAAjoIwAAAAAACxcAAAL6ifssFN8PWd3fBPblZRfys0qu6wDitlMicpPpnE8pBtU1U6u0pnLfhgEAXwsDAOQLVAIAAAAMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFCizratyafnCGB2zy3Qev1UZMOJwQWJ9W1I5AkIMQLfVkTWSIgU9qfupqX+H0ViwPYtOTot/SbQptuHUYTFSpMB/J7sEOPITKV9HnT8BU1CSv6D6NdcwcZzEXgxRgFApDCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXhCDED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5TKxEMIQLO1DI5fdxE7boDHAvDuTPyj92Wd3kteyDmwDbdqqzx4hELQRON768="
 }
 ```
 
 Request body:
 
-When verbose = 1, the result in Json format is returned:
+When verbose = true, the result in Json format is returned:
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "getrawtransaction",
-  "params": ["0x1df1a550a2764326e14ae5609b066a01b692660e7df612bbc88f5a920c69b3ac", 1],
+  "params": ["0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c", true],
   "id": 1
 }
 ```
@@ -57,32 +57,39 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x1df1a550a2764326e14ae5609b066a01b692660e7df612bbc88f5a920c69b3ac",
-        "size": 272,
+        "hash": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+        "size": 386,
         "version": 0,
-        "nonce": 873509762,
-        "sender": "NPJRHLjDm4r1wd8wHBGFRWqzsneFX9tBch",
-        "sys_fee": "100000000",
-        "net_fee": "1272390",
-        "valid_until_block": 2156387,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 246876555,
+        "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        "sysfee": "0.0999954",
+        "netfee": "0.0235316",
+        "validuntilblock": 5899,
+        "signers": [
             {
-                "account": "0xe4c821254232a7a353672864cc730e8006502725",
+                "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
+                "scopes": "None"
+            },
+            {
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "AwDkC1QCAAAADBQr8XP4SdHVkSPQl8AJqjFiTTnnOQwUJSdQBoAOc8xkKGdTo6cyQiUhyOQTwAwIdHJhbnNmZXIMFDt9NxHG8Mz5sdypA9G/odiW8SOMQWJ9W1I5",
+        "attributes": [],
+        "script": "CwMA5AtUAgAAAAwU+on7LBTfD1nd3wT25WUX8rNKrusMFOK2UyJyk+mcTykG1TVTq7Smct+GFMAfDAh0cmFuc2ZlcgwUKLOtq3Jp+cIYHbPLdB6/VRkw4nBBYn1bUjk=",
         "witnesses": [
             {
-                "invocation": "DEBI95ctF4W8FZqZiqm4eTXoaVl8IksjtMOghgyd8qJS0IQpW0UpxS29Jizjb/5wif1ht0beksWn6WhM8mraQJqh",
-                "verification": "DCECyYhaC+i+Ru75galdp9V6OKFWj26EVd7aTcXiAJMn/0oLQQqQatQ="
+                "invocation": "DEC31ZE1kiIFPan7qal/h9FYsD2LTk6Lf0m0Kbbh1GExUqTAfye7BDjyEylfR50/AVNQkr+g+jXXMHGcxF4MUYBQ",
+                "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
+            },
+            {
+                "invocation": "DED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5T",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
             }
         ],
-        "blockhash": "0xbd96fddf3c19381671f96de6b9e7779b7aef9972b87f5cff8412f4fbd64a9d47",
-        "confirmations": 30,
-        "blocktime": 1579168140997,
-        "vmState": "HALT"
+        "blockhash": "0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c",
+        "confirmations": 26,
+        "blocktime": 1612687482881
     }
 }
 ```

@@ -5,7 +5,7 @@ You can choose one of the following ways to install Neo-CLI:
 - Install the official Neo-CLI released package
 - or publish Neo-CLI source code from GitHub into an executable file. If you use macOS, this way is highly recommended.
 
-This document will describe the both ways.
+This document will describe both ways.
 
 ## Hardware requirements
 
@@ -28,6 +28,20 @@ The following table lists the minimum and recommended hardware requirements for 
    sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
    ```
 
+   If you use RocksDB the storage, modify config.json, as shown below：
+   
+   ```
+   "Storage": {
+      "Engine": "RocksDBStore"
+    },
+   ```
+   
+   and then enter the following command on ubuntu 18.04：
+   
+   ```
+   sudo apt-get install librocksdb-dev
+   ```
+   
    If using Windows, you can skip this step as those files are already included in the installation package.
 
 ## Publishing from Neo-CLI source code
@@ -37,11 +51,11 @@ You can download and compile the Neo-CLI source directly from Github.
 ### Installing required files
 
 1. Git clone Neo-CLI source code from [Github](https://github.com/neo-project/neo-node) or using the following command:
-  
+
   ```
-  $ git clone https://github.com/neo-project/neo-node.git
+ $ git clone -b master-2.x https://github.com/neo-project/neo-node.git
   ```
-  
+
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
 
 3. Install the latest version of  [.NET Core Runtime](https://dotnet.microsoft.com/download/dotnet-core/current/runtime)
@@ -69,6 +83,3 @@ You can also use .NET Core CLI to pubish the project. For more information refer
 
 2. Go to the directory where the compiled files are outputted and copy the libleveldb.dll downloaded before to here.
 
-## What's next?
-
-[Configuring and Starting Neo-CLI](config.md)

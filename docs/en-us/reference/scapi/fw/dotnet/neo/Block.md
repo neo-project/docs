@@ -1,4 +1,4 @@
-# Block 类
+# Block Class
 
 The class that represents blocks, providing a set of related properties.
 
@@ -27,6 +27,5 @@ public class Block
 
 ## Constructor
 
-The Block object can be constructed through [Blockchain.GetBlock(byte [])](Blockchain/GetBlock.md).
+The Block object can be constructed through [Ledger.GetBlock()](Ledger/GetBlock.md).
 
-The Block object can be constructed through [Blockchain.GetBlock(uint)](Blockchain/GetBlock2.md).

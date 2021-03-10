@@ -15,7 +15,7 @@ Neo-GUI is an open source project, thus you can download the installation packag
 
 > [!Note]
 >
-> - Make sure your Windows / macOS system has [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
+> - Make sure your Windows / macOS system has [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
 >
 > - When installing on the Windows system, do not install Neo-GUI under the default path C:\Program Files, or you have to run the client with the administrator privileges to connect the client to the network and download the blockchain data.
 
@@ -23,7 +23,7 @@ Neo-GUI is an open source project, thus you can download the installation packag
 
 After installation Neo-GUI connects to the Neo test net automatically. 
 
-If you have already built a private chain (see [Setting up private chain](../../network/private-chain/solo.md)), you can also connect Neo-GUI to it.
+If you have already built a private chain (see [Setting up private chain](../../develop/network/private-chain/solo.md)), you can also connect Neo-GUI to it.
 
 1. Find the `config.json` and `protocol.json` files of your private chain.
 

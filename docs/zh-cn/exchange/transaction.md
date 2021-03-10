@@ -12,9 +12,11 @@ Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 网络费
 
-网络费是用户向 Neo 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如图所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。
+网络费是用户向 Neo 网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，计算公式如下所示。只有当用户支付的网络费大于或等于此基础费用时，才会执行交易。否则将被认为无效交易。   
 
-   ![netfee](assets/netfee.png)
+```
+NetworkFee = VerificationCost + tx.size * FeePerByte
+```
 
 - VerficationCost：NeoVM 验证交易签名执行的指令相对应的费用
 - tx.size：交易数据的字节长度
@@ -22,9 +24,11 @@ Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型�
 
 ## 系统费
 
-系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../sc/fees.md)。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../reference/fees.md)。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
-   ![sysfee](assets/sysfee.png)
+```
+SystemFee = InvocationCost = The sum of all executed opcode fee   
+```
 
 ### 操作码费用
 
@@ -43,23 +47,25 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep5balances（需提前安装 RpcNep5Tracker 插件）
+   - getnep17balances（需提前安装 RpcNep17Tracker 插件）
    - invokefunction
 2. 向 Neo RPC 服务器发送文件请求。
 3. 根据返回值计算出用户余额。
 
-#### 调用 getnep5balances
+#### 调用 getnep17balances
 
-在 JSON 文件中，getnep5balances 的请求正文通常为以下格式：
+在 JSON 文件中，getnep17balances 的请求正文通常为以下格式：
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getnep5balances",
+  "method": "getnep17balances",
   "params": ["NVfJmhP28Q9qva9Tdtpt3af4H1a3cp7Lih", 0],
   "id": 1
 }
 ```
+
 发送请求后，将收到如下响应：
+
 ```json
 {
     "jsonrpc": "2.0",
@@ -67,12 +73,12 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
     "result": {
         "balance": [
             {
-                "asset_hash": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "asset_hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "amount": "2",
                 "last_updated_block": 52675
             },
             {
-                "asset_hash": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
+                "asset_hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
                 "amount": "700000000",
                 "last_updated_block": 52675
             }
@@ -81,6 +87,7 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
     }
 }
 ```
+
 根据所有返回值，可以计算出用户余额为：
 用户余额 = 700000000/10⁸ NEO = 7 GAS, 2 NEO
 
@@ -111,9 +118,9 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 
 要查询的 NEP-5 资产的脚本哈希，例如：
 
-NEO脚本哈希是：*0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789*       
+NEO脚本哈希是：*0xf61eebf573ea36593fd43aa150c055ad7906ab83*       
 
-GAS脚本哈希是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
+GAS脚本哈希是：*0x70e2301955bf1e74cbb31d18c2f96972abadb328*
 
 **method name**
 
@@ -122,7 +129,7 @@ GAS脚本哈希是：*0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b*
 balanceOf
 
 - 语法：`public static BigInteger balanceOf(byte[] account)`
-- 说明："balanceOf" 返回 "account" 的余额。
+- 说明："balanceOf" 返回 "account" 的最小粒度为1单位的余额。
 
 decimals
 
@@ -178,27 +185,51 @@ symbol
 }
 ```
 
-发送请求后，将收到如下响应：
+发送请求后，根据不同合约写法，将收到两种响应：
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
-        "state": "HALT",
-        "gas_consumed": "8295750",
-        "stack": [
-            {
-                "type": "ByteArray",
-                "value": "AADBb/KGIw=="
-            }
-        ]
-    }
-}
-```
+- 返回值为base64 编码后的 ByteString：
 
-返回值 "AADBb/KGIw==" 为 base64 编码后的 ByteArray，由 base64 解码返回值再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
+  ```json
+  {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+          "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+          "state": "HALT",
+          "gas_consumed": "8295750",
+          "stack": [
+              {
+                  "type": "ByteString",
+                  "value": "AADBb/KGIw=="
+              }
+          ]
+      }
+  }
+  ```
+
+  返回值 "AADBb/KGIw==" 由 base64 解码再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
+
+- 返回值是 Integer 类型：
+
+  ```json
+  {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+          "script": "0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52",
+          "state": "HALT",
+          "gasconsumed": "3738760",
+          "stack": [
+              {
+                  "type": "Integer",
+                  "value": "10000000000000000"
+              }
+          ]
+      }
+  }
+  ```
+
+  返回值无需转换，只需除以 decimals 得到余额即可。
 
 ##### **调用 decimals**
 
@@ -268,7 +299,7 @@ symbol
         "gas_consumed": "8106560",
         "stack": [
             {
-                "type": "ByteArray",
+                "type": "ByteString",
                 "value": "dDE="
             }
         ]
@@ -283,15 +314,18 @@ symbol
 根据所有返回值，可以计算出用户余额为：
 用户余额 = balanceOf 返回值 / 10<sup>decimals</sup>。
 
-### 处理用户查询账户余额请求
+### 交易所用户的账户余额
 
 用户实际在交易所里的余额，应当记录在交易所的数据库里。 交易所需要编写程序监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额，以供用户查询使用。
 
 ## 处理充值交易
 
 交易所处理充值交易的操作如下：
+
 1. 通过 getblock API 获取每个区块的详情，其中便包括该区块中所有交易的详情；
+
 2. 分析每笔交易的交易类型，过滤出所有类型为 "InvocationTransaction" 的交易，任何非 "InvocationTransaction" 类型的交易都不可能成为 NEP-5 类型资产的转账交易；
+
 3. 调用 getapplicationlog API 获取每笔 "InvocationTransaction" 交易的详情，分析交易内容，完成用户充值。
 
 ### 调用 getapplicationlog
@@ -307,37 +341,29 @@ symbol
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0xe7b3782ea15c74889ee914de6acb7c311603ea7b5c3209d0e8b8e7a805848750",
+        "txid": "0xd9aaa1243cae91e063a140239807a9de45f82850130ec36403f44770955dd2d7",
         "trigger": "Application",
         "vmstate": "HALT",
-        "gas_consumed": "13805550",
-        "stack": [
-            {
-                "type": "Integer",
-                "value": "1"
-            }
-        ],
+        "gasconsumed": "11819770",
+        "stack": [],
         "notifications": [
             {
-                "contract": "0x293b54c743f7a6433b2619da037beb9ed22aa73b",
+                "contract": "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec",
+                "eventname": "Transfer",
                 "state": {
                     "type": "Array",
                     "value": [
                         {
-                            "type": "ByteArray",
-                            "value": "VHJhbnNmZXI="
+                            "type": "ByteString",
+                            "value": "uXtKzX+CD2HS1NT5rqXrUEmN31U="
                         },
                         {
-                            "type": "ByteArray",
-                            "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
+                            "type": "ByteString",
+                            "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
                         },
                         {
-                            "type": "ByteArray",
-                            "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "AADBb/KGIw=="
+                            "type": "Integer",
+                            "value": "800000000000"
                         }
                     ]
                 }
@@ -349,54 +375,62 @@ symbol
 
 > [!Note]
 >
-> -  失败的 NEP-5 交易也会上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
+> -  失败的 NEP-5 交易也可以上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
 > -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
-- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是相应 NEP5 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xb9d7ea3062e6aeeb3e8ad9548220c4ba1361d263" 就是 QLC 资产的脚本哈希，是该资产在全网的唯一标识。
+其中与交易相关的参数如下：
 
-- 对于转账交易，"state" 中 "value" 对应的数组包含以下四个对象：
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 NEP17 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该Nep17 资产的脚本哈希，是该资产在全网的唯一标识。
 
-  [事件，转出账户，转入账户，金额]
+- **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为transfer类型的交易以确认是否为用户的转账交易。 
 
-  - 数组中的第一个对象，类型为 bytearray，值为 "VHJhbnNmZXI="，经过 base64 解码后转换，为字符串 "transfer"。transfer 是 NEP-5 中的一个方法，代表资产转账。
-    
-    ```json
-    {
-      "type": "ByteArray",
-      "value": "VHJhbnNmZXI="
-    }
-    ```
-    
-  - 数组中的的第二个对象，为转出账户地址，类型为 bytearray，值为 "0wzwBoLXDacAgxEkGaxxo1Ezxh4="，经过 base64 解码为 ByteArray 后再转换为字符串 "Nf9uG9nhF8PEvbSHc8xmNGsG7toNnu4a8T"。
+- 对于转账交易，"state" 中 "value" 对应的数组包含以下三个对象：
+
+  [转出账户，转入账户，金额]
   
-    > 提示
+  - 数组中的的第一个对象，为转出账户地址，类型为 bytearray，值为 "uXtKzX+CD2HS1NT5rqXrUEmN31U="，经过 base64 解码为 ByteArray 后再转换为字符串 "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o"。
+  
+    > [!Note]
     >
-    > - Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    > Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
     ```json
     {
-      "type": "ByteArray",
-      "value": "0wzwBoLXDacAgxEkGaxxo1Ezxh4="
+      "type": "ByteString",
+      "value": "uXtKzX+CD2HS1NT5rqXrUEmN31U="
     }
     ```
   
-   - 数组中的第三个对象，为转入账户地址，类型为 bytearray，值为 "yX4yS6wVpOpYn0I+SymnIQuPrQk="，经过 base64 解码为 ByteArray 后再转换为字符串 "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+   - 数组中的第二个对象，为转入账户地址，类型为 bytearray，值为 "7ztGBn8vR7L38EQqojcghdCHCO8="，经过 base64 解码为 ByteArray 后再转换为字符串 "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
     ```json
     {
-      "type": "ByteArray",
-      "value": "yX4yS6wVpOpYn0I+SymnIQuPrQk="
+      "type": "ByteString",
+      "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
     }
     ```
-  - 数组中的的第四个对象，为转账金额，类型为 bytearray，值为 "AADBb/KGIw=="，经 base64 解码后为 "0000c16ff28623"。因前面没加 0x，按小端序处理, 翻转后为 "2386f26fc10000", 值为 1x10<sup>16</sup>, 因为 decimal 为 8 位，所以实际值就是 100000000.00000000。这里根据金额不同，会有两种类型，一种是 integer 类型，另一种是 bytearray 类型。交易所处理该数值时，应当特别注意，如果类型为 integer，其数值转换方式与 bytearray 不同，如对于当前返回值，Integer 类型应为 10000000000000000。
+  - 数组中的的第三个对象，为转账金额，根据合约写法不同，这里会有两种类型返回值：Integer 或 ByteString，两种类型的数值转换方式不同。
+    
+    如类型为 Integer 时，值为 "800000000000"。因为 decimal 为 8 位，所以实际值是 8000.00000000。
+    
+    类型为 ByteString 时，值为 "AEC3Q7oA"，经 base64 解码后为 "0040b743ba"。因前面没加 0x，按小端序处理，翻转后为 "ba43b74000"，值为 8x10<sup>11</sup>，因为 decimal 为 8 位，所以实际值是 8000.00000000。
+    
     ```json
     {
-      "type": "ByteArray",
-      "value": "AADBb/KGIw=="
+      "type": "Integer",
+      "value": "800000000000"
+    }
+    ```
+    或
+    
+    ```json
+    {
+      "type": "ByteString",
+      "value": "AEC3Q7oA"
     }
     ```
 
 > [!Note]
 >
-> 关于文件中 transfer 通知格式的转换，可以参考工具 [Neo3-Tool](https://github.com/neo-ngd/Neo3-Tool)。
+> 关于文件中 transfer 数据格式的转换，可以参考官方页面 [neo3.0 数据转换](https://neo.org/converter/index)。
 
 ## 处理提现交易
 
@@ -411,27 +445,37 @@ symbol
 
 ##### 语法
 
-`send <txid|script hash> <address> <value> `
+`send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
 ##### 参数
 
-- `txid|script hash`：资产 ID。
-- `address`：付款地址。
-- `value`：转账金额。
+- `id|alias`：资产 ID或资产缩写，如 neo，gas
+- `address`：收款地址
+- `amount|all`：转账金额
+- `from`：转出地址
+- `signerAccounts`：需要添加签名的账户
 
 该命令会检查钱包密码。
 
 ##### 示例
 
-要将 100 个某 NEP5 转账到地址 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，输入以下命令：
+将 100 GAS 转到地址 “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”，输入以下命令：
 
 ```
-send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
 
-如果要转账 neo/gas，只需要将第一个参数改为 NEO/GAS 对应的 scriptHash。例如:
-* NEO: 0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789
-* GAS: 0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b
+第二个参数除了资产 ID，还可以填写资产缩写，所以以上命令也可以写成：
+
+```
+neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+password: ********
+TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
+```
+
+要查看资产 ID ，可输入 `list asset` 命令查看钱包中的所有资产。
 
 ### RPC 方法：openwallet
 
@@ -473,7 +517,7 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 
 `"params":[script hash, address from, address to, amount ]`
 
-例如，要从地址 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 发送 10 NEO 到地址 NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要从地址 NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o 发送 10 NEO 到地址 Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -481,7 +525,7 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 {
   "jsonrpc": "2.0",
   "method": "sendfrom",
-  "params": ["0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789","NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV","NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",10],
+  "params": ["0xf61eebf573ea36593fd43aa150c055ad7906ab83","NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o","Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 10],
   "id": 1
 }
 ```
@@ -493,29 +537,30 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0xfc69052f7875ab934098c22086e6025b6e99c2d5383ede6b5e7ffc5cada0f526",
-        "size": 258,
+        "hash": "0x2dad82755c3b3e3233c10a49402bea9b8bb3f43b079102bbc3c5a50c3b522137",
+        "size": 264,
         "version": 0,
-        "nonce": 1499649081,
-        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
-        "sys_fee": "100000000",
-        "net_fee": "1258270",
-        "valid_until_block": 2408902,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 1073258915,
+        "sender": "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
+        "sysfee": "9007990",
+        "netfee": "1264390",
+        "validuntilblock": 2107189,
+        "attributes": [
             {
-                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "type": "Cosigner",
+                "account": "0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "WhQzapXCv4GGc3VXYkpfCfc5hNkgIBTJfjJLrBWk6lifQj5LKachC4+tCVPBCHRyYW5zZmVyFBXKoEIUMQZw1eWjmOFH4NvtmM9DaGJ9W1Lx",
+        "script": "GgwU7ztGBn8vR7L38EQqojcghdCHCO8MFLl7Ss1/gg9h0tTU+a6l61BJjd9VE8AMCHRyYW5zZmVyDBQlBZ7LSHjTqHX5HFHO3tMw1Fdf3kFifVtSOA==",
         "witnesses": [
             {
-                "invocation": "QKw6QhHNOTcvifIw6Jxyomb7Rto2SZZYR/H48tS5f0UYlYKQdRsgxVycB/f/HXEqYZVaL7G9WYGp6WsexKoOb4I=",
-                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+                "invocation": "DEBL7Fxz2ZyIgtz+kESSs8YjbJd5dcc13gpxOwrLjU+WiIa0fuFQSgHXM75S1Z21wDMvEirUHpU1rIYylfnQH6Ul",
+                "verification": "DCECTLb+CYh0tAkrQbRliAmdLaB5NLR0FqIWxgiCPlnz/B4LQZVEDXg="
             }
         ]
     }
+}
 
 ```
 
@@ -525,20 +570,16 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 
 `"params":[script hash, address, amount]`
 
-例如，要发送 1000 GAS 到地址 NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要发送 1000 GAS 到地址 Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "method":"sendtoaddress",
-    "params":[
-        "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-        "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK",
-        "1000"
-    ],
-    "id":1
+  "jsonrpc": "2.0",
+  "method": "sendtoaddress",
+  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328", "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z", 1000],
+  "id": 1
 }
 ```
 
@@ -549,30 +590,26 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x5e810bf58c9c14f49c821e7d12adb435a4fac413b817390bae850e578202c214",
-        "size": 370,
+        "hash": "0xda4de7d6fc3bcd0eba51a3dcba01eaba7d59467acf91525c5f3f0b56df06aec8",
+        "size": 272,
         "version": 0,
-        "nonce": 370378736,
-        "sender": "Nc2TgT3BTnDZGh21uU14Fudaq9C8GqUKJA",
-        "sys_fee": "100000000",
-        "net_fee": "2370540",
-        "valid_until_block": 2409087,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 1325103139,
+        "sender": "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
+        "sysfee": "9007990",
+        "netfee": "1272390",
+        "validuntilblock": 2107253,
+        "attributes": [
             {
-                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "type": "Cosigner",
+                "account": "0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "BQDodkgXFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "script": "AwDodkgXAAAADBTvO0YGfy9HsvfwRCqiNyCF0IcI7wwUuXtKzX+CD2HS1NT5rqXrUEmN31UTwAwIdHJhbnNmZXIMFLyvQdaEx9StbuDZnalwe50fDI5mQWJ9W1I4",
         "witnesses": [
             {
-                "invocation": "QPKQ71AqXJ83CdatB7+jb7oQdFV94g6Qr00y7i59w/bp4WH6OcvZxr2PNkpBCNIO/wkGiiySOB0N4a14ptKQ6b0=",
-                "verification": "IQL8lC/gCB0zH17Y7ioOmrUAqlGeGpUXpON83NH7CDJfY1BoCpBq1A=="
-            },
-            {
-                "invocation": "QOmJGUTaynsVo7a4doEnBsDj3qjrBgu6f5jG7IQ9tHWzxHlZg9OknmIWhLYatCLX1qbPb2KartjAYezE5uWra2U=",
-                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+                "invocation": "DEBd+BDi7LWMQ5zzWxmzvH9zsO9fRZpdqn9SqnyEfSzazVnFsUlDJG7ik79epcqpF+IWGQJM1lS1oDeI4Eh/Yq04",
+                "verification": "DCECTLb+CYh0tAkrQbRliAmdLaB5NLR0FqIWxgiCPlnz/B4LQZVEDXg="
             }
         ]
     }
@@ -585,7 +622,7 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 
 `"params":[address from(optional), []]`
 
-例如，要从 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV 发送 100 NEO 和 1000 GAS 到 NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK，编写如下 JSON 文件并发送给 RPC 服务器。
+例如，要从 NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o 发送 100 NEO 和 1000 GAS 到 Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z，编写如下 JSON 文件并发送给 RPC 服务器。
 
 请求正文：
 
@@ -594,17 +631,17 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
     "jsonrpc": "2.0",
     "method": "sendmany",
     "params": [
-    "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
+    "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
         [
             {
-                "asset": "0x9bde8f209c88dd0e7ca3bf0af0f476cdd8207789",
+                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
                 "value": 100,
-                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+                "address": "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"
             },
             {
-                "asset": "0x8c23f196d8a1bfd103a9dcb1f9ccf0c611377d3b",
-                "value": 2,
-                "address": "NQbqLCGg3iZRVp89HefRzCtiuvw11se3SK"
+                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "value": 1000,
+                "address": "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"
             }
         ]
     ],
@@ -619,26 +656,26 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0x01bdee95fe77ebca78bd17a8bbfd4f538671941381560e9f842e07d5bd86ec5e",
-        "size": 344,
+        "hash": "0xea4564840441713481363ffc0b3e2df95e5319af4d5da4189603c2333d6702f5",
+        "size": 358,
         "version": 0,
-        "nonce": 1882341262,
-        "sender": "NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV",
-        "sys_fee": "100000000",
-        "net_fee": "1344270",
-        "valid_until_block": 2409235,
-        "attributes": [],
-        "cosigners": [
+        "nonce": 93745276,
+        "sender": "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o",
+        "sysfee": "18015980",
+        "netfee": "1358390",
+        "validuntilblock": 2107284,
+        "attributes": [
             {
-                "account": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9",
+                "type": "Cosigner",
+                "account": "0x55df8d4950eba5aef9d4d4d2610f827fcd4a7bb9",
                 "scopes": "CalledByEntry"
             }
         ],
-        "script": "AWQUM2qVwr+BhnN1V2JKXwn3OYTZICAUyX4yS6wVpOpYn0I+SymnIQuPrQlTwQh0cmFuc2ZlchQVyqBCFDEGcNXlo5jhR+Db7ZjPQ2hifVtS8QQAwusLFDNqlcK/gYZzdVdiSl8J9zmE2SAgFMl+MkusFaTqWJ9CPksppyELj60JU8EIdHJhbnNmZXIUJYLRsnXobI8Ok6my+s1f23YJdqFoYn1bUvE=",
+        "script": "AGQMFO87RgZ/L0ey9/BEKqI3IIXQhwjvDBS5e0rNf4IPYdLU1PmupetQSY3fVRPADAh0cmFuc2ZlcgwUJQWey0h406h1+RxRzt7TMNRXX95BYn1bUjgDAOh2SBcAAAAMFO87RgZ/L0ey9/BEKqI3IIXQhwjvDBS5e0rNf4IPYdLU1PmupetQSY3fVRPADAh0cmFuc2ZlcgwUvK9B1oTH1K1u4NmdqXB7nR8MjmZBYn1bUjg=",
         "witnesses": [
             {
-                "invocation": "QA9OZduN6MyEczPEV12TW7EFise5+riC9wagEv/M2SV7rrcRPiDAjbDbZxY0bcIz4JSafTJtF9FEo9laJwuhSMs=",
-                "verification": "IQLqNWb+zTA/d3UpLyQr4Ux3jVnJ6jJDniao8UG2IcxkBlBoCpBq1A=="
+                "invocation": "DEA1J31Wq9CS6s7Zyzv71jS/LXbJroKgzMhTk176KaCNDBIas5kqBgsv0hHVxetxdwnapXU7Cui/9PlHr3fZNPf3",
+                "verification": "DCECTLb+CYh0tAkrQbRliAmdLaB5NLR0FqIWxgiCPlnz/B4LQZVEDXg="
             }
         ]
     }
@@ -647,6 +684,6 @@ send 0x293b54c743f7a6433b2619da037beb9ed22aa73b NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esK
 
 ## 相关参考
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5") 
+[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki) 
 
-[数据转换示例](https://github.com/neo-ngd/Neo3-Tool)
+[neo3.0 数据转换](https://neo.org/converter/index)

@@ -12,12 +12,12 @@ Assembly: Neo.SmartContract.Framework
 public static class Json
 ```
 
-## Attributes
+## Methods
 
 | Name                                   | Description              |
 | ---------------------------------------- | -------------------------- |
-| Serialize(object obj) | Serializes the object elements into Json strings  |
-| Deserialize(string json)        | Deserializes the Json strings into object elements |
+| [Serialize(object obj)](Json/Serialize.md) | Serializes the object elements into strings in Json format |
+| [Deserialize(string json)](Json/Deserialize.md) | Deserializes the strings in Json format into object elements |
 
 ## Constructor
 

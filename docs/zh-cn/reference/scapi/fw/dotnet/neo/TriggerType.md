@@ -2,7 +2,7 @@
 
 定义了触发器类型。触发器可以使合约根据不同的使用场景执行不同的逻辑。
 
-更多关于触发器的知识，请查看 [合约开发基础](../../../../../sc/write/basics.md)。
+更多关于触发器的知识，请查看 [合约开发基础](../../../../../develop/write/basics.md)。
 
 命名[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -12,12 +12,12 @@
 
 ```c#
 public enum TriggerType : byte
-    {
-        System = 0x01,
-        Verification = 0x20,
-        Application = 0x40,
-        All = System | Verification | Application
-    }
+{
+    System = 0x01,
+    Verification = 0x20,
+    Application = 0x40,
+    All = System | Verification | Application
+}
 ```
 
 ## System 触发器
@@ -33,7 +33,7 @@ public enum TriggerType : byte
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static Object Main(string operation, params object[] args)
+        public static object Test(string operation, params object[] args)
         {
             if (Runtime.Trigger == TriggerType.Application)
             {
@@ -46,30 +46,24 @@ public enum TriggerType : byte
         }
     }
 ```
-NEO3中所有交易都为合约的调用，当一笔交易被广播和确认后，智能合约由共识节点执行，普通节点在转发交易时不执行智能合约。智能合约执行成功不代表交易的成功，而交易的成功也不决定智能合约执行的成功。
+Neo3中所有交易都为合约的调用，当一笔交易被广播和确认后，智能合约由共识节点执行，普通节点在转发交易时不执行智能合约。智能合约执行成功不代表交易的成功，而交易的成功也不决定智能合约执行的成功。
 
 ## Verification 触发器
 
 验证触发器的目的在于将该合约作为验证函数进行调用，验证函数可以接受多个参数，并且应返回有效的布尔值，标志着交易或区块的有效性。
 
-当你想从 A 账户向 B 账户进行转账时，会触发验证合约，所有收到这笔交易的节点（包括普通节点和共识节点）都会验证 A 账户的合约，如果返回值为 true，即转账成功。如果返回 false，即转账失败。
+当你想从 A 账户向 B 账户进行转账时，会触发验证合约,调用合约的Verify方法，所有收到这笔交易的节点（包括普通节点和共识节点）都会验证 A 账户的合约，如果返回值为 true，即转账成功。如果返回 false，即转账失败。
 
 如果鉴权合约执行失败，这笔交易将不会被写入区块链中。
 
-下面的代码就是一个验证合约的简单示例，仅当触发器为验证触发器时执行验证部分的代码。当条件 A 满足时，返回 true，即转账成功。否则返回 false，转账失败。
+下面的代码就是一个验证合约的简单示例，仅当触发器为验证触发器时执行验证部分的代码。当交易中包含owner账户签名时，返回 true，即转账成功。否则返回 false，转账失败。
 
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static bool Main(byte[] signature)
+        public static bool Verify()
         {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                if (/*条件A*/)
-                        return true;
-                    else
-                        return false;
-            }  
+            return Runtime.CheckWitness(Owner);
         }
     }
 ```

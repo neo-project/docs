@@ -1,4 +1,4 @@
-# Contract.CallEx Method (byte[], string, object[], CallFlags)
+# Contract.CallEx Method (UInt160, string, object[], CallFlags)
 
 Invokes the contract.
 
@@ -9,7 +9,7 @@ Assembly:  Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern object CallEx(byte[] scriptHash, string method, object[] arguments, CallFlags flag)
+public static extern object CallEx(UInt160 scriptHash, string method, object[] arguments, CallFlags flag)
 ```
 
 Parameters:
@@ -35,11 +35,11 @@ public class Contract1 : SmartContract
      {
          if (operation == "name")
          {
-             return Contract.Call(ScriptHash, "name", new object[0], CallFlags.ReadOnly);
+             return Contract.Call((UInt160)ScriptHash, "name", new object[0], CallFlags.ReadOnly);
          }
          if (operation == "totalSupply")
          {
-             return Contract.Call(ScriptHash, "totalSupply", new object[0], CallFlags.ReadOnly);
+             return Contract.Call((UInt160)ScriptHash, "totalSupply", new object[0], CallFlags.ReadOnly);
          }
          return true;
      }

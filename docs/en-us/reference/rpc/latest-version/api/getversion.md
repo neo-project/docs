@@ -1,6 +1,6 @@
 ﻿# getversion Method
 
-Returns the version information about the queried node.
+Returns the version information of the node.
 
 > [!Note]
 >
@@ -15,7 +15,7 @@ Request body:
   "jsonrpc": "2.0",
   "method": "getversion",
   "params": [],
-  "id": 3
+  "id": 1
 }
 ```
 
@@ -24,12 +24,13 @@ Response body:
 ```json
 {
     "jsonrpc": "2.0",
-    "id": "3",
+    "id": 1,
     "result": {
-        "tcpPort": 12333,
-        "wsPort": 12334,
-        "nonce": 1403108496,
-        "userAgent": "/Neo:3.0.0-preview1/"
+        "tcpport": 10333,
+        "wsport": 10334,
+        "nonce": 639577408,
+        "useragent": "/Neo:3.0.0-CI01171/",
+        "magic": 5195086
     }
 }
 ```

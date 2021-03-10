@@ -2,7 +2,7 @@
 
 This enumeration represents the type of smart contract triggers. Triggers enable the contract to execute different logic under different usage scenarios.
 
-For more information about triggers, refer to [Smart Contract Basics](../../../../../sc/write/basics.md).
+For more information about triggers, refer to [Smart Contract Basics](../../../../../develop/write/basics.md).
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -35,7 +35,7 @@ Here is a simple C# smart contract:
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static Object Main(string operation, params object[] args)
+        public static object Test(string operation, params object[] args)
         {
             if (Runtime.Trigger == TriggerType.Application)
             {
@@ -54,24 +54,18 @@ In Neo3 all transactions are invocations of contracts. When a transaction is bro
 
 A Verification trigger is used to call the contract as a verification function, which can accept multiple parameters and should return a valid Boolean value, indicating the validity of the transaction or block.
 
-When you transfer assets from account A to account B, a verification contract is triggered. All the nodes that received the transaction (including normal nodes and blue consensus nodes) verify account A's contract. If the return value is true, the transfer is completed successfully. If false is returned, the transfer is failed.
+When you transfer assets from account A to account B, a verification contract that invokes  the Verify method of the contract is triggered. All the nodes that received the transaction (including normal nodes and blue consensus nodes) verify account A's contract. If the return value is true, the transfer is completed successfully. If false is returned, the transfer is failed.
 
 If return `false` , that means the transaction will not be recorded in the blockchain.
 
-Here is a simple example of verification contract, which returns true when the condition A is met, or returns false when the transfer fails
+Here is a simple example of verification contract, which returns true when the transaction contains signature of the owner account, or returns false when the transfer fails.
 
 ```c#
     public class Contract1 : SmartContract.Framework.SmartContract
     {
-        public static bool Main(byte[] signature)
+        public static bool Verify()
         {
-            if (Runtime.Trigger == TriggerType.Verification)
-            {
-                if (/*Condition A*/)
-                        return true;
-                    else
-                        return false;
-            }  
+            return Runtime.CheckWitness(Owner);
         }
     }
 ```

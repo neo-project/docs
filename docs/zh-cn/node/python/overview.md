@@ -8,10 +8,10 @@
 - 运行基于 Python 的 P2P 节点
 - 提供可交互 CLI 用于配置节点和检测区块链
 - 编译、测试、部署以及运行以 python 编写的智能合约或任意 `.avm` 格式的合约
-- 符合 [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) 和 [NEP5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准的钱包功能
+- 符合 [NEP2](https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki) 和 [NEP17](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准的钱包功能
 - RPC 客户端
 - RPC 服务器
-- 通知服务器 （用于查看 NEP5 通证的转账）
+- 通知服务器 （用于查看 NEP17 通证的转账）
 - `Runtime.Log` 与 `Runtime.Notify` 事件监控
 
 ## 入门指南

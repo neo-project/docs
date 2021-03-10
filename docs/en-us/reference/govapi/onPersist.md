@@ -1,6 +1,6 @@
 # onPersist Method
 
-Manually performs actions the Nep5 contract will do upon block persisting.
+Manually performs actions the Nep17 contract will do upon block persisting.
 
 ## Contract
 

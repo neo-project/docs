@@ -27,4 +27,5 @@ public class Transaction
 
 ## Constructor
 
-The Transaction object is constructed through [Blockchain.GetTransaction(byte[])](Blockchain/GetTransaction.md).
+The Transaction object is constructed through [Ledger.GetTransaction(UInt256)](Ledger/GetTransaction.md) and [Ledger.GetTransactionFromBlock()](Ledger/GetTransactionFromBlock.md).
+

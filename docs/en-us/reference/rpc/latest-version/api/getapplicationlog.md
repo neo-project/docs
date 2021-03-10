@@ -1,6 +1,6 @@
 # getapplicationlog method
 
-Returns the contract log based on the specified txid. The complete contract logs are stored under the ApplicationLogs directory.
+Returns the contract event information based on the specified txid. The contract event information is stored under the ApplicationLogs directory.
 
 > [!Note]
 >
@@ -8,63 +8,96 @@ Returns the contract log based on the specified txid. The complete contract logs
 
 ## Parameter Description
 
-txid: Transaction ID
+- txid: Transaction ID
+
+- trigger type:  Optional. It has the following options:
+
+  - OnPersist
+  - PostPersist
+  - Application
+  - Verification
+  - System: OnPersist | PostPersist
+  - All: OnPersist | PostPersist | Verification | Application
+
+  It defaults to All. You can specify a trigger type.
 
 ## Example
 
-Request body:
+Request body：
 
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getapplicationlog",
-  "params": ["0x760dffe5ac809baa81b002864e8d8a7cec90dc6905d38fdc7e9c5fdc70d2cb64"],
-  "id": 1
+  "params": [
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
+  ]
 }
 ```
 
-Response body：
+This transaction transfers 100 GAS from NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF to NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ.
 
-```
+Response body 1:
+
+```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0x760dffe5ac809baa81b002864e8d8a7cec90dc6905d38fdc7e9c5fdc70d2cb64",
-        "trigger": "Application",
-        "vmstate": "HALT",
-        "gas_consumed": "12196370",
-        "stack": [],
-        "notifications": [
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+        "executions": [
             {
-                "contract": "0xf8bf38f68c72e9a529ca2324cfbf2dccbd8f7daa",
-                "state": {
-                    "type": "Array",
-                    "value": [
-                        {
-                            "type": "ByteArray",
-                            "value": "VHJhbnNmZXI="
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "K/Fz+EnR1ZEj0JfACaoxYk055zk="
-                        },
-                        {
-                            "type": "ByteArray",
-                            "value": "z2FL7K8LazAkM1WYGuB6RhOqV/4="
-                        },
-                        {
-                            "type": "Integer",
-                            "value": "500000000000"
+                "trigger": "Application",
+                "vmstate": "HALT",
+                "exception": null,
+                "gasconsumed": "9999540",
+                "stack": [],
+                "notifications": [
+                    {
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                        "eventname": "Transfer",
+                        "state": {
+                            "type": "Array",
+                            "value": [
+                                {
+                                    "type": "ByteString",
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
+                                },
+                                {
+                                    "type": "ByteString",
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
+                                },
+                                {
+                                    "type": "Integer",
+                                    "value": "10000000000"
+                                }
+                            ]
                         }
-                    ]
-                }
+                    }
+                ]
             }
         ]
     }
 }
 ```
 
-Response description：
-gas_consumed: The transaction fee, which means the gas consumed in the transaction execution. 
+Response description:
+
+- txid: Transaction ID.
+
+- trigger: Triggers.
+
+- vmstate: VM execution state. HALT represents success, and FAULT represents failure.
+- gasconsumed: The transaction fee, which means the GAS consumed in the transaction execution. 
+- notifications: The notification sent by the smart contract.
+
+- contract: The contract sending the notification. Here is GasToken.
+
+- eventname: Event name of the notification.
+
+- state: Notification content, where ByteString is Base64-encoded and can be converted at https://neo.org/converter/index.
+
+
+
 
