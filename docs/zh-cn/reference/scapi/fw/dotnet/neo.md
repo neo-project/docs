@@ -27,18 +27,18 @@ Neo 命名空间是 Neo 区块链所提供的 API，提供了访问区块链账�
 
 ## 原生合约类
 
-| 合约名称                                                  | 合约哈希                                   | 说明                                         |
-| --------------------------------------------------------- | ------------------------------------------ | -------------------------------------------- |
-| [ContractManagement](fw/dotnet/neo/ContractManagement.md) | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd | 管理合约的合约                               |
-| [CryptoLib](fw/dotnet/neo/CryptoLib.md)                   | 0x726cb6e0cd8628a1350a611384688911ab75f51b | 集成了散列运算、验签等密码学方法的合约       |
-| [GasToken](fw/dotnet/neo/GAS.md)                          | 0xd2a4cff31913016155e38e474a2c06d08be276cf | GAS相关合约                                  |
-| [LedgerContract](fw/dotnet/neo/Ledger.md)                 | 0xda65b600f7124ce6c79950c1772a36403104f2be | 区块链协议层合约                             |
-| [NameService](fw/dotnet/neo/NameService.md)               | 0x7a8fcf0392cd625647907afa8e45cc66872b596b | Neo域名服务合约                              |
-| [NeoToken](fw/dotnet/neo/NEO.md)                          | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 | NEO相关合约                                  |
-| [OracleContract](fw/dotnet/neo/Oracle.md)                 | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 | 预言机合约                                   |
-| [PolicyContract](fw/dotnet/neo/Policy.md)                 | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b | 共识策略合约                                 |
-| [RoleManagement](fw/dotnet/neo/RoleManagement.md)         | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 | 权限查询合约                                 |
-| [StdLib](fw/dotnet/neo/StdLib.md)                         | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 | 集成了序列化、反序列化和格式转换等方法的合约 |
+| 合约名称                                        | 合约哈希                                   | 说明                                         |
+| ----------------------------------------------- | ------------------------------------------ | -------------------------------------------- |
+| [ContractManagement](neo/ContractManagement.md) | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd | 管理合约的合约                               |
+| [CryptoLib](neo/CryptoLib.md)                   | 0x726cb6e0cd8628a1350a611384688911ab75f51b | 集成了散列运算、验签等密码学方法的合约       |
+| [GasToken](neo/GAS.md)                          | 0xd2a4cff31913016155e38e474a2c06d08be276cf | GAS相关合约                                  |
+| [LedgerContract](neo/Ledger.md)                 | 0xda65b600f7124ce6c79950c1772a36403104f2be | 区块链协议层合约                             |
+| [NameService](neo/NameService.md)               | 0x7a8fcf0392cd625647907afa8e45cc66872b596b | Neo域名服务合约                              |
+| [NeoToken](neo/NEO.md)                          | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 | NEO相关合约                                  |
+| [OracleContract](neo/Oracle.md)                 | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 | 预言机合约                                   |
+| [PolicyContract](neo/Policy.md)                 | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b | 共识策略合约                                 |
+| [RoleManagement](neo/RoleManagement.md)         | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 | 权限查询合约                                 |
+| [StdLib](neo/StdLib.md)                         | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 | 集成了序列化、反序列化和格式转换等方法的合约 |
 
 ## 枚举
 
