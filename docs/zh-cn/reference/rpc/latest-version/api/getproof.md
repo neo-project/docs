@@ -13,6 +13,35 @@
 
 - key: 存储区 key 值，使用 Base64 编码格式。
 
+## 配置说明
+
+使用时需要将FullState设置为true,否则将出现Example 1的结果。Network需要与neo-cli中config.json的magic保持一致。AutoVerify字段为是否设置默认启动，如果设置为默认启动验证，则将利用neo-cli中默认活跃钱包作为验证节点进行验证。
+
+```json
+{
+  "PluginConfiguration": {
+    "Path": "Data_MPT_{0}",
+    "FullState": false,
+    "Network": 5195086,
+    "AutoVerify": false
+  }
+}
+```
+
+### Example 1
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "error": {
+    "code": -100,
+    "message": "Old state not supported",
+    "data": "   at Neo.Plugins.StateService.StatePlugin.GetProof(UInt256 root_hash, UInt160 script_hash, Byte[] key)\r\n   at Neo.Plugins.StateService.StatePlugin.GetProof(JArray _params)\r\n   at Neo.Plugins.RpcServer.ProcessRequest(HttpContext context, JObject request)"
+  }
+}
+```
+
 ## 调用示例
 
 请求正文：
