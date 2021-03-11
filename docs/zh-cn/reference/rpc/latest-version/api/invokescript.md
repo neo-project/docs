@@ -25,12 +25,13 @@
   "jsonrpc": "2.0",
   "id": 1,
   "method": "invokescript",
-  "params": [    "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
+  "params": [    
+    "DAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
     [
          {
-          "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
+          "account": "NfbEjVjhhpDsni716KVbuQWqSjVNHAUdTh",
           "scopes": "CustomContracts",
-          "allowedcontracts":["0xf61eebf573ea36593fd43aa150c055ad7906ab83","0x1f177332c467db9ba734d3ca85645fbadd7e13e3","0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
+          "allowedcontracts":["0xd2a4cff31913016155e38e474a2c06d08be276cf","0xd2a4cff31913016155e38e474a2c06d08be276cf"],
           "allowedgroups":[]
         }
     ]
@@ -42,20 +43,21 @@
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "script": "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
-        "state": "HALT",
-        "gasconsumed": "9007960",
-        "stack": [
-            {
-                "type": "Boolean",
-                "value": true
-            }
-        ],
-        "tx": "0068f10067587389000000000046e71300000000008d1e2000011c0357464b777ecf6b5f3ac3893ace1f8b1621f6100325059ecb4878d3a875f91c51ceded330d4575fdee3137eddba5f6485cad334a79bdb67c43273171fbcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e660054180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b5201420c40840c3de238b0b876bf78bc5f83f4f42b8652554925a33d8728e2ecd2e3f7c9abfdb6c7b45a8d5a033616c97fb0c8cd26d810c819a336bb3682a9caf87a852674290c210222d8515184c7d62ffa99b829aeb4938c4704ecb0dd7e340e842e9df1218263430b4195440d78"
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "script": "DAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
+    "state": "HALT",
+    "gasconsumed": "9931880",
+    "exception": null,
+    "stack": [
+      {
+        "type": "Boolean",
+        "value": true
+      }
+    ],
+    "tx": "AOAp8X1ojJcAAAAAADiCEwAAAAAAwhgAAAHX15cw4njG2Qbm6PaVv62Hfj/6kBACz3bii9AGLEpHjuNVYQETGfPPpNLPduKL0AYsSkeO41VhARMZ88+k0gBgDAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSAUIMQND33YydF1nRttTQHmrzusLTAS3JY+Wmwdpbsh1T0p7uzOomsJca6GqH9KeDavvQ6MdnZsOD4/1zUQu/OlfId20oDCED4IgjtEOZ9qKqIkiDTZIKFas66S3HVjz35D/d1bHAGC9BdHR2qg=="
+  }
 }
 ```
 
