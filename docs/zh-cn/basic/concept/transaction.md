@@ -1,19 +1,19 @@
 # 交易
 
-Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个Neo系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成`InvPayload`信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，因此衍生出三种类型的数据包。`InventoryType = 0x2b`来标定网络中的InvPayload信息包内装的是交易数据。除交易数据包之外，还有块数据包(`InventoryType = 0x2c`)和共识数据包(`InventoryType = 0x2d`)。
+Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个Neo系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成`InvPayload`信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，`InventoryType.Tx`来标定网络中的InvPayload信息包内装的是交易数据。
 
 ## 数据结构
 
-在Neo网络中，所有的交易都使用同一种类型，其数据结构如下所示：
+在Neo网络中，交易的数据结构如下所示：
 
 | 字段        | 类型    | 说明                              |
 |--------------|---------|------------------------------------------|
 | `version`    | byte   | 交易版本号，目前为0                    |
 | `nonce`    | uint   | 随机数                   |
-| `validUntilBlock`    | uint   |  交易的有效期                |
-| `signers`    | Signer[]   | 发送方以及限制签名的作用范围           |
 | `sysfee`    | long   | 支付给网络的资源费用     |
 | `netfee`    | long   | 支付给验证人打包交易的费用    |
+| `validUntilBlock`    | uint   |  交易的有效期                |
+| `signers`    | Signer[]   | 发送方以及限制签名的作用范围           |
 | `attributes` | TransactionAttribute[]   | 交易所具备的额外特性  |
 | `script`     | byte[]   | 交易的合约脚本 |
 | `witnesses`  | Witness[]   | 用于验证交易的脚本列表    |
@@ -23,7 +23,7 @@ version属性允许对交易结构进行更新，使其具有向后兼容性。 
 ### signers
 signers中的第一个字段为交易发起账户的地址哈希。由于Neo3弃用了UTXO模型，仅保留有账户余额模型，原生资产NEO和GAS的转账交易统一为NEP-5资产操作方式，因此交易结构中不再记录inputs和outputs字段，通过signers字段来跟踪交易的发送方。
 
-signers中余下的字段为限制签名的作用范围。当前交易签名是全局有效的，为了让用户能更细粒度地控制签名的作用范围，Neo3中对交易结构中的cosigners字段进行了变更，可实现签名只限于验证指定合约的功能。当checkwitness用于交易验证时，除交易发送者sender外，其他的cosigners都需要定义其签名的作用范围。
+signers中余下的字段为限制签名的作用范围。Neo2交易签名是全局有效的，为了让用户能更细粒度地控制签名的作用范围，Neo3中对交易结构中的cosigners字段进行了变更，可实现签名只限于验证指定合约的功能。当checkwitness用于交易验证时，除交易发送者sender外，其他的cosigners都需要定义其签名的作用范围。
 
 | 字段 | 说明|  类型|
 |--------------|------------------| --|
@@ -38,7 +38,7 @@ Scopes字段定义了签名的作用范围，包括以下类型：
 
 | 值    | 名称| 说明| 类型|
 |---------------|-------------|---------------|--------------|
-| `0x00`           | `FeeOnly`          | 用于标记交易发送者   | `byte`  |
+| `0x00`           | `None`          | 单纯对交易签名，合约中禁用   | `byte`  |
 | `0x01`           | `CalledByEntry`          | 签名只限于由Entry脚本调用的合约脚本    | `byte`  |
 | `0x10`           | `CustomContracts`          | 签名只限于用户指定的合约脚本    | `byte`  |
 | `0x20`           | `CustomGroups`          | 签名对组内的合约有效    | `byte`  |
@@ -76,11 +76,11 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 
 #### 执行脚本
 
-调用脚本可以通过以下步骤进行构造：
+执行脚本可以通过
 
-1.	`0x0C`（PUSHDATA1）`0x40`后跟64字节长的签名
+`0x0C(PUSHDATA1) + 0x40(数据长度为64字节) + 签名`
 
-通过重复这些步骤，调用脚本可以为多方签名合约推送多个签名。
+添加签名。重复此步，可以为多方签名合约推送多个签名。
 
 #### 验证脚本
 
@@ -119,7 +119,7 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 ## 交易签名
 交易签名是对交易本身的数据（不包含签名数据，即witnesses部分）进行ECDSA方法签名，然后填入交易体中的`witnesses`。
 
-交易数据结构示例，其中script与witnesses字段使用Base64替代原有的Hexstring编码：
+交易JSON格式示例，其中script与witnesses字段使用Base64替代原有的Hexstring编码：
 
 ```Json
 {
@@ -140,9 +140,9 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
     "scopes": "CalledByEntry"
   }],
   "attributes": [],
-  "script": "EQwUDlBwrfoA9x\u002BJrt\u002BMHsCDAlrqk98MFA5QcK36APcfia7fjB7AgwJa6pPfE8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSOA==",
+  "script": "EQwUDlBwrfoA9x+Jrt+MHsCDAlrqk98MFA5QcK36APcfia7fjB7AgwJa6pPfE8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSOA==",
   "witnesses": [{
-    "invocation": "DEDy/g4Lt\u002BFTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE\u002B\u002B6f6XoZeaEoUPeH",
+    "invocation": "DEDy/g4Lt+FTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE++6f6XoZeaEoUPeH",
     "verification": "DCECCJr46zTvjDE0jA5v5jrry4Wi8Wm7Agjf6zGH/7/1EVELQQqQatQ="
   }]
 }
