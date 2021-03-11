@@ -89,6 +89,7 @@ Response body:
         "previousblockhash": "0x73377b6cfe14c30f3dc945ba537230e240d90201ca1959d0f61b9532d8d2df5a",
         "merkleroot": "0x12c5a55537a89adb6a58f9fac8e07635ff51fc8717bce21badc4c7f7553b709b",
         "time": 1612687482881,
+        "primary": 0,
         "index": 140,
         "nextconsensus": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
         "witnesses": [

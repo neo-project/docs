@@ -25,6 +25,8 @@ address: Address.
 
 ## Example
 
+**Example 1**
+
 Request body:
 
 ```json
@@ -48,6 +50,8 @@ Response body:
     }
 }
 ```
+
+**Example 2**
 
 Request body:
 
@@ -73,4 +77,28 @@ Response body:
 }
 ```
 
+**Example 3**
 
+Request body:
+
+```
+{
+  "jsonrpc": "2.0",
+  "method": "validateaddress",
+  "params": ["0x9127ea19791e3f3fc59309778a4abf275d5290e5"],
+  "id": 1
+}
+```
+
+Response body:
+
+```
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "address": "0x9127ea19791e3f3fc59309778a4abf275d5290e5",
+    "isvalid": false
+  }
+}
+```

@@ -13,9 +13,9 @@ Transfer from the specified address to the destination address.
 
 * asset_id: Asset ID（asset identifier）, the script hash of nep-17 contract.
 
-  e.g. NEO is 0xf61eebf573ea36593fd43aa150c055ad7906ab83
+  e.g. NEO is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-​        GAS is 0x70e2301955bf1e74cbb31d18c2f96972abadb328
+​        GAS is 0xd2a4cff31913016155e38e474a2c06d08be276cf
 * from: transfering address.
 * address: destination address.
 * value: Transfer amount
@@ -31,7 +31,7 @@ Request body：
     "id": 1,
     "method": "sendfrom",
     "params": [
-        "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+        "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
         "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
         "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
         100000000
