@@ -47,10 +47,12 @@ Error：其它错误
 
 ## 使用方法
 
-在 [Oracle.Rqeuest](Oracle/Request.md) 需要填写回调函数，而在智能合约里，回调函数的第一个参数默认应该是 OracleResponseCode 类型，然后在合约中对其进行判断，执行方法内的逻辑代码。如：
+在 [Oracle.Rqeuest](Oracle/Request.md) 需要填写回调函数名称，回调函数的形参数据类型的顺序是固定的，必须按照
+
+`string url, byte[] userData, int code, byte[] result`.在合约中可以对code进行判断，执行不同的逻辑代码。如：
 
 ```c#
-public static void Callback(OracleResponseCode code, object data)
+public static void Callback(string url, byte[] userData, int code, byte[] result)
 {
     switch (code)
     {

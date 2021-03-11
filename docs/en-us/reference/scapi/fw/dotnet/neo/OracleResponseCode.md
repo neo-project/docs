@@ -46,10 +46,10 @@ public enum OracleResponseCode : byte
 - Error: other errors
 
 
- [Oracle.Rqeuest](Oracle/Request.md) requires to fill in the callback function, but in the smart contract, the first parameter of the callback function should be the type of oracleResponseCode by default, and then the contract will judge it and execute the logic code in the method. Such as:
+ [Oracle.Rqeuest](Oracle/Request.md) requires to fill in the name of callback function. The order of the parameter data types of the callback function is fixed and must be `string url, byte[] userData, int code, byte[] result`. The code can be judged in the contract and different logic codes can be executed. Such as:
 
 ```c#
-public static void Callback(OracleResponseCode code, object data)
+public static void Callback(string url, byte[] userData, int code, byte[] result)
 {
     switch (code)
     {
