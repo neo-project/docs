@@ -2,22 +2,32 @@
 
 ## Consensus Message Format
 
-### ConsensusPayload
+### ExtensiblePayload
 
 | Size | Field | Type  | Description |
 |----|------|-------|------|
-| 4  | Version |  uint | 	Version of protocol, 0 for now |
-| 32  | PrevHash | UInt256 | Previous block's hash |
-| 4 | BlockIndex |uint | Height of the block |
-| 2 | ValidatorIndex | ushort | The index of the current consensus node in validators array |
+| ? | Category | String | Message category, currently `dBFT` |
+| 4 | ValidBlockStart | uint | Starting height where message is valid |
+| 4 | ValidBlockEnd | uint | Ending height where message is valid |
+| 20 | Sender | UInt160 | The address hash of the current consensus node |
 | ?  |  Data | byte[] | Includes `ChangeView`, `PrepareRequest`, `PrepareResponse`, `Commit`, `RecoveryMessage`, `RecoveryRequest` |
 | ? | Witness | Witness | Witness contains invocation script and verification script |
+
+### ConsensusMessage
+
+ConsensusMessage is the basic abstract type of all consensus message types. Other consensus message types all inherit from this type.
+
+| Size | Field | Type  | Description |
+|----|------|-----|-------|
+| 1 | Type | ConsensusMessageType | Includes `ChangeView`, `PrepareRequest`, `PrepareResponse`, `Commit`, `RecoveryMessage`, `RecoveryRequest` |
+| 4 | BlockIndex | uint | Height where message is created |
+| 1 | ValidatorIndex | byte | The index of the sender in validators array |
+| 1 | ViewNumber | byte | View number where message is created |
 
 ### ChangeView
 
 | Size | Field | Type  | Description |
 |----|------|-----|-------|
-| 1 | NewViewNumber | byte | Current view number+1 |
 | 8 | Timestamp | ulong | Timestamp when the ChangeView message is created |
 | 1 | Reason | ChangeViewReason |  Reason for the view change |
 
@@ -31,15 +41,16 @@
 
 | Size | Field | Type  | Description |
 |----|------|-----|-------|
+| 4 | Version | uint | Default value 0 |
+| 32 | PrevHash | UInt256 | Previous block's hash |
 | 8 | Timestamp | ulong | Timestamp when the PrepareRequest message is created |
-| 8 | Nonce | ulong |  block nonce |
 | ? | TransactionHashes | UInt256[] |  The transaction hashes in the block |
 
 ### PrepareResponse
 
 | Size | Field | Type | Description |
 |----|------|-----|-------|
-|  32  | PreparationHash | UInt256 |  |
+| 32 | PreparationHash | UInt256 | Hash of conrresponding prepare request |
 
 ### RecoveryMessage
 
@@ -47,7 +58,7 @@
 |----|------|-----|-------|
 |  ?  | ChangeViewMessages | Dictionary<int, ChangeViewPayloadCompact> | ChangeView messages |
 |  ?  | PrepareRequestMessage | PrepareRequest | The current PrepareRequest message |
-|  32  | PreparationHash | UInt256 |  |
+|  32  | PreparationHash | UInt256 | Hash of prepare request |
 |  ?  | PreparationMessages | Dictionary<int, PreparationPayloadCompact> | Preparation messages that have been collected |
 |  ?  | CommitMessages | Dictionary<int, CommitPayloadCompact> | Commit messages that have been collected |
 
@@ -75,56 +86,40 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
   6. After receiving the `consensus` message, the node C triggers the consensus module to process the message, and forwards the consensus message, and then returns to step 2.
 
-### inv message format
+Both inv and getdata messages use InvPayload as message carrier, which is defined as follows:
+
+### InvPayload
 
 | Size | Field | Type  | Description |
 |------|------|-------|------|
-| 4    | Magic |  uint | Protocol ID |
-| 12   | Command | string | `inv`  |
-| 4    | Length    | uint32 | Length of payload|
-| 4    | Checksum | uint | Checksum |
-| Length | Payload | byte[] | Format: `0xe0` + `0x00000001` + `ConsensusPayload.Hash` |
+| 1 | Type | InventoryType | Message type |
+| ? | Hashes | UInt256[] | Hashes broadcasted / requested |
 
-> [!Note] 
->
-> Payload's format： `inv.type + inv.payloads.length + inv.payload`
-> `inv` message's payload has three types listed as follow:
->
-> - `0x01`: Transaction. `inv.payload` is assigned to transaction's hash.
-> - `0x02`: Block. `inv.payload` is assigned to `ConsensusPayload` message's hash.
-> - `0xe0`: Consensus. `inv.payload` is assigned to block's hash.
+There are 3 kinds of `InventoryType`:
 
-### getdata message format
-
-| Size | Field | Type  | Description |
-|------|------|-------|------|
-| 4    | Magic |  uint | Protocol ID |
-| 12   | Command | string | `getdata` |
-| 4    | Length | uint32 | Length of payload |
-| 4    | Checksum | uint | Checksum |
-| Length | Payload | byte[] | Format: `0xe0` + `0x00000001` + `ConsensusPayload.Hash` |
-
-> [!Note]
->
-> The `getdata` message is mainly used to get the specific content in `inv` message.
+- `0x2b`: Transaction. `Hashes` is assigned to transaction's hash.
+- `0x2c`: Block. `Hashes` is assigned to block's hash.
+- `0x2e`: Consensus. `Hashes` is assigned to `ConsensusPayload` message's hash.
 
 ## Consensus Message Process
 
 ###  Verification
 
-1. Ignore the message if the `ConsensusPayload.BlockIndex` is lower than current block height.
+1. Ignore the message if `ValidBlockStart` is lower than `ValidBlockEnd`.
 
-2. Ignore the message if the verification script failed.
+2. Ignore the message if current block height is out of `[ValidBlockStart, ValidBlockEnd)`.
 
-3. Ignore the message if the node has sent out the new block.
+3. Ignore the message if sender is not listed in consensus white list.
 
-4. Ignore the message if the `ConsensusPayload.Version` does not equal to current consensus version.
+4. Ignore the message if the verification script failed or `Category` is not "dBFT".
 
-5. Ignore the message if the `ConsensusPayload.PrevHash` and `ConsensusPayload.BlockIndex` are not equal to the values in current node's context.
+5. Ignore the message if the node has sent out the new block.
 
-6. Ignore the message if the `ConsensusPayload.ValidatorIndex` is out of index of the current consensus nodes array.
+6. Ignore the message if the consensus message data is in wrong format.
 
-7. Ignore the message if the verification to the message using the loaded plugin failed.
+7. Ignore the message if the `message.BlockIndex` is lower than current block height.
+
+8. Ignore the message if the `ConsensusPayload.ValidatorIndex` is out of index of the current consensus nodes array, or `payload.Sender` is different is from correct hash.
 
 ### Process
 
@@ -132,28 +127,31 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
     1. Ignore if the `PrepareRequest` has already been received or the node is trying to change the view.
 
-    2. Ignore if the `ConsensusPayload.ValidatorIndex` is not the index of the current round speaker or the `PrepareRequest.ViewNumber` is not equal to the current view number.
+    2. Ignore if the `message.ValidatorIndex` is not the index of the current round speaker or the `PrepareRequest.ViewNumber` is not equal to the current view number.
 
-    3. Ignore if the `ConsensusPayload.Timestamp` is not more than the timestamp of the previous block, or is more than 8 blocks above current time.
+    3. Ignore if `message.Version` or `message.PrevHash` is different from local context.
 
-    4. Ignore if the proposed transaction has already been included in the blockchain
+    4. Ignore if transactions' amount is over `MaxTransactionsPerBlock`.
 
-    5. Check if the signature of the block is incorrect.
+    5. Ignore if the `message.Timestamp` is not more than the timestamp of the previous block, or is more than 8 blocks above current time.
 
-    6. Clear invalid signatures that have been received (Prepare-Reponse may arrive first)
+    6. Ignore if any proposed transaction has already been included in the blockchain
 
-    7. Save the signature of the speaker into current context.
+    7. Renew consensus context and clear invalid signatures that have been received (Prepare-Reponse may arrive first)
 
-    8. Collect and verify transactions in the proposal block from memory pool.
+    8. Save the signature of the speaker into current context.
 
-        1. If the transaction failed to pass verification or the transaction did not meet strategic requirements , it will stop the process and request ChangeView.
+    9. If there's no transaction in this request, directly check local collection of `PrepareResponse`, and broadcast `Commit` message in case of enough `PrepareResponse` collected.
+
+    10. Collect and verify transactions in the proposal block from memory pool.
+
+        1. Ignore if the transaction failed to pass verification or the transaction did not meet strategic requirements.
       
         2. Otherwise the transaction will be saved into current consensus context.
     
-        3. If all the transactions in the proposal block are collected, broadcast `PrepareResponse` message.
-    9. Verify the transactions required by blocks in the unconfirmed transaction pool and add them into current context.
+    11. Verify the transactions required by blocks in the unconfirmed transaction pool and add them into current context.
 
-    10. Broadcast a `getdata` message with a list of transaction hashes if they were missed in the block.
+    12. Broadcast a `getdata` message with a list of transaction hashes if they were missed in the block.
 
 2. On receiving a `PrepareResponse` sent by consensus nodes with their signature.
 
@@ -171,7 +169,7 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
 3. On receiving a `Changeview` sent by consensus nodes.
 
-    1. Send `RecoveryMessage` if the new view number in the message is less than the view number in current context.
+    1. Send `RecoveryMessage` if the new view number in the message is less than or equal to the view number in current context.
 
     2. Ignore it if the node has sent `Commit`.
 
@@ -195,19 +193,21 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
     1. Receive and handle `ChangeView` inside if the message view number is greater than the node view number. 
 
-    2. Receive and handle `PrepareRequest` and `PrepareResponse` inside if the message  view number is equal to the node view number, and the node is not in the process of changing view or has not sent `Commit` before.
+    2. Then receive and handle `PrepareRequest` and `PrepareResponse` inside if the message  view number is equal to the node view number, and the node is not in the process of changing view or has not sent `Commit` before.
 
-    3. Receive and handle `Commit` inside if the message view number is not greater than the node view number. 
+    3. Then receive and handle `Commit` inside if the message view number is not greater than the node view number. 
 
-7. On `Timeout` happens
+7. On receiving an `OnTimer`
 
-    1. If the speaker timeout, the consensus node will broadcast `PrepareRequest` for the first timeout and `ChangeView` for subsequent timeouts.
+    1. Ignore if timer's height or view number is different from local context.
 
-    2. If the delegate timeout, the consensus node will broadcast `ChangeView` directly.
+    2. If the speaker timeout, the consensus node will broadcast `PrepareRequest` for the first timeout. For subsequent timeouts, it will broadcast `RecoveryMessage` if `Commit` message has been sent, otherwise `ChangeView`.
 
-8. On receiving a `New Block`
+    3. If the delegate timeout, the consensus node will broadcast `RecoveryMessage` if `Commit` message has been sent, otherwise `ChangeView`.
 
-    resetting consensus process
+8. On receiving a `PersistCompleted`
+
+    Resetting consensus process
 
 9. On receiving a `New Transaction` for consensus
 
@@ -217,4 +217,10 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
     3. Ignore if the received transaction isn't in the proposal block.
 
-    4. Save the transaction into the proposal block.
+    4. Broadcast `ChangeView` if transaction verification fails.
+
+    5. Save the transaction into the proposal block.
+
+    6. Handle corresponding logic if this is an Oracle transaction.
+
+    7. If the receiver is a delegate, broadcast `ChangeView` message if the new block doesn't accord with `MaxBlockSize` or `MaxBlockSystemFee`. It also checks local collection of `PrepareResponse`, and broadcasts `Commit` message in case of enough `PrepareResponse` collected.

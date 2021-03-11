@@ -82,7 +82,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 * 设置注册候选人的费用
 * 增加NNS的Root
 * 设置NNS的注册/修改费用
-* 设置部署合约的最细费用
+* 设置部署合约的最小费用
 
 其对应的合约方法及相关费用如下所示：
 
@@ -166,4 +166,4 @@ NEO扩展的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`UnclaimedGas`](scapi/fw/dotnet/neo/Neo/UnclaimedGas.md) | UInt160 account, uint end | 0.00131072 | 返回该账户到指定高度未提取的GAS（uint） |
+| [`UnclaimedGas`](scapi/fw/dotnet/neo/Neo/UnclaimedGas.md) | UInt160 account, uint end | 0.00131072 (CpuFee) | 返回该账户到指定高度未提取的GAS（uint） |

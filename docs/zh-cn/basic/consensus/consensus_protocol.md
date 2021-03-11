@@ -203,13 +203,13 @@ Inv 和 getdata 消息都使用 InvPayload 作为信息载体，其定义如下�
 
     1. 若 timer 的高度或视图编号和本节点不一致，忽略该消息。
   
-    1. 若是议长超时，第一次超时发送`PrepareRequest`消息；后续若已经发送过`Commit`消息，则发送`RecoveryMessage`消息。否则发送`ChangeView`消息
+    2. 若是议长超时，第一次超时发送`PrepareRequest`消息；后续若已经发送过`Commit`消息，则发送`RecoveryMessage`消息。否则发送`ChangeView`消息
     
-    2. 若是议员超时，若已经发送过`Commit`消息，则发送`RecoveryMessage`消息。否则发送`ChangeView`消息
+    3. 若是议员超时，若已经发送过`Commit`消息，则发送`RecoveryMessage`消息。否则发送`ChangeView`消息
 
 5. **PersistCompleted** 事件处理
 
-   重置共识过程。
+    重置共识过程。
 
 6. **New Tx** 事件处理
 
