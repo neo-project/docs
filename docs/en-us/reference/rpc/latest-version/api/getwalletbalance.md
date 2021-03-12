@@ -13,9 +13,9 @@ Returns the balance of the corresponding asset in the wallet, based on the speci
 
 Asset_id: Asset ID (asset identifier), which is the script hash of the contract for contract assets.
 
-For example, NEO is 0xf61eebf573ea36593fd43aa150c055ad7906ab83
+For example, NEO is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-Gas is 0x70e2301955bf1e74cbb31d18c2f96972abadb328
+Gas is 0xd2a4cff31913016155e38e474a2c06d08be276cf
 
 You can query asset ID using the [CLI command](../../../../node/cli/cli.md) `list asset` or using the blockchain browser.
 
@@ -33,7 +33,7 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getwalletbalance",
-  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
+  "params": ["0xd2a4cff31913016155e38e474a2c06d08be276cf"],
   "id": 1
 }
 ```
@@ -45,7 +45,7 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "balance": "3000000830000920"
+        "balance": "3000014661474560"
     }
 }
 ```

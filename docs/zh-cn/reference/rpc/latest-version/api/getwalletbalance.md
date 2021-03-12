@@ -12,9 +12,9 @@
 
 asset_id：资产 ID（资产标识符），即合约的 Script Hash。
 
-如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
+如 NeoToken 为：0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
+GasToken 为：0xd2a4cff31913016155e38e474a2c06d08be276cf
 
 资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
@@ -32,7 +32,7 @@ GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
 {
   "jsonrpc": "2.0",
   "method": "getwalletbalance",
-  "params": ["0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
+  "params": ["0xd2a4cff31913016155e38e474a2c06d08be276cf"],
   "id": 1
 }
 ```
@@ -44,7 +44,7 @@ GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "balance": "3000000830000920"
+        "balance": "3000014661474560"
     }
 }
 ```
