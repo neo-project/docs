@@ -11,9 +11,9 @@
 
 - asset_id：资产 ID（资产标识符），即 NEP-17合约的脚本哈希。
 
-  如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
+  如 NeoToken 为：0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-  GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
+  GasToken 为：0xd2a4cff31913016155e38e474a2c06d08be276cf
 
 - from：转账地址。
 
@@ -34,7 +34,7 @@
     "id": 1,
     "method": "sendfrom",
     "params": [
-        "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+        "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
         "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
         "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
         100000000
