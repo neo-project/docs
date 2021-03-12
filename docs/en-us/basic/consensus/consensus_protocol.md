@@ -6,16 +6,16 @@
 
 | Size | Field | Type  | Description |
 |----|------|-------|------|
-| ? | Category | String | Message category, currently `dBFT` |
+| ? | Category | String | Message category, currently is `dBFT` |
 | 4 | ValidBlockStart | uint | Starting height where message is valid |
 | 4 | ValidBlockEnd | uint | Ending height where message is valid |
 | 20 | Sender | UInt160 | The address hash of the current consensus node |
-| ?  |  Data | byte[] | Includes `ChangeView`, `PrepareRequest`, `PrepareResponse`, `Commit`, `RecoveryMessage`, `RecoveryRequest` |
+| ?  |  Data | byte[] | The data includes `ChangeView`, `PrepareRequest`, `PrepareResponse`, `Commit`, `RecoveryMessage`, `RecoveryRequest` |
 | ? | Witness | Witness | Witness contains invocation script and verification script |
 
 ### ConsensusMessage
 
-ConsensusMessage is the basic abstract type of all consensus message types. Other consensus message types all inherit from this type.
+ConsensusMessage is the basic abstract type of all consensus message types. Other consensus message types are all inherited from this type.
 
 | Size | Field | Type  | Description |
 |----|------|-----|-------|
@@ -41,7 +41,7 @@ ConsensusMessage is the basic abstract type of all consensus message types. Othe
 
 | Size | Field | Type  | Description |
 |----|------|-----|-------|
-| 4 | Version | uint | Default value 0 |
+| 4 | Version | uint | Default value is 0 |
 | 32 | PrevHash | UInt256 | Previous block's hash |
 | 8 | Timestamp | ulong | Timestamp when the PrepareRequest message is created |
 | ? | TransactionHashes | UInt256[] |  The transaction hashes in the block |
@@ -50,7 +50,7 @@ ConsensusMessage is the basic abstract type of all consensus message types. Othe
 
 | Size | Field | Type | Description |
 |----|------|-----|-------|
-| 32 | PreparationHash | UInt256 | Hash of conrresponding prepare request |
+| 32 | PreparationHash | UInt256 | Hash of corresponding prepare request |
 
 ### RecoveryMessage
 
@@ -86,7 +86,7 @@ When a consensus message enters the P2P network, it's broadcasted and transmitte
 
   6. After receiving the `consensus` message, the node C triggers the consensus module to process the message, and forwards the consensus message, and then returns to step 2.
 
-Both inv and getdata messages use InvPayload as message carrier, which is defined as follows:
+Both inv and getdata messages use InvPayload as the message carrier, which is defined as follows:
 
 ### InvPayload
 
@@ -95,11 +95,11 @@ Both inv and getdata messages use InvPayload as message carrier, which is define
 | 1 | Type | InventoryType | Message type |
 | ? | Hashes | UInt256[] | Hashes broadcasted / requested |
 
-There are 3 kinds of `InventoryType`:
+There are 3 kinds of  `InventoryType`:
 
-- `0x2b`: Transaction. `Hashes` is assigned to transaction's hash.
-- `0x2c`: Block. `Hashes` is assigned to block's hash.
-- `0x2e`: Consensus. `Hashes` is assigned to `ConsensusPayload` message's hash.
+- `0x2b`: Transaction. `Hashes` is assigned to the transaction.
+- `0x2c`: Block. `Hashes` is assigned to the block.
+- `0x2e`: Consensus. `Hashes` is assigned to the `ConsensusPayload` message.
 
 ## Consensus Message Process
 
@@ -109,17 +109,17 @@ There are 3 kinds of `InventoryType`:
 
 2. Ignore the message if current block height is out of `[ValidBlockStart, ValidBlockEnd)`.
 
-3. Ignore the message if sender is not listed in consensus white list.
+3. Ignore the message if sender is not listed in the consensus white list.
 
 4. Ignore the message if the verification script failed or `Category` is not "dBFT".
 
 5. Ignore the message if the node has sent out the new block.
 
-6. Ignore the message if the consensus message data is in wrong format.
+6. Ignore the message if the consensus message data is in a wrong format.
 
-7. Ignore the message if the `message.BlockIndex` is lower than current block height.
+7. Ignore the message if the `message.BlockIndex` is lower than the current block height.
 
-8. Ignore the message if the `ConsensusPayload.ValidatorIndex` is out of index of the current consensus nodes array, or `payload.Sender` is different is from correct hash.
+8. Ignore the message if the `ConsensusPayload.ValidatorIndex` is out of index of the current consensus nodes array, or `payload.Sender` is different from the correct hash.
 
 ### Process
 
@@ -129,7 +129,7 @@ There are 3 kinds of `InventoryType`:
 
     2. Ignore if the `message.ValidatorIndex` is not the index of the current round speaker or the `PrepareRequest.ViewNumber` is not equal to the current view number.
 
-    3. Ignore if `message.Version` or `message.PrevHash` is different from local context.
+    3. Ignore if `message.Version` or `message.PrevHash` is different from the local context.
 
     4. Ignore if transactions' amount is over `MaxTransactionsPerBlock`.
 
@@ -141,12 +141,12 @@ There are 3 kinds of `InventoryType`:
 
     8. Save the signature of the speaker into current context.
 
-    9. If there's no transaction in this request, directly check local collection of `PrepareResponse`, and broadcast `Commit` message in case of enough `PrepareResponse` collected.
+    9. If there's no transaction in this request, directly check the local collection of `PrepareResponse`, and broadcast the `Commit` message in case of enough `PrepareResponse` collected.
 
     10. Collect and verify transactions in the proposal block from memory pool.
 
         1. Ignore if the transaction failed to pass verification or the transaction did not meet strategic requirements.
-      
+        
         2. Otherwise the transaction will be saved into current consensus context.
     
     11. Verify the transactions required by blocks in the unconfirmed transaction pool and add them into current context.
@@ -217,10 +217,10 @@ There are 3 kinds of `InventoryType`:
 
     3. Ignore if the received transaction isn't in the proposal block.
 
-    4. Broadcast `ChangeView` if transaction verification fails.
+    4. Broadcast `ChangeView` if the transaction verification fails.
 
     5. Save the transaction into the proposal block.
 
-    6. Handle corresponding logic if this is an Oracle transaction.
+    6. Handle the corresponding logic if this is an Oracle transaction.
 
-    7. If the receiver is a delegate, broadcast `ChangeView` message if the new block doesn't accord with `MaxBlockSize` or `MaxBlockSystemFee`. It also checks local collection of `PrepareResponse`, and broadcasts `Commit` message in case of enough `PrepareResponse` collected.
+    7. If the receiver is a delegate, broadcast the `ChangeView` message if the new block doesn't accord with `MaxBlockSize` or `MaxBlockSystemFee`. It also checks local collection of `PrepareResponse`, and broadcasts the `Commit` message in case of enough `PrepareResponse` collected.
