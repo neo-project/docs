@@ -4,11 +4,7 @@
 
 > [!Note]
 >
-<<<<<<< Updated upstream
-> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) [RpcSever](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
-=======
-> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcSever](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
->>>>>>> Stashed changes
+此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcSever](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
@@ -21,30 +17,12 @@
   - 如果不设置此参数，则返回近七天内的交易信息。
 
 ## 配置说明
-<<<<<<< Updated upstream
-使用时需要将TrackHistory设置为true，如果需要追溯空地址记录，则RecordNullAddressHistory需要设置为true。MaxResults表示记录的最多记录数，超过数额将不会被存储。Network需要配置为和neo-cli中的config.json中的magic相同。
-
-```json
-{
-  "PluginConfiguration": {
-    "DBPath": "Nep17BalanceData",
-    "TrackHistory": true,
-    "RecordNullAddressHistory": false,
-    "MaxResults": 1000,
-    "Network": 5195086
-  }
-}
-```
-=======
-
 调用该方法之前，需要在插件 RpcNep17Tracker 的 config.json 文件中设置以下字段：
 
 - TrackHistory：设置为true
 - RecordNullAddressHistory：如果需要追溯空地址记录，此处设置为true。
 - MaxResults：最大记录数，超过数额将不会被存储。
 - Network：需要与Neo-cli 的 config.json 中的magic设置相同。
->>>>>>> Stashed changes
-
 ## 调用示例
 
 示例 1  - 设置起始时间戳：

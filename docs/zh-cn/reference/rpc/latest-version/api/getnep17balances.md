@@ -4,11 +4,7 @@
 
 > [!Note]
 >
-<<<<<<< Updated upstream
-> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
-=======
-> 此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
->>>>>>> Stashed changes
+此方法由插件提供，需要安装 [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
 ## 参数说明
 
