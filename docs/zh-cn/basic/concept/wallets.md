@@ -60,14 +60,14 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 > [!Note]
 >
-> Neo3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
+> Neo3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` 方式。
 
 #### 普通地址
 
 1. 通过公钥，构建一个 CheckSig 地址脚本，脚本格式，如下图
 
     ```
-    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x0B + 0x41 + 0x0a906ad4
+    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x747476aa
     ```
 
     ![](../images/wallets/account_address_script_checksign.png)
@@ -82,17 +82,17 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 | 格式 | 数值 |
 |----------|:-------------:|
-| 私钥 | 3bf2c2c3a43ee817c5a7704b60e5265e73e585eb85b17091c451ddf72fd80c41 |
-| 压缩型公钥 | 02208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de375 |
-| 地址脚本 | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b4195440d78 |
-| 地址 | NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg |
+| 私钥 | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0 |
+| 压缩型公钥 | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c |
+| 地址脚本 | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c41747476aa |
+| 地址 | NhZ5eahZAZ6UBsbCLcCQH6qqHdzuxt2HKa |
 
 #### 多方签名地址
 
 1. 通过多个地址，构建一个 N-of-M CheckMultiSig 多方签名的地址脚本，脚本格式如下：
 
    ```
-   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x0B + 0x41 + 0x3073b3bb
+   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 7bce6ca5
    ```
    ![](../images/wallets/account_address_script_multi_checksign.png)
 
@@ -106,10 +106,10 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 | 名称       | 值                                                           |
 | ---------- | ------------------------------------------------------------ |
-| 私钥       | 97374afac1e801407d6a60006e00d555297c5019788795f017d4cd1fff3df529， aab9d4e4223e088aa6eb1f0ce75c11d149625f6d6a19452d765f8737200a4c35 |
-| 压缩性公钥 | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50<br/>03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
-| 地址脚本   | 110c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b41138defaf |
-| 地址       | Nax5LtYnKqZ741eUbrs6sCViMqjTCk39JP                           |
+| 私钥       | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0<br>9a973a470b5fd7a2c12753a1ef55db5a8c8dde42421406a28c2a994e1a1dcc8a |
+| 压缩性公钥 | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c<br/>036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd843 |
+| 地址脚本   | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12417bce6ca5 |
+| 地址       | NZ3pqnc1hMN8EHW55ZnCnu8B2wooXJHCyr                           |
 
 emitPush(number) 注意其取值范围， number的类型为 BigInteger时，data = number.ToByteArray()：
 
@@ -184,32 +184,36 @@ db3钱包文件是neo采用sqlite技术存储数据所使用存储文件，文�
 		"r": 8,
 		"p": 8
 	},
-	"accounts": [{
-		"address": "Nhet9QtFPWzBNB7sRXcRPPbMdjVmkYWCC5",
-		"label": null,
-		"isDefault": false,
-		"lock": false,
-		"key": "6PYV2baXHjFYhEN8z1M9ca6Tmj6v1MmugtFeEfVfEL1vUQxMVpPHCtr7bW",
-		"contract": {
-			"script": "IQNCaDWy3nPIdBMO4YprNZasTMXDs\u002BjS2iue5GxBTltOp1BoCpBq1A==",
-			"parameters": [{
-				"name": "signature",
-				"type": "Signature"
-			}],
-			"deployed": false
-		},
-		"extra": null
-	}],
+	"accounts": [
+		{
+			"address": "Nf8iN8CABre87oDaDrHSnMAyVoU9jYa2FR",
+			"label": null,
+			"isdefault": false,
+			"lock": false,
+			"key": "6PYM9DxRY8RMhKHp512xExRVLeB9DSkW2cCKCe65oXgL4tD2kaJX2yb9vD",
+			"contract": {
+				"script": "DCEDYgBftumtbwC64LbngHbZPDVrSMrEuHXNP0tJzPlOdL5BdHR2qg==",
+				"parameters": [
+					{
+						"name": "signature",
+						"type": "Signature"
+					}
+				],
+				"deployed": false
+			},
+			"extra": null
+		}
+	],
 	"extra": null
 }
 ```
 
-> 本例中的密码为 `123456`
+> 本例中的密码为 `1`
 
 | 字段                            | 描述                            |
 | ------------------------------- | ------------------------------- |
 | name                            | 名称                            |
-| version                         | 版本，目前为1                   |
+| version                         | 版本，目前为3.0                 |
 | scrypt（n/r/p）                 | scrypt算法设置CPU性能的三个参数 |
 | accounts                        | 钱包所包含的账户的集合          |
 | account.address                 | 账户地址                        |
@@ -282,38 +286,22 @@ NEP6提案：<https://github.com/neo-project/proposals/blob/master/nep-6.mediawi
 C# 示例代码：
 
 ```c#
- public byte[] Sign(byte[] message, byte[] prikey, byte[] pubkey)
- {
-     using (var ecdsa = ECDsa.Create(new ECParameters{
-         Curve = ECCurve.NamedCurves.nistP256,
-         D = prikey,
-         Q = new ECPoint
-             {
-                 X = pubkey.Take(32).ToArray(),
-                 Y = pubkey.Skip(32).ToArray()
-             }
-     }))
-     {
-         return ecdsa.SignData(message, HashAlgorithmName.SHA256);
-     }
- }
-```
-
-Java示例代码：
-
-```java
-   public byte[] sign(byte[] message, byte[] privateKey, byte[] publicKey) {
-        ECDSASigner signer = new ECDSASigner();
-        BigInteger d = new BigInteger(1, privateKey);
-        ECPrivateKeyParameters privateKeyParameters = new ECPrivateKeyParameters(d, ECC.Secp256r1);
-        signer.init(true, privateKeyParameters);
-
-        BigInteger[] bi = signer.generateSignature(sha256(message));
-        byte[] signature = new byte[64];
-        System.arraycopy(BigIntegers.asUnsignedByteArray(32, bi[0]), 0, signature, 0, 32);
-        System.arraycopy(BigIntegers.asUnsignedByteArray(32, bi[1]), 0, signature, 32, 32);
-        return signature;
-    }
+        public static byte[] Sign(byte[] message, byte[] prikey, byte[] pubkey)
+        {
+            using (var ecdsa = ECDsa.Create(new ECParameters
+            {
+                Curve = ECCurve.NamedCurves.nistP256,
+                D = prikey,
+                Q = new ECPoint
+                {
+                    X = pubkey[..32],
+                    Y = pubkey[32..]
+                }
+            }))
+            {
+                return ecdsa.SignData(message, HashAlgorithmName.SHA256);
+            }
+        }
 ```
 
 示例：
@@ -377,5 +365,5 @@ SPV (Simplified Payment Verification, 简单支付验证)钱包不同于全节�
     
     4. SPV钱包使用梅尔克树路径来验证交易数据。
     
-    5. SPV钱包发送`clear the bloom filter`指令给全节点，全节点清楚该布隆过滤器。
+    5. SPV钱包发送`clear the bloom filter`指令给全节点，全节点清除该布隆过滤器。
 
