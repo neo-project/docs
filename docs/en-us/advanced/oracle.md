@@ -25,6 +25,41 @@ Oracle nodes charge a certain amount of transaction fees. You can pay GAS for Or
 | UserData         | var bytes | Extra data provided by the user                              |
 | GasForResponse   | long      | The fee for getting the response, which is set by the contract that calls the Oracle service |
 
+### Url
+
+Oracle service currently supports two URL schemes, `https` and
+`neofs`. `https` scheme follows [RFC 2818](https://tools.ietf.org/html/rfc2818)
+and [RFC 2616](https://tools.ietf.org/html/rfc2616) standards and allows to
+specify resource to request via HTTP GET method. `neofs` scheme is
+Neo-specific. Both types of requests are treated equal otherwise.
+
+#### NeoFS URLs
+
+NeoFS URLs use the following scheme:
+
+```
+neofs://<Container-ID>/<Object-ID/<Command>/<Params>
+```
+
+Where `Container-ID` and `Object-ID` are mandatory components, `Command` and
+`Params` are optional.
+
+Absent any command oracle subsystem will get an object and return its payload,
+example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk.
+
+Command `range` can be used to get a part of object's payload, it has a
+mandatory range parameter specified as `offset|length`, where `offset` is a
+number of bytes to skip from the beginning on payload and `length` is a number
+of bytes to return to the caller, they're separated by vertical bar. Example
+request: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/range/42|128.
+
+Command `header` can be used to get header of an object, it doesn't have any
+parameters. Example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/header.
+
+Command `hash` can be used to get SHA256 hash of an object or part of it, it has
+an optional range parameter with the same syntax as for `range`
+command. Example: Example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/hash.
+
 ### GasForResponse
 
 The fee for getting the response. `GasForResponse` should not be less than 0.1 GAS, otherwise the Oracle request cannot be initiated.
