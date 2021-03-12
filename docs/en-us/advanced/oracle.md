@@ -33,6 +33,10 @@ and [RFC 2616](https://tools.ietf.org/html/rfc2616) standards and allows to
 specify resource to request via HTTP GET method. `neofs` scheme is
 Neo-specific. Both types of requests are treated equal otherwise.
 
+It is expected that URL requested will provide data in JSON format, for HTTP
+requests it means that server must answer with `Content-Type:
+application/json` header for request to be successful.
+
 #### NeoFS URLs
 
 NeoFS URLs use the following scheme:
