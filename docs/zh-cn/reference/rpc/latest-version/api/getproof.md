@@ -1,9 +1,5 @@
 # getproof 方法
-通过 root hash，合约 hash 和 storage key 查询得到 proof
-
-> [!Note]
->
-> 此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-plugins/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+通过 root hash，合约 hash 和 storage key 查询得到 proof。
 
 ## 参数说明
 
@@ -15,32 +11,25 @@
 
 ## 配置说明
 
-使用时需要将FullState设置为true,否则将出现Example 1的结果。Network需要与neo-cli中config.json的magic保持一致。AutoVerify字段为是否设置默认启动，如果设置为默认启动验证，则将利用neo-cli中默认活跃钱包作为验证节点进行验证。
+要使用 getproof 方法，需要先安装 [StateService](https://github.com/neo-project/neo-plugins/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件，并修改[StateService](https://github.com/neo-project/neo-plugins/releases) 插件配置文件中的以下字段：
 
-```json
-{
-  "PluginConfiguration": {
-    "Path": "Data_MPT_{0}",
-    "FullState": false,
-    "Network": 5195086,
-    "AutoVerify": false
+- FullState：设置为true，否则调用时将出现如下信息：
+
+  ```json
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "error": {
+      "code": -100,
+      "message": "Old state not supported",
+      "data": "   at Neo.Plugins.StateService.StatePlugin.GetProof(UInt256 root_hash, UInt160 script_hash, Byte[] key)\r\n   at Neo.Plugins.StateService.StatePlugin.GetProof(JArray _params)\r\n   at Neo.Plugins.RpcServer.ProcessRequest(HttpContext context, JObject request)"
+    }
   }
-}
-```
+  ```
 
-### Example 1
+- Network：与 Neo-cli 中 config.json 的 magic 设置一致。
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "error": {
-    "code": -100,
-    "message": "Old state not supported",
-    "data": "   at Neo.Plugins.StateService.StatePlugin.GetProof(UInt256 root_hash, UInt160 script_hash, Byte[] key)\r\n   at Neo.Plugins.StateService.StatePlugin.GetProof(JArray _params)\r\n   at Neo.Plugins.RpcServer.ProcessRequest(HttpContext context, JObject request)"
-  }
-}
-```
+- AutoVerify：设置是否默认启动，如果默认启动验证，将利用 Neo-cli 中默认活跃钱包作为验证节点进行验证。
 
 ## 调用示例
 
