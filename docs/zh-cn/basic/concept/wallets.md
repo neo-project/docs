@@ -87,6 +87,21 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 | 地址脚本 | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b4195440d78 |
 | 地址 | NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg |
 
+#### 地址&ScriptHash
+
+在Neo上创建钱包时都会生成私钥、公钥、钱包地址以及对应的ScriptHash，在不同情况下系统会根据情况处理不同类型的Scripthash。以下是一个钱包的标准地址和ScriptHash的大小端序呈现的示例： 
+
+| 格式              |                    数值                    |
+| ----------------- | :----------------------------------------: |
+| 地址              |     NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg     |
+| 大端序 Scripthash | 0xed7cc6f5f2dd842d384f254bc0c2d58fb69a4761 |
+| 小端序 Scripthash |  61479ab68fd5c2c04b254f382d84ddf2f5c67ced  |
+| Base64 Scripthash |        YUeato/VwsBLJU84LYTd8vXGfO0=        |
+
+要进行钱包地址与ScriptHash的互转，以及不同类型的ScriptHash之间的互转，可以使用以下方法:
+
+- [Data Convertor](https://neo.org/converter)
+
 #### 多方签名地址
 
 1. 通过多个地址，构建一个 N-of-M CheckMultiSig 多方签名的地址脚本，脚本格式如下：
