@@ -57,9 +57,9 @@ A normal algorithm flow is shown below.
 
 2. Set the validator whose index equals  *(h - v) mod N*  as the speaker. Here h is current block height, v is the current view, and N is the number of validators
 
-3. Set speaker's timeout to  *T<sub>block</sub>*  (Block time, currently 15s) and delegates' timeout to  2<sup>v+1</sup> *T<sub>block</sub>
+3. Set timeout period. For speaker, if it's handling RecoveryMessage from other nodes, timeout is set to 2<sup>v+1</sup> *T<sub>block</sub>, where *T<sub>block</sub>* is Block time and currently 15s. Otherwise, if the speaker has not participated in block generation in last consensus, timeout is set to *T<sub>block</sub>*. If the speaker has participated, calculate D = current time - time of last block's generation. Set timeout to T<sub>block</sub> - D if D < T<sub>block</sub>, or to 0. 
 
-4. Broadcast the Recovery Request message to acquire the current consensus context
+4. Broadcast the Recovery Request message to acquire the current consensus context if consensus is newly started.
 
 ##### 2)  Validators listen to the network and collect transactions until timeout
 
@@ -67,7 +67,7 @@ A normal algorithm flow is shown below.
 
 - For speaker:
 
-  1. Select transactions from memory pool according to consensus policy after *T<sub>block</sub>*, create and broadcast Prepare Request message with these transactions' hashes to start a new round of consensus
+  1. Select transactions from memory pool according to consensus policy after timeout, create and broadcast Prepare Request message with these transactions' hashes to start a new round of consensus
 
   2. Package and broadcast each 500 selected transactions
 
