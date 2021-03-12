@@ -8,23 +8,15 @@
 
 ## 参数说明
 
-- address：要查看资产余额的地址。
+address：要查看资产余额的地址。
 
 ## 配置说明
-使用时需要将TrackHistory设置为true，如果需要追溯空地址记录，则RecordNullAddressHistory需要设置为true。MaxResults表示记录的最多记录数，超过数额将不会被存储。Network需要配置为和neo-cli中的config.json中的magic相同。
+调用该方法之前，需要在插件 RpcNep17Tracker 的 config.json 文件中设置以下字段：
 
-
-```json
-{
-  "PluginConfiguration": {
-    "DBPath": "Nep17BalanceData",
-    "TrackHistory": true,
-    "RecordNullAddressHistory": false,
-    "MaxResults": 1000,
-    "Network": 5195086
-  }
-}
-```
+- TrackHistory: 设置为true
+- RecordNullAddressHistory：如果需要追溯空地址记录，此处设置为true。
+- MaxResults：最大记录数，超过数额将不会被存储。
+- Network：需要与Neo-cli 的 config.json 中的magic设置相同。
 
 ## 调用示例
 
