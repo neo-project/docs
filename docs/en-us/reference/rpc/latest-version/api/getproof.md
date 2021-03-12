@@ -13,6 +13,28 @@ Gets proof by querying root hash, contract hash, and storage key.
 
 - key: key of the storage; Base64-encoded.
 
+## Configuration
+
+Before you can invoke the getproof method you must install the plugin [StateService](https://github.com/neo-project/neo-plugins/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases), and then modify the following fields in the [StateService](https://github.com/neo-project/neo-plugins/releases) config.json file：
+
+- FullState: Set to true, or the error message is returned as follows：
+
+  ```json
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "error": {
+      "code": -100,
+      "message": "Old state not supported",
+      "data": "   at Neo.Plugins.StateService.StatePlugin.GetProof(UInt256 root_hash, UInt160 script_hash, Byte[] key)\r\n   at Neo.Plugins.StateService.StatePlugin.GetProof(JArray _params)\r\n   at Neo.Plugins.RpcServer.ProcessRequest(HttpContext context, JObject request)"
+    }
+  }
+  ```
+
+- Network: Set to the same value as `magic` in the Neo-cli config.json.
+
+- AutoVerify: Set whether to enable verification by default, and if yes, the default active wallet in Neo-cli is used as the verification node.
+
 ## Example
 
 Request body:
