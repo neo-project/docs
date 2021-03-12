@@ -44,7 +44,7 @@ NEP-17 标准是 Neo3 的通证标准，它取代了以前的 NEP-5，表示在 
 
 ## 如何在 Neo-CLI 中查看 NEP-17 资产？
 
-想要看到 NEP-17 资产，需要使用 RPC 的 [getnep17balances](https://docs.neo.org/v3/docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.html) 方法或 Neo-CLI 的 [balanceof](https://docs.neo.org/v3/docs/zh-cn/node/cli/cli.html#balanceof) 方法。
+想要看到 NEP-17 资产，需要使用 RPC 的 [getnep17balances](../../docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.md) 方法或 Neo-CLI 的 [balanceof](../../docs/zh-cn/node/cli/cli.html#balanceof) 方法。
 
 ## NEP-6 是什么？
 
