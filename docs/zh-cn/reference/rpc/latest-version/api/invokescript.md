@@ -25,12 +25,13 @@
   "jsonrpc": "2.0",
   "id": 1,
   "method": "invokescript",
-  "params": [    "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
+  "params": [    
+    "DAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
     [
          {
-          "account": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c",
+          "account": "NfbEjVjhhpDsni716KVbuQWqSjVNHAUdTh",
           "scopes": "CustomContracts",
-          "allowedcontracts":["0xf61eebf573ea36593fd43aa150c055ad7906ab83","0x1f177332c467db9ba734d3ca85645fbadd7e13e3","0x70e2301955bf1e74cbb31d18c2f96972abadb328"],
+          "allowedcontracts":["0xd2a4cff31913016155e38e474a2c06d08be276cf","0xd2a4cff31913016155e38e474a2c06d08be276cf"],
           "allowedgroups":[]
         }
     ]
@@ -42,20 +43,21 @@
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "script": "180c14e3137eddba5f6485cad334a79bdb67c43273171f0c141c0357464b777ecf6b5f3ac3893ace1f8b1621f613c00c087472616e736665720c14bcaf41d684c7d4ad6ee0d99da9707b9d1f0c8e6641627d5b52",
-        "state": "HALT",
-        "gasconsumed": "9007960",
-        "stack": [
-            {
-                "type": "Boolean",
-                "value": true
-            }
-        ],
-        "tx": "AI3PBQRolZgAAAAAAMrSEgAAAAAAtRcAAAHitlMicpPpnE8pBtU1U6u0pnLfhgEAWQwAARAnDBT6ifssFN8PWd3fBPblZRfys0qu6wwU4rZTInKT6ZxPKQbVNVOrtKZy34YUwB8MCHRyYW5zZmVyDBSDqwZ5rVXAUKE61D9ZNupz9ese9kFifVtSAUIMQB87UjubTE7Kb/fOe8Yu2QDUQJ6c5pL9LjcoFaNkEiJzLY5yd72jrsvVbVFNZ6ObWloAmLkjCgDXw9enkVtwVBMrEQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "script": "DAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
+    "state": "HALT",
+    "gasconsumed": "9931880",
+    "exception": null,
+    "stack": [
+      {
+        "type": "Boolean",
+        "value": true
+      }
+    ],
+    "tx": "AOAp8X1ojJcAAAAAADiCEwAAAAAAwhgAAAHX15cw4njG2Qbm6PaVv62Hfj/6kBACz3bii9AGLEpHjuNVYQETGfPPpNLPduKL0AYsSkeO41VhARMZ88+k0gBgDAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSAUIMQND33YydF1nRttTQHmrzusLTAS3JY+Wmwdpbsh1T0p7uzOomsJca6GqH9KeDavvQ6MdnZsOD4/1zUQu/OlfId20oDCED4IgjtEOZ9qKqIkiDTZIKFas66S3HVjz35D/d1bHAGC9BdHR2qg=="
+  }
 }
 ```
 

@@ -11,7 +11,7 @@
 
 - scripthash：智能合约脚本哈希。
 
-- params：传递给智能合约操作的参数，可选。
+- params：传递给智能合约操作的参数，必须为空数组[], 因为默认neo只接受参数个数为零的verify函数。
 
 - signers: 签名账户列表，可选。
   * account: 签名账户
@@ -30,55 +30,66 @@
     "type": "String",
     "value": "Hello"
   }
+```
 
+```json
   {
     "type": "Hash160",
     "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
   }
+```
 
+```json
   {
     "type": "ByteArray",
     "value": "7472616e73666572"
   }
-  ```
+```
 
 ## 调用示例
 
 请求正文：
 
+部署合约如下：
+
+
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "invokecontractverify",
-    "params": [
-        "0x63c7e30a5eee6c8208f9ba073b3424e8b592c26c"
-    ]
+  "jsonrpc": "2.0",
+  "method": "invokecontractverify",
+  "params": [ 
+  "0x92f5c79b88560584a900cfec15b0e00dc4d58b54", 
+  [ ],
+  [
+      {
+        "account": "NTpqYncLsNNsMco71d9qrd5AWXdCq8YLAA",
+        "scopes": "CalledByEntry"
+      }
+  ]
+],
+  "id": 1
 }
+
 ```
 
 响应正文：
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "script": "IQwU9mRDSY04eNMrmU5OEoPGk0Qh2v4hQfgn7IxAEUBXAQAhDAVIZWxsbyFBm/ZnzkGSXegxcCMFAAAAaEBXAQEheHBoJwoAAAAjIAAAAAwFSGVsbG8MBVdvcmxkIVBBm/ZnzkHmPxiEIUBXAQIhITWQ////ELNwaCcaAAAADBFObyBhdXRob3JpemF0aW9uLiE6eHkhUEExxjMdIUBXAQAhITVd////ELNwaCcaAAAADBFObyBhdXRob3JpemF0aW9uLiE6IUHGnx3wIUAhVgEMFPZkQ0mNOHjTK5lOThKDxpNEIdr+YCFA",
-        "state": "HALT",
-        "gasconsumed": "1016850",
-        "exception": null,
-        "stack": [
-            {
-                "type": "Integer",
-                "value": "1"
-            },
-            {
-                "type": "Integer",
-                "value": "1"
-            }
-        ]
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "script": "VgEMFFbIjRQK0swPKQN90Qp/AGCitShcYEBXAANAQZv2Z84MBWhlbGxvDAV3b3JsZFNB5j8YhEBXAQAMFFbIjRQK0swPKQN90Qp/AGCitShcQfgn7IxwaEA=",
+    "state": "HALT",
+    "gasconsumed": "1017810",
+    "exception": null,
+    "stack": [
+      {
+        "type": "Boolean",
+        "value": true
+      }
+    ]
+  }
 }
 ```
 

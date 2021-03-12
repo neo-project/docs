@@ -40,7 +40,7 @@ In addition, the interoperation service layer also supports custom extensions an
 
 ### Execution Process 
 
-NEO supports multi-language smart contract development. NeoCompiler compiles multi-language smart contracts into unified avm bytecode files, which are then decoded and executed by NeoVM. Cross-platform compatibility are achieved with multi-language compliers and virtual machines. 
+NEO supports multi-language smart contract development. NeoCompiler compiles multi-language smart contracts into unified nvm bytecode files, which are then decoded and executed by NeoVM. Cross-platform compatibility are achieved with multi-language compliers and virtual machines. 
 
 A complete execution process is as follows: 
 

@@ -19,9 +19,9 @@
 
   - asset_id：资产 ID，即 NEP-17 合约的脚本哈希。
 
-	  如 NeoToken 为：0xf61eebf573ea36593fd43aa150c055ad7906ab83
+	  如 NeoToken 为：0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-	  GasToken 为：0x70e2301955bf1e74cbb31d18c2f96972abadb328
+	  GasToken 为：0xd2a4cff31913016155e38e474a2c06d08be276cf
   - value：转账金额。
 
   - address：收款地址。
@@ -56,27 +56,38 @@
 }
 ```
 
-请求正文（不包含 fromAddress）：
+请求正文（包含 fromAddress）：
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "sendmany",
-    "params": [
-        [
-            {
-                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
-                "value": 10,
-                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
-            },
-            {
-                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "value": 50000000,
-                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
-            }
-        ]
-    ]
+  "jsonrpc": "2.0",
+  "method": "sendmany",
+  "params": [
+     "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
+	[
+	    {
+			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+			    "value": 100, 
+					"address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+			}, 
+			{
+			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+					 "value": 100, 
+					 "address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+			},
+			    {
+			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+			    "value": 100, 
+					"address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+			}, 
+			{
+			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+					 "value": 100, 
+					 "address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+			}
+	 ]
+	 ],
+  "id": 1
 }
 ```
 
@@ -84,32 +95,32 @@
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "hash": "0x0f8232a7395661d3501ba600f9bf45a261d4b8c5400696be771562b223d35358",
-        "size": 337,
-        "version": 0,
-        "nonce": 1372416014,
-        "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
-        "sysfee": "19999080",
-        "netfee": "1320550",
-        "validuntilblock": 5819,
-        "signers": [
-            {
-                "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
-                "scopes": "CalledByEntry"
-            }
-        ],
-        "attributes": [],
-        "script": "CxoMFOK2UyJyk+mcTykG1TVTq7Smct+GDBT6ifssFN8PWd3fBPblZRfys0qu6xTAHwwIdHJhbnNmZXIMFIOrBnmtVcBQoTrUP1k26nP16x72QWJ9W1I5CwKA8PoCDBTitlMicpPpnE8pBtU1U6u0pnLfhgwU+on7LBTfD1nd3wT25WUX8rNKrusUwB8MCHRyYW5zZmVyDBQos62rcmn5whgds8t0Hr9VGTDicEFifVtSOQ==",
-        "witnesses": [
-            {
-                "invocation": "DECejDPVz78go5cSN1B5gwnkmMxCsbjst2oqZFNmzFR75xjfVnYqpnwfzROAImrmC40MN6fis9MqMD/zEHcf71cu",
-                "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
-            }
-        ]
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "hash": "0xe8742fc5a69f3180ab59f3f21695ce5459891429682a7f1df38219bc05cce39e",
+    "size": 514,
+    "version": 0,
+    "nonce": 537723951,
+    "sender": "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
+    "sysfee": "39726800",
+    "netfee": "1497580",
+    "validuntilblock": 6357,
+    "signers": [
+      {
+        "account": "0x9dd95824d6a1789d5bb665abd727d0c387a53e86",
+        "scopes": "CalledByEntry"
+      }
+    ],
+    "attributes": [],
+    "script": "CwBkDBSvT25X7NLzUvxKKqw14LOzO554tQwUhj6lh8PQJ9erZbZbnXih1iRY2Z0UwB8MCHRyYW5zZmVyDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtSOQsAZAwUJvOMLBhLx7odYBaJkOQJlbxNJF4MFIY+pYfD0CfXq2W2W514odYkWNmdFMAfDAh0cmFuc2ZlcgwU9WPqQLwoPU0OBcSOowWz8qBzQO9BYn1bUjkLAGQMFK9Pblfs0vNS/EoqrDXgs7M7nni1DBSGPqWHw9An16tltludeKHWJFjZnRTAHwwIdHJhbnNmZXIMFM924ovQBixKR47jVWEBExnzz6TSQWJ9W1I5CwBkDBQm84wsGEvHuh1gFomQ5AmVvE0kXgwUhj6lh8PQJ9erZbZbnXih1iRY2Z0UwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSOQ==",
+    "witnesses": [
+      {
+        "invocation": "DEDxTxMc/IKpEzhfYV0bMv8qUEL1na7LvrnK3hisz1SBoYJr2SF7SpXY0RzA/1x5QfHEuxHUuvelul1aiDjFenYD",
+        "verification": "EQwhA+CII7RDmfaiqiJIg02SChWrOuktx1Y89+Q/3dWxwBgvEUF7zmyl"
+      }
+    ]
+  }
 }
 ```
 

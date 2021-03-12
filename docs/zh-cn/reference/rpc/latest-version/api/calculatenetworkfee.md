@@ -30,7 +30,7 @@ tx ：交易信息Base64编码的字符串。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "networkfee": 23848400
+        "networkfee": "23848400"
     }
 }
 ```

@@ -11,9 +11,9 @@ Invokes the contract method `Verify`. Unlike the method `invokefunction` which e
 
 - scripthash: Smart contract scripthash.
 
-- params：Optional. The parameters to be passed into the smart contract operation.
+- params: The parameters to be passed to the smart contract operation. It must be an empty array [] as by default Neo only accepts the verify function without parameter.
 
-- signers:  Optional. List of contract signature accounts.
+- signers: Optional. List of contract signature accounts.
   * account: signature account
   * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
@@ -48,12 +48,19 @@ Request body:
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "invokecontractverify",
-    "params": [
-        "0x63c7e30a5eee6c8208f9ba073b3424e8b592c26c"
-    ]
+  "jsonrpc": "2.0",
+  "method": "invokecontractverify",
+  "params": [ 
+  "0x92f5c79b88560584a900cfec15b0e00dc4d58b54", 
+  [ ],
+  [
+      {
+        "account": "NTpqYncLsNNsMco71d9qrd5AWXdCq8YLAA",
+        "scopes": "CalledByEntry"
+      }
+  ]
+],
+  "id": 1
 }
 ```
 
@@ -61,30 +68,26 @@ Response body:
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "script": "IQwU9mRDSY04eNMrmU5OEoPGk0Qh2v4hQfgn7IxAEUBXAQAhDAVIZWxsbyFBm/ZnzkGSXegxcCMFAAAAaEBXAQEheHBoJwoAAAAjIAAAAAwFSGVsbG8MBVdvcmxkIVBBm/ZnzkHmPxiEIUBXAQIhITWQ////ELNwaCcaAAAADBFObyBhdXRob3JpemF0aW9uLiE6eHkhUEExxjMdIUBXAQAhITVd////ELNwaCcaAAAADBFObyBhdXRob3JpemF0aW9uLiE6IUHGnx3wIUAhVgEMFPZkQ0mNOHjTK5lOThKDxpNEIdr+YCFA",
-        "state": "HALT",
-        "gasconsumed": "1016850",
-        "exception": null,
-        "stack": [
-            {
-                "type": "Integer",
-                "value": "1"
-            },
-            {
-                "type": "Integer",
-                "value": "1"
-            }
-        ]
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "script": "VgEMFFbIjRQK0swPKQN90Qp/AGCitShcYEBXAANAQZv2Z84MBWhlbGxvDAV3b3JsZFNB5j8YhEBXAQAMFFbIjRQK0swPKQN90Qp/AGCitShcQfgn7IxwaEA=",
+    "state": "HALT",
+    "gasconsumed": "1017810",
+    "exception": null,
+    "stack": [
+      {
+        "type": "Boolean",
+        "value": true
+      }
+    ]
+  }
 }
 ```
 
 Response description:
 
-- script：the invocation script of the contract. You can convert it to OpCode at [Neo 3.0 data converter](https://neo.org/converter).
-- state：`HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
-- gasconsumed：the system fee consumed for invocation.
-- stack：the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
+- script: the invocation script of the contract. You can convert it to OpCode at [Neo 3.0 data converter](https://neo.org/converter).
+- state: `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
+- gasconsumed: the system fee consumed for invocation.
+- stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
