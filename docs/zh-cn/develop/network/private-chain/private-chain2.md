@@ -22,12 +22,12 @@
 - `Magic` 为私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 - `StandbyCommittee` 是委员会成员节点的公钥，票数前4的即为共识节点，这里可以输入 4 个钱包的公钥。
 
-- `SeedList` 为种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 `config.json` 中配置的 4 个 `P2P` Port。
+- `SeedList` 为种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 4 个节点的 `P2P` Port。
 
 
 可参照下面的配置：
 
-**node1/config.json**
+**c1/config.json**
 
 ```json
 {
@@ -71,10 +71,9 @@
     ]
   }
 }
-
 ```
 
-**node2/config.json**
+**c2/config.json**
 
 ```json
 {
@@ -118,10 +117,9 @@
     ]
   }
 }
-
 ```
 
-**node3/config.json**
+**c3/config.json**
 
 ```json
 {
@@ -165,10 +163,9 @@
     ]
   }
 }
-
 ```
 
-**node4/config.json**
+**c4/config.json**
 
 ```json
 {
@@ -212,7 +209,6 @@
     ]
   }
 }
-
 ```
 
 > [!Note]
@@ -222,7 +218,10 @@
 
 ## 安装共识插件
 
-[下载共识插件]("https://github.com/neo-project/neo-modules/releases/download/v3.0.0-RC1/DBFTPlugin.zip"), 放入`CLI`根目录的`Plugins`目录下，修改其配置文件`config.json`并将`Network` 与私有链`config.json`中的`Magic`设为相同数值即可启用。`AutoStart`可设为`true`以方便在启动 CLI 时自动开启共识。
+下载 [共识插件]("https://github.com/neo-project/neo-modules/releases/download/v3.0.0-RC1/DBFTPlugin.zip"), 并放入四个节点 `CLI` 根目录的`Plugins`目录下。修改其配置文件`config.json`：
+
+- 将`Network` 与私有链`config.json`中的`Magic`设为相同数值。
+- `AutoStart`：设为`true`以方便在启动 CLI 时自动开启共识。
 
 可参照下面的配置：
 
@@ -239,8 +238,6 @@
     "MaxBlockSystemFee": 900000000000
   }
 }
-
-
 ```
 
 
@@ -297,7 +294,7 @@ start cmd /k "cd c4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 1. 启动私链。
 
-2. 复制一个共识节点作为外部节点来作为外部节点进行操作，同时复制4个共识节点钱包到该节点根目录并关闭或删除共识插件。
+2. 复制一个共识节点作为外部节点来进行操作，同时复制4个共识节点钱包到该节点根目录并关闭或删除共识插件。
 
 3. 创建admin钱包，在节点中使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
@@ -322,7 +319,7 @@ start cmd /k "cd c4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
 接下来我们将 NEO 从合约地址转入普通地址：
 
-1. 打开第一个钱包（1.json）使用命令 `send <id|alias> <address> <value>` 将 NEO 转入admin钱包地址。
+1. 打开第一个钱包（1.json）使用命令 `send <id|alias> <address> <value>` 将 NEO 转入admin 钱包地址。
 
 2. 复制 SignatureContext 内容并关闭钱包。
 
