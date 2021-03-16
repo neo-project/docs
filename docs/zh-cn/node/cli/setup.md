@@ -22,22 +22,34 @@
 
 1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 程序包并解压。
 
-2. 对于 Linux 系统，需要安装 LevelDB 和 SQLite3 开发包。例如，在 ubuntu 18.04 上输入以下命令：
+2. 对于 Linux 系统，需要安装 LevelDB 和 SQLite3 开发包。
+
+   **Ubuntu:**
 
    ```
    sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
    ```
    
+   **CentOS:**
+
+   ```
+   sudo yum install sqlite-devel
+   sudo yum install libunwind-devel
+   sudo wget https://download-ib01.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+   sudo rpm -ivh epel-release-6-8.noarch.rpm
+   sudo yum install leveldb-devel
+   ```
+
    如果选用RocksDB存储数据，还需要修改config.json，如下所示：
-   
+
    ```
    "Storage": {
       "Engine": "RocksDBStore"
     },
    ```
-   
+
     并在ubuntu 18.04 上输入以下命令：
-   
+
    ```
    sudo apt-get install librocksdb-dev
    ```
