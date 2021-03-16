@@ -559,13 +559,11 @@ KwhNLC9rULxJmevqwYbQzJhYNvaCDPyAUAm7EkHrW5kQwLYfxTFG
 ```
 neo> export key key1.txt
 password: ********
-
 ```
 
 ```
 neo> export key key2.txt NPpH6FxNaVXZCrsecNWEHGLwMe87UkPdm5
 password: ********
-
 ```
 
 ### import key

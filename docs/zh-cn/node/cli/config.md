@@ -4,7 +4,7 @@
 
 ## 修改配置文件
 
-Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI 前需要对这两个文件进行必要配置。
+Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI 前需要对该文件进行必要配置。
 
 ### 配置钱包
 
@@ -65,7 +65,6 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
     ]
   }
 }
-
 ```
 
 说明：

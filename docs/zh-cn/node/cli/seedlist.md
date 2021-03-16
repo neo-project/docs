@@ -52,7 +52,6 @@
     ]
   }
 }
-
 ```
 在上面的文件中，Neo-CLI 配置为通过 `PORT:21333` 连接 `seed1t.neo.org` ，`seed2t.neo.org` 等系列节点。
 
