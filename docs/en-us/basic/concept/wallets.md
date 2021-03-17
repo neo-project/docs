@@ -126,6 +126,21 @@ Example:
 | data.Length <= 16  | OpCode.PUSHINT128 + data | 0x04 + PadRight(data, 16) |
 | data.Length <= 32  | OpCode.PUSHINT256 + data | 0x05 + PadRight(data, 32) |
 
+### The wallet address scripthash
+
+When creating a wallet in Neo blockchain, the private key, public key, wallet address, and related scripthash are generated. 
+
+Let's look at a standard wallet address and corresponding scripthash strings in big and little endian formats beneath. 
+
+| Format                   |                   String                   |
+| ------------------------ | :----------------------------------------: |
+| Adress                   |     NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg     |
+| Big-endian Scripthash    | 0xed7cc6f5f2dd842d384f254bc0c2d58fb69a4761 |
+| Little-endian Scripthash |  61479ab68fd5c2c04b254f382d84ddf2f5c67ced  |
+| Base64 Scripthash        |        YUeato/VwsBLJU84LYTd8vXGfO0=        |
+
+To convert between the wallet address and scripthash, or between big endian and little endian byte order, use the tool [Data Convertor](https://neo.org/converter).
+
 ## Wallet Files
 
 ### db3 files

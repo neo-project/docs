@@ -96,7 +96,7 @@ Response description:
 
 - eventname: Event name of the notification.
 
-- state: Notification content, where ByteString is Base64-encoded and can be converted at https://neo.org/converter/index.
+- state: Notification content, where ByteString is Base64-encoded wallet address and can be converted at https://neo.org/converter/index.
 
 
 
