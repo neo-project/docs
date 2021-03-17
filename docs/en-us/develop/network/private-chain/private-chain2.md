@@ -4,7 +4,7 @@ In this document we will introduce a simple way to build a private chain on a wi
 
 ## Installing Neo node
 
-Install Neo-CLI and make four copies of the node folder with the name of node1, node2, node3, and node4, successively.
+Install Neo-CLI and make four copies of the node folder with the name of c1, c2, c3, and c4, successively.
 
 For more information refer to [Installation of Neo-CLI](../../../node/cli/setup.md). 
 
@@ -19,62 +19,101 @@ Make the following configurations in config.json of each node:
 - Specify the ports so that each port is not duplicated and is not occupied by other applications.
 - In "UnlockWallet" specify the wallet path and wallet password.
 - Set `StartConsensus` and `IsActive` as `true`.
+- The private chain ID, which can be any integer in the range of [0 - 4294967295].
+- `StandbyCommittee` is the public keys of committee members. The top 4 nodes with the most votes will become consensus nodes. Here enter the public keys of four wallets.
+- In the `SeedList` field, set the IP address to localhost and the port to four wallet ports.
 
 
 You can refer to the following example：
 
-**node1/config.json**
+**c1/config.json**
 
 ```json
 {
   "ApplicationConfiguration": {
     "Logger": {
-      "Path": "Logs_{0}",
+      "Path": "Logs",
       "ConsoleOutput": true,
       "Active": true
     },
     "Storage": {
-      "Engine": "LevelDBStore"
+      "Engine": "LevelDBStore",
+      "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 10003,
-      "WsPort": 10004
+      "Port": 21333,
+      "WsPort": 21334
     },
     "UnlockWallet": {
       "Path": "1.json",
       "Password": "1",
-      "StartConsensus": true,
       "IsActive": true
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+  },
+  "ProtocolConfiguration": {
+    "Magic": 5943216,
+    "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
+    "ValidatorsCount": 7,
+    "StandbyCommittee": [
+      "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
+      "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
+      "02577e88f8b1b9b5bfb355c76ac258f1fdf9f51e5312c542dff507e967cc7078ec",
+      "03a40348cd681c79ff2f88ea632fa89945cffa70dd960edd8f897e4f41cb20896c"
+    ],
+    "SeedList": [
+      "localhost:21333",
+      "localhost:22333",
+      "localhost:23333",
+      "localhost:24333"
+    ]
   }
 }
 ```
 
-**node2/config.json**
+**c2/config.json**
 
 ```json
 {
   "ApplicationConfiguration": {
     "Logger": {
-      "Path": "Logs_{0}",
+      "Path": "Logs",
       "ConsoleOutput": true,
       "Active": true
     },
     "Storage": {
-      "Engine": "LevelDBStore"
+      "Engine": "LevelDBStore",
+      "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 20003,
-      "WsPort": 20004
+      "Port": 22333,
+      "WsPort": 22334
     },
     "UnlockWallet": {
       "Path": "2.json",
       "Password": "1",
-      "StartConsensus": true,
       "IsActive": true
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+  },
+  "ProtocolConfiguration": {
+    "Magic": 5943216,
+    "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
+    "ValidatorsCount": 7,
+    "StandbyCommittee": [
+      "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
+      "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
+      "02577e88f8b1b9b5bfb355c76ac258f1fdf9f51e5312c542dff507e967cc7078ec",
+      "03a40348cd681c79ff2f88ea632fa89945cffa70dd960edd8f897e4f41cb20896c"
+    ],
+    "SeedList": [
+      "localhost:21333",
+      "localhost:22333",
+      "localhost:23333",
+      "localhost:24333"
+    ]
   }
 }
 ```
@@ -85,24 +124,42 @@ You can refer to the following example：
 {
   "ApplicationConfiguration": {
     "Logger": {
-      "Path": "Logs_{0}",
+      "Path": "Logs",
       "ConsoleOutput": true,
       "Active": true
     },
     "Storage": {
-      "Engine": "LevelDBStore"
+      "Engine": "LevelDBStore",
+      "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 30003,
-      "WsPort": 30004
+      "Port": 23333,
+      "WsPort": 23334
     },
     "UnlockWallet": {
       "Path": "3.json",
       "Password": "1",
-      "StartConsensus": true,
       "IsActive": true
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+  },
+  "ProtocolConfiguration": {
+    "Magic": 5943216,
+    "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
+    "ValidatorsCount": 7,
+    "StandbyCommittee": [
+      "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
+      "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
+      "02577e88f8b1b9b5bfb355c76ac258f1fdf9f51e5312c542dff507e967cc7078ec",
+      "03a40348cd681c79ff2f88ea632fa89945cffa70dd960edd8f897e4f41cb20896c"
+    ],
+    "SeedList": [
+      "localhost:21333",
+      "localhost:22333",
+      "localhost:23333",
+      "localhost:24333"
+    ]
   }
 }
 ```
@@ -113,24 +170,42 @@ You can refer to the following example：
 {
   "ApplicationConfiguration": {
     "Logger": {
-      "Path": "Logs_{0}",
+      "Path": "Logs",
       "ConsoleOutput": true,
       "Active": true
     },
     "Storage": {
-      "Engine": "LevelDBStore"
+      "Engine": "LevelDBStore",
+      "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 40003,
-      "WsPort": 40004
+      "Port": 24333,
+      "WsPort": 24334
     },
     "UnlockWallet": {
       "Path": "4.json",
       "Password": "1",
-      "StartConsensus": true,
       "IsActive": true
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+  },
+  "ProtocolConfiguration": {
+    "Magic": 5943216,
+    "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
+    "ValidatorsCount": 7,
+    "StandbyCommittee": [
+      "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
+      "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
+      "02577e88f8b1b9b5bfb355c76ac258f1fdf9f51e5312c542dff507e967cc7078ec",
+      "03a40348cd681c79ff2f88ea632fa89945cffa70dd960edd8f897e4f41cb20896c"
+    ],
+    "SeedList": [
+      "localhost:21333",
+      "localhost:22333",
+      "localhost:23333",
+      "localhost:24333"
+    ]
   }
 }
 ```
@@ -139,35 +214,26 @@ You can refer to the following example：
 >
 > If the plugin RpcServer is installed, you also need to modify the port numbers in the plugin config.json file to make them different from each other and from the ports in config.json of the node.
 
-## Modifying protocol.json
+## Installing consensus plugin
 
-Configure the following parameters in each node protocol.json. Ensure the configuration in each file is consistent.
+Download [DBFTPlugin]("https://github.com/neo-project/neo-modules/releases/download/v3.0.0-RC1/DBFTPlugin.zip") and place four copies to the `Plugins` folder under each node CLI root path. Modify the file `config.json` as follows：
 
-- Magic: The private chain ID, which can be any integer in the range of [0 - 4294967295].
-- StandbyCommittee: The public keys of committee members. The top 4 nodes with the most votes will become consensus nodes. Here enter the public keys of four wallets.
-- SeedList: The IP address and port number of the seed node. Specify the IP address as `localhost` and the ports as four P2P ports configured before in config.json.
+- Set `Network` the same value as `Magic` in `config.json`.
+- Set `AutoStart` to `true` so as to automatically start consensus as running CLI.
 
+Refer to the following example:
 
-You can refer to the following example：
+**Plugins/DBFTPlugin/config.json**
 
 ```json
 {
-  "ProtocolConfiguration": {
-    "Magic": 213123,
-    "MillisecondsPerBlock": 5000,
-    "ValidatorsCount": 4,
-    "StandbyCommittee": [
-      "0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca",
-      "0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21",
-      "02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3",
-      "02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a"
-    ],
-    "SeedList": [
-    "localhost:10003",
-    "localhost:20003",
-    "localhost:30003",
-    "localhost:40003",
-    ]
+  "PluginConfiguration": {
+    "RecoveryLogs": "ConsensusState",
+    "IgnoreRecoveryLogs": false,
+    "AutoStart": true,
+    "Network": 5943216,
+    "MaxBlockSize": 262144,
+    "MaxBlockSystemFee": 900000000000
   }
 }
 ```
@@ -177,10 +243,10 @@ You can refer to the following example：
 Create a notepad file for ease of starting the private chain. In the file, enter the following:
 
 ```
-start cmd /k "cd node1 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
-start cmd /k "cd node2 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
-start cmd /k "cd node3 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
-start cmd /k "cd node4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd c1 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd c2 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd c3 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
+start cmd /k "cd c4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 ```
 
 Rename it as Run.cmd, and then place four copies under the same level directories outside each node directory.
@@ -190,25 +256,21 @@ At this point the private chain has been set up. All the files  we modified are 
 ```
 ├─Run.cmd
 |
-├─node1
+├─c1
 │      1.json
 │      config.json
-│      protocol.json
 │
-├─node2
+├─c2
 │      2.json
 │      config.json
-│      protocol.json
 │
-├─node3
+├─c3
 │      3.json
 │      config.json
-│      protocol.json
 │
-└─node4
+└─c4
 |      4.json
 |      config.json
-|      protocol.json
 ```
 
 ## Starting the private chain
@@ -229,9 +291,9 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
 
 1. Start your private chain.
 
-2. For ease of operation, copy one of consensus nodes directory as an extra node
+2. For ease of operation, copy one of consensus nodes directory as an external node. Then put four consensus wallet copies into the external node root directory and disable or remove DBFTPlugin.
 
-3. Open one wallet and create a multi-signature address using the command `import multisigaddress m pubkeys`:
+3. Create an admin wallet and then create a multi-signature address using the command `import multisigaddress m pubkeys`:
 
    - `m`: the minimal number of signatures needed to complete the transaction. 
    - `pubkeys`: the public keys in StandbyCommittee in all consensus node wallets.
@@ -239,10 +301,10 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
    For example:
 
    ```
-   import multisigaddress 3 0243b36969c5e619663fa754f055d9776db71aa61ddc28fdeeb238bff71ed128ca 0284302db73a1926bc9e74ada9b6d51ef16734566f2b043d35bc02b82dff41ac21 02ae647ea6d6c905874cc94b974829472d8c14cc403856031c0cc4b8d94f6fcdd3 02fb99531c3c45771de5f03d928b339ea07ac40aaf2f8b860db197c60f0d00862a
+   import multisigaddress 3 03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625 02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7 02577e88f8b1b9b5bfb355c76ac258f1fdf9f51e5312c542dff507e967cc7078ec 03a40348cd681c79ff2f88ea632fa89945cffa70dd960edd8f897e4f41cb20896c
    ```
 
-4. Repeat the last step to create multi-signature addresses in other 3 wallets.
+4. Open the wallet `1.json`, `2.json`, `3.json` respectively and repeat the last step to create the multi-signature address.
 
 5. Enter the command `list asset` and you can see 100 million NEO and 30 million GAS displayed.
 
@@ -250,13 +312,13 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
 
 > [!Note]
 >
-> You must create the multi-party signature address in each wallet so that the transfer transaction can be signed successfully.
+> You must create multi-party signature address in at least three wallets so as to sign the transfer transaction successfully.
 
 #### Transferring NEO to a normal address
 
 Here we want to send NEO from the contract address to the normal address.
 
-1. Open the wallet 1.json and input the command `send <id|alias> <address> <value>` with the normal address of the wallet desired
+1. Open the wallet 1.json and transfer NEO to the admin wallet using the command `send <id|alias> <address> <value>` 
 
 2. Copy the SignatureContext and close the wallet.
 
@@ -266,7 +328,7 @@ Here we want to send NEO from the contract address to the normal address.
 
 4. Use the command `sign <jsonObjectToSign>` with the object copied in step 2
 
-5. Copy the object in Signed Output and close the wallet.
+5. Copy the object in Signed Output.
 
    ![image](../assets/private_multi_tx2.png)
 
@@ -276,29 +338,6 @@ Here we want to send NEO from the contract address to the normal address.
 
 7. Use `list asset` to check the wallet balance:
 
-   ![image](../../../assets/privatechain_32.png)
+   ![image](../assets/balance.png)
 
 Similarly, you can refer to the preceding steps to withdraw GAS from the multi-party signature address.
-
-### Using Neo-GUI to withdraw
-
-#### Creating multi-party signature addresses
-
-1. Refer to [Installing Neo-GUI](../../../node/gui/install.md) to download and install Neo-GUI, and then connect it to our private chain.
-2. Configure the file config.private.json to make sure the Neo-GUI port is not conflict with the one of Neo-CLI; otherwise, Neo-GUI cannot work as Neo-CLI is running.
-3. Start Neo-GUI and open any of the four wallets.
-4. Click  `+`  besides `Accounts`  and select `Create Multi-signature Address`.
-5. Fill in the public keys of four wallets and set the minimal signature number to `3`. Click  `OK`.
-6. Repeat the step 4 and 5 in other three wallets to create the same multi-signature address.
-
-Now you should see 100 million NEO and 30 million GAS displayed. 
-
-#### Transferring NEO/GAS to a normal address
-
-1. Open any of the four wallets and click `Transfer`.
-
-2. Enter the recipient address and the transfer amount.
-
-3. Refer to [Signature](../../../node/gui/advanced.html#signature) to complete the transaction. 
-
-   Once the transfer transaction begins broadcasting it will take a while for successful remittance to the account.

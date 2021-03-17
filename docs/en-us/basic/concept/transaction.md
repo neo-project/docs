@@ -1,19 +1,19 @@
 # Transaction
 
-Transaction is the basic operation model of the whole Neo network. Wallets, smart contracts and accounts interact with Neo network through transactions. In Neo's P2P network, information is packed as `InvPayload` for transferring (Inv is abbreviation of Inventory). Different payloads have their special data, thus three types of inventory types are created. `InventoryType = 0x2b` means transaction data is packed into `InvPayload`. Besides, there are block data package (`InventoryType = 0x2c`) and consensus data package (`InventoryType = 0x2d`).
+Transaction is the basic operation model of the whole Neo network. Wallets, smart contracts and accounts interact with Neo network through transactions. In Neo's P2P network, information is packed as `InvPayload` for transferring (Inv is abbreviation of Inventory). Different payloads have their special data. `InventoryType.Tx` indicates transaction data is packed into `InvPayload`. 
 
 ## Structure
 
-On Neo blockchain all transactions are of one type, which data structure is as following:
+On Neo blockchain the transaction data structure is as follows:
 
 | Size | Field | Description |
 |--------------|---------|------------------------------------------|
 | `version`    | byte   | Transaction version, currently 0            |
 | `nonce`    | uint   | Random number      |
-| `validUntilBlock`    | uint   |  Transaction validity period  |
-| `signers`         | Signer[] | Sender and the effective scope of signature |
 | `sysfee`    | long   | System fee paid for network resource |
 | `netfee`    | long   | Network fee paid for the validator packaging transactions |
+| `validUntilBlock`    | uint   |  Transaction validity period  |
+| `signers`         | Signer[] | Sender and the effective scope of signature |
 | `attributes` | TransactionAttribute[]   | Transaction attributes                                    |
 | `script`     | byte[]   | Script hash of the transaction contract |
 | `witnesses`  | Witness[]   | List of scripts used to validate the transaction    |
@@ -24,9 +24,9 @@ The version allows the transaction structure to be updated to make it backward c
 
 ### signers
 
-The first field is the script hash of the transaction sender account. Since UTXO model has been deprecated in Neo3 and the native assets NEO and GAS turned into NEP-5 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. 
+The first field is the script hash of the transaction sender account. Since UTXO model has been deprecated in Neo3 and the native assets NEO and GAS turned into NEP-17 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. 
 
-The rest fields are used to define the effective scope of signature. The current transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo3, so that the signature can be used only for verifying the specified contract. 
+The rest fields are used to define the effective scope of signature. In Neo2 transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo3, so that the signature can be used only for verifying the specified contract. 
 
 When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature.
 
@@ -43,7 +43,7 @@ Scopes defines the effective range of the signature, including these types:
 
 | Field  | Name              | Description                                                  | Type   |
 | ------ | ----------------- | ------------------------------------------------------------ | ------ |
-| `0x00` | `FeeOnly`         | The signature is used to mark the transaction sender         | `byte` |
+| `0x00` | `None`            | The signature is used for transactions only, and is disabled in contracts | `byte` |
 | `0x01` | `CalledByEntry`   | The signature is only effective to the contract script called by Entry | `byte` |
 | `0x10` | `CustomContracts` | The signature is only effective to the specified contract script | `byte` |
 | `0x20` | `CustomGroups`    | The signature is effective to contracts in the group.        | `byte` |
@@ -87,15 +87,15 @@ witnesses verifies the validity and integrity of a transaction. It includes two 
 
 You can add multiple witnesses to each transaction, or use witnesses with multiple signatures.
 
-#### InvocationScript
+#### Invocation Script
 
-Construct a invocation script:
+Construct an invocation script to add signature:
 
-1.	`0x0C`（PUSHDATA1）`0x40` followed with a 64-byte signature
+`0x0C` (PUSHDATA1) + `0x40` ( 64-byte ) + signature
 
 By repeating this step, the invocation script can push multiple signatures for the multi-signature contract.
 
-#### VerificationScript
+#### Verification Script
 
 Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](wallets.md#address).
 
@@ -133,7 +133,7 @@ In Neo all variable-length integer types except IP addresses and port numbers ar
 
 The transaction signature is to sign the data of the transaction itself by ECDSA method (not including the signature data, i.e. the witnesses part) and then fill in the witnesses in the transaction body.
 
-Here is an example of a transaction data structure, where the script and witnesses fields use Base64 instead of the original Hexstring encoding:
+Here is an example of a JSON-format transaction, where the script and witnesses fields use Base64 instead of the original Hexstring encoding:
 
 ```Json
 {
@@ -154,9 +154,9 @@ Here is an example of a transaction data structure, where the script and witness
     "scopes": "CalledByEntry"
   }],
   "attributes": [],
-  "script": "EQwUDlBwrfoA9x\u002BJrt\u002BMHsCDAlrqk98MFA5QcK36APcfia7fjB7AgwJa6pPfE8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSOA==",
+  "script": "EQwUDlBwrfoA9x+Jrt+MHsCDAlrqk98MFA5QcK36APcfia7fjB7AgwJa6pPfE8AMCHRyYW5zZmVyDBSJdyDYzXb08Aq/o3wO3YicII/em0FifVtSOA==",
   "witnesses": [{
-    "invocation": "DEDy/g4Lt\u002BFTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE\u002B\u002B6f6XoZeaEoUPeH",
+    "invocation": "DEDy/g4Lt+FTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE++6f6XoZeaEoUPeH",
     "verification": "DCECCJr46zTvjDE0jA5v5jrry4Wi8Wm7Agjf6zGH/7/1EVELQQqQatQ="
   }]
 }
