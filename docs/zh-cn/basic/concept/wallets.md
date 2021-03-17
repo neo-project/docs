@@ -60,7 +60,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 > [!Note]
 >
-> Neo3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` 方式。
+> Neo N3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
 
 #### 普通地址
 
@@ -122,6 +122,19 @@ emitPush(number) 注意其取值范围， number的类型为 BigInteger时，dat
 | data.Length <= 8  | OpCode.PUSHINT64 + data | 0x03 + PadRight(data, 8)   |
 | data.Length <= 16  | OpCode.PUSHINT128 + data | 0x04 + PadRight(data, 16) |
 | data.Length <= 32  | OpCode.PUSHINT256 + data | 0x05 + PadRight(data, 32) |
+
+#### 地址的脚本哈希 (ScriptHash)
+
+在Neo上创建钱包时会生成私钥、公钥、钱包地址以及对应的ScriptHash，在不同情况下系统会根据情况处理不同类型的Scripthash。以下是一个钱包的标准地址和ScriptHash的大小端序示例： 
+
+| 格式              |                    数值                    |
+| ----------------- | :----------------------------------------: |
+| 地址              |     NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg     |
+| 大端序 Scripthash | 0xed7cc6f5f2dd842d384f254bc0c2d58fb69a4761 |
+| 小端序 Scripthash |  61479ab68fd5c2c04b254f382d84ddf2f5c67ced  |
+| Base64 Scripthash |        YUeato/VwsBLJU84LYTd8vXGfO0=        |
+
+要进行钱包地址与ScriptHash的互转，以及不同类型的ScriptHash之间的互转，可以使用工具 [Data Convertor](https://neo.org/converter)。
 
 ## 钱包文件
 

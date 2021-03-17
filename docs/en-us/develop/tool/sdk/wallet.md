@@ -65,7 +65,7 @@ The public key verifies the signature of the private key. It corresponds to the 
 
 ### Account ScriptHash
 
-ScriptHash, corresponding to `UInt160` in Neo, is essentially a 20-bit byte array generated from the public key by script construction and hash algorithm. Since the hash algorithm is not reversible, the public key cannot be calculated backwards from the script hash. ScriptHash is usually expressed as a reversed hexadecimal string：
+ScriptHash, corresponding to `UInt160` in Neo, is essentially a 20-bit byte array generated from the public key by script construction and hash algorithm. Since the hash algorithm is not reversible, the public key cannot be calculated backwards from the script hash. ScriptHash is usually expressed as a reversed hexadecimal string in big-endian order：
 `"0xb0a31817c80ad5f87b6ed390ecb3f9d312f7ceb8"`
 
 ```c# 
