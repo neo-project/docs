@@ -1,123 +1,148 @@
-# Oracles
+# Neo Oracle Service
 
-Oracle solutions enable the Blockchain to obtain external data from the outside network. As a gateway for smart contracts to communicate with the outside network, Oracles open a window to the outside world for the blockchain. For data requested outside the Blockchain, Oracles guarantee the truthfulness or reliability of the results through multi-party verification, and store the results in the form of blocks on the chain for the smart contract to get access to this data.
+Oracle solves the problem that blockchain cannot obtain information from the external network. As a gateway for smart contracts to communicate with the outside world, Oracle opens a window to the outside world for blockchain. Oracle nodes jointly verify the data fetched from the network, then smart contracts query the result in the response transactions on the chain.
 
-## Neo Oracles
+Neo Oracle Service is an out-of-chain data access service built into Neo N3. It allows users to request the external data sources in smart contracts, and Oracle nodes designated by the committee will access the specified data source then pass the result in the callback function to continue executing the smart contract logic.
 
-Neo provides a built-in Oracle service with native contracts, which can be invoked by other contracts. In order to get the data outside the blockchain, the contract first needs to construct an Oracle request transaction, and after it is deployed on the chain, the Neo Oracle service can be invoked.
+![img](assets/oracle.png)
 
-Oracle nodes elected by the committee and other nodes in the network assist in the operation of transactions. When the Oracle transaction is broadcast, each node stores the currently unverified transaction as a known hash in its memory pool and pass it to other nodes. Through this process, the Oracle node of the Oracle transaction uses the URL and filters to complete all included requests. Then, by appending the result to the TransactionAttribute part of the Oracle transaction, these nodes reach a consensus on the response data that returned.
+## Key mechanisms
 
-Once enough signatures are collected, the Oracle transaction is regarded as verified and stored in a block by the consensus node, which can be accessed by the contract after the block is on the chain.
+### Commit-Reveal mechanism
 
-Oracle nodes charge a certain amount of transaction fees. You can pay GAS for Oracle transactions on Neo blockchain.
+The commit-reveal mechanism is a sequential protocol that prevents data plagiarism for multiple Oracle nodes.
 
-![](assets/oracle.png)
+**Process**
 
-## Oracle requests
+1. Oracle node submits ciphertext information (hash, signature, etc.) about data to other Oracle nodes and collects ciphertext information submitted by other Oracle nodes.
 
-| Field            | Bytes     | Description                                                  |
-| ---------------- | --------- | ------------------------------------------------------------ |
-| Url              | string    | Url of the request                                           |
-| Filter           | string    | Filter, used to filter useless data                          |
-| CallbackContract | 20 bytes  | Callback the contract                                        |
-| CallbackMethod   | string    | The callback method name                                     |
-| UserData         | var bytes | Extra data provided by the user                              |
-| GasForResponse   | long      | The fee for getting the response, which is set by the contract that calls the Oracle service |
+   Neo Oracle Service adopts the multiple signatures on the Response transaction as the ciphertext information.
 
-### Url
+2. After collecting enough ciphertext information, Oracle nodes reveal the data to other Oracle nodes to verify the data.
 
-Oracle service currently supports two URL schemes, `https` and
-`neofs`. `https` scheme follows [RFC 2818](https://tools.ietf.org/html/rfc2818)
-and [RFC 2616](https://tools.ietf.org/html/rfc2616) standards and allows to
-specify resource to request via HTTP GET method. `neofs` scheme is
-Neo-specific. Both types of requests are treated equal otherwise.
+   Accordingly, the revealed data in Neo Oracle Service is the Response transaction.
 
-It is expected that URL requested will provide data in JSON format, for HTTP
-requests it means that server must answer with `Content-Type:
-application/json` header for request to be successful.
+In this way, we can avoid data plagiarism since oracle nodes cannot predict the data to submit ciphertext information.
 
-#### NeoFS URLs
+![](assets/oracle_commit.png)
 
-NeoFS URLs use the following scheme:
+### Request-Response pattern
 
-```
-neofs://<Container-ID>/<Object-ID/<Command>/<Params>
-```
+Neo Oracle Service adopts the request-response processing mechanism, which is an asynchronous pattern.
 
-Where `Container-ID` and `Object-ID` are mandatory components, `Command` and
-`Params` are optional.
+![](assets/oralce_response.png)
 
-Absent any command oracle subsystem will get an object and return its payload,
-example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk.
+**Process**
 
-Command `range` can be used to get a part of object's payload, it has a
-mandatory range parameter specified as `offset|length`, where `offset` is a
-number of bytes to skip from the beginning on payload and `length` is a number
-of bytes to return to the caller, they're separated by vertical bar. Example
-request: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/range/42|128.
+1. The user writes the smart constract to call the `Request` method of the Oracle contract.
 
-Command `header` can be used to get header of an object, it doesn't have any
-parameters. Example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/header.
+   Each successfully created Request is put in the Request cache list with an unique RequestId.
 
-Command `hash` can be used to get SHA256 hash of an object or part of it, it has
-an optional range parameter with the same syntax as for `range`
-command. Example: Example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/hash.
+2. Oracle node listens for the requests in the Request cache list in real time, and accesses data sources specified in the Request to obtain data.
 
-### GasForResponse
+3. Oracle node processes the obtained data with the specified filter, and encapsulates the result into a `Response` transaction (including RequestId, data, fixedScript, multisig address, etc.).
 
-The fee for getting the response. `GasForResponse` should not be less than 0.1 GAS, otherwise the Oracle request cannot be initiated.
+   The result data is stored in the `TransactionAttribute` field of the Response transaction. The `fixedScript` in the transaction is used to call the `finish` method of the Oracle contract, which will execute the callback function `CallbackMethod`.
 
-### Filter
+4. Oracle nodes independently sign the Response transaction through the commit-reveal mechanism.
 
-Filters are used to filter out useful information in the results returned from the data source, where the Filter field is a `JSONPath` expression. For more information, click [Here](https://github.com/json-path/JsonPath).
+5. The Response transaction with enough signatures will be stored on the chain, and the callback function will be executed.
 
-## Oracle response
+## Protocol supports
 
-When constructing the `Response` transaction, the `finish` method of the Oracle contract is called to execute the callback function `CallbackMethod`. The callback function is defined in the request transaction contract. The callback function usually requires the following fields:
+- **https://**
+- **neofs:**
 
-| Field    | Bytes     | Description                     |
-| -------- | --------- | ------------------------------- |
-| Url      | string    | Url of the request              |
-| UserData | var bytes | Extra data provided by the user |
-| Code     | byte      | Oracle response code            |
-| Result   | var bytes | Response result                 |
+## Fees and rewards
 
-### Code
-The Code field defines the execution result of response transactions. It includes the following five types:
+- **Fees**
 
-| Value  | Response    | Description                        | Type   |
-| ------ | ----------- | ---------------------------------- | ------ |
-| `0x00` | `Success`   | Executed successfully.             | `byte` |
-| `0x01` | `NotFound`  | The requested message is not found | `byte` |
-| `0x12` | `Timeout`   | Execution timeout                  | `byte` |
-| `0x14` | `Forbidden` | No execution permission            | `byte` |
-| `0xff` | `Error`     | Execution error                    | `byte` |
+  Neo Oracle Service charges the user by the number of requests, 0.5 GAS for each. Besides, the user has to pay additional fees for the callback function. All the fees will be paid when the Request is created.
 
-## An Oracle contract example
+- **Rewards**
 
-```C#
+  The fee paid by the user for the Request is distributed to the Oracle node in turn when executing the `PostPersist` logic.
+
+  Distribution order = RequestId % count of Oracle nodes
+
+## Example
+
+Here is an demo about using the Oracle service：
+
+```c#
+using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using System.ComponentModel;
+
+namespace demo
+{
+    [DisplayName("Oracle Demo")]
+    [ManifestExtra("Author", "Neo")]
+    [ManifestExtra("Email", "dev@neo.org")]
+    [ManifestExtra("Description", "This is a Oracle using template")]
     public class OracleDemo : SmartContract
     {
-        public static void DoRequest()
-        {
-            string url = "http://127.0.0.1:8080/test";
-            string filter = "$.value";  // JSONPath, { "value": "hello world" }
-            string callback = "callback";
-            object userdata = "userdata"; // arbitrary type
-            long gasForResponse = 10000000; // minimum fee 
+        static readonly string PreData = "RequstData";
 
-            Oracle.Request(url, filter, callback, userdata, gasForResponse);
+        public static string GetRequstData()
+        {
+            return Storage.Get(Storage.CurrentContext, PreData);
         }
 
-        public static void Callback(string url, string userdata, int code, string result)
+        public static void CreateRequest(string url, string filter, string callback, byte[] userData, long gasForResponse)
         {
-            object ret = Json.Deserialize(result); // [ "hello world" ]
-            object[] arr = (object[])ret;
-            string value = (string)arr[0];
+            Oracle.Request(url, filter, callback, userData, gasForResponse);
+        }
 
-            Runtime.Log("userdata: " + userdata);
-            Runtime.Log("response value: " + value);
+        public static void Callback(string url, byte[] userData, int code, byte[] result)
+        {
+            Storage.Put(Storage.CurrentContext, PreData, result.ToByteString());
         }
     }
+}
 ```
+
+As shown above, there are two key functions in the contract:
+
+- `CreateRequest` function can create Oracle Request to request data
+
+- `Callback` function is used to execute contract logic after the Oracle node fetches data
+
+### Oracle request
+
+The following fields are required for Oracle Request：
+
+| Fields           | Type    | Desc                                                         |
+| -------------- | --------- | ------------------------------------------------------------ |
+| Url            | string    | the resource path, with a maximum length of 256 bytes                             |
+| Filter         | string    | used to filter out useful information from the result returned from the data source. It is a JSONPath expression with a maximum length of 128 bytes. More information about JSONPath can be found [here](https://github.com/json-path/JsonPath) |
+| CallbackMethod | string    | method name of the callback function (cannot begin with "_"), with a maximum length of 32 bytes|
+| UserData       | var bytes | the custom data                                              |
+| GasForResponse | long      | the fee paid in advance for the callback function to pay for executing the script in the Response transaction. The fee should not be less than 0.1 GAS and will be charged when creating the Oracle request transaction |
+
+### Callback function
+
+The type and order of the parameters of the callback function should exactly be the same as below:
+
+| Field     | Type    | Desc                                      |
+| -------- | --------- | ----------------------------------------- |
+| Url      | string    | the resource path                                |
+| UserData | var bytes | the custom data                            |
+| Code     | byte      | status Code of the Oracle response, see the Code table for details. |
+| Result   | var bytes | the result                                  |
+
+### Code
+
+The Code field defines the status Code for Oracle responses, including the following types:
+
+| Value     | Status                   | Desc             | Type   |
+| ------ | ---------------------- | ---------------- | ------ |
+| `0x00` | `Success`              | execute successfully         | `byte` |
+| `0x10` | `ProtocolNotSupported` | Unsupported protocol     | `byte` |
+| `0x12` | `ConsensusUnreachable` | Oracle nodes did not reach a consensus | `byte` |
+| `0x14` | `NotFound`             | requested information does not exist | `byte` |
+| `0x16` | `Timeout`              | timeout         | `byte` |
+| `0x18` | `Forbidden`            | no permission to query the data source       | `byte` |
+| `0x1a` | `ResponseTooLarge`     | result size is out of limit | `byte` |
+| `0x1c` | `InsufficientFunds`    | the fee is insufficient   | `byte` |
+| `0xff` | `Error`                | error orrcurs in the execution         | `byte` |
