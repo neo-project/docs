@@ -54,6 +54,14 @@ Gas: 10.1477624
 Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
 ```
 
+#### 智能合约 & 钱包地址
+
+每一个合约部署成功后，会生成一个ScriptHash作为该合约的唯一标识符。Neo上面部署的智能合约对应的ScriptHash可以转换为20个字节的标准地址，用来接收任何的数字资产。这种情况下需要使用合约的ScriptHash作为大端序来转换标准地址，例如：
+
+- 智能合约ScriptHash (大端序)：0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 
+
+- 相对应的地址：NPRCE9me1CdXBA6StQ7kff52p61rHQqnS7
+
 ### 常见错误
 
 `Engine faulted`

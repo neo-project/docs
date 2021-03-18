@@ -29,8 +29,6 @@
         href: /v3/docs/en-us/basic/concept/cryptography/hash_algorithm.md
       - name: Encryption Algorithm
         href: /v3/docs/en-us/basic/concept/cryptography/encryption_algorithm.md
-    - name: Big and Little Endian Usage
-      href: /v3/docs/en-us/basic/concept/endian.md
     - name: Wallet
       href: /v3/docs/en-us/basic/concept/wallets.md
     - name: Transaction

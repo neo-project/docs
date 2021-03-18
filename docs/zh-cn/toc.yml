@@ -28,8 +28,6 @@
         href: /v3/docs/zh-cn/basic/concept/cryptography/hash_algorithm.md
       - name: 加密算法
         href: /v3/docs/zh-cn/basic/concept/cryptography/encryption_algorithm.md
-    - name: 大小端序的使用
-      href:  /v3/docs/zh-cn/basic/concept/endian.md
     - name: 钱包
       href: /v3/docs/zh-cn/basic/concept/wallets.md
     - name: 交易

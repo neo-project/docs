@@ -98,6 +98,6 @@
 
 - eventname：通知的事件名称。
 
-- state：通知内容。其中 ByteString 为 Base64 编码，可以在 https://neo.org/converter/index 进行转换。
+- state：通知内容。其中 ByteString 为 Base64 编码表示的钱包地址，可以在 [Data Convertor](https://neo.org/converter/index) 进行转换。
 
 

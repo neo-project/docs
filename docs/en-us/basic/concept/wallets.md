@@ -60,14 +60,14 @@ Address is a string of numbers and letters after a series of transformations of 
 
 > [!Note]
 >
-> The address script in Neo3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` instead.
+> The address script in Neo3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` instead.
 
 #### Ordinary Address
 
 1. Build a `CheckSig` script with the public key, and the format is as follows:
 
     ```
-    0x0C + 0x21 + Public Key(Compressed 33 bytes) + 0x0B + 0x41 + 0x0a906ad4
+    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x747476aa
     ```
 
     ![](..\images\wallets\account_address_script_checksign.png)
@@ -82,17 +82,17 @@ Example：
 
 | Format | Value |
 |----------|:-------------:|
-| Private Key | 3bf2c2c3a43ee817c5a7704b60e5265e73e585eb85b17091c451ddf72fd80c41 |
-| Public Key (Compressed) | 02208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de375 |
-| Script | 0c2102208aea0068c429a03316e37be0e3e8e21e6cda5442df4c5914a19b3a9b6de3750b4195440d78 |
-| Address | NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg |
+| Private Key | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0 |
+| Public Key (Compressed) | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c |
+| Script | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c41747476aa |
+| Address | NhZ5eahZAZ6UBsbCLcCQH6qqHdzuxt2HKa |
 
 #### Multi-Signature Address
 
 1. Construct an N-of-M `CheckMultiSig` script with multiple addresses. The script format is as follows: 
 
    ```
-   emitPush(N) + 0x0C + 0x21 + Public Key1(Compressed 33 bytes)  + .... + 0x0C + 0x21 + Public KeyM + emitPush(M) +  0x0B + 0x41 + 0x3073b3bb
+   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 7bce6ca5
    ```
 
    [![address checksign](https://github.com/Tommo-L/NEO3-Development-Guide/raw/master/images/account_address_script_multi_checksign.png)](https://github.com/Tommo-L/NEO3-Development-Guide/blob/master/images/account_address_script_multi_checksign.png)
@@ -107,10 +107,10 @@ Example:
 
 | Format                  | Value                                                        |
 | ----------------------- | ------------------------------------------------------------ |
-| Private Key             | 97374afac1e801407d6a60006e00d555297c5019788795f017d4cd1fff3df529， aab9d4e4223e088aa6eb1f0ce75c11d149625f6d6a19452d765f8737200a4c35 |
-| Public Key (Compressed) | 035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff50<br/>03eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d |
-| Script                  | 110c21035fdb1d1f06759547020891ae97c729327853aeb1256b6fe0473bc2e9fa42ff500c2103eda286d19f7ee0b472afd1163d803d620a961e1581a8f2704b52c0285f6e022d120b41138defaf |
-| Address                 | Nax5LtYnKqZ741eUbrs6sCViMqjTCk39JP                           |
+| Private Key             | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0<br/>9a973a470b5fd7a2c12753a1ef55db5a8c8dde42421406a28c2a994e1a1dcc8a |
+| Public Key (Compressed) | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c<br/>036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd843 |
+| Script                  | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12417bce6ca5 |
+| Address                 | NZ3pqnc1hMN8EHW55ZnCnu8B2wooXJHCyr                           |
 
 > [!Note]
 >
@@ -125,6 +125,21 @@ Example:
 | data.Length <= 8  | OpCode.PUSHINT64 + data | 0x03 + PadRight(data, 8)   |
 | data.Length <= 16  | OpCode.PUSHINT128 + data | 0x04 + PadRight(data, 16) |
 | data.Length <= 32  | OpCode.PUSHINT256 + data | 0x05 + PadRight(data, 32) |
+
+### The wallet address scripthash
+
+When creating a wallet in Neo blockchain, the private key, public key, wallet address, and related scripthash are generated. 
+
+Let's look at a standard wallet address and corresponding scripthash strings in big and little endian formats beneath. 
+
+| Format                   |                   String                   |
+| ------------------------ | :----------------------------------------: |
+| Adress                   |     NUnLWXALK2G6gYa7RadPLRiQYunZHnncxg     |
+| Big-endian Scripthash    | 0xed7cc6f5f2dd842d384f254bc0c2d58fb69a4761 |
+| Little-endian Scripthash |  61479ab68fd5c2c04b254f382d84ddf2f5c67ced  |
+| Base64 Scripthash        |        YUeato/VwsBLJU84LYTd8vXGfO0=        |
+
+To convert between the wallet address and scripthash, or between big endian and little endian byte order, use the tool [Data Convertor](https://neo.org/converter).
 
 ## Wallet Files
 
@@ -187,30 +202,36 @@ An NEP6 wallet file complies with the NEP6 standard, and the file name extension
 		"r": 8,
 		"p": 8
 	},
-	"accounts": [{
-		"address": "Nhet9QtFPWzBNB7sRXcRPPbMdjVmkYWCC5",
-		"label": null,
-		"isDefault": false,
-		"lock": false,
-		"key": "6PYV2baXHjFYhEN8z1M9ca6Tmj6v1MmugtFeEfVfEL1vUQxMVpPHCtr7bW",
-		"contract": {
-			"script": "IQNCaDWy3nPIdBMO4YprNZasTMXDs\u002BjS2iue5GxBTltOp1BoCpBq1A==",
-			"parameters": [{
-				"name": "signature",
-				"type": "Signature"
-			}],
-			"deployed": false
-		},
-		"extra": null
-	}],
+	"accounts": [
+		{
+			"address": "Nf8iN8CABre87oDaDrHSnMAyVoU9jYa2FR",
+			"label": null,
+			"isdefault": false,
+			"lock": false,
+			"key": "6PYM9DxRY8RMhKHp512xExRVLeB9DSkW2cCKCe65oXgL4tD2kaJX2yb9vD",
+			"contract": {
+				"script": "DCEDYgBftumtbwC64LbngHbZPDVrSMrEuHXNP0tJzPlOdL5BdHR2qg==",
+				"parameters": [
+					{
+						"name": "signature",
+						"type": "Signature"
+					}
+				],
+				"deployed": false
+			},
+			"extra": null
+		}
+	],
 	"extra": null
 }
 ```
+> In this example the password is 1
+>
 
 | Field                           | Description                                                  |
 | ------------------------------- | ------------------------------------------------------------ |
 | name                            | a label that the user attaches to the wallet file            |
-| version                         | currently fixed at 1.0 and will be used for functional upgrades in the future |
+| version                         | currently it is 3.0                                          |
 | scrypt（n/r/p）                 | (n/r/p) are parameters for scrypt algorithm used for encrypting and decrypting the private keys in the wallet |
 | accounts                        | an array of Account objects which describe the details of each account in the wallet |
 | account.address                 | account address                                              |
@@ -281,39 +302,22 @@ Neo employs the `ECDSA` algorithm to sign the transaction through the wallet com
 C# code：
 
 ```c#
- public byte[] Sign(byte[] message, byte[] prikey, byte[] pubkey)
- {
-     using (var ecdsa = ECDsa.Create(new ECParameters
-                                     {
-                                         Curve = ECCurve.NamedCurves.nistP256,
-                                         D = prikey,
-                                         Q = new ECPoint
-                                         {
-                                             X = pubkey.Take(32).ToArray(),
-                                             Y = pubkey.Skip(32).ToArray()
-                                         }
-                                     }))
-     {
-         return ecdsa.SignData(message, HashAlgorithmName.SHA256);
-     }
- }
-```
-
-Java code：
-
-```java
-   public byte[] sign(byte[] message, byte[] privateKey, byte[] publicKey) {
-        ECDSASigner signer = new ECDSASigner();
-        BigInteger d = new BigInteger(1, privateKey);
-        ECPrivateKeyParameters privateKeyParameters = new ECPrivateKeyParameters(d, ECC.Secp256r1);
-        signer.init(true, privateKeyParameters);
-
-        BigInteger[] bi = signer.generateSignature(sha256(message));
-        byte[] signature = new byte[64];
-        System.arraycopy(BigIntegers.asUnsignedByteArray(32, bi[0]), 0, signature, 0, 32);
-        System.arraycopy(BigIntegers.asUnsignedByteArray(32, bi[1]), 0, signature, 32, 32);
-        return signature;
-    }
+        public static byte[] Sign(byte[] message, byte[] prikey, byte[] pubkey)
+        {
+            using (var ecdsa = ECDsa.Create(new ECParameters
+            {
+                Curve = ECCurve.NamedCurves.nistP256,
+                D = prikey,
+                Q = new ECPoint
+                {
+                    X = pubkey[..32],
+                    Y = pubkey[32..]
+                }
+            }))
+            {
+                return ecdsa.SignData(message, HashAlgorithmName.SHA256);
+            }
+        }
 ```
 
 Example:

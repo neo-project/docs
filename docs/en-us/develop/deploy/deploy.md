@@ -56,6 +56,14 @@ Gas: 10.1477624
 Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
 ```
 
+### The contract scripthash
+
+When a contract has been deployed a scripthash is generated as a unified identifier of the contract. The contract scripthash can be converted into the standard 20-byte address for receiving assets from transfer transactions. In that case the contract scripthash is used in big endian format. For example:
+
+- Contract ScriptHash (big endian): 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 
+
+- Corresponding address: NPRCE9me1CdXBA6StQ7kff52p61rHQqnS7
+
 ### Common errors
 
 `Engine faulted`
