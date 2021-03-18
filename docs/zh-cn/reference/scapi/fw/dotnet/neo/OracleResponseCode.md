@@ -47,9 +47,11 @@ Error：其它错误
 
 ## 使用方法
 
-在 [Oracle.Rqeuest](Oracle/Request.md) 需要填写回调函数名称，回调函数的形参数据类型的顺序是固定的，必须按照
+在 [Oracle.Rqeuest](Oracle/Request.md) 需要填写回调函数名称，回调函数的形参数据类型的顺序必须为：
 
-`string url, byte[] userData, int code, byte[] result`.在合约中可以对code进行判断，执行不同的逻辑代码。如：
+`string url, byte[] userData, int code, byte[] result`。
+
+在合约中可以对code进行判断，执行不同的逻辑代码。如：
 
 ```c#
 public static void Callback(string url, byte[] userData, int code, byte[] result)
