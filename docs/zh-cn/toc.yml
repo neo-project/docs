@@ -28,6 +28,8 @@
         href: /v3/docs/zh-cn/basic/concept/cryptography/hash_algorithm.md
       - name: 加密算法
         href: /v3/docs/zh-cn/basic/concept/cryptography/encryption_algorithm.md
+      - name: 梅克尔树
+        href: /v3/docs/zh-cn/basic/concept/cryptography/merkletree.md
     - name: 钱包
       href: /v3/docs/zh-cn/basic/concept/wallets.md
     - name: 交易
