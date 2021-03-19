@@ -1,43 +1,10 @@
-# Neo3 治理API
+# 治理 API
 
-## 经济模型
+## 候选人
 
-Neo3继承Neo2继续使用NEO和GAS双通证机制，其中NEO用于治理，GAS用于流通。
+候选人本身并无职能。根据候选人得票数量排序，排在最前面的一定数量的候选人将被选为委员会成员和共识节点。
 
-### NEO
-
-NEO总额1亿，最小单位为1，即不可分割。NEO持有者是Neo网络的所有者和管理者。通过在Neo网络上构造投票交易来行使管理权，如选举共识节点，共识策略调整，计价模型调整等，并根据NEO的持有量，可提取相应份额的GAS。
-
-### GAS
-
-GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通过持有NEO提取或者购买获取。在使用Neo网络时，需要支付一定数量的GAS作为费用，如用户转账，注册资产，发布资产，DApp应用等。
-
-| 原生合约   | 合约hash                                   |
-| ---------- | ------------------------------------------ |
-| `ContractManagement` | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd |
-| `StdLib` | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 |
-| `CryptoLib` | 0x726cb6e0cd8628a1350a611384688911ab75f51b |
-| `LedgerContract` | 0xda65b600f7124ce6c79950c1772a36403104f2be |
-| `NeoToken` | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 |
-| `GasToken` | 0xd2a4cff31913016155e38e474a2c06d08be276cf |
-| `PolicyContract` | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b |
-| `RoleManagement` | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 |
-| `OracleContract` | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 |
-| `NameService` | 0x7a8fcf0392cd625647907afa8e45cc66872b596b |
-
-原生合约调用方法，与普通合约调用方法一样：`Contract.Call(NEO.hash, method, callFlags, params)`
-
-## 治理机制
-
-### 候选人（Candidate）
-
-#### 职能
-
-候选人本身并无职能。根据候选人得票数量排序，排在最前面的一定数量的候选人将被选为委员会成员和共识节点。三者之间逻辑关系如下图所示。委员会和共识节点没有明确的大小关系，但默认的委员会数目（21）大于共识节点数（7）。
-
-![avatar](./assets/candidateRelationship.png)
-
-#### 产生方式
+### 产生方式
 
 通过注册可以成为候选人，也可以通过注销解除候选人资格。相应的合约方法如下：
 
@@ -50,7 +17,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 >
 > 注册/注销候选人均需要验证候选人地址的签名，即只有候选人自己才能执行注册/注销操作。
 
-#### 候选人投票
+### 候选人投票
 
 每个地址均有投票给一个地址的权利，候选人票数为所有向该账户投票的地址的NEO余额之和。初始块所有默认候选人均会向自己投票。
 
@@ -66,9 +33,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 | ---- | ------------------------------------ | ---- |
 | [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0.04194304 (CpuFee) |
 
-### 委员会（Committee）
-
-#### 职能
+## 委员会
 
 委员会可以通过投票的方式对Neo网络的一些参数进行修改，目前包括以下内容：
 
@@ -118,7 +83,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 | [`GetPrice`](scapi/fw/dotnet/neo/NameService/GetPrice.md) | null | 0.00032768 (CpuFee) | NameService |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
-#### 产生方式
+### 产生方式
 
 将候选人根据票数多少排序，取最前面的一定数量候选人（默认21个）作为委员会。委员会名单将在每个区块根据最新投票更新。
 
@@ -128,13 +93,11 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 | ---- | ------------------------------------ | ---- | ---- |
 | [`GetCommittee`](scapi/fw/dotnet/neo/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（Array<ECPoint>） |
 
-### 共识节点（Validator）
-
-#### 职能
+## 共识节点
 
 共识节点即具有发起新块提案和提案投票权限的节点。
 
-#### 产生方式
+### 产生方式
 
 将候选人根据票数多少排序，取最前面的一定数量候选人（默认7个）作为共识节点。与委员会类似，共识节点名单将在每个区块根据最新投票更新。
 
@@ -147,7 +110,7 @@ GAS最小单位为10<sup>-8</sup>。GAS代表着Neo网络的使用权，可通�
 ## Token分配
 
 初始高度下，NEO全部额度分配给初始共识节点的多签地址。
-  
+
 所有在Neo网络中的互动均通过交易（Transaction）进行，而交易需要GAS作为费用支付方式。交易包含系统费和网络费两种费用。其中，系统费作为交易执行的资源被消耗掉，而网络费将作为上链奖励，发放给交易所在区块的议长。
 
 ## Nep17合约方法

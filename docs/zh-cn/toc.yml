@@ -43,7 +43,9 @@
       href: /v3/docs/zh-cn/basic/consensus/consensus_protocol.md
     - name: 投票
       href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
-  - name: NeoVM
+- name: 链上治理与激励
+    href: /v3/docs/zh-cn/basic/governance.md  
+- name: NeoVM
     href: /v3/docs/zh-cn/basic/neovm.md
 - name: Neo 节点
   items:
@@ -293,6 +295,8 @@
           href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: 治理 API
     href: /v3/docs/zh-cn/reference/governance_api.md
+  - name: NNS API
+    href: /v3/docs/zh-cn/reference/nns.md
   - name: 手续费
     href: /v3/docs/zh-cn/reference/fees.md
   - name: NeoVM 指令集

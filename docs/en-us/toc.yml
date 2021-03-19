@@ -44,6 +44,8 @@
       href: /v3/docs/en-us/basic/consensus/consensus_protocol.md
     - name: Election
       href: /v3/docs/en-us/basic/consensus/vote_validator.md
+  - name: Governance and Incentives
+    href: /v3/docs/en-us/basic/governance.md
   - name: NeoVM
     href: /v3/docs/en-us/basic/neovm.md
 - name: Neo Node
@@ -294,6 +296,8 @@
           href: /v3/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: Governance API
     href: /v3/docs/en-us/reference/governance_api.md
+  - name: NNS API
+    href: /v3/docs/en-us/reference/nns.md
   - name: Fees
     href: /v3/docs/en-us/reference/fees.md
   - name: NeoVM Instructions

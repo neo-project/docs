@@ -1,41 +1,8 @@
-# Neo3 Governance API
+# Governance API
 
-## Economic Model
+## Candidate
 
-Inheriting from Neo2, Neo3 employs the dual-token mechanism, where NEO is used for governance and GAS is used for payment.
-
-### NEO
-
-NEO has a max supply of 100 million tokens and the smallest unit of 1, or in other words, is not divisible. NEO holders are the owners and managers of the Neo network. By constructing voting transactions on the Neo network, they can exercise management power, such as electing validators, adjusting consensus strategy, adjusting pricing model, etc., and can also claim the corresponding GAS based on the amount of NEO they hold.
-
-### GAS
-
-GAS is the fuel token for the realization of Neo network resource control, with a smallest unit of 0.00000001. Users can obtain GAS either through a claim or purchase. When using the Neo network, they need to pay a certain amount of GAS as network fees, such as transfer, registering assets, publishing assets, running DApps, etc.
-
-| Native Contract | Contract Hash                                   |
-| ------------ | ------------------------------------------ |
-| `ContractManagement` | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd |
-| `StdLib` | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 |
-| `CryptoLib` | 0x726cb6e0cd8628a1350a611384688911ab75f51b |
-| `LedgerContract` | 0xda65b600f7124ce6c79950c1772a36403104f2be |
-| `NeoToken` | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 |
-| `GasToken` | 0xd2a4cff31913016155e38e474a2c06d08be276cf |
-| `PolicyContract` | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b |
-| `RoleManagement` | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 |
-| `OracleContract` | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 |
-| `NameService` | 0x7a8fcf0392cd625647907afa8e45cc66872b596b |
-
-The way to call the native contract methods is the same as calling other ordinary contracts. `Contract.Call(NEO.hash, method, callFlags, params)`
-
-## Governance Strategy
-
-### Candidate
-
-#### Function & Scope
-
-There is no duty assigned to candidates. However, committee members and validators are elected from certain number of candidates with most votes. Their relationship can be described in the following picture. There is no explicit relationship between committee members and validators but, as default committee member amount (21) is more than that of validators, generally speaking validators are a subset of committee members. 
-
-![avatar](./assets/candidateRelationship.png)
+There is no duty assigned to candidates. However, committee members and validators are elected from certain number of candidates with most votes. 
 
 #### How to Become a Candidate
 
@@ -62,13 +29,11 @@ Voting contract method is as follows. Please not that voter's signature will be 
 
 As voters' votes & held NEO, as well as registered candidates keep changing, candidate set and their votes are re-calculated in every block.
 
-#### Corresponding contract methods
-
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
 | [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0.04194304 (CpuFee) |
 
-### Committee
+## Committee
 
 #### Function & Scope
 
@@ -132,7 +97,7 @@ Committee members will be refreshed every block.
 | ---- | ------------------------------------ | ---- | ---- |
 | [`GetCommittee`](scapi/fw/dotnet/neo/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | Current committee members in format of Array<ECPoint> |
 
-### Validator
+## Validator
 
 #### Function & Scope
 
