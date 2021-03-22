@@ -95,7 +95,7 @@
 
 响应说明：
 
-- script：合约的调用脚本，参考 [Neo 3.0 数据转换](https://neo.org/converter) 页面，可以将脚本转为 OpCode 
+- script：合约的调用脚本，参考 [Neo 数据转换](https://neo.org/converter) 页面，可以将脚本转为 OpCode 
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
 - gasconsumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。

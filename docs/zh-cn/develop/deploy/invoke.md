@@ -69,7 +69,7 @@ invoke <scriptHash> <operation> [contractParameters=null]  [sender=null]  [signe
 
 ## 合约之间的互相调用
 
-在 Neo3 中，所有的合约都可以动态调用，且合约编写更加简单。
+在 Neo N3 中，所有的合约都可以动态调用，且合约编写更加简单。
 
 ```c#
 public class Contract1 : SmartContract

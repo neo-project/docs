@@ -2,7 +2,7 @@
 
 ## 简介
 
-Neo3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
+Neo N3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
    ![query.png](assets/query.png)
 
@@ -24,7 +24,7 @@ NetworkFee = VerificationCost + tx.size * FeePerByte
 
 ## 系统费
 
-系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../reference/fees.md)。Neo3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../reference/fees.md)。Neo N3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
 ```
 SystemFee = InvocationCost = The sum of all executed opcode fee   
@@ -34,7 +34,7 @@ SystemFee = InvocationCost = The sum of all executed opcode fee
 
 NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能合约开发成本。
 
-与 NEO2.x 的比较：
+与 Neo Legacy 的比较：
 
 ![feecomparewith2x](assets/feecomparewith2x.png)
 
@@ -430,7 +430,7 @@ symbol
 
 > [!Note]
 >
-> 关于文件中 transfer 数据格式的转换，可以参考官方页面 [neo3.0 数据转换](https://neo.org/converter/index)。
+> 关于文件中 transfer 数据格式的转换，可以参考官方页面 [Neo数据转换](https://neo.org/converter/index)。
 
 ## 处理提现交易
 
@@ -686,4 +686,4 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 [NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki) 
 
-[neo3.0 数据转换](https://neo.org/converter/index)
+[Neo 数据转换](https://neo.org/converter/index)

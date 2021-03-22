@@ -164,9 +164,9 @@ transfer 事件变更为 Transfer 事件 （首字母大写）。
 
 ### IsPayable
 
-在 Neo 2.x 中部署合约时需要勾选 IsPayable 表示能否接收 NEP-5 资产。
+在 Neo Legacy 中部署合约时需要勾选 IsPayable 表示能否接收 NEP-5 资产。
 
-在 Neo 3.x 中移除了 payable 检查，相应逻辑将放到 `onNEP17Payment` 方法中。
+在 Neo N3 中移除了 payable 检查，相应逻辑将放到 `onNEP17Payment` 方法中。
 
 合约能否接收资产从固定不变的常量改为合约内的代码逻辑。
 

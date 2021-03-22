@@ -69,7 +69,7 @@ bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 
 ## 获取 NEP17 合约信息
 
-NEP17 是 Neo3 中的资产标准，NEO 和 GAS 都基于 NEP17 原生合约。调用 `Nep17API` 可以获取 NEP17 合约的名称、标记、小数位和总量等信息：
+NEP17 是 Neo N3 中的资产标准，NEO 和 GAS 都基于 NEP17 原生合约。调用 `Nep17API` 可以获取 NEP17 合约的名称、标记、小数位和总量等信息：
 
 ```c#
 // get nep17 token info

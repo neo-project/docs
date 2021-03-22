@@ -246,7 +246,7 @@ Unclaimed gas: 16.7367406
 >
 > 这里不包含已提取的 GAS，查看已提取的 GAS 请用 list asset 命令。
 
-在 Neo3 中，某地址每次 NEO 数量发生改变时都会触发其 GAS 的自动提取。
+在 Neo N3 中，某地址每次 NEO 数量发生改变时都会触发其 GAS 的自动提取。
 
 ### create address
 

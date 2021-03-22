@@ -4,7 +4,7 @@
 
 此文档是完全[开源](https://github.com/neo-project/docs)的，可通过任何方式参与此文档，如创建问题、编写文档等。
 
-该文档适用于 Neo3 版本。与 Visual Studio 2019 结合使用时，可以更方便地使用 Neo SDK 来开发软件。 
+该文档适用于 Neo N3 版本。与 Visual Studio 2019 结合使用时，可以更方便地使用 Neo SDK 来开发软件。 
 
 ## 主要功能
 

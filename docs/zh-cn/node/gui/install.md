@@ -20,7 +20,7 @@ Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-
 
 ## 连接网络
 
-完成安装后，Neo-GUI默认连接到Neo3-Preview3测试网。
+完成安装后，Neo-GUI默认连接到Neo测试网。
 
 你也可以将Neo-GUI连接到搭建好的私链（参见[搭建私链](../../develop/network/private-chain/solo.md)）。要连接到私链，请按照以下操作进行：
 

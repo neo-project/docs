@@ -22,7 +22,7 @@
 
 > [!Note]
 >
-> 如果Visual Studio中安装了Neo2的NeoContractPlugin插件，需要先卸载才能安装Neo3的插件。
+> 如果Visual Studio中安装了Neo Legacy的NeoContractPlugin插件，需要先卸载才能安装Neo N3的插件。
 
 1. 拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目，在Visual Studio中打开项目文件neo-devpack-dotnet.sln
 
@@ -69,7 +69,7 @@
 
    ![neocontract](assets/neocontract.png)
 
-3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用（模板中的 Neo.SmartContract.Framework 是 Neo 3.0.0 preview5 的版本）。
+3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用。
 
 4. 右键单击项目名 -> `粘贴`，将上一步复制的 `Neo.SmartContract.Framework.dll` 文件粘贴到NeoContract 项目下。
 
@@ -81,11 +81,11 @@
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-首先从 GitHub 上下载 Neo3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17)。
+首先从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17)。
 
 > [!Note]
 >
-> 相对于 Neo2 来说， Neo3 的 NEP17 合约模板有以下改动：
+> 相对于 Neo Legacy 来说， Neo N3 的 NEP17 合约模板有以下改动：
 >
 > - 在智能合约类上方添加了自定义特性：
 >
@@ -123,5 +123,5 @@
 
 编译成功后会在该项目的 `bin/Debug` 目录生成以下文件：
 
-- `NEP17.nef` ：与 Neo2 中的 .avm 文件类似，.nef 是 Neo3 的智能合约执行文件。
+- `NEP17.nef` ：与 Neo Legacy 中的 .avm 文件类似，.nef 是 Neo N3 的智能合约执行文件。
 - `NEP17.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。

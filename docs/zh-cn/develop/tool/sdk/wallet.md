@@ -153,7 +153,7 @@ Nep17API nep17API = new Nep17API(client);
 BigInteger balance = await nep17API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
 
-在 Neo3 中 NEO 和 GAS 都是 NEP17 资产，且脚本哈希固定，所以这里提供了更简单的接口：
+在 Neo N3 中 NEO 和 GAS 都是 NEP17 资产，且脚本哈希固定，所以这里提供了更简单的接口：
 
 ```c#
 // Get the NEO balance
@@ -165,7 +165,7 @@ decimal gasBalance = await walletAPI.GetGasBalanceAsync(address).ConfigureAwait(
 
 ## 提取 GAS
 
-在 Neo3 中提取 GAS 的过程是在 NEO 转账时自动进行的，你可以构建一笔给自己转账的交易来提取 GAS。
+在 Neo N3 中提取 GAS 的过程是在 NEO 转账时自动进行的，你可以构建一笔给自己转账的交易来提取 GAS。
 
 1. 首先查询当前地址可以提取的 GAS 数量，例如：
 

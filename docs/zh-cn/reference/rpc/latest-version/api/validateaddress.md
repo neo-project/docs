@@ -12,7 +12,7 @@ address：地址。
 
 > [!Note]
 >
-> 由于 Neo3 的 AddressVersion 已修改为53，所以标准地址均以 N 开头。
+> 由于 Neo N3 的 AddressVersion 已修改为53，所以标准地址均以 N 开头。
 
 ## 调用示例
 
