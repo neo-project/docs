@@ -195,6 +195,7 @@ public class Contract1 : SmartContract
 ### 合约入口函数
 
 理论上来说，智能合约可以有任意的入口函数，合约中 public static 类型的方法都可以用作入口函数被外部调用，例如:
+
 ```c#
 using Neo.SmartContract.Framework;
 

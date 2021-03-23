@@ -15,5 +15,5 @@ Neo 有两个全节点客户端：Neo-GUI 和 Neo-CLI。本教程将使用 Neo-C
 
 ## 下载客户端
 
-参考 [Neo-CLI 安装](../node/cli/setup.md) 下载并安装 Neo-CLI Preview5 程序包。
+参考 [Neo-CLI 安装](../node/cli/setup.md) 下载并安装 Neo-CLI 程序包。
 

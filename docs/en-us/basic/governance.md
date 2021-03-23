@@ -22,9 +22,9 @@ Theoretically, the term of tenure of the committee is 21 blocks, so voters can a
 
 Moreover, the committee can appoint a number of node roles, including:
 
-- Oracle Nodes
+- Oracle nodes
 - StateRoot consensus nodes
-- NeoFS Inner Ring Nodes
+- NeoFS Inner Ring nodes
 
 ### Consensus Nodes 
 

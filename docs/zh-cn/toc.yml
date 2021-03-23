@@ -43,7 +43,7 @@
       href: /v3/docs/zh-cn/basic/consensus/consensus_protocol.md
     - name: 投票
       href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
-- name: 链上治理与激励
+- name: 治理与激励
     href: /v3/docs/zh-cn/basic/governance.md  
 - name: NeoVM
     href: /v3/docs/zh-cn/basic/neovm.md

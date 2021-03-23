@@ -16,7 +16,7 @@ deploy NEP17.nef
 deploy NEP17.nef NEP17.manifest.json
 ```
 
-输入命令后，程序会部署NEP-5合约并且自动支付手续费。
+输入命令后，程序会部署NEP-17合约并且自动支付手续费。
 
 ```bash
 neo> deploy NEP17.nef
