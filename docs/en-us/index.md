@@ -6,10 +6,10 @@
 | ------------------------------------- | ---- | ---- | ---- |
 | [Getting Started](gettingstarted/prerequisites.md) |      |      |      |
 
-| Neo Basics                                             |                                      |                                                   |                                                              |
-| ------------------------------------------------------ | ------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
-| [Blockchain Models](basic/concept/blockchain/block.md) | [Consensus](basic/consensus/dbft.md) | [Neo VM](basic/neovm.md)                          | [Cryptography](basic/concept/cryptography/encode_algorithm.md) |
-| [Transaction](basic/concept/transaction.md)            | [Wallet](basic/concept/wallets.md)   | [Charging Model](basic/concept/charging_model.md) |                                                              |
+| Neo Basics                                             |                                                  |                                             |                                                              |
+| ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------- | ------------------------------------------------------------ |
+| [Blockchain Models](basic/concept/blockchain/block.md) | [Wallet](basic/concept/wallets.md)               | [Transaction](basic/concept/transaction.md) | [Cryptography](basic/concept/cryptography/encode_algorithm.md) |
+| [Consensus](basic/consensus/dbft.md)                   | [Governance and Incentives](basic/governance.md) | [Neo VM](basic/neovm.md)                    |                                                              |
 
 
 | Neo Node                             |                              |                                |      |
@@ -25,10 +25,10 @@
 | ---------------------------- | ---- | ---- | ---- |
 | [Oracle](advanced/oracle.md) |      |      |      |
 
-| Reference                                      |                                               |                                                   |                                           |
-| ---------------------------------------------- | --------------------------------------------- | ------------------------------------------------- | ----------------------------------------- |
-| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md)  | [Smart Contract Framework](reference/scapi/fw.md) | [NeoVM Instructions](reference/neo_vm.md) |
-| [Fees](reference/fees.md)                      | [Governance API](reference/governance_api.md) |                                                   |                                           |
+| Reference                                      |                                              |                                               |                             |
+| ---------------------------------------------- | -------------------------------------------- | --------------------------------------------- | --------------------------- |
+| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Governance API](reference/governance_api.md) | [NNS API](reference/nns.md) |
+| [Fees](reference/fees.md)                      | [NeoVM Instructions](reference/neo_vm.md)    |                                               |                             |
 
 | Document for Exchange Developers                        |      |      |      |
 | ------------------------------------------------------- | ---- | ---- | ---- |

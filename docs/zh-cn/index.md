@@ -6,10 +6,10 @@
 | ------------------------------------- | ---- | ---- | ---- |
 | [合约开发快速入门](gettingstarted/prerequisites.md) |      |      |      |
 
-| Neo 基础知识                                  |                                     |                                             |                                                          |
-| --------------------------------------------- | ----------------------------------- | ------------------------------------------- | -------------------------------------------------------- |
-| [区块模型](basic/concept/blockchain/block.md) | [共识机制](basic/consensus/dbft.md) | [Neo VM](basic/neovm.md)                    | [密码学](basic/concept/cryptography/encode_algorithm.md) |
-| [交易](basic/concept/transaction.md)          | [钱包](basic/concept/wallets.md)    | [收费模型](basic/concept/charging_model.md) |                                                          |
+| Neo 基础知识                                  |                                   |                                      |                                                          |
+| --------------------------------------------- | --------------------------------- | ------------------------------------ | -------------------------------------------------------- |
+| [区块模型](basic/concept/blockchain/block.md) | [钱包](basic/concept/wallets.md)  | [交易](basic/concept/transaction.md) | [密码学](basic/concept/cryptography/encode_algorithm.md) |
+| [共识机制](basic/consensus/dbft.md)           | [治理与激励](basic/governance.md) | [Neo VM](basic/neovm.md)             |                                                          |
 
 
 | Neo 节点                         |                              |                                |      |
@@ -26,10 +26,10 @@
 | [Oracle](advanced/oracle.md) |      |      |      |
 
 
-| 开发参考                                       |                                         |                                       |                                     |
-| ---------------------------------------------- | --------------------------------------- | ------------------------------------- | ----------------------------------- |
-| [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/api.md)  | [智能合约框架](reference/scapi/fw.md) | [NeoVM 指令集](reference/neo_vm.md) |
-| [手续费](reference/fees.md)                    | [治理 API](reference/governance_api.md) |                                       |                                     |
+| 开发参考                                       |                                        |                                         |                             |
+| ---------------------------------------------- | -------------------------------------- | --------------------------------------- | --------------------------- |
+| [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/api.md) | [治理 API](reference/governance_api.md) | [NNS API](reference/nns.md) |
+| [手续费](reference/fees.md)                    | [NeoVM 指令集](reference/neo_vm.md)    |                                         |                             |
 
 | 交易所对接                            |      |      |      |
 | ------------------------------------- | ---- | ---- | ---- |
