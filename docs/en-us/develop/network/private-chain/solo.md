@@ -6,7 +6,7 @@ Alternatively, you can build a private chain with one node from scratch, which w
 
 ## Prerequisites
 
-1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI.
+1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI. (Make sure you install the DBFTPlugin)
 2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet consensus.json`
 
 3. Specify the wallet password and confirm.
@@ -19,8 +19,8 @@ Alternatively, you can build a private chain with one node from scratch, which w
 In config.json under the Neo-cli directory, make the following configurations:
 
 - In `UnlockWallet` specify the wallet path and wallet password.
-- Set  `StartConsensus` and `IsActive` as true.
-- Set  `ConsoleOutput` and `Active` as true.
+- Set `IsActive` as true.
+- Set `ConsoleOutput` and `Active` as true.
 - Set `ValidatorsCount` as 1.
 - In `StandbyCommittee`, enter the public key of the `consensus.json` wallet (Only one public key in `StandbyCommittee` represents the solo mode).
 
@@ -58,6 +58,25 @@ Here is an example：
       "02ff249d06faaf0b5ba865e1531bfabe07f89aef39ab59082e3bc140be0318055d"
     ],
     "SeedList": []
+  }
+}
+```
+
+In the config.json under the `Plugins\DBFTPlugin` directory make the following change:
+
+- Set `AutoStart` as true
+
+Here is an example:
+
+```json
+{
+  "PluginConfiguration": {
+    "RecoveryLogs": "ConsensusState",
+    "IgnoreRecoveryLogs": false,
+    "AutoStart": true,
+    "Network": 827601742,
+    "MaxBlockSize": 262144,
+    "MaxBlockSystemFee": 900000000000
   }
 }
 ```
