@@ -74,7 +74,7 @@ Here is an example:
     "RecoveryLogs": "ConsensusState",
     "IgnoreRecoveryLogs": false,
     "AutoStart": true,
-    "Network": 827601742,
+    "Network": 822501222,
     "MaxBlockSize": 262144,
     "MaxBlockSystemFee": 900000000000
   }
