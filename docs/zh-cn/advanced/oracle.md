@@ -119,6 +119,46 @@ Oracle Request 请求中需要指定以下字段：
 | UserData       | var bytes | 用户自定义数据                                               |
 | GasForResponse | long      | 回调函数执行预付款，用于支付Response交易执行所需的费用。预付款应不小于 0.1 GAS，否则无法发起 Oracle 请求。预付款会在Request构建时自动扣除。 |
 
+#### Url
+
+URL请求需提供JSON格式的数据，对于HTTP请求，服务器必须以 “Content-Type: application/ JSON”  header 回答请求才能成功。
+
+##### NeoFS URLs
+
+NeoFS URLs 格式如下：
+
+```
+Copyneofs://<Container-ID>/<Object-ID/<Command>/<Params>
+```
+
+其中 `Container-ID` 和 `Object-ID` 是强制参数，`Command` 和 `Params` 为可选。
+
+如果没有任何命令，oracle子系统将获得一个对象并返回其负载，例如： 
+
+```
+neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk
+```
+
+使用命令 `range` 可以获取对象的部分有效载荷，其参数为 "offset|length"，其中 "offset "是指从有效载荷开始跳过的字节数，"length "是指返回给调用者的字节数。
+
+请求示例： 
+
+```
+neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/range/42|128
+```
+
+使用命令 `header` 可以获取对象的 header。该命令没有参数，如下所示：
+
+```
+neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/header
+```
+
+使用命令 `hash` 可以获取对象的 SHA256 hash 或部分。该命令有一个可选的范围参数，其语法与 `range` 命令相同。如下所示： 
+
+```
+neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/hash
+```
+
 ### Callback 回调函数
 
 回调函数的形参的参数类型和顺序被严格限定，必须遵守以下规则顺序：
