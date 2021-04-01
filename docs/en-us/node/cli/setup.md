@@ -24,37 +24,37 @@ The following table lists the minimum and recommended hardware requirements for 
 
 2. On Linux, install the LevelDB and SQLite3 dev packages. 
 
-   **Ubuntu:**
+  **Ubuntu:**
    
-   ```
-sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
-   ```
+  ```
+  sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
+  ```
    
-   **CentOS:**
+  **CentOS:**
    
-   ```
-   sudo yum install sqlite-devel
-   sudo yum install libunwind-devel
-   sudo wget https://download-ib01.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-   sudo rpm -ivh epel-release-6-8.noarch.rpm
-   sudo yum install leveldb-devel
-   ```
-   
-   If you use RocksDB as the storage, modify config.json, as shown below：
-   
-   ```
-   "Storage": {
-      "Engine": "RocksDBStore"
-    },
-   ```
-   
-   and then enter the following command on ubuntu 18.04：
-   
-   ```
-   sudo apt-get install librocksdb-dev
-   ```
-   
-   If using Windows, you can skip this step as those files are already included in the installation package.
+  ```
+  sudo yum install sqlite-devel
+  sudo yum install libunwind-devel
+  sudo wget https://download-ib01.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+  sudo rpm -ivh epel-release-6-8.noarch.rpm
+  sudo yum install leveldb-devel
+  ```
+  
+  If you use RocksDB as the storage, modify config.json, as shown below：
+  
+  ```
+  "Storage": {
+     "Engine": "RocksDBStore"
+   },
+  ```
+  
+  and then enter the following command on ubuntu 18.04：
+  
+  ```
+  sudo apt-get install librocksdb-dev
+  ```
+  
+  If using Windows, you can skip this step as those files are already included in the installation package.
 
 ## Publishing from Neo-CLI source code
 
