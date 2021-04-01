@@ -6,7 +6,7 @@
 
 ## 下载与运行客户端
 
-客户端无需安装，进入[客户端下载](https://neo.org/download)页面，下载后直接运行 neo-gui.exe 即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们的技术人员联系。
+客户端无需安装，进入[客户端下载](https://github.com/neo-project/neo-gui-2.x/releases)页面，下载后直接运行 neo-gui.exe 即可。使用过程中，如遇到任何问题导致客户端无法正常使用，请保留好客户端目录下的 error.log 文件，并与我们的技术人员联系。
 
 > [!Note]
 >
