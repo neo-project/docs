@@ -10,8 +10,8 @@ An address can be registered as candidate or unregistered afterwards. Correspond
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | UInt160 publicKey | Adjustable, initially 0.00001 |
-| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | UInt160 publicKey | 0.00065536 (CpuFee) |
+| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | ECPoint publicKey | Adjustable, initially 0.00001 |
+| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
 
 > [!Note]
 >
@@ -31,7 +31,7 @@ As voters' votes & held NEO, as well as registered candidates keep changing, can
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0.04194304 (CpuFee) |
+| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0 |
 
 ## Committee
 
@@ -89,7 +89,7 @@ Furthermore, corresponding reading methods are also supported:
 
 1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (21 by default) with the most votes as committee members.
-Committee members will be refreshed every block.
+Committee members will be refreshed every 21 blocks.
 
 #### Corresponding Contract method
 
@@ -107,7 +107,7 @@ Validators are nodes which are able to start or vote to new block proposals.
 
 1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (7 by default) with the most votes as validators.
-Similar to committee members, validators will be refreshed every block.
+Similar to committee members, validators will be refreshed every 21 blocks.
 
 #### Corresponding Contract method
 

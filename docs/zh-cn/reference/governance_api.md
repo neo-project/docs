@@ -10,8 +10,8 @@
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | UInt160 publicKey | 可调，初始0.00001 |
-| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | UInt160 publicKey | 0.00065536 (CpuFee) |
+| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | ECPoint publicKey | 可调，初始0.00001 |
+| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
 
 > [!Note]
 >
@@ -31,7 +31,7 @@
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0.04194304 (CpuFee) |
+| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0 |
 
 ## 委员会
 
@@ -85,7 +85,7 @@
 
 ### 产生方式
 
-将候选人根据票数多少排序，取最前面的一定数量候选人（默认21个）作为委员会。委员会名单将在每个区块根据最新投票更新。
+将候选人根据票数多少排序，取最前面的一定数量候选人（默认21个）作为委员会。委员会名单每 21 个区块更新一次。
 
 #### 相关合约方法
 
@@ -99,7 +99,7 @@
 
 ### 产生方式
 
-将候选人根据票数多少排序，取最前面的一定数量候选人（默认7个）作为共识节点。与委员会类似，共识节点名单将在每个区块根据最新投票更新。
+将候选人根据票数多少排序，取最前面的一定数量候选人（默认7个）作为共识节点。同样的，共识节点名单也会每隔 21 个区块根据最新投票结果更新。
 
 #### 相关合约方法
 
