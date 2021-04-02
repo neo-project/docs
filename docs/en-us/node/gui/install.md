@@ -6,7 +6,7 @@
 
 ## Downloading the client
 
-Download [NEO-GUI](https://neo.org/download) and extract the files to a location of your choice, then double-click neo-gui.exe to run the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as NEO-GUI, then contact our technical staff to assist you in solving the problem.
+Download [NEO-GUI](https://github.com/neo-project/neo-gui-2.x/releases) and extract the files to a location of your choice, then double-click neo-gui.exe to run the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as NEO-GUI, then contact our technical staff to assist you in solving the problem.
 
 > [!Note]
 >
