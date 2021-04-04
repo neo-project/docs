@@ -19,8 +19,6 @@
         href: /v3/docs/en-us/basic/concept/blockchain/block.md
       - name: Tokens
         href: /v3/docs/en-us/basic/concept/blockchain/token_model.md
-    - name: Charging Model
-      href: /v3/docs/en-us/basic/concept/charging_model.md
     - name: Cryptography
       href:
       - name: Encode Algorithm
