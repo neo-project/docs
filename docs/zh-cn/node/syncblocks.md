@@ -38,7 +38,20 @@ Neo 客户端必须先完成与区块链的同步才能正常使用。由于区�
 
 - 对于 Neo-CLI，输入 `open wallet <path>` 打开 Neo 命令行钱包后，输入 `show state` 查看区块同步状态，当画面显示连接 node 数为 0 并且同步速度明显加快时， 说明已进入离线同步模式。当 "Height" 后面的三个数值相同表示同步完成。
 
-![](../assets/cli_sync.png)
+```shell
+neo> show state
+block: 0/77384/77384  state:-1  connected: 0  unconnected: 0
+block: 0/79510/79510  state:-1  connected: 0  unconnected: 0
+block: 0/81625/81625  state:-1  connected: 0  unconnected: 0
+block: 0/83523/83523  state:-1  connected: 0  unconnected: 0
+block: 0/85803/85803  state:-1  connected: 0  unconnected: 0
+block: 0/88294/88294  state:-1  connected: 0  unconnected: 0
+block: 0/90450/90450  state:-1  connected: 0  unconnected: 0
+block: 0/92649/92649  state:-1  connected: 0  unconnected: 0
+block: 0/95059/95059  state:-1  connected: 0  unconnected: 0
+block: 0/96989/96989  state:-1  connected: 0  unconnected: 0
+block: 0/98845/98845  state:-1  connected: 0  unconnected: 0
+```
 
 > [!Note]
 >
