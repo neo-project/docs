@@ -20,7 +20,7 @@ Neo has a large number of worldwide developer communities that have been contrib
 
 ## What is GAS？How to acquire GAS？
 
-GAS represents the right to use the Neo Blockchain. Neo network charges GAS for the new assets issuance and smart contract running as well as all translations that modify the blockchain status . In the Neo3 genesis block GAS is 30,000,000 and it is increasing as new blocks generate. Once NEO is acquired, GAS is generated in the system following the algorithms. In Neo3 once NEO is transferred from the account, the relevant GAS is claimed to the same address automatically.
+GAS represents the right to use the Neo Blockchain. Neo network charges GAS for the new assets issuance and smart contract running as well as all translations that modify the blockchain status . The Neo N3 Genesis block will mint the exact amount of GAS token needed to account for all GAS token circulating on the NEO Legacy chain at the time of Genesis block. In Neo N3 once NEO is transferred from the account, the relevant GAS is claimed to the same address automatically.
 
 ## What consensus algorithms does Neo use？
 
@@ -42,7 +42,7 @@ You can check it on any Neo blockchain explorer, such as https://neotube.io/.
 
 ## Is there an equivalent of ERC-20 standard for Neo?
 
-Yes. NEP-17, the replacement of the standard NEP-5, is the Neo3 token standard which outlines the specifications to be followed by contracts deployed on the Neo blockchain. 
+Yes. NEP-17, the replacement of the standard NEP-5, is the Neo N3 token standard which outlines the specifications to be followed by contracts deployed on the Neo blockchain. 
 
 ## How to view NEP-17 assets in Neo-CLI？
 
@@ -58,7 +58,7 @@ Yes. If you are holding NEO, then you are always keeping it online. Storing priv
 
 ## Is there a transfer fee between Neo wallets?
 
-Yes. On Neo 3 any transfer transaction requires a certain amount of GAS.
+Yes. On Neo N3 any transfer transaction requires a certain amount of GAS.
 
 ## If I keep my NEO on an exchange, can I still get my GAS?
 
