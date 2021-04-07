@@ -248,7 +248,7 @@ unclaimed gas: 16.7367406
 >
 > This command does not show the GAS that has been claimed. Use `list asset` instead.
 
-On Neo3, The GAS in an account is claimed automatically every time when the number of Neo in the account changes.  
+On Neo N3, The GAS in an account is claimed automatically every time when the number of Neo in the account changes.  
 
 ### create address
 

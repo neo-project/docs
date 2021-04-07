@@ -31,7 +31,7 @@ The wallet is a database file of Neo-GUI used to store Neo account and asset inf
 
 > [!Note]
 >
-> The wallets created in Neo2 cannot be opened in Neo3-GUI. To work around this issue you can import the wallet to Neo3-GUI through the private key.
+> The wallets created in Neo Legacy cannot be opened in Neo3-GUI. To work around this issue you can import the wallet to Neo3-GUI through the private key.
 
 ## Importing a wallet
 

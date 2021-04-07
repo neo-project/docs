@@ -155,7 +155,7 @@ Nep17API nep17API = new Nep17API(client);
 BigInteger balance = await nep17API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
 
-In Neo 3 NEO and GAS are both NEP17 assets with the fixed scripthash. Here we provide a simpler interface:
+In Neo N3 NEO and GAS are both NEP17 assets with the fixed scripthash. Here we provide a simpler interface:
 
 ```c#
 // Get the NEO balance
@@ -167,7 +167,7 @@ decimal gasBalance = await walletAPI.GetGasBalanceAsync(address).ConfigureAwait(
 
 ## Claiming GAS
 
-In Neo3 GAS is automatically claimed when NEO is transferred. You can construct a transaction transferring to yourself to claim GAS.
+In Neo N3 GAS is automatically claimed when NEO is transferred. You can construct a transaction transferring to yourself to claim GAS.
 
 1. First check the claimable GAS amount at current address:
 

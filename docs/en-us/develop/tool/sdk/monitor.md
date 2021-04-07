@@ -69,7 +69,7 @@ bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 
 ## Getting NEP-5 contract information
 
-NEP17 is an asset standard for Neo3, such as NEO and GAS, both of which are assets based on NEP17 native contract. You can invoke  `Nep17API`  to get the name, mark, decimal place, and amount of the NEP17 contract.
+NEP17 is an asset standard for Neo N3, such as NEO and GAS, both of which are assets based on NEP17 native contract. You can invoke  `Nep17API`  to get the name, mark, decimal place, and amount of the NEP17 contract.
 
 ```c#
 // get nep17 token info

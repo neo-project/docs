@@ -48,7 +48,7 @@ Here is a simple C# smart contract:
         }
     }
 ```
-In Neo3 all transactions are invocations of contracts. When a transaction is broadcast and confirmed, consensus nodes execute the contract. The success of contract execution does not determine the success of transaction, and vice versa.
+In Neo N3 all transactions are invocations of contracts. When a transaction is broadcast and confirmed, consensus nodes execute the contract. The success of contract execution does not determine the success of transaction, and vice versa.
 
 ## Verification trigger
 

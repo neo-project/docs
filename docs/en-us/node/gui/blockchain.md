@@ -48,7 +48,7 @@ For information about the basic concept of transactions refer to [Transaction](.
 
 ## Assets
 
-All digital assets in Neo3 are contract assets, including NEO and GAS.
+All digital assets in Neo N3 are contract assets, including NEO and GAS.
 
 ### Asset list
 

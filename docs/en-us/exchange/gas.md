@@ -6,7 +6,7 @@ The exchange can determine whether to distribute GAS to users. GAS is used to pa
 
 GAS represents the right to use the Neo Blockchain. Once NEO is acquired, GAS will be generated in the system following the algorithms.
 
-In NEO3 every time a NEO transfer transaction occurs in the address, GASs generated since last time NEO transfer transaction are claimed automatically.
+In Neo N3 every time a NEO transfer transaction occurs in the address, GASs generated since last time NEO transfer transaction are claimed automatically.
 
 ## Calculating the claimed GAS amount
 

@@ -1,8 +1,8 @@
 # Governance API
 
-## Candidate
+## Candidates
 
-There is no duty assigned to candidates. However, committee members and validators are elected from certain number of candidates with most votes. 
+There is no duty assigned to candidates. However, committee members and consensus nodes are elected from certain number of candidates with most votes. 
 
 #### How to Become a Candidate
 
@@ -85,43 +85,43 @@ Furthermore, corresponding reading methods are also supported:
 | [`GetPrice`](scapi/fw/dotnet/neo/NameService/GetPrice.md) | null | 0.00032768 (CpuFee) | NameService |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
-#### How Are Committee Members Elected
+#### How are committee members elected
 
 1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (21 by default) with the most votes as committee members.
-Committee members will be refreshed every 21 blocks.
+Committee members are refreshed every 21 blocks.
 
-#### Corresponding Contract method
+#### Corresponding contract method
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
 | [`GetCommittee`](scapi/fw/dotnet/neo/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | Current committee members in format of Array<ECPoint> |
 
-## Validator
+## Consensus Nodes
 
 #### Function & Scope
 
-Validators are nodes which are able to start or vote to new block proposals. 
+Consensus nodes are nodes which are able to start or vote to new block proposals. 
 
-#### How Are Validators Elected
+#### How are consensus nodes elected
 
 1. Sort the registered candidates by votes
-2. Take certain numbers of candidates (7 by default) with the most votes as validators.
-Similar to committee members, validators will be refreshed every 21 blocks.
+2. Take certain numbers of candidates (7 by default) with the most votes as consensus nodes.
+Similar to committee members, consensus nodes are refreshed every 21 blocks.
 
-#### Corresponding Contract method
+#### Corresponding contract method
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-|  [`GetNextBlockValidators`](scapi/fw/dotnet/neo/Neo/GetNextBlockValidators.md)  | null | 0.04194304 (CpuFee) | Validators by persisting block in format of Array<ECPoint> |
+|  [`GetNextBlockValidators`](scapi/fw/dotnet/neo/Neo/GetNextBlockValidators.md)  | null | 0.04194304 (CpuFee) | Consensus nodes by persisting block in format of Array<ECPoint> |
 
 ## Token Distribution
 
-Total NEO amount, or 100 million tokens are distributed in genesis block to standby validators' multi-signature address.
+Total NEO amount, or 100 million tokens are distributed in genesis block to standby consensus nodes' multi-signature address.
 
-All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the validator who start a new-block proposal) of the block where corresponding transaction is included.
+All interactions in Neo are performed through transactions. Sending a transaction on chain requires paying GAS tokens as fee, including system fee and network fee. System fee will be burnt as resource consumption for transaction execution, while network fee will be distributed to the speaker (the consensus node who starts a new-block proposal) of the block where corresponding transaction is included.
 
-## Nep17 Contract method
+## Nep17 Contract Method
 
 NEO and GAS are [Nep17](https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki) contracts. Nep17 contract methods are as follows:
 

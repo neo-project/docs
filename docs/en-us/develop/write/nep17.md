@@ -213,8 +213,8 @@ The transfer event is changed to Transfer event (first letter capitalized).
 
 ### IsPayable
 
-In Neo 2.x, you should check the IsPayable checkbox when deploying contracts to receive NEP-5 assets.
+In Neo Legacy, you should check the IsPayable checkbox when deploying contracts to receive NEP-5 assets.
 
-In Neo 3.x, the payable check has been removed and the corresponding logic has been placed in the `onNEP17Payment` method.
+In Neo N3.x, the payable check has been removed and the corresponding logic has been placed in the `onNEP17Payment` method.
 
 The ability of the contract to receive assets has been changed from a fixed constant to the code logic within the contract.

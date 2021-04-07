@@ -24,9 +24,9 @@ The version allows the transaction structure to be updated to make it backward c
 
 ### signers
 
-The first field is the script hash of the transaction sender account. Since UTXO model has been deprecated in Neo3 and the native assets NEO and GAS turned into NEP-17 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. 
+The first field is the script hash of the transaction sender account. Since UTXO model has been deprecated in Neo N3 and the native assets NEO and GAS turned into NEP-17 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. 
 
-The rest fields are used to define the effective scope of signature. In Neo2 transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo3, so that the signature can be used only for verifying the specified contract. 
+The rest fields are used to define the effective scope of signature. In Neo Legacy transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo N3, so that the signature can be used only for verifying the specified contract. 
 
 When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature.
 
@@ -47,11 +47,11 @@ Scopes defines the effective range of the signature, including these types:
 | `0x01` | `CalledByEntry`   | The signature is only effective to the contract script called by Entry | `byte` |
 | `0x10` | `CustomContracts` | The signature is only effective to the specified contract script | `byte` |
 | `0x20` | `CustomGroups`    | The signature is effective to contracts in the group.        | `byte` |
-| `0x80` | `Global`          | The signature is globally effective. It is the default value of Neo2 and is backward compatible. | `byte` |
+| `0x80` | `Global`          | The signature is globally effective. It is the default value of Neo Legacy and is backward compatible. | `byte` |
 
 ### sysfee
 
-The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee is canceled in Neo3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
+The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee is canceled in Neo N3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
 
 ![](../../../zh-cn/basic/images/transaction/system_fee.png)
 

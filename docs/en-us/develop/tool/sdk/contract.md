@@ -1,6 +1,6 @@
 # Deploying and Invoking Contracts
 
-In Neo3 most of the functions are provided by contracts. ScriptHash is the unique identifier of the contract, and it is usually a necessary parameter for invoking contracts.
+In Neo N3 most of the functions are provided by contracts. ScriptHash is the unique identifier of the contract, and it is usually a necessary parameter for invoking contracts.
 
 This document introduces the following SDK features:
 

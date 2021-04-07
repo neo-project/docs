@@ -2,7 +2,7 @@
 
 `Neo RPC SDK` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.
 
-This document is applicable to Neo3. It is recommended you use NEO SDK in conjunction with Visual Studio 2019.  
+This document is applicable to Neo N3. It is recommended you use NEO SDK in conjunction with Visual Studio 2019.  
 
 ## Main features
 

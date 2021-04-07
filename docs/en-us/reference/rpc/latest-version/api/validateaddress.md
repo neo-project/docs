@@ -21,7 +21,7 @@ address: Address.
 
 > [!Note]
 >
-> The NEO standard address begins with N because AddressVersion in NEO3 has been modified to 53.
+> The NEO standard address begins with N because AddressVersion in Neo N3 has been modified to 53.
 
 ## Example
 

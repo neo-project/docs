@@ -1,11 +1,9 @@
 # Compiling a contract sample
 
-So far, we have learned how to build a private chain and connect nodes to the chain. The following section will focus on configuring environment, creating, compiling, deploying and invoking a Neo smart contract on the private chain using C# and Windows 10.
-
-We will complete the following tasks in this section:
+In this section we will complete the following tasks with C# and Windows 10:
 
 1. Install contract development environment
-2. Create a NEP17 contract project
+2. Create an NEP17 contract project
 3. Compile a contract
 
 ## Setting up development environment
@@ -22,7 +20,7 @@ We will complete the following tasks in this section:
 
 > [!Note]
 >
-> If you have NeoContractPlugin of Neo2 installed in Visual Studio, you must uninstall it before your can install the NeoContractPlugin of Neo3.
+> If you have NeoContractPlugin of Neo Legacy installed in Visual Studio, you must uninstall it before you can install the NeoContractPlugin of Neo N3.
 
 1. Pull the project [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) and open `neo-devpack-dotnet.sln` in Visual Studio.
 
@@ -48,7 +46,7 @@ We will complete the following tasks in this section:
 
    > [!Note]
    >
-   > Remove the old Neo2.x neon path if there is one.
+   > Remove the old Neo Legacy neon path if there is one.
 
    ![env](../../zh-cn/gettingstarted/assets/env.png)
 
@@ -83,7 +81,7 @@ When the project is created, a simple smart contract template is automatically c
 
 Since many developers are concerned about how to publish their own contract assets on the Neo block chain, now let's work through the process on private chain.
 
-1. Download the NEP17 template from [NEP17 example of Neo3](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17).
+1. Download the NEP17 template from [NEP17 example of Neo N3](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17).
 
 2. In the NeoContract project created in previous steps, open the sample file Contract1.cs
 
@@ -91,7 +89,7 @@ Since many developers are concerned about how to publish their own contract asse
 
 > [!Note]
 >
-> In comparison with Neo2, the Neo3 NEP17 sample has the following changes:
+> In comparison with Neo Legacy, the Neo N3 NEP17 sample has the following changes:
 >
 > - Added the customized attributes above the smart contract class
 >
@@ -127,5 +125,5 @@ When you complete coding, click `Build` -> `Build Solutions` (hotkeys: Ctrl + Sh
 
 When the compilation is done, the following files are generated under the `bin/Debug` directory of the project.
 
-- `NEP17.nef` : The smart contract execution file for Neo3, just as .avm for Neo2.
+- `NEP17.nef` : The smart contract execution file for Neo N3, just as .avm for Neo Legacy.
 - `NEP17.manifest.json` : The descriptive file of the smart contract, covering descriptions of functions, ScriptHash, entry, method, parameters, and return values of the contract.

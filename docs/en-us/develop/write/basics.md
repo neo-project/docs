@@ -268,7 +268,7 @@ Transfer is the event name.
 
 ### Json serialization
 
-In Neo3 smart contract, the Json serialization/deserialization feature is added:
+In Neo N3 smart contract, the Json serialization/deserialization feature is added:
 
 ```c#
 using Neo.SmartContract.Framework.Services.Neo;

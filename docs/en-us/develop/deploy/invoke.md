@@ -69,7 +69,7 @@ When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom o
 
 ## Invoking between contracts
 
-In Neo3, all contracts can be invoked dynamically, and writing a contract is much easier.
+In Neo N3, all contracts can be invoked dynamically, and writing a contract is much easier.
 
 ```c#
 public class Contract1 : SmartContract

@@ -8,7 +8,7 @@ NEO is the Governing Token. Neo holders can participate in Neo network managemen
 
 GAS is the fuel token for the realization of Neo network resource control, with a smallest unit of 0.00000001. Users can obtain GAS either through a claim or purchase. When using the Neo network, they need to pay a certain amount of GAS as network fees, such as transfer, registering assets, publishing assets, running DApps, etc.
 
-In the Neo N3 genesis block GAS is 30,000,000 and it is increasing as new blocks generate. Once NEO is acquired, GAS is generated in the system following the algorithms. 
+The Neo N3 Genesis block will mint the exact amount of GAS token needed to account for all GAS token circulating on the NEO Legacy chain at the time of Genesis block.
 
 To read more about GAS generation rate and distribution refer to the [Governance and Incentives](../../governance.md).
 

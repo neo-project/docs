@@ -8,7 +8,7 @@ NEO是治理通证（Governing Token）。持有NEO可以参与Neo网络的治�
 
 GAS是燃料通证（fuel token），用于Neo网络的资源控制，最小单位0.00000001。使用Neo网络进行转账、注册资产、发行资产、运行DApp等操作需要支付一定的GAS手续费。用户可以涌过提取或者购买获取GAS。
 
-在 Neo N3 的创世块中 GAS 初期为 3 千万个，之后会随着新区快的生成而继续产生 GAS。只要获得 NEO，GAS 便会在系统中按照算法自动生成。
+Neo N3的创世区块将铸造准确数量的GAS代币，以对标NEO legacy链上流通的所有GAS代币。
 
 关于GAS的分配规则，可参考[治理与激励](../../governance.md)。
 

@@ -60,7 +60,7 @@ Address is a string of numbers and letters after a series of transformations of 
 
 > [!Note]
 >
-> The address script in Neo3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` instead.
+> The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` instead.
 
 #### Ordinary Address
 

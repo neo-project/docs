@@ -8,7 +8,7 @@ All the block data of the test net are independent of the main net. If you want 
 
 > [!Note]
 >
-> Neo3 clients can only connect to test net for the moment as the Neo3 main net has not been launched yet.
+> Neo N3 clients can only connect to test net for the moment as the Neo N3 main net has not been launched yet.
 
 ## Test net features
 
@@ -50,7 +50,7 @@ In Neo the address and PUBLIC key are different.
 The PUBLIC KEY is shown when you view the PRIVATE KEY. (Never share your PRIVATE key.)  
 
 #### Step 2 - Fill in the request
-Complete the form here: https://neo.org/testcoin/apply. Note that you need to change `Neo Version` to Neo3.
+Complete the form here: https://neo.org/testcoin/apply. Note that you need to change `Neo Version` to Neo N3.
 
 After a day or so you will be sent an email containing a "Multi-party signed address" and the PUBLIC key of the sender. See [Signature](../../node/gui/advanced.md).
 

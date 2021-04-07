@@ -2,7 +2,7 @@
 
 ## Overview
 
-Neo3 has only one type of digital assets, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
+Neo N3 has only one type of digital assets, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
 
 Following flow charts show the work processes of these operations:
 
@@ -34,9 +34,9 @@ SystemFee = InvocationCost = The sum of all executed opcode fee
 
 ### **Instructions fee**
 
-In Neo3, NeoVM instructions fee has decreased to 1/1000 of the original fee in Neo2, which significantly reduces the development cost. 
+In Neo N3, NeoVM instructions fee has decreased to 1/1000 of the original fee in Neo Legacy, which significantly reduces the development cost. 
 
-In comparison with Neo2.x: 
+In comparison with Neo Legacy: 
 
 ![netfee](../../zh-cn/exchange/assets/feecomparewith2x.png)
 
