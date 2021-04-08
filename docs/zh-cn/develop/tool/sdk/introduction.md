@@ -1,6 +1,6 @@
-# 关于 Neo RPC SDK
+# 关于 RpcClient
 
-`Neo RPC SDK` 是一个 C# 版本的依赖库，可用来开发各种基于 Neo 的应用，如钱包客户端，游戏等。 使用本项目可以方便地调用 Neo RPC 接口，构造交易以及调用合约等。
+`RpcClient` 是一个 C# 版本的依赖库，可用来开发各种基于 Neo 的应用，如钱包客户端，游戏等。 使用本项目可以方便地调用 Neo RPC 接口，构造交易以及调用合约等。
 
 此文档是完全[开源](https://github.com/neo-project/docs)的，可通过任何方式参与此文档，如创建问题、编写文档等。
 
@@ -40,7 +40,7 @@
 
 ## 异常处理
 
-`Neo RPC SDK` 主要通过 RPC 请求与 Neo 节点进行交互，当 RPC 请求返回的消息中带有 Error 时系统就会抛出异常，所以最常见的异常类型是 `RpcException`， 主要包含下面几种：
+`RpcClient` 主要通过 RPC 请求与 Neo 节点进行交互，当 RPC 请求返回的消息中带有 Error 时系统就会抛出异常，所以最常见的异常类型是 `RpcException`， 主要包含下面几种：
 
 - -100, "Unknown transaction/blockhash"
 - -300, "Insufficient funds"
@@ -56,7 +56,7 @@
 
 ## 项目地址
 
-`Neo RPC SDK`是 neo-modules 项目的功能子集，完整开源项目请参考：
+`RpcClient`是 neo-modules 项目的功能子集，完整开源项目请参考：
 
 Neo-modules：https://github.com/neo-project/neo-modules
 

@@ -1,6 +1,6 @@
-# About Neo RPC SDK
+# About RpcClient
 
-`Neo RPC SDK` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.
+`RpcClient` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.
 
 This document is applicable to Neo N3. It is recommended you use NEO SDK in conjunction with Visual Studio 2019.  
 
@@ -38,7 +38,7 @@ This document is applicable to Neo N3. It is recommended you use NEO SDK in conj
 
 ## Exception handing
 
-`Neo RPC SDK` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:
+`RpcClient` mainly interacts with Neo nodes through RPC requests. When the message returned by the RPC request contains an Error the system throws an exception. The most common exception type is  `RpcException`, which includes:
 
 - -100, "Unknown transaction/blockhash"
 - -300, "Insufficient funds"
@@ -54,7 +54,7 @@ Additionally, you may encounter other exceptions built in the .NET platform, suc
 
 ## Project repository
 
-The Neo RPC SDK is a functional subset of the neo-modules project. For complete open source projects refer to:
+The `RpcClient` is a functional subset of the neo-modules project. For complete open source projects refer to:
 
 Neo-modules：https://github.com/neo-project/neo-modules
 

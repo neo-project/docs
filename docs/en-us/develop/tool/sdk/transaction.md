@@ -1,6 +1,6 @@
 # Transaction Construction
 
-Neo RPC SDK encapsulates the transaction construction module, which allows you to construct transactions in Neo N3 with specific parameters and methods to personalize your functions. This document introduces the relevant methods.
+`RpcClient` encapsulates the transaction construction module, which allows you to construct transactions in Neo N3 with specific parameters and methods to personalize your functions. This document introduces the relevant methods.
 
 > [!Note]
 >
