@@ -52,7 +52,7 @@ Response description:
 Usually, you can define the method `_deploy` in the contract and execute the neo-cli command `deploy contract.nef` to deploy the contract.
 
 ```c#
-public static void _deploy(bool update)
+public static void _deploy(object data, bool update)
 {
     if (update) return;
     // Add other logics after the contract is deployed

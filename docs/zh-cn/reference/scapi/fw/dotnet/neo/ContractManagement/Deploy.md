@@ -52,7 +52,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 通常，可在合约内定义`_deploy`方法，并直接通过neo-cli执行命令`deploy contract.nef`部署合约。系统将在合约部署之后自动执行`_deploy`方法内的相关逻辑。方法定义如下：
 
 ```c#
-public static void _deploy(bool update)
+public static void _deploy(object data, bool update)
 {
     if (update) return;
     // Add other logics after the contract is deployed
