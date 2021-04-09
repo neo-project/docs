@@ -2,7 +2,7 @@
 
 ## How to apply for test tokens?
 
-Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https://neowish.ngd.network/). If you need more than that, go to https://neo.org/testcoin/apply and fill out the application form. If the application is accepted, you will be notified in three to five workdays.
+Up to 1000 GAS and 1000 NEO per day can be requested via the [NGD faucet](https://neowish.ngd.network/neo3/). If you need more than that, go to https://neo.org/testcoin/apply and fill out the application form. If the application is accepted, you will be notified in three to five workdays.
 
 ## How to build a private chain?
 
@@ -19,11 +19,10 @@ Neo supports a variety of mainstream programming languages and can be developed 
 
 ## How can I obtain the NEP-5 asset hash?
 
-You can use a blockchain browser, e.g.  https://scan.nel.group, to view the NEP-5 asset hash:
+You can use a blockchain browser, e.g.  https://neo3.neotube.io, to view the NEP-5 asset hash:
 
-  1. In the browser, click Assets in the top navigation bar. 
-  2. In the Assets drop-down list, select NEP-5.
-  3. Click the desired asset to view its hash in the details page that appears.
+  1. In the browser, click Tokens in the top navigation bar. 
+  2. Click the desired asset to view its hash in the details page that appears.
 
 
 ## Why is it prompted that there is no object's private key in the wallet when withdrawing assets from a multi-party signature contract?
@@ -34,9 +33,9 @@ After the private chain is set up, you need to make the same configurations in a
 
 Neo developer communities have developed and maintained various NEO SDKs for many mainstream languages including C#, JavaScript, Java, and etc. You can check them here:
 
-- C# SDK: [neo](https://github.com/neo-project/neo)
-- JavaScript SDK: [neon-js](http://cityofzion.io/neon-js/)
-- Java SDK: [neow3j](https://github.com/neow3j)
+- C# SDK: [neo](https://github.com/neo-project/neo-devpack-dotnet)
+- JavaScript SDK: [neon-js](https://github.com/CityOfZion/neon-js)
+- Java SDK: [neow3j](https://github.com/neow3j/neow3j)
 - Go: [neo-gogogo](https://github.com/neo-ngd/neo-gogogo) / [neo-go](https://github.com/nspcc-dev/neo-go)
-- Python: [neo-python](https://github.com/CityOfZion/neo-python) 
+- Python: [neo-python](https://github.com/CityOfZion/neo-python)
 

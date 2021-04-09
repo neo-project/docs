@@ -2,7 +2,7 @@
 
 ## 如何申请测试币？
 
-你可以在 [NGD faucet](https://neowish.ngd.network/) 上每天自动领取最多1000 个 GAS 和 1000 个 NEO。如果需要更多测试币，可以访问 https://neo.org/testcoin/apply 并填写申请表单。如果申请成功，你将在三到五个工作日内收到通知。
+你可以在 [NGD faucet](https://neowish.ngd.network/neo3/) 上每天自动领取最多1000 个 GAS 和 1000 个 NEO。如果需要更多测试币，可以访问 https://neo.org/testcoin/apply 并填写申请表单。如果申请成功，你将在三到五个工作日内收到通知。
 
 ## 有哪些方法可以搭建私链：
 
@@ -19,13 +19,11 @@ Neo 支持多种主流编程语言，可以使用 C#、Python、Go、JS 和 Jave
 
 ## 如何获取 NEP-5 资产的 Hash?
 
-可以使用区块链浏览器 https://scan.nel.group 进行查看：
+可以使用区块链浏览器 <https://neo3.neotube.io> 进行查看：
 
-  1. 进入浏览器后，点击页面上方导航栏中的 Assets。 
+  1. 进入浏览器后，点击页面上方导航栏中的 Tokens。 
 
-  2. 在 Assets 列表中选择 NEP-5。
-
-  3. 在列表中点击要查看的资产，可进入详情页面查看到该资产的 Hash。
+  2. 在列表中点击要查看的资产，可进入详情页面查看到该资产的 Hash。
 
 ## 搭建私链后，从多方签名合约中提取资产， 为什么签名时显示钱包中没有对象的私钥？
 
@@ -33,10 +31,10 @@ Neo 支持多种主流编程语言，可以使用 C#、Python、Go、JS 和 Jave
 
 ## Neo 提供了哪些 SDK 供开发者使用？
 
-针对主流高级语言如C#、JavaScript、Java等，Neo 开发社区开发并维护了多样的Neo SDK，如下所示：
+针对主流高级语言如C#、JavaScript、Java等，Neo 开发社区开发并维护了多样的 Neo SDK，如下所示：
 
-- C# SDK: [neo](https://github.com/neo-project/neo)
-- JavaScript SDK: [neon-js](http://cityofzion.io/neon-js/)
-- Java SDK: [neow3j](https://github.com/neow3j)
+- C# SDK: [neo](https://github.com/neo-project/neo-devpack-dotnet)
+- JavaScript SDK: [neon-js](https://github.com/CityOfZion/neon-js)
+- Java SDK: [neow3j](https://github.com/neow3j/neow3j)
 - Go: [neo-gogogo](https://github.com/neo-ngd/neo-gogogo) / [neo-go](https://github.com/nspcc-dev/neo-go)
 - Python: [neo-python](https://github.com/CityOfZion/neo-python) 
