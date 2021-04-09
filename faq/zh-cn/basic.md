@@ -28,7 +28,7 @@ Neo 使用 一种改进的拜占庭容错机制 （dBFT），可以对由 𝑛 �
 
 ## 如何成为 Neo 的共识节点？ 成为共识节点有什么激励吗？
 
-Neo 的共识节点由 Neo 持有者投票选出。详细信息可参考 [这里](https://docs.neo.org/v3/docs/zh-cn/basic/consensus/vote_validator.html)；所有交易的网络费会作为奖励发给共识节点。
+Neo 的共识节点由 Neo 持有者投票选出。详细信息可参考 [这里](https://docs.neo.org/v3/docs/zh-cn/basic/consensus/vote_validator.html)；所有交易的网络费会作为奖励发给当前打包交易出块的共识节点。
 
 ## 有哪些 Neo 的区块链浏览器可以使用？
 
