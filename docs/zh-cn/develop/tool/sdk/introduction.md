@@ -36,7 +36,7 @@
 
 > [!Note]
 >
-> 如果使用SDK构造交易，调用要添加签名的合约方法，需要拷贝一份当前Neo-CLI节点的 protocol.json 到Visual Studio 2019程序运行目录下，例如 \bin 或 \publish 目录，以确保 SDK 使用的 `Magic` 和区块链一致，否则 SDK 构造的交易在区块链中将无法验签通过。
+> 如果使用SDK构造要添加签名的交易，需要确保构造的RpcClient对象和其连接的区块链网络有相同的配置，否则 SDK 构造的交易在区块链中将无法验签通过，具体做法是：构造RpcClient对象时Load Neo-CLI 节点的 config.json，例如： RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json")) 。
 
 ## 异常处理
 

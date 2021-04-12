@@ -27,8 +27,7 @@ ContractManifest manifest = ContractManifest.Parse(File.ReadAllBytes(manifestFil
 
 ```c#
 // create the deploy contract transaction
-byte[] script = nefFile.Script;
-Transaction transaction = await contractClient.CreateDeployContractTxAsync(script, manifest, senderKeyPair);
+Transaction transaction = await contractClient.CreateDeployContractTxAsync(nefFile.ToArray(), manifest, senderKeyPair);
 ```
 
 交易构建后需要广播到链上:
@@ -74,7 +73,7 @@ namespace ConsoleApp1
         private static async Task Test()
         {
             // choose a neo node with rpc opened, here we use the localhost
-            RpcClient client = new RpcClient("http://127.0.0.1:10332");
+            RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
             ContractClient contractClient = new ContractClient(client);
 
             string nefFilePath = "sc/Contract1.nef";
@@ -93,8 +92,7 @@ namespace ConsoleApp1
             KeyPair senderKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
 
             // create the deploy transaction
-            byte[] script = nefFile.Script;
-            Transaction transaction = await contractClient.CreateDeployContractTxAsync(script, manifest, senderKey).ConfigureAwait(false);
+            Transaction transaction = await contractClient.CreateDeployContractTxAsync(nefFile.ToArray(), manifest, senderKey).ConfigureAwait(false);
 
             // Broadcast the transaction over the NEO network
             await client.SendRawTransactionAsync(transaction).ConfigureAwait(false);
@@ -115,7 +113,7 @@ namespace ConsoleApp1
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://127.0.0.1:10332");
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 ContractClient contractClient = new ContractClient(client);
 
 // get the contract hash
@@ -130,7 +128,7 @@ Console.WriteLine($"The name is {invokeResult.Stack.Single().GetString()}");
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://127.0.0.1:10332");
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 
 // get the contract hash
 UInt160 scriptHash = NativeContract.NEO.Hash;

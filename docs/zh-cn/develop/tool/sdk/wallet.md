@@ -79,9 +79,9 @@ ScriptHash 在 Neo 中对应 `UInt160`，本质上是一个 20 位的 byte 数�
 using Neo.Wallets;
 
 // ScriptHash to address
-string adddress = scriptHash.ToAddress();
+string adddress = scriptHash.ToAddress(ProtocolSettings.Default.AddressVersion);
 // address to ScriptHash
-scriptHash = adddress.ToScriptHash();
+scriptHash = adddress.ToScriptHash(ProtocolSettings.Default.AddressVersion);
 ```
 
 ### 钱包
@@ -124,7 +124,7 @@ using (wallet.Unlock(password))
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://127.0.0.1:10332");
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 WalletAPI walletAPI = new WalletAPI(client);
 ```
 
@@ -147,8 +147,8 @@ BigInteger balance = await walletAPI.GetTokenBalanceAsync(tokenHash, address).Co
 
 ```c#
 // Get the NEO balance of account
-UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash);
-UInt160 accountHash = Utility.GetScriptHash(address);
+UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash, ProtocolSettings.Default);
+UInt160 accountHash = Utility.GetScriptHash(address, ProtocolSettings.Default);
 Nep17API nep17API = new Nep17API(client);
 BigInteger balance = await nep17API.BalanceOfAsync(tokenScriptHash, accountHash).ConfigureAwait(false);
 ```
@@ -223,7 +223,7 @@ string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
 KeyPair sender = Utility.GetKeyPair(wif);
-UInt160 receiver = Utility.GetScriptHash(address);
+UInt160 receiver = Utility.GetScriptHash(address, ProtocolSettings.Default);
 
 // Transfer 10 NEO from wif to address
 await walletAPI.TransferAsync(NativeContract.NEO.Hash, sender, receiver, 10).ConfigureAwait(false);
@@ -239,7 +239,7 @@ KeyPair keyPair3 = Utility.GetKeyPair("L3TbPZ3Gtqh3TTk2CWn44m9iiuUhBGZWoDJQuvVw5
 KeyPair keyPair4 = Utility.GetKeyPair("L3Ke1RSBycXmRukv27L6o7sQWzDwDbFcbfR9oBBwXbCKHdBvb4ZM");
 
 //make transaction 
-Transaction tx = await walletAPI.TransferAsync(NativeContract.GAS.Hash, 3, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey, keyPair3.PublicKey, keyPair4.PublicKey }, new KeyPair[] { keyPair1, keyPair2, keyPair3 }, Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash, new BigInteger(10 * NativeContract.GAS.Factor)).ConfigureAwait(false);
+Transaction tx = await walletAPI.TransferAsync(NativeContract.GAS.Hash, 3, new ECPoint[] { keyPair1.PublicKey, keyPair2.PublicKey, keyPair3.PublicKey, keyPair4.PublicKey }, new KeyPair[] { keyPair1, keyPair2, keyPair3 }, Contract.CreateSignatureContract(receiverKey.PublicKey).ScriptHash, 10 * NativeContract.GAS.Factor).ConfigureAwait(false);
 ```
 
 

@@ -10,14 +10,14 @@
 
 ```c#
 // TestNet Node
-RpcClient client = new RpcClient("http://seed1t.neo.org:20332");
+RpcClient client = new RpcClient(new Uri("http://seed1t.neo.org:20332"), null, null, ProtocolSettings.Load("config.json"));
 ```
 
 本地节点（本地节点是本地维护的 Neo-CLI，可以根据配置连接主网，测试网或者私链）：
 
 ```c#
 // Local Node
-RpcClient client = new RpcClient("http://127.0.0.1:10332");
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 ```
 
 > [!Note]
@@ -204,7 +204,7 @@ string version = rpcVersion.UserAgent;
 发送并广播序列化后的交易：
 
 ```c#
-UInt256 txHash = await client.SendRawTransactionAsync("80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac").ConfigureAwait(false);
+UInt256 txHash = await client.SendRawTransactionAsync("80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac".HexToBytes()).ConfigureAwait(false);
 ```
 
 或者将交易对象tx在网络中进行广播：
@@ -216,7 +216,7 @@ UInt256 txHash = await client.SendRawTransactionAsync(transaction).ConfigureAwai
 发送并广播序列化后的区块：
 
 ```c#
-UInt256 blockHash = await client.SubmitBlockAsync("000000000000000000000000000000000000000000000000000000000000000000000000845c34e7c1aed302b1718e914da0c42bf47c476ac4d89671f278d8ab6d27aa3d65fc8857000000001dac2b7c00000000be48d3a3f5d10013ab9ffee489706078714f1ea2010001510400001dac2b7c00000000400000455b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e882a1227d2c7b226c616e67223a22656e222c226e616d65223a22416e745368617265227d5d0000c16ff28623000000da1745e9b549bd0bfa1a569971c77eba30cd5a4b00000000400001445b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e5b881227d2c7b226c616e67223a22656e222c226e616d65223a22416e74436f696e227d5d0000c16ff286230008009f7fd096d37ed2c0e3f7f0cfc924beef4ffceb680000000001000000019b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50000c16ff2862300be48d3a3f5d10013ab9ffee489706078714f1ea201000151").ConfigureAwait(false);
+UInt256 blockHash = await client.SubmitBlockAsync("000000000000000000000000000000000000000000000000000000000000000000000000845c34e7c1aed302b1718e914da0c42bf47c476ac4d89671f278d8ab6d27aa3d65fc8857000000001dac2b7c00000000be48d3a3f5d10013ab9ffee489706078714f1ea2010001510400001dac2b7c00000000400000455b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e882a1227d2c7b226c616e67223a22656e222c226e616d65223a22416e745368617265227d5d0000c16ff28623000000da1745e9b549bd0bfa1a569971c77eba30cd5a4b00000000400001445b7b226c616e67223a227a682d434e222c226e616d65223a22e5b08fe89a81e5b881227d2c7b226c616e67223a22656e222c226e616d65223a22416e74436f696e227d5d0000c16ff286230008009f7fd096d37ed2c0e3f7f0cfc924beef4ffceb680000000001000000019b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50000c16ff2862300be48d3a3f5d10013ab9ffee489706078714f1ea201000151".HexToBytes()).ConfigureAwait(false);
 ```
 ## 智能合约
 
@@ -224,23 +224,39 @@ UInt256 blockHash = await client.SubmitBlockAsync("00000000000000000000000000000
 通过指定的智能合约脚本散列、方法名和参数在虚拟机中运行后返回结果：
 
 ```c#
-RpcStack rpcStack = new RpcStack()
+string contractHash = "0xd2a4cff31913016155e38e474a2c06d08be276cf";
+string method = "transfer";
+RpcStack from = new RpcStack()
 {
     Type = "Hash160",
-    Value = "91b83e96f2a7c4fdf0c1688441ec61986c7cae26"
+    Value = "0x262678399f390ee9f0cfd9ac8c65df8c149b4e9c"
 };
-UInt160 scriptHashesForVerifying = UInt160.Parse("0x20e22e16cfbcfdd29f347268427b76863b7679fa");
-RpcInvokeResult rpcInvokeResult = await client.InvokeFunctionAsync("af7c7328eee5a275a3bcaee2bf0cf662b5e739be", "balanceOf", new RpcStack[] { rpcStack },scriptHashesForVerifying).ConfigureAwait(false);
-string script = rpcInvokeResult.Script;
-string engineState = rpcInvokeResult.State;
-long gasConsumed = long.Parse(rpcInvokeResult.GasConsumed);
-ContractParameter[] resultStacks = rpcInvokeResult.Stack;
-foreach (var item in resultStacks)
+RpcStack to = new RpcStack()
 {
-    ContractParameterType contractParameterType = item.Type;
-    object value = item.Value;
-}
-string transaction = rpcInvokeResult.Tx;
+    Type = "Hash160",
+    Value = "0x753b9b069ef88dea7323a0f1ba6cb24486584f05"
+};
+RpcStack amount = new RpcStack()
+{
+    Type = "Integer",
+    Value = "120000000"
+};
+RpcStack data = new RpcStack()
+{
+    Type = "String",
+    Value = "my data"
+};
+
+Signer signer0 = new Signer()
+{
+    Account = UInt160.Parse("0x262678399f390ee9f0cfd9ac8c65df8c149b4e9c")
+};
+
+RpcInvokeResult rpcInvokeResult = await _rpcClient.InvokeFunctionAsync(contractHash, method, new RpcStack[] { from, to, amount, data }, signer0).ConfigureAwait(false);
+
+string script = rpcInvokeResult.Script;
+var engineState = rpcInvokeResult.State;
+long gasConsumed = rpcInvokeResult.GasConsumed;
 ```
 
 ### 调用指定脚本
@@ -248,8 +264,7 @@ string transaction = rpcInvokeResult.Tx;
 
 ```c#
 byte[] script = "00046e616d656724058e5e1b6008847cd662728549088a9ee82191".HexToBytes();
-UInt160 scriptHashesForVerifying = UInt160.Parse("0x20e22e16cfbcfdd29f347268427b76863b7679fa");
-RpcInvokeResult rpcInvokeResult = await client.InvokeScriptAsync(script, scriptHashesForVerifying).ConfigureAwait(false);
+RpcInvokeResult rpcInvokeResult = await client.InvokeScriptAsync(script).ConfigureAwait(false);
 ```
 
 ### 获取未领取的Gas
