@@ -34,7 +34,9 @@ This document is applicable to Neo N3. It is recommended you use NEO SDK in conj
 
 > [!Note]
 >
-> In case that you use SDK to construct a transaction and invoke the contract method that requires a signature, you need to copy the protocol.json file of the current Neo-CLI node into the Visual Studio 2019 running directory, such as \bin or \publish, to ensure the `Magic` used by SDK is the same as that of blockchain, or the transaction will not be verified through blockchain.
+> If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient obeject and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+>
+> RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"))
 
 ## Exception handing
 

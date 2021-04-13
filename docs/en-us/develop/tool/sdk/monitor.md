@@ -11,7 +11,7 @@ Gets the latest block height or hash:
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://127.0.0.1:10332");
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 
 // get the hash of the tallest block in the main chain
 string hash = await client.GetBestBlockHashAsync().ConfigureAwait(false);
@@ -51,7 +51,7 @@ Invokes the method  `policyAPI` in the native contract `PolicyContract` to get t
 
 ```c#
 // choose a neo node with rpc opened
-PolicyAPI policyAPI = new PolicyAPI(new RpcClient("http://127.0.0.1:10332"));
+PolicyAPI policyAPI = new PolicyAPI(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 
 // get the system fee per byte
 long feePerByte = await policyAPI.GetFeePerByteAsync().ConfigureAwait(false); // 1000, 0.00001000 GAS per byte
@@ -67,13 +67,13 @@ UInt160 account = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
 bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 ```
 
-## Getting NEP-5 contract information
+## Getting NEP-17 contract information
 
 NEP17 is an asset standard for Neo N3, such as NEO and GAS, both of which are assets based on NEP17 native contract. You can invoke  `Nep17API`  to get the name, mark, decimal place, and amount of the NEP17 contract.
 
 ```c#
 // get nep17 token info
-Nep17API nep17API = new Nep17API(new RpcClient("http://127.0.0.1:10332"));
+Nep17API nep17API = new Nep17API(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 RpcNep17TokenInfo tokenInfo = await nep17API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 ```
 
