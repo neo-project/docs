@@ -1,8 +1,12 @@
-# listplugins method
+# listplugins Method
 
 Returns a list of plugins loaded by the node.
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+## Example
 
 Request body:
 
@@ -23,11 +27,34 @@ Response body:
     "id": 1,
     "result": [
         {
-            "name": "SimplePolicyPlugin",
-            "version": "2.10.1.0",
+            "name": "DBFTPlugin",
+            "version": "3.0.0.0",
             "interfaces": [
-                "ILogPlugin",
-                "IPolicyPlugin"
+                "IP2PPlugin"
+            ]
+        },
+        {
+            "name": "LevelDBStore",
+            "version": "3.0.0.0",
+            "interfaces": []
+        },
+        {
+            "name": "RpcNep17Tracker",
+            "version": "3.0.0.0",
+            "interfaces": [
+                "IPersistencePlugin"
+            ]
+        },
+        {
+            "name": "RpcServer",
+            "version": "3.0.0.0",
+            "interfaces": []
+        },
+        {
+            "name": "SystemLog",
+            "version": "3.0.0.0",
+            "interfaces": [
+                "ILogPlugin"
             ]
         }
     ]

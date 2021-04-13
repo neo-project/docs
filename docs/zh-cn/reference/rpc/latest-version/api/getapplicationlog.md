@@ -1,69 +1,76 @@
 # getapplicationlog 方法
 
-根据指定的 NEP-5 交易 ID 获取合约日志。完整的合约日志会记录到 ApplicationLogs 目录。
+根据交易 txid 获取合约的事件信息。合约事件信息会保存到 ApplicationLogs 目录。
 
 > [!Note]
 >
-> 此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases) 插件才可以调用。
+> 此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 参数
+## 参数说明
 
-txid：交易ID
+- txid/blockhash：交易 ID 或区块 hash
 
-#### 调用示例
+- trigger type:  可选参数， 有以下 trigger 类型：
+
+  - OnPersist
+  - PostPersist
+  - Application
+  - Verification
+  - System: OnPersist | PostPersist
+  - All: OnPersist | PostPersist | Verification | Application
+
+  默认获取所有类型，也可以指定某种类型。 
+
+## 调用示例
 
 请求正文：
 
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getapplicationlog",
-  "params": ["92b1ecc0e8ca8d6b03db7fe6297ed38aa5578b3e6316c0526b414b453c89e20d"],
-  "id": 1
+  "params": [
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
+  ]
 }
 ```
 
-响应正文：
+该交易是将 100 GAS 从 NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF 转到 NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ。
+
+响应正文 ：
 
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0x92b1ecc0e8ca8d6b03db7fe6297ed38aa5578b3e6316c0526b414b453c89e20d",
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
         "executions": [
             {
                 "trigger": "Application",
-                "contract": "0x6ec33f0d370617dd85e51d31c483b6967074249d",
                 "vmstate": "HALT",
-                "gas_consumed": "2.912",
-                "stack": [
-                    {
-                        "type": "Integer",
-                        "value": "1"
-                    }
-                ],
+                "exception": null,
+                "gasconsumed": "9999540",
+                "stack": [],
                 "notifications": [
                     {
-                        "contract": "0x78e6d16b914fe15bc16150aeb11d0c2a8e532bdd",
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                        "eventname": "Transfer",
                         "state": {
                             "type": "Array",
                             "value": [
                                 {
-                                    "type": "ByteArray",
-                                    "value": "7472616e73666572"
+                                    "type": "ByteString",
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
                                 },
                                 {
-                                    "type": "ByteArray",
-                                    "value": "d086ac0ed3e578a1afd3c0a2c0d8f0a180405be2"
+                                    "type": "ByteString",
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
                                 },
                                 {
-                                    "type": "ByteArray",
-                                    "value": "002ba7f83fd4d3975dedb84de27345684bea2996"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "0065cd1d00000000"
+                                    "type": "Integer",
+                                    "value": "10000000000"
                                 }
                             ]
                         }
@@ -76,4 +83,21 @@ txid：交易ID
 ```
 
 响应说明：
-其中 gas_consumed 表示该交易消耗的 gas 数量，即交易手续费。每笔交易会有10 gas 的免费额度。如果数量小于10，则不收取手续费，如果大于10，那么收取超过10的那部分作为手续费并向上取整。例如 gas_consumed = 12.3，那么实际收取的手续费为3 gas.
+
+- txid：交易 ID。
+
+- trigger：触发器。
+
+- vmstate：虚拟机执行状态，HALT 代表成功，FAULT 代表失败。
+
+- gasconsumed ：该交易消耗的 GasToken 数量，即交易手续费。
+
+- notifications：智能合约通知。
+
+- contract：发出通知的合约，这里是 GasToken 原生合约。
+
+- eventname：通知的事件名称。
+
+- state：通知内容。其中 ByteString 为 Base64 编码表示的钱包地址，可以在 [Data Convertor](https://neo.org/converter/index) 进行转换。
+
+

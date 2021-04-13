@@ -1,6 +1,6 @@
 # Iterator Class
 
-Represents the enumerator.
+The iterator for smart contracts.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -9,22 +9,23 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public class Iterator<TKey, TValue>
+public class Iterator
+public class Iterator<T> : Iterator, IApiInterface
 ```
 
 ## Attributes
 
-| Name                       | Description                           |
-| -------------------------- | ------------------------------------- |
-| [Key](Iterator/Key.md)     | Gets the Key for the current cursor   |
-| [Value](Iterator/Value.md) | Gets the value for the current cursor |
+| Name | Description          |
+| ----- | ------------------------ |
+| Value | Gets the current value of the iterator |
 
-## Method
+## Methods
 
-| Name                       | Description                                                  |
-| -------------------------- | ------------------------------------------------------------ |
-| [Next()](Iterator/Next.md) | Moves the cursor down and returns the cursor status (true: not to the end; false: to the end) |
+| Name                            | Name                                                     |
+| ----------------------------------- | ------------------------------------------------------------ |
+| Create(Map\<TKey, TValue\> entry) | Static method that creates iterators                         |
+| Create(IEnumerable\<TValue\> entry)  | Static method that creates iterators            |
+| Concat(Iterator\<TKey, TValue\> value) |Connects iterators |
+| Next()            | Returns if there is a next element in the iterator and if yes, locates to the next element |
 
-## Constructor
-
-The `Iterator\<TKey, TValue>` object is constructed through [Storage.Find(...)](Storage.md).
+You can also use [Storage.Find()](Storage/Find.md)  to construct the Iterator object.

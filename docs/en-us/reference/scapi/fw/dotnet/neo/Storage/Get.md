@@ -8,41 +8,28 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-This method has multiple overloads:
-
 ```c#
-public extern byte[] Get(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key)
-```
-
-```c#
-public extern byte[] Get(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key)
-```
-
-```c#
-public extern byte[] Get(byte[] key)
-```
-
-```c#
-public extern byte[] Get(string key)
+public static extern byte[] Get(StorageContext context, byte[] key);
+public static extern byte[] Get(StorageContext context, ByteString key);
 ```
 
 Parameters:
 
-- Context: Storage context as a [StorageContext](../StorageContext.md). If StorageContext is not passed in, CurrentContext is used by default.
+Context: Storage context as a [StorageContext](../StorageContext.md).
 
-- Key: Key as a byte array or string.
-
+Key: Key as a byte array or string.
 
 Return Value: The value corresponding to the key as a byte array.
 
 ## Example
 
 ```c#
-public class Contract1 : SmartContract
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
-        byte[] value = Storage.Get("contract");
+        byte[] value = Storage.Get(Storage.CurrentContext, new byte[] { 0 });
+        byte[] value = Storage.Get(Storage.CurrentContext, "aa");
     }
 }
 ```

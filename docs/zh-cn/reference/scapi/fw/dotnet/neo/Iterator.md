@@ -1,6 +1,6 @@
 # Iterator 类
 
-用来表示枚举器的类。
+智能合约中的迭代器。
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
@@ -9,22 +9,23 @@
 ## 语法
 
 ```c#
-public class Iterator<TKey, TValue>
+public class Iterator
+public class Iterator<T> : Iterator, IApiInterface
 ```
 
 ## 属性
 
-|                                                        | 名称                       | 说明                 |
-| ------------------------------------------------------ | -------------------------- | -------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Key](Iterator/Key.md)     | 获得当前游标的 Key   |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Value](Iterator/Value.md) | 获得当前游标的 Value |
+| 名称  | 说明               |
+| ----- | ------------------ |
+| Value | 获得迭代器当前的值 |
 
 ## 方法
 
-|                                                        | 名称                       | 说明                                                         |
-| ------------------------------------------------------ | -------------------------- | ------------------------------------------------------------ |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Next()](Iterator/Next.md) | 游标向下移动，返回游标状态（true: 没有到末尾 false: 到末尾） |
+| 名称                                | 说明                                                         |
+| ----------------------------------- | ------------------------------------------------------------ |
+| Create(Map\<TKey, TValue\> entry) | 静态方法，创建迭代器                                         |
+| Create(IEnumerable\<TValue\> entry)  | 静态方法，创建迭代器                                                |
+| Concat(Iterator\<TKey, TValue\> value) |合并迭代器 |
+| Next()            | 获得迭代器中是否有下个元素，如果有则迭代器将当前位置定位到下个元素 |
 
-## 构造方法
-
-通过 [Storage.Find(...)](Storage.md) 来构造 Iterator\<TKey, TValue> 对象。
+也可通过 [Storage.Find()](Storage/Find.md) 来构造 Iterator 对象。

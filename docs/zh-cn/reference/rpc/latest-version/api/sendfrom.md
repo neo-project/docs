@@ -4,44 +4,41 @@
 
 > [!Note]
 >
-> 执行此命令前需要：
->
-> -  在 NEO-CLI 节点中打开钱包。
-> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 参数
+## 参数说明
 
-- asset_id：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
+- asset_id：资产 ID（资产标识符），即 NEP-17合约的脚本哈希。
 
-  如NEO为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+  如 NeoToken 为：0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-  NeoGas为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-  RPX sale为：ecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9
-
-  其余资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
+  GasToken 为：0xd2a4cff31913016155e38e474a2c06d08be276cf
 
 - from：转账地址。
 
-- to: 收款地址。
+- address：收款地址。
 
 - value：转账金额。
 
-- fee：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
-
-- change_address：找零地址，可选参数，默认为钱包中第一个标准地址。
+- signers：交易签名账户。
 
 
-#### 调用示例
+## 调用示例
 
 请求正文：
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "sendfrom",
-  "params": ["602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7","AWg3L6W68bFfSS13Tf4rt8CRdG2ktaAjGb","AWg3L6W68bFfSS13Tf4rt8CRdG2ktaAjGb",1],
-  "id": 1
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "sendfrom",
+    "params": [
+        "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
+        "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        100000000
+    ]
 }
 ```
 
@@ -49,43 +46,32 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "txid": "0x60170ad03627ce45c7dd56ececbf33b26eab0845aa8b2cbbeecaefc5771b9eb1",
-    "size": 262,
-    "type": "ContractTransaction",
-    "version": 0,
-    "attributes": [],
-    "vin": [
-      {
-        "txid": "0xd2188c1bd454ac883d79826e5c677deedb91cc61ec6d819df48ff4a963873adb",
-        "vout": 1
-      }
-    ],
-    "vout": [
-      {
-        "n": 0,
-        "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-        "value": "1",
-        "address": "AWg3L6W68bFfSS13Tf4rt8CRdG2ktaAjGb"
-      },
-      {
-        "n": 1,
-        "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
-        "value": "17.4798197",
-        "address": "AWg3L6W68bFfSS13Tf4rt8CRdG2ktaAjGb"
-      }
-    ],
-    "sys_fee": "0",
-    "net_fee": "0",
-    "scripts": [
-      {
-        "invocation": "40a8d40e1652d7ad0c7bb59ef8217237037824af54ee5e46f2fd096c44dd46ef27fa7255010e2a8a2166af8a904e13b96bd3ac82e791633685824c35e7f2731e79",
-        "verification": "2102883118351f8f47107c83ab634dc7e4ffe29d274e7d3dcf70159c8935ff769bebac"
-      }
-    ]
-  }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0xe01b16626dec583941c1053467100041ce868e3b35e5fe3a85e530792cc9149d",
+        "size": 252,
+        "version": 0,
+        "nonce": 2114899852,
+        "sender": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "sysfee": "9999540",
+        "netfee": "1235610",
+        "validuntilblock": 5810,
+        "signers": [
+            {
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
+                "scopes": "CalledByEntry"
+            }
+        ],
+        "attributes": [],
+        "script": "CwIA4fUFDBT6ifssFN8PWd3fBPblZRfys0qu6wwU4rZTInKT6ZxPKQbVNVOrtKZy34YUwB8MCHRyYW5zZmVyDBQos62rcmn5whgds8t0Hr9VGTDicEFifVtSOQ==",
+        "witnesses": [
+            {
+                "invocation": "DEAUQ3hUPg/qi77rnSzXRgd2RYdZCsPDBa/n0a6M+sCsOpC/YyLPeeoqcVNAyh73qpocOqdX1tnGeizh+C8cXoK0",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
+            }
+        ]
+    }
 }
 ```
 

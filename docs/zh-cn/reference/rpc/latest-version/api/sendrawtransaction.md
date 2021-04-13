@@ -2,11 +2,15 @@
 
 广播交易。
 
-#### 参数说明
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
-hex：在程序中构造的已签名的交易序列化后的 16 进制字符串。
+## 参数说明
 
-#### 调用示例
+transaction：在程序中构造的已签名的交易序列化后的 Base64 加密字符串。
+
+## 调用示例
 
 请求正文：
 
@@ -14,7 +18,7 @@ hex：在程序中构造的已签名的交易序列化后的 16 进制字符串�
 {
   "jsonrpc": "2.0",
   "method": "sendrawtransaction",
-  "params": ["80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"],
+  "params": ["ALmNfAb4lqIAAAAAAAZREgAAAAAA8S8AAAEKo4e1Ppa3mJpjFDGgVt0fQKBC9gEAKQwFd29ybGQRwAwDcHV0DBR9rbALvBGpMrl7cXVBdSsPOC0EmUFifVtSAUIMQACXF48H1VRmI50ievPfC042rJgj7ZQ3Y4ff27abOpeclh+6KpsL6gWfZTAUyFOwdjkA7CWLM3HsovQeDQlI0oopDCEDzqPi+B8a+TUi0p7eTySh8L7erXKTOR0ziA9Uddl4eMkLQZVEDXg="],
   "id": 1
 }
 ```
@@ -23,9 +27,11 @@ hex：在程序中构造的已签名的交易序列化后的 16 进制字符串�
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": true
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x13ccdb9f7eda95a24aa5a4841b24fed957fe7f1b944996cbc2e92a4fa4f1fa73"
+    }
 }
 ```
 
@@ -36,25 +42,26 @@ hex：在程序中构造的已签名的交易序列化后的 16 进制字符串�
     "jsonrpc": "2.0",
     "id": 1,
     "error": {
-        "code": -501,
-        "message": "Block or transaction already exists and cannot be sent repeatedly."
+        "code": -500,
+        "message": "AlreadyExists"
     }
 }
 ```
 
 响应说明：
 
-当 result 为 true 时表明当前交易广播成功，
+当 result 返回交易的 txid 时，表明交易广播成功。
 
 当 result 为 false 时表示当前交易广播失败，原因可能有双重花费、签名不完整等。
 
 本示例中广播了一个已经确认的交易，因为双重花费所以广播失败。可能会遇到以下错误码：
 
-错误码 | 消息 |
-| --------------- | ---- |
-| -501 | Block or transaction already exists and cannot be sent repeatedly. |
-| -502 | The memory pool is full and no more transactions can be sent. |
-| -503 | The block cannot be validated. |
-| -504 | Block or transaction validation failed. |
-| -505 | One of the Policy filters failed. |
-| -500 | Unknown error.
+| 错误代码 | 信息              | 注释                                  |
+| -------- | ----------------- | ------------------------------------- |
+| 500      | AlreadyExists     | 重复交易                              |
+|          | OutOfMemory       | 交易数超出 Mempool 预设的最大容量     |
+|          | UnableToVerify    | 未知区块信息                          |
+|          | Invalid           | 不正确的格式或参数                    |
+|          | Expired           | 过期的区块信息                        |
+|          | InsufficientFunds | 余额不足                              |
+|          | PolicyFail        | 不符合规则的行为（如 黑名单地址交易） |

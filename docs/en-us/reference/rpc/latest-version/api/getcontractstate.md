@@ -1,12 +1,16 @@
-# getcontractstate Method
+﻿# getcontractstate Method
 
-Queries contract information, according to the contract script hash. 
+Queries the contract information with the contract script hash or native contract name. 
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-Script_hash：Contract script hash 
+## Parameter Description
 
-#### Example
+script_hash / name: Contract script hash or the native contract name.
+
+## Example
 
 Request body:
 
@@ -14,7 +18,18 @@ Request body:
 {
   "jsonrpc": "2.0",
   "method": "getcontractstate",
-  "params": ["dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f"],
+  "params": ["neotoken"],
+  "id": 1
+}
+```
+
+or
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getcontractstate",
+  "params": ["0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"],
   "id": 1
 }
 ```
@@ -23,26 +38,229 @@ Response body:
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "version": 0,
-        "hash": "0xdc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f",
-        "script": "5fc56b6c766b00527ac46c766b51527ac46107576f6f6c6f6e676c766b52527ac403574e476c766b53527ac4006c766b54527ac4210354ae498221046c666efebbaee9bd0eb4823469c98e748494a92a71f346b1a6616c766b55527ac46c766b00c3066465706c6f79876c766b56527ac46c766b56c36416006c766b55c36165f2026c766b57527ac462d8016c766b55c36165d801616c766b00c30b746f74616c537570706c79876c766b58527ac46c766b58c36440006168164e656f2e53746f726167652e476574436f6e7465787406737570706c79617c680f4e656f2e53746f726167652e4765746c766b57527ac46270016c766b00c3046e616d65876c766b59527ac46c766b59c36412006c766b52c36c766b57527ac46247016c766b00c30673796d626f6c876c766b5a527ac46c766b5ac36412006c766b53c36c766b57527ac4621c016c766b00c308646563696d616c73876c766b5b527ac46c766b5bc36412006c766b54c36c766b57527ac462ef006c766b00c30962616c616e63654f66876c766b5c527ac46c766b5cc36440006168164e656f2e53746f726167652e476574436f6e746578746c766b51c351c3617c680f4e656f2e53746f726167652e4765746c766b57527ac46293006c766b51c300c36168184e656f2e52756e74696d652e436865636b5769746e657373009c6c766b5d527ac46c766b5dc3640e00006c766b57527ac46255006c766b00c3087472616e73666572876c766b5e527ac46c766b5ec3642c006c766b51c300c36c766b51c351c36c766b51c352c36165d40361527265c9016c766b57527ac4620e00006c766b57527ac46203006c766b57c3616c756653c56b6c766b00527ac4616168164e656f2e53746f726167652e476574436f6e746578746c766b00c3617c680f4e656f2e53746f726167652e4765746165700351936c766b51527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b51c361651103615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e7465787406737570706c79617c680f4e656f2e53746f726167652e4765746165f40251936c766b52527ac46168164e656f2e53746f726167652e476574436f6e7465787406737570706c796c766b52c361659302615272680f4e656f2e53746f726167652e50757461616c756653c56b6c766b00527ac461516c766b51527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b51c361654002615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e7465787406737570706c796c766b51c361650202615272680f4e656f2e53746f726167652e50757461516c766b52527ac46203006c766b52c3616c756659c56b6c766b00527ac46c766b51527ac46c766b52527ac4616168164e656f2e53746f726167652e476574436f6e746578746c766b00c3617c680f4e656f2e53746f726167652e4765746c766b53527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b51c3617c680f4e656f2e53746f726167652e4765746c766b54527ac46c766b53c3616576016c766b52c3946c766b55527ac46c766b54c3616560016c766b52c3936c766b56527ac46c766b55c300a2640d006c766b52c300a2620400006c766b57527ac46c766b57c364ec00616168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b55c36165d800615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e746578746c766b51c36c766b56c361659c00615272680f4e656f2e53746f726167652e5075746155c57600135472616e73666572205375636365737366756cc476516c766b00c3c476526c766b51c3c476536c766b52c3c476546168184e656f2e426c6f636b636861696e2e476574486569676874c46168124e656f2e52756e74696d652e4e6f7469667961516c766b58527ac4620e00006c766b58527ac46203006c766b58c3616c756653c56b6c766b00527ac4616c766b00c36c766b51527ac46c766b51c36c766b52527ac46203006c766b52c3616c756653c56b6c766b00527ac461516c766b00c36a527a527ac46c766b51c36c766b52527ac46203006c766b52c3616c7566",
-        "parameters": [
-            "ByteArray"
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "id": -5,
+    "updatecounter": 0,
+    "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
+    "nef": {
+      "magic": 860243278,
+      "compiler": "neo-core-v3.0",
+      "tokens": [],
+      "script": "EEEa93tnQBBBGvd7Z0AQQRr3e2dAEEEa93tnQBBBGvd7Z0AQQRr3e2dAEEEa93tnQBBBGvd7Z0AQQRr3e2dAEEEa93tnQBBBGvd7Z0AQQRr3e2dAEEEa93tnQBBBGvd7Z0AQQRr3e2dAEEEa93tnQA==",
+      "checksum": 1841570703
+    },
+    "manifest": {
+      "name": "NeoToken",
+      "groups": [],
+      "supportedstandards": [
+        "NEP-17"
+      ],
+      "abi": {
+        "methods": [
+          {
+            "name": "balanceOf",
+            "parameters": [
+              {
+                "name": "account",
+                "type": "Hash160"
+              }
+            ],
+            "returntype": "Integer",
+            "offset": 0,
+            "safe": true
+          },
+          {
+            "name": "decimals",
+            "parameters": [],
+            "returntype": "Integer",
+            "offset": 7,
+            "safe": true
+          },
+          {
+            "name": "getCandidates",
+            "parameters": [],
+            "returntype": "Array",
+            "offset": 14,
+            "safe": true
+          },
+          {
+            "name": "getCommittee",
+            "parameters": [],
+            "returntype": "Array",
+            "offset": 21,
+            "safe": true
+          },
+          {
+            "name": "getGasPerBlock",
+            "parameters": [],
+            "returntype": "Integer",
+            "offset": 28,
+            "safe": true
+          },
+          {
+            "name": "getNextBlockValidators",
+            "parameters": [],
+            "returntype": "Array",
+            "offset": 35,
+            "safe": true
+          },
+          {
+            "name": "getRegisterPrice",
+            "parameters": [],
+            "returntype": "Integer",
+            "offset": 42,
+            "safe": true
+          },
+          {
+            "name": "registerCandidate",
+            "parameters": [
+              {
+                "name": "pubkey",
+                "type": "PublicKey"
+              }
+            ],
+            "returntype": "Boolean",
+            "offset": 49,
+            "safe": false
+          },
+          {
+            "name": "setGasPerBlock",
+            "parameters": [
+              {
+                "name": "gasPerBlock",
+                "type": "Integer"
+              }
+            ],
+            "returntype": "Void",
+            "offset": 56,
+            "safe": false
+          },
+          {
+            "name": "setRegisterPrice",
+            "parameters": [
+              {
+                "name": "registerPrice",
+                "type": "Integer"
+              }
+            ],
+            "returntype": "Void",
+            "offset": 63,
+            "safe": false
+          },
+          {
+            "name": "symbol",
+            "parameters": [],
+            "returntype": "String",
+            "offset": 70,
+            "safe": true
+          },
+          {
+            "name": "totalSupply",
+            "parameters": [],
+            "returntype": "Integer",
+            "offset": 77,
+            "safe": true
+          },
+          {
+            "name": "transfer",
+            "parameters": [
+              {
+                "name": "from",
+                "type": "Hash160"
+              },
+              {
+                "name": "to",
+                "type": "Hash160"
+              },
+              {
+                "name": "amount",
+                "type": "Integer"
+              },
+              {
+                "name": "data",
+                "type": "Any"
+              }
+            ],
+            "returntype": "Boolean",
+            "offset": 84,
+            "safe": false
+          },
+          {
+            "name": "unclaimedGas",
+            "parameters": [
+              {
+                "name": "account",
+                "type": "Hash160"
+              },
+              {
+                "name": "end",
+                "type": "Integer"
+              }
+            ],
+            "returntype": "Integer",
+            "offset": 91,
+            "safe": true
+          },
+          {
+            "name": "unregisterCandidate",
+            "parameters": [
+              {
+                "name": "pubkey",
+                "type": "PublicKey"
+              }
+            ],
+            "returntype": "Boolean",
+            "offset": 98,
+            "safe": false
+          },
+          {
+            "name": "vote",
+            "parameters": [
+              {
+                "name": "account",
+                "type": "Hash160"
+              },
+              {
+                "name": "voteTo",
+                "type": "PublicKey"
+              }
+            ],
+            "returntype": "Boolean",
+            "offset": 105,
+            "safe": false
+          }
         ],
-        "returntype": "ByteArray",
-        "name": "Woolong",
-        "code_version": "0.9.2",
-        "author": "lllwvlvwlll",
-        "email": "lllwvlvwlll@gmail.com",
-        "description": "GO NEO!!!",
-        "properties": {
-            "storage": true,
-            "dynamic_invoke": false
+        "events": [
+          {
+            "name": "Transfer",
+            "parameters": [
+              {
+                "name": "from",
+                "type": "Hash160"
+              },
+              {
+                "name": "to",
+                "type": "Hash160"
+              },
+              {
+                "name": "amount",
+                "type": "Integer"
+              }
+            ]
+          }
+        ]
+      },
+      "permissions": [
+        {
+          "contract": "*",
+          "methods": "*"
         }
+      ],
+      "trusts": [],
+      "extra": null
     }
+  }
 }
 ```
-

@@ -1,8 +1,12 @@
-# getconnectioncount Method
+﻿# getconnectioncount Method
 
 Gets the current number of connections for the node.
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+## Example
 
 Request body:
 

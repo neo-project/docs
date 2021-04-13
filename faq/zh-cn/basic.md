@@ -1,84 +1,67 @@
 # 一般问题
 
-## NEO 是什么？
+## Neo 是什么？
 
-NEO 是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。NEO 网络中内置了两种通证，管理通证 NEO 和燃料通证 GAS。
+Neo 是利用区块链技术和数字身份进行资产数字化，利用智能合约对数字资产进行自动化管理，实现“智能经济”的一种分布式网络。Neo 网络中内置了两种通证，管理通证 NEO 和燃料通证 GAS。
 
-## NEO 有哪些开发社区？
+## Neo 有哪些开发社区？
 
-NEO 非常重视社区的发展，拥有庞大的全球开发者社区，长期以来为 NEO 的开发提供支持，目前代表性的社区有：
+Neo 非常重视社区的发展，拥有庞大的全球开发者社区，长期以来为 Neo 的开发提供支持，目前代表性的社区有：
 
-- **CoZ**，NEO 生态最早的开发者社区：https://github.com/CityOfZion
-- **NEL**，NEO 生态首个中文开发者社区：https://github.com/NewEconoLab
+- **CoZ**，Neo 生态最早的开发者社区：https://github.com/CityOfZion
+- **NEL**，Neo 生态首个中文开发者社区：https://github.com/NewEconoLab
 - **NeoResearch**，南美开发者社区：https://github.com/NeoResearch
 - **NSPCC**，俄罗斯圣彼得堡开发者社区：https://www.nspcc.ru/en/
-- **KeyMakers**，NEO 日本社区：https://github.com/keymakers
+- **NEO·ONE**，Neo 区块链开发工具：https://neo-one.io/
+- **Red4Sec**，Neo 合约安全审计：https://red4sec.com/
+- **NEONEWSTODAY**，Neo 生态新闻动态发布：https://neonewstoday.com/
+- **NEXT**，Neo Dapp 工具开发社区：https://neonext.io/
+- **neow3j**，Neo 多语言智能合约 SDK 开发 ：https://github.com/neow3j/
 
 ## 什么是 GAS？如何提取 GAS？
 
-GAS 代表了 NEO 区块链的使用权，NEO 网络中的资产发行以及智能合约的运行和存储需要花费一定量的 GAS。GAS 初期为 0，会随着新区快的生成而产生。只要获得 NEO，GAS 便会在系统中按照算法自动生成。GAS 有两种状态，可提取和不可提取。当账户中的 NEO 花费后（即转出），其产生的 GAS 会转变成可提取状态。NEO 持有人可以在任意时间发起一笔认领交易，将这些可提取的 GAS 认领到 NEO 的地址上。
+GAS 代表了 Neo 区块链的使用权，Neo 网络中的资产发行、智能合约的运行以及所有需要修改区块链状态的交易都需要花费一定量的 GAS。Neo N3 的创世区块将铸造准确数量的GAS代币，以对标 NEO legacy 链上流通的所有GAS代币。在 Neo N3 中，每当发生 NEO 转账，GAS 就会自动提取。
 
-## 是否可以通过给自己转账将 GAS 变为可提取状态？ 
+## Neo 采用什么共识机制？
 
-可以。如果钱包里只有一个地址也可以。
+Neo 使用 一种改进的拜占庭容错机制 （dBFT），可以对由 𝑛 个共识节点组成的共识系统，提供 𝑓 = ⌊ (𝑛−1) / 3 ⌋ 的容错能力。在这个机制当中，存在多种节点，分别是普通节点，候选人节点，委员会节点和共识节点。任何人都可以发起交易成为候选人，或者对候选人进行投票，根据投票情况，排在最前面的一定数量的候选人将被选为委员会成员和共识节点。当需要通过一项共识时，在这些共识节点中随机推选出一名议长拟定方案，然后由其他共识节点根据拜占庭容错算法进行投票，如果大于等于 2/3 的节点同意议长提案，则共识达成；否则，重新推选议长，重复投票过程。
 
-## Mac 用户如何提取 GAS?
+## 如何成为 Neo 的共识节点？ 成为共识节点有什么激励吗？
 
-Mac 用户可以使用 NEON 钱包提取 Gas （以及转账 NEO/GAS）。点击 [这里](https://github.com/CityOfZion/neon-wallet/releases) 下载钱包。
+Neo 的共识节点由 Neo 持有者投票选出。详细信息可参考 [这里](https://docs.neo.org/v3/docs/zh-cn/basic/consensus/vote_validator.html)；所有交易的网络费会作为奖励发给当前打包交易出块的共识节点。
 
-## 我需要拥有多少个 NEO 才能获得 GAS？
+## 有哪些 Neo 的区块链浏览器可以使用？
 
-NEO 的最小单位为1且不能分割。GAS的最小单位为0.00000001。只要拥有至少一个NEO就会自动产生GAS了。你可以使用GAS计算器计算X个NEO可以产生多少个GAS，例如 <https://neotogas.com/> 
-
-## NEO 采用什么共识机制？
-
-NEO 使用 一种改进的拜占庭容错机制 （dBFT），可以对由 𝑛 个共识节点组成的共识系统，提供 𝑓 = ⌊ (𝑛−1) / 3 ⌋ 的容错能力。在这个机制当中，存在两种节点：记账节点和普通节点。普通节点基于持有 NEO 的比例来投票选出记账节点，当需要通过一项共识时，在这些记账节点中随机推选出一名议长拟定方案，然后由其他记账节点根据拜占庭容错算法进行投票，如果大于等于 2/3 的节点同意发言人方案，则共识达成；否则，重新推选议长，重复投票过程。
-
-## 如何成为 NEO 的共识节点？ 成为共识节点有什么激励吗？
-
-NEO 的共识节点由 NEO 持有者投票选出。详细信息可参考 [这里](https://neo-ngd.github.io/reference/如何成为NEO共识节点.html)。
-
-## 有哪些 NEO 的区块链浏览器可以使用？
-
-您可以访问 http://ndapp.org/ ，在 Explorer 页签下选择所需要的区块链浏览器使用。
+比较常用的有 <https://neo3.neotube.io/>，您也可以访问 http://ndapp.org/ ，在 Explorer 页签下选择所需要的区块链浏览器使用。
 
 ## 如何查看我的交易状态?
 
-可以使用任意 NEO 区块链浏览器查看，例如 <https://neoscan.io/>
+可以使用任意 Neo 区块链浏览器查看，例如 <https://neotube.io/>
 
-## NEO 是否有类似 ERC-20 的标准？
+## Neo 是否有类似 ERC-20 的标准？
 
-有的，请参见 NEO 的 [NEP-5](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki) 标准。
+NEP-17 标准是 Neo N3 的通证标准，它取代了以前的 NEP-5，表示在 Neo 区块链上发行的通证合约所需要遵循的规范。
 
-## 普通资产和 NEP-5 资产的区别是什么？
+## 如何在 Neo-CLI 中查看 NEP-17 资产？
 
-NEO 中主要有两种资产，一种是全局资产，例如：NEO、GAS 等，使用 UTXO 模型来管理资产。另一种是合约资产，例如 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。NEO 和 GAS 是 UTXO 资产，直接可以进行交易。NEP-5 是合约资产，利用合约的性质进行调用从而交易。使用 NEO-GUI 可以注册与发行新的 UTXO 资产，而要发行 NEP-5 资产，需要编写智能合约。
+想要看到 NEP-17 资产，需要使用 RPC 的 [getnep17balances](../../docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.md) 方法或 Neo-CLI 的 [balanceof](../../docs/zh-cn/node/cli/cli.html#balanceof) 方法。
 
-## 如何在 NEO-CLI 中查看 NEP-5 资产？
+## NEP-6 是什么？
 
-使用 NEO-CLI 中的 `list asset` 只能显示 UTXO 资产，想要看到 NEP-5 资产，需要调用 API `getbalance`。
+NEP-6 是一种钱包标准，包括钱包的格式，里面参数的定义，钱包地址的创建规则等。NEP-6 标准适用于现在的几个版本，包括 2.7.6。Neo 客户端支持两种格式的钱包，一种是 sqlite 钱包（格式为.db3），另一种是 NEP-6 钱包（格式为.json）。考虑到处理速度，强烈建议交易所使用 sqlite 钱包。
 
-## NEP-5 和 NEP-6 区别是什么？
+## NEO 可以像比特币一样保存吗，我担心存储安全
 
-NEP-5 是一种通证标准，是针对在 NEO 的智能合约中发布通证的规范。而 NEP-6 是一种钱包标准，包括钱包的格式，里面参数的定义，钱包地址的创建规则等。NEP-6 标准适用于现在的几个版本，包括 2.7.6。NEO 客户端支持两种格式的钱包，一种是 sqlite 钱包（格式为.db3），另一种是 NEP-6 钱包（格式为.json）。考虑到处理速度，强烈建议交易所使用 sqlite 钱包。
+是的。如果你持有 NEO，你将始终在链上拥有。离线存储私钥将保证你的资产安全且无法触及。
 
-## NEO可以像比特币一样保存吗，我担心存储安全
+## Neo 钱包之间是否有转账费用？
 
-是的。如果你持有NEO，你将始终在链上拥有。离线存储私钥将保证你的资产安全且无法触及。
-
-## NEO 钱包之间是否有转账费用？
-
-目前转账 NEO 或 GAS 都没有额外费用。未来可能会收取。
-
-## NEO 钱包和交易所之间是否有转账费用？
-
-这取决于交易所自身规定。目前 NEO 系统没有转账费用，但是从交易所转出资产时，交易所可能需要收费。
+在 Neo N3 上进行任何转账或其他交易都会收取一定的 GAS 费用。
 
 ## 将 NEO 存放在交易所，我是否还能获取 GAS？
 
-这取决于交易所自身规定。有的交易所如 [Binance](https://www.binance.com/) 会发放 GAS 给用户，而有的交易所如 [Bittrex](https://www.bittrex.com/) 则自己保留 GAS 。如果你要保证自己收到GAS，请将你的NEO转到私人钱包并手动提取GAS。
+这取决于交易所自身规定。有的交易所如 [Binance](https://www.binance.com/) 会发放 GAS 给用户，而有的交易所如 [Bittrex](https://www.bittrex.com/) 则自己保留 GAS 。如果你要保证自己收到 GAS，请将你的 NEO 转到私人钱包并手动提取 GAS。
 
-## 我从 Bittrex 提取了 NEO，但交易所保留了 0.9750 个 NEO 我无法将其取出，因为需要最少1个NEO的手续费。那这点余额可以充值，持有或卖出吗？ 
+## 我从交易所提取了 NEO，但交易所保留了 0.9750 个 NEO 我无法将其取出。那这点余额可以充值，持有或卖出吗？ 
 
-你在交易所持有的代币并不是实际的NEO数。这就是为什么你可以在交易所拥有0.97个NEO，而钱包不可以。NEO是不可分割的，所以你也不可能拥有1.01个NEO, 它会被折算为1个NEO。如果你尝试转出0.9750 个NEO，Bittrex会发送0资产。因此，你只能先保留在交易所，以后再卖，或者购买额外的NEO，使你的NEO余额大于必须的费用1.
-
+NEO 的最小操作单位为 1，因此，你只能先保留在交易所，以后再卖，或者购买额外的 NEO，使你的 NEO 余额大于 1，或者将其换成其他 Token 如 USDT，GAS 等。

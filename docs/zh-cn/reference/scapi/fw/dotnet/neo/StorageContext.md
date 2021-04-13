@@ -14,6 +14,12 @@
 public class StorageContext
 ```
 
+## 属性
+
+| 名称                                       | 说明         |
+| ---------------------------------------- | ---------- |
+| AsReadOnly | 以只读方式获取当前存储上下文 |
+
 ## 构造方法
 
 通过 [Storage.CurrentContext](Storage/CurrentContext.md) 属性来构造 StorageContext 对象。

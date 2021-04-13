@@ -1,6 +1,6 @@
-# Storage.Put Method (StorageContext, byte[], byte[])
+# Storage.Put Method
 
-Inserts a given value in the key-value format into the persistent storage.
+Inserts a given value to the given key in the persistent storage.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -8,63 +8,24 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-This method has multiple overloads:
-
 ```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key, byte[] value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key, string value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key, BigInteger value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, byte[] value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, string value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, BigInteger value)
-```
-
-```c#
-public extern void Put(byte[] key, byte[] value)
-```
-
-```c#
-public extern void Put(byte[] key, string value)
-```
-
-```c#
-public extern void Put(byte[] key, BigInteger value)
-```
-
-```c#
-public extern void Put(string key, byte[] value)
-```
-
-```c#
-public extern void Put(string key, string value)
-```
-
-```c#
-public extern void Put(string key, BigInteger value)
+Put(StorageContext context, byte[] key, ByteString value);
+Put(StorageContext context, byte[] key, byte[] value);
+Put(StorageContext context, byte[] key, BigInteger value);
+Put(StorageContext context, ByteString key, ByteString value);
+Put(StorageContext context, ByteString key, BigInteger value);
+Put(StorageContext context, byte[] key, byte[] value, StorageFlags flags);
+Put(StorageContext context, byte[] key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags);
 ```
 
 Parameters:
 
-- Context: Storage context as a [StorageContext](../StorageContext.md). If StorageContext is not passed in, CurrentContext is used by default.
-
-- Key: Key as a byte array.
-
-- Value: Value as a byte array.
+- context: Storage context as a [StorageContext](../StorageContext.md).
+- key: Key as a byte array or string.
+- value: Value as a byte array, Biginteger, or string.
+- flag: StorageFlags type, representing a variable or constant in storage.
 
 
 Return value: void.
@@ -72,15 +33,23 @@ Return value: void.
 ## Example
 
 ```c#
-public class Contract1 : SmartContract
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
-        Storage.Put("hello", "world");
+        byte[] key1 = new byte[] { 0 };
+        string key2 = "aa";
+        byte[] value1 = new byte[] { 1 };
+        BigInteger value2 = new BigInteger("1");
+        string value3 = "bb";
+        Storage.Put(Storage.CurrentContext, key1, value1);
+        Storage.Put(Storage.CurrentContext, key1, value2);
+        Storage.Put(Storage.CurrentContext, key1, value3);
+        Storage.Put(Storage.CurrentContext, key2, value1);
+        Storage.Put(Storage.CurrentContext, key2, value2);
+        Storage.Put(Storage.CurrentContext, key2, value3);
     }
 }
 ```
-
-
 
 [Back](../Storage.md)

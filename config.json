@@ -6,7 +6,7 @@
       "destination": "wwwroot\\docs\\zh-cn",
       "catalog": "docs\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/docs/zh-cn/"
+      "git": "https://github.com/neo-project/docs/blob/master/docs/zh-cn/"
     },
     {
       "origin": "docs\\en-us",
@@ -14,23 +14,7 @@
       "destination": "wwwroot\\docs\\en-us",
       "catalog": "docs\\en-us\\toc.yml",
       "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/docs/en-us/"
-    },
-    {
-      "origin": "tutorial\\zh-cn",
-      "template": "template",
-      "destination": "wwwroot\\tutorial\\zh-cn",
-      "catalog": "tutorial\\zh-cn\\toc.yml",
-      "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/tutorial/zh-cn/"
-    },
-    {
-      "origin": "tutorial\\en-us",
-      "template": "template",
-      "destination": "wwwroot\\tutorial\\en-us",
-      "catalog": "tutorial\\en-us\\toc.yml",
-      "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/tutorial/en-us/"
+      "git": "https://github.com/neo-project/docs/blob/master/docs/en-us/"
     },
     {
       "origin": "faq\\zh-cn",
@@ -38,7 +22,7 @@
       "destination": "wwwroot\\faq\\zh-cn",
       "catalog": "faq\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/faq/zh-cn/"
+      "git": "https://github.com/neo-project/docs/blob/master/faq/zh-cn/"
     },
     {
       "origin": "faq\\en-us",
@@ -46,7 +30,7 @@
       "destination": "wwwroot\\faq\\en-us",
       "catalog": "faq\\en-us\\toc.yml",
       "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/faq/en-us/"
+      "git": "https://github.com/neo-project/docs/blob/master/faq/en-us/"
     },
     {
       "origin": "articles\\zh-cn",
@@ -54,7 +38,7 @@
       "destination": "wwwroot\\articles\\zh-cn",
       "catalog": "articles\\zh-cn\\toc.yml",
       "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/articles/zh-cn/"
+      "git": "https://github.com/neo-project/docs/blob/master/articles/zh-cn/"
     },
     {
       "origin": "articles\\en-us",
@@ -62,7 +46,7 @@
       "destination": "wwwroot\\articles\\en-us",
       "catalog": "articles\\en-us\\toc.yml",
       "webRoot": "wwwroot",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/articles/en-us/"
+      "git": "https://github.com/neo-project/docs/blob/master/articles/en-us/"
     }
   ]
 }

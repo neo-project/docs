@@ -1,26 +1,44 @@
-# Installing the NEO-GUI Client
+# Installing Neo-GUI
 
-> [!Note]
->
-> Unless otherwise stated,  this article introduces the NEO-GUI running on the test net. For more information, refer to [Test Network](../../network/testnet.md).
+Neo-GUI is a full-node application on the Neo blockchain. It uses Electron cross-platform technology and currently can run on Windows 10 and macOS systems.
+
+It has these main functions:
+
+- Viewing and searching blockchain information
+- Basic wallet operations, including creating wallets, importing wallets, transferring transactions, etc.
+- Deploying and invoking smart contracts
+- Election and voting consensus nodes
 
 ## Downloading the client
 
-Download [NEO-GUI](https://github.com/neo-project/neo-gui-2.x/releases) and extract the files to a location of your choice, then double-click neo-gui.exe to run the client. If there are any problems with the process and the client cannot be used normally, please keep the error.log file located in the same directory as NEO-GUI, then contact our technical staff to assist you in solving the problem.
+Neo-GUI is an open source project, thus you can download the installation package of the corresponding system version on [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) , and complete the installation according to the prompts.
 
 > [!Note]
 >
-> The NEO-GUI client is compatible with the following versions of Windows: Windows 7 (Service Pack 1) / Windows 8 / Windows 10.
+> - Make sure your Windows / macOS system has [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
 >
-> You must install [.NET Framework 4.6.2](https://www.microsoft.com/net/download/framework) on your windows system.
+> - When installing on the Windows system, do not install Neo-GUI under the default path C:\Program Files, or you have to run the client with the administrator privileges to connect the client to the network and download the blockchain data.
 
-## Installing plugin
+## Connecting to the network
 
-You need to install the ImportBlocks plugin to enable NEO-GUI to synchronize with the offline package.
+After installation Neo-GUI connects to the Neo test net automatically. 
 
-1. Download [ImportBlocks](https://github.com/neo-project/neo-plugins/releases/download/v2.10.3/ImportBlocks.zip) and unzip it.
-2. Under the NEO-GUI root directory copy the unzipped plugin into it.
+If you have already built a private chain (see [Setting up private chain](../../develop/network/private-chain/solo.md)), you can also connect Neo-GUI to it.
 
-## Synchronizing blockchain data
+1. Find the `config.json` and `protocol.json` files of your private chain.
 
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the NEO network rather than the entire blockchain. For more information,  see [Synchronizing the blockchain faster](../syncblocks.md).
+   Make sure that the address port configured in `protocal.json` SeedList can be accessed from this machine.
+
+2. Go to the path `resources\build-neo-node` under Neo-GUI installation directory and find the two files `config.private.json` and `protocol.private.json` 
+
+3. Replace the content of two files with the content of config.json and protocol.json the private chain files you found in Step 1
+
+4. Run Neo-GUI and go to any page.
+
+5. Click `Setting` in the lower left corner.
+
+6. Under **Network** check `Privatenet`.
+
+   ![](../../assets/guinetwork.png)
+
+After a while, when you see the block synchronization data displayed at the top of the main page is increasing, that indicates your client has connected to the network successfully. 

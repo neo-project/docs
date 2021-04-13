@@ -1,69 +1,76 @@
 # getapplicationlog method
 
-Returns the contract log based on the specified txid. The complete contract logs are stored under the ApplicationLogs directory.
+Returns the contract event information based on the specified txid. The contract event information is stored under the ApplicationLogs directory.
 
 > [!Note]
 >
-> This method is provided by the plugin [ApplicationLogs](https://github.com/neo-project/neo-plugins/releases). You need to install the plugin before you can invoke the method.
+> You must install the plugins [ApplicationLogs](https://github.com/neo-project/neo-modules/releases) and [LevelDBStore](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-#### Parameters
+## Parameter Description
 
-txid：Transaction ID
+- txid: Transaction ID
 
-#### Example
+- trigger type:  Optional. It has the following options:
 
-Request body:
+  - OnPersist
+  - PostPersist
+  - Application
+  - Verification
+  - System: OnPersist | PostPersist
+  - All: OnPersist | PostPersist | Verification | Application
+
+  It defaults to All. You can specify a trigger type.
+
+## Example
+
+Request body：
 
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getapplicationlog",
-  "params": ["92b1ecc0e8ca8d6b03db7fe6297ed38aa5578b3e6316c0526b414b453c89e20d"],
-  "id": 1
+  "params": [
+    "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"
+  ]
 }
 ```
 
-Response body：
+This transaction transfers 100 GAS from NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF to NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ.
 
-```
+Response body 1:
+
+```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "txid": "0x92b1ecc0e8ca8d6b03db7fe6297ed38aa5578b3e6316c0526b414b453c89e20d",
+        "txid": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
         "executions": [
             {
                 "trigger": "Application",
-                "contract": "0x6ec33f0d370617dd85e51d31c483b6967074249d",
                 "vmstate": "HALT",
-                "gas_consumed": "2.912", 
-                "stack": [ 
-                    { 
-                        "type": "Integer", 
-                        "value": "1" 
-                    } 
-                ],
+                "exception": null,
+                "gasconsumed": "9999540",
+                "stack": [],
                 "notifications": [
                     {
-                        "contract": "0x78e6d16b914fe15bc16150aeb11d0c2a8e532bdd",
+                        "contract": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                        "eventname": "Transfer",
                         "state": {
                             "type": "Array",
                             "value": [
                                 {
-                                    "type": "ByteArray",
-                                    "value": "7472616e73666572"
+                                    "type": "ByteString",
+                                    "value": "4rZTInKT6ZxPKQbVNVOrtKZy34Y="
                                 },
                                 {
-                                    "type": "ByteArray",
-                                    "value": "d086ac0ed3e578a1afd3c0a2c0d8f0a180405be2"
+                                    "type": "ByteString",
+                                    "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
                                 },
                                 {
-                                    "type": "ByteArray",
-                                    "value": "002ba7f83fd4d3975dedb84de27345684bea2996"
-                                },
-                                {
-                                    "type": "ByteArray",
-                                    "value": "0065cd1d00000000"
+                                    "type": "Integer",
+                                    "value": "10000000000"
                                 }
                             ]
                         }
@@ -74,4 +81,23 @@ Response body：
     }
 }
 ```
+
+Response description:
+
+- txid: Transaction ID.
+
+- trigger: Triggers.
+
+- vmstate: VM execution state. HALT represents success, and FAULT represents failure.
+- gasconsumed: The transaction fee, which means the GAS consumed in the transaction execution. 
+- notifications: The notification sent by the smart contract.
+
+- contract: The contract sending the notification. Here is GasToken.
+
+- eventname: Event name of the notification.
+
+- state: Notification content, where ByteString is Base64-encoded wallet address and can be converted at https://neo.org/converter/index.
+
+
+
 

@@ -2,7 +2,11 @@
 
 显示节点已加载的插件列表。
 
-#### 调用示例
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+
+## 调用示例
 
 请求正文：
 
@@ -23,11 +27,34 @@
     "id": 1,
     "result": [
         {
-            "name": "SimplePolicyPlugin",
-            "version": "2.10.1.0",
+            "name": "DBFTPlugin",
+            "version": "3.0.0.0",
             "interfaces": [
-                "ILogPlugin",
-                "IPolicyPlugin"
+                "IP2PPlugin"
+            ]
+        },
+        {
+            "name": "LevelDBStore",
+            "version": "3.0.0.0",
+            "interfaces": []
+        },
+        {
+            "name": "RpcNep17Tracker",
+            "version": "3.0.0.0",
+            "interfaces": [
+                "IPersistencePlugin"
+            ]
+        },
+        {
+            "name": "RpcServer",
+            "version": "3.0.0.0",
+            "interfaces": []
+        },
+        {
+            "name": "SystemLog",
+            "version": "3.0.0.0",
+            "interfaces": [
+                "ILogPlugin"
             ]
         }
     ]

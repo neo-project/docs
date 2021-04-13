@@ -1,136 +1,137 @@
-# sendmany Method
+﻿# sendmany Method
 
 Bulk transfer order, and you can specify a change address.
 
 > [!Note]
 >
-> Before you can invoke this method you must：
+> Before you can invoke this method you must:
 >
-> - Open the wallet in NEO-CLI.
-> - Install the plugin [RpcWallet](https://github.com/neo-project/neo-plugins/releases). 
-
-#### Parameters
-
-`<outputs_array>[fee=0][change_address]`
-
-- `Outputs_array`: Array, the data structure of each element in the array is as follows:
-
-  `{"asset": <asset>,"value": <value>,"address": <address>}`
-  - asset：Asset ID（asset identifier），The `RegistTransaction` ID of the asset at the time of registration.
-
-    For NEO：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-
-    For NeoGas：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-    The remaining asset IDs can be passed through the [CLI commandline](../../../../node/cli/cli.md), the `list Asset` command query can also be queried in the block chain browser.
-
-  - value：Transfer amount
-
-  - address：destination address.
-
-- `Fee`: Optional parameter. Paying the handling fee helps elevate the priority of the network to process the transfer. It defaults to 0, and can be set to a minimum of 0.00000001.
-
-- `Change_address`: Change address, optional parameter, default is the first standard address in the wallet.
-
-#### Example
-
-Request body：
+> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases) 
+> 2. Call the RPC method `openwallet` to open the wallet first.
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "method": "sendmany",
-    "params": [
-        [
-            {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            }
-        ]
-    ],
-    "id": 1
+  "jsonrpc": "2.0",
+  "method": "sendmany",
+  "params": [from, outputs_array],
+  "id": 1
 }
 ```
 
-Request body (network fee and change address included)
+### Parameter Description
 
-```json
-{
-    "jsonrpc": "2.0",
-    "method": "sendmany",
-    "params": [
-        [
-            {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            }
-        ],
-        0,
-        "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-    ],
-    "id": 1
-}
-```
+* `from`: Optional. The address from which you transfer the asset.
 
-Response body:
+* `outputs_array`：Array, the data structure of each element in the array is as follows:
+
+  ```json
+  {"asset": <asset>,"value": <value>,"address": <address>, "signers": <signers>}
+  ```
+
+  * `asset`: Asset ID (asset identifier),  the NEP-17 contract scripthash
+  
+    e.g. NeoToken is: 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
+  
+    GasToken is: 0xd2a4cff31913016155e38e474a2c06d08be276cf
+  
+  * `value`: Transfer amount
+  
+  * `address`: Destination address
+  
+  * `signers`: The signature account of transaction
+
+## Example
+
+Request text:
 
 ```json
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": {
-        "txid": "0x55ba819b50f5821298328f3bf9bb17e088afc900cf2ad7dbfc03d49940b5cf30",
-        "size": 322,
-        "type": "ContractTransaction",
-        "version": 0,
-        "attributes": [],
-        "vin": [
+    "method": "sendmany",
+    "params": [
+        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        [
             {
-                "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
-                "vout": 1
-            }
-        ],
-        "vout": [
-            {
-                "n": 0,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "value": 10,
+                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
             },
             {
-                "n": 1,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "n": 2,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "495",
-                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
-            }
-        ],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [
-            {
-                "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
-                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
+                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "value": 50000000,
+                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
             }
         ]
-    }
+    ]
+}
+```
+
+Request text (with fromAddress):
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sendmany",
+  "params": [
+     "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
+	[
+	    {
+			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+			    "value": 100, 
+					"address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+			}, 
+			{
+			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+					 "value": 100, 
+					 "address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+			},
+			    {
+			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+			    "value": 100, 
+					"address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+			}, 
+			{
+			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+					 "value": 100, 
+					 "address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+			}
+	 ]
+	 ],
+  "id": 1
+}
+```
+
+Response text:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "hash": "0xe8742fc5a69f3180ab59f3f21695ce5459891429682a7f1df38219bc05cce39e",
+    "size": 514,
+    "version": 0,
+    "nonce": 537723951,
+    "sender": "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
+    "sysfee": "39726800",
+    "netfee": "1497580",
+    "validuntilblock": 6357,
+    "signers": [
+      {
+        "account": "0x9dd95824d6a1789d5bb665abd727d0c387a53e86",
+        "scopes": "CalledByEntry"
+      }
+    ],
+    "attributes": [],
+    "script": "CwBkDBSvT25X7NLzUvxKKqw14LOzO554tQwUhj6lh8PQJ9erZbZbnXih1iRY2Z0UwB8MCHRyYW5zZmVyDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtSOQsAZAwUJvOMLBhLx7odYBaJkOQJlbxNJF4MFIY+pYfD0CfXq2W2W514odYkWNmdFMAfDAh0cmFuc2ZlcgwU9WPqQLwoPU0OBcSOowWz8qBzQO9BYn1bUjkLAGQMFK9Pblfs0vNS/EoqrDXgs7M7nni1DBSGPqWHw9An16tltludeKHWJFjZnRTAHwwIdHJhbnNmZXIMFM924ovQBixKR47jVWEBExnzz6TSQWJ9W1I5CwBkDBQm84wsGEvHuh1gFomQ5AmVvE0kXgwUhj6lh8PQJ9erZbZbnXih1iRY2Z0UwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSOQ==",
+    "witnesses": [
+      {
+        "invocation": "DEDxTxMc/IKpEzhfYV0bMv8qUEL1na7LvrnK3hisz1SBoYJr2SF7SpXY0RzA/1x5QfHEuxHUuvelul1aiDjFenYD",
+        "verification": "EQwhA+CII7RDmfaiqiJIg02SChWrOuktx1Y89+Q/3dWxwBgvEUF7zmyl"
+      }
+    ]
+  }
 }
 ```
 
@@ -138,6 +139,4 @@ Response Description:
 
 Returns the transaction details as above if the transaction was sent successfully; otherwise the transaction is failed.
 
-If the JSON format is incorrect, a Parse error is returned.
-If the signature is incomplete, a pending transaction is returned.
-If the balance is insufficient, an error message is returned.
+If the JSON format is incorrect, a Parse error is returned. If the signature is incomplete, a pending transaction is returned. If the balance is insufficient, an error message is returned.

@@ -1,15 +1,16 @@
 # getunclaimedgas 方法
 
-显示钱包中未提取的 GAS 数量。
+返回指定地址未提取的 GasToken。
 
 > [!Note]
 >
-> 执行此命令前需要：
->
-> -  在 NEO-CLI 节点中打开钱包。
-> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
-#### 调用示例
+## 参数说明
+
+address：要查询的地址。
+
+## 调用示例
 
 请求正文：
 
@@ -17,7 +18,7 @@
 {
   "jsonrpc": "2.0",
   "method": "getunclaimedgas",
-  "params": [],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
   "id": 1
 }
 ```
@@ -29,13 +30,8 @@
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "available": "0.140771",
-        "unavailable": "0.096224"
+        "unclaimed": "499999500",
+        "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
     }
 }
-
 ```
-
-响应说明：
-
-返回未提取的 GAS 数量。

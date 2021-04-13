@@ -8,78 +8,47 @@
 
 ## 语法
 
-该方法有多个重载：
-
 ```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key, byte[] value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key, string value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, byte[] key, BigInteger value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, byte[] value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, string value)
-```
-
-```c#
-public extern void Put(Neo.SmartContract.Framework.Services.Neo.StorageContext context, string key, BigInteger value)
-```
-
-```c#
-public extern void Put(byte[] key, byte[] value)
-```
-
-```c#
-public extern void Put(byte[] key, string value)
-```
-
-```c#
-public extern void Put(byte[] key, BigInteger value)
-```
-
-```c#
-public extern void Put(string key, byte[] value)
-```
-
-```c#
-public extern void Put(string key, string value)
-```
-
-```c#
-public extern void Put(string key, BigInteger value)
+Put(StorageContext context, byte[] key, ByteString value);
+Put(StorageContext context, byte[] key, byte[] value);
+Put(StorageContext context, byte[] key, BigInteger value);
+Put(StorageContext context, ByteString key, ByteString value);
+Put(StorageContext context, ByteString key, BigInteger value);
+Put(StorageContext context, byte[] key, byte[] value, StorageFlags flags);
+Put(StorageContext context, byte[] key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, BigInteger value, StorageFlags flags);
+Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags);
 ```
 
 参数：
 
-- context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
-- key：键，字节数组或字符串。
-
-- value：值，字节数、字符串或 BigInteger。
-
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型；
+- key：键，字节数组/字符串；
+- value：值，字节数组/大整数/字符串。
+- flags：StorageFlags 类型，标识存储的是变量还是常量
 
 返回值：void。
 
 ## 示例
 
 ```c#
-public class Contract1 : SmartContract
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
-        Storage.Put("hello", "world");
+        byte[] key1 = new byte[] { 0 };
+        string key2 = "aa";
+        byte[] value1 = new byte[] { 1 };
+        BigInteger value2 = new BigInteger("1");
+        string value3 = "bb";
+        Storage.Put(Storage.CurrentContext, key1, value1);
+        Storage.Put(Storage.CurrentContext, key1, value2);
+        Storage.Put(Storage.CurrentContext, key1, value3);
+        Storage.Put(Storage.CurrentContext, key2, value1);
+        Storage.Put(Storage.CurrentContext, key2, value2);
+        Storage.Put(Storage.CurrentContext, key2, value3);
     }
 }
 ```
-
-
 
 [返回上级](../Storage.md)

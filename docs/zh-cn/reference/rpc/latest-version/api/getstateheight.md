@@ -1,12 +1,12 @@
 # getstateheight 方法
+查询 stateroot 高度。
 
-获取当前最高高度以及被验证过的state高度。
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-plugins/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 参数说明
 
-无
-
-#### 调用示例
+## 调用示例
 
 请求正文：
 
@@ -23,17 +23,11 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "blockheight": 6143917,
-    "stateheight": 6143916
-  }
+    "jsonrpc": "2.0",
+    "id": "1",
+    "result": {
+        "localrootindex": 602,
+        "validatedrootindex": 602
+    }
 }
 ```
-
-响应说明：
-
-`blockheight`：节点同步的区块高度
-
-`stateheight`：节点经过校验的StateRoot的高度

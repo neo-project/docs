@@ -1,23 +1,51 @@
-# getrawtransaction Method
+﻿# getrawtransaction Method
 
-Returns the corresponding transaction information, based on the specified hash value.
+Returns the corresponding transaction information based on the specified hash value.
 
-#### Parameters
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-- Txid: Transaction ID
+## Parameter Description
 
-- Verbose: Optional, the default value of verbose is 0. When verbose is 0, the serialized information of the block is returned, represented by a hexadecimal string. If you need to get detailed information, you will need to use the SDK for deserialization. When verbose is 1, detailed information of the corresponding block in Json format string, is returned.
+* txid: Transaction ID
 
+* verbose: Optional. The default value is false. 
+  * When verbose is false, serialized information of the block is returned in a Base64-encoded string. If you need the detailed information, use the SDK for deserialization. 
+  * When verbose is true or 1, detailed information of the block is returned in Json format string.
 
-#### Example
+## Example
 
 Request body:
 
 ```json
 {
   "jsonrpc": "2.0",
+  "id": 1,
   "method": "getrawtransaction",
-  "params": ["f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657"],
+  "params": ["0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c"]
+}
+```
+
+Response body:
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": "AIsJtw60lJgAAAAAAAjoIwAAAAAACxcAAAL6ifssFN8PWd3fBPblZRfys0qu6wDitlMicpPpnE8pBtU1U6u0pnLfhgEAXwsDAOQLVAIAAAAMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFCizratyafnCGB2zy3Qev1UZMOJwQWJ9W1I5AkIMQLfVkTWSIgU9qfupqX+H0ViwPYtOTot/SbQptuHUYTFSpMB/J7sEOPITKV9HnT8BU1CSv6D6NdcwcZzEXgxRgFApDCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXhCDED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5TKxEMIQLO1DI5fdxE7boDHAvDuTPyj92Wd3kteyDmwDbdqqzx4hELQRON768="
+}
+```
+
+Request body:
+
+When verbose = true, the result in Json format is returned:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getrawtransaction",
+  "params": ["0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c", true],
   "id": 1
 }
 ```
@@ -26,68 +54,42 @@ Response body:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": "80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
-}
-```
-
-Request body:
-
-Verbose = 1, returns the result in JSON format.
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "getrawtransaction",
-  "params": ["f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657", 1],
-  "id": 1
-}
-```
-
-Response body:
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "txid": "0xf4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657",
-    "size": 262,
-    "type": "ContractTransaction",
-    "version": 0,
-    "attributes":[],
-    "vin": [
-      {
-        "txid": "0xabe82713f756eaeebf6fa6440057fca7c36b6c157700738bc34d3634cb765819",
-        "vout": 0
-      }
-     ],
-     "vout": [
-      {
-        "n": 0,
-        "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-        "value": "2950",
-        "address": "AHCNSDkh2Xs66SzmyKGdoDKY752uyeXDrt"
-      },
-      {
-        "n": 1,
-        "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-        "value": "4050",
-        "address": "ALDCagdWUVV4wYoEzCcJ4dtHqtWhsNEEaR"
-       }
-    ],
-    "sys_fee": "0",
-    "net_fee": "0",
-    "scripts": [
-      {
-        "invocation": "40915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58",
-        "verification": "2103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac"
-      }
-    ],
-    "blockhash": "0x9c814276156d33f5dbd4e1bd4e279bb4da4ca73ea7b7f9f0833231854648a72c",
-    "confirmations": 144,
-    "blocktime": 1496719422
-  }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x7da6ae7ff9d0b7af3d32f3a2feb2aa96c2a27ef8b651f9a132cfaad6ef20724c",
+        "size": 386,
+        "version": 0,
+        "nonce": 246876555,
+        "sender": "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
+        "sysfee": "0.0999954",
+        "netfee": "0.0235316",
+        "validuntilblock": 5899,
+        "signers": [
+            {
+                "account": "0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa",
+                "scopes": "None"
+            },
+            {
+                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
+                "scopes": "CalledByEntry"
+            }
+        ],
+        "attributes": [],
+        "script": "CwMA5AtUAgAAAAwU+on7LBTfD1nd3wT25WUX8rNKrusMFOK2UyJyk+mcTykG1TVTq7Smct+GFMAfDAh0cmFuc2ZlcgwUKLOtq3Jp+cIYHbPLdB6/VRkw4nBBYn1bUjk=",
+        "witnesses": [
+            {
+                "invocation": "DEC31ZE1kiIFPan7qal/h9FYsD2LTk6Lf0m0Kbbh1GExUqTAfye7BDjyEylfR50/AVNQkr+g+jXXMHGcxF4MUYBQ",
+                "verification": "DCECztQyOX3cRO26AxwLw7kz8o/dlnd5LXsg5sA23aqs8eILQZVEDXg="
+            },
+            {
+                "invocation": "DED8PagPv03pnEbsxUY7XgFk/qniHcha36hDCzZsmaJkpFg5vbgxk5+QE46K0GFsNpsqDJHNToGD9jeXsPzSvD5T",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
+            }
+        ],
+        "blockhash": "0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c",
+        "confirmations": 26,
+        "blocktime": 1612687482881
+    }
 }
 ```

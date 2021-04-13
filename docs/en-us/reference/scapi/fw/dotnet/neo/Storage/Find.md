@@ -1,6 +1,6 @@
 # Storage.Find Method
 
-Finds the value collection from the persistent storage based on the given key prefix. This method cannot be used together with StorageMap.
+Finds the content in the storage context that matches the specified prefix.
 
 Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -9,41 +9,32 @@ Assembly: Neo.SmartContract.Framework
 ## Syntax
 
 ```c#
-public static extern Iterator<byte[], byte[]> Find(StorageContext context, byte[] prefix)
-```
-
-```c#
-public static extern Iterator<string, byte[]> Find(StorageContext context, string prefix)
-```
-
-```c#
-public static extern Iterator<byte[], byte[]> Find(byte[] prefix)
-```
-
-```c#
-public static extern Iterator<string, byte[]> Find(string prefix)
+public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
+public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
 ```
 
 Parameters:
 
-- Context: Storage context as a [StorageContext](../StorageContext.md). If StorageContext is not passed in, CurrentContext is used by default.
-- prefix: prefix as a byte array or string.
+- context: Storage context as a [StorageContext](../StorageContext.md)
+- prefix: Prefix as a byte array or string.
 
-
-Return value: [Iterator\<string, byte[]>](../Iterator.md) or [Iterator\<byte[], byte[]>]((../Iterator.md)).
+Return value: The iterator composed of the elements  that meet conditions in the context.
 
 ## Example
 
 ```c#
-public class Contract1 : SmartContract
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
-        Storage.Delete("contract");
+        byte[] prefix1 = new byte[] { 0 };
+        string prefix2 = "aa";
+        Storage.Find(Storage.CurrentContext, prefix1);
+        Storage.Find(Storage.CurrentContext, prefix2);
+        Storage.Find(prefix1);
+        Storage.Find(prefix2);
     }
 }
 ```
-
-
 
 [Back](../Storage.md)

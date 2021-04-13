@@ -4,85 +4,90 @@
 
 > [!Note]
 >
-> 执行此命令前需要：
->
-> -  在 NEO-CLI 节点中打开钱包。
-> - 安装 [RpcWallet](https://github.com/neo-project/neo-plugins/releases) 插件。
+> - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-#### 参数
+## 参数说明
 
-`<outputs_array>[fee=0][change_address]`
+`[fromAddress]<outputs_array>`
+
+- fromAddress： 资产出金的地址（可选）。
 
 - outputs_array：数组，数组中的每个元素的数据结构如下：
 
-  `{"asset": <asset>,"value": <value>,"address": <address>}`
+  `{"asset": <asset>, "value": <value>, "address": <address>, "signers": <signers>}`
 
-  - asset：资产 ID（资产标识符），即该资产在注册时的 RegistTransaction 的交易 ID。
+  - asset_id：资产 ID，即 NEP-17 合约的脚本哈希。
 
-    如 NEO 为：c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+	  如 NeoToken 为：0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-    NeoGas 为：602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
-
-    其余资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
-
+	  GasToken 为：0xd2a4cff31913016155e38e474a2c06d08be276cf
   - value：转账金额。
 
   - address：收款地址。
 
-- fee：可选参数，设置手续费可以提升网络处理该笔转账的优先级，默认为 0，最小值可设为0.00000001。
-
-- change_address：找零地址，可选参数，默认为钱包中第一个标准地址。
+  - signers：交易签名账户。
 
 
-#### 调用示例
+## 调用示例
 
 请求正文：
 
 ```json
 {
     "jsonrpc": "2.0",
+    "id": 1,
     "method": "sendmany",
     "params": [
+        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
         [
             {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "value": 10,
+                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
             },
             {
-                "asset": "c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
+                "asset": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "value": 50000000,
+                "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
             }
         ]
-    ],
-    "id": 1
+    ]
 }
 ```
 
-请求正文（包含手续费和找零地址）：
+请求正文（包含 fromAddress）：
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "method": "sendmany",
-    "params": [
-        [
-            {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "asset": "025d82f7b00a9ff1cfe709abe3c4741a105d067178e645bc3ebad9bc79af47d4",
-                "value": 1,
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            }
-        ],
-        0,
-        "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-    ],
-    "id": 1
+  "jsonrpc": "2.0",
+  "method": "sendmany",
+  "params": [
+     "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
+	[
+	    {
+			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+			    "value": 100, 
+					"address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+			}, 
+			{
+			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+					 "value": 100, 
+					 "address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+			},
+			    {
+			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+			    "value": 100, 
+					"address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+			}, 
+			{
+			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+					 "value": 100, 
+					 "address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+			}
+	 ]
+	 ],
+  "id": 1
 }
 ```
 
@@ -90,49 +95,32 @@
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "txid": "0x55ba819b50f5821298328f3bf9bb17e088afc900cf2ad7dbfc03d49940b5cf30",
-        "size": 322,
-        "type": "ContractTransaction",
-        "version": 0,
-        "attributes": [],
-        "vin": [
-            {
-                "txid": "0x06de043b9b914f04633c580ab02d89ba55556f775118a292adb6803208857c91",
-                "vout": 1
-            }
-        ],
-        "vout": [
-            {
-                "n": 0,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "n": 1,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "1",
-                "address": "AbRTHXb9zqdqn5sVh4EYpQHGZ536FgwCx2"
-            },
-            {
-                "n": 2,
-                "asset": "0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b",
-                "value": "495",
-                "address": "AK5q8peiC4QKwuZHWX5Dkqhmar1TAGvZBS"
-            }
-        ],
-        "sys_fee": "0",
-        "net_fee": "0",
-        "scripts": [
-            {
-               "invocation": "406e545e30a6b39f71a7a40f1d4937939b9e1ca38851449842a2e2318bd499afd9c89f0c96658923e3e435ee91192e9dbf101d81a240fa7c953ac0c322d2f2b980",
-                "verification": "2103cf5ba6a9135f8eaeda771658564a855c1328af6b6808635496a4f51e3d29ac3eac"
-            }
-        ]
-    }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "hash": "0xe8742fc5a69f3180ab59f3f21695ce5459891429682a7f1df38219bc05cce39e",
+    "size": 514,
+    "version": 0,
+    "nonce": 537723951,
+    "sender": "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
+    "sysfee": "39726800",
+    "netfee": "1497580",
+    "validuntilblock": 6357,
+    "signers": [
+      {
+        "account": "0x9dd95824d6a1789d5bb665abd727d0c387a53e86",
+        "scopes": "CalledByEntry"
+      }
+    ],
+    "attributes": [],
+    "script": "CwBkDBSvT25X7NLzUvxKKqw14LOzO554tQwUhj6lh8PQJ9erZbZbnXih1iRY2Z0UwB8MCHRyYW5zZmVyDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtSOQsAZAwUJvOMLBhLx7odYBaJkOQJlbxNJF4MFIY+pYfD0CfXq2W2W514odYkWNmdFMAfDAh0cmFuc2ZlcgwU9WPqQLwoPU0OBcSOowWz8qBzQO9BYn1bUjkLAGQMFK9Pblfs0vNS/EoqrDXgs7M7nni1DBSGPqWHw9An16tltludeKHWJFjZnRTAHwwIdHJhbnNmZXIMFM924ovQBixKR47jVWEBExnzz6TSQWJ9W1I5CwBkDBQm84wsGEvHuh1gFomQ5AmVvE0kXgwUhj6lh8PQJ9erZbZbnXih1iRY2Z0UwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSOQ==",
+    "witnesses": [
+      {
+        "invocation": "DEDxTxMc/IKpEzhfYV0bMv8qUEL1na7LvrnK3hisz1SBoYJr2SF7SpXY0RzA/1x5QfHEuxHUuvelul1aiDjFenYD",
+        "verification": "EQwhA+CII7RDmfaiqiJIg02SChWrOuktx1Y89+Q/3dWxwBgvEUF7zmyl"
+      }
+    ]
+  }
 }
 ```
 
@@ -140,7 +128,7 @@
 
 返回如上的交易详情说明交易发送成功，否则交易发送失败。
 
-JSON 格式不正确，会返回 Parse error。                                                                                                                                         
+JSON 格式不正确，会返回 Parse error。
 
 如果签名不完整会返回待签名的交易。
 

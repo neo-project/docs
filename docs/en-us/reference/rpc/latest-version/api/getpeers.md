@@ -1,8 +1,12 @@
-# getpeers Method
+﻿# getpeers Method
 
-Gets the list of nodes that the node is currently connected/disconnected from.
+Gets a list of nodes that the node is currently connected/disconnected from.
 
-#### Example
+> [!Note]
+>
+> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+## Example
 
 Request body:
 
@@ -22,70 +26,16 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "unconnected": [
-            {
-                "address": "::ffff:70.73.16.236",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:82.95.77.148",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:49.50.215.166",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:24.5.178.244",
-                "port": 10333
-            }
-        ],
-        "bad": [
-            {
-                "address": "::ffff:139.219.226.107",
-                "port": 10333
-            }
-        ],
+        "unconnected": [],
+        "bad": [],
         "connected": [
             {
-                "address": "::ffff:139.219.106.33",
-                "port": 10333
+                "address": "47.90.28.99",
+                "port": 21333
             },
             {
-                "address": "::ffff:47.88.53.224",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:47.91.92.192",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:47.89.178.72",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:61.69.169.117",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:73.129.221.112",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:174.2.185.133",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:88.161.1.223",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:114.234.77.207",
-                "port": 10333
-            },
-            {
-                "address": "::ffff:78.18.22.226",
-                "port": 10333
+                "address": "47.90.28.99",
+                "port": 22333
             }
         ]
     }
@@ -94,10 +44,8 @@ Response body:
 
 Response Description:
 
-- Unconnected: A node that is not currently connected.
+- Unconnected: Nodes that are not currently connected.
 
 - Bad: Nodes that are no longer connected.
 
-- Connected: the node to which you are currently connected.
-
-
+- Connected: Nodes to which you are currently connected.

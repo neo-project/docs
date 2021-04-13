@@ -4,84 +4,94 @@ After installation of Neo-CLI, this section we will walk you through the necessa
 
 ## Modifying configuration files
 
-Neo-CLI accesses two configuration files during execution: `config.json` and `protocol.json`. You need to make necessary configurations in these files before starting Neo-CLI. For  information about attributes of the files, refer to [Neo-CLI](../../tooldev/neo_cli_structure.md) structure. 
+Neo-CLI accesses the configuration file `config.json`  during execution. You need to make necessary configurations in the file before starting Neo-CLI.
 
 ### Configuring a wallet
 
-Before you can invoke the wallet related API, you need to configure a wallet in the config.json file to enable Neo-CLI to open the wallet automatically when running. 
+Before you can invoke the wallet related API, you must open the wallet. You can configure a wallet in the config.json file to enable Neo-CLI to open the wallet automatically when running. 
 
-- `ExtraGasInvoke`: The extra GAS amount allowed to be consumed when invoking virtual machine by RPC. The default free limit is 10 GAS.
 - `Path`: the wallet path
 - `Password`: the wallet password
 - `IsActive`: Set to `true` to allow Neo-CLI to open the wallet automatically.
 
 Here is an example:
 
-```
+```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "Index": "Index_{0}"
+    "Logger": {
+      "Path": "Logs",
+      "ConsoleOutput": true,
+      "Active": true
+    },
+    "Storage": {
+      "Engine": "LevelDBStore",
+      "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "BindAddress": "127.0.0.1",
-      "Port": 10332,
-      "SslCert": "",
-      "SslCertPassword": "",
-      "ExtraGasInvoke": "0",
-      "MaxConcurrentConnections": "10"
+      "Port": 21333,
+      "WsPort": 21334
     },
     "UnlockWallet": {
-      "Path": "wallet.json",
-      "Password": "11111111",
-      "StartConsensus": false,
+      "Path": "admint.json",
+      "Password": "1",
       "IsActive": true
     },
-    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+  },
+  "ProtocolConfiguration": {
+    "Magic": 6713213,
+    "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
+    "ValidatorsCount": 7,
+    "StandbyCommittee": [
+      "02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e",
+      "038415d0be8dc12b61d3e3b76b98f464dfab7fddee74271c35e2de624bb51023a6",
+      "03c9b1c89c6e2d4abd629a2db8b7d03aced518a56793bc90f4985ef7ed3f1b481a",
+      "0302242b1dced63e1bf7eb14876f7ef026b79567f9c5be83de1943dd185ec28e68",
+      "025e8494903b93dc369f08a2bd7e221f574c75d9675591f04907cba9daeeb83d10",
+      "03e8ab5186e1deabcd10ec0e509ded4fffade6fddf534ac3e0506268bae3fd44a6",
+      "020df8858b66ff4d7b0a6a68d11ddedcc7d90d2a64ffa2cd087c4c5dabf4150b40",
+      "02f5f04a6036caedd68b5bd36e33105c0e9f43c0592e9f9f2188b1659be993bb5e",
+      "0279ed5e9ed91547e332a4f27135eebff5daab6c978b57992d8ee0359ccb9f5e8b",
+      "02ff249d06faaf0b5ba865e1531bfabe07f89aef39ab59082e3bc140be0318055d"
+    ],
+    "SeedList": [
+      "seed1t.neo.org:21333",
+      "seed2t.neo.org:21333",
+      "seed3t.neo.org:21333",
+      "seed4t.neo.org:21333",
+      "seed5t.neo.org:21333"
+    ]
   }
 }
 ```
 
-> [!Note]
->
-> The BindAddress option defaults to local 127.0.0.1. You can set it to 0.0.0.0 to allow RPC invoking. In order to ensure the security of the node, set the firewall policy for the corresponding port.
+Where:
 
-### Configuring HTTPS
-
-If you want to access the RPC server via HTTPS, you need to set the domain name, certificate,  and password in config.json before starting the node, as shown below:
-
-```json
-{
-  "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain"
-    },
-    "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "Port": 10331,
-      "SslCert": "YourSslCertFile.xxx",
-      "SslCertPassword": "YourPassword"
-    }
-  ...
-```
+- `ConsoleOutput`: Whether to print log information on console. `true` means foreground and background printing, while `false` means background logging.
+- `Active`: Whether to enable Log
+- `Engine`: It defaults to LevelDBStore, which means the engine used by the blockchain to store data.
+- `PluginURL`: The downloading URL of the plugin, which will be used when using the CLI install command.
 
 ### Connecting the node to network
 
-Neo-CLI connects to Neo main net by default. If you want to connect the node to test net, you need to replace the main net configuration files by the corresponding test net files (i.e. replace `config.json` and `protocol.json` under Neo-CLI root directory by `config.testnet.json` and `protocol.testnet.json`, respectively). For more information refer to [Main net and Test net](../../network/testnet.md).
+To connect the node to test net, replace the content of `config.json` with the content of  `config.testnet.json`.
 
-If you want to connect the node to your private net, refer to [Setting up Private Chain](../../network/private-chain/solo.md) to modify the file `protocol.json`.
+> [!Note]
+>
+> If your Neo-CLI is published from the source code in GitHub by yourself, you must also modify the Magic field value in config.json to **827601742** before you can connect to the Neo N3 RC1 test network.
+
+To connect the node to your private net, refer to [Setting up Private Chain](../../develop/network/private-chain/solo.md).
 
 ## Installing plugins
 
-Since Neo 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. The user can select the desired extension functionality instead of invoking it with additional parameters every time starting neo-cli, thus avoiding many human errors and some tedious instructions such as opening a wallet and calling applicationlogs. 
+Some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. The user can select the desired extension functionality instead of invoking it with additional parameters every time starting neo-cli, thus avoiding many human errors and some tedious instructions such as opening a wallet and calling APIs. 
+
+You can choose one of the following ways to install plugins:
+
+- Download the plugin package from GitHub
+- Use the CLI command to install automatically
 
 ### Downloading plugins from GitHub
 
@@ -99,121 +109,108 @@ Download the plugins you need from the following table.
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/LevelDBStore.zip">LevelDBStore</a>
             </td>
-            <td>Synchronizes the smart contract log (ApplicationLogs) automatically in RPC mode. Currently the log has been changed to be stored in the format of LevelDB.</td>
-            <td><a href="cli/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
-            <td>Mandatory for exchanges</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/ImportBlocks.zip">ImportBlocks</a>
-            </td>
-            <td>Synchronizes the client using offline packages.</td>
-            <td></td>
+            <td>Uses LevelDB to store the blockchain data</td>
+            <td></td>    
             <td>Mandatory</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcWallet.zip">RpcWallet</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RocksDBStore.zip">RocksDBStore</a>
             </td>
-            <td>Provides wallet-specific RPC functionalities.</td>
-            <td><a href="../../reference/rpc/latest-version/api/claimgas.html">claimgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getbalance.html">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnewaddress.html">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunclaimedgas.html">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/getwalletheight.html">getwalletheight</a><br><a
-                    href="../../reference/rpc/latest-version/api/importprivkey.html">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/listaddress.html">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendfrom.html">sendfrom</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendmany.html">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendtoaddress.html">sendtoaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokefunction.html">invokefunction</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokescript.html">invokescript</a></td>
+            <td>Uses RocksDBStore to store the blockchain data</td>
+            <td></td>
+            <td>An alternative to LevelDBStore</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RpcServer.zip">RpcServer</a>
+            </td>
+            <td>Enables RPC for the node</td>
+            <td><a href="../../reference/rpc/latest-version/api.html"> RPC API </a></td>
             <td>Mandatory</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/SimplePolicy.zip">SimplePolicy</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
-            <td>Enables policies for filtrate illegal transactions</td>
-            <td></td>
-            <td>Mandatory</td>
-        </tr>
-                <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/CoreMetrics.zip">CoreMetrics</a>
-            </td>
-            <td>Enquiries the timestamp of history blocks.</td>
-            <td><a href="cli/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
+            <td>Synchronizes the smart contract log with the NativeContract log (Notify)</td>
+            <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>Recommended</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
-            <td>Enquiries the UTXO assets related information.</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getunclaimed</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getclaimable</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getunspents</a></td>
+            <td>Enquiries NEP17 balance and transactions history of accounts through RPC</td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>Recommended</td>
-        </tr>
-                <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcNep5Tracker.zip">RpcNep5Tracker</a>
-            </td>
-            <td>Enquiries NEP-5 balance and transactions history of accounts through RPC</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getnep5transfers</a></td>
-            <td>Recommended</td>
-        </tr>
-                <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcSecurity.zip">RpcSecurity</a>
-            </td>
-            <td>Enhances the security of RPC requests by enabling base64 encryption for HTTP requests. You need to configure the user name and password in the plugin config.json file.</td>
-            <td></td>
-            <td>Optional</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
             <td>Optional</td>
-        </tr>
+        </tr>  
+                <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/DBFTPlugin.zip">DBFTPlugin</a>
+            </td>
+            <td>dBFT consensus plugin</td>
+            <td></td>
+            <td>Mandatory when served as a consensus node</td>
+        </tr>   
+         <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/OracleService.zip">OracleService</a>
+            </td>
+            <td>Oracle service plugin</td>
+            <td></td>
+            <td>Mandatory when served as an Oracle node</td>
+        </tr>   
+        </tr>   
+         <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/StateService.zip">StateService</a>
+            </td>
+            <td>StateRoot consensus service plugin</td>
+            <td><a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
+                <a href="../../reference/rpc/latest-version/api/getproof.html">getproof</a><br>
+                <a href="../../reference/rpc/latest-version/api/verifyproof.html">verifyproof</a><br>
+                <a href="../../reference/rpc/latest-version/api/getstateheight.html">getstateheight</a>
+            </td>
+            <td>Mandatory when served as a StateRoot consensus node</td>
+        </tr>   
     </tbody>
 </table>
 
 
-To install plugins, unzip the package under the Neo-CLI root directory, as shown below. 
+To install plugins, unzip plugin packages under the the Neo-CLI root directory, as shown below:
 
-![](../../assets/plugins.png)
+![](../../../zh-cn/assets/PluginsForExchange.png)
 
 ### Downloading plugins using command
 
 It is easier to automatically install or uninstall the plugin using commands, for example:
 
 ```
-neo> install ImportBlocks
-Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.12.2/ImportBlocks.zip
+neo> install StatesDumper
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview5/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 
 ```
-neo> uninstall RpcWallet
+neo> uninstall StatesDumper
 Uninstall successful, please restart neo-cli.
 ```
 
 After installation, restart Neo-CLI for the plugin to take effect.
 
-## Synchronizing blockchain data
-
-The client must be fully synchronized before use. In order to speed up network synchronization you can download an offline package of the blockchain data up to a certain block height.  This means the client will only need to sync the additional blocks from the Neo network rather than the entire blockchain. For more information,  see  [Synchronizing the blockchain faster](../syncblocks.md).
-
-## Starting the Neo node
+## Starting the NEO node
 
 Open the command line, navigate to the Neo-CLI directory, and enter the following command to start the Neo node:
 
@@ -229,7 +226,7 @@ or
 neo-cli.exe
 ```
 
-On **Linux (ubuntu 17.10)**:
+On **Linux (ubuntu 16.04/18.04)**:
 
 ```
 ./neo-cli
@@ -245,13 +242,8 @@ dotnet neo-cli.dll
 >
 > If you  use dotnet install .net core in advance.
 
-Neo-CLI provides a series of APIs for external access. If you want to start the node while opening the API, you can add the parameter `--rpc`, `/rpc`, or `-r`, for example:
-
-```
-neo-cli.dll --rpc
-```
 If you want the external program to access the node API need to open the firewall port: 10331-10334, 20331-20334
 
-> [!CAUTION]
+> [!WARNING]
 >
 > If you open the API service and the wallet in Neo-CLI, you need to set up your firewall policy. For example, set a whitelist for the firewall to only allow access to these ports by whitelisted IP addresses. If completely opening the service to external network, others may be able to export the private key or transfer assets using API.

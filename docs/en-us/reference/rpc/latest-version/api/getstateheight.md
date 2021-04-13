@@ -1,10 +1,14 @@
 # getstateheight Method
+Queries the stateroot height.
 
-Gets the latest block height and the the verified state height.
+> [!Note]
+>
+> You must install the plugin  [StateService](https://github.com/neo-project/neo-plugins/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-#### Example
 
-Request text:
+## Example
+
+Request body:
 
 ```json
 {
@@ -15,21 +19,15 @@ Request text:
 }
 ```
 
-Response text:
+Response body:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "blockheight": 6143917,
-    "stateheight": 6143916
-  }
+    "jsonrpc": "2.0",
+    "id": "1",
+    "result": {
+        "localrootindex": 602,
+        "validatedrootindex": 602
+    }
 }
 ```
-
-Response description:
-
-`blockheight`: Block height that has been synchronized.
-
-`stateheight`: Height of the verified StateRoot

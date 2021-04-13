@@ -14,24 +14,25 @@ public class Contract
 
 ## 属性
 
-|                                                        | 名称                                         | 说明                      |
-| ------------------------------------------------------ | -------------------------------------------- | ------------------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [IsPayable](Contract/IsPayable.md)           | 该合约能否接收 NEP-5 资产 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [Script](Contract/Script.md)                 | 获得该合约的脚本哈希      |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC74937.jpeg) | [StorageContext](Contract/StorageContext.md) | 获得该合约的存储区上下文  |
+| 名称       | 说明                             |
+| ---------- | -------------------------------- |
+| Id     | 合约Id，原生合约的ID为负整数，普通合约的ID为正整数 |
+| UpdateCounter | 合约更新次数计数             |
+| Hash  | 合约哈希，合约哈希由部署人的脚本散列、合约NEF校验码、合约名称共同决定 |
+| Script  | 合约脚本数组  |
+| Manifest  | 合约Manifest的Json字符串表示  |
 
 ## 方法
 
-|                                          | 名称                                       | 说明              |
-| ---------------------------------------- | ---------------------------------------- | --------------- |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) | `new` 发布智能合约    |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) | `new` 迁移 / 更新智能合约 |
-| ![](https://i-msdn.sec.s-msft.com/dynimg/IC91302.jpeg) | [Destroy()](Contract/Destroy.md)         | `new` 销毁智能合约    |
+| 名称                                       | 说明              |
+| ---------------------------------------- | --------------- |
+| [Call(UInt160 scriptHash, string method, object[] arguments)](Contract/Call.md) | 调用智能合约    |
+| [GetCallFlags()](Contract/GetCallFlags.md)         | 获取原生合约的调用权限 Flag |
+| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | 根据公钥创建标准账户 |
 
 ## 构造方法
 
-通过 [Blockchain.GetContract(byte[])](Blockchain/GetContract.md) 方法来构造 Contract 对象。
+通过 [ContractManagement.GetContract(UInt60 hash)](ContractManagement/GetContract.md) 方法来构造 Contract 对象。
 
-通过 [Contract.Create(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Create.md) 方法来发布智能合约到区块链上，并返回 Contract 对象。
+通过 [ContractManagement.Deploy(byte[] nefFile, string manifest)](ContractManagement/Deploy.md) 方法来部署合约，并返回 Contract 对象。
 
-通过 [Contract.Migrate(byte[], byte[], byte, bool, string, string, string, string, string)](Contract/Migrate.md) 方法来更新智能合约，并返回 Contract 对象。

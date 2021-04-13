@@ -4,13 +4,12 @@
 
 ## 修改配置文件
 
-Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protocol.json`。启动 Neo-CLI 前需要对这两个文件进行必要配置。有关这两个文件的具体属性说明，请参见 [Neo-CLI 结构](../../tooldev/neo_cli_structure.md)。
+Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI 前需要对该文件进行必要配置。
 
 ### 配置钱包
 
-启动 Neo-CLI 前，你需要在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
+启动 Neo-CLI 前，你可以在 `config.json` 中开启自动绑定并打开钱包功能，钱包打开后才可以调用与钱包相关的 API。配置参数如下：
 
-- ExtraGasInvoke：允许通过 RPC 调用虚拟机执行消耗的额外 GAS 数额（默认起始免费额度为 10 GAS）
 - Path：钱包路径
 - Password：钱包密码
 - IsActive：设为 true 允许自动打开钱包
@@ -20,70 +19,74 @@ Neo-CLI 在执行过程中会访问两个配置文件 `config.json` 和 `protoco
 ```json
 {
   "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain_{0}",
-      "Index": "Index_{0}"
+    "Logger": {
+      "Path": "Logs",
+      "ConsoleOutput": true,
+      "Active": true
+    },
+    "Storage": {
+      "Engine": "LevelDBStore",
+      "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "BindAddress": "127.0.0.1",
-      "Port": 10332,
-      "SslCert": "",
-      "SslCertPassword": "",
-      "ExtraGasInvoke": "0",
-      "MaxConcurrentConnections": "10"
+      "Port": 21333,
+      "WsPort": 21334
     },
     "UnlockWallet": {
-      "Path": "wallet.json",
-      "Password": "11111111",
-      "StartConsensus": false,
+      "Path": "admint.json",
+      "Password": "1",
       "IsActive": true
     },
-    "PluginURL": "https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip"
+    "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
+  },
+  "ProtocolConfiguration": {
+    "Magic": 6713213,
+    "MillisecondsPerBlock": 15000,
+    "MaxTraceableBlocks": 2102400,
+    "ValidatorsCount": 7,
+    "StandbyCommittee": [
+      "02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e",
+      "038415d0be8dc12b61d3e3b76b98f464dfab7fddee74271c35e2de624bb51023a6",
+      "03c9b1c89c6e2d4abd629a2db8b7d03aced518a56793bc90f4985ef7ed3f1b481a",
+      "0302242b1dced63e1bf7eb14876f7ef026b79567f9c5be83de1943dd185ec28e68",
+      "025e8494903b93dc369f08a2bd7e221f574c75d9675591f04907cba9daeeb83d10",
+      "03e8ab5186e1deabcd10ec0e509ded4fffade6fddf534ac3e0506268bae3fd44a6",
+      "020df8858b66ff4d7b0a6a68d11ddedcc7d90d2a64ffa2cd087c4c5dabf4150b40",
+      "02f5f04a6036caedd68b5bd36e33105c0e9f43c0592e9f9f2188b1659be993bb5e",
+      "0279ed5e9ed91547e332a4f27135eebff5daab6c978b57992d8ee0359ccb9f5e8b",
+      "02ff249d06faaf0b5ba865e1531bfabe07f89aef39ab59082e3bc140be0318055d"
+    ],
+    "SeedList": [
+      "seed1t.neo.org:21333",
+      "seed2t.neo.org:21333",
+      "seed3t.neo.org:21333",
+      "seed4t.neo.org:21333",
+      "seed5t.neo.org:21333"
+    ]
   }
 }
 ```
 
-> [!Note]
->
-> BindAddress 选项，默认为本地 127.0.0.1。若要允许远程调用 RPC，可以设成 0.0.0.0，此时为了保障节点的安全性，请务必设置好对应端口的防火墙策略。
+说明：
 
-### 配置 HTTPS
-
-如果要通过 HTTPS 的方式访问 RPC 服务器，需要在启动节点前修改配置文件 `config.json`，并设置域名、证书和密码，如下所示： 
-
-```json
-{
-  "ApplicationConfiguration": {
-    "Paths": {
-      "Chain": "Chain"
-    },
-    "P2P": {
-      "Port": 10333,
-      "WsPort": 10334
-    },
-    "RPC": {
-      "Port": 10331,
-      "SslCert": "YourSslCertFile.xxx",
-      "SslCertPassword": "YourPassword",
-      "ExtraGasInvoke": "0",
-      "MaxConcurrentConnections": "10"
-    }
-  ...
-```
+- `ConsoleOutput` ：是否在控制台打印出 Log 信息。（true：前后台打印，false：后台记录）
+- `Active` ：是否开启 Log 信息。
+- `Engine` ：默认 LevelDBStore。表示区块链数据存储使用的引擎。
+- `PluginURL`：表示下载插件的地址，使用 CLI 的 install 命令时会用到。
 
 ### 将节点连接到网络
 
-Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目录下的`config.testnet.json` 和`protocol.testnet.json` 文件分别替换原有配置文件 `config.json` 和 `protocol.json`。相关信息，请参见[主网与测试网](../../network/testnet.md)。
+将 Neo-CLI 连接到测试网需要配置 `config.json` 文件，用 `*.testnet.json` 中的内容去替换即可。 
 
-如果要将节点接入私链，需要配置 `protocol.json` 文件。详细信息，请参见[搭建私有链](../../network/private-chain/solo.md)中的修改`protocol.json` 说明。
+> [!Note]
+>
+> 如果是从源代码发布的Neo-CLI，要成功连接到Neo N3 RC1测试网，还必须将配置文件config.json中的Magic字段值改为 **827601742**。
+
+如果要将节点接入私链，详细信息请参见 [搭建私有链](../../develop/network/private-chain/solo.md) 中的说明。 
 
 ## 安装插件
 
-一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 Neo-CLI时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。
+一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 Neo-CLI 时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。
 
 安装插件有两种方式：
 
@@ -106,119 +109,106 @@ Neo-CLI 默认接入主网，如果要连接测试网，你需要用Neo-CLI目�
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/ImportBlocks.zip">ImportBlocks</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/LevelDBStore.zip">LevelDBStore</a>
             </td>
-            <td>同步离线包。</td>
-            <td></td>
+            <td>区块链数据使用 LevelDB 存储引擎</td>
+            <td></td>    
             <td>必选</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcWallet.zip">RpcWallet</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RocksDBStore.zip">RocksDBStore</a>
             </td>
-            <td>提供钱包相关的 RPC 功能。</td>
-            <td><a
-                    href="../../reference/rpc/latest-version/api/claimgas.html">claimgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/dumpprivkey.html">dumpprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/getbalance.html">getbalance</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnewaddress.html">getnewaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunclaimedgas.html">getunclaimedgas</a><br><a
-                    href="../../reference/rpc/latest-version/api/getwalletheight.html">getwalletheight</a><br><a
-                    href="../../reference/rpc/latest-version/api/importprivkey.html">importprivkey</a><br><a
-                    href="../../reference/rpc/latest-version/api/listaddress.html">listaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendfrom.html">sendfrom</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendmany.html">sendmany</a><br><a
-                    href="../../reference/rpc/latest-version/api/sendtoaddress.html">sendtoaddress</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokefunction.html">invokefunction</a><br><a
-                    href="../../reference/rpc/latest-version/api/invokescript.html">invokescript</a><br></td>
-            <td>必选</td>
-        </tr>
-                <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/SimplePolicy.zip">SimplePolicy</a>
-            </td>
-            <td>过滤非法交易。</td>
+            <td>区块链数据使用 RocksDBStore 存储引擎</td>
             <td></td>
+            <td>和 LevelDBStore 二选一</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RpcServer.zip">RpcServer</a>
+            </td>
+            <td>提供节点的 RPC 功能</td>
+            <td><a href="../../reference/rpc/latest-version/api.html#命令列表"> RPC API </a></td>
             <td>必选</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/Applicationlogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
-            <td>在 RPC 模式下自动同步智能合约日志（ApplicationLogs），目前日志已经改为以 LevelDB 格式存储。</td>
+            <td>同步智能合约和 NativeContract 的日志（Notify）</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
-            <td>必选</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/CoreMetrics.zip">CoreMetrics</a>
-            </td>
-            <td>查询历史区块的时间戳。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getmetricblocktimestamp.html">getmetricblocktimestamp</a></td>
             <td>推荐</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcNep5Tracker.zip">RpcNep5Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
-            <td>提供 NEP-5 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep5balances.html">getnep5balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep5transfers.html">getnep5transfers</a></td>
+            <td>提供 NEP17 余额及交易历史的 RPC 查询功能。</td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>推荐</td>
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcSystemAssetTracker.zip">RpcSystemAssetTracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/StatesDumper.zip">StatesDumper</a>
             </td>
-            <td>查询 UTXO 资产相关信息。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getunclaimed.html">getunclaimed</a><br><a
-                    href="../../reference/rpc/latest-version/api/getclaimable.html">getclaimable</a><br><a
-                    href="../../reference/rpc/latest-version/api/getunspents.html">getunspents</a></td>
-            <td>推荐</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/StatesDumper.zip">StatesDumper</a>
-            </td>
-            <td>导出 Neo-CLI 状态数据。</td>
+            <td>导出 Neo-CLI 状态数据</td>
             <td></td>
             <td>可选</td>
-        </tr> 
-        <tr>            
-            <td><a                    
-                   href="https://github.com/neo-project/neo-plugins/releases/download/v2.12.2/RpcSecurity.zip">RpcSecurity</a>                        </td>
-            <td>对HTTP Request 进行 base64 加密，提升 RPC 请求的安全性。需要在该插件的 config.json 文件中设置 username 和 password</td>
+        </tr>   
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/DBFTPlugin.zip">DBFTPlugin</a>
+            </td>
+            <td>dBFT 共识插件</td>
             <td></td>
-            <td>可选</td>
-        </tr> 
+            <td>作为共识节点时必选</td>
+        </tr>   
+         <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/OracleService.zip">OracleService</a>
+            </td>
+            <td>Oracle 服务插件</td>
+            <td></td>
+            <td>作为 Oracle 服务节点时必选</td>
+        </tr>   
+        </tr>   
+         <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/StateService.zip">StateService</a>
+            </td>
+            <td>StateRoot 共识服务插件</td>
+            <td>
+                <a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
+                <a href="../../reference/rpc/latest-version/api/getproof.html">getproof</a><br>
+                <a href="../../reference/rpc/latest-version/api/verifyproof.html">verifyproof</a><br>
+                <a href="../../reference/rpc/latest-version/api/getstateheight.html">getstateheight</a>
+            </td>
+            <td>作为 StateRoot 共识节点时必选</td>
+        </tr>   
     </tbody>
 </table>
 
-
 将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。
 
-![plugins.png](../../assets/plugins.png)
+![plugins.png](../../assets/PluginsForExchange.png)
 
 ### 使用命令下载插件
 
 使用内部命令自动下载或卸载插件，操作更为简便。例如：
 
 ```
-neo> install ImportBlocks
-Downloading from https://github.com/neo-node/neo-plugins/releases/download/v2.12.2/ImportBlocks.zip
+neo> install StatesDumper
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-RC1/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 
 ```
-neo> uninstall RpcWallet
+neo> uninstall StatesDumper
 Uninstall successful, please restart neo-cli.
 ```
 
 在安装或卸载完毕后，请重启 Neo-CLI 使操作生效。
-
-## 快速同步区块数据
-
-客户端运行时会自动同步区块数据，打开钱包时也会自动同步钱包数据，当同步完成后才可以正常使用客户端以及查看钱包内资产。由于区块链数据庞大，初次同步时等待时间通常很久，建议采用离线同步包进行同步，相关信息，请参见 [快速同步区块数据](../syncblocks.md)。
 
 ## 启动 Neo 节点
 
@@ -252,14 +242,10 @@ dotnet neo-cli.dll
 >
 > 如果使用 dotnet，需要先安装 .net core 环境。
 
-如果想在启动节点的同时启动 API 服务，可以输入参数 `--rpc`  或 `/rpc` 或 `-r`，如：
-
-```
-dotnet neo-cli.dll --rpc
-```
 
 如果你想让外部程序访问该节点的 API 需要开放防火墙端口：10331-10334, 20331-20334 
 
 > [!WARNING]
 >
 > 如果开通了 API 服务，并且在 Neo-CLI 中打开钱包的话，需要设置防火墙策略，例如设置防火墙的白名单，这些端口仅对白名单的 IP 地址开放。如果完全对外开放，其它人可能会通过 API 导出私钥或者进行转账。
+

@@ -1,15 +1,23 @@
 # getblockheader 方法
 
-根据指定的散列值，返回对应的区块头信息。
+根据指定的哈希或索引，返回对应的区块头信息。
 
-#### 参数
+该方法与 getblock 方法的用法一样，区别是 getblockheader 只获取区块头，而 getblock 获取完整区块。
 
-- hash：区块散列值。
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
 
-- verbose：可选参数，verbose 默认值为 0，verbose 为 0 时返回的是区块的序列化后的信息，用 16 进制字符串表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。verbose 为 1 时返回的是对应区块的详细信息，用 Json 格式字符串表示。
+## 参数说明
 
+- hash | index：区块哈希或区块索引（即区块高度=区块数-1）。
+- verbose：可选参数，verbose 默认值为 false。
+  - verbose 为 false 时返回的是区块的序列化后的信息，用 base64 编码表示，如果从中获取详细信息需要调用 SDK 来进行反序列化。
+  - verbose 为 true（或 1） 时返回的是对应区块的详细信息，用 JSON 格式字符串表示。
 
-#### 调用示例
+## 调用示例
+
+**示例1 - 获取序列化后的区块信息**
 
 请求正文：
 
@@ -17,7 +25,18 @@
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": ["a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957"],
+  "params": [140],
+  "id": 1
+}
+```
+
+或
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "getblockheader",
+  "params": ["0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c"],
   "id": 1
 }
 ```
@@ -28,20 +47,31 @@
 {
     "jsonrpc": "2.0",
     "id": 1,
-    "result": "00000000e5abdddd1bb06ac4530a0cb699a99453fc64086708659cac9a8258061ab533698e6a6e91a592649a7fb0af5afa4d899d871819994fd260dc6b50c1be2badff0974486c5b40ac27006d80cbea5b752a7683f5011bdaaccee8c4d2555c829fa51e31551ef201fd45014047c4915575949baa8594877105598df8f06875539aa98e2b028ebf5b4f17122831d32308142062db8b50e1bbe07d2313510c0ae289e7f9a97b20cbe858e62ba2407187c52864ececa40ad3c76f221c7ef9918b9e2dd058156021a88737ca0a54722482297c9775af35d52cd4e01648a34662748d00f5b3c63ac2ae346b6bebf236401f23118e86ce3a74ae1bd92c41675f7f8dc94a6ceb2796a2a3741d248f0d5f07aaeda7ec47287317926382d921a47a38bb5793ebef91cbff7a04313d91a4d3ea403aecb64ecde98fc705dd4e9e26580fbeaf27bd24b69507b1b7d348ec29f7bc09948d237d7ca6fb3b253b59297bdc7fe10d1132fef3ac0d728e5063baebbc99cd4053871e5b4138d5b3dfcf79264d240b389417213517ad1fff9636d067a32d288b660503695c4341ce0799d0d9b1e78a62322f10eef1f44f3dd9ec4d311381a3daf15521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b642102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae00"
+    "result": "AAAAAFrf0tgylRv20FkZygEC2UDiMHJTukXJPQ/DFP5sezdzm3A7VffHxK0b4rwXh/xR/zV24Mj6+Vhq25qoN1WlxRIBIKp7dwEAAIwAAADitlMicpPpnE8pBtU1U6u0pnLfhgFCDEDGZIUihuWK6RLqloq6UiKxkoW0QFhqGhoQU3cK5IQRATFUY807W/hGmYqP80N8qjKQ/e4o8URTzgRUXJKXf1/sKxEMIQLO1DI5fdxE7boDHAvDuTPyj92Wd3kteyDmwDbdqqzx4hELQRON768A"
 }
 ```
 
-请求正文：
+**示例2 - 获取 JSON 格式的区块信息**
 
-verbose = 1，返回 JSON 格式的结果。
+请求正文：
 
 ```json
 {
   "jsonrpc": "2.0",
   "method": "getblockheader",
-  "params": ["a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957", 1],
+  "params": [140, true],
   "id": 1
+}
+```
+
+或
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "getblockheader",
+  "params": ["0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c", true]
 }
 ```
 
@@ -52,21 +82,24 @@ verbose = 1，返回 JSON 格式的结果。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "hash": "0xa5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957",
-        "size": 676,
+        "hash": "0x3d87f53c51c93fc08e5ccc09dbd9e21fcfad4dbea66af454bed334824a90262c",
+        "size": 213,
         "version": 0,
-        "previousblockhash": "0x6933b51a0658829aac9c6508670864fc5394a999b60c0a53c46ab01bddddabe5",
-        "merkleroot": "0x09ffad2bbec1506bdc60d24f991918879d894dfa5aafb07f9a6492a5916e6a8e",
-        "time": 1533823092,
-        "index": 2600000,
-        "nonce": "762a755beacb806d",
-        "nextconsensus": "ATobfpwv6JBXciEC4bL8GL8PjQkssDsmCR",
-        "script": {
-            "invocation": "4047c4915575949baa8594877105598df8f06875539aa98e2b028ebf5b4f17122831d32308142062db8b50e1bbe07d2313510c0ae289e7f9a97b20cbe858e62ba2407187c52864ececa40ad3c76f221c7ef9918b9e2dd058156021a88737ca0a54722482297c9775af35d52cd4e01648a34662748d00f5b3c63ac2ae346b6bebf236401f23118e86ce3a74ae1bd92c41675f7f8dc94a6ceb2796a2a3741d248f0d5f07aaeda7ec47287317926382d921a47a38bb5793ebef91cbff7a04313d91a4d3ea403aecb64ecde98fc705dd4e9e26580fbeaf27bd24b69507b1b7d348ec29f7bc09948d237d7ca6fb3b253b59297bdc7fe10d1132fef3ac0d728e5063baebbc99cd4053871e5b4138d5b3dfcf79264d240b389417213517ad1fff9636d067a32d288b660503695c4341ce0799d0d9b1e78a62322f10eef1f44f3dd9ec4d311381a3da",
-            "verification": "5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b642102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae"
-        },
-        "confirmations": 149214,
-        "nextblockhash": "0x9559ab79d1b9c69fa0cd7b5356018fd6ef11f3cf5b22a1d7eb0481cb359b3fab"
+        "previousblockhash": "0x73377b6cfe14c30f3dc945ba537230e240d90201ca1959d0f61b9532d8d2df5a",
+        "merkleroot": "0x12c5a55537a89adb6a58f9fac8e07635ff51fc8717bce21badc4c7f7553b709b",
+        "time": 1612687482881,
+        "primary": 0,
+        "index": 140,
+        "nextconsensus": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF",
+        "witnesses": [
+            {
+                "invocation": "DEDGZIUihuWK6RLqloq6UiKxkoW0QFhqGhoQU3cK5IQRATFUY807W/hGmYqP80N8qjKQ/e4o8URTzgRUXJKXf1/s",
+                "verification": "EQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
+            }
+        ],
+        "confirmations": 41,
+        "nextblockhash": "0xd087785fc3cf5b59c6a4631bdbdd63ed3e44947c22eb69ba866ea9291473b2b5"
     }
 }
 ```
+

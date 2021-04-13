@@ -1,94 +1,111 @@
 # Wallet
 
-A wallet file, with the .json or .db3 extension, stores a reference to your NEO, GAS, and account information in a database. This file is very important and must be backed up securely.
+The wallet is a database file of Neo-GUI used to store Neo account and asset information in the account. This file is very important and must be properly kept and safely backed up.
 
 > [!CAUTION]
 >
-> #### Caution
+> #### Warning
 >
-> Loss of either the wallet file or wallet password will result in the loss of your assets. Please ensure that the wallet file is securely stored and remember the wallet password.
+> Do not open or create a wallet on an insecure computer. Once the wallet file or wallet password is lost, it will cause the loss of your assets. So back up your wallet file securely, keep it safe, and remember your wallet password.
 
-## Creating the wallet database
+## Creating a wallet
 
-1. Click `Wallet`, `New Wallet Database`.
+1. In Neo-GUI main page click `Wallet` -> `New Wallet Database`.
 
-   ![image](../../assets/gui_2.png)
-
-2. Click `Browse` to select the wallet file storage location, and set the file name, and then click Save.
+2. Select the wallet file storage path, set the file name, and then click `Save`.
 
 3. Enter `Password` and `Re-Password` and save your own password.
 
-4. Click `OK` and the wallet is successfully created, which by default comes with a standard account. 
+4. Click `OK` and the wallet is successfully created, which by default comes with a standard account.
 
+> [!Warning]
+>
+> After the wallet is created, please back up the wallet file safely;
+>
+> It is not recommended to save your wallet files directly under the neo-gui root directory, or you may lose your wallet files when upgrading the software.
 
-## Viewing the wallet information
+## Opening a wallet
 
-### Account
+1. In Neo-GUI main page click `Wallet` -> `Open Wallet Database`.
+2. Select the wallet and enter the password. Click `OK` to open the wallet.
 
-Right-click on the account and select `View Private Key` to check the account information:
+> [!Note]
+>
+> The wallets created in Neo Legacy cannot be opened in Neo3-GUI. To work around this issue you can import the wallet to Neo3-GUI through the private key.
 
-- Address: The equivalent of a bank account or bank card number, used to receive assets during transactions.
+## Importing a wallet
 
-- Private key: A 256-bit random number, kept by the user and not known publicly. This represents the user account ownership and the ownership of the assets within the account.
+Neo-GUI supports importing wallets through the private key and encrypted private key. Importing  mnemonics will be supported in the future.
 
-- Public key: Each private key has a matching public key (Note: Public key, and private key information can be viewed by right clicking on the address.)
+## Account operations
+
+### Viewing account list
+
+![](../assets/guiWallet.png)
+
+After creating or opening the wallet, you will go to the account list page, which displays the following information:
+
+- Account list: all account addresses in the wallet, and the number of NEO and GAS in each account.
+
+- Asset list: all asset types and balance in the wallet, including NEO, GAS and other NEP-5 assets, etc.
+
+  The GAS balance shows the amount of GAS claimed, and the Claim GAS button at the bottom of the page shows the amount of unclaimed GAS. To withdraw the GAS into the account, click the button.
+
+Clicking on the account address you can enter a new page to view the private key or delete the address.
+
 
 > [!CAUTION]
 >
-> #### Caution
+> #### Warning
 >
 > At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
 
-You can also do the following operations by right-clicking an address of the account:
+### Creating addresses
 
-| Function          | Description                                                  |
-| ----------------- | ------------------------------------------------------------ |
-| Create New Add.   | Creates a new address in the wallet                          |
-| Import            | `Import from WIF`: Imports the corresponding address into the wallet<br>`Import from Certificate`： Imports the certification <br>`Import Watch-Only Address`：After importing the address of the other party as the watch-only address, you can monitor the assets at that address. |
-| Copy to Clipboard | Copies the address                                           |
-| Delete            | Removes the address                                          |
+You can create both standard addresses and multi-signature addresses in a wallet account. A multi-signature address is a contract address composed of multiple public keys, requiring one or more parties to sign to transfer assets. For example, after building a private chain, you need to create a multi-signature address to claim NEO and GAS from the genesis block.
 
-### Assets
+To create a standard address：
 
-Clicking on the `Asset` tab you can view the assets of the account, including Assets (NEO, GAS, the user-created assets), type, balance, and the issuer.
+Click the `+` button beside Accounts and select `Create new address`.
 
-### Transaction History
+To create a multi-signature address：
 
-Clicking on the `Transaction History` tab you can view all the transaction records associated with the wallet.
+1. Click the `+` button beside Accounts and select `Create multi-signature address`.
+2. In `Multi-signature pubkeys` field, select public keys or enter multiple public keys directly, and set `Minimum number of signatures`.
+3. Click `Confirm`.
 
-## Opening the wallet database
+> [!Note]
+>
+> If you set multiple signature public keys, you must create the same multi-party signature address in all corresponding wallet accounts so that to successfully complete the signature of the transaction. For more information refer to [Signature](advanced.md).
 
-1. Every time the client is re-opened, you need to click `open wallet database` to select which wallet file to open, as the picture shows:
+The newly created address is displayed in the account list.
 
-   ![image](../../assets/gui_5.png)
+### Importing private key
 
-2. Click `Browse` to select the wallet (usually the default is the last open wallet)
+You can import the account address corresponding to the private key into the current wallet. To do so, click the `+` button beside Accounts and select `Import private`.
 
-3. Select one of the file format to open: NEP-6 (.json) or SQLite (.db3)
+## Viewing transaction list
 
-   Clients earlier than Neo GUI v2.5.2 support only .db3 files.
+You can view all transaction records related to the wallet by clicking the transaction list. This includes the confirmed transactions and the transactions that have just been initiated but have not yet been confirmed.
 
-4. Enter the password, and click `OK` to enter the wallet.
++ **Latest transaction**: Transactions already packaged on the blockchain by consensus nodes
++ **Unconfirmed transaction**: Transactions waiting to be packaged on the blockchain
 
-5. If opening an old .db3 wallet, you need to choose whether to upgrade the wallet to the new NEP-6 format according to the prompted message.
+## Transfer
 
-   After upgraded, the NEP-6 wallet can be shared among multiple clients, e.g. mobile, PC, or Web site. But it cannot be opened in the  clients earlier than Neo GUI v2.5.2.
+In Neo-GUI, you can do multiple transfers at one time, or bulk transfers from a single address to multiple addresses.
 
-## Changing password
+1. In Neo-GUI click `Wallet` -> `Transfer`.
+2. Do one of the following:
+   - Single transfer: enter necessary transfer parameters.
+   - Multiple transfers: click `Add transfer` to add transfer parameters for multiple addresses.
+   - Bulk transfers: Click the `Bulk transfer` tab and then enter necessary parameters.
+3. Click `Send`.
 
-You can modify the wallet password.
+If the transfer transaction is initiated from a multi-signature address, you will receive a message prompting the signatures are not enough. Copy the information and proceed with the signature procedure to complete the transaction. For more information refer to  [Signature](advanced.md).
 
-![image](../../assets/gui_6.png)
+![](../assets/sign_1.png)
 
-After changing the password, please remember to backup wallet again as any previous wallet backups will not contain the new password.
+## Address book
 
-## Rebuild the wallet index
-
-This option is used to restore errors in the client when an exception occurs. The Wallet Index may need to be rebuilt in the following cases:
-
-- After the import of a private key.
-- A transaction that has not been confirmed after a long time.
-- The wallet assets show errors and blockchain data does not match.
-- Switching between the main net and test net.
-
-As the current block height is very high, rebuilding the wallet index can take several minutes. Please be patient.
+The address book shows all the addresses in the current wallet.

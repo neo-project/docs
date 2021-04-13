@@ -1,360 +1,315 @@
-- name: 站点地图
-  href: /docs/zh-cn/index.md
-- name: Neo 介绍
+﻿- name: 站点地图
+  href: /v3/docs/zh-cn/index.md
+- name: 术语表
+  href: /v3/docs/zh-cn/intro/glossary.md
+- name: 快速入门（C#）
   items:
-  - name: Neo 白皮书
-    href: /docs/zh-cn/basic/whitepaper.md
-  - name: Neo 技术
-    items：
-    - name: NeoVM
-      href: /docs/zh-cn/basic/technology/neovm.md
-    - name: Neo Contract
-      href: /docs/zh-cn/basic/technology/neocontract.md
-    - name: 共识机制
-      href: /docs/zh-cn/basic/technology/dbft.md
-- name: Neo 节点
+  - name: 准备工作
+    href: /v3/docs/zh-cn/gettingstarted/prerequisites.md
+  - name: 搭建网络环境
+    href: /v3/docs/zh-cn/gettingstarted/enviroment.md
+  - name: 开发示例合约
+    href: /v3/docs/zh-cn/gettingstarted/develop.md
+  - name: 部署并调用合约
+    href: /v3/docs/zh-cn/gettingstarted/deploy.md
+- name: Neo 基础
   items:
-  - name: 节点介绍
-    href: /docs/zh-cn/node/introduction.md
-  - name: Neo-GUI
-    items:
-    - name: 下载客户端
-      href: /docs/zh-cn/node/gui/install.md
-    - name: 钱包
-      href: /docs/zh-cn/node/gui/wallet.md
-    - name: 交易
-      href: /docs/zh-cn/node/gui/transc.md
-    - name: 注册与分发资产
-      href: /docs/zh-cn/node/gui/asset.md
-    - name: 与智能合约交互
-      href: /docs/zh-cn/node/gui/sc.md
-    - name: 选举与投票
-      href: /docs/zh-cn/node/gui/vote.md
-    - name: 其它功能
-      href: /docs/zh-cn/node/gui/other.md
-  - name: Neo-CLI
-    items:
-    - name: 安装
-      href: /docs/zh-cn/node/cli/setup.md
-    - name: 配置与启动
-      href: /docs/zh-cn/node/cli/config.md
-    - name: 节点列表
-      href: /docs/zh-cn/node/cli/seedlist.md
-    - name: 命令参考
-      href: /docs/zh-cn/node/cli/cli.md
-  - name: Neo-Python
-    items:
-    - name: 概述
-      href: /docs/zh-cn/node/python/overview.md
-    - name: 安装 （Ubuntu/OSX）
-      href: /docs/zh-cn/node/python/install.md
-    - name: 安装 （Windows）
-      href: /docs/zh-cn/node/python/installwin.md
-    - name: Neo-Python SeedList
-      href: /docs/zh-cn/node/python/seedlist.md
-    - name: 基本用法
-      href: /docs/zh-cn/node/python/basic.md
-    - name: Prompt
-      href: /docs/zh-cn/node/python/prompt.md
-  - name: 快速同步区块
-    href: /docs/zh-cn/node/syncblocks.md
-- name: Neo 网络
-  items:
-  - name: 主网与测试网
-    href: /docs/zh-cn/network/testnet.md
-  - name: 搭建私有链
-    items:
-    - name: 单节点模式
-      href: /docs/zh-cn/network/private-chain/solo.md
-    - name: 在本地主机搭建
-      href: /docs/zh-cn/network/private-chain/private-chain2.md
-    - name: 使用虚拟机搭建
-      href: /docs/zh-cn/network/private-chain/private-chain.md
-    - name: Neo-local
-      href: /docs/zh-cn/network/private-chain/neolocal.md
-- name: 智能合约开发
-  items:
-  - name: 快速入门（C#）
-    items:
-    - name: 介绍
-      href: /docs/zh-cn/sc/gettingstarted/introduction.md
-    - name: 准备工作
-      href: /docs/zh-cn/sc/gettingstarted/prerequisites.md
-    - name: 搭建网络环境
-      href: /docs/zh-cn/sc/gettingstarted/enviroment.md
-    - name: 开发示例合约
-      href: /docs/zh-cn/sc/gettingstarted/develop.md
-    - name: 部署并调用合约
-      href: /docs/zh-cn/sc/gettingstarted/deploy.md
-  - name: 开发环境
-    items:
-    - name: Windows + C#
-      href: /docs/zh-cn/sc/devenv/getting-started-csharp.md
-    - name: macOS + C#
-      href: /docs/zh-cn/sc/devenv/getting-started-csharp-mac.md
-    - name: ubuntu + C#
-      href: /docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.md
-    - name: Java
-      href: /docs/zh-cn/sc/devenv/getting-started-java.md
-    - name: Python
-      href: /docs/zh-cn/sc/devenv/getting-started-python.md
-  - name: 合约编写
-    items:
-    - name: 合约编写基础
-      href: /docs/zh-cn/sc/write/basics.md
-    - name: 编写限制
-      href: /docs/zh-cn/sc/write/limitation.md
-    - name: NEP-5
-      href: /docs/zh-cn/sc/write/nep5.md
-  - name: 部署和调用
-    - name: 部署合约
-      href: /docs/zh-cn/sc/deploy/deploy.md
-    - name: 调用合约
-      href: /docs/zh-cn/sc/deploy/invoke.md
-    - name: 参数和返回值
-      href: /docs/zh-cn/sc/deploy/Parameter.md
-  - name: 测试
-    href: /docs/zh-cn/sc/test.md
-  - name: 合约迁移
-    href: /docs/zh-cn/sc/migrate.md
-  - name: 手续费
-    href: /docs/zh-cn/sc/fees.md
-  - name: 合约示例
-    items: 
-    - name: Hello World
-      href: /docs/zh-cn/sc/sample/HelloWorld.md
-    - name: Domain（域名系统）
-      href: /docs/zh-cn/sc/sample/Domain.md
-    - name: 存储区操作
-      href: /docs/zh-cn/sc/sample/storage.md
-    - name: 锁仓合约教程
-      href: /docs/zh-cn/sc/sample/Lock2.md
-- name: DApp 开发
-  - name: 介绍
-    href:  /docs/zh-cn/dapp/intro.md
-  - name: 与区块链集成
-    href:  /docs/zh-cn/dapp/integ.md
-- name: Neo工具开发
   - name: 基本概念
     - name: 区块模型
       - name: 区块
-        href: /docs/zh-cn/tooldev/concept/blockchain/block.md
+        href: /v3/docs/zh-cn/basic/concept/blockchain/block.md
       - name: 通证
-        href: /docs/zh-cn/tooldev/concept/blockchain/token_model.md
-      - name: UTXO
-        href: /docs/zh-cn/tooldev/concept/blockchain/utxo.md
-      - name: 账户与资产
-        href: /docs/zh-cn/tooldev/concept/blockchain/account_asset.md
-      - name: 验证人
-        href: /docs/zh-cn/tooldev/concept/blockchain/validator.md      
-    - name: 收费模型
-      href: /docs/zh-cn/tooldev/concept/charging_model.md
+        href: /v3/docs/zh-cn/basic/concept/blockchain/token_model.md  
     - name: 密码学
       href:
       - name: 编码算法
-        href:  /docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.md
+        href:  /v3/docs/zh-cn/basic/concept/cryptography/encode_algorithm.md
       - name: 哈希算法
-        href: /docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.md
+        href: /v3/docs/zh-cn/basic/concept/cryptography/hash_algorithm.md
       - name: 加密算法
-        href: /docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
-    - name: 大小端序的使用
-      href:  /docs/zh-cn/tooldev/concept/endian.md
-  - name: Neo-CLI 结构
-    href:  /docs/zh-cn/tooldev/neo_cli_structure.md
-  - name: 网络协议
-    href: /docs/zh-cn/tooldev/network-protocol.md
-  - name: 共识机制
-    - name: 共识算法
-      href: /docs/zh-cn/tooldev/consensus/consensus_algorithm.md
-    - name: 共识协议
-      href: /docs/zh-cn/tooldev/consensus/consensus_protocol.md
-    - name: 投票
-      href: /docs/zh-cn/tooldev/consensus/vote_validator.md
-  - name: 钱包
-    href: /docs/zh-cn/tooldev/wallets.md
-  - name: 交易
-    - name: 交易
-      href: /docs/zh-cn/tooldev/transaction/transaction.md
-    - name: 交易流程
-      href: /docs/zh-cn/tooldev/transaction/tx_execution.md
-  - name: Neo SDK
-    items:
-    - name: 关于 Neo SDK
-      href: /docs/zh-cn/tooldev/sdk/introduction.md
-    - name: 数据类型转换
-      href: /docs/zh-cn/tooldev/sdk/conversion.md
-    - name: 账户
-      href: /docs/zh-cn/tooldev/sdk/account.md
+        href: /v3/docs/zh-cn/basic/concept/cryptography/encryption_algorithm.md
+      - name: 梅克尔树
+        href: /v3/docs/zh-cn/basic/concept/cryptography/merkletree.md
     - name: 钱包
-      href: /docs/zh-cn/tooldev/sdk/wallet.md
+      href: /v3/docs/zh-cn/basic/concept/wallets.md
     - name: 交易
-      href: /docs/zh-cn/tooldev/sdk/tx.md
-- name: 交易所对接指南
+      href: /v3/docs/zh-cn/basic/concept/transaction.md
+  - name: 共识机制
+    - name: 概述
+      href: /v3/docs/zh-cn/basic/consensus/dbft.md
+    - name: 共识算法
+      href: /v3/docs/zh-cn/basic/consensus/consensus_algorithm.md
+    - name: 共识协议
+      href: /v3/docs/zh-cn/basic/consensus/consensus_protocol.md
+    - name: 投票
+      href: /v3/docs/zh-cn/basic/consensus/vote_validator.md
+- name: 治理与激励
+    href: /v3/docs/zh-cn/basic/governance.md  
+- name: NeoVM
+    href: /v3/docs/zh-cn/basic/neovm.md
+- name: Neo 节点
   items:
-  - name: 概述
-    href:  /docs/zh-cn/exchange/general.md
-  - name: v2.12.2
+  - name: 节点介绍
+    href: /v3/docs/zh-cn/node/introduction.md
+  - name: Neo-CLI
     items:
-    - name: 部署 Neo 节点
-      href: /docs/zh-cn/exchange/2.12.2/deploynode.md
-    - name: 使用 Neo-CLI 客户端
-      href: /docs/zh-cn/exchange/2.12.2/client.md
-    - name: 处理资产交易
-      href: /docs/zh-cn/exchange/2.12.2/transaction.md
-    - name: 给用户分发 GAS
-      href: /docs/zh-cn/exchange/2.12.2/gas.md 
-  - name: 更新记录
-    href: /docs/zh-cn/exchange/changelog.md
+    - name: 安装
+      href: /v3/docs/zh-cn/node/cli/setup.md
+    - name: 配置与启动
+      href: /v3/docs/zh-cn/node/cli/config.md
+    - name: 命令参考
+      href: /v3/docs/zh-cn/node/cli/cli.md
+  - name: Neo-GUI
+    items:
+    - name: 安装
+      href: /v3/docs/zh-cn/node/gui/install.md
+    - name: 查看区块链
+      href: /v3/docs/zh-cn/node/gui/blockchain.md
+    - name: 钱包操作
+      href: /v3/docs/zh-cn/node/gui/wallet.md
+    - name: 合约
+      href: /v3/docs/zh-cn/node/gui/contract.md
+    - name: 高级功能
+      href: /v3/docs/zh-cn/node/gui/advanced.md
+- name: 开发指南
+  items:
+  - name: Neo 网络
+    items:
+    - name: 主网与测试网
+      href: /v3/docs/zh-cn/develop/network/testnet.md
+    - name: 搭建私有链
+      items:
+      - name: 单节点模式
+        href: /v3/docs/zh-cn/develop/network/private-chain/solo.md
+      - name: 在本地主机搭建
+        href: /v3/docs/zh-cn/develop/network/private-chain/private-chain2.md
+  - name: 合约编写
+    items:
+    - name: 合约编写基础
+      href: /v3/docs/zh-cn/develop/write/basics.md
+    - name: 编写限制
+      href: /v3/docs/zh-cn/develop/write/limitation.md
+    - name: NEP-17
+      href: /v3/docs/zh-cn/develop/write/nep17.md
+    - name: NEF 和 Manifest 文件
+      href: /v3/docs/zh-cn/develop/write/manifest.md
+    - name: 合约升级
+      href: /v3/docs/zh-cn/develop/write/update.md
+  - name: 合约示例
+    items: 
+    - name: Hello World
+      href: /v3/docs/zh-cn/develop/sample/HelloWorld.md
+    - name: Domain（域名系统）
+      href: /v3/docs/zh-cn/develop/sample/Domain.md
+    - name: 存证合约
+      href: /v3/docs/zh-cn/develop/sample/storage.md
+  - name: 部署和调用
+    - name: 部署合约
+      href: /v3/docs/zh-cn/develop/deploy/deploy.md
+    - name: 调用合约
+      href: /v3/docs/zh-cn/develop/deploy/invoke.md
+  - name: 开发工具
+    - name: Neo SDK
+      items:
+      - name: 关于 Neo RPC SDK
+        href: /v3/docs/zh-cn/develop/tool/sdk/introduction.md
+      - name: RPC 调用方法
+        href: /v3/docs/zh-cn/develop/tool/sdk/rpc.md
+      - name: 获取区块信息
+        href: /v3/docs/zh-cn/develop/tool/sdk/monitor.md
+      - name: 钱包相关接口
+        href: /v3/docs/zh-cn/develop/tool/sdk/wallet.md
+      - name: 构造交易
+        href: /v3/docs/zh-cn/develop/tool/sdk/transaction.md
+      - name: 合约部署与调用
+        href: /v3/docs/zh-cn/develop/tool/sdk/contract.md
+- name: 进阶知识
+  items:
+  - name: 预言机
+    href:  /v3/docs/zh-cn/advanced/oracle.md
 - name: 开发参考
   items:
   - name: RPC API
     - name: API 参考
-      href:  /docs/zh-cn/reference/rpc/latest-version/api.md
-    - name: v2.12.2
-      items:
-      - name: claimgas
-        href: /docs/zh-cn/reference/rpc/latest-version/api/claimgas.md
-      - name: dumpprivkey
-        href: /docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.md
-      - name: getaccountstate
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getaccountstate.md
-      - name: getapplicationlog
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.md
-      - name: getassetstate
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getassetstate.md
-      - name: getbalance
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getbalance.md
-      - name: getbestblockhash
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.md
-      - name: getblock
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getblock.md
-      - name: getblock
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getblock2.md
-      - name: getblockcount
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getblockcount.md
-      - name: getblockheader
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getblockheader.md
-      - name: getblockhash
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getblockhash.md
-      - name: getblocksysfee
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.md
-      - name: getclaimable
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getclaimable.md
-      - name: getconnectioncount
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.md
-      - name: getcontractstate
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.md
-      - name: getmetricblocktimestamp
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.md
-      - name: getnep5balances
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.md
-      - name: getnep5transfers
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.md
-      - name: getnewaddress
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.md
-      - name: getrawmempool
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
-      - name: getrawtransaction
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.md
-      - name: getstateheight
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getstateheight.md
-      - name: getstateroot
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getstateroot.md
-      - name: getstorage
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
-      - name: gettransactionheight
-        href: /docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.md
-      - name: gettxout
-        href: /docs/zh-cn/reference/rpc/latest-version/api/gettxout.md
-      - name: getpeers
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getpeers.md
-      - name: getproof
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getproof.md
-      - name: getunclaimedgas
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
-      - name: getunclaimed
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.md
-      - name: getunspents
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getunspents.md
-      - name: getutxotransfers
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getutxotransfers.md
-      - name: getvalidators
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getvalidators.md
-      - name: getversion
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getversion.md
-      - name: getwalletheight
-        href: /docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.md
-      - name: importprivkey
-        href: /docs/zh-cn/reference/rpc/latest-version/api/importprivkey.md
-      - name: invokefunction
-        href: /docs/zh-cn/reference/rpc/latest-version/api/invokefunction.md
-      - name: invokescript
-        href: /docs/zh-cn/reference/rpc/latest-version/api/invokescript.md
-      - name: listplugins
-        href: /docs/zh-cn/reference/rpc/latest-version/api/listplugins.md
-      - name: listaddress
-        href: /docs/zh-cn/reference/rpc/latest-version/api/listaddress.md
-      - name: sendfrom
-        href: /docs/zh-cn/reference/rpc/latest-version/api/sendfrom.md
-      - name: sendrawtransaction
-        href: /docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.md
-      - name: sendtoaddress
-        href: /docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.md
-      - name: sendmany
-        href: /docs/zh-cn/reference/rpc/latest-version/api/sendmany.md
-      - name: submitblock
-        href: /docs/zh-cn/reference/rpc/latest-version/api/submitblock.md
-      - name: validateaddress
-        href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
-      - name: verifyproof
-        href: /docs/zh-cn/reference/rpc/latest-version/api/verifyproof.md
+      href:  /v3/docs/zh-cn/reference/rpc/latest-version/api.md
+    - name: calculatenetworkfee
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/calculatenetworkfee.md
+    - name: closewallet
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/closewallet.md
+    - name: dumpprivkey
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.md
+    - name: getapplicationlog
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.md
+    - name: getbestblockhash
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.md
+    - name: getblock
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblock.md
+    - name: getblockcount
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockcount.md
+    - name: getblockhash
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.md
+    - name: getblockheader
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.md
+    - name: getcommittee
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getcommittee.md
+    - name: getconnectioncount
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.md
+    - name: getcontractstate
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.md
+    - name: getnativecontracts
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnativecontracts.md
+    - name: getnep17balances
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.md
+    - name: getnep17transfers
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnep17transfers.md
+    - name: getnewaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.md
+    - name: getnextblockvalidators
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getnextblockvalidators.md
+    - name: getpeers
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getpeers.md
+    - name: getproof
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getproof.md
+    - name: getrawmempool
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
+    - name: getrawtransaction
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.md
+    - name: getstateheight
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getstateheight.md
+    - name: getstateroot
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getstateroot.md
+    - name: getstorage
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getstorage.md
+    - name: gettransactionheight
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.md
+    - name: getunclaimedgas
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.md
+    - name: getversion
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getversion.md
+    - name: getwalletbalance
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getwalletbalance.md
+    - name: getwalletunclaimedgas
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/getwalletunclaimedgas.md
+    - name: importprivkey
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/importprivkey.md
+    - name: invokecontractverify
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/invokecontractverify.md
+    - name: invokefunction
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/invokefunction.md
+    - name: invokescript
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/invokescript.md
+    - name: listaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/listaddress.md
+    - name: listplugins
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/listplugins.md
+    - name: openwallet
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/openwallet.md
+    - name: sendfrom
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendfrom.md
+    - name: sendmany
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendmany.md
+    - name: sendrawtransaction
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.md
+    - name: sendtoaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.md
+    - name: submitblock
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/submitblock.md
+    - name: validateaddress
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
+    - name: verifyproof
+      href: /v3/docs/zh-cn/reference/rpc/latest-version/api/verifyproof.md
   - name: 智能合约API
-    items: 
-    - name: 合约框架
-      href: /docs/zh-cn/reference/scapi/framework.md
-    - name: API
-      items:
+    - name: API 参考
+      href: /v3/docs/zh-cn/reference/scapi/api.md
+    - name: .net 框架
+      items: 
+      - name: Neo 命名空间
+        href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo.md
+      - name: System 命名空间
+        href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/System.md
       - name: Neo
         items:
         - name: Account
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
-        - name: Asset
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
         - name: Block
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
-        - name: Blockchain
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
+        - name: CallFlags
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/CallFlags.md
         - name: Contract
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
-        - name: Header
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
+        - name: ContractManagement
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractManagement.md
+        - name: Crypto
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Crypto.md
+        - name: CryptoLib
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/CryptoLib.md
+        - name: FindOptions
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/FindOptions.md
+        - name: Gas
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Gas.md
         - name: Helper
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Helper.md
-        - name: InvocationTransaction
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/InvocationTransaction.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Helper.md
+        - name: Iterator
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Iterator.md
+        - name: Json
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Json.md
+        - name: Ledger
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Ledger.md
+        - name: NameService
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/NameService.md
+        - name: Neo
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Neo.md
+        - name: Notification
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Notification.md
+        - name: Oracle
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Oracle.md
+        - name: OracleResponseCode
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/OracleResponseCode.md
+        - name: Policy
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Policy.md
+        - name: RecordType
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/RecordType.md
+        - name: Role
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Role.md
+        - name: RoleManagement
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/RoleManagement.md
         - name: Runtime
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
+        - name: StdLib
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/StdLib.md
         - name: Storage
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
         - name: StorageContext
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.md
+        - name: StorageFlags
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageFlags.md
         - name: StorageMap
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageMap.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageMap.md
         - name: Transaction
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.md
-        - name: TransactionAttribute
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.md
-        - name: TransactionInput
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.md
-        - name: TransactionOutput
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.md
-        - name: ContractPropertyState
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractPropertyState.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.md
         - name: TriggerType
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.md
       - name: System
         items:
         - name: ExecutionEngine
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+          href: /v3/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+  - name: 治理 API
+    href: /v3/docs/zh-cn/reference/governance_api.md
+  - name: NNS API
+    href: /v3/docs/zh-cn/reference/nns.md
+  - name: 手续费
+    href: /v3/docs/zh-cn/reference/fees.md
   - name: NeoVM 指令集
-    href: /docs/zh-cn/reference/neo_vm.md
+    href: /v3/docs/zh-cn/reference/neo_vm.md
+- name: 交易所对接指南
+  items:
+  - name: 概述
+    href:  /v3/docs/zh-cn/exchange/general.md
+  - name: 部署 Neo 节点
+    href: /v3/docs/zh-cn/exchange/deploynode.md
+  - name: 使用 Neo-CLI 客户端
+    href: /v3/docs/zh-cn/exchange/client.md
+  - name: 处理资产交易
+    href: /v3/docs/zh-cn/exchange/transaction.md
+  - name: 给用户分发 GAS
+    href: /v3/docs/zh-cn/exchange/gas.md 

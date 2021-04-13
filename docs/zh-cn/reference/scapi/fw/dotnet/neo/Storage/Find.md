@@ -1,10 +1,6 @@
-# Storage.Find 方法
+# Storage.Find 方法 
 
-遍历操作，在持久化存储区中通过 key 的前缀查询对应的 value 集合。
-
-> [!Note]
->
-> Find 方法不能和 StorageMap 一同使用。
+查询操作，查找存储上下文中满足指定前缀的内容
 
 命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
 
@@ -13,47 +9,32 @@
 ## 语法
 
 ```c#
-public static extern Iterator<byte[], byte[]> Find(StorageContext context, byte[] prefix)
-```
-
-```c#
-public static extern Iterator<string, byte[]> Find(StorageContext context, string prefix)
-```
-
-```c#
-public static extern Iterator<byte[], byte[]> Find(byte[] prefix)
-```
-
-```c#
-public static extern Iterator<string, byte[]> Find(string prefix)
+public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
+public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
 ```
 
 参数：
 
-- context：存储上下文，[StorageContext](../StorageContext.md) 类型。如果不带 StorageContext，则默认为 CurrentContext。
-- prefix：前缀，字节数组或字符串。
+- context：存储上下文，[StorageContext](../StorageContext.md) 类型；
+- prefix：前缀，字节数组/字符串；
 
-
-返回值：[Iterator\<string, byte[]>](../Iterator.md) 或 [Iterator\<byte[], byte[]>]((../Iterator.md))。
+返回值：context中符合条件的元素构成的Iterator。
 
 ## 示例
 
 ```c#
-public class Contract1 : SmartContract
+public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()
     {
-        var iterator = Storage.Find(new byte[] { 0x01 });
-		while (iterator.Next())
-		{
-    		var k = iterator.Key;
-    		var v = iterator.Value;
-    		……
-		}
+        byte[] prefix1 = new byte[] { 0 };
+        string prefix2 = "aa";
+        Storage.Find(Storage.CurrentContext, prefix1);
+        Storage.Find(Storage.CurrentContext, prefix2);
+        Storage.Find(prefix1);
+        Storage.Find(prefix2);
     }
 }
 ```
-
-
 
 [返回上级](../Storage.md)

@@ -1,8 +1,8 @@
 # StorageMap Class
 
-Represents the key-value storage of the sepcific prefix in the given storage context.
+This class represents the key-value storage for the specific prefix in the given storage context.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace:[Neo.SmartContract.Framework.Services.Neo](../neo.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -12,13 +12,13 @@ Assembly: Neo.SmartContract.Framework
 public class StorageMap
 ```
 
-## Attributes
+## Attribute
 
-| Name    | Description         |
-| ------- | ------------------- |
-| Context | The storage context |
-| Prefix  | The prefix          |
+| Name                                   | Description |
+| ---------------------------------------- | ---------- |
+| Context | Storage context |
+| Prefix | Prefix |
 
 ## Constructor
 
-The StorageMap object is constructed through the CreateMap method of [Helper](Helper.md).
+The StorageMap object is constructed through the method CreateMap of [Helper](Helper.md)
