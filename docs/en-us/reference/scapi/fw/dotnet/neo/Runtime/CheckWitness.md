@@ -24,7 +24,7 @@ Return value: Whether if the verification has been done, boolean.
 ## Example
 
 ```c#
-public class Contract1 : FunctionCode
+public class Contract1 : SmartContract
 {
     public static void Main()
     {
