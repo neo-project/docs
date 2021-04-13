@@ -30,7 +30,7 @@ There are several types of nodes in this mechanism, such as the ordinary nodes, 
 
 ## How to become a Neo consensus node？Is there any incentives？
 
-Neo consensus nodes are elected by NEO holders. For more information see https://docs.neo.org/v3/docs/zh-cn/basic/consensus/vote_validator.html. The network fee will be distributed to the consensus node who starts a new-block proposal of the block where corresponding transaction is included. The consensus node that packages transactions and proposes a new block will be rewarded the network fee of all transactions included in the block.
+Neo consensus nodes are elected by NEO holders. For more information see https://docs.neo.org/docs/zh-cn/basic/consensus/vote_validator.html. The network fee will be distributed to the consensus node who starts a new-block proposal of the block where corresponding transaction is included. The consensus node that packages transactions and proposes a new block will be rewarded the network fee of all transactions included in the block.
 
 ## What browsers are available for Neo blockchain?
 

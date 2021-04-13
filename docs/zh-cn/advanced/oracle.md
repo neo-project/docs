@@ -4,7 +4,7 @@
 
 Neo Oracle Service 是 Neo N3 内置的链外数据访问服务，它允许用户在智能合约中构建对外部数据源的访问请求，并由委员会指定的可信Oracle节点获取数据后，将其传入回调函数中继续执行相关智能合约逻辑。
 
-![img](https://docs.neo.org/v3/docs/zh-cn/advanced/assets/oracle.png)
+![img](https://docs.neo.org/docs/zh-cn/advanced/assets/oracle.png)
 
 ## 关键机制
 

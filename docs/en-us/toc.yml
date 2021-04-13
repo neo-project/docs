@@ -1,314 +1,314 @@
 ﻿- name: Site Map
-  href: /v3/docs/en-us/index.md
+  href: /docs/en-us/index.md
 - name: Glossary
-  href: /v3/docs/en-us/intro/glossary.md
+  href: /docs/en-us/intro/glossary.md
 - name: Getting Started (C#)
   items:
   - name: Before You Begin
-    href: /v3/docs/en-us/gettingstarted/prerequisites.md
+    href: /docs/en-us/gettingstarted/prerequisites.md
   - name: Setting up local network
-    href: /v3/docs/en-us/gettingstarted/enviroment.md
+    href: /docs/en-us/gettingstarted/enviroment.md
   - name: Compiling a Contract Sample
-    href: /v3/docs/en-us/gettingstarted/develop.md
+    href: /docs/en-us/gettingstarted/develop.md
   - name: Deploying and Invoking the Contract
-    href: /v3/docs/en-us/gettingstarted/deploy.md
+    href: /docs/en-us/gettingstarted/deploy.md
 - name: Neo Basics
   - name: Main Concepts
     - name: Blockchain Models
       - name: Block
-        href: /v3/docs/en-us/basic/concept/blockchain/block.md
+        href: /docs/en-us/basic/concept/blockchain/block.md
       - name: Tokens
-        href: /v3/docs/en-us/basic/concept/blockchain/token_model.md
+        href: /docs/en-us/basic/concept/blockchain/token_model.md
     - name: Cryptography
       href:
       - name: Encode Algorithm
-        href:  /v3/docs/en-us/basic/concept/cryptography/encode_algorithm.md
+        href:  /docs/en-us/basic/concept/cryptography/encode_algorithm.md
       - name: Hash Algorithm
-        href: /v3/docs/en-us/basic/concept/cryptography/hash_algorithm.md
+        href: /docs/en-us/basic/concept/cryptography/hash_algorithm.md
       - name: Encryption Algorithm
-        href: /v3/docs/en-us/basic/concept/cryptography/encryption_algorithm.md
+        href: /docs/en-us/basic/concept/cryptography/encryption_algorithm.md
       - name: Merkle Tree
-        href: /v3/docs/en-us/basic/concept/cryptography/merkletree.md
+        href: /docs/en-us/basic/concept/cryptography/merkletree.md
     - name: Wallet
-      href: /v3/docs/en-us/basic/concept/wallets.md
+      href: /docs/en-us/basic/concept/wallets.md
     - name: Transaction
-      href: /v3/docs/en-us/basic/concept/transaction.md
+      href: /docs/en-us/basic/concept/transaction.md
   - name: Consensus
     - name: Overview
-      href: /v3/docs/en-us/basic/consensus/dbft.md
+      href: /docs/en-us/basic/consensus/dbft.md
     - name: Consensus Algorithm
-      href: /v3/docs/en-us/basic/consensus/consensus_algorithm.md
+      href: /docs/en-us/basic/consensus/consensus_algorithm.md
     - name: Consensus Protocol
-      href: /v3/docs/en-us/basic/consensus/consensus_protocol.md
+      href: /docs/en-us/basic/consensus/consensus_protocol.md
     - name: Election
-      href: /v3/docs/en-us/basic/consensus/vote_validator.md
+      href: /docs/en-us/basic/consensus/vote_validator.md
   - name: Governance and Incentives
-    href: /v3/docs/en-us/basic/governance.md
+    href: /docs/en-us/basic/governance.md
   - name: NeoVM
-    href: /v3/docs/en-us/basic/neovm.md
+    href: /docs/en-us/basic/neovm.md
 - name: Neo Node
   items:
   - name: Introduction
-    href: /v3/docs/en-us/node/introduction.md
+    href: /docs/en-us/node/introduction.md
   - name: Neo-CLI
     items:
     - name: Installation
-      href: /v3/docs/en-us/node/cli/setup.md
+      href: /docs/en-us/node/cli/setup.md
     - name: Configuring and Starting neo-cli
-      href: /v3/docs/en-us/node/cli/config.md
+      href: /docs/en-us/node/cli/config.md
     - name: Command Line
-      href: /v3/docs/en-us/node/cli/cli.md
+      href: /docs/en-us/node/cli/cli.md
   - name: Neo-GUI
     items:
     - name: Installation
-      href: /v3/docs/en-us/node/gui/install.md
+      href: /docs/en-us/node/gui/install.md
     - name: Blockchain
-      href: /v3/docs/en-us/node/gui/blockchain.md
+      href: /docs/en-us/node/gui/blockchain.md
     - name: Wallet
-      href: /v3/docs/en-us/node/gui/wallet.md
+      href: /docs/en-us/node/gui/wallet.md
     - name: Contract
-      href: /v3/docs/en-us/node/gui/contract.md
+      href: /docs/en-us/node/gui/contract.md
     - name: Advanced Functions
-      href: /v3/docs/en-us/node/gui/advanced.md
+      href: /docs/en-us/node/gui/advanced.md
 - name: Development Guide
   items:
   - name: Neo Network
     items:
     - name: Main Net and Test Net
-      href: /v3/docs/en-us/develop/network/testnet.md
+      href: /docs/en-us/develop/network/testnet.md
     - name: Setting up Private Chain
       items:
       - name: Solo Mode
-        href: /v3/docs/en-us/develop/network/private-chain/solo.md
+        href: /docs/en-us/develop/network/private-chain/solo.md
       - name: Multiple Nodes
-        href: /v3/docs/en-us/develop/network/private-chain/private-chain2.md
+        href: /docs/en-us/develop/network/private-chain/private-chain2.md
   - name: Writing smart contracts
     items:
     - name: Basics
-      href: /v3/docs/en-us/develop/write/basics.md
+      href: /docs/en-us/develop/write/basics.md
     - name: Limitations
-      href: /v3/docs/en-us/develop/write/limitation.md
+      href: /docs/en-us/develop/write/limitation.md
     - name: NEP-17
-      href: /v3/docs/en-us/develop/write/nep17.md
+      href: /docs/en-us/develop/write/nep17.md
     - name: NEF and Manifest Files
-      href: /v3/docs/en-us/develop/write/manifest.md
+      href: /docs/en-us/develop/write/manifest.md
     - name: Contract Migration and Destruction
-      href: /v3/docs/en-us/develop/write/update.md
+      href: /docs/en-us/develop/write/update.md
   - name: Contract Samples
     items: 
     - name: Hello World
-      href: /v3/docs/en-us/develop/sample/HelloWorld.md
+      href: /docs/en-us/develop/sample/HelloWorld.md
     - name: Domain
-      href: /v3/docs/en-us/develop/sample/Domain.md
+      href: /docs/en-us/develop/sample/Domain.md
     - name: Storage
-      href: /v3/docs/en-us/develop/sample/storage.md
+      href: /docs/en-us/develop/sample/storage.md
   - name: Deploying and Invoking Smart Contracts
     - name: Deploying Smart Contracts
-      href: /v3/docs/en-us/develop/deploy/deploy.md
+      href: /docs/en-us/develop/deploy/deploy.md
     - name: Invoking Smart Contracts
-      href: /v3/docs/en-us/develop/deploy/invoke.md
+      href: /docs/en-us/develop/deploy/invoke.md
   - name: Development Tools
     - name: Neo SDK
       items:
       - name: About Neo SDK
-        href: /v3/docs/en-us/develop/tool/sdk/introduction.md
+        href: /docs/en-us/develop/tool/sdk/introduction.md
       - name: RPC Invocation Methods
-        href: /v3/docs/en-us/develop/tool/sdk/rpc.md
+        href: /docs/en-us/develop/tool/sdk/rpc.md
       - name: Getting Blockchain Information
-        href: /v3/docs/en-us/develop/tool/sdk/monitor.md
+        href: /docs/en-us/develop/tool/sdk/monitor.md
       - name: Wallet Interfaces
-        href: /v3/docs/en-us/develop/tool/sdk/wallet.md
+        href: /docs/en-us/develop/tool/sdk/wallet.md
       - name: Transaction Construction
-        href: /v3/docs/en-us/develop/tool/sdk/transaction.md
+        href: /docs/en-us/develop/tool/sdk/transaction.md
       - name: Deploying and Invoking Contracts
-        href: /v3/docs/en-us/develop/tool/sdk/contract.md
+        href: /docs/en-us/develop/tool/sdk/contract.md
 - name: Advanced Topics
   items:
   - name: Oracles
-    href:  /v3/docs/en-us/advanced/oracle.md
+    href:  /docs/en-us/advanced/oracle.md
 - name: Reference
   items:
   - name: RPC API
     - name: API Reference
-      href:  /v3/docs/en-us/reference/rpc/latest-version/api.md
+      href:  /docs/en-us/reference/rpc/latest-version/api.md
     - name: calculatenetworkfee
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/calculatenetworkfee.md
+      href: /docs/en-us/reference/rpc/latest-version/api/calculatenetworkfee.md
     - name: closewallet
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/closewallet.md
+      href: /docs/en-us/reference/rpc/latest-version/api/closewallet.md
     - name: dumpprivkey
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
+      href: /docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
     - name: getapplicationlog
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
     - name: getbestblockhash
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getbestblockhash.md
     - name: getblock
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getblock.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getblock.md
     - name: getblockcount
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockcount.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getblockcount.md
     - name: getblockhash
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockhash.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getblockhash.md
     - name: getblockheader
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getblockheader.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getblockheader.md
     - name: getcommittee
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getcommittee.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getcommittee.md
     - name: getconnectioncount
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getconnectioncount.md
     - name: getcontractstate
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
     - name: getnativecontracts
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnativecontracts.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getnativecontracts.md
     - name: getnep17balances
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep17balances.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep17balances.md
     - name: getnep17transfers
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnep17transfers.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep17transfers.md
     - name: getnewaddress
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnewaddress.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getnewaddress.md
     - name: getnextblockvalidators
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getnextblockvalidators.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getnextblockvalidators.md
     - name: getpeers
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getpeers.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getpeers.md
     - name: getproof
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getproof.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getproof.md
     - name: getrawmempool
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
     - name: getrawtransaction
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
     - name: getstateheight
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getstateheight.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getstateheight.md
     - name: getstateroot
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getstateroot.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getstateroot.md
     - name: getstorage
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getstorage.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getstorage.md
     - name: gettransactionheight
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.md
+      href: /docs/en-us/reference/rpc/latest-version/api/gettransactionheight.md
     - name: getunclaimedgas
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.md
     - name: getversion
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getversion.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getversion.md
     - name: getwalletbalance
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletbalance.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getwalletbalance.md
     - name: getwalletunclaimedgas
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/getwalletunclaimedgas.md
+      href: /docs/en-us/reference/rpc/latest-version/api/getwalletunclaimedgas.md
     - name: importprivkey
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/importprivkey.md
+      href: /docs/en-us/reference/rpc/latest-version/api/importprivkey.md
     - name: invokecontractverify
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/invokecontractverify.md
+      href: /docs/en-us/reference/rpc/latest-version/api/invokecontractverify.md
     - name: invokefunction
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/invokefunction.md
+      href: /docs/en-us/reference/rpc/latest-version/api/invokefunction.md
     - name: invokescript
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/invokescript.md
+      href: /docs/en-us/reference/rpc/latest-version/api/invokescript.md
     - name: listaddress
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/listaddress.md
+      href: /docs/en-us/reference/rpc/latest-version/api/listaddress.md
     - name: listplugins
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/listplugins.md
+      href: /docs/en-us/reference/rpc/latest-version/api/listplugins.md
     - name: openwallet
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/openwallet.md
+      href: /docs/en-us/reference/rpc/latest-version/api/openwallet.md
     - name: sendfrom
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/sendfrom.md
+      href: /docs/en-us/reference/rpc/latest-version/api/sendfrom.md
     - name: sendmany
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/sendmany.md
+      href: /docs/en-us/reference/rpc/latest-version/api/sendmany.md
     - name: sendrawtransaction
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.md
+      href: /docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.md
     - name: sendtoaddress
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/sendtoaddress.md
+      href: /docs/en-us/reference/rpc/latest-version/api/sendtoaddress.md
     - name: submitblock
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/submitblock.md
+      href: /docs/en-us/reference/rpc/latest-version/api/submitblock.md
     - name: validateaddress
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/validateaddress.md
+      href: /docs/en-us/reference/rpc/latest-version/api/validateaddress.md
     - name: verifyproof
-      href: /v3/docs/en-us/reference/rpc/latest-version/api/verifyproof.md
+      href: /docs/en-us/reference/rpc/latest-version/api/verifyproof.md
   - name: Smart Contract API
     - name: API Reference
-      href: /v3/docs/en-us/reference/scapi/api.md
+      href: /docs/en-us/reference/scapi/api.md
     - name: .net Framework
       items: 
       - name: Neo Namespace
-        href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo.md
+        href: /docs/en-us/reference/scapi/fw/dotnet/neo.md
       - name: System Namespace
-        href: /v3/docs/en-us/reference/scapi/fw/dotnet/System.md
+        href: /docs/en-us/reference/scapi/fw/dotnet/System.md
       - name: Neo
         items:
         - name: Account
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Account.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Account.md
         - name: Block
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Block.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Block.md
         - name: CallFlags
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/CallFlags.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/CallFlags.md
         - name: Contract
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Contract.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Contract.md
         - name: ContractManagement
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/ContractManagement.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/ContractManagement.md
         - name: Crypto
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Crypto.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Crypto.md
         - name: CryptoLib
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/CryptoLib.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/CryptoLib.md
         - name: FindOptions
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/FindOptions.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/FindOptions.md
         - name: Gas
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Gas.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Gas.md
         - name: Helper
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Helper.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Helper.md
         - name: Iterator
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Iterator.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Iterator.md
         - name: Json
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Json.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Json.md
         - name: Ledger
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Ledger.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Ledger.md
         - name: NameService
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/NameService.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/NameService.md
         - name: Neo
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Neo.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Neo.md
         - name: Notification
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Notification.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Notification.md
         - name: Oracle
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Oracle.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Oracle.md
         - name: OracleResponseCode
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/OracleResponseCode.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/OracleResponseCode.md
         - name: Policy
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Policy.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Policy.md
         - name: RecordType
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/RecordType.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/RecordType.md
         - name: Role
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Role.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Role.md
         - name: RoleManagement
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/RoleManagement.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/RoleManagement.md
         - name: Runtime
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.md
         - name: StdLib
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/StdLib.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StdLib.md
         - name: Storage
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Storage.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Storage.md
         - name: StorageContext
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.md
         - name: StorageFlags
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/StorageFlags.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StorageFlags.md
         - name: StorageMap
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/StorageMap.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StorageMap.md
         - name: Transaction
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.md
         - name: TriggerType
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.md
       - name: System
         items:
         - name: ExecutionEngine
-          href: /v3/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+          href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
   - name: Governance API
-    href: /v3/docs/en-us/reference/governance_api.md
+    href: /docs/en-us/reference/governance_api.md
   - name: NNS API
-    href: /v3/docs/en-us/reference/nns.md
+    href: /docs/en-us/reference/nns.md
   - name: Fees
-    href: /v3/docs/en-us/reference/fees.md
+    href: /docs/en-us/reference/fees.md
   - name: NeoVM Instructions
-    href: /v3/docs/en-us/reference/neo_vm.md
+    href: /docs/en-us/reference/neo_vm.md
 - name: Document for Exchange Developers
   items:
   - name: Overview
-    href:  /v3/docs/en-us/exchange/general.md
+    href:  /docs/en-us/exchange/general.md
   - name: Deploying Neo nodes
-    href: /v3/docs/en-us/exchange/deploynode.md
+    href: /docs/en-us/exchange/deploynode.md
   - name: Using Neo-CLI
-    href: /v3/docs/en-us/exchange/client.md
+    href: /docs/en-us/exchange/client.md
   - name: Dealing with assets transactions
-    href: /v3/docs/en-us/exchange/transaction.md
+    href: /docs/en-us/exchange/transaction.md
   - name: Distributing GAS to users
-    href: /v3/docs/en-us/exchange/gas.md 
+    href: /docs/en-us/exchange/gas.md 
