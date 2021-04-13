@@ -1,8 +1,8 @@
 ﻿- name: 一般问题
-  href: /faq/zh-cn/basic.md
+  href: /v2/faq/zh-cn/basic.md
 - name: 客户端与钱包
-  href: /faq/zh-cn/client.md
+  href: /v2/faq/zh-cn/client.md
 - name: 开发相关
-  href: /faq/zh-cn/dev.md
+  href: /v2/faq/zh-cn/dev.md
 - name: 智能合约
-  href: /faq/zh-cn/sc.md
+  href: /v2/faq/zh-cn/sc.md
