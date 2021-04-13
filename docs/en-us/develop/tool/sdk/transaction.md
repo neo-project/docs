@@ -4,7 +4,9 @@
 
 > [!Note]
 >
-> If you use SDK to construct transactions with signature-related methods, you need to maintain a protocol.json file of the current Neo-CLI  in the program running directory, such as \bin or \publish directory to ensure that the SDK uses consistent `Magic` with the blockchain, otherwise the transaction constructed by the SDK will not be able to pass verification in the blockchain.
+> If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient obeject and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+>
+> RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"))
 
 ## Transaction construction process
 
@@ -13,14 +15,14 @@
     ```c#
     // construct the script, in this example, we will transfer 1 NEO to the receiver
     UInt160 scriptHash = NativeContract.NEO.Hash;
-    byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
+    byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1，"data");
     ```
 
-2. Construct `TransactionManagerFactory` with the parameters `RpcClient ` and `Magic `; Construct `TransactionManager` with the parameters `Script` and`Signers`:
+2. Construct `TransactionManagerFactory` with the parameter `RpcClient `; Construct `TransactionManager` with the parameters `Script` and`Signers`:
 
     ```c#
-    TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
-            .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+    TransactionManager txManager = await new TransactionManagerFactory(client)
+            .MakeTransactionAsync(script, signers).ConfigureAwait(false);
     ```
 
 3. Add signature (single or multiple signatures) and use `KeyPair` of the account as the parameter.
@@ -35,7 +37,7 @@
     
     ```c#
     // add multi-signatures for the transaction with sendKey
-    txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
+    txManager.AddMultiSig(key1, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     ```
     - multi-signature contract

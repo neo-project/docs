@@ -11,7 +11,7 @@
 
 ```c#
 // choose a neo node with rpc opened
-RpcClient client = new RpcClient("http://127.0.0.1:10332");
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 
 // get the hash of the tallest block in the main chain
 string hash = await client.GetBestBlockHashAsync().ConfigureAwait(false);
@@ -51,7 +51,7 @@ ContractState contractState = await client.GetContractStateAsync(NativeContract.
 
 ```c#
 // choose a neo node with rpc opened
-PolicyAPI policyAPI = new PolicyAPI(new RpcClient("http://127.0.0.1:10332"));
+PolicyAPI policyAPI = new PolicyAPI(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 
 // get the system fee per byte
 long feePerByte = await policyAPI.GetFeePerByteAsync().ConfigureAwait(false); // 1000, 0.00001000 GAS per byte
@@ -73,7 +73,7 @@ NEP17 是 Neo N3 中的资产标准，NEO 和 GAS 都基于 NEP17 原生合约�
 
 ```c#
 // get nep17 token info
-Nep17API nep17API = new Nep17API(new RpcClient("http://127.0.0.1:10332"));
+Nep17API nep17API = new Nep17API(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 RpcNep17TokenInfo tokenInfo = await nep17API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 ```
 

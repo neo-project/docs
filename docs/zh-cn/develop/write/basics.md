@@ -21,7 +21,7 @@ namespace Helloworld
         private const string test_str = "Hello World";
         public static string Hello()
         {
-            Storage.Put("Hello", "World");
+            Storage.Put(Storage.CurrentContext, "Hello", "World");
             return test_str;
         }
     }

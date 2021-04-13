@@ -4,7 +4,7 @@
 
 > [!Note]
 >
-> 如果使用 SDK 中构造交易并附有签名相关的方法，需要维护一份当前所在 NEO 区块链的 protocol.json 在程序运行目录下，例如 \bin 或 \publish 目录，以确保 SDK 使用的 `Magic` 和 区块链一致，否则 SDK 构造的交易在区块链中将无法验签通过。
+> 如果使用SDK构造要添加签名的交易，需要确保构造的RpcClient对象和其连接的区块链网络有相同的配置，否则 SDK 构造的交易在区块链中将无法验签通过，具体做法是：构造RpcClient对象时Load Neo-CLI 节点的 config.json，例如： RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json")) 。
 
 ## 交易构造步骤
 
@@ -13,14 +13,14 @@
     ```c#
     // construct the script, in this example, we will transfer 1 NEO to the receiver
     UInt160 scriptHash = NativeContract.NEO.Hash;
-    byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1);
+    byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1, "data");
     ```
 
-2. 构造 `TransactionManagerFactory`，将`RpcClient`和 `Magic`作为参数; 构造`TransactionManager`, 将`Script`和`Signers`作为参数。
+2. 构造 `TransactionManagerFactory`，将`RpcClient`作为参数; 构造`TransactionManager`, 将`Script`和`Signers`作为参数。
 
     ```c#
-    TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
-            .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+    TransactionManager txManager = await new TransactionManagerFactory(client)
+            .MakeTransactionAsync(script, signers).ConfigureAwait(false);
     ```
 
 3. 添加签名（单签或者多签），将账户的 `KeyPair` 作为签名的参数；并且签名。
@@ -35,7 +35,7 @@
     
     ```c#
     // add multi-signatures for the transaction with sendKey
-    txManager.AddMultiSig(receiverKey, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
+    txManager.AddMultiSig(key1, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     ```
     - 多签合约
@@ -86,25 +86,25 @@ namespace ConsoleApp1
         private static async Task TestNep17Transfer()
         {
             // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://127.0.0.1:10332");
+            RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
             // get the KeyPair of your account, which will pay the system and network fee
             KeyPair sendKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
             UInt160 sender = Contract.CreateSignatureContract(sendKey.PublicKey).ScriptHash;
 
             // add Signers, which is a collection of scripthashs that need to be signed
-            Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
+            Signer[] signers = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
 
             // get the scripthash of the account you want to transfer to
-            UInt160 receiver = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
+            UInt160 receiver = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM", ProtocolSettings.Default);
 
             // construct the script, in this example, we will transfer 1024 NEO to receiver
             UInt160 scriptHash = NativeContract.NEO.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024);
+            byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024, "data");
 
             // initialize the TransactionManagerFactory with rpc client and magic
             // fill in the TransactionManager with the script and cosigners
-            TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
-                .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+            TransactionManager txManager = await new TransactionManagerFactory(client)
+                .MakeTransactionAsync(script, signers).ConfigureAwait(false);
             // add signature and sign transaction with the added signature
             Transaction tx = await txManager.AddSignature(sendKey).SignAsync().ConfigureAwait(false);
 
@@ -146,12 +146,12 @@ namespace ConsoleApp1
         private static async Task TestNep17Transfer()
         {
             // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://127.0.0.1:10332");
+            RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
             // get the KeyPair of your account, which will pay the system and network fee
             KeyPair sendKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
 
             // get the scripthash of the account you want to transfer to
-            UInt160 receiver = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM");
+            UInt160 receiver = Utility.GetScriptHash("NirHUAteaMr6CqWuAAMaEUScPcS3FDKebM", ProtocolSettings.Default);
 
             // use WalletAPI to create and send the transfer transaction
             WalletAPI walletAPI = new WalletAPI(client);
@@ -194,7 +194,7 @@ namespace ConsoleApp1
         private static async Task TestToMultiTransfer()
         {
             // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://127.0.0.1:10332");
+            RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
             // get the KeyPair of your account, which will pay the system and network fee
             KeyPair sendKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
             UInt160 sender = Contract.CreateSignatureContract(sendKey.PublicKey).ScriptHash;
@@ -204,22 +204,22 @@ namespace ConsoleApp1
             KeyPair key3 = Utility.GetKeyPair("KwrJfYyc7KWfZG5h97SYfcCQyW4jRw1njmHo48kZhZmuQWeTtUHM");
 
             // create multi-signatures contract, this contract needs at least 2 of 3 KeyPairs to sign
-            Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
+            Contract multiContract = Contract.CreateMultiSigContract(2, new ECPoint[] { sendKey.PublicKey, key2.PublicKey, key3.PublicKey });
             // get the scripthash of the multi-signature Contract
             UInt160 multiAccount = multiContract.Script.ToScriptHash();
 
             // construct the script, in this example, we will transfer 1024 GAS to multi-sign account
             // in contract parameter, the amount type is BigInteger, so we need to muliply the contract factor
             UInt160 scriptHash = NativeContract.GAS.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", sender, multiAccount, 1024 * NativeContract.GAS.Factor);
+            byte[] script = scriptHash.MakeScript("transfer", sender, multiAccount, 1024 * NativeContract.GAS.Factor, "data");
 
             // add Signers, which is a collection of scripthashs that need to be signed
-            Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
+            Signer[] signers = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
 
             // initialize the TransactionManager with rpc client and magic
-            // fill the script and cosigners
-            TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
-                .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+            // fill the script and signers
+            TransactionManager txManager = await new TransactionManagerFactory(client)
+                .MakeTransactionAsync(script, signers).ConfigureAwait(false);
             // add signature and sign transaction with the added signature
             Transaction tx = await txManager.AddSignature(sendKey).SignAsync().ConfigureAwait(false);
 
@@ -265,7 +265,7 @@ namespace ConsoleApp1
         private static async Task TestFromMultiTransfer()
         {
             // choose a neo node with rpc opened
-            RpcClient client = new RpcClient("http://127.0.0.1:10332");
+            RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 
             // get the KeyPair of your account
             KeyPair receiverKey = Utility.GetKeyPair("L53tg72Az8QhYUAyyqTQ3LaXMXBE3S9mJGGZVKHBryZxya7prwhZ");
@@ -273,7 +273,7 @@ namespace ConsoleApp1
             KeyPair key3 = Utility.GetKeyPair("KwrJfYyc7KWfZG5h97SYfcCQyW4jRw1njmHo48kZhZmuQWeTtUHM");
 
             // create multi-signature contract, this contract needs at least 2 of 3 KeyPairs to sign
-            Contract multiContract = Contract.CreateMultiSigContract(2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
+            Contract multiContract = Contract.CreateMultiSigContract(2, new ECPoint[] { receiverKey.PublicKey, key2.PublicKey, key3.PublicKey });
             // get the scripthash of the multi-signature Contract
             UInt160 multiAccount = multiContract.Script.ToScriptHash();
 
@@ -282,15 +282,15 @@ namespace ConsoleApp1
             // construct the script, in this example, we will transfer 1024 GAS to multi-sign account
             // in contract parameter, the amount type is BigInteger, so we need to muliply the contract factor
             UInt160 scriptHash = NativeContract.GAS.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", multiAccount, receiver, 1024 * NativeContract.GAS.Factor);
+            byte[] script = scriptHash.MakeScript("transfer", multiAccount, receiver, 1024 * NativeContract.GAS.Factor, "data");
 
             // add Signers, which is a collection of scripthashs that need to be signed
-            Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = multiAccount } };
+            Signer[] signers = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = multiAccount } };
 
             // initialize the TransactionManager with rpc client and magic
-            // fill the script and cosigners
-            TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
-                .MakeTransactionAsync(script, cosigners).ConfigureAwait(false);
+            // fill the script and signers
+            TransactionManager txManager = await new TransactionManagerFactory(client)
+                .MakeTransactionAsync(script, signers).ConfigureAwait(false);
             // add signature and sign transaction with the added signature
             Transaction tx = await txManager.AddMultiSig(new KeyPair[]{receiverKey, key2}, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey)
                 .SignAsync().ConfigureAwait(false);
