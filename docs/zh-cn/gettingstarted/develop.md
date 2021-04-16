@@ -8,80 +8,75 @@
 2. 创建一个 NEP17 合约项目
 3. 编译合约
 
-## 安装开发环境
+## 配置开发环境
 
-### 安装 Visual Studio 2019
+### 下载开发工具
 
 1. 下载 [Visual Studio 2019](https://www.visualstudio.com/products/visual-studio-community-vs) 并安装。
 
-   注意安装时需要勾选 `.NET Core 跨平台开发` 和 `Visual Studio 扩展开发`。
+   安装时需要勾选 `.NET Core 跨平台开发` 和 `Visual Studio 扩展开发`。
 
-2. 安装 [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer) 以便接下来正确加载项目。
+2. 安装 [.NET Core 5.0 Developer Pack](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.202-windows-x64-installer) 以便接下来正确加载项目。
 
-### 安装 NeoContractPlugin 插件
+3. 安装 [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer) 以便接下来正确加载项目。
 
-> [!Note]
->
-> 如果Visual Studio中安装了Neo Legacy的NeoContractPlugin插件，需要先卸载才能安装Neo N3的插件。
+4. 在 GitHub 上下载 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 库 *
 
-1. 拉取 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 项目，在Visual Studio中打开项目文件neo-devpack-dotnet.sln
+### 配置开发环境
 
-2. 在解决方案项目列表中右键单击 src/Installer，点击 `生成` 编译该项目。
+1. 在 Visual Studio 中打开解决方案文件 neo-devpack-dotnet.sln
+2. 编译 `Installer` 项目，生成 Neo.SmartContract.Installer *
+3. 安装 Neo.SmartContract.Installer *
+4. 编译 `Neo.Compiler.CSharp` 项目，生成 nccs.dll *
+5. 将 nccs.dll 所在目录添加到环境变量 Path 中
 
-   成功编译后将在neo-devpack-dotnet-master\src\Installer\bin\Debug目录下生成 `Neo.SmartContract.Installer.vsix` 文件。
 
-3. 运行该文件，安装 NeoContractPlugin 并重启 Visual Studio。
-
-### 配置编译器
-
-1. 运行 Visual Studio，重新打开项目文件 neo-devpack-dotnet.sln
-
-2. 在解决方案列表中右键单击 `Neo.Compiler.MSIL` ，选择 `发布`，将该项目发布到默认文件夹\bin\Release\net5.0\publish
-
-3. 进入上一步的发布路径，启动 PowerShell，输入命令 `./neon.exe` 确保 neon 可以正常启动，如下图所示：
-
-   ![neon](assets/neon.png)
-
-4. 将发布目录添加到环境变量 Path 中 :
-
-   > [!Note]
-   >
-   > 如果存在旧版本的neon，需要先删除。
-
-   ![](assets/env.png)
-
-5. 在任意位置启动 PowerShell，输入命令 `neon.exe` 确保环境变量已正确配置。
-
-   ![](assets/3_1545037391347.png)
-
-### 编译智能合约框架
-
-1. 返回Visual Studio，在解决方案 `neo-devpack-dotnet` 项目列表中右键单击 `Neo.SmartContract.Framework`，点击 `生成` 编译该项目。
-2. 进入编译后的文件输出目录，复制 `Neo.SmartContract.Framework.dll` 备用。
-
-## 创建 NEP17 合约项目
-
-### 创建项目
+### 新建合约项目
 
 1. 在 Visual Studio 中点击 `文件` -> `新建` -> `项目`。
 
-2. 在项目模板对话框中，搜索neocontract，选择C#对应的NeoContact，并根据向导完成项目创建。
+2. 在项目模板对话框中，搜索 neocontract，选择 C#对应的NeoContact，并根据向导完成项目创建。
 
    ![neocontract](assets/neocontract.png)
 
-3. 在解决方案中，右键单击项目名 -> `管理 NuGet 程序包`，卸载 `Neo.SmartContract.Framework` 的 NuGet 引用。
+### 升级依赖项
 
-4. 右键单击项目名 -> `粘贴`，将上一步复制的 `Neo.SmartContract.Framework.dll` 文件粘贴到NeoContract 项目下。
+方法一：
 
-5. 右键单击 `依赖项` -> `添加引用`，选择刚复制到该项目下的 `Neo.SmartContract.Framework.dll` 文件，将其添加到项目。
+1. 在解决方案所在目录添加 NuGet.Config 文件 *
+   ```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <packageSources>
+    <clear />
+    <add key="MyGet-neo" value="https://www.myget.org/F/neo/api/v3/index.json" />
+    <add key="NuGet.org" value="https://api.nuget.org/v3/index.json" />
+    </packageSources>
+</configuration>
+   ```
+
+2. 升级 Neo.SmartContract.Framework 到最新 *
+
+   ![](/assets/nuget.png)
+
+方法二：
+
+1. 删除 NuGet 中的 Neo.SmartContract.Framework 引用 *
+2. 引用 neo-devpack-dotnet 解决文案中的 Neo.SmartContract.Framework 项目或编译后的 dll *
+
+
+
+注：\* 表示每次编写智能合约前都需要操作
 
 ### 编辑 NEP17 代码
 
 创建项目后，会自动生成一个智能合约的代码模板，功能是向存储区存入 "Hello" "World" 的键值对。
 
+现在你可以直接编译合约模板，或者参考本章节编写 NEP17 合约。
+
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-首先从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/bcad04d6e634592e7fa4ceeb78e9fbebab2b07a2/csharp/NEP17)。
+首先从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/pull/44)。
 
 > [!Note]
 >
@@ -114,14 +109,22 @@
 >
 > - 实现 onNEP17Payment 以便在收到 NEP17 资产时自动执行智能合约
 >
+> - 智能合约开发框架有了较大的改动
+>
 
 参考 [NEP-17](../develop/write/nep17.md)
 
 ## 编译合约文件
 
-完成合约代码编写后，点击菜单栏上的 `生成` -> `生成解决方案`（快捷键 Ctrl + Shift + B）编译程序。
+方法一：
 
-编译成功后会在该项目的 `bin/Debug` 目录生成以下文件：
+完成合约代码编写后，点击菜单栏上的 `生成` -> `生成解决方案`（Ctrl + Shift + B）或 `生成项目`（Ctrl+B）。
+
+方法二：
+
+在解决方案或项目目录，启动命令行程序，运行 nccs . 即可。
+
+编译成功后会在该项目的 `bin/sc` 目录生成以下文件：
 
 - `NEP17.nef` ：与 Neo Legacy 中的 .avm 文件类似，.nef 是 Neo N3 的智能合约执行文件。
 - `NEP17.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
