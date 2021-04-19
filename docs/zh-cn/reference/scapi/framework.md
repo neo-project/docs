@@ -15,37 +15,36 @@ Neo.SmartContract.Framework 提供了以下重要的API方法集：
 
   Neo 命名空间是 Neo 区块链所提供的 API，提供了访问区块链账本数据和操作持久化存储区的方法。
 
-  | 类                                                    | 说明                                       |
-  | ----------------------------------------------------- | ------------------------------------------ |
-  | [Account](neo/Account.md)                             | 表示账户的类，提供了查询余额的方法         |
-  | [Asset](neo/Asset.md)                                 | 表示资产的数据结构                         |
-  | [Block](neo/Block.md)                                 | 表示区块的类，提供了查询区块中交易的方法   |
-  | [Blockchain](neo/Blockchain.md)                       | 该类提供了访问区块链数据的一系列方法       |
-  | [Contract](neo/Contract.md)                           | 表示合约的类                               |
-  | [Header](neo/Header.md)                               | 表示区块头的数据结构                       |
-  | [InvocationTransaction](neo/InvocationTransaction.md) | 表示调用合约交易的类                       |
-  | [Iterator](neo/Iterator.md)                           | 表示枚举器的类                             |
-  | [Runtime](neo/Runtime.md)                             | 提供智能合约运行时的一些方法               |
-  | [Storage](neo/Storage.md)                             | 提供了持久化存储区的插入、查询、删除的方法 |
-  | [StorageContext](neo/StorageContext.md)               | 表示私有存储区存储上下文的类               |
-  | [StorageMap](neo/StorageMap.md)                       | 表示 Map 数据结构的类                      |
-  | [Transaction](neo/Transaction.md)                     | 表示交易的基类                             |
-  | [TransactionAttribute](neo/TransactionAttribute.md)   | 表示交易特性的数据结构                     |
-  | [TransactionInput](neo/TransactionInput.md)           | 表示交易输入的数据结构                     |
-  | [TransactionOutput](neo/TransactionOutput.md)         | 表示交易输出的数据结构                     |
-
-  | **枚举**                                              | **说明**                   |
-  | ----------------------------------------------------- | -------------------------- |
-  | [ContractPropertyState](neo/ContractPropertyState.md) | 表示智能合约属性状态的枚举 |
-  | [TriggerType](neo/TriggerType.md)                     | 表示智能合约触发条件的枚举 |
-
+  | 类                                                           | 说明                                       |
+  | ------------------------------------------------------------ | ------------------------------------------ |
+  | [Account](fw/dotnet/neo/Account.md)                          | 表示账户的类，提供了查询余额的方法         |
+  | [Block](fw/dotnet/neo/Block.md)                              | 表示区块的类，提供了查询区块中交易的方法   |
+  | [Blockchain](fw/dotnet/neo/Blockchain.md)                    | 该类提供了访问区块链数据的一系列方法       |
+  | [Contract](fw/dotnet/neo/Contract.md)                        | 表示合约的类                               |
+  | [Header](fw/dotnet/neo/Header.md)                            | 表示区块头的数据结构                       |
+  | [InvocationTransaction](fw/dotnet/neo/InvocationTransaction.md) | 表示调用合约交易的类                       |
+  | [Iterator](fw/dotnet/neo/Iterator.md)                        | 表示枚举器的类                             |
+  | [Runtime](fw/dotnet/neo/Runtime.md)                          | 提供智能合约运行时的一些方法               |
+  | [Storage](fw/dotnet/neo/Storage.md)                          | 提供了持久化存储区的插入、查询、删除的方法 |
+  | [StorageContext](fw/dotnet/neo/StorageContext.md)            | 表示私有存储区存储上下文的类               |
+  | [StorageMap](fw/dotnet/neo/StorageMap.md)                    | 表示 Map 数据结构的类                      |
+  | [Transaction](fw/dotnet/neo/Transaction.md)                  | 表示交易的基类                             |
+  | [TransactionAttribute](fw/dotnet/neo/TransactionAttribute.md) | 表示交易特性的数据结构                     |
+  | [TransactionInput](fw/dotnet/neo/TransactionInput.md)        | 表示交易输入的数据结构                     |
+  | [TransactionOutput](fw/dotnet/neo/TransactionOutput.md)      | 表示交易输出的数据结构                     |
+  
+| **枚举**                                                     | **说明**                   |
+  | ------------------------------------------------------------ | -------------------------- |
+  | [ContractPropertyState](fw/dotnet/neo/ContractPropertyState.md) | 表示智能合约属性状态的枚举 |
+  | [TriggerType](fw/dotnet/neo/TriggerType.md)                  | 表示智能合约触发条件的枚举 |
+  
 + **Neo.SmartContract.Framework.Services.System** 
 
   System 命名空间是智能合约执行引擎（NeoVM）提供的 API，提供了访问该智能合约的执行环境的方法。
 
-  | 类                                           | 说明                                                 |
-  | -------------------------------------------- | ---------------------------------------------------- |
-  | [ExecutionEngine](System/ExecutionEngine.md) | 虚拟机的执行引擎，可以获取当前合约的调用者和执行容器 |
+  | 类                                                     | 说明                                                 |
+  | ------------------------------------------------------ | ---------------------------------------------------- |
+  | [ExecutionEngine](fw/dotnet/System/ExecutionEngine.md) | 虚拟机的执行引擎，可以获取当前合约的调用者和执行容器 |
 
 ## Neo提供的常用方法
 
