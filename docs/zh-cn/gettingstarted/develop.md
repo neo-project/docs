@@ -16,34 +16,25 @@
 
    安装时需要勾选 `.NET Core 跨平台开发` 和 `Visual Studio 扩展开发`。
 
-2. 安装 [.NET Core 5.0 Developer Pack](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.202-windows-x64-installer) 以便接下来正确加载项目。
+2. 安装 [.NET Core 5.0 Developer Pack](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.202-windows-x64-installer)。
 
 3. 安装 [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer) 以便接下来正确加载项目。
 
-4. 在 GitHub 上下载 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 库 *
+4. 在 GitHub 上下载 [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) 库。
 
-### 配置开发环境
+### 配置环境
 
 1. 在 Visual Studio 中打开解决方案文件 neo-devpack-dotnet.sln
-2. 编译 `Installer` 项目，生成 Neo.SmartContract.Installer *
-3. 安装 Neo.SmartContract.Installer *
-4. 编译 `Neo.Compiler.CSharp` 项目，生成 nccs.dll *
+2. 编译 `Installer` 项目，生成 Neo.SmartContract.Installer
+3. 安装 Neo.SmartContract.Installer
+4. 编译 `Neo.Compiler.CSharp` 项目，生成 nccs.dll
 5. 将 nccs.dll 所在目录添加到环境变量 Path 中
-
-
-### 新建合约项目
-
-1. 在 Visual Studio 中点击 `文件` -> `新建` -> `项目`。
-
-2. 在项目模板对话框中，搜索 neocontract，选择 C#对应的NeoContact，并根据向导完成项目创建。
-
-   ![neocontract](assets/neocontract.png)
 
 ### 升级依赖项
 
 方法一：
 
-1. 在解决方案所在目录添加 NuGet.Config 文件 *
+1. 在解决方案所在目录添加 NuGet.Config 文件
    ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
@@ -55,28 +46,32 @@
 </configuration>
    ```
 
-2. 升级 Neo.SmartContract.Framework 到最新 *
+2. 升级 Neo.SmartContract.Framework 到最新
 
-   ![](/assets/nuget.png)
+   ![](assets/nuget.png)
 
 方法二：
 
-1. 删除 NuGet 中的 Neo.SmartContract.Framework 引用 *
-2. 引用 neo-devpack-dotnet 解决文案中的 Neo.SmartContract.Framework 项目或编译后的 dll *
+1. 删除 NuGet 中的 Neo.SmartContract.Framework 引用
+2. 引用 neo-devpack-dotnet 解决文案中的 Neo.SmartContract.Framework 项目或编译后的 dll
 
+## 创建 NEP17 合约项目
 
+### 创建项目
 
-注：\* 表示每次编写智能合约前都需要操作
+1. 在 Visual Studio 中点击 `文件` -> `新建` -> `项目`。
+
+2. 在项目模板对话框中，搜索 neocontract，选择 C#对应的NeoContact，并根据向导完成项目创建。
+
+   ![neocontract](assets/neocontract.png)
 
 ### 编辑 NEP17 代码
 
 创建项目后，会自动生成一个智能合约的代码模板，功能是向存储区存入 "Hello" "World" 的键值对。
 
-现在你可以直接编译合约模板，或者参考本章节编写 NEP17 合约。
-
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-首先从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/pull/44)。
+从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/pull/44)。
 
 > [!Note]
 >
@@ -122,7 +117,7 @@
 
 方法二：
 
-在解决方案或项目目录，启动命令行程序，运行 nccs . 即可。
+在解决方案或项目目录，启动命令行程序，运行 nccs。
 
 编译成功后会在该项目的 `bin/sc` 目录生成以下文件：
 
