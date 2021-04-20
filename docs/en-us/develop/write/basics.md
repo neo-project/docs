@@ -14,7 +14,7 @@ namespace Helloworld
     [ManifestExtra("Author", "Neo")]
     [ManifestExtra("Email", "dev@neo.org")]
     [ManifestExtra("Description", "This is a contract example")]
-    [SupportedStandards("NEP-5", "NEP-10")]
+    [SupportedStandards("NEP-17")]
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
@@ -162,7 +162,7 @@ Besides, you can declare more features:
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
-[SupportedStandards("NEP-5", "NEP-10")]
+[SupportedStandards("NEP-17", "NEP-10")]
 [Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
 public class Contract1 : SmartContract
 {
@@ -175,7 +175,7 @@ public class Contract1 : SmartContract
 
 `ManifestExtra` represents the extra fields in the Manifest file, where you can add `Author`, `Email`,  `Description` and etc.
 
-`SupportedStandards` represents the NEP standards the contract conform to, such as NEP-5, a token standard on Neo. 
+`SupportedStandards` represents the NEP standards the contract conform to, such as NEP-17, a token standard on Neo. 
 
 You can also add other fields, such as:
 
@@ -188,7 +188,7 @@ You can also add other fields, such as:
 
 - `[Features(ContractFeatures.NoProperty)]`: no special feature added to the contract.
 - `[Features(ContractFeatures.HasStorage)]`: enables the contract to access the storage.
-- `[Features(ContractFeatures.Payable)]`: enables the contract to accept NEP-5 assets.
+- `[Features(ContractFeatures.Payable)]`: enables the contract to accept NEP-17 assets.
 - `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`: enables both features described above.
 
 ### Entry function
@@ -256,10 +256,10 @@ Similar to the Register method, the Delete function check the owner first and if
 
 ### Events
 
-In Smart contract, events are a way  to communicate that something happened on the blockchain to your app front-end (or back-end), which can be 'listening' for certain events and take action when they happen. You might use this to update an external database, do analytics, or update a UI. In some specified contract standard,  it defined some events should be posted. It is not cover in this page, but is very useful for the other smart contracts. For instance, in the NEP-5 Token, the events `transfer` should be fired when user invoke the transfer function.
+In Smart contract, events are a way  to communicate that something happened on the blockchain to your app front-end (or back-end), which can be 'listening' for certain events and take action when they happen. You might use this to update an external database, do analytics, or update a UI. In some specified contract standard,  it defined some events should be posted. It is not cover in this page, but is very useful for the other smart contracts. For instance, in the NEP-17 Token, the events `transfer` should be fired when user invoke the transfer function.
 
 ```c#
-//Should be called when caller transfer nep-5 asset.
+//Should be called when caller transfer NEP-17 asset.
 [DisplayName("Transfer")]
 public static event Action<byte[], byte[], BigInteger> OnTransfer;
 ```
