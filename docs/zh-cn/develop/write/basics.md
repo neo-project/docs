@@ -14,7 +14,7 @@ namespace Helloworld
     [ManifestExtra("Author", "Neo")]
     [ManifestExtra("Email", "dev@neo.org")]
     [ManifestExtra("Description", "This is a contract example")]
-    [SupportedStandards("NEP-5", "NEP-10")]
+    [SupportedStandards("NEP17")]
     [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
@@ -163,7 +163,7 @@ namespace Domain
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
-[SupportedStandards("NEP-5", "NEP-10")]
+[SupportedStandards("NEP-17")]
 [Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
 public class Contract1 : SmartContract
 {
@@ -176,7 +176,7 @@ public class Contract1 : SmartContract
 
 `ManifestExtra` 表示 Manifest 文件中的额外字段，可以添加 `Author`、 `Email`、 `Description` 等值；
 
-`SupportedStandards` 表示合约符合的 NEP 标准，比如 `NEP-5` 是 Neo 上的代币标准。
+`SupportedStandards` 表示合约符合的 NEP 标准，比如 `NEP-17` 是 Neo 上的代币标准。
 
 也可以添加其它字段，如：
 
@@ -189,7 +189,7 @@ public class Contract1 : SmartContract
 
 - `[Features(ContractFeatures.NoProperty)]`：或不写，表示合约没有特殊功能
 - `[Features(ContractFeatures.HasStorage)]`：合约可以使用存储区
-- `[Features(ContractFeatures.Payable)]`：合约可以接收资产（NEO、GAS、NEP-5资产等）
+- `[Features(ContractFeatures.Payable)]`：合约可以接收资产（NEO、GAS、NEP-17资产等）
 - `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`：同时包括上述两种功能
 
 ### 合约入口函数
@@ -257,10 +257,10 @@ private static bool Register(string domain, byte[] owner)
 
 ### 事件
 
-在智能合约中，事件是区块链与应用程序前端(或后端)进行通信的一种方式，后者可以“监听”某些事件，并在事件发生时做一些操作。你可以使用这个机制来更新外部数据库、做一些分析或更新 UI。在某些特定的合约标准中，它定义了一些应该发布的事件。本节没有涉及到这方面的相关内容，但是它对于其他智能合约而言确实非常有用。例如，在 NEP-5Token 标准中，事件 `转账` 应该在用户调用转账方法时触发。
+在智能合约中，事件是区块链与应用程序前端(或后端)进行通信的一种方式，后者可以“监听”某些事件，并在事件发生时做一些操作。你可以使用这个机制来更新外部数据库、做一些分析或更新 UI。在某些特定的合约标准中，它定义了一些应该发布的事件。本节没有涉及到这方面的相关内容，但是它对于其他智能合约而言确实非常有用。例如，在 NEP-17 Token 标准中，事件 `转账` 应该在用户调用转账方法时触发。
 
 ```c#
-//当对NEP-5资产进行转账时调用
+//当对NEP-17资产进行转账时调用
 [DisplayName("Transfer")]
 public static event Action<byte[], byte[], BigInteger> OnTransfer;
 ```
