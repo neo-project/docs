@@ -35,7 +35,8 @@
 方法一：
 
 1. 在解决方案所在目录添加 NuGet.Config 文件
-   ```xml
+  
+  ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <packageSources>
