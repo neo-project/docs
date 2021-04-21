@@ -35,16 +35,16 @@
 方法一：
 
 1. 在解决方案所在目录添加 NuGet.Config 文件
-  
-  ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-    <packageSources>
-    <clear />
-    <add key="MyGet-neo" value="https://www.myget.org/F/neo/api/v3/index.json" />
-    <add key="NuGet.org" value="https://api.nuget.org/v3/index.json" />
-    </packageSources>
-</configuration>
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <configuration>
+       <packageSources>
+       <clear />
+       <add key="MyGet-neo" value="https://www.myget.org/F/neo/api/v3/index.json" />
+       <add key="NuGet.org" value="https://api.nuget.org/v3/index.json" />
+       </packageSources>
+   </configuration>
    ```
 
 2. 升级 Neo.SmartContract.Framework 到最新
