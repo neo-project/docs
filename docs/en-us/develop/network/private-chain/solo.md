@@ -141,7 +141,7 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
    
 4. Start the private chain and the external node
 
-5. From the external node command line, enter `import multisigaddress m pubkeys` to create a multi-part signed address, where:
+5. From the external node command line, open the wallet consensus.json and enter `import multisigaddress m pubkeys` to create a multi-part signed address, where:
 
    `m` is 1 as the minimal signature number and `pubkeys` is the public key of `consensus.json`
    
@@ -151,3 +151,14 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
    ```
    
 6. Enter `list asset`，then you should see 100 million NEO and 30 million GAS displayed.
+
+7. Create a new wallet using the command `create wallet ` and copy the wallet address.
+
+8. Open the wallet `consensus.json` again and transfer NEO and GAS to the new created wallet with the `send` command. For example, `send neo NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 100000000`, `send gas NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 10000000`.
+
+   > [!Note]
+   >
+   > The wallet that sends tokens should have enough GAS as a few fee (usually no more than 0.02 GAS) will be charged at the time of transfer.
+
+   For more Neo-CLI commands refer to [CLI command reference](../../../node/cli/cli.md).
+
