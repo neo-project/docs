@@ -162,7 +162,7 @@ Besides, you can declare more features:
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
-[SupportedStandards("NEP-17", "NEP-10")]
+[SupportedStandards("NEP-17")]
 [Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
 public class Contract1 : SmartContract
 {
