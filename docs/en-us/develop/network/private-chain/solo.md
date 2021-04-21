@@ -83,7 +83,7 @@ Here is an example:
 
 ## Starting the private chain
 
-Run the command line and enter the Neo-CLI directory. Then enter  `neo-cli.exe` to start the private chain. The private chain is set up successfully when it goes as shown below:
+To start the private chain, enter the neo-cli directory and run neo-cli.exe, or run the command line and enter  `dotnet neo-cli.dll`. The private chain is set up successfully when it goes as shown below:
 
 ![](../assets/solo.png)
 
