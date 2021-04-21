@@ -81,7 +81,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 ## 启动私有链
 
-运行命令行，进入 neo-cli 目录，双击 `neo-cli.exe` 即可启动私链。成功建立的私链如下图所示。
+进入 neo-cli 目录，双击 `neo-cli.exe` 或打开 cmd 并运行`dotnet neo-cli.dll`即可启动私链。成功建立的私链如下图所示。
 
 ![](../assets/solo.png)
 
