@@ -137,7 +137,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 4. 启动私链及外部节点，后续操作均在外部节点上。
 
-5. 使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
+5. 打开共识节点钱包 `open wallet consensus.json`，使用命令 `import multisigaddress m pubkeys`，创建一个多方签名地址。
 
    这里设置最小签名数 m 为 1，pubkeys 为钱包 consensus.json 的公钥。例如：
 
@@ -146,3 +146,5 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
     ```
 
 6. 输入命令 `list asset`，可以看到合约地址中出现了 100,000,000 NEO 和 30,000,000 GAS。
+7. 输入命令 `create wallet XXX.json` 来创建一个新钱包进行后续开发操作，并复制地址。
+8. 重新打开共识节点钱包 `open wallet consensus.json`，使用 `send` 指令转出 NEO 和 GAS 到新钱包地址。例：`send neo NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 100000000`, `send gas NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 10000000`。注意：每次转账都会消耗少量 GAS 作为手续费，请确保转账时有足够的 GAS （一般不超过 0.02 个gas）。节点操作详细指令可参照[CLI 命令参考](https://docs.neo.org/docs/zh-cn/node/cli/cli.html)
