@@ -1,6 +1,6 @@
 # 使用单节点搭建私有链
 
-Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。[NEO-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。
+Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正常运行私有链。[NEO-Private-Net](https://github.com/neo-ngd/NEO-Private-Net) 项目是一个已配置好的私有链，下载后可以直接运行。
 
 你也可以自己配置私有链，下文将介绍具体方法。
 

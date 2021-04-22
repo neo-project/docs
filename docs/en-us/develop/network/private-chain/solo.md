@@ -1,6 +1,6 @@
 # Build a private chain with one node
 
-Neo-CLI supports generating blocks without consensus nodes, which means you can set up a private chain with one node. To simplify the process, you can directly down the project [Neo-Private-Net](https://github.com/chenzhitong/NEO-Private-Net) to run the private chain quickly.  
+Neo-CLI supports generating blocks without consensus nodes, which means you can set up a private chain with one node. To simplify the process, you can directly download the project [Neo-Private-Net]( https://github.com/neo-ngd/NEO-Private-Net) to run the private chain quickly.  
 
 Alternatively, you can build a private chain with one node from scratch, which will be elaborated in the following sections.
 
