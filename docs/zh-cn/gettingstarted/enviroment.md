@@ -5,7 +5,7 @@
 Neo 官方提供了供用户开发、调试和测试的测试网（Test Net），但在本地搭建你自己的私链将获得更多的灵活性以及取之不尽的测试币。你可以选择以下一种方式搭建私有链并提取创世区块中的 NEO 和 GAS：
 
 - [使用单节点搭建](../develop/network/private-chain/solo.md)
-- [在一台 Windows 主机上搭建](../develop/network/private-chain/private-chain2.md)
+- [使用多节点搭建](../develop/network/private-chain/private-chain2.md)
 
 ## 准备节点钱包文件
 

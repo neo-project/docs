@@ -81,7 +81,7 @@
       items:
       - name: 单节点模式
         href: /docs/zh-cn/develop/network/private-chain/solo.md
-      - name: 在本地主机搭建
+      - name: 多节点模式
         href: /docs/zh-cn/develop/network/private-chain/private-chain2.md
   - name: 合约编写
     items:
