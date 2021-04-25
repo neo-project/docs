@@ -95,6 +95,8 @@
       href: /docs/zh-cn/develop/write/manifest.md
     - name: 合约升级
       href: /docs/zh-cn/develop/write/update.md
+    - name: N3 合约变动
+      href: /docs/zh-cn/develop/write/difference.md
   - name: 合约示例
     items: 
     - name: Hello World

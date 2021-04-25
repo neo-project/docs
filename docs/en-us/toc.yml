@@ -94,6 +94,8 @@
       href: /docs/en-us/develop/write/manifest.md
     - name: Contract Migration and Destruction
       href: /docs/en-us/develop/write/update.md
+    - name: Differences than Neo Legacy
+      href: /docs/en-us/develop/write/difference.md
   - name: Contract Samples
     items: 
     - name: Hello World
