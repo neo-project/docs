@@ -1,14 +1,12 @@
 # 开发示例合约
 
-我们已经搭建私链并启动节点连接私链，下文将以使用 Windows 10 和 C# 为例，带领开发者配置环境、编写、编译以及在私链上部署和调用 Neo 智能合约。
+我们已经搭建私链并启动节点连接私链，本文将以使用C#为例，带领开发者配置环境、编写，并编译一个 NEP17 合约。
 
-在本节我们将完成以下任务：
+开发者可以选择使用 Visual Studio 或 Visual Studio Code 来开发合约，后者配置流程更加简化，推荐MacOS用户使用。
 
-1. 安装合约开发环境
-2. 创建一个 NEP17 合约项目
-3. 编译合约
+## 使用 Visual Studio 开发
 
-## 配置开发环境
+本节内容均基于 Windows10 进行操作。
 
 ### 下载开发工具
 
@@ -56,9 +54,7 @@
 1. 删除 NuGet 中的 Neo.SmartContract.Framework 引用
 2. 引用 neo-devpack-dotnet 解决文案中的 Neo.SmartContract.Framework 项目或编译后的 dll
 
-## 创建 NEP17 合约项目
-
-### 创建项目
+### 创建 NEP17 合约项目
 
 1. 在 Visual Studio 中点击 `文件` -> `新建` -> `项目`。
 
@@ -66,7 +62,7 @@
 
    ![neocontract](assets/neocontract.png)
 
-### 编辑 NEP17 代码
+### 编写 NEP17 代码
 
 创建项目后，会自动生成一个智能合约的代码模板，功能是向存储区存入 "Hello" "World" 的键值对。
 
@@ -110,7 +106,7 @@
 
 参考 [NEP-17](../develop/write/nep17.md)
 
-## 编译合约文件
+### 编译合约文件
 
 方法一：
 
@@ -124,3 +120,67 @@
 
 - `NEP17.nef` ：与 Neo Legacy 中的 .avm 文件类似，.nef 是 Neo N3 的智能合约执行文件。
 - `NEP17.manifest.json` ：智能合约的描述文档，文档中对合约的功能、ScriptHash、入口、方法、参数、返回值等进行了描述。
+
+## 使用 Visual Studio Code 开发
+
+本节内容适用于多平台，如 Windows，macOS, 和 Ubuntu。
+
+### 准备工作
+
+1. 下载并安装 [Visual Studio Code](https://code.visualstudio.com/Download)
+
+2. 下载并安装 [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
+
+3. 打开系统命令行，执行命令查看是否成功安装 SDK。
+
+   ```
+   dotnet --list-sdks
+   ```
+
+   如成功安装， 屏幕将显示SDK版本号。
+
+### 安装合约模板
+
+[Neo3.SmartContract.Templates](https://www.nuget.org/packages/Neo3.SmartContract.Templates/) 包含最新的合约编译器以及一个HelloContract模板，推荐安装最新版：
+
+```
+dotnet new --install Neo3.SmartContract.Templates
+```
+
+如果要开发 **NEO N3 RC1** 版本的合约，则需要引用与其兼容的版本***1.0.2***：
+
+```
+dotnet new --install Neo3.SmartContract.Templates::1.0.2
+```
+
+### 编写 NEP17 合约
+
+1. 新建一个名为 `Nep17` 的目录作为合约项目。
+
+2. 通过命令行进入 `Nep17` 目录，并执行命令`dotnet new neo3-contract -n`，使用合约模板 HelloContract 生成代码文件，例如：
+
+   ```
+   dotnet new neo3-contract -n tokenA
+   ```
+
+   此时 `Nep17` 目录会自动创建 tokenA.cs、tokenA.csproj 两个文件。-n 后面的tokenA可以替换成任意文件名，如果不设置，生成的文件将以当前目录名称命名。
+
+4. 从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/pull/44) 并复制代码。
+
+5. 使用 VS Code 打开 `Nep17` 目录，用复制的 NEP17 模板代码覆盖原代码。
+
+6. 参考前文 [编写 NEP17 代码]() 编写合约。
+
+7. 编写完成后输入以下命令编译当前合约：
+
+   ```
+   dotnet build
+   ```
+
+   合约项目下的\bin\Debug\net5.0目录将生成对应的合约文件。
+
+## 更多参考
+
+关于合约编写的更多内容，可参考 [合约编写]()
+
+要了解 Neo N3 合约编写的变动，请参考 [N3 合约变动]()
