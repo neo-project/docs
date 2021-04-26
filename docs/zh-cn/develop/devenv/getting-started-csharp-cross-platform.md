@@ -2,7 +2,7 @@
 
 ## 准备工作
 1. 安装 [Visual Studio Code](https://code.visualstudio.com/Download)
-2. 安装 [.NET 5.0](https://dotnet.microsoft.com/download)
+2. 安装 [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
 
 ## 安装合约模板
@@ -12,10 +12,10 @@
 dotnet new --install Neo3.SmartContract.Templates
 ```
 
-如果希望开发的**NEO3 RC1**版本的合约，则需要引用与其兼容的版本***1.0.1***.
+如果希望开发的**NEO3 RC1**版本的合约，则需要引用与其兼容的版本***1.0.2***.
 
 ```
-dotnet new --install Neo3.SmartContract.Templates::1.0.1
+dotnet new --install Neo3.SmartContract.Templates::1.0.2
 ```
 
 ## 使用合约模板
