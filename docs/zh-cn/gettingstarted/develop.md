@@ -52,9 +52,9 @@
 方法二：
 
 1. 删除 NuGet 中的 Neo.SmartContract.Framework 引用
-2. 引用 neo-devpack-dotnet 解决文案中的 Neo.SmartContract.Framework 项目或编译后的 dll
+2. 引用 neo-devpack-dotnet 解决方案中的 Neo.SmartContract.Framework 项目或编译后的 .dll
 
-### 创建 NEP17 合约项目
+### 创建合约项目
 
 1. 在 Visual Studio 中点击 `文件` -> `新建` -> `项目`。
 
@@ -68,43 +68,40 @@
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/master/csharp/NEP17)。
+从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/master/csharp/NEP17) 模板，编写代码。
 
-> [!Note]
->
-> 相对于 Neo Legacy 来说， Neo N3 的 NEP17 合约模板有以下改动：
->
-> - 在智能合约类上方添加了自定义特性：
->
->   ```c#
->   [DisplayName("Token Name")]
->   [ManifestExtra("Author", "Neo")]
->   [ManifestExtra("Email", "dev@neo.org")]
->   [ManifestExtra("Description", "This is a NEP17 example")]
->   [SupportedStandards("NEP-17")]
->   [ContractPermission("*", "onNEP17Payment")]
->   public class NEP17 : SmartContract
->   ……
->   ```
->
-> - 将 Transfer 事件改为首字母大写
->
-> - 移除了 Name 方法
->
-> - 添加了 _deploy 方法，合约部署后会立即执行
->
-> - 添加了 Update、Destroy 方法
->
-> - 所有 Crowdsale 方法都在 NEP17.Crowdsale.cs 文件中，开发者可以根据需要选择是否使用该文件
->
-> - 在 Transfer 方法中调用接收方的 onNEP17Payment 方法
->
-> - 实现 onNEP17Payment 以便在收到 NEP17 资产时自动执行智能合约
->
-> - 智能合约开发框架有了较大的改动
->
+相对于 Neo Legacy 来说， Neo N3 的 NEP17 合约模板有以下改动：
 
-参考 [NEP-17](../develop/write/nep17.md)
+- 在智能合约类上方添加了自定义特性：
+
+  ```c#
+  [DisplayName("Token Name")]
+  [ManifestExtra("Author", "Neo")]
+  [ManifestExtra("Email", "dev@neo.org")]
+  [ManifestExtra("Description", "This is a NEP17 example")]
+  [SupportedStandards("NEP-17")]
+  [ContractPermission("*", "onNEP17Payment")]
+  public class NEP17 : SmartContract
+  ……
+  ```
+
+- 将 Transfer 事件改为首字母大写
+
+- 移除了 Name 方法
+
+- 添加了 _deploy 方法，合约部署后会立即执行
+
+- 添加了 Update、Destroy 方法
+
+- 所有 Crowdsale 方法都在 NEP17.Crowdsale.cs 文件中，开发者可以根据需要选择是否使用该文件
+
+- 在 Transfer 方法中调用接收方的 onNEP17Payment 方法
+
+- 实现 onNEP17Payment 以便在收到 NEP17 资产时自动执行智能合约
+
+- 智能合约开发框架有了较大的改动。详情请参考 [智能合约API](../reference/scapi/api.md)
+
+更多信息，请参考 [NEP-17](../develop/write/nep17.md)。
 
 ### 编译合约文件
 
@@ -125,7 +122,7 @@
 
 本节内容适用于多平台，如 Windows，macOS, 和 Ubuntu。
 
-### 准备工作
+### 下载开发工具
 
 1. 下载并安装 [Visual Studio Code](https://code.visualstudio.com/Download)
 
@@ -153,34 +150,43 @@ dotnet new --install Neo3.SmartContract.Templates
 dotnet new --install Neo3.SmartContract.Templates::1.0.2
 ```
 
-### 编写 NEP17 合约
+### 创建合约项目
 
 1. 新建一个名为 `Nep17` 的目录作为合约项目。
 
-2. 通过命令行进入 `Nep17` 目录，并执行命令`dotnet new neo3-contract -n`，使用合约模板 HelloContract 生成代码文件，例如：
+2. 通过命令行进入 `Nep17` 目录，并执行命令`dotnet new neo3-contract`，使用合约模板 HelloContract 生成代码文件。
 
-   ```
-   dotnet new neo3-contract -n tokenA
-   ```
+   此时 `Nep17` 目录下会自动创建以目录名命名的文件，Nep17.cs 和 Nep17.csproj 。
+   
+   如果要指定文件名，可使用参数 -n, 例如 `dotnet new neo3-contract -n tokenA`
 
-   此时 `Nep17` 目录会自动创建 tokenA.cs、tokenA.csproj 两个文件。-n 后面的tokenA可以替换成任意文件名，如果不设置，生成的文件将以当前目录名称命名。
+### 编写 NEP17代码
 
-4. 从 GitHub 上下载 [NEP17 示例](https://github.com/neo-project/examples/tree/master/csharp/NEP17) 中的所有 .cs 文件并放到  `Nep17` 目录下。
+1. 从 GitHub 上下载 [NEP17 示例](https://github.com/neo-project/examples/tree/master/csharp/NEP17) 中的所有 .cs 文件并放到  `Nep17` 目录下。
 
-4. 运行 VS Code，根据提示安装 C# extension。
+2. 删除原HelloContract模板生成的文件 Nep17.cs。
 
-5. 打开 `Nep17` 目录，参考前文 [编写 NEP17 代码](#编写-nep17-代码)。
+3. 运行 VS Code，根据提示安装 C# extension。
 
-6. 编写完成后输入以下命令编译当前合约：
+   ![](C:\neo-project\docs\docs\zh-cn\gettingstarted\assets\extension.png)
 
-   ```
-   dotnet build
-   ```
+4. 打开 `Nep17` 目录中的Nep17模板文件，参考前文 [编写 NEP17 代码](#编写-nep17-代码)。
 
-   合约项目下的\bin\Debug\net5.0目录将生成对应的合约文件。
+### 编译合约文件
+
+编写完成后输入以下命令编译当前合约：
+
+```
+dotnet build
+```
+
+![](C:\neo-project\docs\docs\zh-cn\gettingstarted\assets\build.png)
+
+合约项目下的\bin\Debug\net5.0目录将生成对应的合约文件。
 
 ## 更多参考
 
-关于合约编写的更多内容，可参考 [合约编写]()
+关于合约编写的更多内容，可参考 [合约编写](../develop/write/basics.md)
 
-要了解 Neo N3 合约编写的变动，请参考 [N3 合约变动]()
+要了解 Neo N3 合约编写的变动，请参考 [N3 合约变动](../develop/write/difference.md)
+
