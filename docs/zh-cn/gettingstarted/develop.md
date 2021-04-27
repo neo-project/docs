@@ -68,7 +68,7 @@
 
 很多开发者比较关心的是如何在 Neo 公链上发布自己的合约资产，下面我们就在私链上一步步实现。
 
-从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/pull/44)。
+从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/tree/master/csharp/NEP17)。
 
 > [!Note]
 >
@@ -165,13 +165,13 @@ dotnet new --install Neo3.SmartContract.Templates::1.0.2
 
    此时 `Nep17` 目录会自动创建 tokenA.cs、tokenA.csproj 两个文件。-n 后面的tokenA可以替换成任意文件名，如果不设置，生成的文件将以当前目录名称命名。
 
-4. 从 GitHub 上下载 Neo N3 的 [NEP17 示例](https://github.com/neo-project/examples/pull/44) 并复制代码。
+4. 从 GitHub 上下载 [NEP17 示例](https://github.com/neo-project/examples/tree/master/csharp/NEP17) 中的所有 .cs 文件并放到  `Nep17` 目录下。
 
-5. 使用 VS Code 打开 `Nep17` 目录，用复制的 NEP17 模板代码覆盖原代码。
+4. 运行 VS Code，根据提示安装 C# extension。
 
-6. 参考前文 [编写 NEP17 代码]() 编写合约。
+5. 打开 `Nep17` 目录，参考前文 [编写 NEP17 代码](#编写-nep17-代码)。
 
-7. 编写完成后输入以下命令编译当前合约：
+6. 编写完成后输入以下命令编译当前合约：
 
    ```
    dotnet build
