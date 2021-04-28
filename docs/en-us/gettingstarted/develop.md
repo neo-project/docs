@@ -1,10 +1,8 @@
-# Compiling a contract sample
+# Developing a contract sample
 
-In this section we will complete the following tasks with C# and Windows 10:
+We have completed setting up the private chain and configuring the node. In this section we will walk you through configuring the environment, writing, and compiling an NEP17 contract using C#.
 
-1. Install contract development environment
-2. Create an NEP17 contract project
-3. Compile a contract
+You can choose either Visual Studio or Visual Studio Code to develop contracts. The latter way is more simplified and suitable for macOS users.
 
 ## Setting up development environment
 

@@ -1,8 +1,8 @@
 # 开发示例合约
 
-我们已经搭建私链并启动节点连接私链，本文将以使用C#为例，带领开发者配置环境、编写，并编译一个 NEP17 合约。
+我们已经搭建私链并启动节点连接私链，本节我们将继续带领开发者配置环境、编写，并编译一个 NEP17 合约。
 
-开发者可以选择使用 Visual Studio 或 Visual Studio Code 来开发合约，后者配置流程更加简化，推荐MacOS用户使用。
+开发者可以选择使用 Visual Studio 或 Visual Studio Code 来开发合约，后者配置流程更加简化，推荐macOS用户使用。
 
 ## 使用 Visual Studio 开发
 
