@@ -118,8 +118,8 @@
 | [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
 | [get committee](#get-committee) |  | 获取委员会成员公钥 |
 | [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
-| [register candidate](#register-candidate) |\<senderAccount> [maxGas] | 注册候选人 |
-| [unregister candidate](#unregister-candidate) |\<senderAccount>  | 注销候选人 |
+| [register candidate](#register-candidate) |\<account> [maxGas=1010] | 注册候选人 |
+| [unregister candidate](#unregister-candidate) |\<account>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
 
 #### 高级命令
@@ -454,23 +454,22 @@ Next validators:
 
 ##### 句法
 
- `register candidate <senderAccount> [maxGas]`
+ `register candidate <account> [maxGas=1010]`
 
 ##### 参数
 
-`senderAccount`：注册者账户
+`account`：注册者账户
 
-`maxGas`: 最大花费 GAS
+`maxGas`: 最大花费 GAS，默认为 1010，其中注册费用 1000 GAS。
 
 ##### 示例
 
 ```
-neo> register candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
-Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c11726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+neo> register candidate NUNtEBBbJkmPrmhiVSPN6JuM7AcE8FJ5sE
+Invoking script with: 'DCECSVwDcw3pu71X7c2DqNv8jNiqsw75XuAGjy+ko6bkt/YRwB8MEXJlZ2lzdGVyQ2FuZGlkYXRlDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS'
 VM State: HALT
-Gas Consumed: 0.0600775
-Evaluation Stack: [{"type":"Boolean","value":true}]
-
+Gas Consumed: 1000.0104529
+Result Stack: [{"type":"Boolean","value":true}]
 relay tx(no|yes): y
 Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663819ff8b473ad11b03e035c67bb5
 ```
@@ -481,23 +480,22 @@ Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663
 
 ##### 句法
 
- `unregister candidate <senderAccount>`
+ `unregister candidate <account>`
 
 ##### 参数
 
-- `senderAccount`：注册者账户
+- `account`：注册者账户
 
 ##### 示例
 
 ```
-neo> unregister candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
-Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c13756e726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+neo> unregister candidate NUNtEBBbJkmPrmhiVSPN6JuM7AcE8FJ5sE
+Invoking script with: 'DCECSVwDcw3pu71X7c2DqNv8jNiqsw75XuAGjy+ko6bkt/YRwB8ME3VucmVnaXN0ZXJDYW5kaWRhdGUMFPVj6kC8KD1NDgXEjqMFs/Kgc0DvQWJ9W1I='
 VM State: HALT
-Gas Consumed: 0.0600775
-Evaluation Stack: [{"type":"Boolean","value":true}]
-
-relay tx(no|yes): yes
-Signed and relayed transaction with hash=0x02706d846d6cce1f10b5643e72bbb8011376c623edf2f4e98c4aec80615120e8
+Gas Consumed: 0.0301137
+Result Stack: [{"type":"Boolean","value":true}]
+Relay tx(no|yes): yes
+Signed and relayed transaction with hash=0xa799e315956e120a51bf5b5804d9518754a844bbe4dadef3efd37ac3d15a6305
 ```
 
 ### vote

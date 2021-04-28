@@ -119,8 +119,8 @@ The commands listed in the table below requires you to open the wallet before in
 | [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes |
 | [get committee](#get-committee)               |                               | Gets the committee member's public key |
 | [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key  |
-| [register candidate](#register-candidate)     | \<senderAccount> [maxGas]     | Registers the candidate                |
-| [unregister candidate](#unregister-candidate) | \<senderAccount>              | Unregisters the candidate              |
+| [register candidate](#register-candidate)     | \<account> [maxGas=1010]      | Registers the candidate                |
+| [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate              |
 | [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                   |
 
 #### Advanced Commands
@@ -436,23 +436,22 @@ Registers the candidate
 
 ##### Syntax
 
- `register candidate <senderAccount> [maxGas]`
+ `register candidate <account> [maxGas=1010]`
 
 ##### Parameters
 
-`senderAccount`: The account to register candidate
+`account`: The account to register candidate
 
-`maxGas`: The maximum GAS can be consumed.
+`maxGas`: The maximum GAS can be consumed. Default is 1010, where the registration fee is 1000 GAS.
 
 ##### Example
 
 ```
-neo> register candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
-Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c11726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+neo> register candidate NUNtEBBbJkmPrmhiVSPN6JuM7AcE8FJ5sE
+Invoking script with: 'DCECSVwDcw3pu71X7c2DqNv8jNiqsw75XuAGjy+ko6bkt/YRwB8MEXJlZ2lzdGVyQ2FuZGlkYXRlDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS'
 VM State: HALT
-Gas Consumed: 0.0600775
-Evaluation Stack: [{"type":"Boolean","value":true}]
-
+Gas Consumed: 1000.0104529
+Result Stack: [{"type":"Boolean","value":true}]
 relay tx(no|yes): y
 Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663819ff8b473ad11b03e035c67bb5
 ```
@@ -463,23 +462,22 @@ Unregisters the candidate
 
 ##### Syntax
 
- `unregister candidate <senderAccount>`
+ `unregister candidate <account>`
 
 ##### Parameters
 
-`senderAccount`: The account to unregister candidate
+`account`: The account to unregister candidate
 
 ##### Example
 
 ```
-neo> unregister candidate Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z
-Invoking script with: '0c2103d5fb6b53f160d58fa04510178bbda55ba98373ca6ac17eec11a5aa7e292bc25a11c00c13756e726567697374657243616e6469646174650c1425059ecb4878d3a875f91c51ceded330d4575fde41627d5b52'
+neo> unregister candidate NUNtEBBbJkmPrmhiVSPN6JuM7AcE8FJ5sE
+Invoking script with: 'DCECSVwDcw3pu71X7c2DqNv8jNiqsw75XuAGjy+ko6bkt/YRwB8ME3VucmVnaXN0ZXJDYW5kaWRhdGUMFPVj6kC8KD1NDgXEjqMFs/Kgc0DvQWJ9W1I='
 VM State: HALT
-Gas Consumed: 0.0600775
-Evaluation Stack: [{"type":"Boolean","value":true}]
-
-relay tx(no|yes): yes
-Signed and relayed transaction with hash=0x02706d846d6cce1f10b5643e72bbb8011376c623edf2f4e98c4aec80615120e8
+Gas Consumed: 0.0301137
+Result Stack: [{"type":"Boolean","value":true}]
+Relay tx(no|yes): yes
+Signed and relayed transaction with hash=0xa799e315956e120a51bf5b5804d9518754a844bbe4dadef3efd37ac3d15a6305
 ```
 
 ### vote
