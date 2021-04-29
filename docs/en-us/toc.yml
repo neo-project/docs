@@ -8,7 +8,7 @@
     href: /docs/en-us/gettingstarted/prerequisites.md
   - name: Setting up local network
     href: /docs/en-us/gettingstarted/enviroment.md
-  - name: Compiling a Contract Sample
+  - name: Developing a Contract
     href: /docs/en-us/gettingstarted/develop.md
   - name: Deploying and Invoking the Contract
     href: /docs/en-us/gettingstarted/deploy.md
