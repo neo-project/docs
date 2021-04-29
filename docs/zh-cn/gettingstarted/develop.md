@@ -168,7 +168,7 @@ dotnet new --install Neo3.SmartContract.Templates::1.0.2
 
 3. 运行 VS Code，根据提示安装 C# extension。
 
-   ![](C:\neo-project\docs\docs\zh-cn\gettingstarted\assets\extension.png)
+   ![](assets\extension.png)
 
 4. 打开 `Nep17` 目录中的Nep17模板文件，参考前文 [编写 NEP17 代码](#编写-nep17-代码)。
 
@@ -180,7 +180,7 @@ dotnet new --install Neo3.SmartContract.Templates::1.0.2
 dotnet build
 ```
 
-![](C:\neo-project\docs\docs\zh-cn\gettingstarted\assets\build.png)
+![](assets\build.png)
 
 合约项目下的\bin\Debug\net5.0目录将生成对应的合约文件。
 
