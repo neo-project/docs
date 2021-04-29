@@ -1,4 +1,4 @@
-# Developing a contract sample
+# Developing a contract
 
 We have completed setting up the private chain and configuring the node. In this section we will walk you through configuring the environment, writing, and compiling an NEP17 contract using C#.
 
@@ -118,7 +118,7 @@ When the compilation is done, the following files are generated under the `bin/D
 
 ## Using Visual Studio Code to develop
 
-The following steps are suitable for multiple system platforms, such as Windows，macOS,  and Ubuntu.
+The following steps are applicable to multiple system platforms, such as Windows，macOS,  and Ubuntu.
 
 ### Installing tools
 
@@ -166,7 +166,7 @@ dotnet new --install Neo3.SmartContract.Templates::1.0.2
 
 3. Run VS Code and install the C# extension as prompted.
 
-   ![](C:\neo-project\docs\docs\zh-cn\gettingstarted\assets\extension.png)
+   ![](../../zh-cn/gettingstarted/assets/extension.png)
 
 4. Open the `Nep17` folder to edit the Nep17 template. Refer to [Editing NEP17 Code](#editing-nep17-code).
 
@@ -178,13 +178,13 @@ Run the following command to build your contract：
 dotnet build
 ```
 
-![](C:\neo-project\docs\docs\zh-cn\gettingstarted\assets\build.png)
+![](../../zh-cn/gettingstarted/assets/build.png)
 
 Related contract files are outputted under \bin\Debug\net5.0 path in the contract project directory.
 
 ## See also
 
-For more information about writing contracts,refer to [Basics](../develop/write/basics.md)
+For more information about writing contracts, refer to [Basics](../develop/write/basics.md).
 
 For information about differences between Neo N3 and Neo Legacy contracts, refer to [Differences than Neo Legacy](../develop/write/difference.md)
 
