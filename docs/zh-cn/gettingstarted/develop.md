@@ -138,7 +138,7 @@
 
 ### 安装合约模板
 
-[Neo3.SmartContract.Templates](https://www.nuget.org/packages/Neo3.SmartContract.Templates/) 包含最新的合约编译器以及一个HelloContract模板，推荐安装最新版：
+[Neo3.SmartContract.Templates](https://www.nuget.org/packages/Neo3.SmartContract.Templates/) 包含最新的合约编译器以及一个hello contract模板，推荐安装最新版：
 
 ```
 dotnet new --install Neo3.SmartContract.Templates
@@ -154,7 +154,7 @@ dotnet new --install Neo3.SmartContract.Templates::1.0.2
 
 1. 新建一个名为 `Nep17` 的目录作为合约项目。
 
-2. 通过命令行进入 `Nep17` 目录，并执行命令`dotnet new neo3-contract`，使用合约模板 HelloContract 生成代码文件。
+2. 通过命令行进入 `Nep17` 目录，并执行命令`dotnet new neo3-contract`，使用合约模板生成代码文件。
 
    此时 `Nep17` 目录下会自动创建以目录名命名的文件，Nep17.cs 和 Nep17.csproj 。
    

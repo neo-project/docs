@@ -18,7 +18,7 @@ The following steps are performed based on Windows 10.
 
 3. Install [.NET Framework 4.6.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net462-developer-pack-offline-installer), which helps you load the project correctly.
 
-4. Download  [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) from GitHub.
+4. Download [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet) from GitHub.
 
 ### Configuring environment variable
 
@@ -118,7 +118,7 @@ When the compilation is done, the following files are generated under the `bin/D
 
 ## Using Visual Studio Code to develop
 
-The following steps are applicable to multiple system platforms, such as Windows，macOS,  and Ubuntu.
+The following steps are applicable to multiple system platforms, such as Windows, macOS, and Ubuntu.
 
 ### Installing tools
 
@@ -136,7 +136,7 @@ The following steps are applicable to multiple system platforms, such as Windows
 
 ### Installing contract template
 
-[Neo3.SmartContract.Templates](https://www.nuget.org/packages/Neo3.SmartContract.Templates/) contains the latest contract compiler and a HelloContract template. The latest version is recommended：
+[Neo3.SmartContract.Templates](https://www.nuget.org/packages/Neo3.SmartContract.Templates/) contains the latest contract compiler and a hello contract template. The latest version is recommended：
 
 ```
 dotnet new --install Neo3.SmartContract.Templates
@@ -152,7 +152,7 @@ dotnet new --install Neo3.SmartContract.Templates::1.0.2
 
 1. Create a folder named `Nep17` as the contract project。
 
-2. In the command line go to the `Nep17` path and then enter the command `dotnet new neo3-contract` to generate code files based on the templete HelloContract.
+2. In the command line go to the `Nep17` path and then enter the command `dotnet new neo3-contract` to generate code files based on the template.
 
    You can find the files named by the folder name under `Nep17` directory: Nep17.cs and Nep17.csproj.
 
