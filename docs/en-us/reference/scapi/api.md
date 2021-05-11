@@ -10,52 +10,54 @@ For more information on how to use the framework to easily call APIs in high-lev
 
 | API                                   | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| System.Contract.Call                  | Invokes the contract                                         |
-| System.Contract.CallNative            | Invokes the native contract                                  |
-| System.Contract.IsStandard            | Determines whether the contract is a standard contract or multi-signed contract |
-| System.Contract.GetCallFlags          | Gets the execution permissions for the current context       |
-| System.Contract.CreateStandardAccount | Creates a standard account                                   |
-| System.Contract.NativeOnPersist       | Trigger the OnPersist method of native contract              |
-| System.Contract.NativePostPersist     | Trigger the PostPersist method of native contract            |
+| System.Contract.Call                  | Use it to call another contract dynamicallyInvokes the contract |
+| System.Contract.GetCallFlags          | Gets the CallFlags for the current context                   |
+| System.Contract.CreateStandardAccount | Calculates corresponding account scripthash for the given public key |
+
+**Crypto API**:
+
+| API                         | Description                                            |
+| --------------------------- | ------------------------------------------------------ |
+| System.Crypto.CheckSig      | Checks the signature for the current script container  |
+| System.Crypto.CheckMultisig | Checks the signatures for the current script container |
 
 **Iterator API**:
 
-| API                    | Description                      |
-| ---------------------- | -------------------------------- |
-| System.Iterator.Create | Creates a iterator               |
-| System.Iterator.Next   | Moves the iterator flow to next  |
-| System.Iterator.Values | Gets all the values of iterators |
+| API                    | Description                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| System.Iterator.Next   | Advances the iterator to the next element of the collection  |
+| System.Iterator.Values | Gets the element in the collection at the current position of the iterator |
 
 **Runtime API**:
 
 | API                                   | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| System.Runtime.Platform               | Gets information of the platform that executes the smart contract. |
-| System.Runtime.GetTrigger             | Gets the trigger condition for the smart contract            |
+| System.Runtime.Platform               | Gets the name of the current platform                        |
+| System.Runtime.GetTrigger             | Gets the trigger of the execution                            |
 | System.Runtime.GetTime                | Gets the timestamp of the current block                      |
-| System.Runtime.GetScriptContainer     | Gets the script container of the smart contract (the original trigger) |
-| System.Runtime.GetExecutingScriptHash | Gets the hash of the script executed by the smart contract   |
-| System.Runtime.GetCallingScriptHash   | Gets the script hash of the caller of the smart contract     |
-| System.Runtime.GetEntryScriptHash     | Gets the script hash of the entry point of the smart contract (the starting point of the contract invocation chain) |
-| System.Runtime.CheckWitness           | Verifies that whether the container calling the contract is signed by the specified script hash account |
-| System.Runtime.GetInvocationCounter   | Gets the invocation count of the current contract            |
-| System.Runtime.Log                    | Records the contract log information                         |
-| System.Runtime.Notify                 | Records the contract notifications                           |
-| System.Runtime.GetNotifications       | Gets all notifications executed by a contract                |
-| System.Runtime.GasLeft                | Gets the number of remaining GAS                             |
+| System.Runtime.GetScriptContainer     | Gets the current script container                            |
+| System.Runtime.GetExecutingScriptHash | Gets the script hash of the current context                  |
+| System.Runtime.GetCallingScriptHash   | Gets the script hash of the calling contract                 |
+| System.Runtime.GetEntryScriptHash     | Gets the script hash of the entry context                    |
+| System.Runtime.CheckWitness           | Determines whether the specified account has witnessed the current transaction |
+| System.Runtime.GetInvocationCounter   | Gets the number of times the current contract has been called during the execution |
+| System.Runtime.Log                    | Writes a log                                                 |
+| System.Runtime.Notify                 | Sends a notification                                         |
+| System.Runtime.GetNotifications       | Gets the notifications sent by the specified contract during the execution |
+| System.Runtime.GasLeft                | Gets the remaining GAS that can be spent in order to complete the execution |
+| System.Runtime.BurnGas                | Burning GAS to benefit the Neo ecosystem                     |
 
 **Storage API**:
 
 | API                               | Description                                                  |
 | --------------------------------- | ------------------------------------------------------------ |
-| System.Storage.GetContext         | Gets the context of the current contract storage             |
-| System.Storage.GetReadOnlyContext | Gets the context of the current contract storage in read-only mode |
-| System.StorageContext.AsReadOnly  | Changes the current context to read-only mode                |
-| System.Storage.Get                | Gets the corresponding value from the storage.               |
-| System.Storage.Find               | Finds the specified prefix content in the context of the current storage. |
-| System.Storage.Put                | Writes a Key to the storage  based on the storage context    |
-| System.Storage.PutEx              | Writes a Key to the storage according to the storage context and flag. |
-| System.Storage.Delete             | Deletes the Key from the storage based on the Key value      |
+| System.Storage.GetContext         | Gets the storage context for the current contract            |
+| System.Storage.GetReadOnlyContext | Gets the readonly storage context for the current contract   |
+| System.StorageContext.AsReadOnly  | Converts the specified storage context to a new readonly storage context |
+| System.Storage.Get                | Gets the entry with the specified key from the storage       |
+| System.Storage.Find               | Finds the entries from the storage                           |
+| System.Storage.Put                | Puts a new entry into the storage                            |
+| System.Storage.Delete             | Deletes an entry from the storage                            |
 
 > [!Note]
 >

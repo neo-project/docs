@@ -8,55 +8,58 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 
 **Contract API**:
 
-| API                                   | 说明                               |
-| ------------------------------------- | ---------------------------------- |
-| System.Contract.Call                  | 调用合约                           |
-| System.Contract.CallNative            | 调用原生合约                       |
-| System.Contract.IsStandard            | 判断合约是否为标准的单签或多签合约 |
-| System.Contract.GetCallFlags          | 获取当前上下文的执行权限           |
-| System.Contract.CreateStandardAccount | 创建标准账户                       |
-| System.Contract.NativeOnPersist       | 触发原生合约 OnPersist 方法        |
-| System.Contract.NativePostPersist     | 触发原生合约 PostPersist 方法      |
+| API                                   | 说明                         |
+| ------------------------------------- | ---------------------------- |
+| System.Contract.Call                  | 动态调用另一个合约           |
+| System.Contract.GetCallFlags          | 获取当前上下文的执行权限     |
+| System.Contract.CreateStandardAccount | 从公钥转成标准账户的脚本散列 |
+
+**Crypto API**:
+
+| API                         | 说明                       |
+| --------------------------- | -------------------------- |
+| System.Crypto.CheckSig      | 检查当前脚本容器的签名     |
+| System.Crypto.CheckMultisig | 检查当前脚本容器的多方签名 |
 
 **Iterator API**:
 
-| API                    | 说明                        |
-| ---------------------- | --------------------------- |
-| System.Iterator.Create | 创建迭代器                  |
-| System.Iterator.Next   | 迭代器流标向后移动          |
-| System.Iterator.Values | 获取迭代器所有Value的迭代器 |
+| API                    | 说明                               |
+| ---------------------- | ---------------------------------- |
+| System.Iterator.Next   | 将迭代器推进到集合的下一个元素     |
+| System.Iterator.Values | 获取集合中位于迭代器当前位置的元素 |
 
 **Runtime API**:
 
-| API                                   | 说明                                                 |
-| ------------------------------------- | ---------------------------------------------------- |
-| System.Runtime.Platform               | 获取当前执行智能合约的平台信息                       |
-| System.Runtime.GetTrigger             | 获取该智能合约的触发条件                             |
-| System.Runtime.GetTime                | 获取当前区块的时间戳                                 |
-| System.Runtime.GetScriptContainer     | 获得该智能合约的脚本容器（最开始的触发者）           |
-| System.Runtime.GetExecutingScriptHash | 获得该智能合约执行的脚本散列                         |
-| System.Runtime.GetCallingScriptHash   | 获得该智能合约的调用者的脚本散列                     |
-| System.Runtime.GetEntryScriptHash     | 获得该智能合约的入口点（合约调用链的起点）的脚本散列 |
-| System.Runtime.CheckWitness           | 验证调用该合约的容器是否被指定账户脚本哈希签名       |
-| System.Runtime.GetInvocationCounter   | 获取当前合约的调用次数                               |
-| System.Runtime.Log                    | 记录合约日志信息                                     |
-| System.Runtime.Notify                 | 记录合约通知信息                                     |
-| System.Runtime.GetNotifications       | 获取某合约执行的所有通知                             |
-| System.Runtime.GasLeft                | 获取剩余未消耗的GAS数                                |
+| API                                   | 说明                                 |
+| ------------------------------------- | ------------------------------------ |
+| System.Runtime.Platform               | 获取当前平台的名称                   |
+| System.Runtime.GetTrigger             | 获取执行的触发器                     |
+| System.Runtime.GetTime                | 获取当前区块的时间戳                 |
+| System.Runtime.GetScriptContainer     | 获取当前的脚本容器                   |
+| System.Runtime.GetExecutingScriptHash | 获取当前上下文的脚本散列             |
+| System.Runtime.GetCallingScriptHash   | 获取调用合约的脚本散列               |
+| System.Runtime.GetEntryScriptHash     | 获取上下文入口点的脚本散列           |
+| System.Runtime.CheckWitness           | 确定指定账户是否见证了当前交易       |
+| System.Runtime.GetInvocationCounter   | 获取当前合约在执行过程中被调用的次数 |
+| System.Runtime.Log                    | 写日志                               |
+| System.Runtime.Notify                 | 发出通知                             |
+| System.Runtime.GetNotifications       | 获取指定合约在执行过程中发送的通知   |
+| System.Runtime.GasLeft                | 获取为了完成执行而可以花费的剩余GAS  |
+| System.Runtime.BurnGas                | 燃烧 GAS，造福 Neo 生态系统          |
 
 **Storage API**:
 
-| API                               | 说明                                      |
-| --------------------------------- | ----------------------------------------- |
-| System.Storage.GetContext         | 获取当前合约存储区的上下文                |
-| System.Storage.GetReadOnlyContext | 以只读方式获取当前合约存储区的上下文      |
-| System.StorageContext.AsReadOnly  | 将当前上下文修改为只读模式                |
-| System.Storage.Get                | 根据Key值，从存储区获取对应的Value        |
-| System.Storage.Find               | 在当前存储上下文中存储区寻找指定前缀内容  |
-| System.Storage.Put                | 根据存储上下文，向存储区写入Key           |
-| System.Storage.PutEx              | 根据存储上下文，依据flag，向存储区写入Key |
-| System.Storage.Delete             | 根据Key值，从存储区删除存储的Key          |
+| API                               | Description                                    |
+| --------------------------------- | ---------------------------------------------- |
+| System.Storage.GetContext         | 获取当前合约的存储上下文                       |
+| System.Storage.GetReadOnlyContext | 获取当前合约的只读存储上下文                   |
+| System.StorageContext.AsReadOnly  | 将指定的存储上下文转换为一个新的只读存储上下文 |
+| System.Storage.Get                | 从存储中获取具有指定键的记录                   |
+| System.Storage.Find               | 从存储中查找记录                               |
+| System.Storage.Put                | 将一个新的记录放入存储中                       |
+| System.Storage.Delete             | 从存储中删除一个记录                           |
+
 
 > [!Note]
 >
-> 以上 API 的源码位于 Neo 项目中的 [src\neo\SmartContract\](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 下。
+> 以上 API 的源码位于 Neo 项目中的 [src\neo\SmartContract](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 下。
