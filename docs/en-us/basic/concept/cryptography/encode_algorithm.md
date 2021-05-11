@@ -70,7 +70,6 @@ Interface definition:
    ```c#
    byte[] Base58CheckDecode(string input)
    ```
-   
 
 **Encoding Steps**:
 
@@ -80,13 +79,15 @@ Interface definition:
 
 **Decoding Steps**:
 
-1.  Use Base58 to decode input string to get byte array format decoded result.
+1. Use Base58 to decode input string to get byte array format decoded result.
 
-2.  Take the content of byte array except the last 4 bytes as data.
+2. Take the content of byte array except the last 4 bytes as data.
 
-3.  Encode data twice with SHA256 to get a hashed byte array. Check whether the first 4 bytes of the hashed value are identical with the last 4 bytes in byte array of step 1. If so, the decoded data is correct. Otherwise the data is corrupted.
+3. Encode data twice with SHA256 to get a hashed byte array. Check whether the first 4 bytes of the hashed value are identical with the last 4 bytes in byte array of step 1. If so, the decoded data is correct. Otherwise the data is corrupted.
 
-[![Base58Check Encoding & Decoding](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode-en.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/20)](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
+   
+
+   ![](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
 
 Example:
 
