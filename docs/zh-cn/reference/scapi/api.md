@@ -1,12 +1,12 @@
 # 智能合约 API 参考
 
-NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链账本数据、操作持久化存储区、访问执行环境等。它是NEO虚拟机（NeoVM）互操作服务层的一部分。
+Neo 智能合约的 API 扩展了智能合约的功能，使其可以访问区块链账本数据、操作持久化存储区、访问执行环境等。
 
-除以下智能合约 API 外，Neo N3中还引入了大量的原生合约，请参考 [Neo 原生合约](native.md)。
+除以下智能合约 API 外，Neo N3 中还引入了大量的原生合约，请参考 [Neo 原生合约](native.md)。
 
 有关在高级语言中如何使用框架方便地调用 API 以及调用原生合约，请参阅 [Neo智能合约框架](fw.md)。
 
-**Contract API**:
+**合约 API**:
 
 | API                                   | 说明                         |
 | ------------------------------------- | ---------------------------- |
@@ -14,21 +14,21 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | System.Contract.GetCallFlags          | 获取当前上下文的执行权限     |
 | System.Contract.CreateStandardAccount | 从公钥转成标准账户的脚本散列 |
 
-**Crypto API**:
+**密码学 API**:
 
 | API                         | 说明                       |
 | --------------------------- | -------------------------- |
 | System.Crypto.CheckSig      | 检查当前脚本容器的签名     |
 | System.Crypto.CheckMultisig | 检查当前脚本容器的多方签名 |
 
-**Iterator API**:
+**枚举器 API**:
 
 | API                    | 说明                               |
 | ---------------------- | ---------------------------------- |
 | System.Iterator.Next   | 将迭代器推进到集合的下一个元素     |
 | System.Iterator.Values | 获取集合中位于迭代器当前位置的元素 |
 
-**Runtime API**:
+**运行时 API**:
 
 | API                                   | 说明                                 |
 | ------------------------------------- | ------------------------------------ |
@@ -47,9 +47,9 @@ NeoContract 的 API 扩展了智能合约的功能，使其可以访问区块链
 | System.Runtime.GasLeft                | 获取为了完成执行而可以花费的剩余GAS  |
 | System.Runtime.BurnGas                | 燃烧 GAS，造福 Neo 生态系统          |
 
-**Storage API**:
+**存储 API**:
 
-| API                               | Description                                    |
+| API                               | 说明                                           |
 | --------------------------------- | ---------------------------------------------- |
 | System.Storage.GetContext         | 获取当前合约的存储上下文                       |
 | System.Storage.GetReadOnlyContext | 获取当前合约的只读存储上下文                   |
