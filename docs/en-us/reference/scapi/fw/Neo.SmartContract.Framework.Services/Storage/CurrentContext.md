@@ -2,7 +2,7 @@
 
 Returns the current storage context. After obtaining the storage context, the object can be passed as an argument to other contracts (as a way of authorization), allowing other contracts to perform read/write operations on the persistent store of the current contract.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Service](../../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

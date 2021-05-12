@@ -2,7 +2,7 @@
 
 提供了原生合约StdLib的一系列属性与方法，合约哈希为`0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0`。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

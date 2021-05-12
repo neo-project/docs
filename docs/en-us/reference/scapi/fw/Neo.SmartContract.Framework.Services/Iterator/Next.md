@@ -2,7 +2,7 @@
 
 The cursor moves down in the collection and returns the state, where `true` means the cursor has not moved to the end, and `false` means the cursor has moved to the end.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Service](../../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

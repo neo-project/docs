@@ -2,7 +2,7 @@
 
 Provides a series of methods of the native contract Oracle, which contract hash is `0xfe924b7cfe89ddd271abaf7210a80a7e11178758`.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

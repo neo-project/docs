@@ -2,7 +2,7 @@
 
 Gets the specified transaction by the block index (or block hash) and transaction index.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

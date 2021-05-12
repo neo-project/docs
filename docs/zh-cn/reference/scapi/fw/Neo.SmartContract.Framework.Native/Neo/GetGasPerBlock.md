@@ -2,7 +2,7 @@
 
 获取当前每个区块可产生的GAS数。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

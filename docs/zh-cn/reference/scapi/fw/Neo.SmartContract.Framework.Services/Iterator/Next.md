@@ -2,7 +2,7 @@
 
 游标在集合中向下移动，返回游标状态（true: 没有到末尾 false: 到末尾）
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Services](../../Neo.SmartContract.Framework.Services.md)
 
 程序集：Neo.SmartContract.Framework
 

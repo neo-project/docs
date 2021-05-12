@@ -2,7 +2,7 @@
 
 Provides a series methods of the native contract `ContractManagement`. The contract hash is `0xfffdc93764dbaddd97c48f252a53ea4643faa3fd`.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

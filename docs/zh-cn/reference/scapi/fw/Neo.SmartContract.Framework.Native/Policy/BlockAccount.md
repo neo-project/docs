@@ -2,7 +2,7 @@
 
 将指定账户加入黑名单，加入黑名单后，该账户发送的交易将不会被共识节点打包。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

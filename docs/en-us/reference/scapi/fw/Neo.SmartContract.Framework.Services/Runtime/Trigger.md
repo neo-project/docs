@@ -2,7 +2,7 @@
 
 Gets the trigger type for the smart contract. 
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Service](../../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

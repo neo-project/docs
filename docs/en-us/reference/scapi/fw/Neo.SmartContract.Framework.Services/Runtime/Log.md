@@ -2,7 +2,7 @@
 
 Sends a log message to the client executing the smart contract. This method can trigger an event on the client but requires the client to be compatible.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Service](../../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

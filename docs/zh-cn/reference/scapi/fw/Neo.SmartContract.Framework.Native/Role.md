@@ -2,7 +2,7 @@
 
 定义了 RoleManagement 原生合约中的权限类型。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

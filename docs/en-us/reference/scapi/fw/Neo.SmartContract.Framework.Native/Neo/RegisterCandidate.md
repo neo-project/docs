@@ -2,7 +2,7 @@
 
 Registers as a candidate.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

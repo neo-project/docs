@@ -2,7 +2,7 @@
 
 Sets the blocked accounts. Transactions sent from the blocked accounts will not be packaged by consensus nodes.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

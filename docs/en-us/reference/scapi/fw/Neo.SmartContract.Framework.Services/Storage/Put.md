@@ -2,7 +2,7 @@
 
 Inserts a given value to the given key in the persistent storage.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+Namespace: [Neo.SmartContract.Framework.Service](../../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

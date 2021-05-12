@@ -2,7 +2,7 @@
 
 Provides a series methods of the native contract `CryptoLib`. The contract hash is `0x726cb6e0cd8628a1350a611384688911ab75f51b`。
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

@@ -2,7 +2,7 @@
 
 Provides a series attributes and methods of the native contract GasToken, which hash is`0xda65b600f7124ce6c79950c1772a36403104f2be`.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

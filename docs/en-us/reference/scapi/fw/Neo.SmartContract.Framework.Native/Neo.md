@@ -4,7 +4,7 @@ Provides a series of attributes and methods of the native contract NeoToken, whi
 
 NeoToken is also an NEP-17 contract that inherits all NEP-17 specific attributes and methods.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

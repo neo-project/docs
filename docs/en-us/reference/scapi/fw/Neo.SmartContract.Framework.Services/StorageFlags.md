@@ -2,7 +2,7 @@
 
 This class represents the written data property. It defaults to None, allowing data to be read and written. If the property is Constant, data written to the storage can neither be modified nor deleted.
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Service](../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

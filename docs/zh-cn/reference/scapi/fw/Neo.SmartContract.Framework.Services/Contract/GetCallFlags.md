@@ -2,7 +2,7 @@
 
 获取合约的调用权限 Flag
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Services](../../Neo.SmartContract.Framework.Services.md)
 
 程序集：Neo.SmartContract.Framework
 

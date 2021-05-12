@@ -2,7 +2,7 @@
 
 查询操作，在持久化存储区中通过 key 查询对应的 value。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Services](../../Neo.SmartContract.Framework.Services.md)
 
 程序集：Neo.SmartContract.Framework
 

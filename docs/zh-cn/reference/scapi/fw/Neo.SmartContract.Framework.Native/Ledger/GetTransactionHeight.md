@@ -2,7 +2,7 @@
 
 通过交易哈希 ，查找交易所在的区块。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

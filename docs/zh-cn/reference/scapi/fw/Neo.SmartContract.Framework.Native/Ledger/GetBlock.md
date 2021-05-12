@@ -2,7 +2,7 @@
 
 通过区块索引或区块哈希 ，查找区块。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

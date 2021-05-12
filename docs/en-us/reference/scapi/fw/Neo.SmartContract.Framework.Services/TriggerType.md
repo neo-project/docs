@@ -4,7 +4,7 @@ This enumeration represents the type of smart contract triggers. Triggers enable
 
 For more information about triggers, refer to [Smart Contract Basics](../../../../../develop/write/basics.md).
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Service](../Neo.SmartContract.Framework.Service.md)
 
 Assembly: Neo.SmartContract.Framework
 

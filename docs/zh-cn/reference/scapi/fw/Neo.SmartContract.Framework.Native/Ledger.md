@@ -2,7 +2,7 @@
 
 提供了原生合约GasToken的一系列属性与方法，合约哈希为`0xda65b600f7124ce6c79950c1772a36403104f2be`。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 程序集：Neo.SmartContract.Framework
 

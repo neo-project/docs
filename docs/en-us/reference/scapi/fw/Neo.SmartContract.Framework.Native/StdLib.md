@@ -2,7 +2,7 @@
 
 Provides a series methods of the native contract `StdLib`, which contract hash is`0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0`。
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

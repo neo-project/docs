@@ -4,7 +4,7 @@ Provides a series of attributes and methods of the native contract GasToken, whi
 
 GasToken is also an NEP-17 contract, which inherits all properties and methods of an NEP-17 contract. 
 
-Namespace: [Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
 
 Assembly: Neo.SmartContract.Framework
 

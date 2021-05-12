@@ -2,7 +2,7 @@
 
 静态类，提供了ECDsa 验证签名的方法。
 
-命名空间：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+命名空间：[Neo.SmartContract.Framework.Services](../Neo.SmartContract.Framework.Services.md)
 
 程序集：Neo.SmartContract.Framework
 
