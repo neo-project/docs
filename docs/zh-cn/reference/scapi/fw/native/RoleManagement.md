@@ -2,7 +2,7 @@
 
 提供了原生合约 RoleManagement 的一系列属性与方法，合约哈希为`0x49cf4e5378ffcd4dec034fd98a174c5491e395e2`。
 
-命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../native.md)
 
 程序集：Neo.SmartContract.Framework
 

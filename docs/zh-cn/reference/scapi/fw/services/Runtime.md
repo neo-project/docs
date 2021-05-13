@@ -2,7 +2,7 @@
 
 提供智能合约运行时的一些方法。
 
-命名空间：[Neo.SmartContract.Framework.Services](../Neo.SmartContract.Framework.Services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../services.md)
 
 程序集：Neo.SmartContract.Framework
 

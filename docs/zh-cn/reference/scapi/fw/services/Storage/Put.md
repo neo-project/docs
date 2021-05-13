@@ -2,7 +2,7 @@
 
 插入操作，以 key-value 的形式向持久化存储区中插入数据。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../Neo.SmartContract.Framework.Services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
 
 程序集：Neo.SmartContract.Framework
 

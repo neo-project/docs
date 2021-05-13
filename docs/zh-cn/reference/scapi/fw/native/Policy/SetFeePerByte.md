@@ -2,7 +2,7 @@
 
 设置交易的每字节所需要的网络手续费。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
 
 程序集：Neo.SmartContract.Framework
 

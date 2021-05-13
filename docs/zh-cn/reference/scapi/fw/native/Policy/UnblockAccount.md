@@ -2,7 +2,7 @@
 
 将指定账户解除黑名单。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
 
 程序集：Neo.SmartContract.Framework
 

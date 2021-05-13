@@ -2,7 +2,7 @@
 
 提供了持久化存储区的插入、查询、删除的方法。
 
-命名空间：[Neo.SmartContract.Framework.Services](../Neo.SmartContract.Framework.Services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../services.md)
 
 程序集：Neo.SmartContract.Framework
 

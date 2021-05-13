@@ -2,7 +2,7 @@
 
 提供了原生合约CryptoLib的一系列属性与方法，合约哈希为`0x726cb6e0cd8628a1350a611384688911ab75f51b`。
 
-命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../native.md)
 
 程序集：Neo.SmartContract.Framework
 

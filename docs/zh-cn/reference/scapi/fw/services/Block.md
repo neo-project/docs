@@ -2,7 +2,7 @@
 
 表示区块的类，提供了一系列区块相关的属性。
 
-命名空间：[Neo.SmartContract.Framework.Services](../Neo.SmartContract.Framework.Services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../services.md)
 
 程序集：Neo.SmartContract.Framework
 

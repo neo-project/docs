@@ -4,7 +4,7 @@
 
 GasToken 同时也是NEP-17合约，继承了NEP-17合约所有的属性和方法。
 
-命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../native.md)
 
 程序集：Neo.SmartContract.Framework
 

@@ -4,7 +4,7 @@
 
 更多关于触发器的知识，请查看 [合约开发基础](../../../../../develop/write/basics.md)。
 
-命名[Neo.SmartContract.Framework.Services](../Neo.SmartContract.Framework.Services.md)
+命名[Neo.SmartContract.Framework.Services](../services.md)
 
 程序集：Neo.SmartContract.Framework
 

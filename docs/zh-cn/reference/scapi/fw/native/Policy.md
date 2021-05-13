@@ -2,7 +2,7 @@
 
 提供了原生合约 Policy 的一系列方法，合约哈希为 `0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b`。
 
-命名空间：[Neo.SmartContract.Framework.Native](../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../native.md)
 
 程序集：Neo.SmartContract.Framework
 

@@ -2,7 +2,7 @@
 
 通过区块和交易索引查询指定的交易，其中区块可以通过区块索引（区块高度）或区块哈希指定。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
 
 程序集：Neo.SmartContract.Framework
 

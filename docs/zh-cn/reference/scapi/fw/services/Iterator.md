@@ -2,7 +2,7 @@
 
 智能合约中的迭代器。
 
-命名空间：[Neo.SmartContract.Framework.Services](../Neo.SmartContract.Framework.Services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../services.md)
 
 程序集：Neo.SmartContract.Framework
 

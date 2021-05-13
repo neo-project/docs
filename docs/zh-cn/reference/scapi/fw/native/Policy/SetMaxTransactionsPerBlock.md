@@ -2,7 +2,7 @@
 
 设置每区块最大能打包的交易个数。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
 
 程序集：Neo.SmartContract.Framework
 

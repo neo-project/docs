@@ -2,7 +2,7 @@
 
 获取合约信息。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
 
 程序集：Neo.SmartContract.Framework
 

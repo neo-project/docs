@@ -2,7 +2,7 @@
 
 获取委员会成员列表。候选人将根据得票数排序，最前面一定数量的候选人（默认21个）成为委员会成员。委员会名单将在每个区块根据最新投票更新。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../Neo.SmartContract.Framework.Native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
 
 程序集：Neo.SmartContract.Framework
 

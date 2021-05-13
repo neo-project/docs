@@ -2,7 +2,7 @@
 
 获得当前区块的时间戳。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../Neo.SmartContract.Framework.Services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
 
 程序集：Neo.SmartContract.Framework
 
