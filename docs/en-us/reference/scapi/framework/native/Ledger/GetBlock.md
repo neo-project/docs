@@ -2,7 +2,7 @@
 
 Gets block by the block hash or index.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 

@@ -2,7 +2,7 @@
 
 Gets the block where the transaction occurs with transaction hash.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 

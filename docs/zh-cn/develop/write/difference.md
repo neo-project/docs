@@ -52,7 +52,7 @@ using System;
 
 |               | Neo Legacy                                                   | Neo N3                                                       |
 | ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 合约信息      | 在合约部署时需填写合约特性，如名称、作者、邮箱等             | 将合约特性添加到合约文件中，以 [C# 特性](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/) 的方式编写。例如：<br/>[ManifestExtra("Author", "Neo")]<br/>[ManifestExtra("Email", "dev@neo.org")]<br/>[ContractTrust("*")]<br/>[ContractPermission("*", "*")]<br/>[SupportedStandards("NEP-17")]<br/>[ManifestExtra("Description", "This is a contract example")]<br/>public class Contract1 : SmartContract |
+| 合约信息      | 在合约部署时需填写合约特性，如名称、作者、邮箱等             | 将合约特性添加到合约文件中，以 [C# 特性](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/) 的方式编写。例如：<br/>[ManifestExtra("Author", "Neo")]<br/>[ManifestExtra("Email", "dev@neo.org")]<br/>[ContractTrust("\*")]<br/>[ContractPermission("\*", "\*")]<br/>[SupportedStandards("NEP-17")]<br/>[ManifestExtra("Description", "This is a contract example")]<br/>public class Contract1 : SmartContract |
 | 合约功能      | 部署合约时需要声明合约功能，如是否使用存储区、是否可以动态调用、是否可以接受 NEP-5 资产。 | 默认所有合约均可以使用存储区和动态调用，通过实现 OnNEP17Payment 方法以决定是否接受 NEP-17 资产，通过实现 OnNEP11Payment 方法以决定是否接受 NEP-11（NFT 标准）资产。 |
 | 声明支持的NEP | 代码示例<br/>public static string[] SupportedStandards()<br/>{<br/>    string[] result = { "NEP-5", "NEP-7", "NEP-10" };<br/>    return result;<br/>} | 直接在合约类名上添加 `[SupportedStandards("NEP-17")]` 特性。 |
 

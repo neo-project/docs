@@ -5,8 +5,10 @@
 我们来看一下这个基础的hello world合约：
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 
 namespace Helloworld
@@ -111,8 +113,10 @@ C#的基本类型是:
 分析完之前那个基本的hello world合约后，我们来分析一下这个具有真实意义的智能合约。这里我们提供了一个非常简单的DNS系统，它是用C#编写的。DNS的主要功能是为用户存储域名。除了事件外，它包含了上面所说的所有概念。我们可以研究一下这个合约，学习如何开发一个基本的智能合约。源代码在这里:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace Domain
@@ -197,6 +201,7 @@ public class Contract1 : SmartContract
 理论上来说，智能合约可以有任意的入口函数，合约中 public static 类型的方法都可以用作入口函数被外部调用，例如:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
 namespace Neo.Compiler.MSIL.UnitTests.TestClasses
@@ -270,7 +275,8 @@ Transfer 是事件名。
 
 在智能合约中, 新添加了Json正/反序列化功能, 可以用来处理类型的存储与发送. 合约示例如下:
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 
 namespace Neo.Compiler.MSIL.TestClasses
 {

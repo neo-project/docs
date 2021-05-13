@@ -2,7 +2,7 @@
 
 This enumeration represents the type of smart contract triggers. Triggers enable the contract to execute different logic under different usage scenarios.
 
-For more information about triggers, refer to [Smart Contract Basics](../../../../../develop/write/basics.md).
+For more information about triggers, refer to [Smart Contract Basics](../../../../develop/write/basics.md).
 
 Namespace：[Neo.SmartContract.Framework.Services](../services.md)
 

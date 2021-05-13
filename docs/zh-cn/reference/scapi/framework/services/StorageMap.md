@@ -18,7 +18,3 @@ public class StorageMap
 | ---------------------------------------- | ---------- |
 | Context | 存储上下文 |
 | Prefix | 前缀 |
-
-## 构造方法
-
-通过 [Helper](Helper.md) 的CreateMap方法来构建 StorageMap 对象。

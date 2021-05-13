@@ -54,7 +54,7 @@ var Hash = Storage.CurrentContext.CreateMap("Hash");
 
 ## 操作存储区
 
-参考 [Storage 类](../../reference/scapi/framework/services/Storage.md) 和 [StorageMap](../../reference/scapi/framework/services/StorageMap.md) 类，另外 [Helper](../../reference/scapi/framework/services/Helper.md) 类为 StorageMap 提供了操作存储区的扩展方法。下面为代码示例。
+参考 [Storage 类](../../reference/scapi/framework/services/Storage.md) 和 [StorageMap](../../reference/scapi/framework/services/StorageMap.md) 类。下面为代码示例。
 
 ### 写入/修改
 
@@ -116,7 +116,7 @@ while (result.Next())
 
 ## 区块链存证合约示例
 
-以下是一个简单的区块链存证合约示例，其中主要用到了智能合约框架中的 [Storage](../../reference/scapi/framework/services/Storage.md)、[StorageMap](../../reference/scapi/framework/services/StorageMap.md)、[Helper](../../reference/scapi/framework/services/Helper.md) 等。
+以下是一个简单的区块链存证合约示例，其中主要用到了智能合约框架中的 [Storage](../../reference/scapi/framework/services/Storage.md)、[StorageMap](../../reference/scapi/framework/services/StorageMap.md)  等。
 
 ### 编写合约
 
@@ -136,9 +136,10 @@ while (result.Next())
 代码如下：
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework.Services.System;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -2,7 +2,7 @@
 
 Gets transaction by transaction hash.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 

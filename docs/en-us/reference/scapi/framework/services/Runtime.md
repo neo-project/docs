@@ -2,7 +2,7 @@
 
 Provides a set of methods during smart contract execution.
 
-Namespace：[Neo.SmartContract.Framework.Services.Neo](../neo.md)
+Namespace：[Neo.SmartContract.Framework.Services](../services.md)
 
 Assembly：Neo.SmartContract.Framework
 

@@ -2,7 +2,7 @@
 
 Gets fee per byte
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 

@@ -48,7 +48,7 @@ var Hash = Storage.CurrentContext.CreateMap("Hash");
 
 ## Storage operations
 
-Refer to the [Storage](../../reference/scapi/framework/services/Storage.md) and [StorageMap](../../reference/scapi/framework/services/StorageMap.md) classes. The class [Helper](../../reference/scapi/framework/services/Helper.md) provides StorageMap with extended methods for storage operations. Here are some code examples.
+Refer to the [Storage](../../reference/scapi/framework/services/Storage.md) and [StorageMap](../../reference/scapi/framework/services/StorageMap.md) classes. 
 
 ### Write and modify
 
@@ -110,7 +110,7 @@ while (result.Next())
 
 ## Demo: a blockchain storage contract
 
-This section we are going to write a simple blockchain storage contract using the Neo smart contract APIs such as [Storage](../../reference/scapi/framework/services/Storage.md), [StorageMap](../../reference/scapi/framework/services/StorageMap.md), [Helper](../../reference/scapi/framework/services/Helper.md), and etc, and invoke it on the blockchain.
+This section we are going to write a simple blockchain storage contract using the Neo smart contract APIs such as [Storage](../../reference/scapi/framework/services/Storage.md), [StorageMap](../../reference/scapi/framework/services/StorageMap.md) and etc, and invoke it on the blockchain.
 
 ### Writing the contract
 
@@ -130,9 +130,10 @@ This contract contains these methods:
 Here is the code：
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework.Services.System;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

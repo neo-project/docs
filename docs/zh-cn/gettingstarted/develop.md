@@ -80,7 +80,7 @@
   [ManifestExtra("Email", "dev@neo.org")]
   [ManifestExtra("Description", "This is a NEP17 example")]
   [SupportedStandards("NEP-17")]
-  [ContractPermission("*", "onNEP17Payment")]
+  [ContractPermission("\*", "onNEP17Payment")]
   public class NEP17 : SmartContract
   ……
   ```

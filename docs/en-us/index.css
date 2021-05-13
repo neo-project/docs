@@ -23,11 +23,7 @@ table.table{
     font-weight: normal;
     padding: .5rem 0 !important;
     width: 25% !important;
-<<<<<<< Updated upstream
-    vertical-align: middle;
-=======
     vertical-align: top!important;
->>>>>>> Stashed changes
 }
 .table{
     border-bottom: none !important;

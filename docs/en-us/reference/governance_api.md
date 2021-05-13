@@ -74,7 +74,7 @@ Furthermore, corresponding reading methods are also supported:
 
 | Method | Parameters | Fee in GAS | Contract |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetDesignatedByRole`](scapi/framework/services/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
+| [`GetDesignatedByRole`](scapi/framework/native/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
 | [`GetFeePerByte`](scapi/framework/native/Policy/GetFeePerByte.md) | null | 0.00032768 (CpuFee) | PolicyContract |
 | GetExecFeeFactor | null | 0.00032768 (CpuFee) | PolicyContract |
 | GetStoragePrice | null | 0.00032768 (CpuFee) | PolicyContract |
@@ -82,7 +82,6 @@ Furthermore, corresponding reading methods are also supported:
 | GetPrice | null | 0.00032768 (CpuFee) | OracleContract |
 | [`GetGasPerBlock`](scapi/framework/native/Neo/GetGasPerBlock.md) | null | 0.00032768 (CpuFee) | NeoToken |
 | GetRegisterPrice | null | 0.00032768 (CpuFee) | NeoToken |
-| [`GetPrice`](scapi/framework/native/Nameservices/GetPrice.md) | null | 0.00032768 (CpuFee) | NameService |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
 #### How are committee members elected

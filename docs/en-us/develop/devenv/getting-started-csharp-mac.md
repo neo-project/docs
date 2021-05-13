@@ -27,8 +27,10 @@ Download [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) and follo
 5. Write the following sample code in your Class1.cs file.
 
    ```c#
+   using Neo.SmartContract;
    using Neo.SmartContract.Framework;
-   using Neo.SmartContract.Framework.Services.Neo;
+   using Neo.SmartContract.Framework.Native;
+   using Neo.SmartContract.Framework.Services;
    
    namespace Neo.SmartContract
    {

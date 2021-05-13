@@ -2,7 +2,7 @@
 
 Gets the block height where the transaction occurs by the transaction hash.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 

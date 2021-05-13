@@ -5,8 +5,10 @@ In this tutorial, you will learn the basics of developing a smart contract.
 Let's have a look at our basic hello world contract.
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 
 namespace Helloworld
@@ -110,8 +112,10 @@ The basic types of C# are:
 After analyzing the basic hello world contract, let us move to your first real-world smart contract. Here we provide a very simple DNS system which was written in C#. The main function of the DNS is store the domain for users. It contains all the points above except the events. We can investigate this smart contract to learn how to make a basic smart contract. The source code is here:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace Domain
@@ -196,6 +200,7 @@ You can also add other fields, such as:
 Theoretically, smart contracts can have any entry points. Methods of the public static type in the contract can be used as an entry function to be invoked externally, for example:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
 namespace Neo.Compiler.MSIL.UnitTests.TestClasses
@@ -271,7 +276,8 @@ Transfer is the event name.
 In Neo N3 smart contract, the Json serialization/deserialization feature is added:
 
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 
 namespace Neo.Compiler.MSIL.TestClasses
 {
