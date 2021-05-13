@@ -10,8 +10,8 @@
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`RegisterCandidate`](scapi/fw/dotnet/neo/Neo/RegisterCandidate.md) | ECPoint publicKey | 可调，初始0.00001 |
-| [`UnregisterCandidate`](scapi/fw/dotnet/neo/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
+| [`RegisterCandidate`](scapi/framework/native/Neo/RegisterCandidate.md) | ECPoint publicKey | 可调，初始0.00001 |
+| [`UnregisterCandidate`](scapi/framework/native/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
 
 > [!Note]
 >
@@ -25,13 +25,13 @@
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`Vote`](scapi/fw/dotnet/neo/Neo/Vote.md) | UInt160 account, byte[] voteTo | 0.00065536 (CpuFee) |
+| [`Vote`](scapi/framework/native/Neo/Vote.md) | UInt160 account, byte[] voteTo | 0.00065536 (CpuFee) |
 
 由于账户NEO余额会随交易而不断变化，而且投票和注册的候选人也在不断变化，因此在每个区块都会根据以上变化更新候选人及相应投票结果。
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`GetCandidates`](scapi/fw/dotnet/neo/Neo/GetCandidates.md) | null | 0 |
+| [`GetCandidates`](scapi/framework/native/Neo/GetCandidates.md) | null | 0 |
 
 ## 委员会
 
@@ -57,8 +57,8 @@
 | SetFeePerByte | long value | 0.00032768 (CpuFee) | PolicyContract |
 | SetExecFeeFactor | uint value | 0.00032768 (CpuFee) | PolicyContract |
 | SetStoragePrice | uint value | 0.00032768 (CpuFee) | PolicyContract |
-| [`BlockAccount`](scapi/fw/dotnet/neo/Policy/BlockAccount.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
-| [`UnblockAccount`](scapi/fw/dotnet/neo/Policy/UnblockAccount.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
+| [`BlockAccount`](scapi/framework/native/Policy/BlockAccount.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
+| [`UnblockAccount`](scapi/framework/native/Policy/UnblockAccount.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
 | SetPrice | long price | 0.00032768 (CpuFee) | OracleContract |
 | SetGasPerBlock | BigInteger gasPerBlock | 0.00032768 (CpuFee) | NeoToken |
 | SetRegisterPrice | long registerPrice | 0.00032768 (CpuFee) | NeoToken |
@@ -72,15 +72,15 @@
 
 | 方法 | 参数 | 费用（GAS） | 合约 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetDesignatedByRole`](scapi/fw/dotnet/neo/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
-| [`GetFeePerByte`](scapi/fw/dotnet/neo/Policy/GetFeePerByte.md) | null | 0.00032768 (CpuFee) | PolicyContract |
+| [`GetDesignatedByRole`](scapi/framework/services/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
+| [`GetFeePerByte`](scapi/framework/native/Policy/GetFeePerByte.md) | null | 0.00032768 (CpuFee) | PolicyContract |
 | GetExecFeeFactor | null | 0.00032768 (CpuFee) | PolicyContract |
 | GetStoragePrice | null | 0.00032768 (CpuFee) | PolicyContract |
-| [`IsBlocked`](scapi/fw/dotnet/neo/Policy/IsBlocked.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
+| [`IsBlocked`](scapi/framework/native/Policy/IsBlocked.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
 | GetPrice | null | 0.00032768 (CpuFee) | OracleContract |
-| [`GetGasPerBlock`](scapi/fw/dotnet/neo/Neo/GetGasPerBlock.md) | null | 0.00032768 (CpuFee) | NeoToken |
+| [`GetGasPerBlock`](scapi/framework/native/Neo/GetGasPerBlock.md) | null | 0.00032768 (CpuFee) | NeoToken |
 | GetRegisterPrice | null | 0.00032768 (CpuFee) | NeoToken |
-| [`GetPrice`](scapi/fw/dotnet/neo/NameService/GetPrice.md) | null | 0.00032768 (CpuFee) | NameService |
+| [`GetPrice`](scapi/framework/native/Nameservices/GetPrice.md) | null | 0.00032768 (CpuFee) | NameService |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
 ### 产生方式
@@ -91,7 +91,7 @@
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetCommittee`](scapi/fw/dotnet/neo/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（Array<ECPoint>） |
+| [`GetCommittee`](scapi/framework/native/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（Array<ECPoint>） |
 
 ## 共识节点
 
@@ -105,7 +105,7 @@
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetNextBlockValidators`](scapi/fw/dotnet/neo/Neo/GetNextBlockValidators.md) | null | 0.04194304 (CpuFee) | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
+| [`GetNextBlockValidators`](scapi/framework/native/Neo/GetNextBlockValidators.md) | null | 0.04194304 (CpuFee) | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
 
 ## Token分配
 
@@ -121,12 +121,12 @@ NEO及GAS均为[Nep17](https://github.com/neo-project/proposals/blob/master/nep-
 | ---- | ------------------------------------ | ---- | ---- |
 | [`symbol`](govapi/symbol.md) | null | 0 | 返回Token标志（String） |
 | [`decimals`](govapi/decimals.md) | null | 0 | 返回Token精度（UInt） |
-| [`TotalSupply`](scapi/fw/dotnet/neo/Neo/TotalSupply.md) | null | 0.00032768 (CpuFee) | 返回Token当前流通量（BigInteger） |
-| [`BalanceOf`](scapi/fw/dotnet/neo/Neo/BalanceOf.md) | UInt160 account | 0.00032768 (CpuFee) | 返回该账户的余额（BigInteger） |
-| [`Transfer`](scapi/fw/dotnet/neo/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.00131072 (CpuFee) + 0.0000005 (StorageFee)  | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
+| [`TotalSupply`](scapi/framework/native/Neo/TotalSupply.md) | null | 0.00032768 (CpuFee) | 返回Token当前流通量（BigInteger） |
+| [`BalanceOf`](scapi/framework/native/Neo/BalanceOf.md) | UInt160 account | 0.00032768 (CpuFee) | 返回该账户的余额（BigInteger） |
+| [`Transfer`](scapi/framework/native/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.00131072 (CpuFee) + 0.0000005 (StorageFee)  | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
 
 NEO扩展的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`UnclaimedGas`](scapi/fw/dotnet/neo/Neo/UnclaimedGas.md) | UInt160 account, uint end | 0.00131072 (CpuFee) | 返回该账户到指定高度未提取的GAS（uint） |
+| [`UnclaimedGas`](scapi/framework/native/Neo/UnclaimedGas.md) | UInt160 account, uint end | 0.00131072 (CpuFee) | 返回该账户到指定高度未提取的GAS（uint） |

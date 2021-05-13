@@ -254,3 +254,4 @@ NeoDocsBuilder.*
 _site/
 docfx.json
 /template/
+log.txt

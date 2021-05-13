@@ -2,7 +2,7 @@
 
 NNS (Neo Name Service) 是一个基于 Neo 区块链的分布式、开源和可扩展的域名系统。它可将人类可读的域名名称映射为多种复杂的数据类型，包括IP地址、域名别名、文本内容等。它是Neo系统中内置的原生合约，实现为NFT资产类型，同时具有原生合约和NFT资产的多种特性。
 
-本文主要介绍 NNS 合约的 API 方法，有关各方法的详细描述，请参见 [NameService 类](scapi/fw/dotnet/neo/NameService.md)。
+本文主要介绍 NNS 合约的 API 方法，有关各方法的详细描述，请参见 [NameService 类](scapi/framework/native/NameServices.md)。
 
 ## 域名处理
 

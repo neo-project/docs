@@ -226,11 +226,15 @@
     - name: C# 智能合约框架
       items: 
       - name: Framework
-        href: /docs/zh-cn/reference/scapi/fw/Neo.SmartContract.Framework.md
+        href: /docs/zh-cn/reference/scapi/framework.md
       - name: Framework.Native
-        href: /docs/zh-cn/reference/scapi/fw/Neo.SmartContract.Framework.Native.md
+        items: Native
+        - name: Framework.Native
+          href: /docs/zh-cn/reference/scapi/framework/native.md
       - name: Framework.Services
-        href: /docs/zh-cn/reference/scapi/fw/Neo.SmartContract.Framework.Services.md
+        items: Services
+        - name: Framework.Services
+          href: /docs/zh-cn/reference/scapi/framework/services.md
   - name: 治理 API
     href: /docs/zh-cn/reference/governance_api.md
   - name: NNS API

@@ -2,9 +2,9 @@
 
 ## 什么是合约存储区？
 
-每个被部署到 Neo 区块链上的智能合约程序，都拥有一个只有该合约本身可以读写、修改和删除数据的私有存储区。数据以键值对（Key-Value）的形式存放，其中 Key 可以为字符串（String）或字节数组（ByteArray），Value 可以为任意类型。详细存储区操作请参考 [Storage 类](../../reference/scapi/fw/dotnet/neo/Storage.md)。
+每个被部署到 Neo 区块链上的智能合约程序，都拥有一个只有该合约本身可以读写、修改和删除数据的私有存储区。数据以键值对（Key-Value）的形式存放，其中 Key 可以为字符串（String）或字节数组（ByteArray），Value 可以为任意类型。详细存储区操作请参考 [Storage 类](../../reference/scapi/framework/services/Storage.md)。
 
-在Neo中，常用的存储区操作是通过 [StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md) 来进行的。它在 Storage 的 Key 前面附加了前缀，不同的前缀相当于不同的数据库表。使用 StorageMap 能更安全地操作存储区。
+在Neo中，常用的存储区操作是通过 [StorageMap](../../reference/scapi/framework/services/StorageMap.md) 来进行的。它在 Storage 的 Key 前面附加了前缀，不同的前缀相当于不同的数据库表。使用 StorageMap 能更安全地操作存储区。
 
 智能合约的存储区操作包含以下接口：
 
@@ -54,7 +54,7 @@ var Hash = Storage.CurrentContext.CreateMap("Hash");
 
 ## 操作存储区
 
-参考 [Storage 类](../../reference/scapi/fw/dotnet/neo/Storage.md) 和 [StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md) 类，另外 [Helper](../../reference/scapi/fw/dotnet/neo/Helper.md) 类为 StorageMap 提供了操作存储区的扩展方法。下面为代码示例。
+参考 [Storage 类](../../reference/scapi/framework/services/Storage.md) 和 [StorageMap](../../reference/scapi/framework/services/StorageMap.md) 类，另外 [Helper](../../reference/scapi/framework/services/Helper.md) 类为 StorageMap 提供了操作存储区的扩展方法。下面为代码示例。
 
 ### 写入/修改
 
@@ -116,7 +116,7 @@ while (result.Next())
 
 ## 区块链存证合约示例
 
-以下是一个简单的区块链存证合约示例，其中主要用到了智能合约框架中的 [Storage](../../reference/scapi/fw/dotnet/neo/Storage.md)、[StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md)、[Helper](../../reference/scapi/fw/dotnet/neo/Helper.md) 等。
+以下是一个简单的区块链存证合约示例，其中主要用到了智能合约框架中的 [Storage](../../reference/scapi/framework/services/Storage.md)、[StorageMap](../../reference/scapi/framework/services/StorageMap.md)、[Helper](../../reference/scapi/framework/services/Helper.md) 等。
 
 ### 编写合约
 

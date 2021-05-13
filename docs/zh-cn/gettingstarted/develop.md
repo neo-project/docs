@@ -99,7 +99,7 @@
 
 - 实现 onNEP17Payment 以便在收到 NEP17 资产时自动执行智能合约
 
-- 智能合约开发框架有了较大的改动。详情请参考 [智能合约API](../reference/scapi/api.md)
+- 智能合约开发框架有了较大的改动。详情请参考 [智能合约API](../reference/scapi/interop.md)
 
 更多信息，请参考 [NEP-17](../develop/write/nep17.md)。
 

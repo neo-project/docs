@@ -28,7 +28,7 @@
 
 | 开发参考                                       |                                        |                                         |                             |
 | ---------------------------------------------- | -------------------------------------- | --------------------------------------- | --------------------------- |
-| [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/api.md) | [治理 API](reference/governance_api.md) | [NNS API](reference/nns.md) |
+| [RPC API](reference/rpc/latest-version/api.md) | [智能合约 API](reference/scapi/interop.md) | [治理 API](reference/governance_api.md) | [NNS API](reference/nns.md) |
 | [手续费](reference/fees.md)                    | [NeoVM 指令集](reference/neo_vm.md)    |                                         |                             |
 
 | 交易所对接                            |      |      |      |

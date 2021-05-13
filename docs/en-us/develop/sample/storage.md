@@ -2,9 +2,9 @@
 
 ## What is a smart contract storage？
 
-Each smart contract deployed on the Neo blockchain owns a private storage where only the contract itself can read, write, modify, and delete data. Data in the storage is stored in the form of key-value pairs, where Key can be a string or a byte array (ByteArray) and Value can be any type. For more information refer to [Storage Class](../../reference/scapi/fw/dotnet/neo/Storage.md).
+Each smart contract deployed on the Neo blockchain owns a private storage where only the contract itself can read, write, modify, and delete data. Data in the storage is stored in the form of key-value pairs, where Key can be a string or a byte array (ByteArray) and Value can be any type. For more information refer to [Storage Class](../../reference/scapi/framework/services/Storage.md).
 
-In Neo, most storage operations are performed through [StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md), which appends a prefix to the Storage Key. Different prefixes are equivalent to different database tables. Using StorageMap to operate the storage is more safely.
+In Neo, most storage operations are performed through [StorageMap](../../reference/scapi/framework/services/StorageMap.md), which appends a prefix to the Storage Key. Different prefixes are equivalent to different database tables. Using StorageMap to operate the storage is more safely.
 
 Smart contract storage operations include the following interfaces:
 
@@ -48,7 +48,7 @@ var Hash = Storage.CurrentContext.CreateMap("Hash");
 
 ## Storage operations
 
-Refer to the [Storage](../../reference/scapi/fw/dotnet/neo/Storage.md) and [StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md) classes. The class [Helper](../../reference/scapi/fw/dotnet/neo/Helper.md) provides StorageMap with extended methods for storage operations. Here are some code examples.
+Refer to the [Storage](../../reference/scapi/framework/services/Storage.md) and [StorageMap](../../reference/scapi/framework/services/StorageMap.md) classes. The class [Helper](../../reference/scapi/framework/services/Helper.md) provides StorageMap with extended methods for storage operations. Here are some code examples.
 
 ### Write and modify
 
@@ -110,7 +110,7 @@ while (result.Next())
 
 ## Demo: a blockchain storage contract
 
-This section we are going to write a simple blockchain storage contract using the Neo smart contract APIs such as [Storage](../../reference/scapi/fw/dotnet/neo/Storage.md), [StorageMap](../../reference/scapi/fw/dotnet/neo/StorageMap.md), [Helper](../../reference/scapi/fw/dotnet/neo/Helper.md), and etc, and invoke it on the blockchain.
+This section we are going to write a simple blockchain storage contract using the Neo smart contract APIs such as [Storage](../../reference/scapi/framework/services/Storage.md), [StorageMap](../../reference/scapi/framework/services/StorageMap.md), [Helper](../../reference/scapi/framework/services/Helper.md), and etc, and invoke it on the blockchain.
 
 ### Writing the contract
 

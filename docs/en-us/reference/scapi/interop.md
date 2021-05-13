@@ -2,7 +2,7 @@
 
 This article lists the interoperable service in Neo N3. 
 
-The Interoperable service is the underlying API of the system. For more information on how to use the framework to easily call APIs in high-level languages, see [Smart Contracts Framework](fw.md).
+The Interoperable service is the underlying API of the system. For more information on how to use the framework to easily call APIs in high-level languages, see [Smart Contracts Framework](framework.md).
 
 **Contract**:
 

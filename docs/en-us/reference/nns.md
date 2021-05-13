@@ -2,7 +2,7 @@
 
 The Neo Name Service (NNS) is a distributed, open, and extensible naming system based on the Neo blockchain. It maps human-readable names to various complex data types, such as IP address, domain aliase, content hash, and so forth. The service is implemented as a new native contract, NameService, which is of many features of native contracts and NFT assets.
 
-This document introduces APIs of the NNS contract. For details of each method, refer to  [NameService Class](scapi/fw/dotnet/neo/NameService.md).
+This document introduces APIs of the NNS contract. For details of each method, refer to  [NameService Class](scapi/framework/native/NameServices.md).
 
 ## Name processing
 

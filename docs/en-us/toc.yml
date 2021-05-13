@@ -225,11 +225,15 @@
     - name: C# Smart Contract Framework
       items: 
       - name: Framework
-        href: /docs/en-us/reference/scapi/fw/Neo.SmartContract.Framework.md
+        href: /docs/en-us/reference/scapi/framework.md
       - name: Framework.Native
-        href: /docs/en-us/reference/scapi/fw/Neo.SmartContract.Framework.Native.md
+        items: Native
+        - name: Framework.Native
+          href: /docs/en-us/reference/scapi/framework/native.md
       - name: Framework.Services
-        href: /docs/en-us/reference/scapi/fw/Neo.SmartContract.Framework.Services.md
+        items: Services
+        - name: Framework.Services
+          href: /docs/en-us/reference/scapi/framework/services.md
   - name: Governance API
     href: /docs/en-us/reference/governance_api.md
   - name: NNS API

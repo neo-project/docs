@@ -97,7 +97,7 @@ In comparison with Neo Legacy, the Neo N3 NEP17 sample has the following changes
 
 - Implemented onNEP17Payment to automatically execute the smart contract when NEP17 assets are received.
 
-- Major changes occurred in smart contract framework. For details refer to [Smart Contract API](../reference/scapi/api.md)
+- Major changes occurred in smart contract framework. For details refer to [Smart Contract API](../reference/scapi/interop.md)
 
 For more information refer to [NEP-17](../develop/write/nep17.md).
 
