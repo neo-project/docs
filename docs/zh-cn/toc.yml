@@ -97,14 +97,6 @@
       href: /docs/zh-cn/develop/write/update.md
     - name: N3 合约变动
       href: /docs/zh-cn/develop/write/difference.md
-  - name: 合约示例
-    items: 
-    - name: Hello World
-      href: /docs/zh-cn/develop/sample/HelloWorld.md
-    - name: Domain（域名系统）
-      href: /docs/zh-cn/develop/sample/Domain.md
-    - name: 存证合约
-      href: /docs/zh-cn/develop/sample/storage.md
   - name: 部署和调用
     - name: 部署合约
       href: /docs/zh-cn/develop/deploy/deploy.md

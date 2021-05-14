@@ -96,14 +96,6 @@
       href: /docs/en-us/develop/write/update.md
     - name: Differences than Neo Legacy
       href: /docs/en-us/develop/write/difference.md
-  - name: Contract Samples
-    items: 
-    - name: Hello World
-      href: /docs/en-us/develop/sample/HelloWorld.md
-    - name: Domain
-      href: /docs/en-us/develop/sample/Domain.md
-    - name: Storage
-      href: /docs/en-us/develop/sample/storage.md
   - name: Deploying and Invoking Smart Contracts
     - name: Deploying Smart Contracts
       href: /docs/en-us/develop/deploy/deploy.md
