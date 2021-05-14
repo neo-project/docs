@@ -17,10 +17,9 @@
 
 ## 枚举
 
-| 枚举                                                         | 说明                                                 |
-| ------------------------------------------------------------ | ---------------------------------------------------- |
-| [CallFlags](services/CallFlags.md) | 定义调用合约方法时的模式                             |
+| 枚举                                   | 说明                                                 |
+| -------------------------------------- | ---------------------------------------------------- |
+| [CallFlags](services/CallFlags.md)     | 定义调用合约方法时的模式                             |
 | [FindOptions](services/FindOptions.md) | 定义搜索存储区时的搜索选项，用在 Storage.Find 方法中 |
-| [StorageFlags](services/StorageFlags.md) | 表明了写入存储区数据的属性                           |
 | [TriggerType](services/TriggerType.md) | 定义了智能合约触发器类型                             |
 

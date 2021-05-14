@@ -17,10 +17,9 @@
 
 ## Enumeration
 
-| Enumeration                                                  | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [CallFlags](services/CallFlags.md) | Defines the pattern when invoking contracts                  |
+| Enumeration                            | Description                                                  |
+| -------------------------------------- | ------------------------------------------------------------ |
+| [CallFlags](services/CallFlags.md)     | Defines the pattern when invoking contracts                  |
 | [FindOptions](services/FindOptions.md) | Defines search options for searching a storage. Used in the  Storage.Find method. |
-| [StorageFlags](services/StorageFlags.md) | Represents the property of written data                      |
 | [TriggerType](services/TriggerType.md) | Defines the trigger types                                    |
 
