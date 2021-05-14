@@ -20,6 +20,7 @@ public class Oracle
 
 ## 方法
 
-| 名称                                                         | 说明                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Request(string url, string filter, string callback, object userData, long gasForResponse)](Oracle/Request.md)          | 发起Oracle请求                                     |
+| 名称                                                         | 说明                     |
+| ------------------------------------------------------------ | ------------------------ |
+| GetPrice()                                                   | 获取一个Oracle请求的价格 |
+| [Request(string url, string filter, string callback, object userData, long gasForResponse)](Oracle/Request.md) | 发起Oracle请求           |

@@ -24,8 +24,9 @@ public class GAS
 
 ## Methods
 
-| Name                                                         | Description                  |
-| ------------------------------------------------------------ | ---------------------------- |
-| [TotalSupply()](Gas/TotalSupply.md)                          | Gets the total supply of GAS |
-| [BalanceOf(UInt160 account)](Gas/BalanceOf.md)               | Gets the balance             |
-| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Gas/Transfer.md) | Transfers GAS                |
+| Name                                                         | Description                             |
+| ------------------------------------------------------------ | --------------------------------------- |
+| [TotalSupply()](Gas/TotalSupply.md)                          | Gets the total supply of GAS            |
+| [BalanceOf(UInt160 account)](Gas/BalanceOf.md)               | Gets the balance                        |
+| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Gas/Transfer.md) | Transfers GAS                           |
+| Refuel                                                       | Refuel (adding fees) for smart contract |

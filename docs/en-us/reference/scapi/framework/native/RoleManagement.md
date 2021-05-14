@@ -20,6 +20,7 @@ public class RoleManagement
 
 ## Method
 
-| Name                                                         | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [GetDesignatedByRole(Role role, uint index)](RoleManagement/GetDesignatedByRole.md) | Gets the public key of the corresponding node according to the administrator role |
+| Name                                                         | Description                                   |
+| ------------------------------------------------------------ | --------------------------------------------- |
+| [GetDesignatedByRole(Role role, uint index)](RoleManagement/GetDesignatedByRole.md) | Gets the list of nodes for the specified role |
+

@@ -32,7 +32,7 @@
 
 | 名称                  | 说明                   |
 | --------------------- | ---------------------- |
-| ContractParameterType | 底层类型，开发者可忽略 |
+| ContractParameterType | 表示合约参数的基本类型 |
 | OpCode                | 底层类型，开发者可忽略 |
 | StackItemType         | 底层类型，开发者可忽略 |
 

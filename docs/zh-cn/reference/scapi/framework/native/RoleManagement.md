@@ -20,6 +20,6 @@ public class RoleManagement
 
 ## 方法
 
-| 名称                                                         | 说明                             |
-| ------------------------------------------------------------ | -------------------------------- |
-| [GetDesignatedByRole(Role role, uint index)](RoleManagement/GetDesignatedByRole.md) | 根据管理员角色获取对应节点的公钥 |
+| 名称                                                         | 说明                   |
+| ------------------------------------------------------------ | ---------------------- |
+| [GetDesignatedByRole(Role role, uint index)](RoleManagement/GetDesignatedByRole.md) | 获取指定角色的节点列表 |

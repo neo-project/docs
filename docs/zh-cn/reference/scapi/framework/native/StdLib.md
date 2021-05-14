@@ -32,3 +32,6 @@ public static class StdLib
 | Base58Encode(ByteString input) | 将字节数组编码为Base58字符串 |
 | Itoa | 把整数转换为字符串 |
 | Atoi(string value, int @base = 10) | 把字符串转换成整型数 |
+| MemoryCompare(ByteString, ByteString) | 如果两个数组相同，返回0；如果数组1小于数组2，返回小于0的值；如果数组1大于数组2，返回大于0的值 |
+| MemorySearch | 返回数组2在数组1中第一次匹配的索引，如果匹配不到则返回 -1 |
+| StringSplit | 通过基于一个或多个分隔符拆分输入字符串来创建子字符串数组 |

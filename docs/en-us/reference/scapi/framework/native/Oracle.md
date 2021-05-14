@@ -20,6 +20,7 @@ public class Oracle
 
 ## Method
 
-| Name                                                         | Description                 |
-| ------------------------------------------------------------ | --------------------------- |
-| [Request(string url, string filter, string callback, object userData, long gasForResponse)](Oracle/Request.md) | Initiates an Oracle request |
+| Name                                                         | Description                          |
+| ------------------------------------------------------------ | ------------------------------------ |
+| GetPrice()                                                   | Gets the price for an Oracle request |
+| [Request(string url, string filter, string callback, object userData, long gasForResponse)](Oracle/Request.md) | Initiates an Oracle request          |

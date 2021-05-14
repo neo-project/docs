@@ -14,7 +14,12 @@ public static extern Cryptography.ECC.ECPoint[] GetDesignatedByRole(Role role, u
 
 Parameter:
 
-- hash: hash of the queried transaction.
+- role: The type of the role
+- index: The index of the block to be queried
+
+returns: 
+
+- The public keys of the nodes
 
 ## Example
 

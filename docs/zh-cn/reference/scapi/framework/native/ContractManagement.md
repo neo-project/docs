@@ -22,7 +22,9 @@ public class ContractManagement
 
 | 名称                                                         | 说明                       |
 | ------------------------------------------------------------ | -------------------------- |
+| GetMinimumDeploymentFee()                                    | 查询部署合约的最低手续费   |
 | [GetContract(UInt160 hash)](ContractManagement/GetContract.md) | 根据给定的合约哈希获取合约 |
-| [Deploy(byte\[\] nefFile, string manifest)](ContractManagement/Deploy.md) | 部署合约                   |
-| [Update(byte\[\] nefFile, string manifest)](ContractManagement/Update.md) | 更新合约                   |
+| [Deploy(ByteString nefFile, string manifest)](ContractManagement\/Deploy.md) | 部署合约                   |
+| [Update(ByteString nefFile, string manifest)](ContractManagement/Update.md) | 更新合约                   |
 | [Destroy()](ContractManagement/Destroy.md)                   | 销毁合约                   |
+

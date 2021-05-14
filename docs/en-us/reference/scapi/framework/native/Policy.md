@@ -20,12 +20,9 @@ public class Policy
 
 ## Methods
 
-| Name                                                         | Description                               |
-| ------------------------------------------------------------ | ----------------------------------------- |
-| [GetMaxTransactionsPerBlock()](Policy/GetMaxTransactionsPerBlock.md) | Gets max transaction number per block     |
-| [GetMaxBlockSize()](Policy/GetMaxBlockSize.md)               | Gets max block size                       |
-| [GetMaxBlockSystemFee()](Policy/GetMaxBlockSystemFee.md)     | Gets the maximum system fee for the block |
-| [GetFeePerByte()](Policy/GetFeePerByte.md)                   | Gets fee per byte                         |
-| [IsBlocked(UInt160 account)](Policy/IsBlocked.md)            | Verifies whether the account is blocked   |
-| [BlockAccount(UInt160 account)](Policy/BlockAccount.md)      | Sets the blocked accounts                 |
-| [UnblockAccount(UInt160 account)](Policy/UnblockAccount.md)  | Unblocks accounts                         |
+| Name                       | Description                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| GetFeePerByte()            | Gets the network fee per transaction byte                    |
+| GetExecFeeFactor()         | Gets the execution fee factor. This is a multiplier that can be adjusted by the committee to adjust the system fees for transactions |
+| GetStoragePrice()          | Gets the storage price                                       |
+| IsBlocked(UInt160 account) | Determines whether the specified account is blocked          |

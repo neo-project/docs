@@ -32,3 +32,6 @@ public static class StdLib
 | Base58Encode(ByteString input) | Encodes the byte array into Base58 string |
 | Itoa | Converts the integer to string |
 | Atoi(string value, int @base = 10) | Converts the string to integer |
+| MemoryCompare(ByteString, ByteString) | If two arrays are the same, return 0; if array 1 is less than array 2, return a value less than 0; if array 1 is greater than array 2, return a value greater than 0 |
+| MemorySearch | Returns the index of the first match of array 2 in array 1, or -1 if no match |
+| StringSplit | Creates an array of substrings by splitting the input string based on one or more delimiters |

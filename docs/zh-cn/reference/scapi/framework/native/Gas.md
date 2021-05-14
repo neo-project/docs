@@ -24,8 +24,9 @@ public class GAS
 
 ## 方法
 
-| 名称                                                         | 说明            |
-| ------------------------------------------------------------ | --------------- |
-| [TotalSupply()](Gas/TotalSupply.md)                          | 获取GAS总发行量 |
-| [BalanceOf(UInt160 account)](Gas/BalanceOf.md)               | 获取余额        |
-| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Gas/Transfer.md) | 转账            |
+| 名称                                                         | 说明                             |
+| ------------------------------------------------------------ | -------------------------------- |
+| [TotalSupply()](Gas/TotalSupply.md)                          | 获取GAS总发行量                  |
+| [BalanceOf(UInt160 account)](Gas/BalanceOf.md)               | 获取余额                         |
+| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Gas/Transfer.md) | 转账                             |
+| Refuel                                                       | 为智能合约执行补充燃料（手续费） |

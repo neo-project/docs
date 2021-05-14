@@ -32,6 +32,6 @@
 
 | Name                  | Description                                   |
 | --------------------- | --------------------------------------------- |
-| ContractParameterType | Underlying types, which developers can ignore |
+| ContractParameterType | Represents the parameter type of contract     |
 | OpCode                | Underlying types, which developers can ignore |
 | StackItemType         | Underlying types, which developers can ignore |

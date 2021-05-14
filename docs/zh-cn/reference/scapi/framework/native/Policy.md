@@ -20,12 +20,9 @@ public class Policy
 
 ## 方法
 
-| 名称                                                         | 说明                 |
-| ------------------------------------------------------------ | -------------------- |
-| [GetMaxTransactionsPerBlock()](Policy/GetMaxTransactionsPerBlock.md) | 获取每区块最大交易数 |
-| [GetMaxBlockSize()](Policy/GetMaxBlockSize.md)               | 获取区块最大大小     |
-| [GetMaxBlockSystemFee()](Policy/GetMaxBlockSystemFee.md)     | 获取区块最大的系统费 |
-| [GetFeePerByte()](Policy/GetFeePerByte.md)                   | 获取每字节手续费     |
-| [IsBlocked(UInt160 account)](Policy/IsBlocked.md)            | 验证是否为黑名单账户 |
-| [BlockAccount(UInt160 account)](Policy/BlockAccount.md)      | 将指定账户加入黑名单 |
-| [UnblockAccount(UInt160 account)](Policy/UnblockAccount.md)  | 将指定账户解除黑名单 |
+| 名称                       | 说明                                                         |
+| -------------------------- | ------------------------------------------------------------ |
+| GetFeePerByte()            | 获取每字节手续费                                             |
+| GetExecFeeFactor()         | 获取执行费用系数。这是一个乘数，可以由委员会调整，以调整交易的系统费用 |
+| GetStoragePrice()          | 获取存储价格                                                 |
+| IsBlocked(UInt160 account) | 确定指定账户是否被封锁                                       |

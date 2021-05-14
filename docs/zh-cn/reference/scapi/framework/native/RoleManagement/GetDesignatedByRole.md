@@ -14,7 +14,12 @@ public static extern Cryptography.ECC.ECPoint[] GetDesignatedByRole(Role role, u
 
 参数：
 
-- hash: 所查询交易的哈希
+- role: 角色的类型
+- index: 要查询的区块的索引
+
+返回值：
+
+- 节点的公钥列表
 
 ## 示例
 
