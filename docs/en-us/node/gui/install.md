@@ -25,13 +25,13 @@ After installation Neo-GUI connects to the Neo test net automatically.
 
 If you have already built a private chain (see [Setting up private chain](../../develop/network/private-chain/solo.md)), you can also connect Neo-GUI to it.
 
-1. Find the `config.json` and `protocol.json` files of your private chain.
+1. Find the `config.json` file of your private chain.
 
-   Make sure that the address port configured in `protocal.json` SeedList can be accessed from this machine.
+   Make sure that the address port configured in `config.json` SeedList can be accessed from this machine.
 
-2. Go to the path `resources\build-neo-node` under Neo-GUI installation directory and find the two files `config.private.json` and `protocol.private.json` 
+2. Go to the path `resources\build-neo-node` under Neo-GUI installation directory and find the file `config.private.json`  
 
-3. Replace the content of two files with the content of config.json and protocol.json the private chain files you found in Step 1
+3. Replace the content of `config.private.json` with the content of config.json you found in Step 1
 
 4. Run Neo-GUI and go to any page.
 

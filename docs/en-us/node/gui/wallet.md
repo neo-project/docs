@@ -47,7 +47,7 @@ After creating or opening the wallet, you will go to the account list page, whic
 
 - Account list: all account addresses in the wallet, and the number of NEO and GAS in each account.
 
-- Asset list: all asset types and balance in the wallet, including NEO, GAS and other NEP-5 assets, etc.
+- Asset list: all asset types and balance in the wallet, including NEO, GAS and other NEP-17 assets, etc.
 
   The GAS balance shows the amount of GAS claimed, and the Claim GAS button at the bottom of the page shows the amount of unclaimed GAS. To withdraw the GAS into the account, click the button.
 

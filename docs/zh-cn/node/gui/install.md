@@ -24,13 +24,13 @@ Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-
 
 你也可以将Neo-GUI连接到搭建好的私链（参见[搭建私链](../../develop/network/private-chain/solo.md)）。要连接到私链，请按照以下操作进行：
 
-1. 复制私链对应的 `config.json` 和 `protocol.json` 文件
+1. 复制私链对应的 `config.json` 文件
 
-   请确保 `protocal.json` 里 SeedList 配置的地址端口可以被本机访问到；
+   请确保 `config.json` 里 SeedList 配置的地址端口可以被本机访问到；
 
-2. 打开Neo-GUI安装目录下的 “resources\build-neo-node” 目录，找到 `config.private.json`和 `protocol.private.json` 两个文件；
+2. 打开Neo-GUI安装目录下的 “resources\build-neo-node” 目录，找到 `config.private.json`文件；
 
-3. 用步骤1私链的 `config.json` 和 `protocol.json` 内容分别替换 `config.private.json` 和 `protocol.private.json` 的内容；
+3. 用步骤1私链的 `config.json` 内容替换 `config.private.json` 的内容；
 
 4. 启动 Neo-GUI ，进入任意页面，点击左下角`设置`。
 
