@@ -15,7 +15,7 @@ On Neo blockchain the transaction data structure is as follows:
 | `validUntilBlock`    | uint   |  Transaction validity period  |
 | `signers`         | Signer[] | Sender and the effective scope of signature |
 | `attributes` | TransactionAttribute[]   | Transaction attributes                                    |
-| `script`     | byte[]   | Script hash of the transaction contract |
+| `script`     | byte[]   | Script executed on the NeoVM |
 | `witnesses`  | Witness[]   | List of scripts used to validate the transaction    |
 
 ### version
@@ -51,7 +51,7 @@ Scopes defines the effective range of the signature, including these types:
 
 ### sysfee
 
-The system fee is calculated by opcodes to be executed by the Neo virtual machine. The 10 GAS free system fee is canceled in Neo N3. The total fee is subject to the quantity and type of instructions in the contract script. The calculation formula is as follows:
+The system fee depends on the transaction's script, i.e., its size, number and type of NeoVM instructions. The 10 GAS free system fee is canceled in Neo N3. The calculation formula is as follows:
 
 ![](../../../zh-cn/basic/images/transaction/system_fee.png)
 
@@ -74,7 +74,7 @@ Up to 16 attributes can be added to one transaction.
 
 ### script
 
-Script of the contract executed by vm.
+The script that is executed on the NeoVM and determines the effects of the transaction.
 
 ### witnesses
 
