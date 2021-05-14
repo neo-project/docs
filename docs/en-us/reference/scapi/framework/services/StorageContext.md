@@ -16,9 +16,9 @@ public class StorageContext
 
 ## Attribute
 
-| Name       | Description                                       |
-| ---------- | ------------------------------------------------- |
-| AsReadOnly | Gets the read-only context of the current storage |
+| Name       | Description                                                  |
+| ---------- | ------------------------------------------------------------ |
+| AsReadOnly | Converts the specified storage context to a new readonly storage context |
 
 ## Constructor
 

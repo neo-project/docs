@@ -17,15 +17,12 @@ public class Iterator<T> : Iterator, IApiInterface
 
 | Name | Description          |
 | ----- | ------------------------ |
-| Value | Gets the current value of the iterator |
+| Value | Gets the element in the collection at the current position of the iterator |
 
 ## Methods
 
 | Name                            | Name                                                     |
 | ----------------------------------- | ------------------------------------------------------------ |
-| Create(Map\<TKey, TValue\> entry) | Static method that creates iterators                         |
-| Create(IEnumerable\<TValue\> entry)  | Static method that creates iterators            |
-| Concat(Iterator\<TKey, TValue\> value) |Connects iterators |
-| Next()            | Returns if there is a next element in the iterator and if yes, locates to the next element |
+| Next()            | Advances the iterator to the next element of the collection |
 
 You can also use [Storage.Find()](Storage/Find.md)  to construct the Iterator object.

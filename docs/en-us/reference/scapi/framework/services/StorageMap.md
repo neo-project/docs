@@ -18,3 +18,13 @@ public class StorageMap
 | ---------------------------------------- | ---------- |
 | Context | Storage context |
 | Prefix | Prefix |
+
+## Methods
+
+| Name   | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| Delete | Deletes the value corresponding to the key from the given storage context. This method has multiple overloads. |
+| Get    | Gets the byte[] value corresponding to the given key from the given storage context. This method has multiple overloads. |
+| Put    | Puts the key-value pair into the given storage context. This method has multiple overloads. |
+| Find   | Finds the content in the given storage context. This method has multiple overloads. |
+

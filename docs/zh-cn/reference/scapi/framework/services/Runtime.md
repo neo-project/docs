@@ -18,6 +18,10 @@ public static class Runtime
 | ----------------------------- | -------------------------- |
 | [Trigger](Runtime/Trigger.md) | 获得该智能合约的触发条件 |
 | Platform | 获取当前执行智能合约的平台信息 |
+| ScriptContainer | 获取当前的脚本容器 |
+| ExecutingScriptHash | 获取当前上下文的脚本散列 |
+| CallingScriptHash | 获取调用合约的脚本散列 |
+| EntryScriptHash | 获取上下文入口点的脚本散列 |
 | Time | 获取当前区块的时间戳 |
 | InvocationCounter | 获取当前合约的调用次数 |
 | GasLeft | 获取当前交易剩余的 GAS 费用数量 |
@@ -25,11 +29,12 @@ public static class Runtime
 
 ## 方法
 
-| 名称                                                         | 说明                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------- |
-| [GetNotifications(UInt160 hash = null)](Runtime/GetNotifications.md) | 获取某智能合约执行时的所有通知                          |
-| [Log(string message)](Runtime/Log.md)                        | 在智能合约中向执行该智能合约的客户端发送日志            |
-| [CheckWitness()](Runtime/CheckWitness.md)                    | 验证调用该智能合约的交易 / 区块是否验证过所需的脚本散列 |
+| 名称                                                         | 说明                                         |
+| ------------------------------------------------------------ | -------------------------------------------- |
+| [GetNotifications(UInt160 hash = null)](Runtime/GetNotifications.md) | 获取某智能合约执行时的所有通知               |
+| [Log(string message)](Runtime/Log.md)                        | 在智能合约中向执行该智能合约的客户端发送日志 |
+| [CheckWitness()](Runtime/CheckWitness.md)                    | 确定指定账户是否见证了当前交易               |
+| BurnGas                                                      | 燃烧 GAS，造福 Neo 生态系统                  |
 
 ## 构造方法
 

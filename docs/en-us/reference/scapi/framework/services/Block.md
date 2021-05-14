@@ -22,6 +22,7 @@ public class Block
 | MerkleRoot        | Gets the Merkle root of the block                            |
 | Timestamp         | Get the time stamp of the block                              |
 | Index             | Gets the block index which is counted from 0<br/>Index = Height = Count - 1 |
+| PrimaryIndex      | The primary(speaker) index of the consensus node that generated this block |
 | NextConsensus     | Get the consensus contract for the next block, i.e. multi-party signed contract composed of more than 2/3 consensus nodes) |
 | TransactionsCount | Gets the transaction number of the block                     |
 
