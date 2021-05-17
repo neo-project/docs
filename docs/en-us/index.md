@@ -27,7 +27,7 @@
 
 | Reference                                      |                                              |                                               |                             |
 | ---------------------------------------------- | -------------------------------------------- | --------------------------------------------- | --------------------------- |
-| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/api.md) | [Governance API](reference/governance_api.md) | [NNS API](reference/nns.md) |
+| [RPC API](reference/rpc/latest-version/api.md) | [Smart Contract API](reference/scapi/interop.md) | [Governance API](reference/governance_api.md) | [NNS API](reference/nns.md) |
 | [Fees](reference/fees.md)                      | [NeoVM Instructions](reference/neo_vm.md)    |                                               |                             |
 
 | Document for Exchange Developers                        |      |      |      |

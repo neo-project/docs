@@ -83,9 +83,10 @@ NEP17 合约方法如下，完整的合约代码可参考 [GitHub 源码](https:
 
 ```c#
 using Neo;
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework.Services.System;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 using System.Numerics;
 

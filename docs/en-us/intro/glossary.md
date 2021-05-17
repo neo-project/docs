@@ -59,7 +59,7 @@ A special system call that invokes another contract within a contract. It can be
 
 #### Storage
 
-Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](../reference/scapi/fw/dotnet/neo/storage.md).
+Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](../reference/scapi/framework/services/storage.md).
 
 #### NEF
 

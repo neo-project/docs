@@ -21,8 +21,10 @@
 2. 键入下面代码后按 `ESC`+`wq!` 保存退出。
 
    ```c#
+   using Neo.SmartContract;
    using Neo.SmartContract.Framework;
-   using Neo.SmartContract.Framework.Services.Neo;
+   using Neo.SmartContract.Framework.Native;
+   using Neo.SmartContract.Framework.Services;
    
    public class NeoContractDemo: SmartContract
    {

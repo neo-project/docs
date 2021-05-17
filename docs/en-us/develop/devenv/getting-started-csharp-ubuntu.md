@@ -23,8 +23,10 @@ To develop smart contracts in C# on ubuntu, basically you need to do the followi
 2. In NeoContractDemo.cs, enter the following code and then press `ESC`+`wq!` .
 
    ```c#
+   using Neo.SmartContract;
    using Neo.SmartContract.Framework;
-   using Neo.SmartContract.Framework.Services.Neo;
+   using Neo.SmartContract.Framework.Services;
+   using Neo.SmartContract.Framework.Native;
 
    public class NeoContractDemo: SmartContract
    {

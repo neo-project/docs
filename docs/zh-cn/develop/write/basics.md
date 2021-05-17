@@ -84,7 +84,7 @@ public static string Name() => "name of the token";
 
 在开发智能合约时，必须将应用程序的数据存储在区块链上。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。存储在智能合约存储区中的所有数据在智能合约的调用期间会自动持久化。区块链中的全节点会存储链上每一个智能合约的状态。
 
-Neo提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 `Storage` 类来读写持久性存储区。 `Storage` 类是一个静态类，不需要构造函数。 `Storage` 类的方法可以查看 [API 参考文档](../../reference/scapi/fw/dotnet/neo/Storage.md) 。
+Neo提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 `Storage` 类来读写持久性存储区。 `Storage` 类是一个静态类，不需要构造函数。 `Storage` 类的方法可以查看 [API 参考文档](../../reference/scapi/framework/services/Storage.md) 。
 
 例如，如果你想将token的总供应量存储到存储区:
 
@@ -135,8 +135,10 @@ C#的基本类型是:
 分析完之前那个基本的hello world合约后，我们来分析一下这个具有真实意义的智能合约。这里我们提供了一个非常简单的DNS系统，它是用C#编写的。DNS的主要功能是为用户存储域名。除了事件外，它包含了上面所说的所有概念。我们可以研究一下这个合约，学习如何开发一个基本的智能合约。源代码在这里:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace Domain
@@ -210,6 +212,7 @@ public class Contract1 : SmartContract
 理论上来说，智能合约可以有任意的入口函数，合约中 public static 类型的方法都可以用作入口函数被外部调用，例如:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
 namespace Neo.Compiler.MSIL.UnitTests.TestClasses
@@ -283,7 +286,8 @@ Transfer 是事件名。
 
 在智能合约中, 新添加了Json正/反序列化功能, 可以用来处理类型的存储与发送. 合约示例如下:
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 
 namespace Neo.Compiler.MSIL.TestClasses
 {
