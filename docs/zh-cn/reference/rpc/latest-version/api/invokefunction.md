@@ -26,28 +26,28 @@
   * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
   * allowedgroups: 如果 scopes 是 CustomGroups，该字段是签名生效的公钥列表。
 
-  > [!Note]
-  >
-  > 你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+> [!Note]
+>
+> 你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
 
-  例如：
+例如：
 
-  ```json
-  {
-    "type": "String",
-    "value": "Hello"
-  }
+```json
+{
+  "type": "String",
+  "value": "Hello"
+}
 
-  {
-    "type": "Hash160",
-    "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
-  }
+{
+  "type": "Hash160",
+  "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+}
 
-  {
-    "type": "ByteArray",
-    "value": "7472616e73666572"
-  }
-  ```
+{
+  "type": "ByteArray",
+  "value": "7472616e73666572"
+}
+```
 
 ## 调用示例
 
