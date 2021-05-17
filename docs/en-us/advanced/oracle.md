@@ -69,8 +69,10 @@ Oracle service currently supports two URL schemes, `https` and `neofs`. `https` 
 Here is an demo about using the Oracle service：
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace demo

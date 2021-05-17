@@ -5,8 +5,10 @@ In this tutorial, you will learn the basics of developing a smart contract.
 Let's have a look at our basic hello world contract.
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 
 namespace Helloworld
@@ -61,7 +63,7 @@ public static string Name() => "name of the token";
 
 When you develop the smart contract, you have to store your application data on the blockchain. When a Smart Contract is created or when a transaction awakens it, the Contract’s code can read and write to its storage space. All data stored in the storage of the smart contract are automatically persisted between invocations of the smart contract. Full nodes in the blockchain store the state of every smart contract on the chain.
 
-Neo has provided data access interface based on key-value pairs. Data records may be read or deleted from or written to the smart contracts using keys. Besides, smart contracts may retrieve and send their storage contexts to other contracts, thereby entrusting other contracts to manage their storage areas. In C# development, smart contract can use the `Storage` Class to read/write the persistent storage  The `Storage` class is a static class and does not require a constructor. The methods of `Storage` class can be viewed in this [API References](../../reference/scapi/fw/dotnet/neo/Storage.md)
+Neo has provided data access interface based on key-value pairs. Data records may be read or deleted from or written to the smart contracts using keys. Besides, smart contracts may retrieve and send their storage contexts to other contracts, thereby entrusting other contracts to manage their storage areas. In C# development, smart contract can use the `Storage` Class to read/write the persistent storage  The `Storage` class is a static class and does not require a constructor. The methods of `Storage` class can be viewed in this [API References](../../reference/scapi/framework/services/Storage.md)
 
 For instance, if you want to store the total supply of your token into storage:
 
@@ -110,8 +112,10 @@ The basic types of C# are:
 After analyzing the basic hello world contract, let us move to your first real-world smart contract. Here we provide a very simple DNS system which was written in C#. The main function of the DNS is store the domain for users. It contains all the points above except the events. We can investigate this smart contract to learn how to make a basic smart contract. The source code is here:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace Domain
@@ -196,6 +200,7 @@ You can also add other fields, such as:
 Theoretically, smart contracts can have any entry points. Methods of the public static type in the contract can be used as an entry function to be invoked externally, for example:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
 namespace Neo.Compiler.MSIL.UnitTests.TestClasses
@@ -271,7 +276,8 @@ Transfer is the event name.
 In Neo N3 smart contract, the Json serialization/deserialization feature is added:
 
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 
 namespace Neo.Compiler.MSIL.TestClasses
 {
