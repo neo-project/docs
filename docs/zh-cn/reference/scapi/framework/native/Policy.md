@@ -22,7 +22,7 @@ public class Policy
 
 | 名称                       | 说明                                                         |
 | -------------------------- | ------------------------------------------------------------ |
-| GetFeePerByte()            | 获取每字节手续费                                             |
-| GetExecFeeFactor()         | 获取执行费用系数。这是一个乘数，可以由委员会调整，以调整交易的系统费用 |
-| GetStoragePrice()          | 获取存储价格                                                 |
-| IsBlocked(UInt160 account) | 确定指定账户是否被封锁                                       |
+| [GetFeePerByte()](Policy/GetFeePerByte.md)            | 获取每字节手续费                                             |
+| [GetExecFeeFactor()](Policy/GetExecFeeFactor.md)         | 获取执行费用系数。这是一个乘数，可以由委员会调整，以调整交易的系统费用 |
+| [GetStoragePrice()](Policy/GetStoragePrice.md)          | 获取存储价格                                                 |
+| [IsBlocked(UInt160 account)](Policy/IsBlocked.md) | 确定指定账户是否被封锁                                       |
