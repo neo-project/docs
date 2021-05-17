@@ -16,10 +16,9 @@
 | ------------------------------------ | ---------------------------- | ------------------------------ | ---- |
 | [Introduction](node/introduction.md) | [Neo-CLI](node/cli/setup.md) | [Neo-GUI](node/gui/install.md) |      |
 
-| Developer Guide                           |                                                    |                                                              |      |
-| ----------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------ | ---- |
-| [Neo Network](develop/network/testnet.md) | [Writing Smart Contracts](develop/write/basics.md) | [Deploying and Invoking Contracts](develop/deploy/deploy.md) |      |
-| [Tools](develop/tool/sdk/introduction.md) | [Contract Samples](develop/sample/HelloWorld.md)   |                                                              |      |
+| Developer Guide                           |                                                    |                                                              |                                           |
+| ----------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------- |
+| [Neo Network](develop/network/testnet.md) | [Writing Smart Contracts](develop/write/basics.md) | [Deploying and Invoking Contracts](develop/deploy/deploy.md) | [Tools](develop/tool/sdk/introduction.md) |
 
 | Advanced Topics              |      |      |      |
 | ---------------------------- | ---- | ---- | ---- |
