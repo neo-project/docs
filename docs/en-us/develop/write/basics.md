@@ -180,6 +180,8 @@ You can declare more features:
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
 [SupportedStandards("NEP-17")]
+[ContractPermission("*", "onNEP17Payment")]
+[ContractTrust("0x0a0b00ff00ff00ff00ff00ff00ff00ff00ff00a4")]
 public class Contract1 : SmartContract
 {
     public static bool Main(string operation, object[] args)
@@ -192,6 +194,8 @@ public class Contract1 : SmartContract
 `ManifestExtra` represents the extra fields in the Manifest file, where you can add `Author`, `Email`,  `Description` and etc.
 
 `SupportedStandards` represents the NEP standards the contract conform to, such as NEP-17, a token standard on Neo. 
+
+`ContractPermission` indicates the permission requested by the contract, and `ContractTrust` indicates which contracts trust the contract to call itself.  See [invocation-permission](... /deploy/invoke.html#invocation-permission).
 
 You can also add other fields, such as:
 

@@ -174,13 +174,15 @@ namespace Domain
 
 ### 合约特性
 
-合约中可以声明其它特性：
+合约中可以声明特性：
 
 ```c#
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
 [SupportedStandards("NEP-17")]
+[ContractPermission("*", "onNEP17Payment")]
+[ContractTrust("0x0a0b00ff00ff00ff00ff00ff00ff00ff00ff00a4")]
 public class Contract1 : SmartContract
 {
     public static bool Main(string operation, object[] args)
@@ -193,6 +195,8 @@ public class Contract1 : SmartContract
 `ManifestExtra` 表示 Manifest 文件中的额外字段，可以添加 `Author`、 `Email`、 `Description` 等值；
 
 `SupportedStandards` 表示合约符合的 NEP 标准，比如 `NEP-17` 是 Neo 上的代币标准。
+
+`ContractPermission` 表示合约申请的权限，`ContractTrust` 表示合约信任哪些合约调用自己。参考 [权限相关字段](../deploy/invoke.html#权限相关字段)。
 
 也可以添加其它字段，如：
 
