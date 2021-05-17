@@ -55,11 +55,11 @@ NEP17 协议是 Neo 补充协议中的第17号协议。其目的是为 Neo 建�
 
 #### 动态调用
 
-动态调用是一种特殊的系统调用，是指在合约中调用另一个合约。其写法为 `Contract.Call(scriptHash, method, params)`。详情请参见 [调用合约](../reference/scapi/fw/dotnet/neo/Contract/Call.md)。
+动态调用是一种特殊的系统调用，是指在合约中调用另一个合约。其写法为 `Contract.Call(scriptHash, method, params)`。详情请参见 [调用合约](../reference/scapi/framework/services/Contract/Call.md)。
 
 #### 存储区
 
-每个被部署到 Neo 区块链上的智能合约程序，都拥有一个私有存储区用于存放应用程序的数据。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。每个合约都可以声明一块存储区，声名方式为在合约的类上添加一段自定义特性。详情请参见 [存储区操作](../reference/scapi/fw/dotnet/neo/storage.md)
+每个被部署到 Neo 区块链上的智能合约程序，都拥有一个私有存储区用于存放应用程序的数据。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。每个合约都可以声明一块存储区，声名方式为在合约的类上添加一段自定义特性。详情请参见 [存储区操作](../reference/scapi/framework/services/storage.md)
 
 #### NEF
 

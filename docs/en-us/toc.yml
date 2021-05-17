@@ -96,14 +96,6 @@
       href: /docs/en-us/develop/write/update.md
     - name: Differences than Neo Legacy
       href: /docs/en-us/develop/write/difference.md
-  - name: Contract Samples
-    items: 
-    - name: Hello World
-      href: /docs/en-us/develop/sample/HelloWorld.md
-    - name: Domain
-      href: /docs/en-us/develop/sample/Domain.md
-    - name: Storage
-      href: /docs/en-us/develop/sample/storage.md
   - name: Deploying and Invoking Smart Contracts
     - name: Deploying Smart Contracts
       href: /docs/en-us/develop/deploy/deploy.md
@@ -220,80 +212,20 @@
     - name: verifyproof
       href: /docs/en-us/reference/rpc/latest-version/api/verifyproof.md
   - name: Smart Contract API
-    - name: API Reference
-      href: /docs/en-us/reference/scapi/api.md
-    - name: .net Framework
+    - name: Interoperable service
+      href: /docs/en-us/reference/scapi/interop.md
+    - name: C# Smart Contract Framework
       items: 
-      - name: Neo Namespace
-        href: /docs/en-us/reference/scapi/fw/dotnet/neo.md
-      - name: System Namespace
-        href: /docs/en-us/reference/scapi/fw/dotnet/System.md
-      - name: Neo
-        items:
-        - name: Account
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Account.md
-        - name: Block
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Block.md
-        - name: CallFlags
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/CallFlags.md
-        - name: Contract
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Contract.md
-        - name: ContractManagement
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/ContractManagement.md
-        - name: Crypto
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Crypto.md
-        - name: CryptoLib
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/CryptoLib.md
-        - name: FindOptions
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/FindOptions.md
-        - name: Gas
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Gas.md
-        - name: Helper
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Helper.md
-        - name: Iterator
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Iterator.md
-        - name: Json
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Json.md
-        - name: Ledger
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Ledger.md
-        - name: NameService
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/NameService.md
-        - name: Neo
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Neo.md
-        - name: Notification
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Notification.md
-        - name: Oracle
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Oracle.md
-        - name: OracleResponseCode
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/OracleResponseCode.md
-        - name: Policy
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Policy.md
-        - name: RecordType
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/RecordType.md
-        - name: Role
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Role.md
-        - name: RoleManagement
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/RoleManagement.md
-        - name: Runtime
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.md
-        - name: StdLib
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StdLib.md
-        - name: Storage
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Storage.md
-        - name: StorageContext
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.md
-        - name: StorageFlags
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StorageFlags.md
-        - name: StorageMap
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/StorageMap.md
-        - name: Transaction
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.md
-        - name: TriggerType
-          href: /docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.md
-      - name: System
-        items:
-        - name: ExecutionEngine
-          href: /docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+      - name: Framework
+        href: /docs/en-us/reference/scapi/framework.md
+      - name: Framework.Native
+        items: Native
+        - name: Framework.Native
+          href: /docs/en-us/reference/scapi/framework/native.md
+      - name: Framework.Services
+        items: Services
+        - name: Framework.Services
+          href: /docs/en-us/reference/scapi/framework/services.md
   - name: Governance API
     href: /docs/en-us/reference/governance_api.md
   - name: NNS API
