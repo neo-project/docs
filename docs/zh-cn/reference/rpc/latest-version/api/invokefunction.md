@@ -32,22 +32,22 @@
 
 例如：
 
-  ```json
-  {
-    "type": "String",
-    "value": "Hello"
-  }
+```json
+{
+  "type": "String",
+  "value": "Hello"
+}
 
-  {
-    "type": "Hash160",
-    "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
-  }
+{
+  "type": "Hash160",
+  "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
+}
 
-  {
-    "type": "ByteArray",
-    "value": "7472616e73666572"
-  }
-  ```
+{
+  "type": "ByteArray",
+  "value": "7472616e73666572"
+}
+```
 
 ## 调用示例
 
