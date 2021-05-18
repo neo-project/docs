@@ -1,6 +1,6 @@
 # Neo.SmartContract.Framework.Native
 
-A series of methods of native contracts can be invoked in the smart contract.
+A series of native contract methods that can be invoked in the smart contract.
 
 ## Native Contract Classes
 

@@ -8,7 +8,7 @@ The Interoperable service is the underlying API of the system. For more informat
 
 | API                                   | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| System.Contract.Call                  | Use it to call another contract dynamicallyInvokes the contract |
+| System.Contract.Call                  | Use it to call another contract dynamically.                 |
 | System.Contract.GetCallFlags          | Gets the CallFlags for the current context                   |
 | System.Contract.CreateStandardAccount | Calculates corresponding account scripthash for the given public key |
 
@@ -50,8 +50,8 @@ The Interoperable service is the underlying API of the system. For more informat
 | API                               | Description                                                  |
 | --------------------------------- | ------------------------------------------------------------ |
 | System.Storage.GetContext         | Gets the storage context for the current contract            |
-| System.Storage.GetReadOnlyContext | Gets the readonly storage context for the current contract   |
-| System.StorageContext.AsReadOnly  | Converts the specified storage context to a new readonly storage context |
+| System.Storage.GetReadOnlyContext | Gets the read-only storage context for the current contract  |
+| System.StorageContext.AsReadOnly  | Converts the specified storage context to a new read-only storage context |
 | System.Storage.Get                | Gets the entry with the specified key from the storage       |
 | System.Storage.Find               | Finds the entries from the storage                           |
 | System.Storage.Put                | Puts a new entry into the storage                            |
