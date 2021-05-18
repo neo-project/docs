@@ -194,9 +194,6 @@ Transaction tx = await nep17API.CreateTransferTxAsync(scriptHash, sendKey, recei
 此外 `Nep17API` 还提供了以下读取方法：
 
 ```c#
-// get nep17 name
-string name = await nep17API.NameAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
-
 // get nep17 symbol
 string symbol = await nep17API.SymbolAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 

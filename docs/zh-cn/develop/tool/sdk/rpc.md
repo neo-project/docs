@@ -134,6 +134,7 @@ string serializedTransaction = await client.GetRawTransactionHexAsync("f4250dab0
 
 ### 计算交易网络费
 计算指定交易的网络费用
+
 ```c#
 long networkFee = await rpcClient.CalculateNetworkFeeAsync(transaction).ConfigureAwait(false);
 ```
@@ -328,7 +329,7 @@ string wif = await client.DumpPrivKeyAsync("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ")
 ```
 
 ### 余额查询
-根据指定的资产哈希，返回钱包中对应资产的余额信息。该方法适用于原生合约资产及符合 NEP-5 标准的合约资产：
+根据指定的资产哈希，返回钱包中对应资产的余额信息。该方法适用于原生合约资产及符合 NEP-17 标准的合约资产：
 
 ```c#
 BigDecimal balance = await client.GetWalletBalanceAsync(NativeContract.NEO.Hash.ToString()).ConfigureAwait(false);

@@ -209,11 +209,10 @@ string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 
 // Transfer 10 NEO from wif to address
-await walletAPI.TransferAsync(tokenHash, wif, address, 10).ConfigureAwait(false);
+Transaction transaction = await walletAPI.TransferAsync(tokenHash, wif, address, 10).ConfigureAwait(false);
 
 // Print a message after the transaction is on chain
-WalletAPI neoAPI = new WalletAPI(client);
-await neoAPI.WaitTransactionAsync(transaction)
+await walletAPI.WaitTransactionAsync(transaction)
   .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
 ```
 也可以使用 `KeyPair` 和  `UInt160` (ScriptHash)：
