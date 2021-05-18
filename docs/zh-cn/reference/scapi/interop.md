@@ -42,7 +42,7 @@
 | System.Runtime.Log                    | 写日志                               |
 | System.Runtime.Notify                 | 发出通知                             |
 | System.Runtime.GetNotifications       | 获取指定合约在执行过程中发送的通知   |
-| System.Runtime.GasLeft                | 获取为了完成执行而可以花费的剩余GAS  |
+| System.Runtime.GasLeft                | 获取为了完成执行可以花费的剩余GAS    |
 | System.Runtime.BurnGas                | 燃烧 GAS，造福 Neo 生态系统          |
 
 **存储**:
@@ -57,7 +57,3 @@
 | System.Storage.Put                | 将一个新的记录放入存储中                       |
 | System.Storage.Delete             | 从存储中删除一个记录                           |
 
-
-> [!Note]
->
-> 以上 API 的源码位于 Neo 项目中的 [src\neo\SmartContract](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 下。

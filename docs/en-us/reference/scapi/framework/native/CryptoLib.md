@@ -23,5 +23,5 @@ public static class CryptoLib
 | Name                                   | Description   |
 | ---------------------------------------- | --------------- |
 | Sha256(ByteString value) | Calculates the byte array with SHA256 hash |
-| ripemd160(ByteString value) | Calculates the byte array withRIPEMD160 |
+| ripemd160(ByteString value) | Calculates the byte array with RIPEMD160 |
 | VerifyWithECDsa(ByteString message, Cryptography.ECC.ECPoint pubkey, ByteString signature, NamedCurve curve) | Uses elliptic curve to verify the signature |

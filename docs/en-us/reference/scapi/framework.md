@@ -19,14 +19,14 @@
 
 | Name         | Description                                                  |
 | ------------ | ------------------------------------------------------------ |
-| ToByteString | 1. Converts byte to byte[] considering the byte as a BigInteger (0x00 at the end).<br/>2. Converts sbyte to byte[].<br/>3. Converts string to byte[]. Examples: "hello" -> [0x68656c6c6f]; "" -> []; "Neo" -> [0x4e656f]<br/>4. Converts byte[] to string. Examples: [0x68656c6c6f] -> "hello"; [] -> ""; [0x4e656f] -> "Neo"<br/> |
-| Within       | Returns true iff a <= x && x < b. Examples: x=5 a=5 b=15 is true; x=15 a=5 b=15 is false |
-| Concat       | Concatenating two byte arrays                                |
-| Range        | Copy the subarray, starting from the specified position and having the specified length |
+| ToByteString | - Converts byte to byte[] considering the byte as a BigInteger (0x00 at the end).<br/>- Converts sbyte to byte[].<br/>- Converts string to byte[]. Examples: "hello" -> [0x68656c6c6f]; "" -> []; "Neo" -> [0x4e656f]<br/>- Converts byte[] to string. Examples: [0x68656c6c6f] -> "hello"; [] -> ""; [0x4e656f] -> "Neo"<br/> |
+| Within       | Returns true if a <= x && x < b. Examples: x=5 a=5 b=15 is true; x=15 a=5 b=15 is false |
+| Concat       | Concatenates two byte arrays                                 |
+| Range        | Copies the subarray, starting from the specified position and having the specified length |
 | Take         | Returns a specified number of contiguous elements from the start of a sequence |
 | Last         | Returns a specified number of contiguous elements from the last of a sequence |
 | Reverse      | Reverses the order of the elements                           |
-| Sqrt         | Calculating the square root                                  |
+| Sqrt         | Calculates the square root                                   |
 
 ## Enum
 
