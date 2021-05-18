@@ -307,5 +307,3 @@ namespace Neo.Compiler.MSIL.TestClasses
 }
 ```
 
-
-
