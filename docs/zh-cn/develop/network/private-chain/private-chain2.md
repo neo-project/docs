@@ -19,7 +19,7 @@
 - 设置每个端口不重复且不被其它程序占用。
 - 设置 UnlockWallet 下的参数 `Path` 为钱包文件名，`Password` 为钱包密码。
 - 设置 `StartConsensus` 和 `IsActive` 为 `true`。
-- `Magic` 为私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
+- `Network` 为私有链 ID，可设置为 [0 - 4294967295] 区间内的任意整数。
 - `StandbyCommittee` 是委员会成员节点的公钥，票数前4的即为共识节点，这里可以输入 4 个钱包的公钥。
 
 - `SeedList` 为种子节点的 IP 地址和端口号，IP 地址设置为 localhost，端口为 4 个节点的 `P2P` Port。
@@ -220,7 +220,7 @@
 
 下载 [共识插件]("https://github.com/neo-project/neo-modules/releases/download/v3.0.0-RC1/DBFTPlugin.zip"), 并放入四个节点 `CLI` 根目录的`Plugins`目录下。修改其配置文件`config.json`：
 
-- 将`Network` 与私有链`config.json`中的`Magic`设为相同数值。
+- 将`Network` 与私有链`config.json`中的`Network`设为相同数值。
 - `AutoStart`：设为`true`以方便在启动 CLI 时自动开启共识。
 
 可参照下面的配置：

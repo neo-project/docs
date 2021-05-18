@@ -40,17 +40,17 @@
 
 | 命令                                              | 参数                                   | 说明                           |
 | ------------------------------------------------- | -------------------------------------- | ------------------------------ |
-| [change password](#change-password)               | \<path>                                | 修改钱包密码                 |
+| [change password](#change-password)               |                                 | 修改钱包密码                 |
 | list address                                      |                                        | 列出钱包中的所有账户         |
 | list asset                                        |                                        | 列出钱包中的所有资产         |
 | list key                                          |                                        | 列出钱包中的所有公钥         |
 | [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS |
-| [create address](#create-address)                 | [n=1]                                  | 创建地址 / 批量创建地址      |
-| [import key](#import-key)                         | \<wif \| path>                           | 导入私钥 / 批量导入私钥      |
-| [export key](#export-key)                         | \[path] [address script hash]          | 导出私钥                     |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>            | 创建多方签名地址            |
-| [import watchonly](#import-watchonly) | \<wif \| path>            | 导入监听地址（如合约账户）            |
-| [send](#send)                                     | \<id \| alias> \<address> \<amount> [data=null] [from=null] [signerAccounts=null] | 向指定地址转账               |
+| [create address](#create-address)                 | [count=1]                           | 创建地址 / 批量创建地址      |
+| [import key](#import-key)                         | \<wifOrFile>              | 导入私钥 / 批量导入私钥      |
+| [export key](#export-key)                         | [path=null] [scriptHash=null] | 导出私钥                     |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys> | 创建多方签名地址            |
+| [import watchonly](#import-watchonly) | \<addressOrFile> | 导入监听地址（如合约账户）            |
+| [send](#send)                                     | \<asset> \<to> \<amount> \[data=null] \[from=null] \[signerAccounts=null] | 向指定地址转账               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
@@ -58,14 +58,15 @@
 | 命令              | 参数                                                         | 说明     |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | 发布合约 |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas]| 调用合约 |
+| [invoke](#invoke) | \<scripthash> \<operation> \[contractParameters=null] \[sender=null] \[signerAccounts=null] \[maxGas=20] | 调用合约 |
+| [update](#update) | \<scriptHash> \<filePath> \<manifestPath> \<sender> \[signerAccounts=null] | 升级合约 |
 
 #### 节点命令
 
-| 命令            | 参数                | 说明                                           |
-| --------------- | ------------------- | ---------------------------------------------- |
-| show state      |                     | 显示当前区块链同步状态                         |
-| show pool       | [verbose]           | 显示内存池中的交易（这些交易处于零确认的状态） |
+| 命令       | 参数            | 说明                                           |
+| ---------- | --------------- | ---------------------------------------------- |
+| show state |                 | 显示当前区块链同步状态                         |
+| show pool  | [verbose=False] | 显示内存池中的交易（这些交易处于零确认的状态） |
 
 #### NEP17 命令
 
@@ -74,7 +75,7 @@
 | [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
 | [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
-| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [data=null] [from=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  \[data=null] \[from=null] \[signersAccounts=null]    | 调用 token 的 transfer 方法转账 |
 
 #### 原生合约命令
 
@@ -91,7 +92,7 @@
 | [broadcast block](#broadcast-block) |  \<block hash \| block height>  | 广播一个区块 |
 | [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | 广播 getblocks 请求 |
 | [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | 广播 getdata 请求 |
-| [broadcast getheaders](#broadcast-getheaders) |  \<block hash>  | 广播 getheaders 请求 |
+| [broadcast getheaders](#broadcast-getheaders) |  \<block index>  | 广播 getheaders 请求 |
 | [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | 广播 inventory data |
 | [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | 广播一条交易 |
 
@@ -122,7 +123,7 @@
 | [unregister candidate](#unregister-candidate) |\<account>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
 
-#### 高级命令
+#### 区块命令
 
 | 命令                                | 参数     | 说明                                                   |
 | ----------------------------------- | -------- | ------------------------------------------------------ |
@@ -292,7 +293,7 @@ VM State: HALT
 Gas Consumed: 0.0373876
 Result Stack: [{"type":"Integer","value":"1998380000000000"}]
 
-Token Name balance: 19983800
+{{$Token Name}} balance: 19983800
 ```
 
 ### decimals
@@ -324,18 +325,15 @@ Result : 8
 
 ##### 句法
 
- `transfer <tokenHash> <to> <amount> [from=null] [signersAccounts=null]`
+ `transfer <tokenHash> <to> <amount> [data=null] [from=null] [signersAccounts=null]`
 
 ##### 参数
 
 - `tokenHash`：指定 token 的 hash
-
 - `to`：指定收款地址
-
 - `amount`：转账金额
-
+- `data`：transfer 方法的附加参数，默认为空
 - `from`：转出地址
-
 - `signersAccounts`：添加签名的账户
 
 ##### 示例
@@ -508,7 +506,7 @@ Signed and relayed transaction with hash=0xa799e315956e120a51bf5b5804d9518754a84
 
 ##### 参数
 
-- `senderAccount`：被投票账户
+- `senderAccount`：用来投票的账户
 - `publickey`：被投票地址的公钥
 
 ##### 示例
@@ -616,11 +614,11 @@ Multisig. Addr.: NN58k4Ei4nUzWxrgksHZPantyuDxWgouod
 
 ##### 句法
 
-`import watchonly scriptHash`
+`import watchonly <addressOrFile>`
 
 ##### 参数
 
-- `scriptHash`：账户 hash 或合约 hash
+- `addressOrFile`：账户地址/ hash 或合约 hash，或者存有这些数据的文件
 
 ##### 示例
 
@@ -635,13 +633,14 @@ Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
 
 ##### 句法
 
-`send <id | alias> <address> <amount> [from=null] [signerAccounts=null]`
+`send <id | alias> <address> <amount> [data=null] [from=null] [signerAccounts=null]`
 
 ##### 参数
 
 - `id | alias`：资产 ID或资产缩写，如 neo，gas
 - `address`：收款地址
 - `amount`：转账金额
+- `data`：send 方法的附加参数，默认为空
 - `from`：转出地址
 - `signerAccounts`：需要添加签名的账户
 
@@ -751,7 +750,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 - `sender` ：交易发送方，即支付 GAS 费的账户
 
-- `witnessAddress` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
+- `signerAccounts` 为附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
 
 - `maxGas`: 最大花费 GAS
 
@@ -841,6 +840,25 @@ Relay tx(no|yes): no
 > [!Note]
 >
 > 当输入 invoke 命令后，节点调用合约中的 `operation` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+
+###  update
+
+升级合约。
+
+##### 句法
+
+`update <scriptHash> <filePath> <manifestPath> <sender> [signerAccounts=null]` 
+
+##### 参数
+
+- `scriptHash`：要升级的合约hash
+
+- `nefFilePath`：NeoVM的可执行文件 nef 的路径
+- `manifestFile`：manifest.json 文件的路径，manifest 记录了合约的各个接口信息以及配置内容,如果为空，则程序会自动匹配与 nef 文件同名的 manifest.json 文件
+- `sender` ：交易发送方，即支付 GAS 费的账户
+- `signerAccounts` ：附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
+
+##### 示例
 
 ### relay
 

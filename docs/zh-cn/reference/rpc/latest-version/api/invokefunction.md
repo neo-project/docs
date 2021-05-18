@@ -131,3 +131,100 @@
 - gasconsumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
 - tx：本次调用合约交易的 Base64 编码，需要打开钱包并且传入正确的签名账户参数，否则 tx 为 null。
+
+## 特别说明
+
+当合约执行结果里包含迭代器时，会根据 `RpcServer` 插件的 `config` 文件中 `MaxIteratorResultItems` 设置的值来限制迭代次数，默认为 100 次。
+
+在下面的示例中，实际最多可获得6个返回结果。当设置`MaxIteratorResultItems ` 值为 5 时，只返回5次迭代结果，且 `truncated` 为 true ，提示还有数据未返回：
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "wh8MBnRva2VucwwUR7xWZRSFd3BpKcM7Mj3g3v4/u3ZBYn1bUg==",
+        "state": "HALT",
+        "gasconsumed": "2288880",
+        "exception": null,
+        "stack": [
+            {
+                "type": "InteropInterface",
+                "iterator": [
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDMuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDUuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDEuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDIuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDQuY3A="
+                    }
+                ],
+                "truncated": true
+            }
+        ]
+    }
+}
+```
+
+当设置`MaxIteratorResultItems ` 值为大于等于 6 时，会返回6次迭代结果，且 `truncated` 为 false ，提示已返回全部数据：
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "wh8MBnRva2VucwwUR7xWZRSFd3BpKcM7Mj3g3v4/u3ZBYn1bUg==",
+        "state": "HALT",
+        "gasconsumed": "2288880",
+        "exception": null,
+        "stack": [
+            {
+                "type": "InteropInterface",
+                "iterator": [
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDMuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDUuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDEuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDIuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDQuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDYuY3A="
+                    }
+                ],
+                "truncated": false
+            }
+        ]
+    }
+}
+```
+
+
+
