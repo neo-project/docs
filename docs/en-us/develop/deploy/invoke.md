@@ -26,7 +26,7 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 - Use the command invoke, which syntax is:
 
    ```
-   invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]
+   invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas=20]
    ```
 
    For more information refer to [invoke](../../node/cli/cli.md#invoke).
@@ -58,7 +58,7 @@ When `Runtime.CheckWitness (owner)` is written in the contract, the owner's sign
 In Neo-CLI, you can attach a signature using the invoke command.
 
 ```
-invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signerAccounts=null]
+invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signerAccounts=null] [maxGas=20]
 ```
 
 When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  

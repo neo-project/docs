@@ -16,10 +16,9 @@
 | -------------------------------- | ---------------------------- | ------------------------------ | ---- |
 | [节点介绍](node/introduction.md) | [Neo-CLI](node/cli/setup.md) | [Neo-GUI](node/gui/install.md) |      |
 
-| 开发指南                                     |                                          |                                        |      |
-| -------------------------------------------- | ---------------------------------------- | -------------------------------------- | ---- |
-| [Neo 网络](develop/network/testnet.md)       | [合约编写](develop/write/basics.md)      | [部署与调用](develop/deploy/deploy.md) |      |
-| [开发工具](develop/tool/sdk/introduction.md) | [合约示例](develop/sample/HelloWorld.md) |                                        |      |
+| 开发指南                               |                                     |                                        |                                              |
+| -------------------------------------- | ----------------------------------- | -------------------------------------- | -------------------------------------------- |
+| [Neo 网络](develop/network/testnet.md) | [合约编写](develop/write/basics.md) | [部署与调用](develop/deploy/deploy.md) | [开发工具](develop/tool/sdk/introduction.md) |
 
 | 进阶知识                     |      |      |      |
 | ---------------------------- | ---- | ---- | ---- |
