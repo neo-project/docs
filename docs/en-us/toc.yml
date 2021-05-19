@@ -86,8 +86,6 @@
     items:
     - name: Basics
       href: /docs/en-us/develop/write/basics.md
-    - name: Limitations
-      href: /docs/en-us/develop/write/limitation.md
     - name: NEP-17
       href: /docs/en-us/develop/write/nep17.md
     - name: NEF and Manifest Files
