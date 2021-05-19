@@ -74,7 +74,7 @@
 | [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
 | [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
-| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [data=null] [from=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [from=null] [data=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
 
 #### 原生合约命令
 
@@ -324,7 +324,7 @@ Result : 8
 
 ##### 句法
 
- `transfer <tokenHash> <to> <amount> [from=null] [signersAccounts=null]`
+ `transfer <tokenHash> <to> <amount> [from=null] [data=null] [signersAccounts=null]`
 
 ##### 参数
 
@@ -336,12 +336,14 @@ Result : 8
 
 - `from`：转出地址
 
+- `data`：交易附加信息
+
 - `signersAccounts`：添加签名的账户
 
 ##### 示例
 
 ```
-neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y transferdata NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 Relay tx(no|yes): y
 Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
 ```
