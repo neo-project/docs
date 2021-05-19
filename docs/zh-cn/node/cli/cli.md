@@ -618,7 +618,7 @@ Multisig. Addr.: NN58k4Ei4nUzWxrgksHZPantyuDxWgouod
 
 ##### 参数
 
-- `addressOrFile`：账户地址/ hash 或合约 hash，或者存有这些数据的文件
+`addressOrFile`：账户地址/ hash 或合约 hash，或者存有这些数据的文件
 
 ##### 示例
 
@@ -859,6 +859,17 @@ Relay tx(no|yes): no
 - `signerAccounts` ：附加签名地址数组，只支持标准账户（单签地址），填写后 Neo-CLI 会为调用交易附加该数组内所有地址的签名
 
 ##### 示例
+
+```
+update 0x3096fb5cd0a2a95b29e8e92692f0be77c4cce06f NEP17.nef NEP17.manifest.json 0xf6a3f0fda46abdeacac9eda4600a354d0687c420
+Contract hash: 0x3096fb5cd0a2a95b29e8e92692f0be77c4cce06f
+Updated times: 0
+Gas consumed: 3.3317182
+Network fee: 0.0448052
+Total fee: 3.3765234 GAS
+Relay tx? (no|yes): y
+Signed and relayed transaction with hash=0x4587846a2cbc8574e16ce04e95e8c73d76b88250581d81291c23f05c215273ba
+```
 
 ### relay
 

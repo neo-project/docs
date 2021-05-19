@@ -22,15 +22,16 @@ All the block data of the test net are independent of the main net. If you want 
 
 For Neo-GUI, it connects to the test net by default when running.
 
-For Neo-CLI, since it connects to the main net that is not available yet by default, you need to switch the client to connect to test net by doing the following:
+For Neo-CLI, 
 
-1. Copy the contents of the program directory under the `protocol.testnet.json` into ` protocol.json` as shown.
+- If it is the RC2 package downloaded from  [Neo-CLI](https://github.com/neo-project/neo-node/releases), it connects to the test net by default.
 
-   ![image](../../assets/testnet_1.png)
+- If it is published from the source code, to connect it to Neo N3 RC2 test net, you need to:
 
-2. Copy the contents of the program directory `config.testnet.json` into the `config.json` as shown in Figure
+  1. Replace the `config.json` file with the content of `config.testnet.json` under CLI directory
+  2. Change the `Network` value in config.json to **844378958**
 
-   ![image](../../assets/testnet_2_v2.png)
+  ![image](../../assets/testnet_2_v2.png)
 
 ## Applying for Test GAS and Test NEO
 
