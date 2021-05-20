@@ -87,8 +87,6 @@
     items:
     - name: 合约编写基础
       href: /docs/zh-cn/develop/write/basics.md
-    - name: 编写限制
-      href: /docs/zh-cn/develop/write/limitation.md
     - name: NEP-17
       href: /docs/zh-cn/develop/write/nep17.md
     - name: NEF 和 Manifest 文件
