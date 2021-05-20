@@ -86,24 +86,23 @@ Reference:
 
 ### Native contract execution fee
 
-| Native Contract                 | Method                  | Fee（GAS）                                                   |
-| ------------------------------- | ----------------------- | ------------------------------------------------------------ |
-| ContractManagement              | Deploy                  | Refer to storage fee. Minimum is  10 GAS.                    |
-| ContractManagement              | Update                  | Refer to storage fee                                         |
-| LedgerContract                  | GetTransactionFromBlock | 0.00065536                                                   |
-| NameService                     | Resolve                 | 0.00131072                                                   |
-| NeoToken                        | UnclaimedGas            | 0.00131072                                                   |
-| NeoToken                        | RegisterCandidate       | Calculated dynamically. Default is 1000 GAS                  |
-| NeoToken                        | UnregisterCandidate     | 0.00065536                                                   |
-| NeoToken                        | Vote                    | 0.00065536                                                   |
-| NeoToken                        | GetCandidates           | 0.04194304                                                   |
-| NeoToken                        | GetCommittee            | 0.04194304                                                   |
-| NeoToken                        | GetNextBlockValidators  | 0.04194304                                                   |
-| NeoToken、GasToken、NameService | Transfer                | 0.00131072                                                   |
-| OracleContract                  | Request                 | Calculated dynamically. The user specifies the fee when invoking. |
-| StdLib                          | Deserialize             | 0.00008192                                                   |
-| StdLib                          | JsonDeserialize         | 0.00008192                                                   |
-| StdLib                          | Other                   | 0.00002048                                                   |
+| Native Contract    | Method                  | Fee（GAS）                                                   |
+| ------------------ | ----------------------- | ------------------------------------------------------------ |
+| ContractManagement | Deploy                  | Refer to storage fee. Minimum is  10 GAS.                    |
+| ContractManagement | Update                  | Refer to storage fee                                         |
+| LedgerContract     | GetTransactionFromBlock | 0.00065536                                                   |
+| NeoToken           | UnclaimedGas            | 0.00131072                                                   |
+| NeoToken           | RegisterCandidate       | Calculated dynamically. Default is 1000 GAS                  |
+| NeoToken           | UnregisterCandidate     | 0.00065536                                                   |
+| NeoToken           | Vote                    | 0.00065536                                                   |
+| NeoToken           | GetCandidates           | 0.04194304                                                   |
+| NeoToken           | GetCommittee            | 0.04194304                                                   |
+| NeoToken           | GetNextBlockValidators  | 0.04194304                                                   |
+| NeoToken、GasToken | Transfer                | 0.00131072                                                   |
+| OracleContract     | Request                 | Calculated dynamically. The user specifies the fee when invoking. |
+| StdLib             | Deserialize             | 0.00008192                                                   |
+| StdLib             | JsonDeserialize         | 0.00008192                                                   |
+| StdLib             | Other                   | 0.00002048                                                   |
 
 The fee for other native contract methods not listed is 0.00032768 GAS.
 
