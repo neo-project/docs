@@ -132,9 +132,10 @@ NEP17 methods are as follows. For the complete code refer to [NEP-17 contract co
 
 ```c#
 using Neo;
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
-using Neo.SmartContract.Framework.Services.System;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 using System.Numerics;
 

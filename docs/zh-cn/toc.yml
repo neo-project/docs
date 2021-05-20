@@ -97,14 +97,6 @@
       href: /docs/zh-cn/develop/write/update.md
     - name: N3 合约变动
       href: /docs/zh-cn/develop/write/difference.md
-  - name: 合约示例
-    items: 
-    - name: Hello World
-      href: /docs/zh-cn/develop/sample/HelloWorld.md
-    - name: Domain（域名系统）
-      href: /docs/zh-cn/develop/sample/Domain.md
-    - name: 存证合约
-      href: /docs/zh-cn/develop/sample/storage.md
   - name: 部署和调用
     - name: 部署合约
       href: /docs/zh-cn/develop/deploy/deploy.md
@@ -221,80 +213,70 @@
     - name: verifyproof
       href: /docs/zh-cn/reference/rpc/latest-version/api/verifyproof.md
   - name: 智能合约API
-    - name: API 参考
-      href: /docs/zh-cn/reference/scapi/api.md
-    - name: .net 框架
+    - name: 互操作服务
+      href: /docs/zh-cn/reference/scapi/interop.md
+    - name: C# 智能合约框架
       items: 
-      - name: Neo 命名空间
-        href: /docs/zh-cn/reference/scapi/fw/dotnet/neo.md
-      - name: System 命名空间
-        href: /docs/zh-cn/reference/scapi/fw/dotnet/System.md
-      - name: Neo
-        items:
-        - name: Account
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.md
-        - name: Block
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.md
-        - name: CallFlags
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/CallFlags.md
-        - name: Contract
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.md
+      - name: Framework
+        href: /docs/zh-cn/reference/scapi/framework.md
+      - name: Framework.Native
+        items: Native
+        - name: Framework.Native
+          href: /docs/zh-cn/reference/scapi/framework/native.md
         - name: ContractManagement
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/ContractManagement.md
-        - name: Crypto
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Crypto.md
+          href: /docs/zh-cn/reference/scapi/framework/native/ContractManagement.md
         - name: CryptoLib
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/CryptoLib.md
-        - name: FindOptions
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/FindOptions.md
+          href: /docs/zh-cn/reference/scapi/framework/native/CryptoLib.md
         - name: Gas
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Gas.md
-        - name: Helper
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Helper.md
-        - name: Iterator
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Iterator.md
-        - name: Json
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Json.md
+          href: /docs/zh-cn/reference/scapi/framework/native/Gas.md
         - name: Ledger
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Ledger.md
-        - name: NameService
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/NameService.md
+          href: /docs/zh-cn/reference/scapi/framework/native/Ledger.md
+        - name: NamedCurve
+          href: /docs/zh-cn/reference/scapi/framework/native/NamedCurve.md
         - name: Neo
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Neo.md
-        - name: Notification
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Notification.md
+          href: /docs/zh-cn/reference/scapi/framework/native/Neo.md
         - name: Oracle
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Oracle.md
+          href: /docs/zh-cn/reference/scapi/framework/native/Oracle.md
         - name: OracleResponseCode
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/OracleResponseCode.md
+          href: /docs/zh-cn/reference/scapi/framework/native/OracleResponseCode.md
         - name: Policy
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Policy.md
-        - name: RecordType
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/RecordType.md
+          href: /docs/zh-cn/reference/scapi/framework/native/Policy.md
         - name: Role
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Role.md
+          href: /docs/zh-cn/reference/scapi/framework/native/Role.md
         - name: RoleManagement
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/RoleManagement.md
-        - name: Runtime
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.md
+          href: /docs/zh-cn/reference/scapi/framework/native/RoleManagement.md
         - name: StdLib
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StdLib.md
+          href: /docs/zh-cn/reference/scapi/framework/native/StdLib.md
+      - name: Framework.Services
+        items: Services
+        - name: Framework.Services
+          href: /docs/zh-cn/reference/scapi/framework/services.md
+        - name: Block
+          href: /docs/zh-cn/reference/scapi/framework/services/Block.md
+        - name: CallFlags
+          href: /docs/zh-cn/reference/scapi/framework/services/CallFlags.md
+        - name: Contract
+          href: /docs/zh-cn/reference/scapi/framework/services/Contract.md
+        - name: Crypto
+          href: /docs/zh-cn/reference/scapi/framework/services/Crypto.md
+        - name: FindOptions
+          href: /docs/zh-cn/reference/scapi/framework/services/FindOptions.md
+        - name: Iterator
+          href: /docs/zh-cn/reference/scapi/framework/services/Iterator.md
+        - name: Notification
+          href: /docs/zh-cn/reference/scapi/framework/services/Notification.md
+        - name: Runtime
+          href: /docs/zh-cn/reference/scapi/framework/services/Runtime.md
         - name: Storage
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.md
+          href: /docs/zh-cn/reference/scapi/framework/services/Storage.md
         - name: StorageContext
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.md
-        - name: StorageFlags
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageFlags.md
+          href: /docs/zh-cn/reference/scapi/framework/services/StorageContext.md
         - name: StorageMap
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageMap.md
+          href: /docs/zh-cn/reference/scapi/framework/services/StorageMap.md
         - name: Transaction
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.md
+          href: /docs/zh-cn/reference/scapi/framework/services/Transaction.md
         - name: TriggerType
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.md
-      - name: System
-        items:
-        - name: ExecutionEngine
-          href: /docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.md
+          href: /docs/zh-cn/reference/scapi/framework/services/TriggerType.md
   - name: 治理 API
     href: /docs/zh-cn/reference/governance_api.md
   - name: NNS API

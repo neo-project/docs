@@ -5,8 +5,11 @@
 我们来看一下这个基础的hello world合约：
 
 ```c#
+using Neo;
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 
 namespace Helloworld
@@ -14,28 +17,47 @@ namespace Helloworld
     [ManifestExtra("Author", "Neo")]
     [ManifestExtra("Email", "dev@neo.org")]
     [ManifestExtra("Description", "This is a contract example")]
-    [SupportedStandards("NEP17")]
-    [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
-        private const string test_str = "Hello World";
-        public static string Hello()
+        //TODO: Replace it with your own address.
+        [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
+        static readonly UInt160 Owner = default;
+
+        private static bool IsOwner() => Runtime.CheckWitness(Owner);
+
+        // When this contract address is included in the transaction signature,
+        // this method will be triggered as a VerificationTrigger to verify that the signature is correct.
+        // For example, this method needs to be called when withdrawing token from the contract.
+        public static bool Verify() => IsOwner();
+
+        // TODO: Replace it with your methods.
+        public static string MyMethod()
         {
+            return Storage.Get(Storage.CurrentContext, "Hello");
+        }
+
+        public static void _deploy(object data, bool update)
+        {
+            if (update) return;
+
+            // It will be executed during deploy
             Storage.Put(Storage.CurrentContext, "Hello", "World");
-            return test_str;
+        }
+
+        public static void Update(ByteString nefFile, string manifest)
+        {
+            if (!IsOwner()) throw new Exception("No authorization.");
+            ContractManagement.Update(nefFile, manifest, null);
+        }
+
+        public static void Destroy()
+        {
+            if (!IsOwner()) throw new Exception("No authorization.");
+            ContractManagement.Destroy();
         }
     }
 }
 ```
-
-## 合约结构
-
-每个智能合约都继承了Neo框架中的 `SmartContract` 基类，并实现了一些基本的方法。
-
-命名空间 `NEO` 是Neo区块链所提供的API，它提供了访问区块链数据和操作持久存储的方法。这些API分为两类:
-
-1. 区块链分类账本。合约可以通过interops层访问整个区块链上的所有数据，包括完整的区块和交易数据，以及它们的所有字段。
-2. 持久化存储。部署在Neo上的每个应用程序合约都有一个只能由合约自身访问的存储空间。所提供的这些方法可以用来访问合约中的数据。
 
 ## 合约属性
 
@@ -43,7 +65,8 @@ namespace Helloworld
 
 ```csharp
 // 代表该合约的所属者，表示为固定的地址。通常是合约的创建者
-public static readonly byte[] Owner = "ATrzHaicmhRj15C3Vv6e6gLfLqhSD2PtTr".ToScriptHash();
+[InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
+static readonly UInt160 Owner = default;
 
 // 一个常量
 private const ulong factor = 100000000;
@@ -61,7 +84,7 @@ public static string Name() => "name of the token";
 
 在开发智能合约时，必须将应用程序的数据存储在区块链上。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。存储在智能合约存储区中的所有数据在智能合约的调用期间会自动持久化。区块链中的全节点会存储链上每一个智能合约的状态。
 
-Neo提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 `Storage` 类来读写持久性存储区。 `Storage` 类是一个静态类，不需要构造函数。 `Storage` 类的方法可以查看 [API 参考文档](../../reference/scapi/fw/dotnet/neo/Storage.md) 。
+Neo提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 `Storage` 类来读写持久性存储区。 `Storage` 类是一个静态类，不需要构造函数。 `Storage` 类的方法可以查看 [API 参考文档](../../reference/scapi/framework/services/Storage.md) 。
 
 例如，如果你想将token的总供应量存储到存储区:
 
@@ -76,8 +99,9 @@ Storage.Put(Storage.CurrentContext, "totalSupply", 100000000);
 
 ```c#
 // 获取storageMap中的总供应量。这个键名称为“contract”的Map可以用来表示整个容器
-StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-return contract.Get("totalSupply").AsBigInteger();
+StorageMap contract = new(Storage.CurrentContext, nameof(contract))
+var value = contract.Get("totalSupply");
+return value is null ? 0 : (BigInteger)value;;
 ```
 
 ## 数据类型
@@ -111,13 +135,14 @@ C#的基本类型是:
 分析完之前那个基本的hello world合约后，我们来分析一下这个具有真实意义的智能合约。这里我们提供了一个非常简单的DNS系统，它是用C#编写的。DNS的主要功能是为用户存储域名。除了事件外，它包含了上面所说的所有概念。我们可以研究一下这个合约，学习如何开发一个基本的智能合约。源代码在这里:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace Domain
 {
-    [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
 
@@ -151,20 +176,15 @@ namespace Domain
 
 ### 合约特性
 
-在合约的类的上方添加了如下合约特性，表示合约可以使用存储区。
-
-```
-[Features(ContractFeatures.HasStorage)]
-```
-
-除此之外，合约中还可以声明其它特性：
+合约中可以声明特性：
 
 ```c#
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
 [SupportedStandards("NEP-17")]
-[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
+[ContractPermission("*", "onNEP17Payment")]
+[ContractTrust("0x0a0b00ff00ff00ff00ff00ff00ff00ff00ff00a4")]
 public class Contract1 : SmartContract
 {
     public static bool Main(string operation, object[] args)
@@ -178,6 +198,8 @@ public class Contract1 : SmartContract
 
 `SupportedStandards` 表示合约符合的 NEP 标准，比如 `NEP-17` 是 Neo 上的代币标准。
 
+`ContractPermission` 表示合约申请的权限，`ContractTrust` 表示合约信任哪些合约调用自己。参考 [权限相关字段](../deploy/invoke.html#权限相关字段)。
+
 也可以添加其它字段，如：
 
 ```c#
@@ -185,18 +207,12 @@ public class Contract1 : SmartContract
 [ManifestExtra("Version", "1.0.0")]
 ```
 
-`Features` 表示合约本身的功能，目前有四种可选：
-
-- `[Features(ContractFeatures.NoProperty)]`：或不写，表示合约没有特殊功能
-- `[Features(ContractFeatures.HasStorage)]`：合约可以使用存储区
-- `[Features(ContractFeatures.Payable)]`：合约可以接收资产（NEO、GAS、NEP-17资产等）
-- `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`：同时包括上述两种功能
-
 ### 合约入口函数
 
 理论上来说，智能合约可以有任意的入口函数，合约中 public static 类型的方法都可以用作入口函数被外部调用，例如:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
 namespace Neo.Compiler.MSIL.UnitTests.TestClasses
@@ -270,7 +286,8 @@ Transfer 是事件名。
 
 在智能合约中, 新添加了Json正/反序列化功能, 可以用来处理类型的存储与发送. 合约示例如下:
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 
 namespace Neo.Compiler.MSIL.TestClasses
 {
@@ -289,22 +306,3 @@ namespace Neo.Compiler.MSIL.TestClasses
 }
 ```
 
-### 支持指针
-```c#
-namespace Neo.Compiler.MSIL.TestClasses
-{
-    public class Contract_Pointers : SmartContract.Framework.SmartContract
-    {
-        public static object CreateFuncPointer()
-        {
-            return new Func<int>(MyMethod);
-        }
-
-        public static int MyMethod()
-        {
-            return 123;
-        }
-    }
-}
-```
-在示例代码中, 可以通过调用`CreateFuncPointer` 获取 `MyMethod` 方法的指针。

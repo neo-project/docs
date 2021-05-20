@@ -26,7 +26,7 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 - Use the command invoke, which syntax is:
 
    ```
-   invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null]
+   invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas=20]
    ```
 
    For more information refer to [invoke](../../node/cli/cli.md#invoke).
@@ -58,7 +58,7 @@ When `Runtime.CheckWitness (owner)` is written in the contract, the owner's sign
 In Neo-CLI, you can attach a signature using the invoke command.
 
 ```
-invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signerAccounts=null]
+invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signerAccounts=null] [maxGas=20]
 ```
 
 When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  
@@ -124,5 +124,5 @@ Assuming that the contract A calls the contract B, the following table details t
 | Permissions of contract A  include contract B<br/>Trusts of contract B do not include contract A | Prompts that contract A will call contract B, and asks whether to authorize the signature to contract B. | Default and adds CustomContract        according to the user's decision | Determined by the user      |
 | Permissions of contract A include a Groups B                 | Prompts that contract A will call any contract in group B and asks whether to authorize the signature to group B. | Default and adds CustomGroups according to the user's decision | Determined by the user      |
 | The contract defined in the Permissions of contract A is wildcard * and the method is m<br/>{"contract":"\*", "method": "m"} | Prompts that contract A will call the method m of any contract and asks whether to authorize the signature to contract B. | Default or Global according to the user's decision           | Determined by the user      |
-| The contract defined in the Permissions of contract A is wildcard * and the method is wildcard \*<br/>{"contract":"\*", "method": "*"} | Prompts that contract A will call any method of any contract and asks whether to set the signature to Global. | Default or Global according to the user's decision           | Determined by the user      |
+| The contract defined in the Permissions of contract A is wildcard * and the method is wildcard \*<br/>{"contract":"\*", "method": "\*"} | Prompts that contract A will call any method of any contract and asks whether to set the signature to Global. | Default or Global according to the user's decision           | Determined by the user      |
 

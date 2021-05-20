@@ -5,8 +5,11 @@ In this tutorial, you will learn the basics of developing a smart contract.
 Let's have a look at our basic hello world contract.
 
 ```c#
+using Neo;
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System;
 
 namespace Helloworld
@@ -14,28 +17,47 @@ namespace Helloworld
     [ManifestExtra("Author", "Neo")]
     [ManifestExtra("Email", "dev@neo.org")]
     [ManifestExtra("Description", "This is a contract example")]
-    [SupportedStandards("NEP-17")]
-    [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
-        private const string test_str = "Hello World";
-        public static string Hello()
+        //TODO: Replace it with your own address.
+        [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
+        static readonly UInt160 Owner = default;
+
+        private static bool IsOwner() => Runtime.CheckWitness(Owner);
+
+        // When this contract address is included in the transaction signature,
+        // this method will be triggered as a VerificationTrigger to verify that the signature is correct.
+        // For example, this method needs to be called when withdrawing token from the contract.
+        public static bool Verify() => IsOwner();
+
+        // TODO: Replace it with your methods.
+        public static string MyMethod()
         {
+            return Storage.Get(Storage.CurrentContext, "Hello");
+        }
+
+        public static void _deploy(object data, bool update)
+        {
+            if (update) return;
+
+            // It will be executed during deploy
             Storage.Put(Storage.CurrentContext, "Hello", "World");
-            return test_str;
+        }
+
+        public static void Update(ByteString nefFile, string manifest)
+        {
+            if (!IsOwner()) throw new Exception("No authorization.");
+            ContractManagement.Update(nefFile, manifest, null);
+        }
+
+        public static void Destroy()
+        {
+            if (!IsOwner()) throw new Exception("No authorization.");
+            ContractManagement.Destroy();
         }
     }
 }
 ```
-
-## Contract structure
-
-Every Smart Contract inherits the `SmartContract` base class which is in the Neo framework and provides some basic methods.
-
-The `NEO` namespace is the API provided by the Neo blockchain, providing a way to access the block-chain data and manipulate the persistent store. These APIs are divided into two categories:
-
-- Blockchain ledger. The contract can access all the data on the entire blockchain through interops layer, including complete blocks and transactions, as well as each of their fields.
-- Persistent store. Each application contract deployed on Neo has a storage space that can only be accessed by the contract itself. These methods provided can access the data in the contract.
 
 ## Contract property
 
@@ -43,7 +65,8 @@ Inside the contract class, the property defined with `static readonly` or `const
 
 ```c#
 // Represents onwner of this contract, which is a fixed address. Usually should be the contract creator
-public static readonly byte[] Owner = "ATrzHaicmhRj15C3Vv6e6gLfLqhSD2PtTr".ToScriptHash();
+[InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
+static readonly UInt160 Owner = default;
 
 // A constant number
 private const ulong factor = 100000000;
@@ -61,7 +84,7 @@ public static string Name() => "name of the token";
 
 When you develop the smart contract, you have to store your application data on the blockchain. When a Smart Contract is created or when a transaction awakens it, the Contract’s code can read and write to its storage space. All data stored in the storage of the smart contract are automatically persisted between invocations of the smart contract. Full nodes in the blockchain store the state of every smart contract on the chain.
 
-Neo has provided data access interface based on key-value pairs. Data records may be read or deleted from or written to the smart contracts using keys. Besides, smart contracts may retrieve and send their storage contexts to other contracts, thereby entrusting other contracts to manage their storage areas. In C# development, smart contract can use the `Storage` Class to read/write the persistent storage  The `Storage` class is a static class and does not require a constructor. The methods of `Storage` class can be viewed in this [API References](../../reference/scapi/fw/dotnet/neo/Storage.md)
+Neo has provided data access interface based on key-value pairs. Data records may be read or deleted from or written to the smart contracts using keys. Besides, smart contracts may retrieve and send their storage contexts to other contracts, thereby entrusting other contracts to manage their storage areas. In C# development, smart contract can use the `Storage` Class to read/write the persistent storage  The `Storage` class is a static class and does not require a constructor. The methods of `Storage` class can be viewed in this [API References](../../reference/scapi/framework/services/Storage.md)
 
 For instance, if you want to store the total supply of your token into storage:
 
@@ -76,8 +99,9 @@ Here `CurrentContext` Returns the current store context. After obtaining the sto
 
 ```c#
 //Get the totalSupply in the storageMap. The Map is used an entire container with key name "contract"
-StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
-return contract.Get("totalSupply").AsBigInteger();
+StorageMap contract = new(Storage.CurrentContext, nameof(contract))
+var value = contract.Get("totalSupply");
+return value is null ? 0 : (BigInteger)value;;
 ```
 
 ## Data type
@@ -110,13 +134,14 @@ The basic types of C# are:
 After analyzing the basic hello world contract, let us move to your first real-world smart contract. Here we provide a very simple DNS system which was written in C#. The main function of the DNS is store the domain for users. It contains all the points above except the events. We can investigate this smart contract to learn how to make a basic smart contract. The source code is here:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 using System.ComponentModel;
 
 namespace Domain
 {
-    [Features(ContractFeatures.HasStorage)]
     public class Contract1 : SmartContract
     {
 
@@ -150,20 +175,15 @@ Let's slice it and learn it step by step.
 
 ### Contract Features
 
-```c#
-[Features(ContractFeatures.HasStorage)]
-```
-
-Upon the contract class we add a contract feature, which enables the contract to access the storage.
-
-Besides, you can declare more features:
+You can declare more features:
 
 ```c#
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
 [SupportedStandards("NEP-17")]
-[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]
+[ContractPermission("*", "onNEP17Payment")]
+[ContractTrust("0x0a0b00ff00ff00ff00ff00ff00ff00ff00ff00a4")]
 public class Contract1 : SmartContract
 {
     public static bool Main(string operation, object[] args)
@@ -177,6 +197,8 @@ public class Contract1 : SmartContract
 
 `SupportedStandards` represents the NEP standards the contract conform to, such as NEP-17, a token standard on Neo. 
 
+`ContractPermission` indicates the permission requested by the contract, and `ContractTrust` indicates which contracts trust the contract to call itself.  See [invocation-permission](... /deploy/invoke.html#invocation-permission).
+
 You can also add other fields, such as:
 
 ```c#
@@ -184,18 +206,12 @@ You can also add other fields, such as:
 [ManifestExtra("Version", "1.0.0")]
 ```
 
-`Features` are contract features. There are four options for now: 
-
-- `[Features(ContractFeatures.NoProperty)]`: no special feature added to the contract.
-- `[Features(ContractFeatures.HasStorage)]`: enables the contract to access the storage.
-- `[Features(ContractFeatures.Payable)]`: enables the contract to accept NEP-17 assets.
-- `[Features(ContractFeatures.HasStorage | ContractFeatures.Payable)]`: enables both features described above.
-
 ### Entry function
 
 Theoretically, smart contracts can have any entry points. Methods of the public static type in the contract can be used as an entry function to be invoked externally, for example:
 
 ```c#
+using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
 namespace Neo.Compiler.MSIL.UnitTests.TestClasses
@@ -271,7 +287,8 @@ Transfer is the event name.
 In Neo N3 smart contract, the Json serialization/deserialization feature is added:
 
 ```c#
-using Neo.SmartContract.Framework.Services.Neo;
+using Neo.SmartContract.Framework.Native;
+using Neo.SmartContract.Framework.Services;
 
 namespace Neo.Compiler.MSIL.TestClasses
 {
@@ -289,26 +306,4 @@ namespace Neo.Compiler.MSIL.TestClasses
     }
 }
 ```
-
-### Pointer support
-
-```c#
-namespace Neo.Compiler.MSIL.TestClasses
-{
-    public class Contract_Pointers : SmartContract.Framework.SmartContract
-    {
-        public static object CreateFuncPointer()
-        {
-            return new Func<int>(MyMethod);
-        }
-
-        public static int MyMethod()
-        {
-            return 123;
-        }
-    }
-}
-```
-
-In this code, you can get the pointer of  `MyMethod` by invoking `CreateFuncPointer`.
 

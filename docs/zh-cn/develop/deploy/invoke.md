@@ -26,7 +26,7 @@ Neo-GUI 中会更直观地显示合约信息，也能查看 manifest 和 nef 文
 - 使用 invoke 命令调用智能合约，命令如下：
 
    ```
-   invoke <scriptHash> <operation> [contractParameters=null]  [sender=null]  [signerAccounts=null]
+   invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas=20]
    ```
 
    详情请参考 [invoke](../../node/cli/cli.md#invoke) 命令。
@@ -58,7 +58,7 @@ Neo-GUI 中会更直观地显示合约信息，也能查看 manifest 和 nef 文
 在 Neo-CLI 中，我们可以通过 `invoke` 命令附加签名。
 
 ```
-invoke <scriptHash> <operation> [contractParameters=null]  [sender=null]  [signerAccounts=null]
+invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas=20]
 ```
 
 在 Neo-GUI 中，在调用合约时，可以点击下方的 `附加签名`，选择 `公钥` 然后点击  `签名` 来进行附加签名。
@@ -124,7 +124,7 @@ public class Contract1 : SmartContract
 | A 合约的 Permissions 包括 B 合约<br/>B 合约的 Trusts 不包括 A 合约 | 提示 A 将调用 B 合约，可能有风险，询问是否将签名授权给 B 合约 | 设置为默认，并根据用户决定是否增加 CustomContract | 由用户决定   |
 | A 合约的 Permissions 包括一个 Groups B                       | 提示 A 将调用 B 组中的任意合约，可能有风险，询问是否将签名授权给 B 组 | 设置为默认，并根据用户决定是否增加 CustomGroups   | 由用户决定   |
 | A 合约的 Permissions 中合约为通配符 \*，方法为 m<br/>{"contract":"\*", "method": "m"} | 提示 A 将调用任意合约的 m 方法，可能有风险，询问是否将签名授权给 B 合约 | 根据用户决定，设置为默认或 Global                 | 由用户决定   |
-| A 合约的 Permissions 中合约为通配符 \*，方法为通配符 \*<br/>{"contract":"\*", "method": "*"} | 提示 A 将调用任意合约的任意方法，可能有风险，询问是否将签名设置为 全局 | 根据用户决定，设置为默认或 Global                 | 由用户决定   |
+| A 合约的 Permissions 中合约为通配符 \*，方法为通配符 \*<br/>{"contract":"\*", "method": "\*"} | 提示 A 将调用任意合约的任意方法，可能有风险，询问是否将签名设置为 全局 | 根据用户决定，设置为默认或 Global                 | 由用户决定   |
 
 钱包的默认签名作用域建议为 CalledByEntry。
 

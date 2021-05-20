@@ -154,6 +154,7 @@ uint height = await client.GetTransactionHeightAsync("f4250dab094c38d8265acc15c3
 
 ### 获取下一轮共识节点的信息
 获取网络中下一轮共识节点的信息及投票情况：
+
 ```c#
 RpcValidator[] rpcValidators = await client.GetNextBlockValidatorsAsync().ConfigureAwait(false);
 foreach (var validator in rpcValidators)
@@ -163,11 +164,14 @@ foreach (var validator in rpcValidators)
     bool isActive = validator.Active;
 }
 ```
+
 ### 获取当前委员会成员
 获取网络中当前委员会成员公钥列表
+
 ```c#
 string[] committees = await client.GetCommitteeAsync().ConfigureAwait(false);
 ```
+
 ## 节点
 
 ### 获取节点连接数
@@ -424,6 +428,7 @@ RpcApplicationLog log = await client.GetApplicationLogAsync(txHash).ConfigureAwa
 ```
 
 或者根据指定的交易ID和触发器类型获取合约日志：
+
 ```c#
 string txHash = "0x23bf33766d00b4bb3314185f1ff0c2c85182d4d5e4e96f7c2df7506e7f99098b";
 RpcApplicationLog log = await client.GetApplicationLogAsync(txHash, TriggerType.Application).ConfigureAwait(false);
