@@ -50,7 +50,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [export key](#export-key)                         | [path=null] [scriptHash=null] | Exports private keys.                                |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys>                                           | Creates a multi-signature contract.                  |
 | [import watchonly](#import-watchonly) | \<addressOrFile> | Imports the watch-only address (e.g. contract address)|
-| [send](#send)                                  | \<asset> \<to> \<amount> \[data=null] \[from=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
+| [send](#send)                                  | \<id \|alias> \<address> \<amount> [from=null] [data=null] [signerAccounts=null] | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract commands
@@ -76,7 +76,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [balanceof](#balanceof) | \<tokenHash> \<address>                                      | Queries the balance of specified token at the specified address |
 | [decimals](#decimals)   | \<tokenHash>                                                 | Queries the precision of specified token                     |
 | [name](#name)           | \<tokenHash>                                                 | Queries the specified token name                             |
-| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  \[data=null] \[from=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
+| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  [from=null] [data=null] [signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
 #### Native contract commands
 
@@ -327,21 +327,21 @@ Invokes the transfer method to transfer the specified token.
 
 ##### Syntax
 
- `transfer <tokenHash> <to> <amount> [data=null] [from=null] [signersAccounts=null]`
+ `transfer <tokenHash> <to> <amount> [from=null] [data=null] [signersAccounts=null]`
 
 ##### Parameters
 
 - `tokenHash`: The token hash
 - `to`: The address you transfer the token to
 - `amount`: The amount to transfer
-- `data`：The additional parameter. The default value is null.
 - `from`: The address you transfer the token from
+- `data`：The additional parameter. The default value is null.
 - `signersAccounts`: The signer's address
 
 ##### Example
 
 ```
-neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y transferdata NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 Relay tx(no|yes): y
 Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
 ```
@@ -617,15 +617,15 @@ Transfers the asset to the specified address. The command requires the verificat
 
 ##### Syntax
 
-`send <id | alias> <address> <amount> [data=null] [from=null] [signerAccounts=null]`
+`send <id | alias> <address> <amount> [from=null] [data=null] [signerAccounts=null]`
 
 ##### Parameters
 
 - `id | alias`: asset ID or asset abbreviations, e.g. neo, gas
 - `address`: address to transfer assets to
 - `amount`: transfer amount
-- `data`: the additional parameter, which defaults to null.
 - `from`: address to transfer assets from
+- `data`: the additional transaction information, which defaults to null.
 - `signerAccounts`: signer's address
 
 ##### Example
@@ -660,7 +660,7 @@ SignatureContext:
 When withdrawing assets from a contract, `from` is the contract hash and the signer account must contain the contract hash and verify account, for example:
 
 ```
-neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a transferdata 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 password: *
 TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```

@@ -640,9 +640,8 @@ Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
 - `id | alias`：资产 ID或资产缩写，如 neo，gas
 - `address`：收款地址
 - `amount`：转账金额
-- `data`：send 方法的附加参数，默认为空
 - `from`：转出地址
-- `data`：交易附加信息
+- `data`：交易附加信息，默认为空
 - `signerAccounts`：需要添加签名的账户
 
 ##### 示例
