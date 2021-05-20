@@ -73,7 +73,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
 
 ### 将节点连接到网络
 
-将 Neo-CLI 连接到测试网需要配置 `config.json` 文件，用 `config.testnet.json` 中的内容去替换即可。如果你是从 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 直接下载的 RC2 程序包，那么其中的 `config.json` 文件已经是连接测试网的，无需替换。
+将 Neo-CLI 连接到测试网需要配置 `config.json` 文件，用 `config.testnet.json` 中的内容去替换即可。如果你是从 [Neo node](https://github.com/neo-project/neo-node/releases) 直接下载的 RC2 程序包，那么其中的 `config.json` 文件已经是连接测试网的，无需替换。
 
 > [!Note]
 >
@@ -185,10 +185,6 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>   
     </tbody>
 </table>
-
-
-
-
 将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。
 
 ![plugins.png](../../assets/PluginsForExchange.png)
