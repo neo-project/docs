@@ -40,17 +40,17 @@ The commands listed in the table below requires you to open the wallet before in
 
 | Command                                           | Parameters                    | Description                                          |
 | ------------------------------------------------- | ----------------------------- | ---------------------------------------------------- |
-| [change password](#change-password)               | \<path>                       | Changes the wallet password                          |
+| [change password](#change-password)               |                        | Changes the wallet password                          |
 | list address                                      |                               | lists all the accounts in the wallet.                |
 | list asset                                        |                               | Lists all assets in the wallet.                      |
 | list key                                          |                               | Lists all public keys in your wallet.                |
 | [show gas](#show-gas)                             |                               | Lists all the GAS in your wallet.                    |
-| [create address](#create-address)                 | [n=1]                         | Creates address / batch create address               |
-| [import key](#import-key)                         | \<wif \| path>                | Imports a private key / bulk import of private keys. |
-| [export key](#export-key)                         | \[path] [address script hash] | Exports private keys.                                |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<pubkey1 pubkey2 ...>   | Creates a multi-signature contract.                  |
-| [import watchonly](#import-watchonly) | \<wif \| path>           | Imports the watch-only address (e.g. contract address)|
-| [send](#send)                                  | \<id \| alias> \<address> \<amount> [data=null] [from=null] [signerAccounts=null] | Sends assets to the specified address.                       |
+| [create address](#create-address)                 | [count=1]                     | Creates address / batch create address               |
+| [import key](#import-key)                         | \<wifOrFile>          | Imports a private key / bulk import of private keys. |
+| [export key](#export-key)                         | [path=null] [scriptHash=null] | Exports private keys.                                |
+| [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys>                                           | Creates a multi-signature contract.                  |
+| [import watchonly](#import-watchonly) | \<addressOrFile> | Imports the watch-only address (e.g. contract address)|
+| [send](#send)                                  | \<asset> \<to> \<amount> \[data=null] \[from=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract commands
@@ -58,15 +58,16 @@ The commands listed in the table below requires you to open the wallet before in
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
 | [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<command> [contractParameters=null] [sender=null] [signerAccounts=null] [maxGas] | Invokes a contract |
+| [invoke](#invoke) | \<scripthash> \<operation> \[contractParameters=null] \[sender=null] \[signerAccounts=null] \[maxGas=20] | Invokes a contract |
+| [update](#update) | \<scriptHash> \<filePath> \<manifestPath> \<sender> \[signerAccounts=null] | Upgrade a contract |
 
 
 #### Node commands
 
-| Command         | Parameters          | Description                                                  |
-| --------------- | ------------------- | ------------------------------------------------------------ |
-| show state      |                     | Displays the current status of blockchain synchronization.   |
-| show pool       | [verbose]           | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
+| Command    | Parameters      | Description                                                  |
+| ---------- | --------------- | ------------------------------------------------------------ |
+| show state |                 | Displays the current status of blockchain synchronization.   |
+| show pool  | [verbose=False] | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
 
 #### Nep17 commands
 
@@ -75,7 +76,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [balanceof](#balanceof) | \<tokenHash> \<address>                                      | Queries the balance of specified token at the specified address |
 | [decimals](#decimals)   | \<tokenHash>                                                 | Queries the precision of specified token                     |
 | [name](#name)           | \<tokenHash>                                                 | Queries the specified token name                             |
-| [transfer](#transfer)   | \<tokenHash> \<to> \<amount> [data=null] [from=null] [signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
+| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  \[data=null] \[from=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
 #### Native contract commands
 
@@ -92,7 +93,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [broadcast block](#broadcast-block) |  \<block hash \| block height>  | Broadcasts a block |
 | [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | Broadcasts the getblocks request |
 | [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | Broadcasts the getdata request |
-| [broadcast getheaders](#broadcast-getheaders) |  \<block hash>  | Broadcasts the getheaders request |
+| [broadcast getheaders](#broadcast-getheaders) |  \<block index>  | Broadcasts the getheaders request |
 | [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | Broadcasts the inventory data |
 | [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | Broadcasts a transaction |
 
@@ -123,7 +124,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate              |
 | [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                   |
 
-#### Advanced Commands
+#### Block Commands
 
 | Command                         | Parameters                             | Description                                                  |
 | ------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
@@ -294,7 +295,7 @@ VM State: HALT
 Gas Consumed: 0.0373876
 Result Stack: [{"type":"Integer","value":"1998380000000000"}]
 
-Token Name balance: 19983800
+{{$Token Name}} balance: 19983800
 ```
 
 ### decimals
@@ -326,13 +327,14 @@ Invokes the transfer method to transfer the specified token.
 
 ##### Syntax
 
- `transfer <tokenHash> <to> <amount> [from=null] [signersAccounts=null]`
+ `transfer <tokenHash> <to> <amount> [data=null] [from=null] [signersAccounts=null]`
 
 ##### Parameters
 
 - `tokenHash`: The token hash
 - `to`: The address you transfer the token to
 - `amount`: The amount to transfer
+- `data`：The additional parameter. The default value is null.
 - `from`: The address you transfer the token from
 - `signersAccounts`: The signer's address
 
@@ -482,7 +484,7 @@ Signed and relayed transaction with hash=0xa799e315956e120a51bf5b5804d9518754a84
 
 ### vote
 
-Votes for condidates
+Votes for candidates
 
 ##### Syntax
 
@@ -490,8 +492,8 @@ Votes for condidates
 
 ##### Parameters
 
-- `senderAccount`: The account to vote for
-- `publickey`: The public key of account to vote for
+- `senderAccount`: The account used to vote
+- `publickey`: The public key of the account you vote for
 
 ##### Example
 
@@ -600,7 +602,7 @@ Imports the watch-only address, e.g contract account.
 
 ##### Parameters
 
-`scriptHash`: account hash or contract hash
+`addressOrFile`：account address, hash, contract hash, or files storing these data
 
 ##### Example
 
@@ -615,13 +617,14 @@ Transfers the asset to the specified address. The command requires the verificat
 
 ##### Syntax
 
-`send <id | alias> <address> <amount> [from=null] [signerAccounts=null]`
+`send <id | alias> <address> <amount> [data=null] [from=null] [signerAccounts=null]`
 
 ##### Parameters
 
 - `id | alias`: asset ID or asset abbreviations, e.g. neo, gas
 - `address`: address to transfer assets to
 - `amount`: transfer amount
+- `data`: the additional parameter, which defaults to null.
 - `from`: address to transfer assets from
 - `signerAccounts`: signer's address
 
@@ -732,7 +735,7 @@ Invokes a contract.
 
 - `sender` : Transaction sender, i.e. the GAS payment account.
 
-- `witnessAddress` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
+- `signerAccounts` : An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
 
 - `maxGas`: The maximum GAS can be consumed.
 
@@ -817,6 +820,36 @@ Output:
 > [!Note]
 >
 > After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
+
+###  update
+
+Upgrades a contract.
+
+##### Syntax
+
+`update <scriptHash> <filePath> <manifestPath> <sender> [signerAccounts=null]` 
+
+##### Parameters
+
+- `scriptHash`: hash of the contract to update
+
+- `nefFilePath`: File path to the NeoVM executable file nef.
+- `manifestFile`: Path of the manifest.json file which records all the contract interfaces and configuration. If not specified, the manifest.json with the same name as nef will be automatically matched.  
+- `sender`: The transaction sender that pays for GAS
+- `signerAccounts`: An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
+
+##### Example
+
+```
+update 0x3096fb5cd0a2a95b29e8e92692f0be77c4cce06f NEP17.nef NEP17.manifest.json 0xf6a3f0fda46abdeacac9eda4600a354d0687c420
+Contract hash: 0x3096fb5cd0a2a95b29e8e92692f0be77c4cce06f
+Updated times: 0
+Gas consumed: 3.3317182
+Network fee: 0.0448052
+Total fee: 3.3765234 GAS
+Relay tx? (no|yes): y
+Signed and relayed transaction with hash=0x4587846a2cbc8574e16ce04e95e8c73d76b88250581d81291c23f05c215273ba
+```
 
 ### relay
 
@@ -1079,5 +1112,4 @@ Verifies with root hash and proof.
 neo> verify proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFtRI5V11s58vA+8CZ5GArFLkGUYLO98RLaMaYmA5MEnx0upnVI45XTpoUDRvwrlPD59uWy9aIrdS4T0D2cA6Rwv/l3GmrctRzL1me+iTUFdDgooaz+esFHFXJdDANfA2bdshZMp5ox2goVAOMjvoxNIWWOqjJoRPu6ZOw2kdj6A8xovEK1Mp6cAG9z/jfFDrSEM60kuo97MNaVOP/cDZ1wA1nf4WdI+jksYz0EJgzBukK8rEzz8jE2cb2Zx2fytVyQBANC7v2RaLMCRF1XgLpSri12L2IwL9Zcjz5LZiaB5nHKNgQpAQYPDw8PDw8DggFffnsVMyqAfZjg+4gu97N/gKpOsAK8Q27s56tijRlSAAMm26DYxOdf/IjEgkE/u/CoRL6dDnzvs1dxCg/00esMvgPGioeOqQCkDOTfliOnCxYjbY/0XvVUOXkceuDm1W0FzQQEBAQEBAQEBAQEBAQEBJIABAPH1PnX/P8NOgV4KHnogwD7xIsD8KvNhkTcDxgCo7Ec6gPQs1zD4igSJB4M9jTREq+7lQ5PbTH/6d138yUVvtM8bQP9Df1kh7asXrYjZolKhLcQ1NoClQgEzbcJfYkCHXv6DQQEBAOUw9zNl/7FJrWD7rCv0mbOoy6nLlHWiWuyGsA12ohRuAQEBAQEBAQEBAYCBAIAAgA=
 AAI=
 ```
-
 
