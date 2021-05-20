@@ -50,7 +50,7 @@
 | [export key](#export-key)                         | [path=null] [scriptHash=null] | 导出私钥                     |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys> | 创建多方签名地址            |
 | [import watchonly](#import-watchonly) | \<addressOrFile> | 导入监听地址（如合约账户）            |
-| [send](#send)                                     | \<asset> \<to> \<amount> \[data=null] \[from=null] \[signerAccounts=null] | 向指定地址转账               |
+| [send](#send)                                     | \<id \| alias> \<address> \<amount> [from=null] [data=null] [signerAccounts=null] | 向指定地址转账               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
@@ -75,7 +75,7 @@
 | [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
 | [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
-| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  \[data=null] \[from=null] \[signersAccounts=null]    | 调用 token 的 transfer 方法转账 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [from=null] [data=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
 
 #### 原生合约命令
 
@@ -325,21 +325,21 @@ Result : 8
 
 ##### 句法
 
- `transfer <tokenHash> <to> <amount> [data=null] [from=null] [signersAccounts=null]`
+ `transfer <tokenHash> <to> <amount> [from=null] [data=null] [signersAccounts=null]`
 
 ##### 参数
 
 - `tokenHash`：指定 token 的 hash
 - `to`：指定收款地址
 - `amount`：转账金额
-- `data`：transfer 方法的附加参数，默认为空
 - `from`：转出地址
+- `data`：transfer 方法的附加参数，默认为空
 - `signersAccounts`：添加签名的账户
 
 ##### 示例
 
 ```
-neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y transferdata NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 Relay tx(no|yes): y
 Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fbf950c091772c61790880acc78c5
 ```
@@ -633,7 +633,7 @@ Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
 
 ##### 句法
 
-`send <id | alias> <address> <amount> [data=null] [from=null] [signerAccounts=null]`
+`send <id | alias> <address> <amount> [from=null] [data=null] [signerAccounts=null]`
 
 ##### 参数
 
@@ -642,6 +642,7 @@ Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
 - `amount`：转账金额
 - `data`：send 方法的附加参数，默认为空
 - `from`：转出地址
+- `data`：交易附加信息
 - `signerAccounts`：需要添加签名的账户
 
 ##### 示例
@@ -675,7 +676,7 @@ SignatureContext:
 
 如果从合约中转出资产，from 为合约 hash，签名账户需要包含合约 hash 和鉴权账户 verify account，例如：
 ```
-neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
+neo> send 0x70e2301955bf1e74cbb31d18c2f96972abadb328 NZttvm9tAhMjyxZATvqN9WFYkHYMNaXD6C 0.000002 0x436b18e7b624c0323b090141a89e79a3ab588b6a transferdata 0x436b18e7b624c0323b090141a89e79a3ab588b6a NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
 password: *
 TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 ```
