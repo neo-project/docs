@@ -50,7 +50,7 @@ Here is an example：
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5309138,
+    "Network": 5309138,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 1,
@@ -74,7 +74,7 @@ Here is an example:
     "RecoveryLogs": "ConsensusState",
     "IgnoreRecoveryLogs": false,
     "AutoStart": true,
-    "Network": 822501222,
+    "Network": 5309138,
     "MaxBlockSize": 262144,
     "MaxBlockSystemFee": 900000000000
   }
@@ -125,7 +125,7 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
        "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
      },
      "ProtocolConfiguration": {
-       "Magic": 5309138,
+       "Network": 5309138,
        "MillisecondsPerBlock": 15000,
        "MaxTraceableBlocks": 2102400,
        "ValidatorsCount": 1,

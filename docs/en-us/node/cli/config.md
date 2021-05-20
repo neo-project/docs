@@ -8,7 +8,7 @@ Neo-CLI accesses the configuration file `config.json`  during execution. You nee
 
 ### Configuring a wallet
 
-Before you can invoke the wallet related API, you must open the wallet. You can configure a wallet in the config.json file to enable Neo-CLI to open the wallet automatically when running. 
+To make Neo-CLI automatically open a wallet when running, you can configure the wallet in  `config.json`  beforehand, as follows:
 
 - `Path`: the wallet path
 - `Password`: the wallet password
@@ -20,48 +20,45 @@ Here is an example:
 {
   "ApplicationConfiguration": {
     "Logger": {
-      "Path": "Logs",
-      "ConsoleOutput": true,
-      "Active": true
+      "Path": "Logs_{0}",
+      "ConsoleOutput": false,
+      "Active": false
     },
     "Storage": {
       "Engine": "LevelDBStore",
       "Path": "Data_LevelDB_{0}"
     },
     "P2P": {
-      "Port": 21333,
-      "WsPort": 21334
+      "Port": 20333,
+      "WsPort": 20334
     },
     "UnlockWallet": {
-      "Path": "admint.json",
-      "Password": "1",
-      "IsActive": true
+      "Path": "",
+      "Password": "",
+      "IsActive": false
     },
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 6713213,
+    "Network": 844378958,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 7,
     "StandbyCommittee": [
-      "02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e",
-      "038415d0be8dc12b61d3e3b76b98f464dfab7fddee74271c35e2de624bb51023a6",
-      "03c9b1c89c6e2d4abd629a2db8b7d03aced518a56793bc90f4985ef7ed3f1b481a",
-      "0302242b1dced63e1bf7eb14876f7ef026b79567f9c5be83de1943dd185ec28e68",
-      "025e8494903b93dc369f08a2bd7e221f574c75d9675591f04907cba9daeeb83d10",
-      "03e8ab5186e1deabcd10ec0e509ded4fffade6fddf534ac3e0506268bae3fd44a6",
-      "020df8858b66ff4d7b0a6a68d11ddedcc7d90d2a64ffa2cd087c4c5dabf4150b40",
-      "02f5f04a6036caedd68b5bd36e33105c0e9f43c0592e9f9f2188b1659be993bb5e",
-      "0279ed5e9ed91547e332a4f27135eebff5daab6c978b57992d8ee0359ccb9f5e8b",
-      "02ff249d06faaf0b5ba865e1531bfabe07f89aef39ab59082e3bc140be0318055d"
+      "023e9b32ea89b94d066e649b124fd50e396ee91369e8e2a6ae1b11c170d022256d",
+      "03009b7540e10f2562e5fd8fac9eaec25166a58b26e412348ff5a86927bfac22a2",
+      "02ba2c70f5996f357a43198705859fae2cfea13e1172962800772b3d588a9d4abd",
+      "03408dcd416396f64783ac587ea1e1593c57d9fea880c8a6a1920e92a259477806",
+      "02a7834be9b32e2981d157cb5bbd3acb42cfd11ea5c3b10224d7a44e98c5910f1b",
+      "0214baf0ceea3a66f17e7e1e839ea25fd8bed6cd82e6bb6e68250189065f44ff01",
+      "030205e9cefaea5a1dfc580af20c8d5aa2468bb0148f1a5e4605fc622c80e604ba"
     ],
     "SeedList": [
-      "seed1t.neo.org:21333",
-      "seed2t.neo.org:21333",
-      "seed3t.neo.org:21333",
-      "seed4t.neo.org:21333",
-      "seed5t.neo.org:21333"
+      "seed1t.neo.org:20333",
+      "seed2t.neo.org:20333",
+      "seed3t.neo.org:20333",
+      "seed4t.neo.org:20333",
+      "seed5t.neo.org:20333"
     ]
   }
 }
@@ -76,11 +73,11 @@ Where:
 
 ### Connecting the node to network
 
-To connect the node to test net, replace the content of `config.json` with the content of  `config.testnet.json`.
+To connect the node to test net, replace the content of `config.json` with the content of  `config.testnet.json`. For RC2 package downloaded from [Neo node](https://github.com/neo-project/neo-node/releases), it has been configured connecting to the test net by default.
 
 > [!Note]
 >
-> If your Neo-CLI is published from the source code in GitHub by yourself, you must also modify the Magic field value in config.json to **827601742** before you can connect to the Neo N3 RC1 test network.
+> If your Neo-CLI is published from the source code in GitHub by yourself, you must also modify the Magic field value in config.json to **844378958** before you can connect to the Neo N3 RC1 test network.
 
 To connect the node to your private net, refer to [Setting up Private Chain](../../develop/network/private-chain/solo.md).
 
@@ -107,41 +104,49 @@ Download the plugins you need from the following table.
         </tr>
     </thead>
     <tbody>
-        <tr>
+            <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/LevelDBStore.zip">LevelDBStore</a>
-            </td>
-            <td>Uses LevelDB to store the blockchain data</td>
-            <td></td>    
-            <td>Mandatory</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RocksDBStore.zip">RocksDBStore</a>
-            </td>
-            <td>Uses RocksDBStore to store the blockchain data</td>
-            <td></td>
-            <td>An alternative to LevelDBStore</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RpcServer.zip">RpcServer</a>
-            </td>
-            <td>Enables RPC for the node</td>
-            <td><a href="../../reference/rpc/latest-version/api.html"> RPC API </a></td>
-            <td>Mandatory</td>
-        </tr>
-        <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>Synchronizes the smart contract log with the NativeContract log (Notify)</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>Recommended</td>
         </tr>
+          <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/DBFTPlugin.zip">DBFTPlugin</a>
+            </td>
+            <td>dBFT consensus plugin</td>
+            <td></td>
+            <td>Mandatory when served as a consensus node</td>
+        </tr>   
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/RpcNep17Tracker.zip">RpcNep17Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/LevelDBStore.zip">LevelDBStore</a>
+            </td>
+            <td>Uses LevelDB to store the blockchain data</td>
+            <td></td>    
+            <td>Mandatory</td>
+        </tr>
+             <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/OracleService.zip">OracleService</a>
+            </td>
+            <td>Oracle service plugin</td>
+            <td></td>
+            <td>Mandatory when served as an Oracle node</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/RocksDBStore.zip">RocksDBStore</a>
+            </td>
+            <td>Uses RocksDBStore to store the blockchain data</td>
+            <td></td>
+            <td>An alternative to LevelDBStore</td>
+        </tr>
+                <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/RpcNep17Tracker.zip">RpcNep17Tracker</a>
             </td>
             <td>Enquiries NEP17 balance and transactions history of accounts through RPC</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
@@ -150,32 +155,23 @@ Download the plugins you need from the following table.
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/RpcServer.zip">RpcServer</a>
+            </td>
+            <td>Enables RPC for the node</td>
+            <td><a href="../../reference/rpc/latest-version/api.html"> RPC API </a></td>
+            <td>Mandatory</td>
+        </tr>
+        <tr>
+            <td><a
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
             <td>Optional</td>
         </tr>  
-                <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/DBFTPlugin.zip">DBFTPlugin</a>
-            </td>
-            <td>dBFT consensus plugin</td>
-            <td></td>
-            <td>Mandatory when served as a consensus node</td>
-        </tr>   
          <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/OracleService.zip">OracleService</a>
-            </td>
-            <td>Oracle service plugin</td>
-            <td></td>
-            <td>Mandatory when served as an Oracle node</td>
-        </tr>   
-        </tr>   
-         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/StateService.zip">StateService</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/StateService.zip">StateService</a>
             </td>
             <td>StateRoot consensus service plugin</td>
             <td><a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
@@ -188,7 +184,6 @@ Download the plugins you need from the following table.
     </tbody>
 </table>
 
-
 To install plugins, unzip plugin packages under the the Neo-CLI root directory, as shown below:
 
 ![](../../../zh-cn/assets/PluginsForExchange.png)
@@ -199,7 +194,7 @@ It is easier to automatically install or uninstall the plugin using commands, fo
 
 ```
 neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-preview5/StatesDumper.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc2/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 

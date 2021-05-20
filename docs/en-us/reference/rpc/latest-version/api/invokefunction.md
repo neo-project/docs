@@ -137,3 +137,97 @@ Response description:
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
 - tx: the transaction's hex string of this invocation, need open wallet and added signers correctly.
+
+## About iterator
+
+If the execution result of contract includes iterators, the iteration times are constrained according to the `MaxIteratorResultItems` value configured in the  `RpcServer` `config` file. The default limit is 100 times.
+
+In the following example, up to 6 returned results are actually available. When the `MaxIteratorResultItems ` value is 5, only 5 iterations are returned and `truncated` is true, indicating that there is still data to be returned.
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "wh8MBnRva2VucwwUR7xWZRSFd3BpKcM7Mj3g3v4/u3ZBYn1bUg==",
+        "state": "HALT",
+        "gasconsumed": "2288880",
+        "exception": null,
+        "stack": [
+            {
+                "type": "InteropInterface",
+                "iterator": [
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDMuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDUuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDEuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDIuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDQuY3A="
+                    }
+                ],
+                "truncated": true
+            }
+        ]
+    }
+}
+```
+
+When the `MaxIteratorResultItems ` value is greater than or equal to 6, then 6 iterations are returned and `truncated` is false, indicating that all data has been returned.
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "wh8MBnRva2VucwwUR7xWZRSFd3BpKcM7Mj3g3v4/u3ZBYn1bUg==",
+        "state": "HALT",
+        "gasconsumed": "2288880",
+        "exception": null,
+        "stack": [
+            {
+                "type": "InteropInterface",
+                "iterator": [
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDMuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDUuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDEuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDIuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDQuY3A="
+                    },
+                    {
+                        "type": "ByteString",
+                        "value": "Ymp5eDYuY3A="
+                    }
+                ],
+                "truncated": false
+            }
+        ]
+    }
+}
+```

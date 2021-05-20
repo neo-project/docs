@@ -64,7 +64,7 @@
 1. 下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
 
    ```
-   $ git clone -b master-2.x https://github.com/neo-project/neo-node.git
+   $ git clone https://github.com/neo-project/neo-node.git
    ```
 
 2. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。
@@ -94,5 +94,4 @@
    其中 `<RUNTIME_IDENTIFIER>` 为运行时标识符，应根据系统选择对应的 [RID 目录](https://docs.microsoft.com/zh-cn/dotnet/core/rid-catalog)，如 `win-x64`、 `linux-x64`、 `osx-x64` 等。
    
 2. 进入编译完的文件所在目录，将之前下载的 libleveldb.dll 拷贝到 neo-cli.exe 同级的文件夹中。
-
 

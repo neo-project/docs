@@ -50,7 +50,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5309138,
+    "Network": 5309138,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 1,
@@ -64,7 +64,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 在 `Plugins\DBFTPlugin` 路径下的config文件中进行如下修改：
 
-- 设置 `AutoStart` 为 true，例如：
+- 设置 `AutoStart` 为 true，并将`Network` 与 `neo-cli` 的`config.json`中的`Network`设为相同数值，例如：
 
 ```
 {
@@ -72,7 +72,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
     "RecoveryLogs": "ConsensusState",
     "IgnoreRecoveryLogs": false,
     "AutoStart": true,
-    "Network": 822501222,
+    "Network": 5309138,
     "MaxBlockSize": 262144,
     "MaxBlockSystemFee": 900000000000
   }

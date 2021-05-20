@@ -52,7 +52,7 @@ You can refer to the following example：
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5943216,
+    "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 7,
@@ -98,7 +98,7 @@ You can refer to the following example：
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5943216,
+    "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 7,
@@ -144,7 +144,7 @@ You can refer to the following example：
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5943216,
+    "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 7,
@@ -190,7 +190,7 @@ You can refer to the following example：
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5943216,
+    "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 7,
@@ -218,7 +218,7 @@ You can refer to the following example：
 
 Download [DBFTPlugin]("https://github.com/neo-project/neo-modules/releases/download/v3.0.0-RC1/DBFTPlugin.zip") and place four copies to the `Plugins` folder under each node CLI root path. Modify the file `config.json` as follows：
 
-- Set `Network` the same value as `Magic` in `config.json`.
+- Set `Network` the same value as `Network` in `config.json`.
 - Set `AutoStart` to `true` so as to automatically start consensus as running CLI.
 
 Refer to the following example:
