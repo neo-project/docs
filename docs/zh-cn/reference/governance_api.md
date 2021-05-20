@@ -57,8 +57,6 @@
 | SetFeePerByte | long value | 0.00032768 (CpuFee) | PolicyContract |
 | SetExecFeeFactor | uint value | 0.00032768 (CpuFee) | PolicyContract |
 | SetStoragePrice | uint value | 0.00032768 (CpuFee) | PolicyContract |
-| BlockAccount | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
-| UnblockAccount | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
 | SetPrice | long price | 0.00032768 (CpuFee) | OracleContract |
 | SetGasPerBlock | BigInteger gasPerBlock | 0.00032768 (CpuFee) | NeoToken |
 | SetRegisterPrice | long registerPrice | 0.00032768 (CpuFee) | NeoToken |

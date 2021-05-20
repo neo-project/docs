@@ -20,9 +20,10 @@ public class Policy
 
 ## Methods
 
-| Name                       | Description                                                  |
-| -------------------------- | ------------------------------------------------------------ |
-| GetFeePerByte()            | Gets the network fee per transaction byte                    |
-| GetExecFeeFactor()         | Gets the execution fee factor. This is a multiplier that can be adjusted by the committee to adjust the system fees for transactions |
-| GetStoragePrice()          | Gets the storage price                                       |
-| IsBlocked(UInt160 account) | Determines whether the specified account is blocked          |
+| Name                                              | Description                                                  |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| [GetFeePerByte()](Policy/GetFeePerByte.md)        | Gets the network fee per transaction byte                    |
+| [GetExecFeeFactor()](Policy/GetExecFeeFactor.md)  | Gets the execution fee factor. This is a multiplier that can be adjusted by the committee to adjust the system fees for transactions |
+| [GetStoragePrice()](Policy/GetStoragePrice.md)    | Gets the storage price                                       |
+| [IsBlocked(UInt160 account)](Policy/IsBlocked.md) | Determines whether the specified account is blocked          |
+
