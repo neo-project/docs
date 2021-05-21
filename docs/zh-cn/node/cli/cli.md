@@ -370,8 +370,7 @@ neo> list nativecontract
         GasToken            0xd2a4cff31913016155e38e474a2c06d08be276cf
         PolicyContract      0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b
         RoleManagement      0x49cf4e5378ffcd4dec034fd98a174c5491e395e2
-        OracleContract      0xfe924b7cfe89ddd271abaf7210a80a7e11178758
-        NameService         0x7a8fcf0392cd625647907afa8e45cc66872b596b
+        OracleContract      0xfe924b7cfe89ddd271abaf7210a80a7e11178758      
 ```
 
 ### get candidates

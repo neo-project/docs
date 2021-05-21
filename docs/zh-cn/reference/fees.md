@@ -85,24 +85,23 @@
 
 ### 原生合约执行费用
 
-| 原生合约名称                    | 原生合约方法            | 执行费用（GAS）                 |
-| ------------------------------- | ----------------------- | ------------------------------- |
-| ContractManagement              | Deploy                  | 参考存储区使用费用，最低 10 GAS |
-| ContractManagement              | Update                  | 参考存储区使用费用              |
-| LedgerContract                  | GetTransactionFromBlock | 0.00065536                      |
-| NameService                     | Resolve                 | 0.00131072                      |
-| NeoToken                        | UnclaimedGas            | 0.00131072                      |
-| NeoToken                        | RegisterCandidate       | 动态计算，默认 1000 GAS         |
-| NeoToken                        | UnregisterCandidate     | 0.00065536                      |
-| NeoToken                        | Vote                    | 0.00065536                      |
-| NeoToken                        | GetCandidates           | 0.04194304                      |
-| NeoToken                        | GetCommittee            | 0.04194304                      |
-| NeoToken                        | GetNextBlockValidators  | 0.04194304                      |
-| NeoToken、GasToken、NameService | Transfer                | 0.00131072                      |
-| OracleContract                  | Request                 | 动态计算，用户调用时指定手续费  |
-| StdLib                          | Deserialize             | 0.00008192                      |
-| StdLib                          | JsonDeserialize         | 0.00008192                      |
-| StdLib                          | 其他                    | 0.00002048                      |
+| 原生合约名称       | 原生合约方法            | 执行费用（GAS）                 |
+| ------------------ | ----------------------- | ------------------------------- |
+| ContractManagement | Deploy                  | 参考存储区使用费用，最低 10 GAS |
+| ContractManagement | Update                  | 参考存储区使用费用              |
+| LedgerContract     | GetTransactionFromBlock | 0.00065536                      |
+| NeoToken           | UnclaimedGas            | 0.00131072                      |
+| NeoToken           | RegisterCandidate       | 动态计算，默认 1000 GAS         |
+| NeoToken           | UnregisterCandidate     | 0.00065536                      |
+| NeoToken           | Vote                    | 0.00065536                      |
+| NeoToken           | GetCandidates           | 0.04194304                      |
+| NeoToken           | GetCommittee            | 0.04194304                      |
+| NeoToken           | GetNextBlockValidators  | 0.04194304                      |
+| NeoToken、GasToken | Transfer                | 0.00131072                      |
+| OracleContract     | Request                 | 动态计算，用户调用时指定手续费  |
+| StdLib             | Deserialize             | 0.00008192                      |
+| StdLib             | JsonDeserialize         | 0.00008192                      |
+| StdLib             | 其他                    | 0.00002048                      |
 
 其他未列出的原生合约方法的手续费均为 0.00032768 GAS。
 

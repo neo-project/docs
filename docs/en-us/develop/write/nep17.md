@@ -180,7 +180,7 @@ This section summaries NEP-17 changes compared to the previous NEP-5 protocol.
 
 - The Transfer method should determine if the recipient is the deployed contract, and if so, call its `onNEP17Payment` method.
 
-- The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring assets. The NonfungibleToken (NameService) calls the `onNEP11Tokens` method when transferring assets.
+- The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring assets. The NonfungibleToken calls the `onNEP11Tokens` method when transferring assets.
 
 - The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract.
 

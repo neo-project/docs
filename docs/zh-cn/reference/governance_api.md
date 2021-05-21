@@ -46,7 +46,8 @@
 * 设置每个区块释放的GAS数量
 * 设置注册候选人的费用
 * 增加NNS的Root
-* 设置NNS的注册/修改费用
+* 设置NNS的注册/续费费用
+* NNS合约更新
 * 设置部署合约的最小费用
 
 其对应的合约方法及相关费用如下所示：
@@ -62,6 +63,7 @@
 | SetRegisterPrice | long registerPrice | 0.00032768 (CpuFee) | NeoToken |
 | AddRoot | string root | 0.00032768 (CpuFee) | NameService |
 | SetPrice | long price | 0.00032768 (CpuFee) | NameService |
+| Update | ByteString nef, string manifest | StoragePrice * (nefFile.Length + manifest.Length) | NameService |
 | SetMinimumDeploymentFee | BigInteger value | 0.00032768 (CpuFee) | ContractManagement |
 
 委员会可以通过发送包含多签的，调用相应合约方法的交易上链使投票生效。投票数超过委员会数量的一半的向上取整即为有效投票，相应操作将被执行生效。

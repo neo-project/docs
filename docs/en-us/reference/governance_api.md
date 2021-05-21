@@ -48,7 +48,8 @@ Committee members have the privilege to modify the configuration of Neo network 
 * Set gas released per block
 * Set fee to register a candidate
 * Add NNS root
-* Set fee to register / modify NNS
+* Set the NNS registration/renewal fee
+* Update the NNS contract
 * Set minimum fee for contract deployment
 
 Method definition and corresponding fee are defined in PolicyContract as shown below:
@@ -64,6 +65,7 @@ Method definition and corresponding fee are defined in PolicyContract as shown b
 | SetRegisterPrice | long registerPrice | 0.00032768 (CpuFee) | NeoToken |
 | AddRoot | string root | 0.00032768 (CpuFee) | NameService |
 | SetPrice | long price | 0.00032768 (CpuFee) | NameService |
+| Update | ByteString nef, string manifest | StoragePrice * (nefFile.Length + manifest.Length) | NameService |
 | SetMinimumDeploymentFee | BigInteger value | 0.00032768 (CpuFee) | ContractManagement |
 
 To bring such modification into effect, committee members should send a transaction which calls corresponding method & includes enough signatures on chain. This transaction is executed as long as it's signed by more than half of the committee members.
