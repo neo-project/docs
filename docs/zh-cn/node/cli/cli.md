@@ -47,10 +47,10 @@
 | [show gas](#show-gas)                             |                                        | 列出钱包中的所有未提取的 GAS |
 | [create address](#create-address)                 | [count=1]                           | 创建地址 / 批量创建地址      |
 | [import key](#import-key)                         | \<wifOrFile>              | 导入私钥 / 批量导入私钥      |
-| [export key](#export-key)                         | [path=null] [scriptHash=null] | 导出私钥                     |
+| [export key](#export-key)                         | \[path=null] \[scriptHash=null] | 导出私钥                     |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys> | 创建多方签名地址            |
 | [import watchonly](#import-watchonly) | \<addressOrFile> | 导入监听地址（如合约账户）            |
-| [send](#send)                                     | \<id \| alias> \<address> \<amount> [from=null] [data=null] [signerAccounts=null] | 向指定地址转账               |
+| [send](#send)                                     | \<id \| alias> \<address> \<amount> \[from=null] \[data=null] \[signerAccounts=null] | 向指定地址转账               |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
 
 #### 合约命令
@@ -75,7 +75,7 @@
 | [balanceof](#balanceof)  |\<tokenHash> \<address>                     | 查询指定 token 指定地址的余额                       |
 | [decimals](#decimals)      | \<tokenHash>           | 查询指定 token 的精度 |
 | [name](#name)      | \<tokenHash>           | 查询指定 token 的名字 |
-| [transfer](#transfer)      | \<tokenHash> \<to> \<amount>  [from=null] [data=null] [signersAccounts=null]         | 调用 token 的 transfer 方法转账 |
+| [transfer](#transfer)      | \<tokenHash> \<to> \<amount> \[from=null] \[data=null] \[signersAccounts=null]      | 调用 token 的 transfer 方法转账 |
 
 #### 原生合约命令
 

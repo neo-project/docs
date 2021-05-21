@@ -47,10 +47,10 @@ The commands listed in the table below requires you to open the wallet before in
 | [show gas](#show-gas)                             |                               | Lists all the GAS in your wallet.                    |
 | [create address](#create-address)                 | [count=1]                     | Creates address / batch create address               |
 | [import key](#import-key)                         | \<wifOrFile>          | Imports a private key / bulk import of private keys. |
-| [export key](#export-key)                         | [path=null] [scriptHash=null] | Exports private keys.                                |
+| [export key](#export-key)                         | \[path=null] \[scriptHash=null] | Exports private keys.                                |
 | [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys>                                           | Creates a multi-signature contract.                  |
 | [import watchonly](#import-watchonly) | \<addressOrFile> | Imports the watch-only address (e.g. contract address)|
-| [send](#send)                                  | \<id \|alias> \<address> \<amount> [from=null] [data=null] [signerAccounts=null] | Sends assets to the specified address.                       |
+| [send](#send)                                  | \<id \|alias> \<address> \<amount> \[from=null] \[data=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract commands
@@ -76,7 +76,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [balanceof](#balanceof) | \<tokenHash> \<address>                                      | Queries the balance of specified token at the specified address |
 | [decimals](#decimals)   | \<tokenHash>                                                 | Queries the precision of specified token                     |
 | [name](#name)           | \<tokenHash>                                                 | Queries the specified token name                             |
-| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  [from=null] [data=null] [signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
+| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  \[from=null] \[data=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
 #### Native contract commands
 
