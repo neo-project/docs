@@ -4,8 +4,6 @@ The wallet is a database file of Neo-GUI used to store Neo account and asset inf
 
 > [!CAUTION]
 >
-> #### Warning
->
 > Do not open or create a wallet on an insecure computer. Once the wallet file or wallet password is lost, it will cause the loss of your assets. So back up your wallet file securely, keep it safe, and remember your wallet password.
 
 ## Creating a wallet
@@ -55,8 +53,6 @@ Clicking on the account address you can enter a new page to view the private key
 
 
 > [!CAUTION]
->
-> #### Warning
 >
 > At no point should the private key be disclosed to others. Once the private key is disclosed, it may result in the loss of your assets.
 
