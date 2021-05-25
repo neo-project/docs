@@ -6,7 +6,7 @@ main{
    max-width: 800px;
    flex: 0 0 100%;
 }
-main h1{
+main h1, .theme-dark main h1{
    border: none
 }
 main .home-link{
