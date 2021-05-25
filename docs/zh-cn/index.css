@@ -1,52 +1,49 @@
-.side-nav{
+#catalog_div, .bg-left, #side_nav_div, .search-bar, .anchorjs-link, #prevPage, #nextPage, #catalogToggle{
    display:none!important;
 }
 main{
-   width:80%;
+   margin: 0 auto;
 }
-h4{
-   background: rgba(205,205,205,0.2);
-   padding:10px!important;
-   font-size:1.1rem;
-   font-weight:300;
-   margin-bottom:34px;
+main h1{
+   border: none
 }
-table.table{
-   margin-top:20px;
+main .home-link{
+   border: 1px solid rgba(128, 128, 128, .5);
+   height: 100%;
+   background-color: white;
 }
-.table thead th{
-    background-color: transparent !important;
-    border: none !important;
-    border-bottom: 1px solid #EEEEEE!important;
-    font-size: 1.2rem;
-    font-weight: normal;
-    padding: .5rem 0 !important;
-    width: 25% !important;
+main .home-link p{
+   margin-bottom: 0;
+   font-size: 14px;
+   opacity: .8;
 }
-.table{
-    border-bottom: none !important;
+.theme-dark main .home-link{
+   background-color: black;
 }
-.table-hover tbody tr:hover {
-    background-color: transparent !important;
+
+.search-bar2{
+    position: relative;
 }
-.table td {
-    border: none !important;
-    padding: .3rem 0 !important;
-    vertical-align: top!important;
+.fa-search{
+   position: absolute;
+   left: 1rem;
+   line-height: 2.5;
 }
-hr{
-    margin: 2.5rem 0 !important;
+.search-de2{
+   position: absolute;
+   right: 1rem;
+   line-height: 2.5;
 }
-.table-hover tbody tr:hover{
-    background: transparent !important;
+#sInput2{
+   border-radius: 0;
 }
-@media only screen and (max-width: 960px) {
-    .table thead th {
-        font-size: 1.2rem;
-    }
+#sResult2 {
+   background-color: white;
+   list-style: none;
 }
-@media only screen and (max-width: 576px) {
-    .table thead th {
-        font-size: 1rem;
-    }
+.theme-dark #sResult2 {
+   background-color: black;
+}
+#sResult2 li{
+   border-bottom: 1px solid rgba(128, 128, 128, .2);
 }
