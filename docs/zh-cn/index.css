@@ -20,7 +20,7 @@ main .home-link p{
    opacity: .8;
 }
 .theme-dark main .home-link{
-   background-color: black;
+   background-color: #101010;
 }
 .home-link img{
    vertical-align: top;
@@ -52,7 +52,15 @@ main .home-link p{
    list-style: none;
 }
 .theme-dark #sResult2 {
-   background-color: black;
+   background-color: #101010;
+}
+.theme-dark #sInput2 {
+   border: 1px solid #474e43;
+    background: #1e1e1e;
+    color: #dcdcdc;
+}
+.theme-dark #sInput2:focus {
+   box-shadow: 0 0 5px #474e43;
 }
 #sResult2 li{
    border-bottom: 1px solid rgba(128, 128, 128, .2);
