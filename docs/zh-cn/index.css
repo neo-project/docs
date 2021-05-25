@@ -3,6 +3,8 @@
 }
 main{
    margin: 0 auto;
+   max-width: 800px;
+   flex: 0 0 100%;
 }
 main h1{
    border: none
@@ -13,12 +15,20 @@ main .home-link{
    background-color: white;
 }
 main .home-link p{
-   margin-bottom: 0;
+   margin: .5rem 0 0;
    font-size: 14px;
    opacity: .8;
 }
 .theme-dark main .home-link{
    background-color: black;
+}
+.home-link img{
+   vertical-align: top;
+}
+.div2{
+   display: inline-block;
+   width: calc(100% - 45px);
+   margin-left: 10px;
 }
 
 .search-bar2{

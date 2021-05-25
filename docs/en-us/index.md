@@ -13,33 +13,57 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4"><a href="gettingstarted/prerequisites.html">Getting Started</a>
-                <p>Start here to build and deploy a basic smart contract if you are a beginner.</p>
+            <div class="home-link p-4">
+                <img src="assets/section1.svg" />
+                <div class="div2">
+                    <a href="gettingstarted/prerequisites.html">Getting Started</a>
+                    <p>Start here to build and deploy a basic smart contract if you are a beginner.</p>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4"><a href="basic/concept/blockchain/block.html">Neo Basics</a>
-                <p>Get a basic-level understanding of Neo core concepts.</p>
+            <div class="home-link p-4">
+                <img src="assets/section2.svg" />
+                <div class="div2">
+                    <a href="basic/concept/blockchain/block.html">Neo Basics</a>
+                    <p>Get a basic-level understanding of Neo core concepts.</p>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4"><a href="node/introduction.html">Neo Node</a>
-                <p>Learn how to run a Neo node and manage your wallet.</p>
+            <div class="home-link p-4">
+                <img src="assets/section3.svg" />
+                <div class="div2">
+                    <a href="node/introduction.html">Neo Node</a>
+                    <p>Learn how to run a Neo node and manage your wallet.</p>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4"><a href="develop/network/testnet.html">Developer Guide</a>
-                <p>Dive into comprehensive guides of smart contract, dApp, development tools, and more.</p>
+            <div class="home-link p-4">
+                <img src="assets/section4.svg" />
+                <div class="div2">
+                    <a href="develop/network/testnet.html">Developer Guide</a>
+                    <p>Dive into comprehensive guides of smart contract, dApp, development tools, and more.</p>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4"><a href="reference/rpc/latest-version/api.html">Reference</a>
-                <p>Consult development reference information such as APIs, frameworkd, fees, and more.</p>
+            <div class="home-link p-4">
+                <img src="assets/section5.svg" />
+                <div class="div2">
+                    <a href="reference/rpc/latest-version/api.html">Reference</a>
+                    <p>Consult development reference information such as APIs, frameworkd, fees, and more.</p>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4"><a href="exchange/general.html">Support for Exchanges</a>
-                <p>Learn how to integrate the Neo node with exchange if you are a exchange developer.</p>
+            <div class="home-link p-4">
+                <img src="assets/section6.svg" />
+                <div class="div2">
+                    <a href="exchange/general.html">Support for Exchanges</a>
+                    <p>Learn how to integrate the Neo node with exchange if you are a exchange developer.</p>
+                </div>
             </div>
         </div>
     </div>
