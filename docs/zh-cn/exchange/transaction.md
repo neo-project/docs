@@ -2,7 +2,7 @@
 
 ## 简介
 
-Neo N3 中只有一种资产，即 NEP-5 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
+Neo N3 中只有一种资产，即 NEP-17 类型的资产，使用 BALANCE 模型来管理资产。交易所对接时，主要处理这类资产的查询、充值、提现等操作。这三种操作的流程分别如下图所示：
 
    ![query.png](assets/query.png)
 
@@ -118,9 +118,9 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 
 要查询的 NEP-5 资产的脚本哈希，例如：
 
-NEO脚本哈希是：*0xf61eebf573ea36593fd43aa150c055ad7906ab83*       
+NEO脚本哈希是：*0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5*       
 
-GAS脚本哈希是：*0x70e2301955bf1e74cbb31d18c2f96972abadb328*
+GAS脚本哈希是：*0xd2a4cff31913016155e38e474a2c06d08be276cf*
 
 **method name**
 
@@ -154,12 +154,12 @@ symbol
 
 ##### **调用 balanceOf**
 
-假设用户账户地址是 NeHNBbeLNtiCEeaFQ6tLLpXkr5Xw6esKnV，你需要将其转换为 Hash160 类型并将此参数构造成 JSON 对象，如下所示:
+假设用户账户地址是 NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag，你需要将其转换为 Hash160 类型并将此参数构造成 JSON 对象，如下所示:
 
 ```json
 {
     "type": "Hash160",
-    "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
+    "value": "0x762f8a2bf0e8673c64cc608ba69b9c2a946a188f"
 }
 ```
 
@@ -172,12 +172,12 @@ symbol
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
+    "0xd2a4cff31913016155e38e474a2c06d08be276cf",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
+        "value": "0x762f8a2bf0e8673c64cc608ba69b9c2a946a188f"
       }
     ]
   ],
@@ -185,51 +185,28 @@ symbol
 }
 ```
 
-发送请求后，根据不同合约写法，将收到两种响应：
+发送请求后，会收到如下响应：
 
-- 返回值为base64 编码后的 ByteString：
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "DBSPGGqUKpybpotgzGQ8Z+jwK4ovdhHAHwwJYmFsYW5jZU9mDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
+        "state": "HALT",
+        "gasconsumed": "2028330",
+        "exception": null,
+        "stack": [
+            {
+                "type": "Integer",
+                "value": "1938845793634190"
+            }
+        ]
+    }
+}
+```
 
-  ```json
-  {
-      "jsonrpc": "2.0",
-      "id": 3,
-      "result": {
-          "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
-          "state": "HALT",
-          "gas_consumed": "8295750",
-          "stack": [
-              {
-                  "type": "ByteString",
-                  "value": "AADBb/KGIw=="
-              }
-          ]
-      }
-  }
-  ```
-
-  返回值 "AADBb/KGIw==" 由 base64 解码再转化成 BigInteger 可以得到 **1x10<sup>16</sup>**, 最后除以 8 位 decimals 得到此 Nep-5 资产的余额为 **1x10<sup>8</sup>**。
-
-- 返回值是 Integer 类型：
-
-  ```json
-  {
-      "jsonrpc": "2.0",
-      "id": 3,
-      "result": {
-          "script": "0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52",
-          "state": "HALT",
-          "gasconsumed": "3738760",
-          "stack": [
-              {
-                  "type": "Integer",
-                  "value": "10000000000000000"
-              }
-          ]
-      }
-  }
-  ```
-
-  返回值无需转换，只需除以 decimals 得到余额即可。
+返回值无需转换，只需除以 decimals 得到余额即可。
 
 ##### **调用 decimals**
 
@@ -240,7 +217,7 @@ symbol
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
+    "0xd2a4cff31913016155e38e474a2c06d08be276cf",
     "decimals",
     []
     ],
@@ -255,9 +232,10 @@ symbol
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "00c108646563696d616c73146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+        "script": "wh8MCGRlY2ltYWxzDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
         "state": "HALT",
-        "gas_consumed": "5673200",
+        "gasconsumed": "984060",
+        "exception": null,
         "stack": [
             {
                 "type": "Integer",
@@ -279,9 +257,9 @@ symbol
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
+    "0xd2a4cff31913016155e38e474a2c06d08be276cf",
     "symbol",
-    [ ]
+    []
   ],
   "id": 3
 }
@@ -294,20 +272,21 @@ symbol
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "00c10673796d626f6c146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+        "script": "wh8MBnN5bWJvbAwUz3bii9AGLEpHjuNVYQETGfPPpNJBYn1bUg==",
         "state": "HALT",
-        "gas_consumed": "8106560",
+        "gasconsumed": "984060",
+        "exception": null,
         "stack": [
             {
                 "type": "ByteString",
-                "value": "dDE="
+                "value": "R0FT"
             }
         ]
     }
 }
 ```
 
-返回值 "dDE=" 可以被 base64 解码为 "t1"。
+返回值 "dDE=" 可以被 base64 解码为 "GAS"。
 
 ##### **计算用户余额**
 
@@ -324,15 +303,13 @@ symbol
 
 1. 通过 getblock API 获取每个区块的详情，其中便包括该区块中所有交易的详情；
 
-2. 分析每笔交易的交易类型，过滤出所有类型为 "InvocationTransaction" 的交易，任何非 "InvocationTransaction" 类型的交易都不可能成为 NEP-5 类型资产的转账交易；
-
-3. 调用 getapplicationlog API 获取每笔 "InvocationTransaction" 交易的详情，分析交易内容，完成用户充值。
+3. 调用 getapplicationlog API 获取每笔交易的详情，分析交易内容，完成用户充值。
 
 ### 调用 getapplicationlog
 
 使用 [getapplicationlog](../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
 
-正确安装 ApplicationLogs 插件并启动 Neo-CLI 节点后，可以看到在neo-cli 根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-5 交易会记录在 leveldb 文件中，通过 API 来读取。
+正确安装 ApplicationLogs 插件并启动 Neo-CLI 节点后，可以看到在neo-cli 根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-17 交易会记录在 leveldb 文件中，通过 API 来读取。
 
 以下是一个 API 调用结果：
 
@@ -375,14 +352,14 @@ symbol
 
 > [!Note]
 >
-> -  失败的 NEP-5 交易也可以上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
+> -  失败的 NEP-17 交易也可以上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
 > -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
 
 其中与交易相关的参数如下：
 
-- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 NEP17 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该Nep17 资产的脚本哈希，是该资产在全网的唯一标识。
+- **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 NEP17 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该NEP17 资产的脚本哈希，是该资产在全网的唯一标识。
 
-- **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为transfer类型的交易以确认是否为用户的转账交易。 
+- **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为 Transfer 类型的交易以确认是否为用户的转账交易。 (notifications 数组中可能有多个 eventname, 只有 Transfer 关键字的 eventname 才是 NEP17 转账数据)
 
 - 对于转账交易，"state" 中 "value" 对应的数组包含以下三个对象：
 
@@ -684,6 +661,6 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 ## 相关参考
 
-[NEP-5 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki) 
+[NEP-17 Token Standard](https://github.com/neo-project/proposals/blob/nep-17/nep-17.mediawiki) 
 
 [Neo 数据转换](https://neo.org/converter/index)
