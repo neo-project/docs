@@ -180,3 +180,7 @@ main .home-link .p2{
  .theme-dark .search-bar2 .search-re::-webkit-scrollbar-track {
    background: transparent;
  }
+ main.col-xl-7 {
+   flex: 0 0 66.666667%;
+   max-width: 66.666667%;
+}

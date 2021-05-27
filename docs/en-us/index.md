@@ -2,7 +2,7 @@
     <div class="text-center">
         <h1 class="m-0 p-0">Neo Documentation</h1>
         <p>Here is an exhaustive library of Neo technical documents, including development examples for your reference.</p>
-        <div class="search-bar2">
+        <div class="search-bar2 mt-5 mb-4">
             <i class="fas fa-search"></i>
             <span class="search-de2">X</span>
             <input id="sInput2" type="text" class="form-control pl-5" placeholder="Search for help...">
