@@ -48,9 +48,11 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
    - getnep17balances（需提前安装 RpcNep17Tracker 插件）
-   - invokefunction
-2. 向 Neo RPC 服务器发送文件请求。
-3. 根据返回值计算出用户余额。
+   - invokefunction（需提前安装 RpcServer 插件）
+2. 向 Neo RPC 服务器发送 getnep17balances 请求获取资产 hash 和数量。
+3. 向 Neo RPC 服务器发送两次 invokefunction 请求分别获取对应资产的标识符（symbol）和精度（decimals）。
+4. 根据返回值计算出用户余额。
+5. 对于特定用户的某一种资产余额的查询可以用 invokefunction 来调用资产的 balanceOf 方法来查询。
 
 #### 调用 getnep17balances
 
@@ -73,12 +75,12 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
     "result": {
         "balance": [
             {
-                "asset_hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "asset_hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
                 "amount": "2",
                 "last_updated_block": 52675
             },
             {
-                "asset_hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "asset_hash": "0xd2a4cff31913016155e38e474a2c06d08be276cf",
                 "amount": "700000000",
                 "last_updated_block": 52675
             }
@@ -87,9 +89,11 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
     }
 }
 ```
+可以看到用户有两种资产，资产 hash 分别为 "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5" 和 "0xd2a4cff31913016155e38e474a2c06d08be276cf"。
 
-根据所有返回值，可以计算出用户余额为：
-用户余额 = 700000000/10⁸ NEO = 7 GAS, 2 NEO
+此时需要调用 invokefunction 来获取资产的 symbol 和 decimals，下文会具体介绍。
+在这里 A 资产的 symbol 是 NEO， decimals 是 0，用户 A 资产余额 = 2 NEO。
+B 资产的 symbol 是 GAS， decimals 是 8，用户 A 资产余额 = 700000000/10⁸ GAS = 7 GAS。
 
 #### 调用 invokefunction
 
@@ -116,7 +120,7 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 
 **script hash**
 
-要查询的 NEP-5 资产的脚本哈希，例如：
+要查询的 NEP-17 资产的脚本哈希，例如：
 
 NEO脚本哈希是：*0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5*       
 
@@ -296,6 +300,7 @@ symbol
 ### 交易所用户的账户余额
 
 用户实际在交易所里的余额，应当记录在交易所的数据库里。 交易所需要编写程序监控每个区块的每个交易，在数据库中记录下所有充值提现交易，对应修改数据库中的用户余额，以供用户查询使用。
+
 
 ## 处理充值交易
 
