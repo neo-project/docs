@@ -2,7 +2,7 @@
     <div class="text-center">
         <h1 class="m-0 p-0">Neo 技术文档</h1>
         <p>Neo 官方的技术文档都在这里，还有众多开发示例可供参考。</p>
-        <div class="search-bar2">
+        <div class="search-bar2 mt-5 mb-4">
             <i class="fas fa-search"></i>
             <span class="search-de2">X</span>
             <input id="sInput2" type="text" class="form-control pl-5" placeholder="Search for help...">
