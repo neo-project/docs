@@ -13,60 +13,59 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="gettingstarted/prerequisites.html">
                 <img src="assets/section1.svg" />
                 <div class="div2">
-                    <a href="gettingstarted/prerequisites.html">快速入门</a>
-                    <p>了解与 Neo 相关的基础背景知识和技术概念</p>
+                    <p class="m-0">快速入门</p>
+                    <p class="p2">了解与 Neo 相关的基础背景知识和技术概念</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="basic/concept/blockchain/block.html">
                 <img src="assets/section2.svg" />
                 <div class="div2">
-                    <a href="basic/concept/blockchain/block.html">Neo 基础知识</a>
-                    <p>如果你是新手，从这里开始创建一个简单的智能合约并完成部署和调用</p>
+                    <p class="m-0">Neo 基础知识</p>
+                    <p class="p2">如果你是新手，从这里开始创建一个简单的智能合约并完成部署和调用</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="node/introduction.html">
                 <img src="assets/section3.svg" />
                 <div class="div2">
-                    <a href="node/introduction.html">Neo 节点</a>
-                    <p>使用 Neo 的全节点客户端与区块链进行交互，如管理钱包，转移资产，启动共识等</p>
+                    <p class="m-0">Neo 节点</p>
+                    <p class="p2">使用 Neo 的全节点客户端与区块链进行交互，如管理钱包，转移资产，启动共识等</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="develop/network/testnet.html">
                 <img src="assets/section4.svg" />
                 <div class="div2">
-                    <a href="develop/network/testnet.html">开发指南</a>
-                    <p>深入学习智能合约的编写，部署，开发工具集等开发相关的综合性指南</p>
+                    <p class="m-0">开发指南</p>
+                    <p class="p2">深入学习智能合约的编写，部署，开发工具集等开发相关的综合性指南</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="reference/rpc/latest-version/api.html">
                 <img src="assets/section5.svg" />
                 <div class="div2">
-                    <a href="reference/rpc/latest-version/api.html">开发参考</a>
-                    <p>快速查阅开发相关的 API，框架，手续费等信息</p>
+                    <p class="m-0">开发参考</p>
+                    <p class="p2">快速查阅开发相关的 API，框架，手续费等信息</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
-                <img src="assets/section6.svg" />
+            <a class="home-link p-4" href="exchange/general.html">
+                <img src="assets/section5.svg" />
                 <div class="div2">
-                    <a href="exchange/general.html">交易所文档</a>
-                    <p>面向交易所开发人员的指南</p>
+                    <p class="m-0">交易所文档</p>
+                    <p class="p2">面向交易所开发人员的指南</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
-
 <link href="index.css" rel="stylesheet" />

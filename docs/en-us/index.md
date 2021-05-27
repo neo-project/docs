@@ -13,60 +13,59 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="gettingstarted/prerequisites.html">
                 <img src="assets/section1.svg" />
                 <div class="div2">
-                    <a href="gettingstarted/prerequisites.html">Getting Started</a>
-                    <p>Start here to build and deploy a basic smart contract if you are a beginner.</p>
+                    <p class="m-0">Getting Started</p>
+                    <p class="p2">Start here to build and deploy a basic smart contract if you are a beginner.</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="basic/concept/blockchain/block.html">
                 <img src="assets/section2.svg" />
                 <div class="div2">
-                    <a href="basic/concept/blockchain/block.html">Neo Basics</a>
-                    <p>Get a basic-level understanding of Neo core concepts.</p>
+                    <p class="m-0">Neo Basics</p>
+                    <p class="p2">Get a basic-level understanding of Neo core concepts.</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="node/introduction.html">
                 <img src="assets/section3.svg" />
                 <div class="div2">
-                    <a href="node/introduction.html">Neo Node</a>
-                    <p>Learn how to run a Neo node and manage your wallet.</p>
+                    <p class="m-0">Neo Node</p>
+                    <p class="p2">Learn how to run a Neo node and manage your wallet.</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="develop/network/testnet.html">
                 <img src="assets/section4.svg" />
                 <div class="div2">
-                    <a href="develop/network/testnet.html">Developer Guide</a>
-                    <p>Dive into comprehensive guides of smart contract, dApp, development tools, and more.</p>
+                    <p class="m-0">Developer Guide</p>
+                    <p class="p2">Dive into comprehensive guides of smart contract, dApp, development tools, and more.</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
+            <a class="home-link p-4" href="reference/rpc/latest-version/api.html">
                 <img src="assets/section5.svg" />
                 <div class="div2">
-                    <a href="reference/rpc/latest-version/api.html">Reference</a>
-                    <p>Consult development reference information such as APIs, frameworkd, fees, and more.</p>
+                    <p class="m-0">Reference</p>
+                    <p class="p2">Consult development reference information such as APIs, frameworkd, fees, and more.</p>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-12 col-md-6 my-3 align-items-stretch">
-            <div class="home-link p-4">
-                <img src="assets/section6.svg" />
+            <a class="home-link p-4" href="exchange/general.html">
+                <img src="assets/section5.svg" />
                 <div class="div2">
-                    <a href="exchange/general.html">Support for Exchanges</a>
-                    <p>Learn how to integrate the Neo node with exchange if you are a exchange developer.</p>
+                    <p class="m-0">Support for Exchanges</p>
+                    <p class="p2">Learn how to integrate the Neo node with exchange if you are a exchange developer.</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
-
 <link href="../zh-cn/index.css" rel="stylesheet" />

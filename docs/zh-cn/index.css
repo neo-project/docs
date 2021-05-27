@@ -10,14 +10,33 @@ main h1, .theme-dark main h1{
    border: none
 }
 main .home-link{
-   border: 1px solid rgba(128, 128, 128, .5);
+   display: block;
+   border: 1px solid rgba(128, 128, 128, .035);
    height: 100%;
    background-color: white;
 }
-main .home-link p{
+main .home-link{
+   text-decoration: none;
+}
+main .home-link:hover{
+   border: 1px solid white;
+   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+}
+.theme-dark main .home-link:hover{
+   border: 1px solid black;
+   box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.08);
+}
+main .home-link .m-0{
+   line-height: 1;
+}
+main .home-link .p2{
    margin: .5rem 0 0;
    font-size: 14px;
    opacity: .8;
+   color: rgba(0, 0, 0, 0.6);
+}
+.theme-dark main .home-link .p2{
+   color: rgba(255, 255, 255, 0.6);
 }
 .theme-dark main .home-link{
    background-color: #101010;
