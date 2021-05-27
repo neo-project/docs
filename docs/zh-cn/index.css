@@ -1,4 +1,4 @@
-#catalog_div, .bg-left, #side_nav_div, .search-bar2, .anchorjs-link, #prevPage, #nextPage, #catalogToggle{
+#catalog_div, .bg-left, #side_nav_div, .search-bar, .anchorjs-link, #prevPage, #nextPage, #catalogToggle{
    display:none!important;
 }
 main{
@@ -66,11 +66,14 @@ main .home-link .p2{
    position: absolute;
    right: 1rem;
    line-height: 2.5;
+   display: none;
+   cursor: pointer;
 }
 #sInput2{
    border-radius: 0;
 }
 #sResult2 {
+   margin-top: 0;
    background-color: white;
    list-style: none;
 }
@@ -88,7 +91,9 @@ main .home-link .p2{
 #sResult2 li{
    border-bottom: 1px solid rgba(128, 128, 128, .2);
 }
-
+.search-bar2:hover .search-re2, .search-bar2:hover .search-de2 {
+   display: block;
+ }
  .search-bar2 .search-re2{
    position: absolute;
    max-height: 560px;
@@ -96,27 +101,28 @@ main .home-link .p2{
    background: #fff;
    overflow-y: auto;
    display: none;
+   text-align: left;
    z-index: 3;
    width: 100%;
  }
- .search-bar2 .search-re2ul {
+ .search-bar2 .search-re2 ul {
    padding-left: 0;
    background: #fff;
    margin-bottom: 0;
  }
- .search-bar2 .search-re2ul > li {
+ .search-bar2 .search-re2 ul > li {
    list-style: none;
  }
- .search-bar2 .search-re2ul > li a {
+ .search-bar2 .search-re2 ul > li a {
    display: inline-block;
    width: 100%;
    padding-bottom: 6px;
    padding: 0 1rem;
  }
- .search-bar2 .search-re2ul > li a:hover {
+ .search-bar2 .search-re2 ul > li a:hover {
    background-color: #f7f7f7;
  }
- .search-bar2 .search-re2ul > li strong {
+ .search-bar2 .search-re2 ul > li strong {
    display: inline-block;
    padding-bottom: 0.75rem;
    margin: 0.75rem 0;
@@ -129,7 +135,7 @@ main .home-link .p2{
    width: 100%;
    vertical-align: bottom;
  }
- .search-bar2 .search-re2ul > li span {
+ .search-bar2 .search-re2 ul > li span {
    display: inline-block;
    padding: 0 0 0.75rem;
    color: rgba(0, 0, 0, 0.6);
@@ -137,18 +143,18 @@ main .home-link .p2{
    font-size: 14px;
    word-break: break-all;
  }
- .search-bar2 .search-re2ul > li:first-child {
+ .search-bar2 .search-re2 ul > li:first-child {
    border: none;
  }
- .search-bar2 .search-re::-webkit-scrollbar {
+ .search-bar2 .search-re2::-webkit-scrollbar {
    width: 8px;
    height: 8px;
  }
- .search-bar2 .search-re::-webkit-scrollbar-thumb {
+ .search-bar2 .search-re2::-webkit-scrollbar-thumb {
    border-radius: 10px;
    background: rgba(0, 0, 0, 0.15);
  }
- .search-bar2 .search-re::-webkit-scrollbar-track {
+ .search-bar2 .search-re2::-webkit-scrollbar-track {
    border-radius: 5px;
    background: transparent;
  }
@@ -156,16 +162,16 @@ main .home-link .p2{
    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.08);
    background: #1E1E1E;
  }
- .theme-dark .search-bar2 .search-re2ul {
+ .theme-dark .search-bar2 .search-re2 ul {
    background: #1E1E1E;
  }
- .theme-dark .search-bar2 .search-re2ul > li a:hover {
+ .theme-dark .search-bar2 .search-re2 ul > li a:hover {
    background-color: #1E1E1E;
  }
- .theme-dark .search-bar2 .search-re2ul > li strong {
+ .theme-dark .search-bar2 .search-re2 ul > li strong {
    color: #fff;
  }
- .theme-dark .search-bar2 .search-re2ul > li span {
+ .theme-dark .search-bar2 .search-re2 ul > li span {
    color: rgba(255, 255, 255, 0.6);
  }
  .theme-dark .search-bar2 .search-re::-webkit-scrollbar-thumb {
