@@ -2,50 +2,32 @@
   "ApplicationConfiguration": [
     {
       "origin": "docs\\zh-cn",
-      "template": "template",
       "destination": "wwwroot\\docs\\zh-cn",
-      "catalog": "docs\\zh-cn\\toc.yml",
-      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/docs/zh-cn/"
     },
     {
       "origin": "docs\\en-us",
-      "template": "template",
       "destination": "wwwroot\\docs\\en-us",
-      "catalog": "docs\\en-us\\toc.yml",
-      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/docs/en-us/"
     },
     {
       "origin": "faq\\zh-cn",
-      "template": "template",
       "destination": "wwwroot\\faq\\zh-cn",
-      "catalog": "faq\\zh-cn\\toc.yml",
-      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/faq/zh-cn/"
     },
     {
       "origin": "faq\\en-us",
-      "template": "template",
       "destination": "wwwroot\\faq\\en-us",
-      "catalog": "faq\\en-us\\toc.yml",
-      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/faq/en-us/"
     },
     {
       "origin": "articles\\zh-cn",
-      "template": "template",
       "destination": "wwwroot\\articles\\zh-cn",
-      "catalog": "articles\\zh-cn\\toc.yml",
-      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/articles/zh-cn/"
     },
     {
       "origin": "articles\\en-us",
-      "template": "template",
       "destination": "wwwroot\\articles\\en-us",
-      "catalog": "articles\\en-us\\toc.yml",
-      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/articles/en-us/"
     }
   ]
