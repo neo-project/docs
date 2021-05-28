@@ -47,12 +47,13 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep17balances（需提前安装 RpcNep17Tracker 插件）
-   - invokefunction（需提前安装 RpcServer 插件）
+   - getnep17balances（需安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) 插件）
+   - invokefunction（需安装 [RpcServer](https://github.com/neo-project/neo-modules/releases/) 插件）
 2. 向 Neo RPC 服务器发送 getnep17balances 请求获取资产 hash 和数量。
 3. 向 Neo RPC 服务器发送两次 invokefunction 请求分别获取对应资产的标识符（symbol）和精度（decimals）。
 4. 根据返回值计算出用户余额。
-5. 对于特定用户的某一种资产余额的查询可以用 invokefunction 来调用资产的 balanceOf 方法来查询。
+
+要查询特定用户的某一种资产余额,，可以使用 `invokefunction` 来调用资产的 `balanceOf` 方法。
 
 #### 调用 getnep17balances
 
@@ -92,8 +93,8 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 可以看到用户有两种资产，资产 hash 分别为 "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5" 和 "0xd2a4cff31913016155e38e474a2c06d08be276cf"。
 
 此时需要调用 invokefunction 来获取资产的 symbol 和 decimals，下文会具体介绍。
-在这里 A 资产的 symbol 是 NEO， decimals 是 0，用户 A 资产余额 = 2 NEO。
-B 资产的 symbol 是 GAS， decimals 是 8，用户 A 资产余额 = 700000000/10⁸ GAS = 7 GAS。
+
+在这里 A 资产的 symbol 是 NEO， decimals 是 0，用户 A 资产余额 = 2 NEO。B 资产的 symbol 是 GAS， decimals 是 8，用户 A 资产余额 = 700000000/10⁸ GAS = 7 GAS。
 
 #### 调用 invokefunction
 
@@ -148,7 +149,7 @@ symbol
 
 - optional arguments
 
-  可选。如果调用的方法需要参数，可以将这些参数构造成一个数组传入。例如，NEP-5 的 "balanceOf" 返回 "account" 的余额：
+  可选。如果调用的方法需要参数，可以将这些参数构造成一个数组传入。例如，NEP-17 的 "balanceOf" 返回 "account" 的余额：
 
   `public static BigInteger balanceOf(byte[] account)`
 
@@ -364,13 +365,13 @@ symbol
 
 - **contract**: 该字符串为智能合约的脚本哈希，对于交易所来说，这里是 NEP17 类型资产的脚本哈希，交易所可以以此来确定资产的唯一性。例如，"0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" 就是该NEP17 资产的脚本哈希，是该资产在全网的唯一标识。
 
-- **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为 Transfer 类型的交易以确认是否为用户的转账交易。 (notifications 数组中可能有多个 eventname, 只有 Transfer 关键字的 eventname 才是 NEP17 转账数据)
+- **eventname**: 该字段为合约事件标识，对于交易所来说，应当只监听标识为 Transfer 类型的交易以确认是否为用户的转账交易。 
 
-- 对于转账交易，"state" 中 "value" 对应的数组包含以下三个对象：
+  notifications 数组中可能有多个 eventname, 只有关键字为 Transfer 的 eventname 才是 NEP17 转账数据。
 
-  [转出账户，转入账户，金额]
-  
-  - 数组中的的第一个对象，为转出账户地址，类型为 bytearray，值为 "uXtKzX+CD2HS1NT5rqXrUEmN31U="，经过 base64 解码为 ByteArray 后再转换为字符串 "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o"。
+- **state**: 对于转账交易，该数组包含以下三个对象：
+
+  - 转出账户地址：数组中的的第一个对象，类型为 bytearray，值为 "uXtKzX+CD2HS1NT5rqXrUEmN31U="，经过 base64 解码为 ByteArray 后再转换为字符串 "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o"。
   
     > [!Note]
     >
@@ -382,31 +383,19 @@ symbol
     }
     ```
   
-   - 数组中的第二个对象，为转入账户地址，类型为 bytearray，值为 "7ztGBn8vR7L38EQqojcghdCHCO8="，经过 base64 解码为 ByteArray 后再转换为字符串 "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
+   - 转入账户地址：数组中的第二个对象，类型为 bytearray，值为 "7ztGBn8vR7L38EQqojcghdCHCO8="，经过 base64 解码为 ByteArray 后再转换为字符串 "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z"。对于交易所来说，如果该地址为交易所地址，那么该交易是一笔充值交易。
     ```json
     {
       "type": "ByteString",
       "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
     }
     ```
-  - 数组中的的第三个对象，为转账金额，根据合约写法不同，这里会有两种类型返回值：Integer 或 ByteString，两种类型的数值转换方式不同。
-    
-    如类型为 Integer 时，值为 "800000000000"。因为 decimal 为 8 位，所以实际值是 8000.00000000。
-    
-    类型为 ByteString 时，值为 "AEC3Q7oA"，经 base64 解码后为 "0040b743ba"。因前面没加 0x，按小端序处理，翻转后为 "ba43b74000"，值为 8x10<sup>11</sup>，因为 decimal 为 8 位，所以实际值是 8000.00000000。
+  - 转账金额：数组中的的第三个对象，值为 "800000000000"。因为 decimal 为 8 位，所以实际值是 8000.00000000。
     
     ```json
     {
       "type": "Integer",
       "value": "800000000000"
-    }
-    ```
-    或
-    
-    ```json
-    {
-      "type": "ByteString",
-      "value": "AEC3Q7oA"
     }
     ```
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Neo N3 has only one type of digital assets, i.e. NEP-5 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
+Neo N3 has only one type of digital assets, i.e. NEP-17 assets, which are managed by BALANCE. The exchanges mainly deal with user balance queries,  deposits, withdrawals, and other operations of this type assets.
 
 Following flow charts show the work processes of these operations:
 
@@ -20,9 +20,9 @@ The network fee, as a reward for the consensus nodes generating blocks, is charg
 NetworkFee = VerificationCost + tx.size * FeePerByte
 ```
 
-- VerficationCost：Fees for instructions executed by NeoVM to verify transaction signatures.
-- tx.size：The transaction data byte length
-- FeePerByte：Transaction fee per byte, currently defined as 0.00001 GAS in PolicyContract.
+- VerficationCost: Fees for instructions executed by NeoVM to verify transaction signatures.
+- tx.size: The transaction data byte length
+- FeePerByte: Transaction fee per byte, currently defined as 0.00001 GAS in PolicyContract.
 
 ## System fee
 
@@ -49,16 +49,19 @@ The way for a exchange itself to query balance of the user deposit address is di
 The exchange needs to do the following:
 
 1. Construct JSON files to invoke either of the following RPC methods:
-   - getnep17balances
-   - invokefunction
-2. Send the JSON files to Neo RPC server.
-3. Calculate the user balance according to the returned values.
+   - getnep17balances (Plugin [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) is required)
+   - invokefunction (Plugin [RpcServer](https://github.com/neo-project/neo-modules/releases/) is required)
+2. Send a `getnep17balances` request to the Neo RPC server to get the asset hash and amount.
+3. Send the invokefunction requests twice to the Neo RPC server to get the corresponding asset symbol and decimals, respectively.
+4. Calculate the user balance according to the returned values.
+
+To query the balance of an asset for a particular user, use `invokefunction` to call the `balanceOf` method of asset.
 
 #### Invoking getnep17balances to query
 
 In JSON, a general getnep17balances request body is in the following form: 
 
-```
+```json
 {
 "jsonrpc": "2.0",
 "method": "getnep17balances",
@@ -69,19 +72,19 @@ In JSON, a general getnep17balances request body is in the following form:
 
 After sending the request you will get the following response:
 
-```
+```json
 {
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
         "balance": [
             {
-                "asset_hash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
+                "asset_hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5",
                 "amount": "2",
                 "last_updated_block": 52675
             },
             {
-                "asset_hash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
+                "asset_hash": "0xd2a4cff31913016155e38e474a2c06d08be276cf",
                 "amount": "700000000",
                 "last_updated_block": 52675
             }
@@ -91,7 +94,9 @@ After sending the request you will get the following response:
 }
 ```
 
-According to all the returned values,  we can calculate the user balance as follows: The balance = 700000000/10⁸ NEO = 7 GAS, 2 NEO
+As we can see in the request above, there are two kinds of assets which hashes are "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5" and "0xd2a4cff31913016155e38e474a2c06d08be276cf". Now we need to call invokefunction to get symbol and decimals of the asset, which will be elaborated below.
+
+In the example above the asset A symbol is NEO, decimals is 0, and the user A balance is 2 NEO.  For the asset B, its symbol is GAS, decimals is 8, and the balance is 700000000/10⁸ GAS (7 GAS).
 
 #### Invoking invokefunction to query
 
@@ -118,10 +123,10 @@ You need to replace these strings when querying the user's balance:
 
 - script hash
 
-  The script hash of the NEP-5 asset you are querying. For example:
+  The script hash of the NEP-17 asset you are querying. For example:
   
-  - NEO is *0xf61eebf573ea36593fd43aa150c055ad7906ab83*
-  - GAS is *0x70e2301955bf1e74cbb31d18c2f96972abadb328*
+  - NEO is *0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5*
+  - GAS is *0xd2a4cff31913016155e38e474a2c06d08be276cf*
 
 
 - method name
@@ -146,7 +151,7 @@ You need to replace these strings when querying the user's balance:
 
 - optional arguments
 
-  Optional. If the method you are invoking requires arguments, you can pass them by constructing these parameters into an array. For example, "balanceOf" in NEP-5 returns the token balance of the "account":
+  Optional. If the method you are invoking requires arguments, you can pass them by constructing these parameters into an array. For example, "balanceOf" in NEP-17 returns the token balance of the "account":
 
   `public static BigInteger balanceOf(byte[] account)`
 
@@ -156,12 +161,12 @@ You need to replace these strings when querying the user's balance:
 
 ##### **Invoking balanceOf**
 
-Suppose the account address is AKibPRzkoZpHnPkF6qvuW2Q4hG9gKBwGpR, you need to convert it into Hash160 type and construct this parameter as a JSON object:
+Suppose the account address is NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag, you need to convert it into Hash160 type and construct this parameter as a JSON object:
 
 ```json
 {
     "type": "Hash160",
-    "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
+    "value": "0x762f8a2bf0e8673c64cc608ba69b9c2a946a188f"
 }
 ```
 
@@ -174,12 +179,12 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
+    "0xd2a4cff31913016155e38e474a2c06d08be276cf",
     "balanceOf",
     [
       {
         "type": "Hash160",
-        "value": "0x09ad8f0b21a7294b3e429f58eaa415ac4b327ec9"
+        "value": "0x762f8a2bf0e8673c64cc608ba69b9c2a946a188f"
       }
     ]
   ],
@@ -187,51 +192,28 @@ Request Body：
 }
 ```
 
-After sending the request, depending on your smart contract code you will get the response like one of the following：
+After sending the request, you will get the following response：
 
-- The ByteString value encoded by base64 is returned:
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "result": {
+        "script": "DBSPGGqUKpybpotgzGQ8Z+jwK4ovdhHAHwwJYmFsYW5jZU9mDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
+        "state": "HALT",
+        "gasconsumed": "2028330",
+        "exception": null,
+        "stack": [
+            {
+                "type": "Integer",
+                "value": "1938845793634190"
+            }
+        ]
+    }
+}
+```
 
-  ```json
-  {
-      "jsonrpc": "2.0",
-      "id": 3,
-      "result": {
-          "script": "14c97e324bac15a4ea589f423e4b29a7210b8fad0951c10962616c616e63654f66146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
-          "state": "HALT",
-          "gas_consumed": "8295750",
-          "stack": [
-              {
-                  "type": "ByteString",
-                  "value": "AADBb/KGIw=="
-              }
-          ]
-      }
-  }
-  ```
-
-  Decode the returned value ”AADBb/KGIw==“ with base64 and convert it to BigInteger you will get **1x10<sup>16</sup>**, and then divide it by 8-bit decimals you will get the NEP-5 assets balance **1x10<sup>8</sup>**.
-
-- The Integer type value is returned：
-
-  ```json
-  {
-      "jsonrpc": "2.0",
-      "id": 3,
-      "result": {
-          "script": "0c14b97b4acd7f820f61d2d4d4f9aea5eb50498ddf5511c00c0962616c616e63654f660c14ec99f691c0f7dfa41400473edd1c2afceb70c2d241627d5b52",
-          "state": "HALT",
-          "gasconsumed": "3738760",
-          "stack": [
-              {
-                  "type": "Integer",
-                  "value": "10000000000000000"
-              }
-          ]
-      }
-  }
-  ```
-
-  Divide the returned value by 8-bit decimals directly to get the NEP-5 assets balance.
+To get the balance divide the returned value by decimals, without needing of data conversion.
 
 ##### **Invoking decimals**
 
@@ -242,8 +224,8 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
-    "decimals", 
+    "0xd2a4cff31913016155e38e474a2c06d08be276cf",
+    "decimals",
     []
     ],
   "id": 2
@@ -257,9 +239,10 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "00c108646563696d616c73146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+        "script": "wh8MCGRlY2ltYWxzDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
         "state": "HALT",
-        "gas_consumed": "5673200",
+        "gasconsumed": "984060",
+        "exception": null,
         "stack": [
             {
                 "type": "Integer",
@@ -281,10 +264,10 @@ Request Body：
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [
-    "0xe9fa06842455ecf020b15d0e9b9c42de24ea3c6d",
-    "symbol", 
+    "0xd2a4cff31913016155e38e474a2c06d08be276cf",
+    "symbol",
     []
-    ],
+  ],
   "id": 3
 }
 ```
@@ -296,20 +279,21 @@ After sending the request, you will get the following response：
     "jsonrpc": "2.0",
     "id": 3,
     "result": {
-        "script": "00c10673796d626f6c146d3cea24de429c9b0e5db120f0ec55248406fae968627d5b52",
+        "script": "wh8MBnN5bWJvbAwUz3bii9AGLEpHjuNVYQETGfPPpNJBYn1bUg==",
         "state": "HALT",
-        "gas_consumed": "8106560",
+        "gasconsumed": "984060",
+        "exception": null,
         "stack": [
             {
                 "type": "ByteString",
-                "value": "dDE="
+                "value": "R0FT"
             }
         ]
     }
 }
 ```
 
-It returns "dDE=" which can be decoded to "t1" with base64.
+It returns "dDE=" which can be decoded to "GAS".
 
 ##### **Calculating the User Balance**
 
@@ -325,14 +309,13 @@ The actual user balance in the exchange is recorded in the exchange database. Th
 To get the user deposits information the exchange needs to do the following:
 
 1. Get each block details using the `getblock` API, including details of all the transactions in the block.
-2. Analyze each transaction type and filter out all transactions of the type "InvocationTransaction". Any transaction other than "InvocationTransaction" can not be a transfer transaction of NEP-5 assets.
-3. Invoke the `getapplicationlog` API to get the details of each "InvocationTransaction" transaction and analyze the transaction content to complete the user deposit.
+2. Invoke the `getapplicationlog` API to get the details of each "InvocationTransaction" transaction and analyze the transaction content to complete the user deposit.
 
 ### Invoking getapplicationlog
 
 This API is used to get transaction information.
 
-After correctly installing the ApplicationLogs plug-in and starting the neo-cli node, you can find a folder "ApplicationLogs" is generated under the root path. The complete contract log is recorded in this directory, and each NEP-5 transaction is recorded in a leveldb file.
+After correctly installing the ApplicationLogs plug-in and starting the neo-cli node, you can find a folder "ApplicationLogs" is generated under the root path. The complete contract log is recorded in this directory, and each NEP-17 transaction is recorded in a leveldb file.
 
 The following shows an example of the API invoking result. 
 
@@ -375,20 +358,18 @@ The following shows an example of the API invoking result.
 
 > [!Note]
 >
-> - The failed NEP-5 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
+> - The failed NEP-17 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
 > - "vmstate" indicates the vm status after it executes the contract. If it contains "FAULT", that means the execution is failed and the transaction is invalid. 
 
 The parameters related to a transaction in the file are the following:
 
 - **contract**: the script hash of smart contract. For exchanges, it is the script hash of NEP17 assets type and the unique identity of the asset. For example, here "0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec" is the NEP17 asset script hash.
 
-- **eventname**: the event identifier of smart contact. Exchanges only need to listen on “transfer” transactions to find out users' transfer transactions.
+- **eventname**: the event identifier of smart contact. Exchanges only need to listen on “transfer” transactions to find out users' transfer transactions. There may be more than one eventname in the Notifications array, and only those with the Transfer keyword are NEP17 Transfer data.
 
-- The objects included in the "value" array of "state" are:
+- **state**: The objects included in the array are:
 
-  [from account, to account, amount]
-
-  - The first object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "uXtKzX+CD2HS1NT5rqXrUEmN31U=“ can be  decoded to "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o" with base64. 
+  - from account: The first object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "uXtKzX+CD2HS1NT5rqXrUEmN31U=“ can be  decoded to "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o" with base64. 
 
     > [!Note]
     >
@@ -396,12 +377,12 @@ The parameters related to a transaction in the file are the following:
     
     ```json
     {
-  "type": "ByteString",
+    "type": "ByteString",
       "value": "uXtKzX+CD2HS1NT5rqXrUEmN31U="
-  }
+    }
     ```
     
-  - The second object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "7ztGBn8vR7L38EQqojcghdCHCO8=“ can be decoded to "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z" with base64. If the address is an exchange account address, it is a deposit transaction.
+  - to account: The second object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "7ztGBn8vR7L38EQqojcghdCHCO8=“ can be decoded to "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z" with base64. If the address is an exchange account address, it is a deposit transaction.
   
     ```json
     {
@@ -410,12 +391,8 @@ The parameters related to a transaction in the file are the following:
   }
     ```
   
-  - The last object in the array is the transfer amount, which type can be Integer or ByteString depending on the contract code. The conversion methods of the two types are different.
+  - amount: The last object in the array is the transfer amount, which value is 800000000000. Since the decimal is 8 bit the value is actually 8000.00000000.
   
-    For the type Integer, the value 800000000000 is actually 8000.00000000 since the decimal is 8 bit.
-    
-    For the type ByteString, the value AEC3Q7oA should be base64-decoded to "0040b743ba", and then the little endian string be reversed to "ba43b74000", which value is 8x10<sup>11</sup> . Since the decimal is 8 bit, the final value is 8000.00000000
-    
     ```
     {
       "type": "Integer",
@@ -423,14 +400,6 @@ The parameters related to a transaction in the file are the following:
     }
     ```
     
-    or 
-    
-    ```
-    {
-      "type": "ByteString",
-      "value": "AEC3Q7oA"
-    }
-    ```
 
 > [!Note]
 >
@@ -688,6 +657,6 @@ After sending the request, you will get the following response：
 
 ## See Also
 
-[NEP17 Token Standard](https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki)
+[NEP17 Token Standard](https://github.com/neo-project/proposals/blob/nep-17/nep-17.mediawiki)
 
 [Neo3 Data Conversion](https://neo.org/converter/index)
