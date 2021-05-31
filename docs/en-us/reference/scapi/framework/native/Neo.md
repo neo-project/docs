@@ -1,6 +1,6 @@
 # Neo Class
 
-Provides a series of attributes and methods of the native contract NeoToken, which contract hash is`0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5`.
+Provides a series of attributes and methods of the native contract NeoToken, which contract hash is `0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5`.
 
 NeoToken is also an NEP-17 contract that inherits all NEP-17 specific attributes and methods.
 
@@ -37,3 +37,5 @@ public class NEO
 | [GetCandidates()](Neo/GetCandidates.md)                      | Gets candidates list                            |
 | [GetCommittee()](Neo/GetCommittee.md)                        | Gets committee members list                     |
 | [GetNextBlockValidators()](Neo/GetNextBlockValidators.md)    | Gets validators list for the next block         |
+| [GetAccountState(DataCache snapshot, UInt160 account)](Neo/GetAccountState.md) | Gets the latest votes of the specified  account |
+

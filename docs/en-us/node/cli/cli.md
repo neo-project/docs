@@ -113,16 +113,18 @@ The commands listed in the table below requires you to open the wallet before in
 | [get proof](#get-proof) | \<rootHash> \<scriptHash> \<key> | Gets proof with root hash, contract hash, and storage key. |
 | [verify proof](#verify-proof) | \<rootHash> \<proof> | Verifies with root hash and proof. |
 
-#### Voting comands
+#### Voting commands
 
-| Command                                       | Parameters                    | Description                            |
-| --------------------------------------------- | ----------------------------- | -------------------------------------- |
-| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes |
-| [get committee](#get-committee)               |                               | Gets the committee member's public key |
-| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key  |
-| [register candidate](#register-candidate)     | \<account> [maxGas=1010]      | Registers the candidate                |
-| [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate              |
-| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for condidates                   |
+| Command                                       | Parameters                    | Description                                    |
+| --------------------------------------------- | ----------------------------- | ---------------------------------------------- |
+| [get accountstate](#get-accountstate)         | \<address>                    | Gets the latest votes of the specified account |
+| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes         |
+| [get committee](#get-committee)               |                               | Gets the committee member's public key         |
+| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key          |
+| [register candidate](#register-candidate)     | \<account> [maxGas=1010]      | Registers the candidate                        |
+| [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate                      |
+| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for candidates                           |
+| [unvote](#unvote)                             | \<senderAccount>              | Cancel the voting                              |
 
 #### Block Commands
 
@@ -372,6 +374,32 @@ neo> list nativecontract
         NameService         0x7a8fcf0392cd625647907afa8e45cc66872b596b
 ```
 
+### get accountstate
+
+获取指定账户最新的投票情况Gets the latest votes of the specific account.
+
+##### Syntax
+
+ `get accountstate <address>` 
+
+##### Parameter
+
+`address`：The address you want to query the votes
+
+##### Example
+
+```
+neo> get accountstate NNz4ppADL3mke7HT8RvRr5nX8zTAbNdWjv
+Invoking script with: 'DBQhrr+TO5ru/CWrG+m3Gq80Ff3tORHAHwwPZ2V0QWNjb3VudFN0YXRlDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS'
+VM State: HALT
+Gas Consumed: 0.0202833
+Result Stack: [{"type":"Struct","value":[{"type":"Integer","value":"900"},{"type":"Integer","value":"9774"},{"type":"ByteString","value":"AsNeyvySxknpefBTobcD9O\u002BQiieFUIdCtmzAWZvxQPA4"}]}]
+
+Voted: NNuEErrm2qpLyoWUxtEy7Sgxh1cm71Ngb6
+Amount: 900
+Block: 9774
+```
+
 ### get candidates
 
 Gets candidates' public keys and votes
@@ -506,6 +534,30 @@ Evaluation Stack: [{"type":"Boolean","value":true}]
 
 relay tx(no|yes): y
 Signed and relayed transaction with hash=0x8083633ecc4827b7967ba8b0a30f02992dc524e4a5356accebdf080e9cd26df2
+```
+
+### unvote
+
+Cancel the voting
+
+##### Syntax
+
+ `unvote <senderAccount>`
+
+##### Parameter
+
+`senderAccount`: The account to unvote
+
+##### Example
+
+```
+neo> unvote 0x39edfd1534af1ab7e91bab25fcee9a3b93bfae21
+Invoking script with: 'CwwUIa6/kzua7vwlqxvptxqvNBX97TkSwB8MBHZvdGUMFPVj6kC8KD1NDgXEjqMFs/Kgc0DvQWJ9W1I='
+VM State: HALT
+Gas Consumed: 0.030114
+Result Stack: [{"type":"Boolean","value":true}]
+Relay tx(no|yes): y
+Signed and relayed transaction with hash=0x78f83fd1e0607f078fa0964a97b9972d3f4844191f6702c1750ff6d532cd5019
 ```
 
 ### export key

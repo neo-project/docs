@@ -220,10 +220,60 @@
         items: Native
         - name: Framework.Native
           href: /docs/en-us/reference/scapi/framework/native.md
+        - name: ContractManagement
+          href: /docs/zh-cn/reference/scapi/framework/native/ContractManagement.md
+        - name: CryptoLib
+          href: /docs/zh-cn/reference/scapi/framework/native/CryptoLib.md
+        - name: Gas
+          href: /docs/zh-cn/reference/scapi/framework/native/Gas.md
+        - name: Ledger
+          href: /docs/zh-cn/reference/scapi/framework/native/Ledger.md
+        - name: NamedCurve
+          href: /docs/zh-cn/reference/scapi/framework/native/NamedCurve.md
+        - name: Neo
+          href: /docs/zh-cn/reference/scapi/framework/native/Neo.md
+        - name: Oracle
+          href: /docs/zh-cn/reference/scapi/framework/native/Oracle.md
+        - name: OracleResponseCode
+          href: /docs/zh-cn/reference/scapi/framework/native/OracleResponseCode.md
+        - name: Policy
+          href: /docs/zh-cn/reference/scapi/framework/native/Policy.md
+        - name: Role
+          href: /docs/zh-cn/reference/scapi/framework/native/Role.md
+        - name: RoleManagement
+          href: /docs/zh-cn/reference/scapi/framework/native/RoleManagement.md
+        - name: StdLib
+          href: /docs/zh-cn/reference/scapi/framework/native/StdLib.md
       - name: Framework.Services
         items: Services
         - name: Framework.Services
           href: /docs/en-us/reference/scapi/framework/services.md
+        - name: Block
+          href: /docs/zh-cn/reference/scapi/framework/services/Block.md
+        - name: CallFlags
+          href: /docs/zh-cn/reference/scapi/framework/services/CallFlags.md
+        - name: Contract
+          href: /docs/zh-cn/reference/scapi/framework/services/Contract.md
+        - name: Crypto
+          href: /docs/zh-cn/reference/scapi/framework/services/Crypto.md
+        - name: FindOptions
+          href: /docs/zh-cn/reference/scapi/framework/services/FindOptions.md
+        - name: Iterator
+          href: /docs/zh-cn/reference/scapi/framework/services/Iterator.md
+        - name: Notification
+          href: /docs/zh-cn/reference/scapi/framework/services/Notification.md
+        - name: Runtime
+          href: /docs/zh-cn/reference/scapi/framework/services/Runtime.md
+        - name: Storage
+          href: /docs/zh-cn/reference/scapi/framework/services/Storage.md
+        - name: StorageContext
+          href: /docs/zh-cn/reference/scapi/framework/services/StorageContext.md
+        - name: StorageMap
+          href: /docs/zh-cn/reference/scapi/framework/services/StorageMap.md
+        - name: Transaction
+          href: /docs/zh-cn/reference/scapi/framework/services/Transaction.md
+        - name: TriggerType
+          href: /docs/zh-cn/reference/scapi/framework/services/TriggerType.md
   - name: Governance API
     href: /docs/en-us/reference/governance_api.md
   - name: NNS API
