@@ -30,6 +30,8 @@ public static class StdLib
 | Base64Encode(ByteString input) | 将字节数组编码为Base64字符串 |
 | Base58Decode(string input) | 将Base58编码的字符串解码为字节数组 |
 | Base58Encode(ByteString input) | 将字节数组编码为Base58字符串 |
+| Base58CheckDecode(string input) | 将Base58Check编码的字符串解码为字节数组 |
+| Base58CheckEncode(ByteString input) | 将字节数组编码为Base58Check字符串 |
 | Itoa | 把整数转换为字符串 |
 | Atoi(string value, int @base = 10) | 把字符串转换成整型数 |
 | MemoryCompare(ByteString, ByteString) | 如果两个数组相同，返回0；如果数组1小于数组2，返回小于0的值；如果数组1大于数组2，返回大于0的值 |

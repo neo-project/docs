@@ -37,3 +37,5 @@ public class NEO
 | [GetCandidates()](Neo/GetCandidates.md)                      | 获取候选人列表                |
 | [GetCommittee()](Neo/GetCommittee.md)                        | 获取委员会成员列表            |
 | [GetNextBlockValidators()](Neo/GetNextBlockValidators.md)    | 获取下个区块的验证人列表      |
+| [GetAccountState(DataCache snapshot, UInt160 account)](Neo/GetAccountState.md) | 获取指定账户最新的投票情况    |
+

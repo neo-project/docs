@@ -116,12 +116,14 @@
 
 | 命令                    | 参数       | 说明         |
 | ----------------------- | ---------------- | ---------------- |
+| [get accountstate](#get-accountstate) | \<address> | 获取指定账户最新的投票情况 |
 | [get candidates](#get-candidates) |  | 获取候选人公钥及票数 |
 | [get committee](#get-committee) |  | 获取委员会成员公钥 |
 | [get next validators](#get-next-validators) |  | 获取下一轮验证人公钥 |
 | [register candidate](#register-candidate) |\<account> [maxGas=1010] | 注册候选人 |
 | [unregister candidate](#unregister-candidate) |\<account>  | 注销候选人 |
 | [vote](#vote) |\<senderAccount> \<publicKey>  | 投票 |
+| [unvote](#unvote) |\<senderAccount> | 取消投票 |
 
 #### 区块命令
 
@@ -373,6 +375,32 @@ neo> list nativecontract
         OracleContract      0xfe924b7cfe89ddd271abaf7210a80a7e11178758      
 ```
 
+### get accountstate
+
+获取指定账户最新的投票情况
+
+##### 句法
+
+ `get accountstate <address>` 
+
+##### 参数
+
+`address`：要查询投票情况的地址
+
+##### 示例
+
+```
+neo> get accountstate NNz4ppADL3mke7HT8RvRr5nX8zTAbNdWjv
+Invoking script with: 'DBQhrr+TO5ru/CWrG+m3Gq80Ff3tORHAHwwPZ2V0QWNjb3VudFN0YXRlDBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS'
+VM State: HALT
+Gas Consumed: 0.0202833
+Result Stack: [{"type":"Struct","value":[{"type":"Integer","value":"900"},{"type":"Integer","value":"9774"},{"type":"ByteString","value":"AsNeyvySxknpefBTobcD9O\u002BQiieFUIdCtmzAWZvxQPA4"}]}]
+
+Voted: NNuEErrm2qpLyoWUxtEy7Sgxh1cm71Ngb6
+Amount: 900
+Block: 9774
+```
+
 ### get candidates
 
 获取候选人公钥及票数
@@ -519,6 +547,30 @@ Evaluation Stack: [{"type":"Boolean","value":true}]
 
 relay tx(no|yes): y
 Signed and relayed transaction with hash=0x8083633ecc4827b7967ba8b0a30f02992dc524e4a5356accebdf080e9cd26df2
+```
+
+### unvote
+
+取消投票
+
+##### 句法
+
+ `unvote <senderAccount>`
+
+##### 参数
+
+- `senderAccount`：取消投票的账户
+
+##### 示例
+
+```
+neo> unvote 0x39edfd1534af1ab7e91bab25fcee9a3b93bfae21
+Invoking script with: 'CwwUIa6/kzua7vwlqxvptxqvNBX97TkSwB8MBHZvdGUMFPVj6kC8KD1NDgXEjqMFs/Kgc0DvQWJ9W1I='
+VM State: HALT
+Gas Consumed: 0.030114
+Result Stack: [{"type":"Boolean","value":true}]
+Relay tx(no|yes): y
+Signed and relayed transaction with hash=0x78f83fd1e0607f078fa0964a97b9972d3f4844191f6702c1750ff6d532cd5019
 ```
 
 ### export key
