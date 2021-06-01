@@ -285,6 +285,7 @@ Transfer 是事件名。
 ### Json序列化
 
 在智能合约中, 新添加了Json正/反序列化功能, 可以用来处理类型的存储与发送. 合约示例如下:
+
 ```c#
 using Neo.SmartContract.Framework.Native;
 using Neo.SmartContract.Framework.Services;

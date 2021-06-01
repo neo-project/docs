@@ -6,8 +6,6 @@ The Neo-CLI client works as a node in the P2P network and meanwhile a cross-plat
 
 > [!Caution]
 >
-> #### Caution
->
 > The exchange must use a white list or firewall to block external server requests; otherwise there will be a significant security risk.
 
 Neo-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, exchanges should set their own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 

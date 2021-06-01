@@ -30,6 +30,8 @@ public static class StdLib
 | Base64Encode(ByteString input) | Encodes the byte array into Base64 string |
 | Base58Decode(string input) | Decodes the Base58 encoded string into byte array |
 | Base58Encode(ByteString input) | Encodes the byte array into Base58 string |
+| Base58CheckDecode(string input) | Decodes the Base58Check encoded string into byte array |
+| Base58CheckEncode(ByteString input) | Encodes the byte array into Base58Check string |
 | Itoa | Converts the integer to string |
 | Atoi(string value, int @base = 10) | Converts the string to integer |
 | MemoryCompare(ByteString, ByteString) | If two arrays are the same, return 0; if array 1 is less than array 2, return a value less than 0; if array 1 is greater than array 2, return a value greater than 0 |

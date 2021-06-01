@@ -43,10 +43,10 @@
       href: /docs/zh-cn/basic/consensus/consensus_protocol.md
     - name: 投票
       href: /docs/zh-cn/basic/consensus/vote_validator.md
-- name: 治理与激励
-    href: /docs/zh-cn/basic/governance.md  
-- name: NeoVM
-    href: /docs/zh-cn/basic/neovm.md
+  - name: 治理与激励
+      href: /docs/zh-cn/basic/governance.md  
+  - name: NeoVM
+      href: /docs/zh-cn/basic/neovm.md
 - name: Neo 节点
   items:
   - name: 节点介绍
