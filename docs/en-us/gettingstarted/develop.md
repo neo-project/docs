@@ -26,10 +26,10 @@ The following steps are applicable to multiple system platforms, such as Windows
 dotnet new -i Neo3.SmartContract.Templates
 ```
 
-If you want to develop the contracts of **NEO N3 RC1** version, you need to add reference to its compatible version **1.0.2**：
+If you want to develop the contracts of **NEO N3 RC2** version, you need to add reference to its compatible version **1.2.0**：
 
 ```powershell
-dotnet new -i Neo3.SmartContract.Templates::1.0.2
+dotnet new -i Neo3.SmartContract.Templates::1.2.0
 ```
 
 ## Creating a contract project

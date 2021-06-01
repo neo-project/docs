@@ -24,8 +24,8 @@ Neo 也提供了测试网（Test Net）供开发者进行开发、调试和测�
 
 对于Neo-CLI，
 
-- 如果是从 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 直接下载的 RC2 程序包，那么其中的 `config.json` 文件已经是连接测试网的，无需替换。
-- 如果是从源代码发布的Neo-CLI，要成功连接到Neo N3 RC2测试网，除了将客户端目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），还必须将配置文件 config.json 中的Network字段值改为 **844378958**。
+- 如果是从 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 直接下载的 RC3 程序包，那么其中的 `config.json` 文件已经是连接测试网的，无需替换。
+- 如果是从源代码发布的Neo-CLI，要成功连接到Neo N3 RC3测试网，除了将客户端目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），还必须将配置文件 config.json 中的Network字段值改为 **844378958**。
 
 ![](../../assets/testnet_2_v2.png)
 

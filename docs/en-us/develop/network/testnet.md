@@ -24,9 +24,9 @@ For Neo-GUI, it connects to the test net by default when running.
 
 For Neo-CLI, 
 
-- If it is the RC2 package downloaded from  [Neo-CLI](https://github.com/neo-project/neo-node/releases), it connects to the test net by default.
+- If it is the RC3 package downloaded from  [Neo-CLI](https://github.com/neo-project/neo-node/releases), it connects to the test net by default.
 
-- If it is published from the source code, to connect it to Neo N3 RC2 test net, you need to:
+- If it is published from the source code, to connect it to Neo N3 RC3 test net, you need to:
 
   1. Replace the `config.json` file with the content of `config.testnet.json` under CLI directory
   2. Change the `Network` value in config.json to **844378958**
