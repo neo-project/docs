@@ -7,7 +7,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 ## 准备工作
 
 1. 首先安装 Neo-CLI，安装过程请参考 [Neo 节点的安装部署](../../../node/cli/setup.md)。
-2. 安装插件 [DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc1/DBFTPlugin.zip)。
+2. 安装插件 [DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc3/DBFTPlugin.zip)。
 3. 运行 Neo-CLI，输入 `create wallet <path>` 命令创建一个钱包，如 `create wallet consensus.json`。
 4. 设置钱包密码（password），并确认密码。 
 5. 记录钱包公钥（pubkey），后面会用到。

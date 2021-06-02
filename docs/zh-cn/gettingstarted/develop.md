@@ -26,10 +26,10 @@
 dotnet new -i Neo3.SmartContract.Templates
 ```
 
-如果要开发 **NEO N3 RC1** 版本的合约，则需要引用与其兼容的版本 ***1.0.2***：
+如果要开发 **NEO N3 RC2** 版本的合约，则需要引用与其兼容的版本 ***1.2.0***：
 
 ```powershell
-dotnet new -i Neo3.SmartContract.Templates::1.0.2
+dotnet new -i Neo3.SmartContract.Templates::1.2.0
 ```
 
 ## 创建合约项目
