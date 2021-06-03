@@ -29,6 +29,16 @@
       "origin": "articles\\en-us",
       "destination": "wwwroot\\articles\\en-us",
       "git": "https://github.com/neo-project/docs/blob/master/articles/en-us/"
+    },
+    {
+      "origin": "tutorials\\zh-cn",
+      "destination": "wwwroot\\tutorials\\zh-cn",
+      "git": "https://github.com/neo-project/docs/blob/master/tutorials/zh-cn/"
+    },
+    {
+      "origin": "tutorials\\en-us",
+      "destination": "wwwroot\\tutorials\\en-us",
+      "git": "https://github.com/neo-project/docs/blob/master/tutorials/en-us/"
     }
   ]
 }
