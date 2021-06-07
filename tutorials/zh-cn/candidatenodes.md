@@ -349,8 +349,8 @@ Signed and relayed transaction with hash=0xc3b29d0bab7b800ad4a47497b2989454a9623
 
 当同时满足以下两个条件时，会触发一次委员会更新：
 
-1. 所有候选人人数大于等于最初 config 文件中设置的 StandbyCommittee 个数（默认为21个）
-2. 所有候选人获得的总票数大于等于 20% 的 NEO
+- 所有候选人人数大于等于最初 config 文件中设置的 StandbyCommittee 个数（默认为21个）
+- 所有候选人获得的总票数大于等于 20% 的 NEO
 
 如果此时你的排名在前21，则会当选为委员会成员。在委员会内部，可以通过投票的方式，对 Neo 网络的一些参数进行修改，以及角色节点的指认，具体请参照 [文档](https://docs.neo.org/docs/zh-cn/basic/governance.html#委员会)。
 

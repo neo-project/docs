@@ -140,10 +140,13 @@ Related contract files are outputted under `\bin\Debug\net5.0` path in the contr
 Previously, we have compiled an example contract file (Contract1.nef) and contract descriptive file (Contract1.manifest.json), next we will move on to deployment and invocation of the contract with Neo-CLI.
 
 In Neo-CLI, input the deploy command `deploy <nefFilePath> [manifestFile]` , for example:
+
 ```
 deploy Contract1.nef
 ```
+
 or
+
 ```
 deploy Contract1.nef Contract1.manifest.json
 ```
@@ -155,15 +158,19 @@ After the command is executed, the contract is deployed and the related fee is c
 After you deployed a smart contract on the blockchain, you can then invoke it by its script hash. You can query contract details, such as the contract general information, methods, notifications, etc.
 
 In `Neo-CLI`, invoke the contract using the  command line:
+
 ```
 invoke <scriptHash> <operation> [contractParameters=null] [witnessAddress=null]
 ```
 
 For example:
+
 ```
 invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 symbol
 ```
+
 After executed successfully, the following information is printed：
+
 ```
 Invoking script with: '10c00c046e616d650c14f9f81497c3f9b62ba93f73c711d41b1eeff50c2341627d5b52'
 VM State: HALT
@@ -172,6 +179,7 @@ Evaluation Stack: [{"type":"ByteArray","value":"VG9rZW5TeW1ib2w="}]
 
 relay tx(no|yes):
 ```
+
 Where:
 
 - VM State: `HALT` indicates the vm executed successfully; `FAULT` indicates the vm exited during execution due to an exception.
