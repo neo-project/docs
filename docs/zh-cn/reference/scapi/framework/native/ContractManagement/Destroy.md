@@ -1,4 +1,4 @@
-# ManagementContract.Destroy 方法
+# ContractManagement.Destroy 方法
 
 销毁合约。
 
@@ -22,7 +22,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     public static void Destroy()
     {
         if (!Runtime.CheckWitness(Owner)) throw new Exception("No authorization.");
-        ManagementContract.Destroy();
+        ContractManagement.Destroy();
     }
 }
 ```

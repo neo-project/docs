@@ -1,4 +1,4 @@
-# ManagementContract.GetContract Method
+# ContractManagement.GetContract Method
 
 Gets the contract information.
 
@@ -25,7 +25,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
     public static object GetContract()
     {
-        Contract contract = ManagementContract.GetContract(ScriptHash);
+        Contract contract = ContractManagement.GetContract(ScriptHash);
         return contract != null;
     }
 }
