@@ -144,7 +144,7 @@ Java example：
 
 In virtue of the cross-chain technology which is of the capability transferring data from one chain to another, our migration adopts the following architecture:
 
-![](migration.png)
+![](images/migration.png)
 
 The components in the figure above are defined as follows:
 
