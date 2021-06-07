@@ -1,4 +1,4 @@
-# ManagementContract.Update Method
+# ContractManagement.Update Method
 
 Update the contract.
 
@@ -29,7 +29,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
     public static void Update()
     {
         if (!Runtime.CheckWitness(Owner)) throw new Exception("No authorization.");
-        ManagementContract.Update(nef, manifest);
+        ContractManagement.Update(nef, manifest);
     }
 }
 ```

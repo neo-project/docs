@@ -1,4 +1,4 @@
-# ManagementContract.Deploy Method
+# ContractManagement.Deploy Method
 
 Deploys the contract.
 
@@ -28,7 +28,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
     public static object Deploy()
     {
-        Contract contract = ManagementContract.Deploy(nef, manifest);
+        Contract contract = ContractManagement.Deploy(nef, manifest);
         return contract.Hash;
     }
 }
