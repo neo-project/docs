@@ -10,7 +10,7 @@ nNEO and cGAS are open source and can be found in GitHub: [nNEO ](https://github
 
 > [!Note]
 >
-> Because the minimum unit of NEO is 1 and tokens cannot be subdivided, you can only migrate an integer number of NEO (nNEO), e.g. if there are 10.5 NEOs in the wallet, only 10 NEOs can be migrated to N3. 
+> Because the minimum unit of NEO is 1 and tokens cannot be subdivided, you can only migrate an integer number of NEO (nNEO), e.g. if there are 10.5 nNEOs in the wallet, only 10 nNEOs can be migrated to N3. 
 
 nNEO and cGAS can be converted one to one by the global assets NEO and GAS through the `mintTokens`  function. See the example codes as below.
 
