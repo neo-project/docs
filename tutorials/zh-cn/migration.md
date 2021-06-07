@@ -1,6 +1,6 @@
 # 从 Neo Legacy 迁移到 Neo N3
 
-本文档将指导开发人员将 Neo Legacy 上的全局资产 NEO 和 GAS 跨链转移到 Neo N3。
+本教程将指导开发人员将 Neo Legacy 上的全局资产 NEO 和 GAS 跨链转移到 Neo N3。
 
 ## 转换 nNEO 和 cGAS
 
@@ -10,7 +10,7 @@ nNEO 和 cGAS 是开源的，可以在GitHub上查看其合约源代码和详解
 
 > [!Note]
 >
-> 由于 Neo 的最小单位为1，所以从 Neo Legacy 上迁移 NEO 资产时，只能迁移整数个 NEO。例如钱包中有 10.5 个 NEO，则只能迁移 10个 NEO 到 N3。
+> 由于 Neo 的最小单位为1，所以从 Neo Legacy 上迁移 NEO (nNEO) 资产时，只能迁移整数个 NEO (nNEO)。例如钱包中有 10.5 个 nNEO，则只能迁移 10个 nNEO 到 N3。
 
 nNEO 和 cGAS 通过 `mintTokens` 方法与全局资产进行 1:1 转换，可参考以下示例代码。
 
