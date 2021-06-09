@@ -166,8 +166,9 @@ Java示例
 
    > [!Note]
    >
-   > - C# 调用代码请参考 [C#版跨链demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs)。
-   > - Java 调用代码请参考[Java版跨链demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo)。
+   > - C# 调用代码请参考 [C# Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs)
+   > - Java 调用代码请参考 [Java Demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo)
+   > - Javascript 调用代码请参考 [JS Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/crosschaindemo.js)
 
 2. 代理合约将需要迁移的资产锁定在其地址上
 
