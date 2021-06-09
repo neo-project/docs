@@ -65,12 +65,12 @@ In comparison with Neo Legacy, the Neo N3 NEP17 sample has the following changes
 - Added the customized attributes above the smart contract class
 
   ```
-  Copy[DisplayName("Token Name")] 
+  [DisplayName("Token Name")] 
   [ManifestExtra("Author", "Neo")] 
   [ManifestExtra("Email", "dev@neo.org")] 
   [ManifestExtra("Description", "This is a NEP17 example")] 
   [SupportedStandards("NEP-17")] 
-  [ContractPermission("\*", "onNEP17Payment")] 
+  [ContractPermission("*", "onNEP17Payment")] 
   public class NEP17 : SmartContract 
   …… 
   ```

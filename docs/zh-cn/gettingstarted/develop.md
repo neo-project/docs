@@ -65,12 +65,12 @@ dotnet new -i Neo3.SmartContract.Templates::1.2.0
 - 在智能合约类上方添加了自定义特性：
 
   ```
-  Copy[DisplayName("Token Name")] 
+  [DisplayName("Token Name")] 
   [ManifestExtra("Author", "Neo")] 
   [ManifestExtra("Email", "dev@neo.org")] 
   [ManifestExtra("Description", "This is a NEP17 example")] 
   [SupportedStandards("NEP-17")] 
-  [ContractPermission("\*", "onNEP17Payment")] 
+  [ContractPermission("*", "onNEP17Payment")] 
   public class NEP17 : SmartContract 
   …… 
   ```
