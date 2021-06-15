@@ -121,7 +121,7 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
     "PluginURL": "https://github.com/neo-project/neo-modules/releases/download/v{1}/{0}.zip"
   },
   "ProtocolConfiguration": {
-    "Magic": 5309138,
+    "Network": 5309138,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
     "ValidatorsCount": 1,

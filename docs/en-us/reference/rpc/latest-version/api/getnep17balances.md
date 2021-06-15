@@ -17,7 +17,7 @@ Before invoking the method, you need to modify the following fields in the RpcNe
 - TrackHistory: Set to true.
 - RecordNullAddressHistory: Set to true if you want to trace the null address record.
 - MaxResults: The maximum number of records. The exceeding portion will not be stored.
-- Network: Set it to the same value as magic in Neo-CLI config.json.
+- Network: Set it to the same value as Network in Neo-CLI config.json.
 
 ## Configuration
 
@@ -26,7 +26,7 @@ Before invoking the method, you need to modify the following fields in the RpcNe
 - TrackHistory: Set to true.
 - RecordNullAddressHistory: Set to true if you want to trace the null address record.
 - MaxResults: The maximum number of records. The exceeding portion will not be stored.
-- Network: Set it to the same value as magic in Neo-CLI config.json.
+- Network: Set it to the same value as Network in Neo-CLI config.json.
 
 ## Example
 

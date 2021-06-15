@@ -31,7 +31,7 @@ Before you can invoke the getproof method you must install the plugin [StateServ
   }
   ```
 
-- Network: Set to the same value as `magic` in the Neo-cli config.json.
+- Network: Set to the same value as `Network` in the Neo-cli config.json.
 
 - AutoVerify: Set whether to enable verification by default, and if yes, the default active wallet in Neo-cli is used as the verification node.
 
