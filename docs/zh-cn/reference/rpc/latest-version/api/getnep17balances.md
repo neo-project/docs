@@ -16,7 +16,7 @@ address：要查看资产余额的地址。
 - TrackHistory: 设置为true
 - RecordNullAddressHistory：如果需要追溯空地址记录，此处设置为true。
 - MaxResults：最大记录数，超过数额将不会被存储。
-- Network：需要与Neo-cli 的 config.json 中的magic设置相同。
+- Network：需要与Neo-cli 的 config.json 中的Network设置相同。
 
 ## 调用示例
 
