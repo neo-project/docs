@@ -4,7 +4,7 @@
 
 ## 转换 nNEO 和 cGAS
 
-由于智能合约无法调用 UTXO 资产 NEO 和GAS，我们需要将其分别转换成 NEP-5合约映射资产 nNEO 和 cGAS，从而使得资产能被跨链调用，计算精度以及与智能合约进行交互。
+由于智能合约无法调用 UTXO 资产 NEO 和GAS，我们需要将其分别转换成 NEP-17合约映射资产 nNEO 和 cGAS，从而使得资产能被跨链调用，计算精度以及与智能合约进行交互。
 
 nNEO 和 cGAS 是开源的，可以在GitHub上查看其合约源代码和详解：[nNEO ](https://github.com/neo-ngd/CNEO-Contract "nNEO")和 [cGAS](https://github.com/neo-ngd/CGAS-Contract "cGAS")。
 
