@@ -77,7 +77,7 @@ To connect the node to test net, replace the content of `config.json` with the c
 
 > [!Note]
 >
-> If your Neo-CLI is published from the source code in GitHub by yourself, you must also modify the Magic field value in config.json to **844378958** before you can connect to the Neo N3 RC3 test network.
+> If your Neo-CLI is published from the source code in GitHub by yourself, you must also modify the Network field value in config.json to **844378958** before you can connect to the Neo N3 RC3 test network.
 
 To connect the node to your private net, refer to [Setting up Private Chain](../../develop/network/private-chain/solo.md).
 

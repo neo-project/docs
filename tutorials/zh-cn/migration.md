@@ -4,7 +4,7 @@
 
 ## 转换 nNEO 和 cGAS
 
-由于智能合约无法调用 UTXO 资产 NEO 和GAS，我们需要将其分别转换成 NEP-5合约映射资产 nNEO 和 cGAS，从而使得资产能被跨链调用，计算精度以及与智能合约进行交互。
+由于智能合约无法调用 UTXO 资产 NEO 和GAS，我们需要将其分别转换成 NEP-17合约映射资产 nNEO 和 cGAS，从而使得资产能被跨链调用，计算精度以及与智能合约进行交互。
 
 nNEO 和 cGAS 是开源的，可以在GitHub上查看其合约源代码和详解：[nNEO ](https://github.com/neo-ngd/CNEO-Contract "nNEO")和 [cGAS](https://github.com/neo-ngd/CGAS-Contract "cGAS")。
 
@@ -166,8 +166,9 @@ Java示例
 
    > [!Note]
    >
-   > - C# 调用代码请参考 [C#版跨链demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs)。
-   > - Java 调用代码请参考[Java版跨链demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo)。
+   > - C# 调用代码请参考 [C# Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs)
+   > - Java 调用代码请参考 [Java Demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo)
+   > - Javascript 调用代码请参考 [JS Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/crosschaindemo.js)
 
 2. 代理合约将需要迁移的资产锁定在其地址上
 

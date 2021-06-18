@@ -4,7 +4,7 @@ This tutorial is intended to guide developers in migrating the global assets NEO
 
 ## Exchange to nNEO / cGAS
 
-Since it is not possible to transfer the UTXO asset NEO /GAS into smart contracts, we need to exchange them to nNEO / cGAS which are NEP-5 contract mapping assets, allowing the invocation of funds across chains, precision calculation of assets, as well as interaction with smart contracts. 
+Since it is not possible to transfer the UTXO asset NEO /GAS into smart contracts, we need to exchange them to nNEO / cGAS which are NEP-17 contract mapping assets, allowing the invocation of funds across chains, precision calculation of assets, as well as interaction with smart contracts. 
 
 nNEO and cGAS are open source and can be found in GitHub: [nNEO ](https://github.com/neo-ngd/CNEO-Contract "nNEO") and [cGAS](https://github.com/neo-ngd/CGAS-Contract "cGAS").
 
@@ -166,8 +166,9 @@ Before starting the migration, you need to register two side chains and two Rela
 
    > [!Note]
    >
-   > - For the C# invocation code example, refer to [C# demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs).
-   > - For the Java invocation code example, refer to [Java demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo).
+   > - For the C# invocation code example, refer to [C# Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs).
+   > - For the Java invocation code example, refer to [Java Demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo).
+   > - For the Javascript code example, refer to [JS Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/crosschaindemo.js).
 
 2. The proxy contract locks the assets to migrate out in its address.
 
