@@ -83,6 +83,10 @@ Here is an example:
 
 ## Starting the private chain
 
+> [!Note]
+>
+> If the node has downloaded Neo test net block files, you need to delete the Data folder before running Neo-CLI, otherwise the private chain will not be able to properly generate blocks.
+
 To start the private chain, enter the neo-cli directory and run neo-cli.exe, or run the command line and enter  `dotnet neo-cli.dll`. The private chain is set up successfully when it goes as shown below:
 
 ![](../assets/solo.png)
