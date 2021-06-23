@@ -11,14 +11,14 @@
       "git": "https://github.com/neo-project/docs/blob/master-2.x/docs/en-us/"
     },
     {
-      "origin": "tutorial\\zh-cn",
-      "destination": "..\\docs\\wwwroot\\v2\\tutorial\\zh-cn",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/tutorial/zh-cn/"
+      "origin": "tutorials\\zh-cn",
+      "destination": "..\\docs\\wwwroot\\v2\\tutorials\\zh-cn",
+      "git": "https://github.com/neo-project/docs/blob/master-2.x/tutorials/zh-cn/"
     },
     {
-      "origin": "tutorial\\en-us",
-      "destination": "..\\docs\\wwwroot\\v2\\tutorial\\en-us",
-      "git": "https://github.com/neo-project/docs/blob/master-2.x/tutorial/en-us/"
+      "origin": "tutorials\\en-us",
+      "destination": "..\\docs\\wwwroot\\v2\\tutorials\\en-us",
+      "git": "https://github.com/neo-project/docs/blob/master-2.x/tutorials/en-us/"
     },
     {
       "origin": "faq\\zh-cn",

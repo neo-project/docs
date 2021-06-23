@@ -283,7 +283,7 @@ def do_transfer(ctx, t_from, t_to, amount):
 #### <b>C#</b>:
 * [Vanilla NEP-5 template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template)
 * [Moonlight NEP-5 template](https://github.com/Moonlight-io/moonlight-ico-template)
-* [Neo Docs Samples](https://docs.neo.org/en-us/sc/tutorial/HelloWorld.html)
+* [Neo Docs Samples](https://docs.neo.org/en-us/sc/tutorials/HelloWorld.html)
 	
 #### <b>Python</b>:
 * [NEX NEP-5 Template](https://github.com/nash-io/neo-ico-template)
