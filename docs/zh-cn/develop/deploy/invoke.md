@@ -73,34 +73,39 @@ invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerA
 
 ```c#
 public class Contract1 : SmartContract
-{
-    delegate object Dyncall(string method, object[] args);
-
-    //0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9 的小端序
-    //HexToBytes()、ToScriptHash() 只能对常量进行操作，不能写在 Main 方法里
-    //scriptHash 也可以改为从参数传入或从存储区中读取
-    static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
-
-    public static object Main(string operation, object[] args)
     {
-        if (operation == "name")
+        delegate object Dyncall(string method, object[] args);
+
+        //如果是小端序，使用 ByteArray 格式
+        //[InitialValue("694425c17f1ebb7c65de3026c831eb4c49d6d7be", ContractParameterType.ByteArray)]
+        //private static readonly UInt160 ScriptHash;
+
+        //如果是大端序，使用 Hash160 格式
+        [InitialValue("0xbed7d6494ceb31c82630de657cbb1e7fc1254469", ContractParameterType.Hash160)]
+        public static UInt160 ScriptHash;
+
+        public static object Main(string operation, object[] args)
         {
-            return Contract.Call(ScriptHash, "name", new object[0]);
+            if (operation == "name")
+            {
+                return Contract.Call(ScriptHash, "name", CallFlags.ReadOnly, new object[0]);
+            }
+            if (operation == "totalSupply")
+            {
+                return Contract.Call(ScriptHash, "totalSupply", CallFlags.ReadOnly, new object[0]);
+            }
+            return true;
         }
-        if (operation == "totalSupply")
-        {
-            return Contract.Call(ScriptHash, "totalSupply", new object[0]);
-        }
-        return true;
     }
-}
 ```
 
-关键语句 `Contract.Call(scriptHash, method, params)`。
+关键语句 `Contract.Call(scriptHash, method, flags, params)`。
 
 - scriptHash：被调用合约的脚本散列，ByteArray 类型，小端序。
 
-- method：被调用合约的方法，如 `name`、`balanceOf`、`transfer` 等，字符串类型。
+- method：被调用合约的方法，如 name 、 balanceOf 、 transfer 等，字符串类型。
+
+- flags：调用合约方法时允许的权限，参考 ([CallFlags 枚举](https://docs.neo.org/docs/zh-cn/reference/scapi/framework/services/CallFlags.html#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E))。
 
 - params：被调用合约的方法的参数列表，数组类型。
 
