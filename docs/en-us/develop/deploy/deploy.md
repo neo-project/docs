@@ -50,8 +50,11 @@ After the command is executed, the program deploys the smart contract and pays t
 
 ```
 neo> deploy NEP17.nef
-Script hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
-Gas: 10.1477624
+Contract hash: 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26
+Gas consumed: 10.0107577
+Network fee: 0.0345352
+Total fee: 10.0452929 GAS
+Relay tx? (no|yes): yes
 
 Signed and relayed transaction with hash=0xe03aade81fb96c44e115a1cc9cfe984a9df4a283bd10aa0aefa7ebf3e296f757
 ```
