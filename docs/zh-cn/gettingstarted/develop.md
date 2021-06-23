@@ -26,13 +26,7 @@
 dotnet new -i Neo3.SmartContract.Templates
 ```
 
-如果要开发 **NEO N3 RC3** 版本的合约，则需要引用与其兼容的版本 ***1.3.0***：
-
-```powershell
-dotnet new -i Neo3.SmartContract.Templates::1.3.0
-```
-
-## 创建合约项目
+## 创建合约项
 
 1. 新建一个名为 `Nep17` 的目录作为合约项目。
 

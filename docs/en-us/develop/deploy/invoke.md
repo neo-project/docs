@@ -73,36 +73,38 @@ In Neo N3, all contracts can be invoked dynamically, and writing a contract is m
 
 ```c#
 public class Contract1 : SmartContract
-{
-    delegate object Dyncall(string method, object[] args);
-
-    //Little endian of 0x230cf5ef1e1bd411c7733fa92bb6f9c39714f8f9
-    //HexToBytes() and ToScriptHash() can only operate on constants and cannot be written in the Main method
-    //scriptHash can also be passed in from parameters or read from storage
-    static byte[] ScriptHash = "f9f81497c3f9b62ba93f73c711d41b1eeff50c23".HexToBytes();
-
-    public static object Main(string operation, object[] args)
     {
-        if (operation == "name")
+        delegate object Dyncall(string method, object[] args);
+
+        //Use ByteArray for little endian
+        //[InitialValue("694425c17f1ebb7c65de3026c831eb4c49d6d7be", ContractParameterType.ByteArray)]
+        //private static readonly UInt160 ScriptHash;
+
+        //Use Hash160 for big endian
+        [InitialValue("0xbed7d6494ceb31c82630de657cbb1e7fc1254469", ContractParameterType.Hash160)]
+        public static UInt160 ScriptHash;
+
+        public static object Main(string operation, object[] args)
         {
-            return Contract.Call(ScriptHash, "name", new object[0]);
+            if (operation == "name")
+            {
+                return Contract.Call(ScriptHash, "name", CallFlags.ReadOnly, new object[0]);
+            }
+            if (operation == "totalSupply")
+            {
+                return Contract.Call(ScriptHash, "totalSupply", CallFlags.ReadOnly, new object[0]);
+            }
+            return true;
         }
-        if (operation == "totalSupply")
-        {
-            return Contract.Call(ScriptHash, "totalSupply", new object[0]);
-        }
-        return true;
     }
-}
 ```
 
-The key statement is `Contract.Call(scriptHash, method, params)`, where:
+The key statement is `Contract.Call(scriptHash, method, flags, params)`, where:
 
-- scriptHash is the script hash of the contract invoked. It is ByteArray type and little endian.
-
-- method is the method of the contract invoked, such as  `name`, `balanceOf`, or`transfer` . String type.
-
-- params is the parameter list of the method of the invoked contract. Array type.
+- `scriptHash` is the script hash of the contract invoked. It is ByteArray type and little endian.
+- `method` is the method of the contract invoked, such as  `name`, `balanceOf`, or `transfer`. String type.
+- `flags` defines special behaviors allowed when invoking smart contracts. See [CallFlags Enumerator](https://docs.neo.org/docs/zh-cn/reference/scapi/framework/services/CallFlags.html#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E) for details.
+- `params` is the parameter list of the method of the invoked contract. Array type.
 
 ### Invocation permission
 

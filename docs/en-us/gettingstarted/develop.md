@@ -26,12 +26,6 @@ The following steps are applicable to multiple system platforms, such as Windows
 dotnet new -i Neo3.SmartContract.Templates
 ```
 
-If you want to develop the contracts of **NEO N3 RC3** version, you need to add reference to its compatible version **1.3.0**：
-
-```powershell
-dotnet new -i Neo3.SmartContract.Templates::1.3.0
-```
-
 ## Creating a contract project
 
 1. Create a folder named `Nep17` as the contract project。
