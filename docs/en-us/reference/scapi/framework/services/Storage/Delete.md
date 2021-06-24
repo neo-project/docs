@@ -17,7 +17,7 @@ Parameters:
 
 - Context: Storage context as a [StorageContext](../StorageContext.md).
 
-- Key: Key as a byte array or string.
+- Key: Key as a byte array or string. Max length 64 bytes.
 
 
 Return value: void.

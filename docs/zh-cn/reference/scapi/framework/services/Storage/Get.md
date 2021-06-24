@@ -16,7 +16,7 @@ public static extern byte[] Get(StorageContext context, ByteString key);
 参数：
 
 - context：存储上下文，[StorageContext](../StorageContext.md) 类型;
-- key：键，字节数组或者字符串。
+- key：键，字节数组或者字符串。最大长度64字节。
 
 返回值：key 对应的 value，字节数组。
 

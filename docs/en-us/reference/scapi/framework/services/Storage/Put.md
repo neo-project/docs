@@ -23,7 +23,7 @@ Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags
 Parameters:
 
 - context: Storage context as a [StorageContext](../StorageContext.md).
-- key: Key as a byte array or string.
+- key: Key as a byte array or string. Max length 64 bytes.
 - value: Value as a byte array, Biginteger, or string.
 - flag: StorageFlags type, representing a variable or constant in storage.
 
