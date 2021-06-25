@@ -23,7 +23,7 @@ Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags
 参数：
 
 - context：存储上下文，[StorageContext](../StorageContext.md) 类型；
-- key：键，字节数组/字符串；
+- key：键，字节数组/字符串；最大长度64字节。
 - value：值，字节数组/大整数/字符串。
 - flags：StorageFlags 类型，标识存储的是变量还是常量
 
