@@ -27,6 +27,10 @@ Suppose all the exchange addresses are stored in one wallet, the following chart
 
 The shorter the snapshot interval, the more precise the calculation is. If the snapshot interval is not uniform, use the weighted average calculation method.
 
+> [!Note]
+>
+> In NEO N3, since exchange users cannot participate in voting, the fixed income is 10% of the total amount of GAS to be claimed. For details refer to [GAS distribution rule](https://docs.neo.org/docs/zh-cn/basic/governance.html#gas-%E5%88%86%E9%85%8D%E8%A7%84%E5%88%99).
+
 ## RPC methods
 
 The following RPC method can be used to help exchanges query users' GAS information. For details, click the desired method link in the table below. 
