@@ -2,7 +2,7 @@
 
 ## 安装节点
 
-1. 安装 Neo 节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，3.0 或以上版本。
+1. 安装 Neo 节点的运行环境 [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime)，5.0 或以上版本。
 2. 在 GitHub 上下载 [neo-cli](https://github.com/neo-project/neo-node/releases) 程序包并启动 Neo 节点。
 
 ## 安装插件
