@@ -2,7 +2,7 @@
 
 ## Install Neo client
 
-1. Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 3.0 and the later version.
+1. Install [.NET Core Runtime](https://www.microsoft.com/net/download/core#/runtime) on the server, 5.0 and the later version.
 2. From GitHub, download the [Neo-CLI](https://github.com/neo-project/neo-node/releases) program and enable the Neo node.
 
 ## Install plugins
