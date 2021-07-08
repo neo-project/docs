@@ -64,7 +64,7 @@ Here is an example：
 
 In the config.json under the `Plugins\DBFTPlugin` directory make the following change:
 
-- Set `AutoStart` as true
+- Set `AutoStart` as true, and set `Network` same as the `Network` in config.json under the Neo-cli directory.
 
 Here is an example:
 
