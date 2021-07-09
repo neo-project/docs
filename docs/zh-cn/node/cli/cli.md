@@ -790,6 +790,10 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 - `operation` ：合约内方法名，后面可以输入传入参数，以空格隔开
 
+  > [!Note]
+  >
+  > 对于参加委员会选举的候选人，可以使用 invoke 命令调用 setInfo 方法来添加候选人信息，参加示例3。
+
 - `contractParameters` 为调用参数，需要传入 JSON 格式的字符串，如果是 ByteArray，需要提前进行 Base64编码
 
   示例：地址 `NfKA6zAixybBHHpmaPYPDywoqDaKzfMPf9` 可转换为 16 进制大端序的 ScriptHash `0xe4b0b6fa65a399d7233827502b178ece1912cdd4` 也可转换为 Base64 编码的 ScriptHash `1M0SGc6OFytQJzgj15mjZfq2sOQ=`。JSON 格式的参数如下：
@@ -828,8 +832,6 @@ relay tx(no|yes):
 - Gas Consumed ：调用智能合约时消耗的系统手续费。
 
 - Evaluation Stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
-
-##### 示例 2
 
 示例输入：
 
@@ -871,7 +873,7 @@ Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
 relay tx(no|yes): no
 ```
 
-##### 示例 3
+##### 示例 2
 
 示例输入：
 
@@ -891,6 +893,14 @@ Relay tx(no|yes): no
 > [!Note]
 >
 > 当输入 invoke 命令后，节点调用合约中的 `operation` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+
+##### 示例 3
+
+以下示例代码将添加候选人相关信息，包括 sender（UInt160 委员会地址）、name、location、website、 email、github、telegram、twitter、description 和logo string。调用该合约需要提供发送者的签名。
+
+```
+neo> invoke 0x20443bc0acb8d7f76ee3095c4fd5ba0a41c1fb21 setInfo [{"type":"Hash160","value":"0x429688538c267d5da7a03fbe7b8e4cf45d6e9826"},{"type":"String","value":"MyName"},{"type":"String","value":"MyLocation"},{"type":"String","value":"http://mysite.com"},{"type":"String","value":"myemail@mail.com"},{"type":"String","value":"mygithub"},{"type":"String","value":"mytelegram"},{"type":"String","value":"mytwitter"},{"type":"ByteArray","value":"VGhpcyBpcyBhbiBleGFtcGxlLg=="},{"type":"String","value":"mylogo"}] NPS3U9PduobRCai5ZUdK2P3Y8RjwzMVfSg NPS3U9PduobRCai5ZUdK2P3Y8RjwzMVfSg
+```
 
 ###  update
 

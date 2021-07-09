@@ -79,3 +79,16 @@
 5. 试运行成功后，如果想在区块链上调用，点击 ` 调用 ` 按钮。
 
 关于调用合约和附加签名等更多信息可参考 [智能合约调用](../../develop/deploy/invoke.md)。
+
+### 示例 - 调用 CommitteeContract 添加候选人信息
+
+通过调用合约 commitecontract 的 setInfo 方法，可以添加候选人相关信息，如候选人的github、社交媒体帐户和描述等。
+
+在调用合约页面中，输入合约 commitecontract 的脚本哈希并选择 setInfo 调用方法，然后填写出现的信息字段。在附加签名中需要提供发送人的签名。
+
+候选人信息将在Neo官网页面展示。
+
+![](..\assets\commettee.png)
+
+![](..\assets\commettee1.png)
+
