@@ -75,3 +75,14 @@ After the contract deployed on the blockchain you can enter the **Invoke** page 
 
 For more information refer to [Invoking Smart Contracts](../../develop/deploy/invoke.md).
 
+### Example - invoke CommitteeContract to add candidate information
+
+You can add candidate relevant information such as the candidate's github, social media account, and description by invoking the method `setInfo` of `CommitteeContract` which has been deployed on the Neo block.
+
+In the Invoke Contract page, enter the contract script hash and select the invoke method to `setInfo`. Then fill in the information fields that appears. In `Cosigners`, the sender's signature is required.
+
+The information added will be presented on Neo Website.
+
+![](../assets/committee.png)
+
+![](../assets/committee2.png)

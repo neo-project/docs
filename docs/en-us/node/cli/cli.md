@@ -774,7 +774,11 @@ Invokes a contract.
 
 - `scripthash`: Contract hash to invoke.
 
-- `command`: Method name in the contract, which can be followed by input parameters separated by space. 
+- `operation`: Method name in the contract, which can be followed by input parameters separated by space. 
+
+  > [!Note]
+  >
+  > For election participants, you can add candidate information by invoking the setInfo method. See Example 3.
 
 - `contractParameters`: Parameters to invoke. You need to pass in JSON-formatted string. For ByteArray type, encode it with Base64 in advance. 
 
@@ -854,7 +858,7 @@ Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
 
 relay tx(no|yes): no
 ```
-##### Example 3
+##### Example 2
 
 Input:
 
@@ -872,6 +876,16 @@ Output:
 > [!Note]
 >
 > After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
+
+##### Example 3
+
+The following example code adds the candidate information including the sender address, name, location, website, email, github, telegram, twitter, description, and logo strings.
+
+```
+neo> invoke 0x20443bc0acb8d7f76ee3095c4fd5ba0a41c1fb21 setInfo [{"type":"Hash160","value":"0x429688538c267d5da7a03fbe7b8e4cf45d6e9826"},{"type":"String","value":"MyName"},{"type":"String","value":"MyLocation"},{"type":"String","value":"http://mysite.com"},{"type":"String","value":"myemail@mail.com"},{"type":"String","value":"mygithub"},{"type":"String","value":"mytelegram"},{"type":"String","value":"mytwitter"},{"type":"ByteArray","value":"VGhpcyBpcyBhbiBleGFtcGxlLg=="},{"type":"String","value":"mylogo"}] NPS3U9PduobRCai5ZUdK2P3Y8RjwzMVfSg NPS3U9PduobRCai5ZUdK2P3Y8RjwzMVfSg
+```
+
+In above code, the sender is UInt160 committee address, and the sender's signature is required.
 
 ###  update
 
