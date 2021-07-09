@@ -115,7 +115,7 @@
 
 响应说明：
 
-- script：合约的调用脚本，在 Neo 官网上可以解析 https://neo.org/converter：
+- script：合约的调用脚本，在 Neo 官网上可以解析 https://neo.org/converter
 
    ```
    SYSCALL System.Contract.Call

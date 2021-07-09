@@ -28,13 +28,12 @@ Invokes a smart contract with its scripthash based on the specified operation an
     * Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
-  
 > [!Note]
 >
 > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-  
+
 For example:
-  
+
 ```json
 {
   "type": "String",
@@ -118,7 +117,7 @@ Response body:
 
 Response description:
 
-- script: the invocation script of the contract. You can analysis from https://neo.org/converter:
+- script: the invocation script of the contract. You can analysis from https://neo.org/converter
 
   ```
   SYSCALL System.Contract.Call
