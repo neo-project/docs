@@ -44,7 +44,7 @@
 | System.Runtime.GetNotifications       | 获取指定合约在执行过程中发送的通知   |
 | System.Runtime.GasLeft                | 获取为了完成执行可以花费的剩余GAS    |
 | System.Runtime.BurnGas                | 燃烧 GAS，造福 Neo 生态          |
-| System.Runtime.GetNetwork                | 获取当前网络 number         |、
+| System.Runtime.GetNetwork                | 获取当前网络 number         |
 | System.Runtime.GetRandom                | 获取 VRF 随机数         |
 
 **存储**:
