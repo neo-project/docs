@@ -9,8 +9,8 @@
 | ExecutionEngine | 表示用于执行脚本的虚拟机                  |
 | List            | 类似 .net 中的 List                       |
 | Map             | 类似 .net 中的 Dictionary                 |
-| Nep11Token      | 数字资产的抽象类                          |
-| Nep17Token      | NFT 资产的抽象类                          |
+| Nep11Token      | NFT 资产的抽象类                          |
+| Nep17Token      | 数字资产的抽象类                          |
 | UInt160         | UInt160                                   |
 | UInt256         | UInt256                                   |
 
