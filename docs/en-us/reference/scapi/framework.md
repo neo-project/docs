@@ -9,8 +9,8 @@
 | ExecutionEngine | Represents the VM used to execute the script                 |
 | List            | Similar to List in .net                                      |
 | Map             | Similar to Dictionary in .net                                |
-| Nep11Token      | Abstraction class for digital asset                          |
-| Nep17Token      | Abstraction class for NFT asset                              |
+| Nep11Token      | Abstraction class for NFT asset                          |
+| Nep17Token      | Abstraction class for digital asset                              |
 | UInt160         | UInt160                                                      |
 | UInt256         | UInt256                                                      |
 
