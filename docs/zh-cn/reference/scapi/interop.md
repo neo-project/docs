@@ -11,6 +11,7 @@
 | System.Contract.Call                  | 动态调用另一个合约           |
 | System.Contract.GetCallFlags          | 获取当前上下文的执行权限     |
 | System.Contract.CreateStandardAccount | 从公钥转成标准账户的脚本散列 |
+| System.Contract.CreateMultisigAccount | 使用公钥创建多签账户的脚本散列 |
 
 **密码学**:
 
@@ -40,10 +41,11 @@
 | System.Runtime.CheckWitness           | 确定指定账户是否见证了当前交易       |
 | System.Runtime.GetInvocationCounter   | 获取当前合约在执行过程中被调用的次数 |
 | System.Runtime.Log                    | 写日志                               |
-| System.Runtime.Notify                 | 发出通知                             |
 | System.Runtime.GetNotifications       | 获取指定合约在执行过程中发送的通知   |
 | System.Runtime.GasLeft                | 获取为了完成执行可以花费的剩余GAS    |
-| System.Runtime.BurnGas                | 燃烧 GAS，造福 Neo 生态系统          |
+| System.Runtime.BurnGas                | 燃烧 GAS，造福 Neo 生态          |
+| System.Runtime.GetNetwork                | 获取当前网络 number         |
+| System.Runtime.GetRandom                | 获取 VRF 随机数         |
 
 **存储**:
 
