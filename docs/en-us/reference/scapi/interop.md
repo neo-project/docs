@@ -11,6 +11,7 @@ The Interoperable service is the underlying API of the system. For more informat
 | System.Contract.Call                  | Use it to call another contract dynamically.                 |
 | System.Contract.GetCallFlags          | Gets the CallFlags for the current context                   |
 | System.Contract.CreateStandardAccount | Calculates corresponding account scripthash for the given public key |
+| System.Contract.CreateMultisigAccount | Creates the script hash of multi-signed account using public key. |
 
 **Crypto**:
 
@@ -40,10 +41,11 @@ The Interoperable service is the underlying API of the system. For more informat
 | System.Runtime.CheckWitness           | Determines whether the specified account has witnessed the current transaction |
 | System.Runtime.GetInvocationCounter   | Gets the number of times the current contract has been called during the execution |
 | System.Runtime.Log                    | Writes a log                                                 |
-| System.Runtime.Notify                 | Sends a notification                                         |
 | System.Runtime.GetNotifications       | Gets the notifications sent by the specified contract during the execution |
 | System.Runtime.GasLeft                | Gets the remaining GAS that can be spent in order to complete the execution |
 | System.Runtime.BurnGas                | Burning GAS to benefit the Neo ecosystem                     |
+| System.Runtime.GetNetwork             | Gets the current network number                              |
+| System.Runtime.GetRandom              | Gets VRF random number                                       |
 
 **Storage**:
 
