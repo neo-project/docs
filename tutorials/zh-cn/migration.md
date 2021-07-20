@@ -293,5 +293,7 @@ Java示例
 
 关于文件中 transfer 数据格式的转换，可以参考官方页面 [Neo数据转换](https://neo.org/converter/index)。
 
+## 相关参考
 
+- [Cross-chain Configuration Info](https://github.com/polynetwork/docs/blob/master/config/README.md)
 

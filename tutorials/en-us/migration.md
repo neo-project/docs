@@ -295,3 +295,7 @@ The parameters related to a transaction in the file are the following:
 >
 > Regarding the data format conversion of the transfer in the file, you can refer to [Neo3 data conversion](https://neo.org/converter/index).
 
+## See also
+
+- [Cross-chain Configuration Info](https://github.com/polynetwork/docs/blob/master/config/README.md)
+
