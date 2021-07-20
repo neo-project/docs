@@ -183,7 +183,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
 
 For complete code refer to [Transaction Construction](transaction.md).
 
-## NEP-5 Contracts
+## NEP-17 Contracts
 
 `Nep17API` encapsulates the method that generates transfer transactions. The above transaction process can be simplified to:
 
