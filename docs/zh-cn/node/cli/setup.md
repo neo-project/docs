@@ -33,11 +33,9 @@
    **CentOS:**
 
    ```
-   sudo yum install sqlite-devel
-   sudo yum install libunwind-devel
-   sudo wget https://download-ib01.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-   sudo rpm -ivh epel-release-6-8.noarch.rpm
-   sudo yum install leveldb-devel
+   sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   sudo yum -y install epel-release-latest-7.noarch.rpm
+   sudo yum  -y install leveldb-devel libunwind-devel libsqlite3x-devel sqlite3*
    ```
 
    如果选用RocksDB存储数据，还需要修改config.json，如下所示：
