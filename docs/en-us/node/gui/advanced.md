@@ -25,10 +25,9 @@ To register as a candidate:
    >
    > The multi-signature address is not displayed in the list as it cannot be registered to a candidate.
 
-After the transaction is sent successfully, you can do one of the following to check if the candidate has been registered:
+After the transaction is sent successfully, you can do the following to check if the candidate has been registered:
 
-- Use the API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html).  The candidate's public key should be displayed in the returned response text.
-- Click `Advanced` -> `Vote` to enter the **Vote** page. The candidate's public key should be displayed in the candidate list:
+Click `Advanced` -> `Vote` to enter the **Vote** page. The candidate's public key should be displayed in the candidate list:
 
 ![](../assets/guiValidators.png)
 
@@ -43,7 +42,7 @@ To vote:
 3. In the Candidates field, enter the public key of the candidate to vote. 
 4. Click `OK`. 
 
-After voting you can use the API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) to check the candidate votes, or you can check the votes in the candidates list after the block data has been updated.
+After voting you can check the votes in the candidates list after the block data has been updated.
 
 ## Signature
 

@@ -25,13 +25,11 @@
    >
    > 多签地址无法参与选举，不会在下拉列表中显示。
 
-如果选举交易发送成功，可以通过以下一种方式确定是否成功成为候选人：
+如果选举交易发送成功，可以通过以下方式确定是否成功成为候选人：
 
-+ 使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看是否成功成为候选人，候选人公钥会显示在该 API 的响应正文中 （publickey）;
+点击 `高级`-> `投票` 进入Neo-GUI的投票页面，查看自己的公钥有没有出现在候选人列表。
 
-+ 点击 `高级`-> `投票` 进入Neo-GUI的投票页面，查看自己的公钥有没有出现在候选人列表。
-
-  ![](../assets/guiValidators.png)
+![](../assets/guiValidators.png)
 
 ### 投票
 
@@ -44,9 +42,7 @@
 3. 在候选人框内输入要投票的候选人公钥
 4. 确认投票
 
-投票成功后可以使用 API [getvalidators](../../reference/rpc/latest-version/api/getvalidators.html) 查看候选人票数；
-
-也可以等区块数据更新以后，在候选人列表查看票数是否成功累计。
+投票成功后可以等区块数据更新以后，在候选人列表查看票数是否成功累计。
 
 ## 签名
 
