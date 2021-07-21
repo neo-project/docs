@@ -293,7 +293,7 @@ After sending the request, you will get the following response：
 }
 ```
 
-It returns "dDE=" which can be decoded to "GAS".
+It returns "R0FT" which can be decoded to "GAS".
 
 ##### **Calculating the User Balance**
 
