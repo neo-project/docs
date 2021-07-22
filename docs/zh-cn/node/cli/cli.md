@@ -377,7 +377,7 @@ neo> list nativecontract
 
 ### get accountstate
 
-获取指定账户最新的投票情况
+获取指定账户最新的投票情况，如投票地址，所投票数和投票的区块高度。
 
 ##### 句法
 

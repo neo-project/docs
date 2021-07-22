@@ -115,16 +115,16 @@ The commands listed in the table below requires you to open the wallet before in
 
 #### Voting commands
 
-| Command                                       | Parameters                    | Description                                    |
-| --------------------------------------------- | ----------------------------- | ---------------------------------------------- |
-| [get accountstate](#get-accountstate)         | \<address>                    | Gets the latest votes of the specified account |
-| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes         |
-| [get committee](#get-committee)               |                               | Gets the committee member's public key         |
-| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key          |
-| [register candidate](#register-candidate)     | \<account> [maxGas=1010]      | Registers the candidate                        |
-| [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate                      |
-| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for candidates                           |
-| [unvote](#unvote)                             | \<senderAccount>              | Cancel the voting                              |
+| Command                                       | Parameters                    | Description                                                 |
+| --------------------------------------------- | ----------------------------- | ----------------------------------------------------------- |
+| [get accountstate](#get-accountstate)         | \<address>                    | Gets the latest voting information of the specified account |
+| [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes                      |
+| [get committee](#get-committee)               |                               | Gets the committee member's public key                      |
+| [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key                       |
+| [register candidate](#register-candidate)     | \<account> [maxGas=1010]      | Registers the candidate                                     |
+| [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate                                   |
+| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for candidates                                        |
+| [unvote](#unvote)                             | \<senderAccount>              | Cancel the voting                                           |
 
 #### Block Commands
 
@@ -376,7 +376,7 @@ neo> list nativecontract
 
 ### get accountstate
 
-获取指定账户最新的投票情况Gets the latest votes of the specific account.
+Gets the latest voting information of the specific account, including the address it voted, the amount of votes cast and the block height at the time of voting.
 
 ##### Syntax
 
@@ -384,7 +384,7 @@ neo> list nativecontract
 
 ##### Parameter
 
-`address`：The address you want to query the votes
+`address`：The address you want to query the voting information.
 
 ##### Example
 
