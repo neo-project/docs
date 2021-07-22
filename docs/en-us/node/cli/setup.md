@@ -33,11 +33,9 @@ The following table lists the minimum and recommended hardware requirements for 
   **CentOS:**
 
   ```
-  sudo yum install sqlite-devel
-  sudo yum install libunwind-devel
-  sudo wget https://download-ib01.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-  sudo rpm -ivh epel-release-6-8.noarch.rpm
-  sudo yum install leveldb-devel
+  sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  sudo yum -y install epel-release-latest-7.noarch.rpm
+  sudo yum  -y install leveldb-devel libunwind-devel libsqlite3x-devel sqlite3*
   ```
 
   If you use RocksDB as the storage, modify config.json, as shown below：
