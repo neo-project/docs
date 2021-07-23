@@ -51,7 +51,7 @@
 | [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys> | 创建多方签名地址            |
 | [import watchonly](#import-watchonly) | \<addressOrFile> | 导入监听地址（如合约账户）            |
 | [send](#send)                                     | \<id \| alias> \<address> \<amount> \[from=null] \[data=null] \[signerAccounts=null] | 向指定地址转账               |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对多方签名交易进行签名       |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | 对 ContractParametersContext 进行签名 |
 
 #### 合约命令
 
@@ -733,7 +733,7 @@ TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 
 ### sign
 
-从签名数量为 1 以上的多方签名合约中提取资产时，需要多方进行签名， 签名完整后才能广播出去，广播交易的方法请参照 relay 方法。
+该命令用于给 ContractParametersContext 签名。签名完整后才能广播出去，广播交易的方法请参照 relay 方法。
 
 ##### 句法
 

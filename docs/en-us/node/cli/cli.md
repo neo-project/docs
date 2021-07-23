@@ -719,7 +719,7 @@ TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 
 ### sign
 
-This command is used to sign when withdrawing assets from a multi-signed address which requires multiple signatures. The translation can be broadcasted only after signing is completed.
+This command is used to sign ContractParametersContext. The translation can be broadcasted only after signing is completed.
 
 ##### Syntax
 
