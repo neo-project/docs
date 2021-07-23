@@ -51,7 +51,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys>                                           | Creates a multi-signature contract.                  |
 | [import watchonly](#import-watchonly) | \<addressOrFile> | Imports the watch-only address (e.g. contract address)|
 | [send](#send)                                  | \<id \|alias> \<address> \<amount> \[from=null] \[data=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs ContractParametersContext. The parameter is the json string that records the transaction information. |
+| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 
 #### Contract commands
 
