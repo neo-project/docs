@@ -57,4 +57,4 @@ balance: the balance of the asset in the wallet. Since the NEP-17 assets adopt t
 > [!Note]
 >
 > * Only when your client synchronizes to the block that the contract was deployed, execution of this API will return the correct value, otherwise execution of the API will result in an error.
-> * When the input parameter is a script hash of a non-NEP-5 smart contract, execution of the API will result in an error.
+> * When the input parameter is a script hash of a non-NEP-17 smart contract, execution of the API will result in an error.

@@ -2,7 +2,7 @@
 
 The `RPC` module provides methods to get basic information of blockchain data and status, such as block height, block content, transaction details, and contracts. 
 
-For some specific information of contracts, such as the block maximum transaction number, system fee per byte, NEP-5 contract details, you need to invoke specific contract methods, which will be introduced in this document.
+For some specific information of contracts, such as the block maximum transaction number, system fee per byte, NEP-17 contract details, you need to invoke specific contract methods, which will be introduced in this document.
 
 
 ## Getting blockchain data from RPC interfaces

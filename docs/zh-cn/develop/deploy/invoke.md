@@ -65,7 +65,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerA
 
 > [!Note]
 >
-> 在通过转账命令调用 NEP-5 合约的 transfer 方法时，钱包会自动对 from 字段进行附加签名。此时不需要手动添加。
+> 在通过转账命令调用 NEP-17 合约的 transfer 方法时，钱包会自动对 from 字段进行附加签名。此时不需要手动添加。
 
 ## 合约之间的互相调用
 
