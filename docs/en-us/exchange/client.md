@@ -50,7 +50,7 @@ Neo-CLI provides the following features：
   For more API information, refer to [API Reference](../reference/rpc/latest-version/api.md).
 
 
-- Provides transaction information of NEP-5 assets.
+- Provides transaction information of NEP-17 assets.
 
 
 ### Creating a Wallet

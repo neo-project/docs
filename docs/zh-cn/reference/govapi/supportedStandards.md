@@ -21,7 +21,7 @@ var result = Contract.Call(nativeHash, "supportedStandards", new object[] { });
 	"type": "Array",
 	"value": [{
 		"type": "ByteString",
-		"value": "NEP-5"
+		"value": "NEP-17"
 	}, {
 		"type": "ByteString",
 		"value": "NEP-10"

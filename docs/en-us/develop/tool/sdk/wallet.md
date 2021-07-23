@@ -136,7 +136,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 >
 > The type of account balance is usually BigInteger, which is a representation after rounding the decimal part. It needs to be divided by Factor to get the actual Token amount.
 
-Inquiry NEP-5 asset balance using the string parameter:
+Inquiry NEP-17 asset balance using the string parameter:
 
 ```c#
 // get the neo balance of account
@@ -200,7 +200,7 @@ In Neo N3 GAS is automatically claimed when NEO is transferred. You can construc
 
 ## Asset Transfer
 
-`WalletAPI` encapsulates transfer methods of NEP-5 assets.
+`WalletAPI` encapsulates transfer methods of NEP-17 assets.
 
 Use string parameters: 
 

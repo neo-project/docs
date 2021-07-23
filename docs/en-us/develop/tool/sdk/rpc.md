@@ -356,7 +356,7 @@ string wif = await client.DumpPrivKeyAsync("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ")
 ```
 
 ### GetBalanceAsync
-Returns balance of the specified asset in the wallet by the asset id. This method is applicable to the native contract assets and NEP-5 compliant assets.
+Returns balance of the specified asset in the wallet by the asset id. This method is applicable to the native contract assets and NEP-17 compliant assets.
 
 ```c#
 BigDecimal balance = await client.GetWalletBalanceAsync(NativeContract.NEO.Hash.ToString()).ConfigureAwait(false);

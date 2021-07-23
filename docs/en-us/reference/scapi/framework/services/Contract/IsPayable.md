@@ -1,6 +1,6 @@
 # Contract.IsPayable
 
-Whether the contract is able to accept NEP-5 assets
+Whether the contract is able to accept NEP-17 assets
 
 Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
 
