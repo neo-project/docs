@@ -4,7 +4,7 @@ This tutorial is intended to guide developers in migrating the global assets NEO
 
 ## Exchange to nNEO / cGAS
 
-Since it is not possible to transfer the UTXO asset NEO /GAS into smart contracts, we need to exchange them to nNEO / cGAS which are NEP-17 contract mapping assets, allowing the invocation of funds across chains, precision calculation of assets, as well as interaction with smart contracts. 
+In order to facilitate the invocation and precision calculation of assets across chains, as well as the interaction with smart contracts, we need to exchange the UTXO asset NEO /GAS to nNEO / cGAS which are NEP-5 contract mapping assets and can be divided. 
 
 nNEO and cGAS are open source and can be found in GitHub: [nNEO ](https://github.com/neo-ngd/CNEO-Contract "nNEO") and [cGAS](https://github.com/neo-ngd/CGAS-Contract "cGAS").
 
