@@ -162,6 +162,14 @@ Java示例
 
 **Neo Legacy 端：**
 
+
+0. 保证用户钱包有1个cGAS:
+
+>  This  is <strong><em>really important!</em></strong>.
+
+目前跨链在合约中加了限制，当>=10NEO或者>=20个GAS时，跨链是免费操作。当<这个限制时，跨链合约会在用户地址上扣取1个cGAS。所以先要保证地址上拥有至少1个cGAS，否则跨链会失败。
+
+
 1. 用户调用Neo Legacy链上的代理合约的 `lock` 方法。
 
    > [!Note]
