@@ -176,7 +176,7 @@ As illustrated in the above architecture figure, an usual migration process flow
    >
    > - For the C# invocation code example, refer to [C# Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/CrossChainDemo/Demo.cs).
    > - For the Java invocation code example, refer to [Java Demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_Java/src/main/java/crosschain/demo).
-   > - For the Javascript code example, refer to [JS Demo](https://github.com/neo-ngd/CrossChainExample/blob/main/crosschaindemo.js).
+   > - For the Javascript code example, refer to [JS Demo](https://github.com/neo-ngd/CrossChainExample/tree/main/CrossChainDemo_js).
 
 2. The proxy contract locks the assets to migrate out in its address.
 
