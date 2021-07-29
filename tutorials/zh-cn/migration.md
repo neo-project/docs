@@ -304,7 +304,7 @@ Java示例
 
 ## 相关参考
 
-- [跨链合约和资产合约 Hash](contracthash.md)
+- [跨链合约和资产合约 Hash](https://github.com/neo-ngd/CrossChainExample/blob/main/contracthash.md)
 
 - [Cross-chain Configuration Info](https://github.com/polynetwork/docs/blob/master/config/README.md)
 
