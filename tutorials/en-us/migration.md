@@ -158,7 +158,15 @@ The components in the figure above are defined as follows:
 
 ## Migration process flow
 
-Before starting the migration, you need to register two side chains and two Relayers and bind the corresponding assets on both side chains.  As illustrated in the above architecture figure, an usual migration process flow is as follows:
+Before starting the migration, you need to register two side chains and two Relayers and bind the corresponding assets on both side chains.  
+
+> [!Warning]
+>
+> Please ensure at least 1 cGAS at the user's address before starting the migration, otherwise the migration may fail!
+>
+> Currently the cross-chain contract adds a condition that migration to N3 is free as long as the amount of assets is greater than or equal to 10 NEO or 20 GAS; otherwise, the contract will charge 1 cGAS at the user's address if the condition is not met.
+
+As illustrated in the above architecture figure, an usual migration process flow is as follows:
 
 **Neo Legacy side:**
 
