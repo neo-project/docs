@@ -28,7 +28,7 @@ let outPutObj1 = {
 let outPutObj2 = {
     "assetId": "602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
     "value": "10",
-    "scriptHash": "74f2dc36a68fdc4682034178eb2220729231db76"
+    "scriptHash": "74f2dc36a68fdc4682034178eb2220729231db76" //cGAS hash
 }
 
 let inputObj = {
@@ -37,7 +37,7 @@ let inputObj = {
 }
 
 const props2 = {
-    scriptHash: "74f2dc36a68fdc4682034178eb2220729231db76",
+    scriptHash: "74f2dc36a68fdc4682034178eb2220729231db76", //cGAS hash
     operation: "mintTokens",
     args: []
 };
@@ -95,9 +95,9 @@ C# example：
             Transaction tx = null;
             using (ScriptBuilder sb = new ScriptBuilder())
             {
-                //nNEO
-                sb.EmitAppCall(UInt160.Parse("0xf46719e2d16bf50cddcef9d4bbfece901f73cbb6"), "mintTokens");     //The contract function mintTokens
-                //cGAS
+                //nNEO hash
+                sb.EmitAppCall(UInt160.Parse("0xf46719e2d16bf50cddcef9d4bbfece901f73cbb6"), "mintTokens");     
+                //cGAS hash
                 //sb.EmitAppCall(UInt160.Parse("0x74f2dc36a68fdc4682034178eb2220729231db76"), "mintTokens");
                 tx = new InvocationTransaction
                 {
@@ -305,5 +305,6 @@ The parameters related to a transaction in the file are the following:
 
 ## See also
 
+- [Cross-chain Contract and Asset Contract Hashes](https://github.com/neo-ngd/CrossChainExample/blob/main/contracthash.md)
 - [Cross-chain Configuration Info](https://github.com/polynetwork/docs/blob/master/config/README.md)
 
