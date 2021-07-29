@@ -1,0 +1,40 @@
+## Neo Legacy Mainnet
+
+| Name | big endian | little endian |
+| ------------------ | ------- | ------- |
+Nep5Proxy	| 0xe7fb2e1d937e71dbbb512e6375746181127282e7	| e782721281617475632e51bbdb717e931d2efbe7	| 
+Migration Wrapper	| 	| 	| 
+nNEO	| 0xf46719e2d16bf50cddcef9d4bbfece901f73cbb6	| b6cb731f90cefebbd4f9cedd0cf56bd1e21967f4	| 
+cGAS	| 0x74f2dc36a68fdc4682034178eb2220729231db76	| 76db3192722022eb7841038246dc8fa636dcf274	| 
+
+## Neo Legacy Testnet
+
+| Name | big endian | little endian |
+---|---|---
+Nep5Proxy	| 0xedd2862dceb90b945210372d229f453f2b705f4f	| 4f5f702b3f459f222d371052940bb9ce2d86d2ed	| 
+Migration Wrapper | 0x7997ac991b66ca3810602639a2f2c1bd985e8b5a	| 5a8b5e98bdc1f2a23926601038ca661b99ac9779	|  
+CCMC	| 0xe1695b1314a1331e3935481620417ed835669407	| 07946635d87e4120164835391e33a114135b69e1	|
+nNEO	| 0x17da3881ab2d050fea414c80b3fa8324d756f60e	| 0ef656d72483fab3804c41ea0f052dab8138da17	| 
+cGAS	| 0x74f2dc36a68fdc4682034178eb2220729231db76	| 76db3192722022eb7841038246dc8fa636dcf274	| 
+fUSDT	| 0xb55026d49bb5b585e1d2f9820efdc969f4b8cde6	| e6cdb8f469c9fd0e82f9d2e185b5b59bd42650b5	| 
+fWETH	| 0x9b2446d658859a96a7c40204d027bf5f9ca896e5	| e596a89c5fbf27d00402c4a7969a8558d646249b	| 
+FLM	| 0x083ea8071188c7fe5b5e4af96ded222670d76663 |	6366d7702622ed6df94a5e5bfec7881107a83e08
+
+## Neo N3 Mainnet
+
+| Name | big endian | little endian |
+| ------------------ | ------- | ------- |
+NEO	| 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5	| f563ea40bc283d4d0e05c48ea305b3f2a07340ef	| 
+GAS	| 0xd2a4cff31913016155e38e474a2c06d08be276cf	| cf76e28bd0062c4a478ee35561011319f3cfa4d2	| 
+
+## Neo N3 Testnet
+
+| Name | big endian | little endian |
+---|---|---
+Nep17Proxy	| 0x4487494dac2f7eb68bdae009cacd6de88243e542	| 42e54382e86dcdca09e0da8bb67e2fac4d498744	| 
+CCMC	| 0x618d44dc3af16c6120dbf65402024f40a04f772a	| 2a774fa0404f020254f6db20616cf13adc448d61	|
+NEO	| 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5	| f563ea40bc283d4d0e05c48ea305b3f2a07340ef	| 
+GAS	| 0xd2a4cff31913016155e38e474a2c06d08be276cf	| cf76e28bd0062c4a478ee35561011319f3cfa4d2	| 
+FLM	| 0x1415ab3b409a95555b77bc4ab6a7d9d7be0eddbd	| bddd0ebed7d9a7b64abc775b55959a403bab1514	| 
+fUSDT	| 0x83c442b5dc4ee0ed0e5249352fa7c75f65d6bfd6	| d6bfd6655fc7a72f3549520eede04edcb542c483	| 
+fWETH	| 0x38a2aace91f92b979207c0dd50a857c117d4785b	| 5b78d417c157a850ddc00792972bf991ceaaa238	| 

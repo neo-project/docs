@@ -28,7 +28,7 @@ let outPutObj1 = {
 let outPutObj2 = {
     "assetId": "602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
     "value": "10",
-    "scriptHash": "74f2dc36a68fdc4682034178eb2220729231db76"
+    "scriptHash": "74f2dc36a68fdc4682034178eb2220729231db76" //cGAS 合约 hash
 }
 
 let inputObj = {
@@ -37,7 +37,7 @@ let inputObj = {
 }
 
 const props2 = {
-    scriptHash: "74f2dc36a68fdc4682034178eb2220729231db76",
+    scriptHash: "74f2dc36a68fdc4682034178eb2220729231db76", //cGAS 合约 hash
     operation: "mintTokens",
     args: []
 };
@@ -95,9 +95,9 @@ C# 示例：
             Transaction tx = null;
             using (ScriptBuilder sb = new ScriptBuilder())
             {
-                //nNEO
-                sb.EmitAppCall(UInt160.Parse("0xf46719e2d16bf50cddcef9d4bbfece901f73cbb6"), "mintTokens");     //合约方法 mintTokens
-                //cGAS
+                //nNEO Hash
+                sb.EmitAppCall(UInt160.Parse("0xf46719e2d16bf50cddcef9d4bbfece901f73cbb6"), "mintTokens");
+                //cGAS Hash
                 //sb.EmitAppCall(UInt160.Parse("0x74f2dc36a68fdc4682034178eb2220729231db76"), "mintTokens");
                 tx = new InvocationTransaction
                 {
@@ -303,6 +303,8 @@ Java示例
 关于文件中 transfer 数据格式的转换，可以参考官方页面 [Neo数据转换](https://neo.org/converter/index)。
 
 ## 相关参考
+
+- [跨链合约和资产合约 Hash](contracthash.md)
 
 - [Cross-chain Configuration Info](https://github.com/polynetwork/docs/blob/master/config/README.md)
 
