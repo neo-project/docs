@@ -28,7 +28,7 @@ let outPutObj1 = {
 let outPutObj2 = {
     "assetId": "602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
     "value": "10",
-    "scriptHash": "74f2dc36a68fdc4682034178eb2220729231db76" //cGAS 合约 hash
+    "scriptHash": "74f2dc36a68fdc4682034178eb2220729231db76" //cGAS hash
 }
 
 let inputObj = {
@@ -37,7 +37,7 @@ let inputObj = {
 }
 
 const props2 = {
-    scriptHash: "74f2dc36a68fdc4682034178eb2220729231db76", //cGAS 合约 hash
+    scriptHash: "74f2dc36a68fdc4682034178eb2220729231db76", //cGAS hash
     operation: "mintTokens",
     args: []
 };
