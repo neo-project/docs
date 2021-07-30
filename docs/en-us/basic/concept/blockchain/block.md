@@ -12,6 +12,7 @@ The data structure of block as following:
 | 32   | PrevHash      | Previous Hash                       | UInt256 | The previous block's hash                                    |
 | 32   | MerkleRoot    | Merkle Tree    Root                 | Uint256 | The merkle tree root of the block's transactions             |
 | 8    | Timestamp     | Block Timestamp                     | ulong   | The time when this block is generated                        |
+| 8    | Nonce         | Random number                       | ulong   | The random number of the block                               |
 | 4    | Index         | Block Index                         | uint    | Block height, and the Genesis Block's index is 0             |
 | 1    | PrimaryIndex  | Speaker index                       | byte    | Index of the proposal validator in the current round         |
 | 20   | NextConsensus | Address of the next round validator | UInt160 | The script hash of more than two-thirds of validator's signatures for the next round |
