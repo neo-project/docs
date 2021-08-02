@@ -45,7 +45,7 @@ The Interoperable service is the underlying API of the system. For more informat
 | System.Runtime.GasLeft                | Gets the remaining GAS that can be spent in order to complete the execution |
 | System.Runtime.BurnGas                | Burning GAS to benefit the Neo ecosystem                     |
 | System.Runtime.GetNetwork             | Gets the current network number                              |
-| System.Runtime.GetRandom              | Gets VRF random number                                       |
+| System.Runtime.GetRandom              | Gets random number                                           |
 
 **Storage**:
 

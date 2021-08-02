@@ -12,6 +12,7 @@
 | 32     | PrevHash      | 上一个区块Hash   | UInt256       | 上一个区块的hash值                           |
 | 32     | MerkleRoot    | Merkle树        | Uint256       | 该区块中所有交易的Merkle树的根               |
 | 8      | Timestamp     | 时间戳         | ulong          | 该区块生成的大致时间                         |
+| 8 | Nonce | 随机数 | ulong | 该区块的随机数 |
 | 4      | Index         | 区块高度       | uint          | 创世块的高度为0                              |
 | 1      | PrimaryIndex  | 议长索引       | byte        | 本次共识过程中提案验证人的索引           |
 | 20     | NextConsensus | 下一轮共识验证人的地址 | UInt160       | 下一轮出块的三分之二以上的验证人的签名脚本hash |
