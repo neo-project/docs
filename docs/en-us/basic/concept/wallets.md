@@ -67,7 +67,7 @@ Address is a string of numbers and letters after a series of transformations of 
 1. Build a `CheckSig` script with the public key, and the format is as follows:
 
     ```
-    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x747476aa
+    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x56e7b327
     ```
 
     ![](..\images\wallets\account_address_script_checksign.png)
@@ -92,10 +92,10 @@ Example：
 1. Construct an N-of-M `CheckMultiSig` script with multiple addresses. The script format is as follows: 
 
    ```
-   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 7bce6ca5
+   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 0x9ed0dc3a
    ```
 
-   [![address checksign](https://github.com/Tommo-L/NEO3-Development-Guide/raw/master/images/account_address_script_multi_checksign.png)](https://github.com/Tommo-L/NEO3-Development-Guide/blob/master/images/account_address_script_multi_checksign.png)
+   ![](..\images\wallets\account_address_script_multi_checksign.png)
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script).
 
@@ -226,7 +226,6 @@ An NEP6 wallet file complies with the NEP6 standard, and the file name extension
 }
 ```
 > In this example the password is 1
->
 
 | Field                           | Description                                                  |
 | ------------------------------- | ------------------------------------------------------------ |

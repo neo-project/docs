@@ -67,7 +67,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 1. 通过公钥，构建一个 CheckSig 地址脚本，脚本格式，如下图
 
     ```
-    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x747476aa
+    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x56e7b327
     ```
 
     ![](../images/wallets/account_address_script_checksign.png)
@@ -92,9 +92,9 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 1. 通过多个地址，构建一个 N-of-M CheckMultiSig 多方签名的地址脚本，脚本格式如下：
 
    ```
-   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 7bce6ca5
+   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 0x9ed0dc3a
    ```
-   ![](../images/wallets/account_address_script_multi_checksign.png)
+   <img src="../images/wallets/account_address_script_multi_checksign.png"  />
 
 2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
 
