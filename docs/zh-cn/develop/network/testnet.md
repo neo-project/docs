@@ -6,9 +6,6 @@ Neo 也提供了测试网（Test Net）供开发者进行开发、调试和测�
 
 测试网的所有区块数据都是独立于主网的。如果开发简单的智能合约或者尝试注册资产的话，用测试网就足够了，待开发完成后可以迁移到 Neo 的主网上运行。
 
-> [!Note]
->
-> Neo N3 客户端目前只能接入测试网，主网尚未上线。
 
 ## 测试网的特点
 
@@ -20,12 +17,9 @@ Neo 也提供了测试网（Test Net）供开发者进行开发、调试和测�
 
 ## 连接到测试网
 
-对于Neo-GUI，运行后将默认连接到测试网。
+对于Neo-GUI，进入任意页面，点击左下角`设置`，在**网络切换**中选择 `测试网`。
 
-对于Neo-CLI，
-
-- 如果是从 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 直接下载的 RC3 程序包，那么其中的 `config.json` 文件已经是连接测试网的，无需替换。
-- 如果是从源代码发布的Neo-CLI，要成功连接到Neo N3 RC3测试网，除了将客户端目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件），还必须将配置文件 config.json 中的Network字段值改为 **844378958**。
+对于Neo-CLI，将客户端目录下的 `config.testnet.json` 里的内容复制到 `config.json`（替换原有配置文件）即可。
 
 ![](../../assets/testnet_2_v2.png)
 
