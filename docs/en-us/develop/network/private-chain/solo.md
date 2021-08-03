@@ -6,7 +6,7 @@ Alternatively, you can build a private chain with one node from scratch, which w
 
 ## Prerequisites
 
-1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI. (Make sure you install the [DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.0.0-rc3/DBFTPlugin.zip))
+1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI. (Make sure you install the [DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.0.0/DBFTPlugin.zip)
 2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet consensus.json`
 
 3. Specify the wallet password and confirm.

@@ -21,7 +21,9 @@ Neo-GUI is an open source project, thus you can download the installation packag
 
 ## Connecting to the network
 
-After installation Neo-GUI connects to the Neo test net automatically. 
+After installation Neo-GUI connects to the N3 main net automatically. 
+
+To connect the node to test net, go to any page and click **Settings** in the lower left corner. Then check **Testnet**.
 
 If you have already built a private chain (see [Setting up private chain](../../develop/network/private-chain/solo.md)), you can also connect Neo-GUI to it.
 
@@ -35,7 +37,7 @@ If you have already built a private chain (see [Setting up private chain](../../
 
 4. Run Neo-GUI and go to any page.
 
-5. Click `Setting` in the lower left corner.
+5. Click `Settings` in the lower left corner.
 
 6. Under **Network** check `Privatenet`.
 

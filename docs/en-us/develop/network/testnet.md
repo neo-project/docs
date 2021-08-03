@@ -6,10 +6,6 @@ Neo also provides the Test net where developers can develop, debug, and test the
 
 All the block data of the test net are independent of the main net. If you want to develop some simple smart contracts or try to register assets, test net is sufficient. After the testing is complete, the development can be moved into the Neo mainnet.
 
-> [!Note]
->
-> Neo N3 clients can only connect to test net for the moment as the Neo N3 main net has not been launched yet.
-
 ## Test net features
 
 - Asset registration, asset distribution, contract execution, etc. (Does not consume real money)
@@ -20,18 +16,11 @@ All the block data of the test net are independent of the main net. If you want 
 
 ## Connecting to test net
 
-For Neo-GUI, it connects to the test net by default when running.
+For Neo-GUI, go to any page and click **Settings** in the lower left corner. Then check **Testnet** in the popped-up page.
 
-For Neo-CLI, 
+For Neo-CLI, replace the `config.json` file with the content of `config.testnet.json` under CLI directory.
 
-- If it is the RC3 package downloaded from  [Neo-CLI](https://github.com/neo-project/neo-node/releases), it connects to the test net by default.
-
-- If it is published from the source code, to connect it to Neo N3 RC3 test net, you need to:
-
-  1. Replace the `config.json` file with the content of `config.testnet.json` under CLI directory
-  2. Change the `Network` value in config.json to **844378958**
-
-  ![image](../../assets/testnet_2_v2.png)
+![image](../../assets/testnet_2_v2.png)
 
 ## Applying for Test GAS and Test NEO
 
