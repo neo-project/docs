@@ -11,7 +11,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
 启动 Neo-CLI 前，你可以在 `config.json` 中开启自动绑定并打开钱包功能，这样节点启动后会默认打开该钱包。配置参数如下：
 
 - `Path`：钱包路径
-- `Password`：钱包密码
+- `Password`：钱包密码。注意这里钱包密码是明文显示！
 - `IsActive`：设为 true 允许自动打开钱包
 
 下面是一个标准设置的例子：

@@ -11,7 +11,7 @@ Neo-CLI accesses the configuration file `config.json`  during execution. You nee
 To make Neo-CLI automatically open a wallet when running, you can configure the wallet in  `config.json`  beforehand, as follows:
 
 - `Path`: the wallet path
-- `Password`: the wallet password
+- `Password`: the wallet password. Note that the password configured here is displayed in plaintext!
 - `IsActive`: Set to `true` to allow Neo-CLI to open the wallet automatically.
 
 Here is an example:
