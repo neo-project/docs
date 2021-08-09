@@ -36,7 +36,7 @@ Request body：
 {
   "jsonrpc": "2.0",
   "method": "getnep17balances",
-  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF", 0],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
   "id": 1
 }
 ```
