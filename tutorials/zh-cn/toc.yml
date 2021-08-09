@@ -1,4 +1,8 @@
 - name: 节点搭建
   href: /tutorials/zh-cn/candidatenodes.md
 - name: 跨链迁移
-  href: /tutorials/zh-cn/migration.md
+  items:
+  - name: 迁移开发指南
+    href: /tutorials/zh-cn/migration.md
+  - name: 迁移页面指南
+    href: /tutorials/zh-cn/migration-guide.md

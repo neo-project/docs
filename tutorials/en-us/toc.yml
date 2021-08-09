@@ -1,4 +1,8 @@
 ﻿- name: Contract Development
   href: /tutorials/en-us/development.md
 - name: Cross-chain Migration
-  href: /tutorials/en-us/migration.md
+  items:
+  - name: Migration Development Guideline
+    href: /tutorials/en-us/migration.md
+  - name: Migration Guideline on Migration Page
+    href: /tutorials/en-us/migration-guide.md
