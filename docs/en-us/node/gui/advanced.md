@@ -13,7 +13,7 @@ Using Neo-GUI you can elect candidates and vote for Neo consensus nodes. After a
 After the candidates are registered, the NEO token holders can vote for consensus nodes. Before you participate in the election make sure:
 
 - You open the wallet
-- There are enough GAS in your wallet (approximately 6 GAS) for payment of  candidate registration.
+- There are enough GAS in your wallet (approximately 1000.12 GAS) for payment of  candidate registration.
 
 To register as a candidate:
 
