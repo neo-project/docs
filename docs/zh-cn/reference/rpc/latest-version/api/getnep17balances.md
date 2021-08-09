@@ -26,7 +26,7 @@ address：要查看资产余额的地址。
 {
   "jsonrpc": "2.0",
   "method": "getnep17balances",
-  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF", 0],
+  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
   "id": 1
 }
 ```
