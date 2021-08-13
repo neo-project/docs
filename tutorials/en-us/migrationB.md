@@ -22,10 +22,3 @@ This tutorial is intended to guide exchange developers in migrating the global a
 
 - [Asset Contract Hashes](https://github.com/neo-ngd/sdkDemo/blob/master/contracthash.md)
 - [Guideline on Migration Page](migration-guide.md)
-
-
-
-
-
-
-
