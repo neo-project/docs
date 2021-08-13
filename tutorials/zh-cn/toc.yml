@@ -3,6 +3,6 @@
 - name: 跨链迁移
   items:
   - name: 迁移开发指南
-    href: /tutorials/zh-cn/migration.md
+    href: /tutorials/zh-cn/migrationB.md
   - name: 迁移页面指南
     href: /tutorials/zh-cn/migration-guide.md
