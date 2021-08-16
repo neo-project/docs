@@ -18,7 +18,7 @@ This tutorial is intended to guide exchange developers in migrating the global a
 
    > [!Note]
    >
-   > Migrating the decimal part of NEO/nNEO is not supported. The migration amount will be rounded down when distributing NEO/nNEO on N3 blockchain. 
+   > Migrating the decimal part of nNEO is not supported. The migration amount will be rounded down when distributing nNEO on N3 blockchain. 
 
 2. We will scan all the Neo legacy transactions sent to the specific address and sends the corresponding amount of NEO/GAS token to the N3 address at regular intervals (up to one business day) only if the transaction is valid.
 
