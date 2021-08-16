@@ -3,6 +3,6 @@
 - name: Cross-chain Migration
   items:
   - name: Migration Development Guideline
-    href: /tutorials/en-us/migration.md
+    href: /tutorials/en-us/migrationB.md
   - name: Migration Guideline on Migration Page
     href: /tutorials/en-us/migration-guide.md
