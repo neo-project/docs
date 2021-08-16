@@ -16,7 +16,7 @@ This tutorial is intended to guide exchange developers in migrating the global a
    > - For migration asset amount equal to or more than 10 Neo or 20 GAS it is free. For migration  amount less than that amount, the user has to reserve **1 GAS as network fee**. 
    > - One transaction can only include one kind of asset for migration except GAS for fee payment. 
 
-2. We will scan all the Neo legacy transactions sent to the specific address and sends the corresponding amount of NEO/GAS token to the N3 address every x minutes only if the transaction is valid.
+2. We will scan all the Neo legacy transactions sent to the specific address and sends the corresponding amount of NEO/GAS token to the N3 address at regular intervals (up to one business day) only if the transaction is valid.
 
 ## See also
 
