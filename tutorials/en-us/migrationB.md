@@ -13,8 +13,8 @@ This tutorial is intended to guide exchange developers in migrating the global a
    > Before sending the transaction, ensure that your transaction meets all the following requirements, otherwise it would not be processed and your assets sent out would be lost!
    >
    > - The N3 address in the transaction is valid and only one Remark14 in **attribute**.
-   > - For migration asset amount equal to or more than 10 Neo or 20 GAS it is free. For migration  amount less than that amount, the user has to reserve **1 GAS as network fee**. 
-   > - One transaction can only include one kind of asset for migration except GAS for fee payment. 
+   > - For migration asset amount equal to or more than 10 Neo or 20 GAS it is free. If you are migrating less than that amount, you have to attach **1 GAS as network fee**. 
+   > - One transaction can only include one kind of asset for migration except GAS for network fee payment. 
 
 2. We will scan all the Neo legacy transactions sent to the specific address and sends the corresponding amount of NEO/GAS token to the N3 address at regular intervals (up to one business day) only if the transaction is valid.
 
