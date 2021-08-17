@@ -10,7 +10,7 @@ Test net node：
 
 ```c#
 // TestNet Node
-RpcClient client = new RpcClient(new Uri("http://seed1t.neo.org:20332"), null, null, ProtocolSettings.Load("config.json"));
+RpcClient client = new RpcClient(new Uri("http://seed1.neo.org:20332"), null, null, ProtocolSettings.Load("config.json"));
 ```
 
 Local node (the local Neo-CLI that can be connected to main net, test net, or private net according to configuration):
