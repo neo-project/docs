@@ -10,7 +10,7 @@
 
 ```c#
 // TestNet Node
-RpcClient client = new RpcClient(new Uri("http://seed1t.neo.org:20332"), null, null, ProtocolSettings.Load("config.json"));
+RpcClient client = new RpcClient(new Uri("http://seed1.neo.org:20332"), null, null, ProtocolSettings.Load("config.json"));
 ```
 
 本地节点（本地节点是本地维护的 Neo-CLI，可以根据配置连接主网，测试网或者私链）：
