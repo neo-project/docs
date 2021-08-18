@@ -4,7 +4,7 @@ This tutorial is intended to guide exchange developers in migrating the global a
 
 ## Migration process flow
 
-1. On Neo Legacy side, the user sends a transfer transaction (Invocation Transaction/Contracttransaction) to the specific address `ANeo2toNeo3MigrationAddressxwPB2Hz`, placing the N3 standard address (in stringhex format) in `attribute` of the transaction using the key **Remark14**. 
+1. On Neo Legacy side, the user sends a transfer transaction (Invocation Transaction/Contracttransaction) to the specific address `ANeo2toNeo3MigrationAddressxwPB2Hz`, placing the N3 standard address in `attribute` of the transaction using the key **Remark14**. 
 
    The code demos in multi-languages are provided for your reference: [Demos](https://github.com/neo-ngd/sdkDemo)
 
