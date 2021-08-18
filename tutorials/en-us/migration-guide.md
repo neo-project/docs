@@ -6,11 +6,11 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
 
 1. Click the icon in the upper right corner and click `Create wallet`.
 
-    ![](https://lh4.googleusercontent.com/h2d2Kr_nVdn-Hpyf10BX7tE3cplB_1fkTrlrOYqr6yk_0vZgSj62Xo-VZs2oi-uOTjs-zMQMr9Y3mmMo0xRjTsfjL6X3bEGtTo0Vl44wNZ6ztE2PrGshpu0lfHskP9n4zfEpwumz)
+    ![](assets/picture1.png)
 
 2. Select `Neo N3` to create a Neo N3 wallet.
 
-    ![](https://lh5.googleusercontent.com/vcfg38Aj-TzM_Ln87LHM_u73cbxQKezE_wGO0sBLI51blb5FVMKO6oPaKJPFR4zZY706p_cIoSxKISUe0pUlZuAYGOUHqQQt6FsHdz4BdzFBMxj_rdT6KzxmKtZ719VdecEHbyEv)
+    ![](assets/picture2.png)
 
 3. Input your wallet name and password and click `Create` . A new Neo N3 wallet is successfully created. 
    
@@ -18,7 +18,7 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
     >
     > Please follow the prompt to back up your private key carefully.
    
-    ![](https://lh6.googleusercontent.com/W7Iza5vQaUhFriDqRHKs8vUUw4qd6VkhCcV3BclI4B1DnAxA0NfC-Zx9EzCsQ444wy70fMPmIMpsaETHWL3029fsRy5TSNisw9QLll4ZZI3JPiGO5sdklMrKH9lCUidYtzdV_ARl)
+    ![](assets/picture3.png)
 
 4. Go to the [Migration To N3](https://migration.neo.org/) website. Click `CONNECT WALLET`.
 
@@ -60,31 +60,18 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
 
     ![](assets/iShot2021-08-09174132.png)
 
-13. Wait for the migration process to complete.
+13. Wait for the migration process to complete. You can click `Migration history` to check the migration status.
 
-    ![](assets/iShot2021-08-09174301.png)
+     ![](assets/iShot2021-08-09174340.png)
 
-14. Click `CONFIRM` to complete the migration.
+     ![](assets/history.png)
 
-    ![](assets/iShot2021-08-09174320.png)
+     
 
-15. Click `Migration history` to check the migration status.
-
-    > [!Note]
-    >
-    > If the NEO migration amount meet the Token Migration Incentive program, the status of the rewards will turn to `Done` when they are sent. You can check the detailed transaction information by clicking the `Done` button.
-
-    ![](assets/iShot2021-08-09174340.png)
-
-    ![](assets/iShot2021-08-09174411.png)
-
-    
 
 ## Migration with O3 Wallet
 
 1. Open the O3 wallet app. Click the wallet account and click `Create`.
-
-    ![](https://lh5.googleusercontent.com/x_42WXUSIP9mrDXeZhARQAMkiaH9tEIsnQQ8QtX-8Z3hQosSv3MYVI3IZTBPaxqAwknBzi7hHet5I9C-v8jYbmBMizTwatUlY_ldLof9atjA-OKfm6j7hHaZHGWvvhUWFUnTgB7W)
 
 2. Select `NEO N3` and click `Next` to create a Neo N3 wallet.
    
@@ -92,15 +79,11 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
 
 3. Input your wallet name and password and click `Create`. A new Neo N3 wallet is successfully created. 
    
-    ![](https://lh6.googleusercontent.com/0Q80JjR1dX7IQxXvtej5LfT2x_2StSycb2fweeZMs554Q-h5VZTsGTdNmlgWSVcIIOPUzou3Kmj_zQp_Jh6Ss-uW9vZsQKX2n-QSf5XDWfQveI1hoRO0wENGw47pw2UYmrZLCvGG)
-
 4. Go to the [Migrate To N3](https://migration.neo.org/) website. Click `CONNECT WALLET` to connect a wallet.
 
     ![](assets/Picture4.png)
 
-5. Click `Connect O3` to connect an O3 wallet
-
-    ![](assets/Picture5.png)
+5. Click `Connect O3` to connect an O3 wallet.
 
 6. Select an account and click `Connect`.
 
@@ -134,20 +117,8 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
 
     ![](assets/iShot2021-08-09180551.png)
 
-13. Wait for the migration process to complete.
+13. Wait for the migration process to complete. You can click `Migration history` to check the migration status.
 
-    ![](assets/iShot2021-08-09174301.png)
+     ![](assets/iShot2021-08-09174340.png)
 
-14. Click `CONFIRM` to complete the migration.
-
-    ![](assets/iShot2021-08-09174320.png)
-
-15. Click `Migration history` to check the migration status.
-    
-    > [!Note]
-    >
-    > If the NEO migration amount can meet the Token Migration Incentive program, the status of the rewards will turn to `Done` when they are sent. You can check the detailed transaction information by clicking `Done`.
-    
-    ![](assets/iShot2021-08-09174340.png)
-
-    ![](assets/iShot2021-08-09174411.png)
+     ![](assets/history.png)
