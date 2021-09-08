@@ -67,7 +67,7 @@ Address is a string of numbers and letters after a series of transformations of 
 1. Build a `CheckSig` script with the public key, and the format is as follows:
 
     ```
-    0x0C + 0x21 + 公钥(压缩型 33字节) + 0x41 + 0x56e7b327
+    0x0C + 0x21 + Public Key (Compressed 33 bytes) + 0x41 + 0x56e7b327
     ```
 
     ![](..\images\wallets\account_address_script_checksign.png)
@@ -92,7 +92,7 @@ Example：
 1. Construct an N-of-M `CheckMultiSig` script with multiple addresses. The script format is as follows: 
 
    ```
-   emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 0x9ed0dc3a
+   emitPush(N) + 0x0C + 0x21 + Public Key 1 (Compressed 33 bytes)  + .... + 0x0C + 0x21 + Public Key m (Compressed 33 bytes)  + emitPush(M) + 0x41 + 0x9ed0dc3a
    ```
 
    ![](..\images\wallets\account_address_script_multi_checksign.png)
@@ -365,7 +365,7 @@ Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo
 
 ### SPV wallet
 
-The SPV (Simplified Payment Verification) wallet is different from full-node wallet. It dosen't store all block data, only block header data, and verifies the data by using bloom filter and merkle tree algorithm. It's mostly used in mobile app or light client, as it can save storage space effectively.
+The SPV (Simplified Payment Verification) wallet is different from full-node wallet. It doesn't store all block data, only block header data, and verifies the data by using bloom filter and merkle tree algorithm. It's mostly used in mobile app or light client, as it can save storage space effectively.
 
 For developing SPV wallet, refer to the NEO network protocol interface.
 
