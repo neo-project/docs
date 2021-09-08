@@ -93,8 +93,6 @@ Run the following command to build your contract：
 dotnet build
 ```
 
-![](../../zh-cn/gettingstarted/assets/build.png)
-
 Related contract files are outputted under `bin\sc` path in the contract project directory.
 
 ## See also
