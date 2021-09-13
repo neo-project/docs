@@ -4,7 +4,7 @@
 
 ## 迁移流程
 
-1. 在 Neo Legacy 端, 用户构建一笔转账交易 (Invocation Transaction/Contracttransaction) 将迁移资产发送到指定地址 `ANeo2toNeo3MigrationAddressxwPB2Hz`, 在这笔交易中将 N3 合法地址放入交易的 `attribute` 中，使用 **Remark14** 作为 Key。
+1. 在 Neo Legacy 端, 用户构建一笔转账交易 (Invocation Transaction/Contracttransaction) 将迁移资产发送到指定地址 `ANeo2toNeo3MigrationAddressxwPB2Hz`(测试网为`AJ36ZCpMhiHYMdMAUaP7i1i9pJz4jMdiQV`), 在这笔交易中将 N3 合法地址放入交易的 `attribute` 中，使用 **Remark14** 作为 Key。
 
    多语言交易代码可参考示例：[Demos](https://github.com/neo-ngd/sdkDemo)
 
