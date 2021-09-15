@@ -46,6 +46,8 @@ NEO has a max supply of 100 million tokens and the smallest unit of 1, or in oth
 
 GAS is the fuel token for the realization of Neo network resource control, with a smallest unit of 0.00000001. Users can obtain GAS either through a claim or purchase. When using the Neo network, they need to pay a certain amount of GAS as network fees, such as transfer, registering assets, publishing assets, running DApps, etc.
 
+Unlike the Neo Legacy, there is no supply limit for Neo N3 GAS, and the system fee for transactions will be burned off.
+
 ### GAS Distribution Rule  
 
 In the initial configuration, 5 GAS tokens will be generated per block—this in turn will be distributed to the Neo Committee (consisting of consensus nodes and candidate nodes), NEO voters, and all NEO holders. The generated GAS will be distributed according to certain rules shown as down below:

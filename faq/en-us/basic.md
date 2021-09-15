@@ -22,6 +22,8 @@ Neo has a large number of worldwide developer communities that have been contrib
 
 GAS represents the right to use the Neo Blockchain. Neo network charges GAS for the new assets issuance and smart contract running as well as all translations that modify the blockchain status . The Neo N3 Genesis block will mint the exact amount of GAS token needed to account for all GAS token circulating on the NEO Legacy chain at the time of Genesis block. In Neo N3 once NEO is transferred from the account, the relevant GAS is claimed to the same address automatically.
 
+Unlike the Neo Legacy, there is no supply limit for Neo N3 GAS and system fees for  transactions will be burned off.
+
 ## What consensus algorithms does Neo use？
 
 Neo utilizes a delegated Byzantine Fault Tolerance (dBFT) algorithm which provides a  𝑓 = ⌊ (𝑛−1) / 3 ⌋  fault tolerance to a consensus system that comprises n nodes. 
