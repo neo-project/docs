@@ -146,7 +146,7 @@ Command `hash` can be used to get SHA256 hash of an object or part of it, it has
 
 #### Filter
 
-Given the following Json example, let's illustrate the Oracle supported filters.
+Given the following Json example, the Oracle supported filters are illustrated in the table below.
 
 ```json
 {
