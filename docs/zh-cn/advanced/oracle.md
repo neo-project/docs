@@ -203,7 +203,7 @@ neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6Myjzdje
         }
     },
     "expensive": 10,
-    "data":
+    "data": null
 }
 ```
 
