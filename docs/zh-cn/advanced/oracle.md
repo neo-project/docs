@@ -117,7 +117,7 @@ Oracle Request 请求中需要指定以下字段：
 | 字段           | 字节数    | 描述                                                         |
 | -------------- | --------- | ------------------------------------------------------------ |
 | Url            | string    | 访问资源路径。最大长度为256字节                              |
-| Filter         | string    | 过滤器，用于在从数据源返回的结果中过滤出有用信息，其中 Filter 字段为 JSONPath 表达式，最大长度为128字节。更多关于 JSONPath 的信息，可查看 [此处 ](https://github.com/json-path/JsonPath)。 |
+| Filter         | string    | 过滤器，用于在从数据源返回的结果中过滤出有用信息，其中 Filter 字段为 JSONPath 表达式，最大长度为128字节。Oracle 支持的 Filter 规则请参见后文解释。 |
 | CallbackMethod | string    | 回调函数方法名。最大长度为32字节，且不能以“_”开头            |
 | UserData       | var bytes | 用户自定义数据                                               |
 | GasForResponse | long      | 回调函数执行预付款，用于支付Response交易执行所需的费用。预付款应不小于 0.1 GAS，否则无法发起 Oracle 请求。预付款会在Request构建时自动扣除。 |
@@ -161,6 +161,76 @@ neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6Myjzdje
 ```
 neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/hash
 ```
+
+#### Filter
+
+这里通过如下 Json 示例来说明 Oracle 支持的 Filter 规则。
+
+```json
+{
+    "store": {
+        "book": [
+            {
+                "category": "reference",
+                "author": "Nigel Rees",
+                "title": "Sayings of the Century",
+                "price": 8.95
+            },
+            {
+                "category": "fiction",
+                "author": "Evelyn Waugh",
+                "title": "Sword of Honour",
+                "price": 12.99
+            },
+            {
+                "category": "fiction",
+                "author": "Herman Melville",
+                "title": "Moby Dick",
+                "isbn": "0-553-21311-3",
+                "price": 8.99
+            },
+            {
+                "category": "fiction",
+                "author": "J. R. R. Tolkien",
+                "title": "The Lord of the Rings",
+                "isbn": "0-395-19395-8",
+                "price": 22.99
+            }
+        ],
+        "bicycle": {
+            "color": "red",
+            "price": 19.95
+        }
+    },
+    "expensive": 10,
+    "data": null
+}
+```
+
+| Filter                                | 返回结果                                   |
+| ------------------------------------- | ------------------------------------------ |
+| $.store.book[*].author                | 所有图书的作者                             |
+| $..author                             | 所有作者                                   |
+| $.store.*                             | 所有信息，包括书和自行车                   |
+| $.store..price                        | 所有东西的价格                             |
+| $..book[2]                            | 第三本书                                   |
+| $..book[-2]                           | 倒数第二本书                               |
+| $..book[0,1]                          | 前两本书                                   |
+| $..book[:2]                           | 从索引0（包含）到索引2（不包含）的所有图书 |
+| $..book[1:2]                          | 从索引1（包含）到索引2（不包含）的所有图书 |
+| $..book[-2:]                          | 最后两本书                                 |
+| $..book[2:]                           | 从尾部开始的第二本书                       |
+| $..book[?(@.isbn)]                    | 无效 Filter                                |
+| $.store.book[?(@.price < 10)]         | 无效 Filter                                |
+| $..book[?(@.price <= $['expensive'])] | 无效 Filter                                |
+| $..book[?(@.author =~ /.*REES/i)]     | 无效 Filter                                |
+| $..book[(@.length-1)]                 | 无效 Filter                                |
+| $..*                                  | 无效 Filter                                |
+| $..                                   | 无效 Filter                                |
+| $.*                                   | 所有 store 数据和 expensive 数据           |
+| empty string                          | 源json数据                                 |
+
+返回结果可在 https://github.com/json-path/JsonPath 查询获得。
 
 ### Callback 回调函数
 
