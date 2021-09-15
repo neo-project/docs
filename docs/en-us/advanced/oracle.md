@@ -185,7 +185,7 @@ Given the following Json example, the Oracle supported filters are illustrated i
         }
     },
     "expensive": 10,
-    "data":
+    "data": null
 }
 ```
 
