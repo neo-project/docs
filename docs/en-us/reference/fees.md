@@ -6,7 +6,7 @@ System fees are the cost of resources consumed by the transaction execution in N
 
 Network fee is the fee to pack transactions into a block. Transactions that deploy and invoke smart contracts on the blockchain and execute the Verify method requires network fees. 
 
-Therefore, a smart contract invocation transaction requires both system fee and network fee.
+Therefore, a smart contract invocation transaction requires both system fee and network fee. The sysfee is burned for each transaction and the netfee is rewarded to the consensus address that packed the current block.
 
 Fees in Neo3 can be dynamically changed. In this document we only introduce the basic fees. 
 
