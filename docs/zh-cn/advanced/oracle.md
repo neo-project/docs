@@ -228,7 +228,7 @@ neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6Myjzdje
 | $..*                                  | 无效 Filter                                |
 | $..                                   | 无效 Filter                                |
 | $.*                                   | 所有 store 数据和 expensive 数据           |
-| empty string                          | 原来的结果                                 |
+| empty string                          | 源json数据                                 |
 
 返回结果可在 https://github.com/json-path/JsonPath 查询获得。
 
