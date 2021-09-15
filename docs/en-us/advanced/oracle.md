@@ -114,13 +114,13 @@ As shown above, there are two key functions in the contract:
 
 The following fields are required for Oracle Request：
 
-| Fields           | Type    | Desc                                                         |
+| Fields           | Type    | Description                                                  |
 | -------------- | --------- | ------------------------------------------------------------ |
-| Url            | string    | the resource path, with a maximum length of 256 bytes                             |
-| Filter         | string    | used to filter out useful information from the result returned from the data source. It is a JSONPath expression with a maximum length of 128 bytes. More information about JSONPath can be found [here](https://github.com/json-path/JsonPath) |
+| Url            | string    | The resource path, with a maximum length of 256 bytes                             |
+| Filter         | string    | Used to filter out useful information from the result returned from the data source. It is a JSONPath expression with a maximum length of 128 bytes. For the filters supported by Oracle, see the explanation below. |
 | CallbackMethod | string    | method name of the callback function (cannot begin with "_"), with a maximum length of 32 bytes|
-| UserData       | var bytes | the custom data                                              |
-| GasForResponse | long      | the fee paid in advance for the callback function to pay for executing the script in the Response transaction. The fee should not be less than 0.1 GAS and will be charged when creating the Oracle request transaction |
+| UserData       | var bytes | The custom data                                              |
+| GasForResponse | long      | The fee paid in advance for the callback function to pay for executing the script in the Response transaction. The fee should not be less than 0.1 GAS and will be charged when creating the Oracle request transaction |
 
 #### Url
 
@@ -143,6 +143,76 @@ Command `range` can be used to get a part of object's payload, it has a mandator
 Command `header` can be used to get header of an object, it doesn't have any parameters. Example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/header.
 
 Command `hash` can be used to get SHA256 hash of an object or part of it, it has an optional range parameter with the same syntax as for `range` command. Example: Example: neofs://C3swfg8MiMJ9bXbeFG6dWJTCoHp9hAEZkHezvbSwK1Cc/3nQH1L8u3eM9jt2mZCs6MyjzdjerdSzBkXCYYj4M4Znk/hash.
+
+#### Filter
+
+Given the following Json example, let's illustrate the Oracle supported filters.
+
+```json
+{
+    "store": {
+        "book": [
+            {
+                "category": "reference",
+                "author": "Nigel Rees",
+                "title": "Sayings of the Century",
+                "price": 8.95
+            },
+            {
+                "category": "fiction",
+                "author": "Evelyn Waugh",
+                "title": "Sword of Honour",
+                "price": 12.99
+            },
+            {
+                "category": "fiction",
+                "author": "Herman Melville",
+                "title": "Moby Dick",
+                "isbn": "0-553-21311-3",
+                "price": 8.99
+            },
+            {
+                "category": "fiction",
+                "author": "J. R. R. Tolkien",
+                "title": "The Lord of the Rings",
+                "isbn": "0-395-19395-8",
+                "price": 22.99
+            }
+        ],
+        "bicycle": {
+            "color": "red",
+            "price": 19.95
+        }
+    },
+    "expensive": 10,
+    "data":
+}
+```
+
+| Filter                                | Result                                                       |
+| ------------------------------------- | ------------------------------------------------------------ |
+| $.store.book[*].author                | The authors of all books                                     |
+| $..author                             | All authors                                                  |
+| $.store.*                             | All things, both books and bicycles                          |
+| $.store..price                        | The price of everything                                      |
+| $..book[2]                            | The third book                                               |
+| $..book[-2]                           | The second to last book                                      |
+| $..book[0,1]                          | The first two books                                          |
+| $..book[:2]                           | All books from index 0 (inclusive) until index 2 (exclusive) |
+| $..book[1:2]                          | All books from index 1 (inclusive) until index 2 (exclusive) |
+| $..book[-2:]                          | Last two books                                               |
+| $..book[2:]                           | Book number two from tail                                    |
+| $..book[?(@.isbn)]                    | Invalid Filter                                               |
+| $.store.book[?(@.price < 10)]         | Invalid Filter                                               |
+| $..book[?(@.price <= $['expensive'])] | Invalid Filter                                               |
+| $..book[?(@.author =~ /.*REES/i)]     | Invalid Filter                                               |
+| $..book[(@.length-1)]                 | Invalid Filter                                               |
+| $..*                                  | Invalid Filter                                               |
+| $..                                   | Invalid Filter                                               |
+| $.*                                   | All store value and expensive,data value                     |
+| empty string                          | Give me the original result                                  |
+
+The returned result can be found at https://github.com/json-path/JsonPath.
 
 ### Callback function
 
