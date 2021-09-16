@@ -94,7 +94,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
    ```
    emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 0x9ed0dc3a
    ```
-   <img src="../images/wallets/account_address_script_multi_checksign.png"  />
+   ![](../images/wallets/account_address_script_multi_checksign.png)
 
 2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
 
