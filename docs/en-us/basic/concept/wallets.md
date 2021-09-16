@@ -84,7 +84,7 @@ Example：
 |----------|:-------------:|
 | Private Key | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0 |
 | Public Key (Compressed) | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c |
-| Script | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c41747476aa |
+| Script | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c4156e7b327 |
 | Address | NhZ5eahZAZ6UBsbCLcCQH6qqHdzuxt2HKa |
 
 #### Multi-Signature Address
@@ -109,7 +109,7 @@ Example:
 | ----------------------- | ------------------------------------------------------------ |
 | Private Key             | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0<br/>9a973a470b5fd7a2c12753a1ef55db5a8c8dde42421406a28c2a994e1a1dcc8a |
 | Public Key (Compressed) | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c<br/>036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd843 |
-| Script                  | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12417bce6ca5 |
+| Script                  | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12419ed0dc3a |
 | Address                 | NZ3pqnc1hMN8EHW55ZnCnu8B2wooXJHCyr                           |
 
 > [!Note]
