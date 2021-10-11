@@ -6,7 +6,7 @@ Returns the balance of the corresponding asset in the wallet, based on the speci
 >
 > Before you can invoke this method you must:
 >
-> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases) 
+> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
 > 2. Call the RPC method `openwallet` to open the wallet first.
 
 ## Parameter Description

@@ -3,7 +3,7 @@ Gets proof by querying root hash, contract hash, and storage key.
 
 > [!Note]
 >
-> You must install the plugin [StateService](https://github.com/neo-project/neo-plugins/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+> You must install the plugin [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
 
@@ -15,7 +15,7 @@ Gets proof by querying root hash, contract hash, and storage key.
 
 ## Configuration
 
-Before you can invoke the getproof method you must install the plugin [StateService](https://github.com/neo-project/neo-plugins/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases), and then modify the following fields in the [StateService](https://github.com/neo-project/neo-plugins/releases) config.json file：
+Before you can invoke the getproof method you must install the plugin [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases), and then modify the following fields in the [StateService](https://github.com/neo-project/neo-modules/releases) config.json file：
 
 - FullState: Set to true, or the error message is returned as follows：
 

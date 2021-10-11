@@ -1,6 +1,10 @@
 # getproof 方法
 通过 root hash，合约 hash 和 storage key 查询得到 proof。
 
+> [!Note]
+>
+> 此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+
 ## 参数说明
 
 - roothash：state root 的 root hash。
@@ -11,7 +15,7 @@
 
 ## 配置说明
 
-要使用 getproof 方法，需要先安装 [StateService](https://github.com/neo-project/neo-plugins/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件，并修改[StateService](https://github.com/neo-project/neo-plugins/releases) 插件配置文件中的以下字段：
+要使用 getproof 方法，需要先安装 [StateService](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件，并修改[StateService](https://github.com/neo-project/neo-modules/releases) 插件配置文件中的以下字段：
 
 - FullState：设置为true，否则调用时将出现如下信息：
 

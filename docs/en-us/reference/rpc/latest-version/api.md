@@ -2,7 +2,7 @@
 
 Each NEO-CLI node provides an API interface for obtaining blockchain data from it, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. 
 
-To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases). Refer to [Installing plugins](../../../node/cli/config.html#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
+To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases). Refer to [Installing plugins](../../../node/cli/config.html#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
 
 > [!Note]
 >

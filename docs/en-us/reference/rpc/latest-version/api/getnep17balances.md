@@ -4,7 +4,7 @@ Returns the balance of all NEP17 assets in the specified address.
 
 > [!Note]
 >
-> You must install the plugin [RpcNep17Tracker](https://github.com/neo-project/neo-plugins/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+> You must install the plugin [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
 
