@@ -104,7 +104,9 @@ http://127.0.0.1:10332/
 | [getstateroot](api/getstateroot.md)     | \<index>                       | 通过高度查询 state root。                                   |
 | [getproof](api/getproof.md)             | \<roothash>\<scripthash>\<key> | 通过 root hash，合约 hash 和 storage key 查询得到 proof。   |
 | [verifyproof](api/verifyproof.md)       | \<roothash>\<proof>            | 使用 root hash 和 proof 进行验证，得到 key 对应存储区的值。 |
-| [getstateheight](api/getstateheight.md) |                                | 查询 stateroot 高度。                                       |
+| [getstateheight](api/getstateheight.md) |                                | 查询 stateroot 高度。 |
+| [getstate](api/getstate.md)       | \<roothash>\<scripthash>\<key>           | 通过 root hash，合约 hash 和 storage key 查询 state。 |
+| [findstates](api/findstates.md)       | \<roothash>\<scripthash>\<prefix> [key] [count]          | 通过 root hash，合约 hash 和 storage key 的前缀查询 state。 |
 
 > [!Note]
 >

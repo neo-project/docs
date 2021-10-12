@@ -4,7 +4,7 @@ Calculates network fee for the specified transaction.
 
 > [!Note]
 >
-> Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases).
+> Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases).
 
 ## Parameter Description
 

@@ -2,7 +2,7 @@
 
 Each NEO-CLI node provides an API interface for obtaining blockchain data from it, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. 
 
-To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-plugins/releases). Refer to [Installing plugins](../../../node/cli/config.html#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
+To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases). Refer to [Installing plugins](../../../node/cli/config.html#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
 
 > [!Note]
 >
@@ -100,12 +100,14 @@ You can modify the port in config.json in the RpcServer folder.
 
 ### StateService plugin
 
-| Method                                  | Parameter                      | Description                                                  |
-| --------------------------------------- | ------------------------------ | ------------------------------------------------------------ |
-| [getstateroot](api/getstateroot.md)     | \<index>                       | Queries the state root by the block height.                  |
-| [getproof](api/getproof.md)             | \<roothash>\<scripthash>\<key> | Gets proof by querying root hash, contract hash, and storage key. |
-| [verifyproof](api/verifyproof.md)       | \<roothash>\<proof>            | Verifies using the root hash and proof, and gets the value of the storage corresponding to the key. |
-| [getstateheight](api/getstateheight.md) |                                | Queries the stateroot height.                                |
+| Method                                  | Parameter                                       | Description                                                  |
+| --------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| [getstateroot](api/getstateroot.md)     | \<index>                                        | Queries the state root by the block height.                  |
+| [getproof](api/getproof.md)             | \<roothash>\<scripthash>\<key>                  | Gets proof by querying root hash, contract hash, and storage key. |
+| [verifyproof](api/verifyproof.md)       | \<roothash>\<proof>                             | Verifies using the root hash and proof, and gets the value of the storage corresponding to the key. |
+| [getstateheight](api/getstateheight.md) |                                                 | Queries the stateroot height.                                |
+| [getstate](api/getstate.md)             | \<roothash>\<scripthash>\<key>                  | Queries `state` with the `root hash`, `contract hash` and `storage key`. |
+| [findstates](api/findstates.md)         | \<roothash>\<scripthash>\<prefix> [key] [count] | Queries `state` with the prefix of `root hash`, `contract hash` and `storage key`. |
 
 > [!Note]
 >

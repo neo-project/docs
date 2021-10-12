@@ -1073,7 +1073,7 @@ To install a plugin, enter the command as follows:
 
 ```
 neo> install RpcServer
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview5/RpcServer.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.3/RpcServer.zip
 Install successful, please restart neo-cli.
 ```
 
