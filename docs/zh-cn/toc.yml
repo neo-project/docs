@@ -71,6 +71,8 @@
       href: /docs/zh-cn/node/gui/contract.md
     - name: 高级功能
       href: /docs/zh-cn/node/gui/advanced.md
+  - name: 快速同步区块
+    href: /docs/zh-cn/node/syncblocks.md
 - name: 开发指南
   items:
   - name: Neo 网络
