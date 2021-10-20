@@ -294,3 +294,9 @@
     href: /docs/en-us/exchange/transaction.md
   - name: Distributing GAS to users
     href: /docs/en-us/exchange/gas.md 
+- name: Cross-chain Migration Guide
+  items:
+  - name: Migration Development
+    href: /tutorials/en-us/migrationB.md
+  - name: Migration Guide on Migration Page
+    href: /tutorials/en-us/migration-guide.md
