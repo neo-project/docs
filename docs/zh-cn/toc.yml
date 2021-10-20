@@ -295,3 +295,9 @@
     href: /docs/zh-cn/exchange/transaction.md
   - name: 给用户分发 GAS
     href: /docs/zh-cn/exchange/gas.md 
+- name: 跨链迁移指南
+  items:
+  - name: 迁移开发
+    href: /tutorials/zh-cn/migrationB.md
+  - name: 迁移指南
+    href: /tutorials/zh-cn/migration-guide.md
