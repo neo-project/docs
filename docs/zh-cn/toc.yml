@@ -132,6 +132,8 @@
       href: /docs/zh-cn/reference/rpc/latest-version/api/closewallet.md
     - name: dumpprivkey
       href: /docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.md
+    - name: findstates
+      href: /docs/zh-cn/reference/rpc/latest-version/api/findstates.md
     - name: getapplicationlog
       href: /docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.md
     - name: getbestblockhash
@@ -168,6 +170,8 @@
       href: /docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
     - name: getrawtransaction
       href: /docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.md
+    - name: getstate
+      href: /docs/zh-cn/reference/rpc/latest-version/api/getstate.md
     - name: getstateheight
       href: /docs/zh-cn/reference/rpc/latest-version/api/getstateheight.md
     - name: getstateroot
