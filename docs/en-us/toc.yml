@@ -70,6 +70,8 @@
       href: /docs/en-us/node/gui/contract.md
     - name: Advanced Functions
       href: /docs/en-us/node/gui/advanced.md
+  - name: Synchronizing the blockchain faster
+    href: /docs/en-us/node/syncblocks.md
 - name: Development Guide
   items:
   - name: Neo Network
