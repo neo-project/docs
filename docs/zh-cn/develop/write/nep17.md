@@ -79,7 +79,7 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 
 一个销毁 token 的 token 合约在销毁 token 时必须触发`Transfer`事件，并将地址`to`设置为 `null`。
 
-NEP17 合约方法如下，完整的合约代码可参考 [GitHub 源码](https://github.com/neo-project/examples/tree/37487a324b4be695af422f37d668e15a05d75e1e/csharp/NEP17)。
+NEP17 合约方法如下，完整的合约代码可参考 [GitHub 源码](https://github.com/neo-project/examples/tree/master/csharp/NEP17)。
 
 ```c#
 using Neo;
@@ -145,7 +145,7 @@ namespace Template.NEP17.CSharp
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a NEP17 example")]
-[SupportedStandards("NEP17", "NEP10")]
+[SupportedStandards("NEP-17")]
 public partial class NEP17 : SmartContract
 {
     [DisplayName("Transfer")]
