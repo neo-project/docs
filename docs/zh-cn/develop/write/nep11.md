@@ -1,23 +1,23 @@
-# NEP-11
+# NEP-11 合约编写
 
-本文以 C# 代码为例，讲解一个简单的 NFT 合约如何编写。
+NEP11 协议是 Neo 补充协议中的第 11 号协议，定义了 NFT（非同质化资产）的合约编写标准。本文将以 C# 代码为例，讲解如何编写一个简单的 NFT 合约。
 
-NEP11 协议是 Neo 补充协议中的第 11 号协议，定义了 NFT（非同质化资产）的合约编写标准。开发者编写 NFT 合约最方便的方法是直接继承 `Nep11Token<Nep11TokenState>` 类。
+## 定义 NFT 属性
 
-其中，`Nep11TokenState` 是保存 NFT 所有属性的类，这里除了默认的 Name 和 Owner，还可以添加自定义的属性，如图片、视频、类别、网址、攻击力、防御力等。
+开发者编写 NFT 合约最方便的方法是直接继承 `Nep11Token<Nep11TokenState>` 类。其中，`Nep11TokenState` 是保存 NFT 所有属性的类，这里除了默认的 Name 和 Owner，还可以添加自定义的属性，如图片、视频、类别、网址、攻击力、防御力等。
 
-| 字段名称 | 示例值                                     | 描述                     |
-| -------- | ------------------------------------------ | ------------------------ |
-| Name     | HarryPotter #001                           | NFT 名称                 |
-| Owner    | 0x4578060c29f4c03f1e16c84312429d991952c94c | NFT 拥有者               |
-| Type     | 0                                          | 类型（开发者自己定义）   |
-| Image    | https://neo.org/images/HarryPotter.jpg     | 图片（开发者自己定义）   |
-| ATK      | 3000                                       | 攻击力（开发者自己定义） |
-| DEF      | 3000                                       | 防御力（开发者自己定义） |
+| 字段  | 示例                                       | 描述             |
+| ----- | ------------------------------------------ | ---------------- |
+| Name  | HarryPotter #001                           | NFT 名称         |
+| Owner | 0x4578060c29f4c03f1e16c84312429d991952c94c | NFT 拥有者       |
+| Type  | 0                                          | 类型（自定义）   |
+| Image | https://neo.org/images/HarryPotter.jpg     | 图片（自定义）   |
+| ATK   | 3000                                       | 攻击力（自定义） |
+| DEF   | 3000                                       | 防御力（自定义） |
 
-每个 NFT 资产，都需要有一个唯一的标识符号。如果你的合约中，每个 NFT 资产名字都不相同，可以将 `Nep11TokenState` 中的 Name 字段当做 TokenID。如果有重名的 NFT 资产，需要自己添加一个新的字段，例如 ID 或 TokenID。
+每个 NFT 资产都需要一个唯一的标识符号，如果你的合约中每个 NFT 资产名字都不相同，可以将 `Nep11TokenState` 中的 Name 字段当做 TokenID。如果有重名的 NFT 资产，需要自己添加一个新的字段，例如 ID 或 TokenID。
 
-特别说明的是，为了钱包中正确显示 NFT 的图片，我们建议合约开发者将图片字段命名为 **Image**。钱包的开发者也可根据 NFT 的 Image 属性来抓取 NFT 的图片。
+特别说明的是，为了使得钱包正确显示 NFT 的图片，建议合约开发者将图片字段命名为 **Image**。钱包的开发者也可根据 NFT 的 Image 属性来抓取 NFT 的图片。
 
 TokenState 的示例代码如下：
 
@@ -40,7 +40,9 @@ public class MyTokenState : Nep11TokenState
 public override string Symbol() => "MNFT";
 ```
 
-`Nep11Token` 基类中并不包含如何分发 NFT 的方法，因为这是个很个性化的定制化需求。本示例中为了让合约拥有者有权限发行 NFT 资产，创建了 `Airdrop` 方法，其功能是合约拥有者可以向指定地址空投一个 NFT。
+## 分发方法
+
+`Nep11Token` 基类中并不包含如何分发 NFT 的方法，开发者可以根据需求定制。本示例中为了让合约拥有者有权限发行 NFT 资产，创建了 `Airdrop` 方法，其功能是合约拥有者可以向指定地址空投一个 NFT。
 
 ```c#
 public static bool Airdrop(UInt160 to, string name)
@@ -53,7 +55,9 @@ public static bool Airdrop(UInt160 to, string name)
 }
 ```
 
-其中，Mint 方法是继承于 Nep11Token，我们调用的时候，只需传入 NFT 的 TokenID（本示例中用 Name 表示） 和 TokenState 对象即可。
+其中，Mint 方法继承于 Nep11Token，调用的时候，只需传入 NFT 的 TokenID（本示例中用 Name 表示） 和 TokenState 对象即可。
+
+## 代码示例
 
 完整的合约示例代码如下：
 
@@ -102,7 +106,7 @@ namespace Contract1
 
 ```
 
-如果想让用户通过 GAS 购买 NFT，可以添加这样的方法：
+如果想让用户通过 GAS 购买 NFT，可以添加如下方法：
 
 ```c#
 public static void OnNEP17Payment(UInt160 from, BigInteger amount, object _)
@@ -120,11 +124,13 @@ public static void OnNEP17Payment(UInt160 from, BigInteger amount, object _)
 }
 ```
 
+到此，一个简单的 NFT 合约就编写好了。
 
+## 基类方法和事件
 
-现在一个简单的 NFT 合约就编写好了。除了我们自己编写的代码，我们还要了解 Nep11Token 基类提供的一些方法和事件。
+Nep11Token 基类还提供了以下方法和事件。
 
-NEP-11 方法
+#### NEP-11 方法
 
 | 名称        | 参数                                           | 返回值           | 说明                                                         |
 | ----------- | ---------------------------------------------- | ---------------- | ------------------------------------------------------------ |
@@ -138,13 +144,13 @@ NEP-11 方法
 | tokensOf    | Hash160（owner）                               | InteropInterface | 查询某个人拥有的 NFT                                         |
 | transfer    | Hash160（to） ByteArray（tokenId） Any（data） | Boolean          | 转账，通过 TokenId，将 NFT 转给他人，该方法需要 NFT 的所有者签名。 |
 
-事件
+#### 事件
 
 | 名称     | 参数                                                         | 说明     | 备注                                                  |
 | -------- | ------------------------------------------------------------ | -------- | ----------------------------------------------------- |
 | transfer | Hash160（from） Hash160（to） Integer（amount） ByteArray（tokenId） | 转账事件 | from 为 null 即铸币 to 为 null 即销毁 amount 始终为 1 |
 
-参考：
+## 相关参考
 
 [NEP-11 规范](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki)
 
