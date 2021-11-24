@@ -15,11 +15,11 @@ A shortcut for developers to develop NFT contracts is inheriting directly from t
 | ATK    | 3000                                       | Attack power（customized）  |
 | DEF    | 3000                                       | Defense power（customized） |
 
-An NFT asset requires a unique identifier. If your contract includes NFT assets with different names, you can use the Name field in `Nep11TokenState` as TokenID. If there are NFT assets with duplicate name, you need to add a new field like ID or TokenID.
+An NFT asset requires a unique identifier. If your contract includes NFT assets with different names, you can use the `Name` field in `Nep11TokenState` as TokenID. If there are NFT assets with duplicate name, you need to add a new field like ID or TokenID.
 
 Particularly, it is recommended that developers name the image field `Image` in order for the wallet to display the NFT image properly. Wallet developers can also capture NFT images based on the NFT Image attribute.  
 
-The  `TokenState`  code example is as follows：
+The `TokenState`  code example is as follows：
 
 ```c#
 public class MyTokenState : Nep11TokenState
@@ -106,7 +106,7 @@ namespace Contract1
 
 ```
 
-To enable the user to purchase NFT with GAS, add the following method:
+To enable the user to purchase NFT with GAS, you can add the following method:
 
 ```c#
 public static void OnNEP17Payment(UInt160 from, BigInteger amount, object _)
@@ -124,7 +124,7 @@ public static void OnNEP17Payment(UInt160 from, BigInteger amount, object _)
 }
 ```
 
-Now we have completed a simple NFT contract.
+By now we have completed a simple NFT contract.
 
 ## Methods and events in base class
 
