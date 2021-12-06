@@ -1068,7 +1068,7 @@ Loaded plugins:
         DBFTPlugin          Consensus plugin with dBFT algorithm.
         LevelDBStore        Uses LevelDB to store the blockchain data
         OracleService       Built-in oracle plugin
-        RpcNep17Tracker     Enquiries NEP-17 balances and transaction history of accounts through RPC
+        TokensTracker     Enquiries NEP-17 balances and transaction history of accounts through RPC
         RpcServer           Enables RPC for the node
         StatesDumper        Exports Neo-CLI status data
         StateService        Enables MPT for the node

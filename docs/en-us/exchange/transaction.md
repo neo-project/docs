@@ -49,7 +49,7 @@ The way for a exchange itself to query balance of the user deposit address is di
 The exchange needs to do the following:
 
 1. Construct JSON files to invoke either of the following RPC methods:
-   - getnep17balances (Plugin [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) is required)
+   - getnep17balances (Plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases/) is required)
    - invokefunction (Plugin [RpcServer](https://github.com/neo-project/neo-modules/releases/) is required)
 2. Send a `getnep17balances` request to the Neo RPC server to get the asset hash and amount.
 3. Send the invokefunction requests twice to the Neo RPC server to get the corresponding asset symbol and decimals, respectively.

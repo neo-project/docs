@@ -47,7 +47,7 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep17balances（需安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) 插件）
+   - getnep17balances（需安装 [TokensTracker](https://github.com/neo-project/neo-modules/releases/) 插件）
    - invokefunction（需安装 [RpcServer](https://github.com/neo-project/neo-modules/releases/) 插件）
 2. 向 Neo RPC 服务器发送 getnep17balances 请求获取资产 hash 和数量。
 3. 向 Neo RPC 服务器发送两次 invokefunction 请求分别获取对应资产的标识符（symbol）和精度（decimals）。

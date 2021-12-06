@@ -160,7 +160,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/RpcNep17Tracker.zip">TokensTracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/TokensTracker.zip">TokensTracker</a>
             </td>
             <td>提供NEP-11、NEP-17余额及交易历史的RPC查询功能。</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a

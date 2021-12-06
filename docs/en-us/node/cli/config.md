@@ -160,7 +160,7 @@ Download the plugins you need from the following table.
         </tr>
                 <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/RpcNep17Tracker.zip">RpcNep17Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/TokensTracker.zip">TokensTracker</a>
             </td>
             <td>Enquiries NEP17 balance and transactions history of accounts through RPC</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a

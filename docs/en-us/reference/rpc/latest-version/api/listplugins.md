@@ -39,7 +39,7 @@ Response body:
             "interfaces": []
         },
         {
-            "name": "RpcNep17Tracker",
+            "name": "TokensTracker",
             "version": "3.0.0.0",
             "interfaces": [
                 "IPersistencePlugin"
