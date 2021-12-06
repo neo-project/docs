@@ -91,10 +91,13 @@ You can modify the port in config.json in the RpcServer folder.
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | Returns the contract event information based on the specified txid. |
 
-### RpcNep17Tracker plugin
+### TokensTracker plugin
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| [getnep11balances](api/getnep11balances.md) | \<address> | Returns the balance of all NEP11 assets in the specified address. |
+| [getnep11properties](api/getnep11properties.md) | \<contract_hash>\<tokenId> | Returns the customized properties of NEP-11 assets. |
+| [getnep11transfers](api/getnep17transfers.md) | \<address>[timestamp] | Returns all the NEP11 transaction information occurred in the specified address. |
 | [getnep17balances](api/getnep17balances.md) | \<address> | Returns the balance of all NEP17 assets in the specified address. |
 | [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | Returns all the NEP17 transaction information occurred in the specified address. |
 

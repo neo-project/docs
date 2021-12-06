@@ -106,7 +106,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
 
 ### 从 GitHub 下载插件
 
-下表列出了所有插件，选取所需要的插件进行下载。
+下表列出了所有插件，选取所需要的插件进行下载，将下载的插件包解压到 neo-cli 根目录下。
 
 <table class="table table-hover">
     <thead>
@@ -160,10 +160,10 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/RpcNep17Tracker.zip">RpcNep17Tracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/RpcNep17Tracker.zip">TokensTracker</a>
             </td>
-            <td>提供 NEP17 余额及交易历史的 RPC 查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+            <td>提供NEP-11、NEP-17余额及交易历史的RPC查询功能。</td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
                     href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>推荐</td>
         </tr>
@@ -199,10 +199,6 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>   
     </tbody>
 </table>
-
-将下载的插件包解压到 neo-cli 根目录下，解压完成后的目录结构应如下图。
-
-![plugins.png](../../assets/PluginsForExchange.png)
 
 ### 使用命令下载插件
 

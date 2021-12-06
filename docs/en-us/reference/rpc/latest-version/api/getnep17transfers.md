@@ -4,7 +4,7 @@ Returns all the NEP17 transaction information occurred in the specified address.
 
 > [!Note]
 >
-> You must install the plugin [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+> You must install the plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
 
@@ -17,10 +17,8 @@ Returns all the NEP17 transaction information occurred in the specified address.
 
 ## Configuration
 
-Before invoking the method, you need to modify the following fields in the RpcNep17Tracker config.json file:
+Before invoking the method, you need to modify the following fields in the TokensTracker config.json file:
 
-- TrackHistory: Set to true.
-- RecordNullAddressHistory: Set to true if you want to trace the null address record.
 - MaxResults: The maximum number of records. The exceeding portion will not be stored.
 - Network: Set it to the same value as Network in Neo-CLI config.json.
 

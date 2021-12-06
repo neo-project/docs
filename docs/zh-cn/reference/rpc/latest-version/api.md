@@ -90,12 +90,15 @@ http://127.0.0.1:10332/
 | --------------------------------------------- | ------- | ------------------------------------- |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
-### RpcNep17Tracker 插件
+### TokensTracker 插件
 
-| 方法                                          | 参数                  | 说明                                |
-| --------------------------------------------- | --------------------- | ----------------------------------- |
-| [getnep17balances](api/getnep17balances.md)   | \<address>            | 返回指定地址内的所有 NEP17 资产余额 |
-| [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | 返回指定地址内的所有 NEP17 交易记录 |
+| 方法                                            | 参数                       | 说明                                |
+| ----------------------------------------------- | -------------------------- | ----------------------------------- |
+| [getnep11balances](api/getnep11balances.md)     | \<address>                 | 返回指定地址内的所有 NEP11 资产余额 |
+| [getnep11properties](api/getnep11properties.md) | \<contract_hash>\<tokenId> | 返回 NEP-11 资产的自定义属性        |
+| [getnep11transfers](api/getnep17transfers.md)   | \<address>[timestamp]      | 返回指定地址内的所有 NEP11 交易记录 |
+| [getnep17balances](api/getnep17balances.md)     | \<address>                 | 返回指定地址内的所有 NEP17 资产余额 |
+| [getnep17transfers](api/getnep17transfers.md)   | \<address>[timestamp]      | 返回指定地址内的所有 NEP17 交易记录 |
 
 ### StateService 插件
 
