@@ -106,7 +106,7 @@ You can choose one of the following ways to install plugins:
 
 ### Downloading plugins from GitHub
 
-Download the plugins you need from the following table.
+Download the plugins you need from the following table, and then unzip the packages under the neo-cli root directory.
 
 <table class="table table-hover">
     <thead>
@@ -162,8 +162,8 @@ Download the plugins you need from the following table.
             <td><a
                     href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/TokensTracker.zip">TokensTracker</a>
             </td>
-            <td>Enquiries NEP17 balance and transactions history of accounts through RPC</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+            <td>Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC</td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
                     href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
             <td>Recommended</td>
         </tr>
@@ -197,11 +197,6 @@ Download the plugins you need from the following table.
         </tr>   
     </tbody>
 </table>
-
-
-
-
-![](../../../zh-cn/assets/PluginsForExchange.png)
 
 ### Downloading plugins using command
 
