@@ -216,7 +216,7 @@ You can refer to the following example：
 
 ## Installing consensus plugin
 
-Download [DBFTPlugin]("https://github.com/neo-project/neo-modules/releases/download/v3.0.1/DBFTPlugin.zip") and place four copies to the `Plugins` folder under each node CLI root path. Modify the file `config.json` as follows：
+Download [DBFTPlugin]("https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip") and place four copies to the `Plugins` folder under each node CLI root path. Modify the file `config.json` as follows：
 
 - Set `Network` the same value as `Network` in `config.json`.
 - Set `AutoStart` to `true` so as to automatically start consensus as running CLI.

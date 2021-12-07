@@ -120,7 +120,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
     <tbody>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/ApplicationLogs.zip">ApplicationLogs</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/ApplicationLogs.zip">ApplicationLogs</a>
             </td>
             <td>同步智能合约和 NativeContract 的日志（Notify）</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
@@ -128,7 +128,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/DBFTPlugin.zip">DBFTPlugin</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip">DBFTPlugin</a>
             </td>
             <td>dBFT 共识插件</td>
             <td></td>
@@ -136,7 +136,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/LevelDBStore.zip">LevelDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/LevelDBStore.zip">LevelDBStore</a>
             </td>
             <td>区块链数据使用 LevelDB 存储引擎</td>
             <td></td>    
@@ -144,7 +144,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/OracleService.zip">OracleService</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/OracleService.zip">OracleService</a>
             </td>
             <td>Oracle 服务插件</td>
             <td></td>
@@ -152,7 +152,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/RocksDBStore.zip">RocksDBStore</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RocksDBStore.zip">RocksDBStore</a>
             </td>
             <td>区块链数据使用 RocksDBStore 存储引擎</td>
             <td></td>
@@ -160,7 +160,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/TokensTracker.zip">TokensTracker</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/TokensTracker.zip">TokensTracker</a>
             </td>
             <td>提供NEP-11、NEP-17余额及交易历史的RPC查询功能。</td>
             <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
@@ -169,7 +169,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/RpcServer.zip">RpcServer</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RpcServer.zip">RpcServer</a>
             </td>
             <td>提供节点的 RPC 功能</td>
             <td><a href="../../reference/rpc/latest-version/api.html#命令列表"> RPC API </a></td>
@@ -177,7 +177,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>
         <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/StatesDumper.zip">StatesDumper</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip">StatesDumper</a>
             </td>
             <td>导出 Neo-CLI 状态数据</td>
             <td></td>
@@ -186,7 +186,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
         </tr>   
          <tr>
             <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.0.1/StateService.zip">StateService</a>
+                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StateService.zip">StateService</a>
             </td>
             <td>StateRoot 共识服务插件</td>
             <td>
@@ -206,7 +206,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
 
 ```
 neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.0.1/StatesDumper.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip
 Install successful, please restart neo-cli.
 ```
 
