@@ -1,6 +1,6 @@
-# getnep17balances 方法
+# getnep11balances 方法
 
-返回指定地址内的所有 NEP-17 资产余额。
+返回指定地址内的所有 NEP-11 资产余额。
 
 > [!Note]
 >
@@ -23,8 +23,8 @@ address：要查看资产余额的地址。
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "getnep17balances",
-  "params": ["NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"],
+  "method": "getnep11balances",
+  "params": ["NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT"],
   "id": 1
 }
 ```
@@ -36,19 +36,29 @@ address：要查看资产余额的地址。
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
+        "address": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
         "balance": [
             {
-                "assethash": "0x70e2301955bf1e74cbb31d18c2f96972abadb328",
-                "amount": "3000000100000000",
-                "lastupdatedblock": 2
-            },
-            {
-                "assethash": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
-                "amount": "99999900",
-                "lastupdatedblock": 2
+                "assethash": "0xb3b65e5c0d2af3f98cac6e80083f6c2b90476f40",
+                "tokens": [
+                    {
+                        "tokenid": "426c696e6420426f782032",
+                        "amount": "1",
+                        "lastupdatedblock": 36653
+                    },
+                    {
+                        "tokenid": "426c696e6420426f782033",
+                        "amount": "1",
+                        "lastupdatedblock": 37100
+                    },
+                    {
+                        "tokenid": "426c696e6420426f782031323635",
+                        "amount": "1",
+                        "lastupdatedblock": 501483
+                    }
+                ]
             }
-        ],
-        "address": "NgaiKFjurmNmiRzDRQGs44yzByXuSkdGPF"
+        ]
     }
 }
 ```

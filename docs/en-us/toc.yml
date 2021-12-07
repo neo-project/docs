@@ -155,6 +155,12 @@
       href: /docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
     - name: getnativecontracts
       href: /docs/en-us/reference/rpc/latest-version/api/getnativecontracts.md
+    - name: getnep11balances
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep11balances.md
+    - name: getnep11properties
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep11properties.md
+    - name: getnep11transfers
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep11transfers.md
     - name: getnep17balances
       href: /docs/en-us/reference/rpc/latest-version/api/getnep17balances.md
     - name: getnep17transfers

@@ -218,7 +218,7 @@
 
 ## 安装共识插件
 
-下载 [共识插件]("https://github.com/neo-project/neo-modules/releases/download/v3.0.1/DBFTPlugin.zip"), 并放入四个节点 `CLI` 根目录的`Plugins`目录下。修改其配置文件`config.json`：
+下载 [共识插件]("https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip"), 并放入四个节点 `CLI` 根目录的`Plugins`目录下。修改其配置文件`config.json`：
 
 - 将`Network` 与私有链`config.json`中的`Network`设为相同数值。
 - `AutoStart`：设为`true`以方便在启动 CLI 时自动开启共识。
