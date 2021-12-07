@@ -51,8 +51,8 @@
             {
                 "timestamp": 1635146038919,
                 "assethash": "0xd9e2093de3dc2ef7cf5704ceec46ab7fadd48e7f",
-                "transferaddress": null,
-                "amount": "1",
+                "transferaddress": "NNNPy5qxVD9yW2BavkwLdDybbR88NdvaGi",
+                "amount": "1000",
                 "blockindex": 540423,
                 "transfernotifyindex": 1,
                 "txhash": "0x683998f3a06b44be7b80be517bffda130de1fe75feae7b6e58d8372266fd87f6",
@@ -61,8 +61,8 @@
             {
                 "timestamp": 1635146038919,
                 "assethash": "0xd9e2093de3dc2ef7cf5704ceec46ab7fadd48e7f",
-                "transferaddress": null,
-                "amount": "1",
+                "transferaddress": "NNNPy5qxVD9yW2BavkwLdDybbR88NdvaGi",
+                "amount": "10000",
                 "blockindex": 540423,
                 "transfernotifyindex": 2,
                 "txhash": "0x683998f3a06b44be7b80be517bffda130de1fe75feae7b6e58d8372266fd87f6",

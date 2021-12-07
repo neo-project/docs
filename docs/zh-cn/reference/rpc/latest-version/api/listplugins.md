@@ -28,31 +28,31 @@
     "result": [
         {
             "name": "DBFTPlugin",
-            "version": "3.0.0.0",
+            "version": "3.1.0.0",
             "interfaces": [
                 "IP2PPlugin"
             ]
         },
         {
             "name": "LevelDBStore",
-            "version": "3.0.0.0",
+            "version": "3.1.0.0",
             "interfaces": []
         },
         {
             "name": "TokensTracker",
-            "version": "3.0.0.0",
+            "version": "3.1.0.0",
             "interfaces": [
                 "IPersistencePlugin"
             ]
         },
         {
             "name": "RpcServer",
-            "version": "3.0.0.0",
+            "version": "3.1.0.0",
             "interfaces": []
         },
         {
             "name": "SystemLog",
-            "version": "3.0.0.0",
+            "version": "3.1.0.0",
             "interfaces": [
                 "ILogPlugin"
             ]
