@@ -36,13 +36,13 @@ There are two full-node programs:
 | Create multi-party signed address | ✔   | ✔ |
 | Generate multiple addresses |      | ✔   |
 | Change wallet password | ✔   | ✔    |
-| Delete address | ✔   |     |
+| Delete address | ✔   | ✔ |
 | **Contract** |  |  |
 | Query contract | ✔   |    |
 | Deploy contract | ✔   | ✔   |
 | Invoke contract | ✔   | ✔   |
 | **Advanced** |  |  |
-| Register to candidate | ✔   |      |
+| Register to candidate | ✔   | ✔ |
 | Voting | ✔   | ✔ |
 | Custom transaction construction | ✔   |  |
 | Signature | ✔   | ✔ |
