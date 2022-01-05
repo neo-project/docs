@@ -131,9 +131,9 @@
       href: /v2/docs/zh-cn/sc/sample/Lock2.md
 - name: DApp 开发
   - name: 介绍
-    href:  /docs/zh-cn/dapp/intro.md
+    href:  /v2/docs/zh-cn/dapp/intro.md
   - name: 与区块链集成
-    href:  /docs/zh-cn/dapp/integ.md
+    href:  /v2/docs/zh-cn/dapp/integ.md
 - name: Neo工具开发
   - name: 基本概念
     - name: 区块模型
@@ -152,15 +152,15 @@
     - name: 密码学
       href:
       - name: 编码算法
-        href:  /docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.md
+        href:  /v2/docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.md
       - name: 哈希算法
         href: /v2/docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.md
       - name: 加密算法
         href: /v2/docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.md
     - name: 大小端序的使用
-      href:  /docs/zh-cn/tooldev/concept/endian.md
+      href:  /v2/docs/zh-cn/tooldev/concept/endian.md
   - name: Neo-CLI 结构
-    href:  /docs/zh-cn/tooldev/neo_cli_structure.md
+    href:  /v2/docs/zh-cn/tooldev/neo_cli_structure.md
   - name: 网络协议
     href: /v2/docs/zh-cn/tooldev/network-protocol.md
   - name: 共识机制
@@ -192,7 +192,7 @@
 - name: 交易所对接指南
   items:
   - name: 概述
-    href:  /docs/zh-cn/exchange/general.md
+    href:  /v2/docs/zh-cn/exchange/general.md
   - name: v2.12.2
     items:
     - name: 部署 Neo 节点
@@ -209,7 +209,7 @@
   items:
   - name: RPC API
     - name: API 参考
-      href:  /docs/zh-cn/reference/rpc/latest-version/api.md
+      href:  /v2/docs/zh-cn/reference/rpc/latest-version/api.md
     - name: v2.12.2
       items:
       - name: claimgas

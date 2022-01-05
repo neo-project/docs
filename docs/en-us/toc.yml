@@ -117,9 +117,9 @@
       href: /v2/docs/en-us/sc/sample/Lock2.md
 - name: DApp Development
   - name: Introduction
-    href:  /docs/en-us/dapp/intro.md
+    href:  /v2/docs/en-us/dapp/intro.md
   - name: DApp Integration
-    href:  /docs/en-us/dapp/integ.md
+    href:  /v2/docs/en-us/dapp/integ.md
 - name: Neo Tools Development
   - name: Main Concepts
     - name: Blockchain Models
@@ -138,7 +138,7 @@
     - name: Cryptography
       href:
       - name: Encode Algorithm
-        href:  /docs/en-us/tooldev/concept/cryptography/encode_algorithm.md
+        href:  /v2/docs/en-us/tooldev/concept/cryptography/encode_algorithm.md
       - name: Hash Algorithm
         href: /v2/docs/en-us/tooldev/concept/cryptography/hash_algorithm.md
       - name: Encryption Algorithm
@@ -146,7 +146,7 @@
     - name: Big and Little Endian Usage
        href: /v2/docs/en-us/tooldev/concept/endian.md
   - name: Neo-CLI Structure
-    href:  /docs/en-us/tooldev/neo_cli_structure.md
+    href:  /v2/docs/en-us/tooldev/neo_cli_structure.md
   - name: Network Protocol
     href: /v2/docs/en-us/tooldev/network-protocol.md
   - name: Consensus
@@ -178,7 +178,7 @@
 - name: Document for Exchange Developers
   items:
   - name: Overview
-    href:  /docs/en-us/exchange/general.md
+    href:  /v2/docs/en-us/exchange/general.md
   - name: v2.12.2
     items:
     - name: Deploying Neo nodes
@@ -195,7 +195,7 @@
   items:
   - name: RPC API
     - name: API Reference
-      href:  /docs/en-us/reference/rpc/latest-version/api.md
+      href:  /v2/docs/en-us/reference/rpc/latest-version/api.md
     - name: v2.12.2
       items:
       - name: claimgas
