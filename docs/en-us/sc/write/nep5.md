@@ -15,6 +15,7 @@ public static BigInteger totalSupply()
 Returns the total token supply deployed in the system.
 
 **name**    
+
 ```c#
 public static string name()
 ```
