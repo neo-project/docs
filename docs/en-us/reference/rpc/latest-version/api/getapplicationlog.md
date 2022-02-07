@@ -90,7 +90,7 @@ Response description:
 
 - vmstate: VM execution state. HALT represents success, and FAULT represents failure.
 - gasconsumed: The transaction fee, which means the GAS consumed in the transaction execution. 
-- notifications: The notification sent by the smart contract.
+- notifications: The notification sent by the smart contract. If no notifications is returned it indicates the transfer is not successful. See the Note below.
 
 - contract: The contract sending the notification. Here is GasToken.
 
@@ -98,6 +98,9 @@ Response description:
 
 - state: Notification content, where ByteString is Base64-encoded wallet address and can be converted at https://neo.org/converter/index.
 
-
-
-
+> [!Note]
+>
+> This example shows the log of a successful token transfer, however, in case of a failed transfer or NeoVM exception, the outcomes can be:
+>
+> - Failed transfer: no Transfer notification event is returned, execution ends in a `HALT` state with a stack value of `False`.
+> - NeoVM exception: a Transfer notification event may or may not be returned, but execution ends in a `FAULT` state.
