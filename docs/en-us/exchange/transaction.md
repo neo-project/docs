@@ -358,8 +358,10 @@ The following shows an example of the API invoking result.
 
 > [!Note]
 >
-> - The failed NEP-17 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
-> - "vmstate" indicates the vm status after it executes the contract. If it contains "FAULT", that means the execution is failed and the transaction is invalid. 
+> This example shows the log of a successful token transfer, however, in case of a failed transfer or NeoVM exception, the outcomes can be:
+>
+> - Failed transfer: no Transfer notification event is returned, execution ends in a `HALT` state with a stack value of `False`.
+> - NeoVM exception: a Transfer notification event may or may not be returned, but execution ends in a `FAULT` state.
 
 The parameters related to a transaction in the file are the following:
 
