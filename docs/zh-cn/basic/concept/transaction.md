@@ -23,7 +23,7 @@ version属性允许对交易结构进行更新，使其具有向后兼容性。 
 ### signers
 signers中的第一个字段为交易发起账户的地址哈希。由于Neo N3弃用了UTXO模型，仅保留有账户余额模型，原生资产NEO和GAS的转账交易统一为NEP-17资产操作方式，因此交易结构中不再记录inputs和outputs字段，通过signers字段来跟踪交易的发送方。
 
-signers中余下的字段为限制签名的作用范围。Neo Legacy交易签名是全局有效的，为了让用户能更细粒度地控制签名的作用范围，Neo N3中对交易结构中的cosigners字段进行了变更，可实现签名只限于验证指定合约的功能。当checkwitness用于交易验证时，除交易发送者sender外，其他的cosigners都需要定义其签名的作用范围。
+signers中余下的字段定义了签名的作用范围。当 checkwitness 用于交易验证时，除交易发送者 sender 外，其他的 signers 都需要定义其签名的作用范围。详情请参见 [签名作用域](#signature-scope)。
 
 | 字段 | 说明|  类型|
 |--------------|------------------| --|
@@ -31,18 +31,7 @@ signers中余下的字段为限制签名的作用范围。Neo Legacy交易签名
 | `Scopes` | 指定签名的作用范围   |  `WitnessScope` |
 | `AllowedContracts`  |  签名可验证的合约脚本数组   | `UInt160[]` |
 | `AllowedGroups` | 签名可验证的合约组公钥 | `ECPoint[]` |
-
-#### Scopes
-
-Scopes字段定义了签名的作用范围，包括以下类型：
-
-| 值    | 名称| 说明| 类型|
-|---------------|-------------|---------------|--------------|
-| `0x00`           | `None`          | 仅对交易签名，合约中禁用 | `byte`  |
-| `0x01`           | `CalledByEntry`          | 签名只限于由Entry脚本调用的合约脚本    | `byte`  |
-| `0x10`           | `CustomContracts`          | 签名只限于用户指定的合约脚本    | `byte`  |
-| `0x20`           | `CustomGroups`          | 签名对组内的合约有效    | `byte`  |
-| `0x80`           | `Global`          | 签名全局有效，Neo Legacy的默认值，保证向后兼容性   | `byte`  |
+| `Rules` | 当 `scopes` 设置为`WitnessRules` 时，填写签名规则数组 | `WitnessRules[]` |
 
 ### sysfee
 系统费用取决于交易脚本的大小，数量和NeoVM指令类型。每一个指令所对应的费用，请参考[opcode 费用](../虚拟机#费用)。Neo N3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
@@ -145,6 +134,262 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
     "invocation": "DEDy/g4Lt+FTMBHHF84TSVXG9aSNODOjj0aPaJq8uOc6eMzqr8rARqpB4gWGXNfzLyh9qKvE++6f6XoZeaEoUPeH",
     "verification": "DCECCJr46zTvjDE0jA5v5jrry4Wi8Wm7Agjf6zGH/7/1EVELQQqQatQ="
   }]
+}
+```
+
+## 签名作用域
+
+在 Neo Legacy 中，交易签名是全局有效的，所有合约均可使用用户签名。为了让用户能更细粒度地控制签名的作用范围，Neo N3 新增了签名作用域（WitnessScope），对交易结构中的 signers 字段进行了变更，可实现签名只限于验证指定合约的功能，防止未经授权的合约随意使用用户签名。
+
+### Scopes
+
+在构造交易时，需要指定 `signers` 参数中的 `scopes` 字段，其定义了签名的作用范围，包含的类型如下表所示。
+
+| 值   | 名称              | 说明                                                         |
+| ---- | ----------------- | ------------------------------------------------------------ |
+| 0x00 | `None`            | 仅对交易签名，不允许任何合约使用该签名                       |
+| 0x01 | `CalledByEntry`   | 签名只限于由 Entry 脚本调用的合约脚本，建议作为钱包的默认签名作用。 |
+| 0x10 | `CustomContracts` | 自定义合约，在指定的合约中可以使用该签名。可与 CalledByEntry 配合使用。 |
+| 0x20 | `CustomGroups`    | 自定义合约组，在指定的合约组中可以使用该签名。可与 CalledByEntry 配合使用。 |
+| 0x80 | `Global`          | 签名全局有效，所有合约均可使用签名。风险极高，合约有可能会转移地址中的所有资产，仅在极其信任该合约时选择。 |
+| 0x40 | `WitnessRules`    | 用户自己指定验签规则和范围，参见下节说明。                   |
+
+为了更好地说明各类型，我们假设一条合约调用链为： **[entry]->[合约A]->[合约B]->[合约C]...->[Target]**
+
+Target 合约调用 CheckWitness 验签，且用户赋予了签名。当 scopes 分别设置为以下值时，验签情况如下：
+
+- `None` - **Target** 合约位于任何位置时都不允许验签通过
+- `Global` - **Target** 合约位于任何位置时都允许验签通过
+- `CallByEntry` - **Target** 合约位于 **entry**  或 **合约A** 时才允许验签通过
+- `CustomContracts` - 此时用户需要额外指定一个合约列表 **CustomContracts**，仅当 **Target** 合约属于 **CustomContracts** 中时允许验签通过
+- `CustomGroups` - 此时用户需要额外指定一个 Group 公钥列表 **CustomGroups**，仅当 **Target** 合约带有 **CustomGroups** 中任意一个公钥认证时，允许验签通过
+
+### WitnessRule
+
+Action(Allow|Deny) 和 Condition (判断条件)
+
+执行逻辑：先执行判断条件，如果符合，则返回Action，返回Allow代表验签成功，Deny代表验签失败。
+
+#### WitnessCondition 判断条件
+
+- Boolean：true|false
+
+  “expression” = <bool>
+
+  ```
+  // 等价于 WitnessScope.Global
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Boolean",
+                  "expression": true
+              }
+          }
+      ]
+  }
+  ```
+
+- Not: 逻辑非，对其它条件求反
+
+  “expression”=<Condition>
+
+  ```
+  // 只有当前合约不是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 才允许使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Not",
+                  "expression": {
+                      "type": "ScriptHash",
+                      "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                  }
+              }
+          }
+      ]
+  }
+  
+  ```
+
+- And：逻辑与，连接其它条件求与
+
+  “expressions”=<Condition[]>
+
+  ```
+  // 只有当前合约是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 且在入口处调用时才允许使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "And",
+                  "expressions": [{
+                          "type": "ScriptHash",
+                          "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                      }, {
+                          "type": "CalledByEntry"
+                      }
+                  ]
+              }
+          }
+      ]
+  }
+  ```
+
+- Or：逻辑或，连接其它条件求或
+
+  “expressions”=<Condition[]>
+
+  ```
+  // 只有当前合约是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 或在入口处调用时才允许使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Or",
+                  "expressions": [{
+                          "type": "ScriptHash",
+                          "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                      }, {
+                          "type": "CalledByEntry"
+                      }
+                  ]
+              }
+          }
+      ]
+  }
+  ```
+
+- ScriptHash：验证当前合约hash是否匹配，相当于 CustomContracts
+
+  “hash”= <UInt160>
+
+  ```
+  // 只允许合约 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "ScriptHash",
+                  "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+              }
+          }
+      ]
+  }
+  ```
+
+- Group：验证当前合约的公钥是否匹配，相当于 CustomGroups
+
+  “group”=<ECPoint>
+
+  ```
+  // 只允许经过公钥 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231认证的合约使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Group",
+                  "group": "021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231"
+              }
+          }
+      ]
+  }
+  ```
+
+- CalledByEntry：验证当前合约是否为entry调用，相当于 CallByEntry
+
+  ```
+  // 等价于 WitnessScope.CallByEntry
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "CalledByEntry"
+              }
+          }
+      ]
+  }
+  ```
+
+- CalledByContract：验证当前合约的上一级合约hash是否匹配
+
+  “hash”=<UInt160>
+
+  ```
+  // 只允许上级合约是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 时使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "CalledByContract",
+                  "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+              }
+          }
+      ]
+  }
+  ```
+
+- CalledByGroup：验证当前合约的上一级合约公钥是否匹配
+
+  “group”=<UInt160>
+
+  ```
+  // 只允许上级合约是公钥 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231 认证过的合约时使用签名
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "CalledByGroup",
+                  "group": "021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231"
+              }
+          }
+      ]
+  } 
+  ```
+
+### 示例
+
+该字段目前只能通过SDK构造交易时定义。为了帮助理解，可参考 JSON 格式的代码示例：
+
+```json
+{
+    "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+    "scopes": "WitnessRules",
+    "rules": [{
+            "action": "Allow",
+            "condition": {
+                "type": "Not",
+                "expression": {
+                    "type": "And",
+                    "expressions": [{
+                            "type": "ScriptHash",
+                            "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                        }, {
+                            "type": "CalledByEntry"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
 }
 ```
 
