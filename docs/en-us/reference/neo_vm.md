@@ -282,7 +282,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 
 | Instruction   | ABORT                                                  |
 |----------|-------------------------------------------------------|
-| Bytecode | 0x37                                                  |
+| Bytecode | 0x38                                                  |
 | Fee | 0 GAS                           |
 | Function   | It turns the vm state to FAULT immediately, and the exception cannot be caught. |
 
@@ -290,7 +290,7 @@ It's used to control the running process of NeoVM, including jump, call and othe
 
 | Instruction   | ASSERT                                                       |
 |----------|------------------------------------------------------------------|
-| Bytecode | 0x38                                                             |
+| Bytecode | 0x39                                                             |
 | Fee | 0.00000001 GAS                                          |
 | Function   | Pop the top value of the stack, if it is false, then exit vm execution and set vm state to FAULT. |
 
