@@ -85,7 +85,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 | 私钥 | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0 |
 | 压缩型公钥 | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c |
 | 地址脚本 | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c4156e7b327 |
-| 地址 | NhZ5eahZAZ6UBsbCLcCQH6qqHdzuxt2HKa |
+| 地址 | NNLi44dJNXtDNSBkofB48aTVYtb1zZrNEs |
 
 #### 多方签名地址
 
