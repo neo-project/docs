@@ -11,7 +11,7 @@
 
 - scripthash：智能合约脚本哈希。
 
-- params：传递给智能合约操作的参数，必须为空数组[], 因为默认neo只接受参数个数为零的verify函数。
+- params：传递给智能合约操作的参数。
 
 - signers: 签名账户列表，可选。
   * account: 签名账户
@@ -30,7 +30,7 @@
     "type": "String",
     "value": "Hello"
   }
-```
+  ```
 
 ```json
   {

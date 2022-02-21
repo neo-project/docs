@@ -11,7 +11,7 @@ Invokes the contract method `Verify`. Unlike the method `invokefunction` which e
 
 - scripthash: Smart contract scripthash.
 
-- params: The parameters to be passed to the smart contract operation. It must be an empty array [] as by default Neo only accepts the verify function without parameter.
+- params: The parameters to be passed to the smart contract operation. 
 
 - signers: Optional. List of contract signature accounts.
   * account: signature account
