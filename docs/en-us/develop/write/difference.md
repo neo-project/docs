@@ -55,7 +55,7 @@ using System;
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Contract info           | You need to fill in contract information such as the name, author, email, etc. when deploying the contract. | Add the contract features to the contract file, written as [C# Features](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/), for example：<br/>[ManifestExtra("Author", "Neo")]<br/>[ManifestExtra("Email", "dev@neo.org")]<br/>[ContractTrust("\*")]<br/>[ContractPermission("\*", "\*")]<br/>[SupportedStandards("NEP-17")]<br/>[ManifestExtra("Description", "This is a contract example")]<br/>public class Contract1 : SmartContract |
 | Contract function       | When deploying a contract, you need to declare contract features such as whether to use storage, whether it can be called dynamically, and whether to accept NEP-5 assets. | All contracts can use the storage and dynamic calls by default. You can implement the OnNEP17Payment method to accept NEP-17 assets and implement the OnNEP11Payment method to accept NEP-11 (NFT standard) assets. |
-| Declare support for NEP | Code example:<br/>public static string[] SupportedStandards()<br/>{<br/>    string[] result = { "NEP-5", "NEP-7", "NEP-10" };<br/>    return result;<br/>} | Directly add the feature to the contract class name `[SupportedStandards("NEP-17")]` 特性。 |
+| Declare support for NEP | Code example:<br/>public static string[] SupportedStandards()<br/>{<br/>    string[] result = { "NEP-5", "NEP-7", "NEP-10" };<br/>    return result;<br/>} | Directly add the feature to the contract class name `[SupportedStandards("NEP-17")]` |
 
 ### Declaration of static variables
 
