@@ -777,6 +777,22 @@ Copy, remove and swap the elements of the stack.
 | Fee | 0.00000008 GAS                                          |
 | Function   | Returns the remainder after dividing a by b. |
 
+#### POW
+
+| Instruction | POW                                                |
+| ----------- | -------------------------------------------------- |
+| Bytecode    | 0xA3                                               |
+| Fee         | 0.00000064 GAS                                     |
+| Function    | The result of raising value to the exponent power. |
+
+#### SQRT
+
+| Instruction | SQRT                                           |
+| ----------- | ---------------------------------------------- |
+| Bytecode    | 0xA4                                           |
+| Fee         | 0.00000064 GAS                                 |
+| Function    | Returns the square root of a specified number. |
+
 #### SHL
 
 | Instruction   | SHL                              |
@@ -903,12 +919,28 @@ Copy, remove and swap the elements of the stack.
 
 It has implemented common operations for array, map, struct, etc.
 
+#### PACKMAP
+
+| Instruction | PACKMAP                                                      |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0xBE                                                         |
+| Fee         | 0.00002048 GAS                                               |
+| Function    | A value n is taken from top of main stack. The next n*2 items on main stack are removed, put inside n-sized map and this map is put on top of the main stack. |
+
+#### PACKSTRUCT
+
+| Instruction | PACKSTRUCT                                                   |
+| ----------- | ------------------------------------------------------------ |
+| Bytecode    | 0xBF                                                         |
+| Fee         | 0.00002048 GAS                                               |
+| Function    | A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized struct and this struct is put on top of the main stack. |
+
 #### PACK
 
 | Instruction   | PACK                              |
 |----------|-----------------------------------|
 | Bytecode | 0xC0                              |
-| Fee | 0.00000512 GAS                                          |
+| Fee | 0.00002048 GAS                                       |
 | Function   | A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized array and this array is put on top of the main stack. |
 
 #### UNPACK
@@ -916,7 +948,7 @@ It has implemented common operations for array, map, struct, etc.
 | Instruction   | UNPACK                             |
 |----------|------------------------------------|
 | Bytecode | 0xC1                               |
-| Fee | 0.00000512 GAS                                          |
+| Fee | 0.00002048 GAS                                       |
 | Function   | An array is removed from top of the main stack. Its elements are put on top of the main stack (in reverse order) and the array size is also put on main stack. |
 
 #### NEWARRAY0
