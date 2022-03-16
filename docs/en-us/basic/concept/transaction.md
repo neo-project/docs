@@ -170,7 +170,7 @@ For better understanding, suppose there is a contract invocation chain: **[entry
 
 And the Target contract invokes CheckWitness to verify the signature. The verification result varies when `scopes` is set to different value. 
 
-- `None` - The verification is passed no matter where the **Target** contract is.
+- `None` - The verification will not be passed no matter where the **Target** contract is.
 - `Global` - The verification is passed no matter where the **Target** contract is.
 - `CallByEntry` - The verification is passed only when the **Target** contract is **entry** or **Contract A**.
 - `CustomContracts` - The verification is passed only when the **Target** contract belongs to **CustomContracts**, a contract list you need to customize.
