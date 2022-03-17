@@ -432,10 +432,10 @@ symbol
 
 ##### 示例
 
-将 100 GAS 转到地址 “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”，输入以下命令：
+将 100 GAS 转到地址 “NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag”，输入以下命令：
 
 ```
-neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
@@ -443,7 +443,7 @@ TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 第二个参数除了资产 ID，还可以填写资产缩写，所以以上命令也可以写成：
 
 ```
-neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send gas NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 ```
