@@ -56,7 +56,7 @@ Oracle service currently supports two URL schemes, `https` and `neofs`. `https` 
 
 - **Fees**
 
-  Neo Oracle Service charges the user by the number of requests, 0.5 GAS for each. Besides, the user has to pay additional fees for the callback function. All the fees will be paid when the Request is created.
+  Neo Oracle Service charges the user by the number of requests, 0.5 GAS by default for each. Besides, the user has to pay additional fees for the callback function. All the fees will be paid when the Request is created.
 
 - **Rewards**
 

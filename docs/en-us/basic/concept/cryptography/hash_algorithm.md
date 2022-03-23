@@ -46,7 +46,7 @@ Scenarios:
 
 - db3、NEP6 wallet secret key storage, export & validation.
 
-### Murmur3 
+### Murmur32 
 
 Murmur is kind of non-cryptographic hash algorithm and suits for general hash indexing. It is proposed by Austin Appleby in 2008. Later several derived versions are released. Compared with other popular hash functions, Murmur's random distribution performance is better for keys with high regularity.
 
