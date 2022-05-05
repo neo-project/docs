@@ -8,7 +8,7 @@
 
 1. 下载并安装 [Visual Studio Code](https://code.visualstudio.com/Download)
 
-2. 下载并安装 [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
+2. 下载并安装 [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
 3. 打开系统命令行，执行命令查看是否成功安装 SDK。
 
