@@ -16,7 +16,7 @@ The new contract templates have major updates. For more information refer to <a 
 
 ### Compiler
 
-In Neo N3, the old neon (Neo.Compiler.MSIL) has been deprecated. You need to use the latest nccs (Neo.Compiler.CSharp) compiler, which has major changes as follows:
+In Neo N3, the old neon (Neo.Compiler.MSIL) has been deprecated. You need to use the latest [nccs](https://www.nuget.org/packages/Neo.Compiler.CSharp/) (Neo.Compiler.CSharp) compiler, which has major changes as follows:
 
 * Not support for the language Visual Basic.
 * Ability to directly compile the  C# code to smart contracts without the intermediate language IL. 
