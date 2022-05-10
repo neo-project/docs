@@ -16,7 +16,7 @@
 
 ### 编译器
 
-在Neo N3中，旧版的 neon（Neo.Compiler.MSIL） 已经废弃，需使用最新的 nccs（Neo.Compiler.CSharp）编译器，其主要变化如下：
+在Neo N3中，旧版的 neon（Neo.Compiler.MSIL） 已经废弃，需使用最新的 [nccs](https://www.nuget.org/packages/Neo.Compiler.CSharp/)（Neo.Compiler.CSharp）编译器，其主要变化如下：
 
 * 新的 nccs 取消了对 Visual Basic 语言的支持
 * 新的 nccs 编译时无需 IL 中间语言，直接将 C# 代码编译为智能合约
