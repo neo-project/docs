@@ -6,7 +6,7 @@
 
 ### .NET Core
 
-在 Neo N3 中，.NET Core 版本从 3.0 升级为 5.0，需要更新 SDK。
+在 Neo N3 中，.NET Core 版本从 3.0 升级为 6.0，需要更新 SDK。
 
 ### Visual Studio 扩展
 

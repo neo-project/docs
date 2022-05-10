@@ -8,7 +8,7 @@ The following steps are applicable to multiple system platforms, such as Windows
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download)
 
-2. Download and install [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
+2. Download and install [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
 3. Run the command line and enter the following command to check if you have installed SDK successfully. 
 

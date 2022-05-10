@@ -6,7 +6,7 @@ This document describes the main differences in writing smart contracts between 
 
 ### .NET Core
 
-In Neo N3, .NET Core version has been upgraded from 3.0 to 5.0. You need to update SDK.
+In Neo N3, .NET Core version has been upgraded from 3.0 to 6.0. You need to update SDK.
 
 ### Visual Studio Extension
 

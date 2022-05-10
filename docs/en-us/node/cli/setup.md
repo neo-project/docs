@@ -72,7 +72,7 @@ You can download and compile the Neo-CLI source directly from Github.
 
 ### Publishing using Visual Studio (Windows)
 
-If you has Visual Studio 2019 installed on your Windows system, this way is recommended:
+If you has Visual Studio 2022 installed on your Windows system, this way is recommended:
 
 1. In Visual Studio, open the project file neo-node.sln.
 2. In the Solution panel, right click `neo-cli` and select `Publish`.

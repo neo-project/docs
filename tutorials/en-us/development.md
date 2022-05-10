@@ -133,7 +133,7 @@ Run the following command to build your contract：
 dotnet build
 ```
 
-Related contract files are outputted under `\bin\Debug\net5.0` path in the contract project directory.
+Related contract files are outputted under `\bin\Debug\net6.0` path in the contract project directory.
 
 ## Deploying the contract
 
