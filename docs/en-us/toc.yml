@@ -70,6 +70,8 @@
       href: /docs/en-us/node/gui/contract.md
     - name: Advanced Functions
       href: /docs/en-us/node/gui/advanced.md
+  - name: Synchronizing the blockchain faster
+    href: /docs/en-us/node/syncblocks.md
 - name: Development Guide
   items:
   - name: Neo Network
@@ -86,6 +88,8 @@
     items:
     - name: Basics
       href: /docs/en-us/develop/write/basics.md
+    - name: NEP-11
+      href: /docs/en-us/develop/write/nep11.md
     - name: NEP-17
       href: /docs/en-us/develop/write/nep17.md
     - name: NEF and Manifest Files
@@ -129,6 +133,8 @@
       href: /docs/en-us/reference/rpc/latest-version/api/closewallet.md
     - name: dumpprivkey
       href: /docs/en-us/reference/rpc/latest-version/api/dumpprivkey.md
+    - name: findstates
+      href: /docs/en-us/reference/rpc/latest-version/api/findstates.md
     - name: getapplicationlog
       href: /docs/en-us/reference/rpc/latest-version/api/getapplicationlog.md
     - name: getbestblockhash
@@ -149,6 +155,12 @@
       href: /docs/en-us/reference/rpc/latest-version/api/getcontractstate.md
     - name: getnativecontracts
       href: /docs/en-us/reference/rpc/latest-version/api/getnativecontracts.md
+    - name: getnep11balances
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep11balances.md
+    - name: getnep11properties
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep11properties.md
+    - name: getnep11transfers
+      href: /docs/en-us/reference/rpc/latest-version/api/getnep11transfers.md
     - name: getnep17balances
       href: /docs/en-us/reference/rpc/latest-version/api/getnep17balances.md
     - name: getnep17transfers
@@ -165,6 +177,8 @@
       href: /docs/en-us/reference/rpc/latest-version/api/getrawmempool.md
     - name: getrawtransaction
       href: /docs/en-us/reference/rpc/latest-version/api/getrawtransaction.md
+    - name: getstate
+      href: /docs/en-us/reference/rpc/latest-version/api/getstate.md
     - name: getstateheight
       href: /docs/en-us/reference/rpc/latest-version/api/getstateheight.md
     - name: getstateroot
@@ -294,3 +308,9 @@
     href: /docs/en-us/exchange/transaction.md
   - name: Distributing GAS to users
     href: /docs/en-us/exchange/gas.md 
+- name: Cross-chain Migration Guide
+  items:
+  - name: Migration Development
+    href: /tutorials/en-us/migrationB.md
+  - name: Migration Guide on Migration Page
+    href: /tutorials/en-us/migration-guide.md

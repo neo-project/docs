@@ -71,6 +71,8 @@
       href: /docs/zh-cn/node/gui/contract.md
     - name: 高级功能
       href: /docs/zh-cn/node/gui/advanced.md
+  - name: 快速同步区块
+    href: /docs/zh-cn/node/syncblocks.md
 - name: 开发指南
   items:
   - name: Neo 网络
@@ -87,6 +89,8 @@
     items:
     - name: 合约编写基础
       href: /docs/zh-cn/develop/write/basics.md
+    - name: NEP-11
+      href: /docs/zh-cn/develop/write/nep11.md
     - name: NEP-17
       href: /docs/zh-cn/develop/write/nep17.md
     - name: NEF 和 Manifest 文件
@@ -130,6 +134,8 @@
       href: /docs/zh-cn/reference/rpc/latest-version/api/closewallet.md
     - name: dumpprivkey
       href: /docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.md
+    - name: findstates
+      href: /docs/zh-cn/reference/rpc/latest-version/api/findstates.md
     - name: getapplicationlog
       href: /docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.md
     - name: getbestblockhash
@@ -150,6 +156,12 @@
       href: /docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.md
     - name: getnativecontracts
       href: /docs/zh-cn/reference/rpc/latest-version/api/getnativecontracts.md
+    - name: getnep11balances
+      href: /docs/zh-cn/reference/rpc/latest-version/api/getnep11balances.md
+    - name: getnep11properties
+      href: /docs/zh-cn/reference/rpc/latest-version/api/getnep11properties.md
+    - name: getnep11transfers
+      href: /docs/zh-cn/reference/rpc/latest-version/api/getnep11transfers.md
     - name: getnep17balances
       href: /docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.md
     - name: getnep17transfers
@@ -166,6 +178,8 @@
       href: /docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.md
     - name: getrawtransaction
       href: /docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.md
+    - name: getstate
+      href: /docs/zh-cn/reference/rpc/latest-version/api/getstate.md
     - name: getstateheight
       href: /docs/zh-cn/reference/rpc/latest-version/api/getstateheight.md
     - name: getstateroot
@@ -295,3 +309,9 @@
     href: /docs/zh-cn/exchange/transaction.md
   - name: 给用户分发 GAS
     href: /docs/zh-cn/exchange/gas.md 
+- name: 跨链迁移指南
+  items:
+  - name: 迁移开发
+    href: /tutorials/zh-cn/migrationB.md
+  - name: 迁移指南
+    href: /tutorials/zh-cn/migration-guide.md

@@ -90,12 +90,15 @@ http://127.0.0.1:10332/
 | --------------------------------------------- | ------- | ------------------------------------- |
 | [getapplicationlog](api/getapplicationlog.md) | \<txid> | 根据交易 txid 获取合约的事件信息 |
 
-### RpcNep17Tracker 插件
+### TokensTracker 插件
 
-| 方法                                          | 参数                  | 说明                                |
-| --------------------------------------------- | --------------------- | ----------------------------------- |
-| [getnep17balances](api/getnep17balances.md)   | \<address>            | 返回指定地址内的所有 NEP17 资产余额 |
-| [getnep17transfers](api/getnep17transfers.md) | \<address>[timestamp] | 返回指定地址内的所有 NEP17 交易记录 |
+| 方法                                            | 参数                       | 说明                                |
+| ----------------------------------------------- | -------------------------- | ----------------------------------- |
+| [getnep11balances](api/getnep11balances.md)     | \<address>                 | 返回指定地址内的所有 NEP11 资产余额 |
+| [getnep11properties](api/getnep11properties.md) | \<contract_hash>\<tokenId> | 返回 NEP-11 资产的自定义属性        |
+| [getnep11transfers](api/getnep17transfers.md)   | \<address>[timestamp]      | 返回指定地址内的所有 NEP11 交易记录 |
+| [getnep17balances](api/getnep17balances.md)     | \<address>                 | 返回指定地址内的所有 NEP17 资产余额 |
+| [getnep17transfers](api/getnep17transfers.md)   | \<address>[timestamp]      | 返回指定地址内的所有 NEP17 交易记录 |
 
 ### StateService 插件
 
@@ -104,7 +107,9 @@ http://127.0.0.1:10332/
 | [getstateroot](api/getstateroot.md)     | \<index>                       | 通过高度查询 state root。                                   |
 | [getproof](api/getproof.md)             | \<roothash>\<scripthash>\<key> | 通过 root hash，合约 hash 和 storage key 查询得到 proof。   |
 | [verifyproof](api/verifyproof.md)       | \<roothash>\<proof>            | 使用 root hash 和 proof 进行验证，得到 key 对应存储区的值。 |
-| [getstateheight](api/getstateheight.md) |                                | 查询 stateroot 高度。                                       |
+| [getstateheight](api/getstateheight.md) |                                | 查询 stateroot 高度。 |
+| [getstate](api/getstate.md)       | \<roothash>\<scripthash>\<key>           | 通过 root hash，合约 hash 和 storage key 查询 state。 |
+| [findstates](api/findstates.md)       | \<roothash>\<scripthash>\<prefix> [key] [count]          | 通过 root hash，合约 hash 和 storage key 的前缀查询 state。 |
 
 > [!Note]
 >

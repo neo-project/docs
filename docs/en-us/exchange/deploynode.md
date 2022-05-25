@@ -14,7 +14,7 @@ Go to [here](https://github.com/neo-project/neo-modules/releases/) to download p
 - ApplicationLogs (Mandatory)
 - LevelDBStore (Preloaded)
 - RpcServer (Mandatory)
-- RpcNep17Tracker (Recommended)
+- TokensTracker (Recommended)
 
 Unzip the plugin packages under the Neo-CLI root directory, as shown below, all the plugin files are extracted into the Plugins folder automatically. 
 
@@ -26,13 +26,13 @@ You can also install plugins using CLI commands：
 install ApplicationLogs
 install LevelDBStore
 install RpcServer
-install RpcNep17Tracker
+install TokensTracker
 ```
 
 > [!Note]
 >
-> - The RpcServer plug-in must be installed before you can use the RpcNep17Tracker plug-in.
-> - You must install the plugins ApplicationLogs and RpcNep17Tracker before synchronizing the Neo client, otherwise the log in the blocks synchronized before will be lost.
+> - The RpcServer plug-in must be installed before you can use the TokensTracker plug-in.
+> - You must install the plugins ApplicationLogs and TokensTracker before synchronizing the Neo client, otherwise the log in the blocks synchronized before will be lost.
 
 ## Modifying configuration files
 

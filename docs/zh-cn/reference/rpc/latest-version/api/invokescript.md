@@ -43,25 +43,23 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "script": "DAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
-    "state": "HALT",
-    "gasconsumed": "9931880",
-    "exception": null,
-    "stack": [
-      {
-        "type": "Boolean",
-        "value": true
-      }
-    ],
-    "tx": "AOAp8X1ojJcAAAAAADiCEwAAAAAAwhgAAAHX15cw4njG2Qbm6PaVv62Hfj/6kBACz3bii9AGLEpHjuNVYQETGfPPpNLPduKL0AYsSkeO41VhARMZ88+k0gBgDAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSAUIMQND33YydF1nRttTQHmrzusLTAS3JY+Wmwdpbsh1T0p7uzOomsJca6GqH9KeDavvQ6MdnZsOD4/1zUQu/OlfId20oDCED4IgjtEOZ9qKqIkiDTZIKFas66S3HVjz35D/d1bHAGC9BdHR2qg=="
-  }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "script": "DAlqdXN0IHRlc3QRDBRWyI0UCtLMDykDfdEKfwBgorUoXAwU19eXMOJ4xtkG5uj2lb+th34/+pAUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS",
+        "state": "HALT",
+        "gasconsumed": "997796",
+        "exception": null,
+        "stack": [
+            {
+                "type": "Boolean",
+                "value": false
+            }
+        ]
+    }
 }
 ```
 
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
 - gasconsumed：调用智能合约时消耗的系统手续费。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
-- tx：本次调用合约交易的 Base64 编码，需要打开钱包并且传入正确的签名账户参数，否则 tx 为 null。

@@ -1068,7 +1068,7 @@ Loaded plugins:
         DBFTPlugin          Consensus plugin with dBFT algorithm.
         LevelDBStore        Uses LevelDB to store the blockchain data
         OracleService       Built-in oracle plugin
-        RpcNep17Tracker     Enquiries NEP-17 balances and transaction history of accounts through RPC
+        TokensTracker     Enquiries NEP-17 balances and transaction history of accounts through RPC
         RpcServer           Enables RPC for the node
         StatesDumper        Exports Neo-CLI status data
         StateService        Enables MPT for the node
@@ -1084,7 +1084,7 @@ Loaded plugins:
 
 ```
 neo> install RpcServer
-Downloading from https://github.com/neo-project/neo-plugins/releases/download/v3.0.0-preview5/RpcServer.zip
+Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RpcServer.zip
 Install successful, please restart neo-cli.
 ```
 

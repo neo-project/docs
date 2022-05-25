@@ -3,7 +3,7 @@ Queries the stateroot height.
 
 > [!Note]
 >
-> You must install the plugin  [StateService](https://github.com/neo-project/neo-plugins/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+> You must install the plugin  [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 
 ## Example

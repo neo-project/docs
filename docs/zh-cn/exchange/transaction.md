@@ -47,7 +47,7 @@ NeoVM 操作码费用降低为原来的 1/1000 左右，可以显著降低智能
 交易所查询用户地址余额的操作如下：
 
 1. 编写 JSON 文件，调用以下任意一个 RPC 方法：
-   - getnep17balances（需安装 [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) 插件）
+   - getnep17balances（需安装 [TokensTracker](https://github.com/neo-project/neo-modules/releases/) 插件）
    - invokefunction（需安装 [RpcServer](https://github.com/neo-project/neo-modules/releases/) 插件）
 2. 向 Neo RPC 服务器发送 getnep17balances 请求获取资产 hash 和数量。
 3. 向 Neo RPC 服务器发送两次 invokefunction 请求分别获取对应资产的标识符（symbol）和精度（decimals）。
@@ -358,8 +358,10 @@ symbol
 
 > [!Note]
 >
-> -  失败的 NEP-17 交易也可以上链，因此需要判断虚拟机的状态项 "vmstate" 是否正确（HALT）。
-> -  "vmstate" 是虚拟机执行合约后的状态，如果包含"FAULT"的话，说明执行失败，那么该交易便是无效的。
+> 上例显示的是一个成功转账交易的日志，但如果传输失败或NeoVM执行异常，显示结果可能是以下情况:
+>
+> - 转账失败: 不返回 Transfer notifications。执行状态 vmstate 显示 `HALT` 且 stack 值为 `False`。
+> - NeoVM 异常: 可能返回或不返回 Transfer notifications。执行状态 vmstate 显示 `FAULT` 。
 
 其中与交易相关的参数如下：
 
@@ -430,10 +432,10 @@ symbol
 
 ##### 示例
 
-将 100 GAS 转到地址 “AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e”，输入以下命令：
+将 100 GAS 转到地址 “NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag”，输入以下命令：
 
 ```
-neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
@@ -441,7 +443,7 @@ TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 第二个参数除了资产 ID，还可以填写资产缩写，所以以上命令也可以写成：
 
 ```
-neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send gas NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 ```

@@ -84,8 +84,8 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 |----------|:-------------:|
 | 私钥 | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0 |
 | 压缩型公钥 | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c |
-| 地址脚本 | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c41747476aa |
-| 地址 | NhZ5eahZAZ6UBsbCLcCQH6qqHdzuxt2HKa |
+| 地址脚本 | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c4156e7b327 |
+| 地址 | NNLi44dJNXtDNSBkofB48aTVYtb1zZrNEs |
 
 #### 多方签名地址
 
@@ -94,7 +94,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
    ```
    emitPush(N) + 0x0C + 0x21 + 公钥1(压缩型 33字节)  + .... + 0x0C + 0x21 + 公钥m(压缩型 33字节)  + emitPush(M) + 0x41 + 0x9ed0dc3a
    ```
-   <img src="../images/wallets/account_address_script_multi_checksign.png"  />
+   ![](../images/wallets/account_address_script_multi_checksign.png)
 
 2. 计算地址脚本合约哈希(20字节，地址脚本合约做一次sha256和riplemd160得到)
 
@@ -108,7 +108,7 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 | ---------- | ------------------------------------------------------------ |
 | 私钥       | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0<br>9a973a470b5fd7a2c12753a1ef55db5a8c8dde42421406a28c2a994e1a1dcc8a |
 | 压缩性公钥 | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c<br/>036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd843 |
-| 地址脚本   | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12417bce6ca5 |
+| 地址脚本   | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12419ed0dc3a |
 | 地址       | NZ3pqnc1hMN8EHW55ZnCnu8B2wooXJHCyr                           |
 
 emitPush(number) 注意其取值范围， number的类型为 BigInteger时，data = number.ToByteArray()：

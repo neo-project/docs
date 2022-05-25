@@ -1,12 +1,12 @@
 # Build a private chain with one node
 
-Neo-CLI supports generating blocks without consensus nodes, which means you can set up a private chain with one node. To simplify the process, you can directly download the project [Neo-Private-Net]( https://github.com/neo-ngd/NEO-Private-Net) to run the private chain quickly.  
+Neo-CLI supports generating blocks without consensus nodes, which means you can set up a private chain with one node. To simplify the process, you can directly download the project [neo-express](https://github.com/neo-project/neo-express) to run the private chain quickly.  
 
 Alternatively, you can build a private chain with one node from scratch, which will be elaborated in the following sections.
 
 ## Prerequisites
 
-1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI. (Make sure you install the [DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.0.1/DBFTPlugin.zip)
+1. Refer to [Installation of NEO-CLI](../../../node/cli/setup.md) to install Neo-CLI. (Make sure you install the [DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip)
 2. Run Neo-CLI and enter the command `create wallet <path>` to create a wallet, e.g. `create wallet consensus.json`
 
 3. Specify the wallet password and confirm.

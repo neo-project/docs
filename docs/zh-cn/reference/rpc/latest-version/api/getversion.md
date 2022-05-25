@@ -27,9 +27,19 @@
     "result": {
         "tcpport": 10333,
         "wsport": 10334,
-        "nonce": 639577408,
-        "useragent": "/Neo:3.0.0-CI01171/",
-        "magic": 5195086
+        "nonce": 1930156121,
+        "useragent": "/Neo:3.0.3/",
+        "protocol": {
+            "addressversion": 53,
+            "network": 860833102,
+            "validatorscount": 7,
+            "msperblock": 15000,
+            "maxtraceableblocks": 2102400,
+            "maxvaliduntilblockincrement": 5760,
+            "maxtransactionsperblock": 512,
+            "memorypoolmaxtransactions": 50000,
+            "initialgasdistribution": 5200000000000000
+        }
     }
 }
 ```

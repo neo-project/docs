@@ -71,7 +71,7 @@
 
 ### 使用Visual Studio发布（仅Windows）
 
-如果使用 Windows 系统且已安装 Visual Studio 2019, 推荐此方法进行发布：
+如果使用 Windows 系统且已安装 Visual Studio 2022, 推荐此方法进行发布：
 
 1. 在 Visual Studio 中打开项目文件 neo-node.sln, 在解决方案栏中右键单击 `neo-cli`，点击`发布`。
 

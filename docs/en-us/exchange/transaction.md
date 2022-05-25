@@ -49,7 +49,7 @@ The way for a exchange itself to query balance of the user deposit address is di
 The exchange needs to do the following:
 
 1. Construct JSON files to invoke either of the following RPC methods:
-   - getnep17balances (Plugin [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) is required)
+   - getnep17balances (Plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases/) is required)
    - invokefunction (Plugin [RpcServer](https://github.com/neo-project/neo-modules/releases/) is required)
 2. Send a `getnep17balances` request to the Neo RPC server to get the asset hash and amount.
 3. Send the invokefunction requests twice to the Neo RPC server to get the corresponding asset symbol and decimals, respectively.
@@ -358,8 +358,10 @@ The following shows an example of the API invoking result.
 
 > [!Note]
 >
-> - The failed NEP-17 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
-> - "vmstate" indicates the vm status after it executes the contract. If it contains "FAULT", that means the execution is failed and the transaction is invalid. 
+> This example shows the log of a successful token transfer, however, in case of a failed transfer or NeoVM exception, the outcomes can be:
+>
+> - Failed transfer: no Transfer notification event is returned, execution ends in a `HALT` state with a stack value of `False`.
+> - NeoVM exception: a Transfer notification event may or may not be returned, but execution ends in a `FAULT` state.
 
 The parameters related to a transaction in the file are the following:
 
@@ -433,10 +435,10 @@ This command verifies the wallet password.
 
 ##### Example
 
-Transfer 100 Neo to the address AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e: 
+Transfer 100 Neo to the address NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag: 
 
 ```
-neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
@@ -446,7 +448,7 @@ If you are not sure of the asset ID, you can enter `list asset` to view all asse
 In above example, we can also replace the asset ID with asset abbreviation, as shown below:
 
 ```
-neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send gas NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 ```

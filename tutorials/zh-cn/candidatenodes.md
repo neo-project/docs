@@ -189,7 +189,7 @@ Neo-cli 在执行过程中会访问其根目录下的配置文件 `config.json` 
 - ApplicationLogs（必选）
 - LevelDBStore（已预装）
 - RpcServer（必选）
-- RpcNep17Tracker（推荐）
+- TokensTracker（推荐）
 
 #### 安装方法
 
@@ -202,7 +202,7 @@ Neo-cli 在执行过程中会访问其根目录下的配置文件 `config.json` 
   ```
   install ApplicationLogs
   install RpcServer
-  install RpcNep17Tracker
+  install TokensTracker
   ```
 
 #### 修改配置文件
@@ -260,7 +260,7 @@ Neo-cli 在执行过程中会访问其根目录下的配置文件 `config.json` 
 
   - `Network`：网络ID，需和节点的 `config.json` 文件中保持一致
 
-- `RpcNep17Tracker`
+- `TokensTracker`
 
   提供 NEP17 余额及交易历史的 RPC 查询功能。
 

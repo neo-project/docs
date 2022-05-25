@@ -436,7 +436,7 @@ RpcApplicationLog log = await client.GetApplicationLogAsync(txHash, TriggerType.
 
 ### 查询 NEP-17 资产余额
 返回指定地址内的所有 NEP-17 资产余额：
-需要节点安装 RpcNep17Tracker  插件才可以调用。
+需要节点安装 TokensTracker  插件才可以调用。
 
 ```c#
 string address = "NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ";
@@ -445,7 +445,7 @@ RpcNep17Balances balances = await client.GetNep17BalancesAsync(address).Configur
 
 ### 查询交易记录
 返回指定地址内的所有 NEP-17 交易记录：
-需要节点安装 RpcNep17Tracker  插件才可以调用。
+需要节点安装 TokensTracker  插件才可以调用。
 如果设置起始和结束时间戳，则返回时间戳范围内的交易信息。
 如果不设置此参数，则返回近七天内的交易信息。
 
