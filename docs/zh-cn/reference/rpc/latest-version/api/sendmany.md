@@ -17,7 +17,7 @@
 
   `{"asset": <asset>, "value": <value>, "address": <address>, "signers": <signers>}`
 
-  - asset_id：资产 ID，即 NEP-17 合约的脚本哈希。
+  - asset：资产 ID，即 NEP-17 合约的脚本哈希。
 
 	  如 NeoToken 为：0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
@@ -39,7 +39,6 @@
     "id": 1,
     "method": "sendmany",
     "params": [
-        "NikhQp1aAD1YFCiwknhM5LQQebj4464bCJ",
         [
             {
                 "asset": "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
