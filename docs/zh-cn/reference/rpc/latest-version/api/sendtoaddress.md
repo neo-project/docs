@@ -19,7 +19,7 @@
 
 - address：收款地址。
 
-- value：转账金额。
+- value：转账金额，不带精度的大整数。例，GAS 精度为 8，如果想转 0.000001 GAS, 这里应该输入 100，如果想转 100 GAS，这里应该输入 10000000000。
 
 ## 调用示例
 
@@ -38,40 +38,32 @@
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "hash": "0xe332419b8da788c3f149959cb7667aa6a796f4c4a2c49285ee65ef21e7acbb8e",
-    "size": 382,
-    "version": 0,
-    "nonce": 1204566489,
-    "sender": "NTpqYncLsNNsMco71d9qrd5AWXdCq8YLAA",
-    "sysfee": "9931700",
-    "netfee": "2349040",
-    "validuntilblock": 6368,
-    "signers": [
-      {
-        "account": "0x5c28b5a260007f0ad17d03290fccd20a148dc856",
-        "scopes": "None"
-      },
-      {
-        "account": "0x90fa3f7e87adbf95f6e8e606d9c678e23097d7d7",
-        "scopes": "CalledByEntry"
-      }
-    ],
-    "attributes": [],
-    "script": "CwMA5AtUAgAAAAwUYp1qsnQL/DbfcYBBG6gP2HgdKb0MFNfXlzDieMbZBubo9pW/rYd+P/qQFMAfDAh0cmFuc2ZlcgwUz3bii9AGLEpHjuNVYQETGfPPpNJBYn1bUjk=",
-    "witnesses": [
-      {
-        "invocation": "DEB2IMlTiOX9zJYgVLe6hVLXWW3OTiv1NyqOiIMzCAPJf0G9ITh/MSRTu4pW8lHn6iF7yVFbZUuNm6iXKH3+g4dS",
-        "verification": "DCEDpDw8zJ19ja9Vjl2syj9wppx0tqXaCw43Xg8Zn221XuRBdHR2qg=="
-      },
-      {
-        "invocation": "DEDgesB10fw0goXgn2jQmtteSgCxjhX3E5IU/sclk1Aqea/OUzfm/1khO9J3sh420YxAPKoddx+4BdeTrkCtogtp",
-        "verification": "DCED4IgjtEOZ9qKqIkiDTZIKFas66S3HVjz35D/d1bHAGC9BdHR2qg=="
-      }
-    ]
-  }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "hash": "0x4c072646cf9515dd2a5df9fc4df0563a4f2e468910d24a9b2196743bcea8b8f0",
+        "size": 246,
+        "version": 0,
+        "nonce": 573855568,
+        "sender": "NSXYk7V6bgrwCJJbh5m8ZGCy1fbREY4gk5",
+        "sysfee": "9977780",
+        "netfee": "1229520",
+        "validuntilblock": 17307,
+        "signers": [
+            {
+                "account": "0x580d152d36db6f34c9aaf676facbbe2779538b48",
+                "scopes": "CalledByEntry"
+            }
+        ],
+        "attributes": [],
+        "script": "CwBkDBRinWqydAv8Nt9xgEEbqA/YeB0pvQwUSItTeSe+y/p29qrJNG/bNi0VDVgUwB8MCHRyYW5zZmVyDBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtSOQ==",
+        "witnesses": [
+            {
+                "invocation": "DEDROjmUBKzywJa+WCD9MttL6V+3i+HvjnfW8hMjT5y8zMcXzqt4HI2/72YM/aS2nfWPXOfJVXZmK/89mSJqPVX6",
+                "verification": "DCECUDQqDEv7ud85rbYDDT8/i+vdyxW46/e8TMrafzqJui5BVuezJw=="
+            }
+        ]
+    }
 }
 ```
 
