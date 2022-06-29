@@ -19,9 +19,6 @@
 | --------------------------- | -------------------------- |
 | System.Crypto.CheckSig      | 检查当前脚本容器的签名     |
 | System.Crypto.CheckMultisig | 检查当前脚本容器的多方签名 |
-| System.Crypto.Bls12381Add | Zk,BLS曲线点的加法 |
-| System.Crypto.Bls12381Mul | Zk,BLS曲线点的乘法 |
-| System.Crypto.Bls12381Pairing | Zk,BLS曲线点的双线性映射 |
 
 **枚举器**:
 
