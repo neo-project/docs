@@ -153,7 +153,8 @@
                 "type": "Boolean",
                 "value": true
             }
-        ]
+        ],
+        "tx": "AOaXOgSIvRYAAAAAAKzgAQAAAAAAesUGAAFmmdXxSKUGNq3wQcppLAdAe8sD+gEAWQwAARAnDBT6ifssFN8PWd3fBPblZRfys0qu6wwUZpnV8UilBjat8EHKaSwHQHvLA/oUwB8MCHRyYW5zZmVyDBTE4imrHEPCKCyFCrhd2N59Z3WjoUFifVtSAUIMQMTS2HRIO9gDxq/U/lqIB77dLBzVHT4cwKdvqoGOZqm4IoGqHbYzBSYHOPHWGNutWvkjCgIQGQFKK1JGyOR16LwoDCEDrQCtTQQyXXSsHZm3oRiqiAzP00uFPaW9tICYC3D7Bm9BVuezJw=="
     }
 }
 ```
@@ -179,7 +180,8 @@
 - notifications：合约执行过程中产生的 event 信息，交易上链后可以通过 [getapplicationlog](./getapplicationlog.md) 来查看。
 - diagnostics：合约调用的过程信息和存储区改变情况，该请求只是测试调用，不会改变链上真实存储区，这里显示的存储区改变是模拟交易发送上链后的存储区变化情况。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
-- tx：本次调用合约交易的 Base64 编码，需要打开钱包并且传入正确的签名账户参数，否则 tx 为 null。
+- tx：本次调用合约交易的 Base64 编码，需要打开钱包并且传入正确的签名账户参数，否则返回结果不包含该字段。
+- pendingsignature：签名未完成的交易，如果该交易需要多个签名而当前打开的钱包中不包含所有签名账户时，返回结果包含该字段。
 
 ## 特别说明
 
