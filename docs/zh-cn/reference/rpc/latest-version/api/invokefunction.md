@@ -225,7 +225,7 @@
    
 - state：虚拟机状态， `HALT` 表示虚拟机执行成功，`FAULT` 表示虚拟机执行时遇到异常退出。
 - gasconsumed：调用智能合约时消耗的系统手续费。
-- exception： 合约执行过程中的异常信息，无异常是为 `null`。
+- exception： 合约执行过程中的异常信息，无异常时为 `null`。
 - notifications：合约执行过程中产生的 event 信息，交易上链后可以通过 [getapplicationlog](./getapplicationlog.md) 来查看。
 - diagnostics：合约调用的过程信息和存储区改变情况，该请求只是测试调用，不会改变链上真实存储区，这里显示的存储区改变是模拟交易发送上链后的存储区变化情况。
 - stack：合约执行结果，其中 value 如果是字符串或 ByteArray，则是 Base64 编码后的结果。
