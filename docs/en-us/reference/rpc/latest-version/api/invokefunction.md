@@ -1,4 +1,4 @@
-﻿# invokefunction Method
+﻿﻿# invokefunction Method
 
 Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 
@@ -28,6 +28,7 @@ Invokes a smart contract with its scripthash based on the specified operation an
     * Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+* use diagnostic: Whether to return the simulated invocation information and storage change information. The default value is `false`.
 > [!Note]
 >
 > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
@@ -57,16 +58,16 @@ Request body:
 
 ```json
 {
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "invokefunction",
-    "params": [
-        "0xf61eebf573ea36593fd43aa150c055ad7906ab83",
-        "transfer",
-        [
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "invokefunction",
+  "params": [
+    "0xa1a375677dded85db80a852c28c2431cab29e2c4",
+    "transfer",
+    [
             {
                 "type": "Hash160",
-                "value": "0x86df72a6b4ab5335d506294f9ce993722253b6e2"
+                "value": "0xfa03cb7b40072c69ca41f0ad3606a548f1d59966"
             },
             {
                 "type": "Hash160",
@@ -83,13 +84,14 @@ Request body:
         ],
         [
             {
-                "account": "0x86df72a6b4ab5335d506294f9ce993722253b6e2",
+                "account": "0xfa03cb7b40072c69ca41f0ad3606a548f1d59966",
                 "scopes": "CalledByEntry",
                 "allowedcontracts": [],
                 "allowedgroups": []
             }
-        ]
-    ]
+        ],
+    true
+  ]
 }
 ```
 
@@ -100,17 +102,107 @@ Response body:
     "jsonrpc": "2.0",
     "id": 1,
     "result": {
-        "script": "DAABECcMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBTitlMicpPpnE8pBtU1U6u0pnLfhhTAHwwIdHJhbnNmZXIMFIOrBnmtVcBQoTrUP1k26nP16x72QWJ9W1I=",
+        "script": "DAABECcMFPqJ+ywU3w9Z3d8E9uVlF/KzSq7rDBRmmdXxSKUGNq3wQcppLAdAe8sD+hTAHwwIdHJhbnNmZXIMFMTiKascQ8IoLIUKuF3Y3n1ndaOhQWJ9W1I=",
         "state": "HALT",
-        "gasconsumed": "999972",
+        "gasconsumed": "1490312",
         "exception": null,
+        "notifications": [
+            {
+                "eventname": "Transfer",
+                "contract": "0xa1a375677dded85db80a852c28c2431cab29e2c4",
+                "state": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "ByteString",
+                            "value": "ZpnV8UilBjat8EHKaSwHQHvLA/o="
+                        },
+                        {
+                            "type": "ByteString",
+                            "value": "+on7LBTfD1nd3wT25WUX8rNKrus="
+                        },
+                        {
+                            "type": "Integer",
+                            "value": "10000"
+                        }
+                    ]
+                }
+            }
+        ],
+        "diagnostics": {
+            "invokedcontracts": {
+                "hash": "0x9cac876fcc1646f1f017aa49b1fbcf87bd37b043",
+                "call": [
+                    {
+                        "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4",
+                        "call": [
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4",
+                                "call": [
+                                    {
+                                        "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                                    },
+                                    {
+                                        "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                                    }
+                                ]
+                            },
+                            {
+                                "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4",
+                                "call": [
+                                    {
+                                        "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                                    },
+                                    {
+                                        "hash": "0xa1a375677dded85db80a852c28c2431cab29e2c4"
+                                    }
+                                ]
+                            },
+                            {
+                                "hash": "0xfffdc93764dbaddd97c48f252a53ea4643faa3fd"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "storagechanges": [
+                {
+                    "state": "Changed",
+                    "key": "BgAAAAEBZpnV8UilBjat8EHKaSwHQHvLA/o=",
+                    "value": "8CTJ5wda"
+                },
+                {
+                    "state": "Added",
+                    "key": "BgAAAAEB+on7LBTfD1nd3wT25WUX8rNKrus=",
+                    "value": "ECc="
+                }
+            ]
+        },
         "stack": [
             {
                 "type": "Boolean",
                 "value": true
             }
         ],
-        "tx": "AI3PBQRolZgAAAAAAMrSEgAAAAAAtRcAAAHitlMicpPpnE8pBtU1U6u0pnLfhgEAWQwAARAnDBT6ifssFN8PWd3fBPblZRfys0qu6wwU4rZTInKT6ZxPKQbVNVOrtKZy34YUwB8MCHRyYW5zZmVyDBSDqwZ5rVXAUKE61D9ZNupz9ese9kFifVtSAUIMQB87UjubTE7Kb/fOe8Yu2QDUQJ6c5pL9LjcoFaNkEiJzLY5yd72jrsvVbVFNZ6ObWloAmLkjCgDXw9enkVtwVBMrEQwhAs7UMjl93ETtugMcC8O5M/KP3ZZ3eS17IObANt2qrPHiEQtBE43vrw=="
+        "tx": "AOaXOgSIvRYAAAAAAKzgAQAAAAAAesUGAAFmmdXxSKUGNq3wQcppLAdAe8sD+gEAWQwAARAnDBT6ifssFN8PWd3fBPblZRfys0qu6wwUZpnV8UilBjat8EHKaSwHQHvLA/oUwB8MCHRyYW5zZmVyDBTE4imrHEPCKCyFCrhd2N59Z3WjoUFifVtSAUIMQMTS2HRIO9gDxq/U/lqIB77dLBzVHT4cwKdvqoGOZqm4IoGqHbYzBSYHOPHWGNutWvkjCgIQGQFKK1JGyOR16LwoDCEDrQCtTQQyXXSsHZm3oRiqiAzP00uFPaW9tICYC3D7Bm9BVuezJw=="
     }
 }
 ```
@@ -120,113 +212,58 @@ Response description:
 - script: the invocation script of the contract. You can analysis from https://neo.org/converter
 
   ```
-  SYSCALL System.Contract.Call
-  PUSHDATA1 0xf61eebf573ea36593fd43aa150c055ad7906ab83
-  PUSHDATA1 transfer
-  PUSHDATA1 0x86df72a6b4ab5335d506294f9ce993722253b6e2
-  PUSHDATA1 0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa
-  PUSHINT16 10000
-  PUSHDATA1
+   PUSHDATA1
+   PUSHINT16 10000
+   PUSHDATA1 0xebae4ab3f21765e5f604dfdd590fdf142cfb89fa
+   PUSHDATA1 0xfa03cb7b40072c69ca41f0ad3606a548f1d59966
+   PUSH4
+   PACK
+   PUSH15
+   PUSHDATA1 transfer
+   PUSHDATA1 0xa1a375677dded85db80a852c28c2431cab29e2c4
+   SYSCALL System.Contract.Call
   ```
 
 - state:  `HALT` means the vm executed successfully, and`FAULT` means the vm exited due to an exception. 
 
 - gasconsumed: the system fee consumed for invocation.
 
+- exception: The exception messages occurred during contract execution. It is `null` when there is no exception.
+
+- notifications: The event messages occurred during contract execution.  They can be checked by [getapplicationlog](./getapplicationlog.md) for on-chain transactions. 
+
+- diagnostics: The process information and storage changes of the contract invocation. This request does not change the real storage on the blockchain, but only simulates the storage changes after the transaction is sent on the blockchain.  
+
 - stack: the contract execution result. If the value is String or ByteArray, it is encoded by Base64.
 
-- tx: the transaction's hex string of this invocation, need open wallet and added signers correctly.
+- tx: the transaction's hex string of this invocation, need open wallet and added signers correctly, otherwise the string will not be returned.
+
+- pendingsignature: It is returned if the transaction requires multiple signatures and the currently open wallet does not include all accounts of signers.
 
 ## About iterator
 
-If the execution result of contract includes iterators, the iteration times are constrained according to the `MaxIteratorResultItems` value configured in the  `RpcServer` `config` file. The default limit is 100 times.
+If the execution result of contract includes iterators, whether to return `session` is decided by the value of  `SessionEnabled` in `config.json` of the plugin `RpcServer`. If  `SessionEnabled` is `true`, `session` is returned to get further details of the Iterator. Otherwise, if  `SessionEnabled` is `false`, `session` is not returned.
 
-In the following example, up to 6 returned results are actually available. When the `MaxIteratorResultItems ` value is 5, only 5 iterations are returned and `truncated` is true, indicating that there is still data to be returned.
-
-```
-{
-    "jsonrpc": "2.0",
-    "id": 3,
-    "result": {
-        "script": "wh8MBnRva2VucwwUR7xWZRSFd3BpKcM7Mj3g3v4/u3ZBYn1bUg==",
-        "state": "HALT",
-        "gasconsumed": "2288880",
-        "exception": null,
-        "stack": [
-            {
-                "type": "InteropInterface",
-                "iterator": [
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDMuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDUuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDEuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDIuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDQuY3A="
-                    }
-                ],
-                "truncated": true
-            }
-        ]
-    }
-}
-```
-
-When the `MaxIteratorResultItems ` value is greater than or equal to 6, then 6 iterations are returned and `truncated` is false, indicating that all data has been returned.
+In the following example,  `SessionEnabled` is `true`：
 
 ```
 {
     "jsonrpc": "2.0",
-    "id": 3,
+    "id": 1,
     "result": {
-        "script": "wh8MBnRva2VucwwUR7xWZRSFd3BpKcM7Mj3g3v4/u3ZBYn1bUg==",
+        "script": "wh8MBnRva2VucwwU/+Ha24YygjLl9RpzOqiVrDhOCyVBYn1bUg==",
         "state": "HALT",
-        "gasconsumed": "2288880",
+        "gasconsumed": "247083",
         "exception": null,
+        "notifications": [],
         "stack": [
             {
                 "type": "InteropInterface",
-                "iterator": [
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDMuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDUuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDEuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDIuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDQuY3A="
-                    },
-                    {
-                        "type": "ByteString",
-                        "value": "Ymp5eDYuY3A="
-                    }
-                ],
-                "truncated": false
+                "interface": "IIterator",
+                "id": "bfc3ccf4-d814-4497-9d68-eb50806c3b7a"
             }
-        ]
+        ],
+        "session": "77c20bc6-6c6a-40dc-87b9-0be461c04831"
     }
 }
 ```
