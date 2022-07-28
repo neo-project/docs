@@ -236,7 +236,7 @@
 
 当合约执行结果里包含迭代器 Iterator 类型时，会根据 `RpcServer` 插件的 `config.json` 文件中 `SessionEnabled` 字段的值来决定是否返回 `session`，如果 `SessionEnabled` 为 `true`，返回结果中会包含 `session` 字段，用来在 [traverseiterator](./traverseiterator.md) 方法中进一步获取 Iterator 的详细内容，如果 `SessionEnabled` 为 `false`，则返回结果中不包含 `session`，无法进一步获取 Iterator 的详细内容。
 
-在下面的示例是 `SessionEnabled` 为 `true` 时的 Iterator 类型返回结果：
+如下示例是 `SessionEnabled` 为 `true` 时的 Iterator 类型返回结果：
 
 ```
 {
