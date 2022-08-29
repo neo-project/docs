@@ -55,7 +55,7 @@ You can refer to the following example：
     "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
-    "ValidatorsCount": 7,
+    "ValidatorsCount": 4,
     "StandbyCommittee": [
       "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
       "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
@@ -101,7 +101,7 @@ You can refer to the following example：
     "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
-    "ValidatorsCount": 7,
+    "ValidatorsCount": 4,
     "StandbyCommittee": [
       "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
       "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
@@ -147,7 +147,7 @@ You can refer to the following example：
     "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
-    "ValidatorsCount": 7,
+    "ValidatorsCount": 4,
     "StandbyCommittee": [
       "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
       "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
@@ -193,7 +193,7 @@ You can refer to the following example：
     "Network": 5943216,
     "MillisecondsPerBlock": 15000,
     "MaxTraceableBlocks": 2102400,
-    "ValidatorsCount": 7,
+    "ValidatorsCount": 4,
     "StandbyCommittee": [
       "03bf333ec238acd25f22d533748426a72f6c266bd2681000ac2bf3061fc79c6625",
       "02c2a4c3598467125522ff25995bce99c8bc898c3dc23381642586d0f172957ba7",
