@@ -220,6 +220,8 @@
       href: /docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.md
     - name: submitblock
       href: /docs/zh-cn/reference/rpc/latest-version/api/submitblock.md
+    - name: traverseiterator
+      href: /docs/zh-cn/reference/rpc/latest-version/api/traverseiterator.md
     - name: validateaddress
       href: /docs/zh-cn/reference/rpc/latest-version/api/validateaddress.md
     - name: verifyproof

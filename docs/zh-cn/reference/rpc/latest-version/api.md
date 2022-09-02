@@ -58,6 +58,7 @@ http://127.0.0.1:10332/
 | [getunclaimedgas](api/getunclaimedgas.md) | \<address> | 查询指定地址未获取的 gas |
 | [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \[params] \[sender] \[signers] | 用指定的哈希调用智能合约，传入方法名及参数 |
 | [invokescript](api/invokescript.md)     | \<script> \[sender] \[signers]                | 通过虚拟机运行脚本并返回结果                   |
+| [traverseiterator](api/traverseiterator.md)     | \<session> \<iterator id>] \<count>               | 获取 Iterator 类型数据的具体值                   |
 
 ### 工具
 

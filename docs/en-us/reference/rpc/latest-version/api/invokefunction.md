@@ -1,4 +1,4 @@
-﻿﻿# invokefunction Method
+﻿﻿﻿# invokefunction Method
 
 Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 
@@ -267,3 +267,5 @@ In the following example,  `SessionEnabled` is `true`：
     }
 }
 ```
+
+To get iterators, refer to the method [traverseiterator](traverseiterator.md) 
