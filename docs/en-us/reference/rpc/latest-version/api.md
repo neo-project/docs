@@ -56,9 +56,10 @@ You can modify the port in config.json in the RpcServer folder.
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getunclaimedgas](api/getunclaimedgas.md) | \<address> | Get unclaimed gas of the specified address. |
+| [getunclaimedgas](api/getunclaimedgas.md) | \<address> | Gets unclaimed gas of the specified address. |
 | [invokefunction](api/invokefunction.md) | \<script_hash>  \<operation>  \[params] \[sender] \[signers] | Invokes a smart contract with the specified script hash, passing in the method name and its params. |
 | [invokescript](api/invokescript.md) | \<script> \[sender] \[signers] | Runs a script through the virtual machine and returns the results. |
+| [traverseiterator](api/traverseiterator.md) | \<session> \<iterator id>] \<count> | Gets the Iterator type data. |
 
 ### Tool
 

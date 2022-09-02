@@ -260,4 +260,4 @@
 }
 ```
 
-获取 Iterator 请参考 [traverseiterator](./traverseiterator.md) 方法。
+获取 Iterator 请参考 [traverseiterator](traverseiterator.md) 方法。
