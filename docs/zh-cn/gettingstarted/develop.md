@@ -52,7 +52,7 @@ dotnet new -i Neo3.SmartContract.Templates
 
    ![](assets\extension.png)
 
-4. 打开 `Nep17` 目录中的 Nep17 模板文件，参考前文 [编写 NEP17 代码](#编写-nep17-代码)。
+4. 打开 `Nep17` 目录中的 Nep17 模板文件，参考前文 [编写 NEP17 代码](#编写-nep17代码)。
 
 相对于 Neo Legacy 来说， Neo N3 的 NEP17 合约模板有以下改动：
 
