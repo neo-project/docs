@@ -26,7 +26,7 @@ The version allows the transaction structure to be updated to make it backward c
 
 The first field is the script hash of the transaction sender account. Since UTXO model has been deprecated in Neo N3 and the native assets NEO and GAS turned into NEP-17 assets, the input and outputs fields are no longer recorded in the transaction structure, instead, the `sender` is used to track the sender of the transaction. 
 
-The rest fields are used to define the effective scope of signature. When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature. See [Scopes](Scopes) for details.
+The rest fields are used to define the effective scope of signature. When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature. See [Signature Scope](#Signature Scope) for details.
 
 | Field              | Description                                                  | Type             |
 | ------------------ | ------------------------------------------------------------ | ---------------- |
@@ -164,7 +164,7 @@ When constructing a transaction, you need to specify the field `scopes` in `sign
 | 0x10      | `CustomContracts` | The signature is only effective to the specified contract script. It can be used in conjunction with CalledByEntry. |
 | 0x20      | `CustomGroups`    | The signature is effective to contracts in the group. It can be used in conjunction with CalledByEntry. |
 | 0x80      | `Global`          | The signature is globally effective. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted. |
-| 0x40      | `WitnessRules`    | You need to specify the rule and scope. See [WitnessRule](WitnessRule) |
+| 0x40      | `WitnessRules`    | You need to specify the rule and scope. See [WitnessRule](#WitnessRule) |
 
 For better understanding, suppose there is a contract invocation chain: **[entry]->[Contract A]->[Contract B]->[Contract C]...->[Target]**
 
