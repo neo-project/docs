@@ -51,7 +51,7 @@ NEP17 协议是 Neo 补充协议中的第17号协议。其目的是为 Neo 建�
 
 #### 系统调用（SysCall）
 
-系统调用是一种特殊的操作码。通过 SycCall 可以调用互操作服务层接口。 SycCall 打通了 NeoVM 与外部世界的通道。通过调用互操作服务层接口， NeoVM 可以访问智能合约执行时所需要的区块、交易、合约、资产信息等数据。请参考 [Neo 智能合约模块](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 中里面以 `ApplicationEngine.` 开头的文件，如 `ApplicationEngine.Contract.cs`、`ApplicationEngine.Blockchain.cs`
+系统调用是一种特殊的操作码。通过 SysCall 可以调用互操作服务层接口。 SysCall 打通了 NeoVM 与外部世界的通道。通过调用互操作服务层接口， NeoVM 可以访问智能合约执行时所需要的区块、交易、合约、资产信息等数据。请参考 [Neo 智能合约模块](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) 中里面以 `ApplicationEngine.` 开头的文件，如 `ApplicationEngine.Contract.cs`、`ApplicationEngine.Blockchain.cs`
 
 #### 动态调用
 
