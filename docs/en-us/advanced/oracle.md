@@ -34,7 +34,7 @@ Neo Oracle Service adopts the request-response processing mechanism, which is an
 
 **Process**
 
-1. The user writes the smart constract to call the `Request` method of the Oracle contract.
+1. The user writes the smart contract to call the `Request` method of the Oracle contract.
 
    Each successfully created Request is put in the Request cache list with an unique RequestId.
 
@@ -66,7 +66,7 @@ Oracle service currently supports two URL schemes, `https` and `neofs`. `https` 
 
 ## Example
 
-Here is an demo about using the Oracle service：
+Here is a demo about using the Oracle service：
 
 ```c#
 using Neo.SmartContract;
@@ -239,4 +239,4 @@ The Code field defines the status Code for Oracle responses, including the follo
 | `0x18` | `Forbidden`            | no permission to query the data source       | `byte` |
 | `0x1a` | `ResponseTooLarge`     | result size is out of limit | `byte` |
 | `0x1c` | `InsufficientFunds`    | the fee is insufficient   | `byte` |
-| `0xff` | `Error`                | error orrcurs in the execution         | `byte` |
+| `0xff` | `Error`                | error occurs in the execution         | `byte` |
