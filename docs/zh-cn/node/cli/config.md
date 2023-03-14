@@ -106,7 +106,7 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
 
 ### 从 GitHub 下载插件
 
-下表列出了所有插件，选取所需要的插件进行下载，将下载的插件包解压到 neo-cli 根目录下。
+下表列出了截至目前(2023.3.15)所有插件的名称，前往<a href="https://github.com/neo-project/neo-modules/releases">此链接</a>下载所需插件的最新版本，将下载的插件包解压到 neo-cli 根目录下。（不推荐这种方法，建议使用内部命令自动下载）
 
 <table class="table table-hover">
     <thead>
@@ -119,75 +119,68 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
     </thead>
     <tbody>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/ApplicationLogs.zip">ApplicationLogs</a>
-            </td>
+            <td>ApplicationLogs</td>
             <td>同步智能合约和 NativeContract 的日志（Notify）</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>推荐</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip">DBFTPlugin</a>
-            </td>
+            <td>DBFTPlugin</td>
             <td>dBFT 共识插件</td>
             <td></td>
             <td>作为共识节点时必选</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/LevelDBStore.zip">LevelDBStore</a>
-            </td>
+            <td>LevelDBStore</td>
             <td>区块链数据使用 LevelDB 存储引擎</td>
-            <td></td>    
+            <td></td>
             <td>必选</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/OracleService.zip">OracleService</a>
-            </td>
+            <td>MPTTrie</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>OracleService</td>
             <td>Oracle 服务插件</td>
             <td></td>
             <td>作为 Oracle 服务节点时必选</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RocksDBStore.zip">RocksDBStore</a>
-            </td>
+            <td>RocksDBStore</td>
             <td>区块链数据使用 RocksDBStore 存储引擎</td>
             <td></td>
             <td>和 LevelDBStore 二选一</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/TokensTracker.zip">TokensTracker</a>
-            </td>
-            <td>提供NEP-11、NEP-17余额及交易历史的RPC查询功能。</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
-            <td>推荐</td>
+            <td>RpcClient</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RpcServer.zip">RpcServer</a>
-            </td>
+            <td>RpcServer</td>
             <td>提供节点的 RPC 功能</td>
             <td><a href="../../reference/rpc/latest-version/api.html#命令列表"> RPC API </a></td>
             <td>必选</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip">StatesDumper</a>
-            </td>
+            <td>SQLiteWallet</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>StatesDumper</td>
             <td>导出 Neo-CLI 状态数据</td>
             <td></td>
             <td>可选</td>
         </tr>
-        </tr>   
+        </tr>
          <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StateService.zip">StateService</a>
-            </td>
+            <td>StateService</td>
             <td>StateRoot 共识服务插件</td>
             <td>
                 <a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
@@ -196,13 +189,20 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
                 <a href="../../reference/rpc/latest-version/api/getstateheight.html">getstateheight</a>
             </td>
             <td>作为 StateRoot 共识节点时必选</td>
-        </tr>   
+        </tr>
+        <tr>
+            <td>TokensTracker</td>
+            <td>提供NEP-11、NEP-17余额及交易历史的RPC查询功能。</td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
+            <td>推荐</td>
+        </tr>
     </tbody>
 </table>
 
 ### 使用命令下载插件
 
-使用内部命令自动下载或卸载插件，操作更为简便。例如：
+使用内部命令自动下载或卸载插件（插件名如上表最左列），操作更为简便。例如：
 
 ```
 neo> install StatesDumper

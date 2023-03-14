@@ -106,7 +106,7 @@ You can choose one of the following ways to install plugins:
 
 ### Downloading plugins from GitHub
 
-Download the plugins you need from the following table, and then unzip the packages under the neo-cli root directory.
+Download the plugins (listed in the table below) you need from <a href="https://github.com/neo-project/neo-modules/releases">this link</a>, and then unzip the packages under the neo-cli root directory. (Not recommended. It's better to use the CLI command to install automatically)
 
 <table class="table table-hover">
     <thead>
@@ -119,74 +119,67 @@ Download the plugins you need from the following table, and then unzip the packa
     </thead>
     <tbody>
             <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/ApplicationLogs.zip">ApplicationLogs</a>
-            </td>
+            <td>ApplicationLogs</td>
             <td>Synchronizes the smart contract log with the NativeContract log (Notify)</td>
             <td><a href="../../reference/rpc/latest-version/api/getapplicationlog.html">getapplicationlog</a></td>
             <td>Recommended</td>
         </tr>
           <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip">DBFTPlugin</a>
-            </td>
+            <td>DBFTPlugin</td>
             <td>dBFT consensus plugin</td>
             <td></td>
             <td>Mandatory when served as a consensus node</td>
-        </tr>   
+        </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/LevelDBStore.zip">LevelDBStore</a>
-            </td>
+            <td>LevelDBStore</td>
             <td>Uses LevelDB to store the blockchain data</td>
-            <td></td>    
+            <td></td>
             <td>Mandatory</td>
         </tr>
-             <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/OracleService.zip">OracleService</a>
-            </td>
+        <tr>
+            <td>MPTTrie</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>OracleService</td>
             <td>Oracle service plugin</td>
             <td></td>
             <td>Mandatory when served as an Oracle node</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RocksDBStore.zip">RocksDBStore</a>
-            </td>
+            <td>RocksDBStore</td>
             <td>Uses RocksDBStore to store the blockchain data</td>
             <td></td>
             <td>An alternative to LevelDBStore</td>
         </tr>
-                <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/TokensTracker.zip">TokensTracker</a>
-            </td>
-            <td>Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC</td>
-            <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
-                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
-            <td>Recommended</td>
+        <tr>
+            <td>RpcClient</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RpcServer.zip">RpcServer</a>
-            </td>
+            <td>RpcServer</td>
             <td>Enables RPC for the node</td>
             <td><a href="../../reference/rpc/latest-version/api.html"> RPC API </a></td>
             <td>Mandatory</td>
         </tr>
         <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip">StatesDumper</a>
-            </td>
+            <td>SQLiteWallet</td>
+            <td>Oracle service plugin</td>
+            <td></td>
+            <td>Mandatory when served as an Oracle node</td>
+        </tr>
+        <tr>
+            <td>StatesDumper</td>
             <td>Exports Neo-CLI status data.</td>
             <td></td>
             <td>Optional</td>
-        </tr>  
+        </tr>
          <tr>
-            <td><a
-                    href="https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StateService.zip">StateService</a>
-            </td>
+            <td>StateService</td>
             <td>StateRoot consensus service plugin</td>
             <td><a href="../../reference/rpc/latest-version/api/getstateroot.html">getstateroot</a><br>
                 <a href="../../reference/rpc/latest-version/api/getproof.html">getproof</a><br>
@@ -194,13 +187,20 @@ Download the plugins you need from the following table, and then unzip the packa
                 <a href="../../reference/rpc/latest-version/api/getstateheight.html">getstateheight</a>
             </td>
             <td>Mandatory when served as a StateRoot consensus node</td>
-        </tr>   
+        </tr>
+        <tr>
+            <td>TokensTracker</td>
+            <td>Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC</td>
+            <td><a href="../../reference/rpc/latest-version/api/getnep11balances.html">getnep11balances</a><br><a href="../../reference/rpc/latest-version/api/getnep11properties.html">getnep11properties</a><br><a href="../../reference/rpc/latest-version/api/getnep11transfers.html">getnep11transfers</a><br><a href="../../reference/rpc/latest-version/api/getnep17balances.html">getnep17balances</a><br><a
+                    href="../../reference/rpc/latest-version/api/getnep17transfers.html">getnep17transfers</a></td>
+            <td>Recommended</td>
+        </tr>
     </tbody>
 </table>
 
 ### Downloading plugins using command
 
-It is easier to automatically install or uninstall the plugin using commands, for example:
+It is easier to automatically install or uninstall the plugin (plugin names are shown in the table above) using commands, for example:
 
 ```
 neo> install StatesDumper
