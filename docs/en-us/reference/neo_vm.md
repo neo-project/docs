@@ -50,6 +50,22 @@ The constant instructions mainly complete the function of pushing constants or a
 | Fee | 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000004 GAS, 0.00000004 GAS |
 | Function   | Push an integer onto the stack, the bit length of which is specified with the number 8\16\32\64\128\256. |
 
+#### PUSHT
+
+| Instruction   | PUSHT                                 |
+|----------|----------|
+| Bytecode | 0x08                                  |
+| Fee | 0.00000001 GAS             |
+| Function | Push the boolean value True onto the stack. |
+
+#### PUSHF
+
+| Instruction   | PUSHF                                 |
+|----------|----------|
+| Bytecode | 0x09                                  |
+| Fee | 0.00000001 GAS             |
+| Function | Push the boolean value False onto the stack. |
+
 #### PUSHA
 
 | Instruction   | PUSHA                                 |
