@@ -50,6 +50,14 @@ The constant instructions mainly complete the function of pushing constants or a
 | Fee | 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000004 GAS, 0.00000004 GAS |
 | Function   | Push an integer onto the stack, the bit length of which is specified with the number 8\16\32\64\128\256. |
 
+#### PUSHT/PUSHF
+
+| 指令   | PUSHT, PUSHF                                      |
+| ------ | ------------------------------------------------- |
+| 字节码 | 0x08, 0x09                                        |
+| 系统费 | 0.00000001 GAS                                    |
+| 功能   | Push the Boolean value True/False onto the stack. |
+
 #### PUSHA
 
 | Instruction   | PUSHA                                 |
