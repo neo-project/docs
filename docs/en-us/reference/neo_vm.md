@@ -52,11 +52,11 @@ The constant instructions mainly complete the function of pushing constants or a
 
 #### PUSHT/PUSHF
 
-| 指令   | PUSHT, PUSHF                                      |
-| ------ | ------------------------------------------------- |
-| 字节码 | 0x08, 0x09                                        |
-| 系统费 | 0.00000001 GAS                                    |
-| 功能   | Push the Boolean value True/False onto the stack. |
+| Instruction | PUSHT, PUSHF                                      |
+| ----------- | ------------------------------------------------- |
+| Bytecode    | 0x08, 0x09                                        |
+| Fee         | 0.00000001 GAS                                    |
+| Function    | Push the Boolean value True/False onto the stack. |
 
 #### PUSHA
 
