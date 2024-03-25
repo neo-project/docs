@@ -166,3 +166,5 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
 
    For more Neo-CLI commands refer to [CLI command reference](../../../node/cli/cli.md).
 
+## Note on voting
+New committee election will start only after you register one candidate and at least 20M NEO are used for voting [see here](https://github.com/neo-project/neo/blob/65822cf81cbea943e3cdaf362ee022d1624fd22d/src/Neo/SmartContract/Native/NeoToken.cs#L517).

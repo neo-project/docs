@@ -342,3 +342,7 @@ start cmd /k "cd c4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
    ![image](../assets/balance.png)
 
 参考前面提取 NEO 进行的多方签名操作，同样可以提取 GAS 到目标地址。
+
+
+## 投票注意事项
+只有在您注册 4 名候选人并且至少使用 20M NEO 用于投票后，新的委员会选举才会开始[参见此处](https://github.com/neo-project/neo/blob/65822cf81cbea943e3cdaf362ee022d1624fd22d/src/Neo/SmartContract/Native /NeoToken.cs#L517)
