@@ -341,3 +341,6 @@ Here we want to send NEO from the contract address to the normal address.
    ![image](../assets/balance.png)
 
 Similarly, you can refer to the preceding steps to withdraw GAS from the multi-party signature address.
+
+## Note on voting
+New committee election will start only after you register 4 candidates and at least 20M NEO are used for voting [see here](https://github.com/neo-project/neo/blob/65822cf81cbea943e3cdaf362ee022d1624fd22d/src/Neo/SmartContract/Native/NeoToken.cs#L517).

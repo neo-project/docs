@@ -159,3 +159,6 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
    > 每次转账都会消耗少量 GAS 作为手续费，请确保转账时有足够的 GAS （一般不超过 0.02 个gas）。
 
    节点操作详细指令可参照[CLI 命令参考](../../../node/cli/cli.md)。
+
+## 投票注意事项
+只有在您注册一名候选人并且至少使用 20M NEO 用于投票后，新的委员会选举才会开始[参见此处](https://github.com/neo-project/neo/blob/65822cf81cbea943e3cdaf362ee022d1624fd22d/src/Neo/SmartContract/Native /NeoToken.cs#L517)
