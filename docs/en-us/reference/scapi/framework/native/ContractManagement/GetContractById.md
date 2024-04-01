@@ -14,7 +14,7 @@ public ContractState GetContractById(int id);
 
 Parameters:
 
-- id: Contract ID. Negative numbers represent native contracts, positive numbers represent normal contracts.
+- id: Contract ID. Negative numbers represent native contracts, positive numbers represent normal contracts (non native deployed contracts).
 
 ## Example
 
