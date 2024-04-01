@@ -1,6 +1,6 @@
 # ContractManagement.GetContractById Method
 
-Gets hashes of all non native deployed contracts.
+Gets the hashes of all non-native deployed contracts.
 
 Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 
@@ -27,7 +27,7 @@ public static Iterator<(int, UInt160)> MyMethod()
 }
 ```
 
-Invoke from RPC
+Invoke from RPC:
 
 ```json
 {
@@ -66,9 +66,7 @@ Response body:
 }
 ```
 
-Invoke agaim from RPC to get the specific value of the Iterator.
-
-For more information on how to get the specific value of iterator, please refer to the command [traverseiterator](../../../../rpc/latest-version/api/traverseiterator.md).
+Invoke again from RPC to get the specific value of the iterator. For more information, refer to the command [traverseiterator](../../../../rpc/latest-version/api/traverseiterator.md).
 
 ```json
 {
@@ -148,7 +146,7 @@ Response body:
 
 Response description:
 
-Each element of the returned array is a contract message containing the contract's ID and Hash.
+Each element of the returned array is a contract message containing the contract ID and Hash.
 
 Base64 string `AAAABA==` to hexadecimal string is `00000004`.
 
