@@ -13,11 +13,11 @@ The NEF file includes the following fields.
 | -------- | ------------- | ------------------------------------------------------- |
 | Magic    | uint32        | The Magic value of the blockchain.                      |
 | Compiler | byte[64]      | Compiler name and version                               |
-| Source   | byte[64]      | The source code address of the contract                 |
-| Reserve  | byte[2]       | The field reserved for future extensions. It must be 0. |
+| Source   | byte[]        | The source code address of the contract                 |
+| Reserve  | byte          | The field reserved for future extensions. It must be 0. |
 | Tokens   | MethodToken[] | Method tokens.                                          |
 | Reserve  | byte[2]       | The field reserved for future extensions. It must be 0. |
-| Script   | Byte[]        | The contract script                                     |
+| Script   | byte[]        | The contract script                                     |
 | Checksum | uint32        | The first four bytes after two-time SHA256 hashed       |
 
 ## Manifest
