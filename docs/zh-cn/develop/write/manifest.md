@@ -13,11 +13,11 @@ NEF 文件包括以下字段：
 | -------- | ------------- | ----------------------------------------------------- |
 | Magic    | uint32        | 区块链的 Magic 值                                     |
 | Compiler | byte[64]      | 编译器名称和版本号                                    |
-| Source | byte[64]        | 合约代码开源地址                                    |
-| Reserve  | byte[2]       | 为将来预留的字段                                      |
+| Source   | byte[]        | 合约代码开源地址                                    |
+| Reserve  | byte       | 为将来预留的字段                                      |
 | Tokens   | MethodToken[] | 编译器对静态合约调用的简化操作，开发者不用在意        |
 | Reserve  | byte[2]       | 为将来预留的字段                                      |
-| Script   | Byte[]        | 合约脚本                                              |
+| Script   | byte[]        | 合约脚本                                              |
 | Checksum | uint32        | 校验码，前面所有字段连一起，进行两次Sha246后取前4字节 |
 
 ## Manifest
