@@ -1,6 +1,6 @@
 # ARCHIVED
 
-This repository was merged into [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet).
+This repository was merged into [neo-dev-portal](https://github.com/neo-project/neo-dev-portal).
 
 
 NEO Docs
