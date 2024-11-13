@@ -1,3 +1,8 @@
+# ARCHIVED
+
+This repository was merged into [neo-devpack-dotnet](https://github.com/neo-project/neo-devpack-dotnet).
+
+
 NEO Docs
 ============
 
